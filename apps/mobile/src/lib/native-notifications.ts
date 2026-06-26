@@ -31,7 +31,7 @@ export async function registerForRiverAlertPushNotifications(): Promise<NativeNo
       return {
         ok: false,
         expoPushToken: null,
-        message: 'Native alerts are not available on web.',
+        message: 'Phone alerts are not available on web.',
       };
     }
 
@@ -48,7 +48,7 @@ export async function registerForRiverAlertPushNotifications(): Promise<NativeNo
       return {
         ok: false,
         expoPushToken: null,
-        message: 'Notifications are off. Enable notifications in system settings to use native alerts.',
+        message: 'Notifications are off. Enable notifications in system settings to use phone alerts.',
       };
     }
 
@@ -57,7 +57,7 @@ export async function registerForRiverAlertPushNotifications(): Promise<NativeNo
       return {
         ok: false,
         expoPushToken: null,
-        message: 'Native alerts need an EAS project id before push tokens can be created.',
+        message: 'Phone alerts need an EAS project id before push tokens can be created.',
       };
     }
 
@@ -65,13 +65,13 @@ export async function registerForRiverAlertPushNotifications(): Promise<NativeNo
     return {
       ok: true,
       expoPushToken: token.data,
-      message: 'Native alert enabled.',
+      message: 'Phone alert enabled.',
     };
   } catch (error) {
     return {
       ok: false,
       expoPushToken: null,
-      message: error instanceof Error ? error.message : 'Native alerts could not be enabled on this device.',
+      message: error instanceof Error ? error.message : 'Phone alerts could not be enabled on this device.',
     };
   }
 }

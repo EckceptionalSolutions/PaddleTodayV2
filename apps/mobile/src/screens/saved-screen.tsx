@@ -24,7 +24,7 @@ export default function SavedScreen() {
   const createAlertMutation = useCreateRiverAlertMutation();
   const { savedRivers, isHydrated, isSaved, toggleSavedRiver } = useSavedRivers();
   const { routeAlerts, recordRouteAlert, alertForRiver } = useAlertPreferences();
-  const [alertStatus, setAlertStatus] = useState('Saved route alerts use phone notifications on this device.');
+  const [alertStatus, setAlertStatus] = useState('You will get a phone notification when a route reaches your selected call.');
   const [pendingAlertKey, setPendingAlertKey] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<SavedTab>('routes');
 
@@ -179,7 +179,7 @@ export default function SavedScreen() {
       {activeTab === 'alerts' && savedSummaries.length > 0 ? (
         <SectionCard
           title="Saved alerts"
-          subtitle="Turn on Good or Strong phone alerts for repeat routes."
+          subtitle="Get notified when saved routes reach Good or Strong."
         >
           <View style={styles.alertRouteList}>
             {savedSummaries.map((river) => (
@@ -316,7 +316,7 @@ function SavedAlertRow({
         <Text style={styles.savedAlertName}>{river.river.name}</Text>
         <Text style={styles.savedAlertReach} numberOfLines={1}>{river.river.reach}</Text>
         <Text style={styles.savedAlertState}>
-          {alert ? `${alertThresholdLabel(alert.threshold)} alert on this device` : 'No saved alert on this device'}
+          {alert ? `${alertThresholdLabel(alert.threshold)} alert is on` : 'No alert set'}
         </Text>
       </Pressable>
       <View style={styles.savedAlertActions}>

@@ -236,7 +236,7 @@ export default function RiverDetailScreen() {
       setAlertStatus(
         error instanceof PaddleTodayApiError && error.message
           ? error.message
-          : `Could not save the ${alertThresholdLabel(threshold)} native alert right now.`
+          : `Could not save the ${alertThresholdLabel(threshold)} phone alert right now.`
       );
     } finally {
       setPendingThreshold(null);

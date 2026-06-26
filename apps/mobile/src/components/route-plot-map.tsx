@@ -249,34 +249,22 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
                 centerOffset={{ x: 0, y: 0 }}
                 tracksViewChanges={trackMarkerViews}
               >
-                <View style={styles.nativeMarkerStack} collapsable={false}>
-                  {isMultiRoutePoint(point) ? (
-                    <View
-                      style={[
-                        styles.nativeMarkerBackplate,
-                        showScore ? styles.nativeScoreMarkerBackplate : styles.nativeDotMarkerBackplate,
-                        dimmed ? styles.nativeMarkerDimmed : null,
-                        toneForRating(point.rating),
-                        selected ? styles.nativeMarkerSelectedTone : null,
-                      ]}
-                    />
+                <View
+                  style={[
+                    styles.nativeMarker,
+                    showScore ? styles.nativeScoreMarker : styles.nativeDotMarker,
+                    dimmed ? styles.nativeMarkerDimmed : null,
+                    selected ? styles.nativeMarkerSelected : null,
+                    toneForRating(point.rating),
+                    selected ? styles.nativeMarkerSelectedTone : null,
+                  ]}
+                  collapsable={false}
+                >
+                  {showScore ? (
+                    <Text style={styles.nativeMarkerText}>
+                      {typeof point.score === 'number' ? point.score : ''}
+                    </Text>
                   ) : null}
-                  <View
-                    style={[
-                      styles.nativeMarker,
-                      showScore ? styles.nativeScoreMarker : styles.nativeDotMarker,
-                      dimmed ? styles.nativeMarkerDimmed : null,
-                      selected ? styles.nativeMarkerSelected : null,
-                      toneForRating(point.rating),
-                      selected ? styles.nativeMarkerSelectedTone : null,
-                    ]}
-                  >
-                    {showScore ? (
-                      <Text style={styles.nativeMarkerText}>
-                        {typeof point.score === 'number' ? point.score : ''}
-                      </Text>
-                    ) : null}
-                  </View>
                 </View>
               </Marker>
             );
@@ -324,17 +312,6 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
               accessibilityLabel={`${point.label}${point.score ? `, score ${point.score}` : ''}`}
             >
               {selected ? <View style={styles.markerSelectedRing} /> : null}
-              {isMultiRoutePoint(point) ? (
-                <View
-                  style={[
-                    styles.markerBackplate,
-                    showScore ? styles.scoreMarkerBackplate : styles.dotMarkerBackplate,
-                    dimmed ? styles.markerDimmed : null,
-                    toneForRating(point.rating),
-                    selected ? styles.markerSelectedTone : null,
-                  ]}
-                />
-              ) : null}
               <View
                 style={[
                   showScore ? styles.marker : styles.dotMarker,
@@ -541,10 +518,6 @@ function pinColorForPoint(point: RoutePlotPoint, selected: boolean) {
   return colors.noGo;
 }
 
-function isMultiRoutePoint(point: RoutePlotPoint) {
-  return typeof point.routeCount === 'number' && point.routeCount > 1;
-}
-
 const styles = StyleSheet.create({
   shell: {
     backgroundColor: colors.surfaceStrong,
@@ -572,29 +545,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
   },
   nativeDotMarker: {
-    width: 16,
-    height: 16,
-    borderRadius: 8,
-  },
-  nativeMarkerStack: {
-    width: 42,
-    height: 42,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  nativeMarkerBackplate: {
-    position: 'absolute',
-    borderWidth: 2,
-    borderColor: colors.surfaceStrong,
-    opacity: 0.72,
-    transform: [{ translateX: 7 }, { translateY: -6 }],
-  },
-  nativeScoreMarkerBackplate: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-  },
-  nativeDotMarkerBackplate: {
     width: 16,
     height: 16,
     borderRadius: 8,
@@ -703,23 +653,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 2,
     borderColor: colors.surfaceStrong,
-  },
-  markerBackplate: {
-    position: 'absolute',
-    borderWidth: 2,
-    borderColor: colors.surfaceStrong,
-    opacity: 0.72,
-    transform: [{ translateX: 7 }, { translateY: -6 }],
-  },
-  scoreMarkerBackplate: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-  },
-  dotMarkerBackplate: {
-    width: 16,
-    height: 16,
-    borderRadius: 8,
   },
   markerText: {
     color: colors.surfaceStrong,

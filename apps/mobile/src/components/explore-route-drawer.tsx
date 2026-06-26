@@ -83,6 +83,12 @@ export function ExploreRouteDrawer({
           />
         </Pressable>
       </View>
+      <RoutePhotoCard
+        river={selectedRiver.river}
+        compact
+        height={full ? 92 : 74}
+        onContributePhotos={() => onContributePhotos(selectedRiver.river.slug)}
+      />
       <View style={styles.mapSheetActions}>
         <Pressable
           style={styles.mapPreviewOpenButton}
@@ -119,12 +125,6 @@ export function ExploreRouteDrawer({
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.drawerContent}
         >
-          <RoutePhotoCard
-            river={selectedRiver.river}
-            compact
-            height={full ? 92 : 76}
-            onContributePhotos={() => onContributePhotos(selectedRiver.river.slug)}
-          />
           <Text style={styles.mapPreviewReason}>
             {drawerDecisionLine(selectedRiver)}
           </Text>
@@ -266,7 +266,7 @@ function sheetHeightStyle(bottomInset = 0) {
 export function sheetHeightValue(value: MapSheetSnap, maxHeight = 510) {
   if (value === 'full') return Math.min(510, maxHeight);
   if (value === 'half') return Math.min(356, Math.max(300, maxHeight - 96));
-  return 188;
+  return 286;
 }
 
 function nextSheetSnap(value: MapSheetSnap): MapSheetSnap {
