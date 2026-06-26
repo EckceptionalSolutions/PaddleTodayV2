@@ -1,15 +1,15 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-06-25 11:55 America/Chicago / 2026-06-25 16:55 UTC.
+Last summarized: 2026-06-26 00:40 America/Chicago / 2026-06-26 05:40 UTC.
 
 ## Current Inventory
 
-- Live routes: 34.
-- Ledger candidates: 35 Kentucky-specific records. The ledger now splits across 17 `added`, 14 `implemented`, 3 `no_live_gauge`, and 1 `research_later` records. The newest live slugs from this run are `green-river-greensburg-city-ramp-glenview-road`, `green-river-lynn-camp-creek-hh-wilson-park`, and `green-river-stovall-park-dennison-ferry`, all sourced from current KDFWR Pool 6 guidance plus same-day USGS support.
+- Live routes: 37.
+- Ledger candidates: 35 Kentucky-specific records. The ledger now splits across 19 `added`, 14 `implemented`, 1 `no_live_gauge`, and 1 `research_later` records. The newest live slugs from this run are `north-fork-kentucky-river-hazard-city-ramp-perry-county-park`, `north-fork-kentucky-river-douthitt-park-roy-spencer`, and `south-fork-licking-river-lair-ramp-terry-dam`, all sourced from current KDFWR river pages plus same-day USGS support.
 
 ## Status
 
-Kentucky had been paused from the active automation rotation at user request while work shifted to other states, but this run resumed it because Green River Pool 6 cleared the implementation bar with direct same-day USGS support and named public access authority. It now has one guarded Elkhorn Creek whitewater route plus eleven KDFWR- or county-supported recreational routes on Levisa Fork, Slate Creek, Floyds Fork, South Fork Kentucky River, Russell Creek, Drakes Creek, Tygarts Creek, and Green River. KDFWR Blue Water Trails remain the best seed source for future resumes, but many remaining near-term leads are still blocked by product-live USGS failures, missing manager-grade threshold support, same-river gauge gaps, or weak endpoint/access-coordinate authority.
+Kentucky had been paused from the active automation rotation at user request while work shifted to other states, but the current resumes have kept paying off because multiple KDFWR families now clear the same-day USGS gate again. It now has one guarded Elkhorn Creek whitewater route plus fourteen KDFWR- or county-supported recreational routes on Levisa Fork, Slate Creek, Floyds Fork, South Fork Kentucky River, South Fork Licking River, North Fork Kentucky River, Russell Creek, Drakes Creek, Tygarts Creek, Big South Fork, Tradewater, and Green River. KDFWR Blue Water Trails remain the best seed source for future resumes, but the remaining near-term leads are narrower and more likely to be blocked by threshold gaps, same-river gauge limits, or route-shape hazards around dams and whitewater.
 
 ## Main Blockers
 
@@ -21,6 +21,12 @@ Kentucky had been paused from the active automation rotation at user request whi
 
 ## Current Guidance
 
+- 2026-06-26 00:40 America/Chicago / 2026-06-26 05:40 UTC three-route add pass
+  - Rebuilt the repo baseline at three hundred eighty total V2 routes, confirmed the apparent missing Green River candidates were already present in the later double-quoted section of `src/data/rivers.ts`, and then added `north-fork-kentucky-river-hazard-city-ramp-perry-county-park`, `north-fork-kentucky-river-douthitt-park-roy-spencer`, and `south-fork-licking-river-lair-ramp-terry-dam` to reach thirty-seven live Kentucky routes.
+  - The short Hazard add used KDFWR's exact 4.8-mile North Fork mileage, official Hazard stage band of `4.25-5.0 ft`, source-backed coordinates for Hazard City Ramp and Perry County Park Ramp, Perry County's independent North Fork River Trail page, and same-day direct USGS `03277500` at `4.17 ft` on `2026-06-25 19:45 EDT`.
+  - The longer Jackson add used KDFWR's exact 10.4-mile Douthitt-to-Roy mileage, official Jackson bands of `200-500 cfs` and `1.6-2.5 ft`, source-backed coordinates for Douthitt Park and Roy Spencer Ramp, and same-day direct USGS `03280000` at `291 cfs / 1.66 ft` on `2026-06-25 18:30/19:00 EDT`. The route ships with explicit low-water launch warnings at Douthitt and a no-mid-route-camping posture.
+  - The South Fork Licking add used KDFWR's Blue Water Trails page naming the exact 5-mile Lair-to-Terry float, official Cynthiana/Hayes bands of `4.0-5.0 ft` and `150-400 cfs`, source-backed coordinates for Lair Ramp and Terry Dam Ramp, and same-day direct USGS `03252500` / `03253000` values of `5.52 ft` and `1110 cfs / 5.16 ft` on `2026-06-25 19:15-19:30 EDT`. Because both gauges were above the official good band, the route ships with honest high-water caution and a hard reminder not to miss the Terry take-out above the downstream low-head dam.
+  - Bounded KDFWR, Perry County, Commons, and USGS image review still found no clearly rights-clean exact-route asset for any of the three new slugs, so no gallery photo was added.
 - 2026-06-25 11:55 America/Chicago / 2026-06-25 16:55 UTC three-route add pass
   - Rebuilt the Kentucky V2 inventory at thirty-one pre-run Kentucky routes, then added `green-river-greensburg-city-ramp-glenview-road`, `green-river-lynn-camp-creek-hh-wilson-park`, and `green-river-stovall-park-dennison-ferry` to reach thirty-four live Kentucky routes.
   - The Greensburg-to-Glenview add used KDFWR Pool 6 mileage and access authority plus the direct USGS `03306500` Greensburg stage gauge at `0.80 ft` on `2026-06-25 11:15 CDT`, below KDFWR's `1.0-1.75 ft` good band, so the route ships with explicit scrape / low-water expectations.

@@ -29582,6 +29582,412 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'north-fork-kentucky-river-hazard-city-ramp-perry-county-park',
+    slug: 'north-fork-kentucky-river-hazard-city-ramp-perry-county-park',
+    name: 'North Fork Kentucky River',
+    reach: 'Hazard City Ramp and Fishing Pier to Perry County Park Ramp',
+    aliases: [
+      'North Fork Kentucky River - Hazard to Perry County Park',
+      'North Fork River Trail Hazard',
+      'North Fork Kentucky River downtown Hazard float',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Short public North Fork Kentucky River float through Hazard from the city ramp to Perry County Park. KDFWR documents the 4.8-mile segment and both public launches, while Perry County markets the same reach as the easy North Fork River Trail.',
+    statusText:
+      'Use the North Fork Kentucky River at Hazard gauge. KDFWR rates the route low below 4.25 ft, good from 4.25 to 5.0 ft, and high above 5.0 ft.',
+    latitude: 37.2513,
+    longitude: -83.1962,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['low_head_dam', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'The Hazard City launch sits directly upstream from a low-head dam; stay in control at the ramp, launch cleanly, and do not linger in boil-affected water.',
+        'Eastern Kentucky rain can raise the North Fork quickly and push wood into current lines even on this short in-town float.',
+        'Steep or private banks limit easy informal exits outside the named public access points.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03277500',
+      provider: 'usgs',
+      siteId: '03277500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'North Fork Kentucky River at Hazard, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03277500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4.25,
+      idealMax: 5,
+      tooLow: 4.25,
+      tooHigh: 5,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for North Fork Kentucky River at Hazard',
+        url: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This short Hazard float can work much of the warmer season, but the North Fork is still a flashy Appalachian river. Treat same-day rain, wood, and gauge trend as more important than the month.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Perry County presents this as an easy family float, and KDFWR says both accesses suit canoes, kayaks, and small john boats. The main consequence comes from the low-head-dam launch context and fast-rising muddy water, not from technical rapids.',
+      confidenceNotes:
+        'Confidence is high for a conservative add: KDFWR publishes the exact 4.8-mile Hazard-to-Perry segment, official Hazard stage bands, and access-detail coordinates for both endpoints. Perry County separately markets the same reach as the North Fork River Trail, and direct USGS 03277500 returned same-day stage during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Hazard City Ramp to Perry County Park Ramp, 4.8 mi',
+        note: 'KDFWR lists Hazard City Ramp to Perry County Park Ramp as a 4.8-mile North Fork Kentucky River segment in the access-mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '4.25-5.0 ft',
+        note: 'KDFWR rates the North Fork Kentucky River at Hazard as Low below 4.25 ft, Good from 4.25 to 5.0 ft, and High above 5.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Hazard City Ramp, 37.2513, -83.1962',
+        note: 'KDFWR lists the downtown Hazard City Ramp and Fishing Pier as a paved public launch behind city hall with published coordinates, restrooms, and parking.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=952',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Perry County Park Ramp, 37.2783, -83.2088',
+        note: 'KDFWR lists Perry County Park Ramp as the downstream public take-out with published coordinates and park amenities around the landing.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=491',
+      },
+      {
+        label: 'Trail manager context',
+        value: 'North Fork River Trail, easy, 2-3 hr',
+        note: 'Perry County describes the same Hazard City Hall to Perry County Park reach as an easy approximately 5-mile North Fork River Trail and says to allow 2 to 3 hours.',
+        sourceUrl: 'https://perrycounty.ky.gov/Pages/The-North-Fork-River-Trail.aspx',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03277500 at 4.17 ft',
+        note: 'USGS Water Services returned a same-day stage of 4.17 ft at 19:45 EDT on June 25, 2026 for the North Fork Kentucky River at Hazard.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03277500&parameterCd=00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR North Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Hazard City Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=952',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Perry County Park Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=491',
+        provider: 'local',
+      },
+      {
+        label: 'Perry County North Fork River Trail',
+        url: 'https://perrycounty.ky.gov/Pages/The-North-Fork-River-Trail.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03277500 North Fork Kentucky River at Hazard',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03277500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03277500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03277500&parameterCd=00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'north-fork-kentucky-river-douthitt-park-roy-spencer',
+    slug: 'north-fork-kentucky-river-douthitt-park-roy-spencer',
+    name: 'North Fork Kentucky River',
+    reach: 'Douthitt Park Ramp to Roy Spencer Ramp',
+    aliases: [
+      'North Fork Kentucky River - Douthitt Park to Roy Spencer',
+      'North Fork Kentucky River Jackson day float',
+      'North Fork Kentucky River Jackson to KY 541',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Longer North Fork Kentucky River day from Jackson to the Roy Spencer access below KY 541. KDFWR publishes the exact 10.4-mile segment, official Jackson gauge bands, and source-backed coordinates for both public endpoints.',
+    statusText:
+      'Use the North Fork Kentucky River at Jackson gauge. KDFWR rates the route low below 200 cfs or 1.6 ft, good from 200 to 500 cfs or 1.6 to 2.5 ft, and high above 500 cfs or 2.5 ft.',
+    latitude: 37.5598,
+    longitude: -83.4004,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'KDFWR warns that the Douthitt ramp does not reach the water at low summer and fall flows, so low-water launches can be muddy and awkward.',
+        'A large rapid or waterfall sits 0.9 miles upstream of Douthitt Park; stay on the documented downstream day route and do not treat the launch as an upstream scouting base for that feature.',
+        'This eastern Kentucky corridor can rise quickly after rain, and steep banks limit casual exits between the named access points.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03280000',
+      provider: 'usgs',
+      siteId: '03280000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'North Fork Kentucky River at Jackson, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03280000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 500,
+      tooLow: 200,
+      tooHigh: 500,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for North Fork Kentucky River at Jackson',
+        url: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall are the practical seasons, but the North Fork still reacts quickly to mountain rain. Stable water matters more than calendar optimism on this longer Jackson-area day.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The route is not technical whitewater, but 10.4 miles with few developed mid-route exits makes it more committed than the short Hazard float. Low water can leave shallow riffles and a dry launch lip; high water makes the broad river faster and muddier.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: KDFWR publishes the exact Douthitt-to-Roy mileage, official Jackson cfs and stage bands, and source-backed coordinates for both endpoints. Direct USGS 03280000 returned same-day discharge and stage during this run. Confidence stays slightly below the shorter Hazard route because the day is longer and the Douthitt ramp has explicit low-water limitations.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Douthitt Park Ramp to Roy Spencer Ramp, 10.4 mi',
+        note: 'KDFWR lists Douthitt Park Ramp to Roy Spencer Ramp as a 10.4-mile North Fork Kentucky River segment in the access-mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '200-500 cfs / 1.6-2.5 ft',
+        note: 'KDFWR rates the North Fork Kentucky River at Jackson as Low below 200 cfs or 1.6 ft, Good from 200 to 500 cfs or 1.6 to 2.5 ft, and High above 500 cfs or 2.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Douthitt Park Ramp, 37.5598, -83.4004',
+        note: 'KDFWR lists Douthitt Park Ramp in Jackson as a paved public launch with published coordinates and notes that the ramp can stop short of the water at low flow.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=885',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Roy Spencer Ramp, 37.6016, -83.4476',
+        note: 'KDFWR lists Roy Spencer Ramp as the downstream public access below the KY 541 bridge with published coordinates and a small parking area.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=884',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03280000 at 291 cfs / 1.66 ft',
+        note: 'USGS Water Services returned same-day values at Jackson on June 25, 2026: discharge 291 cfs at 18:30 EDT and stage 1.66 ft at 19:00 EDT.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03280000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'Carr Creek Campground nearby',
+        note: 'Carr Creek Campground lists utility-hookup campsites, grills, a beach, playground, showers, restrooms, and laundry as a separate drive-to basecamp for eastern Kentucky trips rather than on-route camping.',
+        sourceUrl: 'https://parks.ky.gov/explore/carr-creek-campground-7869',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR North Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Douthitt Park Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=885',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Roy Spencer Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=884',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03280000 North Fork Kentucky River at Jackson',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03280000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03280000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03280000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Carr Creek Campground',
+        url: 'https://parks.ky.gov/explore/carr-creek-campground-7869',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'south-fork-licking-river-lair-ramp-terry-dam',
+    slug: 'south-fork-licking-river-lair-ramp-terry-dam',
+    name: 'South Fork Licking River',
+    reach: 'Lair Ramp to Terry Dam Ramp',
+    aliases: [
+      'South Fork Licking River - Lair to Terry Dam',
+      'South Fork Licking River Airport Ramp float',
+      'South Fork Licking River Blue Water Trail',
+    ],
+    state: 'Kentucky',
+    region: 'Northern Kentucky',
+    summary:
+      'Gentle South Fork Licking River float from Lair to Terry Dam near Cynthiana. KDFWR names the exact 5-mile route on the Blue Water Trails page, supports both public endpoints with source-backed coordinates, and publishes official Cynthiana and Hayes gauge bands.',
+    statusText:
+      'Use the South Fork Licking River at Cynthiana gauge. KDFWR rates the route low below 4.0 ft, good from 4.0 to 5.0 ft, and high above 5.0 ft.',
+    latitude: 38.3412,
+    longitude: -84.3014,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['low_head_dam', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'The float finishes in the pool above Terry Dam, and KDFWR says a low-head dam sits 2.5 miles downstream of the Terry take-out. Stay alert for the left-bank take-out and do not drift past it.',
+        'The Blue Water Trails article describes braided shallow sections near the start that can require dragging at low water and collect fresh wood.',
+        'Most banks outside the named accesses should be treated as private or muddy rather than casual stop points.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03252500',
+      provider: 'usgs',
+      siteId: '03252500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'South Fork Licking River at Cynthiana, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03252500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4,
+      idealMax: 5,
+      tooLow: 4,
+      tooHigh: 5,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for South Fork Licking River at Cynthiana',
+        url: 'https://fw.ky.gov/Fish/Pages/South-Fork-Licking-River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'KDFWR frames this as a gentle fall-friendly family float, but the braided headwater stretches still respond to rain and can get scrappy in lower water. Stable levels matter more than the season label.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR presents Lair to Terry Dam as a beginner-friendly family float with gentle current, long pools, and no technical rapids. The main challenge is low-water dragging through braided shallows and making the Terry take-out cleanly above the downstream dam pool.',
+      confidenceNotes:
+        'Confidence is good for a guarded add: KDFWR\'s Blue Water Trails page names this exact 5-mile Lair-to-Terry route, the fish page publishes official Cynthiana and Hayes threshold bands, and access-detail pages provide source-backed coordinates for both ramps. Direct USGS 03252500 and 03253000 returned same-day stage and flow during this run, clearing the long-standing live-data blocker.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Lair Ramp to Terry Dam Ramp, 5 mi',
+        note: 'The KDFWR South Fork Licking River Blue Water Trails page names Lair Ramp to Terry Dam Ramp as a 5-mile float and describes the route character in detail.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/South-Fork-Licking-River.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '4.0-5.0 ft at Cynthiana; 150-400 cfs at Hayes',
+        note: 'KDFWR rates South Fork Licking at Cynthiana as Low below 4.0 ft, Good from 4.0 to 5.0 ft, High above 5.0 ft, and separately rates Hayes flow Low below 150 cfs, Good from 150 to 400 cfs, and High above 400 cfs.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/South-Fork-Licking-River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Lair Ramp, 38.3412, -84.3014',
+        note: 'KDFWR lists Lair Ramp as a public paved launch beside the bridge on Old Lair Road with published coordinates and small gravel parking.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1069',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Terry Dam Ramp, 38.3693, -84.2919',
+        note: 'KDFWR lists Terry Dam Ramp, also called the Airport Ramp on the Blue Water Trails page, as the downstream public take-out with published coordinates and warns about the low-head dam 2.5 miles farther downstream.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=238',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03252500 at 5.52 ft; USGS 03253000 at 1,110 cfs / 5.16 ft',
+        note: 'USGS Water Services returned same-day values on June 25, 2026: the Cynthiana gauge showed 5.52 ft at 19:30 EDT, and the Hayes gauge showed 1,110 cfs and 5.16 ft at 19:15 EDT, both above the KDFWR good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03252500,03253000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'Kincaid Lake Campground nearby',
+        note: 'Kincaid Lake Campground lists open-woodland campsites with electric and water hookups, a grocery, playground, and central showers/restrooms as a nearby basecamp option rather than on-route camping.',
+        sourceUrl: 'https://parks.ky.gov/explore/kincaid-lake-campground-8054',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR South Fork Licking River',
+        url: 'https://fw.ky.gov/Fish/Pages/South-Fork-Licking-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR South Fork Licking River Blue Water Trails page',
+        url: 'https://fw.ky.gov/Education/Pages/South-Fork-Licking-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Lair Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1069',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Terry Dam Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=238',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03252500 South Fork Licking River at Cynthiana',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03252500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03253000 South Fork Licking River at Hayes',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03253000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03252500 and 03253000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03252500,03253000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Kincaid Lake Campground',
+        url: 'https://parks.ky.gov/explore/kincaid-lake-campground-8054',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'tradewater-river-bellville-montezuma',
     slug: 'tradewater-river-bellville-montezuma',
     name: 'Tradewater River',

@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-25T22:56:09.764Z",
+  "generatedAt": "2026-06-26T00:03:33.848Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
     "totalLedgerCandidates": 633,
-    "currentRouteCount": 394,
-    "leadCount": 271,
+    "currentRouteCount": 397,
+    "leadCount": 269,
     "discoveryFocusStates": [
       "South Dakota",
       "Illinois",
@@ -240,16 +240,16 @@
       "threshold_discovery": 109,
       "coordinate_cleanup": 0,
       "access_legitimacy": 0,
-      "live_provider_recheck": 99,
+      "live_provider_recheck": 97,
       "blocked_recheck": 8
     },
     "byStatus": {
       "implemented": 66,
       "threshold_weak": 109,
-      "added": 273,
+      "added": 275,
       "research_later": 55,
       "blocked_until_date": 13,
-      "no_live_gauge": 89,
+      "no_live_gauge": 87,
       "rejected": 15,
       "gauge_proxy_weak": 10,
       "duplicate_corridor": 3
@@ -1966,6 +1966,40 @@
         "discoveryTier": "supported_midwest"
       },
       {
+        "candidateId": "ne-missouri-river-mnrr-nebraska-family",
+        "lane": "fresh_source_discovery",
+        "priority": 86,
+        "state": "NE",
+        "river": "Missouri River",
+        "route": "Missouri National Recreational River Nebraska-side paddling family",
+        "currentStatus": "research_later",
+        "lastReviewed": "2026-06-12",
+        "reviewCount": 30,
+        "duplicateRisk": false,
+        "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06467500 Missouri River at Yankton returned current stage-only data of 10.29 ft at 2026-06-12 12:30 CDT. No route was added because no selected Nebraska-side MNRR public day reach and no numeric private-paddlecraft threshold model tied to an accepted gauge surfaced.",
+        "retryCondition": "Retry only if NPS, USACE, NGPC, or a water-trail manager identifies a specific Nebraska-side MNRR day reach with public endpoint coordinates, a direct product-supported Missouri River gauge, and numeric stage/flow go/no-go guidance for private paddlecraft.",
+        "gauge": {
+          "quality": "partial_stage_only",
+          "id": "06467500",
+          "provider": "USGS",
+          "notes": "USGS 06467500 returned current stage-only IV data in this run; no direct discharge or accepted private-paddlecraft stage threshold model is tied to a selected Nebraska-side day segment."
+        },
+        "thresholdSupport": {
+          "strength": "not_ready",
+          "notes": "No route-specific numeric private-paddlecraft stage or flow guidance surfaced; do not adapt Kansas River or small-river bands to the Missouri River."
+        },
+        "endpoints": {
+          "putIn": "Unselected MNRR public launch",
+          "takeOut": "Unselected MNRR public launch",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Not captured because no selected day route cleared threshold/product-live gates."
+        },
+        "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
+        "discoveryTier": "undercovered_supported_midwest"
+      },
+      {
         "candidateId": "wi-black-earth-creek-cross-plains-salmo-pond",
         "lane": "fresh_source_discovery",
         "priority": 84,
@@ -2082,40 +2116,6 @@
         },
         "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
         "discoveryTier": "supported_midwest"
-      },
-      {
-        "candidateId": "ne-missouri-river-mnrr-nebraska-family",
-        "lane": "fresh_source_discovery",
-        "priority": 76,
-        "state": "NE",
-        "river": "Missouri River",
-        "route": "Missouri National Recreational River Nebraska-side paddling family",
-        "currentStatus": "research_later",
-        "lastReviewed": "2026-06-12",
-        "reviewCount": 30,
-        "duplicateRisk": false,
-        "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06467500 Missouri River at Yankton returned current stage-only data of 10.29 ft at 2026-06-12 12:30 CDT. No route was added because no selected Nebraska-side MNRR public day reach and no numeric private-paddlecraft threshold model tied to an accepted gauge surfaced.",
-        "retryCondition": "Retry only if NPS, USACE, NGPC, or a water-trail manager identifies a specific Nebraska-side MNRR day reach with public endpoint coordinates, a direct product-supported Missouri River gauge, and numeric stage/flow go/no-go guidance for private paddlecraft.",
-        "gauge": {
-          "quality": "partial_stage_only",
-          "id": "06467500",
-          "provider": "USGS",
-          "notes": "USGS 06467500 returned current stage-only IV data in this run; no direct discharge or accepted private-paddlecraft stage threshold model is tied to a selected Nebraska-side day segment."
-        },
-        "thresholdSupport": {
-          "strength": "not_ready",
-          "notes": "No route-specific numeric private-paddlecraft stage or flow guidance surfaced; do not adapt Kansas River or small-river bands to the Missouri River."
-        },
-        "endpoints": {
-          "putIn": "Unselected MNRR public launch",
-          "takeOut": "Unselected MNRR public launch",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Not captured because no selected day route cleared threshold/product-live gates."
-        },
-        "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-        "discoveryTier": "undercovered_supported_midwest"
       }
     ],
     "threshold_discovery": [
@@ -8730,70 +8730,6 @@
         "discoveryTier": "undercovered_supported_midwest"
       },
       {
-        "candidateId": "ky-south-fork-licking-public-access-pools",
-        "lane": "live_provider_recheck",
-        "priority": 46,
-        "state": "KY",
-        "river": "South Fork Licking River",
-        "route": "Lair / Terry Dam / Cynthiana / Robinson / Pendleton County access family",
-        "currentStatus": "no_live_gauge",
-        "lastReviewed": "2026-06-04",
-        "reviewCount": 42,
-        "duplicateRisk": false,
-        "blocker": "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: South Fork Licking remains no_live_gauge. Product-style USGS Water Services IV fetch for 03252500 failed unable to connect, so KDFWR access/threshold context still cannot clear the product-live gate or the low-head-dam route-shape gate.",
-        "retryCondition": "Retry only if USGS 03252500 or 03253000 exposes same-day product-fetchable data and a specific KDFWR-supported point-to-point route can be selected without forcing users into low-head-dam ambiguity.",
-        "gauge": {
-          "quality": "direct_but_stale",
-          "id": "03252500 / 03253000",
-          "provider": "USGS",
-          "notes": "USGS 03252500 remains a Cynthiana gauge lead, but the 2026-06-03 20:13 America/Chicago / 2026-06-04 01:13 UTC check found no modern continuous current data and did not verify a product-ready live gauge path."
-        },
-        "thresholdSupport": {
-          "strength": "official_bands_pending_live_gauge_and_route_shape",
-          "notes": "KDFWR's bands are numeric and official, but endpoint selection and low-head-dam exposure need route-specific cleanup before any implementation."
-        },
-        "endpoints": {
-          "putIn": "Unselected South Fork Licking public access",
-          "takeOut": "Unselected South Fork Licking public access",
-          "coordinatesPresent": false,
-          "coordinateSource": "Coordinate work was deferred because the live-gauge gate and low-head-dam route-shape issues blocked implementation."
-        },
-        "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-        "discoveryTier": "adjacent_expansion"
-      },
-      {
-        "candidateId": "ky-north-fork-kentucky-river-access-chain",
-        "lane": "live_provider_recheck",
-        "priority": 46,
-        "state": "KY",
-        "river": "North Fork Kentucky River",
-        "route": "Douthitt Park / Jackson access-chain family",
-        "currentStatus": "no_live_gauge",
-        "lastReviewed": "2026-06-04",
-        "reviewCount": 62,
-        "duplicateRisk": false,
-        "blocker": "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: North Fork Kentucky remains no_live_gauge. Product-style USGS Water Services IV fetches for Jackson 03280000 and Hazard 03277500 failed unable to connect, leaving the low-head-dam/access-chain route short of the product-live gate.",
-        "retryCondition": "Retry when USGS 03280000 or 03277500 exposes same-day product-fetchable values and a specific KDFWR-supported public access pair is selected.",
-        "gauge": {
-          "quality": "direct_but_stale",
-          "id": "03280000",
-          "provider": "USGS",
-          "notes": "USGS 03280000 remains a North Fork Kentucky gauge lead, but the 2026-06-03 20:13 America/Chicago / 2026-06-04 01:13 UTC check still showed stale 2026-05-26 official values and did not verify a current product-ready live gauge path."
-        },
-        "thresholdSupport": {
-          "strength": "official_numeric_pending_live_gauge",
-          "notes": "KDFWR publishes official Hazard and Jackson stage bands plus Jackson cfs bands. Threshold support is strong enough to revisit, but not usable until a supported live gauge clears."
-        },
-        "endpoints": {
-          "putIn": "Unselected KDFWR North Fork Kentucky River public access",
-          "takeOut": "Unselected downstream KDFWR North Fork Kentucky River public access",
-          "coordinatesPresent": false,
-          "coordinateSource": "KDFWR access records include at least Douthitt Park coordinates; full endpoint coordinate work was deferred because the live-gauge gate failed."
-        },
-        "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-        "discoveryTier": "adjacent_expansion"
-      },
-      {
         "candidateId": "mo-meramec-short-bend-cook-station",
         "lane": "live_provider_recheck",
         "priority": 46,
@@ -14716,6 +14652,40 @@
       "discoveryTier": "undercovered_supported_midwest"
     },
     {
+      "candidateId": "ne-missouri-river-mnrr-nebraska-family",
+      "lane": "fresh_source_discovery",
+      "priority": 86,
+      "state": "NE",
+      "river": "Missouri River",
+      "route": "Missouri National Recreational River Nebraska-side paddling family",
+      "currentStatus": "research_later",
+      "lastReviewed": "2026-06-12",
+      "reviewCount": 30,
+      "duplicateRisk": false,
+      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06467500 Missouri River at Yankton returned current stage-only data of 10.29 ft at 2026-06-12 12:30 CDT. No route was added because no selected Nebraska-side MNRR public day reach and no numeric private-paddlecraft threshold model tied to an accepted gauge surfaced.",
+      "retryCondition": "Retry only if NPS, USACE, NGPC, or a water-trail manager identifies a specific Nebraska-side MNRR day reach with public endpoint coordinates, a direct product-supported Missouri River gauge, and numeric stage/flow go/no-go guidance for private paddlecraft.",
+      "gauge": {
+        "quality": "partial_stage_only",
+        "id": "06467500",
+        "provider": "USGS",
+        "notes": "USGS 06467500 returned current stage-only IV data in this run; no direct discharge or accepted private-paddlecraft stage threshold model is tied to a selected Nebraska-side day segment."
+      },
+      "thresholdSupport": {
+        "strength": "not_ready",
+        "notes": "No route-specific numeric private-paddlecraft stage or flow guidance surfaced; do not adapt Kansas River or small-river bands to the Missouri River."
+      },
+      "endpoints": {
+        "putIn": "Unselected MNRR public launch",
+        "takeOut": "Unselected MNRR public launch",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "Not captured because no selected day route cleared threshold/product-live gates."
+      },
+      "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
+      "discoveryTier": "undercovered_supported_midwest"
+    },
+    {
       "candidateId": "pa-three-rivers-water-trail-pittsburgh-family",
       "lane": "threshold_discovery",
       "priority": 86,
@@ -15042,40 +15012,6 @@
       },
       "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
       "discoveryTier": "supported_midwest"
-    },
-    {
-      "candidateId": "ne-missouri-river-mnrr-nebraska-family",
-      "lane": "fresh_source_discovery",
-      "priority": 76,
-      "state": "NE",
-      "river": "Missouri River",
-      "route": "Missouri National Recreational River Nebraska-side paddling family",
-      "currentStatus": "research_later",
-      "lastReviewed": "2026-06-12",
-      "reviewCount": 30,
-      "duplicateRisk": false,
-      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06467500 Missouri River at Yankton returned current stage-only data of 10.29 ft at 2026-06-12 12:30 CDT. No route was added because no selected Nebraska-side MNRR public day reach and no numeric private-paddlecraft threshold model tied to an accepted gauge surfaced.",
-      "retryCondition": "Retry only if NPS, USACE, NGPC, or a water-trail manager identifies a specific Nebraska-side MNRR day reach with public endpoint coordinates, a direct product-supported Missouri River gauge, and numeric stage/flow go/no-go guidance for private paddlecraft.",
-      "gauge": {
-        "quality": "partial_stage_only",
-        "id": "06467500",
-        "provider": "USGS",
-        "notes": "USGS 06467500 returned current stage-only IV data in this run; no direct discharge or accepted private-paddlecraft stage threshold model is tied to a selected Nebraska-side day segment."
-      },
-      "thresholdSupport": {
-        "strength": "not_ready",
-        "notes": "No route-specific numeric private-paddlecraft stage or flow guidance surfaced; do not adapt Kansas River or small-river bands to the Missouri River."
-      },
-      "endpoints": {
-        "putIn": "Unselected MNRR public launch",
-        "takeOut": "Unselected MNRR public launch",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because no selected day route cleared threshold/product-live gates."
-      },
-      "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-      "discoveryTier": "undercovered_supported_midwest"
     },
     {
       "candidateId": "mo-castor-river-maple-flats-zalma-family",
@@ -17958,70 +17894,6 @@
       },
       "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
       "discoveryTier": "undercovered_supported_midwest"
-    },
-    {
-      "candidateId": "ky-south-fork-licking-public-access-pools",
-      "lane": "live_provider_recheck",
-      "priority": 46,
-      "state": "KY",
-      "river": "South Fork Licking River",
-      "route": "Lair / Terry Dam / Cynthiana / Robinson / Pendleton County access family",
-      "currentStatus": "no_live_gauge",
-      "lastReviewed": "2026-06-04",
-      "reviewCount": 42,
-      "duplicateRisk": false,
-      "blocker": "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: South Fork Licking remains no_live_gauge. Product-style USGS Water Services IV fetch for 03252500 failed unable to connect, so KDFWR access/threshold context still cannot clear the product-live gate or the low-head-dam route-shape gate.",
-      "retryCondition": "Retry only if USGS 03252500 or 03253000 exposes same-day product-fetchable data and a specific KDFWR-supported point-to-point route can be selected without forcing users into low-head-dam ambiguity.",
-      "gauge": {
-        "quality": "direct_but_stale",
-        "id": "03252500 / 03253000",
-        "provider": "USGS",
-        "notes": "USGS 03252500 remains a Cynthiana gauge lead, but the 2026-06-03 20:13 America/Chicago / 2026-06-04 01:13 UTC check found no modern continuous current data and did not verify a product-ready live gauge path."
-      },
-      "thresholdSupport": {
-        "strength": "official_bands_pending_live_gauge_and_route_shape",
-        "notes": "KDFWR's bands are numeric and official, but endpoint selection and low-head-dam exposure need route-specific cleanup before any implementation."
-      },
-      "endpoints": {
-        "putIn": "Unselected South Fork Licking public access",
-        "takeOut": "Unselected South Fork Licking public access",
-        "coordinatesPresent": false,
-        "coordinateSource": "Coordinate work was deferred because the live-gauge gate and low-head-dam route-shape issues blocked implementation."
-      },
-      "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-      "discoveryTier": "adjacent_expansion"
-    },
-    {
-      "candidateId": "ky-north-fork-kentucky-river-access-chain",
-      "lane": "live_provider_recheck",
-      "priority": 46,
-      "state": "KY",
-      "river": "North Fork Kentucky River",
-      "route": "Douthitt Park / Jackson access-chain family",
-      "currentStatus": "no_live_gauge",
-      "lastReviewed": "2026-06-04",
-      "reviewCount": 62,
-      "duplicateRisk": false,
-      "blocker": "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: North Fork Kentucky remains no_live_gauge. Product-style USGS Water Services IV fetches for Jackson 03280000 and Hazard 03277500 failed unable to connect, leaving the low-head-dam/access-chain route short of the product-live gate.",
-      "retryCondition": "Retry when USGS 03280000 or 03277500 exposes same-day product-fetchable values and a specific KDFWR-supported public access pair is selected.",
-      "gauge": {
-        "quality": "direct_but_stale",
-        "id": "03280000",
-        "provider": "USGS",
-        "notes": "USGS 03280000 remains a North Fork Kentucky gauge lead, but the 2026-06-03 20:13 America/Chicago / 2026-06-04 01:13 UTC check still showed stale 2026-05-26 official values and did not verify a current product-ready live gauge path."
-      },
-      "thresholdSupport": {
-        "strength": "official_numeric_pending_live_gauge",
-        "notes": "KDFWR publishes official Hazard and Jackson stage bands plus Jackson cfs bands. Threshold support is strong enough to revisit, but not usable until a supported live gauge clears."
-      },
-      "endpoints": {
-        "putIn": "Unselected KDFWR North Fork Kentucky River public access",
-        "takeOut": "Unselected downstream KDFWR North Fork Kentucky River public access",
-        "coordinatesPresent": false,
-        "coordinateSource": "KDFWR access records include at least Douthitt Park coordinates; full endpoint coordinate work was deferred because the live-gauge gate failed."
-      },
-      "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-      "discoveryTier": "adjacent_expansion"
     },
     {
       "candidateId": "mo-meramec-short-bend-cook-station",

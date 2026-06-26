@@ -9746,6 +9746,117 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'north-fork-kentucky-river-hazard-city-ramp-perry-county-park': {
+    putIn: {
+      id: 'hazard-city-ramp',
+      name: 'Hazard City Ramp and Fishing Pier',
+      latitude: 37.2513,
+      longitude: -83.1962,
+    },
+    takeOut: {
+      id: 'perry-county-park-ramp',
+      name: 'Perry County Park Ramp',
+      latitude: 37.2783,
+      longitude: -83.2088,
+    },
+    logistics: {
+      distanceLabel: 'About 4.8 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with low water, fishing stops, or access checks',
+      shuttle:
+        'Stage the Perry County Park take-out first, then drive back to Hazard City Hall for the downtown put-in. Both accesses are public and developed, but inspect the launch and landing before committing because riverfront events, maintenance, or muddy conditions can tighten room at the ramp.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public launches, follow Kentucky boating and PFD rules, and respect any posted city or park parking limits.',
+      camping:
+        'No camping plan is assumed on this in-town float. Use it as a day trip and treat banks outside the public access points as private or unsuitable for overnight use.',
+      campingClassification: 'none',
+      summary:
+        'Launch behind Hazard City Hall and take out at Perry County Park for the short North Fork River Trail float through Hazard. KDFWR gives a good Hazard gauge band of 4.25 to 5.0 ft, while Perry County frames the route as an easy 2-to-3-hour paddle.',
+      accessCaveats: [
+        'The Hazard City launch is directly upstream from a low-head dam. Launch efficiently, stay out of boil-affected water, and do not drift back toward the dam while organizing gear.',
+        'Perry County Park is the clean public take-out with parking, restrooms, and family facilities. Do not assume steep or private banks elsewhere are legal exit spots.',
+        'The Hazard gauge was slightly below the official good band during this run, so expect slower current and occasional scrape-prone shallows rather than ideal push.',
+      ],
+      watchFor: [
+        'Fast rises after rain, muddy current, and fresh wood moving into outside bends.',
+        'The low-head-dam launch context at Hazard and any swirl or boil near the ramp.',
+        'Steep or private banks outside the named accesses, especially if someone wants an unscheduled stop.',
+      ],
+    },
+  },
+  'north-fork-kentucky-river-douthitt-park-roy-spencer': {
+    putIn: {
+      id: 'douthitt-park-ramp',
+      name: 'Douthitt Park Ramp',
+      latitude: 37.5598,
+      longitude: -83.4004,
+    },
+    takeOut: {
+      id: 'roy-spencer-ramp',
+      name: 'Roy Spencer Ramp',
+      latitude: 37.6016,
+      longitude: -83.4476,
+    },
+    logistics: {
+      distanceLabel: 'About 10.4 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6.5 hr, longer with low water, scouting, or fishing stops',
+      shuttle:
+        'Stage the Roy Spencer take-out first, then drive back to Douthitt Park in Jackson. Douthitt is the more developed park access, but Roy Spencer has a smaller parking area and simpler landing, so inspect the finish before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey any same-day park-hours or parking restrictions.',
+      camping:
+        'Carr Creek Campground can work as a separate nearby basecamp, but this route is normally a long day float. Do not assume any riverside camping between Douthitt and Roy Spencer.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Douthitt Park in Jackson and take out 10.4 miles downstream at Roy Spencer Ramp for a longer North Fork Kentucky River day. KDFWR gives the Jackson gauge a good band of 200 to 500 cfs, or 1.6 to 2.5 ft.',
+      accessCaveats: [
+        'KDFWR warns that the Douthitt ramp does not extend all the way into the water during low summer and fall flows, so muddy launch conditions are possible even when the gauge still looks technically runnable.',
+        'A large rapid or waterfall lies 0.9 miles upstream of Douthitt Park. This route starts at Douthitt and goes downstream; do not turn the access into an upstream scouting mission unless you have a separate advanced plan.',
+        'Roy Spencer is a simpler bridge-area take-out with only a small paved lot and picnic shelter. Inspect it before committing to the full 10-mile day.',
+      ],
+      watchFor: [
+        'Low water below 200 cfs or 1.6 ft, when the launch gets awkward and shallow riffles can slow the day.',
+        'High water above 500 cfs or 2.5 ft, when the broad river gets faster, muddier, and less forgiving.',
+        'Fresh wood, strainers, steep banks, sparse mid-route exits, and rain-driven rises in the eastern Kentucky drainage.',
+      ],
+    },
+  },
+  'south-fork-licking-river-lair-ramp-terry-dam': {
+    putIn: {
+      id: 'lair-ramp',
+      name: 'Lair Ramp',
+      latitude: 38.3412,
+      longitude: -84.3014,
+    },
+    takeOut: {
+      id: 'terry-dam-ramp',
+      name: 'Terry Dam Ramp',
+      latitude: 38.3693,
+      longitude: -84.2919,
+    },
+    logistics: {
+      distanceLabel: 'About 5.0 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low-water dragging, fishing, or wood scouting',
+      shuttle:
+        'Stage the Terry Dam / Airport Ramp take-out first, then drive back to Lair Ramp south of Cynthiana. Inspect the take-out before launching so the final left-bank exit above Terry Dam does not become an avoidable miss.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public ramps, follow Kentucky boating and PFD rules, and respect any posted parking or launch instructions.',
+      camping:
+        'Kincaid Lake Campground is a separate nearby basecamp option, but this route is normally a half-day float. Do not assume camping is part of the paddle itself.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Lair Ramp and take out 5 miles downstream at Terry Dam Ramp for the South Fork Licking River float KDFWR highlights on its Blue Water Trails page. Use the Cynthiana gauge as the stage check and treat high water or a missed Terry take-out as stand-down conditions.',
+      accessCaveats: [
+        'The Blue Water Trails page says the river braids considerably near the start, and low water can mean dragging through shallow bars before the deeper Terry pool begins.',
+        'The take-out is on river left above Terry Dam. KDFWR warns that a low-head dam sits 2.5 miles downstream of the ramp, so do not drift past the named take-out.',
+        'The same-day Cynthiana and Hayes gauge readings were above the official good bands during this run, so the route ships with honest high-water caution rather than ideal-family-flow framing.',
+      ],
+      watchFor: [
+        'Braided shallows, downed wood, and low-water dragging early in the route.',
+        'High water above 5.0 ft at Cynthiana or above 400 cfs at Hayes, when the gentle family posture no longer applies.',
+        'Private or muddy banks outside the public ramps and the downstream Terry Dam hazard if the take-out is missed.',
+      ],
+    },
+  },
   'tradewater-river-bellville-montezuma': {
     putIn: {
       id: 'bellville-road-access',
