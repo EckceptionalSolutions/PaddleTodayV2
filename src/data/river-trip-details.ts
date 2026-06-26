@@ -16866,6 +16866,113 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'south-llano-river-cupgrass-flatrock-lane': {
+    putIn: {
+      name: 'TPWD Cupgrass Access',
+      latitude: 30.393543,
+      longitude: -99.886693,
+    },
+    takeOut: {
+      name: 'Flatrock Lane Crossing',
+      latitude: 30.4789,
+      longitude: -99.7778,
+    },
+    logistics: {
+      distanceLabel: 'About 14 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7.5 hr at a casual kayak or canoe pace, longer at lower water or with fishing stops',
+      shuttle:
+        'Stage the take-out at Flatrock Lane Crossing first, then drive back to the gated Cupgrass lease site. Build in extra shuttle margin because the route passes through South Llano River State Park and requires a bridge portage there before the lower finish.',
+      permits:
+        'No route-specific paddling permit is published. Cupgrass parking must be arranged with TPWD by text, and normal Texas PFD and access rules still apply at the state-park portage and Flatrock finish.',
+      camping:
+        'South Llano River State Park sits directly on the route corridor with developed, walk-in, and primitive campsites. Treat that as real on-route overnight support for this longer continuation.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch through Bailey Creek at TPWD Cupgrass Access and continue past South Llano River State Park to Flatrock Lane for a longer spring-fed Hill Country float. The midpoint park portage and the longer mileage make this a more committed version of the official shorter trail splits.',
+      accessCaveats: [
+        'TPWD says Cupgrass parking is by advance text reservation and that boats launch via Bailey Creek before entering the South Llano proper.',
+        'At South Llano River State Park, paddlers must exit at the designated location before the damaged bridge, portage around it, and reenter downstream.',
+        'Use only the named public accesses and direct hazard portages because most shoreline between them remains private.',
+      ],
+      watchFor: [
+        'The required bridge portage at South Llano River State Park.',
+        'Long low-water scrape sections, strainers after storms, and changing current when runoff reaches the corridor.',
+        'Heat, sun exposure, and limited easy public exits compared with the shorter Junction-area trail splits.',
+      ],
+    },
+  },
+  'south-llano-river-state-park-junction-city-park': {
+    putIn: {
+      name: 'South Llano River State Park paddling access',
+      latitude: 30.4498,
+      longitude: -99.8128,
+    },
+    takeOut: {
+      name: 'Junction City Park',
+      latitude: 30.4879,
+      longitude: -99.7617,
+    },
+    logistics: {
+      distanceLabel: 'About 6.3 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr at an easy recreational pace',
+      shuttle:
+        'Use a short Junction-area shuttle between South Llano River State Park and Junction City Park. If you are entering the park only to launch, reserve day use first during busy periods and leave time for the required bridge portage near the start.',
+      permits:
+        'No route-specific paddling permit is published. South Llano River State Park charges normal park entry and often recommends reservations for day use; follow current park, parking, and PFD rules.',
+      camping:
+        'South Llano River State Park campsites sit directly at the put-in, so this route works well as a campground-based half-day float into town.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Put in at South Llano River State Park and continue all the way to Junction City Park for the full official TPWD paddling trail. This is a simple state-park-to-town float with a required bridge portage near the start and the same same-day flow check as the shorter splits.',
+      accessCaveats: [
+        'TPWD says the damaged state-park bridge apron is closed and that paddlers must exit at the designated location, portage around the bridge, and reenter downstream.',
+        'Use the marked state-park launch and the named Junction City Park finish rather than improvised bank stops.',
+        'Private shoreline begins quickly outside the park corridor, so keep rests brief and at the named public access points.',
+      ],
+      watchFor: [
+        'The required bridge portage at South Llano River State Park.',
+        'Low-water scraping and minor route reading through shallow riffles when the gauge is near the conservative floor.',
+        'Strainers, changing current after rain, and slippery rocks at either access.',
+      ],
+    },
+  },
+  'south-llano-river-cupgrass-junction-city-park': {
+    putIn: {
+      name: 'TPWD Cupgrass Access',
+      latitude: 30.393543,
+      longitude: -99.886693,
+    },
+    takeOut: {
+      name: 'Junction City Park',
+      latitude: 30.4879,
+      longitude: -99.7617,
+    },
+    logistics: {
+      distanceLabel: 'About 15.6 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 8.5 hr at a casual kayak or canoe pace, longer at lower water or with fishing stops',
+      shuttle:
+        'Stage the take-out at Junction City Park first, then drive back to the gated Cupgrass lease site. This is the longest South Llano day route in the current app, so start early and leave real margin for the midpoint state-park bridge portage.',
+      permits:
+        'No route-specific paddling permit is published. Cupgrass parking must be arranged with TPWD by text, and South Llano River State Park or Junction-area logistics still depend on current public-hours and normal Texas boating rules.',
+      camping:
+        'South Llano River State Park sits directly on the route corridor with developed and primitive campsites, so this long continuation has real on-route overnight support even if most paddlers treat it as a big day float.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch through Bailey Creek at TPWD Cupgrass Access and continue to Junction City Park for the longest current public South Llano day route. The spring-fed water stays gentle overall, but the long mileage and midpoint state-park portage make this a real planning route rather than a casual hour float.',
+      accessCaveats: [
+        'TPWD says Cupgrass parking is by advance text reservation and that boats launch via Bailey Creek before entering the South Llano proper.',
+        'At South Llano River State Park, paddlers must exit at the designated location before the damaged bridge, portage around it, and reenter downstream.',
+        'Use Junction City Park as the intended public finish and avoid treating nearby private or bridge-adjacent banks as alternate take-outs.',
+      ],
+      watchFor: [
+        'The required bridge portage at South Llano River State Park.',
+        'Long low-water scrape stretches, fresh wood after storms, and quicker current during runoff pulses.',
+        'Heat, fatigue, and fewer convenient public exits than the short official trail splits.',
+      ],
+    },
+  },
   'cumberland-river-redbird-thunderstruck': {
     putIn: {
       id: 'redbird-ramp',
