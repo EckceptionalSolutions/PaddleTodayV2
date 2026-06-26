@@ -8054,6 +8054,408 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'crow-wing-river-mary-brown-andersons-crossing',
+    slug: 'crow-wing-river-mary-brown-andersons-crossing',
+    name: 'Crow Wing River',
+    reach: "Mary Brown to Anderson's Crossing",
+    state: 'Minnesota',
+    region: 'Wadena Area',
+    summary:
+      "Short upper-lower Crow Wing split from the Mary Brown rest-area access into Anderson's Crossing campground. It keeps the same official Nimrod gauge ladder as the downstream corridor while adding a campground finish just above Nimrod.",
+    statusText:
+      'The Nimrod gauge is best from 400 to 800 cfs. Below 300 cfs gets too thin for a clean day, and above 1,100 cfs is too high for a general recommendation.',
+    latitude: 46.7175822,
+    longitude: -94.9289851,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        "The route finishes at Anderson's Crossing just below the Butterfield / Walkin's rapids area, so scout any faster water and do not let the easy campground setting hide current or wood hazards.",
+        'Storms can drop fresh wood into blind bends and make the final mile less forgiving even when the gauge is still in the normal band.',
+        'Use only the named public accesses and campsites. Much of the shoreland outside the county properties is private.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-55',
+      provider: 'mn_dnr',
+      siteId: '55',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Crow Wing River at Nimrod, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=12085001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12085001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05244000',
+        provider: 'usgs',
+        siteId: '05244000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Crow Wing River at Nimrod, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 800,
+      tooLow: 300,
+      tooHigh: 1100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. Summer low water still exposes sandbars, while storms can move wood quickly through the wooded bends upstream of Nimrod.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly an easy moving-water day, but the final rapid area, camping traffic, and blind bends make it more than a flatwater float.',
+      confidenceNotes:
+        "Confidence is good for this Map 1 split: Crow Wing Map 1 names Mary Brown at river mile 75.3 and Anderson's Crossing at 70.8, the Nimrod DNR gauge sits only a few miles downstream with a full official ladder, the feature service resolves both public accesses, and Wadena County documents Anderson's as a campground with river access and the Butterfield Rapids context.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct same-corridor gauge',
+        value: 'Nimrod gauge 217 cfs',
+        note: 'The official MN DNR river-level dataset reported 217 cfs at 2026-06-25 07:00 PM for Crow Wing River at Nimrod, confirming the live gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '300 / 400-800 / 1,100 cfs',
+        note: 'MN DNR interprets Nimrod as Scrapable below 300 cfs, Low from 300 to 400, Medium from 400 to 800, High from 800 to 1,100, and Very High above 1,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: 'Mary Brown 75.3 to Anderson 70.8',
+        note: "Crow Wing Map 1 places Mary Brown at river mile 75.3 and Anderson's Crossing at 70.8, making this a 4.5-mile upstream-of-Nimrod split.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: "Mary Brown WAS02558 and Anderson's WAS01526",
+        note: "Minnesota public-water-access records resolve Mary Brown and Anderson's Crossing as official Crow Wing accesses with matching river-mile context.",
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping and rapid support',
+        value: "Anderson's campground and Butterfield Rapids",
+        note: "Wadena County says Anderson's Crossing has eight tent sites, river access, and marks the beginning of Butterfield Rapids, which it describes as a short rippling series that tubers and canoeists commonly navigate.",
+        sourceUrl: 'https://www.co.wadena.mn.us/218/Andersons-Crossing-Campground',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: "Wadena County Anderson's Crossing Campground",
+        url: 'https://www.co.wadena.mn.us/218/Andersons-Crossing-Campground',
+      },
+      {
+        label: 'Wadena County parks and canoe trail map',
+        url: 'https://www.co.wadena.mn.us/DocumentCenter/View/255/County-ParksSystem-Canoe-Trail-Map-JPG?bidId=',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'crow-wing-river-andersons-crossing-stigmans-mound',
+    slug: 'crow-wing-river-andersons-crossing-stigmans-mound',
+    name: 'Crow Wing River',
+    reach: "Anderson's Crossing to Stigman's Mound",
+    state: 'Minnesota',
+    region: 'Wadena Area',
+    summary:
+      "Middle Map 1 Crow Wing split from Anderson's campground through the small rapids above Nimrod. It shares the same official DNR gauge story as the downstream corridor, but it is the most caution-worthy of these three new splits.",
+    statusText:
+      'The Nimrod gauge is best from 400 to 800 cfs. Below 300 cfs gets too thin for a clean day, and above 1,100 cfs is too high for a general recommendation.',
+    latitude: 46.6994226,
+    longitude: -94.8818857,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        "Walkin's Rapids, Burrows Rapids, and Westra Rapids are all on this run; the DNR map tags them Class I, with Walkin's and Westra able to push toward Class II at high water.",
+        'Fresh wood after storms and the faster recovery windows around the rapids make this a more committed choice than the lower tubing-friendly Crow Wing segments.',
+        "Stigman's park amenities sit across the bridge from the landing area, so identify the take-out plan before launching instead of treating the finish like a polished ramp.",
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-55',
+      provider: 'mn_dnr',
+      siteId: '55',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Crow Wing River at Nimrod, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=12085001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12085001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05244000',
+        provider: 'usgs',
+        siteId: '05244000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Crow Wing River at Nimrod, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 800,
+      tooLow: 300,
+      tooHigh: 1100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. The route stays runnable longer than some small northern rivers, but the rapids cluster becomes less forgiving as water rises.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly straightforward moving water, but the sequence of small rapids and the take-out logistics at Nimrod make this more than a casual beginner float.',
+      confidenceNotes:
+        "Confidence is good because the official DNR map names Anderson's Crossing and Stigman's Mound, the Nimrod gauge sits effectively at the take-out with a full official ladder, the state access service resolves both public endpoints, and Wadena County documents both the campground start and the special landing setup at Stigman's.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct same-corridor gauge',
+        value: 'Nimrod gauge 217 cfs',
+        note: 'The official MN DNR river-level dataset reported 217 cfs at 2026-06-25 07:00 PM for Crow Wing River at Nimrod, confirming the live gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '300 / 400-800 / 1,100 cfs',
+        note: 'MN DNR interprets Nimrod as Scrapable below 300 cfs, Low from 300 to 400, Medium from 400 to 800, High from 800 to 1,100, and Very High above 1,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: "Anderson's 70.8 to Stigman's 65.7",
+        note: "Crow Wing Map 1 places Anderson's Crossing at river mile 70.8 and Stigman's Mound at 65.7, making this a 5.1-mile rapids-bearing split just above Nimrod.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: 'Rapids support',
+        value: "Walkin's, Burrows, and Westra Rapids",
+        note: "Crow Wing Map 1 marks Walkin's Rapids as Class I that may rise to Class II at high water, Burrows Rapids as Class I, and Westra Rapids as Class I that may also rise to Class II at high water.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: "Anderson's WAS01526 and Stigman's WAS02557",
+        note: "Minnesota public-water-access records resolve Anderson's Crossing and Stigman's Mound as official Crow Wing accesses with matching lower-Map-1 placement.",
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Finish access caveat',
+        value: "Stigman's bridge-crossing landing",
+        note: "Wadena County says Stigman's Mound Park does not allow overnight camping and that canoes are landed across the river from the picnic area, then reached by walking across the bridge.",
+        sourceUrl: 'https://www.co.wadena.mn.us/226/Stigmans-Mound-Park',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: "Wadena County Anderson's Crossing Campground",
+        url: 'https://www.co.wadena.mn.us/218/Andersons-Crossing-Campground',
+      },
+      {
+        label: "Wadena County Stigman's Mound Park",
+        url: 'https://www.co.wadena.mn.us/226/Stigmans-Mound-Park',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'crow-wing-river-mary-brown-stigmans-mound',
+    slug: 'crow-wing-river-mary-brown-stigmans-mound',
+    name: 'Crow Wing River',
+    reach: "Mary Brown to Stigman's Mound",
+    state: 'Minnesota',
+    region: 'Wadena Area',
+    summary:
+      "Full lower-Map-1 Crow Wing continuation from Mary Brown into Nimrod. It links the Mary Brown access, Anderson's campground, and the small rapids cluster above Stigman's Mound into one longer day.",
+    statusText:
+      'The Nimrod gauge is best from 400 to 800 cfs. Below 300 cfs gets too thin for a clean day, and above 1,100 cfs is too high for a general recommendation.',
+    latitude: 46.7175822,
+    longitude: -94.9289851,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        "This route combines the quieter Mary Brown section with the Walkin's, Burrows, and Westra rapids cluster near the downstream half, so treat it as a full moving-water day rather than just a campground shuttle.",
+        "Anderson's Crossing is the natural mid-route checkpoint and overnight support, but storms can still add fresh wood and faster current across the whole run.",
+        "Stigman's Mound amenities are across the bridge from the landing, and private shoreland dominates outside the named public accesses and county properties.",
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-55',
+      provider: 'mn_dnr',
+      siteId: '55',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Crow Wing River at Nimrod, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=12085001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12085001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05244000',
+        provider: 'usgs',
+        siteId: '05244000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Crow Wing River at Nimrod, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 800,
+      tooLow: 300,
+      tooHigh: 1100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. This longer run is still summer-viable, but low water slows it down and rising water makes the lower rapids cluster more consequential.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'A longer, more committed Crow Wing day with gentle upper miles and a small rapids sequence downstream. It is approachable, but not a no-thinking float.',
+      confidenceNotes:
+        "Confidence is good for this full split because Crow Wing Map 1 names Mary Brown, Anderson's Crossing, and Stigman's Mound in one continuous official corridor, the Nimrod DNR gauge sits at the downstream end with a full official ladder, the feature service resolves both shipped endpoints, and Wadena County supports Anderson's as the natural on-route campground stop.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct same-corridor gauge',
+        value: 'Nimrod gauge 217 cfs',
+        note: 'The official MN DNR river-level dataset reported 217 cfs at 2026-06-25 07:00 PM for Crow Wing River at Nimrod, confirming the live gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '300 / 400-800 / 1,100 cfs',
+        note: 'MN DNR interprets Nimrod as Scrapable below 300 cfs, Low from 300 to 400, Medium from 400 to 800, High from 800 to 1,100, and Very High above 1,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: "Mary Brown 75.3 to Stigman's 65.7",
+        note: "Crow Wing Map 1 places Mary Brown at river mile 75.3 and Stigman's Mound at 65.7, making this a 9.6-mile full lower-Map-1 continuation into Nimrod.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: "Mary Brown WAS02558 and Stigman's WAS02557",
+        note: "Minnesota public-water-access records resolve Mary Brown and Stigman's Mound as official Crow Wing accesses with coordinates and river-mile support.",
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'On-route camping support',
+        value: "Anderson's Crossing midpoint campground",
+        note: "Wadena County says Anderson's Crossing has eight tent sites, river access, and sits five miles from the next landing, making it the clean on-route overnight support for the longer Mary-Brown-to-Stigman's option.",
+        sourceUrl: 'https://www.co.wadena.mn.us/218/Andersons-Crossing-Campground',
+      },
+      {
+        label: 'Rapids support',
+        value: "Walkin's, Burrows, and Westra Rapids",
+        note: "Crow Wing Map 1 marks three named rapids on the downstream half of this route, with Walkin's and Westra able to rise toward Class II at higher water.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: "Wadena County Anderson's Crossing Campground",
+        url: 'https://www.co.wadena.mn.us/218/Andersons-Crossing-Campground',
+      },
+      {
+        label: "Wadena County Stigman's Mound Park",
+        url: 'https://www.co.wadena.mn.us/226/Stigmans-Mound-Park',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
     id: 'whitewater-river-elba-highway-74',
     slug: 'whitewater-river-elba-highway-74',
     name: 'Whitewater River',

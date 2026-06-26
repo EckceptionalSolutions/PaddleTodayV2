@@ -4,15 +4,21 @@ Last summarized: 2026-06-26.
 
 ## Current Inventory
 
-- Live routes: 54.
-- Top represented rivers: Big Fork River 7, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4, North Fork Crow River 3, Snake River 3.
-- Ledger candidates: 49 total; 15 added, 20 `threshold_weak`, 10 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`.
+- Live routes: 57.
+- Top represented rivers: Big Fork River 7, Crow Wing River 7, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4.
+- Ledger candidates: 52 total; 18 added, 20 `threshold_weak`, 10 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`.
 
 ## Status
 
 Minnesota has the strongest official-source foundation and a broad existing inventory. Remaining work should be selective rather than cadence-driven.
 
 ## Latest Run
+
+- 2026-06-25 22:35 America/Chicago: added `crow-wing-river-mary-brown-andersons-crossing`, `crow-wing-river-andersons-crossing-stigmans-mound`, and `crow-wing-river-mary-brown-stigmans-mound`.
+- Implemented three lower-Map-1 Crow Wing splits immediately upstream of Nimrod instead of reopening a weaker new-state search.
+- Minnesota public-water-access GIS resolves Mary Brown `WAS02558` at `46.7175822, -94.9289851`, Anderson's Crossing `WAS01526` at `46.6994226, -94.8818857`, and Stigman's Mound `WAS02557` at `46.6404586, -94.8797039`.
+- The corridor still uses direct MN DNR site `55` at Nimrod with same-day `217 cfs` at `2026-06-25 07:00 PM`; official bands remain Scrapable below `300 cfs`, Low `300-400`, Medium `400-800`, High `800-1100`, and Very High above `1100 cfs`.
+- Mary-Brown-to-Anderson's and Anderson's-to-Stigman's both ship as `endpoint_campground` because Anderson's Crossing is a county campground at one end of each route; Mary-Brown-to-Stigman's ships as `on_route_campsite` because Anderson's is the clean midpoint overnight option. Safety notes stay conservative around Walkin's / Butterfield Rapids, Burrows Rapids, Westra Rapids, fresh wood after storms, and private-bank limits. No route-gallery image was added.
 
 - 2026-06-25 20:20 America/Chicago: added `crow-wing-river-frames-landing-little-white-dog`, `crow-wing-river-little-white-dog-knob-hill`, and `crow-wing-river-knob-hill-cottingham`.
 - Implemented three additional lower Crow Wing splits from the same official Map 2 county-park chain instead of reopening weaker new-state research.

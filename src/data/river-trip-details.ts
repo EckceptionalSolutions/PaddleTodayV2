@@ -2052,6 +2052,109 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'crow-wing-river-mary-brown-andersons-crossing': {
+    putIn: {
+      name: 'Mary Brown Rest Area #5 carry-in access',
+      latitude: 46.71758222409383,
+      longitude: -94.92898508221442,
+    },
+    takeOut: {
+      name: "Anderson's Crossing #6 carry-in access",
+      latitude: 46.69942260942251,
+      longitude: -94.88188569131617,
+    },
+    logistics: {
+      distanceLabel: '4.5 mi',
+      estimatedPaddleTime: 'About 1 hr 45 min to 2 hr 45 min',
+      shuttle:
+        "Very short Wadena County shuttle from Mary Brown to Anderson's Crossing. Anderson's is the easier place to stage the take-out because it is also a campground and river-access stop.",
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. County camping or parking rules may apply if you use Anderson\'s Crossing overnight.',
+      camping:
+        "Anderson's Crossing is a county campground at the take-out, so this short upstream Crow Wing split works best as an endpoint-campground paddle if you confirm current county rules, fees, and seasonal availability before planning an overnight.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Mary Brown and finish at Anderson's Crossing for a short upper-Wadena Crow Wing split. Use the Nimrod gauge first and treat recent storms or obvious fresh wood as a reason to reassess even when the flow is otherwise workable.",
+      accessCaveats: [
+        'Mary Brown is a remote carry-in access named on Crow Wing Map 1 and backed by the Minnesota public-water-access record, but it is not a polished park ramp with extra services.',
+        "Anderson's Crossing is a county campground and river-access site; identify the take-out before launching because the Butterfield / Walkin's rapids area begins right around the finish.",
+      ],
+      watchFor: [
+        'Exposed sandbars and slower travel when the Nimrod gauge is near or below 300 cfs.',
+        'Fresh wood, sweepers, and stronger current after storms.',
+        "Faster water around Walkin's / Butterfield Rapids near the Anderson's finish.",
+      ],
+    },
+  },
+  'crow-wing-river-andersons-crossing-stigmans-mound': {
+    putIn: {
+      name: "Anderson's Crossing #6 carry-in access",
+      latitude: 46.69942260942251,
+      longitude: -94.88188569131617,
+    },
+    takeOut: {
+      name: "Stigman's Mound #7 carry-in access",
+      latitude: 46.64045859179894,
+      longitude: -94.87970389700178,
+    },
+    logistics: {
+      distanceLabel: '5.1 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr 15 min',
+      shuttle:
+        "Short Wadena County shuttle from Anderson's Crossing to Nimrod. Stage the Stigman's take-out first so the bridge-side landing setup is clear before you start.",
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow county campground and park rules at Anderson\'s Crossing and Stigman\'s Mound.',
+      camping:
+        "Anderson's Crossing is a county campground at the put-in, but Stigman's Mound itself is a day-use park without overnight camping.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Anderson's Crossing and finish at Stigman's Mound for the small-rapids Crow Wing split just above Nimrod. The Nimrod gauge is effectively at the take-out, but you still need to scout the faster water and know the Stigman's landing plan before committing.",
+      accessCaveats: [
+        "Anderson's Crossing is a county campground and river access with simple carry-in logistics rather than a wide trailer ramp.",
+        "Wadena County says Stigman's Mound park amenities are reached after landing across the river and walking over the bridge, so do not expect a standard drive-down campground take-out at the finish.",
+      ],
+      watchFor: [
+        "Walkin's Rapids, Burrows Rapids, and Westra Rapids on the downstream half of the route.",
+        'Fresh wood, blind bends, and faster recovery windows after storms.',
+        'Low-water scraping when the Nimrod gauge falls toward the 300 cfs floor.',
+      ],
+    },
+  },
+  'crow-wing-river-mary-brown-stigmans-mound': {
+    putIn: {
+      name: 'Mary Brown Rest Area #5 carry-in access',
+      latitude: 46.71758222409383,
+      longitude: -94.92898508221442,
+    },
+    takeOut: {
+      name: "Stigman's Mound #7 carry-in access",
+      latitude: 46.64045859179894,
+      longitude: -94.87970389700178,
+    },
+    logistics: {
+      distanceLabel: '9.6 mi',
+      estimatedPaddleTime: 'About 3 hr 30 min to 5 hr',
+      shuttle:
+        "Moderate Wadena County shuttle from Mary Brown to Nimrod. Stage the Stigman's take-out first so the bridge-side landing and parking expectations are familiar before you launch.",
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted public-access, county-campground, and park rules at the named landings.',
+      camping:
+        "This longer route passes Anderson's Crossing campground about midway, so it is the cleanest on-route overnight option in this Map 1 corridor if you confirm county rules, fees, and seasonal availability before planning a split trip.",
+      campingClassification: 'on_route_campsite',
+      summary:
+        "Launch at Mary Brown and finish at Stigman's Mound for the full lower-Map-1 Crow Wing continuation into Nimrod. It stays level-friendly by using the same official DNR gauge as the lower corridor, but the downstream rapids cluster means you should not treat it like a mindless campground float.",
+      accessCaveats: [
+        'Mary Brown is a remote carry-in access with few frills, so inspect the launch and parking setup before leaving a vehicle.',
+        "Anderson's Crossing is the natural midpoint stop and only clearly documented overnight support on this route.",
+        "Wadena County says Stigman's Mound park amenities are reached after landing across the river and walking over the bridge, so have the finish identified before the last mile.",
+      ],
+      watchFor: [
+        "Walkin's Rapids, Burrows Rapids, and Westra Rapids on the downstream half of the route.",
+        'Fresh wood, sweepers, and stronger current after storms.',
+        'Exposed sandbars and slower travel when the Nimrod gauge is near or below 300 cfs.',
+      ],
+    },
+  },
   'cottonwood-river-juenemann-springfield': {
     putIn: {
       name: 'Juenemann Landing / County Road 2 public water access',
