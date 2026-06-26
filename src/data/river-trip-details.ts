@@ -15340,6 +15340,86 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+'green-river-roachville-american-legion': {
+    putIn: {
+      id: 'roachville-ford',
+      name: 'Roachville Ford',
+      latitude: 37.2353,
+      longitude: -85.4241,
+    },
+    takeOut: {
+      id: 'american-legion-park-ramp',
+      name: 'American Legion Park Ramp',
+      latitude: 37.2441,
+      longitude: -85.4795,
+    },
+    logistics: {
+      distanceLabel: 'About 8.9 mi',
+      estimatedPaddleTime:
+        'About 3.5 hr to 5.5 hr, longer with fishing stops, low water, or shoal scouting',
+      shuttle:
+        'Stage the take-out at American Legion Park first, then drive back to Roachville Ford. KDFWR says the south side of Roachville via Thunder Road makes the shorter shuttle approach, and American Legion is a muddier park landing than the mileage alone suggests.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and avoid blocking ford approaches or local park traffic.',
+      camping:
+        'Treat this as a day trip. No public route camping is documented between Roachville Ford and American Legion Park, and private banks should not be treated as legal overnight stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Roachville Ford and take out at American Legion Park for a fuller upper-Green float. Use the Greensburg gauge and expect the route to feel scrape-prone whenever the stage stays below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Roachville Ford is a low-water ford with limited roadside parking and may require brief carry or drag moves during very low flows.',
+        'American Legion Park uses a graded muddy and gravel bank below Highway 417 rather than a clean concrete city ramp. Save some energy for a messier finish.',
+        'Russell Ford lies on the corridor and can shorten the day if conditions or group energy change, but this route assumes the full Roachville-to-American-Legion combination.',
+        'KDFWR treats the named endpoints as public, but the banks between them are not general-use public parks. Stay with the named access points.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, sticky mud, and slower current become more likely.',
+        'High water above about 1.75 ft, when current along bends and landings gets faster and less forgiving.',
+        'Islands, chutes, bridge-adjacent current, anglers, broad-river wind, and fresh wood after rain.',
+        'Limited legal stopping options away from the named accesses and the temptation to use private banks on what feels like an easy rural float.',
+      ],
+    },
+  },
+'green-river-roachville-greensburg-city-ramp': {
+    putIn: {
+      id: 'roachville-ford',
+      name: 'Roachville Ford',
+      latitude: 37.2353,
+      longitude: -85.4241,
+    },
+    takeOut: {
+      id: 'greensburg-city-ramp',
+      name: 'Greensburg City Ramp',
+      latitude: 37.2581,
+      longitude: -85.5057,
+    },
+    logistics: {
+      distanceLabel: 'About 11.1 mi',
+      estimatedPaddleTime:
+        'About 4.5 hr to 7 hr, longer with low water, fishing stops, or slow loading at the city ramp',
+      shuttle:
+        'Stage the take-out at Greensburg City Ramp, then drive back to Roachville Ford. Use the south side of Roachville via Thunder Road for the shorter shuttle, and leave extra daylight because this full upper-Green day is noticeably longer than the split floats.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey city-park signage at Greensburg.',
+      camping:
+        'Greensburg supports endpoint overnights better than on-route camping. KDFWR says the city-ramp take-out sits in a park with cabins, nearby RV hookups, and shuttle help, but private banks between the accesses should not be treated as legal overnight stops.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Roachville Ford and continue to Greensburg City Ramp for the full upper-Green public float. Use the Greensburg gauge and expect a scrape-prone day whenever the river sits below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Roachville Ford is a low-water ford with limited roadside parking and may require brief carry or drag moves during very low flows.',
+        'Russell Ford and American Legion Park both lie on the corridor and can shorten the day if conditions or group energy change, but this route assumes the full Roachville-to-Greensburg float.',
+        'Greensburg City Ramp is the easiest landing in this family, but it still sits in a public city park with cabins, anglers, and other local users. Keep the ramp area clear and efficient.',
+        'KDFWR notes private-property concerns around Green River accesses. Use the named public accesses only and avoid treating intermediate banks as public.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, mud edges, and dragging become more likely.',
+        'High water above about 1.75 ft, when current at bends and landings becomes less forgiving for casual paddlers.',
+        'Bridge-adjacent current, anglers, woody debris after rain, and broad-river wind on exposed pools.',
+        'City-park activity at Greensburg and limited legal stopping options away from the named accesses.',
+      ],
+    },
+  },
 'green-river-greensburg-city-ramp-glenview-road': {
     putIn: {
       id: 'greensburg-city-ramp',
@@ -15537,6 +15617,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'High water above 600 cfs, when broad-river current, wood, and park landings become less forgiving.',
         'Fallen trees, fishing lines, open-river sun and wind, and fewer comfortable legal stop options away from public accesses.',
         'Fatigue, slower group pace, and late-day weather because this is substantially longer than the Wilson-to-Stovall segment alone.',
+      ],
+    },
+  },
+'green-river-rio-carrydown-dennison-ferry': {
+    putIn: {
+      id: 'rio-carrydown-access',
+      name: 'Rio Carrydown Access',
+      latitude: 37.3183,
+      longitude: -85.7692,
+    },
+    takeOut: {
+      id: 'dennison-ferry',
+      name: 'Dennison Ferry',
+      latitude: 37.2174,
+      longitude: -86.0493,
+    },
+    logistics: {
+      distanceLabel: 'About 33 mi',
+      estimatedPaddleTime:
+        'About 10 hr to 14 hr as a single push, longer in low water or with wind, fishing, or a slower group pace',
+      shuttle:
+        'Stage the take-out at Dennison Ferry in Mammoth Cave National Park, then drive back to Rio Carrydown Access. Build in extra road time, confirm park access before leaving vehicles, and do not treat this as a casual same-day plan unless the group is comfortable with a sunrise-to-sunset effort.',
+      permits:
+        'No permit is required for a same-day paddle, but this route finishes inside Mammoth Cave National Park. Follow Kentucky boating rules, park signs, and standard USCG PFD requirements, and do not assume improvised bankside camping is legal.',
+      camping:
+        'Treat this as overnight-capable only when you plan around real legal support. Stovall Park primitive camping sits on the corridor, but Dennison Ferry is day-use only and private banks farther downstream should not be treated as legal campsites.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Rio Carrydown Access and take out at Dennison Ferry for a very long Green River route linking Hart County and Mammoth Cave. Use the Munfordville gauge and expect a slower, more consequential outing whenever the discharge sits below KDFWR\'s 300 to 600 cfs good band.',
+      accessCaveats: [
+        'Rio is a carry-down-only access with unpaved parking and no amenities. Pack efficiently and avoid spreading gear onto adjacent private ground.',
+        'Stovall Park lies on the corridor and is the clearest legal overnight support if you break this route into two days. It is not the finish for this slug.',
+        'Dennison Ferry is day-use only and finishes with a carry-down and carry-up park access rather than a simple motorboat ramp. Save real energy for the take-out.',
+        'This route effectively combines the official Rio-to-Wilson, Wilson-to-Stovall, and Stovall-to-Dennison segments, so use the shorter Green River family routes instead if the group is not comfortable with a very long commitment.',
+      ],
+      watchFor: [
+        'Low water below 300 cfs, when this long route can become unreasonably slow for a same-day plan.',
+        'High water above 600 cfs, when broad-river current, debris, and the Mammoth Cave finish become less forgiving.',
+        'Fatigue, exposed sun, broad-river wind, limited bailout options, and reduced cell service closer to Mammoth Cave.',
+        'Slippery footing at Rio and Dennison, plus any fresh strainers or floating debris after rain.',
       ],
     },
   },

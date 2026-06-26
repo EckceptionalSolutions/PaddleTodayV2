@@ -46176,6 +46176,252 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: "green-river-roachville-american-legion",
+    slug: "green-river-roachville-american-legion",
+    name: "Green River",
+    reach: "Roachville Ford to American Legion Park Ramp",
+    aliases: [
+      "Green River - Roachville to American Legion Park",
+      "Upper Green Roachville to American Legion",
+      "KDFWR Upper Green Roachville Ford to American Legion Park Ramp",
+    ],
+    state: "Kentucky",
+    region: "South-Central Kentucky",
+    summary:
+      "Upper Green River combination from Roachville Ford to American Legion Park Ramp. KDFWR supports this public route by combining the official 6.6-mile Roachville-to-Russell segment with the official 2.3-mile Russell-to-American-Legion split, plus direct Greensburg stage guidance.",
+    statusText:
+      "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Below that expect more scraping and muddier landings; above that the broad river gets pushier and deserves extra caution at bends and take-outs.",
+    latitude: 37.2353,
+    longitude: -85.4241,
+    gaugeSource: {
+      id: "usgs-03306500",
+      provider: "usgs",
+      siteId: "03306500",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Green River at Greensburg, KY",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 1.0,
+      idealMax: 1.75,
+      tooLow: 1.0,
+      tooHigh: 1.75,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Green River at Greensburg",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This upper Green combination is usually most practical in spring through fall when the Greensburg stage is stable. Summer lows expose more shoals and sticky banks, while storms can raise current and broad-river wind effects quickly.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is still broad-audience Green River water, but the longer mileage, low-water shoals, muddy landings, private banks, and split-launch character make it more involved than the two shorter Greensburg segments alone.",
+      confidenceNotes:
+        "Confidence is high for a conservative Kentucky add: KDFWR's Upper Green article still lists Roachville Ford to Russell Ford as 6.6 miles and says the downstream Russell-to-Greensburg float can be split at American Legion Park, while the Pool 6 page separately lists Russell Ford to American Legion Park Ramp as 2.3 miles. Current KDFWR access-detail pages still expose coordinates and public availability for Roachville Ford and American Legion Park Ramp, and USGS Water Services returned a same-day June 26, 2026 stage value from direct gauge 03306500 during this run.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Roachville to American Legion, about 8.9 mi",
+        note: "KDFWR's Upper Green article lists Roachville Ford to Russell Ford as 6.6 miles, and the Pool 6 page lists Russell Ford to American Legion Park Ramp as 2.3 miles, supporting a combined public float of about 8.9 miles.",
+        sourceUrl: "https://fw.ky.gov/Education/Pages/Upper-Green-River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "1.0-1.75 ft good",
+        note: "KDFWR rates the Green River gauge at Greensburg as Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Roachville Ford, 37.2353, -85.4241",
+        note: "KDFWR identifies Roachville Ford as a free public ramp and ford access with year-round availability and limited roadside parking.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Roachville-Ford.aspx",
+      },
+      {
+        label: "Take-out access",
+        value: "American Legion Park Ramp, 37.2441, -85.4795",
+        note: "KDFWR identifies American Legion Park as a free single-lane unpaved ramp with year-round availability and ample unpaved parking.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=954",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03306500 at 0.82 ft",
+        note: "USGS Water Services returned a same-day June 26, 2026 gage-height reading for Green River at Greensburg during this run. That stage is below the KDFWR good band, so expect a lower, scrape-prone day.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Islands, chutes, shoals, and muddy park finish",
+        note: "KDFWR describes the Roachville-to-Russell section as featuring many islands and chutes, while the Russell-to-Greensburg family keeps shoals, deep pools, and the graded muddy American Legion landing.",
+        sourceUrl: "https://fw.ky.gov/Education/Pages/Upper-Green-River.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Upper Green River",
+        url: "https://fw.ky.gov/Education/Pages/Upper-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Roachville Ford",
+        url: "https://fw.ky.gov/Fish/Pages/Roachville-Ford.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR American Legion Park Ramp",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=954",
+        provider: "local",
+      },
+      {
+        label: "USGS 03306500 Green River at Greensburg",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03306500 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "green-river-roachville-greensburg-city-ramp",
+    slug: "green-river-roachville-greensburg-city-ramp",
+    name: "Green River",
+    reach: "Roachville Ford to Greensburg City Ramp",
+    aliases: [
+      "Green River - Roachville to Greensburg",
+      "Upper Green full Roachville to Greensburg float",
+      "KDFWR Upper Green Roachville Ford to Greensburg City Ramp",
+    ],
+    state: "Kentucky",
+    region: "South-Central Kentucky",
+    summary:
+      "Full upper Green River float from Roachville Ford to Greensburg City Ramp. KDFWR supports this public route by combining the official 6.6-mile Roachville-to-Russell segment with the official roughly 4.5-mile Russell-to-Greensburg float, plus direct Greensburg stage guidance.",
+    statusText:
+      "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Below that expect slower shoals and muddier banks; above that the broader current and city-ramp finish deserve more caution.",
+    latitude: 37.2353,
+    longitude: -85.4241,
+    gaugeSource: {
+      id: "usgs-03306500",
+      provider: "usgs",
+      siteId: "03306500",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Green River at Greensburg, KY",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 1.0,
+      idealMax: 1.75,
+      tooLow: 1.0,
+      tooHigh: 1.75,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Green River at Greensburg",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This upper Green combination is best in spring through fall when the Greensburg stage is stable. Summer can still work, but exposed shoals, slow pools, and sticky banks matter more across a longer day.",
+      difficulty: "easy",
+      difficultyNotes:
+        "The river itself is still a manageable Green River float, but the full 11.1-mile Roachville-to-Greensburg day asks more of shuttle planning, stamina, and broad-river awareness than the shorter upper-Green segments.",
+      confidenceNotes:
+        "Confidence is high for a conservative Kentucky add: KDFWR's Upper Green article still lists Roachville Ford to Russell Ford as 6.6 miles and Russell Ford to Greensburg as about four and one-half miles, while the Pool 6 page preserves the official Greensburg gauge ladder of Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft. Current KDFWR access-detail pages still expose coordinates and public availability for Roachville Ford and Greensburg City Ramp, and USGS Water Services returned a same-day June 26, 2026 stage value from direct gauge 03306500 during this run.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Roachville to Greensburg, about 11.1 mi",
+        note: "KDFWR's Upper Green article lists Roachville Ford to Russell Ford as 6.6 miles and Russell Ford to Greensburg as about four and one-half miles, supporting a combined public float of about 11.1 miles.",
+        sourceUrl: "https://fw.ky.gov/Education/Pages/Upper-Green-River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "1.0-1.75 ft good",
+        note: "KDFWR rates the Green River gauge at Greensburg as Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Roachville Ford, 37.2353, -85.4241",
+        note: "KDFWR identifies Roachville Ford as a free public ramp and ford access with year-round availability and limited roadside parking.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Roachville-Ford.aspx",
+      },
+      {
+        label: "Take-out access",
+        value: "Greensburg City Ramp, 37.2581, -85.5057",
+        note: "KDFWR identifies Greensburg City Ramp as a free paved city ramp with paved parking, year-round availability, and nearby cabins and RV hookups.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=953",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03306500 at 0.82 ft",
+        note: "USGS Water Services returned a same-day June 26, 2026 gage-height reading for Green River at Greensburg during this run. That stage is below the KDFWR good band, so expect a lower, scrape-prone day.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Islands, chutes, shoals, and city-ramp finish",
+        note: "KDFWR describes the upper Green family as islands and chutes above Russell Ford, then shoals, deep rocky pools, and a paved city-ramp finish in Greensburg with nearby overnight support.",
+        sourceUrl: "https://fw.ky.gov/Education/Pages/Upper-Green-River.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Upper Green River",
+        url: "https://fw.ky.gov/Education/Pages/Upper-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Roachville Ford",
+        url: "https://fw.ky.gov/Fish/Pages/Roachville-Ford.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Greensburg City Ramp",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=953",
+        provider: "local",
+      },
+      {
+        label: "USGS 03306500 Green River at Greensburg",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03306500 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
     id: "green-river-greensburg-city-ramp-glenview-road",
     slug: "green-river-greensburg-city-ramp-glenview-road",
     name: "Green River",
@@ -46764,6 +47010,144 @@ export const rivers: River[] = [
         label: "KDFWR Stovall Park Ramp",
         url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=241",
         provider: "local",
+      },
+      {
+        label: "USGS 03308500 Green River at Munfordville",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03308500/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03308500 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03308500&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "green-river-rio-carrydown-dennison-ferry",
+    slug: "green-river-rio-carrydown-dennison-ferry",
+    name: "Green River",
+    reach: "Rio Carrydown Access to Dennison Ferry Carrydown",
+    aliases: [
+      "Green River - Rio to Dennison Ferry",
+      "Hart County to Mammoth Cave from Rio",
+      "KDFWR Hart County and Pool 6 Rio to Dennison Ferry",
+    ],
+    state: "Kentucky",
+    region: "Hart County / Mammoth Cave",
+    summary:
+      "Very long Green River combination from Rio Carrydown Access to Dennison Ferry in Mammoth Cave National Park. KDFWR supports this public route by combining the official Rio-to-Wilson and Wilson-to-Stovall Hart County segments with the official 21-mile Stovall-to-Dennison Pool 6 run, plus direct Munfordville gauge guidance.",
+    statusText:
+      "Use the Green River at Munfordville gauge. KDFWR rates 300 to 600 cfs as good for boating and fishing. Below that expect a slower, more consequential all-day trip; above that the broad current, wood, and park carry-down finish deserve extra caution.",
+    latitude: 37.3183,
+    longitude: -85.7692,
+    gaugeSource: {
+      id: "usgs-03308500",
+      provider: "usgs",
+      siteId: "03308500",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Green River at Munfordville, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03308500/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 300,
+      idealMax: 600,
+      tooLow: 300,
+      tooHigh: 600,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Green River at Munfordville",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This very long Hart County to Mammoth Cave route is most practical in spring through fall when the Munfordville gauge is stable, weather is settled, and the group has either full daylight or an intentional overnight plan.",
+      difficulty: "hard",
+      difficultyNotes:
+        "This is still flatwater-style Green River paddling, but 33 miles, broad-river wind, private-bank limits, limited bailout options, and a day-use-only park finish make it a genuinely committed route rather than a casual day float.",
+      confidenceNotes:
+        "Confidence is good for a conservative Kentucky add: KDFWR's Hart County Green River article still lists Rio Carrydown Access to H.H. Wilson Park as 8 miles and H.H. Wilson Park to Stovall Park as 4 miles, while the Pool 6 page still lists Stovall Park Ramp to Dennison Ferry as 21.0 miles, which together support this roughly 33-mile public chain. Current KDFWR access-detail pages still expose coordinates and public availability for Rio, Stovall, and Dennison Ferry, the Pool 6 page preserves the official Munfordville discharge ladder of Low below 300 cfs, Good from 300 to 600 cfs, and High above 600 cfs, and USGS Water Services returned same-day June 26, 2026 values from direct gauge 03308500 during this run.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Rio to Dennison Ferry, about 33 mi",
+        note: "KDFWR's Hart County page lists Rio Carrydown Access to H.H. Wilson Park as 8 miles and H.H. Wilson Park to Stovall Park as 4 miles, while the Pool 6 page lists Stovall Park Ramp to Dennison Ferry as 21.0 miles, supporting a combined public float of about 33 miles.",
+        sourceUrl: "https://fw.ky.gov/Education/Pages/Green-River---Hart-County.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "300-600 cfs good",
+        note: "KDFWR rates the Green River gauge at Munfordville as Low below 300 cfs, Good from 300 to 600 cfs, and High above 600 cfs.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Rio Carrydown Access, 37.3183, -85.7692",
+        note: "KDFWR identifies Rio as a free carry-down access with unpaved parking, year-round availability, and no camping.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1171",
+      },
+      {
+        label: "Take-out access",
+        value: "Dennison Ferry Carrydown, 37.2174, -86.0493",
+        note: "KDFWR identifies Dennison Ferry as a free day-use-only carry-down access inside Mammoth Cave National Park with unpaved parking and no camping.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1015",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03308500 at 400 cfs / 2.88 ft",
+        note: "USGS Water Services returned same-day June 26, 2026 discharge and stage values for Green River at Munfordville during this run. The discharge sits inside the KDFWR good band.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03308500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Camping support",
+        value: "Stovall primitive camping on the corridor",
+        note: "KDFWR identifies Stovall Park as having primitive camping, restrooms, and park amenities, making it the clearest legal overnight support on this otherwise private-bank corridor.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=241",
+      },
+      {
+        label: "Route character",
+        value: "Bluffs, sandbars, broad pools, and park finish",
+        note: "KDFWR describes the Hart County Green River corridor as scenic and family-friendly with bluffs, islands, chutes, mild riffles, long deep holes, and sandbars, while Pool 6 adds the springs, caves, and Mammoth Cave park finish farther downstream.",
+        sourceUrl: "https://fw.ky.gov/Education/Pages/Green-River---Hart-County.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Green River Hart County",
+        url: "https://fw.ky.gov/Education/Pages/Green-River---Hart-County.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Rio Carrydown Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1171",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Stovall Park Ramp",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=241",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Dennison Ferry Carrydown",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1015",
+        provider: "local",
+      },
+      {
+        label: "NPS Canoeing, Kayaking and Boating",
+        url: "https://www.nps.gov/maca/planyourvisit/canoeing-kayaking-and-boating.htm",
+        provider: "nps",
       },
       {
         label: "USGS 03308500 Green River at Munfordville",
