@@ -726,6 +726,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
+  'kansas-river-junction-city-manhattan': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-junction-city-manhattan/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
   'kansas-river-ogden-manhattan': [
     {
       id: 'kansas-river-lawrence-commons',
@@ -736,10 +746,30 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
+  'kansas-river-ogden-st-george': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-ogden-st-george/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
   'kansas-river-manhattan-st-george': [
     {
       id: 'kansas-river-lawrence-commons',
       src: '/gallery/kansas-river-manhattan-st-george/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kansas-river-manhattan-wamego': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-manhattan-wamego/kansas-river-lawrence.jpg',
       alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
       caption: 'Kansas River corridor context',
       credit: 'Dicklyon via Wikimedia Commons',

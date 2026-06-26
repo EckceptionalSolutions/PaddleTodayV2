@@ -224,6 +224,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'kansas-river-junction-city-manhattan': {
+    putIn: {
+      name: 'Junction City Access Ramp / Grant Park',
+      latitude: 39.06029,
+      longitude: -96.80341,
+    },
+    takeOut: {
+      name: 'Manhattan K-177 / Fairmont Access Ramp',
+      latitude: 39.17428,
+      longitude: -96.55318,
+    },
+    logistics: {
+      distanceLabel: 'About 23 mi',
+      estimatedPaddleTime:
+        'About 7 hr to 10 hr, longer with low water, wind, sandbar stops, or time spent regrouping at the confluences',
+      shuttle:
+        'Stage the take-out at the Manhattan K-177 / Fairmont ramp first, then drive back to Grant Park in Junction City. Inspect both ramps before launching because this is a long committed day and the Manhattan landing can have a sandbar at the toe.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'This route is long enough that conservative overnight use may make more sense than a single push. Friends of the Kaw says you can camp on public sandbars between the high-water marks without a special permit, but private banks above that line are off-limits and sandbars become scarce above about 8,000 cfs.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch at Grant Park in Junction City and take out at the Manhattan K-177 / Fairmont ramp for a long upper-Kaw continuation. The app uses the downstream Wamego gauge as a same-river proxy and expects the current route score to stay conservative when the proxy sits above the broad Kansas comfort band.',
+      accessCaveats: [
+        'The Junction City ramp is on the Republican River, not directly on the Kansas River. The Kansas River begins about one-third mile downstream where the Republican and Smoky Hill meet.',
+        'The Manhattan K-177 / Fairmont ramp has limited parking and can have a sandbar at the toe, so inspect the landing angle before leaving the shuttle vehicle.',
+        'Stay with public ramps and legal sandbar stops between the high-water marks. The banks above the river are private property.',
+        'All access and parking are subject to same-day city, county, mud, silt, high-water cleanup, and event conditions.',
+      ],
+      watchFor: [
+        'Unusual currents at the Republican and Smoky Hill confluence near the start.',
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar navigation slow or technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, and bank hooks or fishing lines left in shoreline trees.',
+        'Private banks along the Kaw; do not plan on using them for rest, camping, or bailout access.',
+      ],
+    },
+  },
   'kansas-river-ogden-manhattan': {
     putIn: {
       name: 'Ogden Access Ramp',
@@ -261,6 +300,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'kansas-river-ogden-st-george': {
+    putIn: {
+      name: 'Ogden Access Ramp',
+      latitude: 39.10503,
+      longitude: -96.69633,
+    },
+    takeOut: {
+      name: 'St. George / Boggs Landing Access Ramp',
+      latitude: 39.18726,
+      longitude: -96.42202,
+    },
+    logistics: {
+      distanceLabel: 'About 26 mi',
+      estimatedPaddleTime:
+        'About 8 hr to 11 hr, longer with low water, wind, sandbar stops, or slow progress through the Manhattan corridor',
+      shuttle:
+        'Stage the take-out at St. George / Boggs Landing first, then drive back to Ogden. Inspect both ramps before launching because this is a long commitment and the Manhattan corridor in the middle can add fatigue before the final miles.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'This route is naturally long enough that conservative sandbar camping may make more sense than a single push. Friends of the Kaw says you can camp on public sandbars between the high-water marks without a special permit, but private banks above that line are off-limits and sandbars become scarce above about 8,000 cfs.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch at Ogden and take out at St. George / Boggs Landing for a full upper-Kaw continuation past Manhattan. The app uses the downstream Wamego gauge as a same-river proxy and treats this as a committed distance route rather than a casual day float.',
+      accessCaveats: [
+        'The Ogden ramp is straightforward, but same-day mud, sand, and trailer traffic still affect launch conditions.',
+        'The Manhattan K-177 / Fairmont ramp mid-corridor often has a sandbar at the toe, and nearby Blue River current can change when Tuttle Creek releases rise.',
+        'Stay with public ramps and legal sandbar stops between the high-water marks. The banks above the river are private property.',
+        'All access and parking are subject to same-day city, county, mud, silt, high-water cleanup, and event conditions.',
+      ],
+      watchFor: [
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar navigation slow or technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, and bank hooks or fishing lines left in shoreline trees.',
+        'Mid-route fatigue on an exposed prairie river where the mileage keeps adding up after Manhattan.',
+        'Private banks along the Kaw; do not plan on using them for rest, camping, or bailout access.',
+      ],
+    },
+  },
   'kansas-river-manhattan-st-george': {
     putIn: {
       name: 'Manhattan K-177 / Fairmont Access Ramp',
@@ -294,6 +372,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
         'Wind across open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
         'Private banks along the Kaw; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
+      ],
+    },
+  },
+  'kansas-river-manhattan-wamego': {
+    putIn: {
+      name: 'Manhattan K-177 / Fairmont Access Ramp',
+      latitude: 39.17428,
+      longitude: -96.55318,
+    },
+    takeOut: {
+      name: 'Wamego Access Ramp',
+      latitude: 39.19828,
+      longitude: -96.30537,
+    },
+    logistics: {
+      distanceLabel: 'About 20.5 mi',
+      estimatedPaddleTime:
+        'About 6.5 hr to 9 hr, longer with low water, wind, sandbar stops, or the bridge-area turn into Wamego',
+      shuttle:
+        'Stage the take-out at the Wamego ramp beneath the K-99 bridge first, then drive back to the Manhattan K-177 / Fairmont access. Inspect the Wamego landing before launching because the approach can require passing under the bridge and turning upstream along the bank.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'This is a long enough route that conservative sandbar camping may make more sense than a single push. Friends of the Kaw says you can camp on public sandbars between the high-water marks without a special permit, but private banks above that line are off-limits and sandbars become scarce above about 8,000 cfs.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch below the K-177 bridge in Manhattan and take out at Wamego for a long upper-Kaw continuation through St. George. The Wamego USGS gauge is direct for this route, but the app still treats the broad Kansas River thresholds conservatively.',
+      accessCaveats: [
+        'The Manhattan K-177 / Fairmont ramp has limited parking and nearby Blue River current can change when Tuttle Creek releases rise.',
+        'At Wamego, Friends of the Kaw says it is often advisable to pass under the K-99 bridge and turn upstream next to the bank to reach the ramp.',
+        'Stay with public ramps and legal sandbar stops between the high-water marks. The banks above the river are private property.',
+        'All access and parking are subject to same-day city, county, mud, silt, high-water cleanup, and event conditions.',
+      ],
+      watchFor: [
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar navigation slow or technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, and bank hooks or fishing lines left in shoreline trees.',
+        'The final bridge-area approach into Wamego, where the safest line may include passing under K-99 and turning upstream along the bank.',
+        'Private banks along the Kaw; do not plan on using them for rest, camping, or bailout access.',
       ],
     },
   },

@@ -19429,6 +19429,154 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'kansas-river-junction-city-manhattan',
+    slug: 'kansas-river-junction-city-manhattan',
+    name: 'Kansas River',
+    reach: 'Junction City / Grant Park to Manhattan K-177 / Fairmont',
+    aliases: [
+      'Kaw River - Junction City to Manhattan',
+      'Kansas River - Junction City Access Ramp to Manhattan Fairmont',
+      'Junction City Access Ramp / Grant Park to Manhattan K-177 Bridge/Fairmont Access Ramp',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Long upper-Kaw continuation from the Republican River launch at Junction City to the Manhattan K-177 / Fairmont ramp. Friends of the Kaw documents the public access chain, confluence current caveat, and the combined downstream mileage, while the Wamego gauge remains the closest defensible same-river discharge proxy.',
+    statusText:
+      'Use the downstream Kansas River at Wamego gauge as a proxy check. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect slow channel picking and exposed sandbars, while above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+    latitude: 39.06029,
+    longitude: -96.80341,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        'This is a very long upper-Kaw day with wind, shifting sandbars, and few easy legal exits away from the named ramps.',
+        'Watch the Republican and Smoky Hill confluence line near the start and reassess if current, visibility, or group spacing feels off.',
+        'Stay with public ramps and legal sandbar stops between the high-water marks; do not use private banks as planned rest or bailout points.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-06887500',
+      provider: 'usgs',
+      siteId: '06887500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Kansas River at Wamego, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.85,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. This route is naturally long enough to work better as an experienced endurance day or a conservative overnight when sandbars are exposed and weather is stable.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The combined distance is roughly 23 miles before wind, current, or low-water channel picking slow the day further. Treat it as a committed big-river route rather than a casual float.',
+      confidenceNotes:
+        'Confidence is high for access and route shape: Friends of the Kaw documents Junction City at river mile 173, Manhattan at river mile 150.7, both GPS coordinates, the little-over-9-mile Junction-to-Ogden spacing, and the about-14-mile Ogden-to-Manhattan spacing. Confidence is moderate for scoring because the route still relies on the downstream Wamego gauge as a same-river proxy rather than a direct discharge gauge in the immediate corridor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Junction City / Grant Park, RM 173',
+        note: 'Friends of the Kaw lists Junction City Access Ramp in Grant Park with GPS 39.06029, -96.80341 on the Republican River about one-third mile above the Smoky Hill confluence where the Kansas River begins.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-173-junction-city-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Manhattan K-177 / Fairmont, RM 150.7',
+        note: 'Friends of the Kaw lists the Manhattan K-177 / Fairmont ramp below the K-177 bridge with GPS 39.17428, -96.55318 and public parking at the take-out.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-149-manhattan-access-ramp/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 23 mi',
+        note: 'Friends of the Kaw says Junction City to Ogden is a little over 9 miles and Ogden to Manhattan is about 14 miles, which supports this longer combined public route.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-173-junction-city-access-ramp/',
+      },
+      {
+        label: 'Direct live proxy reading',
+        value: 'Wamego gauge 18,800 cfs / 10.60 ft',
+        note: 'USGS Water Services returned 18,800 cfs and 10.60 ft at 2026-06-26 11:30 CDT for Kansas River at Wamego, the downstream same-river proxy used for this route.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06887500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Flow safety bands',
+        value: '1,000 / 1,500-5,000 / 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and everyone else below 8,000 cfs, while USACE recreation guidance supports the difficult-below-1,000 and no-impact 1,500-5,000 calibration.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Confluence and release caveats',
+        value: 'Republican/Smoky Hill line plus Big Blue context',
+        note: 'The Junction City page warns about unusual currents where the Republican meets the Smoky Hill, and the Manhattan page warns that nearby Blue River access can be affected when Tuttle Creek releases exceed 500 cfs.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-149-manhattan-access-ramp/',
+      },
+      {
+        label: 'Camping support',
+        value: 'Public sandbar camping between high-water marks',
+        note: 'Friends of the Kaw says the Kansas River is public, sandbar camping is allowed without a special permit, and private banks above the high-water mark remain off-limits.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/camping/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Junction City access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-173-junction-city-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Ogden access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-163-5-ogden-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Manhattan K-177 / Fairmont access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-149-manhattan-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw camping on the Kaw',
+        url: 'https://kansasriver.org/paddle-and-fish/camping/',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06887500 Kansas River at Wamego',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'kansas-river-ogden-manhattan',
     slug: 'kansas-river-ogden-manhattan',
     name: 'Kansas River',
@@ -19563,6 +19711,154 @@ export const rivers: River[] = [
       },
       {
         label: 'USGS Kansas River at Wamego',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-ogden-st-george',
+    slug: 'kansas-river-ogden-st-george',
+    name: 'Kansas River',
+    reach: 'Ogden to St. George / Boggs Landing',
+    aliases: [
+      'Kaw River - Ogden to St. George',
+      'Kansas River - Ogden Access Ramp to Boggs Landing',
+      'Ogden Access Ramp to St. George / Boggs Landing Access Ramp',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Long upper-Kaw continuation from Ogden to St. George / Boggs Landing. Friends of the Kaw documents the public access chain through Manhattan, and the Wamego gauge remains the closest defensible same-river discharge proxy for the full combined reach.',
+    statusText:
+      'Use the downstream Kansas River at Wamego gauge as a proxy check. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect slow sandbar picking, while above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+    latitude: 39.10503,
+    longitude: -96.69633,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        'This is a long exposed upper-Kaw route with wind, shifting sandbars, and few clean legal exits except the named ramps.',
+        'The Manhattan K-177 ramp often has a sandbar at the toe, and nearby Blue River current can change when Tuttle Creek releases rise.',
+        'Stay with public ramps and legal sandbar stops between the high-water marks; do not plan on private banks for rest, camping, or take-out use.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-06887500',
+      provider: 'usgs',
+      siteId: '06887500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Kansas River at Wamego, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.85,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. This 26-mile continuation is more naturally an experienced endurance day or a conservative overnight when sandbars are exposed and weather is stable.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The combined distance is about 26 miles, long enough that wind, low-water channel changes, and fatigue become core trip-planning concerns even without a dam in the route.',
+      confidenceNotes:
+        'Confidence is high for access and route shape: Friends of the Kaw documents Ogden at river mile 163.4, St. George at river mile 137, and the intermediate Manhattan spacing that supports the full combined reach. Confidence is moderate for scoring because the route still depends on the downstream Wamego gauge rather than a direct discharge station in the middle of the corridor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Ogden Access Ramp, RM 163.4',
+        note: 'Friends of the Kaw lists the Ogden ramp with GPS 39.10503, -96.69633, river-left access, trailer parking, and public amenities.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-163-5-ogden-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'St. George / Boggs Landing, RM 137',
+        note: 'Friends of the Kaw lists St. George / Boggs Landing with GPS 39.18726, -96.42202, river-left access, public parking, and strong town amenities.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 26 mi',
+        note: 'Friends of the Kaw says Ogden to Manhattan is about 14 miles and Manhattan to St. George is 12 miles, which supports this longer combined public route.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-163-5-ogden-access-ramp/',
+      },
+      {
+        label: 'Direct live proxy reading',
+        value: 'Wamego gauge 18,800 cfs / 10.60 ft',
+        note: 'USGS Water Services returned 18,800 cfs and 10.60 ft at 2026-06-26 11:30 CDT for Kansas River at Wamego, the downstream same-river proxy used for this route.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06887500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Flow safety bands',
+        value: '1,000 / 1,500-5,000 / 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and everyone else below 8,000 cfs, while USACE recreation guidance supports the difficult-below-1,000 and no-impact 1,500-5,000 calibration.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Mid-route caveats',
+        value: 'Manhattan sandbar and Blue River release context',
+        note: 'The Ogden page warns of a sandbar at the toe of the Manhattan ramp, and the Manhattan page warns the nearby Blue River variation can be difficult when Tuttle Creek releases exceed 500 cfs.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-149-manhattan-access-ramp/',
+      },
+      {
+        label: 'Camping support',
+        value: 'Public sandbar camping between high-water marks',
+        note: 'Friends of the Kaw says the Kansas River is public, sandbar camping is allowed without a special permit, and private banks above the high-water mark remain off-limits.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/camping/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Ogden access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-163-5-ogden-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Manhattan K-177 / Fairmont access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-149-manhattan-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw St. George / Boggs Landing access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw camping on the Kaw',
+        url: 'https://kansasriver.org/paddle-and-fish/camping/',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06887500 Kansas River at Wamego',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
         provider: 'usgs',
       },
@@ -19709,6 +20005,154 @@ export const rivers: River[] = [
       {
         label: 'USGS 06879820 Kansas River at Manhattan',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06879820/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-manhattan-wamego',
+    slug: 'kansas-river-manhattan-wamego',
+    name: 'Kansas River',
+    reach: 'Manhattan K-177 / Fairmont to Wamego',
+    aliases: [
+      'Kaw River - Manhattan to Wamego',
+      'Kansas River - Manhattan Fairmont to Wamego',
+      'Manhattan K-177 / Fairmont Access Ramp to Wamego Access Ramp',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Long upper-Kaw continuation from Manhattan to Wamego. Friends of the Kaw documents the public access chain through St. George, and the Wamego gauge sits at the take-out town for a direct same-day level check.',
+    statusText:
+      'Use the Kansas River at Wamego gauge. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect slow sandbar picking, while above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+    latitude: 39.17428,
+    longitude: -96.55318,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        'This is a long exposed upper-Kaw route with wind, shifting sandbars, and few clean legal exits except the named ramps.',
+        'Check Tuttle Creek and Blue River release context before launching, and scout the bridge-area approach into Wamego if the current is pushy.',
+        'Stay with public ramps and legal sandbar stops between the high-water marks; do not use private banks as planned rest or bailout points.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-06887500',
+      provider: 'usgs',
+      siteId: '06887500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Kansas River at Wamego, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.8,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. This 20.5-mile continuation is a long day or conservative overnight when sandbars are exposed and weather is stable.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The combined distance is roughly 20.5 miles, long enough that wind, current, and low-water channel changes become the main trip-planning problem even though the gauge is direct at the finish corridor.',
+      confidenceNotes:
+        'Confidence is high for access, gauge placement, and route shape: Friends of the Kaw documents Manhattan at river mile 150.7, Wamego at river mile 128.5, and the intermediate St. George spacing that supports the full combined reach. Confidence is moderate for scoring because the level bands are still broad Kansas River guidance rather than a route-specific ladder.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Manhattan K-177 / Fairmont, RM 150.7',
+        note: 'Friends of the Kaw lists the Manhattan K-177 / Fairmont ramp below the K-177 bridge with GPS 39.17428, -96.55318 and public parking at the put-in.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-149-manhattan-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Wamego Access Ramp, RM 128.5',
+        note: 'Friends of the Kaw lists the Wamego ramp beneath the K-99 bridge with GPS 39.19828, -96.30537 and public access directly at the take-out town.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-128-wamego-access-ramp/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 20.5 mi',
+        note: 'Friends of the Kaw says Manhattan to St. George is 12 miles and St. George to Wamego is 8.5 miles, which supports this longer combined public route.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-149-manhattan-access-ramp/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'Wamego gauge 18,800 cfs / 10.60 ft',
+        note: 'USGS Water Services returned 18,800 cfs and 10.60 ft at 2026-06-26 11:30 CDT for Kansas River at Wamego, the direct same-river gauge used for this route.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06887500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Flow safety bands',
+        value: '1,000 / 1,500-5,000 / 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and everyone else below 8,000 cfs, while USACE recreation guidance supports the difficult-below-1,000 and no-impact 1,500-5,000 calibration.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Approach caveats',
+        value: 'Blue River context and Wamego bridge turn',
+        note: 'The Manhattan page warns that the nearby Blue River variation can be difficult when Tuttle Creek releases exceed 500 cfs, and the St. George and Wamego pages say approaching the Wamego ramp from the west often requires passing under K-99 and turning upstream along the bank.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-128-wamego-access-ramp/',
+      },
+      {
+        label: 'Camping support',
+        value: 'Public sandbar camping between high-water marks',
+        note: 'Friends of the Kaw says the Kansas River is public, sandbar camping is allowed without a special permit, and private banks above the high-water mark remain off-limits.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/camping/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Manhattan K-177 / Fairmont access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-149-manhattan-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw St. George / Boggs Landing access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Wamego access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-128-wamego-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw camping on the Kaw',
+        url: 'https://kansasriver.org/paddle-and-fish/camping/',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06887500 Kansas River at Wamego',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
         provider: 'usgs',
       },
     ],
