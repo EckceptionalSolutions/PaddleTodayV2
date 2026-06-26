@@ -1,13 +1,19 @@
-import type { RiverSummaryApiItem, WeekendSummaryApiItem } from '@paddletoday/api-contract';
+import type { RiverDetailApiResult, RiverSummaryApiItem, WeekendSummaryApiItem } from '@paddletoday/api-contract';
+import { normalizeApiText } from './format';
 import { formatTravelTime } from './location';
 
-type FactRiver = RiverSummaryApiItem['river'] | WeekendSummaryApiItem['river'];
+type FactRiver = RiverSummaryApiItem['river'] | WeekendSummaryApiItem['river'] | RiverDetailApiResult['river'];
 
 interface RouteFactOptions {
   travelMinutes?: number | null;
   includePaddleTime?: boolean;
   includeNoCamping?: boolean;
   campingAvailableLabel?: string;
+}
+
+interface RoutePreviewFactOptions extends RouteFactOptions {
+  driveDistanceLabel?: string | null;
+  maxItems?: number;
 }
 
 export function routeFactItems(river: FactRiver, options: RouteFactOptions = {}) {
@@ -24,12 +30,34 @@ export function routeFactLine(river: FactRiver, options: RouteFactOptions = {}) 
   return routeFactItems(river, options).slice(0, 3).join(' - ');
 }
 
+export function routePreviewFactItems(river: FactRiver, options: RoutePreviewFactOptions = {}) {
+  const maxItems = options.maxItems ?? 3;
+  const facts = [
+    ...routeFactItems(river, {
+      ...options,
+      includePaddleTime: options.includePaddleTime ?? true,
+    }),
+    options.driveDistanceLabel,
+  ].filter(Boolean) as string[];
+
+  return uniqueFacts(facts).slice(0, maxItems);
+}
+
+export function routePreviewFactLine(river: FactRiver, options: RoutePreviewFactOptions = {}) {
+  return routePreviewFactItems(river, options).join(' - ');
+}
+
+export function routeDecisionLine(rating: string, explanation: string | null | undefined) {
+  return `${rating}: ${normalizeApiText(explanation)}`;
+}
+
 function travelFact(minutes: number | null | undefined) {
   return typeof minutes === 'number' && Number.isFinite(minutes) ? formatTravelTime(minutes) : null;
 }
 
 function difficultyFact(river: FactRiver) {
-  return river.difficulty ? `${capitalize(river.difficulty)} difficulty` : null;
+  const difficulty = 'difficulty' in river ? river.difficulty : river.profile.difficulty;
+  return difficulty ? `${capitalize(difficulty)} difficulty` : null;
 }
 
 function campingFact(river: FactRiver, options: RouteFactOptions) {
@@ -48,4 +76,14 @@ function campingFact(river: FactRiver, options: RouteFactOptions) {
 
 function capitalize(value: string) {
   return value.slice(0, 1).toUpperCase() + value.slice(1);
+}
+
+function uniqueFacts(facts: string[]) {
+  const seen = new Set<string>();
+  return facts.filter((fact) => {
+    const key = fact.trim().toLowerCase();
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }

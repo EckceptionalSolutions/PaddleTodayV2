@@ -28,7 +28,6 @@ import {
 import { RoutePlotMap, type RoutePlotMapHandle, type RoutePlotPoint } from '../components/route-plot-map';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { resolveApiBaseUrl } from '../lib/api-base-url';
-import { formatRelativeTime } from '../lib/format';
 import { distanceMiles, distancePenalty, formatTravelTime } from '../lib/location';
 import {
   descriptionForExploreIntent,
@@ -243,7 +242,6 @@ export default function ExploreScreen() {
       <FullScreenExploreMap
         activeFilterCount={activeFilterCount}
         filters={filters}
-        generatedAt={summaryQuery.data?.generatedAt}
         requestedIntent={requestedIntent}
         mapHeight={windowHeight}
         results={results}
@@ -261,7 +259,6 @@ export default function ExploreScreen() {
         }}
         onOpenRiverRoutes={openExploreRiverRoutes}
         onOpenRoute={(route) => router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug } })}
-        onRefresh={() => summaryQuery.refetch()}
         onClearIntent={() => {
           setFilters(defaultFilters);
           setDraftFilters(defaultFilters);
@@ -314,7 +311,6 @@ export default function ExploreScreen() {
 function FullScreenExploreMap({
   activeFilterCount,
   filters,
-  generatedAt,
   requestedIntent,
   mapHeight,
   results,
@@ -330,7 +326,6 @@ function FullScreenExploreMap({
   onContributePhotos,
   onOpenRiverRoutes,
   onOpenRoute,
-  onRefresh,
   onClearIntent,
   onSearchChange,
   onSelectSlug,
@@ -340,7 +335,6 @@ function FullScreenExploreMap({
 }: {
   activeFilterCount: number;
   filters: ExploreFilters;
-  generatedAt?: string;
   requestedIntent: ExploreIntentId | null;
   mapHeight: number;
   results: ExploreRiver[];
@@ -356,7 +350,6 @@ function FullScreenExploreMap({
   onContributePhotos: (slug: string) => void;
   onOpenRiverRoutes: (route: ExploreRiver) => void;
   onOpenRoute: (route: ExploreRiver) => void;
-  onRefresh: () => void;
   onClearIntent: () => void;
   onSearchChange: (query: string) => void;
   onSelectSlug: (slug: string) => void;
@@ -458,17 +451,15 @@ function FullScreenExploreMap({
               </View>
             ) : null}
           </Pressable>
-          <Pressable
+          <View
             style={styles.mapStatusChip}
-            onPress={onRefresh}
-            accessibilityRole="button"
-            accessibilityLabel={`Refresh route map. ${results.length} routes, updated ${compactUpdatedLabel(generatedAt)}`}
+            accessibilityRole="text"
+            accessibilityLabel={`${results.length} routes`}
           >
             <Text style={styles.mapStatusChipText} numberOfLines={1}>
-              {results.length} routes - {compactUpdatedLabel(generatedAt)}
+              {results.length} routes
             </Text>
-            <MaterialCommunityIcons name="refresh" color={colors.accent} size={16} />
-          </Pressable>
+          </View>
         </View>
         {intentBanner ? (
           <View style={styles.intentBanner}>
@@ -582,7 +573,10 @@ function useExploreMapPoints(results: ExploreRiver[], routeCounts: ReadonlyMap<s
           longitude: river.river.longitude,
           score: river.score,
           rating: river.rating,
-          meta: [river.river.reach, river.travelLabel, routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - '),
+          routeCount,
+          meta: [routeCount > 1 ? `${routeCount} route options` : '1 route', river.travelLabel ? `${river.travelLabel} drive` : null]
+            .filter(Boolean)
+            .join(' - '),
         };
       }),
     [results, routeCounts]
@@ -709,10 +703,6 @@ function estimateDriveMinutes(miles: number) {
 
 function nullableNumber(value: number | null) {
   return typeof value === 'number' && Number.isFinite(value) ? value : Number.POSITIVE_INFINITY;
-}
-
-function compactUpdatedLabel(value: string | undefined) {
-  return formatRelativeTime(value).replace(/^Updated\s+/i, '');
 }
 
 function errorDetailForExploreQuery(error: unknown) {

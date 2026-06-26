@@ -2,7 +2,7 @@ import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
 import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
 import { normalizeApiText } from '../lib/format';
 import { routePhotoForRiver } from '../lib/route-photos';
-import { routeFactItems } from '../lib/route-facts';
+import { routeDecisionLine, routePreviewFactItems } from '../lib/route-facts';
 import { colors, radius, spacing } from '../theme/tokens';
 import { RatingPill } from './rating-pill';
 import { SaveToggleButton } from './save-toggle-button';
@@ -22,8 +22,7 @@ export function RiverCard({
   onToggleSaved?: () => void;
   onPress: () => void;
 }) {
-  const facts = routeFactItems(river.river, {
-    includePaddleTime: true,
+  const facts = routePreviewFactItems(river.river, {
     includeNoCamping: true,
   }).filter((fact) => fact !== river.summary.gaugeNow);
   const showDataWarning = river.liveData.overall !== 'live';
@@ -46,7 +45,7 @@ export function RiverCard({
             </View>
           </View>
           <Text style={styles.reach}>{river.river.reach}</Text>
-          <Text style={styles.explanation}>{normalizeApiText(river.summary.shortExplanation)}</Text>
+          <Text style={styles.explanation}>{routeDecisionLine(river.rating, river.summary.shortExplanation)}</Text>
         </View>
       </View>
 

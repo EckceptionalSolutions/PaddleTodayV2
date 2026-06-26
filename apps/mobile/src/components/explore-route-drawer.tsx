@@ -3,9 +3,8 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import type { Dispatch, SetStateAction } from 'react';
 import { useEffect, useMemo, useRef } from 'react';
 import { Animated, Linking, PanResponder, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
-import { normalizeApiText } from '../lib/format';
 import { mapUrlForAccessPoint } from '../lib/maps';
-import { routeFactLine } from '../lib/route-facts';
+import { routeDecisionLine, routePreviewFactLine } from '../lib/route-facts';
 import { RoutePhotoCard } from './route-photo-card';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -129,6 +128,23 @@ export function ExploreRouteDrawer({
           <Text style={styles.mapPreviewReason}>
             {drawerDecisionLine(selectedRiver)}
           </Text>
+          <View style={styles.drawerDetailGrid}>
+            <DrawerDetailItem
+              icon="map-marker-distance"
+              label="Distance"
+              value={selectedRiver.river.distanceLabel || 'Unknown'}
+            />
+            <DrawerDetailItem
+              icon="clock-outline"
+              label="Paddle time"
+              value={selectedRiver.river.estimatedPaddleTime || 'Unknown'}
+            />
+            <DrawerDetailItem
+              icon="waves"
+              label="Difficulty"
+              value={capitalize(selectedRiver.river.difficulty)}
+            />
+          </View>
           <View style={styles.conditionChipRow}>
             {drawerConditionItems(selectedRiver).map((item) => (
               <View key={item.label} style={styles.conditionChip}>
@@ -159,6 +175,24 @@ export function ExploreRouteDrawer({
         </Text>
       )}
     </Animated.View>
+  );
+}
+
+function DrawerDetailItem({
+  icon,
+  label,
+  value,
+}: {
+  icon: keyof typeof MaterialCommunityIcons.glyphMap;
+  label: string;
+  value: string;
+}) {
+  return (
+    <View style={styles.drawerDetailItem}>
+      <MaterialCommunityIcons name={icon} color={colors.accent} size={16} />
+      <Text style={styles.drawerDetailLabel}>{label}</Text>
+      <Text style={styles.drawerDetailValue} numberOfLines={2}>{value}</Text>
+    </View>
   );
 }
 
@@ -260,8 +294,7 @@ function clampSheetHeight(height: number, maxSheetHeight: number) {
 }
 
 function drawerFactLine(river: ExploreDrawerRiver) {
-  const base = routeFactLine(river.river, {
-    includePaddleTime: true,
+  const base = routePreviewFactLine(river.river, {
     includeNoCamping: true,
   });
 
@@ -273,16 +306,18 @@ function drawerFactLine(river: ExploreDrawerRiver) {
 }
 
 function drawerDecisionLine(river: ExploreDrawerRiver) {
-  return `${river.rating}: ${normalizeApiText(river.summary.shortExplanation)}`;
+  return routeDecisionLine(river.rating, river.summary.shortExplanation);
 }
 
 function drawerConditionItems(river: ExploreDrawerRiver) {
   return [
-    { label: 'Gauge', value: normalizeApiText(river.gaugeBandLabel) },
-    { label: 'Confidence', value: river.confidence.label },
-    { label: 'Data', value: river.liveData.overall === 'live' ? 'Live' : normalizeApiText(river.liveData.overall) },
+    { label: 'Gauge', value: river.gaugeBandLabel },
     { label: 'Drive', value: river.travelLabel ?? river.river.region },
   ];
+}
+
+function capitalize(value: string) {
+  return value.slice(0, 1).toUpperCase() + value.slice(1);
 }
 
 const styles = StyleSheet.create({
@@ -462,6 +497,32 @@ const styles = StyleSheet.create({
   drawerContent: {
     gap: spacing.sm,
     paddingBottom: spacing.lg,
+  },
+  drawerDetailGrid: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  drawerDetailItem: {
+    flex: 1,
+    minHeight: 76,
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    padding: spacing.sm,
+    justifyContent: 'center',
+    gap: 3,
+  },
+  drawerDetailLabel: {
+    color: colors.textMuted,
+    fontSize: 9,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.25,
+  },
+  drawerDetailValue: {
+    color: colors.text,
+    fontSize: 12,
+    lineHeight: 16,
+    fontWeight: '900',
   },
   drawerCompareButton: {
     minHeight: 40,

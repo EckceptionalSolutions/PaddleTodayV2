@@ -12,6 +12,7 @@ export interface RoutePlotPoint {
   score?: number | null;
   rating?: string | null;
   meta?: string | null;
+  routeCount?: number | null;
 }
 
 export interface RoutePlotMapHandle {
@@ -95,6 +96,17 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
               accessibilityLabel={`${point.label}${point.score ? `, score ${point.score}` : ''}`}
             >
               {selected ? <View style={styles.markerSelectedRing} /> : null}
+              {isMultiRoutePoint(point) ? (
+                <View
+                  style={[
+                    styles.markerBackplate,
+                    showScore ? styles.scoreMarkerBackplate : styles.dotMarkerBackplate,
+                    dimmed ? styles.markerDimmed : null,
+                    toneForRating(point.rating),
+                    selected ? styles.markerSelectedTone : null,
+                  ]}
+                />
+              ) : null}
               <View
                 style={[
                   showScore ? styles.marker : styles.dotMarker,
@@ -246,6 +258,10 @@ function toneForRating(rating: string | null | undefined) {
   }
 
   return { backgroundColor: colors.noGo };
+}
+
+function isMultiRoutePoint(point: RoutePlotPoint) {
+  return typeof point.routeCount === 'number' && point.routeCount > 1;
 }
 
 const styles = StyleSheet.create({
@@ -476,6 +492,23 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 2,
     borderColor: colors.surfaceStrong,
+  },
+  markerBackplate: {
+    position: 'absolute',
+    borderWidth: 2,
+    borderColor: colors.surfaceStrong,
+    opacity: 0.72,
+    transform: [{ translateX: 7 }, { translateY: -6 }],
+  },
+  scoreMarkerBackplate: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+  },
+  dotMarkerBackplate: {
+    width: 16,
+    height: 16,
+    borderRadius: 8,
   },
   markerText: {
     color: colors.surfaceStrong,

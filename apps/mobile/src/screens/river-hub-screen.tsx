@@ -10,6 +10,7 @@ import { SectionCard } from '../components/section-card';
 import { StatusPill } from '../components/status-pill';
 import { formatRelativeTime, normalizeApiText, verdictForRating } from '../lib/format';
 import { photoForRiver } from '../lib/route-photos';
+import { routePreviewFactLine } from '../lib/route-facts';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, shadow, spacing } from '../theme/tokens';
 
@@ -429,7 +430,7 @@ function routePlanningStats(routes: RiverDetailApiResult[]) {
 
 function sortIcon(sortMode: SortMode) {
   if (sortMode === 'Shortest') return 'map-marker-distance';
-  if (sortMode === 'Easiest') return 'paddle';
+  if (sortMode === 'Easiest') return 'waves';
   if (sortMode === 'Confidence') return 'shield-check-outline';
   return 'star-outline';
 }
@@ -446,24 +447,8 @@ function compactUpdatedLabel(value: string | undefined) {
   return formatRelativeTime(value).replace(/^Updated\s+/i, '');
 }
 
-function compactPaddleTime(value: string) {
-  if (!value) return 'Unknown';
-  return value
-    .replace(/^About\s+/i, '')
-    .replace(/roughly\s+/i, '')
-    .replace(/\s+depending.*$/i, '')
-    .replace(/\s+longer.*$/i, '')
-    .replace(/\s+hr\b/gi, 'h')
-    .replace(/\s+min\b/gi, 'm')
-    .replace(/\s+to\s+/gi, '-')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
 function routeMetaLine(route: RiverDetailApiResult) {
-  return [route.river.distanceLabel, compactPaddleTime(route.river.estimatedPaddleTime), capitalize(route.river.profile.difficulty)]
-    .filter(Boolean)
-    .join(' - ');
+  return routePreviewFactLine(route.river);
 }
 
 function scoreBreakdownRows(breakdown: ScoreBreakdown) {
@@ -533,10 +518,6 @@ function toneScoreBox(rating: RiverDetailApiResult['rating']) {
   }
 
   return { backgroundColor: '#F0DDD3' };
-}
-
-function capitalize(value: string) {
-  return value.slice(0, 1).toUpperCase() + value.slice(1);
 }
 
 const styles = StyleSheet.create({

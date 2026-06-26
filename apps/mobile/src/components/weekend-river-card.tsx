@@ -1,7 +1,7 @@
 import type { WeekendSummaryApiItem } from '@paddletoday/api-contract';
 import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
 import { normalizeApiText } from '../lib/format';
-import { routeFactItems } from '../lib/route-facts';
+import { routePreviewFactItems } from '../lib/route-facts';
 import { photoForRiver } from '../lib/route-photos';
 import { colors, radius, spacing } from '../theme/tokens';
 import { RatingPill } from './rating-pill';
@@ -212,8 +212,8 @@ const styles = StyleSheet.create({
 });
 
 function weekendFactItems(river: WeekendSummaryApiItem, travelLabel?: string | null) {
-  const facts = routeFactItems(river.river, { includePaddleTime: true });
-  return travelLabel ? [travelLabel, ...facts].slice(0, 4) : facts;
+  const facts = routePreviewFactItems(river.river, { maxItems: travelLabel ? 3 : 4 });
+  return travelLabel ? [travelLabel, ...facts] : facts;
 }
 
 function planRiskLabel(river: WeekendSummaryApiItem) {
