@@ -139,7 +139,7 @@ export function ExploreRouteDrawer({
           <MaterialCommunityIcons name={sheetSnap === 'full' ? 'chevron-down' : 'chevron-up'} color={colors.text} size={21} />
         </Pressable>
       </View>
-      {expanded ? (
+      {full ? (
         <ScrollView
           style={styles.drawerContentScroll}
           showsVerticalScrollIndicator={false}
@@ -189,6 +189,10 @@ export function ExploreRouteDrawer({
             <Text style={styles.selectedNoteText}>{drawerFactLine(selectedRiver)}</Text>
           </View>
         </ScrollView>
+      ) : expanded ? (
+        <Text style={styles.mapPreviewReason} numberOfLines={2}>
+          {drawerDecisionLine(selectedRiver)}
+        </Text>
       ) : (
         <Text style={styles.mapPreviewReason} numberOfLines={1}>
           {drawerDecisionLine(selectedRiver)}
@@ -291,7 +295,7 @@ function sheetHeightStyle(bottomInset = 0) {
 
 export function sheetHeightValue(value: MapSheetSnap, maxHeight = 510) {
   if (value === 'full') return Math.min(460, maxHeight);
-  if (value === 'half') return Math.min(318, Math.max(292, maxHeight - 160));
+  if (value === 'half') return Math.min(306, Math.max(286, maxHeight - 184));
   return 196;
 }
 
