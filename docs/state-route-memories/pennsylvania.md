@@ -34,6 +34,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Run Notes
 
+- 2026-07-01 18:55 America/Chicago / 2026-07-01 23:55 UTC: Pennsylvania three-route implementation pass; added three more lower Juniata routes.
+  - Treated the current dirty tree as the real baseline because `npm run routes:leads:gather` already counted `442` live routes before new edits, including three uncommitted lower-Juniata additions.
+  - Implemented `juniata-river-granville-walker`, `juniata-river-lewistown-narrows-muskrat-springs`, and `juniata-river-mifflin-newport` from the PFBC lower Juniata guide.
+  - Qualification package: the PFBC lower Juniata guide still publishes exact public access coordinates for Granville, Lewistown Narrows, Mifflin, Walker, Muskrat Springs, and Newport; official river-mile spacing of `21`, `14`, and `22` miles for the chosen route pairs; lower-corridor caution points at miles `51`, `49`, `43`, `33`, and `10.5`; and the lower-section minimum gauge floors of `3.1 ft` at Lewistown and `3.5 ft` at Newport. Same-day direct USGS Water Services returned `1030 cfs / 3.34 ft` at Lewistown (`01564895`) at `2026-07-01 19:30 EDT` and `1370 cfs / 3.68 ft` at Newport (`01567000`) at `2026-07-01 19:15 EDT`.
+  - Camping and safety/logistics notes were added for all three routes. Granville-to-Walker, Lewistown-Narrows-to-Muskrat-Springs, and Mifflin-to-Newport all ship as `on_route_campsite` because the official guide still names legal campground support on each corridor.
+  - No gallery image was added. Bounded Commons, PFBC guide imagery, and USGS media checks found corridor context but no clearly rights-clean exact-route asset was selected for these three slugs.
+
 - 2026-06-26 17:12 America/Chicago / 2026-06-26 22:12 UTC: Pennsylvania three-route implementation pass; added three more lower Juniata routes.
   - Rebuilt current inventory from route objects and trip details before editing and anchored the automation baseline to the current `439` live-route repo state rather than prior commits.
   - Implemented `juniata-river-granville-mifflintown`, `juniata-river-victory-park-walker`, and `juniata-river-muskrat-springs-newport` from the PFBC lower Juniata guide.
