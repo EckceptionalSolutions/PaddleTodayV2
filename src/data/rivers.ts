@@ -48117,6 +48117,118 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: "juniata-river-granville-mifflintown",
+    slug: "juniata-river-granville-mifflintown",
+    name: "Juniata River",
+    reach: "Lower Section: Granville PFBC to Mifflintown PFBC",
+    aliases: [
+      "Juniata River - Granville to Mifflintown",
+      "Lower Juniata - Granville to Mifflintown PFBC",
+      "Juniata River - Granville PFBC to Mifflintown PFBC",
+    ],
+    state: "Pennsylvania",
+    region: "Lower Juniata",
+    summary:
+      "Fifteen-mile lower-Juniata float from the Granville PFBC ramp to the Mifflintown PFBC ramp. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile access table, and ties the corridor to the direct Lewistown gauge with a 3.1 ft minimum level.",
+    statusText:
+      "Use the Juniata River at Lewistown gauge. The official PFBC lower Juniata guide recommends at least 3.1 ft there for this corridor.",
+    latitude: 40.558333,
+    longitude: -77.603056,
+    gaugeSource: {
+      id: "usgs-01564895",
+      provider: "usgs",
+      siteId: "01564895",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Juniata River at Lewistown, PA",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01564895/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["strainers", "private_banks"],
+      safetyNotes: [
+        "PFBC flags bridge abutments with possible strainers near miles 51 and 49 plus the mile-43 ledge with rough water pushing into a cut bank inside this route.",
+        "The route stays approachable at normal lower-Juniata levels, but fifteen open miles, broad-river wind, and fresh wood after storms make it a real full-day plan.",
+        "Use only the named public accesses at Granville and Mifflintown rather than bridge shoulders, islands, or private banks.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 3.1,
+      thresholdSource: {
+        label: "PFBC lower Juniata guide minimum Lewistown gauge level",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "PFBC says post-rain paddling is often the most enjoyable on the lower Juniata, while summer dry spells expose broad cobble bars and slow pools.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is an easy lower-Juniata day route when Lewistown clears the official floor, but the upstream strainer zones, the mile-43 ledge, and the long exposed mileage deserve a conservative plan.",
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Granville and Mifflintown, defines them as a 15-mile access pair from river mile 51 to river mile 36, and gives a direct Lewistown minimum gauge level of 3.1 ft for this corridor. USGS Water Services returned same-day June 26, 2026 values of 981 cfs and 3.28 ft for direct USGS 01564895 during implementation.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Granville PFBC to Mifflintown PFBC, about 15 mi",
+        note: "The PFBC lower Juniata guide places Granville PFBC at river mile 51 and Mifflintown PFBC at river mile 36.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Endpoint coordinates",
+        value: "PFBC access-site coordinates",
+        note: "The PFBC access table publishes Granville PFBC at 40 33 30 / 77 36 11 and Mifflintown PFBC at 40 35 42 / 77 24 55.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Direct gauge",
+        value: "USGS 01564895 at Lewistown",
+        note: "USGS Water Services returned same-day June 26, 2026 values of 981 cfs and 3.28 ft for Juniata River at Lewistown, PA.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01564895&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Official minimum level",
+        value: "Lewistown 3.1 ft minimum",
+        note: "PFBC lists Lewistown among the useful gauges for the lower Juniata and recommends a minimum level of 3.1 ft there.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Camping context",
+        value: "Locust Campground on the corridor",
+        note: "PFBC says Locust Campground at mile 50 offers rustic amenities and a restored canal section just downstream of the Granville put-in.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "PFBC lower Juniata guide",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      {
+        label: "USGS 01564895 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
+        provider: "usgs",
+      },
+      {
+        label: "PFBC launch permit vs boat registration",
+        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        provider: "local",
+      },
+    ],
+  },
+  {
     id: "juniata-river-victory-park-mifflintown",
     slug: "juniata-river-victory-park-mifflintown",
     name: "Juniata River",
@@ -48206,6 +48318,118 @@ export const rivers: River[] = [
         label: "Primary caution",
         value: "Mile-43 ledge and rough water",
         note: "PFBC warns of a ledge stretching across the river at mile 43, followed by rough water pushing into a cut bank.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "PFBC lower Juniata guide",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      {
+        label: "USGS 01564895 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
+        provider: "usgs",
+      },
+      {
+        label: "PFBC launch permit vs boat registration",
+        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        provider: "local",
+      },
+    ],
+  },
+  {
+    id: "juniata-river-victory-park-walker",
+    slug: "juniata-river-victory-park-walker",
+    name: "Juniata River",
+    reach: "Lower Section: Victory Park to Walker PFBC",
+    aliases: [
+      "Juniata River - Victory Park to Walker",
+      "Lower Juniata - Lewistown to Walker PFBC",
+      "Juniata River - Victory Park access to Walker PFBC",
+    ],
+    state: "Pennsylvania",
+    region: "Lower Juniata",
+    summary:
+      "Sixteen-mile lower-Juniata float from Victory Park in Lewistown to the Walker PFBC ramp. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile access table, and keeps the corridor tied to the direct Lewistown gauge with a 3.1 ft minimum level.",
+    statusText:
+      "Use the Juniata River at Lewistown gauge. The official PFBC lower Juniata guide recommends at least 3.1 ft there for this corridor.",
+    latitude: 40.595,
+    longitude: -77.578889,
+    gaugeSource: {
+      id: "usgs-01564895",
+      provider: "usgs",
+      siteId: "01564895",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Juniata River at Lewistown, PA",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01564895/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["strainers", "private_banks"],
+      safetyNotes: [
+        "PFBC flags the mile-43 ledge with rough water pushing into a cut bank plus rapid current near mile 33 inside this longer Lewistown-to-Walker corridor.",
+        "The route stays beginner-friendly at normal summer levels, but sixteen open miles, broad-river wind, and fresh wood after storms make it a real full-day float.",
+        "Use only the named public accesses at Victory Park and Walker rather than bridge shoulders, islands, or private banks.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 3.1,
+      thresholdSource: {
+        label: "PFBC lower Juniata guide minimum Lewistown gauge level",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "PFBC says post-rain paddling is often the most enjoyable on the lower Juniata, while summer dry spells expose broad cobble bars and slow pools.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is an easy lower-Juniata day route when Lewistown clears the official floor, but the mile-43 ledge, the mile-33 current zone, and the long exposed mileage deserve a conservative plan.",
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Victory Park and Walker, defines them as a 16-mile access pair from river mile 46 to river mile 30, and gives a direct Lewistown minimum gauge level of 3.1 ft for this corridor. USGS Water Services returned same-day June 26, 2026 values of 981 cfs and 3.28 ft for direct USGS 01564895 during implementation.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Victory Park to Walker PFBC, about 16 mi",
+        note: "The PFBC lower Juniata guide places Victory Park at river mile 46 and Walker PFBC at river mile 30.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Endpoint coordinates",
+        value: "PFBC access-site coordinates",
+        note: "The PFBC access table publishes Victory Park at 40 35 42 / 77 34 44 and Walker PFBC at 40 31 55 / 77 21 26.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Direct gauge",
+        value: "USGS 01564895 at Lewistown",
+        note: "USGS Water Services returned same-day June 26, 2026 values of 981 cfs and 3.28 ft for Juniata River at Lewistown, PA.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01564895&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Official minimum level",
+        value: "Lewistown 3.1 ft minimum",
+        note: "PFBC lists Lewistown among the useful gauges for the lower Juniata and recommends a minimum level of 3.1 ft there.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Primary cautions",
+        value: "Mile-43 ledge and mile-33 rapid-current zone",
+        note: "PFBC warns of a ledge stretching across the river at mile 43 with rough water pushing into a cut bank and rapid current near mile 33.",
         sourceUrl:
           "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
       },
@@ -48666,6 +48890,118 @@ export const rivers: River[] = [
       {
         label: "USGS 01564895 monitoring location",
         url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
+        provider: "usgs",
+      },
+      {
+        label: "PFBC launch permit vs boat registration",
+        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        provider: "local",
+      },
+    ],
+  },
+  {
+    id: "juniata-river-muskrat-springs-newport",
+    slug: "juniata-river-muskrat-springs-newport",
+    name: "Juniata River",
+    reach: "Lower Section: Muskrat Springs PFBC to Newport",
+    aliases: [
+      "Juniata River - Muskrat Springs to Newport",
+      "Lower Juniata - Muskrat Springs PFBC to Newport",
+      "Juniata River - Muskrat Springs PFBC to Newport access",
+    ],
+    state: "Pennsylvania",
+    region: "Lower Juniata",
+    summary:
+      "Fourteen-mile lower-Juniata float from the Muskrat Springs PFBC ramp to the Newport primitive access. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile access table, and ties the corridor to the direct Newport gauge with a 3.5 ft minimum level.",
+    statusText:
+      "Use the Juniata River at Newport gauge. The official PFBC lower Juniata guide recommends at least 3.5 ft there for this corridor.",
+    latitude: 40.535,
+    longitude: -77.299444,
+    gaugeSource: {
+      id: "usgs-01567000",
+      provider: "usgs",
+      siteId: "01567000",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Juniata River at Newport, PA",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["strainers", "private_banks"],
+      safetyNotes: [
+        "PFBC flags rapid current falling over a ledge near mile 10.5 inside this route as the river approaches Newport.",
+        "This corridor also carries the usual lower-Juniata post-storm wood and broad-river wind issues, and the primitive Newport landing deserves same-day take-out discipline.",
+        "Use only the named public accesses at Muskrat Springs and Newport rather than informal bars, bridge shoulders, or private banks.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 3.5,
+      thresholdSource: {
+        label: "PFBC lower Juniata guide minimum Newport gauge level",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "PFBC says low summer conditions can leave broad bars and slow pools on the lower Juniata, while recent rain often improves the float without requiring a high-water call.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is an easy lower-Juniata route when Newport clears the official floor, though the mile-10.5 ledge and the long open downstream miles deserve more attention than the short Newport links.",
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Muskrat Springs and Newport, defines them as a 14-mile access pair from river mile 26 to river mile 12, and gives a direct Newport minimum gauge level of 3.5 ft for this corridor. USGS Water Services returned same-day June 26, 2026 values of 1,520 cfs and 3.76 ft for direct USGS 01567000 during implementation.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Muskrat Springs PFBC to Newport, about 14 mi",
+        note: "The PFBC lower Juniata guide places Muskrat Springs PFBC at river mile 26 and Newport at river mile 12.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Endpoint coordinates",
+        value: "PFBC access-site coordinates",
+        note: "The PFBC access table publishes Muskrat Springs PFBC at 40 32 06 / 77 17 58 and Newport at 40 28 45 / 77 07 46.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Direct gauge",
+        value: "USGS 01567000 at Newport",
+        note: "USGS Water Services returned same-day June 26, 2026 values of 1,520 cfs and 3.76 ft for Juniata River at Newport, PA.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01567000&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Official minimum level",
+        value: "Newport 3.5 ft minimum",
+        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Camping context",
+        value: "Pittman's Riverside and Little Buffalo campground support",
+        note: "PFBC says Pittman's Riverside Campground sits at mile 16 and Little Buffalo Family Campground sits near Newport, giving this corridor real legal overnight support.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "PFBC lower Juniata guide",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      {
+        label: "USGS 01567000 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/01567000/",
         provider: "usgs",
       },
       {

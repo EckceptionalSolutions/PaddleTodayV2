@@ -16125,6 +16125,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+'juniata-river-granville-mifflintown': {
+    putIn: {
+      id: 'granville-pfbc-ramp',
+      name: 'Granville PFBC ramp',
+      latitude: 40.558333,
+      longitude: -77.603056,
+    },
+    takeOut: {
+      id: 'mifflintown-pfbc-ramp',
+      name: 'Mifflintown PFBC ramp',
+      latitude: 40.595,
+      longitude: -77.415278,
+    },
+    logistics: {
+      distanceLabel: 'About 15 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7 hr in ordinary conditions, longer with low-water dragging, headwind, or time spent easing through the mile-43 ledge area',
+      shuttle:
+        'Stage the take-out at the Mifflintown PFBC ramp first, then drive back upstream to the Granville PFBC ramp. Inspect both public landings before leaving a vehicle because muddy edges and current angle can change after storms.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Locust Campground sits just downstream of the put-in and is the clearest legal overnight support if you want to split this longer lower-Juniata corridor conservatively.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at the Granville PFBC ramp and take out at Mifflintown PFBC for a fuller Lewistown-area Juniata float. Use the direct Lewistown gauge and expect scraping whenever the river sits under PFBC\'s 3.1 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Granville and Mifflintown coordinates directly in the official lower Juniata access table.',
+        'Locust Campground is legal on-route support, but the intended downstream finish for this slug is Mifflintown PFBC.',
+        'Fifteen broad-river miles can feel longer than they look when the valley wind turns upstream or the channel gets scratchy.',
+        'Stay with the named public accesses rather than using private banks or islands as substitute stops.',
+      ],
+      watchFor: [
+        'Bridge abutments with possible strainers near miles 51 and 49, both flagged in the PFBC caution list.',
+        'A ledge stretching across the river at mile 43, followed by rough water pushing into a cut bank, as flagged by PFBC.',
+        'Lewistown stages below about 3.1 ft, when broad cobble bars, ledge lines, and slower pools can force dragging.',
+        'Fresh wood after storms, muddy landing edges, and broad-river headwind through the exposed Lewistown bends.',
+      ],
+    },
+  },
 'juniata-river-victory-park-lewistown-narrows': {
     putIn: {
       id: 'victory-park-access',
@@ -16202,6 +16242,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Lewistown stages below about 3.1 ft, when shallow bars and ledge lines become slower and more technical.',
         'Fresh wood after storms, bridge-current changes, and muddy landing edges at either public access.',
         'Private shorelines away from the named public accesses and the chance of drifting past the Mifflintown finish if you relax late in the run.',
+      ],
+    },
+  },
+'juniata-river-victory-park-walker': {
+    putIn: {
+      id: 'victory-park-access',
+      name: 'Victory Park access',
+      latitude: 40.595,
+      longitude: -77.578889,
+    },
+    takeOut: {
+      id: 'walker-pfbc-ramp',
+      name: 'Walker PFBC ramp',
+      latitude: 40.531944,
+      longitude: -77.357222,
+    },
+    logistics: {
+      distanceLabel: 'About 16 mi',
+      estimatedPaddleTime:
+        'About 5.5 hr to 7.5 hr in ordinary conditions, longer with low-water line picking, headwind, or time spent scouting the mile-43 ledge and mile-33 current zones',
+      shuttle:
+        'Stage the take-out at Walker PFBC first, then drive back to Victory Park in Lewistown. Check both ramps before launching because muddy edges and river angle can change after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Treat this as a long day trip. Lewistown and the Mifflintown / Mifflin area provide the clearest nearby lodging and basecamp support, but the guide does not identify a committed on-route campground for this exact slug.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Victory Park and take out at Walker PFBC for a long lower-Juniata town-to-ramp float. Use the direct Lewistown gauge and expect scraping whenever the river sits under PFBC\'s 3.1 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Victory Park and Walker coordinates directly in the official lower Juniata access table.',
+        'Walker PFBC is the intended public finish. Do not assume private banks, bridge shoulders, or islands are legitimate substitutes.',
+        'Sixteen broad-river miles can feel longer than they look when the valley wind turns upstream or the channel gets scratchy.',
+        'If the river is near the low floor, scout from legal public vantage points before committing to the ledge and rapid-current zones.',
+      ],
+      watchFor: [
+        'A ledge stretching across the river at mile 43, followed by rough water pushing into a cut bank, as flagged by PFBC.',
+        'Rapid current near mile 33, the other main caution point PFBC flags in this corridor.',
+        'Lewistown stages below about 3.1 ft, when shallow bars and ledge lines become slower and more technical.',
+        'Fresh wood after storms, bridge-current changes, and muddy landing edges at either public access.',
       ],
     },
   },
@@ -16362,6 +16442,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fresh wood after storms, bridge-related strainers elsewhere in the corridor, and broad-river headwind through the exposed bends.',
         'Busy campground-adjacent shoreline near Mexico and the temptation to stop early instead of finishing at Muskrat Springs.',
         'Private shorelines away from the named public accesses even when the banks look easy to use.',
+      ],
+    },
+  },
+'juniata-river-muskrat-springs-newport': {
+    putIn: {
+      id: 'muskrat-springs-pfbc-ramp',
+      name: 'Muskrat Springs PFBC ramp',
+      latitude: 40.535,
+      longitude: -77.299444,
+    },
+    takeOut: {
+      id: 'newport-primitive-access',
+      name: 'Newport access',
+      latitude: 40.479167,
+      longitude: -77.129444,
+    },
+    logistics: {
+      distanceLabel: 'About 14 mi',
+      estimatedPaddleTime:
+        'About 4.5 hr to 6.5 hr in ordinary conditions, longer with low-water scraping, headwind, or time spent easing through the mile-10.5 ledge zone near Newport',
+      shuttle:
+        'Stage the take-out at the Newport primitive access first, then drive back upstream to Muskrat Springs PFBC. Confirm same-day parking and the intended final line into Newport before launching.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Pittman\'s Riverside Campground near Greenwood and Little Buffalo Family Campground near Newport are the clearest legal overnight support if you want to split this longer lower-Juniata corridor conservatively.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Muskrat Springs PFBC and take out at Newport for a long lower-Juniata link into the lower ledge corridor. Use the direct Newport gauge and expect scraping whenever the river sits under PFBC\'s 3.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Muskrat Springs and Newport coordinates directly in the official lower Juniata access table.',
+        'Newport is a primitive town-side finish, so scout the landing edge and do not assume any nearby private shoreline is an acceptable substitute.',
+        'Pittman\'s Riverside and Little Buffalo are legal support points, but Newport remains the intended take-out for this slug.',
+        'Use the named public accesses rather than islands, bars, or roadside guesses.',
+      ],
+      watchFor: [
+        'Rapid current falling over a ledge near mile 10.5, the main route-specific caution PFBC flags in this corridor.',
+        'Newport stages below about 3.5 ft, when shallow bars and ledge lines become scratchier and slower.',
+        'Fresh wood after storms, broad-river headwind on the open lower bends, and primitive landing footing at Newport.',
+        'Private shorelines away from the named accesses and the chance of overshooting the Newport finish if you relax late in the run.',
       ],
     },
   },

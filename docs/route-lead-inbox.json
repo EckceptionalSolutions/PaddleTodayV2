@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-26T21:11:17.276Z",
+  "generatedAt": "2026-07-01T23:47:16.918Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
     "totalLedgerCandidates": 675,
-    "currentRouteCount": 439,
+    "currentRouteCount": 442,
     "leadCount": 269,
     "discoveryFocusStates": [
       "South Dakota",
@@ -2228,6 +2228,40 @@
         "discoveryTier": "undercovered_supported_midwest"
       },
       {
+        "candidateId": "il-cache-river-lower-cache-canoe-trail",
+        "lane": "threshold_discovery",
+        "priority": 100,
+        "state": "IL",
+        "river": "Cache River",
+        "route": "Lower Cache River Canoe Trail",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-06-20",
+        "reviewCount": 2,
+        "duplicateRisk": false,
+        "blocker": "2026-06-20 product-fit refresh. The public trail story remains strong, but the route looks less like a normal gauge-scored river segment than it did on the seed pass. Miles Paddled's 2024 Lower Cache report corroborates the public Access Road launch, describes the trail as a choose-your-own-adventure 4-mile loop in essentially still swamp water, notes that the paddling area is held up by earthen dams so there is usu...",
+        "retryCondition": "Retry only if IDNR, Cache River Wetlands partners, USFWS, or another official manager publishes numeric water-level guidance tied to a product-fetchable gauge for the Lower Cache canoe trail, or if PaddleToday adds support for manager-maintained loop/flatwater routes that do not score off a normal river gauge model.",
+        "gauge": {
+          "quality": "gauge_context_unselected_threshold_missing",
+          "id": "03612000",
+          "provider": "USGS",
+          "notes": "USGS 03612000 Cache River at Forman remains broad same-basin context only. Current public route reporting describes the Lower Cache trail as a mostly still-water loop whose day-to-day paddleability is mediated locally by managed swamp conditions rather than a clear product gauge rule."
+        },
+        "thresholdSupport": {
+          "strength": "weak_without_numeric_model",
+          "notes": "IDNR documents the canoe trail and access, but no numeric paddling floor, preferred range, or closure threshold tied to a supported live gauge was found. Miles Paddled's 2024 report reinforces that the trail behaves more like managed flatwater than a normally gauged river reach."
+        },
+        "endpoints": {
+          "putIn": "Lower Cache River access area",
+          "takeOut": "Loop/out-and-back Lower Cache canoe trail or private launch south of Perks family",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Not captured because the bigger blocker is still the missing scoreable water-level model; current source reporting frames the route as a loop/out-and-back swamp trail from the Access Road launch rather than a simple gauge-scored point-to-point river reach."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "undercovered_supported_midwest"
+      },
+      {
         "candidateId": "il-kankakee-river-state-park-day-trip-family",
         "lane": "threshold_discovery",
         "priority": 100,
@@ -2331,6 +2365,40 @@
             "longitude": -86.745912
           },
           "coordinateSource": "NWIPA Kankakee River National Water Trail access-point table; NIRPC water-trail map corroborates both sites as DNR-owned and names the 15.5-mile segment."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "supported_midwest"
+      },
+      {
+        "candidateId": "in-tippecanoe-river-state-park-winamac-family",
+        "lane": "threshold_discovery",
+        "priority": 100,
+        "state": "IN",
+        "river": "Tippecanoe River",
+        "route": "Tippecanoe River State Park / Winamac family",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-06-21",
+        "reviewCount": 14,
+        "duplicateRisk": false,
+        "blocker": "2026-06-21 threshold refresh. The Winamac live-gauge path remains cleared, and the family lead is now narrower than before, but it is still not implementation-ready. Current Indiana DNR park pages and the 2025 Tippecanoe River State Park property map still confirm the upstream state-park canoe-launch corridor, while IndianaOutfitters still preserves the exact 15-mile Tippecanoe River State Park to Winamac Access Sit...",
+        "retryCondition": "Retry only if DNR, a park/county manager, AW, a livery/outfitter with public-access documentation, or another strong source provides numeric low/ideal/high or minimum-only paddling guidance tied to a product-fetchable USGS gauge for the selected Tippecanoe River State Park to Winamac public corridor. Treat NIPSCO/FERC abnormal-low-flow and flood values as operational context only unless a paddling manager explicitly...",
+        "gauge": {
+          "quality": "direct_product_live_verified_threshold_missing",
+          "id": "03331753",
+          "provider": "USGS",
+          "notes": "USGS 03331753 Tippecanoe River at Winamac is now verified through the app-supported Water Services path; a 2026-06-20 fetch returned same-day discharge and stage values. The remaining blocker is the missing exact-route paddling threshold model, not live-gauge support."
+        },
+        "thresholdSupport": {
+          "strength": "community_corridor_only",
+          "notes": "NIPSCO publishes hydropower/FERC operational values, but they still do not map to canoe/kayak suitability for a selected Tippecanoe route. Current community corridor evidence now points more clearly at the State Park to Winamac corridor, but it is still only corridor calibration: archived IndianaOutfitters preserves gauge-aware trip context, and a 2025 Hoosier Canoe Club report says 300 cfs felt low while about 1200 cfs after release made for nice paddling on a nearby segment. That is still not a selected State-Park-to-Winamac low/ideal/high or minimum-only model."
+        },
+        "endpoints": {
+          "putIn": "Tippecanoe River State Park canoe launch",
+          "takeOut": "Winamac Access Site or Winamac City Park canoe access",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "The current Indiana DNR property map clearly preserves the upstream state-park canoe-launch feature, and IndianaOutfitters preserves the downstream Winamac Access Site and Winamac City Park canoe-access directions. Exact accepted coordinates are still intentionally unclaimed because the route remains threshold-blocked and the downstream public access point is not yet anchored by a manager-published canoe-access coordinate."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
         "discoveryTier": "supported_midwest"
@@ -4792,40 +4860,6 @@
         "discoveryTier": "supported_midwest"
       },
       {
-        "candidateId": "il-cache-river-lower-cache-canoe-trail",
-        "lane": "threshold_discovery",
-        "priority": 98,
-        "state": "IL",
-        "river": "Cache River",
-        "route": "Lower Cache River Canoe Trail",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-06-20",
-        "reviewCount": 2,
-        "duplicateRisk": false,
-        "blocker": "2026-06-20 product-fit refresh. The public trail story remains strong, but the route looks less like a normal gauge-scored river segment than it did on the seed pass. Miles Paddled's 2024 Lower Cache report corroborates the public Access Road launch, describes the trail as a choose-your-own-adventure 4-mile loop in essentially still swamp water, notes that the paddling area is held up by earthen dams so there is usu...",
-        "retryCondition": "Retry only if IDNR, Cache River Wetlands partners, USFWS, or another official manager publishes numeric water-level guidance tied to a product-fetchable gauge for the Lower Cache canoe trail, or if PaddleToday adds support for manager-maintained loop/flatwater routes that do not score off a normal river gauge model.",
-        "gauge": {
-          "quality": "gauge_context_unselected_threshold_missing",
-          "id": "03612000",
-          "provider": "USGS",
-          "notes": "USGS 03612000 Cache River at Forman remains broad same-basin context only. Current public route reporting describes the Lower Cache trail as a mostly still-water loop whose day-to-day paddleability is mediated locally by managed swamp conditions rather than a clear product gauge rule."
-        },
-        "thresholdSupport": {
-          "strength": "weak_without_numeric_model",
-          "notes": "IDNR documents the canoe trail and access, but no numeric paddling floor, preferred range, or closure threshold tied to a supported live gauge was found. Miles Paddled's 2024 report reinforces that the trail behaves more like managed flatwater than a normally gauged river reach."
-        },
-        "endpoints": {
-          "putIn": "Lower Cache River access area",
-          "takeOut": "Loop/out-and-back Lower Cache canoe trail or private launch south of Perks family",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Not captured because the bigger blocker is still the missing scoreable water-level model; current source reporting frames the route as a loop/out-and-back swamp trail from the Access Road launch rather than a simple gauge-scored point-to-point river reach."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
-      },
-      {
         "candidateId": "mi-betsie-river-thompsonville-family",
         "lane": "threshold_discovery",
         "priority": 98,
@@ -5235,40 +5269,6 @@
           "putInCoordinates": null,
           "takeOutCoordinates": null,
           "coordinateSource": "Not captured because threshold support failed first."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "supported_midwest"
-      },
-      {
-        "candidateId": "in-tippecanoe-river-state-park-winamac-family",
-        "lane": "threshold_discovery",
-        "priority": 95,
-        "state": "IN",
-        "river": "Tippecanoe River",
-        "route": "Tippecanoe River State Park / Winamac family",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-06-21",
-        "reviewCount": 14,
-        "duplicateRisk": false,
-        "blocker": "2026-06-21 threshold refresh. The Winamac live-gauge path remains cleared, and the family lead is now narrower than before, but it is still not implementation-ready. Current Indiana DNR park pages and the 2025 Tippecanoe River State Park property map still confirm the upstream state-park canoe-launch corridor, while IndianaOutfitters still preserves the exact 15-mile Tippecanoe River State Park to Winamac Access Sit...",
-        "retryCondition": "Retry only if DNR, a park/county manager, AW, a livery/outfitter with public-access documentation, or another strong source provides numeric low/ideal/high or minimum-only paddling guidance tied to a product-fetchable USGS gauge for the selected Tippecanoe River State Park to Winamac public corridor. Treat NIPSCO/FERC abnormal-low-flow and flood values as operational context only unless a paddling manager explicitly...",
-        "gauge": {
-          "quality": "direct_product_live_verified_threshold_missing",
-          "id": "03331753",
-          "provider": "USGS",
-          "notes": "USGS 03331753 Tippecanoe River at Winamac is now verified through the app-supported Water Services path; a 2026-06-20 fetch returned same-day discharge and stage values. The remaining blocker is the missing exact-route paddling threshold model, not live-gauge support."
-        },
-        "thresholdSupport": {
-          "strength": "community_corridor_only",
-          "notes": "NIPSCO publishes hydropower/FERC operational values, but they still do not map to canoe/kayak suitability for a selected Tippecanoe route. Current community corridor evidence now points more clearly at the State Park to Winamac corridor, but it is still only corridor calibration: archived IndianaOutfitters preserves gauge-aware trip context, and a 2025 Hoosier Canoe Club report says 300 cfs felt low while about 1200 cfs after release made for nice paddling on a nearby segment. That is still not a selected State-Park-to-Winamac low/ideal/high or minimum-only model."
-        },
-        "endpoints": {
-          "putIn": "Tippecanoe River State Park canoe launch",
-          "takeOut": "Winamac Access Site or Winamac City Park canoe access",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "The current Indiana DNR property map clearly preserves the upstream state-park canoe-launch feature, and IndianaOutfitters preserves the downstream Winamac Access Site and Winamac City Park canoe-access directions. Exact accepted coordinates are still intentionally unclaimed because the route remains threshold-blocked and the downstream public access point is not yet anchored by a manager-published canoe-access coordinate."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
         "discoveryTier": "supported_midwest"
@@ -9662,6 +9662,40 @@
       "discoveryTier": "undercovered_supported_midwest"
     },
     {
+      "candidateId": "il-cache-river-lower-cache-canoe-trail",
+      "lane": "threshold_discovery",
+      "priority": 100,
+      "state": "IL",
+      "river": "Cache River",
+      "route": "Lower Cache River Canoe Trail",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-06-20",
+      "reviewCount": 2,
+      "duplicateRisk": false,
+      "blocker": "2026-06-20 product-fit refresh. The public trail story remains strong, but the route looks less like a normal gauge-scored river segment than it did on the seed pass. Miles Paddled's 2024 Lower Cache report corroborates the public Access Road launch, describes the trail as a choose-your-own-adventure 4-mile loop in essentially still swamp water, notes that the paddling area is held up by earthen dams so there is usu...",
+      "retryCondition": "Retry only if IDNR, Cache River Wetlands partners, USFWS, or another official manager publishes numeric water-level guidance tied to a product-fetchable gauge for the Lower Cache canoe trail, or if PaddleToday adds support for manager-maintained loop/flatwater routes that do not score off a normal river gauge model.",
+      "gauge": {
+        "quality": "gauge_context_unselected_threshold_missing",
+        "id": "03612000",
+        "provider": "USGS",
+        "notes": "USGS 03612000 Cache River at Forman remains broad same-basin context only. Current public route reporting describes the Lower Cache trail as a mostly still-water loop whose day-to-day paddleability is mediated locally by managed swamp conditions rather than a clear product gauge rule."
+      },
+      "thresholdSupport": {
+        "strength": "weak_without_numeric_model",
+        "notes": "IDNR documents the canoe trail and access, but no numeric paddling floor, preferred range, or closure threshold tied to a supported live gauge was found. Miles Paddled's 2024 report reinforces that the trail behaves more like managed flatwater than a normally gauged river reach."
+      },
+      "endpoints": {
+        "putIn": "Lower Cache River access area",
+        "takeOut": "Loop/out-and-back Lower Cache canoe trail or private launch south of Perks family",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "Not captured because the bigger blocker is still the missing scoreable water-level model; current source reporting frames the route as a loop/out-and-back swamp trail from the Access Road launch rather than a simple gauge-scored point-to-point river reach."
+      },
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+      "discoveryTier": "undercovered_supported_midwest"
+    },
+    {
       "candidateId": "il-dupage-river-shorewood-black-road-shepley",
       "lane": "fresh_source_discovery",
       "priority": 100,
@@ -9833,6 +9867,40 @@
           "longitude": -86.745912
         },
         "coordinateSource": "NWIPA Kankakee River National Water Trail access-point table; NIRPC water-trail map corroborates both sites as DNR-owned and names the 15.5-mile segment."
+      },
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+      "discoveryTier": "supported_midwest"
+    },
+    {
+      "candidateId": "in-tippecanoe-river-state-park-winamac-family",
+      "lane": "threshold_discovery",
+      "priority": 100,
+      "state": "IN",
+      "river": "Tippecanoe River",
+      "route": "Tippecanoe River State Park / Winamac family",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-06-21",
+      "reviewCount": 14,
+      "duplicateRisk": false,
+      "blocker": "2026-06-21 threshold refresh. The Winamac live-gauge path remains cleared, and the family lead is now narrower than before, but it is still not implementation-ready. Current Indiana DNR park pages and the 2025 Tippecanoe River State Park property map still confirm the upstream state-park canoe-launch corridor, while IndianaOutfitters still preserves the exact 15-mile Tippecanoe River State Park to Winamac Access Sit...",
+      "retryCondition": "Retry only if DNR, a park/county manager, AW, a livery/outfitter with public-access documentation, or another strong source provides numeric low/ideal/high or minimum-only paddling guidance tied to a product-fetchable USGS gauge for the selected Tippecanoe River State Park to Winamac public corridor. Treat NIPSCO/FERC abnormal-low-flow and flood values as operational context only unless a paddling manager explicitly...",
+      "gauge": {
+        "quality": "direct_product_live_verified_threshold_missing",
+        "id": "03331753",
+        "provider": "USGS",
+        "notes": "USGS 03331753 Tippecanoe River at Winamac is now verified through the app-supported Water Services path; a 2026-06-20 fetch returned same-day discharge and stage values. The remaining blocker is the missing exact-route paddling threshold model, not live-gauge support."
+      },
+      "thresholdSupport": {
+        "strength": "community_corridor_only",
+        "notes": "NIPSCO publishes hydropower/FERC operational values, but they still do not map to canoe/kayak suitability for a selected Tippecanoe route. Current community corridor evidence now points more clearly at the State Park to Winamac corridor, but it is still only corridor calibration: archived IndianaOutfitters preserves gauge-aware trip context, and a 2025 Hoosier Canoe Club report says 300 cfs felt low while about 1200 cfs after release made for nice paddling on a nearby segment. That is still not a selected State-Park-to-Winamac low/ideal/high or minimum-only model."
+      },
+      "endpoints": {
+        "putIn": "Tippecanoe River State Park canoe launch",
+        "takeOut": "Winamac Access Site or Winamac City Park canoe access",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "The current Indiana DNR property map clearly preserves the upstream state-park canoe-launch feature, and IndianaOutfitters preserves the downstream Winamac Access Site and Winamac City Park canoe-access directions. Exact accepted coordinates are still intentionally unclaimed because the route remains threshold-blocked and the downstream public access point is not yet anchored by a manager-published canoe-access coordinate."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
       "discoveryTier": "supported_midwest"
@@ -13574,40 +13642,6 @@
       "discoveryTier": "supported_midwest"
     },
     {
-      "candidateId": "il-cache-river-lower-cache-canoe-trail",
-      "lane": "threshold_discovery",
-      "priority": 98,
-      "state": "IL",
-      "river": "Cache River",
-      "route": "Lower Cache River Canoe Trail",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-06-20",
-      "reviewCount": 2,
-      "duplicateRisk": false,
-      "blocker": "2026-06-20 product-fit refresh. The public trail story remains strong, but the route looks less like a normal gauge-scored river segment than it did on the seed pass. Miles Paddled's 2024 Lower Cache report corroborates the public Access Road launch, describes the trail as a choose-your-own-adventure 4-mile loop in essentially still swamp water, notes that the paddling area is held up by earthen dams so there is usu...",
-      "retryCondition": "Retry only if IDNR, Cache River Wetlands partners, USFWS, or another official manager publishes numeric water-level guidance tied to a product-fetchable gauge for the Lower Cache canoe trail, or if PaddleToday adds support for manager-maintained loop/flatwater routes that do not score off a normal river gauge model.",
-      "gauge": {
-        "quality": "gauge_context_unselected_threshold_missing",
-        "id": "03612000",
-        "provider": "USGS",
-        "notes": "USGS 03612000 Cache River at Forman remains broad same-basin context only. Current public route reporting describes the Lower Cache trail as a mostly still-water loop whose day-to-day paddleability is mediated locally by managed swamp conditions rather than a clear product gauge rule."
-      },
-      "thresholdSupport": {
-        "strength": "weak_without_numeric_model",
-        "notes": "IDNR documents the canoe trail and access, but no numeric paddling floor, preferred range, or closure threshold tied to a supported live gauge was found. Miles Paddled's 2024 report reinforces that the trail behaves more like managed flatwater than a normally gauged river reach."
-      },
-      "endpoints": {
-        "putIn": "Lower Cache River access area",
-        "takeOut": "Loop/out-and-back Lower Cache canoe trail or private launch south of Perks family",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because the bigger blocker is still the missing scoreable water-level model; current source reporting frames the route as a loop/out-and-back swamp trail from the Access Road launch rather than a simple gauge-scored point-to-point river reach."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
-    },
-    {
       "candidateId": "mi-betsie-river-thompsonville-family",
       "lane": "threshold_discovery",
       "priority": 98,
@@ -14049,40 +14083,6 @@
         "putInCoordinates": null,
         "takeOutCoordinates": null,
         "coordinateSource": "Not captured because threshold support failed first."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "supported_midwest"
-    },
-    {
-      "candidateId": "in-tippecanoe-river-state-park-winamac-family",
-      "lane": "threshold_discovery",
-      "priority": 95,
-      "state": "IN",
-      "river": "Tippecanoe River",
-      "route": "Tippecanoe River State Park / Winamac family",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-06-21",
-      "reviewCount": 14,
-      "duplicateRisk": false,
-      "blocker": "2026-06-21 threshold refresh. The Winamac live-gauge path remains cleared, and the family lead is now narrower than before, but it is still not implementation-ready. Current Indiana DNR park pages and the 2025 Tippecanoe River State Park property map still confirm the upstream state-park canoe-launch corridor, while IndianaOutfitters still preserves the exact 15-mile Tippecanoe River State Park to Winamac Access Sit...",
-      "retryCondition": "Retry only if DNR, a park/county manager, AW, a livery/outfitter with public-access documentation, or another strong source provides numeric low/ideal/high or minimum-only paddling guidance tied to a product-fetchable USGS gauge for the selected Tippecanoe River State Park to Winamac public corridor. Treat NIPSCO/FERC abnormal-low-flow and flood values as operational context only unless a paddling manager explicitly...",
-      "gauge": {
-        "quality": "direct_product_live_verified_threshold_missing",
-        "id": "03331753",
-        "provider": "USGS",
-        "notes": "USGS 03331753 Tippecanoe River at Winamac is now verified through the app-supported Water Services path; a 2026-06-20 fetch returned same-day discharge and stage values. The remaining blocker is the missing exact-route paddling threshold model, not live-gauge support."
-      },
-      "thresholdSupport": {
-        "strength": "community_corridor_only",
-        "notes": "NIPSCO publishes hydropower/FERC operational values, but they still do not map to canoe/kayak suitability for a selected Tippecanoe route. Current community corridor evidence now points more clearly at the State Park to Winamac corridor, but it is still only corridor calibration: archived IndianaOutfitters preserves gauge-aware trip context, and a 2025 Hoosier Canoe Club report says 300 cfs felt low while about 1200 cfs after release made for nice paddling on a nearby segment. That is still not a selected State-Park-to-Winamac low/ideal/high or minimum-only model."
-      },
-      "endpoints": {
-        "putIn": "Tippecanoe River State Park canoe launch",
-        "takeOut": "Winamac Access Site or Winamac City Park canoe access",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "The current Indiana DNR property map clearly preserves the upstream state-park canoe-launch feature, and IndianaOutfitters preserves the downstream Winamac Access Site and Winamac City Park canoe-access directions. Exact accepted coordinates are still intentionally unclaimed because the route remains threshold-blocked and the downstream public access point is not yet anchored by a manager-published canoe-access coordinate."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
       "discoveryTier": "supported_midwest"

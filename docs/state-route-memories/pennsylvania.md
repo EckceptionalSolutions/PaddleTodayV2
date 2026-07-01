@@ -34,6 +34,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Run Notes
 
+- 2026-06-26 17:12 America/Chicago / 2026-06-26 22:12 UTC: Pennsylvania three-route implementation pass; added three more lower Juniata routes.
+  - Rebuilt current inventory from route objects and trip details before editing and anchored the automation baseline to the current `439` live-route repo state rather than prior commits.
+  - Implemented `juniata-river-granville-mifflintown`, `juniata-river-victory-park-walker`, and `juniata-river-muskrat-springs-newport` from the PFBC lower Juniata guide.
+  - Qualification package: the PFBC lower Juniata guide still publishes exact public access coordinates for Granville, Victory Park, Mifflintown, Walker, Muskrat Springs, and Newport; official river-mile spacing of `15`, `16`, and `14` miles for the chosen route pairs; lower-corridor caution points at miles `51`, `49`, `43`, `33`, and `10.5`; and the lower-section minimum gauge floors of `3.1 ft` at Lewistown and `3.5 ft` at Newport. Same-day direct USGS Water Services returned `981 cfs / 3.28 ft` at Lewistown (`01564895`) at `2026-06-26 17:30 EDT` and `1520 cfs / 3.76 ft` at Newport (`01567000`) at `2026-06-26 17:15 EDT`.
+  - Camping and safety/logistics notes were added for all three routes. Granville-to-Mifflintown and Muskrat-Springs-to-Newport ship as `on_route_campsite` because the guide still names legal campground support on those corridors; Victory-Park-to-Walker ships as `nearby_basecamp` because the guide supports Lewistown and Mifflintown/Mifflin basecamp logistics without a committed on-route campground.
+  - No gallery image was added. Bounded Commons, PFBC guide imagery, and USGS media checks found corridor context but no clearly rights-clean exact-route asset was selected for these three slugs.
+
 - 2026-06-26 16:12 America/Chicago / 2026-06-26 21:12 UTC: Pennsylvania three-route implementation pass; added three more upper Juniata routes.
   - Rebuilt current inventory from route objects and trip details before editing: 63 live Pennsylvania routes and 63 Pennsylvania trip-detail keys after the June 25 French Creek cleanup.
   - Implemented `juniata-river-portstown-park-mt-union`, `juniata-river-portstown-park-shawmut`, and `juniata-river-mt-union-shawmut` from the PFBC upper Juniata guide.
