@@ -596,7 +596,37 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: public domain',
     },
   ],
+  'shiawassee-river-byron-geeck-road': [
+    {
+      id: 'shiawassee-river-paddle-commons',
+      src: '/gallery/shiawassee-river-byron-walnut-hills/shiawassee-river-paddle.jpg',
+      alt: 'A paddler moves through a snowy Shiawassee River corridor near Holly, Michigan.',
+      caption: 'Shiawassee River paddle near Holly',
+      credit: 'Willi H2O via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
   'shiawassee-river-mccurdy-cole-park': [
+    {
+      id: 'shiawassee-river-paddle-commons',
+      src: '/gallery/shiawassee-river-mccurdy-harmon-patridge/shiawassee-river-paddle.jpg',
+      alt: 'A paddler moves through a snowy Shiawassee River corridor near Holly, Michigan.',
+      caption: 'Shiawassee River paddle near Holly',
+      credit: 'Willi H2O via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'shiawassee-river-shiatown-brady-street': [
+    {
+      id: 'shiawassee-river-paddle-commons',
+      src: '/gallery/shiawassee-river-byron-walnut-hills/shiawassee-river-paddle.jpg',
+      alt: 'A paddler moves through a snowy Shiawassee River corridor near Holly, Michigan.',
+      caption: 'Shiawassee River paddle near Holly',
+      credit: 'Willi H2O via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'shiawassee-river-henderson-cole-park': [
     {
       id: 'shiawassee-river-paddle-commons',
       src: '/gallery/shiawassee-river-mccurdy-harmon-patridge/shiawassee-river-paddle.jpg',

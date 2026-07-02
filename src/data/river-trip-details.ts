@@ -14210,6 +14210,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Lower water near or below about 6.5 ft at Meshoppen, when shallow bars and slower current can stretch the day materially.',
         'Private shorelines away from the named accesses and the chance of underestimating the final miles into Tunkhannock because the route lacks a standout single hazard marker.',
       ],
+  },
+},
+'shiawassee-river-byron-geeck-road': {
+    putIn: {
+      id: 'byron-high-school-ball-fields',
+      name: 'Byron High School Ball Fields concrete launch',
+      latitude: 42.840348,
+      longitude: -83.945658,
+    },
+    takeOut: {
+      id: 'geeck-road-county-park',
+      name: 'Geeck Road County Park cement ramp',
+      latitude: 42.884522,
+      longitude: -84.045106,
+    },
+    logistics: {
+      distanceLabel: '11.85 mi',
+      estimatedPaddleTime: 'Long beginner-to-intermediate day; allow extra time if low-water shallows and debris slow the upper half',
+      shuttle:
+        'Use the upper-corridor water-trail road shuttle from Geeck Road County Park back to Byron via Exchange Road, M-71 / Corunna Road, Bath Road, Byron Road, and Maple Avenue. Stage the public Geeck Road take-out first and confirm Walnut Hills mid-route access conditions before launching.',
+      permits:
+        'No route-specific paddling permit is known, but Walnut Hills remains private campground access within the route. Confirm current public launch/take-out availability, seasonal dates, parking fee, and campground rules before using that landing as an emergency stop or split point.',
+      camping:
+        'Walnut Hills Family Campground sits on route and can support a staged outing, but this route is still framed as a long day unless you separately confirm a reservation or overnight permission.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch from the concrete Byron High School Ball Fields access and take out at Geeck Road County Park for an 11.85-mile upper Shiawassee day. Use the Owosso USGS gauge only as a conservative low-water corridor check, then make a same-day call on shallows, debris, and Walnut Hills access before putting on.',
+      accessCaveats: [
+        'The official route sheets publish Byron High School Ball Fields, Walnut Hills Family Campground, and Geeck Road County Park as the source-backed public access chain for this route.',
+        'Walnut Hills is a private seasonal campground access with a small vehicle fee and no off-season use when it is closed, so do not rely on it casually without confirmation.',
+        'Respect private docks and shoreline property and stop only at named launches or landings.',
+      ],
+      watchFor: [
+        'Low-water scraping and slower travel when the Owosso gauge trends toward 2.0 ft or below.',
+        'Debris, private docks, sandy and stony bottom, shallow water between Vernon Road and Grand River Road, and three bridge crossings.',
+        'Longer mileage than either single beginner card, which raises fatigue and shuttle complexity even in normal water.',
+        'The Owosso gauge is a downstream corridor proxy for this Byron-to-Geeck pairing, so treat it as a conservative floor rather than a precise go/no-go guarantee.',
+      ],
     },
   },
 'shiawassee-river-byron-walnut-hills': {
@@ -14320,6 +14358,43 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Debris, three bridge crossings, and a transition from developed rural-residential shoreline to wooded wetland after the freeway.',
         'High water, cold water, or poor visibility can make the Shiatown take-out above the dam more consequential.',
         'The Owosso gauge is a corridor proxy for this upstream segment, so use it as a low-water check rather than a precise launch guarantee.',
+      ],
+  },
+},
+'shiawassee-river-shiatown-brady-street': {
+    putIn: {
+      id: 'shiatown-county-park',
+      name: 'Shiatown County Park launch below the partially removed dam',
+      latitude: 42.929408,
+      longitude: -84.071308,
+    },
+    takeOut: {
+      id: 'brady-street',
+      name: 'Brady Street dirt launch',
+      latitude: 42.9766,
+      longitude: -84.116539,
+    },
+    logistics: {
+      distanceLabel: '11.03 mi',
+      estimatedPaddleTime: 'Long intermediate day; add time for scouting, low-water rock dodging, and the causeway decision',
+      shuttle:
+        'Use the upper-corridor water-trail road shuttle from Brady Street Landing back to Shiatown County Park via North Brady Street, M-21, South Kerby Road, Hibbard Road, Bancroft / Parmenter Road, and Bennington Road. Stage the Brady Street take-out first so the longer shuttle and the Shiatown start are both familiar before launch.',
+      permits:
+        'No route-specific paddling permit is known. Follow Shiawassee County park rules, City of Corunna access rules, posted parking rules, and water-trail safety guidance at both public landings.',
+      camping:
+        'Treat this as a committed day trip. The official route sheets identify no straightforward legal overnight stop between Shiatown and Brady Street.',
+      summary:
+        'Launch below the partially removed Shiatown dam and take out at Brady Street for an 11.03-mile upper Shiawassee day. Use the Owosso USGS gauge only as a conservative low-water corridor check, then scout the fast-water start, debris, and causeway before committing to the longer pairing.',
+      accessCaveats: [
+        'Begin downstream of the partially removed Shiatown dam; do not treat the dam or the immediate drop as a runnable feature.',
+        'The official route sheets publish Shiatown County Park, Lytle Road County Park, and Brady Street as the public access chain for this longer combined day.',
+        'Respect private property and stop only at designated launches or landings; the water-trail safety guidance calls this out explicitly.',
+      ],
+      watchFor: [
+        'Fast moving rapids and a split channel immediately after the partially removed Shiatown dam.',
+        'Rocky shallow water after Bennington Road, debris or vegetation covering rocks, six bridge crossings, downed trees, and private-dock shoreline near Corunna.',
+        'A causeway about 1.75 miles into the Lytle-to-Brady half; stay left under it in low water and portage over it in higher water.',
+        'High water can make the dam-adjacent start, bridge approaches, and causeway corridor unsuitable even though the app only scores a conservative low-water floor.',
       ],
     },
   },
@@ -14468,6 +14543,43 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'High water above 7 ft, faster current, strainers, and bridge-clearance problems.',
         'Two islands before Juddville Road, shallow rocky sections, late-summer aquatic vegetation, and changing depth in pools and riffles.',
         'Use good judgment in high water or flood conditions and scout unfamiliar obstructions before committing.',
+      ],
+  },
+},
+'shiawassee-river-henderson-cole-park': {
+    putIn: {
+      id: 'henderson-county-park',
+      name: 'Henderson County Park cement launch',
+      latitude: 43.087788,
+      longitude: -84.181933,
+    },
+    takeOut: {
+      id: 'cole-park',
+      name: 'Cole Park launch',
+      latitude: 43.185325,
+      longitude: -84.112656,
+    },
+    logistics: {
+      distanceLabel: '14.68 mi',
+      estimatedPaddleTime: 'Long intermediate day; allow extra time for the Ditch Road hazard zone and the Cole Park rapid portage',
+      shuttle:
+        'Use the lower-corridor water-trail road shuttle from Cole Park back to Henderson County Park via Peet Road, Corunna Road / Main Street, M-52, and Henderson Road. Stage the Cole Park take-out first so the final river-right portage and rock walk are understood before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow Shiawassee County park rules, Chesaning park rules, posted access rules, and water-trail safety guidance at both public landings.',
+      camping:
+        'Treat this as a long day trip. Chesaning and the corridor have nearby services, but no on-route overnight plan is assumed between Henderson and Cole Park.',
+      summary:
+        'Launch at Henderson County Park and take out at Cole Park for a 14.68-mile lower Shiawassee day into Chesaning. Use the direct Owosso USGS gauge as a stage check, then plan around the Ditch Road weir zone, shallow riffles, and the mandatory Cole Park rapid portage.',
+      accessCaveats: [
+        'The official route sheets publish Henderson County Park, Ditch Road, and Cole Park as the source-backed public access chain for this route.',
+        'Identify both the Ditch Road hazard area and the Cole Park finish before launching so the two downstream decisions do not become rushed surprises.',
+        'Respect private property and stop only at designated launches or landings; the water-trail safety section calls this out explicitly.',
+      ],
+      watchFor: [
+        'A weir near Ditch Road that must be maneuvered skillfully, with a river-right portage when needed.',
+        'Rock rapids near Showboat Park / Cole Park; portage on river right and expect a slippery rock walk to reach the Cole Park launch.',
+        'Sand bars, stone bars, riffles, islands, changing depth, and more fatigue than the shorter single-section cards suggest.',
+        'High water above 7 ft, faster current, strainers, and lower bridge clearances; lower water around the 2.5 ft preferred floor can still mean scraping and slower travel.',
       ],
     },
   },

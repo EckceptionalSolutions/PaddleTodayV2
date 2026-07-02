@@ -41510,6 +41510,118 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'shiawassee-river-byron-geeck-road',
+    slug: 'shiawassee-river-byron-geeck-road',
+    name: 'Shiawassee River',
+    reach: 'Byron High School Ball Fields to Geeck Road County Park',
+    state: 'Michigan',
+    region: 'Central Michigan',
+    summary:
+      'Longer upper Shiawassee River Water Trail day combining the Byron-to-Walnut Hills and Walnut Hills-to-Geeck sections. The official route sheets support exact public endpoints, combined mileage of about 11.85 miles, and corridor-specific low-water context tied conservatively to the Owosso gauge.',
+    statusText:
+      'Use the Shiawassee River at Owosso gauge as a conservative corridor check. The local guide says this Byron-to-Chesaning corridor may be too shallow at about 2.0 ft or lower; Walnut Hills is a private seasonal mid-route campground access with a small parking fee.',
+    latitude: 42.840348,
+    longitude: -83.945658,
+    gaugeSource: {
+      id: 'usgs-04144500',
+      provider: 'usgs',
+      siteId: '04144500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Shiawassee River at Owosso, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 2,
+      thresholdSource: {
+        label: 'Friends of the Shiawassee River / Shiawassee County Byron-to-Chesaning gauge guidance',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Plan this as a warm-season day and confirm Walnut Hills is open before launch. Low summer water can turn the Vernon Road and Grand River Road shallows into a scraping day, while higher water adds debris, bridge-approach speed, and more consequence around private docks.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The two official route sheets label both contributing reaches beginner, but the full 11.85-mile pairing is longer than the single cards and still needs moving-water judgment around debris, bridge crossings, and private shoreline.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only combination route: the Shiawassee River Water Trail Coalition publishes exact endpoint coordinates and mileage for Byron High School Ball Fields-to-Walnut Hills and Walnut Hills-to-Geeck Road, and the Friends/Shiawassee County brochure says USGS 04144500 is fairly reflective from Byron to Chesaning with 2.0 ft or lower potentially too shallow in some segments. The app intentionally keeps only a low-water floor because the gauge is downstream and the coalition does not publish a route-specific ideal band for this upstream corridor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Combined route distance',
+        value: 'About 11.85 river miles',
+        note: 'The official section 6 and section 7 route sheets publish 4.87 miles from Byron to Walnut Hills and 6.98 miles from Walnut Hills to Geeck Road, supporting an upper-corridor public pairing of about 11.85 miles.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988405/6_Byron_High_School_to_Walnut_Hills.pdf?1511988405=',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.840348, -83.945658 to 42.884522, -84.045106',
+        note: 'The section 6 and section 7 route PDFs publish Byron High School Ball Fields, Walnut Hills Family Campground, and Geeck Road County Park with source-backed coordinates, allowing a direct start-to-finish pair without inferred private landings.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988406/7_Walnut_Hills_to_Geeck_Road.pdf?1511988406=',
+      },
+      {
+        label: 'Gauge guidance',
+        value: '2.0 ft low-water floor at Owosso',
+        note: 'The Friends/Shiawassee County guide says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2.0 ft or lower may be too shallow in some segments.',
+        sourceUrl:
+          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+      },
+      {
+        label: 'Current gauge check',
+        value: '2.29 ft and 159 cfs on 2026-07-02',
+        note: 'Same-day USGS Water Services reported the Owosso gauge at 2.29 ft and 159 cfs, which clears the conservative minimum floor but still calls for a same-day visual check in the upstream corridor.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04144500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Managed mid-route access',
+        value: 'Walnut Hills seasonal campground access',
+        note: 'The section 6 and section 7 route sheets and the broader brochure describe Walnut Hills as a private seasonal public paddling access with a small vehicle fee and no off-season use when the campground is closed.',
+        sourceUrl:
+          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Byron High School to Walnut Hills route PDF',
+        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988405/6_Byron_High_School_to_Walnut_Hills.pdf?1511988405=',
+        provider: 'local',
+      },
+      {
+        label: 'Walnut Hills to Geeck Road route PDF',
+        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988406/7_Walnut_Hills_to_Geeck_Road.pdf?1511988406=',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River Water Trail trip maps',
+        url: 'https://www.shiawasseewatertrail.org/tripmaps',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River guide brochure',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04144500 Shiawassee River at Owosso',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 04144500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04144500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'shiawassee-river-geeck-road-shiatown',
     slug: 'shiawassee-river-geeck-road-shiatown',
     name: 'Shiawassee River',
@@ -41729,6 +41841,129 @@ export const rivers: River[] = [
       {
         label: 'USGS 04144500 Shiawassee River at Owosso',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'shiawassee-river-shiatown-brady-street',
+    slug: 'shiawassee-river-shiatown-brady-street',
+    name: 'Shiawassee River',
+    reach: 'Shiatown County Park to Brady Street Landing',
+    state: 'Michigan',
+    region: 'Central Michigan',
+    summary:
+      'Longer upper Shiawassee day combining the Shiatown-to-Lytle and Lytle-to-Brady sections into one public point-to-point route. The official route sheets support exact public endpoints, combined mileage of about 11.03 miles, and specific causeway, rapid, and debris cautions.',
+    statusText:
+      'Use the Shiawassee River at Owosso gauge as a conservative corridor check. The local guide says this Byron-to-Chesaning corridor may be too shallow at about 2.0 ft or lower; high water, fast current below Shiatown, and the Lytle causeway still require judgment.',
+    latitude: 42.929408,
+    longitude: -84.071308,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04144500',
+      provider: 'usgs',
+      siteId: '04144500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Shiawassee River at Owosso, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['dam', 'whitewater', 'strainers'],
+      safetyNotes: [
+        'Begin only below the partially removed Shiatown dam and scout the fast current, split channel, and first rocky bends before committing to the longer combined day.',
+        'High water can turn the downstream causeway, bridge approaches, debris, and private-dock corridor into a poor fit for casual paddlers.',
+        'The Owosso gauge is a downstream corridor proxy, so use it as a conservative low-water check and make a same-day visual call at the put-in.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 2,
+      thresholdSource: {
+        label: 'Friends of the Shiawassee River / Shiawassee County Byron-to-Chesaning gauge guidance',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the main paddling window. Low summer water can mean more scraping and slower route-finding through the rocky Shiatown half, while high water adds consequence around the dam-adjacent start, causeway decision, and private-dock corridor into Corunna.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The first section is officially intermediate and the second is short but technical enough to mention split channels, downed trees, and a causeway. Combined, this is a longer moving-water day best treated as moderate and guarded.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only combination route: the Shiawassee River Water Trail Coalition publishes exact endpoint coordinates, mileage, and hazard notes for Shiatown County Park-to-Lytle Road County Park and Lytle Road County Park-to-Brady Street. The Friends/Shiawassee County brochure says USGS 04144500 is fairly reflective from Byron to Chesaning and that 2.0 ft or lower may be too shallow in some segments. The app keeps only a low-water floor and guards the route because the combined day starts below a partially removed dam and finishes through a causeway/wood corridor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Combined route distance',
+        value: 'About 11.03 river miles',
+        note: 'The official section 9 and section 10 route sheets publish 7.83 miles from Shiatown to Lytle and 3.2 miles from Lytle to Brady Street, supporting a combined public route of about 11.03 miles.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988390/9_Shiatown_to_Lytle_Road.pdf?1511988390=',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.929408, -84.071308 to 42.976600, -84.116539',
+        note: 'The section 9 and section 10 route PDFs publish Shiatown County Park, Lytle Road County Park, and Brady Street with source-backed coordinates, supporting a start-to-finish public pairing.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988391/10_Lytle_Road_to_Brady_Street.pdf?1511988391=',
+      },
+      {
+        label: 'Gauge guidance',
+        value: '2.0 ft low-water floor at Owosso',
+        note: 'The Friends/Shiawassee County brochure says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2.0 ft or lower may be too shallow in some segments.',
+        sourceUrl:
+          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+      },
+      {
+        label: 'Current gauge check',
+        value: '2.29 ft and 159 cfs on 2026-07-02',
+        note: 'Same-day USGS Water Services reported the Owosso gauge at 2.29 ft and 159 cfs, which clears the conservative minimum floor but does not remove the need to scout the dam-adjacent start and causeway conditions.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04144500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Named hazards',
+        value: 'Partially removed dam, fast rapids, causeway',
+        note: 'The route sheets warn about the fast rapids and split channel below Shiatown, rocky shallows and debris on the longer first half, and a causeway about 1.75 miles into the Lytle-to-Brady section that should be passed left in low water or portaged in high water.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988391/10_Lytle_Road_to_Brady_Street.pdf?1511988391=',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Shiatown to Lytle Road route PDF',
+        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988390/9_Shiatown_to_Lytle_Road.pdf?1511988390=',
+        provider: 'local',
+      },
+      {
+        label: 'Lytle Road to Brady Street route PDF',
+        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988391/10_Lytle_Road_to_Brady_Street.pdf?1511988391=',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River Water Trail trip maps',
+        url: 'https://www.shiawasseewatertrail.org/tripmaps',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River guide brochure',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04144500 Shiawassee River at Owosso',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 04144500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04144500&parameterCd=00060,00065&siteStatus=all',
         provider: 'usgs',
       },
     ],
@@ -42153,6 +42388,137 @@ export const rivers: River[] = [
       {
         label: 'USGS 04144500 Shiawassee River at Owosso',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'shiawassee-river-henderson-cole-park',
+    slug: 'shiawassee-river-henderson-cole-park',
+    name: 'Shiawassee River',
+    reach: 'Henderson County Park to Cole Park',
+    state: 'Michigan',
+    region: 'Central Michigan',
+    summary:
+      'Lower Shiawassee point-to-point route combining Henderson-to-Ditch and Ditch-to-Cole into one longer Chesaning-bound day. The official water-trail sheets support exact public endpoints, combined mileage of about 14.68 miles, and direct Owosso gauge guidance for this corridor.',
+    statusText:
+      'Use the Shiawassee River at Owosso gauge. The water-trail coalition says this corridor is most enjoyable above 2.5 ft and below 7.0 ft; at about 2.0 ft or lower, riffles, rapids, and shallow spots become harder, while high water makes the weir and Cole Park portage more consequential.',
+    latitude: 43.087788,
+    longitude: -84.181933,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04144500',
+      provider: 'usgs',
+      siteId: '04144500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Shiawassee River at Owosso, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['dam', 'whitewater', 'mandatory_takeout', 'strainers'],
+      safetyNotes: [
+        'Scout the weir near Ditch Road and use the river-right portage whenever the line is not straightforward.',
+        'Expect a second mandatory decision near Cole Park, where the route sheet calls for a river-right portage around the rapids and a slippery rock walk to the launch.',
+        'High water above the published 7.0 ft ceiling makes current faster, bridge clearances lower, and both hazard zones more consequential.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.5,
+      idealMax: 7,
+      tooLow: 2,
+      tooHigh: 7,
+      thresholdSource: {
+        label: 'Shiawassee River Water Trail Coalition Owosso-gauge guidance',
+        url: 'https://www.shiawasseewatertrail.org/riverflow',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the main paddling window. Low summer water can expose sand bars, rock bars, riffles, and shallow channels; high water above the local 7 ft ceiling adds faster current, lower bridges, and more serious portage consequences.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The contributing route sheets label Henderson-to-Ditch intermediate and Ditch-to-Cole beginner, but the combined 14.68-mile day includes a weir, a required rapids portage, multiple bridges, remoteness between exits, and enough mileage to justify a guarded moderate rating.',
+      confidenceNotes:
+        'Confidence is high for a guarded stage-based combination route: the Shiawassee River Water Trail Coalition publishes exact endpoint coordinates, mileage, and hazard notes for Henderson County Park-to-Ditch Road and Ditch Road-to-Cole Park, and its river-flow page explicitly ties the Owosso gauge to the Owosso-to-Chesaning corridor with an enjoyable band above 2.5 ft and below 7 ft. The broader brochure adds the 2.0 ft shallow warning. The app keeps the direct two-sided gauge model and guards the route because paddlers must handle both the Ditch Road weir zone and the Cole Park rapid portage.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Combined route distance',
+        value: 'About 14.68 river miles',
+        note: 'The official section 13 and section 14 route sheets publish 9.2 miles from Henderson County Park to Ditch Road and 5.48 miles from Ditch Road to Cole Park, supporting a lower-corridor pairing of about 14.68 miles.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988395/13_Henderson_Counry_Park_to_Ditch_Road.pdf?1511988395=',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '43.087788, -84.181933 to 43.185325, -84.112656',
+        note: 'The section 13 and section 14 route PDFs publish Henderson County Park, Ditch Road, and Cole Park coordinates, supporting a public start-to-finish pairing into Chesaning.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988396/14_Ditch_Road_to_Cole_Park.pdf?1511988396=',
+      },
+      {
+        label: 'Gauge guidance',
+        value: '2.5 to 7.0 ft at Owosso, with 2.0 ft shallow warning',
+        note: 'The coalition river-flow page says the Shiawassee from Owosso to Chesaning is most enjoyable above 2.5 ft and below 7 ft, while the broader brochure says 2.0 ft or lower may be too shallow in some segments.',
+        sourceUrl:
+          'https://www.shiawasseewatertrail.org/riverflow',
+      },
+      {
+        label: 'Current gauge check',
+        value: '2.29 ft and 159 cfs on 2026-07-02',
+        note: 'Same-day USGS Water Services reported the Owosso gauge at 2.29 ft and 159 cfs, which is above the shallow warning floor but still below the coalition\'s preferred 2.5 ft minimum.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04144500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Named hazards',
+        value: 'Weir near Ditch Road and Cole Park rapid portage',
+        note: 'The section 13 route sheet warns that the weir before Ditch Road must be maneuvered skillfully with a river-right portage if needed, and the section 14 sheet requires a river-right portage around the Cole Park rapids.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988396/14_Ditch_Road_to_Cole_Park.pdf?1511988396=',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Henderson County Park to Ditch Road route PDF',
+        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988395/13_Henderson_Counry_Park_to_Ditch_Road.pdf?1511988395=',
+        provider: 'local',
+      },
+      {
+        label: 'Ditch Road to Cole Park route PDF',
+        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988396/14_Ditch_Road_to_Cole_Park.pdf?1511988396=',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River Water Trail river flow',
+        url: 'https://www.shiawasseewatertrail.org/riverflow',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River Water Trail trip maps',
+        url: 'https://www.shiawasseewatertrail.org/tripmaps',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River guide brochure',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04144500 Shiawassee River at Owosso',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 04144500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04144500&parameterCd=00060,00065&siteStatus=all',
         provider: 'usgs',
       },
     ],
