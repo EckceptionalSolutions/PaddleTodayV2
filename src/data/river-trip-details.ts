@@ -1767,6 +1767,140 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'big-fork-river-ben-linn-kueffners': {
+    putIn: {
+      name: 'Ben Linn Public Water Access Site',
+      latitude: 48.2500692,
+      longitude: -93.8861103,
+    },
+    takeOut: {
+      name: 'Kueffners Public Water Access Site',
+      latitude: 48.3387433532423,
+      longitude: -93.81704382878402,
+    },
+    logistics: {
+      distanceLabel: '12.6 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6 hr depending on level and stops',
+      shuttle:
+        'Stage the take-out at Kueffners before driving to Ben Linn. This is still a forest-road shuttle with limited services, so check road conditions, daylight, and backup-driver plans before launch.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access and state-forest rules at Ben Linn, Gowdy, and Kueffners.',
+      camping:
+        'Ben Linn and Kueffners both have watercraft campsites, and Gowdy adds a named midpoint campsite, so this is one of the cleaner campsite-to-campsite lower Big Fork links.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Ben Linn and finish at Kueffners for a longer lower Big Fork continuation that carries the Class I rapid stretch plus a named campsite bailout at Gowdy.',
+      accessCaveats: [
+        'Gowdy is the clearest named bailout before the Kueffners finish and should be treated as a real decision point if the day runs long.',
+        'Both endpoints are official public-water-access sites, but neither is a staffed park with backup services.',
+        'Stay with the named public accesses and campsites rather than improvising on brushy or private banks.',
+      ],
+      watchFor: [
+        'The mapped Class I rapid stretch between river miles 41.3 and 39.8 on the upper half of the route.',
+        'Outside-bend strainers, fresh storm wood, and quicker current after rain.',
+        'Scraping and slower travel when the Big Falls gauge falls toward the 1.5 ft floor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'ben-linn',
+        name: 'Ben Linn Public Water Access Site',
+        latitude: 48.2500692,
+        longitude: -93.8861103,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Carry-in access with a grassy clearing and watercraft campsite at the upstream end of the route.',
+      },
+      {
+        id: 'gowdy',
+        name: 'Gowdy Public Water Access Site',
+        latitude: 48.2991378,
+        longitude: -93.820383,
+        mileFromStart: 8.8,
+        segmentKind: 'creek',
+        note: 'Carry-in access with a watercraft campsite and the clearest midpoint bailout before Kueffners.',
+      },
+      {
+        id: 'kueffners',
+        name: 'Kueffners Public Water Access Site',
+        latitude: 48.3387433532423,
+        longitude: -93.81704382878402,
+        mileFromStart: 12.6,
+        segmentKind: 'creek',
+        note: 'Carry-in access with toilets and a watercraft campsite at the lower finish.',
+      },
+    ],
+  },
+  'big-fork-river-kueffners-ivan-crawford': {
+    putIn: {
+      name: 'Kueffners Public Water Access Site',
+      latitude: 48.3387433532423,
+      longitude: -93.81704382878402,
+    },
+    takeOut: {
+      name: 'Ivan Crawford Public Water Access Site',
+      latitude: 48.45526062827152,
+      longitude: -93.71955474703496,
+    },
+    logistics: {
+      distanceLabel: '21.4 mi',
+      estimatedPaddleTime: 'Long day, roughly 7 hr to 9 hr depending on level and wind',
+      shuttle:
+        'Stage the take-out at Ivan Crawford before driving to Kueffners. This is a full lower-river shuttle with no other named public exit before the finish, so treat daylight and weather conservatively.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access rules at Kueffners and Ivan Crawford.',
+      camping:
+        'Kueffners has toilets plus a watercraft campsite, so this route has a legitimate endpoint-campground start even though the Ivan Crawford finish is a simpler county landing.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Kueffners and finish at Ivan Crawford for a committed lower Big Fork continuation below the rapid corridor. The current is gentler here, but the distance and sparse exits still demand planning discipline.',
+      accessCaveats: [
+        'There are no other named public exits between Kueffners and Ivan Crawford on the official lower-corridor map chain.',
+        'Ivan Crawford is the intended finish before the final Reedy Flats / Rainy River approach; do not treat it as a casual optional stop if you keep drifting.',
+        'Use only the named public accesses and campsites because surrounding shoreline remains private or undeveloped.',
+      ],
+      watchFor: [
+        'Long-day fatigue, cold shoulder-season water, and broad exposed bends.',
+        'Fresh storm wood, undercut outside bends, and few easy recovery points after the launch.',
+        'Slow travel and shallow bends when the Big Falls gauge falls toward the 1.5 ft floor.',
+      ],
+    },
+  },
+  'big-fork-river-ivan-crawford-reedy-flats': {
+    putIn: {
+      name: 'Ivan Crawford Public Water Access Site',
+      latitude: 48.45526062827152,
+      longitude: -93.71955474703496,
+    },
+    takeOut: {
+      name: 'Reedy Flats Public Water Access Site',
+      latitude: 48.512209474305244,
+      longitude: -93.71277845257251,
+    },
+    logistics: {
+      distanceLabel: '8.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr depending on level and wind',
+      shuttle:
+        'Stage the take-out at Reedy Flats before driving to Ivan Crawford. Even though this is the shortest lower-corridor split, the roads are still remote enough that a clean shuttle matters.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access rules at Ivan Crawford and Reedy Flats.',
+      camping:
+        'Reedy Flats has a toilet and watercraft campsite just above Highway 11, so this route has a clean endpoint-campground finish if you want to turn the lower Big Fork into a short overnight or basecamp trip.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Ivan Crawford and finish at Reedy Flats for the final lower Big Fork segment above the Rainy River confluence. It is shorter and gentler than the longer lower continuations, but the finish still requires deliberate take-out discipline.',
+      accessCaveats: [
+        'Reedy Flats is the intended final public take-out above the Rainy River confluence. Do not assume a safe or public continuation beyond it.',
+        'Ivan Crawford is a simpler county landing than the campsite-backed Reedy finish, so inspect launch footing before leaving vehicles.',
+        'Use only the named public accesses and campsites because surrounding shoreline remains private or undeveloped.',
+      ],
+      watchFor: [
+        'Broad lower-river wind, thunderstorms, and fresh storm wood on outside bends.',
+        'Slow travel and shallow bends when the Big Falls gauge falls toward the 1.5 ft floor.',
+        'The temptation to relax late and drift past Reedy Flats toward the larger Rainy River corridor.',
+      ],
+    },
+  },
   'little-fork-river-veterans-park-highway-73': {
     putIn: {
       name: 'Veterans Park carry-in access, Cook',
