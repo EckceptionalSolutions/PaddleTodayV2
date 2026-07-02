@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-02 06:55 America/Chicago / 2026-07-02 11:55 UTC.
+Last summarized: 2026-07-02 13:45 America/Chicago / 2026-07-02 18:45 UTC.
 
 ## Current Inventory
 
-- Live routes: 68.
-- Ledger candidates: 54 Kentucky-specific records. The newest live slug from this run is `south-fork-kentucky-river-bishop-bend-fish-creek`.
+- Live routes: 71.
+- Ledger candidates: 54 Kentucky-specific records. The newest live slug from this run is `south-fork-kentucky-river-upper-wolf-creek-fish-creek`.
 
 ## Status
 
@@ -21,6 +21,12 @@ Kentucky had been paused from the active automation rotation at user request whi
 
 ## Current Guidance
 
+- 2026-07-02 13:45 America/Chicago / 2026-07-02 18:45 UTC three-route add pass
+  - Added `south-fork-kentucky-river-oneida-upper-wolf-creek`, `south-fork-kentucky-river-upper-wolf-creek-fish-creek`, and `south-fork-kentucky-river-hacker-branch-fish-creek` to expand Kentucky beyond the 452-route repo baseline at run start.
+  - The run reused the current KDFWR South Fork Kentucky River page for the exact chained public mileages of `5.0`, `2.5`, `4.7`, `3.3`, and `2.9` miles for Oneida to Upper Wolf Creek, plus `5.6` and `7.9` miles for the lower Upper-Wolf-to-Fish-Creek chain, which support new public routes of `18.4`, `13.5`, and `16.4` miles.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Oneida Ramp, Hacker Branch Road Access, Upper Wolf Creek Ramp, Kay Wood Road Access, and Fish Creek Boat Ramp; same-day direct USGS Water Services returned `217 cfs / 4.32 ft` at South Fork Kentucky River at Booneville (`03281500`) at `2026-07-02 13:30 EDT`.
+  - Camping stays conservative at `none` for all three because KDFWR still treats the access chain as day-use public launches rather than overnight sites. Safety notes stay focused on private-bank limits, low-water scraping below band, muddy landings, fresh wood after rain, and fatigue on the two longer combinations.
+  - Reused the approved South Fork Commons corridor images for all three new slugs rather than selecting new KDFWR or USGS imagery.
 - 2026-07-02 10:05 America/Chicago / 2026-07-02 15:05 UTC three-route add pass
   - Added `goose-creek-jacks-laurel-branch`, `goose-creek-jacks-laurel-branch`, and `goose-creek-jacks-laurel-branch` to expand Kentucky beyond the 455-route repo baseline at run start.
   - The run reused the current KDFWR Goose Creek page for the exact downstream site-to-site mileages of `2.2`, `0.8`, and `4.8` miles, which support the three remaining official lower-Goose access pairs below the Rawlings / Stinson low-head-dam warning.
