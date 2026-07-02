@@ -1,10 +1,10 @@
 # Arkansas Route Memory
 
-Last summarized: 2026-06-04 08:55 America/Chicago.
+Last summarized: 2026-07-02 15:10 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 17.
+- Live routes: 20.
 - Ledger candidates: 14 Arkansas-specific implemented-route records plus older blocked Arkansas holds after the 2026-07-02 Crooked Creek add.
 
 ## Added Routes
@@ -20,7 +20,21 @@ Last summarized: 2026-06-04 08:55 America/Chicago.
 
 ## Status
 
-Arkansas now has seventeen live routes after the 2026-07-02 Crooked Creek follow-up added three more AGFC water-trail segments beyond the prior Saline and upper Illinois work. The state no longer looks paused so much as partially harvested: Buffalo, Crooked Creek, Saline, upper Illinois, Mulberry, Cossatot, Kings, and Ouachita all have live coverage, while the strongest remaining near-term leads are still blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs.
+Arkansas now has twenty live routes after the 2026-07-02 Bayou DeView downstream follow-up added three more AGFC water-trail segments beyond the prior Bayou DeView consolidation and Crooked Creek work. The state no longer looks paused so much as partially harvested: Bayou DeView, Buffalo, Crooked Creek, Saline, upper Illinois, Mulberry, Cossatot, Kings, and Ouachita all have live coverage, while the strongest remaining near-term leads are still blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs.
+
+## 2026-07-02 Bayou DeView downstream implementation pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had seventeen live route objects and matching trip-detail entries before this pass, so the Bayou DeView downstream follow-up had to create three genuinely new slugs beyond that baseline.
+- Added `bayou-deview-hickson-lake-rock-island-road`, `bayou-deview-rock-island-road-apple-lake`, and `bayou-deview-apple-lake-bank-of-brinkley` from the lower half of the AGFC Bayou DeView Water Trail corridor.
+- Route, gauge, and threshold evidence:
+  - AGFC still documents the exact public segment mileages of `2.9`, `1.5`, and `4.3` miles for Hickson Lake to Rock Island Road, Rock Island Road to Apple Lake, and Apple Lake to Bank of Brinkley, and still exposes map-linked endpoint coordinates for all four accesses.
+  - Direct same-day official USGS current conditions for Bayou Deview near Brinkley (`07077730`) returned `15.26 ft` at `2026-07-02 14:00 CDT`.
+  - AGFC's current Bayou DeView guidance still says the trail needs about `14 ft` or higher to paddle and that the Dagmar Road gate closes at `17 ft`, so all three routes ship on the same conservative two-sided stage model with `tooLow: 14`, `idealMin: 14`, `idealMax: 16.9`, and `tooHigh: 17`.
+- Access, camping, and safety posture:
+  - All three routes stay `nearby_basecamp` because AGFC still says free first-come campsites marked by blue paint are available on Dagmar WMA, but those campsites are a separate basecamp plan rather than part of the normal short day floats and camping is not allowed on Cache River NWR.
+  - The Rock Island to Apple Lake and Apple Lake to Bank of Brinkley routes now carry the explicit Apple Lake WRA seasonal access closure from `Nov. 1` through `Feb. 15`.
+  - All three routes carry the same Bayou DeView caution set around indistinct main channels, route-finding, private-bank limits, floating wood, and high-water danger as the gauge approaches the `17 ft` road-closure line.
+  - No gallery image was added. Bounded AGFC, Sheffield Nelson Dagmar WMA, Commons, and same-river USGS review did not surface a clearly rights-clean exact-route paddling image for the three new downstream slugs.
 
 ## 2026-07-02 Crooked Creek implementation pass
 

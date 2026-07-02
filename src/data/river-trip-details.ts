@@ -11654,6 +11654,181 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'bayou-deview-hickson-lake-rock-island-road': {
+    putIn: {
+      id: 'hickson-lake-access',
+      name: 'Hickson Lake Access',
+      latitude: 34.89039,
+      longitude: -91.29826,
+    },
+    takeOut: {
+      id: 'rock-island-road-access',
+      name: 'Rock Island Road Access',
+      latitude: 34.85911,
+      longitude: -91.29025,
+    },
+    logistics: {
+      distanceLabel: 'About 2.9 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer if route-finding or wood slows the day',
+      shuttle:
+        'Stage the take-out at Rock Island Road Access, then drive back to Hickson Lake Access. Carry the AGFC georeferenced map before launching because the trail markers do not remove the need for active floodplain navigation.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
+      camping:
+        'Free first-come campsites marked by blue paint are available on Dagmar WMA, but this route is short enough to treat camping as a separate basecamp plan rather than part of the float. Camping is not allowed on Cache River National Wildlife Refuge.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Hickson Lake Access and take out at Rock Island Road Access for a shorter middle Bayou DeView day. Even on this short split, use the Brinkley gauge and the georeferenced trail map rather than assuming a simple one-channel bayou.',
+      accessCaveats: [
+        'Hickson Lake and Rock Island Road are named public AGFC Bayou DeView Water Trail accesses reached by WMA roads rather than by developed park marinas.',
+        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
+        'The main channel is not always distinct. Carry the georeferenced map or equivalent offline navigation before leaving cell coverage.',
+        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
+      ],
+      watchFor: [
+        'Water below about 14 ft, when disconnected channels and shallow obstructions become more likely.',
+        'Water approaching or above 17 ft, when AGFC says the gate on Dagmar Road closes and high-water timber travel becomes more dangerous.',
+        'Floating logs, strainers, and losing the marked route through indistinct floodplain channels.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hickson-lake-access',
+        name: 'Hickson Lake Access',
+        latitude: 34.89039,
+        longitude: -91.29826,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream access for this middle Bayou DeView split.',
+      },
+      {
+        id: 'rock-island-road-access',
+        name: 'Rock Island Road Access',
+        latitude: 34.85911,
+        longitude: -91.29025,
+        mileFromStart: 2.9,
+        segmentKind: 'creek',
+        note: 'Default downstream access for this middle Bayou DeView split.',
+      },
+    ],
+  },
+  'bayou-deview-rock-island-road-apple-lake': {
+    putIn: {
+      id: 'rock-island-road-access',
+      name: 'Rock Island Road Access',
+      latitude: 34.85911,
+      longitude: -91.29025,
+    },
+    takeOut: {
+      id: 'apple-lake-access',
+      name: 'Apple Lake Access',
+      latitude: 34.84159,
+      longitude: -91.282,
+    },
+    logistics: {
+      distanceLabel: 'About 1.5 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer if low water, wood, or navigation checks slow the route',
+      shuttle:
+        'Stage the take-out at Apple Lake Access, then drive back to Rock Island Road Access. Carry the AGFC georeferenced map even on this short segment because the floodplain channels are not always obvious.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
+      camping:
+        'Treat this as a short day float. Free first-come campsites marked by blue paint are available elsewhere on Dagmar WMA, but Apple Lake access is closed from Nov. 1 through Feb. 15 and camping is not allowed on Cache River National Wildlife Refuge.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Rock Island Road Access and take out at Apple Lake Access for the shortest Bayou DeView option in the family. This still needs the Brinkley gauge, WMA access check, and an offline map before launch.',
+      accessCaveats: [
+        'Rock Island Road and Apple Lake are named public AGFC Bayou DeView Water Trail accesses on WMA roads rather than full-service launch parks.',
+        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
+        'Apple Lake Waterfowl Rest Area is closed to access from Nov. 1 through Feb. 15.',
+        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
+      ],
+      watchFor: [
+        'Water below about 14 ft, when shallow obstructions and disconnected side channels become more likely.',
+        'Water approaching or above 17 ft, when AGFC says the gate on Dagmar Road closes and high-water timber travel becomes more dangerous.',
+        'Floating logs, strainers, and missing the marked route in indistinct cypress-tupelo channels.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rock-island-road-access',
+        name: 'Rock Island Road Access',
+        latitude: 34.85911,
+        longitude: -91.29025,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream access for this short lower-middle Bayou DeView split.',
+      },
+      {
+        id: 'apple-lake-access',
+        name: 'Apple Lake Access',
+        latitude: 34.84159,
+        longitude: -91.282,
+        mileFromStart: 1.5,
+        segmentKind: 'creek',
+        note: 'Default downstream access for this short lower-middle Bayou DeView split.',
+      },
+    ],
+  },
+  'bayou-deview-apple-lake-bank-of-brinkley': {
+    putIn: {
+      id: 'apple-lake-access',
+      name: 'Apple Lake Access',
+      latitude: 34.84159,
+      longitude: -91.282,
+    },
+    takeOut: {
+      id: 'bank-of-brinkley-access',
+      name: 'Bank of Brinkley Access',
+      latitude: 34.80024,
+      longitude: -91.30049,
+    },
+    logistics: {
+      distanceLabel: 'About 4.3 mi',
+      estimatedPaddleTime:
+        'About 2.5 hr to 4 hr, longer if route-finding, wind, or wood slows the lower floodplain channels',
+      shuttle:
+        'Stage the take-out at Bank of Brinkley Access, then drive back to Apple Lake Access. Carry the AGFC georeferenced map before launching because the lower bayou still requires active navigation.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
+      camping:
+        'Free first-come campsites marked by blue paint are available on Dagmar WMA upstream of the route, but this lower segment is usually a day trip and camping is not allowed on Cache River National Wildlife Refuge near the Brinkley end.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Apple Lake Access and take out at Bank of Brinkley Access for the lower Bayou DeView segment. Use the Brinkley gauge, verify Apple Lake seasonal access, and carry the AGFC map because the lower channel is still not obvious at every turn.',
+      accessCaveats: [
+        'Apple Lake and Bank of Brinkley are named public AGFC Bayou DeView Water Trail accesses reached by refuge or WMA roads rather than full-service launch facilities.',
+        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
+        'Apple Lake Waterfowl Rest Area is closed to access from Nov. 1 through Feb. 15.',
+        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
+      ],
+      watchFor: [
+        'Water below about 14 ft, when shallow obstructions and disconnected lower channels become more likely.',
+        'Water approaching or above 17 ft, when AGFC says the access roads can close and high-water timber travel becomes more dangerous.',
+        'Floating logs, strainers, wind exposure in open reaches, and missing the marked route through the lower cypress-tupelo corridor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'apple-lake-access',
+        name: 'Apple Lake Access',
+        latitude: 34.84159,
+        longitude: -91.282,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream access for this lower Bayou DeView split.',
+      },
+      {
+        id: 'bank-of-brinkley-access',
+        name: 'Bank of Brinkley Access',
+        latitude: 34.80024,
+        longitude: -91.30049,
+        mileFromStart: 4.3,
+        segmentKind: 'creek',
+        note: 'Default downstream access for this lower Bayou DeView split.',
+      },
+    ],
+  },
 'buffalo-river-ponca-kyles-landing': {
     putIn: {
       id: 'ponca-access',
