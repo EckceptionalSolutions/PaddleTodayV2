@@ -1,6 +1,6 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-01 22:35 America/Chicago.
+Last summarized: 2026-07-02 00:20 America/Chicago.
 
 ## Current Inventory
 
@@ -13,6 +13,13 @@ Last summarized: 2026-07-01 22:35 America/Chicago.
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-02 00:20 America/Chicago: added `big-fork-river-ben-linn-ivan-crawford`, `big-fork-river-gowdy-ivan-crawford`, and `big-fork-river-kueffners-reedy-flats`.
+- Stayed on the same official lower Big Fork family because current MN DNR Map 2 still had three unused access-to-access continuations under the route-audit mileage ceiling with stronger source quality than reopening a weaker new-state search.
+- Current MN DNR `river_level_sites.json` still reports site `5` (`Big Fork River at Big Falls, MN`) at `2.87 ft` at `2026-07-01 10:00 PM`; official bands remain Scrapable below `1.5 ft`, Low `1.5-2.8`, Medium `2.8-4.5`, High `4.5-6.0`, and Very High above `6.0`.
+- The official public-water-access GIS still resolves Ben Linn `WAS01796`, Gowdy `WAS02706`, Kueffners `WAS01788`, Ivan Crawford `WAS02705`, and Reedy Flats `WAS02709` with matching lower-corridor river miles and named public landings.
+- `big-fork-river-ben-linn-ivan-crawford` ships as `on_route_campsite` because Ben Linn, Gowdy, and Kueffners all remain documented campsite or toilet-supported stopping points before Ivan Crawford; `big-fork-river-gowdy-ivan-crawford` also ships as `on_route_campsite` because Gowdy and Kueffners remain real overnight or bailout support; `big-fork-river-kueffners-reedy-flats` ships as `endpoint_campground` because both Kueffners and Reedy Flats have documented campsite support.
+- Safety notes stay conservative around the mapped Class I stretch on the Ben-Linn continuation, fresh wood after storms, cold-water and long-day fatigue on the two longer lower corridors, private-bank limits, and the need to finish at Reedy Flats before drifting into the Rainy River confluence corridor. No route-gallery image was added.
 
 - 2026-07-01 23:35 America/Chicago: added `big-fork-river-big-falls-west-kueffners`, `big-fork-river-sturgeon-kueffners`, and `big-fork-river-ben-linn-kueffners`.
 - Stayed on the same official lower Big Fork family because current MN DNR Map 2 still had three unused Kueffners-finish continuations with better source quality than reopening a weaker new-state search.
