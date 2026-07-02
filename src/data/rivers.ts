@@ -1690,853 +1690,6 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: 'big-fork-river-sturgeon-kueffners',
-    slug: 'big-fork-river-sturgeon-kueffners',
-    name: 'Big Fork River',
-    reach: 'Sturgeon Landing to Kueffners Landing',
-    state: 'Minnesota',
-    region: 'Northern Minnesota',
-    summary:
-      'Longer middle-lower Big Fork continuation from Sturgeon Landing to Kueffners Landing. It includes the mapped Class I stretch plus campsite support at Ben Linn, Gowdy, and the Kueffners finish.',
-    statusText:
-      'The Big Falls gauge is best from 2.8 to 4.5 ft. Below 1.5 ft, expect scraping and a slower rapid-stretch day; above 6.0 ft, current and wood through the lower rapids become too consequential for a general recommendation.',
-    latitude: 48.211879,
-    longitude: -93.883423,
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'remote', 'private_banks'],
-      safetyNotes: [
-        'This route includes the mapped Class I rapid stretch between river miles 41.3 and 39.8, so it is more than a quiet campsite shuttle even though it stays below Big Falls.',
-        'Ben Linn and Gowdy are the clearest bailout or overnight points before the Kueffners finish. Treat them as real decisions if the day is slipping.',
-        'Use only the named public accesses and campsites because most shoreline outside those sites remains undeveloped or private frontage.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    gaugeSource: {
-      id: 'mn-dnr-5',
-      provider: 'mn_dnr',
-      siteId: '5',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Big Fork River at Big Falls, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
-      hydrographUrl:
-        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77069001&var1=232&width=700&height=320',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2.8,
-      idealMax: 4.5,
-      tooLow: 1.5,
-      tooHigh: 6,
-      thresholdSource: {
-        label: 'MN DNR river-level interpretation bands for Big Fork River at Big Falls',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'The Big Fork usually falls through summer, but heavy summer or autumn rain can quickly raise current and move wood through this remote middle-lower corridor.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'This is a long remote forest run with a mapped rapid stretch and only a couple of named exits. It is still broad Class I-II moving water, but it deserves more respect than the shorter lower splits.',
-      confidenceNotes:
-        'Confidence is good for a conservative long continuation: DNR Map 2 names Sturgeon, Ben Linn, Gowdy, and Kueffners with matching river miles on one corridor, the direct Big Falls gauge has an official ladder, and the public-water-access dataset resolves the endpoints.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Direct live gauge',
-        value: 'Big Falls gauge 2.87 ft',
-        note: 'The official MN DNR river-level dataset reported 2.87 ft at 2026-07-01 09:00 PM for Big Fork River at Big Falls, confirming the current direct gauge path used for this route.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'DNR bands',
-        value: '1.5 / 2.8-4.5 / 6.0 ft',
-        note: 'MN DNR interprets the Big Falls gauge as Scrapable below 1.5 ft, Low from 1.5 to 2.8, Medium from 2.8 to 4.5, High from 4.5 to 6.0, and Very High above 6.0.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'Map support',
-        value: 'Sturgeon RM 47.5 to Kueffners RM 30.4',
-        note: 'DNR Map 2 places Sturgeon Landing at river mile 47.5, Ben Linn at 43.0, Gowdy at 34.2, and Kueffners at 30.4, supporting a 17.1-mile middle-lower continuation.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'Rapid support',
-        value: 'Class I rapids at RM 41.3-39.8',
-        note: 'The DNR map marks a Class I rapid stretch between river miles 41.3 and 39.8 on the lower half of this route.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'Public access records',
-        value: 'Sturgeon WAS01795 and Kueffners WAS01788',
-        note: 'Minnesota public-water-access data resolves Sturgeon on river left and Kueffners on river right with matching water-trail river miles in the official access layer.',
-        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Camping support',
-        value: 'Sturgeon, Ben Linn, Gowdy, and Kueffners campsites',
-        note: 'The DNR map says Sturgeon, Ben Linn, and Gowdy have watercraft campsites and that Kueffners has toilets plus a watercraft campsite, giving this route real on-route overnight or bailout support.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'MN DNR river levels',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      {
-        label: 'MN DNR Big Fork River segments and maps',
-        url: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
-      },
-      {
-        label: 'MN DNR Big Fork River map 2 PDF',
-        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'MN DNR Big Falls gauge detail',
-        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
-      },
-      {
-        label: 'Minnesota public water access feature service',
-        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Pine Island State Forest map',
-        url: 'https://files.dnr.state.mn.us/maps/state_forests/sft00040.pdf',
-      },
-    ],
-  },
-  {
-    id: 'big-fork-river-ben-linn-kueffners',
-    slug: 'big-fork-river-ben-linn-kueffners',
-    name: 'Big Fork River',
-    reach: 'Ben Linn Landing to Kueffners Landing',
-    state: 'Minnesota',
-    region: 'Northern Minnesota',
-    summary:
-      'Middle-lower Big Fork continuation from Ben Linn Landing to Kueffners Landing. It keeps the mapped Class I stretch and finishes at the first lower landing with toilets plus a documented watercraft campsite.',
-    statusText:
-      'The Big Falls gauge is best from 2.8 to 4.5 ft. Below 1.5 ft, expect scraping through the rapid stretch and slower lower-river bends; above 6.0 ft, current and wood become too consequential for a general recommendation.',
-    latitude: 48.250069,
-    longitude: -93.88611,
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'private_banks'],
-      safetyNotes: [
-        'This route includes the mapped Class I rapid stretch between river miles 41.3 and 39.8, so keep normal moving-water judgment even though the finish is calmer and better serviced.',
-        'Gowdy is the clearest midpoint bailout before the Kueffners finish and should be treated as a real decision point if the day is slipping.',
-        'Use only the named public accesses and campsites because most shoreline outside those sites remains undeveloped or private frontage.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    gaugeSource: {
-      id: 'mn-dnr-5',
-      provider: 'mn_dnr',
-      siteId: '5',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Big Fork River at Big Falls, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
-      hydrographUrl:
-        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77069001&var1=232&width=700&height=320',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2.8,
-      idealMax: 4.5,
-      tooLow: 1.5,
-      tooHigh: 6,
-      thresholdSource: {
-        label: 'MN DNR river-level interpretation bands for Big Fork River at Big Falls',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'The Big Fork usually falls through summer, but heavy summer or autumn rain can still move wood quickly through this rapid-stretch corridor and change the lower bends.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'This is a medium-length moving-water forest run. It is shorter than the Sturgeon or Big Falls West continuations, but the mapped rapid stretch and limited exits still push it above a casual easy float.',
-      confidenceNotes:
-        'Confidence is good for a conservative continuation: DNR Map 2 names Ben Linn, Gowdy, and Kueffners with matching river miles, the direct Big Falls gauge has an official ladder, and the public-water-access dataset resolves the endpoints.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Direct live gauge',
-        value: 'Big Falls gauge 2.87 ft',
-        note: 'The official MN DNR river-level dataset reported 2.87 ft at 2026-07-01 09:00 PM for Big Fork River at Big Falls, confirming the current direct gauge path used for this route.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'DNR bands',
-        value: '1.5 / 2.8-4.5 / 6.0 ft',
-        note: 'MN DNR interprets the Big Falls gauge as Scrapable below 1.5 ft, Low from 1.5 to 2.8, Medium from 2.8 to 4.5, High from 4.5 to 6.0, and Very High above 6.0.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'Map support',
-        value: 'Ben Linn RM 43.0 to Kueffners RM 30.4',
-        note: 'DNR Map 2 places Ben Linn Landing at river mile 43.0, Gowdy at 34.2, and Kueffners at 30.4, supporting a 12.6-mile middle-lower continuation.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'Rapid support',
-        value: 'Class I rapids at RM 41.3-39.8',
-        note: 'The DNR map marks a Class I rapid stretch between river miles 41.3 and 39.8 on the upstream half of this route.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'Public access records',
-        value: 'Ben Linn WAS01796 and Kueffners WAS01788',
-        note: 'Minnesota public-water-access data resolves Ben Linn on river right and Kueffners on river right with matching water-trail river miles in the official access layer.',
-        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Camping support',
-        value: 'Ben Linn, Gowdy, and Kueffners campsites',
-        note: 'The DNR map says Ben Linn and Gowdy have watercraft campsites and that Kueffners has toilets plus a watercraft campsite, giving this route a campsite-to-campsite finish with a real midpoint bailout.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'MN DNR river levels',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      {
-        label: 'MN DNR Big Fork River segments and maps',
-        url: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
-      },
-      {
-        label: 'MN DNR Big Fork River map 2 PDF',
-        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'MN DNR Big Falls gauge detail',
-        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
-      },
-      {
-        label: 'Minnesota public water access feature service',
-        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Pine Island State Forest map',
-        url: 'https://files.dnr.state.mn.us/maps/state_forests/sft00040.pdf',
-      },
-    ],
-  },
-  {
-    id: 'big-fork-river-ben-linn-ivan-crawford',
-    slug: 'big-fork-river-ben-linn-ivan-crawford',
-    name: 'Big Fork River',
-    reach: 'Ben Linn Landing to Ivan Crawford Landing',
-    state: 'Minnesota',
-    region: 'Northern Minnesota',
-    summary:
-      'Long lower Big Fork continuation from Ben Linn Landing to Ivan Crawford Landing. It keeps the mapped Class I stretch above Gowdy, then commits to the broader lower corridor with only a couple of named bailout points.',
-    statusText:
-      'The Big Falls gauge is best from 2.8 to 4.5 ft. Below 1.5 ft, expect scraping through the rapid stretch and slower lower bends; above 6.0 ft, current, wood, and lower-corridor commitment become too consequential for a general recommendation.',
-    latitude: 48.250069,
-    longitude: -93.88611,
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'remote', 'private_banks', 'cold_water'],
-      safetyNotes: [
-        'This route includes the mapped Class I stretch between river miles 41.3 and 39.8 before dropping into a much longer lower corridor with fewer easy exits.',
-        'Gowdy and Kueffners are the clearest bailout or overnight decision points before the Ivan Crawford finish. Treat them as real checkpoints if the day, weather, or current is getting away from you.',
-        'Use only the named public accesses and campsites because most shoreline outside those sites remains undeveloped or private frontage.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    gaugeSource: {
-      id: 'mn-dnr-5',
-      provider: 'mn_dnr',
-      siteId: '5',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Big Fork River at Big Falls, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
-      hydrographUrl:
-        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77069001&var1=232&width=700&height=320',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2.8,
-      idealMax: 4.5,
-      tooLow: 1.5,
-      tooHigh: 6,
-      thresholdSource: {
-        label: 'MN DNR river-level interpretation bands for Big Fork River at Big Falls',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'The Big Fork usually falls through summer, but heavy summer or autumn rain can quickly raise current, move wood, and turn this full lower continuation into a much more serious day.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'This is a very long remote northern route. It stays in the broad Class I-II bucket, but the rapid stretch, distance, and sparse exits make it more serious than the shorter lower continuations.',
-      confidenceNotes:
-        'Confidence is good for a conservative long continuation: DNR Map 2 names Ben Linn, Gowdy, Kueffners, and Ivan Crawford with matching river miles, the direct Big Falls gauge has an official ladder, and the public-water-access dataset resolves the endpoints.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Direct live gauge',
-        value: 'Big Falls gauge 2.87 ft',
-        note: 'The official MN DNR river-level dataset reported 2.87 ft at 2026-07-01 10:00 PM for Big Fork River at Big Falls, confirming the current direct gauge path used for this route.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'DNR bands',
-        value: '1.5 / 2.8-4.5 / 6.0 ft',
-        note: 'MN DNR interprets the Big Falls gauge as Scrapable below 1.5 ft, Low from 1.5 to 2.8, Medium from 2.8 to 4.5, High from 4.5 to 6.0, and Very High above 6.0.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'Map support',
-        value: 'Ben Linn RM 43.0 to Ivan Crawford RM 9.0',
-        note: 'DNR Map 2 places Ben Linn Landing at river mile 43.0, Gowdy at 34.2, Kueffners at 30.4, and Ivan Crawford at 9.0, supporting a 34-mile lower-river continuation.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'Rapid support',
-        value: 'Class I rapids at RM 41.3-39.8',
-        note: 'The DNR map marks a Class I rapid stretch between river miles 41.3 and 39.8 on the upstream half of this route.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'Public access records',
-        value: 'Ben Linn WAS01796 and Ivan Crawford WAS02705',
-        note: 'Minnesota public-water-access data resolves Ben Linn on river right at mile 43.0 and Ivan Crawford on river right at mile 9.1 with exact coordinates in the official access layer.',
-        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Camping support',
-        value: 'Ben Linn, Gowdy, and Kueffners campsites',
-        note: 'The DNR map says Ben Linn and Gowdy have watercraft campsites and that Kueffners has toilets plus a watercraft campsite, giving this long route real overnight or bailout support before the Ivan Crawford finish.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'MN DNR river levels',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      {
-        label: 'MN DNR Big Fork River segments and maps',
-        url: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
-      },
-      {
-        label: 'MN DNR Big Fork River map 2 PDF',
-        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'MN DNR Big Falls gauge detail',
-        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
-      },
-      {
-        label: 'Minnesota public water access feature service',
-        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Pine Island State Forest map',
-        url: 'https://files.dnr.state.mn.us/maps/state_forests/sft00040.pdf',
-      },
-    ],
-  },
-  {
-    id: 'big-fork-river-gowdy-kueffners',
-    slug: 'big-fork-river-gowdy-kueffners',
-    name: 'Big Fork River',
-    reach: 'Gowdy Landing to Kueffners Landing',
-    state: 'Minnesota',
-    region: 'Northern Minnesota',
-    summary:
-      'Short lower Big Fork continuation from Gowdy Landing to Kueffners Landing. It stays below the mapped Class I stretch, but it is still a remote forest-edged river with official campsites at both ends.',
-    statusText:
-      'The Big Falls gauge is best from 2.8 to 4.5 ft. Below 1.5 ft, expect scraping on riffles and slower current; above 6.0 ft, wood and pushy bends become too consequential for a general recommendation.',
-    latitude: 48.299138,
-    longitude: -93.820383,
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'private_banks'],
-      safetyNotes: [
-        'This lower split is calmer than the rapid-stretch routes upstream, but changing wood, blind bends, and rising water still matter on a remote northern river.',
-        'Use only the named public accesses and campsites because most shoreline outside those sites remains undeveloped or private frontage.',
-        'Treat quick rain-driven rises as a reason to reassess rather than as a small inconvenience on an easy shuttle day.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    gaugeSource: {
-      id: 'mn-dnr-5',
-      provider: 'mn_dnr',
-      siteId: '5',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Big Fork River at Big Falls, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
-      hydrographUrl:
-        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77069001&var1=232&width=700&height=320',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2.8,
-      idealMax: 4.5,
-      tooLow: 1.5,
-      tooHigh: 6,
-      thresholdSource: {
-        label: 'MN DNR river-level interpretation bands for Big Fork River at Big Falls',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'The lower Big Fork usually drops through summer, but heavy summer or autumn rain can still move wood and speed up the bends even on this shorter downstream section.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is one of the calmer Big Fork continuations in the app, but it is still a remote forest run between lightly developed landings rather than a sheltered park float.',
-      confidenceNotes:
-        'Confidence is reasonable for a conservative lower-river add: DNR Map 2 names Gowdy and Kueffners on the same corridor with matching river miles, both landings resolve in the public-water-access dataset, and the same-river Big Falls gauge remains the closest official live ladder.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Direct live gauge',
-        value: 'Big Falls gauge 2.86 ft',
-        note: 'The official MN DNR river-level dataset reported 2.86 ft at 2026-07-01 07:00 PM for Big Fork River at Big Falls, confirming the current same-river gauge path used for this route.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'DNR bands',
-        value: '1.5 / 2.8-4.5 / 6.0 ft',
-        note: 'MN DNR interprets the Big Falls gauge as Scrapable below 1.5 ft, Low from 1.5 to 2.8, Medium from 2.8 to 4.5, High from 4.5 to 6.0, and Very High above 6.0.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'Map support',
-        value: 'Gowdy RM 34.2 to Kueffners RM 30.4',
-        note: 'DNR Map 2 places Gowdy Landing at river mile 34.2 and Kueffners Landing at river mile 30.4, supporting an approximately 4-mile lower-corridor continuation.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'Public access records',
-        value: 'Gowdy WAS02706 and Kueffners WAS01788',
-        note: 'Minnesota public-water-access data resolves Gowdy and Kueffners as official Big Fork accesses with exact coordinates and matching water-trail river miles.',
-        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Camping support',
-        value: 'Watercraft campsites at both ends',
-        note: 'The DNR map says Gowdy has a watercraft campsite and Kueffners has toilets plus a watercraft campsite, giving this short route clean endpoint camping support.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'Route character',
-        value: 'Lower forest corridor below the rapid stretch',
-        note: 'The DNR lower Big Fork map describes this part of the river as a quiet northern corridor with broad forest and scattered development, and it places the mapped Class I rapids upstream of the Gowdy launch.',
-        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'MN DNR river levels',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      {
-        label: 'MN DNR Big Fork River segments and maps',
-        url: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
-      },
-      {
-        label: 'MN DNR Big Fork River map 2 PDF',
-        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'MN DNR Big Falls gauge detail',
-        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
-      },
-      {
-        label: 'Minnesota public water access feature service',
-        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Pine Island State Forest map',
-        url: 'https://files.dnr.state.mn.us/maps/state_forests/sft00040.pdf',
-      },
-    ],
-  },
-  {
-    id: 'big-fork-river-gowdy-ivan-crawford',
-    slug: 'big-fork-river-gowdy-ivan-crawford',
-    name: 'Big Fork River',
-    reach: 'Gowdy Landing to Ivan Crawford Landing',
-    state: 'Minnesota',
-    region: 'Northern Minnesota',
-    summary:
-      'Long lower Big Fork continuation from Gowdy Landing to Ivan Crawford Landing. It stays below the mapped Class I stretch, but the corridor is still remote and becomes increasingly committing once you leave Kueffners.',
-    statusText:
-      'The Big Falls gauge is best from 2.8 to 4.5 ft. Below 1.5 ft, expect scraping on shallow bends and slower travel; above 6.0 ft, faster current, wood, and sparse exits become too consequential for a general recommendation.',
-    latitude: 48.299138,
-    longitude: -93.820383,
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'remote', 'private_banks', 'cold_water'],
-      safetyNotes: [
-        'This route skips the upstream rapid stretch, but it is still a long lower-river day with only Kueffners as a clean named midpoint bailout before Ivan Crawford.',
-        'The bends feel gentler than the upper Big Fork, yet rising water, fresh wood, and cold shoulder-season conditions can still turn a long float into a demanding recovery problem.',
-        'Use only the named public accesses and campsites because most shoreline outside those sites remains undeveloped or private frontage.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    gaugeSource: {
-      id: 'mn-dnr-5',
-      provider: 'mn_dnr',
-      siteId: '5',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Big Fork River at Big Falls, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
-      hydrographUrl:
-        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77069001&var1=232&width=700&height=320',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2.8,
-      idealMax: 4.5,
-      tooLow: 1.5,
-      tooHigh: 6,
-      thresholdSource: {
-        label: 'MN DNR river-level interpretation bands for Big Fork River at Big Falls',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'The lower Big Fork usually drops through summer, but heavy summer or autumn rain can still accelerate this corridor quickly and move fresh wood into the outer bends.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'This is easier than the rapid-stretch routes above Gowdy, but the long mileage, sparse exits, and remote shuttle still push it well beyond a casual easy float.',
-      confidenceNotes:
-        'Confidence is good for a conservative lower-river add: DNR Map 2 names Gowdy, Kueffners, and Ivan Crawford with matching river miles, the official public-water-access dataset resolves the endpoints, and the Big Falls gauge remains the closest official same-river ladder.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Direct live gauge',
-        value: 'Big Falls gauge 2.87 ft',
-        note: 'The official MN DNR river-level dataset reported 2.87 ft at 2026-07-01 10:00 PM for Big Fork River at Big Falls, confirming the current same-river gauge path used for this route.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'DNR bands',
-        value: '1.5 / 2.8-4.5 / 6.0 ft',
-        note: 'MN DNR interprets the Big Falls gauge as Scrapable below 1.5 ft, Low from 1.5 to 2.8, Medium from 2.8 to 4.5, High from 4.5 to 6.0, and Very High above 6.0.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'Map support',
-        value: 'Gowdy RM 34.2 to Ivan Crawford RM 9.0',
-        note: 'DNR Map 2 places Gowdy Landing at river mile 34.2, Kueffners at 30.4, and Ivan Crawford at 9.0, supporting a 25.2-mile lower-river continuation.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'Public access records',
-        value: 'Gowdy WAS02706 and Ivan Crawford WAS02705',
-        note: 'Minnesota public-water-access data resolves Gowdy and Ivan Crawford as official Big Fork accesses with exact coordinates and matching water-trail river miles.',
-        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Camping support',
-        value: 'Gowdy and Kueffners campsites',
-        note: 'The DNR map says Gowdy has a watercraft campsite and Kueffners has toilets plus another campsite, giving this longer lower route real bailout and overnight support before Ivan Crawford.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'Route character',
-        value: 'Remote lower river with few named exits',
-        note: 'DNR Map 2 places only Kueffners and Ivan Crawford below Gowdy until the final Reedy Flats section, so this route should be treated as a committed lower-river corridor rather than a chain of frequent bailouts.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'MN DNR river levels',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      {
-        label: 'MN DNR Big Fork River segments and maps',
-        url: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
-      },
-      {
-        label: 'MN DNR Big Fork River map 2 PDF',
-        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'MN DNR Big Falls gauge detail',
-        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
-      },
-      {
-        label: 'Minnesota public water access feature service',
-        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Pine Island State Forest map',
-        url: 'https://files.dnr.state.mn.us/maps/state_forests/sft00040.pdf',
-      },
-    ],
-  },
-  {
-    id: 'big-fork-river-gowdy-reedy-flats',
-    slug: 'big-fork-river-gowdy-reedy-flats',
-    name: 'Big Fork River',
-    reach: 'Gowdy Landing to Reedy Flats',
-    state: 'Minnesota',
-    region: 'Northern Minnesota',
-    summary:
-      'Full lower Big Fork continuation from Gowdy Landing to Reedy Flats. It stays below the upstream rapid stretch, but the mileage, sparse exits, and Rainy-confluence finish make it a serious lower-river commitment.',
-    statusText:
-      'The Big Falls gauge is best from 2.8 to 4.5 ft. Below 1.5 ft, expect scraping on shallow bends and slower travel; above 6.0 ft, faster current, wood, and sparse exits become too consequential for a general recommendation.',
-    latitude: 48.299138,
-    longitude: -93.820383,
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'remote', 'private_banks', 'cold_water'],
-      safetyNotes: [
-        'This lower continuation avoids the mapped Class I stretch above Gowdy, but it is still a long remote run with only Kueffners and Ivan Crawford as clean named checkpoints before Reedy Flats.',
-        'Take out at Reedy Flats rather than drifting into the Rainy River corridor after a long day or in rising water.',
-        'Fresh wood, cold shoulder-season water, and fast post-rain rises can turn this quieter-looking lower river into a demanding recovery problem.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    gaugeSource: {
-      id: 'mn-dnr-5',
-      provider: 'mn_dnr',
-      siteId: '5',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Big Fork River at Big Falls, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
-      hydrographUrl:
-        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77069001&var1=232&width=700&height=320',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2.8,
-      idealMax: 4.5,
-      tooLow: 1.5,
-      tooHigh: 6,
-      thresholdSource: {
-        label: 'MN DNR river-level interpretation bands for Big Fork River at Big Falls',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'The lower Big Fork usually drops through summer, but heavy summer or autumn rain still accelerates this corridor quickly and moves fresh wood into the outside bends above the Rainy confluence.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The water is gentler than the upper rapid routes, but the long mileage, sparse exits, remote shuttle, and precise take-out keep this well beyond a casual easy float.',
-      confidenceNotes:
-        'Confidence is good for a conservative lower-river add: DNR Map 2 names Gowdy, Kueffners, Ivan Crawford, and Reedy Flats with matching river miles, the official public-water-access dataset resolves the endpoints, and the Big Falls gauge remains the closest official same-river ladder.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Direct live gauge',
-        value: 'Big Falls gauge 2.87 ft',
-        note: 'The official MN DNR river-level dataset reported 2.87 ft at 2026-07-01 11:00 PM for Big Fork River at Big Falls, confirming the current same-river gauge path used for this route.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'DNR bands',
-        value: '1.5 / 2.8-4.5 / 6.0 ft',
-        note: 'MN DNR interprets the Big Falls gauge as Scrapable below 1.5 ft, Low from 1.5 to 2.8, Medium from 2.8 to 4.5, High from 4.5 to 6.0, and Very High above 6.0.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'Map support',
-        value: 'Gowdy RM 34.2 to Reedy Flats RM 0.5',
-        note: 'DNR Map 2 places Gowdy at river mile 34.2, Kueffners at 30.4, Ivan Crawford at 9.0, and Reedy Flats at 0.5 just above the Rainy River confluence, supporting a 33.7-mile lower continuation.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'Public access records',
-        value: 'Gowdy WAS02706 and Reedy Flats WAS02709',
-        note: 'Minnesota public-water-access data resolves Gowdy and Reedy Flats as official Big Fork accesses with exact coordinates and matching water-trail river miles.',
-        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Camping support',
-        value: 'Gowdy, Kueffners, and Reedy Flats campsites',
-        note: 'DNR Map 2 says Gowdy has a watercraft campsite, Kueffners has toilets plus another campsite, and Reedy Flats has a toilet and watercraft campsite, giving this full lower continuation real overnight and bailout support.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'Route character',
-        value: 'Committed lower corridor above Rainy River',
-        note: 'Below Gowdy, DNR Map 2 names only Kueffners, Ivan Crawford, and Reedy Flats, so this route should be treated as a committed lower-river corridor rather than a sequence of short hops.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'MN DNR river levels',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      {
-        label: 'MN DNR Big Fork River segments and maps',
-        url: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
-      },
-      {
-        label: 'MN DNR Big Fork River map 2 PDF',
-        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'MN DNR Big Falls gauge detail',
-        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
-      },
-      {
-        label: 'Minnesota public water access feature service',
-        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Pine Island State Forest map',
-        url: 'https://files.dnr.state.mn.us/maps/state_forests/sft00040.pdf',
-      },
-    ],
-  },
-  {
-    id: 'big-fork-river-kueffners-ivan-crawford',
-    slug: 'big-fork-river-kueffners-ivan-crawford',
-    name: 'Big Fork River',
-    reach: 'Kueffners Landing to Ivan Crawford Landing',
-    state: 'Minnesota',
-    region: 'Northern Minnesota',
-    summary:
-      'Long lower Big Fork continuation from Kueffners Landing to Ivan Crawford Landing. It trades the upstream rapids for a slower, more committing forest-and-marsh corridor with few easy exits.',
-    statusText:
-      'The Big Falls gauge is best from 2.8 to 4.5 ft. Below 1.5 ft, expect dragging and slower travel on shallow bends; above 6.0 ft, faster current, wood, and missed-turn consequences become too consequential for a general recommendation.',
-    latitude: 48.338743,
-    longitude: -93.817044,
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'remote', 'private_banks', 'cold_water'],
-      safetyNotes: [
-        'This long lower split is less technical than the rapid-stretch routes upstream, but it is more committing because there are few named exits between Kueffners and Ivan Crawford.',
-        'Use only the named public accesses and campsites because much of the lower corridor remains undeveloped or private frontage.',
-        'Long mileage, cold shoulder-season water, and fresh storm wood can make this quieter-looking run feel more serious than the map alone suggests.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    gaugeSource: {
-      id: 'mn-dnr-5',
-      provider: 'mn_dnr',
-      siteId: '5',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Big Fork River at Big Falls, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
-      hydrographUrl:
-        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77069001&var1=232&width=700&height=320',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2.8,
-      idealMax: 4.5,
-      tooLow: 1.5,
-      tooHigh: 6,
-      thresholdSource: {
-        label: 'MN DNR river-level interpretation bands for Big Fork River at Big Falls',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'The lower Big Fork can feel deceptively slow in summer, but heavy rain still raises current quickly and changes wood, especially on a long reach with few easy mid-route exits.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'This is a long remote northern run. The whitewater consequences are lower than above Gowdy, but distance, isolation, and lower-river route commitment push it beyond a casual easy float.',
-      confidenceNotes:
-        'Confidence is reasonable for a conservative lower-river add: DNR Map 2 names Kueffners and Ivan Crawford with matching river miles on the same lower corridor, both endpoints resolve in the official public-water-access dataset, and the Big Falls gauge remains the closest official same-river ladder even though it sits upstream.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Direct live gauge',
-        value: 'Big Falls gauge 2.86 ft',
-        note: 'The official MN DNR river-level dataset reported 2.86 ft at 2026-07-01 07:00 PM for Big Fork River at Big Falls, confirming the current same-river gauge path used for this route.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'DNR bands',
-        value: '1.5 / 2.8-4.5 / 6.0 ft',
-        note: 'MN DNR interprets the Big Falls gauge as Scrapable below 1.5 ft, Low from 1.5 to 2.8, Medium from 2.8 to 4.5, High from 4.5 to 6.0, and Very High above 6.0.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'Map support',
-        value: 'Kueffners RM 30.4 to Ivan Crawford RM 9.0',
-        note: 'DNR Map 2 places Kueffners Landing at river mile 30.4 and Ivan Crawford Landing at river mile 9.0, supporting a 21.4-mile lower-river continuation.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'Public access records',
-        value: 'Kueffners WAS01788 and Ivan Crawford WAS02705',
-        note: 'Minnesota public-water-access data resolves Kueffners and Ivan Crawford as official Big Fork accesses with exact coordinates and matching water-trail river miles.',
-        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Camping support',
-        value: 'Kueffners watercraft campsite at the launch',
-        note: 'The DNR map says Kueffners has toilets and a watercraft campsite, giving this route real endpoint camping support even though the Ivan Crawford finish is a simpler county landing.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'Route character',
-        value: 'Remote lower river with few named exits',
-        note: 'DNR Map 2 places only Ivan Crawford and Reedy Flats below Kueffners, which makes this route a committed lower-river corridor rather than a hop between frequent bailouts.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'MN DNR river levels',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      {
-        label: 'MN DNR Big Fork River segments and maps',
-        url: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
-      },
-      {
-        label: 'MN DNR Big Fork River map 2 PDF',
-        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'MN DNR Big Falls gauge detail',
-        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
-      },
-      {
-        label: 'Minnesota public water access feature service',
-        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Pine Island State Forest map',
-        url: 'https://files.dnr.state.mn.us/maps/state_forests/sft00040.pdf',
-      },
-    ],
-  },
-  {
     id: 'big-fork-river-kueffners-reedy-flats',
     slug: 'big-fork-river-kueffners-reedy-flats',
     name: 'Big Fork River',
@@ -2627,127 +1780,6 @@ export const rivers: River[] = [
         label: 'Route character',
         value: 'Committed lower corridor above Rainy River',
         note: 'DNR Map 2 shows only Ivan Crawford and Reedy Flats below Kueffners, which makes this route a full lower-corridor commitment rather than a sequence of short public hops.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'MN DNR river levels',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      {
-        label: 'MN DNR Big Fork River segments and maps',
-        url: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
-      },
-      {
-        label: 'MN DNR Big Fork River map 2 PDF',
-        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'MN DNR Big Falls gauge detail',
-        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
-      },
-      {
-        label: 'Minnesota public water access feature service',
-        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Pine Island State Forest map',
-        url: 'https://files.dnr.state.mn.us/maps/state_forests/sft00040.pdf',
-      },
-    ],
-  },
-  {
-    id: 'big-fork-river-ivan-crawford-reedy-flats',
-    slug: 'big-fork-river-ivan-crawford-reedy-flats',
-    name: 'Big Fork River',
-    reach: 'Ivan Crawford Landing to Reedy Flats',
-    state: 'Minnesota',
-    region: 'Northern Minnesota',
-    summary:
-      'Final lower Big Fork run from Ivan Crawford Landing to Reedy Flats. The current is usually gentler here, but the finish sits just upstream of the Rainy River confluence, so the take-out matters.',
-    statusText:
-      'The Big Falls gauge is best from 2.8 to 4.5 ft. Below 1.5 ft, expect scraping and slow bends; above 6.0 ft, current and wood near the lower confluence corridor become too consequential for a general recommendation.',
-    latitude: 48.455261,
-    longitude: -93.719555,
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'private_banks'],
-      safetyNotes: [
-        'This lower split finishes just above the Rainy River confluence. Take out at Reedy Flats rather than drifting downstream into the larger boundary-water corridor by accident.',
-        'Changing wood and undercut outside bends still matter even though this reach is generally gentler than the Big Fork routes upstream.',
-        'Use only the named public accesses because surrounding banks remain undeveloped or private frontage.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    gaugeSource: {
-      id: 'mn-dnr-5',
-      provider: 'mn_dnr',
-      siteId: '5',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Big Fork River at Big Falls, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
-      hydrographUrl:
-        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77069001&var1=232&width=700&height=320',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2.8,
-      idealMax: 4.5,
-      tooLow: 1.5,
-      tooHigh: 6,
-      thresholdSource: {
-        label: 'MN DNR river-level interpretation bands for Big Fork River at Big Falls',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'The lower Big Fork can turn sluggish at summer lows, but heavy rain still raises the confluence approach and moves wood quickly on the final miles.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is a comparatively calmer lower-river day, but it still needs normal northern-river judgment, especially around low-water dragging and the take-out above the Rainy River.',
-      confidenceNotes:
-        'Confidence is reasonable for a conservative lower-river add: DNR Map 2 names Ivan Crawford and Reedy Flats with matching river miles, both endpoints resolve in the official public-water-access dataset, and the Big Falls gauge remains the closest official same-river ladder on the Big Fork.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Direct live gauge',
-        value: 'Big Falls gauge 2.86 ft',
-        note: 'The official MN DNR river-level dataset reported 2.86 ft at 2026-07-01 07:00 PM for Big Fork River at Big Falls, confirming the current same-river gauge path used for this route.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'DNR bands',
-        value: '1.5 / 2.8-4.5 / 6.0 ft',
-        note: 'MN DNR interprets the Big Falls gauge as Scrapable below 1.5 ft, Low from 1.5 to 2.8, Medium from 2.8 to 4.5, High from 4.5 to 6.0, and Very High above 6.0.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'Map support',
-        value: 'Ivan Crawford RM 9.0 to Reedy Flats RM 0.5',
-        note: 'DNR Map 2 places Ivan Crawford Landing at river mile 9.0 and Reedy Flats at river mile 0.5 just above the Rainy River confluence, supporting an 8.5-mile lower-finish route.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'Public access records',
-        value: 'Ivan Crawford WAS02705 and Reedy Flats WAS02709',
-        note: 'Minnesota public-water-access data resolves Ivan Crawford and Reedy Flats as official Big Fork accesses with exact coordinates and matching water-trail river miles.',
-        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Camping support',
-        value: 'Reedy Flats watercraft campsite',
-        note: 'The DNR map says Reedy Flats has a toilet and watercraft campsite on the upstream side of the Highway 11 bridge, giving this route a real campsite finish.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
-      },
-      {
-        label: 'Confluence support',
-        value: 'Reedy Flats above Rainy River',
-        note: 'DNR Map 2 places Reedy Flats at river mile 0.5 and the Big Fork confluence with the Rainy River at river mile 0.0, which is why this route uses Reedy as the clear take-out.',
         sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
       },
     ],
@@ -3247,113 +2279,6 @@ export const rivers: River[] = [
         label: 'Camping support',
         value: 'Samuelson County Park tent sites on route',
         note: 'DNR Map 1 says Samuelson County Park has drinking water and tent sites, giving this longer route real on-route campground support even though the planned take-out is the simpler Silverdale access.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'MN DNR river levels',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      {
-        label: 'MN DNR Little Fork River segments and maps',
-        url: 'https://www.dnr.state.mn.us/watertrails/littleforkriver/segments-maps.html',
-      },
-      {
-        label: 'MN DNR Little Fork River map 1 PDF',
-        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
-      },
-      {
-        label: 'Minnesota public water access feature service',
-        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-    ],
-  },
-  {
-    id: 'little-fork-river-samuelson-silverdale',
-    slug: 'little-fork-river-samuelson-silverdale',
-    name: 'Little Fork River',
-    reach: 'Samuelson Park to Silverdale',
-    state: 'Minnesota',
-    region: 'Northern Minnesota',
-    summary:
-      'Short official Little Fork continuation from Samuelson Park to Silverdale. It keeps the same MN DNR gauge ladder as the longer Map 1 routes, but trims the commitment down to a compact rapid-and-wood corridor with a campground-supported put-in.',
-    statusText:
-      'The Silverdale / MN 65 gauge is best from 500 to 1,300.5 cfs. Below 400 cfs, expect scraping; above 2,835 cfs, the current becomes too pushy for a general recommendation.',
-    latitude: 47.9485284,
-    longitude: -93.0992707,
-    gaugeSource: {
-      id: 'mn-dnr-295',
-      provider: 'mn_dnr',
-      siteId: '295',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Little Fork River nr Silverdale, MN65',
-      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=76090001',
-      hydrographUrl:
-        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=76090001&var1=262&width=700&height=320',
-    },
-    safetyProfile: {
-      riskLevel: 'advanced',
-      hazards: ['whitewater', 'strainers', 'remote', 'cold_water'],
-      safetyNotes: [
-        'MN DNR still marks this lower Map 1 corridor with Class I to II rapids, so short mileage does not remove the need to scout wood or read-and-run ledges conservatively.',
-        'The run is shorter than the Highway 73 starts, but it is still a remote northern channel with cold water, brushy banks, and few easy unplanned exits between the named public accesses.',
-        'Fresh wood and undercut outside bends remain part of the normal risk story after storms or high water.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 500,
-      idealMax: 1300.5,
-      tooLow: 400,
-      tooHigh: 2835,
-      thresholdSource: {
-        label: 'MN DNR river-level interpretation bands for Little Fork River near Silverdale / MN 65',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'The Little Fork usually peaks in late April and falls through summer. This short lower-Map-1 split stays workable longest after rain, but higher water quickly shortens recovery windows in the rapids and wood.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'This is a shorter but still serious northern route. The mileage is approachable, yet repeated rapids, wood hazards, and remote rescue posture keep it above a casual easy float.',
-      confidenceNotes:
-        'Confidence is good for a conservative add: DNR Map 1 places Samuelson Park and Silverdale on the same official corridor, the Silverdale DNR gauge carries a full official ladder on this reach, and the public-water-access feature service resolves both named endpoints with matching river miles.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Direct live gauge',
-        value: 'Silverdale gauge 178 cfs',
-        note: 'The official MN DNR river-level dataset reported 178 cfs at 2026-07-01 11:00 PM for Little Fork River near Silverdale / MN 65, confirming the current same-river gauge path used for this route.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'DNR bands',
-        value: '400 / 500-1,300.5 / 2,835 cfs',
-        note: 'MN DNR interprets site 295 as Scrapable below 400 cfs, Low from 400 to 500, Medium from 500 to 1,300.5, High from 1,300.5 to 2,835, and Very High above 2,835.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'Map support',
-        value: 'Samuelson RM 104.0 to Silverdale RM 99.9',
-        note: 'DNR Map 1 and the public-water-access layer place Samuelson Park at river mile 104.0 and Silverdale at river mile 99.9, supporting a 4.1-mile official continuation.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
-      },
-      {
-        label: 'Public access records',
-        value: 'Samuelson WAS00502 and Silverdale WAS00501',
-        note: 'Minnesota public-water-access data resolves both named accesses with coordinates and matching water-trail river miles on the Little Fork corridor.',
-        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Camping support',
-        value: 'Samuelson County Park tent sites',
-        note: 'DNR Map 1 says Samuelson County Park has a carry-in access, picnic table, toilet, drinking water, and tent sites, giving this short split real endpoint campground support at the put-in.',
         sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
       },
     ],
@@ -20791,330 +19716,6 @@ export const rivers: River[] = [
       {
         label: 'Friends of the Kaw Edwardsville access',
         url: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw Paddle FAQ',
-        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw river and sandbar safety',
-        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USACE Kansas River recreation appendix',
-        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 06892350 Kansas River at De Soto',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'kansas-river-eudora-edwardsville',
-    slug: 'kansas-river-eudora-edwardsville',
-    name: 'Kansas River',
-    reach: 'Eudora to Edwardsville',
-    aliases: [
-      'Kaw River - Eudora to Edwardsville',
-      'Kansas River - Eudora Access Ramp to Edwardsville Access Ramp',
-      'Eudora Access Ramp to Edwardsville River Front Park',
-    ],
-    state: 'Kansas',
-    region: 'Northeast Kansas',
-    summary:
-      'Long lower-Kaw continuation from the Eudora ramp on the Wakarusa River to Edwardsville River Front Park. Friends of the Kaw documents Eudora, De Soto, and Edwardsville as the uninterrupted public chain for about 25.4 river miles, while the De Soto USGS gauge gives the best same-river level check.',
-    statusText:
-      'Use the Kansas River at De Soto gauge as the same-river level check. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect slow sandbar picking, while above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
-    latitude: 38.94999,
-    longitude: -95.09963,
-    gaugeSource: {
-      id: 'usgs-06892350',
-      provider: 'usgs',
-      siteId: '06892350',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Kansas River at De Soto, KS',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['dam', 'private_banks', 'strainers'],
-      safetyNotes: [
-        'The WaterOne low-head dam is downstream of Edwardsville; make the planned take-out and do not continue into the dam corridor.',
-        'Wind, rising water, floating wood, and private banks make this long lower-Kaw day more committing than the shorter adjacent segments.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 1500,
-      idealMax: 5000,
-      tooLow: 1000,
-      tooHigh: 8000,
-      thresholdSource: {
-        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
-        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'mixed',
-      rainfallSensitivity: 'medium',
-      windSensitivity: 0.85,
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'Spring through fall is the practical season. This route begins on the Wakarusa, then commits to a full lower-Kaw continuation where wind, rising water, shifted sandbars, and the long take-out spacing can turn the day into an exposed grind.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The river uses public ramps and avoids a planned dam portage, but 25.4 miles on the Kaw is still a committed long day. The Wakarusa launch, private banks, wind exposure, and low-head-dam finish context keep it out of casual-float territory.',
-      confidenceNotes:
-        'Confidence is high for access and route shape: Friends of the Kaw documents Eudora at river mile 42, De Soto at 31.3, and Edwardsville at 16.6, with Cedar Creek closed between the lower two accesses. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than an exact route-specific ladder, but the De Soto USGS gauge sits on the route corridor and pairs cleanly with the established Kaw model.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Public put-in',
-        value: 'Eudora Access Ramp, RM 42',
-        note: 'Friends of the Kaw lists the Eudora ramp with GPS 38.94999, -95.09963, public parking, picnic shelter, fishing platform, and kiosk. The ramp is on the Wakarusa River about three-quarters of a mile upstream from the Kansas River.',
-        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-42-eudora-access-ramp/',
-      },
-      {
-        label: 'Public take-out',
-        value: 'Edwardsville Access Ramp, RM 16.6',
-        note: 'Friends of the Kaw lists the Edwardsville ramp at River Front Park with GPS 39.05056, -94.81665, concrete ramp, large lighted parking lot, restroom, trash can, picnic tables, and lighting.',
-        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
-      },
-      {
-        label: 'Route distance',
-        value: 'About 25.4 river miles',
-        note: 'The access pages place Eudora at river mile 42 and Edwardsville at 16.6. De Soto at river mile 31.3 confirms the uninterrupted public chain, while Cedar Creek at 26.1 is closed.',
-        sourceUrl: 'https://kansasriver.org/river-access-map/',
-      },
-      {
-        label: 'Current gauge check',
-        value: '17,600 cfs / 10.55 ft at 2026-07-02 05:30 CDT',
-        note: 'Same-day direct USGS Water Services for station 06892350 at De Soto returned 17,600 cfs and 10.55 ft, well above the conservative recreational band used by the app.',
-        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06892350&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Flow safety bands',
-        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
-        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
-        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
-      },
-      {
-        label: 'Low-flow recreation impacts',
-        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
-        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
-        sourceUrl:
-          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
-      },
-      {
-        label: 'Camping rule',
-        value: 'Public sandbars only, below the high-water marks',
-        note: 'Friends of the Kaw says paddlers may camp on public sandbars between the high-water marks without a special permit, but banks above that line are private and off-limits.',
-        sourceUrl: 'https://kansasriver.org/paddle-and-fish/camping/',
-      },
-      {
-        label: 'Downstream dam caveat',
-        value: 'WaterOne low-head dam below Edwardsville',
-        note: 'Friends of the Kaw warns that the WaterOne low-head dam is downstream of Edwardsville and should not be run in any vessel. This route ends at Edwardsville before that hazard.',
-        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Friends of the Kaw Kansas River access map',
-        url: 'https://kansasriver.org/river-access-map/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw Eudora access',
-        url: 'https://kansasriver.org/river-access-map/river-mile-42-eudora-access-ramp/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw De Soto access',
-        url: 'https://kansasriver.org/river-access-map/river-mile-31-de-soto-access-ramp/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw Edwardsville access',
-        url: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw Paddle FAQ',
-        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw camping rules',
-        url: 'https://kansasriver.org/paddle-and-fish/camping/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw river and sandbar safety',
-        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USACE Kansas River recreation appendix',
-        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 06892350 Kansas River at De Soto',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'kansas-river-de-soto-turner-bridge',
-    slug: 'kansas-river-de-soto-turner-bridge',
-    name: 'Kansas River',
-    reach: 'De Soto to Turner Bridge',
-    aliases: [
-      'Kaw River - De Soto to Turner Bridge',
-      'Kansas River - De Soto Access Ramp to Turner Bridge Access Ramp',
-      'De Soto Riverfest Park to Turner Bridge',
-    ],
-    state: 'Kansas',
-    region: 'Kansas City Metro',
-    summary:
-      'Committed lower-Kaw continuation from the De Soto ramp to Turner Bridge, combining the long De Soto-to-Edwardsville day with the mandatory WaterOne low-head-dam portage. Friends of the Kaw documents the full public chain and the river-left-only portage, while the De Soto USGS gauge gives the same-river level check.',
-    statusText:
-      'Use the Kansas River at De Soto gauge. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect slow channel picking and awkward portage footing, while above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce and the WaterOne carry becomes more consequential.',
-    latitude: 38.98496,
-    longitude: -94.9746,
-    gaugeSource: {
-      id: 'usgs-06892350',
-      provider: 'usgs',
-      siteId: '06892350',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Kansas River at De Soto, KS',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
-    },
-    safetyProfile: {
-      riskLevel: 'advanced',
-      hazards: ['low_head_dam', 'mandatory_takeout', 'private_banks', 'strainers'],
-      safetyNotes: [
-        'Mandatory WaterOne low-head-dam portage; do not go over the dam or through the river-right notch.',
-        'Land and portage river left only, and skip the route if anyone in the group cannot manage a rough 100+ yard carry over loose rock.',
-        'Lower reach has few easy mid-route stops, and the combined mileage leaves little margin for weather or fatigue mistakes.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 1500,
-      idealMax: 5000,
-      tooLow: 1000,
-      tooHigh: 8000,
-      thresholdSource: {
-        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
-        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'mixed',
-      rainfallSensitivity: 'medium',
-      windSensitivity: 0.85,
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'Spring through fall is the practical season, but this route depends on both the broad Kaw flow band and a safe WaterOne portage. Same-day gauge, weather, wind, ramp, and portage checks matter more than on the shorter adjacent segments.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The route uses public ramps and a documented portage, but it is not a novice float. Twenty-two miles on the Kaw plus a rough low-head-dam carry means fatigue, wind, shifting sandbars, and private banks all matter before the final Turner take-out.',
-      confidenceNotes:
-        'Confidence is high for access and route shape: Friends of the Kaw documents De Soto at river mile 31.3, Edwardsville at 16.6, Turner Bridge at 9.2, and the WaterOne low-head dam at 14.8 with a river-left-only portage. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than an exact route-specific ladder, but the De Soto USGS gauge sits at the put-in and is the cleanest same-river discharge reference for the whole route.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Public put-in',
-        value: 'De Soto Access Ramp, RM 31.3',
-        note: 'Friends of the Kaw lists the De Soto ramp next to Riverfest Park with GPS 38.98496, -94.9746, public access, plentiful parking, restroom, trash can, and kiosk.',
-        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-31-de-soto-access-ramp/',
-      },
-      {
-        label: 'Public take-out',
-        value: 'Turner Bridge Access Ramp, RM 9.2',
-        note: 'Friends of the Kaw lists Turner Bridge Access Ramp near 32 Highway and Turner Diagonal with GPS 39.09396, -94.71176, a river-left concrete ramp, and a gravel parking lot for about 10 vehicles.',
-        sourceUrl: 'https://kansasriver.org/river-access-map/15861-2/',
-      },
-      {
-        label: 'Route distance',
-        value: 'About 22.1 river miles',
-        note: 'The access map places De Soto at river mile 31.3, Edwardsville at 16.6, and Turner Bridge at 9.2, which supports a combined lower-Kaw route of about 22.1 miles.',
-        sourceUrl: 'https://kansasriver.org/river-access-map/',
-      },
-      {
-        label: 'Current gauge check',
-        value: '17,600 cfs / 10.55 ft at 2026-07-02 05:30 CDT',
-        note: 'Same-day direct USGS Water Services for station 06892350 at De Soto returned 17,600 cfs and 10.55 ft, well above the conservative recreational band used by the app.',
-        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06892350&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Mandatory portage',
-        value: 'WaterOne low-head dam, RM 14.8',
-        note: 'Friends of the Kaw says the WaterOne low-head dam should not be run in any vessel and must be portaged on river left over a rough 100+ yard carry with loose rock and no useful carts.',
-        sourceUrl: 'https://kansasriver.org/river-access-map/waterone-dam/',
-      },
-      {
-        label: 'Flow safety bands',
-        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
-        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
-        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
-      },
-      {
-        label: 'Low-flow recreation impacts',
-        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
-        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
-        sourceUrl:
-          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
-      },
-      {
-        label: 'Controlled lower reach',
-        value: 'Few sandbars below Edwardsville',
-        note: 'Friends of the Kaw says the controlled lower reach below WaterOne has almost no sandbars, which is part of why this combined route should be treated as a committed single-day push rather than an overnight plan.',
-        sourceUrl: 'https://kansasriver.org/river-access-map/15861-2/',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Friends of the Kaw Kansas River access map',
-        url: 'https://kansasriver.org/river-access-map/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw De Soto access',
-        url: 'https://kansasriver.org/river-access-map/river-mile-31-de-soto-access-ramp/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw Edwardsville access',
-        url: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw Turner Bridge access',
-        url: 'https://kansasriver.org/river-access-map/15861-2/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw WaterOne low-head dam',
-        url: 'https://kansasriver.org/river-access-map/waterone-dam/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw River Access Tips',
-        url: 'https://kansasriver.org/paddle-and-fish/river-access/',
         provider: 'local',
       },
       {
@@ -39882,6 +38483,327 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'loup-river-monroe-columbus',
+    slug: 'loup-river-monroe-columbus',
+    name: 'Loup River',
+    reach: 'Monroe county access to Columbus',
+    aliases: [
+      'Loup River Water Trail - Monroe to Columbus',
+      'Loup River - Monroe to Columbus',
+      'Monroe county access to Columbus hotel-side take-out',
+    ],
+    state: 'Nebraska',
+    region: 'Central Nebraska',
+    summary:
+      'The managed middle Loup River Water Trail run from the Monroe county access to Columbus. Nebraska Game and Parks / Nebraskaland documents the exact 16-mile segment and ties it to the same direct Genoa gauge used by the shorter upstream route.',
+    statusText:
+      'Use the Loup River near Genoa gauge. Around 350 cfs is the conservative low-water marker from Nebraska Game and Parks / Nebraskaland route testing; below that expect shallow channel hunting and dragging. No ideal range or high cutoff is claimed.',
+    latitude: 41.471508,
+    longitude: -97.602729,
+    gaugeSource: {
+      id: 'usgs-06793000',
+      provider: 'usgs',
+      siteId: '06793000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Loup River near Genoa, Nebr.',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['private_banks', 'strainers'],
+      safetyNotes: [
+        'This segment is longer and more wind-exposed than the George D. Syas float. Wide braided channels, fresh wood, and wrong-channel choices matter even when the river looks gentle.',
+        'Nebraska access rules are strict: the water is public, but banks and stream bed are private unless safety or obstacle portage requires brief contact.',
+        'The Columbus finish uses the hotel-side access route tied to Pawnee Park Trail. Inspect current path and riverbank conditions before launching, especially while nearby park connections remain under construction.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 350,
+      thresholdSource: {
+        label: 'Nebraska Game and Parks / Nebraskaland Loup River Water Trail flow guidance',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'March through June usually carries more water, but the summer route can still go at maintained baseflow. Same-day wind, braided-channel shape, and wood are often more decisive than raw mileage suggests.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The paddling is straightforward by whitewater standards, but 16 miles of braided sandy river with headwind exposure is not a beginner autopilot float.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: Nebraskaland explicitly documents Monroe to Columbus as a 16-mile managed segment, the City of Columbus repeats the Monroe access directions and the hotel-side Columbus finish, and same-day USGS Water Services returned current direct Genoa gauge data. Endpoint coordinates remain practical public-access anchors rather than survey-grade launch pins.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Monroe to Columbus, 16 mi',
+        note: 'Outdoor Nebraska / Nebraskaland says Columbus is 16 miles downstream from the Monroe county access, making this the core middle segment of the managed Loup River Water Trail.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+      },
+      {
+        label: 'Public access',
+        value: 'County access south of Monroe to hotel-side Columbus finish',
+        note: 'Nebraskaland says Monroe has a county-built access with parking and Columbus uses the Quality Inn parking lot plus a 250-yard walk up Pawnee Park Trail from the riverbank. The City of Columbus repeats the Monroe directions and confirms the Ramada/Quality Inn owners provide the Columbus parking area.',
+        sourceUrl: 'https://www.columbusne.us/CivicAlerts.aspx?AID=1190&ARC=1617',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 06793000 at 321 cfs / 4.31 ft',
+        note: 'USGS Water Services returned current Loup River near Genoa values during implementation: 321 cfs and 4.31 ft at 2026-07-02 08:45 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+      },
+      {
+        label: 'Threshold support',
+        value: '350 cfs minimum-only',
+        note: 'Nebraskaland reports that a 350 cfs Genoa-gauge test on the upper segment required deep-channel work but little walking, and that 1,600 cfs was ample all across the Monroe-to-Columbus run. Paddle Today uses 350 cfs as a conservative floor without inferring a high-water ceiling.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+      },
+      {
+        label: 'Current access caveat',
+        value: 'Pawnee Park underpass closed since June 9, 2025',
+        note: 'The City of Columbus says the underpass connecting East and West Pawnee Park closed on June 9, 2025 and will remain closed for the foreseeable future, so paddlers should verify the current pedestrian connection and follow on-site detours for the hotel-side finish.',
+        sourceUrl: 'https://www.columbusne.us/m/newsflash/home/detail/1957',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Outdoor Nebraska / Nebraskaland Loup River Water Trail',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'City of Columbus Loup River Water Trail article',
+        url: 'https://www.columbusne.us/CivicAlerts.aspx?AID=1190&ARC=1617',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06793000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'loup-river-george-syas-columbus',
+    slug: 'loup-river-george-syas-columbus',
+    name: 'Loup River',
+    reach: 'George D. Syas WMA to Columbus',
+    aliases: [
+      'Loup River Water Trail - George D. Syas WMA to Columbus',
+      'Loup River - George D. Syas to Columbus',
+      'George D. Syas WMA fishing access to Columbus hotel-side take-out',
+    ],
+    state: 'Nebraska',
+    region: 'Central Nebraska',
+    summary:
+      'Full managed Loup River Water Trail continuation from the George D. Syas WMA fishing access to Columbus. This combines the official 8-mile upper segment and the 16-mile Monroe-to-Columbus segment into a long same-gauge Nebraska day.',
+    statusText:
+      'Use the Loup River near Genoa gauge. Around 350 cfs is the conservative low-water marker from Nebraska Game and Parks / Nebraskaland route testing; below that expect shallow channel hunting and dragging. No ideal range or high cutoff is claimed.',
+    latitude: 41.43328221,
+    longitude: -97.68464875,
+    gaugeSource: {
+      id: 'usgs-06793000',
+      provider: 'usgs',
+      siteId: '06793000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Loup River near Genoa, Nebr.',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['private_banks', 'strainers'],
+      safetyNotes: [
+        'This is a long braided-river commitment. Wind, shallow-channel choices, and fresh wood stack up over more than one access segment rather than resetting at Monroe.',
+        'Nebraska access rules are strict: the water is public, but banks and stream bed are private unless safety or obstacle portage requires brief contact.',
+        'The Columbus finish is simple rather than marina-like. Confirm current hotel-side parking, trail access, and riverbank footing before leaving the upstream vehicle.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 350,
+      thresholdSource: {
+        label: 'Nebraska Game and Parks / Nebraskaland Loup River Water Trail flow guidance',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Spring usually offers more water, but this full route can still go in summer at maintained baseflow if channel selection and wind are manageable. Rising water and storms make the long commitment less forgiving.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Technically straightforward paddling, but the full 24-mile water-trail continuation demands stamina, route-finding discipline, and a real all-day mindset.',
+      confidenceNotes:
+        'Confidence is good for a conservative long-route add: Nebraskaland documents the three public access points and segment mileages, the City of Columbus repeats the Monroe access directions and Columbus finish story, and same-day USGS Water Services returned current direct Genoa gauge data. Endpoint coordinates remain practical public-access anchors rather than survey-grade launch pins.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'George D. Syas to Monroe to Columbus, about 24 mi',
+        note: 'Outdoor Nebraska / Nebraskaland says the county-built Monroe access is eight miles below George D. Syas WMA and Columbus is 16 miles farther downstream, supporting a roughly 24-mile full continuation.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+      },
+      {
+        label: 'Public access chain',
+        value: 'George D. Syas WMA, Monroe county access, Columbus hotel-side finish',
+        note: 'Nebraskaland identifies the George D. Syas fishing access, the county-built Monroe access with parking, and the Quality Inn parking lot plus Pawnee Park Trail walk at Columbus. The City of Columbus repeats the Monroe and Columbus access story.',
+        sourceUrl: 'https://www.columbusne.us/CivicAlerts.aspx?AID=1190&ARC=1617',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 06793000 at 321 cfs / 4.31 ft',
+        note: 'USGS Water Services returned current Loup River near Genoa values during implementation: 321 cfs and 4.31 ft at 2026-07-02 08:45 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+      },
+      {
+        label: 'Threshold support',
+        value: '350 cfs minimum-only',
+        note: 'Nebraskaland says the George D. Syas-to-Monroe test at 350 cfs required deep-channel work but little walking, while the Monroe-to-Columbus run at 1,600 cfs had enough water throughout the channel. Paddle Today keeps the route minimum-only and does not infer a high-water ceiling.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+      },
+      {
+        label: 'Current access caveat',
+        value: 'Pawnee Park underpass closed since June 9, 2025',
+        note: 'The City of Columbus says the underpass connecting East and West Pawnee Park closed on June 9, 2025 and will remain closed for the foreseeable future, so paddlers should verify the current pedestrian connection and follow on-site detours for the hotel-side finish.',
+        sourceUrl: 'https://www.columbusne.us/m/newsflash/home/detail/1957',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Outdoor Nebraska / Nebraskaland Loup River Water Trail',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'City of Columbus Loup River Water Trail article',
+        url: 'https://www.columbusne.us/CivicAlerts.aspx?AID=1190&ARC=1617',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06793000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'loup-river-columbus-adm-access',
+    slug: 'loup-river-columbus-adm-access',
+    name: 'Loup River',
+    reach: 'Columbus hotel-side access to ADM access site',
+    aliases: [
+      'Loup River Water Trail - Columbus to ADM',
+      'Loup River - Pawnee Park to ADM',
+      'Columbus Ramada / Quality Inn access to ADM access site',
+    ],
+    state: 'Nebraska',
+    region: 'Central Nebraska',
+    summary:
+      'Short lower Loup River Water Trail continuation from the Columbus hotel-side access to the newer ADM access site. City of Columbus materials describe this as the final two-to-three-hour float in the managed water-trail chain.',
+    statusText:
+      'Use the Loup River near Genoa gauge. Around 350 cfs is the conservative low-water marker from Nebraska Game and Parks / Nebraskaland route testing; below that expect shallow channel hunting and dragging. No ideal range or high cutoff is claimed.',
+    latitude: 41.4195401,
+    longitude: -97.3672208,
+    gaugeSource: {
+      id: 'usgs-06793000',
+      provider: 'usgs',
+      siteId: '06793000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Loup River near Genoa, Nebr.',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['private_banks', 'strainers'],
+      safetyNotes: [
+        'This is the shortest Loup segment, but it still runs through a wide sandy channel where wind, wrong-channel choices, and fresh wood can matter.',
+        'Nebraska access rules are strict: the water is public, but banks and stream bed are private unless safety or obstacle portage requires brief contact.',
+        'The downstream endpoint is a leased access area on industrial property rather than a park ramp. Inspect current signage, fencing, and riverbank footing before launching.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 350,
+      thresholdSource: {
+        label: 'Nebraska Game and Parks / Nebraskaland Loup River Water Trail flow guidance',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'This short lower segment shares the same Genoa-gauge reality as the upstream trail. Low summer water can still go, but wind, exposed bars, and any muddy industrial-bank finish should be checked the same day.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is the easiest mileage in the Loup chain, but it still expects paddlers to read the deepest braid, manage wind, and finish at a simple access point rather than a marina.',
+      confidenceNotes:
+        'Confidence is acceptable for a conservative add: the City of Columbus says visitors can enter at Pawnee Park and exit at the ADM site for a two-to-three-hour float, the same city materials identify the leased access area south of Southeast 9th Street and link to a location map, Nebraskaland says the fourth point sits 4.5 miles downstream of Columbus, and same-day USGS Water Services returned current direct Genoa gauge data. The ADM coordinate is a nearby practical industrial-site anchor, not a surveyed launch pin.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Columbus to ADM, about 4.5 mi / 2-3 hr',
+        note: 'Nebraskaland says a fourth Loup River Water Trail point was developed 4.5 miles downstream of Columbus, and the City of Columbus says paddlers can enter at Pawnee Park and exit at the ADM site for a two-to-three-hour float.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+      },
+      {
+        label: 'Public access',
+        value: 'Hotel-side Columbus access to leased ADM access area',
+        note: 'The City of Columbus says the Columbus trail access is behind the Ramada / Quality Inn and that the downstream access is a leased recreational area on ADM property in the general area south of Southeast 9th Street abutting the Loup River.',
+        sourceUrl: 'https://www.columbusne.us/CivicAlerts.aspx?AID=1328',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 06793000 at 321 cfs / 4.31 ft',
+        note: 'USGS Water Services returned current Loup River near Genoa values during implementation: 321 cfs and 4.31 ft at 2026-07-02 08:45 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+      },
+      {
+        label: 'Threshold support',
+        value: '350 cfs minimum-only',
+        note: 'Nebraskaland reports that 350 cfs on the upper segment required deep-channel work but little walking, while 1,600 cfs was ample across the Monroe-to-Columbus segment. Paddle Today uses 350 cfs as a conservative floor without inferring a high-water ceiling for the whole trail family.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+      },
+      {
+        label: 'ADM anchor',
+        value: '41.41603951, -97.2865376',
+        note: 'Global Energy Monitor lists the Columbus ADM power station at 41.41603951, -97.2865376. Paddle Today uses this only as a nearby practical anchor for the leased downstream access area identified by the City of Columbus, not as a surveyed river launch coordinate.',
+        sourceUrl: 'https://www.gem.wiki/Columbus_ADM_power_station',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Outdoor Nebraska / Nebraskaland Loup River Water Trail',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'City of Columbus ADM access announcement',
+        url: 'https://www.columbusne.us/CivicAlerts.aspx?AID=1328',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06793000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: "bryant-creek-warren-flo-cook",
     slug: "bryant-creek-warren-flo-cook",
     name: "Bryant Creek",
@@ -40628,129 +39550,6 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: "green-river-american-legion-glenview-road",
-    slug: "green-river-american-legion-glenview-road",
-    name: "Green River",
-    reach: "American Legion Park Ramp to Glenview Road Carrydown",
-    aliases: [
-      "Green River - American Legion Park to Glenview",
-      "Upper Green American Legion to Glenview",
-      "KDFWR Pool 6 American Legion Park Ramp to Glenview Ford",
-    ],
-    state: "Kentucky",
-    region: "South-Central Kentucky",
-    summary:
-      "Longer Upper Green River float from American Legion Park Ramp to Glenview Road Carrydown. KDFWR's official Pool 6 mileage table supports this 15.7-mile public route by chaining the American Legion to Greensburg and Greensburg to Glenview segments against the direct Greensburg USGS gauge.",
-    statusText:
-      "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Below that expect more shoals, mud, and slow pools; above that the broader current and private-bank corridor deserve extra caution.",
-    latitude: 37.2441,
-    longitude: -85.4795,
-    gaugeSource: {
-      id: "usgs-03306500",
-      provider: "usgs",
-      siteId: "03306500",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Green River at Greensburg, KY",
-      detailUrl:
-        "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
-    },
-    profile: {
-      thresholdModel: "two-sided",
-      idealMin: 1.0,
-      idealMax: 1.75,
-      tooLow: 1.0,
-      tooHigh: 1.75,
-      thresholdSource: {
-        label: "KDFWR recommended river levels for Green River at Greensburg",
-        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        "This longer Upper Green route is most practical in spring through fall when the Greensburg stage is stable. Summer still works inside the good band, but lower water, exposed shoals, and broad-river wind matter more across a 15-plus-mile day.",
-      difficulty: "moderate",
-      difficultyNotes:
-        "The current is still recreational Green River water, but 15.7 miles, limited legal stopping options away from named accesses, and a private-bank Glenview finish make this meaningfully more committed than the short Greensburg segments.",
-      confidenceNotes:
-        "Confidence is good for a conservative Kentucky add: KDFWR's Pool 6 page still lists American Legion Park Ramp to Greensburg City Ramp as 2.0 miles and Greensburg City Ramp to Glenview Ford as 13.7 miles, which together support this 15.7-mile public route. Current KDFWR access pages still expose coordinates and public-use details for American Legion, Greensburg, and Glenview, the direct Greensburg gauge still carries the official 1.0 to 1.75 ft good band, and USGS Water Services returned a same-day July 1, 2026 stage of 1.02 ft from direct gauge 03306500 during this run.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "American Legion Park to Glenview Ford, about 15.7 mi",
-        note: "KDFWR lists American Legion Park Ramp to Greensburg City Ramp as 2.0 miles and Greensburg City Ramp to Glenview Ford as 13.7 miles, supporting a combined public route of about 15.7 miles.",
-        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
-      },
-      {
-        label: "Official level band",
-        value: "1.0-1.75 ft good",
-        note: "KDFWR rates the Green River gauge at Greensburg as Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft.",
-        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
-      },
-      {
-        label: "Put-in access",
-        value: "American Legion Park Ramp, 37.2441, -85.4795",
-        note: "KDFWR identifies American Legion Park as a graded park access with unpaved parking and year-round 24-hour availability.",
-        sourceUrl: "https://fw.ky.gov/Fish/Pages/American-Legion-Park-Access.aspx",
-      },
-      {
-        label: "Take-out access",
-        value: "Glenview Road Carrydown, 37.291, -85.5913",
-        note: "KDFWR identifies Glenview Ford as a public road-end carry-down with unpaved parking, no amenities, and private land surrounding the access.",
-        sourceUrl: "https://fw.ky.gov/Fish/Pages/Glenview-Ford-Access.aspx",
-      },
-      {
-        label: "Live-gauge support",
-        value: "USGS 03306500 at 1.02 ft",
-        note: "USGS Water Services returned a same-day July 1, 2026 gage-height reading for Green River at Greensburg during this run. That stage sits just inside KDFWR's good band.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Route character",
-        value: "Park launch, city-ramp bailout, private-bank road-end finish",
-        note: "KDFWR describes American Legion as the halfway park access in this corridor, Greensburg City Ramp as the city-park stop with cabins, and Glenview as a no-amenity road-end launch surrounded by private land.",
-        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "KDFWR Pool 6 Green River",
-        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
-        provider: "local",
-      },
-      {
-        label: "KDFWR American Legion Park Access",
-        url: "https://fw.ky.gov/Fish/Pages/American-Legion-Park-Access.aspx",
-        provider: "local",
-      },
-      {
-        label: "KDFWR Greensburg City Ramp",
-        url: "https://fw.ky.gov/Fish/Pages/Greensburg-City-Ramp.aspx",
-        provider: "local",
-      },
-      {
-        label: "KDFWR Glenview Ford Access",
-        url: "https://fw.ky.gov/Fish/Pages/Glenview-Ford-Access.aspx",
-        provider: "local",
-      },
-      {
-        label: "USGS 03306500 Green River at Greensburg",
-        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
-        provider: "usgs",
-      },
-      {
-        label: "USGS 03306500 Water Services current values",
-        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
-        provider: "usgs",
-      },
-    ],
-  },
-  {
     id: "green-river-roachville-russell-ford",
     slug: "green-river-roachville-russell-ford",
     name: "Green River",
@@ -41397,100 +40196,6 @@ export const rivers: River[] = [
         provider: "local",
       },
     ],
-  },
-  {
-    "id": "juniata-river-juniata-point-newton-hamilton",
-    "slug": "juniata-river-juniata-point-newton-hamilton",
-    "name": "Juniata River",
-    "reach": "Upper Section: Juniata Point to Newton-Hamilton",
-    "aliases": [
-      "Upper Juniata - Juniata Point to Newton-Hamilton",
-      "Juniata River - Riverside, Mt. Union, and Shawmut planner corridor"
-    ],
-    "state": "Pennsylvania",
-    "region": "Upper Juniata",
-    "summary": "Upper Juniata planner corridor from Juniata Point to Newton-Hamilton, with shorter access choices at Riverside Park, Mt. Union, and Shawmut.",
-    "statusText": "Use the Juniata River at Mapleton Depot gauge. The official PFBC upper Juniata guide recommends at least 3.1 ft there for this corridor.",
-    "latitude": 40.433333,
-    "longitude": -77.977778,
-    "gaugeSource": {
-      "id": "usgs-01563500",
-      "provider": "usgs",
-      "siteId": "01563500",
-      "metric": "gage_height_ft",
-      "unit": "ft",
-      "kind": "direct",
-      "siteName": "Juniata River at Mapleton Depot, PA",
-      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/01563500/"
-    },
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "private_banks"
-      ],
-      "safetyNotes": [
-        "Use the access planner to pick a reasonable day length rather than assuming the full corridor is the right choice.",
-        "Expect shallow bars, riffles, and fresh wood when the Mapleton Depot gauge is near the minimum floor.",
-        "Stay with named public accesses and do not improvise on private banks."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "profile": {
-      "thresholdModel": "minimum-only",
-      "tooLow": 3.1,
-      "thresholdSource": {
-        "label": "PFBC upper Juniata guide minimum Mapleton Depot gauge level",
-        "url": "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        "provider": "local"
-      },
-      "thresholdSourceStrength": "official",
-      "rainfallSensitivity": "medium",
-      "seasonMonths": [
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10
-      ],
-      "seasonNotes": "PFBC says post-rain paddling is often the most enjoyable here, while dry summer spells can expose shallow bars and slow pools.",
-      "difficulty": "easy",
-      "difficultyNotes": "Most planner-selected sections are easy when the Mapleton Depot gauge clears the official floor, but the full corridor, low-water scraping, and changing wood still deserve planning.",
-      "confidenceNotes": "Confidence is good for a consolidated upper Juniata corridor because the replaced PFBC route cards used the same Mapleton Depot gauge model and adjacent official access sequence."
-    },
-    "evidenceNotes": [
-      {
-        "label": "Planner corridor",
-        "value": "Juniata Point to Newton-Hamilton, with intermediate access choices",
-        "note": "This route replaces overlapping upper Juniata access-to-access cards with one access-planner corridor.",
-        "sourceUrl": "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf"
-      },
-      {
-        "label": "Gauge model",
-        "value": "USGS 01563500 at Mapleton Depot",
-        "note": "The consolidated route keeps the same reviewed gauge model used by the replaced route cards.",
-        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/01563500/"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "PFBC upper Juniata guide",
-        "url": "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        "provider": "local"
-      },
-      {
-        "label": "USGS 01563500 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/01563500/",
-        "provider": "usgs"
-      },
-      {
-        "label": "PFBC launch permit vs boat registration",
-        "url": "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        "provider": "local"
-      }
-    ]
   },
   {
     id: "barren-river-tailwater-vpa-3",
@@ -42355,118 +41060,6 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: 'shiawassee-river-byron-geeck-road',
-    slug: 'shiawassee-river-byron-geeck-road',
-    name: 'Shiawassee River',
-    reach: 'Byron High School Ball Fields to Geeck Road County Park',
-    state: 'Michigan',
-    region: 'Central Michigan',
-    summary:
-      'Longer upper Shiawassee River Water Trail day combining the Byron-to-Walnut Hills and Walnut Hills-to-Geeck sections. The official route sheets support exact public endpoints, combined mileage of about 11.85 miles, and corridor-specific low-water context tied conservatively to the Owosso gauge.',
-    statusText:
-      'Use the Shiawassee River at Owosso gauge as a conservative corridor check. The local guide says this Byron-to-Chesaning corridor may be too shallow at about 2.0 ft or lower; Walnut Hills is a private seasonal mid-route campground access with a small parking fee.',
-    latitude: 42.840348,
-    longitude: -83.945658,
-    gaugeSource: {
-      id: 'usgs-04144500',
-      provider: 'usgs',
-      siteId: '04144500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'proxy',
-      siteName: 'Shiawassee River at Owosso, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-    },
-    profile: {
-      thresholdModel: 'minimum-only',
-      tooLow: 2,
-      thresholdSource: {
-        label: 'Friends of the Shiawassee River / Shiawassee County Byron-to-Chesaning gauge guidance',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'mixed',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Plan this as a warm-season day and confirm Walnut Hills is open before launch. Low summer water can turn the Vernon Road and Grand River Road shallows into a scraping day, while higher water adds debris, bridge-approach speed, and more consequence around private docks.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'The two official route sheets label both contributing reaches beginner, but the full 11.85-mile pairing is longer than the single cards and still needs moving-water judgment around debris, bridge crossings, and private shoreline.',
-      confidenceNotes:
-        'Confidence is good for a conservative minimum-only combination route: the Shiawassee River Water Trail Coalition publishes exact endpoint coordinates and mileage for Byron High School Ball Fields-to-Walnut Hills and Walnut Hills-to-Geeck Road, and the Friends/Shiawassee County brochure says USGS 04144500 is fairly reflective from Byron to Chesaning with 2.0 ft or lower potentially too shallow in some segments. The app intentionally keeps only a low-water floor because the gauge is downstream and the coalition does not publish a route-specific ideal band for this upstream corridor.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Combined route distance',
-        value: 'About 11.85 river miles',
-        note: 'The official section 6 and section 7 route sheets publish 4.87 miles from Byron to Walnut Hills and 6.98 miles from Walnut Hills to Geeck Road, supporting an upper-corridor public pairing of about 11.85 miles.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988405/6_Byron_High_School_to_Walnut_Hills.pdf?1511988405=',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: '42.840348, -83.945658 to 42.884522, -84.045106',
-        note: 'The section 6 and section 7 route PDFs publish Byron High School Ball Fields, Walnut Hills Family Campground, and Geeck Road County Park with source-backed coordinates, allowing a direct start-to-finish pair without inferred private landings.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988406/7_Walnut_Hills_to_Geeck_Road.pdf?1511988406=',
-      },
-      {
-        label: 'Gauge guidance',
-        value: '2.0 ft low-water floor at Owosso',
-        note: 'The Friends/Shiawassee County guide says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2.0 ft or lower may be too shallow in some segments.',
-        sourceUrl:
-          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-      },
-      {
-        label: 'Current gauge check',
-        value: '2.29 ft and 159 cfs on 2026-07-02',
-        note: 'Same-day USGS Water Services reported the Owosso gauge at 2.29 ft and 159 cfs, which clears the conservative minimum floor but still calls for a same-day visual check in the upstream corridor.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04144500&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Managed mid-route access',
-        value: 'Walnut Hills seasonal campground access',
-        note: 'The section 6 and section 7 route sheets and the broader brochure describe Walnut Hills as a private seasonal public paddling access with a small vehicle fee and no off-season use when the campground is closed.',
-        sourceUrl:
-          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Byron High School to Walnut Hills route PDF',
-        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988405/6_Byron_High_School_to_Walnut_Hills.pdf?1511988405=',
-        provider: 'local',
-      },
-      {
-        label: 'Walnut Hills to Geeck Road route PDF',
-        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988406/7_Walnut_Hills_to_Geeck_Road.pdf?1511988406=',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River Water Trail trip maps',
-        url: 'https://www.shiawasseewatertrail.org/tripmaps',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River guide brochure',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 04144500 Shiawassee River at Owosso',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 04144500 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04144500&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
     id: 'shiawassee-river-geeck-road-shiatown',
     slug: 'shiawassee-river-geeck-road-shiatown',
     name: 'Shiawassee River',
@@ -42686,129 +41279,6 @@ export const rivers: River[] = [
       {
         label: 'USGS 04144500 Shiawassee River at Owosso',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'shiawassee-river-shiatown-brady-street',
-    slug: 'shiawassee-river-shiatown-brady-street',
-    name: 'Shiawassee River',
-    reach: 'Shiatown County Park to Brady Street Landing',
-    state: 'Michigan',
-    region: 'Central Michigan',
-    summary:
-      'Longer upper Shiawassee day combining the Shiatown-to-Lytle and Lytle-to-Brady sections into one public point-to-point route. The official route sheets support exact public endpoints, combined mileage of about 11.03 miles, and specific causeway, rapid, and debris cautions.',
-    statusText:
-      'Use the Shiawassee River at Owosso gauge as a conservative corridor check. The local guide says this Byron-to-Chesaning corridor may be too shallow at about 2.0 ft or lower; high water, fast current below Shiatown, and the Lytle causeway still require judgment.',
-    latitude: 42.929408,
-    longitude: -84.071308,
-    routeType: 'whitewater',
-    gaugeSource: {
-      id: 'usgs-04144500',
-      provider: 'usgs',
-      siteId: '04144500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'proxy',
-      siteName: 'Shiawassee River at Owosso, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-    },
-    safetyProfile: {
-      riskLevel: 'advanced',
-      hazards: ['dam', 'whitewater', 'strainers'],
-      safetyNotes: [
-        'Begin only below the partially removed Shiatown dam and scout the fast current, split channel, and first rocky bends before committing to the longer combined day.',
-        'High water can turn the downstream causeway, bridge approaches, debris, and private-dock corridor into a poor fit for casual paddlers.',
-        'The Owosso gauge is a downstream corridor proxy, so use it as a conservative low-water check and make a same-day visual call at the put-in.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'minimum-only',
-      tooLow: 2,
-      thresholdSource: {
-        label: 'Friends of the Shiawassee River / Shiawassee County Byron-to-Chesaning gauge guidance',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'mixed',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Spring through fall is the main paddling window. Low summer water can mean more scraping and slower route-finding through the rocky Shiatown half, while high water adds consequence around the dam-adjacent start, causeway decision, and private-dock corridor into Corunna.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The first section is officially intermediate and the second is short but technical enough to mention split channels, downed trees, and a causeway. Combined, this is a longer moving-water day best treated as moderate and guarded.',
-      confidenceNotes:
-        'Confidence is good for a conservative minimum-only combination route: the Shiawassee River Water Trail Coalition publishes exact endpoint coordinates, mileage, and hazard notes for Shiatown County Park-to-Lytle Road County Park and Lytle Road County Park-to-Brady Street. The Friends/Shiawassee County brochure says USGS 04144500 is fairly reflective from Byron to Chesaning and that 2.0 ft or lower may be too shallow in some segments. The app keeps only a low-water floor and guards the route because the combined day starts below a partially removed dam and finishes through a causeway/wood corridor.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Combined route distance',
-        value: 'About 11.03 river miles',
-        note: 'The official section 9 and section 10 route sheets publish 7.83 miles from Shiatown to Lytle and 3.2 miles from Lytle to Brady Street, supporting a combined public route of about 11.03 miles.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988390/9_Shiatown_to_Lytle_Road.pdf?1511988390=',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: '42.929408, -84.071308 to 42.976600, -84.116539',
-        note: 'The section 9 and section 10 route PDFs publish Shiatown County Park, Lytle Road County Park, and Brady Street with source-backed coordinates, supporting a start-to-finish public pairing.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988391/10_Lytle_Road_to_Brady_Street.pdf?1511988391=',
-      },
-      {
-        label: 'Gauge guidance',
-        value: '2.0 ft low-water floor at Owosso',
-        note: 'The Friends/Shiawassee County brochure says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2.0 ft or lower may be too shallow in some segments.',
-        sourceUrl:
-          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-      },
-      {
-        label: 'Current gauge check',
-        value: '2.29 ft and 159 cfs on 2026-07-02',
-        note: 'Same-day USGS Water Services reported the Owosso gauge at 2.29 ft and 159 cfs, which clears the conservative minimum floor but does not remove the need to scout the dam-adjacent start and causeway conditions.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04144500&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Named hazards',
-        value: 'Partially removed dam, fast rapids, causeway',
-        note: 'The route sheets warn about the fast rapids and split channel below Shiatown, rocky shallows and debris on the longer first half, and a causeway about 1.75 miles into the Lytle-to-Brady section that should be passed left in low water or portaged in high water.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988391/10_Lytle_Road_to_Brady_Street.pdf?1511988391=',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Shiatown to Lytle Road route PDF',
-        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988390/9_Shiatown_to_Lytle_Road.pdf?1511988390=',
-        provider: 'local',
-      },
-      {
-        label: 'Lytle Road to Brady Street route PDF',
-        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988391/10_Lytle_Road_to_Brady_Street.pdf?1511988391=',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River Water Trail trip maps',
-        url: 'https://www.shiawasseewatertrail.org/tripmaps',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River guide brochure',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 04144500 Shiawassee River at Owosso',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 04144500 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04144500&parameterCd=00060,00065&siteStatus=all',
         provider: 'usgs',
       },
     ],
@@ -43233,137 +41703,6 @@ export const rivers: River[] = [
       {
         label: 'USGS 04144500 Shiawassee River at Owosso',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'shiawassee-river-henderson-cole-park',
-    slug: 'shiawassee-river-henderson-cole-park',
-    name: 'Shiawassee River',
-    reach: 'Henderson County Park to Cole Park',
-    state: 'Michigan',
-    region: 'Central Michigan',
-    summary:
-      'Lower Shiawassee point-to-point route combining Henderson-to-Ditch and Ditch-to-Cole into one longer Chesaning-bound day. The official water-trail sheets support exact public endpoints, combined mileage of about 14.68 miles, and direct Owosso gauge guidance for this corridor.',
-    statusText:
-      'Use the Shiawassee River at Owosso gauge. The water-trail coalition says this corridor is most enjoyable above 2.5 ft and below 7.0 ft; at about 2.0 ft or lower, riffles, rapids, and shallow spots become harder, while high water makes the weir and Cole Park portage more consequential.',
-    latitude: 43.087788,
-    longitude: -84.181933,
-    routeType: 'whitewater',
-    gaugeSource: {
-      id: 'usgs-04144500',
-      provider: 'usgs',
-      siteId: '04144500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Shiawassee River at Owosso, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-    },
-    safetyProfile: {
-      riskLevel: 'advanced',
-      hazards: ['dam', 'whitewater', 'mandatory_takeout', 'strainers'],
-      safetyNotes: [
-        'Scout the weir near Ditch Road and use the river-right portage whenever the line is not straightforward.',
-        'Expect a second mandatory decision near Cole Park, where the route sheet calls for a river-right portage around the rapids and a slippery rock walk to the launch.',
-        'High water above the published 7.0 ft ceiling makes current faster, bridge clearances lower, and both hazard zones more consequential.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2.5,
-      idealMax: 7,
-      tooLow: 2,
-      tooHigh: 7,
-      thresholdSource: {
-        label: 'Shiawassee River Water Trail Coalition Owosso-gauge guidance',
-        url: 'https://www.shiawasseewatertrail.org/riverflow',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Spring through fall is the main paddling window. Low summer water can expose sand bars, rock bars, riffles, and shallow channels; high water above the local 7 ft ceiling adds faster current, lower bridges, and more serious portage consequences.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The contributing route sheets label Henderson-to-Ditch intermediate and Ditch-to-Cole beginner, but the combined 14.68-mile day includes a weir, a required rapids portage, multiple bridges, remoteness between exits, and enough mileage to justify a guarded moderate rating.',
-      confidenceNotes:
-        'Confidence is high for a guarded stage-based combination route: the Shiawassee River Water Trail Coalition publishes exact endpoint coordinates, mileage, and hazard notes for Henderson County Park-to-Ditch Road and Ditch Road-to-Cole Park, and its river-flow page explicitly ties the Owosso gauge to the Owosso-to-Chesaning corridor with an enjoyable band above 2.5 ft and below 7 ft. The broader brochure adds the 2.0 ft shallow warning. The app keeps the direct two-sided gauge model and guards the route because paddlers must handle both the Ditch Road weir zone and the Cole Park rapid portage.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Combined route distance',
-        value: 'About 14.68 river miles',
-        note: 'The official section 13 and section 14 route sheets publish 9.2 miles from Henderson County Park to Ditch Road and 5.48 miles from Ditch Road to Cole Park, supporting a lower-corridor pairing of about 14.68 miles.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988395/13_Henderson_Counry_Park_to_Ditch_Road.pdf?1511988395=',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: '43.087788, -84.181933 to 43.185325, -84.112656',
-        note: 'The section 13 and section 14 route PDFs publish Henderson County Park, Ditch Road, and Cole Park coordinates, supporting a public start-to-finish pairing into Chesaning.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988396/14_Ditch_Road_to_Cole_Park.pdf?1511988396=',
-      },
-      {
-        label: 'Gauge guidance',
-        value: '2.5 to 7.0 ft at Owosso, with 2.0 ft shallow warning',
-        note: 'The coalition river-flow page says the Shiawassee from Owosso to Chesaning is most enjoyable above 2.5 ft and below 7 ft, while the broader brochure says 2.0 ft or lower may be too shallow in some segments.',
-        sourceUrl:
-          'https://www.shiawasseewatertrail.org/riverflow',
-      },
-      {
-        label: 'Current gauge check',
-        value: '2.29 ft and 159 cfs on 2026-07-02',
-        note: 'Same-day USGS Water Services reported the Owosso gauge at 2.29 ft and 159 cfs, which is above the shallow warning floor but still below the coalition\'s preferred 2.5 ft minimum.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04144500&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Named hazards',
-        value: 'Weir near Ditch Road and Cole Park rapid portage',
-        note: 'The section 13 route sheet warns that the weir before Ditch Road must be maneuvered skillfully with a river-right portage if needed, and the section 14 sheet requires a river-right portage around the Cole Park rapids.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988396/14_Ditch_Road_to_Cole_Park.pdf?1511988396=',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Henderson County Park to Ditch Road route PDF',
-        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988395/13_Henderson_Counry_Park_to_Ditch_Road.pdf?1511988395=',
-        provider: 'local',
-      },
-      {
-        label: 'Ditch Road to Cole Park route PDF',
-        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988396/14_Ditch_Road_to_Cole_Park.pdf?1511988396=',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River Water Trail river flow',
-        url: 'https://www.shiawasseewatertrail.org/riverflow',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River Water Trail trip maps',
-        url: 'https://www.shiawasseewatertrail.org/tripmaps',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River guide brochure',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 04144500 Shiawassee River at Owosso',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 04144500 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04144500&parameterCd=00060,00065&siteStatus=all',
         provider: 'usgs',
       },
     ],
@@ -45270,250 +43609,6 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: 'south-fork-kentucky-river-bishop-bend-kay-wood',
-    slug: 'south-fork-kentucky-river-bishop-bend-kay-wood',
-    name: 'South Fork Kentucky River',
-    reach: 'Bishop Bend School Road Access to Kay Wood Road Access',
-    aliases: [
-      'South Fork Kentucky River - Bishop Bend to Kay Wood',
-      'South Fork Kentucky River lower access chain',
-      'KDFWR South Fork Kentucky River access chain',
-    ],
-    state: 'Kentucky',
-    region: 'Eastern Kentucky',
-    summary:
-      'Longer lower South Fork Kentucky River float from Bishop Bend School Road Access to Kay Wood Road Access. Current KDFWR guidance still supports this chained public reach with the Booneville gauge and four named downstream access links.',
-    statusText:
-      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Below that is low and likely scrape-prone; above that is high and faster around shoals, bends, and wood.',
-    latitude: 37.3377,
-    longitude: -83.6882,
-    gaugeSource: {
-      id: 'usgs-03281500',
-      provider: 'usgs',
-      siteId: '03281500',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'South Fork Kentucky River at Booneville, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 350,
-      idealMax: 900,
-      tooLow: 350,
-      tooHigh: 900,
-      thresholdSource: {
-        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
-        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'This lower Booneville corridor works best from spring through fall when the gauge trend is steady. Lower water exposes longer chains of scrape-prone shoals, while rain can quickly muddy landings and speed up the current around bends and wood.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'KDFWR describes the South Fork as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles. This route stays in the public access chain, but its longer mileage makes it more of a full-day commitment than the shorter downstream splits.',
-      confidenceNotes:
-        'Confidence is high for a conservative Kentucky add: current KDFWR guidance still lists Bishop Bend School Road Access to Hacker Branch Road Access as 3.3 miles, Hacker Branch Road Access to Upper Wolf Creek Ramp as 2.9 miles, and Upper Wolf Creek Ramp to Kay Wood Road Access as 5.6 miles, supporting an 11.8-mile chained public float. KDFWR still publishes exact public endpoint coordinates and official Booneville low/good/high bands tied to direct USGS gauge 03281500, and USGS Water Services returned same-day July 2, 2026 discharge and stage during this run.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official level band',
-        value: '350-900 cfs / 4.8-6.0 ft',
-        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-      },
-      {
-        label: 'Chained public route segment',
-        value: 'Bishop Bend School Road Access to Kay Wood Road Access, 11.8 miles',
-        note: 'KDFWR lists Bishop Bend School Road Access to Hacker Branch Road Access as 3.3 miles, Hacker Branch Road Access to Upper Wolf Creek Ramp as 2.9 miles, and Upper Wolf Creek Ramp to Kay Wood Road Access as 5.6 miles, supporting an 11.8-mile public Bishop-Bend-to-Kay-Wood float on the same access chain.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Bishop Bend School Road Access, 37.3377, -83.6882',
-        note: 'KDFWR identifies Bishop Bend School Road Access as a carry-down access with unpaved parking and no developed amenities.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1123',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Kay Wood Road Access, 37.4594, -83.6509',
-        note: 'KDFWR identifies Kay Wood Road Access as a carry-down access with unpaved parking and no developed amenities.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03281500 at 244 cfs / 4.42 ft',
-        note: 'USGS Water Services returned same-day values of 244 cfs and 4.42 ft at 2026-07-02 03:30 EDT for South Fork Kentucky River at Booneville during this run, below the official good band.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Route character',
-        value: 'Broad river, rock bars, occasional riffles',
-        note: 'KDFWR describes the South Fork Kentucky River as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR South Fork Kentucky River',
-        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR South Fork Kentucky River access guide',
-        url: 'https://fw.ky.gov/Fish/Documents/South%20Fork%20of%20Kentucky%20River.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Bishop Bend School Road Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1123',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Kay Wood Road Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03281500 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'south-fork-kentucky-river-hacker-branch-kay-wood',
-    slug: 'south-fork-kentucky-river-hacker-branch-kay-wood',
-    name: 'South Fork Kentucky River',
-    reach: 'Hacker Branch Road Access to Kay Wood Road Access',
-    aliases: [
-      'South Fork Kentucky River - Hacker Branch to Kay Wood',
-      'South Fork Kentucky River lower-mid access chain',
-      'KDFWR South Fork Kentucky River access chain',
-    ],
-    state: 'Kentucky',
-    region: 'Eastern Kentucky',
-    summary:
-      'Medium South Fork Kentucky River float from Hacker Branch Road Access to Kay Wood Road Access. Current KDFWR guidance still supports this chained public reach with the Booneville gauge and the lower public access chain.',
-    statusText:
-      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Below that is low and likely scrape-prone; above that is high and faster around shoals, bends, and wood.',
-    latitude: 37.3743,
-    longitude: -83.6708,
-    gaugeSource: {
-      id: 'usgs-03281500',
-      provider: 'usgs',
-      siteId: '03281500',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'South Fork Kentucky River at Booneville, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 350,
-      idealMax: 900,
-      tooLow: 350,
-      tooHigh: 900,
-      thresholdSource: {
-        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
-        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'This lower Booneville corridor is practical from spring through fall when the gauge trend is steady. Lower water exposes scrape-prone shoals and rock bars, while rain can quickly add current and mud at the simpler carry-down accesses.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'KDFWR describes the South Fork as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles. This route stays in the easier public access chain, but it is still a real moving-water day with sparse amenities.',
-      confidenceNotes:
-        'Confidence is high for a conservative Kentucky add: current KDFWR guidance still lists Hacker Branch Road Access to Upper Wolf Creek Ramp as 2.9 miles and Upper Wolf Creek Ramp to Kay Wood Road Access as 5.6 miles, supporting an 8.5-mile chained public float. KDFWR still publishes exact public endpoint coordinates and official Booneville low/good/high bands tied to direct USGS gauge 03281500, and USGS Water Services returned same-day July 2, 2026 discharge and stage during this run.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official level band',
-        value: '350-900 cfs / 4.8-6.0 ft',
-        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-      },
-      {
-        label: 'Chained public route segment',
-        value: 'Hacker Branch Road Access to Kay Wood Road Access, 8.5 miles',
-        note: 'KDFWR lists Hacker Branch Road Access to Upper Wolf Creek Ramp as 2.9 miles and Upper Wolf Creek Ramp to Kay Wood Road Access as 5.6 miles, supporting an 8.5-mile public Hacker-Branch-to-Kay-Wood float on the same access chain.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Hacker Branch Road Access, 37.3743, -83.6708',
-        note: 'KDFWR identifies Hacker Branch Road Access as a carry-down access with unpaved parking and no developed amenities.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1122',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Kay Wood Road Access, 37.4594, -83.6509',
-        note: 'KDFWR identifies Kay Wood Road Access as a carry-down access with unpaved parking and no developed amenities.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03281500 at 244 cfs / 4.42 ft',
-        note: 'USGS Water Services returned same-day values of 244 cfs and 4.42 ft at 2026-07-02 03:30 EDT for South Fork Kentucky River at Booneville during this run, below the official good band.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Route character',
-        value: 'Broad river, rock bars, occasional riffles',
-        note: 'KDFWR describes the South Fork Kentucky River as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR South Fork Kentucky River',
-        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR South Fork Kentucky River access guide',
-        url: 'https://fw.ky.gov/Fish/Documents/South%20Fork%20of%20Kentucky%20River.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Hacker Branch Road Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1122',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Kay Wood Road Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03281500 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
     id: 'south-fork-kentucky-river-upper-wolf-creek-kay-wood',
     slug: 'south-fork-kentucky-river-upper-wolf-creek-kay-wood',
     name: 'South Fork Kentucky River',
@@ -45626,248 +43721,6 @@ export const rivers: River[] = [
       {
         label: 'USGS 03281500 Water Services current values',
         url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'south-fork-kentucky-river-upper-wolf-creek-fish-creek',
-    slug: 'south-fork-kentucky-river-upper-wolf-creek-fish-creek',
-    name: 'South Fork Kentucky River',
-    reach: 'Upper Wolf Creek Ramp to Fish Creek Boat Ramp',
-    aliases: [
-      'South Fork Kentucky River - Upper Wolf Creek to Fish Creek',
-      'South Fork Kentucky River lower Booneville chain',
-      'KDFWR South Fork Kentucky River access chain',
-    ],
-    state: 'Kentucky',
-    region: 'Eastern Kentucky',
-    summary:
-      'Longer lower South Fork Kentucky River float from Upper Wolf Creek Ramp to Fish Creek Boat Ramp. Current KDFWR guidance still supports this chained public reach with the Booneville gauge and the final public access pair north of town.',
-    statusText:
-      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Below that is low and likely scrape-prone; above that is high and faster around shoals, bends, and wood.',
-    latitude: 37.4036,
-    longitude: -83.6798,
-    gaugeSource: {
-      id: 'usgs-03281500',
-      provider: 'usgs',
-      siteId: '03281500',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'South Fork Kentucky River at Booneville, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 350,
-      idealMax: 900,
-      tooLow: 350,
-      tooHigh: 900,
-      thresholdSource: {
-        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
-        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'This lower Booneville corridor works best from spring through fall when the gauge trend is steady. Lower water exposes longer chains of scrape-prone shoals, while rain can quickly muddy landings and speed up the current around bends and wood.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'KDFWR describes the South Fork as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles. This route stays in the public access chain, but its longer mileage makes it more of a full-day commitment than the shorter downstream splits.',
-      confidenceNotes:
-        'Confidence is high for a conservative Kentucky add: current KDFWR guidance still lists Upper Wolf Creek Ramp to Kay Wood Road Access as 5.6 miles and Kay Wood Road Access to Fish Creek Boat Ramp as 7.9 miles, supporting a 13.5-mile chained public float. KDFWR still publishes exact public endpoint coordinates and official Booneville low/good/high bands tied to direct USGS gauge 03281500, and the official USGS current-conditions page showed same-day July 2, 2026 discharge and gage-height values during this run.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official level band',
-        value: '350-900 cfs / 4.8-6.0 ft',
-        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-      },
-      {
-        label: 'Chained public route segment',
-        value: 'Upper Wolf Creek Ramp to Fish Creek Boat Ramp, 13.5 miles',
-        note: 'KDFWR lists Upper Wolf Creek Ramp to Kay Wood Road Access as 5.6 miles and Kay Wood Road Access to Fish Creek Boat Ramp as 7.9 miles, supporting a 13.5-mile public Upper-Wolf-to-Fish-Creek float on the same access chain.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Upper Wolf Creek Ramp, 37.3964, -83.6767',
-        note: 'KDFWR identifies Upper Wolf Creek Ramp as a free single-lane paved boat ramp with year-round 24-hour availability and unpaved parking.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1073',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Fish Creek Boat Ramp, 37.4906, -83.6894',
-        note: 'KDFWR identifies Fish Creek Boat Ramp as a free single-lane paved boat ramp with unpaved parking and year-round 24-hour availability.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=994',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03281500 at 233 cfs / 4.38 ft',
-        note: 'The official USGS current-conditions page showed same-day values of 233 cfs and 4.38 ft at 2026-07-02 07:30 EDT for South Fork Kentucky River at Booneville during this run, below the official good band.',
-        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03281500',
-      },
-      {
-        label: 'Route character',
-        value: 'Broad river, rock bars, occasional riffles',
-        note: 'KDFWR describes the South Fork Kentucky River as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR South Fork Kentucky River',
-        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR South Fork Kentucky River access guide',
-        url: 'https://fw.ky.gov/Fish/Documents/South%20Fork%20of%20Kentucky%20River.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Upper Wolf Creek Ramp',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1073',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Fish Creek Boat Ramp',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=994',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03281500 current conditions',
-        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03281500',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'south-fork-kentucky-river-hacker-branch-fish-creek',
-    slug: 'south-fork-kentucky-river-hacker-branch-fish-creek',
-    name: 'South Fork Kentucky River',
-    reach: 'Hacker Branch Road Access to Fish Creek Boat Ramp',
-    aliases: [
-      'South Fork Kentucky River - Hacker Branch to Fish Creek',
-      'South Fork Kentucky River lower public chain',
-      'KDFWR South Fork Kentucky River access chain',
-    ],
-    state: 'Kentucky',
-    region: 'Eastern Kentucky',
-    summary:
-      'Fuller lower South Fork Kentucky River day from Hacker Branch Road Access to Fish Creek Boat Ramp. Current KDFWR guidance still supports this chained public reach with the Booneville gauge and a more developed paved-ramp finish north of Booneville.',
-    statusText:
-      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Below that is low and likely scrape-prone; above that is high and faster around shoals, bends, and wood.',
-    latitude: 37.3743,
-    longitude: -83.6708,
-    gaugeSource: {
-      id: 'usgs-03281500',
-      provider: 'usgs',
-      siteId: '03281500',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'South Fork Kentucky River at Booneville, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 350,
-      idealMax: 900,
-      tooLow: 350,
-      tooHigh: 900,
-      thresholdSource: {
-        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
-        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'This lower Booneville corridor works best from spring through fall when the gauge trend is steady. Lower water exposes longer chains of scrape-prone shoals, while rain can quickly muddy landings and speed up the current around bends and wood.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'KDFWR describes the South Fork as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles. This route stays in the public access chain, but its longer mileage makes it more of a full-day commitment than the shorter downstream splits.',
-      confidenceNotes:
-        'Confidence is high for a conservative Kentucky add: current KDFWR guidance still lists Hacker Branch Road Access to Upper Wolf Creek Ramp as 2.9 miles, Upper Wolf Creek Ramp to Kay Wood Road Access as 5.6 miles, and Kay Wood Road Access to Fish Creek Boat Ramp as 7.9 miles, supporting a 16.4-mile chained public float. KDFWR still publishes exact public endpoint coordinates and official Booneville low/good/high bands tied to direct USGS gauge 03281500, and the official USGS current-conditions page showed same-day July 2, 2026 discharge and gage-height values during this run.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official level band',
-        value: '350-900 cfs / 4.8-6.0 ft',
-        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-      },
-      {
-        label: 'Chained public route segment',
-        value: 'Hacker Branch Road Access to Fish Creek Boat Ramp, 16.4 miles',
-        note: 'KDFWR lists Hacker Branch Road Access to Upper Wolf Creek Ramp as 2.9 miles, Upper Wolf Creek Ramp to Kay Wood Road Access as 5.6 miles, and Kay Wood Road Access to Fish Creek Boat Ramp as 7.9 miles, supporting a 16.4-mile public Hacker-Branch-to-Fish-Creek float on the same access chain.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Hacker Branch Road Access, 37.3743, -83.6708',
-        note: 'KDFWR identifies Hacker Branch Road Access as a carry-down site with unpaved parking and no developed amenities.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1122',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Fish Creek Boat Ramp, 37.4906, -83.6894',
-        note: 'KDFWR identifies Fish Creek Boat Ramp as a free single-lane paved boat ramp with unpaved parking and year-round 24-hour availability.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=994',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03281500 at 233 cfs / 4.38 ft',
-        note: 'The official USGS current-conditions page showed same-day values of 233 cfs and 4.38 ft at 2026-07-02 07:30 EDT for South Fork Kentucky River at Booneville during this run, below the official good band.',
-        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03281500',
-      },
-      {
-        label: 'Route character',
-        value: 'Broad river, rock bars, occasional riffles',
-        note: 'KDFWR describes the South Fork Kentucky River as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR South Fork Kentucky River',
-        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR South Fork Kentucky River access guide',
-        url: 'https://fw.ky.gov/Fish/Documents/South%20Fork%20of%20Kentucky%20River.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Hacker Branch Road Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1122',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Fish Creek Boat Ramp',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=994',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03281500 current conditions',
-        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03281500',
         provider: 'usgs',
       },
     ],
@@ -46351,6 +44204,125 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'crooked-creek-lower-pyatt-kelleys-slab',
+    slug: 'crooked-creek-lower-pyatt-kelleys-slab',
+    name: 'Crooked Creek',
+    reach: "Lower Pyatt Access to Kelley's Slab Access",
+    aliases: [
+      "Crooked Creek - Lower Pyatt to Kelley's Slab",
+      'Crooked Creek Water Trail access-planner corridor',
+      "AGFC Crooked Creek Lower Pyatt to Kelley's Slab",
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Arkansas',
+    summary:
+      "Crooked Creek access-planner corridor from Lower Pyatt Access through Snow and Mark Oliver to Kelley's Slab. AGFC documents the exact public access chain and the Kelly Crossing gauge, but the official numeric guidance is limited to a 12-12.5 ft moderate band, so this route ships with conservative minimum-only scoring.",
+    statusText:
+      'Use the Crooked Creek at Kelly Crossing gauge. AGFC calls 12 to 12.5 ft a moderate floating level; below about 12 ft expect more dragging and slower riffles, and higher water deserves extra caution because the creek can rise fast and AGFC does not publish a full high-water ladder.',
+    latitude: 36.24665,
+    longitude: -92.83494,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Crooked Creek can rise quickly after heavy spring or summer rain and turn from a clear smallmouth float into a faster, pushier current day.',
+        'Almost all property along the creek is private; use only the named public access points and camp only where AGFC explicitly allows it.',
+        'Shoals, riffles, fresh wood, and muddy or gravelly exits become more consequential when the creek is below the moderate band or rising fast.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07055607',
+      provider: 'usgs',
+      siteId: '07055607',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Crooked Creek at Kelly Crossing at Yellville, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055607/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 12,
+      thresholdSource: {
+        label: 'Arkansas Game and Fish Crooked Creek moderate-level guidance',
+        url: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'AGFC frames Crooked Creek as rainfall dependent moving water. Spring through early fall is the main floating season, but quick rain-driven rises can change the route much faster than on larger regulated rivers.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is not whitewater, but AGFC still describes deep pools, fast chutes, riffles, and small waves. Treat it as a rural moving-water trip rather than a flatwater float.',
+      confidenceNotes:
+        "Confidence is good for a conservative add: AGFC publishes Lower Pyatt, Snow, Mark Oliver, and Kelley's Slab as one documented Crooked Creek Water Trail access chain with exact segment mileages, exposes coordinate-linked public access pins, and ties the corridor to direct USGS gauge 07055607 near Kelly Crossing. Because AGFC only publishes a 12-12.5 ft moderate floating band rather than a full low/ideal/high ladder, Paddle Today uses a minimum-only floor at 12 ft and keeps higher-water messaging cautious.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: "Lower Pyatt Access to Kelley's Slab Access, about 18.5 miles",
+        note: "AGFC lists Lower Pyatt-to-Snow, Snow-to-Mark Oliver, and Mark Oliver-to-Kelley's Slab as exact Crooked Creek Water Trail segments.",
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07055607',
+        note: 'USGS Water Services returned same-day Crooked Creek at Kelly Crossing values of 513 cfs and 12.05 ft at 2026-07-02 02:45 CDT during this run, inside AGFC\'s moderate band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055607&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Level guidance',
+        value: '12-12.5 ft moderate floating band',
+        note: 'AGFC says a moderate level for floating Crooked Creek is 12-12.5 ft at the Kelly Crossing gauge. Paddle Today treats 12 ft as the conservative minimum-only floor because AGFC does not publish a complete high-water ladder for this route family.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Lower Pyatt Access, 36.24665, -92.83494',
+        note: 'AGFC publishes Lower Pyatt Access as a named public Crooked Creek Water Trail access with a Google Maps coordinate link.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+      {
+        label: 'Take-out access',
+        value: "Kelley's Slab Access, 36.22921, -92.71045",
+        note: "AGFC publishes Kelley's Slab Access as a named public Crooked Creek Water Trail access with a Google Maps coordinate link and hazard caveat.",
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+      {
+        label: 'Camping support',
+        value: 'Snow, Brooksher, and Fred Berry camping support',
+        note: 'AGFC identifies primitive camping at Snow Access, Brooksher Crooked Creek Preserve, and Fred Berry Crooked Creek Nature Center with limits and permission requirements.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'AGFC Crooked Creek Water Trail',
+        url: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+        provider: 'local',
+      },
+      {
+        label: 'AGFC Crooked Creek Water Trail brochure',
+        url: 'https://www.agfc.com/wp-content/uploads/2023/05/crookedcreek-watertrailmap.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07055607 Crooked Creek at Kelly Crossing',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055607/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07055607 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055607&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'crooked-creek-lower-pyatt-snow',
     slug: 'crooked-creek-lower-pyatt-snow',
     name: 'Crooked Creek',
@@ -46416,8 +44388,8 @@ export const rivers: River[] = [
       },
       {
         label: 'Direct live gauge',
-        value: 'USGS 07055607',
-        note: 'USGS Water Services returned same-day Crooked Creek at Kelly Crossing values of 513 cfs and 12.05 ft at 2026-07-02 02:45 CDT during this run, inside AGFC\'s moderate band.',
+        value: 'USGS 07055607 at 498 cfs / 12.01 ft',
+        note: 'USGS Water Services returned same-day Crooked Creek at Kelly Crossing values of 498 cfs and 12.01 ft at 2026-07-02 06:45 CDT during this run, just inside AGFC\'s moderate band.',
         sourceUrl:
           'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055607&parameterCd=00060,00065&siteStatus=all',
       },
@@ -46476,24 +44448,24 @@ export const rivers: River[] = [
     reach: 'Snow Access to Mark Oliver Access',
     aliases: [
       'Crooked Creek - Snow to Mark Oliver',
-      'Crooked Creek Water Trail middle-upper segment',
+      'Crooked Creek Water Trail middle segment',
       'AGFC Crooked Creek Snow to Mark Oliver',
     ],
     state: 'Arkansas',
     region: 'Ozark Arkansas',
     summary:
-      'Middle Crooked Creek day from Snow Access to Mark Oliver Access. AGFC documents the exact 5.2-mile segment, public access pins, and the Kelly Crossing gauge, and the same official 12-12.5 ft moderate band supports a conservative minimum-only model here.',
+      'Middle Crooked Creek day from Snow Access to Mark Oliver Access. AGFC documents the exact 5.2-mile segment, public access pins, and the Kelly Crossing gauge, while the corridor camping support stays stronger than the narrow gauge ladder.',
     statusText:
-      'Use the Crooked Creek at Kelly Crossing gauge. AGFC calls 12 to 12.5 ft a moderate floating level; below about 12 ft expect more scraping and slower riffles, and higher water deserves extra caution because the creek rises quickly and lacks a full published high-water ladder.',
+      'Use the Crooked Creek at Kelly Crossing gauge. AGFC calls 12 to 12.5 ft a moderate floating level; below about 12 ft expect more dragging and slower riffles, and higher water deserves extra caution because the creek can rise fast and AGFC does not publish a full high-water ladder.',
     latitude: 36.24352,
     longitude: -92.79995,
     safetyProfile: {
       riskLevel: 'caution',
       hazards: ['fast_rise', 'strainers', 'private_banks'],
       safetyNotes: [
-        'Crooked Creek can rise quickly after heavy rain and become a stronger current day with little notice.',
-        'Almost all property along the creek is private; use only the named public access points and camp only at designated areas.',
-        'Shoals, riffles, wood, and muddy exits become more consequential when the creek is below the moderate band or rising fast.',
+        'Crooked Creek can rise quickly after heavy spring or summer rain and turn from a clear smallmouth float into a faster, pushier current day.',
+        'Almost all property along the creek is private; use only the named public access points and camp only where AGFC explicitly allows it.',
+        'Shoals, riffles, fresh wood, and muddy or gravelly exits become more consequential when the creek is below the moderate band or rising fast.',
       ],
       reviewStatus: 'reviewed',
     },
@@ -46519,12 +44491,12 @@ export const rivers: River[] = [
       rainfallSensitivity: 'high',
       seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
       seasonNotes:
-        'AGFC frames Crooked Creek as rainfall dependent moving water. Spring through early fall is the main floating season, but storm pulses can quickly change pace, wood hazards, and clarity.',
+        'AGFC frames Crooked Creek as rainfall dependent moving water. Spring through early fall is the main floating season, but quick rain-driven rises can change the route much faster than on larger regulated rivers.',
       difficulty: 'moderate',
       difficultyNotes:
-        'This is a rural moving-water segment with deep pools, fast chutes, riffles, and small waves rather than a flatwater creek float.',
+        'This is not whitewater, but AGFC still describes deep pools, fast chutes, riffles, and small waves. Treat it as a rural moving-water trip rather than a flatwater float.',
       confidenceNotes:
-        'Confidence is good for a conservative add: AGFC publishes Snow to Mark Oliver as an exact 5.2-mile Crooked Creek Water Trail segment, exposes coordinate-linked public access pins for both endpoints, and ties the corridor to direct USGS gauge 07055607 near Kelly Crossing. Because the official numeric guidance is only the 12-12.5 ft moderate band, Paddle Today uses a minimum-only floor at 12 ft and stays cautious above that.',
+        'Confidence is good for a conservative add: AGFC publishes Snow to Mark Oliver as an exact 5.2-mile Crooked Creek Water Trail segment, exposes coordinate-linked public access pins for both endpoints, and ties the corridor to direct USGS gauge 07055607 near Kelly Crossing. Because AGFC only publishes a 12-12.5 ft moderate floating band rather than a full low/ideal/high ladder, Paddle Today uses a minimum-only floor at 12 ft and keeps higher-water messaging cautious.',
     },
     evidenceNotes: [
       {
@@ -46535,8 +44507,8 @@ export const rivers: River[] = [
       },
       {
         label: 'Direct live gauge',
-        value: 'USGS 07055607',
-        note: 'USGS Water Services returned same-day Crooked Creek at Kelly Crossing values of 513 cfs and 12.05 ft at 2026-07-02 02:45 CDT during this run, inside AGFC\'s moderate band.',
+        value: 'USGS 07055607 at 498 cfs / 12.01 ft',
+        note: 'USGS Water Services returned same-day Crooked Creek at Kelly Crossing values of 498 cfs and 12.01 ft at 2026-07-02 06:45 CDT during this run, just inside AGFC\'s moderate band.',
         sourceUrl:
           'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055607&parameterCd=00060,00065&siteStatus=all',
       },
@@ -46560,8 +44532,8 @@ export const rivers: River[] = [
       },
       {
         label: 'Camping support',
-        value: 'Snow Access and Brooksher preserve options',
-        note: 'AGFC says primitive campsites are available at Snow Access and at Brooksher Crooked Creek Preserve, which has no road access.',
+        value: 'Snow Access and Brooksher Crooked Creek Preserve',
+        note: 'AGFC says paddlers planning longer routes may camp at Snow Access and at Brooksher Crooked Creek Preserve, which has no road access.',
         sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
       },
     ],
@@ -46592,27 +44564,27 @@ export const rivers: River[] = [
     id: 'crooked-creek-mark-oliver-kelleys-slab',
     slug: 'crooked-creek-mark-oliver-kelleys-slab',
     name: 'Crooked Creek',
-    reach: 'Mark Oliver Access to Kelley’s Slab Access',
+    reach: "Mark Oliver Access to Kelley's Slab Access",
     aliases: [
-      'Crooked Creek - Mark Oliver to Kelley\'s Slab',
-      'Crooked Creek Water Trail middle-lower segment',
-      'AGFC Crooked Creek Mark Oliver to Kelley\'s Slab',
+      "Crooked Creek - Mark Oliver to Kelley's Slab",
+      'Crooked Creek Water Trail lower-middle segment',
+      "AGFC Crooked Creek Mark Oliver to Kelley's Slab",
     ],
     state: 'Arkansas',
     region: 'Ozark Arkansas',
     summary:
-      'Lower-middle Crooked Creek day from Mark Oliver Access to Kelley’s Slab Access. AGFC documents the exact 6.6-mile segment, public access pins, and the Kelly Crossing gauge, and the official 12-12.5 ft moderate band supports a conservative minimum-only model with extra care at the Kelley’s Slab finish.',
+      "Lower-middle Crooked Creek day from Mark Oliver Access to Kelley's Slab Access. AGFC documents the exact 6.6-mile segment, public access pins, and the Kelly Crossing gauge, while the final slab finish needs extra caution when the creek is up or muddy.",
     statusText:
-      'Use the Crooked Creek at Kelly Crossing gauge. AGFC calls 12 to 12.5 ft a moderate floating level; below about 12 ft expect more scraping and slower riffles, and higher water deserves extra caution because the creek rises quickly and Kelley’s Slab can be hazardous under some conditions.',
+      'Use the Crooked Creek at Kelly Crossing gauge. AGFC calls 12 to 12.5 ft a moderate floating level; below about 12 ft expect more dragging and slower riffles, and higher water deserves extra caution because the creek can rise fast and AGFC does not publish a full high-water ladder.',
     latitude: 36.24973,
     longitude: -92.7486,
     safetyProfile: {
       riskLevel: 'caution',
       hazards: ['fast_rise', 'strainers', 'private_banks'],
       safetyNotes: [
-        'Crooked Creek can rise quickly after heavy rain and become a stronger current day with little notice.',
-        'AGFC says Kelley’s Slab can be hazardous under some conditions, so scout the finish before committing when the creek is up or dirty.',
-        'Almost all property along the creek is private; use only the named public access points and camp only at designated areas.',
+        'Crooked Creek can rise quickly after heavy spring or summer rain and turn from a clear smallmouth float into a faster, pushier current day.',
+        'Almost all property along the creek is private; use only the named public access points and camp only where AGFC explicitly allows it.',
+        'AGFC says Kelley\'s Slab can be hazardous under some conditions, so scout the finish when the creek is up, muddy, or unfamiliar.',
       ],
       reviewStatus: 'reviewed',
     },
@@ -46638,24 +44610,24 @@ export const rivers: River[] = [
       rainfallSensitivity: 'high',
       seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
       seasonNotes:
-        'AGFC frames Crooked Creek as rainfall dependent moving water. Spring through early fall is the main floating season, but storm pulses can quickly change pace, clarity, and exit conditions at Kelley’s Slab.',
+        'AGFC frames Crooked Creek as rainfall dependent moving water. Spring through early fall is the main floating season, but quick rain-driven rises can change the route much faster than on larger regulated rivers.',
       difficulty: 'moderate',
       difficultyNotes:
-        'This is a rural moving-water segment with deep pools, fast chutes, riffles, and small waves. The Kelley’s Slab finish deserves more care than a simple gravel-bar take-out.',
+        'This is not whitewater, but AGFC still describes deep pools, fast chutes, riffles, and small waves. Treat it as a rural moving-water trip rather than a flatwater float.',
       confidenceNotes:
-        'Confidence is good for a conservative add: AGFC publishes Mark Oliver to Kelley’s Slab as an exact 6.6-mile Crooked Creek Water Trail segment, exposes coordinate-linked public access pins for both endpoints, and ties the corridor to direct USGS gauge 07055607 near Kelly Crossing. Because the official numeric guidance is only the 12-12.5 ft moderate band, Paddle Today uses a minimum-only floor at 12 ft and keeps the finish hazard messaging prominent.',
+        'Confidence is good for a conservative add: AGFC publishes Mark Oliver to Kelley\'s Slab as an exact 6.6-mile Crooked Creek Water Trail segment, exposes coordinate-linked public access pins for both endpoints, and ties the corridor to direct USGS gauge 07055607 near Kelly Crossing. Because AGFC only publishes a 12-12.5 ft moderate floating band rather than a full low/ideal/high ladder, Paddle Today uses a minimum-only floor at 12 ft and keeps higher-water messaging cautious.',
     },
     evidenceNotes: [
       {
         label: 'Official route segment',
-        value: 'Mark Oliver Access to Kelley’s Slab Access, 6.6 miles',
-        note: 'AGFC lists Mark Oliver Access to Kelley’s Slab Access as an exact Crooked Creek Water Trail segment.',
+        value: "Mark Oliver Access to Kelley's Slab Access, 6.6 miles",
+        note: "AGFC lists Mark Oliver Access to Kelley's Slab Access as an exact Crooked Creek Water Trail segment.",
         sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
       },
       {
         label: 'Direct live gauge',
-        value: 'USGS 07055607',
-        note: 'USGS Water Services returned same-day Crooked Creek at Kelly Crossing values of 513 cfs and 12.05 ft at 2026-07-02 02:45 CDT during this run, inside AGFC\'s moderate band.',
+        value: 'USGS 07055607 at 498 cfs / 12.01 ft',
+        note: 'USGS Water Services returned same-day Crooked Creek at Kelly Crossing values of 498 cfs and 12.01 ft at 2026-07-02 06:45 CDT during this run, just inside AGFC\'s moderate band.',
         sourceUrl:
           'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055607&parameterCd=00060,00065&siteStatus=all',
       },
@@ -46673,14 +44645,14 @@ export const rivers: River[] = [
       },
       {
         label: 'Take-out access',
-        value: 'Kelley’s Slab Access, 36.22921, -92.71045',
-        note: 'AGFC publishes Kelley’s Slab Access as a named public Crooked Creek Water Trail access with a Google Maps coordinate link.',
+        value: "Kelley's Slab Access, 36.22921, -92.71045",
+        note: "AGFC publishes Kelley's Slab Access as a named public Crooked Creek Water Trail access with a Google Maps coordinate link and hazard caveat.",
         sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
       },
       {
-        label: 'Finish hazard',
-        value: 'Use caution at Kelley’s Slab',
-        note: 'AGFC says Kelley’s Slab can be hazardous under some conditions and ties the route family to the nearby Kelly Crossing gauge.',
+        label: 'Camping support',
+        value: 'Fred Berry camping with permission',
+        note: 'AGFC says paddlers may camp at Fred Berry Crooked Creek Nature Center with permission from the center manager, limited to one night per campsite.',
         sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
       },
     ],
@@ -52126,237 +50098,6 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: "juniata-river-granville-mifflintown",
-    slug: "juniata-river-granville-mifflintown",
-    name: "Juniata River",
-    reach: "Lower Section: Granville PFBC to Mifflintown PFBC",
-    aliases: [
-      "Juniata River - Granville to Mifflintown",
-      "Lower Juniata - Granville to Mifflintown PFBC",
-      "Juniata River - Granville PFBC to Mifflintown PFBC",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Fifteen-mile lower-Juniata float from the Granville PFBC ramp to the Mifflintown PFBC ramp. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile access table, and ties the corridor to the direct Lewistown gauge with a 3.1 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Lewistown gauge. The official PFBC lower Juniata guide recommends at least 3.1 ft there for this corridor.",
-    latitude: 40.558333,
-    longitude: -77.603056,
-    gaugeSource: {
-      id: "usgs-01564895",
-      provider: "usgs",
-      siteId: "01564895",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Lewistown, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags bridge abutments with possible strainers near miles 51 and 49 plus the mile-43 ledge with rough water pushing into a cut bank inside this route.",
-        "The route stays approachable at normal lower-Juniata levels, but fifteen open miles, broad-river wind, and fresh wood after storms make it a real full-day plan.",
-        "Use only the named public accesses at Granville and Mifflintown rather than bridge shoulders, islands, or private banks.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.1,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Lewistown gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says post-rain paddling is often the most enjoyable on the lower Juniata, while summer dry spells expose broad cobble bars and slow pools.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy lower-Juniata day route when Lewistown clears the official floor, but the upstream strainer zones, the mile-43 ledge, and the long exposed mileage deserve a conservative plan.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Granville and Mifflintown, defines them as a 15-mile access pair from river mile 51 to river mile 36, and gives a direct Lewistown minimum gauge level of 3.1 ft for this corridor. USGS Water Services returned same-day June 26, 2026 values of 981 cfs and 3.28 ft for direct USGS 01564895 during implementation.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Granville PFBC to Mifflintown PFBC, about 15 mi",
-        note: "The PFBC lower Juniata guide places Granville PFBC at river mile 51 and Mifflintown PFBC at river mile 36.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Granville PFBC at 40 33 30 / 77 36 11 and Mifflintown PFBC at 40 35 42 / 77 24 55.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01564895 at Lewistown",
-        note: "USGS Water Services returned same-day June 26, 2026 values of 981 cfs and 3.28 ft for Juniata River at Lewistown, PA.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01564895&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Lewistown 3.1 ft minimum",
-        note: "PFBC lists Lewistown among the useful gauges for the lower Juniata and recommends a minimum level of 3.1 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Camping context",
-        value: "Locust Campground on the corridor",
-        note: "PFBC says Locust Campground at mile 50 offers rustic amenities and a restored canal section just downstream of the Granville put-in.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01564895 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-granville-walker",
-    slug: "juniata-river-granville-walker",
-    name: "Juniata River",
-    reach: "Lower Section: Granville PFBC to Walker PFBC",
-    aliases: [
-      "Juniata River - Granville to Walker",
-      "Lower Juniata - Granville to Walker PFBC",
-      "Juniata River - Granville PFBC to Walker PFBC",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Twenty-one-mile lower-Juniata corridor float from the Granville PFBC ramp to the Walker PFBC ramp. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile access table, and ties the corridor to the direct Lewistown gauge with a 3.1 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Lewistown gauge. The official PFBC lower Juniata guide recommends at least 3.1 ft there for this corridor.",
-    latitude: 40.558333,
-    longitude: -77.603056,
-    gaugeSource: {
-      id: "usgs-01564895",
-      provider: "usgs",
-      siteId: "01564895",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Lewistown, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags bridge abutments with possible strainers near miles 51 and 49, the mile-43 ledge with rough water pushing into a cut bank, and rapid current near mile 33 inside this long corridor.",
-        "This is still a broad lower-Juniata float rather than a technical whitewater run, but the long mileage, fresh wood after storms, and valley headwind make it more consequential than the shorter cards.",
-        "Use only the named public accesses at Granville and Walker rather than bridge shoulders, islands, or private banks.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.1,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Lewistown gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says post-rain paddling is often the most enjoyable on the lower Juniata, while summer dry spells expose broad cobble bars and slow pools.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy lower-Juniata day route when Lewistown clears the official floor, but the miles-51/49 strainer zone, the mile-43 ledge, the mile-33 current feature, and the exposed mileage deserve a conservative plan.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Granville and Walker, defines them as a 21-mile access pair from river mile 51 to river mile 30, and gives a direct Lewistown minimum gauge level of 3.1 ft for this corridor. USGS Water Services returned same-day July 1, 2026 values of 1030 cfs and 3.34 ft for direct USGS 01564895 during implementation.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Granville PFBC to Walker PFBC, about 21 mi",
-        note: "The PFBC lower Juniata guide places Granville PFBC at river mile 51 and Walker PFBC at river mile 30.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Granville PFBC at 40 33 30 / 77 36 11 and Walker PFBC at 40 31 55 / 77 21 26.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01564895 at Lewistown",
-        note: "USGS Water Services returned same-day July 1, 2026 values of 1030 cfs and 3.34 ft for Juniata River at Lewistown, PA.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01564895&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Lewistown 3.1 ft minimum",
-        note: "PFBC lists Lewistown among the useful gauges for the lower Juniata and recommends a minimum level of 3.1 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Camping context",
-        value: "Locust and Mexico corridor campgrounds",
-        note: "PFBC says Locust Campground sits just below Granville, while Buttonwood Campground and River Rock Campground near mile 29 support the Mexico corridor later in the route.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary cautions",
-        value: "Miles 51, 49, 43, and 33 caution features",
-        note: "PFBC flags bridge-abutment strainers at miles 51 and 49, a ledge at mile 43 with rough water pushing into a cut bank, and rapid current near mile 33.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01564895 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
     id: "juniata-river-victory-park-mifflintown",
     slug: "juniata-river-victory-park-mifflintown",
     name: "Juniata River",
@@ -52469,230 +50210,6 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: "juniata-river-victory-park-walker",
-    slug: "juniata-river-victory-park-walker",
-    name: "Juniata River",
-    reach: "Lower Section: Victory Park to Walker PFBC",
-    aliases: [
-      "Juniata River - Victory Park to Walker",
-      "Lower Juniata - Lewistown to Walker PFBC",
-      "Juniata River - Victory Park access to Walker PFBC",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Sixteen-mile lower-Juniata float from Victory Park in Lewistown to the Walker PFBC ramp. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile access table, and keeps the corridor tied to the direct Lewistown gauge with a 3.1 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Lewistown gauge. The official PFBC lower Juniata guide recommends at least 3.1 ft there for this corridor.",
-    latitude: 40.595,
-    longitude: -77.578889,
-    gaugeSource: {
-      id: "usgs-01564895",
-      provider: "usgs",
-      siteId: "01564895",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Lewistown, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags the mile-43 ledge with rough water pushing into a cut bank plus rapid current near mile 33 inside this longer Lewistown-to-Walker corridor.",
-        "The route stays beginner-friendly at normal summer levels, but sixteen open miles, broad-river wind, and fresh wood after storms make it a real full-day float.",
-        "Use only the named public accesses at Victory Park and Walker rather than bridge shoulders, islands, or private banks.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.1,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Lewistown gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says post-rain paddling is often the most enjoyable on the lower Juniata, while summer dry spells expose broad cobble bars and slow pools.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy lower-Juniata day route when Lewistown clears the official floor, but the mile-43 ledge, the mile-33 current zone, and the long exposed mileage deserve a conservative plan.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Victory Park and Walker, defines them as a 16-mile access pair from river mile 46 to river mile 30, and gives a direct Lewistown minimum gauge level of 3.1 ft for this corridor. USGS Water Services returned same-day June 26, 2026 values of 981 cfs and 3.28 ft for direct USGS 01564895 during implementation.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Victory Park to Walker PFBC, about 16 mi",
-        note: "The PFBC lower Juniata guide places Victory Park at river mile 46 and Walker PFBC at river mile 30.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Victory Park at 40 35 42 / 77 34 44 and Walker PFBC at 40 31 55 / 77 21 26.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01564895 at Lewistown",
-        note: "USGS Water Services returned same-day June 26, 2026 values of 981 cfs and 3.28 ft for Juniata River at Lewistown, PA.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01564895&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Lewistown 3.1 ft minimum",
-        note: "PFBC lists Lewistown among the useful gauges for the lower Juniata and recommends a minimum level of 3.1 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary cautions",
-        value: "Mile-43 ledge and mile-33 rapid-current zone",
-        note: "PFBC warns of a ledge stretching across the river at mile 43 with rough water pushing into a cut bank and rapid current near mile 33.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01564895 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-victory-park-newport",
-    slug: "juniata-river-victory-park-newport",
-    name: "Juniata River",
-    reach: "Lower Section: Victory Park to Newport",
-    aliases: [
-      "Juniata River - Victory Park to Newport",
-      "Lower Juniata - Lewistown to Newport",
-      "Juniata River - Victory Park access to Newport",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Thirty-four-mile lower-Juniata corridor from Victory Park in Lewistown to the Newport access. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile access table, and supports a conservative minimum-only model using the Newport gauge as the downstream same-river lower-section reference.",
-    statusText:
-      "Use the Juniata River at Newport gauge as a conservative downstream same-river reference. The official PFBC lower Juniata guide lists it among the useful lower-section gauges and recommends at least 3.5 ft there.",
-    latitude: 40.595,
-    longitude: -77.578889,
-    gaugeSource: {
-      id: "usgs-01567000",
-      provider: "usgs",
-      siteId: "01567000",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "proxy",
-      siteName: "Juniata River at Newport, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags the mile-43 ledge with rough water pushing into a cut bank, rapid current near mile 33, and the lower ledge/current feature near mile 10.5 as the river approaches Newport.",
-        "This is a genuinely long broad-river day, so headwind, fresh wood after storms, and low-water bars can stretch the plan well beyond the clean mileage.",
-        "Use only the named public accesses at Victory Park and Newport rather than private banks, islands, or roadside pull-offs.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.5,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Newport gauge level used as a downstream same-river proxy",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says low summer conditions can leave broad bars and scratchy lower lines, while recent rain often improves this longer corridor without needing a full high-water recommendation.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy lower-river route in the product sense, but thirty-four open miles plus the mile-43, mile-33, and mile-10.5 caution points keep it from being a casual float.",
-      confidenceNotes:
-        "Confidence is solid but intentionally capped below directly gauged short routes. The PFBC lower Juniata guide publishes exact coordinates for Victory Park and Newport, defines them as a 34-mile access pair from river mile 46 to river mile 12, and lists Newport among the useful lower-Juniata gauges with a 3.5 ft minimum. USGS Water Services returned same-day July 2, 2026 values of 1340 cfs and 3.66 ft at direct site 01567000 during implementation, but that gauge sits at the downstream end of the route, so the app keeps only a conservative minimum floor.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Victory Park to Newport, about 34 mi",
-        note: "The PFBC lower Juniata guide places Victory Park at river mile 46 and Newport at river mile 12.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Victory Park at 40 35 42 / 77 34 44 and Newport at 40 28 45 / 77 07 46.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Gauge reference",
-        value: "USGS 01567000 at Newport",
-        note: "USGS Water Services returned same-day July 2, 2026 values of 1340 cfs and 3.66 ft for Juniata River at Newport, PA, used here as the conservative downstream same-river reference.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01567000&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Newport 3.5 ft minimum",
-        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary cautions",
-        value: "Miles 43, 33, and 10.5",
-        note: "PFBC warns of a ledge stretching across the river at mile 43, rapid current near mile 33, and another ledge/current feature near mile 10.5 as the river approaches Newport.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01567000 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
     id: "juniata-river-mifflintown-walker",
     slug: "juniata-river-mifflintown-walker",
     name: "Juniata River",
@@ -52795,125 +50312,6 @@ export const rivers: River[] = [
       {
         label: "USGS 01564895 monitoring location",
         url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-mifflintown-newport",
-    slug: "juniata-river-mifflintown-newport",
-    name: "Juniata River",
-    reach: "Lower Section: Mifflintown PFBC to Newport",
-    aliases: [
-      "Juniata River - Mifflintown to Newport",
-      "Lower Juniata - Mifflintown ramp to Newport",
-      "Juniata River - Mifflintown PFBC to Newport access",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Twenty-four-mile lower-Juniata corridor from the Mifflintown PFBC ramp to the Newport access. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile access table, and supports a conservative minimum-only model using the Newport gauge as the downstream same-river lower-section reference.",
-    statusText:
-      "Use the Juniata River at Newport gauge as a conservative downstream same-river reference. The official PFBC lower Juniata guide lists it among the useful lower-section gauges and recommends at least 3.5 ft there.",
-    latitude: 40.595,
-    longitude: -77.415278,
-    gaugeSource: {
-      id: "usgs-01567000",
-      provider: "usgs",
-      siteId: "01567000",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "proxy",
-      siteName: "Juniata River at Newport, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags rapid current near mile 33 in the upper half of the route plus rapid current falling over a ledge near mile 10.5 as the river approaches Newport.",
-        "This is a genuinely long broad-river day, and fresh wood after storms, open-river headwind, or low-water bars can stretch the plan well beyond the clean mileage.",
-        "Use only the named public accesses at Mifflintown and Newport rather than private banks, islands, or roadside pull-offs.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.5,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Newport gauge level used as a downstream same-river proxy",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says low summer conditions can leave broad bars and scratchy lower lines, while recent rain often improves this longer corridor without needing a full high-water recommendation.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy lower-river route in the product sense, but its length plus the mile-33 current feature and the mile-10.5 ledge keep it from being a casual float.",
-      confidenceNotes:
-        "Confidence is solid but intentionally capped below the directly gauged Newport-start routes. The PFBC lower Juniata guide publishes exact coordinates for Mifflintown and Newport, defines them as a 24-mile access pair from river mile 36 to river mile 12, and lists Newport among the useful lower-Juniata gauges with a 3.5 ft minimum. USGS Water Services returned same-day July 1, 2026 values of 1370 cfs and 3.68 ft at direct site 01567000 during implementation, but that gauge sits at the downstream end of the route, so the app keeps only a conservative minimum floor.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Mifflintown PFBC to Newport, about 24 mi",
-        note: "The PFBC lower Juniata guide places Mifflintown PFBC at river mile 36 and Newport at river mile 12.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Mifflintown PFBC at 40 35 42 / 77 24 55 and Newport at 40 28 45 / 77 07 46.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Gauge reference",
-        value: "USGS 01567000 at Newport",
-        note: "USGS Water Services returned same-day July 1, 2026 values of 1370 cfs and 3.68 ft for Juniata River at Newport, PA, used here as the conservative downstream same-river reference.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01567000&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Newport 3.5 ft minimum",
-        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Camping context",
-        value: "Mexico and Newport corridor campgrounds",
-        note: "PFBC says Buttonwood Campground and River Rock Campground support the Mexico corridor, while Pittman's Riverside Campground and Little Buffalo Family Campground support the lower Newport half.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary cautions",
-        value: "Miles 33 and 10.5 caution features",
-        note: "PFBC flags rapid current near mile 33 and rapid current falling over a ledge at mile 10.5 in the lower corridor.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01567000 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01567000/",
         provider: "usgs",
       },
       {
@@ -53147,125 +50545,6 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: "juniata-river-walker-newport",
-    slug: "juniata-river-walker-newport",
-    name: "Juniata River",
-    reach: "Lower Section: Walker PFBC to Newport",
-    aliases: [
-      "Juniata River - Walker to Newport",
-      "Lower Juniata - Walker PFBC to Newport",
-      "Juniata River - Walker PFBC to Newport access",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Eighteen-mile lower-Juniata corridor from the Walker PFBC ramp to the Newport access. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile access table, and supports a conservative minimum-only model using the Newport gauge as the downstream same-river lower-section reference.",
-    statusText:
-      "Use the Juniata River at Newport gauge as a conservative downstream same-river reference. The official PFBC lower Juniata guide lists it among the useful lower-section gauges and recommends at least 3.5 ft there.",
-    latitude: 40.531944,
-    longitude: -77.357222,
-    gaugeSource: {
-      id: "usgs-01567000",
-      provider: "usgs",
-      siteId: "01567000",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "proxy",
-      siteName: "Juniata River at Newport, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags rapid current near mile 33 in the upper half of the route plus rapid current falling over a ledge near mile 10.5 as the river approaches Newport.",
-        "This is a committed broad-river day, and fresh wood after storms, open-river headwind, or low-water bars can make the middle and final miles feel longer than the clean mileage.",
-        "Use only the named public accesses at Walker and Newport rather than private banks, islands, or roadside pull-offs.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.5,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Newport gauge level used as a downstream same-river proxy",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says low summer conditions can leave broad bars and scratchy lower lines, while recent rain often improves this corridor without needing a full high-water recommendation.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy lower-river route in the product sense, but the mile-33 current feature, the mile-10.5 ledge, and the long exposed miles still deserve a conservative plan.",
-      confidenceNotes:
-        "Confidence is solid but intentionally capped below the directly gauged Newport-start routes. The PFBC lower Juniata guide publishes exact coordinates for Walker and Newport, defines them as an 18-mile access pair from river mile 30 to river mile 12, and lists Newport among the useful lower-Juniata gauges with a 3.5 ft minimum. USGS Water Services returned same-day July 1, 2026 values of 1370 cfs and 3.68 ft at direct site 01567000 during implementation, but that gauge sits at the downstream end of the route, so the app keeps only a conservative minimum floor.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Walker PFBC to Newport, about 18 mi",
-        note: "The PFBC lower Juniata guide places Walker PFBC at river mile 30 and Newport at river mile 12.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Walker PFBC at 40 31 55 / 77 21 26 and Newport at 40 28 45 / 77 07 46.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Gauge reference",
-        value: "USGS 01567000 at Newport",
-        note: "USGS Water Services returned same-day July 1, 2026 values of 1370 cfs and 3.68 ft for Juniata River at Newport, PA, used here as the conservative downstream same-river reference.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01567000&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Newport 3.5 ft minimum",
-        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Camping context",
-        value: "Mexico and Newport corridor campgrounds",
-        note: "PFBC says Buttonwood Campground and River Rock Campground support the Mexico corridor, while Pittman's Riverside Campground and Little Buffalo Family Campground support the lower Newport half.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary cautions",
-        value: "Miles 33 and 10.5 caution features",
-        note: "PFBC flags rapid current near mile 33 and rapid current falling over a ledge at mile 10.5 in the lower corridor.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01567000 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
     id: "juniata-river-mifflintown-muskrat-springs",
     slug: "juniata-river-mifflintown-muskrat-springs",
     name: "Juniata River",
@@ -53368,475 +50647,6 @@ export const rivers: River[] = [
       {
         label: "USGS 01564895 monitoring location",
         url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-muskrat-springs-newport",
-    slug: "juniata-river-muskrat-springs-newport",
-    name: "Juniata River",
-    reach: "Lower Section: Muskrat Springs PFBC to Newport",
-    aliases: [
-      "Juniata River - Muskrat Springs to Newport",
-      "Lower Juniata - Muskrat Springs PFBC to Newport",
-      "Juniata River - Muskrat Springs PFBC to Newport access",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Fourteen-mile lower-Juniata float from the Muskrat Springs PFBC ramp to the Newport primitive access. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile access table, and ties the corridor to the direct Newport gauge with a 3.5 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Newport gauge. The official PFBC lower Juniata guide recommends at least 3.5 ft there for this corridor.",
-    latitude: 40.535,
-    longitude: -77.299444,
-    gaugeSource: {
-      id: "usgs-01567000",
-      provider: "usgs",
-      siteId: "01567000",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Newport, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags rapid current falling over a ledge near mile 10.5 inside this route as the river approaches Newport.",
-        "This corridor also carries the usual lower-Juniata post-storm wood and broad-river wind issues, and the primitive Newport landing deserves same-day take-out discipline.",
-        "Use only the named public accesses at Muskrat Springs and Newport rather than informal bars, bridge shoulders, or private banks.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.5,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Newport gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says low summer conditions can leave broad bars and slow pools on the lower Juniata, while recent rain often improves the float without requiring a high-water call.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy lower-Juniata route when Newport clears the official floor, though the mile-10.5 ledge and the long open downstream miles deserve more attention than the short Newport links.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Muskrat Springs and Newport, defines them as a 14-mile access pair from river mile 26 to river mile 12, and gives a direct Newport minimum gauge level of 3.5 ft for this corridor. USGS Water Services returned same-day June 26, 2026 values of 1,520 cfs and 3.76 ft for direct USGS 01567000 during implementation.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Muskrat Springs PFBC to Newport, about 14 mi",
-        note: "The PFBC lower Juniata guide places Muskrat Springs PFBC at river mile 26 and Newport at river mile 12.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Muskrat Springs PFBC at 40 32 06 / 77 17 58 and Newport at 40 28 45 / 77 07 46.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01567000 at Newport",
-        note: "USGS Water Services returned same-day June 26, 2026 values of 1,520 cfs and 3.76 ft for Juniata River at Newport, PA.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01567000&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Newport 3.5 ft minimum",
-        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Camping context",
-        value: "Pittman's Riverside and Little Buffalo campground support",
-        note: "PFBC says Pittman's Riverside Campground sits at mile 16 and Little Buffalo Family Campground sits near Newport, giving this corridor real legal overnight support.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01567000 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-mifflin-newport",
-    slug: "juniata-river-mifflin-newport",
-    name: "Juniata River",
-    reach: "Lower Section: Mifflin to Newport",
-    aliases: [
-      "Juniata River - Mifflin to Newport",
-      "Lower Juniata - Mifflin ramp to Newport",
-      "Juniata River - Mifflin ramp to Newport access",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Twenty-two-mile lower-Juniata corridor from the Mifflin ramp to the Newport access. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile access table, and supports a conservative minimum-only model using the Newport gauge as the downstream same-river lower-section reference.",
-    statusText:
-      "Use the Juniata River at Newport gauge as a conservative downstream same-river reference. The official PFBC lower Juniata guide lists it among the useful gauges for this lower-section corridor and recommends at least 3.5 ft there.",
-    latitude: 40.569167,
-    longitude: -77.401111,
-    gaugeSource: {
-      id: "usgs-01567000",
-      provider: "usgs",
-      siteId: "01567000",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "proxy",
-      siteName: "Juniata River at Newport, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags rapid current near mile 33 in the upper half of the route plus rapid current falling over a ledge near mile 10.5 as the river approaches Newport.",
-        "This is a genuinely long broad-river day, and fresh wood after storms, open-river headwind, or low-water bars can stretch the plan well beyond the clean mileage.",
-        "Use only the named public accesses at Mifflin and Newport rather than private banks, islands, or roadside pull-offs.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.5,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Newport gauge level used as a downstream same-river proxy",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says low summer conditions can leave broad bars and scratchy lower lines, while recent rain often improves this longer corridor without needing a full high-water recommendation.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy lower-river route in the product sense, but its length plus the mile-33 current feature and the mile-10.5 ledge keep it from being a casual float.",
-      confidenceNotes:
-        "Confidence is solid but intentionally capped below the directly gauged Newport-start routes. The PFBC lower Juniata guide publishes exact coordinates for Mifflin and Newport, defines them as a 22-mile access pair from river mile 34 to river mile 12, and lists Newport among the useful lower-Juniata gauges with a 3.5 ft minimum. USGS Water Services returned same-day July 1, 2026 values of 1370 cfs and 3.68 ft at direct site 01567000 during implementation, but that gauge sits at the downstream end of the route, so the app keeps only a conservative minimum floor.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Mifflin ramp to Newport, about 22 mi",
-        note: "The PFBC lower Juniata guide places Mifflin at river mile 34 and Newport at river mile 12.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Mifflin at 40 34 09 / 77 24 04 and Newport at 40 28 45 / 77 07 46.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Gauge reference",
-        value: "USGS 01567000 at Newport",
-        note: "USGS Water Services returned same-day July 1, 2026 values of 1370 cfs and 3.68 ft for Juniata River at Newport, PA, used here as the conservative downstream same-river reference.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01567000&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Newport 3.5 ft minimum",
-        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Camping context",
-        value: "Mexico and Newport corridor campgrounds",
-        note: "PFBC says Buttonwood Campground and River Rock Campground support the Mexico corridor, while Pittman's Riverside Campground and Little Buffalo Family Campground support the lower Newport half.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary cautions",
-        value: "Miles 33 and 10.5 caution features",
-        note: "PFBC flags rapid current near mile 33 and rapid current falling over a ledge at mile 10.5 in the lower corridor.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01567000 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-thompsontown-newport",
-    slug: "juniata-river-thompsontown-newport",
-    name: "Juniata River",
-    reach: "Lower Section: Thompsontown PFBC to Newport",
-    aliases: [
-      "Juniata River - Thompsontown to Newport",
-      "Lower Juniata - Thompsontown PFBC to Newport",
-      "Juniata River - Thompsontown ramp to Newport access",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Ten-mile lower-Juniata route from the Thompsontown PFBC ramp to the Newport primitive access. The official PFBC lower guide publishes both access coordinates, defines the pair as a 10-mile segment, and ties the route to the direct Newport gauge with a 3.5 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Newport gauge. The official PFBC lower Juniata guide recommends at least 3.5 ft there for this corridor.",
-    latitude: 40.554167,
-    longitude: -77.235833,
-    gaugeSource: {
-      id: "usgs-01567000",
-      provider: "usgs",
-      siteId: "01567000",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Newport, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags rapid current falling over a ledge near mile 10.5 inside the lower half of this route.",
-        "Pittman's Riverside Campground near Greenwood and Little Buffalo near Newport are legal support points, but Newport remains the intended primitive finish for this slug.",
-        "Use only the named public accesses at Thompsontown and Newport rather than private banks or islands.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.5,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Newport gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says low summer conditions can leave broad bars and shallow lines, while recent rain usually improves this lower corridor without needing a full high-water recommendation.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy lower-river day when Newport clears the official floor, but the broad river, primitive take-out, and mile-10.5 ledge still deserve a conservative plan.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Thompsontown and Newport, defines them as an official 10-mile access pair, and gives a direct Newport minimum gauge level of 3.5 ft. USGS Water Services returned same-day July 1, 2026 values of 1,360 cfs and 3.67 ft for direct USGS 01567000 at 9:15 PM EDT during this run.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Thompsontown PFBC to Newport, about 10 mi",
-        note: "The PFBC lower Juniata guide places Thompsontown at river mile 22 and Newport at river mile 12.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Thompsontown at 40 33 15 / 77 14 09 and Newport at 40 28 45 / 77 07 46.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01567000 at Newport",
-        note: "USGS Water Services returned same-day July 1, 2026 values of 1,360 cfs and 3.67 ft for Juniata River at Newport, PA, at 9:15 PM EDT.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01567000&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Newport 3.5 ft minimum",
-        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Camping context",
-        value: "Pittman's and Newport corridor camping support",
-        note: "PFBC says Pittman's Riverside Campground sits at mile 16 and Little Buffalo Family Campground lies near Newport, giving this route real legal overnight support along the corridor.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary caution",
-        value: "Rapid current over a ledge at mile 10.5",
-        note: "PFBC warns of rapid current falling over a ledge at mile 10.5 inside the Thompsontown-to-Newport corridor.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01567000 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-millerstown-green-valley",
-    slug: "juniata-river-millerstown-green-valley",
-    name: "Juniata River",
-    reach: "Lower Section: Millerstown Community Park to Green Valley",
-    aliases: [
-      "Juniata River - Millerstown to Green Valley",
-      "Lower Juniata - Millerstown Community Park to Green Valley Campground",
-      "Juniata River - Millerstown access to Green Valley",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Eleven-mile lower-Juniata route from Millerstown Community Park to Green Valley Campground. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile table, and ties this corridor to the direct Newport gauge with a 3.5 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Newport gauge. The official PFBC lower Juniata guide recommends at least 3.5 ft there for this corridor.",
-    latitude: 40.54,
-    longitude: -77.149722,
-    gaugeSource: {
-      id: "usgs-01567000",
-      provider: "usgs",
-      siteId: "01567000",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Newport, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags rapid current falling over a ledge near mile 10.5 inside the lower half of this route.",
-        "The take-out is tied to Green Valley Campground on river left, so confirm the landing lane before drifting past it.",
-        "Stay with the named public accesses at Millerstown and Green Valley rather than private banks or islands.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.5,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Newport gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says low summer conditions can leave broad bars and shallow lines, while recent rain usually improves this lower corridor without needing a full high-water recommendation.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy lower-river day when the Newport corridor has enough depth, but the broad river, campground take-out, and mile-10.5 ledge still deserve attention.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Millerstown and Green Valley, defines them as an official 11-mile access pair, and gives a direct Newport minimum gauge level of 3.5 ft. USGS Water Services returned same-day July 1, 2026 values of 1,360 cfs and 3.67 ft for direct USGS 01567000 at 9:15 PM EDT during this run, and that gauge sits inside the route corridor.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Millerstown Community Park to Green Valley, about 11 mi",
-        note: "The PFBC lower Juniata guide places Millerstown at river mile 17 and Green Valley at river mile 6.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Millerstown at 40 32 24 / 77 08 59 and Green Valley at 40 28 45 / 77 03 17.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01567000 at Newport",
-        note: "USGS Water Services returned same-day July 1, 2026 values of 1,360 cfs and 3.67 ft for Juniata River at Newport, PA, at 9:15 PM EDT. The gauge sits inside this route corridor.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01567000&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Newport 3.5 ft minimum",
-        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Camping context",
-        value: "Green Valley endpoint campground",
-        note: "PFBC says Green Valley Campground and Grocery at mile 6 offers overnight camping with boat access, making the take-out an established campground finish.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary caution",
-        value: "Rapid current over a ledge at mile 10.5",
-        note: "PFBC warns of rapid current falling over a ledge at mile 10.5 inside the Millerstown-to-Green-Valley corridor.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01567000 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01567000/",
         provider: "usgs",
       },
       {
@@ -54524,19 +51334,19 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: "juniata-river-portstown-park-mt-union",
-    slug: "juniata-river-portstown-park-mt-union",
+    id: "juniata-river-portstown-park-newton-hamilton",
+    slug: "juniata-river-portstown-park-newton-hamilton",
     name: "Juniata River",
-    reach: "Upper Section: Portstown Park to Mt. Union",
+    reach: "Upper Section: Portstown Park to Newton-Hamilton",
     aliases: [
-      "Juniata River - Portstown Park to Mt. Union",
-      "Upper Juniata - Huntingdon to Mt. Union",
-      "Juniata River - Portstown Park to Mt. Union access",
+      "Juniata River - Portstown Park to Newton-Hamilton",
+      "Upper Juniata - Huntingdon to Newton-Hamilton",
+      "Juniata River - Portstown Park to Newton-Hamilton access",
     ],
     state: "Pennsylvania",
     region: "Upper Juniata",
     summary:
-      "Thirteen-mile upper-Juniata float from Portstown Park in Huntingdon to the Mt. Union access. The official PFBC upper guide publishes both access coordinates, defines the pair through its river-mile access table, and ties this corridor to the direct Mapleton Depot gauge with a 2.5 ft minimum level.",
+      "Upper-Juniata access-planner corridor from Portstown Park in Huntingdon through Juniata Point, Riverside Park, Mt. Union, and Shawmut to Newton-Hamilton. The official PFBC upper guide publishes the public access coordinates, defines the chain through its river-mile access table, and ties the core corridor to the direct Mapleton Depot gauge with a 2.5 ft minimum level.",
     statusText:
       "Use the Juniata River at Mapleton Depot gauge. The official PFBC upper Juniata guide recommends at least 2.5 ft there for this corridor.",
     latitude: 40.485833,
@@ -54555,116 +51365,9 @@ export const rivers: River[] = [
       riskLevel: "caution",
       hazards: ["private_banks"],
       safetyNotes: [
-        "PFBC flags hazardous current with waves near mile 90 plus the same Mapleton-corridor caution features near miles 86.5 and 85.5.",
-        "This is a longer broad-river day than the map can make it look, and same-day wood, headwind, or low-water bars can stretch the route well beyond the nominal mileage.",
-        "Use only the named public accesses at Portstown Park and Mt. Union rather than private banks, islands, or bridge shoulders.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 2.5,
-      thresholdSource: {
-        label: "PFBC upper Juniata guide minimum Mapleton Depot gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "The PFBC guide says snowmelt and spring rain often produce the best upper-Juniata levels, while summer dry spells expose bars and make the wider pools slower.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy public-access float when Mapleton clears the official floor, but the mile-90 wave/current feature and the Mapleton bridge-current zone still deserve attention.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC upper Juniata guide publishes exact coordinates for Portstown Park and Mt. Union, defines them as a 13-mile access pair, and lists Mapleton Depot as a useful direct gauge with a 2.5 ft minimum. USGS Water Services returned same-day June 26, 2026 values of 923 cfs and 2.99 ft for direct USGS 01563500 during this run.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Portstown Park to Mt. Union, about 13 mi",
-        note: "The PFBC upper Juniata guide places Portstown Park at river mile 94 and Mt. Union at river mile 81.",
-        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Portstown Park at 40 29 09 / 78 00 51 and Mt. Union at 40 23 10 / 77 52 24.",
-        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01563500 at Mapleton Depot",
-        note: "USGS Water Services returned same-day June 26, 2026 values of 923 cfs and 2.99 ft for Juniata River at Mapleton Depot, PA.",
-        sourceUrl: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01563500&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Mapleton Depot 2.5 ft minimum",
-        note: "PFBC lists Mapleton Depot among the useful gauges for the upper Juniata and recommends a minimum level of 2.5 ft there.",
-        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Primary cautions",
-        value: "Miles 90, 86.5, and 85.5 caution features",
-        note: "PFBC flags hazardous current with waves near mile 90, small ledges and ripples at mile 86.5, and strong bridge-abutment current near mile 85.5.",
-        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC upper Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01563500 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01563500/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-portstown-park-shawmut",
-    slug: "juniata-river-portstown-park-shawmut",
-    name: "Juniata River",
-    reach: "Upper Section: Portstown Park to Shawmut",
-    aliases: [
-      "Juniata River - Portstown Park to Shawmut",
-      "Upper Juniata - Huntingdon to Shawmut",
-      "Juniata River - Portstown Park to Shawmut access",
-    ],
-    state: "Pennsylvania",
-    region: "Upper Juniata",
-    summary:
-      "Eighteen-mile upper-Juniata run from Portstown Park in Huntingdon to the Shawmut access. The official PFBC upper guide publishes both access coordinates, defines the pair through its river-mile access table, and ties the core corridor to the direct Mapleton Depot gauge with a 2.5 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Mapleton Depot gauge. The official PFBC upper Juniata guide recommends at least 2.5 ft there for this corridor.",
-    latitude: 40.485833,
-    longitude: -78.014167,
-    gaugeSource: {
-      id: "usgs-01563500",
-      provider: "usgs",
-      siteId: "01563500",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Mapleton Depot, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01563500/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["private_banks"],
-      safetyNotes: [
-        "PFBC flags hazardous current with waves near mile 90, the Mapleton-corridor caution features near miles 86.5 and 85.5, and waves with hidden rocks near mile 75 on the Shawmut approach.",
+        "PFBC flags hazardous current with waves near mile 90, the Mapleton-corridor caution features near miles 86.5 and 85.5, waves with hidden rocks near mile 75, and the Newton-Hamilton current/rock zone near mile 73.",
         "This is a legitimately long public-access day, and broad-river headwind, fresh wood, or low-water bars can turn it into a much slower commitment than the clean map line suggests.",
-        "Use only the named public accesses at Portstown Park and Shawmut rather than bridge shoulders, islands, or private banks.",
+        "Use only the named public accesses in the Portstown-to-Newton-Hamilton chain rather than bridge shoulders, islands, or private banks.",
       ],
       reviewStatus: "reviewed",
     },
@@ -54683,21 +51386,21 @@ export const rivers: River[] = [
         "The PFBC guide says upper-Juniata levels improve after snowmelt or rain, while summer dry spells expose bars and make the wider pools slower and scratchier.",
       difficulty: "easy",
       difficultyNotes:
-        "This is an easy public-access route in the product sense, but its length plus the mile-90, Mapleton, and mile-75 current features make it more consequential than the shorter upper-Juniata cards.",
+        "This is an easy public-access route in the product sense, but its length plus the mile-90, Mapleton, mile-75, and Newton-Hamilton current features make it more consequential than the shorter upper-Juniata cards.",
       confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC upper Juniata guide publishes exact coordinates for Portstown Park and Shawmut, defines them as an 18-mile access pair, and lists Mapleton Depot as a useful direct gauge with a 2.5 ft minimum. USGS Water Services returned same-day June 26, 2026 values of 923 cfs and 2.99 ft for direct USGS 01563500 during this run.",
+        "Confidence is good for a conservative Pennsylvania add: the PFBC upper Juniata guide publishes exact coordinates for the Portstown-to-Newton-Hamilton public access chain and lists Mapleton Depot as a useful direct gauge with a 2.5 ft minimum. USGS Water Services returned same-day June 26, 2026 values of 923 cfs and 2.99 ft for direct USGS 01563500 during this run.",
     },
     evidenceNotes: [
       {
         label: "Official route segment",
-        value: "Portstown Park to Shawmut, about 18 mi",
-        note: "The PFBC upper Juniata guide places Portstown Park at river mile 94 and Shawmut at river mile 76.",
+        value: "Portstown Park to Newton-Hamilton, about 21 mi",
+        note: "The PFBC upper Juniata guide places Portstown Park at river mile 94 and Newton-Hamilton at river mile 73, with public access options between them.",
         sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
       },
       {
         label: "Endpoint coordinates",
         value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Portstown Park at 40 29 09 / 78 00 51 and Shawmut at 40 21 53 / 77 48 44.",
+        note: "The PFBC access table publishes Portstown Park, Juniata Point, Riverside Park, Mt. Union, Shawmut, and Newton-Hamilton coordinates directly.",
         sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
       },
       {
@@ -54714,8 +51417,8 @@ export const rivers: River[] = [
       },
       {
         label: "Primary cautions",
-        value: "Miles 90, 86.5, 85.5, and 75 current features",
-        note: "PFBC flags hazardous current with waves near mile 90, small ledges and ripples at mile 86.5, strong bridge-abutment current near mile 85.5, and waves with hidden rocks near mile 75.",
+        value: "Miles 90, 86.5, 85.5, 75, and 73 current features",
+        note: "PFBC flags hazardous current with waves near mile 90, small ledges and ripples at mile 86.5, strong bridge-abutment current near mile 85.5, waves with hidden rocks near mile 75, and the more complex current/rock zone near mile 73.",
         sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
       },
     ],
@@ -55410,113 +52113,6 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: "juniata-river-mt-union-shawmut",
-    slug: "juniata-river-mt-union-shawmut",
-    name: "Juniata River",
-    reach: "Upper Section: Mt. Union to Shawmut",
-    aliases: [
-      "Juniata River - Mt. Union to Shawmut",
-      "Upper Juniata - Mt. Union to Shawmut",
-      "Juniata River - Mt. Union access to Shawmut access",
-    ],
-    state: "Pennsylvania",
-    region: "Upper Juniata",
-    summary:
-      "Five-mile upper-Juniata link from the Mt. Union access to the Shawmut access. The official PFBC upper guide publishes both access coordinates, defines the pair through its river-mile access table, and supports a conservative minimum-only model using the Mapleton Depot gauge as the upstream same-river reference.",
-    statusText:
-      "Use the Juniata River at Mapleton Depot gauge as a conservative upstream reference. The official PFBC upper Juniata guide recommends at least 2.5 ft there for this corridor.",
-    latitude: 40.386111,
-    longitude: -77.873333,
-    gaugeSource: {
-      id: "usgs-01563500",
-      provider: "usgs",
-      siteId: "01563500",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "proxy",
-      siteName: "Juniata River at Mapleton Depot, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01563500/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["private_banks"],
-      safetyNotes: [
-        "PFBC flags waves with hidden rocks near mile 75 on the Shawmut approach.",
-        "This shorter corridor still deserves attention because low water tightens the rockier lines and fresh wood can shift the cleanest channel after storms.",
-        "Use only the named public accesses at Mt. Union and Shawmut rather than bridge shoulders, islands, or private banks.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 2.5,
-      thresholdSource: {
-        label: "PFBC upper Juniata guide minimum Mapleton Depot gauge level used as an upstream same-river proxy",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "The PFBC guide says upper-Juniata conditions improve after snowmelt or rain, while summer low water exposes bars, rocks, and slower channels.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy public-access run in the broad product sense, but the mile-75 wave/rock zone and the upstream-gauge posture keep it intentionally conservative.",
-      confidenceNotes:
-        "Confidence is solid but intentionally capped below the direct start-at-gauge routes. The PFBC upper Juniata guide publishes exact coordinates for Mt. Union and Shawmut, defines them as a 5-mile access pair, and lists Mapleton Depot as a useful upper-Juniata gauge with a 2.5 ft minimum. USGS Water Services returned same-day June 26, 2026 values of 923 cfs and 2.99 ft at direct site 01563500 during this run, but that gauge sits upstream of this corridor, so the app keeps only a conservative minimum floor.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Mt. Union to Shawmut, about 5 mi",
-        note: "The PFBC upper Juniata guide places Mt. Union at river mile 81 and Shawmut at river mile 76.",
-        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Mt. Union at 40 23 10 / 77 52 24 and Shawmut at 40 21 53 / 77 48 44.",
-        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Proxy gauge support",
-        value: "USGS 01563500 at Mapleton Depot",
-        note: "USGS Water Services returned same-day June 26, 2026 values of 923 cfs and 2.99 ft for Juniata River at Mapleton Depot, PA. PFBC lists Mapleton Depot as a useful upper-Juniata gauge, but it remains upstream of this route.",
-        sourceUrl: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01563500&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Mapleton Depot 2.5 ft minimum",
-        note: "PFBC lists Mapleton Depot among the useful gauges for the upper Juniata and recommends a minimum level of 2.5 ft there.",
-        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Primary cautions",
-        value: "Mile 75 wave and hidden-rock zone",
-        note: "PFBC flags waves with hidden rocks near mile 75 on the Shawmut approach.",
-        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC upper Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01563500 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01563500/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
     id: "juniata-river-shawmut-newton-hamilton",
     slug: "juniata-river-shawmut-newton-hamilton",
     name: "Juniata River",
@@ -56166,125 +52762,6 @@ export const rivers: River[] = [
         label: "Primary caution",
         value: "Rapid current near mile 33",
         note: "PFBC flags rapid current near mile 33 inside this corridor.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01564895 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-lewistown-narrows-muskrat-springs",
-    slug: "juniata-river-lewistown-narrows-muskrat-springs",
-    name: "Juniata River",
-    reach: "Lower Section: Lewistown Narrows PFBC to Muskrat Springs PFBC",
-    aliases: [
-      "Juniata River - Lewistown Narrows to Muskrat Springs",
-      "Lower Juniata - Lewistown Narrows to Muskrat Springs PFBC",
-      "Juniata River - Lewistown Narrows PFBC to Muskrat Springs PFBC",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Fourteen-mile middle lower-Juniata day from the Lewistown Narrows PFBC ramp to the Muskrat Springs PFBC ramp. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile access table, and supports a conservative minimum-only model using the Lewistown gauge as the upstream same-river lower-section reference.",
-    statusText:
-      "Use the Juniata River at Lewistown gauge as a conservative upstream same-river reference. The official PFBC lower Juniata guide lists it among the useful gauges for this corridor and recommends at least 3.1 ft there.",
-    latitude: 40.603889,
-    longitude: -77.487778,
-    gaugeSource: {
-      id: "usgs-01564895",
-      provider: "usgs",
-      siteId: "01564895",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "proxy",
-      siteName: "Juniata River at Lewistown, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags rapid current near mile 33 inside this corridor, and the broad river can still hide fresh wood or shifting shallow lines after storms.",
-        "This route starts below the Lewistown ledge zone, but broad-river wind and low-water bars can still stretch the day beyond what the clean mileage suggests.",
-        "Use only the named public accesses at Lewistown Narrows and Muskrat Springs rather than private banks, islands, or bridge shoulders.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.1,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Lewistown gauge level used as an upstream same-river proxy",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says the lower Juniata often feels best after recent rain, while dry summer periods expose broad cobble bars and slower channels.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy public-access day when the corridor has enough depth, but the mile-33 rapid-current zone, exposed wind, and upstream-gauge posture keep it intentionally conservative.",
-      confidenceNotes:
-        "Confidence is solid but intentionally capped below the direct start-and-finish routes. The PFBC lower Juniata guide publishes exact coordinates for Lewistown Narrows and Muskrat Springs, defines them as a 14-mile access pair from river mile 40 to river mile 26, and lists Lewistown among the useful lower-section gauges with a 3.1 ft minimum. USGS Water Services returned same-day July 1, 2026 values of 1030 cfs and 3.34 ft at direct site 01564895 during implementation, but that gauge remains upstream of the route, so the app keeps only a conservative minimum floor.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Lewistown Narrows PFBC to Muskrat Springs PFBC, about 14 mi",
-        note: "The PFBC lower Juniata guide places Lewistown Narrows PFBC at river mile 40 and Muskrat Springs PFBC at river mile 26.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Lewistown Narrows PFBC at 40 36 14 / 77 29 16 and Muskrat Springs PFBC at 40 32 06 / 77 17 58.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Gauge reference",
-        value: "USGS 01564895 at Lewistown",
-        note: "USGS Water Services returned same-day July 1, 2026 values of 1030 cfs and 3.34 ft for Juniata River at Lewistown, PA, used here as the conservative upstream same-river reference.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01564895&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Lewistown 3.1 ft minimum",
-        note: "PFBC lists Lewistown among the useful gauges for the lower Juniata and recommends a minimum level of 3.1 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Camping context",
-        value: "Buttonwood and River Rock near mile 29",
-        note: "PFBC says Buttonwood Campground and River Rock Campground sit along the route near Mexico and can support a legal split or bailout.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary caution",
-        value: "Rapid current near mile 33",
-        note: "PFBC warns of rapid current at mile 33 in the middle of this corridor.",
         sourceUrl:
           "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
       },

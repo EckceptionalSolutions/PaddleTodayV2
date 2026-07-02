@@ -1,15 +1,14 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-02T11:59:50.272Z",
+  "generatedAt": "2026-07-02T14:18:48.552Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
-    "totalLedgerCandidates": 693,
-    "currentRouteCount": 481,
+    "totalLedgerCandidates": 679,
+    "currentRouteCount": 455,
     "leadCount": 269,
     "discoveryFocusStates": [
       "South Dakota",
       "Illinois",
-      "Nebraska",
       "North Dakota",
       "Arkansas",
       "Kentucky",
@@ -50,21 +49,6 @@
           "Illinois official water trail canoe kayak USGS gauge public access",
           "Illinois state parks canoe kayak river access USGS flow",
           "Illinois American Whitewater USGS public access route"
-        ],
-        "ledgerStrategy": "Seed 2-4 fresh candidates only when a source trail includes public endpoints, a plausible supported live gauge, and numeric threshold evidence or a credible path to it."
-      },
-      {
-        "state": "Nebraska",
-        "tier": "undercovered_supported_midwest",
-        "sourceFamilies": [
-          "Nebraska Game and Parks access/water-trail pages",
-          "county/city river-access systems",
-          "USGS gauge clusters"
-        ],
-        "searchQueries": [
-          "Nebraska official water trail canoe kayak USGS gauge public access",
-          "Nebraska state parks canoe kayak river access USGS flow",
-          "Nebraska American Whitewater USGS public access route"
         ],
         "ledgerStrategy": "Seed 2-4 fresh candidates only when a source trail includes public endpoints, a plausible supported live gauge, and numeric threshold evidence or a credible path to it."
       },
@@ -244,9 +228,9 @@
       "blocked_recheck": 8
     },
     "byStatus": {
-      "implemented": 72,
+      "implemented": 69,
       "threshold_weak": 109,
-      "added": 329,
+      "added": 318,
       "research_later": 55,
       "blocked_until_date": 13,
       "no_live_gauge": 87,
@@ -1966,40 +1950,6 @@
         "discoveryTier": "supported_midwest"
       },
       {
-        "candidateId": "ne-missouri-river-mnrr-nebraska-family",
-        "lane": "fresh_source_discovery",
-        "priority": 86,
-        "state": "NE",
-        "river": "Missouri River",
-        "route": "Missouri National Recreational River Nebraska-side paddling family",
-        "currentStatus": "research_later",
-        "lastReviewed": "2026-06-12",
-        "reviewCount": 30,
-        "duplicateRisk": false,
-        "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06467500 Missouri River at Yankton returned current stage-only data of 10.29 ft at 2026-06-12 12:30 CDT. No route was added because no selected Nebraska-side MNRR public day reach and no numeric private-paddlecraft threshold model tied to an accepted gauge surfaced.",
-        "retryCondition": "Retry only if NPS, USACE, NGPC, or a water-trail manager identifies a specific Nebraska-side MNRR day reach with public endpoint coordinates, a direct product-supported Missouri River gauge, and numeric stage/flow go/no-go guidance for private paddlecraft.",
-        "gauge": {
-          "quality": "partial_stage_only",
-          "id": "06467500",
-          "provider": "USGS",
-          "notes": "USGS 06467500 returned current stage-only IV data in this run; no direct discharge or accepted private-paddlecraft stage threshold model is tied to a selected Nebraska-side day segment."
-        },
-        "thresholdSupport": {
-          "strength": "not_ready",
-          "notes": "No route-specific numeric private-paddlecraft stage or flow guidance surfaced; do not adapt Kansas River or small-river bands to the Missouri River."
-        },
-        "endpoints": {
-          "putIn": "Unselected MNRR public launch",
-          "takeOut": "Unselected MNRR public launch",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Not captured because no selected day route cleared threshold/product-live gates."
-        },
-        "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-        "discoveryTier": "undercovered_supported_midwest"
-      },
-      {
         "candidateId": "wi-black-earth-creek-cross-plains-salmo-pond",
         "lane": "fresh_source_discovery",
         "priority": 84,
@@ -2113,6 +2063,40 @@
           "putIn": "Osceola Landing",
           "takeOut": "Somerset Landing",
           "coordinatesPresent": false
+        },
+        "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+        "discoveryTier": "supported_midwest"
+      },
+      {
+        "candidateId": "ne-missouri-river-mnrr-nebraska-family",
+        "lane": "fresh_source_discovery",
+        "priority": 81,
+        "state": "NE",
+        "river": "Missouri River",
+        "route": "Missouri National Recreational River Nebraska-side paddling family",
+        "currentStatus": "research_later",
+        "lastReviewed": "2026-06-12",
+        "reviewCount": 30,
+        "duplicateRisk": false,
+        "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06467500 Missouri River at Yankton returned current stage-only data of 10.29 ft at 2026-06-12 12:30 CDT. No route was added because no selected Nebraska-side MNRR public day reach and no numeric private-paddlecraft threshold model tied to an accepted gauge surfaced.",
+        "retryCondition": "Retry only if NPS, USACE, NGPC, or a water-trail manager identifies a specific Nebraska-side MNRR day reach with public endpoint coordinates, a direct product-supported Missouri River gauge, and numeric stage/flow go/no-go guidance for private paddlecraft.",
+        "gauge": {
+          "quality": "partial_stage_only",
+          "id": "06467500",
+          "provider": "USGS",
+          "notes": "USGS 06467500 returned current stage-only IV data in this run; no direct discharge or accepted private-paddlecraft stage threshold model is tied to a selected Nebraska-side day segment."
+        },
+        "thresholdSupport": {
+          "strength": "not_ready",
+          "notes": "No route-specific numeric private-paddlecraft stage or flow guidance surfaced; do not adapt Kansas River or small-river bands to the Missouri River."
+        },
+        "endpoints": {
+          "putIn": "Unselected MNRR public launch",
+          "takeOut": "Unselected MNRR public launch",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Not captured because no selected day route cleared threshold/product-live gates."
         },
         "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
         "discoveryTier": "supported_midwest"
@@ -5547,74 +5531,6 @@
         "discoveryTier": "adjacent_expansion"
       },
       {
-        "candidateId": "ne-calamus-river-highway-7-calamus-sra",
-        "lane": "threshold_discovery",
-        "priority": 92,
-        "state": "NE",
-        "river": "Calamus River",
-        "route": "Nebraska Highway 7 to Calamus Reservoir State Recreation Area",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-06-12",
-        "reviewCount": 30,
-        "duplicateRisk": false,
-        "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06787500 Calamus near Burwell still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT. No route was added because current product data, a selected short public day route, and numeric paddling thresholds remain unresolved.",
-        "retryCondition": "Retry only if a shorter public endpoint pair is source-backed, a product-supported Calamus gauge is selected, and numeric low/ideal/high paddling guidance is published by an official manager or credible route source.",
-        "gauge": {
-          "quality": "no_current_product_data",
-          "id": "06787500 Calamus River gauge family",
-          "provider": "USGS",
-          "notes": "USGS 06787500 did not expose current product-ready IV data in this run; the only returned discharge value was from 1994, so it cannot support PaddleToday scoring."
-        },
-        "thresholdSupport": {
-          "strength": "not_ready",
-          "notes": "No numeric paddling floor, preferred band, or high-water cutoff tied to a selected Calamus gauge surfaced."
-        },
-        "endpoints": {
-          "putIn": "Nebraska Highway 7 bridge access",
-          "takeOut": "Calamus Reservoir State Recreation Area / Hannaman Bayou tailwater",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Official endpoint text reviewed; no implementation coordinate package captured because the route is not yet threshold-ready."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
-      },
-      {
-        "candidateId": "ne-elkhorn-river-public-access-family",
-        "lane": "threshold_discovery",
-        "priority": 92,
-        "state": "NE",
-        "river": "Elkhorn River",
-        "route": "Elkhorn public-access / Waterloo gauge family",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-06-12",
-        "reviewCount": 30,
-        "duplicateRisk": false,
-        "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06799350 Elkhorn at West Point returned product-style current values of 628 cfs and 4.09 ft at 2026-06-12 12:15 CDT. No route was added because no exact selected public reach with source-backed numeric paddling thresholds tied to the selected Elkhorn gauge has cleared.",
-        "retryCondition": "Retry only if NGPC/NRD/local managers or a credible route source identifies a selected public Elkhorn segment with endpoint coordinates and numeric paddling guidance tied to a product-supported USGS or official live gauge.",
-        "gauge": {
-          "quality": "product_live_verified",
-          "id": "06799350",
-          "provider": "USGS",
-          "notes": "USGS 06799350 Elkhorn River at West Point returned product-style current IV data in this run, but no accepted numeric paddling threshold model is tied to a selected public reach."
-        },
-        "thresholdSupport": {
-          "strength": "not_ready",
-          "notes": "No source-backed numeric paddling threshold model tied to a selected Elkhorn gauge surfaced."
-        },
-        "endpoints": {
-          "putIn": "Elkhorn Crossing / Graske Crossing / Waterloo access family",
-          "takeOut": "Unselected downstream public access",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Not captured; selected route and threshold gates failed first."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
-      },
-      {
         "candidateId": "ks-arkansas-river-wichita-hutchinson-family",
         "lane": "threshold_discovery",
         "priority": 87,
@@ -5673,38 +5589,72 @@
         "discoveryTier": "supported_midwest"
       },
       {
-        "candidateId": "ne-niobrara-river-cornell-smith-brewer-norden-family",
+        "candidateId": "ne-calamus-river-highway-7-calamus-sra",
         "lane": "threshold_discovery",
-        "priority": 86,
+        "priority": 87,
         "state": "NE",
-        "river": "Niobrara River",
-        "route": "Cornell Bridge / Smith Falls / Brewer Bridge / Norden Bridge family",
+        "river": "Calamus River",
+        "route": "Nebraska Highway 7 to Calamus Reservoir State Recreation Area",
         "currentStatus": "threshold_weak",
         "lastReviewed": "2026-06-12",
         "reviewCount": 30,
         "duplicateRisk": false,
-        "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06461500 Niobrara near Sparks still returned product-style current IV values of 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT, and NPS/NGPC corridor support remains strong. No route was added because no source-backed numeric paddling threshold model tied to a selected Cornell/Smith/Brewer/Norden public day segment has surfaced.",
-        "retryCondition": "Retry only if NPS, NGPC, Middle Niobrara NRD, USGS, or another credible manager publishes numeric Niobrara paddling thresholds tied to Sparks or another product-supported gauge and a short public endpoint pair is selected with source-backed coordinates.",
+        "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06787500 Calamus near Burwell still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT. No route was added because current product data, a selected short public day route, and numeric paddling thresholds remain unresolved.",
+        "retryCondition": "Retry only if a shorter public endpoint pair is source-backed, a product-supported Calamus gauge is selected, and numeric low/ideal/high paddling guidance is published by an official manager or credible route source.",
         "gauge": {
-          "quality": "product_live_verified",
-          "id": "06461500",
+          "quality": "no_current_product_data",
+          "id": "06787500 Calamus River gauge family",
           "provider": "USGS",
-          "notes": "USGS 06461500 Niobrara River near Sparks returned product-style current IV data in this run, but no accepted numeric paddling threshold model is tied to a selected public day segment."
+          "notes": "USGS 06787500 did not expose current product-ready IV data in this run; the only returned discharge value was from 1994, so it cannot support PaddleToday scoring."
         },
         "thresholdSupport": {
           "strength": "not_ready",
-          "notes": "NPS provides seasonal low-water cautions but explicitly does not publish minimal/optimal recreational flow bands; no numeric app threshold model was accepted."
+          "notes": "No numeric paddling floor, preferred band, or high-water cutoff tied to a selected Calamus gauge surfaced."
         },
         "endpoints": {
-          "putIn": "Cornell Bridge / Fort Niobrara National Wildlife Refuge access family",
-          "takeOut": "Smith Falls, Brewer Bridge, or Norden Bridge family",
+          "putIn": "Nebraska Highway 7 bridge access",
+          "takeOut": "Calamus Reservoir State Recreation Area / Hannaman Bayou tailwater",
           "coordinatesPresent": false,
           "putInCoordinates": null,
           "takeOutCoordinates": null,
-          "coordinateSource": "Not captured because the route needs a selected public day segment and threshold/product-live gates failed first."
+          "coordinateSource": "Official endpoint text reviewed; no implementation coordinate package captured because the route is not yet threshold-ready."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
+      },
+      {
+        "candidateId": "ne-elkhorn-river-public-access-family",
+        "lane": "threshold_discovery",
+        "priority": 87,
+        "state": "NE",
+        "river": "Elkhorn River",
+        "route": "Elkhorn public-access / Waterloo gauge family",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-06-12",
+        "reviewCount": 30,
+        "duplicateRisk": false,
+        "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06799350 Elkhorn at West Point returned product-style current values of 628 cfs and 4.09 ft at 2026-06-12 12:15 CDT. No route was added because no exact selected public reach with source-backed numeric paddling thresholds tied to the selected Elkhorn gauge has cleared.",
+        "retryCondition": "Retry only if NGPC/NRD/local managers or a credible route source identifies a selected public Elkhorn segment with endpoint coordinates and numeric paddling guidance tied to a product-supported USGS or official live gauge.",
+        "gauge": {
+          "quality": "product_live_verified",
+          "id": "06799350",
+          "provider": "USGS",
+          "notes": "USGS 06799350 Elkhorn River at West Point returned product-style current IV data in this run, but no accepted numeric paddling threshold model is tied to a selected public reach."
+        },
+        "thresholdSupport": {
+          "strength": "not_ready",
+          "notes": "No source-backed numeric paddling threshold model tied to a selected Elkhorn gauge surfaced."
+        },
+        "endpoints": {
+          "putIn": "Elkhorn Crossing / Graske Crossing / Waterloo access family",
+          "takeOut": "Unselected downstream public access",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Not captured; selected route and threshold gates failed first."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "pa-three-rivers-water-trail-pittsburgh-family",
@@ -5773,6 +5723,40 @@
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge. Keep the candidate parked unless the gauge relationship is explicit.",
         "discoveryTier": "adjacent_expansion"
+      },
+      {
+        "candidateId": "ne-niobrara-river-cornell-smith-brewer-norden-family",
+        "lane": "threshold_discovery",
+        "priority": 81,
+        "state": "NE",
+        "river": "Niobrara River",
+        "route": "Cornell Bridge / Smith Falls / Brewer Bridge / Norden Bridge family",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-06-12",
+        "reviewCount": 30,
+        "duplicateRisk": false,
+        "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06461500 Niobrara near Sparks still returned product-style current IV values of 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT, and NPS/NGPC corridor support remains strong. No route was added because no source-backed numeric paddling threshold model tied to a selected Cornell/Smith/Brewer/Norden public day segment has surfaced.",
+        "retryCondition": "Retry only if NPS, NGPC, Middle Niobrara NRD, USGS, or another credible manager publishes numeric Niobrara paddling thresholds tied to Sparks or another product-supported gauge and a short public endpoint pair is selected with source-backed coordinates.",
+        "gauge": {
+          "quality": "product_live_verified",
+          "id": "06461500",
+          "provider": "USGS",
+          "notes": "USGS 06461500 Niobrara River near Sparks returned product-style current IV data in this run, but no accepted numeric paddling threshold model is tied to a selected public day segment."
+        },
+        "thresholdSupport": {
+          "strength": "not_ready",
+          "notes": "NPS provides seasonal low-water cautions but explicitly does not publish minimal/optimal recreational flow bands; no numeric app threshold model was accepted."
+        },
+        "endpoints": {
+          "putIn": "Cornell Bridge / Fort Niobrara National Wildlife Refuge access family",
+          "takeOut": "Smith Falls, Brewer Bridge, or Norden Bridge family",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Not captured because the route needs a selected public day segment and threshold/product-live gates failed first."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "supported_midwest"
       }
     ],
     "coordinate_cleanup": [],
@@ -9054,7 +9038,7 @@
           "coordinateSource": "Official endpoint names and map context reviewed; implementation-grade coordinates were not captured because live-provider support failed first."
         },
         "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       }
     ],
     "blocked_recheck": [
@@ -14429,74 +14413,6 @@
       "discoveryTier": "adjacent_expansion"
     },
     {
-      "candidateId": "ne-calamus-river-highway-7-calamus-sra",
-      "lane": "threshold_discovery",
-      "priority": 92,
-      "state": "NE",
-      "river": "Calamus River",
-      "route": "Nebraska Highway 7 to Calamus Reservoir State Recreation Area",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-06-12",
-      "reviewCount": 30,
-      "duplicateRisk": false,
-      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06787500 Calamus near Burwell still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT. No route was added because current product data, a selected short public day route, and numeric paddling thresholds remain unresolved.",
-      "retryCondition": "Retry only if a shorter public endpoint pair is source-backed, a product-supported Calamus gauge is selected, and numeric low/ideal/high paddling guidance is published by an official manager or credible route source.",
-      "gauge": {
-        "quality": "no_current_product_data",
-        "id": "06787500 Calamus River gauge family",
-        "provider": "USGS",
-        "notes": "USGS 06787500 did not expose current product-ready IV data in this run; the only returned discharge value was from 1994, so it cannot support PaddleToday scoring."
-      },
-      "thresholdSupport": {
-        "strength": "not_ready",
-        "notes": "No numeric paddling floor, preferred band, or high-water cutoff tied to a selected Calamus gauge surfaced."
-      },
-      "endpoints": {
-        "putIn": "Nebraska Highway 7 bridge access",
-        "takeOut": "Calamus Reservoir State Recreation Area / Hannaman Bayou tailwater",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Official endpoint text reviewed; no implementation coordinate package captured because the route is not yet threshold-ready."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
-    },
-    {
-      "candidateId": "ne-elkhorn-river-public-access-family",
-      "lane": "threshold_discovery",
-      "priority": 92,
-      "state": "NE",
-      "river": "Elkhorn River",
-      "route": "Elkhorn public-access / Waterloo gauge family",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-06-12",
-      "reviewCount": 30,
-      "duplicateRisk": false,
-      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06799350 Elkhorn at West Point returned product-style current values of 628 cfs and 4.09 ft at 2026-06-12 12:15 CDT. No route was added because no exact selected public reach with source-backed numeric paddling thresholds tied to the selected Elkhorn gauge has cleared.",
-      "retryCondition": "Retry only if NGPC/NRD/local managers or a credible route source identifies a selected public Elkhorn segment with endpoint coordinates and numeric paddling guidance tied to a product-supported USGS or official live gauge.",
-      "gauge": {
-        "quality": "product_live_verified",
-        "id": "06799350",
-        "provider": "USGS",
-        "notes": "USGS 06799350 Elkhorn River at West Point returned product-style current IV data in this run, but no accepted numeric paddling threshold model is tied to a selected public reach."
-      },
-      "thresholdSupport": {
-        "strength": "not_ready",
-        "notes": "No source-backed numeric paddling threshold model tied to a selected Elkhorn gauge surfaced."
-      },
-      "endpoints": {
-        "putIn": "Elkhorn Crossing / Graske Crossing / Waterloo access family",
-        "takeOut": "Unselected downstream public access",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Not captured; selected route and threshold gates failed first."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
-    },
-    {
       "candidateId": "sd-missouri-national-recreational-river-day-trips",
       "lane": "fresh_source_discovery",
       "priority": 92,
@@ -14618,72 +14534,72 @@
       "discoveryTier": "supported_midwest"
     },
     {
-      "candidateId": "ne-niobrara-river-cornell-smith-brewer-norden-family",
+      "candidateId": "ne-calamus-river-highway-7-calamus-sra",
       "lane": "threshold_discovery",
-      "priority": 86,
+      "priority": 87,
       "state": "NE",
-      "river": "Niobrara River",
-      "route": "Cornell Bridge / Smith Falls / Brewer Bridge / Norden Bridge family",
+      "river": "Calamus River",
+      "route": "Nebraska Highway 7 to Calamus Reservoir State Recreation Area",
       "currentStatus": "threshold_weak",
       "lastReviewed": "2026-06-12",
       "reviewCount": 30,
       "duplicateRisk": false,
-      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06461500 Niobrara near Sparks still returned product-style current IV values of 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT, and NPS/NGPC corridor support remains strong. No route was added because no source-backed numeric paddling threshold model tied to a selected Cornell/Smith/Brewer/Norden public day segment has surfaced.",
-      "retryCondition": "Retry only if NPS, NGPC, Middle Niobrara NRD, USGS, or another credible manager publishes numeric Niobrara paddling thresholds tied to Sparks or another product-supported gauge and a short public endpoint pair is selected with source-backed coordinates.",
+      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06787500 Calamus near Burwell still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT. No route was added because current product data, a selected short public day route, and numeric paddling thresholds remain unresolved.",
+      "retryCondition": "Retry only if a shorter public endpoint pair is source-backed, a product-supported Calamus gauge is selected, and numeric low/ideal/high paddling guidance is published by an official manager or credible route source.",
       "gauge": {
-        "quality": "product_live_verified",
-        "id": "06461500",
+        "quality": "no_current_product_data",
+        "id": "06787500 Calamus River gauge family",
         "provider": "USGS",
-        "notes": "USGS 06461500 Niobrara River near Sparks returned product-style current IV data in this run, but no accepted numeric paddling threshold model is tied to a selected public day segment."
+        "notes": "USGS 06787500 did not expose current product-ready IV data in this run; the only returned discharge value was from 1994, so it cannot support PaddleToday scoring."
       },
       "thresholdSupport": {
         "strength": "not_ready",
-        "notes": "NPS provides seasonal low-water cautions but explicitly does not publish minimal/optimal recreational flow bands; no numeric app threshold model was accepted."
+        "notes": "No numeric paddling floor, preferred band, or high-water cutoff tied to a selected Calamus gauge surfaced."
       },
       "endpoints": {
-        "putIn": "Cornell Bridge / Fort Niobrara National Wildlife Refuge access family",
-        "takeOut": "Smith Falls, Brewer Bridge, or Norden Bridge family",
+        "putIn": "Nebraska Highway 7 bridge access",
+        "takeOut": "Calamus Reservoir State Recreation Area / Hannaman Bayou tailwater",
         "coordinatesPresent": false,
         "putInCoordinates": null,
         "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because the route needs a selected public day segment and threshold/product-live gates failed first."
+        "coordinateSource": "Official endpoint text reviewed; no implementation coordinate package captured because the route is not yet threshold-ready."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
-      "candidateId": "ne-missouri-river-mnrr-nebraska-family",
-      "lane": "fresh_source_discovery",
-      "priority": 86,
+      "candidateId": "ne-elkhorn-river-public-access-family",
+      "lane": "threshold_discovery",
+      "priority": 87,
       "state": "NE",
-      "river": "Missouri River",
-      "route": "Missouri National Recreational River Nebraska-side paddling family",
-      "currentStatus": "research_later",
+      "river": "Elkhorn River",
+      "route": "Elkhorn public-access / Waterloo gauge family",
+      "currentStatus": "threshold_weak",
       "lastReviewed": "2026-06-12",
       "reviewCount": 30,
       "duplicateRisk": false,
-      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06467500 Missouri River at Yankton returned current stage-only data of 10.29 ft at 2026-06-12 12:30 CDT. No route was added because no selected Nebraska-side MNRR public day reach and no numeric private-paddlecraft threshold model tied to an accepted gauge surfaced.",
-      "retryCondition": "Retry only if NPS, USACE, NGPC, or a water-trail manager identifies a specific Nebraska-side MNRR day reach with public endpoint coordinates, a direct product-supported Missouri River gauge, and numeric stage/flow go/no-go guidance for private paddlecraft.",
+      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06799350 Elkhorn at West Point returned product-style current values of 628 cfs and 4.09 ft at 2026-06-12 12:15 CDT. No route was added because no exact selected public reach with source-backed numeric paddling thresholds tied to the selected Elkhorn gauge has cleared.",
+      "retryCondition": "Retry only if NGPC/NRD/local managers or a credible route source identifies a selected public Elkhorn segment with endpoint coordinates and numeric paddling guidance tied to a product-supported USGS or official live gauge.",
       "gauge": {
-        "quality": "partial_stage_only",
-        "id": "06467500",
+        "quality": "product_live_verified",
+        "id": "06799350",
         "provider": "USGS",
-        "notes": "USGS 06467500 returned current stage-only IV data in this run; no direct discharge or accepted private-paddlecraft stage threshold model is tied to a selected Nebraska-side day segment."
+        "notes": "USGS 06799350 Elkhorn River at West Point returned product-style current IV data in this run, but no accepted numeric paddling threshold model is tied to a selected public reach."
       },
       "thresholdSupport": {
         "strength": "not_ready",
-        "notes": "No route-specific numeric private-paddlecraft stage or flow guidance surfaced; do not adapt Kansas River or small-river bands to the Missouri River."
+        "notes": "No source-backed numeric paddling threshold model tied to a selected Elkhorn gauge surfaced."
       },
       "endpoints": {
-        "putIn": "Unselected MNRR public launch",
-        "takeOut": "Unselected MNRR public launch",
+        "putIn": "Elkhorn Crossing / Graske Crossing / Waterloo access family",
+        "takeOut": "Unselected downstream public access",
         "coordinatesPresent": false,
         "putInCoordinates": null,
         "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because no selected day route cleared threshold/product-live gates."
+        "coordinateSource": "Not captured; selected route and threshold gates failed first."
       },
-      "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "pa-three-rivers-water-trail-pittsburgh-family",
@@ -14910,6 +14826,74 @@
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge. Keep the candidate parked unless the gauge relationship is explicit.",
       "discoveryTier": "adjacent_expansion"
+    },
+    {
+      "candidateId": "ne-niobrara-river-cornell-smith-brewer-norden-family",
+      "lane": "threshold_discovery",
+      "priority": 81,
+      "state": "NE",
+      "river": "Niobrara River",
+      "route": "Cornell Bridge / Smith Falls / Brewer Bridge / Norden Bridge family",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-06-12",
+      "reviewCount": 30,
+      "duplicateRisk": false,
+      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06461500 Niobrara near Sparks still returned product-style current IV values of 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT, and NPS/NGPC corridor support remains strong. No route was added because no source-backed numeric paddling threshold model tied to a selected Cornell/Smith/Brewer/Norden public day segment has surfaced.",
+      "retryCondition": "Retry only if NPS, NGPC, Middle Niobrara NRD, USGS, or another credible manager publishes numeric Niobrara paddling thresholds tied to Sparks or another product-supported gauge and a short public endpoint pair is selected with source-backed coordinates.",
+      "gauge": {
+        "quality": "product_live_verified",
+        "id": "06461500",
+        "provider": "USGS",
+        "notes": "USGS 06461500 Niobrara River near Sparks returned product-style current IV data in this run, but no accepted numeric paddling threshold model is tied to a selected public day segment."
+      },
+      "thresholdSupport": {
+        "strength": "not_ready",
+        "notes": "NPS provides seasonal low-water cautions but explicitly does not publish minimal/optimal recreational flow bands; no numeric app threshold model was accepted."
+      },
+      "endpoints": {
+        "putIn": "Cornell Bridge / Fort Niobrara National Wildlife Refuge access family",
+        "takeOut": "Smith Falls, Brewer Bridge, or Norden Bridge family",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "Not captured because the route needs a selected public day segment and threshold/product-live gates failed first."
+      },
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+      "discoveryTier": "supported_midwest"
+    },
+    {
+      "candidateId": "ne-missouri-river-mnrr-nebraska-family",
+      "lane": "fresh_source_discovery",
+      "priority": 81,
+      "state": "NE",
+      "river": "Missouri River",
+      "route": "Missouri National Recreational River Nebraska-side paddling family",
+      "currentStatus": "research_later",
+      "lastReviewed": "2026-06-12",
+      "reviewCount": 30,
+      "duplicateRisk": false,
+      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06467500 Missouri River at Yankton returned current stage-only data of 10.29 ft at 2026-06-12 12:30 CDT. No route was added because no selected Nebraska-side MNRR public day reach and no numeric private-paddlecraft threshold model tied to an accepted gauge surfaced.",
+      "retryCondition": "Retry only if NPS, USACE, NGPC, or a water-trail manager identifies a specific Nebraska-side MNRR day reach with public endpoint coordinates, a direct product-supported Missouri River gauge, and numeric stage/flow go/no-go guidance for private paddlecraft.",
+      "gauge": {
+        "quality": "partial_stage_only",
+        "id": "06467500",
+        "provider": "USGS",
+        "notes": "USGS 06467500 returned current stage-only IV data in this run; no direct discharge or accepted private-paddlecraft stage threshold model is tied to a selected Nebraska-side day segment."
+      },
+      "thresholdSupport": {
+        "strength": "not_ready",
+        "notes": "No route-specific numeric private-paddlecraft stage or flow guidance surfaced; do not adapt Kansas River or small-river bands to the Missouri River."
+      },
+      "endpoints": {
+        "putIn": "Unselected MNRR public launch",
+        "takeOut": "Unselected MNRR public launch",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "Not captured because no selected day route cleared threshold/product-live gates."
+      },
+      "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "mi-middle-branch-ontonagon-burned-dam-bond-falls",
@@ -18443,7 +18427,7 @@
         "coordinateSource": "Official endpoint names and map context reviewed; implementation-grade coordinates were not captured because live-provider support failed first."
       },
       "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     }
   ]
 }

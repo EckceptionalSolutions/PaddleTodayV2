@@ -185,84 +185,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'kansas-river-eudora-edwardsville': {
-    putIn: {
-      name: 'Eudora Access Ramp',
-      latitude: 38.94999,
-      longitude: -95.09963,
-    },
-    takeOut: {
-      name: 'Edwardsville Access Ramp / River Front Park',
-      latitude: 39.05056,
-      longitude: -94.81665,
-    },
-    logistics: {
-      distanceLabel: 'About 25.4 mi',
-      estimatedPaddleTime:
-        'About 8 hr to 11 hr, longer with low water, wind, or regrouping at the Wakarusa and De Soto transitions',
-      shuttle:
-        'Stage the take-out at Edwardsville River Front Park, then drive back to the Eudora ramp. Inspect both ends before launching because this is a long uninterrupted lower-Kaw day with only the De Soto public ramp in the middle.',
-      permits:
-        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
-      camping:
-        'This route is long enough that some groups may prefer a conservative sandbar overnight. Friends of the Kaw says public sandbar camping is allowed between the high-water marks, but private banks above that line are off-limits and sandbars become scarce above about 8,000 cfs.',
-      campingClassification: 'sandbar_or_gravel_bar',
-      summary:
-        'Launch at Eudora on the Wakarusa and take out at Edwardsville for a full lower-Kaw continuation through De Soto. The De Soto USGS gauge is the best same-river level check, but the route still depends on same-day wind, ramp, and river-reading judgment.',
-      accessCaveats: [
-        'The Eudora ramp is on the Wakarusa River. Launch downstream from there into the Kansas River rather than assuming the harder upstream take-out direction used by the shorter Lawrence-to-Eudora route.',
-        'Check Clinton Reservoir releases before launching because Wakarusa current, debris, and confluence conditions can affect the first part of the trip.',
-        'De Soto is the only normal public midpoint access, and Friends of the Kaw notes city-event closures plus a recurring sandbar at the toe of that ramp.',
-        'End the trip at Edwardsville. The WaterOne low-head dam is downstream and is not part of this route.',
-      ],
-      watchFor: [
-        'Low flows below about 1,000 cfs can make the channel narrow and sandbar navigation slow or technical.',
-        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
-        'Wind across long open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
-        'Private banks along the Wakarusa and Kaw; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
-      ],
-    },
-  },
-  'kansas-river-de-soto-turner-bridge': {
-    putIn: {
-      name: 'De Soto Access Ramp / Riverfest Park',
-      latitude: 38.98496,
-      longitude: -94.9746,
-    },
-    takeOut: {
-      name: 'Turner Bridge Access Ramp',
-      latitude: 39.09396,
-      longitude: -94.71176,
-    },
-    logistics: {
-      distanceLabel: 'About 22.1 mi',
-      estimatedPaddleTime:
-        'About 7 hr to 9 hr including the WaterOne portage, longer with low water, wind, or slow landing decisions above the dam',
-      shuttle:
-        'Stage the take-out at Turner Bridge, then drive back to the De Soto ramp. Inspect the WaterOne portage plan before launching; this route is not appropriate unless everyone can land river left, carry over loose rock, and relaunch safely.',
-      permits:
-        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
-      camping:
-        'Treat this as a committed day route. Friends of the Kaw says the controlled lower reach below WaterOne has almost no sandbars, and private banks above the river are off-limits.',
-      campingClassification: 'none',
-      summary:
-        'Launch at De Soto and take out at Turner Bridge for a long lower-Kaw continuation that includes the WaterOne low-head dam. Portage river left only, never use the river-right notch, and skip the route if the group cannot manage the carry cleanly.',
-      accessCaveats: [
-        'The De Soto ramp is public, but Friends of the Kaw notes city-event closures and a sandbar that can form at the toe of the ramp.',
-        'Edwardsville is the last simple public access before the mandatory WaterOne portage. Inspect that contingency before launch rather than assuming you can improvise on private banks.',
-        'The WaterOne portage is a rough 100+ yard carry over large loose rocks. Wheels and carts are not useful, and high water can require an earlier landing on slick mud upstream.',
-        'Turner Bridge has no amenities and a small gravel parking lot that can be muddy after recent high water.',
-      ],
-      watchFor: [
-        'WaterOne low-head dam at river mile 14.8. Land river left well above the structure, avoid the river-right low-water notch, and do not enter the dam hydraulic.',
-        'Low flows below about 1,000 cfs can expose mud, rocks, and awkward carry footing while making lower-channel travel slow.',
-        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
-        'This lower reach has well-defined banks and almost no sandbars, so do not count on easy mid-route stops beyond the required portage.',
-        'Wind in the open lower valley, storms, rising water, floating wood, strainers, bridge current, bank hooks and fishing lines, and industrial riverfront traffic.',
-        'Private banks along the Kaw; stay with public ramps, the documented dam portage, and legal stops rather than climbing banks elsewhere.',
-      ],
-    },
-  },
   'kansas-river-edwardsville-turner-bridge': {
     putIn: {
       name: 'Edwardsville Access Ramp / River Front Park',
@@ -342,6 +264,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private banks along the Kaw; stay with public ramps, the documented portage, and legal stops rather than climbing banks or using private land.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'de-soto-riverfest-park',
+        name: 'De Soto Access Ramp / Riverfest Park',
+        latitude: 38.98496,
+        longitude: -94.9746,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the full lower-Kaw corridor.',
+      },
+      {
+        id: 'edwardsville-river-front-park',
+        name: 'Edwardsville Access Ramp / River Front Park',
+        latitude: 39.05056,
+        longitude: -94.81665,
+        mileFromStart: 14.7,
+        segmentKind: 'creek',
+        note: 'Last simple public access before the WaterOne dam portage.',
+      },
+      {
+        id: 'turner-bridge-access',
+        name: 'Turner Bridge Access Ramp',
+        latitude: 39.09396,
+        longitude: -94.71176,
+        mileFromStart: 22.1,
+        segmentKind: 'creek',
+        note: 'Downstream access option after the WaterOne portage.',
+      },
+      {
+        id: 'kaw-point-park',
+        name: 'Kaw Point Park Access Ramp',
+        latitude: 39.11601,
+        longitude: -94.61203,
+        mileFromStart: 31.3,
+        segmentKind: 'creek',
+        note: 'Default full-corridor take-out before the Missouri River confluence.',
+      },
+    ],
   },
   'kansas-river-junction-city-manhattan': {
     putIn: {
@@ -1562,443 +1522,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-  'big-fork-river-sturgeon-kueffners': {
-    putIn: {
-      name: 'Sturgeon Public Water Access Site',
-      latitude: 48.2118788,
-      longitude: -93.8834227,
-    },
-    takeOut: {
-      name: 'Kueffners Public Water Access Site',
-      latitude: 48.3387433532423,
-      longitude: -93.81704382878402,
-    },
-    logistics: {
-      distanceLabel: '17.1 mi',
-      estimatedPaddleTime: 'Long day, roughly 6 hr to 8 hr depending on level and stops',
-      shuttle:
-        'Stage the take-out at Kueffners before driving to Sturgeon. This is still a remote forest-road shuttle, and the route gets more committing once you leave the Ben Linn and Gowdy bailout chain behind.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted public-water-access, county, and state-forest rules at Sturgeon, Ben Linn, Gowdy, and Kueffners.',
-      camping:
-        'Sturgeon, Ben Linn, and Gowdy all have documented watercraft campsites, and Kueffners adds toilets plus another watercraft campsite, so this route has real on-route overnight or bailout support rather than only a campsite finish.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Sturgeon and finish at Kueffners for a long middle-lower Big Fork continuation that includes the mapped Class I rapid stretch plus a more comfortable lower campsite finish.',
-      accessCaveats: [
-        'Ben Linn and Gowdy are the clearest midpoint bailout or overnight options before the Kueffners finish.',
-        'This is a forest-corridor route between named public accesses and campsites, not a park-to-park float with easy roadside exits.',
-        'Stay on the named public accesses and campsites rather than using private or brushy banks.',
-      ],
-      watchFor: [
-        'The mapped Class I rapid stretch between river miles 41.3 and 39.8.',
-        'Outside-bend strainers, fresh storm wood, and quicker current after rain.',
-        'Scraping and rocky riffles when the Big Falls gauge falls toward the 1.5 ft floor.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'sturgeon',
-        name: 'Sturgeon Public Water Access Site',
-        latitude: 48.2118788,
-        longitude: -93.8834227,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Forested carry-in access with a watercraft campsite.',
-      },
-      {
-        id: 'ben-linn',
-        name: 'Ben Linn Public Water Access Site',
-        latitude: 48.2500692,
-        longitude: -93.8861103,
-        mileFromStart: 4.5,
-        segmentKind: 'creek',
-        note: 'Best named midpoint bailout with a watercraft campsite.',
-      },
-      {
-        id: 'gowdy',
-        name: 'Gowdy Public Water Access Site',
-        latitude: 48.2991378,
-        longitude: -93.820383,
-        mileFromStart: 13.3,
-        segmentKind: 'creek',
-        note: 'Carry-in access with a watercraft campsite before the final lower miles.',
-      },
-      {
-        id: 'kueffners',
-        name: 'Kueffners Public Water Access Site',
-        latitude: 48.3387433532423,
-        longitude: -93.81704382878402,
-        mileFromStart: 17.1,
-        segmentKind: 'creek',
-        note: 'Carry-in access with toilets and a watercraft campsite at the finish.',
-      },
-    ],
-  },
-  'big-fork-river-ben-linn-kueffners': {
-    putIn: {
-      name: 'Ben Linn Public Water Access Site',
-      latitude: 48.2500692,
-      longitude: -93.8861103,
-    },
-    takeOut: {
-      name: 'Kueffners Public Water Access Site',
-      latitude: 48.3387433532423,
-      longitude: -93.81704382878402,
-    },
-    logistics: {
-      distanceLabel: '12.6 mi',
-      estimatedPaddleTime: 'About 5 hr to 6.5 hr',
-      shuttle:
-        'Stage the take-out at Kueffners before driving to Ben Linn. The road approach is simpler than the upstream Big Falls starts, but this is still a remote forest-edge shuttle without many backup services.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted public-water-access, county, and state-forest rules at Ben Linn, Gowdy, and Kueffners.',
-      camping:
-        'Ben Linn and Gowdy both have documented watercraft campsites, and Kueffners adds toilets plus another campsite, so this route works cleanly as a campsite-supported day or short overnight link.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Ben Linn and finish at Kueffners for a middle-lower Big Fork continuation that keeps the mapped Class I stretch and ends at the first lower landing with toilets.',
-      accessCaveats: [
-        'Gowdy is the clearest midpoint bailout or overnight stop before the Kueffners finish.',
-        'Ben Linn and Kueffners are both named public accesses with campsites, but they are still rural landings without developed-park services.',
-        'Stay on the named public accesses and campsites rather than using private or brushy banks.',
-      ],
-      watchFor: [
-        'The mapped Class I rapid stretch between river miles 41.3 and 39.8.',
-        'Outside-bend strainers, fresh storm wood, and quicker current after rain.',
-        'Scraping and rocky riffles when the Big Falls gauge falls toward the 1.5 ft floor.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'ben-linn',
-        name: 'Ben Linn Public Water Access Site',
-        latitude: 48.2500692,
-        longitude: -93.8861103,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Carry-in access with a grassy clearing and watercraft campsite.',
-      },
-      {
-        id: 'gowdy',
-        name: 'Gowdy Public Water Access Site',
-        latitude: 48.2991378,
-        longitude: -93.820383,
-        mileFromStart: 8.8,
-        segmentKind: 'creek',
-        note: 'Best named midpoint bailout with a watercraft campsite.',
-      },
-      {
-        id: 'kueffners',
-        name: 'Kueffners Public Water Access Site',
-        latitude: 48.3387433532423,
-        longitude: -93.81704382878402,
-        mileFromStart: 12.6,
-        segmentKind: 'creek',
-        note: 'Carry-in access with toilets and a watercraft campsite at the finish.',
-      },
-    ],
-  },
-  'big-fork-river-gowdy-kueffners': {
-    putIn: {
-      name: 'Gowdy Public Water Access Site',
-      latitude: 48.2991378,
-      longitude: -93.820383,
-    },
-    takeOut: {
-      name: 'Kueffners Public Water Access Site',
-      latitude: 48.3387433532423,
-      longitude: -93.81704382878402,
-    },
-    logistics: {
-      distanceLabel: '4 mi',
-      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr',
-      shuttle:
-        'Use a short lower-river shuttle between Gowdy and Kueffners, but do not treat the route like a city-park lap. Both landings are still quiet forest-edge accesses with limited backup services.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted public-water-access, county, and state-forest rules at Gowdy and Kueffners.',
-      camping:
-        'Both endpoints have documented watercraft campsite support. Gowdy has a campsite, and DNR Map 2 says Kueffners has toilets and a watercraft campsite.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Gowdy and finish at Kueffners for a short lower Big Fork continuation below the mapped rapid stretch. This is the easiest remaining official Map 2 split, but it still deserves normal wood and water-level checks.',
-      accessCaveats: [
-        'Both endpoints are named public accesses with campsites, but neither is a developed park with guaranteed services.',
-        'Stay on the named public accesses and campsites rather than improvising on brushy or private banks.',
-        'Short mileage can encourage casual decision-making; rising water and fresh wood are still real hazards here.',
-      ],
-      watchFor: [
-        'Strainers, blind bends, and fresh wood after storms.',
-        'Scraping and slower progress when the Big Falls gauge falls toward the 1.5 ft floor.',
-        'Faster-than-expected current after heavy rain even though this route stays below the upstream rapid zone.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'gowdy',
-        name: 'Gowdy Public Water Access Site',
-        latitude: 48.2991378,
-        longitude: -93.820383,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Carry-in access with a watercraft campsite at the upstream end of this lower split.',
-      },
-      {
-        id: 'kueffners',
-        name: 'Kueffners Public Water Access Site',
-        latitude: 48.3387433532423,
-        longitude: -93.81704382878402,
-        mileFromStart: 4,
-        segmentKind: 'creek',
-        note: 'Carry-in access with toilets and a watercraft campsite.',
-      },
-    ],
-  },
-  'big-fork-river-kueffners-ivan-crawford': {
-    putIn: {
-      name: 'Kueffners Public Water Access Site',
-      latitude: 48.3387433532423,
-      longitude: -93.81704382878402,
-    },
-    takeOut: {
-      name: 'Ivan Crawford Public Water Access Site',
-      latitude: 48.45526062827152,
-      longitude: -93.71955474703496,
-    },
-    logistics: {
-      distanceLabel: '21.4 mi',
-      estimatedPaddleTime: 'Very long day, roughly 7 hr to 9 hr depending on level and wind',
-      shuttle:
-        'Stage the take-out at Ivan Crawford before driving to Kueffners. This is a long lower-river shuttle with few named exits once you launch, so daylight, backup drivers, and road-condition margin matter.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted public-water-access, county, and state-forest rules at Kueffners and Ivan Crawford.',
-      camping:
-        'Kueffners has toilets and a watercraft campsite, so this route can start from a legal overnight base even though the Ivan Crawford finish is a simpler county landing.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Kueffners and finish at Ivan Crawford for the long middle-lower Big Fork continuation below Gowdy. The whitewater consequences are lower here, but the route is more committing because the lower corridor has few easy exits.',
-      accessCaveats: [
-        'This is a committed lower-river corridor between named public accesses, not a section with frequent roadside bailout points.',
-        'Use only the named public accesses and campsites because surrounding shoreline remains private or undeveloped.',
-        'Long mileage plus a remote shuttle make late starts and marginal weather poor bets even when the channel looks calm.',
-      ],
-      watchFor: [
-        'Long-day fatigue, wind exposure on broader lower bends, and cold shoulder-season water.',
-        'Fresh storm wood, strainers, and changing outside bends on a river with few easy exit points.',
-        'Dragging and stalled progress when the Big Falls gauge is near the 1.5 ft floor.',
-      ],
-    },
-  },
-  'big-fork-river-ben-linn-ivan-crawford': {
-    putIn: {
-      name: 'Ben Linn Public Water Access Site',
-      latitude: 48.2500692,
-      longitude: -93.8861103,
-    },
-    takeOut: {
-      name: 'Ivan Crawford Public Water Access Site',
-      latitude: 48.45526062827152,
-      longitude: -93.71955474703496,
-    },
-    logistics: {
-      distanceLabel: '34 mi',
-      estimatedPaddleTime: 'Very long day, roughly 10 hr to 12 hr depending on level and wind',
-      shuttle:
-        'Stage the take-out at Ivan Crawford before driving to Ben Linn. This is a full lower-corridor shuttle with only a few named bailout points, so daylight, backup drivers, and road-condition margin matter.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted public-water-access, county, and state-forest rules at Ben Linn, Gowdy, Kueffners, and Ivan Crawford.',
-      camping:
-        'Ben Linn and Gowdy both have documented watercraft campsites, and Kueffners adds toilets plus another campsite, so this route has real on-route overnight and bailout support before the Ivan Crawford finish.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Ben Linn and finish at Ivan Crawford for the full lower Big Fork continuation below the rapid stretch. It stays in broad Class I-II water, but the mileage and sparse exits make it a serious northern river day.',
-      accessCaveats: [
-        'Gowdy and Kueffners are the only clean named bailout or overnight points before Ivan Crawford.',
-        'Use only the named public accesses and campsites because surrounding shoreline remains private or undeveloped.',
-        'Very long mileage plus a remote shuttle make late starts and marginal weather poor bets even when the channel looks calm.',
-      ],
-      watchFor: [
-        'The mapped Class I rapid stretch between river miles 41.3 and 39.8 on the upstream half.',
-        'Fresh storm wood, strainers, and changing outside bends through the lower corridor.',
-        'Cold shoulder-season water and stalled progress when the Big Falls gauge falls toward the 1.5 ft floor.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'ben-linn',
-        name: 'Ben Linn Public Water Access Site',
-        latitude: 48.2500692,
-        longitude: -93.8861103,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Carry-in access with a grassy clearing and watercraft campsite.',
-      },
-      {
-        id: 'gowdy',
-        name: 'Gowdy Public Water Access Site',
-        latitude: 48.2991378,
-        longitude: -93.820383,
-        mileFromStart: 8.8,
-        segmentKind: 'creek',
-        note: 'Best early bailout or overnight point with a watercraft campsite.',
-      },
-      {
-        id: 'kueffners',
-        name: 'Kueffners Public Water Access Site',
-        latitude: 48.3387433532423,
-        longitude: -93.81704382878402,
-        mileFromStart: 12.6,
-        segmentKind: 'creek',
-        note: 'Carry-in access with toilets and a watercraft campsite before the committed lower miles.',
-      },
-      {
-        id: 'ivan-crawford',
-        name: 'Ivan Crawford Public Water Access Site',
-        latitude: 48.45526062827152,
-        longitude: -93.71955474703496,
-        mileFromStart: 34,
-        segmentKind: 'creek',
-        note: 'County landing near the lower Big Fork / Bear River area.',
-      },
-    ],
-  },
-  'big-fork-river-gowdy-ivan-crawford': {
-    putIn: {
-      name: 'Gowdy Public Water Access Site',
-      latitude: 48.2991378,
-      longitude: -93.820383,
-    },
-    takeOut: {
-      name: 'Ivan Crawford Public Water Access Site',
-      latitude: 48.45526062827152,
-      longitude: -93.71955474703496,
-    },
-    logistics: {
-      distanceLabel: '25.2 mi',
-      estimatedPaddleTime: 'Very long day, roughly 8 hr to 10 hr depending on level and wind',
-      shuttle:
-        'Stage the take-out at Ivan Crawford before driving to Gowdy. The shuttle is shorter than the Ben Linn start, but this is still a remote lower-river commitment with only one clean midpoint bailout.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted public-water-access, county, and state-forest rules at Gowdy, Kueffners, and Ivan Crawford.',
-      camping:
-        'Gowdy has a watercraft campsite and Kueffners adds toilets plus another campsite, so this route has real on-route overnight or bailout support before Ivan Crawford.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Gowdy and finish at Ivan Crawford for the long lower Big Fork continuation below the mapped rapid stretch. The water is generally gentler here, but the corridor is still remote and committing.',
-      accessCaveats: [
-        'Kueffners is the one clean named midpoint bailout before Ivan Crawford.',
-        'Use only the named public accesses and campsites because surrounding shoreline remains private or undeveloped.',
-        'Long mileage plus a remote shuttle make late starts and marginal weather poor bets even when the channel looks calm.',
-      ],
-      watchFor: [
-        'Long-day fatigue, wind exposure on broader lower bends, and cold shoulder-season water.',
-        'Fresh storm wood, strainers, and changing outside bends on a river with few easy exits.',
-        'Dragging and stalled progress when the Big Falls gauge is near the 1.5 ft floor.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'gowdy',
-        name: 'Gowdy Public Water Access Site',
-        latitude: 48.2991378,
-        longitude: -93.820383,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Carry-in access with a watercraft campsite at the upstream end of this lower split.',
-      },
-      {
-        id: 'kueffners',
-        name: 'Kueffners Public Water Access Site',
-        latitude: 48.3387433532423,
-        longitude: -93.81704382878402,
-        mileFromStart: 4,
-        segmentKind: 'creek',
-        note: 'Carry-in access with toilets and a watercraft campsite before the committed lower miles.',
-      },
-      {
-        id: 'ivan-crawford',
-        name: 'Ivan Crawford Public Water Access Site',
-        latitude: 48.45526062827152,
-        longitude: -93.71955474703496,
-        mileFromStart: 25.2,
-        segmentKind: 'creek',
-        note: 'County landing near the lower Big Fork / Bear River area.',
-      },
-    ],
-  },
-  'big-fork-river-gowdy-reedy-flats': {
-    putIn: {
-      name: 'Gowdy Public Water Access Site',
-      latitude: 48.2991378,
-      longitude: -93.820383,
-    },
-    takeOut: {
-      name: 'Reedy Flats Public Water Access Site',
-      latitude: 48.512209474305244,
-      longitude: -93.71277845257251,
-    },
-    logistics: {
-      distanceLabel: '33.7 mi',
-      estimatedPaddleTime: 'Full-commitment day, roughly 10 hr to 12 hr depending on level and wind',
-      shuttle:
-        'Stage the take-out at Reedy Flats before driving to Gowdy. This is a full lower-river shuttle with only Kueffners and Ivan Crawford as clean named checkpoints before the Rainy River approach.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted public-water-access, county, and state-forest rules at Gowdy, Kueffners, Ivan Crawford, and Reedy Flats.',
-      camping:
-        'Gowdy has a watercraft campsite, Kueffners adds toilets plus another campsite, and Reedy Flats has a toilet and watercraft campsite just above Highway 11, so this route has real endpoint and midpoint overnight support.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Gowdy and continue all the way to Reedy Flats for the full lower Big Fork continuation below the mapped rapid stretch. The current is usually gentler here, but the route is long, remote, and easy to underestimate.',
-      accessCaveats: [
-        'Kueffners and Ivan Crawford are the only clean named checkpoints before the final Reedy Flats finish.',
-        'Take out at Reedy Flats instead of casually continuing into the Rainy River confluence corridor.',
-        'Use only the named public accesses and campsites because surrounding shoreline remains private or undeveloped.',
-      ],
-      watchFor: [
-        'Long-day fatigue, broad exposed bends, and cold shoulder-season water on a route that keeps going after Ivan Crawford.',
-        'Fresh storm wood, strainers, and fast post-rain current changes on a corridor with few easy exits.',
-        'Slow travel and shallow bends when the Big Falls gauge falls toward the 1.5 ft floor.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'gowdy',
-        name: 'Gowdy Public Water Access Site',
-        latitude: 48.2991378,
-        longitude: -93.820383,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Carry-in access with a watercraft campsite at the upstream end of this full lower continuation.',
-      },
-      {
-        id: 'kueffners',
-        name: 'Kueffners Public Water Access Site',
-        latitude: 48.3387433532423,
-        longitude: -93.81704382878402,
-        mileFromStart: 3.8,
-        segmentKind: 'creek',
-        note: 'Carry-in access with toilets and a watercraft campsite before the longest lower miles.',
-      },
-      {
-        id: 'ivan-crawford',
-        name: 'Ivan Crawford Public Water Access Site',
-        latitude: 48.45526062827152,
-        longitude: -93.71955474703496,
-        mileFromStart: 25.2,
-        segmentKind: 'creek',
-        note: 'County landing near the lower Big Fork / Bear River area and the final major checkpoint before Reedy Flats.',
-      },
-      {
-        id: 'reedy-flats',
-        name: 'Reedy Flats Public Water Access Site',
-        latitude: 48.512209474305244,
-        longitude: -93.71277845257251,
-        mileFromStart: 33.7,
-        segmentKind: 'creek',
-        note: 'Trailer access with a watercraft campsite just above Highway 11 and the Rainy River confluence.',
-      },
-    ],
-  },
   'big-fork-river-kueffners-reedy-flats': {
     putIn: {
       name: 'Kueffners Public Water Access Site',
@@ -2060,61 +1583,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 29.9,
         segmentKind: 'creek',
         note: 'Trailer access with a watercraft campsite just above Highway 11 and the Rainy River confluence.',
-      },
-    ],
-  },
-  'big-fork-river-ivan-crawford-reedy-flats': {
-    putIn: {
-      name: 'Ivan Crawford Public Water Access Site',
-      latitude: 48.45526062827152,
-      longitude: -93.71955474703496,
-    },
-    takeOut: {
-      name: 'Reedy Flats Public Water Access Site',
-      latitude: 48.512209474305244,
-      longitude: -93.71277845257251,
-    },
-    logistics: {
-      distanceLabel: '8.5 mi',
-      estimatedPaddleTime: 'About 3 hr to 4.5 hr',
-      shuttle:
-        'Stage the take-out at Reedy Flats before driving to Ivan Crawford. The shuttle is simpler than the longer lower-Big-Fork routes, but the finish still matters because Reedy is just above the Rainy River confluence.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted public-water-access rules at Ivan Crawford and Reedy Flats.',
-      camping:
-        'Reedy Flats has a toilet and watercraft campsite on the upstream side of the Highway 11 bridge, so this route finishes into a real legal overnight option.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Ivan Crawford and finish at Reedy Flats for the final Big Fork run above the Rainy River. This reach is usually gentler than the upstream routes, but the take-out matters because the confluence is immediately downstream.',
-      accessCaveats: [
-        'Take out at Reedy Flats instead of casually continuing into the Rainy River confluence corridor.',
-        'Reedy Flats is the intended finish. Do not assume surrounding banks are legal substitutes just because the lower river feels broader and slower.',
-        'This route feels simpler than the long Kueffners continuation, but fresh wood and low-water dragging still matter.',
-      ],
-      watchFor: [
-        'Missing the Reedy Flats take-out and drifting into the Rainy River approach.',
-        'Strainers, undercut outside bends, and fresh wood after storms.',
-        'Slow travel and shallow bends when the Big Falls gauge falls toward the 1.5 ft floor.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'ivan-crawford',
-        name: 'Ivan Crawford Public Water Access Site',
-        latitude: 48.45526062827152,
-        longitude: -93.71955474703496,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'County landing near the lower Big Fork / Bear River area.',
-      },
-      {
-        id: 'reedy-flats',
-        name: 'Reedy Flats Public Water Access Site',
-        latitude: 48.512209474305244,
-        longitude: -93.71277845257251,
-        mileFromStart: 8.5,
-        segmentKind: 'creek',
-        note: 'Trailer access with toilet and watercraft campsite just above Highway 11 and the Rainy River confluence.',
       },
     ],
   },
@@ -2343,41 +1811,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         note: 'Best named bailout and only campground-supported stop before the final Silverdale miles.',
       },
     ],
-  },
-  'little-fork-river-samuelson-silverdale': {
-    putIn: {
-      name: 'Samuelson Park Public Water Access Site',
-      latitude: 47.9485284,
-      longitude: -93.0992707,
-    },
-    takeOut: {
-      name: 'Silverdale Public Water Access Site',
-      latitude: 47.9768919,
-      longitude: -93.1445789,
-    },
-    logistics: {
-      distanceLabel: '4.1 mi',
-      estimatedPaddleTime: 'About 2 hr to 3.5 hr depending on level, wood, and scouting',
-      shuttle:
-        'Use a short two-car shuttle from Samuelson Park to Silverdale and still check both accesses before launching. The miles are modest, but this is not a casual roadside float when wood or low-water rapids complicate progress.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted public-water-access and county-park rules at Samuelson and Silverdale.',
-      camping:
-        'Samuelson Park gives this route real endpoint-campground support at the put-in. DNR Map 1 says the park has a carry-in access, picnic table, toilet, drinking water, and tent sites.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Samuelson Park and finish at Silverdale for the shortest official Little Fork Map 1 continuation currently in the app. The mileage is approachable, but the route still carries the same rapid-and-wood story as the longer Highway 73 starts.',
-      accessCaveats: [
-        'Samuelson Park is the developed endpoint with campground services; Silverdale is a simpler public access finish.',
-        'Use only the named public accesses rather than improvised roadside stops or private banks along the wooded corridor.',
-        'Short mileage does not remove the need to scout wood or read the ledges carefully when the channel is high or obstructed.',
-      ],
-      watchFor: [
-        'Class I to II rapids, rocky riffles, and wood hazards on a narrow remote northern channel.',
-        'Scraping and slower-than-expected progress when the Silverdale gauge is below the 400 cfs floor.',
-        'Cold water, brushy banks, and limited quick exits between the named public accesses.',
-      ],
-    },
   },
   'little-fork-river-devereaux-lofgren-park': {
     putIn: {
@@ -11838,7 +11271,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'bayou-deview-benson-creek-dark-corner': {
+'bayou-deview-benson-creek-dark-corner': {
     putIn: {
       id: 'benson-creek-access',
       name: 'Benson Creek Access',
@@ -13246,6 +12679,130 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'loup-river-monroe-columbus': {
+    putIn: {
+      id: 'monroe-county-access',
+      name: 'Monroe county access south of Monroe',
+      latitude: 41.471508,
+      longitude: -97.602729,
+    },
+    takeOut: {
+      id: 'columbus-hotel-side-finish',
+      name: 'Columbus hotel-side finish near Pawnee Park Trail',
+      latitude: 41.4195401,
+      longitude: -97.3672208,
+    },
+    logistics: {
+      distanceLabel: 'About 16 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 8 hr in ordinary conditions, longer with headwind, low-water channel hunting, or a slow group',
+      shuttle:
+        'Stage the Columbus finish first, then drive back to the Monroe county access. The Monroe endpoint follows the official city directions south of Monroe on 370th Avenue over the Loup River bridge, then east to the road end. The Columbus finish uses the hotel-side parking arrangement described by Nebraskaland and the City of Columbus, so inspect current parking, trail access, and riverbank footing before launching.',
+      permits:
+        'No route-specific private paddling permit is known for this segment. Follow Nebraska boating and PFD rules, obey posted county-access, hotel-side, and city-trail rules, and respect any same-day closures, muddy-road issues, or parking limits.',
+      camping:
+        'Treat this as a daylight day trip. Outdoor Nebraska / Nebraskaland warns paddlers not to camp, picnic, or otherwise stop on private banks or the stream bed without permission except when safety, shallow-water walking, or obstacle avoidance requires it.',
+      summary:
+        'Launch at the Monroe county access and finish at Columbus for the middle Loup River Water Trail segment. Use USGS 06793000 near Genoa as the direct same-river gauge and treat 350 cfs as a conservative minimum-only floor rather than a full ideal-range recommendation.',
+      accessCaveats: [
+        'The Monroe coordinate is a practical public-access anchor supported by official city directions rather than a county GIS launch point.',
+        'The Columbus finish is a hotel-side parking and trail walk arrangement, not a staffed marina. Follow current local signs and obvious public boundaries on arrival.',
+        'The Pawnee Park underpass connecting East and West Pawnee Park has been closed since June 9, 2025, so expect a current detour or changed trail circulation near the finish.',
+        'Nebraska private-bank and stream-bed rules are stricter than many paddlers expect. Stay with the named public endpoints and do not plan casual lunch stops on private land.',
+      ],
+      watchFor: [
+        'Flows below about 350 cfs at Genoa, when shallow-channel choices and dragging become more likely.',
+        'Headwind across open bends, wrong-channel choices around sandbars, fresh wood, and fatigue on a deceptively long sandy river day.',
+        'High or rising water, thunderstorms, or unclear finish access conditions, because the route has no official high-water band and should stay conservative outside the known low-water guidance.',
+      ],
+    },
+  },
+  'loup-river-george-syas-columbus': {
+    putIn: {
+      id: 'george-d-syas-wma-fishing-access',
+      name: 'George D. Syas WMA fishing access',
+      latitude: 41.43328221,
+      longitude: -97.68464875,
+    },
+    takeOut: {
+      id: 'columbus-hotel-side-finish',
+      name: 'Columbus hotel-side finish near Pawnee Park Trail',
+      latitude: 41.4195401,
+      longitude: -97.3672208,
+    },
+    logistics: {
+      distanceLabel: 'About 24 mi',
+      estimatedPaddleTime:
+        'About 8 hr to 10 hr in ordinary conditions, longer with headwind, low-water channel hunting, breaks, or a slower group',
+      shuttle:
+        'Stage the Columbus finish first, then drive back to the George D. Syas WMA fishing access. Treat the route as a real all-day shuttle: the finish uses the hotel-side parking and Pawnee Park Trail walk described by Nebraskaland and the City of Columbus, while the put-in is a simple WMA fishing access rather than a developed park ramp.',
+      permits:
+        'No route-specific private paddling permit is known for this segment. Follow Nebraska boating and PFD rules, obey posted WMA, county, hotel-side, and city-trail rules, and respect same-day closures, muddy-road issues, or parking limits.',
+      camping:
+        'Treat this as a daylight day trip. Outdoor Nebraska / Nebraskaland warns paddlers not to camp, picnic, or otherwise stop on private banks or the stream bed without permission except when safety, shallow-water walking, or obstacle avoidance requires it.',
+      summary:
+        'Launch at George D. Syas WMA and finish at Columbus for the full Loup River Water Trail continuation. Use USGS 06793000 near Genoa as the direct same-river gauge and treat 350 cfs as a conservative minimum-only floor rather than a full ideal-range recommendation.',
+      accessCaveats: [
+        'Monroe is the clearest intermediate bailout and should be treated as a real checkpoint before you commit to the final 16 miles toward Columbus.',
+        'The George D. Syas coordinate is the NGPC Public Access Atlas anchor for the named fishing access rather than a polished concrete ramp.',
+        'The Columbus finish is a hotel-side parking and trail walk arrangement, not a staffed marina. Follow current local signs and obvious public boundaries on arrival.',
+        'The Pawnee Park underpass connecting East and West Pawnee Park has been closed since June 9, 2025, so expect a current detour or changed trail circulation near the finish.',
+      ],
+      watchFor: [
+        'Flows below about 350 cfs at Genoa, when the upper eight miles can require deep-channel work and the full day gets dramatically slower.',
+        'Headwind across open bends, wrong-channel choices, fresh wood, and fatigue stacking up over the two-segment continuation.',
+        'High or rising water, thunderstorms, or unclear finish access conditions, because the route has no official high-water band and should stay conservative outside the known low-water guidance.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'monroe-county-access',
+        name: 'Monroe county access south of Monroe',
+        latitude: 41.471508,
+        longitude: -97.602729,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Best named bailout and midpoint checkpoint before committing to the final Columbus run.',
+      },
+    ],
+  },
+  'loup-river-columbus-adm-access': {
+    putIn: {
+      id: 'columbus-hotel-side-access',
+      name: 'Columbus hotel-side access near Pawnee Park Trail',
+      latitude: 41.4195401,
+      longitude: -97.3672208,
+    },
+    takeOut: {
+      id: 'adm-access-site',
+      name: 'ADM access site south of Southeast 9th Street',
+      latitude: 41.41603951,
+      longitude: -97.2865376,
+    },
+    logistics: {
+      distanceLabel: 'About 4.5 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3 hr in ordinary conditions, longer with headwind, shallow bars, or slower groups',
+      shuttle:
+        'Stage the downstream ADM access site area first, then return to the Columbus hotel-side access. The upstream endpoint uses the established Ramada / Quality Inn parking arrangement and Pawnee Park Trail approach; the downstream endpoint is a leased access area on ADM property south of Southeast 9th Street, so inspect current signage, fencing, and riverbank footing before launching.',
+      permits:
+        'No route-specific private paddling permit is known for this segment. Follow Nebraska boating and PFD rules, obey posted city-trail, hotel-side, and ADM-site access rules, and respect any same-day closures, muddy-road issues, or parking limits.',
+      camping:
+        'Treat this as a short daylight float. Outdoor Nebraska / Nebraskaland warns paddlers not to camp, picnic, or otherwise stop on private banks or the stream bed without permission except when safety, shallow-water walking, or obstacle avoidance requires it.',
+      summary:
+        'Launch at the Columbus hotel-side access and finish at the ADM access site for the final short Loup River Water Trail float. Use USGS 06793000 near Genoa as the direct same-river gauge and treat 350 cfs as a conservative minimum-only floor rather than a full ideal-range recommendation.',
+      accessCaveats: [
+        'The Columbus put-in is the same hotel-side access described by the City of Columbus and Nebraskaland, not a staffed park marina.',
+        'The ADM endpoint is a leased access area on industrial property. The coordinate is a nearby practical plant anchor rather than a surveyed launch pin, so same-day signs and obvious public boundaries control.',
+        'Nebraska private-bank and stream-bed rules are stricter than many paddlers expect. Stay with the named public endpoints and do not plan casual bank stops on private land.',
+      ],
+      watchFor: [
+        'Flows below about 350 cfs at Genoa, when shallow-channel choices and dragging become more likely.',
+        'Wind across open bends, wrong-channel choices around sandbars, fresh wood, and muddy or awkward footing at the simple downstream finish.',
+        'High or rising water, thunderstorms, or unclear industrial-site access conditions, because the route has no official high-water band and should stay conservative outside the known low-water guidance.',
+      ],
+    },
+  },
   'village-creek-fm418-sh327': {
     putIn: {
       id: 'fm-418-boat-launch',
@@ -13448,46 +13005,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'green-river-american-legion-glenview-road': {
-    putIn: {
-      id: 'american-legion-park-ramp',
-      name: 'American Legion Park Ramp',
-      latitude: 37.2441,
-      longitude: -85.4795,
-    },
-    takeOut: {
-      id: 'glenview-road-carrydown',
-      name: 'Glenview Road Carrydown',
-      latitude: 37.291,
-      longitude: -85.5913,
-    },
-    logistics: {
-      distanceLabel: 'About 15.7 mi',
-      estimatedPaddleTime:
-        'About 5.5 hr to 8 hr, longer with low water, fishing stops, or slower loading at the road-end finish',
-      shuttle:
-        'Stage the take-out at Glenview Road, then drive back to American Legion Park below Highway 417. Glenview has no amenities and sits at a private-bank road end, so keep the take-out vehicle compact and leave daylight margin for a longer Upper Green day.',
-      permits:
-        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey any local or landowner signage at Glenview.',
-      camping:
-        'Treat this as a day trip with corridor lodging support rather than route camping. Greensburg City Park cabins and in-town overnight options sit on the route corridor, but KDFWR lists no camping at either endpoint and private banks should not be treated as legal campsites.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at American Legion Park and continue to Glenview Road for a longer Upper Green float. Use the Greensburg gauge and expect a slower, more scrape-prone day whenever the stage stays near or below KDFWR\'s 1.0 to 1.75 ft good band.',
-      accessCaveats: [
-        'American Legion Park is a graded park access below Highway 417 with unpaved parking and a muddy/gravel bank rather than a polished city ramp.',
-        'Greensburg City Ramp sits on the corridor and is the cleanest legal bailout if conditions, daylight, or group energy change before the Glenview finish.',
-        'Glenview Road Carrydown ends in the water and is surrounded by private land. Use only the obvious public road-end access and obey posted signs.',
-        'This route uses the direct Greensburg stage gauge. Trend, recent rain, and broad-river wind still matter more than a single number.',
-      ],
-      watchFor: [
-        'Low water below about 1.0 ft, when shoals, mud edges, and slower pools can turn this into a long day.',
-        'High water above about 1.75 ft, when current at bends and the Glenview landing becomes less forgiving.',
-        'Bridge-adjacent current, anglers near the town accesses, private-bank limits, woody debris after rain, and broad-river wind on exposed pools.',
-        'Steep or slick footing at the Glenview road-end carrydown, especially after rain.',
-      ],
-    },
-  },
   'green-river-roachville-russell-ford': {
     putIn: {
       id: 'roachville-ford',
@@ -13647,6 +13164,35 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Camping mistakes: rising overnight water, unsecured boats, and unauthorized stops without a valid permit.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'dennison-ferry',
+        name: 'Dennison Ferry',
+        latitude: 37.2174,
+        longitude: -86.0493,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default full-corridor put-in.',
+      },
+      {
+        id: 'green-river-ferry',
+        name: 'Green River Ferry',
+        latitude: 37.1795,
+        longitude: -86.1123,
+        mileFromStart: 7.5,
+        segmentKind: 'creek',
+        note: 'Mid-corridor access and ferry crossing; follow NPS ferry-contact guidance.',
+      },
+      {
+        id: 'houchins-ferry',
+        name: 'Houchins Ferry',
+        latitude: 37.2024,
+        longitude: -86.2376,
+        mileFromStart: 19.8,
+        segmentKind: 'creek',
+        note: 'Default full-corridor take-out with campground support nearby.',
+      },
+    ],
   },
   'barren-river-tailwater-vpa-3': {
     putIn: {
@@ -14027,85 +13573,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-    'juniata-river-juniata-point-newton-hamilton': {
-    "putIn": {
-      "id": "juniata-point-ramp",
-      "name": "Juniata Point ramp",
-      "latitude": 40.458333,
-      "longitude": -77.980833
-    },
-    "takeOut": {
-      "id": "newton-hamilton-ramp",
-      "name": "Newton-Hamilton ramp",
-      "latitude": 40.391944,
-      "longitude": -77.834444
-    },
-    "logistics": {
-      "distanceLabel": "About 18 mi for the full corridor; choose a shorter segment in the access planner",
-      "estimatedPaddleTime": "Full corridor is a long day. Common planner pairings are about 3 to 9 mi and should be matched to level, wind, and daylight.",
-      "shuttle": "Choose a put-in and take-out from the access planner, stage the downstream vehicle first, then inspect both landings before launching.",
-      "permits": "PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.",
-      "camping": "Treat this as a day-trip corridor unless you have separately confirmed legal camping or campground arrangements.",
-      "summary": "Use this as the upper Juniata access-planner corridor from Juniata Point through Riverside Park, Mt. Union, and Shawmut to Newton-Hamilton.",
-      "accessCaveats": [
-        "The full corridor is a planning envelope; choose a shorter public-access pair when daylight, water level, or group pace calls for it.",
-        "Confirm current parking and bank conditions at the selected endpoints.",
-        "Stay with public accesses rather than using private banks or islands as backup exits."
-      ],
-      "watchFor": [
-        "Low-water scraping and exposed bars near the minimum gauge floor.",
-        "Fresh strainers and bridge-current zones after storms.",
-        "Broad-river wind and overlong segment choices."
-      ]
-    },
-    "accessPoints": [
-      {
-        "id": "juniata-point-ramp",
-        "name": "Juniata Point ramp",
-        "latitude": 40.458333,
-        "longitude": -77.980833,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Default upper-corridor put-in."
-      },
-      {
-        "id": "riverside-park-mapleton-ramp",
-        "name": "Riverside Park access",
-        "latitude": 40.386111,
-        "longitude": -77.938333,
-        "mileFromStart": 6,
-        "segmentKind": "creek",
-        "note": "Riverside split point for shorter outings."
-      },
-      {
-        "id": "mt-union-access",
-        "name": "Mt. Union access",
-        "latitude": 40.386111,
-        "longitude": -77.873333,
-        "mileFromStart": 10,
-        "segmentKind": "creek",
-        "note": "Mt. Union access for a moderate-length planner segment."
-      },
-      {
-        "id": "shawmut-access",
-        "name": "Shawmut access",
-        "latitude": 40.364722,
-        "longitude": -77.812222,
-        "mileFromStart": 15,
-        "segmentKind": "creek",
-        "note": "Shawmut access for shorter lower-corridor choices."
-      },
-      {
-        "id": "newton-hamilton-ramp",
-        "name": "Newton-Hamilton ramp",
-        "latitude": 40.391944,
-        "longitude": -77.834444,
-        "mileFromStart": 18,
-        "segmentKind": "creek",
-        "note": "Default corridor finish."
-      }
-    ]
-  },
 'susquehanna-river-sayre-ulster-bridge': {
     putIn: {
       name: 'Sayre PFBC access',
@@ -14448,44 +13915,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
   },
 },
-'shiawassee-river-byron-geeck-road': {
-    putIn: {
-      id: 'byron-high-school-ball-fields',
-      name: 'Byron High School Ball Fields concrete launch',
-      latitude: 42.840348,
-      longitude: -83.945658,
-    },
-    takeOut: {
-      id: 'geeck-road-county-park',
-      name: 'Geeck Road County Park cement ramp',
-      latitude: 42.884522,
-      longitude: -84.045106,
-    },
-    logistics: {
-      distanceLabel: '11.85 mi',
-      estimatedPaddleTime: 'Long beginner-to-intermediate day; allow extra time if low-water shallows and debris slow the upper half',
-      shuttle:
-        'Use the upper-corridor water-trail road shuttle from Geeck Road County Park back to Byron via Exchange Road, M-71 / Corunna Road, Bath Road, Byron Road, and Maple Avenue. Stage the public Geeck Road take-out first and confirm Walnut Hills mid-route access conditions before launching.',
-      permits:
-        'No route-specific paddling permit is known, but Walnut Hills remains private campground access within the route. Confirm current public launch/take-out availability, seasonal dates, parking fee, and campground rules before using that landing as an emergency stop or split point.',
-      camping:
-        'Walnut Hills Family Campground sits on route and can support a staged outing, but this route is still framed as a long day unless you separately confirm a reservation or overnight permission.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch from the concrete Byron High School Ball Fields access and take out at Geeck Road County Park for an 11.85-mile upper Shiawassee day. Use the Owosso USGS gauge only as a conservative low-water corridor check, then make a same-day call on shallows, debris, and Walnut Hills access before putting on.',
-      accessCaveats: [
-        'The official route sheets publish Byron High School Ball Fields, Walnut Hills Family Campground, and Geeck Road County Park as the source-backed public access chain for this route.',
-        'Walnut Hills is a private seasonal campground access with a small vehicle fee and no off-season use when it is closed, so do not rely on it casually without confirmation.',
-        'Respect private docks and shoreline property and stop only at named launches or landings.',
-      ],
-      watchFor: [
-        'Low-water scraping and slower travel when the Owosso gauge trends toward 2.0 ft or below.',
-        'Debris, private docks, sandy and stony bottom, shallow water between Vernon Road and Grand River Road, and three bridge crossings.',
-        'Longer mileage than either single beginner card, which raises fatigue and shuttle complexity even in normal water.',
-        'The Owosso gauge is a downstream corridor proxy for this Byron-to-Geeck pairing, so treat it as a conservative floor rather than a precise go/no-go guarantee.',
-      ],
-    },
-  },
 'shiawassee-river-byron-walnut-hills': {
     putIn: {
       id: 'byron-high-school-ball-fields',
@@ -14597,43 +14026,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
   },
 },
-'shiawassee-river-shiatown-brady-street': {
-    putIn: {
-      id: 'shiatown-county-park',
-      name: 'Shiatown County Park launch below the partially removed dam',
-      latitude: 42.929408,
-      longitude: -84.071308,
-    },
-    takeOut: {
-      id: 'brady-street',
-      name: 'Brady Street dirt launch',
-      latitude: 42.9766,
-      longitude: -84.116539,
-    },
-    logistics: {
-      distanceLabel: '11.03 mi',
-      estimatedPaddleTime: 'Long intermediate day; add time for scouting, low-water rock dodging, and the causeway decision',
-      shuttle:
-        'Use the upper-corridor water-trail road shuttle from Brady Street Landing back to Shiatown County Park via North Brady Street, M-21, South Kerby Road, Hibbard Road, Bancroft / Parmenter Road, and Bennington Road. Stage the Brady Street take-out first so the longer shuttle and the Shiatown start are both familiar before launch.',
-      permits:
-        'No route-specific paddling permit is known. Follow Shiawassee County park rules, City of Corunna access rules, posted parking rules, and water-trail safety guidance at both public landings.',
-      camping:
-        'Treat this as a committed day trip. The official route sheets identify no straightforward legal overnight stop between Shiatown and Brady Street.',
-      summary:
-        'Launch below the partially removed Shiatown dam and take out at Brady Street for an 11.03-mile upper Shiawassee day. Use the Owosso USGS gauge only as a conservative low-water corridor check, then scout the fast-water start, debris, and causeway before committing to the longer pairing.',
-      accessCaveats: [
-        'Begin downstream of the partially removed Shiatown dam; do not treat the dam or the immediate drop as a runnable feature.',
-        'The official route sheets publish Shiatown County Park, Lytle Road County Park, and Brady Street as the public access chain for this longer combined day.',
-        'Respect private property and stop only at designated launches or landings; the water-trail safety guidance calls this out explicitly.',
-      ],
-      watchFor: [
-        'Fast moving rapids and a split channel immediately after the partially removed Shiatown dam.',
-        'Rocky shallow water after Bennington Road, debris or vegetation covering rocks, six bridge crossings, downed trees, and private-dock shoreline near Corunna.',
-        'A causeway about 1.75 miles into the Lytle-to-Brady half; stay left under it in low water and portage over it in higher water.',
-        'High water can make the dam-adjacent start, bridge approaches, and causeway corridor unsuitable even though the app only scores a conservative low-water floor.',
-      ],
-    },
-  },
 'shiawassee-river-shiatown-lytle': {
     putIn: {
       id: 'shiatown-county-park',
@@ -14782,43 +14174,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
   },
 },
-'shiawassee-river-henderson-cole-park': {
-    putIn: {
-      id: 'henderson-county-park',
-      name: 'Henderson County Park cement launch',
-      latitude: 43.087788,
-      longitude: -84.181933,
-    },
-    takeOut: {
-      id: 'cole-park',
-      name: 'Cole Park launch',
-      latitude: 43.185325,
-      longitude: -84.112656,
-    },
-    logistics: {
-      distanceLabel: '14.68 mi',
-      estimatedPaddleTime: 'Long intermediate day; allow extra time for the Ditch Road hazard zone and the Cole Park rapid portage',
-      shuttle:
-        'Use the lower-corridor water-trail road shuttle from Cole Park back to Henderson County Park via Peet Road, Corunna Road / Main Street, M-52, and Henderson Road. Stage the Cole Park take-out first so the final river-right portage and rock walk are understood before launching.',
-      permits:
-        'No route-specific paddling permit is known. Follow Shiawassee County park rules, Chesaning park rules, posted access rules, and water-trail safety guidance at both public landings.',
-      camping:
-        'Treat this as a long day trip. Chesaning and the corridor have nearby services, but no on-route overnight plan is assumed between Henderson and Cole Park.',
-      summary:
-        'Launch at Henderson County Park and take out at Cole Park for a 14.68-mile lower Shiawassee day into Chesaning. Use the direct Owosso USGS gauge as a stage check, then plan around the Ditch Road weir zone, shallow riffles, and the mandatory Cole Park rapid portage.',
-      accessCaveats: [
-        'The official route sheets publish Henderson County Park, Ditch Road, and Cole Park as the source-backed public access chain for this route.',
-        'Identify both the Ditch Road hazard area and the Cole Park finish before launching so the two downstream decisions do not become rushed surprises.',
-        'Respect private property and stop only at designated launches or landings; the water-trail safety section calls this out explicitly.',
-      ],
-      watchFor: [
-        'A weir near Ditch Road that must be maneuvered skillfully, with a river-right portage when needed.',
-        'Rock rapids near Showboat Park / Cole Park; portage on river right and expect a slippery rock walk to reach the Cole Park launch.',
-        'Sand bars, stone bars, riffles, islands, changing depth, and more fatigue than the shorter single-section cards suggest.',
-        'High water above 7 ft, faster current, strainers, and lower bridge clearances; lower water around the 2.5 ft preferred floor can still mean scraping and slower travel.',
-      ],
-    },
-  },
 'shiawassee-river-henderson-ditch-road': {
     putIn: {
       id: 'henderson-county-park',
@@ -15458,82 +14813,53 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue from repeated low-water line scouting.',
       ],
     },
-  },
-'south-fork-kentucky-river-bishop-bend-kay-wood': {
-    putIn: {
-      id: 'bishop-bend-school-road-access',
-      name: 'Bishop Bend School Road Access',
-      latitude: 37.3377,
-      longitude: -83.6882,
-    },
-    takeOut: {
-      id: 'kay-wood-road-access',
-      name: 'Kay Wood Road Access',
-      latitude: 37.4594,
-      longitude: -83.6509,
-    },
-    logistics: {
-      distanceLabel: 'About 11.8 mi',
-      estimatedPaddleTime: 'About 4.5 hr to 6.5 hr, longer with low water, fishing, or scouting',
-      shuttle:
-        'Stage the take-out at Kay Wood Road Access, then drive back to Bishop Bend School Road Access. Bishop Bend is a simpler dirt-road carry-down, while Kay Wood is an unpaved roadside carry-down with no developed amenities.',
-      permits:
-        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
-      camping:
-        'Treat this as a day trip. KDFWR lists no camping at Bishop Bend or Kay Wood, and banks outside the access sites should be treated as private.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Bishop Bend School Road Access and take out about 11.8 miles downstream at Kay Wood Road Access for a longer lower South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
-      accessCaveats: [
-        'Bishop Bend is a carry-down access with unpaved parking and no amenities.',
-        'Kay Wood is a KDFWR carry-down site with unpaved parking, no ramp, and no listed amenities.',
-        'The current Booneville gauge reading was below the official good band during this run, so expect more scraping, slower shoals, and a longer day than the ideal band suggests.',
-        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
-      ],
-      watchFor: [
-        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely over a longer downstream commitment.',
-        'High water above 900 cfs or 6.0 ft, when current becomes less forgiving around wood, bridge areas, and muddy landings.',
-        'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue from low-water line scouting late in the run.',
-      ],
-    },
-  },
-'south-fork-kentucky-river-hacker-branch-kay-wood': {
-    putIn: {
-      id: 'hacker-branch-road-access',
-      name: 'Hacker Branch Road Access',
-      latitude: 37.3743,
-      longitude: -83.6708,
-    },
-    takeOut: {
-      id: 'kay-wood-road-access',
-      name: 'Kay Wood Road Access',
-      latitude: 37.4594,
-      longitude: -83.6509,
-    },
-    logistics: {
-      distanceLabel: 'About 8.5 mi',
-      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with low water, fishing, or scouting',
-      shuttle:
-        'Stage the take-out at Kay Wood Road Access, then drive back to Hacker Branch Road Access. Both are simple carry-down sites with unpaved parking, so inspect both approaches before leaving vehicles.',
-      permits:
-        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
-      camping:
-        'Treat this as a day trip. KDFWR lists no camping at Hacker Branch or Kay Wood, and banks outside the access sites should be treated as private.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Hacker Branch Road Access and take out about 8.5 miles downstream at Kay Wood Road Access for a medium lower South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
-      accessCaveats: [
-        'Hacker Branch is a carry-down access with unpaved parking and no developed amenities.',
-        'Kay Wood is a KDFWR carry-down site with unpaved parking, no ramp, and no listed amenities.',
-        'The current Booneville gauge reading was below the official good band during this run, so expect shallower shoals and more scraping than the official mileage alone suggests.',
-        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
-      ],
-      watchFor: [
-        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely.',
-        'High water above 900 cfs or 6.0 ft, when current becomes less forgiving around wood, bridge areas, and muddy landings.',
-        'Wood, strainers, mud banks, occasional riffles, and private banks outside the access sites.',
-      ],
-    },
+    accessPoints: [
+      {
+        id: 'rocky-branch-road-access',
+        name: 'Rocky Branch Road Access',
+        latitude: 37.3206,
+        longitude: -83.6648,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the middle-corridor route.',
+      },
+      {
+        id: 'cedar-valley-road-access',
+        name: 'Cedar Valley Road Access',
+        latitude: 37.3196,
+        longitude: -83.6916,
+        mileFromStart: 2.5,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'bishop-bend-school-road-access',
+        name: 'Bishop Bend School Road Access',
+        latitude: 37.3377,
+        longitude: -83.6882,
+        mileFromStart: 7.2,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'hacker-branch-road-access',
+        name: 'Hacker Branch Road Access',
+        latitude: 37.3743,
+        longitude: -83.6708,
+        mileFromStart: 10.5,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'upper-wolf-creek-ramp',
+        name: 'Upper Wolf Creek Ramp',
+        latitude: 37.4036,
+        longitude: -83.6798,
+        mileFromStart: 13.4,
+        segmentKind: 'creek',
+        note: 'Default take-out for the middle-corridor route.',
+      },
+    ],
   },
 'south-fork-kentucky-river-upper-wolf-creek-kay-wood': {
     putIn: {
@@ -15570,82 +14896,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely.',
         'High water above 900 cfs or 6.0 ft, when current becomes less forgiving around wood, bridge areas, and muddy landings.',
         'Wood, strainers, mud banks, occasional riffles, and private banks outside the access sites.',
-      ],
-    },
-  },
-'south-fork-kentucky-river-upper-wolf-creek-fish-creek': {
-    putIn: {
-      id: 'upper-wolf-creek-ramp',
-      name: 'Upper Wolf Creek Ramp',
-      latitude: 37.3964,
-      longitude: -83.6767,
-    },
-    takeOut: {
-      id: 'fish-creek-boat-ramp',
-      name: 'Fish Creek Boat Ramp',
-      latitude: 37.4906,
-      longitude: -83.6894,
-    },
-    logistics: {
-      distanceLabel: 'About 13.5 mi',
-      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, fishing, or scouting',
-      shuttle:
-        'Stage the take-out at Fish Creek Boat Ramp north of Booneville, then drive back to Upper Wolf Creek Ramp. Upper Wolf Creek is the more developed paved launch, while Fish Creek has a smaller paved ramp with unpaved trailer parking.',
-      permits:
-        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
-      camping:
-        'Treat this as a day trip. KDFWR lists no camping at Upper Wolf Creek or Fish Creek, and banks outside the access sites should be treated as private.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Upper Wolf Creek Ramp and take out about 13.5 miles downstream at Fish Creek Boat Ramp for a longer lower South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
-      accessCaveats: [
-        'Upper Wolf Creek is a free single-lane paved ramp with year-round 24-hour availability and unpaved parking.',
-        'Fish Creek Boat Ramp is a free single-lane paved ramp with unpaved parking. It is the planned exit; do not drift past Booneville without a separate downstream plan.',
-        'The current Booneville gauge reading was below the official good band during this run, so expect slower shoals, more dragging, and a longer day than the ideal band suggests.',
-        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
-      ],
-      watchFor: [
-        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely over a longer downstream commitment.',
-        'High water above 900 cfs or 6.0 ft, when current becomes less forgiving around wood, bridge areas, and muddy landings.',
-        'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue late in the run.',
-      ],
-    },
-  },
-'south-fork-kentucky-river-hacker-branch-fish-creek': {
-    putIn: {
-      id: 'hacker-branch-road-access',
-      name: 'Hacker Branch Road Access',
-      latitude: 37.3743,
-      longitude: -83.6708,
-    },
-    takeOut: {
-      id: 'fish-creek-boat-ramp',
-      name: 'Fish Creek Boat Ramp',
-      latitude: 37.4906,
-      longitude: -83.6894,
-    },
-    logistics: {
-      distanceLabel: 'About 16.4 mi',
-      estimatedPaddleTime: 'About 5.5 hr to 7.5 hr, longer with low water, fishing, or scouting',
-      shuttle:
-        'Stage the take-out at Fish Creek Boat Ramp north of Booneville, then drive back to Hacker Branch Road Access. Hacker Branch is a simpler carry-down launch with roadside parking, while Fish Creek is a paved-ramp finish with limited trailer space.',
-      permits:
-        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
-      camping:
-        'Treat this as a day trip. KDFWR lists no camping at Hacker Branch or Fish Creek, and banks outside the access sites should be treated as private.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Hacker Branch Road Access and take out about 16.4 miles downstream at Fish Creek Boat Ramp for a full lower South Fork Kentucky River day. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
-      accessCaveats: [
-        'Hacker Branch is a carry-down access with unpaved roadside parking and no developed amenities.',
-        'Fish Creek Boat Ramp is a free single-lane paved ramp with unpaved parking. It is the intended exit; do not drift past Booneville without a separate downstream plan.',
-        'The current Booneville gauge reading was below the official good band during this run, so expect shallower shoals and more scraping than the official mileage alone suggests.',
-        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
-      ],
-      watchFor: [
-        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely over a longer downstream commitment.',
-        'High water above 900 cfs or 6.0 ft, when current becomes less forgiving around wood, bridge areas, and muddy landings.',
-        'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue from repeated low-water line scouting.',
       ],
     },
   },
@@ -15686,6 +14936,53 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue from repeated low-water line scouting late in the run.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'bishop-bend-school-road-access',
+        name: 'Bishop Bend School Road Access',
+        latitude: 37.3377,
+        longitude: -83.6882,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the lower-corridor route.',
+      },
+      {
+        id: 'hacker-branch-road-access',
+        name: 'Hacker Branch Road Access',
+        latitude: 37.3743,
+        longitude: -83.6708,
+        mileFromStart: 3.3,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'upper-wolf-creek-ramp',
+        name: 'Upper Wolf Creek Ramp',
+        latitude: 37.4036,
+        longitude: -83.6798,
+        mileFromStart: 6.2,
+        segmentKind: 'creek',
+        note: 'Developed ramp access in the lower corridor.',
+      },
+      {
+        id: 'kay-wood-road-access',
+        name: 'Kay Wood Road Access',
+        latitude: 37.4594,
+        longitude: -83.6509,
+        mileFromStart: 11.8,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'fish-creek-boat-ramp',
+        name: 'Fish Creek Boat Ramp',
+        latitude: 37.4906,
+        longitude: -83.6894,
+        mileFromStart: 19.7,
+        segmentKind: 'creek',
+        note: 'Default take-out for the lower-corridor route.',
+      },
+    ],
   },
 'saline-river-tony-kelly-peeler-bend': {
     putIn: {
@@ -15804,6 +15101,83 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+'crooked-creek-lower-pyatt-kelleys-slab': {
+    putIn: {
+      id: 'lower-pyatt-access',
+      name: 'Lower Pyatt Access',
+      latitude: 36.24665,
+      longitude: -92.83494,
+    },
+    takeOut: {
+      id: 'kelleys-slab-access',
+      name: "Kelley's Slab Access",
+      latitude: 36.22921,
+      longitude: -92.71045,
+    },
+    logistics: {
+      distanceLabel: 'About 18.5 mi for the full corridor; choose a shorter segment in the access planner',
+      estimatedPaddleTime:
+        'About 7 hr to 10 hr for the full corridor, longer with low water, fishing stops, shoal scouting, or a careful Kelley\'s Slab finish',
+      shuttle:
+        'Stage the take-out at Kelley\'s Slab Access, then drive back to Lower Pyatt Access. Snow and Mark Oliver are the clean intermediate public split points if the full corridor is too long for the day.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC access points, follow Arkansas boating and PFD rules, and respect posted parking signs at each access.',
+      camping:
+        'Snow Access, Brooksher Crooked Creek Preserve, and Fred Berry Crooked Creek Nature Center give this corridor real designated-campsite support, but AGFC limits camping and private banks remain off-limits.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Lower Pyatt Access and use Snow, Mark Oliver, or Kelley\'s Slab as the selected take-out for the Crooked Creek access-planner corridor. This is a rain-sensitive Ozark creek float keyed to the Kelly Crossing gauge rather than to a broad flatwater assumption.',
+      accessCaveats: [
+        'Lower Pyatt, Snow, Mark Oliver, and Kelley\'s Slab are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than full-service park ramps.',
+        'The current Kelly Crossing gauge reading during this run was inside AGFC\'s moderate band, but the creek can rise or muddy quickly after storms.',
+        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.',
+        'Scout Kelley\'s Slab before committing to the full downstream finish when the creek is up, dirty, or unfamiliar.',
+      ],
+      watchFor: [
+        'Water below about 12 ft, when scraping and slower riffles become more likely.',
+        'Fast post-rain rises, fresh wood, strainers, muddy exits, and stronger current than the clear-water appearance suggests.',
+        'Shoals, riffles, small waves, rural self-rescue conditions, and the Kelley\'s Slab finish hazard AGFC flags under some conditions.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lower-pyatt-access',
+        name: 'Lower Pyatt Access',
+        latitude: 36.24665,
+        longitude: -92.83494,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default full-corridor put-in.',
+      },
+      {
+        id: 'snow-access',
+        name: 'Snow Access',
+        latitude: 36.24352,
+        longitude: -92.79995,
+        mileFromStart: 6.7,
+        segmentKind: 'creek',
+        note: 'Intermediate public access with primitive campsites.',
+      },
+      {
+        id: 'mark-oliver-access',
+        name: 'Mark Oliver Access',
+        latitude: 36.24973,
+        longitude: -92.7486,
+        mileFromStart: 11.9,
+        segmentKind: 'creek',
+        note: 'Intermediate public access for shorter middle-corridor trips.',
+      },
+      {
+        id: 'kelleys-slab-access',
+        name: "Kelley's Slab Access",
+        latitude: 36.22921,
+        longitude: -92.71045,
+        mileFromStart: 18.5,
+        segmentKind: 'creek',
+        note: 'Default full-corridor take-out; scout when water is up or dirty.',
+      },
+    ],
+  },
 'crooked-creek-lower-pyatt-snow': {
     putIn: {
       id: 'lower-pyatt-access',
@@ -15819,25 +15193,27 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: 'About 6.7 mi',
-      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer with low water, fishing stops, or shoal scouting',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr, longer with low water, fishing, or careful shoal scouting',
       shuttle:
-        'Stage the take-out at Snow Access, then drive back to Lower Pyatt Access. Inspect both gravel approaches before leaving vehicles because rain can change footing, mud, and launch quality quickly.',
+        'Stage the take-out at Snow Access, then drive back to Lower Pyatt Access. Both launches are simple rural access points, so inspect parking, bank angle, and the final approach before leaving vehicles.',
       permits:
         'No route-specific paddling permit is known. Use the named public AGFC access points, follow Arkansas boating and PFD rules, and respect posted parking signs at each access.',
       camping:
-        'Snow Access has primitive campsites, and AGFC limits camping to one night per campsite. That makes the take-out a conservative endpoint camping option rather than an excuse to use private banks elsewhere on the creek.',
+        'Primitive campsites at Snow Access make this the cleanest Crooked Creek overnight entry point, but AGFC limits camping to one night per campsite and private banks remain off-limits.',
       campingClassification: 'endpoint_campground',
       summary:
-        'Launch at Lower Pyatt Access and take out at Snow Access for the upper Crooked Creek water-trail segment. This is a rain-sensitive Ozark creek float keyed to the Kelly Crossing gauge rather than to a broad flatwater assumption.',
+        'Launch at Lower Pyatt Access and take out at Snow Access for the upper Crooked Creek day. Use the Kelly Crossing gauge, treat 12 ft as the conservative floor, and expect a rural riffle-and-pool float rather than flatwater.',
       accessCaveats: [
         'Lower Pyatt and Snow are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than full-service park ramps.',
+        'AGFC says primitive campsites are available at Snow Access and limits camping to one night per campsite.',
         'The current Kelly Crossing gauge reading during this run was inside AGFC\'s moderate band, but the creek can rise or muddy quickly after storms.',
         'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.',
       ],
       watchFor: [
         'Water below about 12 ft, when scraping and slower riffles become more likely.',
         'Fast post-rain rises, fresh wood, strainers, muddy exits, and stronger current than the clear-water appearance suggests.',
-        'Shoals, riffles, small waves, and rural self-rescue conditions if the group spreads out too much.',
+        'Shoals, riffles, small waves, rural self-rescue conditions, and assuming private-bank pull-offs are acceptable mid-route stops.',
       ],
     },
   },
@@ -15856,25 +15232,27 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: 'About 5.2 mi',
-      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low water, fishing stops, or shoal scouting',
+      estimatedPaddleTime:
+        'About 2.5 hr to 4 hr, longer with low water, fishing, or careful shoal scouting',
       shuttle:
-        'Stage the take-out at Mark Oliver Access, then drive back to Snow Access. Inspect both gravel approaches before leaving vehicles because storms and recent use can change footing and launch quality.',
+        'Stage the take-out at Mark Oliver Access, then drive back to Snow Access. Both accesses are simple rural put-ins with limited amenities, so verify same-day footing and parking before launching.',
       permits:
         'No route-specific paddling permit is known. Use the named public AGFC access points, follow Arkansas boating and PFD rules, and respect posted parking signs at each access.',
       camping:
-        'AGFC says primitive campsites are available at Snow Access and at Brooksher Crooked Creek Preserve, which has no road access. Treat that as conservative on-route camping support, not permission to use private banks elsewhere on the creek.',
+        'Snow Access and Brooksher Crooked Creek Preserve give this middle segment real overnight support, but Brooksher has no road access and private banks remain off-limits.',
       campingClassification: 'on_route_campsite',
       summary:
-        'Launch at Snow Access and take out at Mark Oliver Access for a middle Crooked Creek day. The route is short enough for a relaxed float, but it is still a rainfall-sensitive Ozark creek with private banks and fresh-wood risk after storms.',
+        'Launch at Snow Access and take out at Mark Oliver Access for the middle Crooked Creek segment. Use the Kelly Crossing gauge, treat 12 ft as the conservative floor, and expect a short rural moving-water float with legal camping only at designated sites.',
       accessCaveats: [
-        'Snow and Mark Oliver are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than developed park ramps.',
+        'Snow and Mark Oliver are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than improved park ramps.',
+        'AGFC says paddlers planning longer routes may camp at Snow Access and at Brooksher Crooked Creek Preserve, which has no road access.',
         'The current Kelly Crossing gauge reading during this run was inside AGFC\'s moderate band, but the creek can rise or muddy quickly after storms.',
         'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.',
       ],
       watchFor: [
         'Water below about 12 ft, when scraping and slower riffles become more likely.',
         'Fast post-rain rises, fresh wood, strainers, muddy exits, and stronger current than the clear-water appearance suggests.',
-        'Shoals, riffles, small waves, and longer gaps between easy roadside exits than a map skim may imply.',
+        'Shoals, riffles, small waves, and mistaking undeveloped private banks for legal stopping points.',
       ],
     },
   },
@@ -15887,32 +15265,33 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     takeOut: {
       id: 'kelleys-slab-access',
-      name: 'Kelley’s Slab Access',
+      name: "Kelley's Slab Access",
       latitude: 36.22921,
       longitude: -92.71045,
     },
     logistics: {
       distanceLabel: 'About 6.6 mi',
-      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer with low water, fishing stops, or a careful finish scout',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr, longer with low water, fishing, or a careful Kelley\'s Slab finish',
       shuttle:
-        'Stage the take-out at Kelley’s Slab Access, then drive back to Mark Oliver Access. Scout the Kelley’s Slab finish before launching when the creek is up or dirty so the group knows what the take-out looks like.',
+        'Stage the take-out at Kelley\'s Slab Access, then drive back to Mark Oliver Access. Inspect the slab finish before launching, especially when the creek is up, muddy, or unfamiliar.',
       permits:
         'No route-specific paddling permit is known. Use the named public AGFC access points, follow Arkansas boating and PFD rules, and respect posted parking signs at each access.',
       camping:
-        'AGFC says paddlers may camp at Fred Berry Crooked Creek Nature Center with permission from the center manager, with camping limited to one night per campsite. Treat that as endpoint-supported camping only, not permission to use private banks on the corridor.',
+        'Fred Berry Crooked Creek Nature Center supports a downstream overnight option with permission from the center manager, limited to one night per campsite, but private banks remain off-limits.',
       campingClassification: 'endpoint_campground',
       summary:
-        'Launch at Mark Oliver Access and take out at Kelley’s Slab Access for the lower-middle Crooked Creek water-trail segment. This is still a moderate rural creek float, but the finish deserves more attention because AGFC says Kelley’s Slab can be hazardous under some conditions.',
+        'Launch at Mark Oliver Access and take out at Kelley\'s Slab Access for the lower-middle Crooked Creek day. Use the Kelly Crossing gauge, treat 12 ft as the conservative floor, and scout the slab finish when water or debris raises the consequence.',
       accessCaveats: [
-        'Mark Oliver and Kelley’s Slab are named public AGFC Crooked Creek Water Trail accesses with simple rural launches.',
-        'The current Kelly Crossing gauge reading during this run was inside AGFC\'s moderate band, but the creek can rise or muddy quickly after storms.',
+        'Mark Oliver and Kelley\'s Slab are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than improved park ramps.',
+        'AGFC says paddlers may camp at Fred Berry Crooked Creek Nature Center with permission from the center manager, limited to one night per campsite.',
+        'AGFC separately warns that Kelley\'s Slab can be hazardous under some conditions, so do not assume an easy blind finish.',
         'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.',
-        'If you plan to use Fred Berry Nature Center camping, confirm permission instead of assuming it is automatic.',
       ],
       watchFor: [
         'Water below about 12 ft, when scraping and slower riffles become more likely.',
         'Fast post-rain rises, fresh wood, strainers, muddy exits, and stronger current than the clear-water appearance suggests.',
-        'Kelley’s Slab itself, which AGFC says can be hazardous under some conditions; scout the finish if the creek is up, dirty, or unfamiliar.',
+        'Shoals, riffles, small waves, rural self-rescue conditions, and the Kelley\'s Slab finish hazard AGFC flags under some conditions.',
       ],
     },
   },
@@ -17045,6 +16424,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Slippery gravel or mud at Russell Ford and steep footing at the Glenview road-end carrydown.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'russell-ford-access',
+        name: 'Russell Ford Access',
+        latitude: 37.2738,
+        longitude: -85.4784,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default full-corridor put-in.',
+      },
+      {
+        id: 'american-legion-park-ramp',
+        name: 'American Legion Park Ramp',
+        latitude: 37.2441,
+        longitude: -85.4795,
+        mileFromStart: 2.3,
+        segmentKind: 'creek',
+        note: 'Early legal access option in the Greensburg corridor.',
+      },
+      {
+        id: 'greensburg-city-ramp',
+        name: 'Greensburg City Ramp',
+        latitude: 37.2581,
+        longitude: -85.5057,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Town access option for a shorter route choice.',
+      },
+      {
+        id: 'glenview-road-carrydown',
+        name: 'Glenview Road Carrydown',
+        latitude: 37.291,
+        longitude: -85.5913,
+        mileFromStart: 18,
+        segmentKind: 'creek',
+        note: 'Default full-corridor take-out at the public road-end carrydown.',
+      },
+    ],
   },
 'green-river-glenview-road-lynn-camp-creek': {
     putIn: {
@@ -17606,86 +17023,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-'juniata-river-granville-mifflintown': {
-    putIn: {
-      id: 'granville-pfbc-ramp',
-      name: 'Granville PFBC ramp',
-      latitude: 40.558333,
-      longitude: -77.603056,
-    },
-    takeOut: {
-      id: 'mifflintown-pfbc-ramp',
-      name: 'Mifflintown PFBC ramp',
-      latitude: 40.595,
-      longitude: -77.415278,
-    },
-    logistics: {
-      distanceLabel: 'About 15 mi',
-      estimatedPaddleTime:
-        'About 5 hr to 7 hr in ordinary conditions, longer with low-water dragging, headwind, or time spent easing through the mile-43 ledge area',
-      shuttle:
-        'Stage the take-out at the Mifflintown PFBC ramp first, then drive back upstream to the Granville PFBC ramp. Inspect both public landings before leaving a vehicle because muddy edges and current angle can change after storms.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Locust Campground sits just downstream of the put-in and is the clearest legal overnight support if you want to split this longer lower-Juniata corridor conservatively.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at the Granville PFBC ramp and take out at Mifflintown PFBC for a fuller Lewistown-area Juniata float. Use the direct Lewistown gauge and expect scraping whenever the river sits under PFBC\'s 3.1 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Granville and Mifflintown coordinates directly in the official lower Juniata access table.',
-        'Locust Campground is legal on-route support, but the intended downstream finish for this slug is Mifflintown PFBC.',
-        'Fifteen broad-river miles can feel longer than they look when the valley wind turns upstream or the channel gets scratchy.',
-        'Stay with the named public accesses rather than using private banks or islands as substitute stops.',
-      ],
-      watchFor: [
-        'Bridge abutments with possible strainers near miles 51 and 49, both flagged in the PFBC caution list.',
-        'A ledge stretching across the river at mile 43, followed by rough water pushing into a cut bank, as flagged by PFBC.',
-        'Lewistown stages below about 3.1 ft, when broad cobble bars, ledge lines, and slower pools can force dragging.',
-        'Fresh wood after storms, muddy landing edges, and broad-river headwind through the exposed Lewistown bends.',
-      ],
-    },
-  },
-'juniata-river-granville-walker': {
-    putIn: {
-      id: 'granville-pfbc-ramp',
-      name: 'Granville PFBC ramp',
-      latitude: 40.558333,
-      longitude: -77.603056,
-    },
-    takeOut: {
-      id: 'walker-pfbc-ramp',
-      name: 'Walker PFBC ramp',
-      latitude: 40.531944,
-      longitude: -77.357222,
-    },
-    logistics: {
-      distanceLabel: 'About 21 mi',
-      estimatedPaddleTime:
-        'About 7 hr to 9 hr in ordinary conditions, longer with low-water dragging, headwind, or time spent easing through the mile-43 ledge and mile-33 current zones',
-      shuttle:
-        'Stage the take-out at Walker PFBC first, then drive back upstream to the Granville PFBC ramp. Inspect both public landings before leaving a vehicle because muddy edges and current angle can change after storms.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Locust Campground below Granville plus Buttonwood Campground and River Rock Campground near Mexico give this longer corridor real legal overnight support if you want to split it conservatively.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at the Granville PFBC ramp and take out at Walker PFBC for a long lower-Juniata corridor float. Use the direct Lewistown gauge and expect scraping whenever the river sits under PFBC\'s 3.1 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Granville and Walker coordinates directly in the official lower Juniata access table.',
-        'Locust, Buttonwood, and River Rock are legal support points, but Walker PFBC remains the intended downstream finish for this slug.',
-        'Twenty-one broad-river miles can feel materially longer when the valley wind turns upstream or the channel gets scratchy.',
-        'Stay with the named public accesses rather than using private banks, bridge shoulders, or islands as substitute stops.',
-      ],
-      watchFor: [
-        'Bridge abutments with possible strainers near miles 51 and 49, both flagged in the PFBC caution list.',
-        'A ledge stretching across the river at mile 43, followed by rough water pushing into a cut bank, as flagged by PFBC.',
-        'Rapid current near mile 33 plus low water under the Lewistown 3.1 ft floor, when broad cobble bars and slower channels can force dragging.',
-        'Fresh wood after storms, muddy landing edges, and broad-river headwind through the exposed Lewistown and Mexico bends.',
-      ],
-    },
-  },
 'juniata-river-victory-park-lewistown-narrows': {
     putIn: {
       id: 'victory-park-access',
@@ -17766,126 +17103,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-'juniata-river-victory-park-walker': {
-    putIn: {
-      id: 'victory-park-access',
-      name: 'Victory Park access',
-      latitude: 40.595,
-      longitude: -77.578889,
-    },
-    takeOut: {
-      id: 'walker-pfbc-ramp',
-      name: 'Walker PFBC ramp',
-      latitude: 40.531944,
-      longitude: -77.357222,
-    },
-    logistics: {
-      distanceLabel: 'About 16 mi',
-      estimatedPaddleTime:
-        'About 5.5 hr to 7.5 hr in ordinary conditions, longer with low-water line picking, headwind, or time spent scouting the mile-43 ledge and mile-33 current zones',
-      shuttle:
-        'Stage the take-out at Walker PFBC first, then drive back to Victory Park in Lewistown. Check both ramps before launching because muddy edges and river angle can change after rain.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Treat this as a long day trip. Lewistown and the Mifflintown / Mifflin area provide the clearest nearby lodging and basecamp support, but the guide does not identify a committed on-route campground for this exact slug.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Victory Park and take out at Walker PFBC for a long lower-Juniata town-to-ramp float. Use the direct Lewistown gauge and expect scraping whenever the river sits under PFBC\'s 3.1 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Victory Park and Walker coordinates directly in the official lower Juniata access table.',
-        'Walker PFBC is the intended public finish. Do not assume private banks, bridge shoulders, or islands are legitimate substitutes.',
-        'Sixteen broad-river miles can feel longer than they look when the valley wind turns upstream or the channel gets scratchy.',
-        'If the river is near the low floor, scout from legal public vantage points before committing to the ledge and rapid-current zones.',
-      ],
-      watchFor: [
-        'A ledge stretching across the river at mile 43, followed by rough water pushing into a cut bank, as flagged by PFBC.',
-        'Rapid current near mile 33, the other main caution point PFBC flags in this corridor.',
-        'Lewistown stages below about 3.1 ft, when shallow bars and ledge lines become slower and more technical.',
-        'Fresh wood after storms, bridge-current changes, and muddy landing edges at either public access.',
-      ],
-    },
-  },
-'juniata-river-victory-park-newport': {
-    putIn: {
-      id: 'victory-park-access',
-      name: 'Victory Park access',
-      latitude: 40.595,
-      longitude: -77.578889,
-    },
-    takeOut: {
-      id: 'newport-primitive-access',
-      name: 'Newport access',
-      latitude: 40.479167,
-      longitude: -77.129444,
-    },
-    logistics: {
-      distanceLabel: 'About 34 mi',
-      estimatedPaddleTime:
-        'About 9 hr to 11.5 hr in ordinary conditions, longer with low-water scraping, broad-river headwind, or time spent easing through the mile-43, mile-33, and mile-10.5 caution zones',
-      shuttle:
-        'Stage the take-out at the Newport primitive access first, then drive back upstream to Victory Park in Lewistown. Confirm same-day parking and the intended final line into Newport before launching because the lower miles are broad and easy to drift past when tired.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Buttonwood Campground and River Rock Campground near Mexico plus Pittman\'s Riverside and Little Buffalo near Newport give this full corridor real legal overnight support if you want to split it conservatively.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Victory Park and take out at Newport for one of the longest lower-Juniata corridors currently in the app. The app uses the Newport gauge conservatively as a downstream same-river reference and expects scraping whenever that corridor sits under PFBC\'s 3.5 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Victory Park and Newport coordinates directly in the official lower Juniata access table.',
-        'The gauge story here stays conservative because Newport sits at the downstream end of this very long route, not near the put-in.',
-        'Buttonwood, River Rock, Pittman\'s Riverside, and Little Buffalo are legal support points, but Newport remains the intended take-out for this slug.',
-        'Use the named public accesses rather than islands, bars, or roadside guesses.',
-      ],
-      watchFor: [
-        'The mile-43 ledge with rough water pushing into a cut bank, rapid current near mile 33, and the lower ledge/current feature near mile 10.5 as the river approaches Newport.',
-        'Newport stages below about 3.5 ft, when shallow bars, ledge lines, and broad lower pools become scratchier and slower.',
-        'Fresh wood after storms, broad-river headwind on the open lower bends, and primitive landing footing at Newport.',
-        'Private shorelines away from the named accesses and the chance of overshooting the Newport finish if you relax late in the run.',
-      ],
-    },
-  },
-'juniata-river-lewistown-narrows-muskrat-springs': {
-    putIn: {
-      id: 'lewistown-narrows-pfbc-ramp',
-      name: 'Lewistown Narrows PFBC ramp',
-      latitude: 40.603889,
-      longitude: -77.487778,
-    },
-    takeOut: {
-      id: 'muskrat-springs-pfbc-ramp',
-      name: 'Muskrat Springs PFBC ramp',
-      latitude: 40.535,
-      longitude: -77.299444,
-    },
-    logistics: {
-      distanceLabel: 'About 14 mi',
-      estimatedPaddleTime:
-        'About 5 hr to 7 hr in ordinary conditions, longer if low water forces channel picking or if broad-river wind stalls progress through the exposed Mexico bends',
-      shuttle:
-        'Stage the take-out at Muskrat Springs PFBC first, then drive back upstream to the Lewistown Narrows PFBC ramp. Check both ramp edges before leaving a vehicle because muddy approaches and river angle can change after rain.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Buttonwood Campground and River Rock Campground sit on this corridor near Mexico and are the clearest legal overnight support if you want to turn the longer Narrows link into a conservative camping-supported float.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Lewistown Narrows and take out at Muskrat Springs PFBC for a fuller middle lower-Juniata day. The app uses the Lewistown gauge conservatively as an upstream same-river proxy and expects scraping whenever that corridor sits under PFBC\'s 3.1 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Lewistown Narrows and Muskrat Springs coordinates directly in the official lower Juniata access table.',
-        'The gauge story here stays conservative because Lewistown is upstream of this route, not on top of it.',
-        'River Rock and Buttonwood are legal support points near Mexico, but Muskrat Springs is the intended finish for this slug.',
-        'Use only the named public accesses rather than bars, private banks, or informal roadside pull-offs.',
-      ],
-      watchFor: [
-        'Rapid current near mile 33, the main caution point PFBC flags in this corridor.',
-        'Low water under the conservative Lewistown 3.1 ft proxy floor, when broad cobble bars and slower channels can force dragging.',
-        'Fresh wood after storms, broad-river headwind through the exposed bends, and muddy landing edges at the PFBC ramps.',
-        'Private shorelines away from the named public accesses and the temptation to stop early once the Mexico campground corridor comes into view.',
-      ],
-    },
-  },
 'juniata-river-lewistown-narrows-newport': {
     putIn: {
       id: 'lewistown-narrows-pfbc-ramp',
@@ -17925,6 +17142,62 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private shorelines away from the named accesses and the chance of overshooting the Newport finish if you relax late in the run.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'lewistown-narrows-pfbc-ramp',
+        name: 'Lewistown Narrows PFBC ramp',
+        latitude: 40.603889,
+        longitude: -77.487778,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default full-corridor put-in.',
+      },
+      {
+        id: 'mifflin-ramp',
+        name: 'Mifflin ramp',
+        latitude: 40.569167,
+        longitude: -77.401111,
+        mileFromStart: 6,
+        segmentKind: 'creek',
+        note: 'Intermediate public access.',
+      },
+      {
+        id: 'walker-pfbc-ramp',
+        name: 'Walker PFBC ramp',
+        latitude: 40.531944,
+        longitude: -77.357222,
+        mileFromStart: 10,
+        segmentKind: 'creek',
+        note: 'Intermediate public access.',
+      },
+      {
+        id: 'muskrat-springs-pfbc-ramp',
+        name: 'Muskrat Springs PFBC ramp',
+        latitude: 40.535,
+        longitude: -77.299444,
+        mileFromStart: 14,
+        segmentKind: 'creek',
+        note: 'Intermediate public access.',
+      },
+      {
+        id: 'thompsontown-pfbc-ramp',
+        name: 'Thompsontown PFBC ramp',
+        latitude: 40.554167,
+        longitude: -77.235833,
+        mileFromStart: 18,
+        segmentKind: 'creek',
+        note: 'Intermediate public access before the lower Newport reach.',
+      },
+      {
+        id: 'newport-primitive-access',
+        name: 'Newport access',
+        latitude: 40.479167,
+        longitude: -77.129444,
+        mileFromStart: 28,
+        segmentKind: 'creek',
+        note: 'Default full-corridor take-out.',
+      },
+    ],
   },
 'juniata-river-mifflintown-walker': {
     putIn: {
@@ -17966,46 +17239,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-'juniata-river-mifflintown-newport': {
-    putIn: {
-      id: 'mifflintown-pfbc-ramp',
-      name: 'Mifflintown PFBC ramp',
-      latitude: 40.595,
-      longitude: -77.415278,
-    },
-    takeOut: {
-      id: 'newport-primitive-access',
-      name: 'Newport access',
-      latitude: 40.479167,
-      longitude: -77.129444,
-    },
-    logistics: {
-      distanceLabel: 'About 24 mi',
-      estimatedPaddleTime:
-        'About 7.5 hr to 10 hr in ordinary conditions, longer with low-water scraping, broad-river headwind, or time spent easing through the mile-33 and mile-10.5 caution zones',
-      shuttle:
-        'Stage the take-out at the Newport primitive access first, then drive back upstream to the Mifflintown PFBC ramp. Confirm same-day parking and the intended final line into Newport before launching because the lower miles are broad and easy to drift past when tired.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Buttonwood Campground and River Rock Campground near Mexico plus Pittman\'s Riverside and Little Buffalo near Newport give this long corridor real legal overnight support if you want to split it conservatively.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Mifflintown and take out at Newport for a long lower-Juniata corridor run. The app uses the Newport gauge conservatively as a downstream same-river reference and expects scratching whenever that corridor sits under PFBC\'s 3.5 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Mifflintown and Newport coordinates directly in the official lower Juniata access table.',
-        'The gauge story here stays conservative because Newport sits at the downstream end of this longer route, not near the put-in.',
-        'Buttonwood, River Rock, Pittman\'s Riverside, and Little Buffalo are legal support points, but Newport remains the intended take-out for this slug.',
-        'Use the named public accesses rather than islands, bars, or roadside guesses.',
-      ],
-      watchFor: [
-        'Rapid current near mile 33 in the upper half of the route plus the lower ledge/current feature near mile 10.5 as the river approaches Newport.',
-        'Newport stages below about 3.5 ft, when shallow bars, ledge lines, and broad lower pools become scratchier and slower.',
-        'Fresh wood after storms, broad-river headwind on the open lower bends, and primitive landing footing at Newport.',
-        'Private shorelines away from the named accesses and the chance of overshooting the Newport finish if you relax late in the run.',
-      ],
-    },
-  },
 'juniata-river-mifflin-walker': {
     putIn: {
       id: 'mifflin-ramp',
@@ -18043,46 +17276,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Low water under the conservative Lewistown 3.1 ft proxy floor, when broad cobble bars and slower channels can force dragging.',
         'Fresh wood after storms, muddy landing edges, and broad-river wind across exposed bends.',
         'Private shorelines away from the named public accesses and the temptation to improvise on bars because the route looks simple.',
-      ],
-    },
-  },
-'juniata-river-walker-newport': {
-    putIn: {
-      id: 'walker-pfbc-ramp',
-      name: 'Walker PFBC ramp',
-      latitude: 40.531944,
-      longitude: -77.357222,
-    },
-    takeOut: {
-      id: 'newport-primitive-access',
-      name: 'Newport access',
-      latitude: 40.479167,
-      longitude: -77.129444,
-    },
-    logistics: {
-      distanceLabel: 'About 18 mi',
-      estimatedPaddleTime:
-        'About 6 hr to 8 hr in ordinary conditions, longer with low-water scraping, broad-river headwind, or time spent easing through the mile-33 and mile-10.5 caution zones',
-      shuttle:
-        'Stage the take-out at the Newport primitive access first, then drive back upstream to Walker PFBC. Confirm same-day parking and the intended final line into Newport before launching because the lower miles are broad and easy to drift past when tired.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Buttonwood Campground and River Rock Campground near Mexico plus Pittman\'s Riverside and Little Buffalo near Newport give this corridor real legal overnight support if you want to split it conservatively.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Walker PFBC and take out at Newport for a long lower-Juniata corridor run. The app uses the Newport gauge conservatively as a downstream same-river reference and expects scratching whenever that corridor sits under PFBC\'s 3.5 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Walker and Newport coordinates directly in the official lower Juniata access table.',
-        'The gauge story here stays conservative because Newport sits at the downstream end of this route, not near the put-in.',
-        'Buttonwood, River Rock, Pittman\'s Riverside, and Little Buffalo are legal support points, but Newport remains the intended take-out for this slug.',
-        'Use the named public accesses rather than islands, bars, or roadside guesses.',
-      ],
-      watchFor: [
-        'Rapid current near mile 33 in the upper half of the route plus the lower ledge/current feature near mile 10.5 as the river approaches Newport.',
-        'Newport stages below about 3.5 ft, when shallow bars, ledge lines, and broad lower pools become scratchier and slower.',
-        'Fresh wood after storms, broad-river headwind on the open lower bends, and primitive landing footing at Newport.',
-        'Private shorelines away from the named accesses and the chance of overshooting the Newport finish if you relax late in the run.',
       ],
     },
   },
@@ -18166,166 +17359,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-'juniata-river-muskrat-springs-newport': {
-    putIn: {
-      id: 'muskrat-springs-pfbc-ramp',
-      name: 'Muskrat Springs PFBC ramp',
-      latitude: 40.535,
-      longitude: -77.299444,
-    },
-    takeOut: {
-      id: 'newport-primitive-access',
-      name: 'Newport access',
-      latitude: 40.479167,
-      longitude: -77.129444,
-    },
-    logistics: {
-      distanceLabel: 'About 14 mi',
-      estimatedPaddleTime:
-        'About 4.5 hr to 6.5 hr in ordinary conditions, longer with low-water scraping, headwind, or time spent easing through the mile-10.5 ledge zone near Newport',
-      shuttle:
-        'Stage the take-out at the Newport primitive access first, then drive back upstream to Muskrat Springs PFBC. Confirm same-day parking and the intended final line into Newport before launching.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Pittman\'s Riverside Campground near Greenwood and Little Buffalo Family Campground near Newport are the clearest legal overnight support if you want to split this longer lower-Juniata corridor conservatively.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Muskrat Springs PFBC and take out at Newport for a long lower-Juniata link into the lower ledge corridor. Use the direct Newport gauge and expect scraping whenever the river sits under PFBC\'s 3.5 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Muskrat Springs and Newport coordinates directly in the official lower Juniata access table.',
-        'Newport is a primitive town-side finish, so scout the landing edge and do not assume any nearby private shoreline is an acceptable substitute.',
-        'Pittman\'s Riverside and Little Buffalo are legal support points, but Newport remains the intended take-out for this slug.',
-        'Use the named public accesses rather than islands, bars, or roadside guesses.',
-      ],
-      watchFor: [
-        'Rapid current falling over a ledge near mile 10.5, the main route-specific caution PFBC flags in this corridor.',
-        'Newport stages below about 3.5 ft, when shallow bars and ledge lines become scratchier and slower.',
-        'Fresh wood after storms, broad-river headwind on the open lower bends, and primitive landing footing at Newport.',
-        'Private shorelines away from the named accesses and the chance of overshooting the Newport finish if you relax late in the run.',
-      ],
-    },
-  },
-'juniata-river-mifflin-newport': {
-    putIn: {
-      id: 'mifflin-ramp',
-      name: 'Mifflin ramp',
-      latitude: 40.569167,
-      longitude: -77.401111,
-    },
-    takeOut: {
-      id: 'newport-primitive-access',
-      name: 'Newport access',
-      latitude: 40.479167,
-      longitude: -77.129444,
-    },
-    logistics: {
-      distanceLabel: 'About 22 mi',
-      estimatedPaddleTime:
-        'About 7 hr to 9.5 hr in ordinary conditions, longer with low-water scraping, headwind, or time spent easing through the mile-33 and mile-10.5 caution zones',
-      shuttle:
-        'Stage the take-out at the Newport primitive access first, then drive back upstream to the Mifflin ramp. Confirm same-day parking and the intended final line into Newport before launching because the lower miles are broad and easy to drift past when tired.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Buttonwood Campground and River Rock Campground near Mexico plus Pittman\'s Riverside and Little Buffalo near Newport give this long corridor real legal overnight support if you want to split it conservatively.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Mifflin and take out at Newport for a long lower-Juniata corridor run. The app uses the Newport gauge conservatively as a downstream same-river reference and expects scratching whenever that corridor sits under PFBC\'s 3.5 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Mifflin and Newport coordinates directly in the official lower Juniata access table.',
-        'The gauge story here stays conservative because Newport sits at the downstream end of this longer route, not near the put-in.',
-        'Buttonwood, River Rock, Pittman\'s Riverside, and Little Buffalo are legal support points, but Newport remains the intended take-out for this slug.',
-        'Use the named public accesses rather than islands, bars, or roadside guesses.',
-      ],
-      watchFor: [
-        'Rapid current near mile 33 in the upper half of the route plus the lower ledge/current feature near mile 10.5 as the river approaches Newport.',
-        'Newport stages below about 3.5 ft, when shallow bars, ledge lines, and broad lower pools become scratchier and slower.',
-        'Fresh wood after storms, broad-river headwind on the open lower bends, and primitive landing footing at Newport.',
-        'Private shorelines away from the named accesses and the chance of overshooting the Newport finish if you relax late in the run.',
-      ],
-    },
-  },
-'juniata-river-thompsontown-newport': {
-    putIn: {
-      id: 'thompsontown-pfbc-ramp',
-      name: 'Thompsontown PFBC ramp',
-      latitude: 40.554167,
-      longitude: -77.235833,
-    },
-    takeOut: {
-      id: 'newport-primitive-access',
-      name: 'Newport access',
-      latitude: 40.479167,
-      longitude: -77.129444,
-    },
-    logistics: {
-      distanceLabel: 'About 10 mi',
-      estimatedPaddleTime:
-        'About 4 hr to 6 hr in ordinary conditions, longer with low-water scraping, broad-river headwind, or time spent easing through the mile-10.5 caution zone',
-      shuttle:
-        'Stage the take-out at the Newport primitive access first, then drive back upstream to the Thompsontown PFBC ramp. Confirm same-day parking and the intended final line into Newport before launching because the lower miles are broad and easy to drift past when tired.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Pittman\'s Riverside Campground near Greenwood and Little Buffalo Family Campground near Newport give this route real legal overnight support if you want to split it conservatively.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Thompsontown and take out at Newport for a fuller lower-Juniata corridor day. Use the direct Newport gauge and expect scraping whenever the river sits under PFBC\'s 3.5 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Thompsontown and Newport coordinates directly in the official lower Juniata access table.',
-        'Newport is a primitive town-side finish, so scout the landing edge and do not assume any nearby private shoreline is an acceptable substitute.',
-        'Pittman\'s Riverside and Little Buffalo are legal support points, but Newport remains the intended take-out for this slug.',
-        'Use the named public accesses rather than islands, bars, or roadside guesses.',
-      ],
-      watchFor: [
-        'Rapid current falling over a ledge near mile 10.5, the main route-specific caution PFBC flags in this corridor.',
-        'Newport stages below about 3.5 ft, when shallow bars and ledge lines become scratchier and slower.',
-        'Fresh wood after storms, broad-river headwind on the open lower bends, and primitive landing footing at Newport.',
-        'Private shorelines away from the named accesses and the chance of overshooting the Newport finish if you relax late in the run.',
-      ],
-    },
-  },
-'juniata-river-millerstown-green-valley': {
-    putIn: {
-      id: 'millerstown-community-park-access',
-      name: 'Millerstown Community Park access',
-      latitude: 40.54,
-      longitude: -77.149722,
-    },
-    takeOut: {
-      id: 'green-valley-ramp',
-      name: 'Green Valley access',
-      latitude: 40.479167,
-      longitude: -77.054722,
-    },
-    logistics: {
-      distanceLabel: 'About 11 mi',
-      estimatedPaddleTime:
-        'About 4 hr to 6 hr in ordinary conditions, longer with low-water scraping, broad-river headwind, or time spent easing through the mile-10.5 caution zone',
-      shuttle:
-        'Stage the take-out at Green Valley first, then drive back upstream to Millerstown Community Park. Confirm the campground-side landing lane before launching so you do not drift past the intended finish.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Green Valley Campground sits directly at the take-out and is the clearest legal overnight support if you want to turn this route into a campground-based trip.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Millerstown Community Park and take out at Green Valley for a longer lower-Juniata campground link. Use the direct Newport gauge and expect scraping whenever the river sits under PFBC\'s 3.5 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Millerstown and Green Valley coordinates directly in the official lower Juniata access table.',
-        'Green Valley is the intended river-left finish. Confirm same-day campground access expectations before using it only as a take-out.',
-        'This is still a broad river over longer mileage, so wind can matter more than the map suggests.',
-        'Stay with the named public accesses rather than using private banks or islands as backup landings.',
-      ],
-      watchFor: [
-        'Rapid current falling over a ledge near mile 10.5, the main route-specific caution PFBC flags in this corridor.',
-        'Newport stages below about 3.5 ft, when shallow bars and ledge lines become scratchier and slower.',
-        'Broad-river headwind, fresh wood after storms, and the need to hold the correct line into the Green Valley finish.',
-        'Private shorelines away from the named accesses and the chance of overshooting the campground landing if you drift past the bank.',
-      ],
-    },
-  },
 'juniata-river-millerstown-amity-hall': {
     putIn: {
       id: 'millerstown-community-park-access',
@@ -18365,6 +17398,35 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private shorelines away from the named accesses and the chance of taking out too early at Green Valley if you are aiming for the full run to Amity Hall.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'millerstown-community-park-access',
+        name: 'Millerstown Community Park access',
+        latitude: 40.54,
+        longitude: -77.149722,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default full-corridor put-in.',
+      },
+      {
+        id: 'green-valley-ramp',
+        name: 'Green Valley access',
+        latitude: 40.479167,
+        longitude: -77.054722,
+        mileFromStart: 11,
+        segmentKind: 'creek',
+        note: 'Intermediate campground-side access for shorter trips.',
+      },
+      {
+        id: 'amity-hall-pfbc-ramp',
+        name: 'Amity Hall PFBC ramp',
+        latitude: 40.430833,
+        longitude: -77.013333,
+        mileFromStart: 15,
+        segmentKind: 'creek',
+        note: 'Default full-corridor take-out.',
+      },
+    ],
   },
 'juniata-river-greenwood-newport': {
     putIn: {
@@ -18566,7 +17628,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-'juniata-river-portstown-park-mt-union': {
+'juniata-river-portstown-park-newton-hamilton': {
     putIn: {
       id: 'portstown-park-access',
       name: 'Portstown Park access',
@@ -18574,77 +17636,93 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       longitude: -78.014167,
     },
     takeOut: {
-      id: 'mt-union-access',
-      name: 'Mt. Union access',
-      latitude: 40.386111,
-      longitude: -77.873333,
+      id: 'newton-hamilton-ramp',
+      name: 'Newton-Hamilton ramp',
+      latitude: 40.391944,
+      longitude: -77.834444,
     },
     logistics: {
-      distanceLabel: 'About 13 mi',
+      distanceLabel: 'About 21 mi for the full corridor; choose a shorter segment in the access planner',
       estimatedPaddleTime:
-        'About 5.5 hr to 8 hr in ordinary conditions, longer with low-water bars, headwind, or extra time easing through the mile-90 and Mapleton caution zones',
+        'About 8 hr to 11 hr for the full corridor, longer with low-water bars, headwind, or extra time easing through the mile-90, Mapleton, mile-75, and Newton-Hamilton caution zones',
       shuttle:
-        'Stage the take-out at Mt. Union first, then drive back upstream to Portstown Park in Huntingdon. This is a longer shuttle with a real midpoint commitment, so inspect both public landings before leaving a vehicle because mud, current angle, and bridge eddies can change after rain.',
+        'Stage the take-out at Newton-Hamilton first, then drive back upstream to Portstown Park in Huntingdon. This is a genuine all-day shuttle plan, so use Juniata Point, Riverside, Mt. Union, or Shawmut as shorter access-planner choices when daylight or conditions are tighter.',
       permits:
         'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
       camping:
-        'The upper-Juniata guide says small groups may camp overnight at the Mapleton community park near the route midpoint. Confirm same-day local rules before turning that into an overnight split.',
+        'The upper-Juniata guide says small groups may camp overnight at the Mapleton community park, and Aqueduct Campground sits near the lower end of the corridor. Confirm same-day local rules before turning either support point into an overnight split.',
       campingClassification: 'on_route_campsite',
       summary:
-        'Launch at Portstown Park and take out at Mt. Union for a longer upper-Juniata public-access day. Use the direct Mapleton Depot gauge and expect scraping whenever the river sits under PFBC\'s 2.5 ft minimum.',
+        'Launch at Portstown Park and use the upper Juniata access chain through Newton-Hamilton as the selected corridor. Use the direct Mapleton Depot gauge and expect scraping whenever the river sits under PFBC\'s 2.5 ft minimum.',
       accessCaveats: [
-        'PFBC publishes both Portstown Park and Mt. Union coordinates directly in the official upper Juniata access table.',
-        'Mapleton community-park camping support is helpful on-route, but it does not change the need to inspect both access edges before leaving a vehicle.',
-        'The route carries the Juniata Point/Raystown-Branch reach early and the Mapleton bridge-current zone later, so do not treat the middle miles as hazard-free just because the gradient stays modest.',
-        'Use only the named public accesses rather than private banks, islands, or bridge shoulders.',
-      ],
-      watchFor: [
-        'Hazardous current with waves near mile 90 plus the Mapleton caution features at miles 86.5 and 85.5, as flagged by PFBC.',
-        'Mapleton stages below about 2.5 ft, when broad bars and shallow inside lines become slower, scratchier, and more exposed across the full run.',
-        'Fresh wood after storms, broad-river headwind, and slick footing at either public landing.',
-        'Private shorelines away from the named public accesses and the temptation to improvise a stop at informal banks around the Mapleton midpoint.',
-      ],
-    },
-  },
-'juniata-river-portstown-park-shawmut': {
-    putIn: {
-      id: 'portstown-park-access',
-      name: 'Portstown Park access',
-      latitude: 40.485833,
-      longitude: -78.014167,
-    },
-    takeOut: {
-      id: 'shawmut-access',
-      name: 'Shawmut access',
-      latitude: 40.364722,
-      longitude: -77.812222,
-    },
-    logistics: {
-      distanceLabel: 'About 18 mi',
-      estimatedPaddleTime:
-        'About 7 hr to 10 hr in ordinary conditions, longer with low-water bars, headwind, or extra time easing through the mile-90, Mapleton, and mile-75 caution zones',
-      shuttle:
-        'Stage the take-out at Shawmut first, then drive back upstream to Portstown Park in Huntingdon. This is a genuine all-day shuttle plan, so inspect both public access edges before leaving a vehicle because mud, current angle, and bridge eddies can change after rain.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'The upper-Juniata guide says small groups may camp overnight at the Mapleton community park on the corridor. Confirm same-day local rules before turning that support point into an overnight split.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Portstown Park and take out at Shawmut for a long upper-Juniata day toward Jacks Narrows. Use the direct Mapleton Depot gauge and expect scraping whenever the river sits under PFBC\'s 2.5 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Portstown Park and Shawmut coordinates directly in the official upper Juniata access table.',
-        'Mapleton community-park camping support is useful on-route, but the intended finish for this slug remains the Shawmut access.',
+        'PFBC publishes Portstown Park, Juniata Point, Riverside Park, Mt. Union, Shawmut, and Newton-Hamilton coordinates directly in the official upper Juniata access table.',
+        'Mapleton community-park camping and Aqueduct Campground support are useful on-route, but the selected access-planner finish should still be staged deliberately before launch.',
         'This is a long broad-river route even at friendly levels. Do not underrate the time commitment just because the gradient stays modest.',
         'Use only the named public accesses rather than private banks, islands, or bridge shoulders.',
       ],
       watchFor: [
-        'Hazardous current with waves near mile 90, the Mapleton caution features at miles 86.5 and 85.5, and waves with hidden rocks near mile 75, all flagged by PFBC.',
+        'Hazardous current with waves near mile 90, the Mapleton caution features at miles 86.5 and 85.5, waves with hidden rocks near mile 75, and the mile-73 Newton-Hamilton current/rock features flagged by PFBC.',
         'Mapleton stages below about 2.5 ft, when broad bars and shallow inside lines slow the route down quickly.',
         'Fresh wood after storms, broad-river headwind, and fatigue late in the day after the Mapleton midpoint is behind you.',
-        'Private shorelines away from the named public accesses and the temptation to settle for an informal bank instead of holding the Shawmut finish.',
+        'Private shorelines away from the named public accesses and the temptation to settle for an informal bank instead of holding the planned finish.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'portstown-park-access',
+        name: 'Portstown Park access',
+        latitude: 40.485833,
+        longitude: -78.014167,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default full-corridor put-in.',
+      },
+      {
+        id: 'juniata-point-ramp',
+        name: 'Juniata Point ramp',
+        latitude: 40.458333,
+        longitude: -77.980833,
+        mileFromStart: 3,
+        segmentKind: 'creek',
+        note: 'Intermediate public access near the Raystown Branch mouth.',
+      },
+      {
+        id: 'riverside-park-mapleton-ramp',
+        name: 'Riverside Park access',
+        latitude: 40.386111,
+        longitude: -77.938333,
+        mileFromStart: 9,
+        segmentKind: 'creek',
+        note: 'Mapleton access with community-park camping context.',
+      },
+      {
+        id: 'mt-union-access',
+        name: 'Mt. Union access',
+        latitude: 40.386111,
+        longitude: -77.873333,
+        mileFromStart: 13,
+        segmentKind: 'creek',
+        note: 'Intermediate access for shorter Jacks Narrows approaches.',
+      },
+      {
+        id: 'shawmut-access',
+        name: 'Shawmut access',
+        latitude: 40.364722,
+        longitude: -77.812222,
+        mileFromStart: 18,
+        segmentKind: 'creek',
+        note: 'Intermediate access near the mile-75 wave and hidden-rock caution zone.',
+      },
+      {
+        id: 'newton-hamilton-ramp',
+        name: 'Newton-Hamilton ramp',
+        latitude: 40.391944,
+        longitude: -77.834444,
+        mileFromStart: 21,
+        segmentKind: 'creek',
+        note: 'Default full-corridor take-out.',
+      },
+    ],
   },
 'juniata-river-juniata-point-riverside-park': {
     putIn: {
@@ -18883,46 +17961,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Low water under the conservative Mapleton 2.5 ft proxy floor, when broad bars and rockier lines become slower and less forgiving.',
         'Current pushing toward bridge abutments late in the route, fresh wood after storms, and broad-river headwind.',
         'Private shorelines away from the named public accesses and the risk of taking out too early at the campground if you are aiming for the full run to Newton-Hamilton.',
-      ],
-    },
-  },
-'juniata-river-mt-union-shawmut': {
-    putIn: {
-      id: 'mt-union-access',
-      name: 'Mt. Union access',
-      latitude: 40.386111,
-      longitude: -77.873333,
-    },
-    takeOut: {
-      id: 'shawmut-access',
-      name: 'Shawmut access',
-      latitude: 40.364722,
-      longitude: -77.812222,
-    },
-    logistics: {
-      distanceLabel: 'About 5 mi',
-      estimatedPaddleTime:
-        'About 2 hr to 3.5 hr in ordinary conditions, longer if low water tightens the line or if you pause to inspect the Shawmut approach',
-      shuttle:
-        'Stage the take-out at Shawmut first, then drive back upstream to Mt. Union. Check both access edges before launching because mud, current angle, and recent storm cleanup can change the practical carry.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'No established camping is identified for this Mt.-Union-to-Shawmut segment. Treat it as a day trip.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Mt. Union and take out at Shawmut for a shorter upper-Juniata Jacks Narrows approach run. The app uses the Mapleton Depot gauge conservatively as an upstream same-river reference and expects scraping whenever that corridor sits under PFBC\'s 2.5 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Mt. Union and Shawmut coordinates directly in the official upper Juniata access table.',
-        'The gauge story stays conservative here because Mapleton Depot is upstream of both accesses, not on top of the route.',
-        'Use only the named public accesses rather than bridge shoulders, islands, or private banks.',
-        'This route is shorter, but it still deserves a same-day look at the Shawmut finish and the low-water line through the approach wave zone.',
-      ],
-      watchFor: [
-        'Waves with hidden rocks near mile 75 on the Shawmut approach, the main route-specific caution PFBC flags in this corridor.',
-        'Low water under the conservative Mapleton 2.5 ft proxy floor, when rockier lines become tighter and less forgiving.',
-        'Fresh wood after storms, broad-river headwind, and slick footing at either access.',
-        'Private shorelines away from the named public accesses and the temptation to treat a broad-looking bank as a backup exit.',
       ],
     },
   },
