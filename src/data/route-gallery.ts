@@ -1636,6 +1636,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: public domain',
     },
   ],
+  'south-fork-kentucky-river-upper-wolf-creek-fish-creek': [
+    {
+      id: 'south-fork-kentucky-river-bronner-bend-commons',
+      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
+      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
+      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
+      credit: 'Ernest Danglade via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'south-fork-kentucky-river-hacker-branch-fish-creek': [
+    {
+      id: 'south-fork-kentucky-river-bronner-bend-commons',
+      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
+      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
+      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
+      credit: 'Ernest Danglade via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'south-fork-kentucky-river-bishop-bend-fish-creek': [
+    {
+      id: 'south-fork-kentucky-river-bronner-bend-commons',
+      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
+      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
+      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
+      credit: 'Ernest Danglade via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
   'levisa-fork-jubilee-island-creek': [
     {
       id: 'levisa-fork-pikeville-commons',

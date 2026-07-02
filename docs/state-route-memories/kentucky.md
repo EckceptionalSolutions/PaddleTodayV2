@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-06-26 11:15 America/Chicago / 2026-06-26 16:15 UTC.
+Last summarized: 2026-07-02 06:55 America/Chicago / 2026-07-02 11:55 UTC.
 
 ## Current Inventory
 
-- Live routes: 62.
-- Ledger candidates: 54 Kentucky-specific records. The newest live slug from this run is `south-fork-kentucky-river-oneida-hacker-branch`.
+- Live routes: 68.
+- Ledger candidates: 54 Kentucky-specific records. The newest live slug from this run is `south-fork-kentucky-river-bishop-bend-fish-creek`.
 
 ## Status
 
@@ -21,6 +21,12 @@ Kentucky had been paused from the active automation rotation at user request whi
 
 ## Current Guidance
 
+- 2026-07-02 06:55 America/Chicago / 2026-07-02 11:55 UTC three-route add pass
+  - Added `south-fork-kentucky-river-upper-wolf-creek-fish-creek`, `south-fork-kentucky-river-hacker-branch-fish-creek`, and `south-fork-kentucky-river-bishop-bend-fish-creek` to expand Kentucky beyond the prior 478-route tree state.
+  - The run reused the current KDFWR South Fork Kentucky River page for the exact access-chain mileages of `3.3`, `2.9`, `5.6`, and `7.9` miles needed for the three new downstream combinations, which support public routes of `13.5`, `16.4`, and `19.7` miles into the Fish Creek finish.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Bishop Bend School Road Access, Hacker Branch Road Access, Upper Wolf Creek Ramp, and Fish Creek Boat Ramp, and the official USGS current-conditions page showed same-day Booneville values of `233 cfs / 4.38 ft` at `2026-07-02 07:30 EDT`.
+  - Camping stays conservative at `none` for all three because KDFWR still treats the access chain as day-use public launches rather than overnight sites. Safety notes stay focused on private-bank limits, low-water scraping below band, muddy landings, wood after rain, and fatigue on the two longer combinations.
+  - Reused the approved South Fork Commons corridor image for all three new slugs rather than selecting new KDFWR or USGS imagery.
 - 2026-07-02 03:30 America/Chicago / 2026-07-02 08:30 UTC three-route add pass
   - Added `south-fork-kentucky-river-rocky-branch-upper-wolf-creek`, `south-fork-kentucky-river-bishop-bend-kay-wood`, and `south-fork-kentucky-river-hacker-branch-kay-wood` to expand Kentucky beyond the prior 65-route tree state.
   - The run reused the current KDFWR South Fork Kentucky River page for the exact access-chain mileages of `2.5`, `4.7`, `3.3`, `2.9`, and `5.6` miles, which support the combined public routes of `13.4`, `11.8`, and `8.5` miles.

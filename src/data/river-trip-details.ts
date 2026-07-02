@@ -15456,6 +15456,120 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+'south-fork-kentucky-river-upper-wolf-creek-fish-creek': {
+    putIn: {
+      id: 'upper-wolf-creek-ramp',
+      name: 'Upper Wolf Creek Ramp',
+      latitude: 37.3964,
+      longitude: -83.6767,
+    },
+    takeOut: {
+      id: 'fish-creek-boat-ramp',
+      name: 'Fish Creek Boat Ramp',
+      latitude: 37.4906,
+      longitude: -83.6894,
+    },
+    logistics: {
+      distanceLabel: 'About 13.5 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Fish Creek Boat Ramp north of Booneville, then drive back to Upper Wolf Creek Ramp. Upper Wolf Creek is the more developed paved launch, while Fish Creek has a smaller paved ramp with unpaved trailer parking.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Upper Wolf Creek or Fish Creek, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Upper Wolf Creek Ramp and take out about 13.5 miles downstream at Fish Creek Boat Ramp for a longer lower South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Upper Wolf Creek is a free single-lane paved ramp with year-round 24-hour availability and unpaved parking.',
+        'Fish Creek Boat Ramp is a free single-lane paved ramp with unpaved parking. It is the planned exit; do not drift past Booneville without a separate downstream plan.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect slower shoals, more dragging, and a longer day than the ideal band suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely over a longer downstream commitment.',
+        'High water above 900 cfs or 6.0 ft, when current becomes less forgiving around wood, bridge areas, and muddy landings.',
+        'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue late in the run.',
+      ],
+    },
+  },
+'south-fork-kentucky-river-hacker-branch-fish-creek': {
+    putIn: {
+      id: 'hacker-branch-road-access',
+      name: 'Hacker Branch Road Access',
+      latitude: 37.3743,
+      longitude: -83.6708,
+    },
+    takeOut: {
+      id: 'fish-creek-boat-ramp',
+      name: 'Fish Creek Boat Ramp',
+      latitude: 37.4906,
+      longitude: -83.6894,
+    },
+    logistics: {
+      distanceLabel: 'About 16.4 mi',
+      estimatedPaddleTime: 'About 5.5 hr to 7.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Fish Creek Boat Ramp north of Booneville, then drive back to Hacker Branch Road Access. Hacker Branch is a simpler carry-down launch with roadside parking, while Fish Creek is a paved-ramp finish with limited trailer space.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Hacker Branch or Fish Creek, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Hacker Branch Road Access and take out about 16.4 miles downstream at Fish Creek Boat Ramp for a full lower South Fork Kentucky River day. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Hacker Branch is a carry-down access with unpaved roadside parking and no developed amenities.',
+        'Fish Creek Boat Ramp is a free single-lane paved ramp with unpaved parking. It is the intended exit; do not drift past Booneville without a separate downstream plan.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect shallower shoals and more scraping than the official mileage alone suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely over a longer downstream commitment.',
+        'High water above 900 cfs or 6.0 ft, when current becomes less forgiving around wood, bridge areas, and muddy landings.',
+        'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue from repeated low-water line scouting.',
+      ],
+    },
+  },
+'south-fork-kentucky-river-bishop-bend-fish-creek': {
+    putIn: {
+      id: 'bishop-bend-school-road-access',
+      name: 'Bishop Bend School Road Access',
+      latitude: 37.3377,
+      longitude: -83.6882,
+    },
+    takeOut: {
+      id: 'fish-creek-boat-ramp',
+      name: 'Fish Creek Boat Ramp',
+      latitude: 37.4906,
+      longitude: -83.6894,
+    },
+    logistics: {
+      distanceLabel: 'About 19.7 mi',
+      estimatedPaddleTime: 'About 6.5 hr to 9 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Fish Creek Boat Ramp north of Booneville, then drive back to Bishop Bend School Road Access. Bishop Bend is a simpler dirt-road carry-down, while Fish Creek is the more developed paved-ramp finish near Booneville.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Bishop Bend or Fish Creek, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Bishop Bend School Road Access and take out about 19.7 miles downstream at Fish Creek Boat Ramp for a long lower South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Bishop Bend is a carry-down access with unpaved parking and no amenities.',
+        'Fish Creek Boat Ramp is a free single-lane paved ramp with unpaved parking. It is the intended exit; do not treat Booneville banks or side roads as interchangeable take-outs.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect more scraping, slower shoals, and a longer full-day commitment than the ideal band suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely over a long downstream commitment.',
+        'High water above 900 cfs or 6.0 ft, when current becomes less forgiving around wood, bridge areas, and muddy landings.',
+        'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue from repeated low-water line scouting late in the run.',
+      ],
+    },
+  },
 'saline-river-tony-kelly-peeler-bend': {
     putIn: {
       id: 'tony-kelly-ford-access',
