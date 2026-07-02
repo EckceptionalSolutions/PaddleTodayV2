@@ -34,6 +34,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Run Notes
 
+- 2026-07-01 19:58 America/Chicago / 2026-07-02 00:58 UTC: Pennsylvania three-route implementation pass; added three more lower Juniata routes.
+  - Reused the current clean `445`-route repo state as the baseline after the prior lower-Juniata add pass, so this run still needed three genuinely new slugs beyond that tree state.
+  - Implemented `juniata-river-lewistown-narrows-newport`, `juniata-river-mifflintown-newport`, and `juniata-river-walker-newport` from the PFBC lower Juniata guide.
+  - Qualification package: the PFBC lower Juniata guide still publishes exact public access coordinates for Lewistown Narrows, Mifflintown, Walker, and Newport; official river-mile spacing of `28`, `24`, and `18` miles for the chosen route pairs; lower-corridor caution points at miles `33` and `10.5`; and the lower-section Newport minimum gauge floor of `3.5 ft`. Same-day direct USGS Water Services returned `1370 cfs / 3.68 ft` at Newport (`01567000`) at `2026-07-01 20:15 EDT`.
+  - Camping and safety/logistics notes were added for all three routes. All three ship as `on_route_campsite` because the official guide still names real campground support across the Mexico and Newport halves of these corridors.
+  - No gallery image was added. Bounded Commons, PFBC guide imagery, and USGS media checks found corridor context but no clearly rights-clean exact-route asset was selected for these three slugs.
+
 - 2026-07-01 18:55 America/Chicago / 2026-07-01 23:55 UTC: Pennsylvania three-route implementation pass; added three more lower Juniata routes.
   - Treated the current dirty tree as the real baseline because `npm run routes:leads:gather` already counted `442` live routes before new edits, including three uncommitted lower-Juniata additions.
   - Implemented `juniata-river-granville-walker`, `juniata-river-lewistown-narrows-muskrat-springs`, and `juniata-river-mifflin-newport` from the PFBC lower Juniata guide.

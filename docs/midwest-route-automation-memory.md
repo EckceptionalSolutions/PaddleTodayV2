@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-01 19:58 America/Chicago / 2026-07-02 00:58 UTC: Pennsylvania three-route implementation pass (`3-new-routes-automation`).
+  - Reused the current route queue after the earlier Pennsylvania lower-Juniata adds and stayed internet-first on the official PFBC lower Juniata family because the access table still had three clean remaining Newport finishes with direct same-day USGS support.
+  - Added three internet-sourced Pennsylvania routes: `juniata-river-lewistown-narrows-newport`, `juniata-river-mifflintown-newport`, and `juniata-river-walker-newport`.
+  - Qualification path: the current PFBC lower Juniata guide still documents exact public access coordinates for Lewistown Narrows, Mifflintown, Walker, and Newport plus official river-mile spacing of `28`, `24`, and `18` miles for those pairs, lower-corridor caution points at miles `33` and `10.5`, and the Newport minimum gauge floor of `3.5 ft`; same-day direct USGS `01567000` returned `1370 cfs / 3.68 ft` at `2026-07-01 20:15 EDT`.
+  - Added camping and safety/logistics notes for all three routes and recorded bounded no-image outcomes for each after Commons, PFBC-guide-imagery, and USGS-media review.
+
 - 2026-06-23 09:07 America/Chicago / 2026-06-23 14:07 UTC: Pennsylvania three-route implementation pass (`3-new-routes-automation`).
   - Reused the current route queue after recent Kentucky/Pennsylvania adds, then stayed internet-first on the official PFBC North Branch Susquehanna source family because Section 2 still offered clean public access pairs, explicit caution miles, and current direct USGS support.
   - Added three internet-sourced Pennsylvania routes: `susquehanna-river-laceyville-meshoppen`, `susquehanna-river-tunkhannock-whites-ferry`, and `susquehanna-river-whites-ferry-west-falls`.

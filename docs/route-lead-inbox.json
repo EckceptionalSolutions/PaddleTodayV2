@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-01T23:57:06.832Z",
+  "generatedAt": "2026-07-02T01:00:30.583Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
-    "totalLedgerCandidates": 675,
-    "currentRouteCount": 445,
+    "totalLedgerCandidates": 678,
+    "currentRouteCount": 448,
     "leadCount": 269,
     "discoveryFocusStates": [
       "South Dakota",
@@ -246,7 +246,7 @@
     "byStatus": {
       "implemented": 69,
       "threshold_weak": 109,
-      "added": 314,
+      "added": 317,
       "research_later": 55,
       "blocked_until_date": 13,
       "no_live_gauge": 87,
@@ -2262,6 +2262,40 @@
         "discoveryTier": "undercovered_supported_midwest"
       },
       {
+        "candidateId": "il-dupage-river-knoch-knolls-naperville-family",
+        "lane": "threshold_discovery",
+        "priority": 100,
+        "state": "IL",
+        "river": "DuPage River",
+        "route": "Knoch Knolls Park / Naperville river-trip family",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-06-22",
+        "reviewCount": 3,
+        "duplicateRisk": false,
+        "blocker": "2026-06-22 threshold refresh plus public-access tightening. The access story is now materially stronger and the future public pair is cleaner. Current Naperville Park District materials still list Knoch Knolls Park at 336 Knoch Knolls Road as an easy boat/canoe launch, and the district FAQ now says Naperville maintains four designated canoe/kayak launch sites on its DuPage corridor and has jurisdiction over park-pro...",
+        "retryCondition": "Retry only if Naperville, Openlands, Plainfield Park District, Will County, or another strong route-specific source publishes numeric paddling guidance tied to a selected live gauge for Knoch Knolls Park to Eaton Preserve or another selected official launch pair, and if current manager-backed coordinates can then be captured for the chosen endpoints.",
+        "gauge": {
+          "quality": "unselected_live_gauge_and_threshold_fit_weak",
+          "id": null,
+          "provider": "USGS",
+          "notes": "Likely gauge leads still include Naperville-area DuPage gauges and downstream DuPage River at Shorewood, but no single gauge/threshold package cleared the Illinois add bar during this pass even after the public route family narrowed."
+        },
+        "thresholdSupport": {
+          "strength": "supplemental_local_only",
+          "notes": "IllinoisPaddle local scrape/action/flood notes are still useful research leads, but they remain supplemental local evidence rather than a defensible route-specific scoring model for the narrowed Knoch Knolls downstream family."
+        },
+        "endpoints": {
+          "putIn": "Knoch Knolls Park",
+          "takeOut": "Eaton Preserve",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Current Naperville Park District and Openlands sources make Knoch Knolls Park the clean public put-in anchor, and current Openlands plus Plainfield Park District make Eaton Preserve at 135th Street the cleanest public downstream take-out. Will County's current Riverview Farmstead page confirms a legitimate farther-downstream launch, but the threshold model still fails before exact coordinate capture."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "undercovered_supported_midwest"
+      },
+      {
         "candidateId": "il-kankakee-river-state-park-day-trip-family",
         "lane": "threshold_discovery",
         "priority": 100,
@@ -2328,6 +2362,40 @@
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
         "discoveryTier": "undercovered_supported_midwest"
+      },
+      {
+        "candidateId": "in-white-river-indianapolis-canoe-trail-family",
+        "lane": "threshold_discovery",
+        "priority": 100,
+        "state": "IN",
+        "river": "White River",
+        "route": "Indianapolis White River Canoe Trail family",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-06-22",
+        "reviewCount": 16,
+        "duplicateRisk": false,
+        "blocker": "2026-06-22 threshold refresh plus exact-subreach tightening. The public route definition is cleaner now than the older citywide family. Current Indy Parks pages still confirm the White River canoe-route access network at Broad Ripple Park, the Indianapolis Arts Center, and Riverside Regional Park, and the Art's Center Canoe Launch page still gives a formal public launch at 900 E 67th St. Frank's current White River...",
+        "retryCondition": "Retry only if an official/local water-trail manager, Friends of the White River, American Whitewater, or another strong route-specific source publishes a conservative low-water floor or fuller gauge model for Broad Ripple Park to Riverside Regional Park or another selected downstream public pair, and the chosen subreach is cleared against low-head-dam, water-quality, and private-bank constraints.",
+        "gauge": {
+          "quality": "direct_product_live_verified",
+          "id": "03353000",
+          "provider": "USGS",
+          "notes": "USGS Water Services IV for 03353000 remains product-live; a 2026-06-21 fetch returned same-day values of 1890 cfs and 5.08 ft. The remaining blocker is the route-specific threshold model, not live-gauge support."
+        },
+        "thresholdSupport": {
+          "strength": "weak_community",
+          "notes": "RiverScout still offers only a weak community 400-3000 cfs broad White River range, while Discover White River / Friends currently adds only high-side corridor warnings of 5.0 ft at Nora and 6.5 ft at Newfields. No source-backed low-water floor or exact-route low/ideal/high model surfaced for Broad Ripple Park to Riverside Regional Park, the Art's Center variant, or Rocky Ripple to Riverside."
+        },
+        "endpoints": {
+          "putIn": "Broad Ripple Park primary / Art's Center Canoe Launch alternate",
+          "takeOut": "Riverside Regional Park",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Current official Indy Parks pages make Broad Ripple Park, Art's Center Canoe Launch, and Riverside Regional Park the manager-backed access anchors, while Frank's current trip page makes Broad Ripple to Riverside the cleanest exact downstream public pair. Exact coordinates were not captured because the threshold model still fails first and Rocky Ripple remains operator-defined rather than manager-defined."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "in-kankakee-national-water-trail-family",
@@ -4963,74 +5031,6 @@
             "longitude": -91.17077245
           },
           "coordinateSource": "Water Quality Portal's AWARE 7 Dunlap Park Maquoketa River station gives 42.33765213, -91.25797811; WQP's AWARE 9 Mon-Maq Dam Maquoketa River station gives 42.24511929, -91.17077245. These are plausible named river/access-context coordinates, but they were not promoted into app route data because threshold support remains weak."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "supported_midwest"
-      },
-      {
-        "candidateId": "il-dupage-river-knoch-knolls-naperville-family",
-        "lane": "threshold_discovery",
-        "priority": 97,
-        "state": "IL",
-        "river": "DuPage River",
-        "route": "Knoch Knolls Park / Naperville river-trip family",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-06-22",
-        "reviewCount": 3,
-        "duplicateRisk": false,
-        "blocker": "2026-06-22 threshold refresh plus public-access tightening. The access story is now materially stronger and the future public pair is cleaner. Current Naperville Park District materials still list Knoch Knolls Park at 336 Knoch Knolls Road as an easy boat/canoe launch, and the district FAQ now says Naperville maintains four designated canoe/kayak launch sites on its DuPage corridor and has jurisdiction over park-pro...",
-        "retryCondition": "Retry only if Naperville, Openlands, Plainfield Park District, Will County, or another strong route-specific source publishes numeric paddling guidance tied to a selected live gauge for Knoch Knolls Park to Eaton Preserve or another selected official launch pair, and if current manager-backed coordinates can then be captured for the chosen endpoints.",
-        "gauge": {
-          "quality": "unselected_live_gauge_and_threshold_fit_weak",
-          "id": null,
-          "provider": "USGS",
-          "notes": "Likely gauge leads still include Naperville-area DuPage gauges and downstream DuPage River at Shorewood, but no single gauge/threshold package cleared the Illinois add bar during this pass even after the public route family narrowed."
-        },
-        "thresholdSupport": {
-          "strength": "supplemental_local_only",
-          "notes": "IllinoisPaddle local scrape/action/flood notes are still useful research leads, but they remain supplemental local evidence rather than a defensible route-specific scoring model for the narrowed Knoch Knolls downstream family."
-        },
-        "endpoints": {
-          "putIn": "Knoch Knolls Park",
-          "takeOut": "Eaton Preserve",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Current Naperville Park District and Openlands sources make Knoch Knolls Park the clean public put-in anchor, and current Openlands plus Plainfield Park District make Eaton Preserve at 135th Street the cleanest public downstream take-out. Will County's current Riverview Farmstead page confirms a legitimate farther-downstream launch, but the threshold model still fails before exact coordinate capture."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
-      },
-      {
-        "candidateId": "in-white-river-indianapolis-canoe-trail-family",
-        "lane": "threshold_discovery",
-        "priority": 97,
-        "state": "IN",
-        "river": "White River",
-        "route": "Indianapolis White River Canoe Trail family",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-06-22",
-        "reviewCount": 16,
-        "duplicateRisk": false,
-        "blocker": "2026-06-22 threshold refresh plus exact-subreach tightening. The public route definition is cleaner now than the older citywide family. Current Indy Parks pages still confirm the White River canoe-route access network at Broad Ripple Park, the Indianapolis Arts Center, and Riverside Regional Park, and the Art's Center Canoe Launch page still gives a formal public launch at 900 E 67th St. Frank's current White River...",
-        "retryCondition": "Retry only if an official/local water-trail manager, Friends of the White River, American Whitewater, or another strong route-specific source publishes a conservative low-water floor or fuller gauge model for Broad Ripple Park to Riverside Regional Park or another selected downstream public pair, and the chosen subreach is cleared against low-head-dam, water-quality, and private-bank constraints.",
-        "gauge": {
-          "quality": "direct_product_live_verified",
-          "id": "03353000",
-          "provider": "USGS",
-          "notes": "USGS Water Services IV for 03353000 remains product-live; a 2026-06-21 fetch returned same-day values of 1890 cfs and 5.08 ft. The remaining blocker is the route-specific threshold model, not live-gauge support."
-        },
-        "thresholdSupport": {
-          "strength": "weak_community",
-          "notes": "RiverScout still offers only a weak community 400-3000 cfs broad White River range, while Discover White River / Friends currently adds only high-side corridor warnings of 5.0 ft at Nora and 6.5 ft at Newfields. No source-backed low-water floor or exact-route low/ideal/high model surfaced for Broad Ripple Park to Riverside Regional Park, the Art's Center variant, or Rocky Ripple to Riverside."
-        },
-        "endpoints": {
-          "putIn": "Broad Ripple Park primary / Art's Center Canoe Launch alternate",
-          "takeOut": "Riverside Regional Park",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Current official Indy Parks pages make Broad Ripple Park, Art's Center Canoe Launch, and Riverside Regional Park the manager-backed access anchors, while Frank's current trip page makes Broad Ripple to Riverside the cleanest exact downstream public pair. Exact coordinates were not captured because the threshold model still fails first and Rocky Ripple remains operator-defined rather than manager-defined."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
         "discoveryTier": "supported_midwest"
@@ -9696,6 +9696,40 @@
       "discoveryTier": "undercovered_supported_midwest"
     },
     {
+      "candidateId": "il-dupage-river-knoch-knolls-naperville-family",
+      "lane": "threshold_discovery",
+      "priority": 100,
+      "state": "IL",
+      "river": "DuPage River",
+      "route": "Knoch Knolls Park / Naperville river-trip family",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-06-22",
+      "reviewCount": 3,
+      "duplicateRisk": false,
+      "blocker": "2026-06-22 threshold refresh plus public-access tightening. The access story is now materially stronger and the future public pair is cleaner. Current Naperville Park District materials still list Knoch Knolls Park at 336 Knoch Knolls Road as an easy boat/canoe launch, and the district FAQ now says Naperville maintains four designated canoe/kayak launch sites on its DuPage corridor and has jurisdiction over park-pro...",
+      "retryCondition": "Retry only if Naperville, Openlands, Plainfield Park District, Will County, or another strong route-specific source publishes numeric paddling guidance tied to a selected live gauge for Knoch Knolls Park to Eaton Preserve or another selected official launch pair, and if current manager-backed coordinates can then be captured for the chosen endpoints.",
+      "gauge": {
+        "quality": "unselected_live_gauge_and_threshold_fit_weak",
+        "id": null,
+        "provider": "USGS",
+        "notes": "Likely gauge leads still include Naperville-area DuPage gauges and downstream DuPage River at Shorewood, but no single gauge/threshold package cleared the Illinois add bar during this pass even after the public route family narrowed."
+      },
+      "thresholdSupport": {
+        "strength": "supplemental_local_only",
+        "notes": "IllinoisPaddle local scrape/action/flood notes are still useful research leads, but they remain supplemental local evidence rather than a defensible route-specific scoring model for the narrowed Knoch Knolls downstream family."
+      },
+      "endpoints": {
+        "putIn": "Knoch Knolls Park",
+        "takeOut": "Eaton Preserve",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "Current Naperville Park District and Openlands sources make Knoch Knolls Park the clean public put-in anchor, and current Openlands plus Plainfield Park District make Eaton Preserve at 135th Street the cleanest public downstream take-out. Will County's current Riverview Farmstead page confirms a legitimate farther-downstream launch, but the threshold model still fails before exact coordinate capture."
+      },
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+      "discoveryTier": "undercovered_supported_midwest"
+    },
+    {
       "candidateId": "il-dupage-river-shorewood-black-road-shepley",
       "lane": "fresh_source_discovery",
       "priority": 100,
@@ -9830,6 +9864,40 @@
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
       "discoveryTier": "undercovered_supported_midwest"
+    },
+    {
+      "candidateId": "in-white-river-indianapolis-canoe-trail-family",
+      "lane": "threshold_discovery",
+      "priority": 100,
+      "state": "IN",
+      "river": "White River",
+      "route": "Indianapolis White River Canoe Trail family",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-06-22",
+      "reviewCount": 16,
+      "duplicateRisk": false,
+      "blocker": "2026-06-22 threshold refresh plus exact-subreach tightening. The public route definition is cleaner now than the older citywide family. Current Indy Parks pages still confirm the White River canoe-route access network at Broad Ripple Park, the Indianapolis Arts Center, and Riverside Regional Park, and the Art's Center Canoe Launch page still gives a formal public launch at 900 E 67th St. Frank's current White River...",
+      "retryCondition": "Retry only if an official/local water-trail manager, Friends of the White River, American Whitewater, or another strong route-specific source publishes a conservative low-water floor or fuller gauge model for Broad Ripple Park to Riverside Regional Park or another selected downstream public pair, and the chosen subreach is cleared against low-head-dam, water-quality, and private-bank constraints.",
+      "gauge": {
+        "quality": "direct_product_live_verified",
+        "id": "03353000",
+        "provider": "USGS",
+        "notes": "USGS Water Services IV for 03353000 remains product-live; a 2026-06-21 fetch returned same-day values of 1890 cfs and 5.08 ft. The remaining blocker is the route-specific threshold model, not live-gauge support."
+      },
+      "thresholdSupport": {
+        "strength": "weak_community",
+        "notes": "RiverScout still offers only a weak community 400-3000 cfs broad White River range, while Discover White River / Friends currently adds only high-side corridor warnings of 5.0 ft at Nora and 6.5 ft at Newfields. No source-backed low-water floor or exact-route low/ideal/high model surfaced for Broad Ripple Park to Riverside Regional Park, the Art's Center variant, or Rocky Ripple to Riverside."
+      },
+      "endpoints": {
+        "putIn": "Broad Ripple Park primary / Art's Center Canoe Launch alternate",
+        "takeOut": "Riverside Regional Park",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "Current official Indy Parks pages make Broad Ripple Park, Art's Center Canoe Launch, and Riverside Regional Park the manager-backed access anchors, while Frank's current trip page makes Broad Ripple to Riverside the cleanest exact downstream public pair. Exact coordinates were not captured because the threshold model still fails first and Rocky Ripple remains operator-defined rather than manager-defined."
+      },
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "in-kankakee-national-water-trail-family",
@@ -13745,74 +13813,6 @@
           "longitude": -91.17077245
         },
         "coordinateSource": "Water Quality Portal's AWARE 7 Dunlap Park Maquoketa River station gives 42.33765213, -91.25797811; WQP's AWARE 9 Mon-Maq Dam Maquoketa River station gives 42.24511929, -91.17077245. These are plausible named river/access-context coordinates, but they were not promoted into app route data because threshold support remains weak."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "supported_midwest"
-    },
-    {
-      "candidateId": "il-dupage-river-knoch-knolls-naperville-family",
-      "lane": "threshold_discovery",
-      "priority": 97,
-      "state": "IL",
-      "river": "DuPage River",
-      "route": "Knoch Knolls Park / Naperville river-trip family",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-06-22",
-      "reviewCount": 3,
-      "duplicateRisk": false,
-      "blocker": "2026-06-22 threshold refresh plus public-access tightening. The access story is now materially stronger and the future public pair is cleaner. Current Naperville Park District materials still list Knoch Knolls Park at 336 Knoch Knolls Road as an easy boat/canoe launch, and the district FAQ now says Naperville maintains four designated canoe/kayak launch sites on its DuPage corridor and has jurisdiction over park-pro...",
-      "retryCondition": "Retry only if Naperville, Openlands, Plainfield Park District, Will County, or another strong route-specific source publishes numeric paddling guidance tied to a selected live gauge for Knoch Knolls Park to Eaton Preserve or another selected official launch pair, and if current manager-backed coordinates can then be captured for the chosen endpoints.",
-      "gauge": {
-        "quality": "unselected_live_gauge_and_threshold_fit_weak",
-        "id": null,
-        "provider": "USGS",
-        "notes": "Likely gauge leads still include Naperville-area DuPage gauges and downstream DuPage River at Shorewood, but no single gauge/threshold package cleared the Illinois add bar during this pass even after the public route family narrowed."
-      },
-      "thresholdSupport": {
-        "strength": "supplemental_local_only",
-        "notes": "IllinoisPaddle local scrape/action/flood notes are still useful research leads, but they remain supplemental local evidence rather than a defensible route-specific scoring model for the narrowed Knoch Knolls downstream family."
-      },
-      "endpoints": {
-        "putIn": "Knoch Knolls Park",
-        "takeOut": "Eaton Preserve",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Current Naperville Park District and Openlands sources make Knoch Knolls Park the clean public put-in anchor, and current Openlands plus Plainfield Park District make Eaton Preserve at 135th Street the cleanest public downstream take-out. Will County's current Riverview Farmstead page confirms a legitimate farther-downstream launch, but the threshold model still fails before exact coordinate capture."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
-    },
-    {
-      "candidateId": "in-white-river-indianapolis-canoe-trail-family",
-      "lane": "threshold_discovery",
-      "priority": 97,
-      "state": "IN",
-      "river": "White River",
-      "route": "Indianapolis White River Canoe Trail family",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-06-22",
-      "reviewCount": 16,
-      "duplicateRisk": false,
-      "blocker": "2026-06-22 threshold refresh plus exact-subreach tightening. The public route definition is cleaner now than the older citywide family. Current Indy Parks pages still confirm the White River canoe-route access network at Broad Ripple Park, the Indianapolis Arts Center, and Riverside Regional Park, and the Art's Center Canoe Launch page still gives a formal public launch at 900 E 67th St. Frank's current White River...",
-      "retryCondition": "Retry only if an official/local water-trail manager, Friends of the White River, American Whitewater, or another strong route-specific source publishes a conservative low-water floor or fuller gauge model for Broad Ripple Park to Riverside Regional Park or another selected downstream public pair, and the chosen subreach is cleared against low-head-dam, water-quality, and private-bank constraints.",
-      "gauge": {
-        "quality": "direct_product_live_verified",
-        "id": "03353000",
-        "provider": "USGS",
-        "notes": "USGS Water Services IV for 03353000 remains product-live; a 2026-06-21 fetch returned same-day values of 1890 cfs and 5.08 ft. The remaining blocker is the route-specific threshold model, not live-gauge support."
-      },
-      "thresholdSupport": {
-        "strength": "weak_community",
-        "notes": "RiverScout still offers only a weak community 400-3000 cfs broad White River range, while Discover White River / Friends currently adds only high-side corridor warnings of 5.0 ft at Nora and 6.5 ft at Newfields. No source-backed low-water floor or exact-route low/ideal/high model surfaced for Broad Ripple Park to Riverside Regional Park, the Art's Center variant, or Rocky Ripple to Riverside."
-      },
-      "endpoints": {
-        "putIn": "Broad Ripple Park primary / Art's Center Canoe Launch alternate",
-        "takeOut": "Riverside Regional Park",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Current official Indy Parks pages make Broad Ripple Park, Art's Center Canoe Launch, and Riverside Regional Park the manager-backed access anchors, while Frank's current trip page makes Broad Ripple to Riverside the cleanest exact downstream public pair. Exact coordinates were not captured because the threshold model still fails first and Rocky Ripple remains operator-defined rather than manager-defined."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
       "discoveryTier": "supported_midwest"

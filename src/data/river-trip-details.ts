@@ -16365,6 +16365,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+'juniata-river-lewistown-narrows-newport': {
+    putIn: {
+      id: 'lewistown-narrows-pfbc-ramp',
+      name: 'Lewistown Narrows PFBC ramp',
+      latitude: 40.603889,
+      longitude: -77.487778,
+    },
+    takeOut: {
+      id: 'newport-primitive-access',
+      name: 'Newport access',
+      latitude: 40.479167,
+      longitude: -77.129444,
+    },
+    logistics: {
+      distanceLabel: 'About 28 mi',
+      estimatedPaddleTime:
+        'About 8 hr to 10.5 hr in ordinary conditions, longer with low-water scraping, broad-river headwind, or time spent easing through the mile-33 and mile-10.5 caution zones',
+      shuttle:
+        'Stage the take-out at the Newport primitive access first, then drive back upstream to the Lewistown Narrows PFBC ramp. Confirm same-day parking and the intended final line into Newport before launching because the lower miles are broad and easy to drift past when tired.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Buttonwood Campground and River Rock Campground near Mexico plus Pittman\'s Riverside and Little Buffalo near Newport give this full corridor real legal overnight support if you want to split it conservatively.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Lewistown Narrows and take out at Newport for a full lower-Juniata corridor run. The app uses the Newport gauge conservatively as a downstream same-river reference and expects scratching whenever that corridor sits under PFBC\'s 3.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Lewistown Narrows and Newport coordinates directly in the official lower Juniata access table.',
+        'The gauge story here stays conservative because Newport sits at the downstream end of this longer route, not near the put-in.',
+        'Buttonwood, River Rock, Pittman\'s Riverside, and Little Buffalo are legal support points, but Newport remains the intended take-out for this slug.',
+        'Use the named public accesses rather than islands, bars, or roadside guesses.',
+      ],
+      watchFor: [
+        'Rapid current near mile 33 in the upper half of the route plus the lower ledge/current feature near mile 10.5 as the river approaches Newport.',
+        'Newport stages below about 3.5 ft, when shallow bars, ledge lines, and broad lower pools become scratchier and slower.',
+        'Fresh wood after storms, broad-river headwind on the open lower bends, and primitive landing footing at Newport.',
+        'Private shorelines away from the named accesses and the chance of overshooting the Newport finish if you relax late in the run.',
+      ],
+    },
+  },
 'juniata-river-mifflintown-walker': {
     putIn: {
       id: 'mifflintown-pfbc-ramp',
@@ -16405,6 +16445,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+'juniata-river-mifflintown-newport': {
+    putIn: {
+      id: 'mifflintown-pfbc-ramp',
+      name: 'Mifflintown PFBC ramp',
+      latitude: 40.595,
+      longitude: -77.415278,
+    },
+    takeOut: {
+      id: 'newport-primitive-access',
+      name: 'Newport access',
+      latitude: 40.479167,
+      longitude: -77.129444,
+    },
+    logistics: {
+      distanceLabel: 'About 24 mi',
+      estimatedPaddleTime:
+        'About 7.5 hr to 10 hr in ordinary conditions, longer with low-water scraping, broad-river headwind, or time spent easing through the mile-33 and mile-10.5 caution zones',
+      shuttle:
+        'Stage the take-out at the Newport primitive access first, then drive back upstream to the Mifflintown PFBC ramp. Confirm same-day parking and the intended final line into Newport before launching because the lower miles are broad and easy to drift past when tired.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Buttonwood Campground and River Rock Campground near Mexico plus Pittman\'s Riverside and Little Buffalo near Newport give this long corridor real legal overnight support if you want to split it conservatively.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Mifflintown and take out at Newport for a long lower-Juniata corridor run. The app uses the Newport gauge conservatively as a downstream same-river reference and expects scratching whenever that corridor sits under PFBC\'s 3.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Mifflintown and Newport coordinates directly in the official lower Juniata access table.',
+        'The gauge story here stays conservative because Newport sits at the downstream end of this longer route, not near the put-in.',
+        'Buttonwood, River Rock, Pittman\'s Riverside, and Little Buffalo are legal support points, but Newport remains the intended take-out for this slug.',
+        'Use the named public accesses rather than islands, bars, or roadside guesses.',
+      ],
+      watchFor: [
+        'Rapid current near mile 33 in the upper half of the route plus the lower ledge/current feature near mile 10.5 as the river approaches Newport.',
+        'Newport stages below about 3.5 ft, when shallow bars, ledge lines, and broad lower pools become scratchier and slower.',
+        'Fresh wood after storms, broad-river headwind on the open lower bends, and primitive landing footing at Newport.',
+        'Private shorelines away from the named accesses and the chance of overshooting the Newport finish if you relax late in the run.',
+      ],
+    },
+  },
 'juniata-river-mifflin-walker': {
     putIn: {
       id: 'mifflin-ramp',
@@ -16442,6 +16522,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Low water under the conservative Lewistown 3.1 ft proxy floor, when broad cobble bars and slower channels can force dragging.',
         'Fresh wood after storms, muddy landing edges, and broad-river wind across exposed bends.',
         'Private shorelines away from the named public accesses and the temptation to improvise on bars because the route looks simple.',
+      ],
+    },
+  },
+'juniata-river-walker-newport': {
+    putIn: {
+      id: 'walker-pfbc-ramp',
+      name: 'Walker PFBC ramp',
+      latitude: 40.531944,
+      longitude: -77.357222,
+    },
+    takeOut: {
+      id: 'newport-primitive-access',
+      name: 'Newport access',
+      latitude: 40.479167,
+      longitude: -77.129444,
+    },
+    logistics: {
+      distanceLabel: 'About 18 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 8 hr in ordinary conditions, longer with low-water scraping, broad-river headwind, or time spent easing through the mile-33 and mile-10.5 caution zones',
+      shuttle:
+        'Stage the take-out at the Newport primitive access first, then drive back upstream to Walker PFBC. Confirm same-day parking and the intended final line into Newport before launching because the lower miles are broad and easy to drift past when tired.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Buttonwood Campground and River Rock Campground near Mexico plus Pittman\'s Riverside and Little Buffalo near Newport give this corridor real legal overnight support if you want to split it conservatively.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Walker PFBC and take out at Newport for a long lower-Juniata corridor run. The app uses the Newport gauge conservatively as a downstream same-river reference and expects scratching whenever that corridor sits under PFBC\'s 3.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Walker and Newport coordinates directly in the official lower Juniata access table.',
+        'The gauge story here stays conservative because Newport sits at the downstream end of this route, not near the put-in.',
+        'Buttonwood, River Rock, Pittman\'s Riverside, and Little Buffalo are legal support points, but Newport remains the intended take-out for this slug.',
+        'Use the named public accesses rather than islands, bars, or roadside guesses.',
+      ],
+      watchFor: [
+        'Rapid current near mile 33 in the upper half of the route plus the lower ledge/current feature near mile 10.5 as the river approaches Newport.',
+        'Newport stages below about 3.5 ft, when shallow bars, ledge lines, and broad lower pools become scratchier and slower.',
+        'Fresh wood after storms, broad-river headwind on the open lower bends, and primitive landing footing at Newport.',
+        'Private shorelines away from the named accesses and the chance of overshooting the Newport finish if you relax late in the run.',
       ],
     },
   },
