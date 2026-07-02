@@ -12539,6 +12539,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'green-river-american-legion-glenview-road': {
+    putIn: {
+      id: 'american-legion-park-ramp',
+      name: 'American Legion Park Ramp',
+      latitude: 37.2441,
+      longitude: -85.4795,
+    },
+    takeOut: {
+      id: 'glenview-road-carrydown',
+      name: 'Glenview Road Carrydown',
+      latitude: 37.291,
+      longitude: -85.5913,
+    },
+    logistics: {
+      distanceLabel: 'About 15.7 mi',
+      estimatedPaddleTime:
+        'About 5.5 hr to 8 hr, longer with low water, fishing stops, or slower loading at the road-end finish',
+      shuttle:
+        'Stage the take-out at Glenview Road, then drive back to American Legion Park below Highway 417. Glenview has no amenities and sits at a private-bank road end, so keep the take-out vehicle compact and leave daylight margin for a longer Upper Green day.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey any local or landowner signage at Glenview.',
+      camping:
+        'Treat this as a day trip with corridor lodging support rather than route camping. Greensburg City Park cabins and in-town overnight options sit on the route corridor, but KDFWR lists no camping at either endpoint and private banks should not be treated as legal campsites.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at American Legion Park and continue to Glenview Road for a longer Upper Green float. Use the Greensburg gauge and expect a slower, more scrape-prone day whenever the stage stays near or below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'American Legion Park is a graded park access below Highway 417 with unpaved parking and a muddy/gravel bank rather than a polished city ramp.',
+        'Greensburg City Ramp sits on the corridor and is the cleanest legal bailout if conditions, daylight, or group energy change before the Glenview finish.',
+        'Glenview Road Carrydown ends in the water and is surrounded by private land. Use only the obvious public road-end access and obey posted signs.',
+        'This route uses the direct Greensburg stage gauge. Trend, recent rain, and broad-river wind still matter more than a single number.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, mud edges, and slower pools can turn this into a long day.',
+        'High water above about 1.75 ft, when current at bends and the Glenview landing becomes less forgiving.',
+        'Bridge-adjacent current, anglers near the town accesses, private-bank limits, woody debris after rain, and broad-river wind on exposed pools.',
+        'Steep or slick footing at the Glenview road-end carrydown, especially after rain.',
+      ],
+    },
+  },
   'green-river-roachville-russell-ford': {
     putIn: {
       id: 'roachville-ford',
@@ -12655,6 +12695,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Ferry traffic at the launch, plus submerged trees, logjams, gravel-bar shifts, back channels, and drifting debris throughout the run.',
         'Higher water above about 15 ft, when the route becomes more consequential, and launch closures at or above 20 ft.',
         'Cold springs, exposed sun, limited cell service, and fewer nearby bailout options than the shorter park segment.',
+        'Camping mistakes: rising overnight water, unsecured boats, and unauthorized stops without a valid permit.',
+      ],
+    },
+  },
+  'green-river-dennison-ferry-houchins-ferry': {
+    putIn: {
+      id: 'dennison-ferry',
+      name: 'Dennison Ferry',
+      latitude: 37.2174,
+      longitude: -86.0493,
+    },
+    takeOut: {
+      id: 'houchins-ferry',
+      name: 'Houchins Ferry',
+      latitude: 37.2024,
+      longitude: -86.2376,
+    },
+    logistics: {
+      distanceLabel: 'About 19.8 mi',
+      estimatedPaddleTime:
+        'About 6.5 hr to 10 hr, longer with ferry delays, gravel-bar breaks, or a slower group pace',
+      shuttle:
+        'Stage the take-out at Houchins Ferry Campground, then drive back to Dennison Ferry Day Use Area. Build in extra shuttle time for park roads and verify current ferry and road status before leaving vehicles because access conditions can change without notice.',
+      permits:
+        'No permit is required for a same-day paddle, but this route is inside Mammoth Cave National Park and follows NPS boating rules. If you intend to break the route into an overnight, use only legal campsites and carry the required riverside camping permit.',
+      camping:
+        'This is the strongest Green River combination in the park for overnight flexibility. NPS says lower-water gravel bars and low riverbanks can support paddler camping with a valid riverside camping permit, and Houchins Ferry Campground also offers legal endpoint camping with toilets, picnic facilities, and vehicle access.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch at Dennison Ferry and continue all the way to Houchins Ferry for a long Mammoth Cave Green River day. The direct Mammoth Cave gauge anchors the route, but the current July 1 reading sits just below the park\'s 20-foot launch closure, so same-day judgment matters more than the mileage table.',
+      accessCaveats: [
+        'Dennison Ferry is day-use only with a carry-down launch. Do not plan to camp or leave gear spread across the access.',
+        'The route passes the Green River Ferry crossing midway. NPS says paddlers must stay back, wait for eye contact from the operator, and use the canoe/kayak access on the south side if stopping there.',
+        'On-route camping requires a valid riverside permit and is flow-dependent. Use only legal gravel-bar or low-bank sites allowed by park rules.',
+        'Houchins Ferry has the best endpoint support in this route family, but the campground and ramp still operate inside a managed park setting with posted quiet-hour and facility rules.',
+      ],
+      watchFor: [
+        'Current levels near 20 ft, when the route is still open but much more consequential than the park\'s broad beginner-friendly band.',
+        'Swift current, submerged trees, logjams, drifting debris, gravel-bar shifts, back channels, and muddy or slick access surfaces.',
+        'Ferry traffic at Green River Ferry, limited cell service, exposed sun, and fewer nearby bailout options than the shorter park segments.',
         'Camping mistakes: rising overnight water, unsecured boats, and unauthorized stops without a valid permit.',
       ],
     },
@@ -15562,6 +15642,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'High water above about 1.75 ft, when current at bends and the Glenview landing becomes less forgiving.',
         'Private-bank limits, woody debris after rain, exposed sun, and broad-river wind on longer pools.',
         'Steep or slick footing at the Glenview road-end carrydown, especially after rain.',
+      ],
+    },
+  },
+'green-river-russell-ford-glenview-road': {
+    putIn: {
+      id: 'russell-ford-access',
+      name: 'Russell Ford Access',
+      latitude: 37.2738,
+      longitude: -85.4784,
+    },
+    takeOut: {
+      id: 'glenview-road-carrydown',
+      name: 'Glenview Road Carrydown',
+      latitude: 37.291,
+      longitude: -85.5913,
+    },
+    logistics: {
+      distanceLabel: 'About 18.0 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 9 hr, longer with low water, fishing stops, or a slower group pace',
+      shuttle:
+        'Stage the take-out at Glenview Road, then drive back to Russell Ford on Ralph Vaughn Road. This is a committed Upper Green day, so keep both access areas compact and leave daylight margin for a long finish at the no-amenity road end.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey any local or landowner signage at Glenview.',
+      camping:
+        'Treat this as a day trip with Greensburg corridor lodging support rather than route camping. Greensburg City Park cabins and town services sit on the corridor, but KDFWR lists no camping at Russell Ford or Glenview and private banks should not be treated as legal campsites.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Russell Ford and continue to Glenview Road for a longer Upper Green float. Use the Greensburg gauge and expect a slower, more scrape-prone day whenever the stage stays near or below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Russell Ford is a simple gravel-bar carry-down with limited parking and no amenities. Keep the approach clear for other users.',
+        'American Legion Park and Greensburg City Ramp both sit on the corridor and can shorten the day if the group needs an earlier legal take-out.',
+        'Glenview Road Carrydown ends in the water and is surrounded by private land. Use only the obvious public road-end access and obey posted signs.',
+        'This route uses the direct Greensburg stage gauge. Trend, recent rain, and broad-river wind still matter more than a single number across a route this long.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, mud edges, and slower pools can turn this into a draggy full-day float.',
+        'High water above about 1.75 ft, when current along bends and at the Glenview finish gets less forgiving.',
+        'Shallow riffles, deep rocky pools, bridge-adjacent current, private-bank limits, broad-river wind, and woody debris after storms.',
+        'Slippery gravel or mud at Russell Ford and steep footing at the Glenview road-end carrydown.',
       ],
     },
   },
