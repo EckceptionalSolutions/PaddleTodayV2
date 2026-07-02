@@ -21,6 +21,12 @@ Kentucky had been paused from the active automation rotation at user request whi
 
 ## Current Guidance
 
+- 2026-07-02 03:30 America/Chicago / 2026-07-02 08:30 UTC three-route add pass
+  - Added `south-fork-kentucky-river-rocky-branch-upper-wolf-creek`, `south-fork-kentucky-river-bishop-bend-kay-wood`, and `south-fork-kentucky-river-hacker-branch-kay-wood` to expand Kentucky beyond the prior 65-route tree state.
+  - The run reused the current KDFWR South Fork Kentucky River page for the exact access-chain mileages of `2.5`, `4.7`, `3.3`, `2.9`, and `5.6` miles, which support the combined public routes of `13.4`, `11.8`, and `8.5` miles.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Rocky Branch Road Access, Bishop Bend School Road Access, Hacker Branch Road Access, Upper Wolf Creek Ramp, and Kay Wood Road Access; same-day direct USGS Water Services returned `244 cfs / 4.42 ft` at Booneville (`03281500`) at `2026-07-02 03:30 EDT`.
+  - Camping stays conservative at `none` for all three because KDFWR treats the access chain as day-use public launches rather than overnight sites. Safety notes stay focused on private-bank limits, low-water scraping below band, muddy landings, fresh wood after rain, and fatigue on the two longer combinations.
+  - Reused the approved South Fork Commons corridor images for all three new slugs rather than selecting new KDFWR or USGS imagery.
 - 2026-07-01 22:15 America/Chicago / 2026-07-02 03:15 UTC three-route add pass
   - Added `green-river-american-legion-glenview-road`, `green-river-russell-ford-glenview-road`, and `green-river-dennison-ferry-houchins-ferry` to expand Kentucky beyond the prior 65-route tree state.
   - The two Upper Green additions reused the current KDFWR Pool 6 Green River mileage table for the exact `2.0` mile American-Legion-to-Greensburg, `2.3` mile Russell-to-American-Legion, and `13.7` mile Greensburg-to-Glenview chain, which support new public routes of about `15.7` and `18.0` miles.

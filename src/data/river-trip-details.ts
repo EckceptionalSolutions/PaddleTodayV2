@@ -15073,6 +15073,120 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+'south-fork-kentucky-river-rocky-branch-upper-wolf-creek': {
+    putIn: {
+      id: 'rocky-branch-road-access',
+      name: 'Rocky Branch Road Access',
+      latitude: 37.3206,
+      longitude: -83.6648,
+    },
+    takeOut: {
+      id: 'upper-wolf-creek-ramp',
+      name: 'Upper Wolf Creek Ramp',
+      latitude: 37.4036,
+      longitude: -83.6798,
+    },
+    logistics: {
+      distanceLabel: 'About 13.4 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Upper Wolf Creek Ramp, then drive back to Rocky Branch Road Access off KY-11. Upper Wolf Creek is the more developed paved-ramp exit, but Rocky Branch remains a simple bridge-side carry-down with limited parking.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Rocky Branch or Upper Wolf Creek, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Rocky Branch Road Access and take out about 13.4 miles downstream at Upper Wolf Creek Ramp for a full middle-to-lower South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Rocky Branch is a bridge-side carry-down with unpaved parking and no amenities.',
+        'Upper Wolf Creek is a single-lane paved ramp with year-round 24-hour availability and a simpler finish than the upstream dirt accesses.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect more scraping, slower shoals, and a longer day than the official mileage alone suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely over a long full-corridor day.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and recovery becomes less forgiving around bends, wood, and muddy landings.',
+        'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue from repeated low-water line scouting.',
+      ],
+    },
+  },
+'south-fork-kentucky-river-bishop-bend-kay-wood': {
+    putIn: {
+      id: 'bishop-bend-school-road-access',
+      name: 'Bishop Bend School Road Access',
+      latitude: 37.3377,
+      longitude: -83.6882,
+    },
+    takeOut: {
+      id: 'kay-wood-road-access',
+      name: 'Kay Wood Road Access',
+      latitude: 37.4594,
+      longitude: -83.6509,
+    },
+    logistics: {
+      distanceLabel: 'About 11.8 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Kay Wood Road Access, then drive back to Bishop Bend School Road Access. Bishop Bend is a simpler dirt-road carry-down, while Kay Wood is an unpaved roadside carry-down with no developed amenities.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Bishop Bend or Kay Wood, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Bishop Bend School Road Access and take out about 11.8 miles downstream at Kay Wood Road Access for a longer lower South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Bishop Bend is a carry-down access with unpaved parking and no amenities.',
+        'Kay Wood is a KDFWR carry-down site with unpaved parking, no ramp, and no listed amenities.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect more scraping, slower shoals, and a longer day than the ideal band suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely over a longer downstream commitment.',
+        'High water above 900 cfs or 6.0 ft, when current becomes less forgiving around wood, bridge areas, and muddy landings.',
+        'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue from low-water line scouting late in the run.',
+      ],
+    },
+  },
+'south-fork-kentucky-river-hacker-branch-kay-wood': {
+    putIn: {
+      id: 'hacker-branch-road-access',
+      name: 'Hacker Branch Road Access',
+      latitude: 37.3743,
+      longitude: -83.6708,
+    },
+    takeOut: {
+      id: 'kay-wood-road-access',
+      name: 'Kay Wood Road Access',
+      latitude: 37.4594,
+      longitude: -83.6509,
+    },
+    logistics: {
+      distanceLabel: 'About 8.5 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Kay Wood Road Access, then drive back to Hacker Branch Road Access. Both are simple carry-down sites with unpaved parking, so inspect both approaches before leaving vehicles.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Hacker Branch or Kay Wood, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Hacker Branch Road Access and take out about 8.5 miles downstream at Kay Wood Road Access for a medium lower South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Hacker Branch is a carry-down access with unpaved parking and no developed amenities.',
+        'Kay Wood is a KDFWR carry-down site with unpaved parking, no ramp, and no listed amenities.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect shallower shoals and more scraping than the official mileage alone suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when current becomes less forgiving around wood, bridge areas, and muddy landings.',
+        'Wood, strainers, mud banks, occasional riffles, and private banks outside the access sites.',
+      ],
+    },
+  },
 'south-fork-kentucky-river-upper-wolf-creek-kay-wood': {
     putIn: {
       id: 'upper-wolf-creek-ramp',
