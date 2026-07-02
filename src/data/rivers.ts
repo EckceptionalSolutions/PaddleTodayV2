@@ -49488,6 +49488,363 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: "juniata-river-thompsontown-newport",
+    slug: "juniata-river-thompsontown-newport",
+    name: "Juniata River",
+    reach: "Lower Section: Thompsontown PFBC to Newport",
+    aliases: [
+      "Juniata River - Thompsontown to Newport",
+      "Lower Juniata - Thompsontown PFBC to Newport",
+      "Juniata River - Thompsontown ramp to Newport access",
+    ],
+    state: "Pennsylvania",
+    region: "Lower Juniata",
+    summary:
+      "Ten-mile lower-Juniata route from the Thompsontown PFBC ramp to the Newport primitive access. The official PFBC lower guide publishes both access coordinates, defines the pair as a 10-mile segment, and ties the route to the direct Newport gauge with a 3.5 ft minimum level.",
+    statusText:
+      "Use the Juniata River at Newport gauge. The official PFBC lower Juniata guide recommends at least 3.5 ft there for this corridor.",
+    latitude: 40.554167,
+    longitude: -77.235833,
+    gaugeSource: {
+      id: "usgs-01567000",
+      provider: "usgs",
+      siteId: "01567000",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Juniata River at Newport, PA",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["strainers", "private_banks"],
+      safetyNotes: [
+        "PFBC flags rapid current falling over a ledge near mile 10.5 inside the lower half of this route.",
+        "Pittman's Riverside Campground near Greenwood and Little Buffalo near Newport are legal support points, but Newport remains the intended primitive finish for this slug.",
+        "Use only the named public accesses at Thompsontown and Newport rather than private banks or islands.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 3.5,
+      thresholdSource: {
+        label: "PFBC lower Juniata guide minimum Newport gauge level",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "PFBC says low summer conditions can leave broad bars and shallow lines, while recent rain usually improves this lower corridor without needing a full high-water recommendation.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is an easy lower-river day when Newport clears the official floor, but the broad river, primitive take-out, and mile-10.5 ledge still deserve a conservative plan.",
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Thompsontown and Newport, defines them as an official 10-mile access pair, and gives a direct Newport minimum gauge level of 3.5 ft. USGS Water Services returned same-day July 1, 2026 values of 1,360 cfs and 3.67 ft for direct USGS 01567000 at 9:15 PM EDT during this run.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Thompsontown PFBC to Newport, about 10 mi",
+        note: "The PFBC lower Juniata guide places Thompsontown at river mile 22 and Newport at river mile 12.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Endpoint coordinates",
+        value: "PFBC access-site coordinates",
+        note: "The PFBC access table publishes Thompsontown at 40 33 15 / 77 14 09 and Newport at 40 28 45 / 77 07 46.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Direct gauge",
+        value: "USGS 01567000 at Newport",
+        note: "USGS Water Services returned same-day July 1, 2026 values of 1,360 cfs and 3.67 ft for Juniata River at Newport, PA, at 9:15 PM EDT.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01567000&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Official minimum level",
+        value: "Newport 3.5 ft minimum",
+        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Camping context",
+        value: "Pittman's and Newport corridor camping support",
+        note: "PFBC says Pittman's Riverside Campground sits at mile 16 and Little Buffalo Family Campground lies near Newport, giving this route real legal overnight support along the corridor.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Primary caution",
+        value: "Rapid current over a ledge at mile 10.5",
+        note: "PFBC warns of rapid current falling over a ledge at mile 10.5 inside the Thompsontown-to-Newport corridor.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "PFBC lower Juniata guide",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      {
+        label: "USGS 01567000 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/01567000/",
+        provider: "usgs",
+      },
+      {
+        label: "PFBC launch permit vs boat registration",
+        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        provider: "local",
+      },
+    ],
+  },
+  {
+    id: "juniata-river-millerstown-green-valley",
+    slug: "juniata-river-millerstown-green-valley",
+    name: "Juniata River",
+    reach: "Lower Section: Millerstown Community Park to Green Valley",
+    aliases: [
+      "Juniata River - Millerstown to Green Valley",
+      "Lower Juniata - Millerstown Community Park to Green Valley Campground",
+      "Juniata River - Millerstown access to Green Valley",
+    ],
+    state: "Pennsylvania",
+    region: "Lower Juniata",
+    summary:
+      "Eleven-mile lower-Juniata route from Millerstown Community Park to Green Valley Campground. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile table, and ties this corridor to the direct Newport gauge with a 3.5 ft minimum level.",
+    statusText:
+      "Use the Juniata River at Newport gauge. The official PFBC lower Juniata guide recommends at least 3.5 ft there for this corridor.",
+    latitude: 40.54,
+    longitude: -77.149722,
+    gaugeSource: {
+      id: "usgs-01567000",
+      provider: "usgs",
+      siteId: "01567000",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Juniata River at Newport, PA",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["strainers", "private_banks"],
+      safetyNotes: [
+        "PFBC flags rapid current falling over a ledge near mile 10.5 inside the lower half of this route.",
+        "The take-out is tied to Green Valley Campground on river left, so confirm the landing lane before drifting past it.",
+        "Stay with the named public accesses at Millerstown and Green Valley rather than private banks or islands.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 3.5,
+      thresholdSource: {
+        label: "PFBC lower Juniata guide minimum Newport gauge level",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "PFBC says low summer conditions can leave broad bars and shallow lines, while recent rain usually improves this lower corridor without needing a full high-water recommendation.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is an easy lower-river day when the Newport corridor has enough depth, but the broad river, campground take-out, and mile-10.5 ledge still deserve attention.",
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Millerstown and Green Valley, defines them as an official 11-mile access pair, and gives a direct Newport minimum gauge level of 3.5 ft. USGS Water Services returned same-day July 1, 2026 values of 1,360 cfs and 3.67 ft for direct USGS 01567000 at 9:15 PM EDT during this run, and that gauge sits inside the route corridor.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Millerstown Community Park to Green Valley, about 11 mi",
+        note: "The PFBC lower Juniata guide places Millerstown at river mile 17 and Green Valley at river mile 6.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Endpoint coordinates",
+        value: "PFBC access-site coordinates",
+        note: "The PFBC access table publishes Millerstown at 40 32 24 / 77 08 59 and Green Valley at 40 28 45 / 77 03 17.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Direct gauge",
+        value: "USGS 01567000 at Newport",
+        note: "USGS Water Services returned same-day July 1, 2026 values of 1,360 cfs and 3.67 ft for Juniata River at Newport, PA, at 9:15 PM EDT. The gauge sits inside this route corridor.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01567000&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Official minimum level",
+        value: "Newport 3.5 ft minimum",
+        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Camping context",
+        value: "Green Valley endpoint campground",
+        note: "PFBC says Green Valley Campground and Grocery at mile 6 offers overnight camping with boat access, making the take-out an established campground finish.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Primary caution",
+        value: "Rapid current over a ledge at mile 10.5",
+        note: "PFBC warns of rapid current falling over a ledge at mile 10.5 inside the Millerstown-to-Green-Valley corridor.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "PFBC lower Juniata guide",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      {
+        label: "USGS 01567000 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/01567000/",
+        provider: "usgs",
+      },
+      {
+        label: "PFBC launch permit vs boat registration",
+        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        provider: "local",
+      },
+    ],
+  },
+  {
+    id: "juniata-river-millerstown-amity-hall",
+    slug: "juniata-river-millerstown-amity-hall",
+    name: "Juniata River",
+    reach: "Lower Section: Millerstown Community Park to Amity Hall PFBC",
+    aliases: [
+      "Juniata River - Millerstown to Amity Hall",
+      "Lower Juniata - Millerstown Community Park to Amity Hall PFBC",
+      "Juniata River - Millerstown access to Amity Hall ramp",
+    ],
+    state: "Pennsylvania",
+    region: "Lower Juniata",
+    summary:
+      "Fifteen-mile lower-Juniata route from Millerstown Community Park to the Amity Hall PFBC ramp. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile table, and ties this corridor to the direct Newport gauge with a 3.5 ft minimum level.",
+    statusText:
+      "Use the Juniata River at Newport gauge. The official PFBC lower Juniata guide recommends at least 3.5 ft there for this corridor.",
+    latitude: 40.54,
+    longitude: -77.149722,
+    gaugeSource: {
+      id: "usgs-01567000",
+      provider: "usgs",
+      siteId: "01567000",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Juniata River at Newport, PA",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["strainers", "private_banks"],
+      safetyNotes: [
+        "PFBC flags rapid current falling over a ledge near mile 10.5 plus the lower outcrop-and-ledge zone near miles 5.5 and 5 inside this route.",
+        "Green Valley Campground is a legal mid-route support point, but the intended finish remains the Amity Hall PFBC ramp farther downstream.",
+        "Use only the named public accesses at Millerstown and Amity Hall rather than private banks or islands.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 3.5,
+      thresholdSource: {
+        label: "PFBC lower Juniata guide minimum Newport gauge level",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "PFBC says low summer conditions can leave broad bars and scratchy ledge lines, while recent rain usually improves this lower corridor without needing a full high-water recommendation.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is an easy lower-river day when the Newport corridor has enough depth, but the longer mileage, broad river, and lower outcrop zone make it more consequential than the short campground links.",
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Millerstown and Amity Hall, defines them as an official 15-mile access pair, and gives a direct Newport minimum gauge level of 3.5 ft. USGS Water Services returned same-day July 1, 2026 values of 1,360 cfs and 3.67 ft for direct USGS 01567000 at 9:15 PM EDT during this run, and that gauge sits inside the route corridor.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Millerstown Community Park to Amity Hall PFBC, about 15 mi",
+        note: "The PFBC lower Juniata guide places Millerstown at river mile 17 and Amity Hall at river mile 2.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Endpoint coordinates",
+        value: "PFBC access-site coordinates",
+        note: "The PFBC access table publishes Millerstown at 40 32 24 / 77 08 59 and Amity Hall at 40 25 51 / 77 00 48.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Direct gauge",
+        value: "USGS 01567000 at Newport",
+        note: "USGS Water Services returned same-day July 1, 2026 values of 1,360 cfs and 3.67 ft for Juniata River at Newport, PA, at 9:15 PM EDT. The gauge sits inside this route corridor.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01567000&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Official minimum level",
+        value: "Newport 3.5 ft minimum",
+        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Camping context",
+        value: "Green Valley mid-route campground support",
+        note: "PFBC says Green Valley Campground and Grocery at mile 6 offers overnight camping with boat access, giving this longer corridor a real legal split point.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Primary cautions",
+        value: "Mile 10.5 ledge plus mile 5.5 and mile 5 outcrop zones",
+        note: "PFBC warns of rapid current over a ledge at mile 10.5, outcrops scattered across the river near mile 5.5, and a series of ledges plus small outcrops near mile 5 inside this route.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "PFBC lower Juniata guide",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      {
+        label: "USGS 01567000 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/01567000/",
+        provider: "usgs",
+      },
+      {
+        label: "PFBC launch permit vs boat registration",
+        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        provider: "local",
+      },
+    ],
+  },
+  {
     id: "juniata-river-greenwood-newport",
     slug: "juniata-river-greenwood-newport",
     name: "Juniata River",

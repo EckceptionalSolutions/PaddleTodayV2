@@ -16725,6 +16725,126 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+'juniata-river-thompsontown-newport': {
+    putIn: {
+      id: 'thompsontown-pfbc-ramp',
+      name: 'Thompsontown PFBC ramp',
+      latitude: 40.554167,
+      longitude: -77.235833,
+    },
+    takeOut: {
+      id: 'newport-primitive-access',
+      name: 'Newport access',
+      latitude: 40.479167,
+      longitude: -77.129444,
+    },
+    logistics: {
+      distanceLabel: 'About 10 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr in ordinary conditions, longer with low-water scraping, broad-river headwind, or time spent easing through the mile-10.5 caution zone',
+      shuttle:
+        'Stage the take-out at the Newport primitive access first, then drive back upstream to the Thompsontown PFBC ramp. Confirm same-day parking and the intended final line into Newport before launching because the lower miles are broad and easy to drift past when tired.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Pittman\'s Riverside Campground near Greenwood and Little Buffalo Family Campground near Newport give this route real legal overnight support if you want to split it conservatively.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Thompsontown and take out at Newport for a fuller lower-Juniata corridor day. Use the direct Newport gauge and expect scraping whenever the river sits under PFBC\'s 3.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Thompsontown and Newport coordinates directly in the official lower Juniata access table.',
+        'Newport is a primitive town-side finish, so scout the landing edge and do not assume any nearby private shoreline is an acceptable substitute.',
+        'Pittman\'s Riverside and Little Buffalo are legal support points, but Newport remains the intended take-out for this slug.',
+        'Use the named public accesses rather than islands, bars, or roadside guesses.',
+      ],
+      watchFor: [
+        'Rapid current falling over a ledge near mile 10.5, the main route-specific caution PFBC flags in this corridor.',
+        'Newport stages below about 3.5 ft, when shallow bars and ledge lines become scratchier and slower.',
+        'Fresh wood after storms, broad-river headwind on the open lower bends, and primitive landing footing at Newport.',
+        'Private shorelines away from the named accesses and the chance of overshooting the Newport finish if you relax late in the run.',
+      ],
+    },
+  },
+'juniata-river-millerstown-green-valley': {
+    putIn: {
+      id: 'millerstown-community-park-access',
+      name: 'Millerstown Community Park access',
+      latitude: 40.54,
+      longitude: -77.149722,
+    },
+    takeOut: {
+      id: 'green-valley-ramp',
+      name: 'Green Valley access',
+      latitude: 40.479167,
+      longitude: -77.054722,
+    },
+    logistics: {
+      distanceLabel: 'About 11 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr in ordinary conditions, longer with low-water scraping, broad-river headwind, or time spent easing through the mile-10.5 caution zone',
+      shuttle:
+        'Stage the take-out at Green Valley first, then drive back upstream to Millerstown Community Park. Confirm the campground-side landing lane before launching so you do not drift past the intended finish.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Green Valley Campground sits directly at the take-out and is the clearest legal overnight support if you want to turn this route into a campground-based trip.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Millerstown Community Park and take out at Green Valley for a longer lower-Juniata campground link. Use the direct Newport gauge and expect scraping whenever the river sits under PFBC\'s 3.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Millerstown and Green Valley coordinates directly in the official lower Juniata access table.',
+        'Green Valley is the intended river-left finish. Confirm same-day campground access expectations before using it only as a take-out.',
+        'This is still a broad river over longer mileage, so wind can matter more than the map suggests.',
+        'Stay with the named public accesses rather than using private banks or islands as backup landings.',
+      ],
+      watchFor: [
+        'Rapid current falling over a ledge near mile 10.5, the main route-specific caution PFBC flags in this corridor.',
+        'Newport stages below about 3.5 ft, when shallow bars and ledge lines become scratchier and slower.',
+        'Broad-river headwind, fresh wood after storms, and the need to hold the correct line into the Green Valley finish.',
+        'Private shorelines away from the named accesses and the chance of overshooting the campground landing if you drift past the bank.',
+      ],
+    },
+  },
+'juniata-river-millerstown-amity-hall': {
+    putIn: {
+      id: 'millerstown-community-park-access',
+      name: 'Millerstown Community Park access',
+      latitude: 40.54,
+      longitude: -77.149722,
+    },
+    takeOut: {
+      id: 'amity-hall-pfbc-ramp',
+      name: 'Amity Hall PFBC ramp',
+      latitude: 40.430833,
+      longitude: -77.013333,
+    },
+    logistics: {
+      distanceLabel: 'About 15 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7.5 hr in ordinary conditions, longer with low-water scraping, broad-river headwind, or time spent easing through the mile-10.5 and mile-5 caution zones',
+      shuttle:
+        'Stage the take-out at the Amity Hall PFBC ramp first, then drive back upstream to Millerstown Community Park. Confirm the intended downstream finish before launching so you do not improvise on private shoreline once the lower river opens up.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Green Valley Campground sits on the route near mile 6 and is the clearest legal overnight support if you want to split this longer lower-Juniata corridor conservatively.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Millerstown Community Park and take out at Amity Hall PFBC for a full lower-Juniata corridor run. Use the direct Newport gauge and expect scraping whenever the river sits under PFBC\'s 3.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Millerstown and Amity Hall coordinates directly in the official lower Juniata access table.',
+        'Green Valley is a legal mid-route campground/support point, not the intended finish for this slug.',
+        'This is a longer broad-river day than the mileage can make it sound, especially if wind or low-water bars slow progress.',
+        'Stay with the named public accesses rather than using private banks or islands as substitute stops.',
+      ],
+      watchFor: [
+        'Rapid current falling over a ledge near mile 10.5 plus the lower outcrop-and-ledge zone near miles 5.5 and 5, all flagged by PFBC as potentially hazardous current areas.',
+        'Newport stages below about 3.5 ft, when shallow bars and ledge lines become scratchier and slower.',
+        'Broad-river headwind, fresh wood after storms, and the need to hold the correct line through the lower outcrop zone near the Amity Hall finish.',
+        'Private shorelines away from the named accesses and the chance of taking out too early at Green Valley if you are aiming for the full run to Amity Hall.',
+      ],
+    },
+  },
 'juniata-river-greenwood-newport': {
     putIn: {
       id: 'greenwood-pfbc-ramp',
