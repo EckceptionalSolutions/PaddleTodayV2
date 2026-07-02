@@ -2295,6 +2295,127 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'big-fork-river-gowdy-reedy-flats',
+    slug: 'big-fork-river-gowdy-reedy-flats',
+    name: 'Big Fork River',
+    reach: 'Gowdy Landing to Reedy Flats',
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'Full lower Big Fork continuation from Gowdy Landing to Reedy Flats. It stays below the upstream rapid stretch, but the mileage, sparse exits, and Rainy-confluence finish make it a serious lower-river commitment.',
+    statusText:
+      'The Big Falls gauge is best from 2.8 to 4.5 ft. Below 1.5 ft, expect scraping on shallow bends and slower travel; above 6.0 ft, faster current, wood, and sparse exits become too consequential for a general recommendation.',
+    latitude: 48.299138,
+    longitude: -93.820383,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'remote', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'This lower continuation avoids the mapped Class I stretch above Gowdy, but it is still a long remote run with only Kueffners and Ivan Crawford as clean named checkpoints before Reedy Flats.',
+        'Take out at Reedy Flats rather than drifting into the Rainy River corridor after a long day or in rising water.',
+        'Fresh wood, cold shoulder-season water, and fast post-rain rises can turn this quieter-looking lower river into a demanding recovery problem.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-5',
+      provider: 'mn_dnr',
+      siteId: '5',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Big Fork River at Big Falls, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77069001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.8,
+      idealMax: 4.5,
+      tooLow: 1.5,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Big Fork River at Big Falls',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The lower Big Fork usually drops through summer, but heavy summer or autumn rain still accelerates this corridor quickly and moves fresh wood into the outside bends above the Rainy confluence.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The water is gentler than the upper rapid routes, but the long mileage, sparse exits, remote shuttle, and precise take-out keep this well beyond a casual easy float.',
+      confidenceNotes:
+        'Confidence is good for a conservative lower-river add: DNR Map 2 names Gowdy, Kueffners, Ivan Crawford, and Reedy Flats with matching river miles, the official public-water-access dataset resolves the endpoints, and the Big Falls gauge remains the closest official same-river ladder.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct live gauge',
+        value: 'Big Falls gauge 2.87 ft',
+        note: 'The official MN DNR river-level dataset reported 2.87 ft at 2026-07-01 11:00 PM for Big Fork River at Big Falls, confirming the current same-river gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '1.5 / 2.8-4.5 / 6.0 ft',
+        note: 'MN DNR interprets the Big Falls gauge as Scrapable below 1.5 ft, Low from 1.5 to 2.8, Medium from 2.8 to 4.5, High from 4.5 to 6.0, and Very High above 6.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: 'Gowdy RM 34.2 to Reedy Flats RM 0.5',
+        note: 'DNR Map 2 places Gowdy at river mile 34.2, Kueffners at 30.4, Ivan Crawford at 9.0, and Reedy Flats at 0.5 just above the Rainy River confluence, supporting a 33.7-mile lower continuation.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Gowdy WAS02706 and Reedy Flats WAS02709',
+        note: 'Minnesota public-water-access data resolves Gowdy and Reedy Flats as official Big Fork accesses with exact coordinates and matching water-trail river miles.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: 'Gowdy, Kueffners, and Reedy Flats campsites',
+        note: 'DNR Map 2 says Gowdy has a watercraft campsite, Kueffners has toilets plus another campsite, and Reedy Flats has a toilet and watercraft campsite, giving this full lower continuation real overnight and bailout support.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'Route character',
+        value: 'Committed lower corridor above Rainy River',
+        note: 'Below Gowdy, DNR Map 2 names only Kueffners, Ivan Crawford, and Reedy Flats, so this route should be treated as a committed lower-river corridor rather than a sequence of short hops.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Big Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Big Fork River map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'MN DNR Big Falls gauge detail',
+        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Pine Island State Forest map',
+        url: 'https://files.dnr.state.mn.us/maps/state_forests/sft00040.pdf',
+      },
+    ],
+  },
+  {
     id: 'big-fork-river-kueffners-ivan-crawford',
     slug: 'big-fork-river-kueffners-ivan-crawford',
     name: 'Big Fork River',
@@ -3126,6 +3247,113 @@ export const rivers: River[] = [
         label: 'Camping support',
         value: 'Samuelson County Park tent sites on route',
         note: 'DNR Map 1 says Samuelson County Park has drinking water and tent sites, giving this longer route real on-route campground support even though the planned take-out is the simpler Silverdale access.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Little Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/littleforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Little Fork River map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'little-fork-river-samuelson-silverdale',
+    slug: 'little-fork-river-samuelson-silverdale',
+    name: 'Little Fork River',
+    reach: 'Samuelson Park to Silverdale',
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'Short official Little Fork continuation from Samuelson Park to Silverdale. It keeps the same MN DNR gauge ladder as the longer Map 1 routes, but trims the commitment down to a compact rapid-and-wood corridor with a campground-supported put-in.',
+    statusText:
+      'The Silverdale / MN 65 gauge is best from 500 to 1,300.5 cfs. Below 400 cfs, expect scraping; above 2,835 cfs, the current becomes too pushy for a general recommendation.',
+    latitude: 47.9485284,
+    longitude: -93.0992707,
+    gaugeSource: {
+      id: 'mn-dnr-295',
+      provider: 'mn_dnr',
+      siteId: '295',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Little Fork River nr Silverdale, MN65',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=76090001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=76090001&var1=262&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'strainers', 'remote', 'cold_water'],
+      safetyNotes: [
+        'MN DNR still marks this lower Map 1 corridor with Class I to II rapids, so short mileage does not remove the need to scout wood or read-and-run ledges conservatively.',
+        'The run is shorter than the Highway 73 starts, but it is still a remote northern channel with cold water, brushy banks, and few easy unplanned exits between the named public accesses.',
+        'Fresh wood and undercut outside bends remain part of the normal risk story after storms or high water.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 500,
+      idealMax: 1300.5,
+      tooLow: 400,
+      tooHigh: 2835,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Little Fork River near Silverdale / MN 65',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The Little Fork usually peaks in late April and falls through summer. This short lower-Map-1 split stays workable longest after rain, but higher water quickly shortens recovery windows in the rapids and wood.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a shorter but still serious northern route. The mileage is approachable, yet repeated rapids, wood hazards, and remote rescue posture keep it above a casual easy float.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: DNR Map 1 places Samuelson Park and Silverdale on the same official corridor, the Silverdale DNR gauge carries a full official ladder on this reach, and the public-water-access feature service resolves both named endpoints with matching river miles.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct live gauge',
+        value: 'Silverdale gauge 178 cfs',
+        note: 'The official MN DNR river-level dataset reported 178 cfs at 2026-07-01 11:00 PM for Little Fork River near Silverdale / MN 65, confirming the current same-river gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '400 / 500-1,300.5 / 2,835 cfs',
+        note: 'MN DNR interprets site 295 as Scrapable below 400 cfs, Low from 400 to 500, Medium from 500 to 1,300.5, High from 1,300.5 to 2,835, and Very High above 2,835.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: 'Samuelson RM 104.0 to Silverdale RM 99.9',
+        note: 'DNR Map 1 and the public-water-access layer place Samuelson Park at river mile 104.0 and Silverdale at river mile 99.9, supporting a 4.1-mile official continuation.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Samuelson WAS00502 and Silverdale WAS00501',
+        note: 'Minnesota public-water-access data resolves both named accesses with coordinates and matching water-trail river miles on the Little Fork corridor.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: 'Samuelson County Park tent sites',
+        note: 'DNR Map 1 says Samuelson County Park has a carry-in access, picnic table, toilet, drinking water, and tent sites, giving this short split real endpoint campground support at the put-in.',
         sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
       },
     ],
@@ -50046,6 +50274,118 @@ export const rivers: River[] = [
       {
         label: "USGS 01564895 monitoring location",
         url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
+        provider: "usgs",
+      },
+      {
+        label: "PFBC launch permit vs boat registration",
+        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        provider: "local",
+      },
+    ],
+  },
+  {
+    id: "juniata-river-victory-park-newport",
+    slug: "juniata-river-victory-park-newport",
+    name: "Juniata River",
+    reach: "Lower Section: Victory Park to Newport",
+    aliases: [
+      "Juniata River - Victory Park to Newport",
+      "Lower Juniata - Lewistown to Newport",
+      "Juniata River - Victory Park access to Newport",
+    ],
+    state: "Pennsylvania",
+    region: "Lower Juniata",
+    summary:
+      "Thirty-four-mile lower-Juniata corridor from Victory Park in Lewistown to the Newport access. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile access table, and supports a conservative minimum-only model using the Newport gauge as the downstream same-river lower-section reference.",
+    statusText:
+      "Use the Juniata River at Newport gauge as a conservative downstream same-river reference. The official PFBC lower Juniata guide lists it among the useful lower-section gauges and recommends at least 3.5 ft there.",
+    latitude: 40.595,
+    longitude: -77.578889,
+    gaugeSource: {
+      id: "usgs-01567000",
+      provider: "usgs",
+      siteId: "01567000",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "proxy",
+      siteName: "Juniata River at Newport, PA",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["strainers", "private_banks"],
+      safetyNotes: [
+        "PFBC flags the mile-43 ledge with rough water pushing into a cut bank, rapid current near mile 33, and the lower ledge/current feature near mile 10.5 as the river approaches Newport.",
+        "This is a genuinely long broad-river day, so headwind, fresh wood after storms, and low-water bars can stretch the plan well beyond the clean mileage.",
+        "Use only the named public accesses at Victory Park and Newport rather than private banks, islands, or roadside pull-offs.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 3.5,
+      thresholdSource: {
+        label: "PFBC lower Juniata guide minimum Newport gauge level used as a downstream same-river proxy",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "PFBC says low summer conditions can leave broad bars and scratchy lower lines, while recent rain often improves this longer corridor without needing a full high-water recommendation.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is an easy lower-river route in the product sense, but thirty-four open miles plus the mile-43, mile-33, and mile-10.5 caution points keep it from being a casual float.",
+      confidenceNotes:
+        "Confidence is solid but intentionally capped below directly gauged short routes. The PFBC lower Juniata guide publishes exact coordinates for Victory Park and Newport, defines them as a 34-mile access pair from river mile 46 to river mile 12, and lists Newport among the useful lower-Juniata gauges with a 3.5 ft minimum. USGS Water Services returned same-day July 2, 2026 values of 1340 cfs and 3.66 ft at direct site 01567000 during implementation, but that gauge sits at the downstream end of the route, so the app keeps only a conservative minimum floor.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Victory Park to Newport, about 34 mi",
+        note: "The PFBC lower Juniata guide places Victory Park at river mile 46 and Newport at river mile 12.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Endpoint coordinates",
+        value: "PFBC access-site coordinates",
+        note: "The PFBC access table publishes Victory Park at 40 35 42 / 77 34 44 and Newport at 40 28 45 / 77 07 46.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Gauge reference",
+        value: "USGS 01567000 at Newport",
+        note: "USGS Water Services returned same-day July 2, 2026 values of 1340 cfs and 3.66 ft for Juniata River at Newport, PA, used here as the conservative downstream same-river reference.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01567000&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Official minimum level",
+        value: "Newport 3.5 ft minimum",
+        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Primary cautions",
+        value: "Miles 43, 33, and 10.5",
+        note: "PFBC warns of a ledge stretching across the river at mile 43, rapid current near mile 33, and another ledge/current feature near mile 10.5 as the river approaches Newport.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "PFBC lower Juniata guide",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      {
+        label: "USGS 01567000 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/01567000/",
         provider: "usgs",
       },
       {

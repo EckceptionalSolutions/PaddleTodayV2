@@ -34,6 +34,12 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Run Notes
 
+- 2026-07-02 08:20 America/Chicago / 2026-07-02 13:20 UTC: Pennsylvania one-route implementation inside a three-route mixed-state pass; added `juniata-river-victory-park-newport`.
+  - Reused the current repo state as the real baseline and filled only one remaining lower-Juniata slug that still cleared the product mileage ceiling with official access, live gauge evidence, and route-specific caution support.
+  - Qualification package: the PFBC lower Juniata guide still publishes exact public access coordinates for Victory Park and Newport, official river-mile spacing of `34` miles for the chosen pair, lower-corridor caution points at miles `43`, `33`, and `10.5`, and the lower-section Newport minimum gauge floor of `3.5 ft`. Same-day direct USGS Water Services returned `1340 cfs / 3.66 ft` at Newport (`01567000`) at `2026-07-02 02:15 EDT`.
+  - Camping and safety/logistics notes were added for the route. `juniata-river-victory-park-newport` ships as `on_route_campsite` because the guide still names real legal campground support around Mexico and Newport for splitting the corridor conservatively.
+  - No gallery image was added. Bounded Commons, PFBC guide imagery, and USGS media checks found corridor context but no clearly rights-clean exact-route asset was selected for this slug.
+
 - 2026-07-01 20:54 America/Chicago / 2026-07-02 01:54 UTC: Pennsylvania three-route implementation pass; added three more lower Juniata routes.
   - Reused the current clean `448`-route repo state as the baseline after the earlier Newport-bound lower-Juniata pass, so this run still needed three genuinely new slugs beyond that tree state.
   - Implemented `juniata-river-thompsontown-newport`, `juniata-river-millerstown-green-valley`, and `juniata-river-millerstown-amity-hall` from the PFBC lower Juniata guide.

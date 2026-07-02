@@ -14,6 +14,13 @@ Minnesota still has the strongest official-source foundation and a broad existin
 
 ## Latest Run
 
+- 2026-07-02 08:20 America/Chicago: added `little-fork-river-samuelson-silverdale` and `big-fork-river-gowdy-reedy-flats`.
+- Stayed in Minnesota because the current official DNR families still had two unused implementation-grade continuations under the route-audit ceiling, while weaker new-state candidates did not beat the existing source quality.
+- Current MN DNR `river_level_sites.json` reported site `295` (`Little Fork River nr Silverdale, MN65`) at `178 cfs` on `2026-07-01 11:00 PM` and site `5` (`Big Fork River at Big Falls, MN`) at `2.87 ft` on `2026-07-01 11:00 PM`; official ladders remain `400 / 500-1300.5 / 2835 cfs` for the Little Fork Silverdale gauge and `1.5 / 2.8-4.5 / 6.0 ft` for Big Falls.
+- The official public-water-access GIS still resolves Samuelson `WAS00502`, Silverdale `WAS00501`, Gowdy `WAS02706`, Kueffners `WAS01788`, Ivan Crawford `WAS02705`, and Reedy Flats `WAS02709` with matching water-trail river miles.
+- `little-fork-river-samuelson-silverdale` ships as `endpoint_campground` because Samuelson County Park still provides tent sites, water, toilet, and a carry-in launch at one endpoint; `big-fork-river-gowdy-reedy-flats` ships as `endpoint_campground` because Gowdy, Kueffners, and Reedy Flats still provide real campsite or toilet-supported overnight structure on the full lower continuation.
+- Safety notes stay conservative around the Little Fork Map 1 Class I-II rapid and wood story, the lower Big Fork long-day commitment above the Rainy River confluence, private-bank limits, cold water, and fresh storm wood. No route-gallery image was added.
+
 - 2026-07-02 00:20 America/Chicago: added `big-fork-river-ben-linn-ivan-crawford`, `big-fork-river-gowdy-ivan-crawford`, and `big-fork-river-kueffners-reedy-flats`.
 - Stayed on the same official lower Big Fork family because current MN DNR Map 2 still had three unused access-to-access continuations under the route-audit mileage ceiling with stronger source quality than reopening a weaker new-state search.
 - Current MN DNR `river_level_sites.json` still reports site `5` (`Big Fork River at Big Falls, MN`) at `2.87 ft` at `2026-07-01 10:00 PM`; official bands remain Scrapable below `1.5 ft`, Low `1.5-2.8`, Medium `2.8-4.5`, High `4.5-6.0`, and Very High above `6.0`.

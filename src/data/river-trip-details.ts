@@ -1807,6 +1807,79 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'big-fork-river-gowdy-reedy-flats': {
+    putIn: {
+      name: 'Gowdy Public Water Access Site',
+      latitude: 48.2991378,
+      longitude: -93.820383,
+    },
+    takeOut: {
+      name: 'Reedy Flats Public Water Access Site',
+      latitude: 48.512209474305244,
+      longitude: -93.71277845257251,
+    },
+    logistics: {
+      distanceLabel: '33.7 mi',
+      estimatedPaddleTime: 'Full-commitment day, roughly 10 hr to 12 hr depending on level and wind',
+      shuttle:
+        'Stage the take-out at Reedy Flats before driving to Gowdy. This is a full lower-river shuttle with only Kueffners and Ivan Crawford as clean named checkpoints before the Rainy River approach.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access, county, and state-forest rules at Gowdy, Kueffners, Ivan Crawford, and Reedy Flats.',
+      camping:
+        'Gowdy has a watercraft campsite, Kueffners adds toilets plus another campsite, and Reedy Flats has a toilet and watercraft campsite just above Highway 11, so this route has real endpoint and midpoint overnight support.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Gowdy and continue all the way to Reedy Flats for the full lower Big Fork continuation below the mapped rapid stretch. The current is usually gentler here, but the route is long, remote, and easy to underestimate.',
+      accessCaveats: [
+        'Kueffners and Ivan Crawford are the only clean named checkpoints before the final Reedy Flats finish.',
+        'Take out at Reedy Flats instead of casually continuing into the Rainy River confluence corridor.',
+        'Use only the named public accesses and campsites because surrounding shoreline remains private or undeveloped.',
+      ],
+      watchFor: [
+        'Long-day fatigue, broad exposed bends, and cold shoulder-season water on a route that keeps going after Ivan Crawford.',
+        'Fresh storm wood, strainers, and fast post-rain current changes on a corridor with few easy exits.',
+        'Slow travel and shallow bends when the Big Falls gauge falls toward the 1.5 ft floor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'gowdy',
+        name: 'Gowdy Public Water Access Site',
+        latitude: 48.2991378,
+        longitude: -93.820383,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Carry-in access with a watercraft campsite at the upstream end of this full lower continuation.',
+      },
+      {
+        id: 'kueffners',
+        name: 'Kueffners Public Water Access Site',
+        latitude: 48.3387433532423,
+        longitude: -93.81704382878402,
+        mileFromStart: 3.8,
+        segmentKind: 'creek',
+        note: 'Carry-in access with toilets and a watercraft campsite before the longest lower miles.',
+      },
+      {
+        id: 'ivan-crawford',
+        name: 'Ivan Crawford Public Water Access Site',
+        latitude: 48.45526062827152,
+        longitude: -93.71955474703496,
+        mileFromStart: 25.2,
+        segmentKind: 'creek',
+        note: 'County landing near the lower Big Fork / Bear River area and the final major checkpoint before Reedy Flats.',
+      },
+      {
+        id: 'reedy-flats',
+        name: 'Reedy Flats Public Water Access Site',
+        latitude: 48.512209474305244,
+        longitude: -93.71277845257251,
+        mileFromStart: 33.7,
+        segmentKind: 'creek',
+        note: 'Trailer access with a watercraft campsite just above Highway 11 and the Rainy River confluence.',
+      },
+    ],
+  },
   'big-fork-river-kueffners-reedy-flats': {
     putIn: {
       name: 'Kueffners Public Water Access Site',
@@ -2151,6 +2224,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         note: 'Best named bailout and only campground-supported stop before the final Silverdale miles.',
       },
     ],
+  },
+  'little-fork-river-samuelson-silverdale': {
+    putIn: {
+      name: 'Samuelson Park Public Water Access Site',
+      latitude: 47.9485284,
+      longitude: -93.0992707,
+    },
+    takeOut: {
+      name: 'Silverdale Public Water Access Site',
+      latitude: 47.9768919,
+      longitude: -93.1445789,
+    },
+    logistics: {
+      distanceLabel: '4.1 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr depending on level, wood, and scouting',
+      shuttle:
+        'Use a short two-car shuttle from Samuelson Park to Silverdale and still check both accesses before launching. The miles are modest, but this is not a casual roadside float when wood or low-water rapids complicate progress.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access and county-park rules at Samuelson and Silverdale.',
+      camping:
+        'Samuelson Park gives this route real endpoint-campground support at the put-in. DNR Map 1 says the park has a carry-in access, picnic table, toilet, drinking water, and tent sites.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Samuelson Park and finish at Silverdale for the shortest official Little Fork Map 1 continuation currently in the app. The mileage is approachable, but the route still carries the same rapid-and-wood story as the longer Highway 73 starts.',
+      accessCaveats: [
+        'Samuelson Park is the developed endpoint with campground services; Silverdale is a simpler public access finish.',
+        'Use only the named public accesses rather than improvised roadside stops or private banks along the wooded corridor.',
+        'Short mileage does not remove the need to scout wood or read the ledges carefully when the channel is high or obstructed.',
+      ],
+      watchFor: [
+        'Class I to II rapids, rocky riffles, and wood hazards on a narrow remote northern channel.',
+        'Scraping and slower-than-expected progress when the Silverdale gauge is below the 400 cfs floor.',
+        'Cold water, brushy banks, and limited quick exits between the named public accesses.',
+      ],
+    },
   },
   'little-fork-river-devereaux-lofgren-park': {
     putIn: {
@@ -17007,6 +17115,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Rapid current near mile 33, the other main caution point PFBC flags in this corridor.',
         'Lewistown stages below about 3.1 ft, when shallow bars and ledge lines become slower and more technical.',
         'Fresh wood after storms, bridge-current changes, and muddy landing edges at either public access.',
+      ],
+    },
+  },
+'juniata-river-victory-park-newport': {
+    putIn: {
+      id: 'victory-park-access',
+      name: 'Victory Park access',
+      latitude: 40.595,
+      longitude: -77.578889,
+    },
+    takeOut: {
+      id: 'newport-primitive-access',
+      name: 'Newport access',
+      latitude: 40.479167,
+      longitude: -77.129444,
+    },
+    logistics: {
+      distanceLabel: 'About 34 mi',
+      estimatedPaddleTime:
+        'About 9 hr to 11.5 hr in ordinary conditions, longer with low-water scraping, broad-river headwind, or time spent easing through the mile-43, mile-33, and mile-10.5 caution zones',
+      shuttle:
+        'Stage the take-out at the Newport primitive access first, then drive back upstream to Victory Park in Lewistown. Confirm same-day parking and the intended final line into Newport before launching because the lower miles are broad and easy to drift past when tired.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Buttonwood Campground and River Rock Campground near Mexico plus Pittman\'s Riverside and Little Buffalo near Newport give this full corridor real legal overnight support if you want to split it conservatively.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Victory Park and take out at Newport for one of the longest lower-Juniata corridors currently in the app. The app uses the Newport gauge conservatively as a downstream same-river reference and expects scraping whenever that corridor sits under PFBC\'s 3.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Victory Park and Newport coordinates directly in the official lower Juniata access table.',
+        'The gauge story here stays conservative because Newport sits at the downstream end of this very long route, not near the put-in.',
+        'Buttonwood, River Rock, Pittman\'s Riverside, and Little Buffalo are legal support points, but Newport remains the intended take-out for this slug.',
+        'Use the named public accesses rather than islands, bars, or roadside guesses.',
+      ],
+      watchFor: [
+        'The mile-43 ledge with rough water pushing into a cut bank, rapid current near mile 33, and the lower ledge/current feature near mile 10.5 as the river approaches Newport.',
+        'Newport stages below about 3.5 ft, when shallow bars, ledge lines, and broad lower pools become scratchier and slower.',
+        'Fresh wood after storms, broad-river headwind on the open lower bends, and primitive landing footing at Newport.',
+        'Private shorelines away from the named accesses and the chance of overshooting the Newport finish if you relax late in the run.',
       ],
     },
   },
