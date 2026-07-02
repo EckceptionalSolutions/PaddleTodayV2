@@ -4407,6 +4407,368 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'chippewa-river-county-d-imalone',
+    slug: 'chippewa-river-county-d-imalone',
+    name: 'Chippewa River',
+    reach: 'County D Bridge to Imalone / County A Bridge',
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Upper-Chippewa whitewater-lite day with steady current, dozens of riffles, and a cleaner public access pair than many Northwoods river trips, all tied to the direct Bruce gauge.',
+    statusText:
+      'Use the Chippewa River near Bruce gauge. Treat 400 cfs / 1.5 ft as the practical minimum; below that expect scrapier riffles and exposed rocks, while high or rising water makes the named rapids, island chutes, and wood hazards less forgiving.',
+    latitude: 45.671121,
+    longitude: -91.18108,
+    gaugeSource: {
+      id: 'usgs-05356500',
+      provider: 'usgs',
+      siteId: '05356500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Chippewa River Near Bruce, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05356500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'strainers', 'fast_rise', 'dam_release'],
+      safetyNotes: [
+        'Rock Ledge, Otter Slide Rapids, Soo Line Rapids, and multiple smaller riffles can feel much stronger when the river is high or rising.',
+        'The many island channels are fun at medium water but create more strainer risk from overhanging trees and deadfall.',
+        'Arpin Dam releases and heavy rain can quickly change current speed and wave size on this upper-Chippewa segment.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      idealMin: 400,
+      tooLow: 400,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Chippewa River C2 minimum flow',
+        url: 'https://wisconsintrailguide.com/paddle/chippewa-river-county-d.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Wisconsin Trail Guide says this reach is usually runnable from early spring through late fall, with extra novice caution needed during high water after heavy rain or Arpin Dam releases.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is still a class-I Northwoods run, but it is more active than the lower Chippewa segments because of repeated riffles, named rapids, and faster island chutes.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only Wisconsin add: Wisconsin Trail Guide documents the exact County D Bridge-to-County A Bridge route with mileage, paddle time, map, hazard notes, and a 400 cfs / 1.5 ft minimum tied to USGS 05356500 at Bruce; Rusk County independently publishes the Highway D and Imalone public-access coordinates and route hazard notes; and USGS operates the direct same-river gauge. The app does not claim a preferred upper range because the strongest route-specific source only publishes a minimum plus qualitative high-water caution.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route guide',
+        value: '10.7 miles; Class I',
+        note: 'Wisconsin Trail Guide documents Chippewa River C2 from County D Bridge to County A Bridge as a 10.7-mile easy run with about four hours of paddle time and repeated class-I rapids.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/chippewa-river-county-d.html',
+      },
+      {
+        label: 'Minimum flow',
+        value: '400 cfs / 1.5 ft',
+        note: 'The Wisconsin Trail Guide C2 guide ties this route to the Bruce gauge and lists 400 cfs / 1.5 feet as the minimum suggested flow.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-chippewa2.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05356500',
+        note: 'USGS identifies site 05356500 as Chippewa River Near Bruce, WI, the same route gauge used by Wisconsin Trail Guide for the upper-Chippewa segments.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05356500/',
+      },
+      {
+        label: 'Public access coordinates',
+        value: '45.671121, -91.181080 to 45.552358, -91.228388',
+        note: 'Rusk County publishes GPS coordinates for the Highway D Bridge put-in and Imalone Boat Access take-out.',
+        sourceUrl: 'https://ruskcountywi.com/chippewa-river-hwy-d-to-imalone/',
+      },
+      {
+        label: 'Named hazards',
+        value: 'Rock Ledge; Otter Slide; Soo Line',
+        note: 'Rusk County flags Rock Ledge, Otter Slide Rapids, Soo Line Rapids, rocks, sudden rapids, and hidden boulders on this exact segment.',
+        sourceUrl: 'https://ruskcountywi.com/chippewa-river-hwy-d-to-imalone/',
+      },
+      {
+        label: 'Access details',
+        value: 'Trailer put-in; hand-carry take-out',
+        note: 'Wisconsin Trail Guide describes the County D bridge landing as a dirt-track trailer ramp and the County A / Imalone end as a hand-carry roadside access.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-chippewa2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Chippewa River C2',
+        url: 'https://wisconsintrailguide.com/paddle/chippewa-river-county-d.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Chippewa C2 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-chippewa2.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Chippewa C2 map PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/map-chippewa2.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 05356500 Chippewa River Near Bruce',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05356500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Rusk County Chippewa River - County Highway D to Imalone',
+        url: 'https://ruskcountywi.com/chippewa-river-hwy-d-to-imalone/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'chippewa-river-county-d-highway-8',
+    slug: 'chippewa-river-county-d-highway-8',
+    name: 'Chippewa River',
+    reach: 'County D Bridge to Highway 8 Landing',
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Full upper-Chippewa day that combines the faster County D whitewater-lite miles with the easier Imalone-to-Bruce finish, using one direct same-river gauge and two documented public segments.',
+    statusText:
+      'Use the Chippewa River near Bruce gauge. Treat 400 cfs / 1.5 ft as the practical minimum for the full run; below that the upper riffles get scrapier, while high or rising water increases hazard through the rapids, island chutes, and woodier middle miles.',
+    latitude: 45.671121,
+    longitude: -91.18108,
+    gaugeSource: {
+      id: 'usgs-05356500',
+      provider: 'usgs',
+      siteId: '05356500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Chippewa River Near Bruce, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05356500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'strainers', 'fast_rise', 'dam_release'],
+      safetyNotes: [
+        'This longer combination keeps the named rapids and boulder gardens from the County D segment, then adds fatigue and more wood exposure through the islanded Imalone-to-Bruce miles.',
+        'Below the minimum the upper run gets scratchy; above it, the current gets pushier and mistakes around strainers or bridge approaches are harder to fix.',
+        'Do not underestimate the total distance and shuttle commitment just because each component segment is individually easy.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      idealMin: 400,
+      tooLow: 400,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Chippewa River C2 and C3 minimum flow',
+        url: 'https://wisconsintrailguide.com/paddle/chippewa-river-county-d.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The same upper-Chippewa seasonal pattern applies across both stitched segments: generally runnable from spring through fall, but high flows after rain or Arpin Dam releases raise the caution level.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Technically this remains an easy class-I route, but the nearly twenty-mile length, repeated riffles, and long shuttle make it a stronger full-day commitment than the shorter Chippewa segments.',
+      confidenceNotes:
+        'Confidence is good for a conservative combination add because Wisconsin Trail Guide separately documents both public legs that compose this exact County D-to-Highway-8 chain: C2 covers County D to County A with a 400 cfs / 1.5 ft minimum at USGS 05356500, and C3 covers County A to Highway 8 with the same minimum and matching gauge. Rusk County publishes source-backed coordinates for the County D and Highway 8 public accesses, and the combined route remains inside a single same-river corridor without introducing unsupported endpoints.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Combined distance',
+        value: '19.7 miles',
+        note: 'Wisconsin Trail Guide lists County D to County A at 10.7 miles and County A to Highway 8 at 9.0 miles, which supports a full public chain of about 19.7 miles.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/chippewa-river-county-d.html',
+      },
+      {
+        label: 'Shared minimum flow',
+        value: '400 cfs / 1.5 ft',
+        note: 'Both Wisconsin Trail Guide C2 and C3 tie their exact route segments to the Bruce gauge and use the same 400 cfs / 1.5 ft minimum, supporting one conservative floor for the combined route.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-chippewa2.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05356500',
+        note: 'USGS operates the direct Chippewa River Near Bruce gauge used by both source segments for this same-river combination route.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05356500/',
+      },
+      {
+        label: 'Public endpoint coordinates',
+        value: '45.671121, -91.181080 to 45.452909, -91.256361',
+        note: 'Rusk County publishes the County D Bridge and Highway 8 Canoe Landing coordinates, while the existing Imalone midpoint remains the documented handoff between the two source segments.',
+        sourceUrl: 'https://ruskcountywi.com/chippewa-river-hwy-d-to-imalone/',
+      },
+      {
+        label: 'Route shape',
+        value: '4 hr plus 4 hr',
+        note: 'Wisconsin Trail Guide gives about four hours for C2 and roughly four hours for C3, which fits a long all-day plan rather than a casual half-day float.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/chippewa-river-county-a.html',
+      },
+      {
+        label: 'Upper-segment hazards',
+        value: 'Named rapids and island strainers',
+        note: 'Rusk County highlights Rock Ledge, Otter Slide Rapids, Soo Line Rapids, rocks, sudden rapids, and hidden boulders on the County D-to-Imalone portion that anchors the risk profile of this longer route.',
+        sourceUrl: 'https://ruskcountywi.com/chippewa-river-hwy-d-to-imalone/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Chippewa River C2',
+        url: 'https://wisconsintrailguide.com/paddle/chippewa-river-county-d.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Chippewa River C3',
+        url: 'https://wisconsintrailguide.com/2024/paddle/chippewa-river-county-a.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 05356500 Chippewa River Near Bruce',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05356500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Rusk County Chippewa River - County Highway D to Imalone',
+        url: 'https://ruskcountywi.com/chippewa-river-hwy-d-to-imalone/',
+        provider: 'local',
+      },
+      {
+        label: 'Rusk County Chippewa River - Imalone to Bruce',
+        url: 'https://ruskcountywi.com/chippewa-river-imalone-to-bruce/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'chippewa-river-highway-8-flambeau-river',
+    slug: 'chippewa-river-highway-8-flambeau-river',
+    name: 'Chippewa River',
+    reach: 'Highway 8 Landing to Flambeau River Confluence',
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Long quietwater Chippewa day below Bruce, with broad marshy bends, frequent islands, one easy named rapid, and a same-river gauge that still gives a practical minimum.',
+    statusText:
+      'Use the Chippewa River near Bruce gauge. Treat 400 cfs / 1.5 ft as the practical minimum; below that expect slower island picking and more scraping, while high or rising water hides wood and speeds up the long final miles toward the Flambeau confluence.',
+    latitude: 45.452909,
+    longitude: -91.256361,
+    gaugeSource: {
+      id: 'usgs-05356500',
+      provider: 'usgs',
+      siteId: '05356500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Chippewa River Near Bruce, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05356500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'strainers', 'fast_rise', 'dam_release'],
+      safetyNotes: [
+        'The route is easier technically than the upper Chippewa but long enough that wind, fatigue, and a slow pace can become the real hazard.',
+        'Islands, slough mouths, and brushy banks create wood and channel-choice risks that get less obvious when the river is high.',
+        'Skrupky Rapids is only class I, but high or rising water after rain or Arpin Dam releases still deserves extra caution.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      idealMin: 400,
+      tooLow: 400,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Chippewa River C4 minimum flow',
+        url: 'https://wisconsintrailguide.com/paddle/chippewa-river-highway-8.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Wisconsin Trail Guide says this lower upper-Chippewa section is usually runnable from early spring through late fall and stays attractive in late summer and fall, but high water still raises the caution level.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly quiet flatwater with one easy named rapid and a few riffles. The main challenge is the full-day distance rather than technical whitewater.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only add: Wisconsin Trail Guide documents the exact Highway 8-to-Flambeau route with mileage, paddle-time range, map, named rapid, and a 400 cfs / 1.5 ft minimum tied to the direct USGS Bruce gauge; Rusk County publishes public coordinates for Highway 8 and the Highway E / Flater\'s Resort take-out; and Rusk County lodging information confirms camping support at Flater\'s near the confluence. The app still avoids claiming a preferred upper range because the strongest route-specific source only gives a minimum and qualitative high-water caution.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route guide',
+        value: '18.6 miles; 8-10 hr',
+        note: 'Wisconsin Trail Guide documents Chippewa River C4 from Highway 8 Landing to the Flambeau River confluence as an 18.6-mile easy day with an eight-to-ten-hour paddle time.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/chippewa-river-highway-8.html',
+      },
+      {
+        label: 'Minimum flow',
+        value: '400 cfs / 1.5 ft',
+        note: 'The Wisconsin Trail Guide C4 guide lists 400 cfs / 1.5 feet at the Bruce gauge as the minimum suggested flow for this route.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-chippewa4.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05356500',
+        note: 'USGS identifies site 05356500 as Chippewa River Near Bruce, WI, the same direct gauge named in the route-specific C4 guide.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05356500/',
+      },
+      {
+        label: 'Public access coordinates',
+        value: '45.452909, -91.256361 to 45.297997, -91.237000',
+        note: 'Rusk County publishes GPS coordinates for the Highway 8 Canoe Landing and Highway E / Flater\'s Resort confluence take-out.',
+        sourceUrl: 'https://ruskcountywi.com/chippewa-river-bruce-to-the-flambeau-river/',
+      },
+      {
+        label: 'Named rapid',
+        value: 'Skrupky Rapids Class I',
+        note: 'The Wisconsin Trail Guide C4 guide identifies Skrupky Rapids as the notable class-I rapid on this otherwise easy quietwater route.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-chippewa4.pdf',
+      },
+      {
+        label: 'Camping support',
+        value: 'Flater\'s campground near take-out',
+        note: 'Rusk County lodging information for Flater\'s Flambeau Point Resort says campsites with sewer, water, and electric hookups are available at the confluence-area take-out.',
+        sourceUrl: 'https://ruskcountywi.com/flaters-flambeau-point-resort/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Chippewa River C4',
+        url: 'https://wisconsintrailguide.com/paddle/chippewa-river-highway-8.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Chippewa C4 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-chippewa4.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Chippewa C4 map PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/map-chippewa4.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 05356500 Chippewa River Near Bruce',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05356500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Rusk County Chippewa River - Bruce to the Flambeau River',
+        url: 'https://ruskcountywi.com/chippewa-river-bruce-to-the-flambeau-river/',
+        provider: 'local',
+      },
+      {
+        label: 'Rusk County Flater\'s Flambeau Point Resort',
+        url: 'https://ruskcountywi.com/flaters-flambeau-point-resort/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'red-cedar-river-menomonie-dunnville',
     slug: 'red-cedar-river-menomonie-dunnville',
     name: 'Red Cedar River',

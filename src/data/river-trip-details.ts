@@ -5009,6 +5009,108 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'chippewa-river-county-d-imalone': {
+    putIn: {
+      name: 'County D Bridge landing',
+      latitude: 45.671121,
+      longitude: -91.18108,
+    },
+    takeOut: {
+      name: 'Imalone / County A Bridge access',
+      latitude: 45.552358,
+      longitude: -91.228388,
+    },
+    logistics: {
+      distanceLabel: '10.7 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr',
+      shuttle:
+        'Use a rural car shuttle between the County D bridge east of Exeland and the Imalone / County A access. The route is long enough and remote enough that a bike shuttle is usually more hassle than it is worth.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Rusk County and Wisconsin public-access rules, and do not block bridge approaches, dirt-ramp access, or roadside parking.',
+      camping:
+        'No on-route camping is documented for this whitewater-lite upper-Chippewa section. Treat it as a day paddle unless you are separately basing out nearby.',
+      summary:
+        'Launch at the County D bridge landing and finish at Imalone / County A. Expect a lively upper-Chippewa run with repeated riffles, several named rapids, wooded islands, and a direct Bruce gauge floor that matters.',
+      accessCaveats: [
+        'Rusk County publishes the County D Bridge and Imalone Boat Access coordinates for this exact route.',
+        'Wisconsin Trail Guide describes the County D launch as a rutted dirt-track trailer ramp off the east end of the bridge and the County A finish as a hand-carry access just upstream of the bridge.',
+        'Confirm local landing condition, shoulder space, and any recent storm debris before committing to the shuttle.',
+      ],
+      watchFor: [
+        'Rock Ledge, Otter Slide Rapids, Soo Line Rapids, and many smaller class-I riffles.',
+        'Fast island channels, overhanging trees, strainers, and fresh deadfall.',
+        'Exposed rocks and hidden boulders at lower levels, plus stronger wave trains after rain or Arpin Dam releases.',
+      ],
+    },
+  },
+  'chippewa-river-county-d-highway-8': {
+    putIn: {
+      name: 'County D Bridge landing',
+      latitude: 45.671121,
+      longitude: -91.18108,
+    },
+    takeOut: {
+      name: 'Highway 8 Canoe Landing',
+      latitude: 45.452909,
+      longitude: -91.256361,
+    },
+    logistics: {
+      distanceLabel: '19.7 mi',
+      estimatedPaddleTime: 'About 8 hr to 9 hr',
+      shuttle:
+        'Use a full two-car rural shuttle between County D and Highway 8 at Bruce. This is a real all-day move with too much distance and too many county-road miles for a casual bike return.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Rusk County and Wisconsin public-access rules, and stage vehicles without blocking bridge shoulders, dirt ramps, or the Highway 8 landing entrance.',
+      camping:
+        'No on-route camping is documented for the full County D-to-Bruce combination. Treat it as a long day route rather than an overnight unless you have separately arranged basecamp lodging.',
+      summary:
+        'Start at County D and finish at Highway 8 Landing in Bruce. This combines the faster upper rapids-and-riffles miles with the quieter Imalone-to-Bruce finish into one long direct-gauge Chippewa day.',
+      accessCaveats: [
+        'This route is a stitched public chain built from the documented County D-to-County A and County A-to-Highway-8 segments, all on the same river and same Bruce gauge.',
+        'County D is the rougher access with a dirt approach, while Highway 8 is the cleaner trailer-ramp finish near Sawdust Road.',
+        'Because the route is long, check the gauge and weather again shortly before launching instead of relying on an earlier drive-by.',
+      ],
+      watchFor: [
+        'Named rapids and boulder gardens in the upper half, especially if the river is high or rising.',
+        'Island splits, strainers, and fresh wood through the middle wooded corridor.',
+        'Fatigue, slow progress, and a late finish on a nearly twenty-mile day if headwinds or low water sap your pace.',
+      ],
+    },
+  },
+  'chippewa-river-highway-8-flambeau-river': {
+    putIn: {
+      name: 'Highway 8 Canoe Landing',
+      latitude: 45.452909,
+      longitude: -91.256361,
+    },
+    takeOut: {
+      name: "Highway E / Flater's Resort take-out",
+      latitude: 45.297997,
+      longitude: -91.237,
+    },
+    logistics: {
+      distanceLabel: '18.6 mi',
+      estimatedPaddleTime: 'About 8 hr to 10 hr',
+      shuttle:
+        'Use a long rural car shuttle between the Highway 8 canoe landing at Bruce and the Highway E / Flater\'s Resort take-out near the Flambeau confluence. The distance and road layout make a bike shuttle unrealistic for most groups.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Rusk County, resort-access, and Wisconsin public-waterway rules, and confirm take-out expectations if you plan to linger at the resort corridor.',
+      camping:
+        'Camping is available near the take-out at Flater\'s Flambeau Point Resort, which Rusk County lists with campsites and hookups. Confirm reservations, fees, and current operating details directly before relying on it.',
+      summary:
+        'Launch at Highway 8 Landing and finish near the Flambeau confluence at Highway E / Flater\'s Resort. This is a long easy Chippewa float with broad bends, marshy sloughs, frequent islands, and one named class-I rapid.',
+      accessCaveats: [
+        'Rusk County publishes the Highway 8 and Highway E / Flater\'s coordinates for this exact route.',
+        'Wisconsin Trail Guide describes the Highway 8 launch as a trailer ramp east of the bridge near Sawdust Road and notes several public landings along the corridor if conditions force an early exit.',
+        'If you intend to camp at the take-out, treat that as a separate lodging reservation question rather than an automatic paddler right.',
+      ],
+      watchFor: [
+        'Wind, fatigue, and a slow pace on a full-day eighteen-mile quietwater route.',
+        'Skrupky Rapids, brushy islands, slough entrances, and submerged wood that are easier to miss at higher water.',
+        'Cold water, thunderstorms, and a later-than-expected finish if marshy headwinds set in.',
+      ],
+    },
+  },
   'badfish-creek-old-stage-casey': {
     putIn: {
       name: 'Old Stage Road canoe/kayak landing',
