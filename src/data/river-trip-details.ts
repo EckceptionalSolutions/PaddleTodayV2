@@ -11838,7 +11838,124 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'buffalo-river-ponca-kyles-landing': {
+  'bayou-deview-benson-creek-dark-corner': {
+    putIn: {
+      id: 'benson-creek-access',
+      name: 'Benson Creek Access',
+      latitude: 34.93569,
+      longitude: -91.24092,
+    },
+    takeOut: {
+      id: 'dark-corner-access',
+      name: 'Dark Corner Access',
+      latitude: 34.91998,
+      longitude: -91.25798,
+    },
+    logistics: {
+      distanceLabel: 'About 2.1 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 2.5 hr, longer if route-finding slows the day or high water pushes wood into the channel',
+      shuttle:
+        'Stage the take-out at Dark Corner Access, then drive back to Benson Creek Access. Carry the georeferenced map before leaving the launch because the main channel is not always obvious once you enter the flooded timber.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, or access-area postings at launch and take-out.',
+      camping:
+        'Treat this as a short day trip. AGFC lists free first-come campsites on Dagmar WMA, but no route-specific campsite is part of this upper segment and camping is not allowed on Cache River National Wildlife Refuge.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Benson Creek Access and take out at Dark Corner Access for the shortest Bayou DeView public segment. This is a navigation-first floodplain paddle keyed to the Brinkley stage gauge rather than a simple open-channel float.',
+      accessCaveats: [
+        'Benson Creek and Dark Corner are named public AGFC Bayou DeView Water Trail accesses reached by rural roads rather than by developed park marinas.',
+        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
+        'The main channel is not always distinct. Carry the georeferenced map or equivalent offline navigation before leaving cell coverage.',
+        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
+      ],
+      watchFor: [
+        'Water below about 14 ft, when disconnected channels and shallow obstructions become more likely.',
+        'Water approaching or above 17 ft, when AGFC says the gate on Dagmar Road closes and high-water timber travel becomes more dangerous.',
+        'Floating logs, strainers, wind exposure in open pockets, and losing the marked route through indistinct floodplain channels.',
+      ],
+    },
+  },
+'bayou-deview-dark-corner-hickson-lake': {
+    putIn: {
+      id: 'dark-corner-access',
+      name: 'Dark Corner Access',
+      latitude: 34.91998,
+      longitude: -91.25798,
+    },
+    takeOut: {
+      id: 'hickson-lake-access',
+      name: 'Hickson Lake Access',
+      latitude: 34.89039,
+      longitude: -91.29826,
+    },
+    logistics: {
+      distanceLabel: 'About 4.8 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr, longer with route-finding delays, soft landings, or wood cleanup after rain',
+      shuttle:
+        'Stage the take-out at Hickson Lake Access, then drive back to Dark Corner Access. Download the AGFC georeferenced map first because this segment moves deeper into the Dagmar floodplain where the main channel can blur out.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
+      camping:
+        'Free first-come campsites marked by blue paint are available on Dagmar WMA near the lower part of the trail, but camping is not allowed on Cache River National Wildlife Refuge and this segment still works best as a day trip unless a separate camp plan is confirmed.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Dark Corner Access and take out at Hickson Lake Access for the middle Bayou DeView segment. Expect calm water under normal conditions, but plan the day around navigation, recent gauge freshness, and floodplain wood rather than just mileage.',
+      accessCaveats: [
+        'Dark Corner and Hickson Lake are named public AGFC Bayou DeView Water Trail accesses reached by rural WMA roads rather than by developed park ramps.',
+        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
+        'The main channel is not always distinct. Carry the georeferenced map or equivalent offline navigation before leaving the launch.',
+        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
+      ],
+      watchFor: [
+        'Water below about 14 ft, when disconnected channels and shallow obstructions become more likely.',
+        'Water approaching or above 17 ft, when AGFC says the gate on Dagmar Road closes and high-water timber travel becomes more dangerous.',
+        'Floating logs, strainers, wind exposure in open pockets, and missing the clean route through indistinct floodplain channels.',
+      ],
+    },
+  },
+'bayou-deview-benson-creek-hickson-lake': {
+    putIn: {
+      id: 'benson-creek-access',
+      name: 'Benson Creek Access',
+      latitude: 34.93569,
+      longitude: -91.24092,
+    },
+    takeOut: {
+      id: 'hickson-lake-access',
+      name: 'Hickson Lake Access',
+      latitude: 34.89039,
+      longitude: -91.29826,
+    },
+    logistics: {
+      distanceLabel: 'About 6.5 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr, longer if route-finding slows the day or high water pushes more wood into the channels',
+      shuttle:
+        'Stage the take-out at Hickson Lake Access, then drive back to Benson Creek Access. Carry the AGFC georeferenced map before launching because the trail markers do not remove the need for active floodplain navigation.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
+      camping:
+        'Free first-come campsites marked by blue paint are available on Dagmar WMA near the lower end of the trail, but camping is not allowed on Cache River National Wildlife Refuge and this longer upper-half route is still usually handled as a day trip unless a separate camp plan is confirmed.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Benson Creek Access and take out at Hickson Lake Access for the longer upper-half Bayou DeView segment. This is a fuller navigation day through the floodplain, not a casual straight-channel float, even when the gauge is in range.',
+      accessCaveats: [
+        'Benson Creek and Hickson Lake are named public AGFC Bayou DeView Water Trail accesses reached by rural roads rather than by developed park marinas.',
+        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
+        'The main channel is not always distinct. Carry the georeferenced map or equivalent offline navigation before leaving cell coverage.',
+        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
+      ],
+      watchFor: [
+        'Water below about 14 ft, when disconnected channels and shallow obstructions become more likely.',
+        'Water approaching or above 17 ft, when AGFC says the gate on Dagmar Road closes and high-water timber travel becomes more dangerous.',
+        'Floating logs, strainers, wind exposure in open pockets, and losing the marked route through indistinct floodplain channels.',
+      ],
+    },
+  },
+'buffalo-river-ponca-kyles-landing': {
     putIn: {
       id: 'ponca-access',
       name: 'Ponca access / Buffalo River at Ponca gauge corridor',

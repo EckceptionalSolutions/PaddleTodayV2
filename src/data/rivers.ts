@@ -35095,6 +35095,357 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'bayou-deview-benson-creek-dark-corner',
+    slug: 'bayou-deview-benson-creek-dark-corner',
+    name: 'Bayou DeView',
+    reach: 'Benson Creek Access to Dark Corner Access',
+    aliases: [
+      'Bayou DeView - Benson Creek to Dark Corner',
+      'Bayou DeView Water Trail upper short segment',
+      'AGFC Bayou DeView Benson Creek to Dark Corner',
+    ],
+    state: 'Arkansas',
+    region: 'Delta',
+    summary:
+      'Short upper Bayou DeView water-trail segment from Benson Creek to Dark Corner. AGFC documents the exact 2.1-mile public segment, direct Brinkley gauge threshold, route-finding cautions, and nearby Dagmar WMA camping context.',
+    statusText:
+      'Use the Bayou DeView near Brinkley gauge. AGFC says the trail needs about 14 ft or higher to paddle and Dagmar Road closes at 17 ft, so this route treats 14 to under 17 ft as the usable band and flags lower or higher water as a problem.',
+    latitude: 34.927835,
+    longitude: -91.24945,
+    routeType: 'recreational',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'AGFC says high water is dangerous on Bayou DeView and the main channel is not always distinct, so do not treat this like a simple lazy flatwater float.',
+        'Always keep a trail marker in sight and use the georeferenced map or comparable navigation backup because side channels and flooded timber can blur the line of travel.',
+        'Stay off private banks and plan only around the named public access points.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07077730',
+      provider: 'usgs',
+      siteId: '07077730',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Bayou Deview near Brinkley, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 14,
+      idealMax: 16.9,
+      tooLow: 14,
+      tooHigh: 17,
+      thresholdSource: {
+        label: 'Arkansas Game and Fish Bayou DeView gauge guidance',
+        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Bayou DeView is a floodplain water trail that depends on enough water to connect the marked route without pushing into dangerous high-water timber travel. Recent gauge freshness matters here because conditions can change quickly after rain and the public road gate closes when water reaches 17 ft.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The mileage is short and AGFC says the trail is free of rapids, but this is still a route-finding flatwater maze through bottomland forest where wood, wind, and high water increase consequence quickly.',
+      confidenceNotes:
+        'Confidence is moderate for a conservative Arkansas add: AGFC publishes Benson Creek to Dark Corner as an exact 2.1-mile public segment, provides map-linked public endpoint coordinates, and ties the trail to the direct USGS Brinkley gauge with a floatable floor of about 14 ft and a Dagmar Road closure at 17 ft. The official USGS station currently shows a recent but not same-day gage-height reading of 14.24 ft at 2026-06-26 21:00 CDT, so users should verify that the gauge feed is updating normally before launching.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Benson Creek Access to Dark Corner Access, 2.1 miles',
+        note: 'AGFC lists Benson Creek Access to Dark Corner Access as an exact Bayou DeView Water Trail segment.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Direct gauge threshold',
+        value: 'Around 14 ft to paddle; Dagmar Road gate closes at 17 ft',
+        note: 'AGFC says the gauge height needs to be around 14 feet or higher to paddle the trail and that the gate on Dagmar Road is closed at 17 feet.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Recent official gauge reading',
+        value: 'USGS 07077730 at 14.24 ft',
+        note: 'The official USGS current-conditions page shows a recent gage-height reading of 14.24 ft at 2026-06-26 21:00 CDT for Bayou Deview near Brinkley, within AGFC\'s floatable threshold but with a current reporting gap to verify before launch.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07077730',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Benson Creek Access, 34.93569, -91.24092',
+        note: 'AGFC publishes Benson Creek Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Dark Corner Access, 34.91998, -91.25798',
+        note: 'AGFC publishes Dark Corner Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Camping policy',
+        value: 'Free Dagmar WMA campsites; none on Cache River NWR',
+        note: 'AGFC says free first-come campsites marked by blue paint are available on Dagmar WMA, while camping is not allowed on Cache River National Wildlife Refuge.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'AGFC Bayou DeView Water Trail',
+        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07077730 Bayou Deview near Brinkley',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07077730 current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07077730',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'bayou-deview-dark-corner-hickson-lake',
+    slug: 'bayou-deview-dark-corner-hickson-lake',
+    name: 'Bayou DeView',
+    reach: 'Dark Corner Access to Hickson Lake Access',
+    aliases: [
+      'Bayou DeView - Dark Corner to Hickson Lake',
+      'Bayou DeView Water Trail middle segment',
+      'AGFC Bayou DeView Dark Corner to Hickson Lake',
+    ],
+    state: 'Arkansas',
+    region: 'Delta',
+    summary:
+      'Middle Bayou DeView water-trail segment from Dark Corner to Hickson Lake. AGFC documents the exact 4.8-mile public segment, the same 14-foot minimum / 17-foot closure gauge guidance, and the Dagmar WMA campsite rules around the lower access area.',
+    statusText:
+      'Use the Bayou DeView near Brinkley gauge. AGFC says the trail needs about 14 ft or higher to paddle and Dagmar Road closes at 17 ft, so this route treats 14 to under 17 ft as the usable band and flags lower or higher water as a problem.',
+    latitude: 34.905185,
+    longitude: -91.27812,
+    routeType: 'recreational',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'AGFC says high water is dangerous on Bayou DeView and the main channel is not always distinct, so navigation discipline matters more than the flatwater label suggests.',
+        'Use the georeferenced map or an equivalent offline navigation backup because floodplain side channels can hide the clean route through this middle segment.',
+        'Stay off private banks and expect wood, floating debris, and stronger current if water pushes toward the 17-foot road-closure level.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07077730',
+      provider: 'usgs',
+      siteId: '07077730',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Bayou Deview near Brinkley, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 14,
+      idealMax: 16.9,
+      tooLow: 14,
+      tooHigh: 17,
+      thresholdSource: {
+        label: 'Arkansas Game and Fish Bayou DeView gauge guidance',
+        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This middle Dagmar segment needs enough water to stay connected and enough gauge freshness to trust the corridor conditions. Rising water improves depth until it becomes a wood-and-current problem, and the Dagmar Road closure at 17 ft is a hard operational ceiling.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is still calm floodplain paddling under normal conditions, but the route depends on navigation through indistinct channels and becomes more serious when the bayou is up or windy.',
+      confidenceNotes:
+        'Confidence is moderate for a conservative Arkansas add: AGFC publishes Dark Corner to Hickson Lake as an exact 4.8-mile public segment, provides map-linked endpoint coordinates, and ties the whole trail to the direct USGS Brinkley gauge with explicit low and closure thresholds. The official USGS station currently shows a recent but not same-day gage-height reading of 14.24 ft at 2026-06-26 21:00 CDT, so same-day launch decisions should verify that the gauge feed has resumed updating normally.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Dark Corner Access to Hickson Lake Access, 4.8 miles',
+        note: 'AGFC lists Dark Corner to Hickson Lake as an exact Bayou DeView Water Trail segment.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Direct gauge threshold',
+        value: 'Around 14 ft to paddle; Dagmar Road gate closes at 17 ft',
+        note: 'AGFC says the gauge height needs to be around 14 feet or higher to paddle the trail and that the gate on Dagmar Road is closed at 17 feet.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Recent official gauge reading',
+        value: 'USGS 07077730 at 14.24 ft',
+        note: 'The official USGS current-conditions page shows a recent gage-height reading of 14.24 ft at 2026-06-26 21:00 CDT for Bayou Deview near Brinkley, within AGFC\'s floatable threshold but with a current reporting gap to verify before launch.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07077730',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Dark Corner Access, 34.91998, -91.25798',
+        note: 'AGFC publishes Dark Corner Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Hickson Lake Access, 34.89039, -91.29826',
+        note: 'AGFC publishes Hickson Lake Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Camping policy',
+        value: 'Free Dagmar WMA campsites; none on Cache River NWR',
+        note: 'AGFC says free first-come campsites marked by blue paint are available on Dagmar WMA, while camping is not allowed on Cache River National Wildlife Refuge.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'AGFC Bayou DeView Water Trail',
+        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07077730 Bayou Deview near Brinkley',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07077730 current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07077730',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'bayou-deview-benson-creek-hickson-lake',
+    slug: 'bayou-deview-benson-creek-hickson-lake',
+    name: 'Bayou DeView',
+    reach: 'Benson Creek Access to Hickson Lake Access',
+    aliases: [
+      'Bayou DeView - Benson Creek to Hickson Lake',
+      'Bayou DeView Water Trail upper half',
+      'AGFC Bayou DeView Benson Creek to Hickson Lake',
+    ],
+    state: 'Arkansas',
+    region: 'Delta',
+    summary:
+      'Longer upper Bayou DeView water-trail segment from Benson Creek to Hickson Lake. AGFC documents the exact 6.5-mile public segment, the same direct gauge thresholds, and the Dagmar WMA campsite rules near the lower access.',
+    statusText:
+      'Use the Bayou DeView near Brinkley gauge. AGFC says the trail needs about 14 ft or higher to paddle and Dagmar Road closes at 17 ft, so this route treats 14 to under 17 ft as the usable band and flags lower or higher water as a problem.',
+    latitude: 34.91304,
+    longitude: -91.26959,
+    routeType: 'recreational',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'AGFC says high water is dangerous on Bayou DeView and that the main channel is not always distinct, so this longer upper-half route needs more route-finding discipline than its flatwater label implies.',
+        'Carry an offline map and keep trail markers in sight because the floodplain maze is more consequential on the longer Benson-to-Hickson day.',
+        'Stay off private banks and be prepared for wood, floating debris, and stronger current if the gauge rises toward the 17-foot road-closure mark.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07077730',
+      provider: 'usgs',
+      siteId: '07077730',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Bayou Deview near Brinkley, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 14,
+      idealMax: 16.9,
+      tooLow: 14,
+      tooHigh: 17,
+      thresholdSource: {
+        label: 'Arkansas Game and Fish Bayou DeView gauge guidance',
+        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This longer upper-half route still depends on enough water to connect the marked trail without entering dangerous high-water timber travel. Gauge freshness matters because the bayou can change quickly after rain and the public road gate closes at 17 ft.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'AGFC treats the trail as flatwater without rapids, but this 6.5-mile version is a fuller navigation day through a floodplain channel network rather than a casual out-and-back park paddle.',
+      confidenceNotes:
+        'Confidence is moderate for a conservative Arkansas add: AGFC publishes Benson Creek to Hickson Lake as an exact 6.5-mile public segment, provides map-linked endpoint coordinates, and ties the trail to the direct USGS Brinkley gauge with explicit low and closure thresholds. The official USGS station currently shows a recent but not same-day gage-height reading of 14.24 ft at 2026-06-26 21:00 CDT, so same-day launch decisions should verify that the gauge feed has resumed updating normally.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Benson Creek Access to Hickson Lake Access, 6.5 miles',
+        note: 'AGFC lists Benson Creek to Hickson Lake as an exact Bayou DeView Water Trail segment.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Direct gauge threshold',
+        value: 'Around 14 ft to paddle; Dagmar Road gate closes at 17 ft',
+        note: 'AGFC says the gauge height needs to be around 14 feet or higher to paddle the trail and that the gate on Dagmar Road is closed at 17 feet.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Recent official gauge reading',
+        value: 'USGS 07077730 at 14.24 ft',
+        note: 'The official USGS current-conditions page shows a recent gage-height reading of 14.24 ft at 2026-06-26 21:00 CDT for Bayou Deview near Brinkley, within AGFC\'s floatable threshold but with a current reporting gap to verify before launch.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07077730',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Benson Creek Access, 34.93569, -91.24092',
+        note: 'AGFC publishes Benson Creek Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Hickson Lake Access, 34.89039, -91.29826',
+        note: 'AGFC publishes Hickson Lake Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Camping policy',
+        value: 'Free Dagmar WMA campsites; none on Cache River NWR',
+        note: 'AGFC says free first-come campsites marked by blue paint are available on Dagmar WMA, while camping is not allowed on Cache River National Wildlife Refuge.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'AGFC Bayou DeView Water Trail',
+        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07077730 Bayou Deview near Brinkley',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07077730 current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07077730',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'buffalo-river-ponca-kyles-landing',
     slug: 'buffalo-river-ponca-kyles-landing',
     name: 'Buffalo River',
