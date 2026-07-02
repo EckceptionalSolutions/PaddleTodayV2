@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-02 13:45 America/Chicago / 2026-07-02 18:45 UTC.
+Last summarized: 2026-07-02 17:08 America/Chicago / 2026-07-02 22:08 UTC.
 
 ## Current Inventory
 
-- Live routes: 71.
-- Ledger candidates: 54 Kentucky-specific records. The newest live slug from this run is `south-fork-kentucky-river-upper-wolf-creek-fish-creek`.
+- Live routes: 74.
+- Ledger candidates: 54 Kentucky-specific records. The newest live slug from this run is `green-river-greensburg-city-ramp-lynn-camp-creek`.
 
 ## Status
 
@@ -20,6 +20,13 @@ Kentucky had been paused from the active automation rotation at user request whi
 - For Elkhorn specifically, do not substitute nearby bank/wade-only VPA sites for boat access; KDFWR explicitly prohibits boat carry-in/out at some Elkhorn VPA points.
 
 ## Current Guidance
+
+- 2026-07-02 17:08 America/Chicago / 2026-07-02 22:08 UTC three-route add pass
+  - Added `green-river-american-legion-glenview-road`, `green-river-roachville-glenview-road`, and `green-river-greensburg-city-ramp-lynn-camp-creek` to expand Kentucky beyond the 464-route repo baseline at run start.
+  - The run reused the current KDFWR Pool 6 Green River page for the exact access-chain mileages of `2.0`, `13.7`, `6.6`, and `19.2` miles needed for the new American Legion -> Glenview, Roachville -> Glenview, and Greensburg -> Lynn Camp combinations, which support public routes of about `15.7`, `24.8`, and `32.9` miles.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for American Legion Park Ramp, Greensburg City Ramp, Glenview Road Carrydown, Lynn Camp Creek Ramp, and Roachville Ford; same-day direct USGS Water Services returned `0.97 ft` at Green River at Greensburg (`03306500`) at `2026-07-02 16:15 CDT`, still just below the official `1.0-1.75 ft` good band.
+  - Camping stays conservative as `nearby_basecamp` for all three because Greensburg City Park cabins and nearby town lodging can support the corridor, but KDFWR still documents no legal on-route camping at these access sites and private banks remain off-limits. Safety notes stay focused on shoal scraping below band, muddy or steep landings, broad-river wind, private-bank limits, and full-day fatigue on the two longer continuations.
+  - Bounded image review stayed negative for all three: no clearly rights-clean exact-route asset was selected from KDFWR access imagery, Commons, or same-river USGS media, so `docs/river-image-source-audit.csv` records no-image outcomes for the three new slugs.
 
 - 2026-07-02 13:45 America/Chicago / 2026-07-02 18:45 UTC three-route add pass
   - Added `south-fork-kentucky-river-oneida-upper-wolf-creek`, `south-fork-kentucky-river-upper-wolf-creek-fish-creek`, and `south-fork-kentucky-river-hacker-branch-fish-creek` to expand Kentucky beyond the 452-route repo baseline at run start.

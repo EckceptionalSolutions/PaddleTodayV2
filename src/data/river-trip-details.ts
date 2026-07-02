@@ -17023,6 +17023,231 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+'green-river-american-legion-glenview-road': {
+    putIn: {
+      id: 'american-legion-park-ramp',
+      name: 'American Legion Park Ramp',
+      latitude: 37.2441,
+      longitude: -85.4795,
+    },
+    takeOut: {
+      id: 'glenview-road-carrydown',
+      name: 'Glenview Road Carrydown',
+      latitude: 37.291,
+      longitude: -85.5913,
+    },
+    logistics: {
+      distanceLabel: 'About 15.7 mi',
+      estimatedPaddleTime:
+        'About 5.5 hr to 8.5 hr, longer with low water, fishing stops, or a slower group pace',
+      shuttle:
+        'Stage the take-out at Glenview Road, then drive back to American Legion Park below Highway 417. The launch is muddier than the mileage suggests and the Glenview finish has no amenities, so keep both vehicles compact and leave daylight margin.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey any local or landowner signage at Glenview.',
+      camping:
+        'Treat this as a day trip with Greensburg corridor lodging support rather than route camping. Greensburg City Park cabins and nearby town services sit on the corridor, but KDFWR lists no camping at American Legion or Glenview and private banks should not be treated as legal campsites.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at American Legion Park and continue to Glenview Road for a longer Upper Green continuation. Use the Greensburg gauge and expect slower shoals and more scraping whenever the stage stays below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'American Legion Park uses a graded muddy and gravel bank below Highway 417 rather than a clean concrete city ramp. Save some energy for a messier launch and landing routine.',
+        'Greensburg City Ramp sits on the corridor and is the clean public bailout if the group needs a shorter legal finish before Glenview.',
+        'Glenview Road Carrydown ends in the water and is surrounded by private land. Use only the obvious public road-end access and obey posted signs.',
+        'This route uses the direct Greensburg stage gauge. Trend, recent rain, and broad-river wind still matter more than a single number across a longer day.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, mud edges, and slower current can turn this into a longer scrape-prone day.',
+        'High water above about 1.75 ft, when current at bends and the Glenview finish becomes less forgiving.',
+        'Bridge-adjacent current, private-bank limits, broad-river wind, and woody debris after storms.',
+        'Slippery footing at the muddy American Legion launch and steep or slick footing at the Glenview road-end carrydown.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'american-legion-park-ramp',
+        name: 'American Legion Park Ramp',
+        latitude: 37.2441,
+        longitude: -85.4795,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Full upper-Greensburg continuation start.',
+      },
+      {
+        id: 'greensburg-city-ramp',
+        name: 'Greensburg City Ramp',
+        latitude: 37.2581,
+        longitude: -85.5057,
+        mileFromStart: 2,
+        segmentKind: 'creek',
+        note: 'Town bailout and the last easy public landing before the Glenview reach.',
+      },
+      {
+        id: 'glenview-road-carrydown',
+        name: 'Glenview Road Carrydown',
+        latitude: 37.291,
+        longitude: -85.5913,
+        mileFromStart: 15.7,
+        segmentKind: 'creek',
+        note: 'Default downstream finish at the public road-end carrydown.',
+      },
+    ],
+  },
+'green-river-roachville-glenview-road': {
+    putIn: {
+      id: 'roachville-ford',
+      name: 'Roachville Ford',
+      latitude: 37.2353,
+      longitude: -85.4241,
+    },
+    takeOut: {
+      id: 'glenview-road-carrydown',
+      name: 'Glenview Road Carrydown',
+      latitude: 37.291,
+      longitude: -85.5913,
+    },
+    logistics: {
+      distanceLabel: 'About 24.8 mi',
+      estimatedPaddleTime:
+        'About 7.5 hr to 10.5 hr, longer with low water, fishing stops, or a slower shuttle day',
+      shuttle:
+        'Stage the take-out at Glenview Road, then drive back to Roachville Ford via Thunder Road. This is a real full-day Green River commitment, so keep both access areas compact and leave daylight margin for the no-amenity finish.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey any local or landowner signage at Glenview.',
+      camping:
+        'Treat this as a day trip with Greensburg corridor lodging support rather than route camping. Greensburg City Park cabins and town services sit on the corridor, but KDFWR lists no camping at Roachville or Glenview and private banks should not be treated as legal campsites.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Roachville Ford and continue to Glenview Road for the longest current Upper Green continuation above Lynn Camp. Use the Greensburg gauge and expect a slower, more scrape-prone day whenever the stage stays below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Roachville Ford is a low-water ford with limited roadside parking and may require brief carry or drag moves during very low flows.',
+        'Russell Ford, American Legion Park, and Greensburg City Ramp all sit on the corridor and can shorten the day if conditions or group energy change, but this route assumes the full Roachville-to-Glenview chain.',
+        'Glenview Road Carrydown ends in the water and is surrounded by private land. Use only the obvious public road-end access and obey posted signs.',
+        'KDFWR treats the named endpoints as public, but the banks between them are not general-use public parks. Stay with the named access points.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, sticky mud, and slower pools can turn this into a grind.',
+        'High water above about 1.75 ft, when current at bends and the Glenview finish gets less forgiving.',
+        'Islands, chutes, bridge-adjacent current, private-bank limits, broad-river wind, and fresh wood after rain.',
+        'Slippery gravel or mud at Roachville and steep or slick footing at the Glenview road-end carrydown.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'roachville-ford',
+        name: 'Roachville Ford',
+        latitude: 37.2353,
+        longitude: -85.4241,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default full-corridor put-in.',
+      },
+      {
+        id: 'russell-ford-access',
+        name: 'Russell Ford Access',
+        latitude: 37.2738,
+        longitude: -85.4784,
+        mileFromStart: 6.6,
+        segmentKind: 'creek',
+        note: 'Early legal access option if the upper miles feel slower than planned.',
+      },
+      {
+        id: 'american-legion-park-ramp',
+        name: 'American Legion Park Ramp',
+        latitude: 37.2441,
+        longitude: -85.4795,
+        mileFromStart: 8.9,
+        segmentKind: 'creek',
+        note: 'Greensburg-corridor park access and shorter bailout point.',
+      },
+      {
+        id: 'greensburg-city-ramp',
+        name: 'Greensburg City Ramp',
+        latitude: 37.2581,
+        longitude: -85.5057,
+        mileFromStart: 11.1,
+        segmentKind: 'creek',
+        note: 'Town access option for a shorter route choice and the cleanest legal bailout.',
+      },
+      {
+        id: 'glenview-road-carrydown',
+        name: 'Glenview Road Carrydown',
+        latitude: 37.291,
+        longitude: -85.5913,
+        mileFromStart: 24.8,
+        segmentKind: 'creek',
+        note: 'Default downstream finish at the public road-end carrydown.',
+      },
+    ],
+  },
+'green-river-greensburg-city-ramp-lynn-camp-creek': {
+    putIn: {
+      id: 'greensburg-city-ramp',
+      name: 'Greensburg City Ramp',
+      latitude: 37.2581,
+      longitude: -85.5057,
+    },
+    takeOut: {
+      id: 'lynn-camp-creek-vpa-1',
+      name: 'Lynn Camp Creek Ramp',
+      latitude: 37.3533,
+      longitude: -85.7098,
+    },
+    logistics: {
+      distanceLabel: 'About 32.9 mi',
+      estimatedPaddleTime:
+        'About 9 hr to 12 hr, longer with low water, fishing, or headwind on the open pools',
+      shuttle:
+        'Stage the take-out at Lynn Camp Creek Ramp, then drive back to Greensburg City Ramp. This is a true dawn-to-dusk style route, so inspect both accesses first and leave serious daylight margin before committing.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect the public-use rules at Lynn Camp Creek.',
+      camping:
+        'Greensburg supports nearby overnights better than on-route camping. KDFWR lists no camping at Greensburg, Glenview, or Lynn Camp, and private banks between them should not be treated as legal campsites even though the mileage is long.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Greensburg City Ramp and continue all the way to Lynn Camp Creek Ramp for the longest current Greensburg-gauge route in the app. Use the Greensburg gauge and expect a very long, scrape-prone day whenever the stage stays below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Greensburg City Ramp is the easiest launch in this family, but once you pass Glenview the legal public exit options get sparse until Lynn Camp Creek.',
+        'Glenview Road Carrydown is the last clean midpoint bailout before the long lower half. Reassess there if heat, wind, or low water are already stretching the day.',
+        'Lynn Camp Creek VPA #1 is privately owned but open to the public through KDFWR. Continuing access depends on respectful parking and staying within the access footprint.',
+        'The Lynn Camp ramp is steep and KDFWR says it is better used as a carry-down site, especially when the river is low.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when exposed shoals and long slow pools can turn this into an all-day grind.',
+        'High water above about 1.75 ft, when bends, private-bank edges, and the steep Lynn Camp finish become less forgiving.',
+        'Broad-river wind, exposed sun, limited legal bailout options after Glenview, and fresh wood after rain.',
+        'Slick footing at the Glenview bailout and the steep Lynn Camp ramp at the finish.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'greensburg-city-ramp',
+        name: 'Greensburg City Ramp',
+        latitude: 37.2581,
+        longitude: -85.5057,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default full-corridor put-in and town launch.',
+      },
+      {
+        id: 'glenview-road-carrydown',
+        name: 'Glenview Road Carrydown',
+        latitude: 37.291,
+        longitude: -85.5913,
+        mileFromStart: 13.7,
+        segmentKind: 'creek',
+        note: 'Last clean midpoint bailout before the Lynn Camp commitment.',
+      },
+      {
+        id: 'lynn-camp-creek-vpa-1',
+        name: 'Lynn Camp Creek Ramp',
+        latitude: 37.3533,
+        longitude: -85.7098,
+        mileFromStart: 32.9,
+        segmentKind: 'creek',
+        note: 'Default downstream finish at the steep publicly open private ramp.',
+      },
+    ],
+  },
 'green-river-greensburg-city-ramp-glenview-road': {
     putIn: {
       id: 'greensburg-city-ramp',
