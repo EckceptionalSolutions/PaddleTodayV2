@@ -1,16 +1,19 @@
 # Arkansas Route Memory
 
-Last summarized: 2026-07-02 15:10 America/Chicago.
+Last summarized: 2026-07-02 16:35 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 20.
-- Ledger candidates: 14 Arkansas-specific implemented-route records plus older blocked Arkansas holds after the 2026-07-02 Crooked Creek add.
+- Live routes: 23.
+- Ledger candidates: 17 Arkansas-specific implemented-route records plus older blocked Arkansas holds after the 2026-07-02 Buffalo upper-corridor add.
 
 ## Added Routes
 
 - `buffalo-river-ponca-kyles-landing` - Buffalo River, Ponca to Kyle's Landing. Added 2026-05-31 as a guarded `routeType: whitewater` route on direct USGS `07055660` at Ponca. Uses conservative `minimum-only` scoring with `tooLow: 130 cfs`; NPS's `1,600 cfs` Ponca unsafe level is retained as a hard caveat rather than a full two-sided scoring band.
 - `buffalo-river-kyles-landing-pruitt` - Buffalo River, Kyle's Landing to Pruitt. Added 2026-06-01 as a guarded `routeType: whitewater` route on direct/downstream-corridor USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
+- `buffalo-river-kyles-landing-erbie` - Buffalo River, Kyle's Landing to Erbie. Added 2026-07-02 as a guarded `routeType: whitewater` route on downstream-corridor USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
+- `buffalo-river-erbie-ozark` - Buffalo River, Erbie to Ozark. Added 2026-07-02 as a guarded `routeType: whitewater` route on downstream-corridor USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
+- `buffalo-river-ozark-pruitt` - Buffalo River, Ozark to Pruitt. Added 2026-07-02 as a guarded `routeType: whitewater` route on direct USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
 - `buffalo-river-pruitt-hasty` - Buffalo River, Pruitt to Hasty. Added 2026-05-31 as a guarded `routeType: whitewater` route on direct USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
 - `buffalo-river-tyler-bend-gilbert` - Buffalo River, Tyler Bend to Gilbert. Added 2026-06-01 UTC as a guarded `routeType: whitewater` middle-district route on direct USGS `07056000` near St. Joe. Uses conservative `minimum-only` scoring with `tooLow: 120 cfs` from Rivers.MOHERP St. Joe bands and same-route/nearby middle-Buffalo trip evidence; high/flood values are caveats only, not a full two-sided scoring band.
 - `cossatot-river-ed-banks-highway-278` - Cossatot River, Ed Banks Access to Highway 278 Access. Added 2026-06-01 UTC as an expert-only `routeType: whitewater` route on direct USGS `07340300` near Vandervoort. Uses conservative `two-sided` stage scoring from Arkansas State Parks floater guidance: `tooLow: 3.3 ft`, `idealMin: 3.8 ft`, `idealMax: 4.8 ft`, `tooHigh: 5.4 ft`.
@@ -20,7 +23,21 @@ Last summarized: 2026-07-02 15:10 America/Chicago.
 
 ## Status
 
-Arkansas now has twenty live routes after the 2026-07-02 Bayou DeView downstream follow-up added three more AGFC water-trail segments beyond the prior Bayou DeView consolidation and Crooked Creek work. The state no longer looks paused so much as partially harvested: Bayou DeView, Buffalo, Crooked Creek, Saline, upper Illinois, Mulberry, Cossatot, Kings, and Ouachita all have live coverage, while the strongest remaining near-term leads are still blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs.
+Arkansas now has twenty-three live routes after the 2026-07-02 Buffalo upper-corridor follow-up added three more NPS-supported Buffalo access-to-access segments beyond the prior Bayou DeView consolidation and Crooked Creek work. The state still looks partially harvested rather than exhausted: Bayou DeView, Buffalo, Crooked Creek, Saline, upper Illinois, Mulberry, Cossatot, Kings, and Ouachita all have live coverage, while the strongest remaining near-term leads are still blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs.
+
+## 2026-07-02 Buffalo upper-corridor implementation pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had twenty live route objects and matching trip-detail entries before this pass, so the Buffalo follow-up had to create three genuinely new slugs beyond that baseline.
+- Added `buffalo-river-kyles-landing-erbie`, `buffalo-river-erbie-ozark`, and `buffalo-river-ozark-pruitt` from the Buffalo National River upper-district access chain between Kyle's Landing and Pruitt.
+- Route, gauge, and threshold evidence:
+  - NPS now documents the exact public segment mileages and route pages for `5.7` / `5.4` / `2.1` mile Kyles-to-Erbie, Erbie-to-Ozark, and Ozark-to-Pruitt trips, while the official access mileage page supports `5.6` / `5.5` / `2.1` river miles between those accesses.
+  - Direct same-day official USGS current conditions for Buffalo River at Pruitt (`07055680`) showed `148 cfs / 3.82 ft` at `2026-07-02 15:15 CDT`.
+  - The current NPS-linked Buffalo Float Guide still marks Pruitt as Very Low below `100 cfs`, Low from `100-200 cfs`, Moderate from `200-1,000 cfs`, High from `1,000-2,000 cfs`, and Flood above `2,000 cfs`, while the current NPS paddling page still says levels above `2,000 cfs` at Pruitt/Hwy. 7 are unsafe. All three routes therefore ship on the same conservative `minimum-only` model with `tooLow: 100` and a high-water caveat rather than a full ideal range.
+- Access, camping, and safety posture:
+  - All three routes now use official NPS coordinate anchors from Getting Around, with endpoint campground classification support at Kyles, Erbie, and Ozark plus a developed major take-out at Pruitt.
+  - Kyles-to-Erbie carries the strongest upper-district caution set: rough Kyle's Landing road, NPS high-clearance / four-wheel-drive recommendation, not-for-beginners warning, swift current, sharp bends, and occasional obstacles.
+  - Erbie-to-Ozark and Ozark-to-Pruitt stay shorter and more approachable, but they still carry upper-Buffalo cautions around bouncy riffles, wood, cold water, rising levels, limited cell service, and developed-access crowding.
+  - Gallery coverage was completed by reusing the already-approved NPS public-domain Buffalo corridor image stored for `buffalo-river-kyles-landing-pruitt`; the reuse is documented in the image audit for all three new slugs.
 
 ## 2026-07-02 Bayou DeView downstream implementation pass
 

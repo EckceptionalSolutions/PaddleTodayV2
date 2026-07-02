@@ -1336,6 +1336,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'NPS asset: public domain',
     },
   ],
+  'buffalo-river-kyles-landing-erbie': [
+    {
+      id: 'buffalo-river-kyles-erbie-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River winds past wooded Ozark bluffs in the same upper-river corridor used for the Kyles Landing to Erbie route.',
+      caption: 'Upper Buffalo River corridor',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'buffalo-river-erbie-ozark': [
+    {
+      id: 'buffalo-river-erbie-ozark-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River curves through a bluff-lined Ozark corridor similar to the Erbie to Ozark segment.',
+      caption: 'Buffalo River corridor near Ozark',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'buffalo-river-ozark-pruitt': [
+    {
+      id: 'buffalo-river-ozark-pruitt-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River corridor between Ozark and Pruitt shows broad water, forested bluffs, and a bend through the valley.',
+      caption: 'Buffalo River corridor between Ozark and Pruitt',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
   'buffalo-river-tyler-bend-gilbert': [
     {
       id: 'buffalo-river-gilbert-aerial-nps',
