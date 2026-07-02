@@ -14,6 +14,13 @@ Minnesota still has the strongest official-source foundation and a broad existin
 
 ## Latest Run
 
+- 2026-07-01 23:35 America/Chicago: added `big-fork-river-big-falls-west-kueffners`, `big-fork-river-sturgeon-kueffners`, and `big-fork-river-ben-linn-kueffners`.
+- Stayed on the same official lower Big Fork family because current MN DNR Map 2 still had three unused Kueffners-finish continuations with better source quality than reopening a weaker new-state search.
+- Current MN DNR `river_level_sites.json` still reports site `5` (`Big Fork River at Big Falls, MN`) at `2.87 ft` on `2026-07-01 09:00 PM`; the official ladder remains Scrapable below `1.5 ft`, Low `1.5-2.8`, Medium `2.8-4.5`, High `4.5-6.0`, and Very High above `6.0`.
+- The official public-water-access GIS still resolves Big Falls West `WAS01791`, Sturgeon `WAS01795`, Ben Linn `WAS01796`, Gowdy `WAS02706`, and Kueffners `WAS01788`, while current DNR Map 2 still places them at river miles `52.6`, `47.5`, `43.0`, `34.2`, and `30.4`.
+- `big-fork-river-big-falls-west-kueffners` ships as `on_route_campsite` because Sturgeon, Ben Linn, and Gowdy remain documented midpoint watercraft campsites before the Kueffners campsite/toilet finish; `big-fork-river-sturgeon-kueffners` and `big-fork-river-ben-linn-kueffners` also ship as `on_route_campsite` because the mapped campsite chain gives real bailout and overnight support on both longer continuations.
+- Safety notes stay conservative around the mapped Class I stretch at river miles `41.3-39.8`, fresh wood after storms, long lower-river fatigue, private-bank limits, and the need to start only below Big Falls on the Cody Landing route. No route-gallery image was added.
+
 - 2026-07-01 22:35 America/Chicago: added `big-fork-river-gowdy-kueffners`, `big-fork-river-kueffners-ivan-crawford`, and `big-fork-river-ivan-crawford-reedy-flats`.
 - Implemented the remaining lower Big Fork access chain from Gowdy to Reedy Flats instead of reopening a weaker cross-state search.
 - Minnesota public-water-access GIS resolves Gowdy `WAS02706` at `48.2991378, -93.8203830`, Kueffners `WAS01788` at `48.3387434, -93.8170438`, Ivan Crawford `WAS02705` at `48.4552606, -93.7195547`, and Reedy Flats `WAS02709` at `48.5122095, -93.7127785`.

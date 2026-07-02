@@ -1569,6 +1569,369 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'big-fork-river-big-falls-west-kueffners',
+    slug: 'big-fork-river-big-falls-west-kueffners',
+    name: 'Big Fork River',
+    reach: 'Big Falls West to Kueffners Landing',
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'Longest currently supported post-portage Big Fork continuation from Cody Landing / Big Falls West to Kueffners Landing. It carries the full lower rapid corridor plus three named campsite bailouts before the lower-river campsite finish.',
+    statusText:
+      'The Big Falls gauge is best from 2.8 to 4.5 ft. Below 1.5 ft, expect scraping, slower riffles, and a much longer day; above 6.0 ft, current and wood through the rapid stretch become too consequential for a general recommendation.',
+    latitude: 48.197406,
+    longitude: -93.804955,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'remote', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'This route starts below Big Falls at Cody Landing / Big Falls West. Do not treat it as permission to run the falls or skip the documented portage from upstream.',
+        'The lower half includes the Class I rapid stretch between river miles 41.3 and 39.8, where rising water, wood, and fatigue can stack up late in the day.',
+        'Use only the named public accesses and campsites because most shoreline outside those sites remains undeveloped or private frontage.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-5',
+      provider: 'mn_dnr',
+      siteId: '5',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Big Fork River at Big Falls, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77069001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.8,
+      idealMax: 4.5,
+      tooLow: 1.5,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Big Fork River at Big Falls',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The Big Fork usually falls through summer, but heavy summer or autumn rain can quickly raise current, move wood, and turn this long lower continuation into a much more serious outing.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a full-commitment post-portage forest run. It stays below the falls, but the long mileage, mapped rapid stretch, and sparse exits make it meaningfully more serious than the shorter lower Big Fork splits.',
+      confidenceNotes:
+        'Confidence is good for a conservative long continuation: DNR Map 2 names Cody Landing below the Big Falls portage plus the Sturgeon, Ben Linn, Gowdy, and Kueffners access chain, the direct Big Falls gauge has an official ladder, and the official public-water-access dataset resolves the endpoints.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct live gauge',
+        value: 'Big Falls gauge 2.87 ft',
+        note: 'The official MN DNR river-level dataset reported 2.87 ft at 2026-07-01 09:00 PM for Big Fork River at Big Falls, confirming the current direct gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '1.5 / 2.8-4.5 / 6.0 ft',
+        note: 'MN DNR interprets the Big Falls gauge as Scrapable below 1.5 ft, Low from 1.5 to 2.8, Medium from 2.8 to 4.5, High from 4.5 to 6.0, and Very High above 6.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: 'Big Falls West RM 52.6 to Kueffners RM 30.4',
+        note: 'DNR Map 2 places Cody Landing / Big Falls West at river mile 52.6, Sturgeon at 47.5, Ben Linn at 43.0, Gowdy at 34.2, and Kueffners at 30.4, supporting a 22.2-mile post-portage continuation.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'Rapid support',
+        value: 'Class I rapids at RM 41.3-39.8',
+        note: 'The DNR map marks a Class I rapid stretch between river miles 41.3 and 39.8 on the lower half of this route.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Big Falls West WAS01791 and Kueffners WAS01788',
+        note: 'Minnesota public-water-access data resolves Big Falls West on river right and Kueffners on river right with matching water-trail river miles in the official access layer.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: 'Sturgeon, Ben Linn, Gowdy, and Kueffners campsites',
+        note: 'The DNR map says Sturgeon, Ben Linn, and Gowdy have watercraft campsites and that Kueffners has toilets plus a watercraft campsite, giving this full downstream continuation multiple legal bailout or overnight options.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Big Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Big Fork River map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'MN DNR Big Falls gauge detail',
+        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Pine Island State Forest map',
+        url: 'https://files.dnr.state.mn.us/maps/state_forests/sft00040.pdf',
+      },
+    ],
+  },
+  {
+    id: 'big-fork-river-sturgeon-kueffners',
+    slug: 'big-fork-river-sturgeon-kueffners',
+    name: 'Big Fork River',
+    reach: 'Sturgeon Landing to Kueffners Landing',
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'Longer middle-lower Big Fork continuation from Sturgeon Landing to Kueffners Landing. It includes the mapped Class I stretch plus campsite support at Ben Linn, Gowdy, and the Kueffners finish.',
+    statusText:
+      'The Big Falls gauge is best from 2.8 to 4.5 ft. Below 1.5 ft, expect scraping and a slower rapid-stretch day; above 6.0 ft, current and wood through the lower rapids become too consequential for a general recommendation.',
+    latitude: 48.211879,
+    longitude: -93.883423,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'remote', 'private_banks'],
+      safetyNotes: [
+        'This route includes the mapped Class I rapid stretch between river miles 41.3 and 39.8, so it is more than a quiet campsite shuttle even though it stays below Big Falls.',
+        'Ben Linn and Gowdy are the clearest bailout or overnight points before the Kueffners finish. Treat them as real decisions if the day is slipping.',
+        'Use only the named public accesses and campsites because most shoreline outside those sites remains undeveloped or private frontage.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-5',
+      provider: 'mn_dnr',
+      siteId: '5',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Big Fork River at Big Falls, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77069001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.8,
+      idealMax: 4.5,
+      tooLow: 1.5,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Big Fork River at Big Falls',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The Big Fork usually falls through summer, but heavy summer or autumn rain can quickly raise current and move wood through this remote middle-lower corridor.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a long remote forest run with a mapped rapid stretch and only a couple of named exits. It is still broad Class I-II moving water, but it deserves more respect than the shorter lower splits.',
+      confidenceNotes:
+        'Confidence is good for a conservative long continuation: DNR Map 2 names Sturgeon, Ben Linn, Gowdy, and Kueffners with matching river miles on one corridor, the direct Big Falls gauge has an official ladder, and the public-water-access dataset resolves the endpoints.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct live gauge',
+        value: 'Big Falls gauge 2.87 ft',
+        note: 'The official MN DNR river-level dataset reported 2.87 ft at 2026-07-01 09:00 PM for Big Fork River at Big Falls, confirming the current direct gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '1.5 / 2.8-4.5 / 6.0 ft',
+        note: 'MN DNR interprets the Big Falls gauge as Scrapable below 1.5 ft, Low from 1.5 to 2.8, Medium from 2.8 to 4.5, High from 4.5 to 6.0, and Very High above 6.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: 'Sturgeon RM 47.5 to Kueffners RM 30.4',
+        note: 'DNR Map 2 places Sturgeon Landing at river mile 47.5, Ben Linn at 43.0, Gowdy at 34.2, and Kueffners at 30.4, supporting a 17.1-mile middle-lower continuation.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'Rapid support',
+        value: 'Class I rapids at RM 41.3-39.8',
+        note: 'The DNR map marks a Class I rapid stretch between river miles 41.3 and 39.8 on the lower half of this route.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Sturgeon WAS01795 and Kueffners WAS01788',
+        note: 'Minnesota public-water-access data resolves Sturgeon on river left and Kueffners on river right with matching water-trail river miles in the official access layer.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: 'Sturgeon, Ben Linn, Gowdy, and Kueffners campsites',
+        note: 'The DNR map says Sturgeon, Ben Linn, and Gowdy have watercraft campsites and that Kueffners has toilets plus a watercraft campsite, giving this route real on-route overnight or bailout support.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Big Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Big Fork River map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'MN DNR Big Falls gauge detail',
+        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Pine Island State Forest map',
+        url: 'https://files.dnr.state.mn.us/maps/state_forests/sft00040.pdf',
+      },
+    ],
+  },
+  {
+    id: 'big-fork-river-ben-linn-kueffners',
+    slug: 'big-fork-river-ben-linn-kueffners',
+    name: 'Big Fork River',
+    reach: 'Ben Linn Landing to Kueffners Landing',
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'Middle-lower Big Fork continuation from Ben Linn Landing to Kueffners Landing. It keeps the mapped Class I stretch and finishes at the first lower landing with toilets plus a documented watercraft campsite.',
+    statusText:
+      'The Big Falls gauge is best from 2.8 to 4.5 ft. Below 1.5 ft, expect scraping through the rapid stretch and slower lower-river bends; above 6.0 ft, current and wood become too consequential for a general recommendation.',
+    latitude: 48.250069,
+    longitude: -93.88611,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'This route includes the mapped Class I rapid stretch between river miles 41.3 and 39.8, so keep normal moving-water judgment even though the finish is calmer and better serviced.',
+        'Gowdy is the clearest midpoint bailout before the Kueffners finish and should be treated as a real decision point if the day is slipping.',
+        'Use only the named public accesses and campsites because most shoreline outside those sites remains undeveloped or private frontage.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-5',
+      provider: 'mn_dnr',
+      siteId: '5',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Big Fork River at Big Falls, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77069001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.8,
+      idealMax: 4.5,
+      tooLow: 1.5,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Big Fork River at Big Falls',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The Big Fork usually falls through summer, but heavy summer or autumn rain can still move wood quickly through this rapid-stretch corridor and change the lower bends.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a medium-length moving-water forest run. It is shorter than the Sturgeon or Big Falls West continuations, but the mapped rapid stretch and limited exits still push it above a casual easy float.',
+      confidenceNotes:
+        'Confidence is good for a conservative continuation: DNR Map 2 names Ben Linn, Gowdy, and Kueffners with matching river miles, the direct Big Falls gauge has an official ladder, and the public-water-access dataset resolves the endpoints.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct live gauge',
+        value: 'Big Falls gauge 2.87 ft',
+        note: 'The official MN DNR river-level dataset reported 2.87 ft at 2026-07-01 09:00 PM for Big Fork River at Big Falls, confirming the current direct gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '1.5 / 2.8-4.5 / 6.0 ft',
+        note: 'MN DNR interprets the Big Falls gauge as Scrapable below 1.5 ft, Low from 1.5 to 2.8, Medium from 2.8 to 4.5, High from 4.5 to 6.0, and Very High above 6.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: 'Ben Linn RM 43.0 to Kueffners RM 30.4',
+        note: 'DNR Map 2 places Ben Linn Landing at river mile 43.0, Gowdy at 34.2, and Kueffners at 30.4, supporting a 12.6-mile middle-lower continuation.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'Rapid support',
+        value: 'Class I rapids at RM 41.3-39.8',
+        note: 'The DNR map marks a Class I rapid stretch between river miles 41.3 and 39.8 on the upstream half of this route.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Ben Linn WAS01796 and Kueffners WAS01788',
+        note: 'Minnesota public-water-access data resolves Ben Linn on river right and Kueffners on river right with matching water-trail river miles in the official access layer.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: 'Ben Linn, Gowdy, and Kueffners campsites',
+        note: 'The DNR map says Ben Linn and Gowdy have watercraft campsites and that Kueffners has toilets plus a watercraft campsite, giving this route a campsite-to-campsite finish with a real midpoint bailout.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Big Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Big Fork River map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'MN DNR Big Falls gauge detail',
+        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Pine Island State Forest map',
+        url: 'https://files.dnr.state.mn.us/maps/state_forests/sft00040.pdf',
+      },
+    ],
+  },
+  {
     id: 'big-fork-river-gowdy-kueffners',
     slug: 'big-fork-river-gowdy-kueffners',
     name: 'Big Fork River',

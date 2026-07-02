@@ -1361,6 +1361,225 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'big-fork-river-big-falls-west-kueffners': {
+    putIn: {
+      name: 'Big Falls West / Cody Landing Public Water Access Site',
+      latitude: 48.1974059,
+      longitude: -93.804955,
+    },
+    takeOut: {
+      name: 'Kueffners Public Water Access Site',
+      latitude: 48.3387433532423,
+      longitude: -93.81704382878402,
+    },
+    logistics: {
+      distanceLabel: '22.2 mi',
+      estimatedPaddleTime: 'Very long day, roughly 8 hr to 10 hr depending on level and stops',
+      shuttle:
+        'Stage the take-out at Kueffners before driving to Big Falls West / Cody Landing. This route begins below the Big Falls portage and commits you to a long remote forest run, so build in daylight and backup-driver margin.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access, portage, county, and state-forest rules at Big Falls, Sturgeon, Ben Linn, Gowdy, and Kueffners.',
+      camping:
+        'Sturgeon, Ben Linn, and Gowdy all have documented watercraft campsites, and Kueffners adds toilets plus another watercraft campsite, so this route has real on-route overnight or bailout support instead of only a day-trip finish.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch below Big Falls at Cody Landing / Big Falls West and finish at Kueffners for the longest current lower-Big-Fork continuation in the app. It adds the full rapid-stretch corridor plus a lower campsite finish with toilets.',
+      accessCaveats: [
+        'Big Falls West is the downstream put-in reached after the documented Big Falls portage. Do not start above the falls unless you have separately planned that upstream route and portage.',
+        'Sturgeon, Ben Linn, and Gowdy are the clearest named bailout or overnight options before the Kueffners finish.',
+        'Stay with the named public accesses and campsites rather than improvising on brushy or private banks.',
+      ],
+      watchFor: [
+        'The mapped Class I rapid stretch between river miles 41.3 and 39.8 on the lower half of the route.',
+        'Outside-bend strainers, fresh storm wood, and quicker current after rain.',
+        'Long-day fatigue plus scraping and slower travel when the Big Falls gauge falls toward the 1.5 ft floor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'big-falls-west',
+        name: 'Big Falls West / Cody Landing Public Water Access Site',
+        latitude: 48.1974059,
+        longitude: -93.804955,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Downstream launch reached after the documented Big Falls portage.',
+      },
+      {
+        id: 'sturgeon',
+        name: 'Sturgeon Public Water Access Site',
+        latitude: 48.2118788,
+        longitude: -93.8834227,
+        mileFromStart: 5.1,
+        segmentKind: 'creek',
+        note: 'First named bailout with a watercraft campsite.',
+      },
+      {
+        id: 'ben-linn',
+        name: 'Ben Linn Public Water Access Site',
+        latitude: 48.2500692,
+        longitude: -93.8861103,
+        mileFromStart: 9.6,
+        segmentKind: 'creek',
+        note: 'Mid-route campsite and second bailout before the lower rapid stretch.',
+      },
+      {
+        id: 'gowdy',
+        name: 'Gowdy Public Water Access Site',
+        latitude: 48.2991378,
+        longitude: -93.820383,
+        mileFromStart: 18.4,
+        segmentKind: 'creek',
+        note: 'Carry-in access with a watercraft campsite near the downstream end of the rapid-stretch corridor.',
+      },
+      {
+        id: 'kueffners',
+        name: 'Kueffners Public Water Access Site',
+        latitude: 48.3387433532423,
+        longitude: -93.81704382878402,
+        mileFromStart: 22.2,
+        segmentKind: 'creek',
+        note: 'Carry-in access with toilets and a watercraft campsite at the lower finish.',
+      },
+    ],
+  },
+  'big-fork-river-sturgeon-kueffners': {
+    putIn: {
+      name: 'Sturgeon Public Water Access Site',
+      latitude: 48.2118788,
+      longitude: -93.8834227,
+    },
+    takeOut: {
+      name: 'Kueffners Public Water Access Site',
+      latitude: 48.3387433532423,
+      longitude: -93.81704382878402,
+    },
+    logistics: {
+      distanceLabel: '17.1 mi',
+      estimatedPaddleTime: 'Long day, roughly 6 hr to 8 hr depending on level and stops',
+      shuttle:
+        'Stage the take-out at Kueffners before driving to Sturgeon. This is still a remote forest-road shuttle, and the route gets more committing once you leave the Ben Linn and Gowdy bailout chain behind.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access, county, and state-forest rules at Sturgeon, Ben Linn, Gowdy, and Kueffners.',
+      camping:
+        'Sturgeon, Ben Linn, and Gowdy all have documented watercraft campsites, and Kueffners adds toilets plus another watercraft campsite, so this route has real on-route overnight or bailout support rather than only a campsite finish.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Sturgeon and finish at Kueffners for a long middle-lower Big Fork continuation that includes the mapped Class I rapid stretch plus a more comfortable lower campsite finish.',
+      accessCaveats: [
+        'Ben Linn and Gowdy are the clearest midpoint bailout or overnight options before the Kueffners finish.',
+        'This is a forest-corridor route between named public accesses and campsites, not a park-to-park float with easy roadside exits.',
+        'Stay on the named public accesses and campsites rather than using private or brushy banks.',
+      ],
+      watchFor: [
+        'The mapped Class I rapid stretch between river miles 41.3 and 39.8.',
+        'Outside-bend strainers, fresh storm wood, and quicker current after rain.',
+        'Scraping and rocky riffles when the Big Falls gauge falls toward the 1.5 ft floor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'sturgeon',
+        name: 'Sturgeon Public Water Access Site',
+        latitude: 48.2118788,
+        longitude: -93.8834227,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Forested carry-in access with a watercraft campsite.',
+      },
+      {
+        id: 'ben-linn',
+        name: 'Ben Linn Public Water Access Site',
+        latitude: 48.2500692,
+        longitude: -93.8861103,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Best named midpoint bailout with a watercraft campsite.',
+      },
+      {
+        id: 'gowdy',
+        name: 'Gowdy Public Water Access Site',
+        latitude: 48.2991378,
+        longitude: -93.820383,
+        mileFromStart: 13.3,
+        segmentKind: 'creek',
+        note: 'Carry-in access with a watercraft campsite before the final lower miles.',
+      },
+      {
+        id: 'kueffners',
+        name: 'Kueffners Public Water Access Site',
+        latitude: 48.3387433532423,
+        longitude: -93.81704382878402,
+        mileFromStart: 17.1,
+        segmentKind: 'creek',
+        note: 'Carry-in access with toilets and a watercraft campsite at the finish.',
+      },
+    ],
+  },
+  'big-fork-river-ben-linn-kueffners': {
+    putIn: {
+      name: 'Ben Linn Public Water Access Site',
+      latitude: 48.2500692,
+      longitude: -93.8861103,
+    },
+    takeOut: {
+      name: 'Kueffners Public Water Access Site',
+      latitude: 48.3387433532423,
+      longitude: -93.81704382878402,
+    },
+    logistics: {
+      distanceLabel: '12.6 mi',
+      estimatedPaddleTime: 'About 5 hr to 6.5 hr',
+      shuttle:
+        'Stage the take-out at Kueffners before driving to Ben Linn. The road approach is simpler than the upstream Big Falls starts, but this is still a remote forest-edge shuttle without many backup services.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access, county, and state-forest rules at Ben Linn, Gowdy, and Kueffners.',
+      camping:
+        'Ben Linn and Gowdy both have documented watercraft campsites, and Kueffners adds toilets plus another campsite, so this route works cleanly as a campsite-supported day or short overnight link.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Ben Linn and finish at Kueffners for a middle-lower Big Fork continuation that keeps the mapped Class I stretch and ends at the first lower landing with toilets.',
+      accessCaveats: [
+        'Gowdy is the clearest midpoint bailout or overnight stop before the Kueffners finish.',
+        'Ben Linn and Kueffners are both named public accesses with campsites, but they are still rural landings without developed-park services.',
+        'Stay on the named public accesses and campsites rather than using private or brushy banks.',
+      ],
+      watchFor: [
+        'The mapped Class I rapid stretch between river miles 41.3 and 39.8.',
+        'Outside-bend strainers, fresh storm wood, and quicker current after rain.',
+        'Scraping and rocky riffles when the Big Falls gauge falls toward the 1.5 ft floor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'ben-linn',
+        name: 'Ben Linn Public Water Access Site',
+        latitude: 48.2500692,
+        longitude: -93.8861103,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Carry-in access with a grassy clearing and watercraft campsite.',
+      },
+      {
+        id: 'gowdy',
+        name: 'Gowdy Public Water Access Site',
+        latitude: 48.2991378,
+        longitude: -93.820383,
+        mileFromStart: 8.8,
+        segmentKind: 'creek',
+        note: 'Best named midpoint bailout with a watercraft campsite.',
+      },
+      {
+        id: 'kueffners',
+        name: 'Kueffners Public Water Access Site',
+        latitude: 48.3387433532423,
+        longitude: -93.81704382878402,
+        mileFromStart: 12.6,
+        segmentKind: 'creek',
+        note: 'Carry-in access with toilets and a watercraft campsite at the finish.',
+      },
+    ],
+  },
   'big-fork-river-gowdy-kueffners': {
     putIn: {
       name: 'Gowdy Public Water Access Site',
