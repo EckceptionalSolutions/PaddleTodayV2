@@ -303,6 +303,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'kansas-river-eudora-turner-bridge': {
+    putIn: {
+      name: 'Eudora Access Ramp',
+      latitude: 38.94999,
+      longitude: -95.09963,
+    },
+    takeOut: {
+      name: 'Turner Bridge Access Ramp',
+      latitude: 39.09396,
+      longitude: -94.71176,
+    },
+    logistics: {
+      distanceLabel: 'About 32.8 mi',
+      estimatedPaddleTime:
+        'Best planned as a very long day; roughly 10 hr to 13 hr including the WaterOne portage, wind delays, and lower-river logistics',
+      shuttle:
+        'Stage the take-out at Turner Bridge first, then drive back to Eudora. Inspect De Soto, Edwardsville, and the WaterOne portage plan before launching because they are the only clean public contingency points before the final lower-Kaw finish.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Treat this as a committed through-route, not an overnight corridor. Friends of the Kaw notes the lower controlled reach has almost no sandbars, and the WaterOne portage plus private lower banks make improvised camping a bad assumption.',
+      campingClassification: 'none',
+      summary:
+        'Launch from Eudora and take out at Turner Bridge for a full lower-Kaw continuation that includes De Soto, Edwardsville, and the mandatory WaterOne low-head-dam portage. The app uses the De Soto gauge as the cleanest same-river discharge proxy for this longer route.',
+      accessCaveats: [
+        'The Eudora ramp is on the Wakarusa River about three-quarters of a mile upstream from the Kansas River. Launch there and expect a short downstream Wakarusa lead-in before the mainstem.',
+        'De Soto and Edwardsville are the last simple public access points before and after the WaterOne portage. Inspect that contingency before launch rather than assuming you can improvise on private banks.',
+        'The WaterOne portage is a rough 100+ yard carry over large loose rocks. Wheels and carts are not useful, and high water can require an earlier landing on slick mud upstream.',
+        'Turner Bridge has no amenities and a small gravel lot that can be muddy or rough after recent high water.',
+      ],
+      watchFor: [
+        'WaterOne low-head dam at river mile 14.8. Land river left well above the structure, avoid the river-right low-water notch, and do not enter the dam hydraulic.',
+        'Low flows below about 1,000 cfs can expose mud, slow the lower channel, and make landings or the portage more awkward.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'This lower reach has well-defined banks and almost no sandbars, so do not count on easy mid-route stops beyond the named public accesses.',
+        'Wind in the open lower valley, storms, rising water, floating wood, strainers, bridge current, bank hooks and fishing lines, and industrial riverfront traffic.',
+        'Private banks along the Kaw; stay with public ramps, the documented portage, and legal stops rather than climbing banks or using private land.',
+      ],
+    },
+  },
   'kansas-river-junction-city-manhattan': {
     putIn: {
       name: 'Junction City Access Ramp / Grant Park',
@@ -573,6 +613,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'kansas-river-manhattan-belvue': {
+    putIn: {
+      name: 'Manhattan K-177 / Fairmont Access Ramp',
+      latitude: 39.17428,
+      longitude: -96.55318,
+    },
+    takeOut: {
+      name: 'Belvue Access Ramp',
+      latitude: 39.20284,
+      longitude: -96.17552,
+    },
+    logistics: {
+      distanceLabel: 'About 30.5 mi',
+      estimatedPaddleTime:
+        'Best planned as a very long day or conservative overnight; roughly 9.5 hr to 13 hr depending on wind, low water, and stop strategy',
+      shuttle:
+        'Stage the take-out at Belvue before driving back to the Manhattan K-177 / Fairmont access. Inspect Belvue first because the take-out comes just below the partial low-head dam hazard and the ramp can change with sand, mud, or high-water cleanup.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'This route is long enough that conservative sandbar camping may make more sense than a single push. Friends of the Kaw says you can camp on public sandbars between the high-water marks without a special permit, but private banks above that line are off-limits and sandbars become scarce above about 8,000 cfs.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch below the K-177 bridge in Manhattan and take out at Belvue for a full upper-Kaw continuation through St. George and Wamego. The Wamego USGS gauge is direct in the route corridor, but the finish still requires careful Belvue dam planning.',
+      accessCaveats: [
+        'The Manhattan K-177 / Fairmont ramp has limited parking and nearby Blue River current can change when Tuttle Creek releases rise.',
+        'At Wamego, Friends of the Kaw says it is often advisable to pass under the K-99 bridge and turn upstream next to the bank to reach the ramp; keep that line in mind if you stop or regroup there.',
+        'The Belvue partial low-head dam is at river mile 120, about one mile above the Belvue ramp. Friends of the Kaw says the dam begins on river right and extends more than halfway across the river; stay river left and watch for exposed or submerged rocks.',
+        'Stay with public ramps and legal sandbar stops between the high-water marks. The banks above the river are private property.',
+      ],
+      watchFor: [
+        'The partial low-head dam and associated exposed or submerged rocks near Belvue. Do not run right-side dam structures, and do not attempt this finish if visibility, flow, or group skill makes the left-side line uncertain.',
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar or rock navigation slow and technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, and bank hooks or fishing lines left in shoreline trees.',
+        'Private banks along the Kaw; do not plan on using them for rest, camping, or bailout access.',
+      ],
+    },
+  },
   'kansas-river-st-george-wamego': {
     putIn: {
       name: 'St. George / Boggs Landing Access Ramp',
@@ -636,6 +715,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'The Belvue partial low-head dam is at river mile 120, about one mile above the Belvue ramp. Friends of the Kaw says the dam begins on river right and extends more than halfway across the river; stay river left and watch for exposed or submerged rocks.',
         'Belvue has primitive camping only by reservation through the city; do not assume overnight parking, camping, or adjacent-bank use is allowed without checking current local rules.',
         'All access and parking are subject to same-day city, county, and ramp conditions. Mud, silt, event closures, high-water cleanup, and shifted sand can change ramp usability.',
+      ],
+      watchFor: [
+        'The partial low-head dam and associated exposed or submerged rocks near Belvue. Do not run right-side dam structures, and do not attempt this reach if visibility, flow, or group skill makes the left-side line uncertain.',
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar or rock navigation slow and technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
+        'Private banks along the Kaw; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
+      ],
+    },
+  },
+  'kansas-river-st-george-belvue': {
+    putIn: {
+      name: 'St. George / Boggs Landing Access Ramp',
+      latitude: 39.18726,
+      longitude: -96.42202,
+    },
+    takeOut: {
+      name: 'Belvue Access Ramp',
+      latitude: 39.20284,
+      longitude: -96.17552,
+    },
+    logistics: {
+      distanceLabel: 'About 18.0 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 8.5 hr, longer with low water, wind, sandbar stops, or extra caution near the Belvue dam',
+      shuttle:
+        'Stage the take-out at Belvue before driving back to St. George / Boggs Landing. Inspect Belvue first because the take-out is just downstream of the partial low-head dam hazard and ramp usability can change with sand, mud, or high-water cleanup.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'This route can still be done as a long day, but conservative sandbar camping may make sense if weather or group pace is uncertain. Friends of the Kaw says you can camp on public sandbars between the high-water marks without a special permit, but private banks above that line are off-limits and sandbars become scarce above about 8,000 cfs.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch at St. George / Boggs Landing and take out at Belvue for a longer upper-Kaw continuation through Wamego. The Wamego gauge is direct for this route, but the Belvue partial low-head dam still controls the finish.',
+      accessCaveats: [
+        'St. George / Boggs Landing is a public river-left ramp with strong amenities, but local parking, events, mud, and ramp condition still need a same-day check.',
+        'At Wamego, Friends of the Kaw says it is often advisable to pass under the K-99 bridge and turn upstream next to the bank to reach the ramp; launching is simpler, but remember that line if you regroup there.',
+        'The Belvue partial low-head dam is at river mile 120, about one mile above the Belvue ramp. Friends of the Kaw says the dam begins on river right and extends more than halfway across the river; stay river left and watch for exposed or submerged rocks.',
+        'Belvue has primitive camping only by reservation through the city; do not assume overnight parking, camping, or adjacent-bank use is allowed without checking current local rules.',
       ],
       watchFor: [
         'The partial low-head dam and associated exposed or submerged rocks near Belvue. Do not run right-side dam structures, and do not attempt this reach if visibility, flow, or group skill makes the left-side line uncertain.',

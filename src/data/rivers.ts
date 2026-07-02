@@ -20071,6 +20071,169 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'kansas-river-eudora-turner-bridge',
+    slug: 'kansas-river-eudora-turner-bridge',
+    name: 'Kansas River',
+    reach: 'Eudora to Turner Bridge',
+    aliases: [
+      'Kaw River - Eudora to Turner Bridge',
+      'Kansas River - Eudora Access Ramp to Turner Bridge Access Ramp',
+      'Eudora Access Ramp to Turner Bridge Access Ramp',
+    ],
+    state: 'Kansas',
+    region: 'Kansas City Metro',
+    summary:
+      'Long lower-Kaw continuation from Eudora to Turner Bridge, combining the De Soto and Edwardsville public-ramp chain with the mandatory WaterOne low-head-dam portage. Friends of the Kaw documents the full public sequence, while the De Soto gauge is the cleanest same-river discharge proxy for this longer lower-Kaw route.',
+    statusText:
+      'Use the Kansas River at De Soto gauge as the lower-Kaw discharge proxy. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect slow channel picking and awkward landings, while above 8,000 cfs Friends of the Kaw says sandbar rest stops are scarce and the WaterOne carry becomes more consequential.',
+    latitude: 38.94999,
+    longitude: -95.09963,
+    gaugeSource: {
+      id: 'usgs-06892350',
+      provider: 'usgs',
+      siteId: '06892350',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Kansas River at De Soto, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['low_head_dam', 'mandatory_takeout', 'private_banks', 'strainers'],
+      safetyNotes: [
+        'Mandatory WaterOne low-head-dam portage; do not go over the dam or through the river-right notch.',
+        'Plan to land and carry on river left only, and expect rough footing over loose rocks if you continue below Edwardsville.',
+        'This is a long exposed lower-Kaw route with few simple legal exits once committed past the named public ramps.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.9,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season, but this 32.8-mile lower-Kaw combination is a very long commitment. Same-day gauge, weather, wind, portage footing, and ramp checks matter before launching.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The route stays on a documented public-access chain, but about 32.8 river miles plus the WaterOne low-head-dam portage make it an experienced-distance route rather than a casual day float.',
+      confidenceNotes:
+        'Confidence is high for access and route shape: Friends of the Kaw documents Eudora at river mile 42, De Soto at 31.3, Edwardsville at 16.6, Turner Bridge at 9.2, and the WaterOne low-head dam at 14.8 with a river-left-only portage. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than an exact route-specific ladder, and the De Soto gauge is an intermediate same-river proxy rather than an endpoint gauge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Eudora Access Ramp, RM 42',
+        note: 'Friends of the Kaw lists the Eudora ramp with GPS 38.94999, -95.09963, public parking, and launch access on the Wakarusa River about three-quarters of a mile above the Kansas River confluence.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-42-eudora-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Turner Bridge Access Ramp, RM 9.2',
+        note: 'Friends of the Kaw lists Turner Bridge Access Ramp near 32 Highway and Turner Diagonal with GPS 39.09396, -94.71176, a river-left concrete ramp, and a small gravel lot.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/15861-2/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 32.8 river miles',
+        note: 'Friends of the Kaw places Eudora at river mile 42, De Soto at 31.3, Edwardsville at 16.6, and Turner Bridge at 9.2, which supports this combined lower-Kaw route on the documented public access chain.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/',
+      },
+      {
+        label: 'Current gauge check',
+        value: '17,300 cfs / 10.50 ft at 2026-07-02 10:30 CDT',
+        note: 'Same-day direct USGS Water Services for station 06892350 at De Soto returned 17,300 cfs and 10.50 ft, well above the conservative recreational band used by the app.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06892350&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Mandatory portage',
+        value: 'WaterOne low-head dam, RM 14.8',
+        note: 'Friends of the Kaw says the WaterOne low-head dam should not be run in any vessel and must be portaged on river left over a rough 100+ yard carry with loose rock and no useful carts.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/waterone-dam/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: '1,000 / 1,500-5,000 / 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and everyone else below 8,000 cfs, while USACE recreation guidance supports the difficult-below-1,000 and no-impact 1,500-5,000 calibration.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Lower reach limits',
+        value: 'Few legal stops below Edwardsville',
+        note: 'Friends of the Kaw notes the lower controlled reach around the WaterOne and Turner Bridge segment has very few sandbars, so this route should be treated as a committed through-route rather than an overnight corridor.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Eudora access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-42-eudora-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw De Soto access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-31-de-soto-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Edwardsville access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Turner Bridge access',
+        url: 'https://kansasriver.org/river-access-map/15861-2/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw WaterOne low-head dam',
+        url: 'https://kansasriver.org/river-access-map/waterone-dam/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw River Access Tips',
+        url: 'https://kansasriver.org/paddle-and-fish/river-access/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06892350 Kansas River at De Soto',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'kansas-river-junction-city-ogden',
     slug: 'kansas-river-junction-city-ogden',
     name: 'Kansas River',
@@ -21246,6 +21409,164 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'kansas-river-manhattan-belvue',
+    slug: 'kansas-river-manhattan-belvue',
+    name: 'Kansas River',
+    reach: 'Manhattan K-177 / Fairmont to Belvue',
+    aliases: [
+      'Kaw River - Manhattan to Belvue',
+      'Kansas River - Manhattan Fairmont to Belvue',
+      'Manhattan K-177 / Fairmont Access Ramp to Belvue Access Ramp',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Long upper-Kaw continuation from Manhattan to Belvue through St. George and Wamego. Friends of the Kaw documents the uninterrupted public access chain, and the Wamego gauge remains the cleanest direct same-river check before the Belvue partial low-head-dam reach.',
+    statusText:
+      'Use the Kansas River at Wamego gauge. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect slow sandbar picking, while above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce. This route is long and ends just below the Belvue partial low-head-dam hazard.',
+    latitude: 39.17428,
+    longitude: -96.55318,
+    gaugeSource: {
+      id: 'usgs-06887500',
+      provider: 'usgs',
+      siteId: '06887500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Kansas River at Wamego, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['low_head_dam', 'private_banks', 'strainers'],
+      safetyNotes: [
+        'Belvue partial low-head dam sits about one mile above the take-out; stay river left and do not paddle close to exposed or submerged dam rocks.',
+        'This is a very long exposed upper-Kaw route, so wind, heat, fatigue, and sparse clean legal exits matter before the dam finish sequence.',
+        'Stay with public ramps and legal sandbar stops between the high-water marks; private banks above that line are off-limits.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.85,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. This roughly 30.5-mile route is better treated as an experienced-distance push or conservative sandbar overnight when weather is stable and sandbars are exposed.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The documented access chain is clean, but the total mileage plus the Belvue partial low-head-dam finish sequence make this an advanced planning route rather than a simple day float.',
+      confidenceNotes:
+        'Confidence is high for access, gauge placement, and route shape: Friends of the Kaw documents Manhattan at river mile 150.7, St. George at 137, Wamego at 128.5, Belvue at 119, and the partial low-head dam at river mile 120. Confidence is moderate for scoring because the level bands are still broad Kansas River guidance rather than a route-specific ladder, even though the Wamego gauge is direct in the route corridor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Manhattan K-177 / Fairmont, RM 150.7',
+        note: 'Friends of the Kaw lists the Manhattan K-177 / Fairmont ramp below the K-177 bridge with GPS 39.17428, -96.55318 and public parking at the put-in.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-149-manhattan-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Belvue Access Ramp, RM 119',
+        note: 'Friends of the Kaw lists Belvue with GPS 39.20284, -96.17552, a river-left concrete ramp, parking, portable toilet, and primitive camping by reservation through the city.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-119-belvue-access-ramp/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 30.5 mi',
+        note: 'Friends of the Kaw says Manhattan to St. George is 12 miles, St. George to Wamego is 8.5 miles, and Wamego to Belvue is 9.5 miles, which supports this combined public route.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-149-manhattan-access-ramp/',
+      },
+      {
+        label: 'Current gauge check',
+        value: '15,500 cfs / 9.70 ft at 2026-07-02 10:30 CDT',
+        note: 'Same-day direct USGS Water Services for station 06887500 at Wamego returned 15,500 cfs and 9.70 ft, well above the conservative recreational band used by the app.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06887500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Dam hazard',
+        value: 'Belvue partial low-head dam at RM 120',
+        note: 'Friends of the Kaw flags a partial low-head dam about one mile above Belvue. It starts on river right and extends more than halfway across the river, so paddlers should stay river left and watch for exposed or submerged rocks.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-128-wamego-access-ramp/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: '1,000 / 1,500-5,000 / 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and everyone else below 8,000 cfs, while USACE recreation guidance supports the difficult-below-1,000 and no-impact 1,500-5,000 calibration.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Camping support',
+        value: 'Public sandbar camping between high-water marks',
+        note: 'Friends of the Kaw says the Kansas River is public, sandbar camping is allowed without a special permit, and private banks above the high-water mark remain off-limits.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/camping/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Manhattan K-177 / Fairmont access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-149-manhattan-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw St. George / Boggs Landing access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Wamego access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-128-wamego-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Belvue access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-119-belvue-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw camping on the Kaw',
+        url: 'https://kansasriver.org/paddle-and-fish/camping/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06887500 Kansas River at Wamego',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'kansas-river-st-george-wamego',
     slug: 'kansas-river-st-george-wamego',
     name: 'Kansas River',
@@ -21521,6 +21842,159 @@ export const rivers: River[] = [
       {
         label: 'Friends of the Kaw Belvue access',
         url: 'https://kansasriver.org/river-access-map/river-mile-119-belvue-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06887500 Kansas River at Wamego',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-st-george-belvue',
+    slug: 'kansas-river-st-george-belvue',
+    name: 'Kansas River',
+    reach: 'St. George / Boggs Landing to Belvue',
+    aliases: [
+      'Kaw River - St. George to Belvue',
+      'Kansas River - Boggs Landing to Belvue',
+      'St. George / Boggs Landing Access Ramp to Belvue Access Ramp',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Longer upper-Kaw continuation from St. George to Belvue through Wamego. Friends of the Kaw documents the uninterrupted public access chain, and the Wamego gauge remains the cleanest direct same-river check before the Belvue partial low-head-dam finish.',
+    statusText:
+      'Use the Kansas River at Wamego gauge. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect slow sandbar or rock picking near Belvue, while above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce. This route is not a novice float because of the Belvue partial low-head dam.',
+    latitude: 39.18726,
+    longitude: -96.42202,
+    gaugeSource: {
+      id: 'usgs-06887500',
+      provider: 'usgs',
+      siteId: '06887500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Kansas River at Wamego, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['low_head_dam', 'private_banks', 'strainers'],
+      safetyNotes: [
+        'Belvue partial low-head dam sits about one mile above the take-out; stay river left and do not paddle close to exposed or submerged dam rocks.',
+        'The route is longer than the simple St. George-to-Wamego day, so wind, fatigue, and limited clean legal exits matter before the Belvue finish.',
+        'Stay with public ramps and legal sandbar stops between the high-water marks; private banks above that line are off-limits.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.75,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. This roughly 18-mile route can be a long day or a conservative sandbar overnight when weather is stable and sandbars are exposed.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The access chain is straightforward, but the total mileage plus the Belvue partial low-head-dam finish sequence make this a guarded advanced route rather than a simple beginner segment.',
+      confidenceNotes:
+        'Confidence is high for access, gauge placement, and route shape: Friends of the Kaw documents St. George at river mile 137, Wamego at 128.5, Belvue at 119, and the partial low-head dam at river mile 120. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than a route-specific ladder, even though the Wamego gauge is direct in the route corridor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'St. George / Boggs Landing, RM 137',
+        note: 'Friends of the Kaw lists St. George / Boggs Landing with GPS 39.18726, -96.42202, river-left concrete ramp, restrooms, and ample parking.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Belvue Access Ramp, RM 119',
+        note: 'Friends of the Kaw lists Belvue with GPS 39.20284, -96.17552, a river-left concrete ramp, parking, portable toilet, and primitive camping by reservation through the city.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-119-belvue-access-ramp/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 18.0 mi',
+        note: 'Friends of the Kaw says St. George to Wamego is 8.5 miles and Wamego to Belvue is 9.5 miles, which supports this combined public route.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/',
+      },
+      {
+        label: 'Current gauge check',
+        value: '15,500 cfs / 9.70 ft at 2026-07-02 10:30 CDT',
+        note: 'Same-day direct USGS Water Services for station 06887500 at Wamego returned 15,500 cfs and 9.70 ft, well above the conservative recreational band used by the app.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06887500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Dam hazard',
+        value: 'Belvue partial low-head dam at RM 120',
+        note: 'Friends of the Kaw flags a partial low-head dam about one mile above Belvue. It starts on river right and extends more than halfway across the river, so paddlers should stay river left and watch for exposed or submerged rocks.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-128-wamego-access-ramp/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: '1,000 / 1,500-5,000 / 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and everyone else below 8,000 cfs, while USACE recreation guidance supports the difficult-below-1,000 and no-impact 1,500-5,000 calibration.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Camping support',
+        value: 'Public sandbar camping between high-water marks',
+        note: 'Friends of the Kaw says the Kansas River is public, sandbar camping is allowed without a special permit, and private banks above the high-water mark remain off-limits.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/camping/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw St. George / Boggs Landing access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Wamego access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-128-wamego-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Belvue access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-119-belvue-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw camping on the Kaw',
+        url: 'https://kansasriver.org/paddle-and-fish/camping/',
         provider: 'local',
       },
       {

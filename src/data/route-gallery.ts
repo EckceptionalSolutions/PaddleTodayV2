@@ -806,6 +806,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
   ],
+  'kansas-river-eudora-turner-bridge': [
+    {
+      id: 'kansas-river-kansas-city-commons',
+      src: '/gallery/kansas-river-de-soto-edwardsville/kansas-river-kansas-city.jpg',
+      alt: 'The Kansas River flows through Kansas City with exposed sand and a low bridge crossing the wide channel.',
+      caption: 'Kansas River near Kansas City',
+      credit: 'James St. John via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
   'kansas-river-junction-city-ogden': [
     {
       id: 'kansas-river-lawrence-commons',
@@ -886,6 +896,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
+  'kansas-river-manhattan-belvue': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-manhattan-st-george/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
   'kansas-river-st-george-wamego': [
     {
       id: 'kansas-river-lawrence-commons',
@@ -900,6 +920,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     {
       id: 'kansas-river-lawrence-commons',
       src: '/gallery/kansas-river-wamego-belvue/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kansas-river-st-george-belvue': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-st-george-wamego/kansas-river-lawrence.jpg',
       alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
       caption: 'Kansas River corridor context',
       credit: 'Dicklyon via Wikimedia Commons',
