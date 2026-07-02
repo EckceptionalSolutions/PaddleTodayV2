@@ -185,6 +185,84 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'kansas-river-eudora-edwardsville': {
+    putIn: {
+      name: 'Eudora Access Ramp',
+      latitude: 38.94999,
+      longitude: -95.09963,
+    },
+    takeOut: {
+      name: 'Edwardsville Access Ramp / River Front Park',
+      latitude: 39.05056,
+      longitude: -94.81665,
+    },
+    logistics: {
+      distanceLabel: 'About 25.4 mi',
+      estimatedPaddleTime:
+        'About 8 hr to 11 hr, longer with low water, wind, or regrouping at the Wakarusa and De Soto transitions',
+      shuttle:
+        'Stage the take-out at Edwardsville River Front Park, then drive back to the Eudora ramp. Inspect both ends before launching because this is a long uninterrupted lower-Kaw day with only the De Soto public ramp in the middle.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'This route is long enough that some groups may prefer a conservative sandbar overnight. Friends of the Kaw says public sandbar camping is allowed between the high-water marks, but private banks above that line are off-limits and sandbars become scarce above about 8,000 cfs.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch at Eudora on the Wakarusa and take out at Edwardsville for a full lower-Kaw continuation through De Soto. The De Soto USGS gauge is the best same-river level check, but the route still depends on same-day wind, ramp, and river-reading judgment.',
+      accessCaveats: [
+        'The Eudora ramp is on the Wakarusa River. Launch downstream from there into the Kansas River rather than assuming the harder upstream take-out direction used by the shorter Lawrence-to-Eudora route.',
+        'Check Clinton Reservoir releases before launching because Wakarusa current, debris, and confluence conditions can affect the first part of the trip.',
+        'De Soto is the only normal public midpoint access, and Friends of the Kaw notes city-event closures plus a recurring sandbar at the toe of that ramp.',
+        'End the trip at Edwardsville. The WaterOne low-head dam is downstream and is not part of this route.',
+      ],
+      watchFor: [
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar navigation slow or technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across long open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
+        'Private banks along the Wakarusa and Kaw; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
+      ],
+    },
+  },
+  'kansas-river-de-soto-turner-bridge': {
+    putIn: {
+      name: 'De Soto Access Ramp / Riverfest Park',
+      latitude: 38.98496,
+      longitude: -94.9746,
+    },
+    takeOut: {
+      name: 'Turner Bridge Access Ramp',
+      latitude: 39.09396,
+      longitude: -94.71176,
+    },
+    logistics: {
+      distanceLabel: 'About 22.1 mi',
+      estimatedPaddleTime:
+        'About 7 hr to 9 hr including the WaterOne portage, longer with low water, wind, or slow landing decisions above the dam',
+      shuttle:
+        'Stage the take-out at Turner Bridge, then drive back to the De Soto ramp. Inspect the WaterOne portage plan before launching; this route is not appropriate unless everyone can land river left, carry over loose rock, and relaunch safely.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Treat this as a committed day route. Friends of the Kaw says the controlled lower reach below WaterOne has almost no sandbars, and private banks above the river are off-limits.',
+      campingClassification: 'none',
+      summary:
+        'Launch at De Soto and take out at Turner Bridge for a long lower-Kaw continuation that includes the WaterOne low-head dam. Portage river left only, never use the river-right notch, and skip the route if the group cannot manage the carry cleanly.',
+      accessCaveats: [
+        'The De Soto ramp is public, but Friends of the Kaw notes city-event closures and a sandbar that can form at the toe of the ramp.',
+        'Edwardsville is the last simple public access before the mandatory WaterOne portage. Inspect that contingency before launch rather than assuming you can improvise on private banks.',
+        'The WaterOne portage is a rough 100+ yard carry over large loose rocks. Wheels and carts are not useful, and high water can require an earlier landing on slick mud upstream.',
+        'Turner Bridge has no amenities and a small gravel parking lot that can be muddy after recent high water.',
+      ],
+      watchFor: [
+        'WaterOne low-head dam at river mile 14.8. Land river left well above the structure, avoid the river-right low-water notch, and do not enter the dam hydraulic.',
+        'Low flows below about 1,000 cfs can expose mud, rocks, and awkward carry footing while making lower-channel travel slow.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'This lower reach has well-defined banks and almost no sandbars, so do not count on easy mid-route stops beyond the required portage.',
+        'Wind in the open lower valley, storms, rising water, floating wood, strainers, bridge current, bank hooks and fishing lines, and industrial riverfront traffic.',
+        'Private banks along the Kaw; stay with public ramps, the documented dam portage, and legal stops rather than climbing banks elsewhere.',
+      ],
+    },
+  },
   'kansas-river-edwardsville-turner-bridge': {
     putIn: {
       name: 'Edwardsville Access Ramp / River Front Park',
@@ -221,6 +299,47 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'This lower reach has well-defined banks and almost no sandbars, so do not count on easy mid-route stops beyond the required portage.',
         'Wind in the open lower valley, storms, rising water, floating wood, strainers, bridge current, bank hooks and fishing lines, and industrial riverfront traffic.',
         'Private banks along the Kaw; stay with public ramps, the documented dam portage, and legal stops rather than climbing banks elsewhere.',
+      ],
+    },
+  },
+  'kansas-river-de-soto-kaw-point': {
+    putIn: {
+      name: 'De Soto Access Ramp / Riverfest Park',
+      latitude: 38.98496,
+      longitude: -94.9746,
+    },
+    takeOut: {
+      name: 'Kaw Point Park Access Ramp',
+      latitude: 39.11601,
+      longitude: -94.61203,
+    },
+    logistics: {
+      distanceLabel: 'About 31.3 mi',
+      estimatedPaddleTime:
+        'Best planned as a very long day; roughly 10 hr to 13 hr including the WaterOne portage, wind delays, and the final Kaw Point approach',
+      shuttle:
+        'Stage the take-out at Kaw Point Park before driving back to the De Soto ramp. Check park hours, event closures, and the upper parking requirement first, then inspect the WaterOne portage plan before committing to the launch.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Treat this as a committed day route, not an overnight plan. Friends of the Kaw says the lower controlled reach has almost no sandbars, and the final Kaw Point approach is a busy urban finish rather than a camping corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at De Soto and take out at Kaw Point for the full lower-Kaw continuation into Kansas City. The route requires the WaterOne low-head-dam portage and ends before the Missouri River; do not treat the Missouri confluence as part of this route.',
+      accessCaveats: [
+        'The De Soto ramp is public, but Friends of the Kaw notes city-event closures and a sandbar that can form at the toe of the ramp.',
+        'Edwardsville is the last simple public access before the mandatory WaterOne portage. Inspect that contingency before launch rather than assuming you can improvise on private banks.',
+        'The WaterOne portage is a rough 100+ yard carry over large loose rocks. Wheels and carts are not useful, and high water can require an earlier landing on slick mud upstream.',
+        'Kaw Point Park closes nightly from 10:00 pm to 7:00 am, may close for special events, and requires parking in the upper lot while keeping the ramp clear.',
+        'Make the Kaw Point take-out cleanly. The Missouri River is about 200 yards downstream and is a separate, faster, big-river environment.',
+      ],
+      watchFor: [
+        'WaterOne low-head dam at river mile 14.8. Land river left well above the structure, avoid the river-right low-water notch, and do not enter the dam hydraulic.',
+        'Low flows below about 1,000 cfs can expose mud, slow the lower channel, and make landings more awkward.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'This lower reach has well-defined banks and almost no sandbars, so do not count on easy mid-route stops.',
+        'Wind in the open lower valley, storms, rising water, floating wood, strainers, bridge current, bank hooks and fishing lines, and industrial riverfront traffic.',
+        'Private banks along the Kaw; stay with public ramps, the documented portage, and legal stops rather than climbing banks or using private land.',
       ],
     },
   },

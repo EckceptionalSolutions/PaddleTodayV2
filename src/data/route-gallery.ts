@@ -766,10 +766,40 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
   ],
+  'kansas-river-eudora-edwardsville': [
+    {
+      id: 'kansas-river-kansas-city-commons',
+      src: '/gallery/kansas-river-de-soto-edwardsville/kansas-river-kansas-city.jpg',
+      alt: 'The Kansas River flows through Kansas City with exposed sand and a low bridge crossing the wide channel.',
+      caption: 'Kansas River near Kansas City',
+      credit: 'James St. John via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'kansas-river-de-soto-turner-bridge': [
+    {
+      id: 'kansas-river-kansas-city-commons',
+      src: '/gallery/kansas-river-de-soto-edwardsville/kansas-river-kansas-city.jpg',
+      alt: 'The Kansas River flows through Kansas City with exposed sand and a low bridge crossing the wide channel.',
+      caption: 'Kansas River near Kansas City',
+      credit: 'James St. John via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
   'kansas-river-edwardsville-turner-bridge': [
     {
       id: 'kansas-river-kansas-city-commons',
       src: '/gallery/kansas-river-edwardsville-turner-bridge/kansas-river-kansas-city.jpg',
+      alt: 'The Kansas River flows through Kansas City with exposed sand and a low bridge crossing the wide channel.',
+      caption: 'Kansas River near Kansas City',
+      credit: 'James St. John via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'kansas-river-de-soto-kaw-point': [
+    {
+      id: 'kansas-river-kansas-city-commons',
+      src: '/gallery/kansas-river-de-soto-edwardsville/kansas-river-kansas-city.jpg',
       alt: 'The Kansas River flows through Kansas City with exposed sand and a low bridge crossing the wide channel.',
       caption: 'Kansas River near Kansas City',
       credit: 'James St. John via Wikimedia Commons',

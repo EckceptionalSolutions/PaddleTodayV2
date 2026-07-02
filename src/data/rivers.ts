@@ -20816,6 +20816,330 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'kansas-river-eudora-edwardsville',
+    slug: 'kansas-river-eudora-edwardsville',
+    name: 'Kansas River',
+    reach: 'Eudora to Edwardsville',
+    aliases: [
+      'Kaw River - Eudora to Edwardsville',
+      'Kansas River - Eudora Access Ramp to Edwardsville Access Ramp',
+      'Eudora Access Ramp to Edwardsville River Front Park',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Long lower-Kaw continuation from the Eudora ramp on the Wakarusa River to Edwardsville River Front Park. Friends of the Kaw documents Eudora, De Soto, and Edwardsville as the uninterrupted public chain for about 25.4 river miles, while the De Soto USGS gauge gives the best same-river level check.',
+    statusText:
+      'Use the Kansas River at De Soto gauge as the same-river level check. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect slow sandbar picking, while above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+    latitude: 38.94999,
+    longitude: -95.09963,
+    gaugeSource: {
+      id: 'usgs-06892350',
+      provider: 'usgs',
+      siteId: '06892350',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Kansas River at De Soto, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'private_banks', 'strainers'],
+      safetyNotes: [
+        'The WaterOne low-head dam is downstream of Edwardsville; make the planned take-out and do not continue into the dam corridor.',
+        'Wind, rising water, floating wood, and private banks make this long lower-Kaw day more committing than the shorter adjacent segments.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.85,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. This route begins on the Wakarusa, then commits to a full lower-Kaw continuation where wind, rising water, shifted sandbars, and the long take-out spacing can turn the day into an exposed grind.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The river uses public ramps and avoids a planned dam portage, but 25.4 miles on the Kaw is still a committed long day. The Wakarusa launch, private banks, wind exposure, and low-head-dam finish context keep it out of casual-float territory.',
+      confidenceNotes:
+        'Confidence is high for access and route shape: Friends of the Kaw documents Eudora at river mile 42, De Soto at 31.3, and Edwardsville at 16.6, with Cedar Creek closed between the lower two accesses. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than an exact route-specific ladder, but the De Soto USGS gauge sits on the route corridor and pairs cleanly with the established Kaw model.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Eudora Access Ramp, RM 42',
+        note: 'Friends of the Kaw lists the Eudora ramp with GPS 38.94999, -95.09963, public parking, picnic shelter, fishing platform, and kiosk. The ramp is on the Wakarusa River about three-quarters of a mile upstream from the Kansas River.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-42-eudora-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Edwardsville Access Ramp, RM 16.6',
+        note: 'Friends of the Kaw lists the Edwardsville ramp at River Front Park with GPS 39.05056, -94.81665, concrete ramp, large lighted parking lot, restroom, trash can, picnic tables, and lighting.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 25.4 river miles',
+        note: 'The access pages place Eudora at river mile 42 and Edwardsville at 16.6. De Soto at river mile 31.3 confirms the uninterrupted public chain, while Cedar Creek at 26.1 is closed.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/',
+      },
+      {
+        label: 'Current gauge check',
+        value: '17,600 cfs / 10.55 ft at 2026-07-02 05:30 CDT',
+        note: 'Same-day direct USGS Water Services for station 06892350 at De Soto returned 17,600 cfs and 10.55 ft, well above the conservative recreational band used by the app.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06892350&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Flow safety bands',
+        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
+        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+      },
+      {
+        label: 'Low-flow recreation impacts',
+        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
+        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
+        sourceUrl:
+          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+      },
+      {
+        label: 'Camping rule',
+        value: 'Public sandbars only, below the high-water marks',
+        note: 'Friends of the Kaw says paddlers may camp on public sandbars between the high-water marks without a special permit, but banks above that line are private and off-limits.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/camping/',
+      },
+      {
+        label: 'Downstream dam caveat',
+        value: 'WaterOne low-head dam below Edwardsville',
+        note: 'Friends of the Kaw warns that the WaterOne low-head dam is downstream of Edwardsville and should not be run in any vessel. This route ends at Edwardsville before that hazard.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Eudora access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-42-eudora-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw De Soto access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-31-de-soto-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Edwardsville access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw camping rules',
+        url: 'https://kansasriver.org/paddle-and-fish/camping/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06892350 Kansas River at De Soto',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-de-soto-turner-bridge',
+    slug: 'kansas-river-de-soto-turner-bridge',
+    name: 'Kansas River',
+    reach: 'De Soto to Turner Bridge',
+    aliases: [
+      'Kaw River - De Soto to Turner Bridge',
+      'Kansas River - De Soto Access Ramp to Turner Bridge Access Ramp',
+      'De Soto Riverfest Park to Turner Bridge',
+    ],
+    state: 'Kansas',
+    region: 'Kansas City Metro',
+    summary:
+      'Committed lower-Kaw continuation from the De Soto ramp to Turner Bridge, combining the long De Soto-to-Edwardsville day with the mandatory WaterOne low-head-dam portage. Friends of the Kaw documents the full public chain and the river-left-only portage, while the De Soto USGS gauge gives the same-river level check.',
+    statusText:
+      'Use the Kansas River at De Soto gauge. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect slow channel picking and awkward portage footing, while above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce and the WaterOne carry becomes more consequential.',
+    latitude: 38.98496,
+    longitude: -94.9746,
+    gaugeSource: {
+      id: 'usgs-06892350',
+      provider: 'usgs',
+      siteId: '06892350',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Kansas River at De Soto, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['low_head_dam', 'mandatory_takeout', 'private_banks', 'strainers'],
+      safetyNotes: [
+        'Mandatory WaterOne low-head-dam portage; do not go over the dam or through the river-right notch.',
+        'Land and portage river left only, and skip the route if anyone in the group cannot manage a rough 100+ yard carry over loose rock.',
+        'Lower reach has few easy mid-route stops, and the combined mileage leaves little margin for weather or fatigue mistakes.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.85,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season, but this route depends on both the broad Kaw flow band and a safe WaterOne portage. Same-day gauge, weather, wind, ramp, and portage checks matter more than on the shorter adjacent segments.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The route uses public ramps and a documented portage, but it is not a novice float. Twenty-two miles on the Kaw plus a rough low-head-dam carry means fatigue, wind, shifting sandbars, and private banks all matter before the final Turner take-out.',
+      confidenceNotes:
+        'Confidence is high for access and route shape: Friends of the Kaw documents De Soto at river mile 31.3, Edwardsville at 16.6, Turner Bridge at 9.2, and the WaterOne low-head dam at 14.8 with a river-left-only portage. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than an exact route-specific ladder, but the De Soto USGS gauge sits at the put-in and is the cleanest same-river discharge reference for the whole route.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'De Soto Access Ramp, RM 31.3',
+        note: 'Friends of the Kaw lists the De Soto ramp next to Riverfest Park with GPS 38.98496, -94.9746, public access, plentiful parking, restroom, trash can, and kiosk.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-31-de-soto-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Turner Bridge Access Ramp, RM 9.2',
+        note: 'Friends of the Kaw lists Turner Bridge Access Ramp near 32 Highway and Turner Diagonal with GPS 39.09396, -94.71176, a river-left concrete ramp, and a gravel parking lot for about 10 vehicles.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/15861-2/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 22.1 river miles',
+        note: 'The access map places De Soto at river mile 31.3, Edwardsville at 16.6, and Turner Bridge at 9.2, which supports a combined lower-Kaw route of about 22.1 miles.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/',
+      },
+      {
+        label: 'Current gauge check',
+        value: '17,600 cfs / 10.55 ft at 2026-07-02 05:30 CDT',
+        note: 'Same-day direct USGS Water Services for station 06892350 at De Soto returned 17,600 cfs and 10.55 ft, well above the conservative recreational band used by the app.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06892350&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Mandatory portage',
+        value: 'WaterOne low-head dam, RM 14.8',
+        note: 'Friends of the Kaw says the WaterOne low-head dam should not be run in any vessel and must be portaged on river left over a rough 100+ yard carry with loose rock and no useful carts.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/waterone-dam/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
+        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+      },
+      {
+        label: 'Low-flow recreation impacts',
+        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
+        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
+        sourceUrl:
+          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+      },
+      {
+        label: 'Controlled lower reach',
+        value: 'Few sandbars below Edwardsville',
+        note: 'Friends of the Kaw says the controlled lower reach below WaterOne has almost no sandbars, which is part of why this combined route should be treated as a committed single-day push rather than an overnight plan.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/15861-2/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw De Soto access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-31-de-soto-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Edwardsville access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Turner Bridge access',
+        url: 'https://kansasriver.org/river-access-map/15861-2/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw WaterOne low-head dam',
+        url: 'https://kansasriver.org/river-access-map/waterone-dam/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw River Access Tips',
+        url: 'https://kansasriver.org/paddle-and-fish/river-access/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06892350 Kansas River at De Soto',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'kansas-river-edwardsville-turner-bridge',
     slug: 'kansas-river-edwardsville-turner-bridge',
     name: 'Kansas River',
@@ -20946,6 +21270,176 @@ export const rivers: River[] = [
       {
         label: 'Friends of the Kaw Turner Bridge access',
         url: 'https://kansasriver.org/river-access-map/15861-2/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw River Access Tips',
+        url: 'https://kansasriver.org/paddle-and-fish/river-access/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06892350 Kansas River at De Soto',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-de-soto-kaw-point',
+    slug: 'kansas-river-de-soto-kaw-point',
+    name: 'Kansas River',
+    reach: 'De Soto to Kaw Point Park',
+    aliases: [
+      'Kaw River - De Soto to Kaw Point',
+      'Kansas River - De Soto Access Ramp to Kaw Point Park',
+      'De Soto Riverfest Park to Kaw Point Park',
+    ],
+    state: 'Kansas',
+    region: 'Kansas City Metro',
+    summary:
+      'Full lower-Kaw continuation from the De Soto ramp to Kaw Point Park, combining the De Soto-to-Edwardsville, WaterOne portage, Turner Bridge, and Kansas City finish sequence into one committed 31.3-mile route. Friends of the Kaw documents the uninterrupted public chain, while the De Soto USGS gauge gives the best same-river discharge check.',
+    statusText:
+      'Use the Kansas River at De Soto gauge. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect slow lower-channel travel and awkward landings, while above 8,000 cfs Friends of the Kaw says sandbar rest stops are scarce and the WaterOne carry becomes more consequential.',
+    latitude: 38.98496,
+    longitude: -94.9746,
+    gaugeSource: {
+      id: 'usgs-06892350',
+      provider: 'usgs',
+      siteId: '06892350',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Kansas River at De Soto, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['low_head_dam', 'mandatory_takeout', 'private_banks', 'strainers'],
+      safetyNotes: [
+        'Mandatory WaterOne low-head-dam portage; do not go over the dam or through the river-right notch.',
+        'Kaw Point is the required finish. Do not drift the final 200 yards into the Missouri River unless you have a separate big-river plan.',
+        'This route is too long and exposed to treat as a casual day float. Wind, fatigue, private banks, and the portage all matter before the Kansas City finish.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.9,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season, but this is a very long lower-Kaw commitment. Same-day gauge, weather, wind, ramp access, portage footing, and Kaw Point park conditions all matter before launch.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The route stays on a documented public-access chain, but 31.3 river miles plus a low-head-dam portage and a busy urban finish make it a strong-day route for paddlers who already understand Kaw navigation and long exposed mileage.',
+      confidenceNotes:
+        'Confidence is high for access and route shape: Friends of the Kaw documents De Soto at river mile 31.3, Edwardsville at 16.6, Turner Bridge at 9.2, Kaw Point at 0, and the WaterOne low-head dam at 14.8 with a river-left-only portage. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than an exact route-specific ladder, but the De Soto USGS gauge is direct at the put-in and remains the cleanest same-river discharge reference for the whole route.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'De Soto Access Ramp, RM 31.3',
+        note: 'Friends of the Kaw lists the De Soto ramp next to Riverfest Park with GPS 38.98496, -94.9746, public access, plentiful parking, restroom, trash can, and kiosk.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-31-de-soto-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Kaw Point Park Access Ramp, RM 0',
+        note: 'Friends of the Kaw lists Kaw Point Park with GPS 39.11601, -94.61203, a concrete ramp, a busy upper lot, and the warning that the Missouri River begins about 200 yards downstream.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-0-kaw-point-access/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 31.3 river miles',
+        note: 'The access map places De Soto at river mile 31.3 and Kaw Point at river mile 0, with Edwardsville, Turner Bridge, and the WaterOne dam on the uninterrupted lower-Kaw chain between them.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/',
+      },
+      {
+        label: 'Current gauge check',
+        value: '17,600 cfs / 10.55 ft at 2026-07-02 05:30 CDT',
+        note: 'Same-day direct USGS Water Services for station 06892350 at De Soto returned 17,600 cfs and 10.55 ft, well above the conservative recreational band used by the app.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06892350&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Mandatory portage',
+        value: 'WaterOne low-head dam, RM 14.8',
+        note: 'Friends of the Kaw says the WaterOne low-head dam should not be run in any vessel and must be portaged on river left over a rough 100+ yard carry with loose rock and no useful carts.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/waterone-dam/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
+        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+      },
+      {
+        label: 'Low-flow recreation impacts',
+        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
+        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
+        sourceUrl:
+          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+      },
+      {
+        label: 'Finish caveat',
+        value: 'Kaw Point before the Missouri River',
+        note: 'Friends of the Kaw says the Missouri River is about 200 yards downstream of Kaw Point and is a separate, faster, big-river environment generally not recommended for novice paddlers.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-0-kaw-point-access/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw De Soto access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-31-de-soto-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Edwardsville access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Turner Bridge access',
+        url: 'https://kansasriver.org/river-access-map/15861-2/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Kaw Point access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-0-kaw-point-access/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw WaterOne low-head dam',
+        url: 'https://kansasriver.org/river-access-map/waterone-dam/',
         provider: 'local',
       },
       {
