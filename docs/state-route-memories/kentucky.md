@@ -22,7 +22,7 @@ Kentucky had been paused from the active automation rotation at user request whi
 ## Current Guidance
 
 - 2026-07-02 10:05 America/Chicago / 2026-07-02 15:05 UTC three-route add pass
-  - Added `goose-creek-jacks-tobacco-road`, `goose-creek-tobacco-road-dump-hollow`, and `goose-creek-dump-hollow-laurel-branch` to expand Kentucky beyond the 455-route repo baseline at run start.
+  - Added `goose-creek-jacks-laurel-branch`, `goose-creek-jacks-laurel-branch`, and `goose-creek-jacks-laurel-branch` to expand Kentucky beyond the 455-route repo baseline at run start.
   - The run reused the current KDFWR Goose Creek page for the exact downstream site-to-site mileages of `2.2`, `0.8`, and `4.8` miles, which support the three remaining official lower-Goose access pairs below the Rawlings / Stinson low-head-dam warning.
   - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Jacks / Bowling Branch Bridge Access, Tobacco Road Bridge Ramp, Dump Hollow Ford, and Laurel Branch Road Access; same-day direct USGS Water Services returned `16.4 cfs / 5.96 ft` at Goose Creek at Manchester (`03281100`) at `2026-07-02 10:45 EDT`.
   - Camping stays conservative at `none` for all three because KDFWR documents only simple roadside carry-down or ford accesses with no public overnight support. Safety notes stay focused on private-bank limits, low-water scraping below band, fresh wood after rain, and the Dump Hollow ford hazard at higher water.

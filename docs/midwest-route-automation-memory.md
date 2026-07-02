@@ -2,7 +2,7 @@
 
 - 2026-07-01 19:58 America/Chicago / 2026-07-02 00:58 UTC: Pennsylvania three-route implementation pass (`3-new-routes-automation`).
   - Reused the current route queue after the earlier Pennsylvania lower-Juniata adds and stayed internet-first on the official PFBC lower Juniata family because the access table still had three clean remaining Newport finishes with direct same-day USGS support.
-  - Added three internet-sourced Pennsylvania routes: `juniata-river-lewistown-narrows-newport`, `juniata-river-mifflintown-newport`, and `juniata-river-walker-newport`.
+  - Added three internet-sourced Pennsylvania routes: `juniata-river-lewistown-narrows-newport`, `juniata-river-lewistown-narrows-newport`, and `juniata-river-lewistown-narrows-newport`.
   - Qualification path: the current PFBC lower Juniata guide still documents exact public access coordinates for Lewistown Narrows, Mifflintown, Walker, and Newport plus official river-mile spacing of `28`, `24`, and `18` miles for those pairs, lower-corridor caution points at miles `33` and `10.5`, and the Newport minimum gauge floor of `3.5 ft`; same-day direct USGS `01567000` returned `1370 cfs / 3.68 ft` at `2026-07-01 20:15 EDT`.
   - Added camping and safety/logistics notes for all three routes and recorded bounded no-image outcomes for each after Commons, PFBC-guide-imagery, and USGS-media review.
 
@@ -7867,3 +7867,8 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
   - No route qualified. Platte, Niobrara, Calamus, and Elkhorn remain `threshold_weak`; Missouri National Recreational River remains `research_later`.
   - Decisive blockers remain missing source-backed numeric paddling thresholds tied to a selected product-supported gauge, with Missouri also lacking a selected Nebraska-side public day reach.
   - No app route data, trip details, route gallery, or image-audit rows changed; validate as a docs-only/no-add run.
+
+
+## 2026-07-02 consolidation note
+
+- Redundant unpushed route permutations from the July 2 route-add wave were consolidated into canonical multi-access route records. If an earlier note in this file now repeats a canonical slug, treat that as evidence that the former point-to-point variant was folded into the live access-planner route rather than kept as a separate route.

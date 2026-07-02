@@ -651,6 +651,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private banks along the Kaw; do not plan on using them for rest, camping, or bailout access.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'manhattan-fairmont-access',
+        name: 'Manhattan K-177 / Fairmont Access Ramp',
+        latitude: 39.17428,
+        longitude: -96.55318,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream access for the full upper-Kaw corridor.',
+      },
+      {
+        id: 'st-george-boggs-landing',
+        name: 'St. George / Boggs Landing Access Ramp',
+        latitude: 39.18726,
+        longitude: -96.42202,
+        mileFromStart: 13.5,
+        segmentKind: 'creek',
+        note: 'Intermediate public access for a shorter Belvue run.',
+      },
+      {
+        id: 'wamego-access',
+        name: 'Wamego Access Ramp',
+        latitude: 39.19828,
+        longitude: -96.30537,
+        mileFromStart: 22,
+        segmentKind: 'creek',
+        note: 'Public ramp below K-99 and a practical checkpoint before the Belvue dam reach.',
+      },
+      {
+        id: 'belvue-access',
+        name: 'Belvue Access Ramp',
+        latitude: 39.20284,
+        longitude: -96.17552,
+        mileFromStart: 30.5,
+        segmentKind: 'creek',
+        note: 'Default downstream access just below the partial low-head-dam hazard.',
+      },
+    ],
   },
   'kansas-river-st-george-wamego': {
     putIn: {
@@ -715,45 +753,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'The Belvue partial low-head dam is at river mile 120, about one mile above the Belvue ramp. Friends of the Kaw says the dam begins on river right and extends more than halfway across the river; stay river left and watch for exposed or submerged rocks.',
         'Belvue has primitive camping only by reservation through the city; do not assume overnight parking, camping, or adjacent-bank use is allowed without checking current local rules.',
         'All access and parking are subject to same-day city, county, and ramp conditions. Mud, silt, event closures, high-water cleanup, and shifted sand can change ramp usability.',
-      ],
-      watchFor: [
-        'The partial low-head dam and associated exposed or submerged rocks near Belvue. Do not run right-side dam structures, and do not attempt this reach if visibility, flow, or group skill makes the left-side line uncertain.',
-        'Low flows below about 1,000 cfs can make the channel narrow and sandbar or rock navigation slow and technical.',
-        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
-        'Wind across open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
-        'Private banks along the Kaw; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
-      ],
-    },
-  },
-  'kansas-river-st-george-belvue': {
-    putIn: {
-      name: 'St. George / Boggs Landing Access Ramp',
-      latitude: 39.18726,
-      longitude: -96.42202,
-    },
-    takeOut: {
-      name: 'Belvue Access Ramp',
-      latitude: 39.20284,
-      longitude: -96.17552,
-    },
-    logistics: {
-      distanceLabel: 'About 18.0 mi',
-      estimatedPaddleTime:
-        'About 6 hr to 8.5 hr, longer with low water, wind, sandbar stops, or extra caution near the Belvue dam',
-      shuttle:
-        'Stage the take-out at Belvue before driving back to St. George / Boggs Landing. Inspect Belvue first because the take-out is just downstream of the partial low-head dam hazard and ramp usability can change with sand, mud, or high-water cleanup.',
-      permits:
-        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
-      camping:
-        'This route can still be done as a long day, but conservative sandbar camping may make sense if weather or group pace is uncertain. Friends of the Kaw says you can camp on public sandbars between the high-water marks without a special permit, but private banks above that line are off-limits and sandbars become scarce above about 8,000 cfs.',
-      campingClassification: 'sandbar_or_gravel_bar',
-      summary:
-        'Launch at St. George / Boggs Landing and take out at Belvue for a longer upper-Kaw continuation through Wamego. The Wamego gauge is direct for this route, but the Belvue partial low-head dam still controls the finish.',
-      accessCaveats: [
-        'St. George / Boggs Landing is a public river-left ramp with strong amenities, but local parking, events, mud, and ramp condition still need a same-day check.',
-        'At Wamego, Friends of the Kaw says it is often advisable to pass under the K-99 bridge and turn upstream next to the bank to reach the ramp; launching is simpler, but remember that line if you regroup there.',
-        'The Belvue partial low-head dam is at river mile 120, about one mile above the Belvue ramp. Friends of the Kaw says the dam begins on river right and extends more than halfway across the river; stay river left and watch for exposed or submerged rocks.',
-        'Belvue has primitive camping only by reservation through the city; do not assume overnight parking, camping, or adjacent-bank use is allowed without checking current local rules.',
       ],
       watchFor: [
         'The partial low-head dam and associated exposed or submerged rocks near Belvue. Do not run right-side dam structures, and do not attempt this reach if visibility, flow, or group skill makes the left-side line uncertain.',
@@ -1635,143 +1634,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         latitude: 48.3387433532423,
         longitude: -93.81704382878402,
         mileFromStart: 22.2,
-        segmentKind: 'creek',
-        note: 'Carry-in access with toilets and a watercraft campsite at the lower finish.',
-      },
-    ],
-  },
-  'big-fork-river-ben-linn-kueffners': {
-    putIn: {
-      name: 'Ben Linn Public Water Access Site',
-      latitude: 48.2500692,
-      longitude: -93.8861103,
-    },
-    takeOut: {
-      name: 'Kueffners Public Water Access Site',
-      latitude: 48.3387433532423,
-      longitude: -93.81704382878402,
-    },
-    logistics: {
-      distanceLabel: '12.6 mi',
-      estimatedPaddleTime: 'About 5 hr to 7 hr',
-      shuttle:
-        'Stage the take-out at Kueffners before driving to Ben Linn. Both endpoints are remote forest-edge landings, so check parking space and road conditions before leaving vehicles.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted public-water-access, county, and state-forest rules at Ben Linn, Gowdy, and Kueffners.',
-      camping:
-        'Ben Linn and Gowdy both have watercraft campsites, and Kueffners adds toilets plus another watercraft campsite, so this route has real on-route overnight or bailout support.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Ben Linn and finish at Kueffners for a longer lower Big Fork continuation that carries the mapped Class I rapid stretch into the lower campsite finish.',
-      accessCaveats: [
-        'Gowdy is the clearest midpoint bailout or overnight stop before the Kueffners finish.',
-        'This is a forest-corridor route between named public accesses and campsites, not a park-to-park float with frequent roadside exits.',
-        'Stay on the named public accesses and campsites rather than using private or brushy banks.',
-      ],
-      watchFor: [
-        'The mapped Class I rapid stretch between river miles 41.3 and 39.8.',
-        'Outside-bend strainers, fresh storm wood, and quicker current after rain.',
-        'Scraping and slower riffles when the Big Falls gauge falls toward the 1.5 ft floor.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'ben-linn',
-        name: 'Ben Linn Public Water Access Site',
-        latitude: 48.2500692,
-        longitude: -93.8861103,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Carry-in access with a grassy clearing and watercraft campsite.',
-      },
-      {
-        id: 'gowdy',
-        name: 'Gowdy Public Water Access Site',
-        latitude: 48.2991378,
-        longitude: -93.820383,
-        mileFromStart: 8.8,
-        segmentKind: 'creek',
-        note: 'Named midpoint bailout with a watercraft campsite near the downstream end of the rapid corridor.',
-      },
-      {
-        id: 'kueffners',
-        name: 'Kueffners Public Water Access Site',
-        latitude: 48.3387433532423,
-        longitude: -93.81704382878402,
-        mileFromStart: 12.6,
-        segmentKind: 'creek',
-        note: 'Carry-in access with toilets and a watercraft campsite at the lower finish.',
-      },
-    ],
-  },
-  'big-fork-river-sturgeon-kueffners': {
-    putIn: {
-      name: 'Sturgeon Public Water Access Site',
-      latitude: 48.2118788,
-      longitude: -93.8834227,
-    },
-    takeOut: {
-      name: 'Kueffners Public Water Access Site',
-      latitude: 48.3387433532423,
-      longitude: -93.81704382878402,
-    },
-    logistics: {
-      distanceLabel: '17.1 mi',
-      estimatedPaddleTime: 'Long day, roughly 6.5 hr to 8.5 hr',
-      shuttle:
-        'Stage the take-out at Kueffners before driving to Sturgeon. Both endpoints are forest-edge landings with campsites, so check road conditions and parking before committing to the shuttle.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted public-water-access, county, and state-forest rules at Sturgeon, Ben Linn, Gowdy, and Kueffners.',
-      camping:
-        'Sturgeon, Ben Linn, and Gowdy all have documented watercraft campsites, and Kueffners adds toilets plus another campsite, making this one of the cleaner lower Big Fork overnight-capable continuations.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Sturgeon and finish at Kueffners for a long lower Big Fork continuation that includes the mapped Class I rapid stretch and ends at the lower campsite finish.',
-      accessCaveats: [
-        'Ben Linn and Gowdy are the clearest midpoint bailout or overnight options before the Kueffners finish.',
-        'This is a remote forest-corridor route between named public accesses and campsites, not a casual float with frequent roadside exits.',
-        'Stay on the named public accesses and campsites rather than using private or brushy banks.',
-      ],
-      watchFor: [
-        'The mapped Class I rapid stretch between river miles 41.3 and 39.8.',
-        'Outside-bend strainers, fresh storm wood, and quicker current after rain.',
-        'Long-day fatigue plus scraping and slower travel when the Big Falls gauge falls toward the 1.5 ft floor.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'sturgeon',
-        name: 'Sturgeon Public Water Access Site',
-        latitude: 48.2118788,
-        longitude: -93.8834227,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Forested carry-in access with a watercraft campsite.',
-      },
-      {
-        id: 'ben-linn',
-        name: 'Ben Linn Public Water Access Site',
-        latitude: 48.2500692,
-        longitude: -93.8861103,
-        mileFromStart: 4.5,
-        segmentKind: 'creek',
-        note: 'Best named midpoint bailout with a watercraft campsite.',
-      },
-      {
-        id: 'gowdy',
-        name: 'Gowdy Public Water Access Site',
-        latitude: 48.2991378,
-        longitude: -93.820383,
-        mileFromStart: 13.3,
-        segmentKind: 'creek',
-        note: 'Carry-in access with a watercraft campsite near the downstream end of the rapid corridor.',
-      },
-      {
-        id: 'kueffners',
-        name: 'Kueffners Public Water Access Site',
-        latitude: 48.3387433532423,
-        longitude: -93.81704382878402,
-        mileFromStart: 17.1,
         segmentKind: 'creek',
         note: 'Carry-in access with toilets and a watercraft campsite at the lower finish.',
       },
@@ -11590,84 +11452,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-'bayou-deview-benson-creek-dark-corner': {
-    putIn: {
-      id: 'benson-creek-access',
-      name: 'Benson Creek Access',
-      latitude: 34.93569,
-      longitude: -91.24092,
-    },
-    takeOut: {
-      id: 'dark-corner-access',
-      name: 'Dark Corner Access',
-      latitude: 34.91998,
-      longitude: -91.25798,
-    },
-    logistics: {
-      distanceLabel: 'About 2.1 mi',
-      estimatedPaddleTime:
-        'About 1.5 hr to 2.5 hr, longer if route-finding slows the day or high water pushes wood into the channel',
-      shuttle:
-        'Stage the take-out at Dark Corner Access, then drive back to Benson Creek Access. Carry the georeferenced map before leaving the launch because the main channel is not always obvious once you enter the flooded timber.',
-      permits:
-        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, or access-area postings at launch and take-out.',
-      camping:
-        'Treat this as a short day trip. AGFC lists free first-come campsites on Dagmar WMA, but no route-specific campsite is part of this upper segment and camping is not allowed on Cache River National Wildlife Refuge.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Benson Creek Access and take out at Dark Corner Access for the shortest Bayou DeView public segment. This is a navigation-first floodplain paddle keyed to the Brinkley stage gauge rather than a simple open-channel float.',
-      accessCaveats: [
-        'Benson Creek and Dark Corner are named public AGFC Bayou DeView Water Trail accesses reached by rural roads rather than by developed park marinas.',
-        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
-        'The main channel is not always distinct. Carry the georeferenced map or equivalent offline navigation before leaving cell coverage.',
-        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
-      ],
-      watchFor: [
-        'Water below about 14 ft, when disconnected channels and shallow obstructions become more likely.',
-        'Water approaching or above 17 ft, when AGFC says the gate on Dagmar Road closes and high-water timber travel becomes more dangerous.',
-        'Floating logs, strainers, wind exposure in open pockets, and losing the marked route through indistinct floodplain channels.',
-      ],
-    },
-  },
-'bayou-deview-dark-corner-hickson-lake': {
-    putIn: {
-      id: 'dark-corner-access',
-      name: 'Dark Corner Access',
-      latitude: 34.91998,
-      longitude: -91.25798,
-    },
-    takeOut: {
-      id: 'hickson-lake-access',
-      name: 'Hickson Lake Access',
-      latitude: 34.89039,
-      longitude: -91.29826,
-    },
-    logistics: {
-      distanceLabel: 'About 4.8 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 4.5 hr, longer with route-finding delays, soft landings, or wood cleanup after rain',
-      shuttle:
-        'Stage the take-out at Hickson Lake Access, then drive back to Dark Corner Access. Download the AGFC georeferenced map first because this segment moves deeper into the Dagmar floodplain where the main channel can blur out.',
-      permits:
-        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
-      camping:
-        'Free first-come campsites marked by blue paint are available on Dagmar WMA near the lower part of the trail, but camping is not allowed on Cache River National Wildlife Refuge and this segment still works best as a day trip unless a separate camp plan is confirmed.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Dark Corner Access and take out at Hickson Lake Access for the middle Bayou DeView segment. Expect calm water under normal conditions, but plan the day around navigation, recent gauge freshness, and floodplain wood rather than just mileage.',
-      accessCaveats: [
-        'Dark Corner and Hickson Lake are named public AGFC Bayou DeView Water Trail accesses reached by rural WMA roads rather than by developed park ramps.',
-        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
-        'The main channel is not always distinct. Carry the georeferenced map or equivalent offline navigation before leaving the launch.',
-        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
-      ],
-      watchFor: [
-        'Water below about 14 ft, when disconnected channels and shallow obstructions become more likely.',
-        'Water approaching or above 17 ft, when AGFC says the gate on Dagmar Road closes and high-water timber travel becomes more dangerous.',
-        'Floating logs, strainers, wind exposure in open pockets, and missing the clean route through indistinct floodplain channels.',
-      ],
-    },
-  },
 'bayou-deview-benson-creek-hickson-lake': {
     putIn: {
       id: 'benson-creek-access',
@@ -11706,6 +11490,35 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Floating logs, strainers, wind exposure in open pockets, and losing the marked route through indistinct floodplain channels.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'benson-creek-access',
+        name: 'Benson Creek Access',
+        latitude: 34.93569,
+        longitude: -91.24092,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream access for the full upper-half corridor.',
+      },
+      {
+        id: 'dark-corner-access',
+        name: 'Dark Corner Access',
+        latitude: 34.91998,
+        longitude: -91.25798,
+        mileFromStart: 2.1,
+        segmentKind: 'creek',
+        note: 'Intermediate public access for the shorter upper split or bailout.',
+      },
+      {
+        id: 'hickson-lake-access',
+        name: 'Hickson Lake Access',
+        latitude: 34.89039,
+        longitude: -91.29826,
+        mileFromStart: 6.5,
+        segmentKind: 'creek',
+        note: 'Default downstream access for the full upper-half corridor.',
+      },
+    ],
   },
 'buffalo-river-ponca-kyles-landing': {
     putIn: {
@@ -12998,44 +12811,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'loup-river-monroe-columbus': {
-    putIn: {
-      id: 'monroe-county-access',
-      name: 'Monroe county access south of Monroe',
-      latitude: 41.471508,
-      longitude: -97.602729,
-    },
-    takeOut: {
-      id: 'columbus-hotel-side-finish',
-      name: 'Columbus hotel-side finish near Pawnee Park Trail',
-      latitude: 41.4195401,
-      longitude: -97.3672208,
-    },
-    logistics: {
-      distanceLabel: 'About 16 mi',
-      estimatedPaddleTime:
-        'About 6 hr to 8 hr in ordinary conditions, longer with headwind, low-water channel hunting, or a slow group',
-      shuttle:
-        'Stage the Columbus finish first, then drive back to the Monroe county access. The Monroe endpoint follows the official city directions south of Monroe on 370th Avenue over the Loup River bridge, then east to the road end. The Columbus finish uses the hotel-side parking arrangement described by Nebraskaland and the City of Columbus, so inspect current parking, trail access, and riverbank footing before launching.',
-      permits:
-        'No route-specific private paddling permit is known for this segment. Follow Nebraska boating and PFD rules, obey posted county-access, hotel-side, and city-trail rules, and respect any same-day closures, muddy-road issues, or parking limits.',
-      camping:
-        'Treat this as a daylight day trip. Outdoor Nebraska / Nebraskaland warns paddlers not to camp, picnic, or otherwise stop on private banks or the stream bed without permission except when safety, shallow-water walking, or obstacle avoidance requires it.',
-      summary:
-        'Launch at the Monroe county access and finish at Columbus for the middle Loup River Water Trail segment. Use USGS 06793000 near Genoa as the direct same-river gauge and treat 350 cfs as a conservative minimum-only floor rather than a full ideal-range recommendation.',
-      accessCaveats: [
-        'The Monroe coordinate is a practical public-access anchor supported by official city directions rather than a county GIS launch point.',
-        'The Columbus finish is a hotel-side parking and trail walk arrangement, not a staffed marina. Follow current local signs and obvious public boundaries on arrival.',
-        'The Pawnee Park underpass connecting East and West Pawnee Park has been closed since June 9, 2025, so expect a current detour or changed trail circulation near the finish.',
-        'Nebraska private-bank and stream-bed rules are stricter than many paddlers expect. Stay with the named public endpoints and do not plan casual lunch stops on private land.',
-      ],
-      watchFor: [
-        'Flows below about 350 cfs at Genoa, when shallow-channel choices and dragging become more likely.',
-        'Headwind across open bends, wrong-channel choices around sandbars, fresh wood, and fatigue on a deceptively long sandy river day.',
-        'High or rising water, thunderstorms, or unclear finish access conditions, because the route has no official high-water band and should stay conservative outside the known low-water guidance.',
-      ],
-    },
-  },
   'loup-river-george-syas-columbus': {
     putIn: {
       id: 'george-d-syas-wma-fishing-access',
@@ -13632,122 +13407,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private banks, limited bailout parking, and fast weather swings in a narrow eastern Kentucky drainage.',
       ],
     },
-  },
-  'goose-creek-jacks-tobacco-road': {
-    putIn: {
-      id: 'jacks-bowling-branch-bridge-access',
-      name: 'Jacks / Bowling Branch Bridge Access',
-      latitude: 37.2052,
-      longitude: -83.7372,
-    },
-    takeOut: {
-      id: 'tobacco-road-bridge-ramp',
-      name: 'Tobacco Road Bridge Ramp',
-      latitude: 37.2163,
-      longitude: -83.7175,
-    },
-    logistics: {
-      distanceLabel: 'About 2.2 mi',
-      estimatedPaddleTime: 'About 1 hr to 1.5 hr, longer with low-water scraping',
-      shuttle:
-        'Stage the take-out at Tobacco Road first, then drive back to the Jacks / Bowling Branch bridge access. Parking is limited at both roadside accesses, so keep vehicles compact and completely clear of the travel lane.',
-      permits:
-        'No route-specific paddling permit is known. Use only the KDFWR-listed access points, follow Kentucky boating and PFD rules, and avoid treating private creek banks as public stopovers.',
-      camping:
-        'Treat this as a short day float. KDFWR does not document public camping at either access, and both endpoints are simple roadside carry-down sites.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Jacks / Bowling Branch and take out at Tobacco Road for the short upper split of the lower Goose Creek chain. Use the Manchester gauge and expect scraping whenever flows sit below KDFWR\'s 175 to 514 cfs good band.',
-      accessCaveats: [
-        'Both accesses are roadside gravel carry-down points with limited parking and no amenities.',
-        'This segment intentionally starts below the Rawlings / Stinson low-head-dam warning from upstream Manchester.',
-        'The Tobacco Road landing is under the bridge on the downstream side; inspect it before launching so you know exactly where to exit.',
-      ],
-      watchFor: [
-        'Low water below about 175 cfs or 7.4 ft, when rock bars and dragging become likely.',
-        'High water above about 514 cfs or 8.5 ft, when the narrow creek gets pushier and bridge landings are less forgiving.',
-        'Strainers, fresh wood after storms, and slick footing at the bridge accesses.',
-        'Private banks and rapid weather shifts in a narrow eastern Kentucky drainage.',
-      ],
-    },
-  },
-  'goose-creek-tobacco-road-dump-hollow': {
-    putIn: {
-      id: 'tobacco-road-bridge-ramp',
-      name: 'Tobacco Road Bridge Ramp',
-      latitude: 37.2163,
-      longitude: -83.7175,
-    },
-    takeOut: {
-      id: 'dump-hollow-ford-road',
-      name: 'Dump Hollow Ford',
-      latitude: 37.2127,
-      longitude: -83.704,
-    },
-    logistics: {
-      distanceLabel: 'About 0.8 mi',
-      estimatedPaddleTime:
-        'About 30 min to 1 hr, depending on scraping, scouting, and how quickly you can land at the ford',
-      shuttle:
-        'Leave the downstream vehicle at Dump Hollow only after confirming the ford road is workable for your vehicle and current water level. Then drive back to Tobacco Road for the simple bridge launch.',
-      permits:
-        'No route-specific paddling permit is known. Use only the KDFWR-listed roadside accesses, follow Kentucky boating and PFD rules, and avoid lingering on private banks.',
-      camping:
-        'Treat this as a quick day split. KDFWR documents no public camping at either access, and Dump Hollow is a ford-style landing rather than an overnight site.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Tobacco Road and take out at Dump Hollow for the shortest official lower Goose Creek split. Use the Manchester gauge and expect this to feel scrape-prone whenever flows sit below KDFWR\'s 175 to 514 cfs good band.',
-      accessCaveats: [
-        'Dump Hollow is a ford access with very limited parking.',
-        'KDFWR warns that high water can make the ford difficult or dangerous and can also make turning a vehicle around awkward on the narrow road.',
-        'This is a short split, but it still depends on clean landings at two small roadside access points.',
-      ],
-      watchFor: [
-        'Low water below about 175 cfs or 7.4 ft, when this short run can turn into a scrape-and-drag exercise.',
-        'High water above about 514 cfs or 8.5 ft, when the ford landing becomes less forgiving.',
-        'Bridge debris, shallow riffles, and fresh wood after storms.',
-        'Private banks and limited roadside room for staging boats or vehicles.',
-      ],
-    },
-  },
-  'goose-creek-dump-hollow-laurel-branch': {
-    putIn: {
-      id: 'dump-hollow-ford-road',
-      name: 'Dump Hollow Ford',
-      latitude: 37.2127,
-      longitude: -83.704,
-    },
-    takeOut: {
-      id: 'laurel-branch-road-access',
-      name: 'Laurel Branch Road Access',
-      latitude: 37.237,
-      longitude: -83.6703,
-    },
-    logistics: {
-      distanceLabel: 'About 4.8 mi',
-      estimatedPaddleTime:
-        'About 2 hr to 3.5 hr, longer with low-water scraping or wood scouting',
-      shuttle:
-        'Stage the take-out at Laurel Branch Road, then drive back to Dump Hollow only after confirming the ford road is suitable for your vehicle and current water level. Both accesses have limited parking, so keep the shuttle compact.',
-      permits:
-        'No route-specific paddling permit is known. Use only the KDFWR-listed access points, follow Kentucky boating and PFD rules, and avoid treating private creek banks as public stopovers.',
-      camping:
-        'Treat this as a day float. KDFWR does not document public camping at Dump Hollow or Laurel Branch, and both endpoints are simple roadside accesses.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Dump Hollow and take out at Laurel Branch for the longer downstream split of the lower Goose Creek chain. Use the Manchester gauge and expect scraping whenever flows sit below KDFWR\'s 175 to 514 cfs good band.',
-      accessCaveats: [
-        'Dump Hollow is a ford access, and KDFWR warns that high water can make the ford difficult or dangerous for vehicles.',
-        'Laurel Branch has limited parking and no amenities, with private property outside the immediate access area.',
-        'This lower segment stays fully below the upstream Manchester low-head-dam warning, but it remains a flashy, narrow creek.',
-      ],
-      watchFor: [
-        'Low water below about 175 cfs or 7.4 ft, when rock bars and dragging become likely.',
-        'High water above about 514 cfs or 8.5 ft, when current tightens up and roadside landings are less forgiving.',
-        'Strainers, fresh wood after storms, and slick footing at the ford and carry-down take-out.',
-        'Private banks, limited bailout parking, and quick weather shifts in the drainage.',
-      ],
-    },
+    accessPoints: [
+      {
+        id: 'jacks-bowling-branch-bridge-access',
+        name: 'Jacks / Bowling Branch Bridge Access',
+        latitude: 37.2052,
+        longitude: -83.7372,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream access below the Rawlings / Stinson low-head-dam warning.',
+      },
+      {
+        id: 'tobacco-road-bridge-ramp',
+        name: 'Tobacco Road Bridge Ramp',
+        latitude: 37.2163,
+        longitude: -83.7175,
+        mileFromStart: 2.2,
+        segmentKind: 'creek',
+        note: 'Intermediate bridge access for the upper short split.',
+      },
+      {
+        id: 'dump-hollow-ford-road',
+        name: 'Dump Hollow Ford',
+        latitude: 37.2127,
+        longitude: -83.704,
+        mileFromStart: 3,
+        segmentKind: 'creek',
+        note: 'Ford-style intermediate access; verify high-water road and turnaround conditions.',
+      },
+      {
+        id: 'laurel-branch-road-access',
+        name: 'Laurel Branch Road Access',
+        latitude: 37.237,
+        longitude: -83.6703,
+        mileFromStart: 7.8,
+        segmentKind: 'creek',
+        note: 'Default downstream access for the full lower Goose Creek corridor.',
+      },
+    ],
   },
   'juniata-river-granville-mifflin': {
     "putIn": {
@@ -15612,123 +15309,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         note: 'Default full-corridor take-out; scout when water is up or dirty.',
       },
     ],
-  },
-'crooked-creek-lower-pyatt-snow': {
-    putIn: {
-      id: 'lower-pyatt-access',
-      name: 'Lower Pyatt Access',
-      latitude: 36.24665,
-      longitude: -92.83494,
-    },
-    takeOut: {
-      id: 'snow-access',
-      name: 'Snow Access',
-      latitude: 36.24352,
-      longitude: -92.79995,
-    },
-    logistics: {
-      distanceLabel: 'About 6.7 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 4.5 hr, longer with low water, fishing, or careful shoal scouting',
-      shuttle:
-        'Stage the take-out at Snow Access, then drive back to Lower Pyatt Access. Both launches are simple rural access points, so inspect parking, bank angle, and the final approach before leaving vehicles.',
-      permits:
-        'No route-specific paddling permit is known. Use the named public AGFC access points, follow Arkansas boating and PFD rules, and respect posted parking signs at each access.',
-      camping:
-        'Primitive campsites at Snow Access make this the cleanest Crooked Creek overnight entry point, but AGFC limits camping to one night per campsite and private banks remain off-limits.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Lower Pyatt Access and take out at Snow Access for the upper Crooked Creek day. Use the Kelly Crossing gauge, treat 12 ft as the conservative floor, and expect a rural riffle-and-pool float rather than flatwater.',
-      accessCaveats: [
-        'Lower Pyatt and Snow are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than full-service park ramps.',
-        'AGFC says primitive campsites are available at Snow Access and limits camping to one night per campsite.',
-        'The current Kelly Crossing gauge reading during this run was inside AGFC\'s moderate band, but the creek can rise or muddy quickly after storms.',
-        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.',
-      ],
-      watchFor: [
-        'Water below about 12 ft, when scraping and slower riffles become more likely.',
-        'Fast post-rain rises, fresh wood, strainers, muddy exits, and stronger current than the clear-water appearance suggests.',
-        'Shoals, riffles, small waves, rural self-rescue conditions, and assuming private-bank pull-offs are acceptable mid-route stops.',
-      ],
-    },
-  },
-'crooked-creek-snow-mark-oliver': {
-    putIn: {
-      id: 'snow-access',
-      name: 'Snow Access',
-      latitude: 36.24352,
-      longitude: -92.79995,
-    },
-    takeOut: {
-      id: 'mark-oliver-access',
-      name: 'Mark Oliver Access',
-      latitude: 36.24973,
-      longitude: -92.7486,
-    },
-    logistics: {
-      distanceLabel: 'About 5.2 mi',
-      estimatedPaddleTime:
-        'About 2.5 hr to 4 hr, longer with low water, fishing, or careful shoal scouting',
-      shuttle:
-        'Stage the take-out at Mark Oliver Access, then drive back to Snow Access. Both accesses are simple rural put-ins with limited amenities, so verify same-day footing and parking before launching.',
-      permits:
-        'No route-specific paddling permit is known. Use the named public AGFC access points, follow Arkansas boating and PFD rules, and respect posted parking signs at each access.',
-      camping:
-        'Snow Access and Brooksher Crooked Creek Preserve give this middle segment real overnight support, but Brooksher has no road access and private banks remain off-limits.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Snow Access and take out at Mark Oliver Access for the middle Crooked Creek segment. Use the Kelly Crossing gauge, treat 12 ft as the conservative floor, and expect a short rural moving-water float with legal camping only at designated sites.',
-      accessCaveats: [
-        'Snow and Mark Oliver are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than improved park ramps.',
-        'AGFC says paddlers planning longer routes may camp at Snow Access and at Brooksher Crooked Creek Preserve, which has no road access.',
-        'The current Kelly Crossing gauge reading during this run was inside AGFC\'s moderate band, but the creek can rise or muddy quickly after storms.',
-        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.',
-      ],
-      watchFor: [
-        'Water below about 12 ft, when scraping and slower riffles become more likely.',
-        'Fast post-rain rises, fresh wood, strainers, muddy exits, and stronger current than the clear-water appearance suggests.',
-        'Shoals, riffles, small waves, and mistaking undeveloped private banks for legal stopping points.',
-      ],
-    },
-  },
-'crooked-creek-mark-oliver-kelleys-slab': {
-    putIn: {
-      id: 'mark-oliver-access',
-      name: 'Mark Oliver Access',
-      latitude: 36.24973,
-      longitude: -92.7486,
-    },
-    takeOut: {
-      id: 'kelleys-slab-access',
-      name: "Kelley's Slab Access",
-      latitude: 36.22921,
-      longitude: -92.71045,
-    },
-    logistics: {
-      distanceLabel: 'About 6.6 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 5 hr, longer with low water, fishing, or a careful Kelley\'s Slab finish',
-      shuttle:
-        'Stage the take-out at Kelley\'s Slab Access, then drive back to Mark Oliver Access. Inspect the slab finish before launching, especially when the creek is up, muddy, or unfamiliar.',
-      permits:
-        'No route-specific paddling permit is known. Use the named public AGFC access points, follow Arkansas boating and PFD rules, and respect posted parking signs at each access.',
-      camping:
-        'Fred Berry Crooked Creek Nature Center supports a downstream overnight option with permission from the center manager, limited to one night per campsite, but private banks remain off-limits.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Mark Oliver Access and take out at Kelley\'s Slab Access for the lower-middle Crooked Creek day. Use the Kelly Crossing gauge, treat 12 ft as the conservative floor, and scout the slab finish when water or debris raises the consequence.',
-      accessCaveats: [
-        'Mark Oliver and Kelley\'s Slab are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than improved park ramps.',
-        'AGFC says paddlers may camp at Fred Berry Crooked Creek Nature Center with permission from the center manager, limited to one night per campsite.',
-        'AGFC separately warns that Kelley\'s Slab can be hazardous under some conditions, so do not assume an easy blind finish.',
-        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.',
-      ],
-      watchFor: [
-        'Water below about 12 ft, when scraping and slower riffles become more likely.',
-        'Fast post-rain rises, fresh wood, strainers, muddy exits, and stronger current than the clear-water appearance suggests.',
-        'Shoals, riffles, small waves, rural self-rescue conditions, and the Kelley\'s Slab finish hazard AGFC flags under some conditions.',
-      ],
-    },
   },
 'wabash-river-linn-grove-hale-street': {
     putIn: {

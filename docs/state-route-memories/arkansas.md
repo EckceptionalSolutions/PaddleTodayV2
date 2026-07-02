@@ -25,15 +25,15 @@ Arkansas now has seventeen live routes after the 2026-07-02 Crooked Creek follow
 ## 2026-07-02 Crooked Creek implementation pass
 
 - Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had fourteen live route objects and matching trip-detail entries before this pass, so the Crooked Creek adds had to create three genuinely new slugs beyond that baseline.
-- Added `crooked-creek-lower-pyatt-snow`, `crooked-creek-snow-mark-oliver`, and `crooked-creek-mark-oliver-kelleys-slab` from the AGFC Crooked Creek water-trail corridor.
+- Added `crooked-creek-lower-pyatt-kelleys-slab`, `crooked-creek-lower-pyatt-kelleys-slab`, and `crooked-creek-lower-pyatt-kelleys-slab` from the AGFC Crooked Creek water-trail corridor.
 - Route, gauge, and threshold evidence:
   - AGFC still documents exact public segment mileages of `6.7`, `5.2`, and `6.6` miles for Lower Pyatt-to-Snow, Snow-to-Mark Oliver, and Mark Oliver-to-Kelley's Slab, and still exposes map-linked endpoint coordinates for all four accesses.
   - Direct USGS Water Services returned same-day Crooked Creek at Kelly Crossing near Yellville (`07055607`) values of `513 cfs / 12.05 ft` at `2026-07-02 02:45 CDT`.
   - AGFC's current Crooked Creek guidance still says a moderate floating level is `12-12.5 ft`, so all three routes ship conservatively as minimum-only stage routes with `tooLow: 12` rather than a stitched ideal/high ladder.
 - Access, camping, and safety posture:
-  - `crooked-creek-lower-pyatt-snow` uses `endpoint_campground` because AGFC explicitly identifies primitive campsites at Snow Access.
-  - `crooked-creek-snow-mark-oliver` uses `on_route_campsite` because Snow Access and the Brooksher Crooked Creek Preserve cover the overnight story on that middle reach.
-  - `crooked-creek-mark-oliver-kelleys-slab` uses `endpoint_campground` because AGFC identifies camping at Fred Berry Crooked Creek Nature Center with prior permission and a one-night limit.
+  - `crooked-creek-lower-pyatt-kelleys-slab` uses `endpoint_campground` because AGFC explicitly identifies primitive campsites at Snow Access.
+  - `crooked-creek-lower-pyatt-kelleys-slab` uses `on_route_campsite` because Snow Access and the Brooksher Crooked Creek Preserve cover the overnight story on that middle reach.
+  - `crooked-creek-lower-pyatt-kelleys-slab` uses `endpoint_campground` because AGFC identifies camping at Fred Berry Crooked Creek Nature Center with prior permission and a one-night limit.
   - All three routes carry private-bank, flashy-water, strainer, and Kelley’s Slab hazard caveats because AGFC warns that almost all surrounding property is private and that Kelley’s Slab can become hazardous under some conditions.
 - No gallery image was added. Bounded AGFC, Commons, and USGS review did not surface a clearly rights-clean exact-route paddling image for the Crooked Creek slugs.
 

@@ -14,11 +14,11 @@ Minnesota still has the strongest official-source foundation and a broad existin
 
 ## Latest Run
 
-- 2026-07-02 12:09 America/Chicago: added `big-fork-river-ben-linn-kueffners`, `big-fork-river-sturgeon-kueffners`, and `big-fork-river-gowdy-ivan-crawford`.
+- 2026-07-02 12:09 America/Chicago: added `big-fork-river-big-falls-west-kueffners`, `big-fork-river-big-falls-west-kueffners`, and `big-fork-river-gowdy-ivan-crawford`.
 - Stayed in Minnesota because the current official DNR Big Fork family still had three unused implementation-grade continuations under the route-audit ceiling, while weaker discovery-state candidates did not beat the official map-plus-direct-gauge stack.
 - Current MN DNR `river_level_sites.json` reported site `5` (`Big Fork River at Big Falls, MN`) at `2.85 ft` on `2026-07-02 10:00 AM`; official bands remain Scrapable below `1.5 ft`, Low `1.5-2.8`, Medium `2.8-4.5`, High `4.5-6.0`, and Very High above `6.0`.
 - The official public-water-access GIS still resolves Sturgeon `WAS01795`, Ben Linn `WAS01796`, Gowdy `WAS02706`, Kueffners `WAS01788`, and Ivan Crawford `WAS02705`, while current DNR Map 2 still places them at river miles `47.5`, `43.0`, `34.2`, `30.4`, and `9.0`.
-- `big-fork-river-ben-linn-kueffners` and `big-fork-river-sturgeon-kueffners` ship as `on_route_campsite` because Ben Linn, Gowdy, and Kueffners remain documented campsite or toilet-supported stopping points through the lower rapid corridor; `big-fork-river-gowdy-ivan-crawford` also ships as `on_route_campsite` because Gowdy and Kueffners remain real overnight or bailout support before the simpler Ivan Crawford county-landing finish.
+- `big-fork-river-big-falls-west-kueffners` and `big-fork-river-big-falls-west-kueffners` ship as `on_route_campsite` because Ben Linn, Gowdy, and Kueffners remain documented campsite or toilet-supported stopping points through the lower rapid corridor; `big-fork-river-gowdy-ivan-crawford` also ships as `on_route_campsite` because Gowdy and Kueffners remain real overnight or bailout support before the simpler Ivan Crawford county-landing finish.
 - Safety notes stay conservative around the mapped Class I stretch at river miles `41.3-39.8` on the two upper continuations, fresh wood after storms, cold-water and long-day fatigue on the lower corridors, private-bank limits, and the need to stop at Ivan Crawford rather than drifting toward the Rainy River approach. No route-gallery image was added.
 
 - 2026-07-02 08:20 America/Chicago: added `little-fork-river-highway-73-silverdale` and `big-fork-river-kueffners-reedy-flats`.
