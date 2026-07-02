@@ -1,18 +1,24 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-06-26 09:55 America/Chicago.
+Last summarized: 2026-07-01 22:35 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 63.
-- Top represented rivers: Big Fork River 10, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4, Crow Wing River 3.
-- Ledger candidates: 70 total; 36 `added`, 19 `threshold_weak`, 10 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`, 1 `rejected`.
+- Live routes: 66.
+- Top represented rivers: Big Fork River 13, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4, Crow Wing River 3.
+- Ledger candidates: 73 total; 39 `added`, 19 `threshold_weak`, 10 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`, 1 `rejected`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-01 22:35 America/Chicago: added `big-fork-river-gowdy-kueffners`, `big-fork-river-kueffners-ivan-crawford`, and `big-fork-river-ivan-crawford-reedy-flats`.
+- Implemented the remaining lower Big Fork access chain from Gowdy to Reedy Flats instead of reopening a weaker cross-state search.
+- Minnesota public-water-access GIS resolves Gowdy `WAS02706` at `48.2991378, -93.8203830`, Kueffners `WAS01788` at `48.3387434, -93.8170438`, Ivan Crawford `WAS02705` at `48.4552606, -93.7195547`, and Reedy Flats `WAS02709` at `48.5122095, -93.7127785`.
+- The corridor still uses direct MN DNR site `5` at Big Falls with same-day `2.86 ft` at `2026-07-01 07:00 PM`; official bands remain Scrapable below `1.5 ft`, Low `1.5-2.8`, Medium `2.8-4.5`, High `4.5-6.0`, and Very High above `6.0`.
+- Gowdy-to-Kueffners ships as `endpoint_campground`; Kueffners-to-Ivan-Crawford ships as `endpoint_campground`; Ivan-Crawford-to-Reedy-Flats ships as `endpoint_campground`. Safety notes stay conservative around fresh wood, low-water dragging, private-bank limits, long lower-river commitment on the Kueffners run, and the need to take out at Reedy Flats before the Rainy River confluence. No route-gallery image was added.
 
 - 2026-06-26 09:55 America/Chicago: consolidated the Crow Wing family from 17 live slugs to 3 canonical routes: `crow-wing-river-mary-brown-stigmans-mound`, `crow-wing-river-andersons-crossing-cottingham`, and `crow-wing-river-stigmans-mound-cottingham`.
 - Removed the overlapping Mary Brown / Anderson's / Stigman's / Frame's / Little White Dog / Knob Hill permutations because they reused the same Nimrod gauge, official DNR maps, and county-campground chain without adding meaningfully different trip stories.
