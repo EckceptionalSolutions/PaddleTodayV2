@@ -47022,6 +47022,128 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'south-fork-kentucky-river-hacker-branch-kay-wood',
+    slug: 'south-fork-kentucky-river-hacker-branch-kay-wood',
+    name: 'South Fork Kentucky River',
+    reach: 'Hacker Branch Road Access to Kay Wood Road Access',
+    aliases: [
+      'South Fork Kentucky River - Hacker Branch to Kay Wood',
+      'South Fork Kentucky River lower-middle chain',
+      'KDFWR South Fork Kentucky River access chain',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Medium lower South Fork Kentucky River float from Hacker Branch Road Access to Kay Wood Road Access. Current KDFWR guidance still supports this chained public reach with the Booneville gauge and a straightforward carry-down finish just upstream of Booneville.',
+    statusText:
+      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Below that is low and likely scrape-prone; above that is high and faster around shoals, bends, and wood.',
+    latitude: 37.3743,
+    longitude: -83.6708,
+    gaugeSource: {
+      id: 'usgs-03281500',
+      provider: 'usgs',
+      siteId: '03281500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Kentucky River at Booneville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 900,
+      tooLow: 350,
+      tooHigh: 900,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This lower-middle South Fork segment is most practical from spring through fall when the Booneville gauge trend is stable. Lower summer flows expose more rock bars and dragging, while rain can quickly raise the current and muddy the simpler landings.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR describes the South Fork as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles. This route stays in the named public access chain and is shorter than the full downstream continuations, but it is still moving water with low-water line choice.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: current KDFWR guidance still documents the exact chained public access sequence of Hacker Branch Road Access to Upper Wolf Creek Ramp at 2.9 miles and Upper Wolf Creek Ramp to Kay Wood Road Access at 5.6 miles, supporting an 8.5-mile public float. KDFWR still publishes exact public endpoint coordinates and official Booneville low/good/high bands tied to direct USGS gauge 03281500, and USGS Water Services returned same-day July 3, 2026 discharge and stage during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '350-900 cfs / 4.8-6.0 ft',
+        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Chained public route segment',
+        value: 'Hacker Branch Road Access to Kay Wood Road Access, 8.5 miles',
+        note: 'KDFWR lists Hacker Branch Road Access to Upper Wolf Creek Ramp as 2.9 miles and Upper Wolf Creek Ramp to Kay Wood Road Access as 5.6 miles, supporting an 8.5-mile public Hacker-Branch-to-Kay-Wood float on the same access chain.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Hacker Branch Road Access, 37.3743, -83.6708',
+        note: 'KDFWR identifies Hacker Branch Road Access as a free carry-down site with unpaved parking and no listed amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1122',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Kay Wood Road Access, 37.4594, -83.6509',
+        note: 'KDFWR identifies Kay Wood Road Access as a free carry-down site with unpaved parking, no amenities, and canoe/kayak suitability.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03281500 at 178 cfs / 4.16 ft',
+        note: 'USGS Water Services returned same-day values of 178 cfs and 4.16 ft at 2026-07-03 05:30 EDT for South Fork Kentucky River at Booneville during this run, below the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route character',
+        value: 'Broad river, rock bars, occasional riffles',
+        note: 'KDFWR describes the South Fork Kentucky River as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR South Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR South Fork Kentucky River access guide',
+        url: 'https://fw.ky.gov/Fish/Documents/South%20Fork%20of%20Kentucky%20River.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Hacker Branch Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1122',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Kay Wood Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03281500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'south-fork-kentucky-river-upper-wolf-creek-fish-creek',
     slug: 'south-fork-kentucky-river-upper-wolf-creek-fish-creek',
     name: 'South Fork Kentucky River',
@@ -47495,6 +47617,128 @@ export const rivers: River[] = [
       {
         label: 'KDFWR Kay Wood Road Access',
         url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03281500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'south-fork-kentucky-river-oneida-fish-creek',
+    slug: 'south-fork-kentucky-river-oneida-fish-creek',
+    name: 'South Fork Kentucky River',
+    reach: 'Oneida Ramp to Fish Creek Boat Ramp',
+    aliases: [
+      'South Fork Kentucky River - Oneida to Fish Creek',
+      'South Fork Kentucky River full access chain',
+      'KDFWR South Fork Kentucky River access chain',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Full South Fork Kentucky River access-chain float from Oneida Ramp to Fish Creek Boat Ramp. Current KDFWR guidance still supports this complete downstream public reach with the Booneville gauge and a paved downstream finish north of Booneville.',
+    statusText:
+      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Below that is low and likely scrape-prone; above that is high and faster around shoals, bends, and wood.',
+    latitude: 37.2726,
+    longitude: -83.6532,
+    gaugeSource: {
+      id: 'usgs-03281500',
+      provider: 'usgs',
+      siteId: '03281500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Kentucky River at Booneville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 900,
+      tooLow: 350,
+      tooHigh: 900,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This full South Fork chain is most practical from spring through fall when the Booneville gauge trend is stable. Lower summer flows expose more rock bars and dragging, while rain can quickly raise the current and muddy the simpler landings.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR describes the South Fork as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles. This route stays in the named public access chain, but its full-corridor mileage makes it a long moving-water commitment rather than a casual float.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: current KDFWR guidance still documents the exact chained public access sequence of Oneida Ramp to Rocky Branch Road Access at 6.8 miles, Rocky Branch Road Access to Cedar Valley Road Access at 2.5 miles, Cedar Valley Road Access to Bishop Bend School Road Access at 4.7 miles, Bishop Bend School Road Access to Hacker Branch Road Access at 3.3 miles, Hacker Branch Road Access to Upper Wolf Creek Ramp at 2.9 miles, Upper Wolf Creek Ramp to Kay Wood Road Access at 5.6 miles, and Kay Wood Road Access to Fish Creek Boat Ramp at 7.9 miles, supporting a 33.7-mile public float. KDFWR still publishes exact public endpoint coordinates and official Booneville low/good/high bands tied to direct USGS gauge 03281500, and USGS Water Services returned same-day July 3, 2026 discharge and stage during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '350-900 cfs / 4.8-6.0 ft',
+        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Chained public route segment',
+        value: 'Oneida Ramp to Fish Creek Boat Ramp, 33.7 miles',
+        note: 'KDFWR lists Oneida Ramp to Rocky Branch Road Access as 6.8 miles, Rocky Branch Road Access to Cedar Valley Road Access as 2.5 miles, Cedar Valley Road Access to Bishop Bend School Road Access as 4.7 miles, Bishop Bend School Road Access to Hacker Branch Road Access as 3.3 miles, Hacker Branch Road Access to Upper Wolf Creek Ramp as 2.9 miles, Upper Wolf Creek Ramp to Kay Wood Road Access as 5.6 miles, and Kay Wood Road Access to Fish Creek Boat Ramp as 7.9 miles, supporting a 33.7-mile public Oneida-to-Fish-Creek float on the same access chain.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Oneida Ramp, 37.2726, -83.6532',
+        note: 'KDFWR identifies Oneida Ramp as a free single-lane concrete ramp near Oneida Elementary School with paved parking and no camping.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=903',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Fish Creek Boat Ramp, 37.4906, -83.6894',
+        note: 'KDFWR identifies Fish Creek Boat Ramp as a free single-lane paved ramp with gravel parking and no listed camping or amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=994',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03281500 at 178 cfs / 4.16 ft',
+        note: 'USGS Water Services returned same-day values of 178 cfs and 4.16 ft at 2026-07-03 05:30 EDT for South Fork Kentucky River at Booneville during this run, below the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route character',
+        value: 'Broad river, rock bars, occasional riffles',
+        note: 'KDFWR describes the South Fork Kentucky River as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR South Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR South Fork Kentucky River access guide',
+        url: 'https://fw.ky.gov/Fish/Documents/South%20Fork%20of%20Kentucky%20River.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Oneida Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=903',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Fish Creek Boat Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=994',
         provider: 'local',
       },
       {
@@ -58131,6 +58375,140 @@ export const rivers: River[] = [
       {
         label: 'KDFWR Long Bottom Access',
         url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=665',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cumberland Falls Carrydown',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=987',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03404000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03404000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'cumberland-river-redbird-cumberland-falls',
+    slug: 'cumberland-river-redbird-cumberland-falls',
+    name: 'Cumberland River',
+    reach: 'Redbird Ramp to Cumberland Falls Carrydown',
+    aliases: [
+      'Cumberland River - Redbird to Cumberland Falls',
+      'Upper Cumberland full upstream-of-the-falls chain',
+      'North Fork Cumberland River gorge combination',
+    ],
+    state: 'Kentucky',
+    region: 'Daniel Boone Country',
+    routeType: 'whitewater',
+    summary:
+      'Full upstream-of-the-falls Cumberland combination from Redbird Ramp to the public Cumberland Falls carrydown. Current KDFWR guidance and the current route map support the exact 16.6-mile distance by chaining Redbird to Long Bottom, Long Bottom to Thunderstruck, and Thunderstruck to Cumberland Falls under one direct Williamsburg gauge and one official 500 to 1,100 cfs preferred band.',
+    statusText:
+      'Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best, lower water can mean dragging, and flows up to 2,000 cfs are challenging for skilled paddlers only. Missing the right-bank take-out above Cumberland Falls is not acceptable.',
+    latitude: 36.7621,
+    longitude: -84.2216,
+    gaugeSource: {
+      id: 'usgs-03404000',
+      provider: 'usgs',
+      siteId: '03404000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cumberland River at Williamsburg, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'mandatory_takeout', 'fast_rise', 'private_banks', 'remote'],
+      safetyNotes: [
+        'This route combines the full upper remote gorge with the downstream rapid sequence that ends at a mandatory take-out above Cumberland Falls.',
+        'KDFWR says paddlers must work right before the KY 90 bridge and take out at the falls parking area because missing the finish leads toward the 68-foot falls.',
+        'Long Bottom remains a rough mid-route bailout rather than a normal easy exit because KDFWR says the final road approach is extremely rugged.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 500,
+      idealMax: 1100,
+      tooLow: 500,
+      tooHigh: 2000,
+      thresholdSource: {
+        label: 'KDFWR Cumberland River recommended Williamsburg flow band',
+        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This full upstream Cumberland combination is most defensible when the Williamsburg gauge stays in or near the KDFWR band and weather is stable. Rain can quickly turn the gorge, rapid sequence, and final mandatory take-out into a much more serious day.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The route includes remote shoals, mild whitewater, the rough Long Bottom corridor, Pitch Rapids, the lower gorge drop sequence, and a mandatory take-out above Cumberland Falls.',
+      confidenceNotes:
+        'Confidence is good for a guarded add because the current KDFWR page and 2023 route map name Redbird, Longbottom, Thunderstruck, and Cumberland Falls as public access points, publish the official Williamsburg 500 to 1,100 cfs preferred band with skilled-paddler caution up to 2,000 cfs, and KDFWR access-detail pages provide source-backed coordinates for Redbird and Cumberland Falls. Same-day USGS Water Services returned 1,100 cfs and 4.33 ft at 2026-07-03 06:00 EDT, exactly at the top of the preferred band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Redbird Ramp to Cumberland Falls, 16.6 mi',
+        note: 'The current KDFWR route map publishes Redbird to Longbottom as 9.0 miles, Longbottom to Thunderstruck as 2.5 miles, and Thunderstruck to Cumberland Falls as 5.1 miles, which support this 16.6-mile combination.',
+        sourceUrl:
+          'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
+      },
+      {
+        label: 'Mandatory take-out warning',
+        value: 'Work right and take out below the KY 90 bridge',
+        note: 'KDFWR says paddlers must work to the right and take out at the public falls parking/carrydown area because the current otherwise leads toward Cumberland Falls.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Redbird Ramp, 36.7621, -84.2216',
+        note: 'KDFWR access detail lists Redbird as a paved public ramp with year-round availability.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=904',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Cumberland Falls Carrydown, 36.8421, -84.3435',
+        note: 'KDFWR access detail lists Cumberland Falls as a public year-round carrydown with paved parking, seasonal camping, and year-round lodging at the state resort park.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=987',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03404000 at 1100 cfs / 4.33 ft',
+        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-07-03 06:00 EDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'Primitive float-camping banks downstream of Bee Shoals plus falls campground/lodging finish',
+        note: 'KDFWR says float campers use the banks downstream of Bee Shoals on this corridor, and the Cumberland Falls access detail lists seasonal camping and year-round lodging at the take-out.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Cumberland River',
+        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cumberland River detailed map',
+        url: 'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Redbird Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=904',
         provider: 'local',
       },
       {

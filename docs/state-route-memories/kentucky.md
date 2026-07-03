@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-03 04:20 America/Chicago / 2026-07-03 09:20 UTC.
+Last summarized: 2026-07-03 06:00 America/Chicago / 2026-07-03 11:00 UTC.
 
 ## Current Inventory
 
-- Live routes: 93.
-- Ledger candidates: 66 Kentucky-specific records. The newest live slugs from this run are `cumberland-river-redbird-longbottom`, `cumberland-river-longbottom-thunderstruck`, and `cumberland-river-longbottom-cumberland-falls`.
+- Live routes: 96.
+- Ledger candidates: 69 Kentucky-specific records. The newest live slugs from this run are `south-fork-kentucky-river-oneida-fish-creek`, `south-fork-kentucky-river-hacker-branch-kay-wood`, and `cumberland-river-redbird-cumberland-falls`.
 
 ## Status
 
@@ -20,6 +20,15 @@ Kentucky had been paused from the active automation rotation at user request whi
 - For Elkhorn specifically, do not substitute nearby bank/wade-only VPA sites for boat access; KDFWR explicitly prohibits boat carry-in/out at some Elkhorn VPA points.
 
 ## Current Guidance
+
+- 2026-07-03 06:00 America/Chicago / 2026-07-03 11:00 UTC three-route add pass
+  - Added `south-fork-kentucky-river-oneida-fish-creek`, `south-fork-kentucky-river-hacker-branch-kay-wood`, and `cumberland-river-redbird-cumberland-falls` to expand Kentucky beyond the 497-route repo baseline at run start.
+  - The run reused the current KDFWR South Fork Kentucky River page for the exact public access-chain mileages of Oneida -> Rocky `6.8`, Rocky -> Cedar `2.5`, Cedar -> Bishop `4.7`, Bishop -> Hacker `3.3`, Hacker -> Upper Wolf `2.9`, Upper Wolf -> Kay Wood `5.6`, and Kay Wood -> Fish Creek `7.9`, which support the two new South Fork public routes of `33.7` and `8.5` miles.
+  - The run reused the current KDFWR Cumberland River page plus the current route map for the exact Redbird -> Longbottom `9.0`, Longbottom -> Thunderstruck `2.5`, and Thunderstruck -> Cumberland Falls `5.1` public chain, which supports the new `cumberland-river-redbird-cumberland-falls` route at `16.6` miles.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Oneida Ramp, Hacker Branch Road Access, Kay Wood Road Access, Fish Creek Boat Ramp, Redbird Ramp, and Cumberland Falls Carrydown; same-day direct USGS Water Services returned `178 cfs / 4.16 ft` at South Fork Kentucky River at Booneville (`03281500`) at `2026-07-03 05:30 EDT` and `1100 cfs / 4.33 ft` at Cumberland River at Williamsburg (`03404000`) at `2026-07-03 06:00 EDT`.
+  - Camping stays conservative by route: both South Fork additions ship as `none`, while Redbird -> Cumberland Falls ships as `on_route_campsite` because KDFWR says float campers use the banks downstream of Bee Shoals and the route also finishes at the Cumberland Falls park/campground corridor.
+  - Safety notes stay focused on below-band South Fork scraping, wood and strainers, private-bank limits, fatigue on the full Oneida -> Fish Creek commitment, remote Cumberland gorge exits, whitewater shoals, and the mandatory right-bank take-out above Cumberland Falls.
+  - Image posture splits by family: the South Fork additions reused the approved same-river Commons corridor image, while bounded KDFWR, Kentucky State Parks, Commons, and same-river USGS review stayed negative for a rights-clean Redbird -> Cumberland Falls route asset.
 
 - 2026-07-03 04:20 America/Chicago / 2026-07-03 09:20 UTC three-route add pass
   - Added `cumberland-river-redbird-longbottom`, `cumberland-river-longbottom-thunderstruck`, and `cumberland-river-longbottom-cumberland-falls` to expand Kentucky beyond the 494-route repo baseline at run start.

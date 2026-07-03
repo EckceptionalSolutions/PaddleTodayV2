@@ -10608,6 +10608,73 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'south-fork-kentucky-river-hacker-branch-kay-wood': {
+    putIn: {
+      id: 'hacker-branch-road-access',
+      name: 'Hacker Branch Road Access',
+      latitude: 37.3743,
+      longitude: -83.6708,
+    },
+    takeOut: {
+      id: 'kay-wood-road-access',
+      name: 'Kay Wood Road Access',
+      latitude: 37.4594,
+      longitude: -83.6509,
+    },
+    logistics: {
+      distanceLabel: 'About 8.5 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Kay Wood Road Access, then drive back to Hacker Branch Road Access. Hacker Branch is the simpler bridge-side carry-down put-in, while Kay Wood is a roadside carry-down finish that is worth checking before you unload boats.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Hacker Branch, Upper Wolf Creek, or Kay Wood, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Hacker Branch Road Access and take out about 8.5 miles downstream at Kay Wood Road Access for a medium lower South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Hacker Branch is a bridge-side carry-down access with unpaved parking and no listed amenities.',
+        'Kay Wood Road Access is a simple roadside carry-down with unpaved parking, no ramp, and no listed amenities.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect more dragging and shallower rock-bar lines until levels recover.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when current becomes less forgiving around wood, bridge areas, and muddy landings.',
+        'Wood, strainers, mud banks, occasional riffles, and private banks outside the access sites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hacker-branch-road-access',
+        name: 'Hacker Branch Road Access',
+        latitude: 37.3743,
+        longitude: -83.6708,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the lower-middle route.',
+      },
+      {
+        id: 'upper-wolf-creek-ramp',
+        name: 'Upper Wolf Creek Ramp',
+        latitude: 37.4036,
+        longitude: -83.6798,
+        mileFromStart: 2.9,
+        segmentKind: 'creek',
+        note: 'Intermediate paved-ramp access.',
+      },
+      {
+        id: 'kay-wood-road-access',
+        name: 'Kay Wood Road Access',
+        latitude: 37.4594,
+        longitude: -83.6509,
+        mileFromStart: 8.5,
+        segmentKind: 'creek',
+        note: 'Default take-out for the lower-middle route.',
+      },
+    ],
+  },
   'south-fork-kentucky-river-hacker-branch-upper-wolf-creek': {
     putIn: {
       id: 'hacker-branch-road-access',
@@ -16040,6 +16107,118 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'south-fork-kentucky-river-oneida-fish-creek': {
+    putIn: {
+      id: 'oneida-ramp',
+      name: 'Oneida Ramp',
+      latitude: 37.2726,
+      longitude: -83.6532,
+    },
+    takeOut: {
+      id: 'fish-creek-boat-ramp',
+      name: 'Fish Creek Boat Ramp',
+      latitude: 37.4906,
+      longitude: -83.6894,
+    },
+    logistics: {
+      distanceLabel: 'About 33.7 mi',
+      estimatedPaddleTime: 'About 9 hr to 12 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Fish Creek Boat Ramp north of Booneville, then drive back to Oneida Ramp. This is the full KDFWR South Fork access-chain commitment, so inspect both endpoints first and make sure the group is prepared for an all-day river shuttle.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a very long day trip. KDFWR lists no camping at Oneida, Kay Wood, or Fish Creek, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Oneida Ramp and take out about 33.7 miles downstream at Fish Creek Boat Ramp for the full South Fork Kentucky River access-chain float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Oneida Ramp is a free single-lane concrete launch with paved parking, but no listed amenities or camping.',
+        'Fish Creek is a free single-lane paved ramp with gravel parking and no listed amenities or camping.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect more scraping, slower shoals, and a longer day than the official mileage alone suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely over a very long full-corridor day.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and muddy landings become less forgiving around bends, wood, and ramps.',
+        'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue from repeated low-water line scouting over a dawn-to-dusk route.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'oneida-ramp',
+        name: 'Oneida Ramp',
+        latitude: 37.2726,
+        longitude: -83.6532,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the full South Fork chain.',
+      },
+      {
+        id: 'rocky-branch-road-access',
+        name: 'Rocky Branch Road Access',
+        latitude: 37.3206,
+        longitude: -83.6648,
+        mileFromStart: 6.8,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'cedar-valley-road-access',
+        name: 'Cedar Valley Road Access',
+        latitude: 37.3363,
+        longitude: -83.656,
+        mileFromStart: 9.3,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'bishop-bend-school-road-access',
+        name: 'Bishop Bend School Road Access',
+        latitude: 37.3377,
+        longitude: -83.6882,
+        mileFromStart: 14.0,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'hacker-branch-road-access',
+        name: 'Hacker Branch Road Access',
+        latitude: 37.3743,
+        longitude: -83.6708,
+        mileFromStart: 17.3,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'upper-wolf-creek-ramp',
+        name: 'Upper Wolf Creek Ramp',
+        latitude: 37.4036,
+        longitude: -83.6798,
+        mileFromStart: 20.2,
+        segmentKind: 'creek',
+        note: 'Developed ramp access in the lower corridor.',
+      },
+      {
+        id: 'kay-wood-road-access',
+        name: 'Kay Wood Road Access',
+        latitude: 37.4594,
+        longitude: -83.6509,
+        mileFromStart: 25.8,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'fish-creek-boat-ramp',
+        name: 'Fish Creek Boat Ramp',
+        latitude: 37.4906,
+        longitude: -83.6894,
+        mileFromStart: 33.7,
+        segmentKind: 'creek',
+        note: 'Default take-out for the full South Fork chain.',
+      },
+    ],
+  },
 'south-fork-kentucky-river-rocky-branch-bishop-bend': {
     putIn: {
       id: 'rocky-branch-road-access',
@@ -20681,6 +20860,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Thunderstruck Shoals, Pitch Rapids, Slick Shoals gorge current, and the drop sequence below Blue Bend.',
         'The mandatory take-out above Cumberland Falls.',
         'Rough access logistics at Long Bottom, rain-driven rises, private gorge banks, and sparse mid-route exits.',
+      ],
+    },
+  },
+  'cumberland-river-redbird-cumberland-falls': {
+    putIn: {
+      id: 'redbird-ramp',
+      name: 'Redbird Ramp',
+      latitude: 36.7621,
+      longitude: -84.2216,
+    },
+    takeOut: {
+      id: 'cumberland-falls-carrydown',
+      name: 'Cumberland Falls Carrydown',
+      latitude: 36.8421,
+      longitude: -84.3435,
+    },
+    logistics: {
+      distanceLabel: 'About 16.6 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 9 hr, longer with scouting, stronger water, or careful take-out setup above the falls',
+      shuttle:
+        'Stage the Cumberland Falls vehicle first, then drive back to Redbird on KY 700, US 27, and KY 204. Inspect the falls-side carrydown before launching because the mandatory right-bank take-out above the falls is the core safety gate for the full route.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and do not launch if your group is not prepared for a mandatory take-out above Cumberland Falls.',
+      camping:
+        'KDFWR says float campers use the banks downstream of Bee Shoals on this corridor, and Cumberland Falls State Resort Park adds seasonal campground space and year-round lodging at the take-out. Treat that as managed corridor support rather than permission to camp on undeveloped private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Redbird Ramp and finish at Cumberland Falls Carrydown for the full official upstream Cumberland Falls corridor. The route combines the remote upper gorge with the lower rapid sequence and ends at a mandatory take-out above the 68-foot drop, so it deserves full whitewater attention even on a gauge-friendly day.',
+      accessCaveats: [
+        'Redbird is the clean upstream public launch. Long Bottom is a legitimate mid-route access, but KDFWR says the final road approach is extremely rugged and not a normal easy bailout.',
+        'KDFWR says to work to the right side of the river before the KY 90 bridge and take out at the public falls parking/carrydown area. Missing that move is a stand-down failure, not a recoverable inconvenience.',
+        'Same-day USGS flow on this run sat at the top of the official preferred band, so treat this as a firmer-water gorge day even before any extra rain arrives.',
+      ],
+      watchFor: [
+        'Summer Shoals, Bee Shoals, Crow Shoals, Thunderstruck Shoals, Pitch Rapids, Slick Shoals gorge current, and the drop sequence below Blue Bend.',
+        'The mandatory take-out above Cumberland Falls.',
+        'Fresh wood, rain-driven rises, private gorge banks, sparse mid-route exits, and fatigue over a long whitewater corridor.',
       ],
     },
   },
