@@ -11467,84 +11467,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'levisa-fork-jubilee-island-creek': {
-    putIn: {
-      id: 'jubilee-christian-church-ramp',
-      name: 'Jubilee Christian Church Ramp',
-      latitude: 37.4445,
-      longitude: -82.5057,
-    },
-    takeOut: {
-      id: 'island-creek-ramp',
-      name: 'Island Creek Ramp',
-      latitude: 37.4646,
-      longitude: -82.5284,
-    },
-    logistics: {
-      distanceLabel: 'About 3.8 mi',
-      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with low water, family stops, or fishing',
-      shuttle:
-        'Stage the take-out at Island Creek Ramp behind the South Mayo Trail corridor, then drive back to Jubilee Christian Church Ramp south of Pikeville. Walk the Island Creek landing first so the right-bank take-out is obvious from the water.',
-      permits:
-        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any local parking or loading instructions.',
-      camping:
-        'Treat this as an urban day float. KDFWR lists no camping at Jubilee Christian Church Ramp or Island Creek Ramp, and no legal overnight plan was verified for this Pikeville corridor.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Jubilee Christian Church Ramp and take out 3.8 miles downstream at Island Creek Ramp for the upper Hatfield-McCoy River Trail float. KDFWR gives a good Pikeville gauge band of 800 to 1,400 cfs, or 7.4 to 8.5 ft.',
-      accessCaveats: [
-        'KDFWR says parking near Jubilee is limited and that paddlers should ask permission before using the church paved lot.',
-        'Island Creek is a carry-down access behind the South Mayo Trail commercial corridor with unpaved parking and no amenities.',
-        'The current Pikeville gauge reading was below the official good band during this run. Expect slower current, shallower shoals, and more route-finding around exposed gravel or mussel-shell areas until levels rise.',
-        'Stay with the named public accesses and do not assume commercial lots or private banks along the corridor are general river-user parking or stopping points.',
-      ],
-      watchFor: [
-        'Low water below 800 cfs or 7.4 ft, when shoals get shallower and dragging becomes more likely.',
-        'High water above 1,400 cfs or 8.5 ft, when KDFWR moves the route out of the good band and swift current plus woody debris become much less forgiving.',
-        'Mussel shells on the river bottom, woody debris, bridge-area current, and fishing traffic in the Pikeville corridor.',
-        'Urban corridor hazards and private banks outside the documented ramps.',
-      ],
-    },
-  },
-  'levisa-fork-island-creek-cedar-creek': {
-    putIn: {
-      id: 'island-creek-ramp',
-      name: 'Island Creek Ramp',
-      latitude: 37.4646,
-      longitude: -82.5284,
-    },
-    takeOut: {
-      id: 'cedar-creek-canoe-access',
-      name: 'Cedar Creek Canoe Access',
-      latitude: 37.4802,
-      longitude: -82.5446,
-    },
-    logistics: {
-      distanceLabel: 'About 1.5 mi',
-      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with low water, family stops, or fishing',
-      shuttle:
-        'Stage the take-out at Cedar Creek Canoe Access under the KY 1384 bridge, then drive back to Island Creek Ramp behind the South Mayo Trail corridor. Walk the Cedar Creek landing first so the bridge-side take-out is obvious from the water.',
-      permits:
-        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any local parking or loading instructions.',
-      camping:
-        'Treat this as an urban day float. KDFWR lists no camping at Island Creek Ramp or Cedar Creek Canoe Access, and no legal overnight plan was verified for this Pikeville corridor.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Island Creek Ramp and take out 1.5 miles downstream at Cedar Creek Canoe Access for a very short Pikeville Levisa Fork float. KDFWR gives a good Pikeville gauge band of 800 to 1,400 cfs, or 7.4 to 8.5 ft.',
-      accessCaveats: [
-        'Island Creek is a carry-down access behind the South Mayo Trail commercial corridor with unpaved parking and no amenities.',
-        'Cedar Creek is a carry-down access under the KY 1384 bridge with unpaved parking and no amenities.',
-        'The current Pikeville gauge reading was below the official good band during this run. Expect slower current, shallower shoals, and more route-finding around exposed gravel or mussel-shell areas until levels rise.',
-        'Stay with the named public accesses and do not assume commercial lots or private banks along the corridor are general river-user parking or stopping points.',
-      ],
-      watchFor: [
-        'Low water below 800 cfs or 7.4 ft, when shoals get shallower and dragging becomes more likely.',
-        'High water above 1,400 cfs or 8.5 ft, when KDFWR moves the route out of the good band and swift current plus woody debris become much less forgiving.',
-        'Mussel shells on the river bottom, woody debris, bridge-area current, and fishing traffic in the Pikeville corridor.',
-        'Urban corridor hazards and private banks outside the documented ramps.',
-      ],
-    },
-  },
+
+
   'levisa-fork-cedar-creek-thompson-road': {
     putIn: {
       id: 'cedar-creek-canoe-access',
@@ -11584,84 +11508,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'levisa-fork-jubilee-cedar-creek': {
-    putIn: {
-      id: 'jubilee-christian-church-ramp',
-      name: 'Jubilee Christian Church Ramp',
-      latitude: 37.4445,
-      longitude: -82.5057,
-    },
-    takeOut: {
-      id: 'cedar-creek-canoe-access',
-      name: 'Cedar Creek Canoe Access',
-      latitude: 37.4802,
-      longitude: -82.5446,
-    },
-    logistics: {
-      distanceLabel: 'About 5.5 mi',
-      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, family stops, or fishing',
-      shuttle:
-        'Stage the take-out at Cedar Creek Canoe Access under the KY 1384 bridge, then drive back to Jubilee Christian Church Ramp south of Pikeville. Walk the Cedar Creek landing first so the bridge-side take-out is obvious from the water.',
-      permits:
-        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect local parking or loading instructions at both ramps.',
-      camping:
-        'Treat this as an urban day float. KDFWR lists no camping at Jubilee Christian Church Ramp or Cedar Creek Canoe Access, and no legal overnight plan was verified for this Pikeville corridor.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Jubilee Christian Church Ramp and take out 5.5 miles downstream at Cedar Creek Canoe Access for the longer upper Pikeville Levisa Fork float. KDFWR gives a good Pikeville gauge band of 800 to 1,400 cfs, or 7.4 to 8.5 ft.',
-      accessCaveats: [
-        'KDFWR says parking near Jubilee is limited and that paddlers should ask permission before using the church paved lot.',
-        'Cedar Creek is a carry-down access under the KY 1384 bridge with unpaved parking and no amenities.',
-        'The current Pikeville gauge reading was below the official good band during this run. Expect slower current, shallower shoals, and more route-finding around exposed gravel or mussel-shell areas until levels rise.',
-        'Stay with the named public accesses and do not assume commercial lots or private banks along the corridor are general river-user parking or stopping points.',
-      ],
-      watchFor: [
-        'Low water below 800 cfs or 7.4 ft, when shoals get shallower and dragging becomes more likely.',
-        'High water above 1,400 cfs or 8.5 ft, when KDFWR moves the route out of the good band and swift current plus woody debris become much less forgiving.',
-        'Mussel shells on the river bottom, woody debris, bridge-area current, and fishing traffic in the Pikeville corridor.',
-        'Urban corridor hazards, private banks, and a slower finish through the Cut-Through approach if the river is scrape-prone.',
-      ],
-    },
-  },
-  'levisa-fork-island-creek-thompson-road': {
-    putIn: {
-      id: 'island-creek-ramp',
-      name: 'Island Creek Ramp',
-      latitude: 37.4646,
-      longitude: -82.5284,
-    },
-    takeOut: {
-      id: 'thompson-road-canoe-access',
-      name: 'Thompson Road Canoe Access',
-      latitude: 37.5096,
-      longitude: -82.5435,
-    },
-    logistics: {
-      distanceLabel: 'About 4.5 mi',
-      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with low water, wood, or a slower take-out',
-      shuttle:
-        'Stage the take-out at Thompson Road behind the Texas Roadhouse / nearby business area, then drive back to Island Creek Ramp behind the South Mayo Trail corridor. Inspect both accesses before launching because the lower ramp is the required finish.',
-      permits:
-        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect local parking or loading instructions at both ramps.',
-      camping:
-        'Treat this as an urban day float. KDFWR lists no camping at Island Creek Ramp or Thompson Road Canoe Access, and no legal overnight plan was verified for this Pikeville corridor.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Island Creek Ramp and take out 4.5 miles downstream at Thompson Road Canoe Access for the longer Pikeville Cut-Through continuation. KDFWR keeps the same good Pikeville gauge band of 800 to 1,400 cfs, or 7.4 to 8.5 ft.',
-      accessCaveats: [
-        'Island Creek is a carry-down access behind the South Mayo Trail commercial corridor with unpaved parking and no amenities.',
-        'Thompson Road is a KDFWR single-lane ramp with year-round availability, but nearby banks are private or thickly vegetated; land at the signed access rather than spreading onto nearby banks.',
-        'The current Pikeville gauge reading was below the official good band during this run. Expect slower current, shallower shoals, and more route-finding around exposed gravel or mussel-shell areas until levels rise.',
-        'KDFWR limits bank and wade fishing at these sites because surrounding land is private, steep, rocky, or heavily vegetated. Stay with the documented public ramps.',
-      ],
-      watchFor: [
-        'Low water below 800 cfs or 7.4 ft, when shoals get shallower and dragging becomes more likely.',
-        'High water above 1,400 cfs or 8.5 ft, when KDFWR moves the route out of the good band and swift current plus woody debris become much less forgiving.',
-        'Mussel shells on the river bottom, woody debris, bridge-area current, and fishing traffic in the Pikeville corridor.',
-        'Urban corridor hazards, private banks, and complacency near the busy Thompson Road finish after a longer easy-looking float.',
-      ],
-    },
-  },
+
+
   'levisa-fork-jubilee-thompson-road': {
     putIn: {
       id: 'jubilee-christian-church-ramp',
@@ -11700,6 +11548,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fatigue, private-bank limits, and urban corridor distractions near the Thompson Road finish after a full Pikeville float.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'jubilee-christian-church-ramp',
+        name: 'Jubilee Christian Church Ramp',
+        latitude: 37.4445,
+        longitude: -82.5057,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream access for the full Pikeville corridor.',
+      },
+      {
+        id: 'island-creek-ramp',
+        name: 'Island Creek Ramp',
+        latitude: 37.47,
+        longitude: -82.5144,
+        mileFromStart: 3,
+        segmentKind: 'creek',
+        note: 'Intermediate public access for the shorter Jubilee-to-Island or Island-to-Thompson planning split.',
+      },
+      {
+        id: 'cedar-creek-canoe-access',
+        name: 'Cedar Creek Canoe Access',
+        latitude: 37.4869,
+        longitude: -82.5313,
+        mileFromStart: 5.5,
+        segmentKind: 'creek',
+        note: 'Official mid-route access where the shorter Cedar-to-Thompson baseline route begins.',
+      },
+      {
+        id: 'thompson-road-canoe-access',
+        name: 'Thompson Road Canoe Access',
+        latitude: 37.5096,
+        longitude: -82.5435,
+        mileFromStart: 8.5,
+        segmentKind: 'creek',
+        note: 'Default downstream access for the full Pikeville corridor.',
+      },
+    ],
   },
   'elkhorn-creek-vpa-3-aw-access': {
     putIn: {
@@ -12272,630 +12158,15 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-'bayou-deview-benson-creek-hickson-lake': {
-    putIn: {
-      id: 'benson-creek-access',
-      name: 'Benson Creek Access',
-      latitude: 34.93569,
-      longitude: -91.24092,
-    },
-    takeOut: {
-      id: 'hickson-lake-access',
-      name: 'Hickson Lake Access',
-      latitude: 34.89039,
-      longitude: -91.29826,
-    },
-    logistics: {
-      distanceLabel: 'About 6.5 mi',
-      estimatedPaddleTime:
-        'About 4 hr to 6 hr, longer if route-finding slows the day or high water pushes more wood into the channels',
-      shuttle:
-        'Stage the take-out at Hickson Lake Access, then drive back to Benson Creek Access. Carry the AGFC georeferenced map before launching because the trail markers do not remove the need for active floodplain navigation.',
-      permits:
-        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
-      camping:
-        'Free first-come campsites marked by blue paint are available on Dagmar WMA near the lower end of the trail, but camping is not allowed on Cache River National Wildlife Refuge and this longer upper-half route is still usually handled as a day trip unless a separate camp plan is confirmed.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Benson Creek Access and take out at Hickson Lake Access for the longer upper-half Bayou DeView segment. This is a fuller navigation day through the floodplain, not a casual straight-channel float, even when the gauge is in range.',
-      accessCaveats: [
-        'Benson Creek and Hickson Lake are named public AGFC Bayou DeView Water Trail accesses reached by rural roads rather than by developed park marinas.',
-        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
-        'The main channel is not always distinct. Carry the georeferenced map or equivalent offline navigation before leaving cell coverage.',
-        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
-      ],
-      watchFor: [
-        'Water below about 14 ft, when disconnected channels and shallow obstructions become more likely.',
-        'Water approaching or above 17 ft, when AGFC says the gate on Dagmar Road closes and high-water timber travel becomes more dangerous.',
-        'Floating logs, strainers, wind exposure in open pockets, and losing the marked route through indistinct floodplain channels.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'benson-creek-access',
-        name: 'Benson Creek Access',
-        latitude: 34.93569,
-        longitude: -91.24092,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Default upstream access for the full upper-half corridor.',
-      },
-      {
-        id: 'dark-corner-access',
-        name: 'Dark Corner Access',
-        latitude: 34.91998,
-        longitude: -91.25798,
-        mileFromStart: 2.1,
-        segmentKind: 'creek',
-        note: 'Intermediate public access for the shorter upper split or bailout.',
-      },
-      {
-        id: 'hickson-lake-access',
-        name: 'Hickson Lake Access',
-        latitude: 34.89039,
-        longitude: -91.29826,
-        mileFromStart: 6.5,
-        segmentKind: 'creek',
-        note: 'Default downstream access for the full upper-half corridor.',
-      },
-    ],
-  },
-  'bayou-deview-hickson-lake-rock-island-road': {
-    putIn: {
-      id: 'hickson-lake-access',
-      name: 'Hickson Lake Access',
-      latitude: 34.89039,
-      longitude: -91.29826,
-    },
-    takeOut: {
-      id: 'rock-island-road-access',
-      name: 'Rock Island Road Access',
-      latitude: 34.85911,
-      longitude: -91.29025,
-    },
-    logistics: {
-      distanceLabel: 'About 2.9 mi',
-      estimatedPaddleTime: 'About 2 hr to 3 hr, longer if route-finding or wood slows the day',
-      shuttle:
-        'Stage the take-out at Rock Island Road Access, then drive back to Hickson Lake Access. Carry the AGFC georeferenced map before launching because the trail markers do not remove the need for active floodplain navigation.',
-      permits:
-        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
-      camping:
-        'Free first-come campsites marked by blue paint are available on Dagmar WMA, but this route is short enough to treat camping as a separate basecamp plan rather than part of the float. Camping is not allowed on Cache River National Wildlife Refuge.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Hickson Lake Access and take out at Rock Island Road Access for a shorter middle Bayou DeView day. Even on this short split, use the Brinkley gauge and the georeferenced trail map rather than assuming a simple one-channel bayou.',
-      accessCaveats: [
-        'Hickson Lake and Rock Island Road are named public AGFC Bayou DeView Water Trail accesses reached by WMA roads rather than by developed park marinas.',
-        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
-        'The main channel is not always distinct. Carry the georeferenced map or equivalent offline navigation before leaving cell coverage.',
-        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
-      ],
-      watchFor: [
-        'Water below about 14 ft, when disconnected channels and shallow obstructions become more likely.',
-        'Water approaching or above 17 ft, when AGFC says the gate on Dagmar Road closes and high-water timber travel becomes more dangerous.',
-        'Floating logs, strainers, and losing the marked route through indistinct floodplain channels.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'hickson-lake-access',
-        name: 'Hickson Lake Access',
-        latitude: 34.89039,
-        longitude: -91.29826,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Default upstream access for this middle Bayou DeView split.',
-      },
-      {
-        id: 'rock-island-road-access',
-        name: 'Rock Island Road Access',
-        latitude: 34.85911,
-        longitude: -91.29025,
-        mileFromStart: 2.9,
-        segmentKind: 'creek',
-        note: 'Default downstream access for this middle Bayou DeView split.',
-      },
-    ],
-  },
-  'bayou-deview-rock-island-road-apple-lake': {
-    putIn: {
-      id: 'rock-island-road-access',
-      name: 'Rock Island Road Access',
-      latitude: 34.85911,
-      longitude: -91.29025,
-    },
-    takeOut: {
-      id: 'apple-lake-access',
-      name: 'Apple Lake Access',
-      latitude: 34.84159,
-      longitude: -91.282,
-    },
-    logistics: {
-      distanceLabel: 'About 1.5 mi',
-      estimatedPaddleTime: 'About 1 hr to 2 hr, longer if low water, wood, or navigation checks slow the route',
-      shuttle:
-        'Stage the take-out at Apple Lake Access, then drive back to Rock Island Road Access. Carry the AGFC georeferenced map even on this short segment because the floodplain channels are not always obvious.',
-      permits:
-        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
-      camping:
-        'Treat this as a short day float. Free first-come campsites marked by blue paint are available elsewhere on Dagmar WMA, but Apple Lake access is closed from Nov. 1 through Feb. 15 and camping is not allowed on Cache River National Wildlife Refuge.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Rock Island Road Access and take out at Apple Lake Access for the shortest Bayou DeView option in the family. This still needs the Brinkley gauge, WMA access check, and an offline map before launch.',
-      accessCaveats: [
-        'Rock Island Road and Apple Lake are named public AGFC Bayou DeView Water Trail accesses on WMA roads rather than full-service launch parks.',
-        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
-        'Apple Lake Waterfowl Rest Area is closed to access from Nov. 1 through Feb. 15.',
-        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
-      ],
-      watchFor: [
-        'Water below about 14 ft, when shallow obstructions and disconnected side channels become more likely.',
-        'Water approaching or above 17 ft, when AGFC says the gate on Dagmar Road closes and high-water timber travel becomes more dangerous.',
-        'Floating logs, strainers, and missing the marked route in indistinct cypress-tupelo channels.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'rock-island-road-access',
-        name: 'Rock Island Road Access',
-        latitude: 34.85911,
-        longitude: -91.29025,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Default upstream access for this short lower-middle Bayou DeView split.',
-      },
-      {
-        id: 'apple-lake-access',
-        name: 'Apple Lake Access',
-        latitude: 34.84159,
-        longitude: -91.282,
-        mileFromStart: 1.5,
-        segmentKind: 'creek',
-        note: 'Default downstream access for this short lower-middle Bayou DeView split.',
-      },
-    ],
-  },
-  'bayou-deview-hickson-lake-apple-lake': {
-    putIn: {
-      id: 'hickson-lake-access',
-      name: 'Hickson Lake Access',
-      latitude: 34.89039,
-      longitude: -91.29826,
-    },
-    takeOut: {
-      id: 'apple-lake-access',
-      name: 'Apple Lake Access',
-      latitude: 34.84159,
-      longitude: -91.282,
-    },
-    logistics: {
-      distanceLabel: 'About 4.4 mi',
-      estimatedPaddleTime:
-        'About 2.5 hr to 4 hr, longer if route-finding, wood, or low water slows the floodplain travel',
-      shuttle:
-        'Stage the take-out at Apple Lake Access, then drive back to Hickson Lake Access. Carry the AGFC georeferenced map before launching because even this middle continuation still crosses multiple indistinct floodplain turns and side-channel decisions.',
-      permits:
-        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
-      camping:
-        'Free first-come campsites marked by blue paint are available on Dagmar WMA near the corridor, but this route is still most defensible as a day float rather than an overnight plan. Camping is not allowed on Cache River National Wildlife Refuge.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Hickson Lake Access and take out at Apple Lake Access for a mid-length Bayou DeView continuation. This is still flatwater, but it is not a casual paddle: use the Brinkley gauge, verify the Apple Lake seasonal rule, and carry the AGFC map.',
-      accessCaveats: [
-        'Hickson Lake and Apple Lake are named public AGFC Bayou DeView Water Trail accesses reached by rural WMA roads rather than by developed park marinas.',
-        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
-        'Apple Lake Waterfowl Rest Area is closed to access from Nov. 1 through Feb. 15, so this route is not year-round even when the gauge looks fine.',
-        'The main channel is not always distinct. Carry the georeferenced map or equivalent offline navigation before leaving cell coverage.',
-      ],
-      watchFor: [
-        'Water below about 14 ft, when disconnected channels and shallow obstructions become more likely.',
-        'Water approaching or above 17 ft, when AGFC says the access roads can close and high-water timber travel becomes more dangerous.',
-        'Floating logs, strainers, wind exposure in open pockets, and losing the marked route through indistinct floodplain channels.',
-        'Missing the Apple Lake finish because the launch sits behind the WRA entrance and seasonal-gate context rather than a large obvious downstream park.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'hickson-lake-access',
-        name: 'Hickson Lake Access',
-        latitude: 34.89039,
-        longitude: -91.29826,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Default upstream access for this middle Bayou DeView continuation.',
-      },
-      {
-        id: 'rock-island-road-access',
-        name: 'Rock Island Road Access',
-        latitude: 34.85911,
-        longitude: -91.29025,
-        mileFromStart: 2.9,
-        segmentKind: 'creek',
-        note: 'Intermediate public access and bailout before the Apple Lake leg.',
-      },
-      {
-        id: 'apple-lake-access',
-        name: 'Apple Lake Access',
-        latitude: 34.84159,
-        longitude: -91.282,
-        mileFromStart: 4.4,
-        segmentKind: 'creek',
-        note: 'Default downstream access with seasonal closure from Nov. 1 through Feb. 15.',
-      },
-    ],
-  },
-  'bayou-deview-apple-lake-bank-of-brinkley': {
-    putIn: {
-      id: 'apple-lake-access',
-      name: 'Apple Lake Access',
-      latitude: 34.84159,
-      longitude: -91.282,
-    },
-    takeOut: {
-      id: 'bank-of-brinkley-access',
-      name: 'Bank of Brinkley Access',
-      latitude: 34.80024,
-      longitude: -91.30049,
-    },
-    logistics: {
-      distanceLabel: 'About 4.3 mi',
-      estimatedPaddleTime:
-        'About 2.5 hr to 4 hr, longer if route-finding, wind, or wood slows the lower floodplain channels',
-      shuttle:
-        'Stage the take-out at Bank of Brinkley Access, then drive back to Apple Lake Access. Carry the AGFC georeferenced map before launching because the lower bayou still requires active navigation.',
-      permits:
-        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
-      camping:
-        'Free first-come campsites marked by blue paint are available on Dagmar WMA upstream of the route, but this lower segment is usually a day trip and camping is not allowed on Cache River National Wildlife Refuge near the Brinkley end.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Apple Lake Access and take out at Bank of Brinkley Access for the lower Bayou DeView segment. Use the Brinkley gauge, verify Apple Lake seasonal access, and carry the AGFC map because the lower channel is still not obvious at every turn.',
-      accessCaveats: [
-        'Apple Lake and Bank of Brinkley are named public AGFC Bayou DeView Water Trail accesses reached by refuge or WMA roads rather than full-service launch facilities.',
-        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
-        'Apple Lake Waterfowl Rest Area is closed to access from Nov. 1 through Feb. 15.',
-        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
-      ],
-      watchFor: [
-        'Water below about 14 ft, when shallow obstructions and disconnected lower channels become more likely.',
-        'Water approaching or above 17 ft, when AGFC says the access roads can close and high-water timber travel becomes more dangerous.',
-        'Floating logs, strainers, wind exposure in open reaches, and missing the marked route through the lower cypress-tupelo corridor.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'apple-lake-access',
-        name: 'Apple Lake Access',
-        latitude: 34.84159,
-        longitude: -91.282,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Default upstream access for this lower Bayou DeView split.',
-      },
-      {
-        id: 'bank-of-brinkley-access',
-        name: 'Bank of Brinkley Access',
-        latitude: 34.80024,
-        longitude: -91.30049,
-        mileFromStart: 4.3,
-        segmentKind: 'creek',
-        note: 'Default downstream access for this lower Bayou DeView split.',
-      },
-    ],
-  },
-  'bayou-deview-rock-island-road-bank-of-brinkley': {
-    putIn: {
-      id: 'rock-island-road-access',
-      name: 'Rock Island Road Access',
-      latitude: 34.85911,
-      longitude: -91.29025,
-    },
-    takeOut: {
-      id: 'bank-of-brinkley-access',
-      name: 'Bank of Brinkley Access',
-      latitude: 34.80024,
-      longitude: -91.30049,
-    },
-    logistics: {
-      distanceLabel: 'About 5.8 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 4.5 hr, longer if route-finding, wood, or wind slows the lower floodplain travel',
-      shuttle:
-        'Stage the take-out at Bank of Brinkley Access, then drive back to Rock Island Road Access. Carry the AGFC georeferenced map before launching because this lower continuation still requires active navigation through Apple Lake and the lower cypress corridor.',
-      permits:
-        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
-      camping:
-        'Free first-come campsites marked by blue paint are available on Dagmar WMA upstream, but this lower continuation is still usually handled as a day float. Camping is not allowed on Cache River National Wildlife Refuge.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Rock Island Road Access and take out at Bank of Brinkley Access for a lower Bayou DeView continuation. Use the Brinkley gauge, verify Apple Lake seasonal access, and carry the AGFC map because the lower channel remains indistinct and wood-prone even on an in-range day.',
-      accessCaveats: [
-        'Rock Island Road and Bank of Brinkley are named public AGFC Bayou DeView Water Trail accesses reached by WMA or refuge roads rather than by full-service launch parks.',
-        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
-        'Apple Lake Waterfowl Rest Area is closed to access from Nov. 1 through Feb. 15, so a mid-route bailout or staged vehicle there is not always available.',
-        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
-      ],
-      watchFor: [
-        'Water below about 14 ft, when shallow obstructions and disconnected lower channels become more likely.',
-        'Water approaching or above 17 ft, when AGFC says the access roads can close and high-water timber travel becomes more dangerous.',
-        'Floating logs, strainers, wind exposure in open reaches, and missing the marked route through the lower cypress-tupelo corridor.',
-        'Lower-day fatigue, limited bailout options after Apple Lake, and the transition toward Cache River NWR where camping remains prohibited.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'rock-island-road-access',
-        name: 'Rock Island Road Access',
-        latitude: 34.85911,
-        longitude: -91.29025,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Default upstream access for this lower Bayou DeView continuation.',
-      },
-      {
-        id: 'apple-lake-access',
-        name: 'Apple Lake Access',
-        latitude: 34.84159,
-        longitude: -91.282,
-        mileFromStart: 1.5,
-        segmentKind: 'creek',
-        note: 'Intermediate public access with seasonal closure from Nov. 1 through Feb. 15.',
-      },
-      {
-        id: 'bank-of-brinkley-access',
-        name: 'Bank of Brinkley Access',
-        latitude: 34.80024,
-        longitude: -91.30049,
-        mileFromStart: 5.8,
-        segmentKind: 'creek',
-        note: 'Default downstream access for this lower continuation.',
-      },
-    ],
-  },
-  'bayou-deview-benson-creek-rock-island-road': {
-    putIn: {
-      id: 'benson-creek-access',
-      name: 'Benson Creek Access',
-      latitude: 34.93569,
-      longitude: -91.24092,
-    },
-    takeOut: {
-      id: 'rock-island-road-access',
-      name: 'Rock Island Road Access',
-      latitude: 34.85911,
-      longitude: -91.29025,
-    },
-    logistics: {
-      distanceLabel: 'About 9.4 mi',
-      estimatedPaddleTime:
-        'About 5 hr to 7 hr, longer if route-finding, wood, or low water slows the floodplain travel',
-      shuttle:
-        'Stage the take-out at Rock Island Road Access, then drive back to Benson Creek Access. Carry the AGFC georeferenced map before launching because this longer continuation crosses multiple indistinct floodplain turns and side-channel decisions.',
-      permits:
-        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
-      camping:
-        'Free first-come campsites marked by blue paint are available on Dagmar WMA near the lower half of the trail, but this continuation is still most defensible as a long day float unless the group separately confirms a primitive camp plan. Camping is not allowed on Cache River National Wildlife Refuge.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Benson Creek Access and take out at Rock Island Road Access for a longer upper-to-middle Bayou DeView day. This is still flatwater, but it is not a casual paddle: use the Brinkley gauge, carry the AGFC map, and expect a real route-finding commitment.',
-      accessCaveats: [
-        'Benson Creek and Rock Island Road are named public AGFC Bayou DeView Water Trail accesses reached by rural WMA roads rather than by developed park marinas.',
-        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
-        'The main channel is not always distinct. Carry the georeferenced map or equivalent offline navigation before leaving cell coverage.',
-        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
-      ],
-      watchFor: [
-        'Water below about 14 ft, when disconnected channels and shallow obstructions become more likely.',
-        'Water approaching or above 17 ft, when AGFC says the gate on Dagmar Road closes and high-water timber travel becomes more dangerous.',
-        'Floating logs, strainers, wind exposure in open pockets, and losing the marked route through indistinct floodplain channels.',
-        'Long-day fatigue, heat, insects, and limited bailout options once the group commits past Dark Corner and Hickson Lake.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'benson-creek-access',
-        name: 'Benson Creek Access',
-        latitude: 34.93569,
-        longitude: -91.24092,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Default upstream access for this longer upper-to-middle Bayou DeView continuation.',
-      },
-      {
-        id: 'dark-corner-access',
-        name: 'Dark Corner Access',
-        latitude: 34.91998,
-        longitude: -91.25798,
-        mileFromStart: 2.1,
-        segmentKind: 'creek',
-        note: 'Intermediate public access and bailout before the Hickson Lake half of the route.',
-      },
-      {
-        id: 'hickson-lake-access',
-        name: 'Hickson Lake Access',
-        latitude: 34.89039,
-        longitude: -91.29826,
-        mileFromStart: 6.5,
-        segmentKind: 'creek',
-        note: 'Mid-route public access where the corridor transitions into the lower Dagmar half.',
-      },
-      {
-        id: 'rock-island-road-access',
-        name: 'Rock Island Road Access',
-        latitude: 34.85911,
-        longitude: -91.29025,
-        mileFromStart: 9.4,
-        segmentKind: 'creek',
-        note: 'Default downstream access for this longer upper-to-middle continuation.',
-      },
-    ],
-  },
-  'bayou-deview-benson-creek-apple-lake': {
-    putIn: {
-      id: 'benson-creek-access',
-      name: 'Benson Creek Access',
-      latitude: 34.93569,
-      longitude: -91.24092,
-    },
-    takeOut: {
-      id: 'apple-lake-access',
-      name: 'Apple Lake Access',
-      latitude: 34.84159,
-      longitude: -91.282,
-    },
-    logistics: {
-      distanceLabel: 'About 10.9 mi',
-      estimatedPaddleTime:
-        'About 5.5 hr to 8 hr, longer if route-finding, wood, or low water slows the floodplain travel',
-      shuttle:
-        'Stage the take-out at Apple Lake Access, then drive back to Benson Creek Access. Carry the AGFC georeferenced map before launching because this upper-to-lower continuation crosses multiple indistinct floodplain turns and side-channel decisions.',
-      permits:
-        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
-      camping:
-        'Free first-come campsites marked by blue paint are available on Dagmar WMA near the lower half of the trail, but this continuation is still most defensible as a long day float unless the group separately confirms a primitive camp plan. Camping is not allowed on Cache River National Wildlife Refuge.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Benson Creek Access and take out at Apple Lake Access for a longer upper-to-lower Bayou DeView day. This is still flatwater, but it is not a casual paddle: use the Brinkley gauge, verify the Apple Lake seasonal rule, and expect a real route-finding commitment.',
-      accessCaveats: [
-        'Benson Creek and Apple Lake are named public AGFC Bayou DeView Water Trail accesses reached by rural WMA roads rather than by developed park marinas.',
-        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
-        'Apple Lake Waterfowl Rest Area is closed to access from Nov. 1 through Feb. 15, so this route is not year-round even when the gauge looks fine.',
-        'The main channel is not always distinct. Carry the georeferenced map or equivalent offline navigation before leaving cell coverage.',
-      ],
-      watchFor: [
-        'Water below about 14 ft, when disconnected channels and shallow obstructions become more likely.',
-        'Water approaching or above 17 ft, when AGFC says the access roads can close and high-water timber travel becomes more dangerous.',
-        'Floating logs, strainers, wind exposure in open pockets, and losing the marked route through indistinct floodplain channels.',
-        'Long-day fatigue, heat, insects, and limited bailout options once the group commits below Hickson Lake toward the Apple Lake finish.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'benson-creek-access',
-        name: 'Benson Creek Access',
-        latitude: 34.93569,
-        longitude: -91.24092,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Default upstream access for this longer upper-to-lower Bayou DeView continuation.',
-      },
-      {
-        id: 'dark-corner-access',
-        name: 'Dark Corner Access',
-        latitude: 34.91998,
-        longitude: -91.25798,
-        mileFromStart: 2.1,
-        segmentKind: 'creek',
-        note: 'Intermediate public access and bailout before the Hickson Lake half of the route.',
-      },
-      {
-        id: 'hickson-lake-access',
-        name: 'Hickson Lake Access',
-        latitude: 34.89039,
-        longitude: -91.29826,
-        mileFromStart: 6.5,
-        segmentKind: 'creek',
-        note: 'Mid-route public access where the corridor transitions into the lower Dagmar half.',
-      },
-      {
-        id: 'rock-island-road-access',
-        name: 'Rock Island Road Access',
-        latitude: 34.85911,
-        longitude: -91.29025,
-        mileFromStart: 9.4,
-        segmentKind: 'creek',
-        note: 'Intermediate public access and bailout before the Apple Lake leg.',
-      },
-      {
-        id: 'apple-lake-access',
-        name: 'Apple Lake Access',
-        latitude: 34.84159,
-        longitude: -91.282,
-        mileFromStart: 10.9,
-        segmentKind: 'creek',
-        note: 'Default downstream access with seasonal closure from Nov. 1 through Feb. 15.',
-      },
-    ],
-  },
-  'bayou-deview-hickson-lake-bank-of-brinkley': {
-    putIn: {
-      id: 'hickson-lake-access',
-      name: 'Hickson Lake Access',
-      latitude: 34.89039,
-      longitude: -91.29826,
-    },
-    takeOut: {
-      id: 'bank-of-brinkley-access',
-      name: 'Bank of Brinkley Access',
-      latitude: 34.80024,
-      longitude: -91.30049,
-    },
-    logistics: {
-      distanceLabel: 'About 8.7 mi',
-      estimatedPaddleTime:
-        'About 5 hr to 7 hr, longer if route-finding, wind, or wood slows the lower floodplain channels',
-      shuttle:
-        'Stage the take-out at Bank of Brinkley Access, then drive back to Hickson Lake Access. Carry the AGFC georeferenced map before launching because this lower-half continuation still requires active navigation through multiple access-to-access decisions.',
-      permits:
-        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
-      camping:
-        'Free first-come campsites marked by blue paint are available on Dagmar WMA along the corridor, but this lower-half continuation is still usually handled as a long day float unless the group separately confirms a primitive camp plan. Camping is not allowed on Cache River National Wildlife Refuge.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Hickson Lake Access and take out at Bank of Brinkley Access for a longer lower-half Bayou DeView route. Use the Brinkley gauge, verify Apple Lake seasonal access, and carry the AGFC map because the lower channel remains indistinct and wood-prone even on an in-range day.',
-      accessCaveats: [
-        'Hickson Lake and Bank of Brinkley are named public AGFC Bayou DeView Water Trail accesses reached by WMA or refuge roads rather than by full-service launch parks.',
-        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
-        'Apple Lake Waterfowl Rest Area is closed to access from Nov. 1 through Feb. 15, so a mid-route bailout or staged vehicle there is not always available.',
-        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
-      ],
-      watchFor: [
-        'Water below about 14 ft, when shallow obstructions and disconnected lower channels become more likely.',
-        'Water approaching or above 17 ft, when AGFC says the access roads can close and high-water timber travel becomes more dangerous.',
-        'Floating logs, strainers, wind exposure in open reaches, and missing the marked route through the lower cypress-tupelo corridor.',
-        'Long-day fatigue, limited bailout options after Apple Lake, and the transition toward Cache River NWR where camping remains prohibited.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'hickson-lake-access',
-        name: 'Hickson Lake Access',
-        latitude: 34.89039,
-        longitude: -91.29826,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Default upstream access for this lower-half Bayou DeView continuation.',
-      },
-      {
-        id: 'rock-island-road-access',
-        name: 'Rock Island Road Access',
-        latitude: 34.85911,
-        longitude: -91.29025,
-        mileFromStart: 2.9,
-        segmentKind: 'creek',
-        note: 'Intermediate public access and bailout before the Apple Lake leg.',
-      },
-      {
-        id: 'apple-lake-access',
-        name: 'Apple Lake Access',
-        latitude: 34.84159,
-        longitude: -91.282,
-        mileFromStart: 4.4,
-        segmentKind: 'creek',
-        note: 'Intermediate public access with seasonal closure from Nov. 1 through Feb. 15.',
-      },
-      {
-        id: 'bank-of-brinkley-access',
-        name: 'Bank of Brinkley Access',
-        latitude: 34.80024,
-        longitude: -91.30049,
-        mileFromStart: 8.7,
-        segmentKind: 'creek',
-        note: 'Default downstream access for this lower-half continuation.',
-      },
-    ],
-  },
+
+
+
+
+
+
+
+
+
   'bayou-deview-benson-creek-bank-of-brinkley': {
     putIn: {
       id: 'benson-creek-access',
@@ -15113,6 +14384,183 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 7.8,
         segmentKind: 'creek',
         note: 'Default downstream access for the full lower Goose Creek corridor.',
+      },
+    ],
+  },
+  'goose-creek-jacks-tobacco-road': {
+    putIn: {
+      id: 'jacks-bowling-branch-bridge-access',
+      name: 'Jacks / Bowling Branch Bridge Access',
+      latitude: 37.2052,
+      longitude: -83.7372,
+    },
+    takeOut: {
+      id: 'tobacco-road-bridge-ramp',
+      name: 'Tobacco Road Bridge Ramp',
+      latitude: 37.2163,
+      longitude: -83.7175,
+    },
+    logistics: {
+      distanceLabel: 'About 2.2 mi',
+      estimatedPaddleTime:
+        'About 45 min to 1.5 hr, longer if low water forces dragging or wood scouting',
+      shuttle:
+        'Stage the take-out at Tobacco Road first, then drive upstream to the Jacks / Bowling Branch bridge access. Parking is limited at both bridge sites, so keep vehicles compact and fully off the road edge.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed roadside accesses, follow Kentucky boating and PFD rules, and avoid treating private creek banks as public stopovers.',
+      camping:
+        'Treat this as a short day float. KDFWR does not document public camping at either bridge access, and both sites are limited roadside carry-down landings.',
+      campingClassification: 'none',
+      summary:
+        "Launch at Jacks / Bowling Branch and take out at Tobacco Road for the shortest lower-Goose public split. Use the Manchester gauge and expect scraping whenever flows sit below KDFWR's 175 to 514 cfs good band.",
+      accessCaveats: [
+        'Both accesses are simple bridge-side roadside sites with limited parking and no amenities.',
+        'This short split intentionally starts below the Rawlings / Stinson access so it avoids the low-head-dam warning attached to that upstream point.',
+        'Goose Creek is a flashy small stream. Rain-driven rises can change the feel quickly even when the gauge was low earlier in the day.',
+      ],
+      watchFor: [
+        'Low water below about 175 cfs or 7.4 ft, when rock bars, riffles, and dragging become likely.',
+        'High water above about 514 cfs or 8.5 ft, when the narrow creek gets pushier and the bridge landings are less forgiving.',
+        'Strainers, fresh wood after storms, shallow riffles, and slick footing at both bridge accesses.',
+        'Private banks and limited bailout options away from the two named public accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'jacks-bowling-branch-bridge-access',
+        name: 'Jacks / Bowling Branch Bridge Access',
+        latitude: 37.2052,
+        longitude: -83.7372,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream access below the Rawlings / Stinson low-head-dam warning.',
+      },
+      {
+        id: 'tobacco-road-bridge-ramp',
+        name: 'Tobacco Road Bridge Ramp',
+        latitude: 37.2163,
+        longitude: -83.7175,
+        mileFromStart: 2.2,
+        segmentKind: 'creek',
+        note: 'Default downstream bridge access for the upper short split.',
+      },
+    ],
+  },
+  'goose-creek-tobacco-road-dump-hollow': {
+    putIn: {
+      id: 'tobacco-road-bridge-ramp',
+      name: 'Tobacco Road Bridge Ramp',
+      latitude: 37.2163,
+      longitude: -83.7175,
+    },
+    takeOut: {
+      id: 'dump-hollow-ford-road',
+      name: 'Dump Hollow Ford',
+      latitude: 37.2127,
+      longitude: -83.704,
+    },
+    logistics: {
+      distanceLabel: 'About 0.8 mi',
+      estimatedPaddleTime:
+        'About 20 min to 45 min, longer if low water forces dragging or if the Dump Hollow ford needs extra scouting',
+      shuttle:
+        'Leave the take-out vehicle at Dump Hollow only if the ford road is safely usable, then drive back upstream to Tobacco Road. Parking is limited and high water can make the ford awkward to use or turn around on.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed roadside accesses, follow Kentucky boating and PFD rules, and avoid treating private creek banks as public stopovers.',
+      camping:
+        'Treat this as a very short day float. KDFWR documents no public camping at either access, and the route relies on a bridge-side put-in plus a ford-style take-out.',
+      campingClassification: 'none',
+      summary:
+        "Use this as the shortest Goose Creek public split between Tobacco Road and Dump Hollow. The Manchester gauge still controls the call, and low water below KDFWR's 175 to 514 cfs good band will quickly turn this into a scrape-and-walk segment.",
+      accessCaveats: [
+        'Dump Hollow is not a normal ramp. KDFWR says high water can make the ford difficult or dangerous and can also make vehicle turnaround harder on the narrow road.',
+        'Both accesses have limited parking and no amenities.',
+        'Goose Creek is a flashy small stream, so a low earlier reading does not remove the need to recheck weather and creek color before launch.',
+      ],
+      watchFor: [
+        'Low water below about 175 cfs or 7.4 ft, when this short split can become mostly scraping between rock bars.',
+        'High water above about 514 cfs or 8.5 ft, when the narrow creek pushes harder and the Dump Hollow ford becomes more consequential.',
+        'Slick footing, shallow riffles, fresh wood after storms, and limited room to recover at the ford access.',
+        'Private banks and the temptation to improvise landings away from the two named public sites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'tobacco-road-bridge-ramp',
+        name: 'Tobacco Road Bridge Ramp',
+        latitude: 37.2163,
+        longitude: -83.7175,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream bridge access for the middle split.',
+      },
+      {
+        id: 'dump-hollow-ford-road',
+        name: 'Dump Hollow Ford',
+        latitude: 37.2127,
+        longitude: -83.704,
+        mileFromStart: 0.8,
+        segmentKind: 'creek',
+        note: 'Ford-style take-out; verify high-water road and turnaround conditions before committing.',
+      },
+    ],
+  },
+  'goose-creek-dump-hollow-laurel-branch': {
+    putIn: {
+      id: 'dump-hollow-ford-road',
+      name: 'Dump Hollow Ford',
+      latitude: 37.2127,
+      longitude: -83.704,
+    },
+    takeOut: {
+      id: 'laurel-branch-road-access',
+      name: 'Laurel Branch Road Access',
+      latitude: 37.237,
+      longitude: -83.6703,
+    },
+    logistics: {
+      distanceLabel: 'About 4.8 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr, longer with low-water scraping or wood scouting',
+      shuttle:
+        'Stage the take-out at Laurel Branch first, then confirm Dump Hollow is safely usable before leaving the upstream vehicle there. Parking is limited at both ends and Dump Hollow gets trickier in high water.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed roadside accesses, follow Kentucky boating and PFD rules, and avoid treating private creek banks as public stopovers.',
+      camping:
+        'Treat this as a day float. KDFWR does not document public camping at Dump Hollow or Laurel Branch, and both accesses are limited roadside sites rather than overnight stops.',
+      campingClassification: 'none',
+      summary:
+        "Launch at Dump Hollow and take out at Laurel Branch for the lower Goose Creek public split. Use the Manchester gauge and expect scraping whenever flows sit below KDFWR's 175 to 514 cfs good band.",
+      accessCaveats: [
+        'Dump Hollow is a ford-style put-in, not a developed ramp. KDFWR warns high water can make the ford difficult or dangerous and can also complicate vehicle turnaround.',
+        'Laurel Branch has limited parking and private banks outside the immediate access area.',
+        'Goose Creek is a flashy small stream. Rain-driven rises can change the feel quickly even when the gauge was low earlier in the day.',
+      ],
+      watchFor: [
+        'Low water below about 175 cfs or 7.4 ft, when rock bars, riffles, and dragging become likely.',
+        'High water above about 514 cfs or 8.5 ft, when the narrow creek gets pushier and the Dump Hollow approach becomes more consequential.',
+        'Strainers, fresh wood after storms, shallow riffles, and slick footing at the ford-style put-in.',
+        'Private banks, limited bailout parking, and the need to stay disciplined about the Laurel Branch take-out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'dump-hollow-ford-road',
+        name: 'Dump Hollow Ford',
+        latitude: 37.2127,
+        longitude: -83.704,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream ford-style access; verify road and turnaround conditions before launch.',
+      },
+      {
+        id: 'laurel-branch-road-access',
+        name: 'Laurel Branch Road Access',
+        latitude: 37.237,
+        longitude: -83.6703,
+        mileFromStart: 4.8,
+        segmentKind: 'creek',
+        note: 'Default downstream access with limited parking and private banks outside the immediate landing.',
       },
     ],
   },
@@ -21720,120 +21168,9 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-  'cumberland-river-redbird-longbottom': {
-    putIn: {
-      id: 'redbird-ramp',
-      name: 'Redbird Ramp',
-      latitude: 36.7621,
-      longitude: -84.2216,
-    },
-    takeOut: {
-      id: 'long-bottom-access',
-      name: 'Long Bottom Access',
-      latitude: 36.7772,
-      longitude: -84.3455,
-    },
-    logistics: {
-      distanceLabel: 'About 9 mi',
-      estimatedPaddleTime:
-        'About 3.5 hr to 5.5 hr, longer with fishing, low-water scraping, or a careful Long Bottom shuttle',
-      shuttle:
-        'Stage the Long Bottom vehicle first, then drive back to Redbird on KY 204 and KY 478. Scout the final Forest Service Road 536 approach before committing because KDFWR says the last stretch down to Long Bottom is extremely rugged.',
-      permits:
-        'No route-specific paddling permit is known. Use the KDFWR-listed public access points, follow Kentucky boating and PFD rules, and keep emergency plans realistic for a remote gorge float.',
-      camping:
-        'KDFWR says float campers use the banks downstream of Bee Shoals on this corridor. Treat that as primitive on-route overnight context rather than developed campground support, and avoid private banks outside the commonly used river corridor.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Redbird Ramp and take out at Long Bottom for the first half of the official upstream Cumberland Falls corridor. Use the Williamsburg gauge and treat the rough Long Bottom road plus remote shoals as part of the difficulty, not just the mileage.',
-      accessCaveats: [
-        'Redbird is the easy public ramp; Long Bottom is a legitimate public access but the road and carry are much rougher than a normal paved take-out.',
-        'The route is remote enough that daylight, weather, and self-rescue capacity matter more than on a town-edge river.',
-        'Same-day USGS flow on this run sat at the top of the official preferred band, so expect more push than a lower-band beginner day.',
-      ],
-      watchFor: [
-        'Summer Shoals, Bee Shoals, Crow Shoals, and fresh wood after rain.',
-        'Muddy footing, rough carry-down logistics, and very rugged road access at Long Bottom.',
-        'Private banks and sparse bailout options away from the named public endpoints.',
-      ],
-    },
-  },
-  'cumberland-river-longbottom-thunderstruck': {
-    putIn: {
-      id: 'long-bottom-access',
-      name: 'Long Bottom Access',
-      latitude: 36.7772,
-      longitude: -84.3455,
-    },
-    takeOut: {
-      id: 'thunderstruck-ramp',
-      name: 'Thunderstruck Ramp',
-      latitude: 36.8077,
-      longitude: -84.3546,
-    },
-    logistics: {
-      distanceLabel: 'About 2.5 mi',
-      estimatedPaddleTime:
-        'About 1.5 hr to 3 hr, longer with scouting, low-water scraping, or a slow Long Bottom carry',
-      shuttle:
-        'Stage the Thunderstruck vehicle first, then drive back to Long Bottom. Scout both accesses before launching because Long Bottom is a rough carry-down and Thunderstruck is easy to miss if you drift past the left-bank ramp.',
-      permits:
-        'No route-specific paddling permit is known. Use the KDFWR-listed public access points, follow Kentucky boating and PFD rules, and do not assume private banks are acceptable backup exits.',
-      camping:
-        'Treat this as a short day route. KDFWR documents primitive float-camping on the broader corridor, but this middle split is better planned as a direct shuttle between the two named accesses.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Long Bottom and take out at Thunderstruck for the short middle split on the official Cumberland-above-the-falls chain. The mileage is modest, but the rough put-in, shoals, and remote setting still make it a moving-water route.',
-      accessCaveats: [
-        'Long Bottom is a real public access, but KDFWR says the final road approach is extremely rugged and best suited to high-clearance four-wheel-drive vehicles.',
-        'Thunderstruck is the intended finish. KDFWR warns it is easy to miss once you drop through Thunderstruck Shoals unless you are watching the left bank closely.',
-        'Same-day USGS flow on this run sat at the top of the official preferred band, so expect a stronger-water feel than a lower-band casual outing.',
-      ],
-      watchFor: [
-        'Long Branch shoals, Thunderstruck Shoals, and fresh wood after rain.',
-        'Muddy footing and rough access logistics at Long Bottom.',
-        'Private banks and the temptation to drift past Thunderstruck instead of finishing at the named public ramp.',
-      ],
-    },
-  },
-  'cumberland-river-longbottom-cumberland-falls': {
-    putIn: {
-      id: 'long-bottom-access',
-      name: 'Long Bottom Access',
-      latitude: 36.7772,
-      longitude: -84.3455,
-    },
-    takeOut: {
-      id: 'cumberland-falls-carrydown',
-      name: 'Cumberland Falls Carrydown',
-      latitude: 36.8421,
-      longitude: -84.3435,
-    },
-    logistics: {
-      distanceLabel: 'About 7.6 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 5 hr, longer with scouting, stronger water, or careful take-out setup above the falls',
-      shuttle:
-        'Stage the Cumberland Falls vehicle first, then drive back to Long Bottom. Inspect the falls-side carrydown before launching because the mandatory right-bank take-out above the falls is the core safety gate for the route.',
-      permits:
-        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and do not launch if your group is not prepared for a mandatory take-out above Cumberland Falls.',
-      camping:
-        'Cumberland Falls State Resort Park has seasonal campground space and year-round lodging at the take-out. Treat this as a campground-based gorge day rather than a wilderness overnight.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Long Bottom and finish at Cumberland Falls Carrydown for the lower half of the official upstream Cumberland Falls corridor. The route is longer than Thunderstruck-to-Falls and still ends at a mandatory take-out above the 68-foot drop, so it deserves full whitewater attention.',
-      accessCaveats: [
-        'Long Bottom is a legitimate public access, but KDFWR says the final road approach is extremely rugged and best suited to high-clearance four-wheel-drive vehicles.',
-        'KDFWR says to work to the right side of the river before the KY 90 bridge and take out at the public falls parking/carrydown area. Missing that move is a stand-down failure, not a recoverable inconvenience.',
-        'Same-day USGS flow on this run sat at the top of the official preferred band, so treat this as a firmer-water gorge day even before any extra rain arrives.',
-      ],
-      watchFor: [
-        'Thunderstruck Shoals, Pitch Rapids, Slick Shoals gorge current, and the drop sequence below Blue Bend.',
-        'The mandatory take-out above Cumberland Falls.',
-        'Rough access logistics at Long Bottom, rain-driven rises, private gorge banks, and sparse mid-route exits.',
-      ],
-    },
-  },
+
+
+
   'cumberland-river-redbird-cumberland-falls': {
     putIn: {
       id: 'redbird-ramp',
@@ -21871,83 +21208,47 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fresh wood, rain-driven rises, private gorge banks, sparse mid-route exits, and fatigue over a long whitewater corridor.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'redbird-ramp',
+        name: 'Redbird Ramp',
+        latitude: 36.7621,
+        longitude: -84.2216,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream launch for the full Cumberland gorge corridor.',
+      },
+      {
+        id: 'long-bottom-access',
+        name: 'Long Bottom Access',
+        latitude: 36.7967,
+        longitude: -84.2797,
+        mileFromStart: 9,
+        segmentKind: 'creek',
+        note: 'Rugged intermediate public access and bailout, not a casual easy exit.',
+      },
+      {
+        id: 'thunderstruck-ramp',
+        name: 'Thunderstruck Ramp',
+        latitude: 36.8207,
+        longitude: -84.328,
+        mileFromStart: 11.5,
+        segmentKind: 'creek',
+        note: 'Lower intermediate public access above the final falls approach.',
+      },
+      {
+        id: 'cumberland-falls-carrydown',
+        name: 'Cumberland Falls Carrydown',
+        latitude: 36.8421,
+        longitude: -84.3435,
+        mileFromStart: 16.6,
+        segmentKind: 'creek',
+        note: 'Mandatory right-bank downstream finish above Cumberland Falls.',
+      },
+    ],
   },
-  'cumberland-river-redbird-thunderstruck': {
-    putIn: {
-      id: 'redbird-ramp',
-      name: 'Redbird Ramp',
-      latitude: 36.7621,
-      longitude: -84.2216,
-    },
-    takeOut: {
-      id: 'thunderstruck-ramp',
-      name: 'Thunderstruck Ramp',
-      latitude: 36.8077,
-      longitude: -84.3546,
-    },
-    logistics: {
-      distanceLabel: 'About 11 mi',
-      estimatedPaddleTime:
-        'About 4 hr to 6.5 hr, longer with scouting, fishing, or low-water scraping',
-      shuttle:
-        'Stage the Thunderstruck take-out first, then drive back to Redbird on KY 204 and KY 478. Do not count on Long Bottom or Mouth of Indian Creek as routine shuttle points because KDFWR describes those roads as extremely rough.',
-      permits:
-        'No route-specific paddling permit is known. Use the KDFWR-listed public ramps, follow Kentucky boating and PFD rules, and keep emergency plans realistic for a remote gorge float.',
-      camping:
-        'KDFWR says float campers use the banks downstream of Bee Shoals on this route. Treat that as primitive on-route overnight context rather than developed campground support, and avoid private banks outside the commonly used river corridor.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Redbird Ramp and take out at Thunderstruck for the first official upstream Cumberland Falls float. Use the Williamsburg gauge and treat water above the 1,100 cfs preferred band as a more technical skilled-paddler day.',
-      accessCaveats: [
-        'Redbird and Thunderstruck are the clean public endpoints. Long Bottom and Mouth of Indian Creek are route-context accesses only and are not dependable normal shuttle points.',
-        'The float is remote enough that daylight, weather, and group self-rescue capacity matter more than on a town-edge run.',
-        'Same-day USGS flow on this run was above the KDFWR preferred band, so expect more push and less margin than the beginner phrasing on the route page might imply at normal levels.',
-      ],
-      watchFor: [
-        'Summer Shoals, Bee Shoals, Crow Shoals, and Thunderstruck Shoals.',
-        'Fresh wood, limited bailout options, and fast rises after rain.',
-        'Private banks and rough gorge exits away from the named ramps.',
-      ],
-    },
-  },
-  'cumberland-river-thunderstruck-cumberland-falls': {
-    putIn: {
-      id: 'thunderstruck-ramp',
-      name: 'Thunderstruck Ramp',
-      latitude: 36.8077,
-      longitude: -84.3546,
-    },
-    takeOut: {
-      id: 'cumberland-falls-viewing-parking',
-      name: 'Cumberland Falls viewing parking area',
-      latitude: 36.837636,
-      longitude: -84.343597,
-    },
-    logistics: {
-      distanceLabel: 'About 5 mi',
-      estimatedPaddleTime:
-        'About 2.5 hr to 4.5 hr, longer with scouting or higher-water caution',
-      shuttle:
-        'Stage the Cumberland Falls vehicle first, then drive back to Thunderstruck by KY 90, US 27, and KY 700. Inspect the take-out before launching because the finish above the falls is the core safety gate for the route.',
-      permits:
-        'No route-specific paddling permit is known. Use the KDFWR put-in and the public Cumberland Falls viewing parking area only, follow Kentucky boating and PFD rules, and do not launch if your group is not prepared for a mandatory take-out above the falls.',
-      camping:
-        'Cumberland Falls State Resort Park has campgrounds, cabins, and other lodging at the take-out area, so this works best as a campground-based gorge day rather than a wilderness overnight.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Thunderstruck and finish at the Cumberland Falls viewing parking area for the shorter official gorge float. The route is only about five miles, but the mandatory right-bank take-out above the falls makes it more serious than the mileage suggests.',
-      accessCaveats: [
-        'KDFWR says to work to the right side of the river before the KY 90 bridge and take out at the falls parking lot. Missing that move is a stand-down failure, not a recoverable inconvenience.',
-        'This run includes the Pitch Rapids, Slick Shoals gorge, and several drops before the bridge. Treat it as a whitewater route even though KDFWR also frames it as a good angling float.',
-        'Same-day flow on this run was above the preferred band, so the route should be treated as a stronger-water day for skilled paddlers rather than an entry-level outing.',
-      ],
-      watchFor: [
-        'Pitch Rapids, Slick Shoals gorge current, and the drop sequence below Blue Bend.',
-        'The mandatory take-out above Cumberland Falls.',
-        'Rain-driven rises, private gorge banks, and sparse mid-route exits.',
-      ],
-    },
-  },
+
+
   'upper-cumberland-river-varilla-4-mile': {
     putIn: {
       id: 'varilla-ramp',

@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-03 06:20 America/Chicago / 2026-07-03 11:20 UTC.
+Last summarized: 2026-07-03 11:31 America/Chicago / 2026-07-03 16:31 UTC.
 
 ## Current Inventory
 
-- Live routes: 99.
-- Ledger candidates: 69 Kentucky-specific records. The newest live slugs from this run are `south-fork-kentucky-river-oneida-fish-creek`, `south-fork-kentucky-river-hacker-branch-kay-wood`, and `cumberland-river-redbird-cumberland-falls`.
+- Live routes: 102.
+- Ledger candidates: 72 Kentucky-specific records. The newest live slugs from this run are `goose-creek-jacks-tobacco-road`, `goose-creek-tobacco-road-dump-hollow`, and `goose-creek-dump-hollow-laurel-branch`.
 
 ## Status
 
@@ -20,6 +20,13 @@ Kentucky had been paused from the active automation rotation at user request whi
 - For Elkhorn specifically, do not substitute nearby bank/wade-only VPA sites for boat access; KDFWR explicitly prohibits boat carry-in/out at some Elkhorn VPA points.
 
 ## Current Guidance
+
+- 2026-07-03 11:31 America/Chicago / 2026-07-03 16:31 UTC three-route add pass
+  - Added `goose-creek-jacks-tobacco-road`, `goose-creek-tobacco-road-dump-hollow`, and `goose-creek-dump-hollow-laurel-branch` to expand Kentucky beyond the 497-route repo baseline at run start.
+  - The run reused the current KDFWR Goose Creek page for the exact downstream site-to-site mileages of `2.2`, `0.8`, and `4.8` miles, which support the three remaining official lower-Goose access pairs below the Rawlings / Stinson low-head-dam warning.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Jacks / Bowling Branch Bridge Access, Tobacco Road Bridge Ramp, Dump Hollow Ford, and Laurel Branch Road Access; same-day direct USGS Water Services returned `10.4 cfs / 5.84 ft` at `2026-07-03 11:45 EDT` for Goose Creek at Manchester (`03281100`).
+  - Camping stays conservative at `none` for all three because KDFWR documents only simple roadside bridge, carry-down, or ford accesses with no public overnight support. Safety notes stay focused on private-bank limits, low-water scraping, fresh wood after rain, and the Dump Hollow ford hazard at higher water.
+  - Bounded image review stayed negative for all three: no clearly rights-clean exact-route asset was selected from KDFWR access imagery, Commons, general web leads, or same-river USGS media, so `docs/river-image-source-audit.csv` records no-image outcomes for the three new slugs.
 
 - 2026-07-03 06:20 America/Chicago / 2026-07-03 11:20 UTC three-route add pass
   - Added `green-river-american-legion-lynn-camp-creek`, `green-river-hh-wilson-park-green-river-ferry`, and `green-river-stovall-park-green-river-ferry` to expand Kentucky beyond the 487-slug repo baseline at run start.

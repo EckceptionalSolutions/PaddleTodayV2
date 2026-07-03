@@ -33242,250 +33242,8 @@ export const rivers: River[] = [
       },
     ],
   },
-  {
-    id: 'levisa-fork-jubilee-island-creek',
-    slug: 'levisa-fork-jubilee-island-creek',
-    name: 'Levisa Fork',
-    reach: 'Jubilee Christian Church Ramp to Island Creek Ramp',
-    aliases: [
-      'Levisa Fork - Jubilee to Island Creek',
-      'Hatfield-McCoy River Trail upper float',
-      'KDFWR Levisa Fork Blue Water Trail',
-    ],
-    state: 'Kentucky',
-    region: 'Eastern Kentucky',
-    summary:
-      'Short Pikeville half-day float from Jubilee Christian Church Ramp to Island Creek Ramp. KDFWR documents the public access pair, 3.8-mile Blue Water Trail split, and official Pikeville gauge bands, while the education page frames this upper Hatfield-McCoy River Trail reach as family-friendly moving water.',
-    statusText:
-      'Use the Levisa Fork at Pikeville gauge. KDFWR rates 800 to 1,400 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Below that is low; above that is high and swift current or woody debris can make the river inappropriate for casual paddling.',
-    latitude: 37.4445,
-    longitude: -82.5057,
-    gaugeSource: {
-      id: 'usgs-03209500',
-      provider: 'usgs',
-      siteId: '03209500',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Levisa Fork at Pikeville, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 800,
-      idealMax: 1400,
-      tooLow: 800,
-      tooHigh: 1400,
-      thresholdSource: {
-        label: 'KDFWR recommended river levels for Levisa Fork at Pikeville',
-        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'KDFWR says the Levisa Fork near Pikeville benefits from Russell Fork inflow and Fishtrap Lake releases, which support more dependable summer flow than many eastern Kentucky streams. Storms and release changes can still raise current and move fresh wood into the channel.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'KDFWR describes the Levisa Fork as gentle riffles and flowing shoals that are suitable for families and beginners at normal levels. This remains moving water rather than flatwater, especially when the river approaches or exceeds the high band.',
-      confidenceNotes:
-        'Confidence is high for a conservative Kentucky add: KDFWR publishes the official Pikeville gauge bands on the Fish page, provides exact access coordinates for Jubilee Christian Church Ramp and Island Creek Ramp on the access-detail pages, and the Blue Water Trail map plus education article identify Jubilee-to-Island Creek as a 3.8-mile half-day float. USGS Water Services returned same-day discharge and stage during this run.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official level band',
-        value: '800-1,400 cfs / 7.4-8.5 ft',
-        note: 'KDFWR rates Levisa Fork at Pikeville as Low below 800 cfs or 7.4 ft, Good from 800 to 1,400 cfs or 7.4 to 8.5 ft, and High above 1,400 cfs or 8.5 ft.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
-      },
-      {
-        label: 'Official route segment',
-        value: 'Jubilee Christian Church Ramp to Island Creek Ramp, 3.8 miles',
-        note: 'The KDFWR Blue Water Trail map lists Jubilee Christian Church Ramp to Island Creek Ramp as a 3.8-mile ramp-to-ramp split, and the Levisa Fork education page describes it as a leisurely half-day float.',
-        sourceUrl: 'https://fw.ky.gov/Education/Documents/bluewatertraillevisafork.pdf',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Jubilee Christian Church Canoe Access, 37.4445, -82.5057',
-        note: 'KDFWR identifies Jubilee Christian Church Canoe Access as a carry-down site with paved parking nearby and notes that paddlers should ask permission before using the church lot.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1013',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Island Creek Canoe Access, 37.4646, -82.5284',
-        note: 'KDFWR identifies Island Creek Canoe Access as a carry-down site behind the South Mayo Trail commercial corridor with unpaved parking and no amenities.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1012',
-      },
-      {
-        label: 'Route character',
-        value: 'Gentle riffles, deep pools, flowing shoals',
-        note: 'The Levisa Fork education page says the first float from Jubilee Christian Church to Island Creek moves through an intimate gorge with gentle riffles, deep pools, and flowing shoals, making it suitable for families and beginners at normal levels.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Levisa-Fork.aspx',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03209500',
-        note: 'USGS Water Services returned same-day values of 341 cfs and 6.56 ft at 2026-06-22 17:30-18:00 EDT for Levisa Fork at Pikeville during this run, below the official good band.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR Levisa Fork',
-        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Levisa Fork education page',
-        url: 'https://fw.ky.gov/Education/Pages/Levisa-Fork.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Levisa Fork detailed map',
-        url: 'https://fw.ky.gov/Education/Documents/bluewatertraillevisafork.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Jubilee Christian Church Canoe Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1013',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Island Creek Canoe Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1012',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03209500 Levisa Fork at Pikeville',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03209500 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'levisa-fork-island-creek-cedar-creek',
-    slug: 'levisa-fork-island-creek-cedar-creek',
-    name: 'Levisa Fork',
-    reach: 'Island Creek Ramp to Cedar Creek Canoe Access',
-    aliases: [
-      'Levisa Fork - Island Creek to Cedar Creek',
-      'Hatfield-McCoy River Trail - Island Creek to Cedar Creek',
-      'Pikeville Levisa continuation float',
-    ],
-    state: 'Kentucky',
-    region: 'Eastern Kentucky',
-    summary:
-      'Very short Pikeville Levisa Fork float from Island Creek Ramp to Cedar Creek Canoe Access. KDFWR documents the 1.5-mile public segment, both access coordinates, and official Pikeville gauge bands tied to direct USGS data.',
-    statusText:
-      'Use the Levisa Fork at Pikeville gauge. KDFWR rates 800 to 1,400 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Below that is low and likely shallow; above that is high and faster around wood, bridge current, and busy urban banks.',
-    latitude: 37.4646,
-    longitude: -82.5284,
-    gaugeSource: {
-      id: 'usgs-03209500',
-      provider: 'usgs',
-      siteId: '03209500',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Levisa Fork at Pikeville, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 800,
-      idealMax: 1400,
-      tooLow: 800,
-      tooHigh: 1400,
-      thresholdSource: {
-        label: 'KDFWR recommended river levels for Levisa Fork at Pikeville',
-        url: 'https://fw.ky.gov/Fish/Pages/Levisa-Fork.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'KDFWR treats the Pikeville gauge as the planning reference for this corridor. Spring through fall is practical, but low summer water can expose shoals while rain, releases, and tributary inflow can raise current quickly.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'KDFWR describes this Pikeville corridor as a warmwater public-access float, but it is still moving water with shoals, bridge current, wood, and urban corridor distractions. Treat it as easy only when the Pikeville gauge is stable in range.',
-      confidenceNotes:
-        'Confidence is high for a conservative Kentucky add: KDFWR publishes Island Creek Ramp to Cedar Creek Canoe Access as a 1.5-mile public segment, provides exact endpoint coordinates and public-access descriptions, and ties the corridor to direct USGS gauge 03209500 with official Pikeville Low/Good/High bands. USGS Water Services returned same-day discharge and stage during this run.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official level band',
-        value: '800-1400 cfs / 7.4-8.5 ft',
-        note: 'KDFWR rates Levisa Fork at Pikeville as Low below 800 cfs or 7.4 ft, Good from 800 to 1400 cfs or 7.4 to 8.5 ft, and High above 1400 cfs or 8.5 ft.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa-Fork.aspx',
-      },
-      {
-        label: 'Official route segment',
-        value: 'Island Creek Ramp to Cedar Creek Canoe Access, 1.5 miles',
-        note: 'KDFWR lists Island Creek Ramp to Cedar Creek Canoe Access as a public Levisa Fork segment in its site-to-site mileage table.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa-Fork.aspx',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Island Creek Ramp, 37.4646, -82.5284',
-        note: 'KDFWR identifies Island Creek Ramp as a free carry-down access behind the South Mayo Trail corridor with unpaved parking and no amenities.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1002',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Cedar Creek Canoe Access, 37.4802, -82.5446',
-        note: 'KDFWR identifies Cedar Creek Canoe Access as a free carry-down access under the KY 1384 bridge with unpaved parking and no amenities.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=995',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03209500',
-        note: 'USGS Water Services returned same-day values of 341 cfs at 2026-06-22 17:30 EDT and 6.56 ft at 2026-06-22 18:00 EDT for Levisa Fork at Pikeville during this run, below the official good band.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Route character',
-        value: 'Urban warmwater corridor with shoals',
-        note: 'KDFWR frames the Pikeville Levisa Fork as a public-access paddling and fishing corridor where gauge timing, shoals, and urban-side access behavior matter.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa-Fork.aspx',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR Levisa Fork',
-        url: 'https://fw.ky.gov/Fish/Pages/Levisa-Fork.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Island Creek Ramp',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1002',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Cedar Creek Canoe Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=995',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03209500 Levisa Fork at Pikeville',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03209500 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
+
+
   {
     id: 'levisa-fork-cedar-creek-thompson-road',
     slug: 'levisa-fork-cedar-creek-thompson-road',
@@ -33607,260 +33365,8 @@ export const rivers: River[] = [
       },
     ],
   },
-  {
-    id: 'levisa-fork-jubilee-cedar-creek',
-    slug: 'levisa-fork-jubilee-cedar-creek',
-    name: 'Levisa Fork',
-    reach: 'Jubilee Christian Church Ramp to Cedar Creek Canoe Access',
-    aliases: [
-      'Levisa Fork - Jubilee to Cedar Creek',
-      'Hatfield-McCoy River Trail - Jubilee to Cedar Creek',
-      'Pikeville upper-to-cut-through float',
-    ],
-    state: 'Kentucky',
-    region: 'Eastern Kentucky',
-    summary:
-      'Moderate Pikeville Levisa Fork float from Jubilee Christian Church Ramp to Cedar Creek Canoe Access. KDFWR now lists this public 5.5-mile access pair directly, with official Pikeville gauge bands and source-backed endpoint coordinates at both ramps.',
-    statusText:
-      'Use the Levisa Fork at Pikeville gauge. KDFWR rates 800 to 1,400 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Below that is low and slower with more exposed shoals; above that is high and faster around wood, bridges, and urban banks.',
-    latitude: 37.4445,
-    longitude: -82.5057,
-    gaugeSource: {
-      id: 'usgs-03209500',
-      provider: 'usgs',
-      siteId: '03209500',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Levisa Fork at Pikeville, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 800,
-      idealMax: 1400,
-      tooLow: 800,
-      tooHigh: 1400,
-      thresholdSource: {
-        label: 'KDFWR recommended river levels for Levisa Fork at Pikeville',
-        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'KDFWR says the Levisa Fork through Pikeville benefits from Russell Fork inflow and Fishtrap Lake releases, which can help summer flow but also change current after rain or release shifts.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'KDFWR frames the Pikeville Levisa Fork as a family-friendly moving-water corridor with gentle riffles, shoals, and deep pools at normal levels. The longer Jubilee-to-Cedar combination still deserves moving-water judgment around wood and bridge current.',
-      confidenceNotes:
-        'Confidence is high for a conservative Kentucky add: KDFWR publishes the direct Jubilee-to-Cedar 5.5-mile route, official Pikeville Low/Good/High bands, and current public-access descriptions for both endpoints. USGS Water Services returned same-day discharge and stage during this run, both below the official good band.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official level band',
-        value: '800-1,400 cfs / 7.4-8.5 ft',
-        note: 'KDFWR rates Levisa Fork at Pikeville as Low below 800 cfs or 7.4 ft, Good from 800 to 1,400 cfs or 7.4 to 8.5 ft, and High above 1,400 cfs or 8.5 ft.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
-      },
-      {
-        label: 'Official route segment',
-        value: 'Jubilee Christian Church Ramp to Cedar Creek Ramp, 5.5 miles',
-        note: 'The current KDFWR Levisa Fork mileage table now lists Jubilee Christian Church Ramp to Cedar Creek Ramp directly as a 5.5-mile public route.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Jubilee Christian Church Canoe Access, 37.4445, -82.5057',
-        note: 'KDFWR identifies Jubilee Christian Church Canoe Access as a free carry-down site with limited parking and notes that paddlers should ask permission before using the church paved lot.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1013',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Cedar Creek Canoe Access, 37.4802, -82.5446',
-        note: 'KDFWR identifies Cedar Creek Canoe Access as a free carry-down site under the KY 1384 bridge with unpaved parking and no amenities.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1011',
-      },
-      {
-        label: 'Route character',
-        value: 'Gentle riffles, deep pools, flowing shoals',
-        note: 'The KDFWR Levisa Fork education page describes the Pikeville corridor as an intimate gorge with gentle riffles, deep pools, and flowing shoals that can be extended downstream toward Cedar Creek.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Levisa-Fork.aspx',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03209500',
-        note: 'USGS Water Services returned 279 cfs at 2026-07-02 23:30 EDT and 6.32 ft at 2026-07-03 00:00 EDT for Levisa Fork at Pikeville, below the official good band.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR Levisa Fork',
-        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Levisa Fork education page',
-        url: 'https://fw.ky.gov/Education/Pages/Levisa-Fork.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Levisa Fork detailed map',
-        url: 'https://fw.ky.gov/Education/Documents/bluewatertraillevisafork.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Jubilee Christian Church Canoe Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1013',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Cedar Creek Canoe Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1011',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03209500 Levisa Fork at Pikeville',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03209500 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'levisa-fork-island-creek-thompson-road',
-    slug: 'levisa-fork-island-creek-thompson-road',
-    name: 'Levisa Fork',
-    reach: 'Island Creek Ramp to Thompson Road Ramp',
-    aliases: [
-      'Levisa Fork - Island Creek to Thompson Road',
-      'Hatfield-McCoy River Trail - Island Creek to Thompson Road',
-      'Pikeville Cut-Through extended float',
-    ],
-    state: 'Kentucky',
-    region: 'Eastern Kentucky',
-    summary:
-      'Short-to-moderate Pikeville Levisa Fork float from Island Creek Ramp to Thompson Road Ramp. KDFWR publishes the current Island Creek-to-Cedar and Cedar-to-Thompson access chain, which supports this 4.5-mile public continuation on the same direct Pikeville gauge.',
-    statusText:
-      'Use the Levisa Fork at Pikeville gauge. KDFWR rates 800 to 1,400 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Below that expect slower shoals and more dragging; above that expect faster current around wood, bridges, and busy urban banks.',
-    latitude: 37.4646,
-    longitude: -82.5284,
-    gaugeSource: {
-      id: 'usgs-03209500',
-      provider: 'usgs',
-      siteId: '03209500',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Levisa Fork at Pikeville, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 800,
-      idealMax: 1400,
-      tooLow: 800,
-      tooHigh: 1400,
-      thresholdSource: {
-        label: 'KDFWR recommended river levels for Levisa Fork at Pikeville',
-        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'The Pikeville gauge remains the planning reference through this whole Hatfield-McCoy River Trail corridor. Fishtrap Lake releases, Russell Fork inflow, and storms can change current faster than the easy mileage suggests.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'KDFWR and Pikeville route materials frame this corridor as beginner-friendly at normal levels, but the longer Island-to-Thompson combination still includes bridge current, woody debris, and a more committed urban finish.',
-      confidenceNotes:
-        'Confidence is high for a conservative Kentucky add: KDFWR publishes the Island Creek-to-Cedar 1.5-mile segment and Cedar-to-Thompson 3.0-mile segment, exact endpoint coordinates, and the official Pikeville gauge ladder. USGS Water Services returned same-day discharge and stage during this run, both below the official good band.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official level band',
-        value: '800-1,400 cfs / 7.4-8.5 ft',
-        note: 'KDFWR rates Levisa Fork at Pikeville as Low below 800 cfs or 7.4 ft, Good from 800 to 1,400 cfs or 7.4 to 8.5 ft, and High above 1,400 cfs or 8.5 ft.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
-      },
-      {
-        label: 'Official route chain',
-        value: 'Island Creek Ramp to Cedar Creek Ramp 1.5 miles plus Cedar Creek Ramp to Thompson Road Ramp 3.0 miles',
-        note: 'The current KDFWR Levisa Fork mileage table publishes both public segments, supporting an about 4.5-mile Island Creek to Thompson Road continuation on the same river and gauge.',
-        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Island Creek Ramp, 37.4646, -82.5284',
-        note: 'KDFWR identifies Island Creek Ramp as a free carry-down access behind the South Mayo Trail corridor with unpaved parking and no amenities.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1012',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Thompson Road Canoe Access, 37.5096, -82.5435',
-        note: 'KDFWR identifies Thompson Road Canoe Access as a free single-lane ramp with year-round 24-hour availability and published coordinates.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1010',
-      },
-      {
-        label: 'Route character',
-        value: 'Pikeville Cut-Through public float',
-        note: 'The KDFWR education page says paddlers can extend past Cedar Creek to the lower Thompson Road take-out after passing through the Pikeville Cut-Through section.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Levisa-Fork.aspx',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03209500',
-        note: 'USGS Water Services returned 279 cfs at 2026-07-02 23:30 EDT and 6.32 ft at 2026-07-03 00:00 EDT for Levisa Fork at Pikeville, below the official good band.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR Levisa Fork',
-        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Levisa Fork education page',
-        url: 'https://fw.ky.gov/Education/Pages/Levisa-Fork.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Island Creek Canoe Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1012',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Cedar Creek Canoe Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1011',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Thompson Road Canoe Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1010',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03209500 Levisa Fork at Pikeville',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03209500 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
+
+
   {
     id: 'levisa-fork-jubilee-thompson-road',
     slug: 'levisa-fork-jubilee-thompson-road',
@@ -33868,13 +33374,13 @@ export const rivers: River[] = [
     reach: 'Jubilee Christian Church Ramp to Thompson Road Ramp',
     aliases: [
       'Levisa Fork - Jubilee to Thompson Road',
-      'Hatfield-McCoy River Trail full Pikeville float',
-      'Pikeville Jubilee to Thompson continuation',
+      'Hatfield-McCoy River Trail Pikeville access-planner corridor',
+      'Pikeville Jubilee to Thompson planner route',
     ],
     state: 'Kentucky',
     region: 'Eastern Kentucky',
     summary:
-      'Longer Pikeville Levisa Fork day from Jubilee Christian Church Ramp to Thompson Road Ramp. KDFWR now lists Jubilee-to-Cedar as 5.5 miles and Cedar-to-Thompson as 3.0 miles, supporting an about 8.5-mile public route on the direct Pikeville gauge.',
+      'Canonical longer Pikeville Levisa Fork day from Jubilee Christian Church Ramp to Thompson Road Ramp. KDFWR now lists Jubilee-to-Cedar as 5.5 miles and Cedar-to-Thompson as 3.0 miles, and this slug keeps the intermediate public access planner on the direct Pikeville gauge instead of shipping every in-between permutation as its own route.',
     statusText:
       'Use the Levisa Fork at Pikeville gauge. KDFWR rates 800 to 1,400 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Below that expect a slower, shoalier all-day float; above that swift current, wood, and the longer mileage become much less forgiving.',
     latitude: 37.4445,
@@ -33922,6 +33428,12 @@ export const rivers: River[] = [
         label: 'Official route chain',
         value: 'Jubilee Christian Church Ramp to Cedar Creek Ramp 5.5 miles plus Cedar Creek Ramp to Thompson Road Ramp 3.0 miles',
         note: 'The current KDFWR Levisa Fork mileage table publishes both linked public segments, supporting an about 8.5-mile Jubilee to Thompson Road route on the same corridor and gauge.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+      },
+      {
+        label: 'Planner model',
+        value: 'Canonical Pikeville corridor with intermediate public accesses',
+        note: 'This slug keeps Jubilee as the upstream launch and Thompson Road as the downstream finish while the trip details preserve Island Creek and Cedar Creek as named public mid-route options, avoiding redundant one-gauge Pikeville permutations.',
         sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
       },
       {
@@ -36076,1144 +35588,15 @@ export const rivers: River[] = [
       },
     ],
   },
-  {
-    id: 'bayou-deview-benson-creek-hickson-lake',
-    slug: 'bayou-deview-benson-creek-hickson-lake',
-    name: 'Bayou DeView',
-    reach: 'Benson Creek Access to Hickson Lake Access',
-    aliases: [
-      'Bayou DeView - Benson Creek to Hickson Lake',
-      'Bayou DeView Water Trail upper half',
-      'AGFC Bayou DeView Benson Creek to Hickson Lake',
-    ],
-    state: 'Arkansas',
-    region: 'Delta',
-    summary:
-      'Longer upper Bayou DeView water-trail segment from Benson Creek to Hickson Lake. AGFC documents the exact 6.5-mile public segment, the same direct gauge thresholds, and the Dagmar WMA campsite rules near the lower access.',
-    statusText:
-      'Use the Bayou DeView near Brinkley gauge. AGFC says the trail needs about 14 ft or higher to paddle and Dagmar Road closes at 17 ft, so this route treats 14 to under 17 ft as the usable band and flags lower or higher water as a problem.',
-    latitude: 34.91304,
-    longitude: -91.26959,
-    routeType: 'recreational',
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'private_banks'],
-      safetyNotes: [
-        'AGFC says high water is dangerous on Bayou DeView and that the main channel is not always distinct, so this longer upper-half route needs more route-finding discipline than its flatwater label implies.',
-        'Carry an offline map and keep trail markers in sight because the floodplain maze is more consequential on the longer Benson-to-Hickson day.',
-        'Stay off private banks and be prepared for wood, floating debris, and stronger current if the gauge rises toward the 17-foot road-closure mark.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    gaugeSource: {
-      id: 'usgs-07077730',
-      provider: 'usgs',
-      siteId: '07077730',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Bayou Deview near Brinkley, AR',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 14,
-      idealMax: 16.9,
-      tooLow: 14,
-      tooHigh: 17,
-      thresholdSource: {
-        label: 'Arkansas Game and Fish Bayou DeView gauge guidance',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'This longer upper-half route still depends on enough water to connect the marked trail without entering dangerous high-water timber travel. Gauge freshness matters because the bayou can change quickly after rain and the public road gate closes at 17 ft.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'AGFC treats the trail as flatwater without rapids, but this 6.5-mile version is a fuller navigation day through a floodplain channel network rather than a casual out-and-back park paddle.',
-      confidenceNotes:
-        'Confidence is high for a conservative Arkansas add: AGFC publishes Benson Creek to Hickson Lake as an exact 6.5-mile public segment, provides map-linked endpoint coordinates, and ties the trail to the direct USGS Brinkley gauge with explicit low and closure thresholds. The official USGS station showed a same-day gage-height reading of 15.26 ft at 2026-07-02 14:00 CDT during implementation, inside the official floatable window.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Benson Creek Access to Hickson Lake Access, 6.5 miles',
-        note: 'AGFC lists Benson Creek to Hickson Lake as an exact Bayou DeView Water Trail segment.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Direct gauge threshold',
-        value: 'Around 14 ft to paddle; Dagmar Road gate closes at 17 ft',
-        note: 'AGFC says the gauge height needs to be around 14 feet or higher to paddle the trail and that the gate on Dagmar Road is closed at 17 feet.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Recent official gauge reading',
-        value: 'USGS 07077730 at 15.26 ft',
-        note: 'The official USGS current-conditions page shows a same-day gage-height reading of 15.26 ft at 2026-07-02 14:00 CDT for Bayou Deview near Brinkley, inside AGFC\'s floatable threshold window.',
-        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07077730',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Benson Creek Access, 34.93569, -91.24092',
-        note: 'AGFC publishes Benson Creek Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Hickson Lake Access, 34.89039, -91.29826',
-        note: 'AGFC publishes Hickson Lake Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Camping policy',
-        value: 'Free Dagmar WMA campsites; none on Cache River NWR',
-        note: 'AGFC says free first-come campsites marked by blue paint are available on Dagmar WMA, while camping is not allowed on Cache River National Wildlife Refuge.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'AGFC Bayou DeView Water Trail',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 07077730 Bayou Deview near Brinkley',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 07077730 current conditions',
-        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07077730',
-        provider: 'usgs',
-      },
-      {
-        label: 'AGFC Sheffield Nelson Dagmar WMA',
-        url: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'bayou-deview-hickson-lake-rock-island-road',
-    slug: 'bayou-deview-hickson-lake-rock-island-road',
-    name: 'Bayou DeView',
-    reach: 'Hickson Lake Access to Rock Island Road Access',
-    aliases: [
-      'Bayou DeView - Hickson Lake to Rock Island Road',
-      'Bayou DeView Water Trail mid-lower split',
-      'AGFC Bayou DeView Hickson Lake to Rock Island Road',
-    ],
-    state: 'Arkansas',
-    region: 'Delta',
-    summary:
-      'Shorter middle Bayou DeView water-trail segment from Hickson Lake Access to Rock Island Road Access. AGFC documents the exact 2.9-mile public segment, the same direct gauge thresholds, and free primitive Dagmar WMA campsite support nearby.',
-    statusText:
-      'Use the Bayou DeView near Brinkley gauge. AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so this route treats 14 to under 17 ft as the usable band and flags lower or higher water as a problem.',
-    latitude: 34.87475,
-    longitude: -91.29426,
-    routeType: 'recreational',
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'private_banks'],
-      safetyNotes: [
-        'AGFC says high water is dangerous on Bayou DeView and that the main channel is not always distinct, so even this short middle segment still needs active route-finding.',
-        'Carry the georeferenced trail map and keep markers in sight because Hickson to Rock Island still threads floodplain channels rather than one obvious bank-to-bank corridor.',
-        'Stay off private banks and expect wood, floating debris, and stronger current if the gauge rises toward the 17-foot Dagmar Road closure mark.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    gaugeSource: {
-      id: 'usgs-07077730',
-      provider: 'usgs',
-      siteId: '07077730',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Bayou Deview near Brinkley, AR',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 14,
-      idealMax: 16.9,
-      tooLow: 14,
-      tooHigh: 17,
-      thresholdSource: {
-        label: 'Arkansas Game and Fish Bayou DeView gauge guidance',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'This low-gradient floodplain route still depends on enough stage to connect the marked trail without forcing shallow detours, and the access roads become the main hard stop when water reaches the 17-foot gate-closure line.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'AGFC treats the trail as flatwater without rapids, and this 2.9-mile version is one of the simpler day options, but it still requires navigation discipline in indistinct cypress-tupelo channels.',
-      confidenceNotes:
-        'Confidence is high for a short Arkansas add: AGFC publishes Hickson Lake to Rock Island Road as an exact 2.9-mile public segment, provides map-linked endpoint coordinates, and ties the trail to the direct USGS Brinkley gauge with explicit low and closure thresholds. The official USGS station showed a same-day gage-height reading of 15.26 ft at 2026-07-02 14:00 CDT during implementation, inside the official floatable window.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Hickson Lake Access to Rock Island Road Access, 2.9 miles',
-        note: 'AGFC lists Hickson Lake to Rock Island Road as an exact Bayou DeView Water Trail segment.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Direct gauge threshold',
-        value: 'Around 14 ft to paddle; Dagmar Road gate closes at 17 ft',
-        note: 'AGFC says the gauge height needs to be around 14 feet or higher to paddle the trail and that the gate on Dagmar Road is closed at 17 feet.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Recent official gauge reading',
-        value: 'USGS 07077730 at 15.26 ft',
-        note: 'The official USGS current-conditions page shows a same-day gage-height reading of 15.26 ft at 2026-07-02 14:00 CDT for Bayou Deview near Brinkley, inside AGFC\'s floatable threshold window.',
-        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07077730',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Hickson Lake Access, 34.89039, -91.29826',
-        note: 'AGFC publishes Hickson Lake Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Rock Island Road Access, 34.85911, -91.29025',
-        note: 'AGFC publishes Rock Island Road Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-      },
-      {
-        label: 'Camping and access policy',
-        value: 'Free Dagmar WMA campsites; no Cache River NWR camping',
-        note: 'AGFC says free first-come campsites marked by blue paint are available on Dagmar WMA, while camping is not allowed on Cache River National Wildlife Refuge.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'AGFC Bayou DeView Water Trail',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      {
-        label: 'AGFC Bayou DeView trail map',
-        url: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'AGFC Sheffield Nelson Dagmar WMA',
-        url: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 07077730 Bayou Deview near Brinkley',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 07077730 current conditions',
-        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07077730',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'bayou-deview-rock-island-road-apple-lake',
-    slug: 'bayou-deview-rock-island-road-apple-lake',
-    name: 'Bayou DeView',
-    reach: 'Rock Island Road Access to Apple Lake Access',
-    aliases: [
-      'Bayou DeView - Rock Island Road to Apple Lake',
-      'Bayou DeView Water Trail lower-middle split',
-      'AGFC Bayou DeView Rock Island Road to Apple Lake',
-    ],
-    state: 'Arkansas',
-    region: 'Delta',
-    summary:
-      'Very short lower-middle Bayou DeView water-trail segment from Rock Island Road Access to Apple Lake Access. AGFC documents the exact 1.5-mile public segment, the same direct gauge thresholds, and the seasonal Apple Lake WRA access caveat.',
-    statusText:
-      'Use the Bayou DeView near Brinkley gauge. AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so this route treats 14 to under 17 ft as the usable band and flags lower or higher water as a problem.',
-    latitude: 34.85035,
-    longitude: -91.28613,
-    routeType: 'recreational',
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'private_banks'],
-      safetyNotes: [
-        'AGFC says high water is dangerous on Bayou DeView, and even this short segment can become confusing because the main channel is not always distinct.',
-        'Carry the georeferenced map anyway; the route is short, but the Apple Lake side still sits in a floodplain maze where a missed turn can waste time quickly.',
-        'Stay off private banks, watch for floating wood, and verify Apple Lake access status because the WMA closes Apple Lake WRA to access from November 1 through February 15.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    gaugeSource: {
-      id: 'usgs-07077730',
-      provider: 'usgs',
-      siteId: '07077730',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Bayou Deview near Brinkley, AR',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 14,
-      idealMax: 16.9,
-      tooLow: 14,
-      tooHigh: 17,
-      thresholdSource: {
-        label: 'Arkansas Game and Fish Bayou DeView gauge guidance',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'This short route still depends on enough stage to keep the channel connected, and launch-day checks should include both the USGS gauge and any WMA seasonal access notices for Apple Lake.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is the shortest Bayou DeView day option in the family, but it still requires flatwater route-finding and respect for floodplain wood and private-bank limits.',
-      confidenceNotes:
-        'Confidence is high for a short Arkansas add: AGFC publishes Rock Island Road to Apple Lake as an exact 1.5-mile public segment, provides map-linked endpoint coordinates, and ties the trail to the direct USGS Brinkley gauge with explicit low and closure thresholds. The official USGS station showed a same-day gage-height reading of 15.26 ft at 2026-07-02 14:00 CDT during implementation, inside the official floatable window.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Rock Island Road Access to Apple Lake Access, 1.5 miles',
-        note: 'AGFC lists Rock Island Road to Apple Lake as an exact Bayou DeView Water Trail segment.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Direct gauge threshold',
-        value: 'Around 14 ft to paddle; Dagmar Road gate closes at 17 ft',
-        note: 'AGFC says the gauge height needs to be around 14 feet or higher to paddle the trail and that the gate on Dagmar Road is closed at 17 feet.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Recent official gauge reading',
-        value: 'USGS 07077730 at 15.26 ft',
-        note: 'The official USGS current-conditions page shows a same-day gage-height reading of 15.26 ft at 2026-07-02 14:00 CDT for Bayou Deview near Brinkley, inside AGFC\'s floatable threshold window.',
-        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07077730',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Rock Island Road Access, 34.85911, -91.29025',
-        note: 'AGFC publishes Rock Island Road Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Apple Lake Access, 34.84159, -91.28200',
-        note: 'AGFC publishes Apple Lake Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-      },
-      {
-        label: 'Seasonal access caveat',
-        value: 'Apple Lake WRA closed to access Nov. 1 through Feb. 15',
-        note: 'AGFC says Apple Lake Waterfowl Rest Area is closed to access from November 1 through February 15.',
-        sourceUrl: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'AGFC Bayou DeView Water Trail',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      {
-        label: 'AGFC Bayou DeView trail map',
-        url: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'AGFC Sheffield Nelson Dagmar WMA',
-        url: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 07077730 Bayou Deview near Brinkley',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 07077730 current conditions',
-        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07077730',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'bayou-deview-hickson-lake-apple-lake',
-    slug: 'bayou-deview-hickson-lake-apple-lake',
-    name: 'Bayou DeView',
-    reach: 'Hickson Lake Access to Apple Lake Access',
-    aliases: [
-      'Bayou DeView - Hickson Lake to Apple Lake',
-      'Bayou DeView Water Trail middle continuation',
-      'AGFC Bayou DeView Hickson Lake to Apple Lake',
-    ],
-    state: 'Arkansas',
-    region: 'Delta',
-    summary:
-      'Middle Bayou DeView continuation from Hickson Lake Access to Apple Lake Access. AGFC still documents the public access chain, the direct gauge thresholds, and the Apple Lake seasonal closure caveat that shapes this otherwise short floodplain route.',
-    statusText:
-      'Use the Bayou DeView near Brinkley gauge. AGFC still says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so this route treats 14 to under 17 ft as the usable band and flags lower or higher water as a problem.',
-    latitude: 34.86599,
-    longitude: -91.29013,
-    routeType: 'recreational',
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'private_banks'],
-      safetyNotes: [
-        'AGFC says Bayou DeView high water is dangerous and the main channel is not always distinct, so even this mid-length continuation still needs active route-finding rather than casual flatwater assumptions.',
-        'Use the Apple Lake seasonal access rule and the lower Dagmar road conditions as real go/no-go checks, not just the gauge.',
-        'Stay off private banks and expect floating wood, blind turns through cypress, and stronger push as the gauge rises toward the 17-foot road-closure mark.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    gaugeSource: {
-      id: 'usgs-07077730',
-      provider: 'usgs',
-      siteId: '07077730',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Bayou Deview near Brinkley, AR',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 14,
-      idealMax: 16.9,
-      tooLow: 14,
-      tooHigh: 17,
-      thresholdSource: {
-        label: 'Arkansas Game and Fish Bayou DeView gauge guidance',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'This middle continuation still depends on enough stage to keep the marked route connected, and launch-day checks should include both the USGS gauge and whether Apple Lake access is seasonally open.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'AGFC treats the trail as flatwater without rapids, but this 4.4-mile continuation still requires navigation through timbered floodplain turns rather than a simple one-channel float.',
-      confidenceNotes:
-        'Confidence is high for a conservative Arkansas add: AGFC still publishes the Hickson Lake -> Rock Island 2.9-mile and Rock Island -> Apple Lake 1.5-mile public segments, which support a defensible 4.4-mile continuation with source-backed public endpoints. The same AGFC page still ties the trail to direct USGS 07077730 with explicit low and closure thresholds, and Water Services returned 15.26 ft at 2026-07-03 07:00 CDT.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route shape',
-        value: 'Hickson Lake Access to Apple Lake Access, about 4.4 miles',
-        note: 'AGFC lists Hickson Lake to Rock Island Road as 2.9 miles and Rock Island Road to Apple Lake as 1.5 miles, which supports this middle continuation through the same public access chain.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Direct gauge threshold',
-        value: 'Around 14 ft to paddle; Dagmar Road gate closes at 17 ft',
-        note: 'AGFC still says the gauge height needs to be around 14 feet or higher to paddle the trail and that the gate on Dagmar Road is closed at 17 feet.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Recent official gauge reading',
-        value: 'USGS 07077730 at 15.26 ft',
-        note: 'USGS Water Services returned a latest gage-height reading of 15.26 ft at 2026-07-03 07:00 CDT for Bayou Deview near Brinkley, inside AGFC\'s floatable threshold window.',
-        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07077730&parameterCd=00065&siteStatus=all',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Hickson Lake Access, 34.89039, -91.29826',
-        note: 'AGFC still publishes Hickson Lake Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Apple Lake Access, 34.84159, -91.28200',
-        note: 'AGFC still publishes Apple Lake Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-      },
-      {
-        label: 'Camping and seasonal access',
-        value: 'Free Dagmar WMA campsites; Apple Lake closed Nov. 1-Feb. 15; no Cache River NWR camping',
-        note: 'AGFC still says free first-come campsites marked by blue paint are available on Dagmar WMA, Apple Lake WRA closes to access from Nov. 1 through Feb. 15, and camping is not allowed on Cache River National Wildlife Refuge.',
-        sourceUrl: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'AGFC Bayou DeView Water Trail',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      {
-        label: 'AGFC Bayou DeView trail map',
-        url: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'AGFC Sheffield Nelson Dagmar WMA',
-        url: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 07077730 Bayou Deview near Brinkley',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS Water Services 07077730 latest gage height',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07077730&parameterCd=00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'bayou-deview-apple-lake-bank-of-brinkley',
-    slug: 'bayou-deview-apple-lake-bank-of-brinkley',
-    name: 'Bayou DeView',
-    reach: 'Apple Lake Access to Bank of Brinkley Access',
-    aliases: [
-      'Bayou DeView - Apple Lake to Bank of Brinkley',
-      'Bayou DeView Water Trail lower segment',
-      'AGFC Bayou DeView Apple Lake to Bank of Brinkley',
-    ],
-    state: 'Arkansas',
-    region: 'Delta',
-    summary:
-      'Lower Bayou DeView water-trail segment from Apple Lake Access to Bank of Brinkley Access. AGFC documents the exact 4.3-mile public segment, the same direct gauge thresholds, and the split between Dagmar WMA camping and no camping on the Cache River refuge side.',
-    statusText:
-      'Use the Bayou DeView near Brinkley gauge. AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so this route treats 14 to under 17 ft as the usable band and flags lower or higher water as a problem.',
-    latitude: 34.82092,
-    longitude: -91.29125,
-    routeType: 'recreational',
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'private_banks'],
-      safetyNotes: [
-        'AGFC says high water is dangerous on Bayou DeView and the main channel is not always distinct, so the lower route still needs route-finding discipline even though it ends near Brinkley.',
-        'Use the Apple Lake seasonal access rules and the Bank of Brinkley launch road conditions as real go/no-go checks, not just the river gauge.',
-        'Stay off private banks and expect floating wood, blind turns through cypress, and stronger push as the gauge rises toward the 17-foot road-closure mark.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    gaugeSource: {
-      id: 'usgs-07077730',
-      provider: 'usgs',
-      siteId: '07077730',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Bayou Deview near Brinkley, AR',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 14,
-      idealMax: 16.9,
-      tooLow: 14,
-      tooHigh: 17,
-      thresholdSource: {
-        label: 'Arkansas Game and Fish Bayou DeView gauge guidance',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'This lower route still depends on enough stage to keep the trail connected, and launch-day checks should include both the USGS gauge and whether Apple Lake or lower access roads are open under current WMA conditions.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'AGFC treats the trail as flatwater without rapids, but this 4.3-mile lower version still needs navigation through timbered floodplain turns and should not be treated like a straight canal paddle.',
-      confidenceNotes:
-        'Confidence is high for a conservative Arkansas add: AGFC publishes Apple Lake to Bank of Brinkley as an exact 4.3-mile public segment, provides map-linked endpoint coordinates, and ties the trail to the direct USGS Brinkley gauge with explicit low and closure thresholds. The official USGS station showed a same-day gage-height reading of 15.26 ft at 2026-07-02 14:00 CDT during implementation, inside the official floatable window.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Apple Lake Access to Bank of Brinkley Access, 4.3 miles',
-        note: 'AGFC lists Apple Lake to Bank of Brinkley as an exact Bayou DeView Water Trail segment.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Direct gauge threshold',
-        value: 'Around 14 ft to paddle; Dagmar Road gate closes at 17 ft',
-        note: 'AGFC says the gauge height needs to be around 14 feet or higher to paddle the trail and that the gate on Dagmar Road is closed at 17 feet.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Recent official gauge reading',
-        value: 'USGS 07077730 at 15.26 ft',
-        note: 'The official USGS current-conditions page shows a same-day gage-height reading of 15.26 ft at 2026-07-02 14:00 CDT for Bayou Deview near Brinkley, inside AGFC\'s floatable threshold window.',
-        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07077730',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Apple Lake Access, 34.84159, -91.28200',
-        note: 'AGFC publishes Apple Lake Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Bank of Brinkley Access, 34.80024, -91.30049',
-        note: 'AGFC publishes Bank of Brinkley Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-      },
-      {
-        label: 'Camping and access policy',
-        value: 'Dagmar WMA campsites upstream; no Cache River NWR camping',
-        note: 'AGFC says free first-come campsites marked by blue paint are available on Dagmar WMA, Apple Lake WRA closes to access Nov. 1 through Feb. 15, and camping is not allowed on Cache River National Wildlife Refuge.',
-        sourceUrl: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'AGFC Bayou DeView Water Trail',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      {
-        label: 'AGFC Bayou DeView trail map',
-        url: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'AGFC Sheffield Nelson Dagmar WMA',
-        url: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 07077730 Bayou Deview near Brinkley',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 07077730 current conditions',
-        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07077730',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'bayou-deview-rock-island-road-bank-of-brinkley',
-    slug: 'bayou-deview-rock-island-road-bank-of-brinkley',
-    name: 'Bayou DeView',
-    reach: 'Rock Island Road Access to Bank of Brinkley Access',
-    aliases: [
-      'Bayou DeView - Rock Island Road to Bank of Brinkley',
-      'Bayou DeView Water Trail lower continuation',
-      'AGFC Bayou DeView Rock Island Road to Bank of Brinkley',
-    ],
-    state: 'Arkansas',
-    region: 'Delta',
-    summary:
-      'Lower Bayou DeView continuation from Rock Island Road Access to Bank of Brinkley Access. AGFC still documents the public access chain, the direct gauge thresholds, and the Apple Lake seasonal closure plus lower-refuge camping limits that shape the route.',
-    statusText:
-      'Use the Bayou DeView near Brinkley gauge. AGFC still says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so this route treats 14 to under 17 ft as the usable band and flags lower or higher water as a problem.',
-    latitude: 34.82968,
-    longitude: -91.29537,
-    routeType: 'recreational',
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'private_banks'],
-      safetyNotes: [
-        'AGFC says Bayou DeView high water is dangerous and the main channel is not always distinct, so this lower continuation still needs route-finding discipline even though it finishes closer to Brinkley.',
-        'Use the Apple Lake seasonal access rule and the lower access roads as real go/no-go checks, not just the river gauge.',
-        'Stay off private banks and expect floating wood, blind turns through cypress, and stronger push as the gauge rises toward the 17-foot road-closure mark.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    gaugeSource: {
-      id: 'usgs-07077730',
-      provider: 'usgs',
-      siteId: '07077730',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Bayou Deview near Brinkley, AR',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 14,
-      idealMax: 16.9,
-      tooLow: 14,
-      tooHigh: 17,
-      thresholdSource: {
-        label: 'Arkansas Game and Fish Bayou DeView gauge guidance',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'This lower continuation still depends on enough stage to keep the trail connected, and launch-day checks should include both the USGS gauge and whether Apple Lake or lower access roads are open under current WMA conditions.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'AGFC treats the trail as flatwater without rapids, but this 5.8-mile lower continuation still needs navigation through timbered floodplain turns and should not be treated like a straight canal paddle.',
-      confidenceNotes:
-        'Confidence is high for a conservative Arkansas add: AGFC still publishes the Rock Island -> Apple Lake 1.5-mile and Apple Lake -> Bank of Brinkley 4.3-mile public segments, which support a defensible 5.8-mile continuation with source-backed public endpoints. The same AGFC page still ties the trail to direct USGS 07077730 with explicit low and closure thresholds, and Water Services returned 15.26 ft at 2026-07-03 07:00 CDT.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route shape',
-        value: 'Rock Island Road Access to Bank of Brinkley Access, about 5.8 miles',
-        note: 'AGFC lists Rock Island Road to Apple Lake as 1.5 miles and Apple Lake to Bank of Brinkley as 4.3 miles, which supports this lower continuation through the same public access chain.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Direct gauge threshold',
-        value: 'Around 14 ft to paddle; Dagmar Road gate closes at 17 ft',
-        note: 'AGFC still says the gauge height needs to be around 14 feet or higher to paddle the trail and that the gate on Dagmar Road is closed at 17 feet.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Recent official gauge reading',
-        value: 'USGS 07077730 at 15.26 ft',
-        note: 'USGS Water Services returned a latest gage-height reading of 15.26 ft at 2026-07-03 07:00 CDT for Bayou Deview near Brinkley, inside AGFC\'s floatable threshold window.',
-        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07077730&parameterCd=00065&siteStatus=all',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Rock Island Road Access, 34.85911, -91.29025',
-        note: 'AGFC still publishes Rock Island Road Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Bank of Brinkley Access, 34.80024, -91.30049',
-        note: 'AGFC still publishes Bank of Brinkley Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-      },
-      {
-        label: 'Camping and seasonal access',
-        value: 'Free Dagmar WMA campsites; Apple Lake closed Nov. 1-Feb. 15; no Cache River NWR camping',
-        note: 'AGFC still says free first-come campsites marked by blue paint are available on Dagmar WMA, Apple Lake WRA closes to access from Nov. 1 through Feb. 15, and camping is not allowed on Cache River National Wildlife Refuge.',
-        sourceUrl: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'AGFC Bayou DeView Water Trail',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      {
-        label: 'AGFC Bayou DeView trail map',
-        url: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'AGFC Sheffield Nelson Dagmar WMA',
-        url: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 07077730 Bayou Deview near Brinkley',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS Water Services 07077730 latest gage height',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07077730&parameterCd=00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'bayou-deview-benson-creek-rock-island-road',
-    slug: 'bayou-deview-benson-creek-rock-island-road',
-    name: 'Bayou DeView',
-    reach: 'Benson Creek Access to Rock Island Road Access',
-    aliases: [
-      'Bayou DeView - Benson Creek to Rock Island Road',
-      'Bayou DeView Water Trail upper-to-middle continuation',
-      'AGFC Bayou DeView Benson Creek to Rock Island Road',
-    ],
-    state: 'Arkansas',
-    region: 'Delta',
-    summary:
-      'Longer upper-to-middle Bayou DeView continuation from Benson Creek Access to Rock Island Road Access. AGFC still documents the public access chain, the direct gauge thresholds, and the same floodplain route-finding caveats that make this more than a casual flatwater day.',
-    statusText:
-      'Use the Bayou DeView near Brinkley gauge. AGFC still says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so this route treats 14 to under 17 ft as the usable band and flags lower or higher water as a problem.',
-    latitude: 34.8974,
-    longitude: -91.27058,
-    routeType: 'recreational',
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'private_banks'],
-      safetyNotes: [
-        'AGFC says Bayou DeView high water is dangerous and the main channel is not always distinct, so this longer continuation needs active route-finding and conservative launch decisions.',
-        'Carry the AGFC georeferenced map offline and keep trail markers in sight because the upper-to-middle corridor leaves more room for wrong turns and time loss than the short splits.',
-        'Stay off private banks and expect wood, floating debris, and stronger current if the gauge rises toward the 17-foot Dagmar Road closure mark.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    gaugeSource: {
-      id: 'usgs-07077730',
-      provider: 'usgs',
-      siteId: '07077730',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Bayou Deview near Brinkley, AR',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 14,
-      idealMax: 16.9,
-      tooLow: 14,
-      tooHigh: 17,
-      thresholdSource: {
-        label: 'Arkansas Game and Fish Bayou DeView gauge guidance',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'This longer continuation still depends on enough stage to connect the marked trail without forcing shallow detours, and road-access checks matter because the Dagmar gate closes when the gauge reaches 17 ft.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'AGFC treats the trail as flatwater without rapids, but this 9.4-mile upper-to-middle version is a fuller navigation day through a floodplain channel network rather than a casual one-channel float.',
-      confidenceNotes:
-        'Confidence is high for a conservative Arkansas add: AGFC still publishes the Benson Creek -> Hickson Lake 6.5-mile and Hickson Lake -> Rock Island Road 2.9-mile public segments, which support a defensible 9.4-mile continuation with source-backed public endpoints. The same AGFC page still ties the trail to direct USGS 07077730 with explicit low and closure thresholds, and Water Services returned 15.26 ft at 2026-07-03 03:00 CDT.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route shape',
-        value: 'Benson Creek Access to Rock Island Road Access, about 9.4 miles',
-        note: 'AGFC lists Benson Creek to Hickson Lake as 6.5 miles and Hickson Lake to Rock Island Road as 2.9 miles, which supports the longer continuation through the same public access chain.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Direct gauge threshold',
-        value: 'Around 14 ft to paddle; Dagmar Road gate closes at 17 ft',
-        note: 'AGFC still says the gauge height needs to be around 14 feet or higher to paddle the trail and that the gate on Dagmar Road is closed at 17 feet.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Recent official gauge reading',
-        value: 'USGS 07077730 at 15.26 ft',
-        note: 'USGS Water Services returned a latest gage-height reading of 15.26 ft at 2026-07-03 03:00 CDT for Bayou Deview near Brinkley, inside AGFC\'s floatable threshold window.',
-        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07077730&parameterCd=00065&siteStatus=all',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Benson Creek Access, 34.93569, -91.24092',
-        note: 'AGFC still publishes Benson Creek Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Rock Island Road Access, 34.85911, -91.29025',
-        note: 'AGFC still publishes Rock Island Road Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-      },
-      {
-        label: 'Camping policy',
-        value: 'Free Dagmar WMA campsites; none on Cache River NWR',
-        note: 'AGFC still says free first-come campsites marked by blue paint are available on Dagmar WMA, while camping is not allowed on Cache River National Wildlife Refuge.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'AGFC Bayou DeView Water Trail',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      {
-        label: 'AGFC Bayou DeView trail map',
-        url: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'AGFC Sheffield Nelson Dagmar WMA',
-        url: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 07077730 Bayou Deview near Brinkley',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS Water Services 07077730 latest gage height',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07077730&parameterCd=00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'bayou-deview-benson-creek-apple-lake',
-    slug: 'bayou-deview-benson-creek-apple-lake',
-    name: 'Bayou DeView',
-    reach: 'Benson Creek Access to Apple Lake Access',
-    aliases: [
-      'Bayou DeView - Benson Creek to Apple Lake',
-      'Bayou DeView Water Trail upper-to-lower continuation',
-      'AGFC Bayou DeView Benson Creek to Apple Lake',
-    ],
-    state: 'Arkansas',
-    region: 'Delta',
-    summary:
-      'Longer Bayou DeView continuation from Benson Creek Access to Apple Lake Access. AGFC still documents the public access chain, the direct gauge thresholds, and the same floodplain route-finding plus Apple Lake seasonal caveats that make this a real planning route.',
-    statusText:
-      'Use the Bayou DeView near Brinkley gauge. AGFC still says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so this route treats 14 to under 17 ft as the usable band and flags lower or higher water as a problem.',
-    latitude: 34.88864,
-    longitude: -91.26146,
-    routeType: 'recreational',
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'private_banks'],
-      safetyNotes: [
-        'AGFC says Bayou DeView high water is dangerous and the main channel is not always distinct, so this longer continuation needs active route-finding and conservative launch decisions.',
-        'Carry the AGFC georeferenced map offline and keep trail markers in sight because the upper-to-lower corridor leaves more room for wrong turns and time loss than the short splits.',
-        'Stay off private banks and expect wood, floating debris, blind turns through cypress, and stronger current if the gauge rises toward the 17-foot Dagmar Road closure mark.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    gaugeSource: {
-      id: 'usgs-07077730',
-      provider: 'usgs',
-      siteId: '07077730',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Bayou Deview near Brinkley, AR',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 14,
-      idealMax: 16.9,
-      tooLow: 14,
-      tooHigh: 17,
-      thresholdSource: {
-        label: 'Arkansas Game and Fish Bayou DeView gauge guidance',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'This longer continuation still depends on enough stage to connect the marked trail without forcing shallow detours, and launch-day checks should include both the USGS gauge and whether Apple Lake access is seasonally open.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'AGFC treats the trail as flatwater without rapids, but this 10.9-mile upper-to-lower continuation is a fuller floodplain navigation day rather than a casual one-channel float.',
-      confidenceNotes:
-        'Confidence is high for a conservative Arkansas add: AGFC still publishes the Benson Creek -> Hickson Lake 6.5-mile, Hickson Lake -> Rock Island 2.9-mile, and Rock Island -> Apple Lake 1.5-mile public segments, which support a defensible 10.9-mile continuation with source-backed public endpoints. The same AGFC page still ties the trail to direct USGS 07077730 with explicit low and closure thresholds, and Water Services returned 15.26 ft at 2026-07-03 07:00 CDT.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route shape',
-        value: 'Benson Creek Access to Apple Lake Access, about 10.9 miles',
-        note: 'AGFC lists Benson Creek to Hickson Lake as 6.5 miles, Hickson Lake to Rock Island Road as 2.9 miles, and Rock Island Road to Apple Lake as 1.5 miles, which supports the longer upper-to-lower continuation.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Direct gauge threshold',
-        value: 'Around 14 ft to paddle; Dagmar Road gate closes at 17 ft',
-        note: 'AGFC still says the gauge height needs to be around 14 feet or higher to paddle the trail and that the gate on Dagmar Road is closed at 17 feet.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Recent official gauge reading',
-        value: 'USGS 07077730 at 15.26 ft',
-        note: 'USGS Water Services returned a latest gage-height reading of 15.26 ft at 2026-07-03 07:00 CDT for Bayou Deview near Brinkley, inside AGFC\'s floatable threshold window.',
-        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07077730&parameterCd=00065&siteStatus=all',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Benson Creek Access, 34.93569, -91.24092',
-        note: 'AGFC still publishes Benson Creek Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Apple Lake Access, 34.84159, -91.28200',
-        note: 'AGFC still publishes Apple Lake Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-      },
-      {
-        label: 'Camping and seasonal access',
-        value: 'Free Dagmar WMA campsites; Apple Lake closed Nov. 1-Feb. 15; no Cache River NWR camping',
-        note: 'AGFC still says free first-come campsites marked by blue paint are available on Dagmar WMA, Apple Lake WRA closes to access from Nov. 1 through Feb. 15, and camping is not allowed on Cache River National Wildlife Refuge.',
-        sourceUrl: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'AGFC Bayou DeView Water Trail',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      {
-        label: 'AGFC Bayou DeView trail map',
-        url: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'AGFC Sheffield Nelson Dagmar WMA',
-        url: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 07077730 Bayou Deview near Brinkley',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS Water Services 07077730 latest gage height',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07077730&parameterCd=00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'bayou-deview-hickson-lake-bank-of-brinkley',
-    slug: 'bayou-deview-hickson-lake-bank-of-brinkley',
-    name: 'Bayou DeView',
-    reach: 'Hickson Lake Access to Bank of Brinkley Access',
-    aliases: [
-      'Bayou DeView - Hickson Lake to Bank of Brinkley',
-      'Bayou DeView Water Trail lower-half continuation',
-      'AGFC Bayou DeView Hickson Lake to Bank of Brinkley',
-    ],
-    state: 'Arkansas',
-    region: 'Delta',
-    summary:
-      'Longer lower-half Bayou DeView continuation from Hickson Lake Access to Bank of Brinkley Access. AGFC still documents the access chain, the direct gauge thresholds, and the seasonal Apple Lake caveat that shape this route.',
-    statusText:
-      'Use the Bayou DeView near Brinkley gauge. AGFC still says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so this route treats 14 to under 17 ft as the usable band and flags lower or higher water as a problem.',
-    latitude: 34.84534,
-    longitude: -91.29269,
-    routeType: 'recreational',
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'private_banks'],
-      safetyNotes: [
-        'AGFC says Bayou DeView high water is dangerous and the main channel is not always distinct, so this longer lower-half route still needs route-finding discipline even though it ends near Brinkley.',
-        'Use the Apple Lake seasonal access rule and the lower access roads as real go/no-go checks, not just the river gauge.',
-        'Stay off private banks and expect floating wood, blind turns through cypress, and stronger push as the gauge rises toward the 17-foot road-closure mark.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    gaugeSource: {
-      id: 'usgs-07077730',
-      provider: 'usgs',
-      siteId: '07077730',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Bayou Deview near Brinkley, AR',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 14,
-      idealMax: 16.9,
-      tooLow: 14,
-      tooHigh: 17,
-      thresholdSource: {
-        label: 'Arkansas Game and Fish Bayou DeView gauge guidance',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'This longer lower-half route still depends on enough stage to keep the trail connected, and launch-day checks should include both the USGS gauge and whether Apple Lake or lower access roads are open under current WMA conditions.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'AGFC treats the trail as flatwater without rapids, but this 8.7-mile lower-half version still needs navigation through timbered floodplain turns and should not be treated like a straight canal paddle.',
-      confidenceNotes:
-        'Confidence is high for a conservative Arkansas add: AGFC still publishes the Hickson Lake -> Rock Island 2.9-mile, Rock Island -> Apple Lake 1.5-mile, and Apple Lake -> Bank of Brinkley 4.3-mile public segments, which support a defensible 8.7-mile continuation with source-backed public endpoints. The same AGFC page still ties the trail to direct USGS 07077730 with explicit low and closure thresholds, and Water Services returned 15.26 ft at 2026-07-03 03:00 CDT.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route shape',
-        value: 'Hickson Lake Access to Bank of Brinkley Access, about 8.7 miles',
-        note: 'AGFC lists Hickson Lake to Rock Island Road as 2.9 miles, Rock Island Road to Apple Lake as 1.5 miles, and Apple Lake to Bank of Brinkley as 4.3 miles, which supports the longer lower-half continuation.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Direct gauge threshold',
-        value: 'Around 14 ft to paddle; Dagmar Road gate closes at 17 ft',
-        note: 'AGFC still says the gauge height needs to be around 14 feet or higher to paddle the trail and that the gate on Dagmar Road is closed at 17 feet.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Recent official gauge reading',
-        value: 'USGS 07077730 at 15.26 ft',
-        note: 'USGS Water Services returned a latest gage-height reading of 15.26 ft at 2026-07-03 03:00 CDT for Bayou Deview near Brinkley, inside AGFC\'s floatable threshold window.',
-        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07077730&parameterCd=00065&siteStatus=all',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Hickson Lake Access, 34.89039, -91.29826',
-        note: 'AGFC still publishes Hickson Lake Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Bank of Brinkley Access, 34.80024, -91.30049',
-        note: 'AGFC still publishes Bank of Brinkley Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
-        sourceUrl: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-      },
-      {
-        label: 'Camping and seasonal access',
-        value: 'Free Dagmar WMA campsites; Apple Lake closed Nov. 1-Feb. 15; no Cache River NWR camping',
-        note: 'AGFC still says free first-come campsites marked by blue paint are available on Dagmar WMA, Apple Lake WRA closes to access from Nov. 1 through Feb. 15, and camping is not allowed on Cache River National Wildlife Refuge.',
-        sourceUrl: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'AGFC Bayou DeView Water Trail',
-        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
-        provider: 'local',
-      },
-      {
-        label: 'AGFC Bayou DeView trail map',
-        url: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'AGFC Sheffield Nelson Dagmar WMA',
-        url: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 07077730 Bayou Deview near Brinkley',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS Water Services 07077730 latest gage height',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07077730&parameterCd=00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
+
+
+
+
+
+
+
+
+
   {
     id: 'bayou-deview-benson-creek-bank-of-brinkley',
     slug: 'bayou-deview-benson-creek-bank-of-brinkley',
@@ -37221,13 +35604,13 @@ export const rivers: River[] = [
     reach: 'Benson Creek Access to Bank of Brinkley Access',
     aliases: [
       'Bayou DeView - Benson Creek to Bank of Brinkley',
-      'Bayou DeView Water Trail full route',
-      'AGFC Bayou DeView full 15.2-mile trail',
+      'Bayou DeView Water Trail full access-planner route',
+      'AGFC Bayou DeView full 15.2-mile planner trail',
     ],
     state: 'Arkansas',
     region: 'Delta',
     summary:
-      'Full Bayou DeView Water Trail from Benson Creek Access to Bank of Brinkley Access. AGFC still documents the entire 15.2-mile public trail, the direct gauge thresholds, and primitive Dagmar WMA camping support along the corridor.',
+      'Canonical full Bayou DeView Water Trail from Benson Creek Access to Bank of Brinkley Access. AGFC still documents the entire 15.2-mile public trail, the direct gauge thresholds, and primitive Dagmar WMA camping support, and this slug now carries the intermediate access planner instead of preserving every same-corridor permutation.',
     statusText:
       'Use the Bayou DeView near Brinkley gauge. AGFC still says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so this route treats 14 to under 17 ft as the usable band and flags lower or higher water as a problem.',
     latitude: 34.86797,
@@ -37310,6 +35693,12 @@ export const rivers: River[] = [
         label: 'Camping policy',
         value: 'Free Dagmar WMA campsites on route; none on Cache River NWR',
         note: 'AGFC still says free first-come campsites marked by blue paint are available on Dagmar WMA and that camping is not allowed on Cache River National Wildlife Refuge.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Planner model',
+        value: 'Canonical Bayou DeView corridor with intermediate public accesses',
+        note: 'This full-trail slug preserves Benson Creek to Bank of Brinkley as the canonical route while the trip details keep Dark Corner, Hickson Lake, Rock Island Road, and Apple Lake available as named public access-planner stops.',
         sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
       },
     ],
@@ -44609,6 +42998,339 @@ export const rivers: River[] = [
       {
         label: "KDFWR Tobacco Road Bridge Access",
         url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196",
+        provider: "local",
+      },
+      {
+        label: "USGS 03281100 Goose Creek at Manchester",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03281100 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "goose-creek-jacks-tobacco-road",
+    slug: "goose-creek-jacks-tobacco-road",
+    name: "Goose Creek",
+    reach: "Jacks / Bowling Branch Bridge Access to Tobacco Road Bridge Ramp",
+    aliases: [
+      "Goose Creek - Jacks to Tobacco Road",
+      "Goose Creek lower Manchester upper split",
+      "Goose Creek - Bowling Branch to Tobacco Road",
+    ],
+    state: "Kentucky",
+    region: "Eastern Kentucky",
+    summary:
+      "Short lower-Goose bridge-to-bridge float from Jacks / Bowling Branch to Tobacco Road. KDFWR publishes this exact 2.2-mile public segment and the official Manchester gauge bands.",
+    statusText:
+      "Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs as good for boating and fishing. Below that is low and likely to mean scraping or dragging; above that is high and deserves extra narrow-creek caution.",
+    latitude: 37.2052,
+    longitude: -83.7372,
+    gaugeSource: {
+      id: "usgs-03281100",
+      provider: "usgs",
+      siteId: "03281100",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Goose Creek at Manchester, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 175,
+      idealMax: 514,
+      tooLow: 175,
+      tooHigh: 514,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Goose Creek at Manchester",
+        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "high",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "Goose Creek is a smaller eastern Kentucky stream that changes quickly after rain. Spring and rainy fall windows are the most reliable; warm dry stretches can leave it scrape-prone even when the gauge still looks close.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This short lower-Goose split stays below the Rawlings / Stinson low-head-dam hazard, but it is still a narrow shallow creek with rock bars, bridge landings, wood, and limited parking. Treat it as an easy moving-water creek only in the official good band.",
+      confidenceNotes:
+        "Confidence is good for a conservative Kentucky add: KDFWR documents Jacks/Bowling Branch to Tobacco Road as a 2.2-mile public segment and publishes official low/good/high cfs and stage bands for direct gauge USGS 03281100 Goose Creek at Manchester. KDFWR access-detail pages provide source-backed coordinates and access notes for both bridge sites, and same-day USGS Water Services returned 10.4 cfs and 5.84 ft at 2026-07-03 11:45 EDT during this run. The creek is therefore well below the good band today, so the app should score it low and preserve scraping caution.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route shape",
+        value: "Jacks to Tobacco Road, 2.2 mi",
+        note: "KDFWR lists Jacks/Bowling Branch Bridge Access to Tobacco Road Bridge Ramp as a 2.2-mile public downstream segment.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "175-514 cfs good",
+        note: "KDFWR rates Goose Creek at Manchester as Low below 175 cfs, Good from 175 to 514 cfs, and High above 514 cfs; the same page also publishes matching stage bands of Low below 7.4 ft, Good from 7.4 to 8.5 ft, and High above 8.5 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Jacks/Bowling Branch Bridge Access, 37.2052, -83.7372",
+        note: "KDFWR identifies Jacks/Bowling Branch as a year-round carry-down access beside the Phil Young Road bridge with limited roadside parking and no amenities.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1195",
+      },
+      {
+        label: "Take-out access",
+        value: "Tobacco Road Bridge Ramp, 37.2163, -83.7175",
+        note: "KDFWR identifies Tobacco Road Bridge Ramp as a year-round bridge-side access with limited parking and no amenities.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03281100 at 10.4 cfs / 5.84 ft",
+        note: "USGS Water Services returned same-day discharge and gage-height readings for Goose Creek at Manchester during this route-add run. Both values sit below KDFWR's good bands, so the route should score low today.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Goose Creek",
+        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Jacks/Bowling Branch Bridge Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1195",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Tobacco Road Bridge Ramp",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196",
+        provider: "local",
+      },
+      {
+        label: "USGS 03281100 Goose Creek at Manchester",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03281100 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "goose-creek-tobacco-road-dump-hollow",
+    slug: "goose-creek-tobacco-road-dump-hollow",
+    name: "Goose Creek",
+    reach: "Tobacco Road Bridge Ramp to Dump Hollow Ford",
+    aliases: [
+      "Goose Creek - Tobacco Road to Dump Hollow",
+      "Goose Creek lower Manchester middle split",
+      "Goose Creek - Frazier Bridge to Dump Hollow",
+    ],
+    state: "Kentucky",
+    region: "Eastern Kentucky",
+    summary:
+      "Very short Goose Creek bridge-to-ford link from Tobacco Road to Dump Hollow. KDFWR publishes this exact 0.8-mile public segment and the official Manchester gauge bands.",
+    statusText:
+      "Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs as good for boating and fishing. Below that is low and likely to mean scraping or dragging; above that is high and deserves extra narrow-creek caution, especially at the Dump Hollow ford.",
+    latitude: 37.2163,
+    longitude: -83.7175,
+    gaugeSource: {
+      id: "usgs-03281100",
+      provider: "usgs",
+      siteId: "03281100",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Goose Creek at Manchester, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 175,
+      idealMax: 514,
+      tooLow: 175,
+      tooHigh: 514,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Goose Creek at Manchester",
+        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "high",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "Goose Creek is a smaller eastern Kentucky stream that changes quickly after rain. Spring and rainy fall windows are the most reliable; warm dry stretches can leave it scrape-prone even when the gauge still looks close.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is a short lower-Goose split below the Rawlings / Stinson low-head-dam problem, but it is still a narrow shallow creek with rock bars, limited parking, and a ford-style take-out that becomes less forgiving in higher water.",
+      confidenceNotes:
+        "Confidence is good for a conservative Kentucky add: KDFWR documents Tobacco Road to Dump Hollow as a 0.8-mile public segment and publishes official low/good/high cfs and stage bands for direct gauge USGS 03281100 Goose Creek at Manchester. KDFWR access-detail pages provide source-backed coordinates and access notes for both landings, and same-day USGS Water Services returned 10.4 cfs and 5.84 ft at 2026-07-03 11:45 EDT during this run. The creek is therefore well below the good band today, so the app should score it low and preserve scraping caution.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route shape",
+        value: "Tobacco Road to Dump Hollow, 0.8 mi",
+        note: "KDFWR lists Tobacco Road Bridge Ramp to Dump Hollow Ford as a 0.8-mile public downstream segment.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "175-514 cfs good",
+        note: "KDFWR rates Goose Creek at Manchester as Low below 175 cfs, Good from 175 to 514 cfs, and High above 514 cfs; the same page also publishes matching stage bands of Low below 7.4 ft, Good from 7.4 to 8.5 ft, and High above 8.5 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Tobacco Road Bridge Ramp, 37.2163, -83.7175",
+        note: "KDFWR identifies Tobacco Road Bridge Ramp as a year-round bridge-side access with limited parking and no amenities.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196",
+      },
+      {
+        label: "Take-out access",
+        value: "Dump Hollow Ford, 37.2127, -83.7040",
+        note: "KDFWR identifies Dump Hollow as a ford-style access where high water can make it difficult or dangerous to ford the creek or turn a vehicle around.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03281100 at 10.4 cfs / 5.84 ft",
+        note: "USGS Water Services returned same-day discharge and gage-height readings for Goose Creek at Manchester during this route-add run. Both values sit below KDFWR's good bands, so the route should score low today.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Goose Creek",
+        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Tobacco Road Bridge Ramp",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Dump Hollow Ford",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197",
+        provider: "local",
+      },
+      {
+        label: "USGS 03281100 Goose Creek at Manchester",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03281100 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "goose-creek-dump-hollow-laurel-branch",
+    slug: "goose-creek-dump-hollow-laurel-branch",
+    name: "Goose Creek",
+    reach: "Dump Hollow Ford to Laurel Branch Road Access",
+    aliases: [
+      "Goose Creek - Dump Hollow to Laurel Branch",
+      "Goose Creek lower Manchester lower split",
+      "Goose Creek - Dump Hollow Ford to Laurel Branch",
+    ],
+    state: "Kentucky",
+    region: "Eastern Kentucky",
+    summary:
+      "Short lower-Goose ford-to-roadside float from Dump Hollow to Laurel Branch. KDFWR publishes this exact 4.8-mile public segment and the official Manchester gauge bands.",
+    statusText:
+      "Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs as good for boating and fishing. Below that is low and likely to mean scraping or dragging; above that is high and deserves extra narrow-creek caution, especially if Dump Hollow is hard to use.",
+    latitude: 37.2127,
+    longitude: -83.704,
+    gaugeSource: {
+      id: "usgs-03281100",
+      provider: "usgs",
+      siteId: "03281100",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Goose Creek at Manchester, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 175,
+      idealMax: 514,
+      tooLow: 175,
+      tooHigh: 514,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Goose Creek at Manchester",
+        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "high",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "Goose Creek is a smaller eastern Kentucky stream that changes quickly after rain. Spring and rainy fall windows are the most reliable; warm dry stretches can leave it scrape-prone even when the gauge still looks close.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This lower-Goose split stays below the Rawlings / Stinson low-head-dam hazard, but it is still a narrow shallow creek with rock bars, wood, limited parking, and a ford-style put-in that becomes more complicated in high water.",
+      confidenceNotes:
+        "Confidence is good for a conservative Kentucky add: KDFWR documents Dump Hollow to Laurel Branch as a 4.8-mile public segment and publishes official low/good/high cfs and stage bands for direct gauge USGS 03281100 Goose Creek at Manchester. KDFWR access-detail pages provide source-backed coordinates and access notes for both sites, and same-day USGS Water Services returned 10.4 cfs and 5.84 ft at 2026-07-03 11:45 EDT during this run. The creek is therefore well below the good band today, so the app should score it low and preserve scraping caution.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route shape",
+        value: "Dump Hollow to Laurel Branch, 4.8 mi",
+        note: "KDFWR lists Dump Hollow Ford to Laurel Branch Road Access as a 4.8-mile public downstream segment.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "175-514 cfs good",
+        note: "KDFWR rates Goose Creek at Manchester as Low below 175 cfs, Good from 175 to 514 cfs, and High above 514 cfs; the same page also publishes matching stage bands of Low below 7.4 ft, Good from 7.4 to 8.5 ft, and High above 8.5 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Dump Hollow Ford, 37.2127, -83.7040",
+        note: "KDFWR identifies Dump Hollow as a ford-style access where high water can make it difficult or dangerous to ford the creek or turn a vehicle around.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197",
+      },
+      {
+        label: "Take-out access",
+        value: "Laurel Branch Road Access, 37.2370, -83.6703",
+        note: "KDFWR identifies Laurel Branch Road as a year-round carry-down access with limited parking, no amenities, and private banks outside the immediate launch area.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1198",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03281100 at 10.4 cfs / 5.84 ft",
+        note: "USGS Water Services returned same-day discharge and gage-height readings for Goose Creek at Manchester during this route-add run. Both values sit below KDFWR's good bands, so the route should score low today.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Goose Creek",
+        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Dump Hollow Ford",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Laurel Branch Road Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1198",
         provider: "local",
       },
       {
@@ -59950,408 +58672,9 @@ export const rivers: River[] = [
       },
     ],
   },
-  {
-    id: 'cumberland-river-redbird-longbottom',
-    slug: 'cumberland-river-redbird-longbottom',
-    name: 'Cumberland River',
-    reach: 'Redbird Ramp to Long Bottom Access',
-    aliases: [
-      'Cumberland River - Redbird to Long Bottom',
-      'Upper Cumberland Bee Shoals split',
-      'North Fork Cumberland River upper half above the falls',
-    ],
-    state: 'Kentucky',
-    region: 'Daniel Boone Country',
-    routeType: 'whitewater',
-    summary:
-      'Remote upper Cumberland split from Redbird Ramp to Long Bottom Access above Cumberland Falls. Current KDFWR route and map pages tie the segment to the direct Williamsburg gauge and the same official 500 to 1,100 cfs preferred band used on the rest of the upstream-of-the-falls corridor.',
-    statusText:
-      'Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best, lower water can mean dragging, and flows up to 2,000 cfs are challenging for skilled paddlers only. Scout the Long Bottom road and carry before committing because the take-out is rougher than the main Redbird and Thunderstruck ramps.',
-    latitude: 36.7621,
-    longitude: -84.2216,
-    gaugeSource: {
-      id: 'usgs-03404000',
-      provider: 'usgs',
-      siteId: '03404000',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Cumberland River at Williamsburg, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['whitewater', 'fast_rise', 'private_banks', 'remote'],
-      safetyNotes: [
-        'This is a remote moving-water gorge float with shoals and mild whitewater, not a casual flatwater trip.',
-        'KDFWR says lower water may require dragging and flows above 1,100 cfs become more technical, with up to 2,000 cfs for skilled paddlers only.',
-        'KDFWR says the last section of Forest Service Road 536 to Long Bottom is extremely rugged and best suited to high-clearance four-wheel-drive vehicles.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 500,
-      idealMax: 1100,
-      tooLow: 500,
-      tooHigh: 2000,
-      thresholdSource: {
-        label: 'KDFWR Cumberland River recommended Williamsburg flow band',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'This upper Cumberland split is best when the Williamsburg gauge is in the KDFWR band. Dry spells expose shoals, while storms quickly make the gorge pushier and the Long Bottom exit muddier and less forgiving.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The route is shorter than the full Redbird-to-Thunderstruck run but still includes remote shoals, mild whitewater, and a rough carry-down finish.',
-      confidenceNotes:
-        'Confidence is good for a guarded add: the current KDFWR page and 2023 route map name Redbird and Long Bottom as public accesses, publish the Williamsburg 500 to 1,100 cfs preferred band with skilled-paddler caution up to 2,000 cfs, and KDFWR access-detail pages provide source-backed coordinates for both named endpoints. Same-day USGS Water Services returned 1,100 cfs and 4.34 ft at 2026-07-03 05:00 EDT, exactly at the top of the official preferred band.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Redbird Ramp to Long Bottom Access, 9 mi',
-        note: 'The current KDFWR route map publishes Redbird to Longbottom as a 9-mile ramp-to-ramp distance.',
-        sourceUrl:
-          'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
-      },
-      {
-        label: 'Official level band',
-        value: '500-1100 cfs best; up to 2000 cfs challenging',
-        note: 'KDFWR says lower water may require dragging and higher water up to 2,000 cfs is challenging for skilled paddlers only.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Redbird Ramp, 36.7621, -84.2216',
-        note: 'KDFWR access detail lists Redbird as a paved public ramp with year-round availability.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=904',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Long Bottom Access, 36.7772, -84.3455',
-        note: 'KDFWR access detail lists Long Bottom as a year-round public carry-down access and the route page warns the final road approach is extremely rugged.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=665',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03404000 at 1100 cfs / 4.34 ft',
-        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-07-03 05:00 EDT during this run.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Camping support',
-        value: 'Primitive float-camping banks downstream of Bee Shoals',
-        note: 'KDFWR says float campers use the banks downstream of Bee Shoals on this upper corridor.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR Cumberland River',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Cumberland River detailed map',
-        url: 'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Redbird Ramp',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=904',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Long Bottom Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=665',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03404000 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03404000 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'cumberland-river-longbottom-thunderstruck',
-    slug: 'cumberland-river-longbottom-thunderstruck',
-    name: 'Cumberland River',
-    reach: 'Long Bottom Access to Thunderstruck Ramp',
-    aliases: [
-      'Cumberland River - Long Bottom to Thunderstruck',
-      'Upper Cumberland middle split',
-      'North Fork Cumberland River Long Bottom connector',
-    ],
-    state: 'Kentucky',
-    region: 'Daniel Boone Country',
-    routeType: 'whitewater',
-    summary:
-      'Short middle-gorge Cumberland split from Long Bottom Access to Thunderstruck Ramp above Cumberland Falls. The current KDFWR route map gives the exact 2.5-mile ramp-to-ramp distance and uses the same direct Williamsburg gauge with the official 500 to 1,100 cfs preferred band.',
-    statusText:
-      'Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best, lower water can mean dragging, and flows up to 2,000 cfs are challenging for skilled paddlers only. Long Bottom is a rough carry-down and Thunderstruck is easy to miss if you drift past the left-bank access.',
-    latitude: 36.7772,
-    longitude: -84.3455,
-    gaugeSource: {
-      id: 'usgs-03404000',
-      provider: 'usgs',
-      siteId: '03404000',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Cumberland River at Williamsburg, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['whitewater', 'fast_rise', 'private_banks', 'remote'],
-      safetyNotes: [
-        'Even though it is short, this segment still includes shoals and moving-water decision points in a remote gorge corridor.',
-        'KDFWR describes Long Bottom road access as extremely rugged and says Thunderstruck is easy to miss without paying attention to the left-bank exit.',
-        'Treat flows above 1,100 cfs as a stronger-water skilled-paddler day, with 2,000 cfs as KDFWR’s upper challenge line.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 500,
-      idealMax: 1100,
-      tooLow: 500,
-      tooHigh: 2000,
-      thresholdSource: {
-        label: 'KDFWR Cumberland River recommended Williamsburg flow band',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'The short mileage keeps this segment practical, but it still relies on the same rain-sensitive Cumberland gorge band as the adjacent official floats. Low water can scrape, and storms quickly sharpen the shoals and make the rough Long Bottom access harder to manage.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'This is the shortest upstream-of-the-falls split, but the rough carry-down, shoals, and remote setting make it a moving-water route rather than a casual beginner shuttle.',
-      confidenceNotes:
-        'Confidence is good for a guarded add because the current KDFWR map names Longbottom and Thunderstruck as public ramp-to-ramp endpoints at 2.5 miles, KDFWR access-detail pages provide coordinates for both, and the direct Williamsburg gauge plus official 500 to 1,100 cfs band apply to the whole corridor. Same-day USGS Water Services returned 1,100 cfs and 4.34 ft at 2026-07-03 05:00 EDT, right at the top of the preferred band.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Long Bottom Access to Thunderstruck Ramp, 2.5 mi',
-        note: 'The current KDFWR route map publishes Longbottom to Thunderstruck as a 2.5-mile ramp-to-ramp distance.',
-        sourceUrl:
-          'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
-      },
-      {
-        label: 'Official level band',
-        value: '500-1100 cfs best; up to 2000 cfs challenging',
-        note: 'KDFWR says lower water may require dragging and higher water up to 2,000 cfs is challenging for skilled paddlers only.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Long Bottom Access, 36.7772, -84.3455',
-        note: 'KDFWR access detail lists Long Bottom as a year-round public carry-down access with unpaved parking.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=665',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Thunderstruck Ramp, 36.8077, -84.3546',
-        note: 'KDFWR access detail lists Thunderstruck as a year-round public ramp, and the route page warns the access is easy to miss unless paddlers pay attention to the left-bank take-out.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03404000 at 1100 cfs / 4.34 ft',
-        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-07-03 05:00 EDT during this run.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Access caveat',
-        value: 'Long Bottom road is extremely rugged',
-        note: 'KDFWR says the last section of Forest Service Road 536 down to Long Bottom is extremely rugged and recommends high-clearance four-wheel drive vehicles.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR Cumberland River',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Cumberland River detailed map',
-        url: 'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Long Bottom Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=665',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Thunderstruck Ramp',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03404000 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03404000 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'cumberland-river-longbottom-cumberland-falls',
-    slug: 'cumberland-river-longbottom-cumberland-falls',
-    name: 'Cumberland River',
-    reach: 'Long Bottom Access to Cumberland Falls Carrydown',
-    aliases: [
-      'Cumberland River - Long Bottom to Cumberland Falls',
-      'Upper Cumberland lower gorge combination',
-      'North Fork Cumberland River Long Bottom to falls',
-    ],
-    state: 'Kentucky',
-    region: 'Daniel Boone Country',
-    routeType: 'whitewater',
-    summary:
-      'Lower upstream-of-the-falls Cumberland combination from Long Bottom Access to the public Cumberland Falls carrydown. The current KDFWR route map supports the exact 7.6-mile distance by combining Longbottom to Thunderstruck and Thunderstruck to Cumberland Falls under one direct Williamsburg gauge and one official 500 to 1,100 cfs preferred band.',
-    statusText:
-      'Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best, lower water can mean dragging, and flows up to 2,000 cfs are challenging for skilled paddlers only. Missing the right-bank take-out above Cumberland Falls is not acceptable.',
-    latitude: 36.7772,
-    longitude: -84.3455,
-    gaugeSource: {
-      id: 'usgs-03404000',
-      provider: 'usgs',
-      siteId: '03404000',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Cumberland River at Williamsburg, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-    },
-    safetyProfile: {
-      riskLevel: 'advanced',
-      hazards: ['whitewater', 'mandatory_takeout', 'fast_rise', 'private_banks', 'remote'],
-      safetyNotes: [
-        'This route combines the rough Long Bottom access with the downstream gorge section that ends at a mandatory take-out above Cumberland Falls.',
-        'KDFWR says paddlers must work right before the KY 90 bridge and take out at the falls parking area because missing the finish leads toward the 68-foot falls.',
-        'The Long Bottom road approach is extremely rugged, so do not treat this as a quick roadside rescue-friendly route.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 500,
-      idealMax: 1100,
-      tooLow: 500,
-      tooHigh: 2000,
-      thresholdSource: {
-        label: 'KDFWR Cumberland River recommended Williamsburg flow band',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'This longer lower-gorge combination is most defensible when the Williamsburg gauge stays in or near the KDFWR band and weather is stable. Rain can quickly turn the gorge, rapid sequence, and final mandatory take-out into a much more serious day.',
-      difficulty: 'hard',
-      difficultyNotes:
-        'The route includes gorge shoals, the Pitch Rapids and lower drop sequence, a rough upstream access road, and a mandatory take-out above Cumberland Falls.',
-      confidenceNotes:
-        'Confidence is good for a guarded add because the current KDFWR page and 2023 route map name Longbottom, Thunderstruck, and Cumberland Falls as public access points, publish the official Williamsburg 500 to 1,100 cfs preferred band with skilled-paddler caution up to 2,000 cfs, and KDFWR access-detail pages provide source-backed coordinates for Long Bottom and Cumberland Falls. Same-day USGS Water Services returned 1,100 cfs and 4.34 ft at 2026-07-03 05:00 EDT, exactly at the top of the preferred band.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Long Bottom Access to Cumberland Falls, 7.6 mi',
-        note: 'The current KDFWR route map publishes Longbottom to Thunderstruck as 2.5 miles and Thunderstruck to Cumberland Falls as 5.1 miles, which support this 7.6-mile combination.',
-        sourceUrl:
-          'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
-      },
-      {
-        label: 'Mandatory take-out warning',
-        value: 'Work right and take out below the KY 90 bridge',
-        note: 'KDFWR says paddlers must work to the right and take out at the public falls parking/carrydown area because the current otherwise leads toward Cumberland Falls.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Long Bottom Access, 36.7772, -84.3455',
-        note: 'KDFWR access detail lists Long Bottom as a year-round public carry-down access and the route page warns the final road approach is extremely rugged.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=665',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Cumberland Falls Carrydown, 36.8421, -84.3435',
-        note: 'KDFWR access detail lists Cumberland Falls as a public year-round carrydown with paved parking, seasonal camping, and year-round lodging at the state resort park.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=987',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03404000 at 1100 cfs / 4.34 ft',
-        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-07-03 05:00 EDT during this run.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Camping support',
-        value: 'Cumberland Falls campground and lodging at the take-out',
-        note: 'KDFWR access detail for Cumberland Falls says camping is seasonal and lodging is year-round at the state resort park.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=987',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR Cumberland River',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Cumberland River detailed map',
-        url: 'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Long Bottom Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=665',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Cumberland Falls Carrydown',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=987',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03404000 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03404000 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
+
+
+
   {
     id: 'cumberland-river-redbird-cumberland-falls',
     slug: 'cumberland-river-redbird-cumberland-falls',
@@ -60359,14 +58682,14 @@ export const rivers: River[] = [
     reach: 'Redbird Ramp to Cumberland Falls Carrydown',
     aliases: [
       'Cumberland River - Redbird to Cumberland Falls',
-      'Upper Cumberland full upstream-of-the-falls chain',
-      'North Fork Cumberland River gorge combination',
+      'Upper Cumberland upstream-of-the-falls access-planner corridor',
+      'North Fork Cumberland River gorge planner combination',
     ],
     state: 'Kentucky',
     region: 'Daniel Boone Country',
     routeType: 'whitewater',
     summary:
-      'Full upstream-of-the-falls Cumberland combination from Redbird Ramp to the public Cumberland Falls carrydown. Current KDFWR guidance and the current route map support the exact 16.6-mile distance by chaining Redbird to Long Bottom, Long Bottom to Thunderstruck, and Thunderstruck to Cumberland Falls under one direct Williamsburg gauge and one official 500 to 1,100 cfs preferred band.',
+      'Canonical full upstream-of-the-falls Cumberland combination from Redbird Ramp to the public Cumberland Falls carrydown. Current KDFWR guidance and the current route map support the exact 16.6-mile distance by chaining Redbird to Long Bottom, Long Bottom to Thunderstruck, and Thunderstruck to Cumberland Falls under one direct Williamsburg gauge, and this slug now carries the intermediate public access planner instead of preserving every chain permutation.',
     statusText:
       'Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best, lower water can mean dragging, and flows up to 2,000 cfs are challenging for skilled paddlers only. Missing the right-bank take-out above Cumberland Falls is not acceptable.',
     latitude: 36.7621,
@@ -60418,6 +58741,13 @@ export const rivers: River[] = [
         label: 'Official route segment',
         value: 'Redbird Ramp to Cumberland Falls, 16.6 mi',
         note: 'The current KDFWR route map publishes Redbird to Longbottom as 9.0 miles, Longbottom to Thunderstruck as 2.5 miles, and Thunderstruck to Cumberland Falls as 5.1 miles, which support this 16.6-mile combination.',
+        sourceUrl:
+          'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
+      },
+      {
+        label: 'Planner model',
+        value: 'Canonical Cumberland gorge corridor with intermediate public accesses',
+        note: 'This slug keeps Redbird as the upstream launch and Cumberland Falls as the mandatory downstream finish while the trip details preserve Long Bottom and Thunderstruck as named public mid-route options for bailout or shorter planning.',
         sourceUrl:
           'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
       },
@@ -60486,262 +58816,8 @@ export const rivers: River[] = [
       },
     ],
   },
-  {
-    id: 'cumberland-river-redbird-thunderstruck',
-    slug: 'cumberland-river-redbird-thunderstruck',
-    name: 'Cumberland River',
-    reach: 'Redbird Ramp to Thunderstruck Ramp',
-    aliases: [
-      'Cumberland River - Redbird to Thunderstruck',
-      'Upper Cumberland above the falls',
-      'North Fork Cumberland River upper float',
-    ],
-    state: 'Kentucky',
-    region: 'Daniel Boone Country',
-    routeType: 'whitewater',
-    summary:
-      'Remote upper Cumberland run from Redbird Ramp to Thunderstruck Access above Cumberland Falls. KDFWR documents this as the first of two official upstream-of-the-falls floats and ties it to the direct Williamsburg gauge with a 500 to 1,100 cfs preferred band.',
-    statusText:
-      'Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best, lower water can mean dragging, and flows up to 2,000 cfs are challenging for skilled paddlers only.',
-    latitude: 36.7621,
-    longitude: -84.2216,
-    gaugeSource: {
-      id: 'usgs-03404000',
-      provider: 'usgs',
-      siteId: '03404000',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Cumberland River at Williamsburg, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['whitewater', 'fast_rise', 'private_banks', 'remote'],
-      safetyNotes: [
-        'This is a remote gorge float with shoals and mild whitewater rapids, not a casual flatwater cruise.',
-        'KDFWR says water above 1,100 cfs becomes more challenging and up to 2,000 cfs is for skilled paddlers only.',
-        'Long Bottom and Mouth of Indian Creek are not dependable normal exits because KDFWR describes those roads as extremely rough.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 500,
-      idealMax: 1100,
-      tooLow: 500,
-      tooHigh: 2000,
-      thresholdSource: {
-        label: 'KDFWR Cumberland River recommended Williamsburg flow band',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'This forested Cumberland run is best when the Williamsburg gauge is inside the KDFWR band. Dry spells can expose shoals, while storms can push the gorge into a more technical day quickly.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The route has mild whitewater, broad shoals, and a remote finish. It is manageable for competent moving-water paddlers at normal levels but should not be treated like an easy family float.',
-      confidenceNotes:
-        'Confidence is good for a guarded add: KDFWR explicitly names Redbird and Thunderstruck as the upstream-official float endpoints, publishes the 500 to 1,100 cfs Williamsburg band with higher-water caution up to 2,000 cfs, and KDFWR access-detail pages provide source-backed coordinates for both ramps. Same-day USGS Water Services showed 1,260 cfs at 2026-06-25 21:00 EDT, which is above the preferred band but still inside KDFWR\'s skilled-paddler higher-water envelope.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Redbird Ramp to Thunderstruck Ramp, about 11 mi',
-        note: 'KDFWR presents this as the first of the two official upstream Cumberland Falls floats and places Thunderstruck at the end of the first run.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-      {
-        label: 'Official level band',
-        value: '500-1100 cfs best; up to 2000 cfs challenging',
-        note: 'KDFWR says lower water may require dragging and higher water up to 2,000 cfs is challenging for skilled paddlers only.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Redbird Ramp, 36.7621, -84.2216',
-        note: 'KDFWR access detail lists Redbird as a paved public ramp with year-round availability.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=904',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Thunderstruck Ramp, 36.8077, -84.3546',
-        note: 'KDFWR access detail lists Thunderstruck as a year-round public ramp with unpaved parking.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03404000 at 1260 cfs / 4.56 ft',
-        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-06-25 21:00 EDT during this run.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Camping support',
-        value: 'Float-camping banks downstream of Bee Shoals',
-        note: 'KDFWR says float campers use the banks downstream of Bee Shoals as camping sites on this route.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR Cumberland River',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Redbird Ramp',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=904',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Thunderstruck Ramp',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03404000 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03404000 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'cumberland-river-thunderstruck-cumberland-falls',
-    slug: 'cumberland-river-thunderstruck-cumberland-falls',
-    name: 'Cumberland River',
-    reach: 'Thunderstruck Ramp to Cumberland Falls State Resort Park',
-    aliases: [
-      'Cumberland River - Thunderstruck to Cumberland Falls',
-      'Upper Cumberland gorge to the falls',
-      'North Fork Cumberland River lower float above the falls',
-    ],
-    state: 'Kentucky',
-    region: 'Daniel Boone Country',
-    routeType: 'whitewater',
-    summary:
-      'Shorter but more consequential upstream-of-the-falls Cumberland run from Thunderstruck Access to the public Cumberland Falls viewing parking area. KDFWR uses the same direct Williamsburg gauge and explicitly warns paddlers to work right and take out before the falls.',
-    statusText:
-      'Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best, lower water can mean dragging, and higher water up to 2,000 cfs is challenging for skilled paddlers only. Missing the take-out is not acceptable because the falls are immediately downstream.',
-    latitude: 36.8077,
-    longitude: -84.3546,
-    gaugeSource: {
-      id: 'usgs-03404000',
-      provider: 'usgs',
-      siteId: '03404000',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Cumberland River at Williamsburg, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-    },
-    safetyProfile: {
-      riskLevel: 'advanced',
-      hazards: ['whitewater', 'mandatory_takeout', 'fast_rise', 'private_banks', 'remote'],
-      safetyNotes: [
-        'KDFWR says several drops lead toward Cumberland Falls and paddlers must work to the right of the river before the KY 90 bridge.',
-        'Any upset or missed line near the finish can create a treacherous situation because the current leads directly toward the 68-foot falls.',
-        'Treat this as an advanced moving-water route even when the gauge is inside the preferred band.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 500,
-      idealMax: 1100,
-      tooLow: 500,
-      tooHigh: 2000,
-      thresholdSource: {
-        label: 'KDFWR Cumberland River recommended Williamsburg flow band',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'This gorge route is most defensible when the Williamsburg gauge stays in or near the KDFWR band and weather is stable. Rain can make the rapid sequence and final take-out substantially more serious.',
-      difficulty: 'hard',
-      difficultyNotes:
-        'The route includes Class II-style rapid features at higher water, a fast gorge finish, and a mandatory take-out above Cumberland Falls.',
-      confidenceNotes:
-        'Confidence is good for a guarded add because KDFWR explicitly names Thunderstruck as the put-in, the Cumberland Falls parking lot as the take-out, and the right-bank take-out behavior above the falls. The direct Williamsburg gauge and official flow band are the same as the upstream segment. Same-day USGS Water Services showed 1,260 cfs at 2026-06-25 21:00 EDT, slightly above the preferred band and therefore in KDFWR\'s more challenging higher-water posture.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Thunderstruck to Cumberland Falls, about 5 mi',
-        note: 'KDFWR presents this as the second of the two official upstream Cumberland Falls floats.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-      {
-        label: 'Mandatory take-out warning',
-        value: 'Work right and take out below the KY 90 bridge',
-        note: 'KDFWR says paddlers must work to the right and take out at the parking lot for viewing Cumberland Falls because the rapids otherwise lead toward the falls.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Thunderstruck Ramp, 36.8077, -84.3546',
-        note: 'KDFWR access detail lists Thunderstruck as a public year-round ramp.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Cumberland Falls viewing parking area, 36.837636, -84.343597',
-        note: 'KDFWR says the take-out is at the parking lot for viewing Cumberland Falls just downstream of the KY 90 bridge. The coordinate is anchored to the public falls parking and overlook trailhead area beside the bridge.',
-        sourceUrl: 'https://www.kentuckyhiker.com/latest/2020/11/26/cumberland-falls-overlooks-loop',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03404000 at 1260 cfs / 4.56 ft',
-        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-06-25 21:00 EDT during this run.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Camping support',
-        value: 'Cumberland Falls campgrounds and cabins',
-        note: 'Kentucky State Parks lists Clifty primitive sites, Ridgeline electric-and-water campsites, cabins, and other lodging at Cumberland Falls State Resort Park.',
-        sourceUrl: 'https://parks.ky.gov/explore/cumberland-falls-state-resort-park-7786',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR Cumberland River',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Thunderstruck Ramp',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
-        provider: 'local',
-      },
-      {
-        label: 'Kentucky State Parks Cumberland Falls',
-        url: 'https://parks.ky.gov/explore/cumberland-falls-state-resort-park-7786',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03404000 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03404000 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
+
+
   {
     id: 'upper-cumberland-river-varilla-4-mile',
     slug: 'upper-cumberland-river-varilla-4-mile',
