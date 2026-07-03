@@ -20432,5 +20432,119 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'barren-river-state-street-james-r-hines': {
+    putIn: {
+      id: 'state-street-bridge-access',
+      name: 'State Street Bridge Access',
+      latitude: 37.0017,
+      longitude: -86.4296,
+    },
+    takeOut: {
+      id: 'james-r-hines-boat-landing-ramp',
+      name: 'James R. Hines Boat Landing Ramp',
+      latitude: 37.0161,
+      longitude: -86.4449,
+    },
+    logistics: {
+      distanceLabel: 'About 7.7 mi',
+      estimatedPaddleTime:
+        'About 2.5 hr to 5 hr, longer with low-water scraping, fishing stops, or upstream wind',
+      shuttle:
+        'Leave the downstream vehicle at James R. Hines Boat Landing Ramp, then drive back to State Street Bridge Access. The shuttle is simple, but the route still covers enough broad-river water that weather and daylight matter.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and do not treat private banks or the campers-only Beech Bend ramp as public route facilities.',
+      camping:
+        'Treat this as a day route. KDFWR says Beech Bend access is available only to registered campers, so it should not be treated as normal route camping or a public overnight endpoint.',
+      campingClassification: 'none',
+      summary:
+        'Launch at State Street Bridge Access and finish at James R. Hines Boat Landing Ramp for a mid-length lower-Barren city route. Use the Bowling Green gauge and expect a slower day whenever the river sits below 350 cfs.',
+      accessCaveats: [
+        'State Street and James R. Hines are the clean public endpoints for this route. KDFWR says Beech Bend is for registered campers only, so do not count on it as a routine public shuttle or bailout.',
+        'Most shoreline outside the named accesses is private. Keep rest stops and the take-out strictly inside the public access footprint.',
+        'Even though this corridor stays near Bowling Green, it is still a point-to-point river day rather than a park loop.',
+      ],
+      watchFor: [
+        'Low water below about 350 cfs, when shoals and broad slow pools can drag out the trip.',
+        'High water above about 700 cfs, when current at bends, bridge areas, and the downstream landing becomes less forgiving.',
+        'Upstream wind on open pools, fresh wood after rain, and bridge-adjacent current.',
+      ],
+    },
+  },
+  'barren-river-james-r-hines-lonnie-white': {
+    putIn: {
+      id: 'james-r-hines-boat-landing-ramp',
+      name: 'James R. Hines Boat Landing Ramp',
+      latitude: 37.0161,
+      longitude: -86.4449,
+    },
+    takeOut: {
+      id: 'lonnie-white-boat-ramp',
+      name: 'Lonnie White Boat Ramp',
+      latitude: 37.0348,
+      longitude: -86.4984,
+    },
+    logistics: {
+      distanceLabel: 'About 6.7 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 4.5 hr, longer with low-water scraping, fishing stops, or upstream wind',
+      shuttle:
+        'Leave the downstream vehicle at Lonnie White Boat Ramp / Thomas Landing, then drive back to James R. Hines Boat Landing Ramp. Start early enough that a slow pooled finish does not run into the Thomas Landing dusk closure.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public ramps, follow Kentucky boating and PFD rules, and respect private banks between the named accesses.',
+      camping:
+        'Treat this as a day route. KDFWR does not document public route camping on this segment, and Thomas Landing is a park access rather than an overnight site.',
+      campingClassification: 'none',
+      summary:
+        'Launch at James R. Hines Boat Landing Ramp and finish at Lonnie White Boat Ramp for the official 6.7-mile lower-Barren segment. Use the Bowling Green gauge and expect slower pooled water whenever the river stays below 350 cfs.',
+      accessCaveats: [
+        'Lonnie White / Thomas Landing is the intended finish. KDFWR says the park closes at dusk, so do not launch late on a marginal-flow day.',
+        'The lower reach is pooled by Lock and Dam 1 influence near Greencastle, which can make the finish feel slower and more wind-exposed than the mileage suggests.',
+        'Most shoreline between the ramps is private and should not be treated as public rest-stop space.',
+      ],
+      watchFor: [
+        'Low water below about 350 cfs, when shoals, slack pools, and upstream wind can slow the route.',
+        'High water above about 700 cfs, when bridge current, bends, and landings get less forgiving.',
+        'Pooled finish water near Thomas Landing, fresh debris after rain, and sparse services away from the ramps.',
+      ],
+    },
+  },
+  'barren-river-state-street-lonnie-white': {
+    putIn: {
+      id: 'state-street-bridge-access',
+      name: 'State Street Bridge Access',
+      latitude: 37.0017,
+      longitude: -86.4296,
+    },
+    takeOut: {
+      id: 'lonnie-white-boat-ramp',
+      name: 'Lonnie White Boat Ramp',
+      latitude: 37.0348,
+      longitude: -86.4984,
+    },
+    logistics: {
+      distanceLabel: 'About 14.4 mi',
+      estimatedPaddleTime:
+        'About 4.5 hr to 8 hr, longer with low water, upstream wind, or fishing stops',
+      shuttle:
+        'Stage the take-out at Lonnie White Boat Ramp / Thomas Landing, then drive back to State Street Bridge Access. This is a real full-day downstream commitment, not a short after-work paddle.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and do not count on private banks or the campers-only Beech Bend ramp as route facilities.',
+      camping:
+        'Treat this as a long day route. KDFWR does not document public camping support on this exact corridor, and Beech Bend access is limited to registered campers rather than general route users.',
+      campingClassification: 'none',
+      summary:
+        'Launch at State Street Bridge Access and finish at Lonnie White Boat Ramp for the longer downstream lower-Barren city segment. Use the Bowling Green gauge and expect a long slow day whenever the river stays below 350 cfs.',
+      accessCaveats: [
+        'This route passes Beech Bend and James R. Hines, but only State Street and Lonnie White are the intended public endpoints. KDFWR says Beech Bend is for registered campers only.',
+        'The lower finish at Thomas Landing is pooled by Lock and Dam 1 influence, so leave margin for a slower final stretch and the park dusk closure.',
+        'Most shoreline between the endpoints is private. Do not assume wide banks or bars are legal public stops.',
+      ],
+      watchFor: [
+        'Low water below about 350 cfs, when shoals, broad pools, and wind can turn the day into a grind.',
+        'High water above about 700 cfs, when bridge current, bends, and landings become less forgiving across a long day.',
+        'Upstream wind, fresh wood after rain, and fatigue on the pooled Thomas Landing finish.',
+      ],
+    },
+  },
 };
 

@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-03 00:22 America/Chicago / 2026-07-03 05:22 UTC.
+Last summarized: 2026-07-03 01:19 America/Chicago / 2026-07-03 06:19 UTC.
 
 ## Current Inventory
 
-- Live routes: 83.
-- Ledger candidates: 60 Kentucky-specific records. The newest live slugs from this run are `south-fork-kentucky-river-oneida-kay-wood`, `south-fork-kentucky-river-rocky-branch-fish-creek`, and `south-fork-kentucky-river-cedar-valley-fish-creek`.
+- Live routes: 87.
+- Ledger candidates: 63 Kentucky-specific records. The newest live slugs from this run are `barren-river-state-street-james-r-hines`, `barren-river-james-r-hines-lonnie-white`, and `barren-river-state-street-lonnie-white`.
 
 ## Status
 
@@ -20,6 +20,13 @@ Kentucky had been paused from the active automation rotation at user request whi
 - For Elkhorn specifically, do not substitute nearby bank/wade-only VPA sites for boat access; KDFWR explicitly prohibits boat carry-in/out at some Elkhorn VPA points.
 
 ## Current Guidance
+
+- 2026-07-03 01:19 America/Chicago / 2026-07-03 06:19 UTC three-route add pass
+  - Added `barren-river-state-street-james-r-hines`, `barren-river-james-r-hines-lonnie-white`, and `barren-river-state-street-lonnie-white` to expand Kentucky beyond the 485-route repo baseline at run start.
+  - The run reused the current KDFWR Lower Barren page for the exact downstream site-to-site chain of State Street Bridge Access to Beech Bend Park `3.1`, Beech Bend Park to James R. Hines Boat Landing Ramp `4.6`, and James R. Hines Boat Landing Ramp to Lonnie White Ramp `6.7`, which support the new public routes of about `7.7`, `6.7`, and `14.4` miles.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for State Street Bridge Access, James R. Hines / Boat Landing Road Ramp, and Lonnie White Boat Ramp; same-day direct USGS Water Services returned `198 cfs / 3.85 ft` at Barren River at Bowling Green (`03314500`) at `2026-07-03 00:45 CDT`, still below the official `350-700 cfs` good band.
+  - Camping stays conservative at `none` for all three because KDFWR does not document general public overnight support on this corridor and Beech Bend access remains registered-campers-only rather than a normal public route endpoint. Safety notes stay focused on low-water shoals, bridge current, private-bank limits, fast rises, the pooled Thomas Landing finish, and not treating the Beech Bend campground ramp as a standard public bailout.
+  - Bounded image review stayed negative for all three: no clearly rights-clean exact-route asset was selected from KDFWR access imagery, Commons, or same-river USGS media, so `docs/river-image-source-audit.csv` records no-image outcomes for the three new slugs.
 
 - 2026-07-03 00:22 America/Chicago / 2026-07-03 05:22 UTC three-route add pass
   - Added `south-fork-kentucky-river-oneida-kay-wood`, `south-fork-kentucky-river-rocky-branch-fish-creek`, and `south-fork-kentucky-river-cedar-valley-fish-creek` to expand Kentucky beyond the 482-route repo baseline at run start.
