@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-02 17:08 America/Chicago / 2026-07-02 22:08 UTC.
+Last summarized: 2026-07-02 19:14 America/Chicago / 2026-07-03 00:14 UTC.
 
 ## Current Inventory
 
-- Live routes: 74.
-- Ledger candidates: 54 Kentucky-specific records. The newest live slug from this run is `green-river-greensburg-city-ramp-lynn-camp-creek`.
+- Live routes: 77.
+- Ledger candidates: 57 Kentucky-specific records. The newest live slugs from this run are `south-fork-kentucky-river-bishop-bend-kay-wood`, `south-fork-kentucky-river-cedar-valley-kay-wood`, and `south-fork-kentucky-river-rocky-branch-kay-wood`.
 
 ## Status
 
@@ -20,6 +20,13 @@ Kentucky had been paused from the active automation rotation at user request whi
 - For Elkhorn specifically, do not substitute nearby bank/wade-only VPA sites for boat access; KDFWR explicitly prohibits boat carry-in/out at some Elkhorn VPA points.
 
 ## Current Guidance
+
+- 2026-07-02 19:14 America/Chicago / 2026-07-03 00:14 UTC three-route add pass
+  - Added `south-fork-kentucky-river-bishop-bend-kay-wood`, `south-fork-kentucky-river-cedar-valley-kay-wood`, and `south-fork-kentucky-river-rocky-branch-kay-wood` to expand Kentucky beyond the 470-route repo baseline at run start.
+  - The run reused the current KDFWR South Fork Kentucky River page for the exact access-chain mileages of `3.3`, `2.9`, and `5.6` miles for Bishop Bend to Kay Wood, plus the upstream `4.7` Cedar Valley and `2.5` Rocky Branch links, which support new public routes of `11.8`, `16.5`, and `19.0` miles.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Rocky Branch Road Access, Cedar Valley Road Access, Bishop Bend School Road Access, and Kay Wood Road Access; same-day direct USGS Water Services returned `200 cfs / 4.25 ft` at South Fork Kentucky River at Booneville (`03281500`) at `2026-07-02 19:30 EDT`.
+  - Camping stays conservative at `none` for all three because KDFWR still treats the access chain as day-use public launches rather than overnight sites. Safety notes stay focused on private-bank limits, low-water scraping below band, muddy landings, fresh wood after rain, and fatigue on the two longer combinations.
+  - Bounded image review stayed negative for all three: no clearly rights-clean exact-route asset was selected from KDFWR access imagery, Commons, or same-river USGS media, so `docs/river-image-source-audit.csv` records no-image outcomes for the three new slugs.
 
 - 2026-07-02 17:08 America/Chicago / 2026-07-02 22:08 UTC three-route add pass
   - Added `green-river-american-legion-glenview-road`, `green-river-roachville-glenview-road`, and `green-river-greensburg-city-ramp-lynn-camp-creek` to expand Kentucky beyond the 464-route repo baseline at run start.
