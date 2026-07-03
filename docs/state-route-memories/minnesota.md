@@ -1,10 +1,10 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-02 14:40 America/Chicago.
+Last summarized: 2026-07-03 10:25 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 72.
+- Live routes: 75.
 - Top represented rivers: Big Fork River 19, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4, Crow Wing River 3.
 - Ledger candidates: 73 total; 39 `added`, 19 `threshold_weak`, 10 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`, 1 `rejected`.
 
@@ -13,6 +13,13 @@ Last summarized: 2026-07-02 14:40 America/Chicago.
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-03 10:25 America/Chicago: added `big-fork-river-sturgeon-kueffners`, `big-fork-river-ben-linn-ivan-crawford`, and `big-fork-river-gowdy-reedy-flats`.
+- Stayed in Minnesota because the current official Big Fork Map 2 family still had three unused implementation-grade continuations with the same direct Big Falls gauge, official public-water-access GIS, and campsite-backed lower-corridor story, which was cleaner than reopening a weaker new-state search.
+- Current MN DNR `river_level_sites.json` reported site `5` (`Big Fork River at Big Falls, MN`) at `2.82 ft` on `2026-07-03 08:00 AM`; official bands remain Scrapable below `1.5 ft`, Low `1.5-2.8`, Medium `2.8-4.5`, High `4.5-6.0`, and Very High above `6.0`.
+- The official public-water-access GIS still resolves Sturgeon `WAS01795`, Ben Linn `WAS01796`, Gowdy `WAS02706`, Kueffners `WAS01788`, Ivan Crawford `WAS02705`, and Reedy Flats `WAS02709`, while current DNR Map 2 still places them at river miles `47.5`, `43.0`, `34.2`, `30.4`, `9.0`, and `0.5`.
+- `big-fork-river-sturgeon-kueffners` ships as `on_route_campsite` because Sturgeon, Ben Linn, Gowdy, and Kueffners all remain documented watercraft campsite or toilet-supported stops; `big-fork-river-ben-linn-ivan-crawford` also ships as `on_route_campsite` because Ben Linn, Gowdy, and Kueffners still provide real overnight structure before the simpler Ivan Crawford finish; `big-fork-river-gowdy-reedy-flats` ships as `on_route_campsite` because Gowdy, Kueffners, and Reedy Flats all retain campsite-backed lower-corridor support.
+- Safety notes stay conservative around the mapped Class I rapid stretch at river miles `41.3-39.8`, fresh storm wood after rain, private-bank limits, cold-water and sparse-exit lower-corridor commitment, the need to reassess at Kueffners before pushing to Ivan Crawford, and the need to stop at Reedy Flats instead of drifting toward the Rainy River confluence. No route-gallery image was added; `docs/river-image-source-audit.csv` records the bounded no-image outcome for all three slugs.
 
 - 2026-07-02 14:40 America/Chicago: added `big-fork-river-ben-linn-kueffners`, `big-fork-river-kueffners-ivan-crawford`, and `big-fork-river-ivan-crawford-reedy-flats`.
 - Stayed in Minnesota because the lower Big Fork family still had three unused implementation-grade public access pairs with the same official DNR Map 2, direct Big Falls gauge, and public-water-access GIS stack, which was cleaner than reopening a weaker new-state search.
