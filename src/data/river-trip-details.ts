@@ -18456,7 +18456,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-'green-river-american-legion-glenview-road': {
+  'green-river-american-legion-glenview-road': {
     putIn: {
       id: 'american-legion-park-ramp',
       name: 'American Legion Park Ramp',
@@ -18525,7 +18525,85 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-'green-river-roachville-glenview-road': {
+  'green-river-american-legion-lynn-camp-creek': {
+    putIn: {
+      id: 'american-legion-park-ramp',
+      name: 'American Legion Park Ramp',
+      latitude: 37.2441,
+      longitude: -85.4795,
+    },
+    takeOut: {
+      id: 'lynn-camp-creek-vpa-1',
+      name: 'Lynn Camp Creek Ramp',
+      latitude: 37.3533,
+      longitude: -85.7098,
+    },
+    logistics: {
+      distanceLabel: 'About 34.9 mi',
+      estimatedPaddleTime:
+        'About 9.5 hr to 12.5 hr, longer with low water, headwind, or slower group pacing',
+      shuttle:
+        'Stage the take-out at Lynn Camp Creek Ramp, then drive back to American Legion Park below Highway 417. This is a true dawn-to-dusk Green River day, so inspect both accesses first and leave serious daylight margin before committing.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect the public-use rules at Lynn Camp Creek.',
+      camping:
+        'Greensburg supports nearby overnights better than on-route camping. KDFWR lists no camping at American Legion, Glenview, or Lynn Camp, and private banks between them should not be treated as legal campsites even though the mileage is long.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at American Legion Park and continue all the way to Lynn Camp Creek Ramp for one of the longest current Greensburg-gauge routes in the app. Use the Greensburg gauge and expect a very long, scrape-prone day whenever the stage stays below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'American Legion Park uses a graded muddy and gravel bank below Highway 417 rather than a clean concrete city ramp. Save some energy for a messier launch routine.',
+        'Greensburg City Ramp is the clean early bailout, and Glenview Road Carrydown is the last clean midpoint bailout before the lower Lynn Camp commitment.',
+        'Lynn Camp Creek VPA #1 is privately owned but open to the public through KDFWR. Continuing access depends on respectful parking and staying within the access footprint.',
+        'The Lynn Camp ramp is steep and KDFWR says it is better used as a carry-down site, especially when the river is low.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when exposed shoals and long slow pools can turn this into an all-day grind.',
+        'High water above about 1.75 ft, when bends, private-bank edges, and the steep Lynn Camp finish become less forgiving.',
+        'Broad-river wind, exposed sun, limited legal bailout options after Glenview, and fresh wood after rain.',
+        'Slick footing at the muddy American Legion launch, the Glenview bailout, and the steep Lynn Camp ramp at the finish.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'american-legion-park-ramp',
+        name: 'American Legion Park Ramp',
+        latitude: 37.2441,
+        longitude: -85.4795,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Full upper-Greensburg continuation start.',
+      },
+      {
+        id: 'greensburg-city-ramp',
+        name: 'Greensburg City Ramp',
+        latitude: 37.2581,
+        longitude: -85.5057,
+        mileFromStart: 2,
+        segmentKind: 'creek',
+        note: 'Town bailout and the last easy public landing before the Glenview reach.',
+      },
+      {
+        id: 'glenview-road-carrydown',
+        name: 'Glenview Road Carrydown',
+        latitude: 37.291,
+        longitude: -85.5913,
+        mileFromStart: 15.7,
+        segmentKind: 'creek',
+        note: 'Last clean midpoint bailout before the lower Lynn Camp commitment.',
+      },
+      {
+        id: 'lynn-camp-creek-vpa-1',
+        name: 'Lynn Camp Creek Ramp',
+        latitude: 37.3533,
+        longitude: -85.7098,
+        mileFromStart: 34.9,
+        segmentKind: 'creek',
+        note: 'Default downstream finish at the steep publicly open private ramp.',
+      },
+    ],
+  },
+  'green-river-roachville-glenview-road': {
     putIn: {
       id: 'roachville-ford',
       name: 'Roachville Ford',
@@ -18721,7 +18799,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-'green-river-russell-ford-glenview-road': {
+  'green-river-russell-ford-glenview-road': {
     putIn: {
       id: 'russell-ford-access',
       name: 'Russell Ford Access',
@@ -18799,7 +18877,85 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-'green-river-glenview-road-lynn-camp-creek': {
+  'green-river-hh-wilson-park-green-river-ferry': {
+    putIn: {
+      id: 'hh-wilson-park-ramp',
+      name: 'H.H. Wilson Park Ramp',
+      latitude: 37.2979,
+      longitude: -85.8506,
+    },
+    takeOut: {
+      id: 'green-river-ferry',
+      name: 'Green River Ferry',
+      latitude: 37.1795,
+      longitude: -86.1123,
+    },
+    logistics: {
+      distanceLabel: 'About 32.1 mi',
+      estimatedPaddleTime:
+        'About 9.5 hr to 12.5 hr, longer in higher current, wind, or with a slower shuttle day',
+      shuttle:
+        'Stage the take-out at Green River Ferry in Mammoth Cave National Park, then drive back to H.H. Wilson Park Ramp. Build in extra road time, confirm park access and ferry status before leaving vehicles, and start early enough to avoid finishing the carry-out at dusk.',
+      permits:
+        'No permit is required for a same-day paddle, but this route finishes inside Mammoth Cave National Park. Follow Kentucky boating rules, park signs, and standard USCG PFD requirements, and do not assume improvised bankside camping is legal.',
+      camping:
+        'Treat this as endpoint-supported rather than improvised camping. Stovall Park primitive camping sits on the corridor, and Green River Ferry has endpoint campground support near Mammoth Cave Campground, but private banks farther downstream should not be treated as automatic legal campsites.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at H.H. Wilson Park and continue to Green River Ferry for a long Green River day bridging Hart County and Mammoth Cave. Use the Munfordville gauge and note that the current July 3 reading is well above KDFWR\'s 300 to 600 cfs good band, so this should be treated as a higher-water route today.',
+      accessCaveats: [
+        'H.H. Wilson Park Ramp has a drop at the end of the concrete. Launch carefully and do not back farther than the waterline allows.',
+        'Stovall Park and Dennison Ferry sit on the corridor as the clearest legal bailout points if the group does not want to commit all the way to Green River Ferry.',
+        'NPS says canoe and kayak users should use the access ramp just upstream from the ferry on the south side when finishing at Green River Ferry.',
+        'This route effectively combines the official Wilson-to-Stovall, Stovall-to-Dennison, and Dennison-to-Green-River-Ferry segments, so use the shorter Green River family routes instead if the group is not comfortable with an all-day commitment.',
+      ],
+      watchFor: [
+        'Discharge above about 600 cfs, when broad-river current, debris, and the park ferry finish become substantially less forgiving.',
+        'Fatigue, exposed sun, broad-river wind, limited bailout options after Dennison, and reduced cell service closer to Mammoth Cave.',
+        'Ferry traffic and launch etiquette at the Green River Ferry finish, plus muddy or slick footing at park access points.',
+        'Fresh strainers, floating debris, and changing shoal lines after recent rain or releases.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hh-wilson-park-ramp',
+        name: 'H.H. Wilson Park Ramp',
+        latitude: 37.2979,
+        longitude: -85.8506,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default full-corridor put-in.',
+      },
+      {
+        id: 'munfordville-stovall-park-ramp',
+        name: 'Munfordville-Stovall Park Ramp',
+        latitude: 37.2663,
+        longitude: -85.8892,
+        mileFromStart: 3.6,
+        segmentKind: 'creek',
+        note: 'Early park bailout and clearest legal overnight support on the corridor.',
+      },
+      {
+        id: 'dennison-ferry',
+        name: 'Dennison Ferry',
+        latitude: 37.2174,
+        longitude: -86.0493,
+        mileFromStart: 24.6,
+        segmentKind: 'creek',
+        note: 'Day-use-only midpoint bailout inside Mammoth Cave National Park.',
+      },
+      {
+        id: 'green-river-ferry',
+        name: 'Green River Ferry',
+        latitude: 37.1795,
+        longitude: -86.1123,
+        mileFromStart: 32.1,
+        segmentKind: 'creek',
+        note: 'Default downstream finish at the managed Mammoth Cave ferry access.',
+      },
+    ],
+  },
+  'green-river-glenview-road-lynn-camp-creek': {
     putIn: {
       id: 'glenview-road-carrydown',
       name: 'Glenview Road Carrydown',
@@ -18999,7 +19155,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-'green-river-stovall-park-dennison-ferry': {
+  'green-river-stovall-park-dennison-ferry': {
     putIn: {
       id: 'munfordville-stovall-park-ramp',
       name: 'Munfordville-Stovall Park Ramp',
@@ -19039,7 +19195,76 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-'green-river-lynn-camp-creek-stovall-park': {
+  'green-river-stovall-park-green-river-ferry': {
+    putIn: {
+      id: 'munfordville-stovall-park-ramp',
+      name: 'Munfordville-Stovall Park Ramp',
+      latitude: 37.2663,
+      longitude: -85.8892,
+    },
+    takeOut: {
+      id: 'green-river-ferry',
+      name: 'Green River Ferry',
+      latitude: 37.1795,
+      longitude: -86.1123,
+    },
+    logistics: {
+      distanceLabel: 'About 28.5 mi',
+      estimatedPaddleTime:
+        'About 9 hr to 12 hr, longer in higher current, wind, or with a slower shuttle day',
+      shuttle:
+        'Stage the take-out at Green River Ferry in Mammoth Cave National Park, then drive back to Stovall Park in Munfordville. Build in extra road time, confirm park access and ferry status before leaving vehicles, and start early enough to avoid finishing the carry-out at dusk.',
+      permits:
+        'No permit is required for a same-day paddle, but this route finishes inside Mammoth Cave National Park. Follow Kentucky boating rules, park signs, and standard USCG PFD requirements, and do not assume improvised bankside camping is legal.',
+      camping:
+        'Both endpoints offer the clearest legal overnight support in this pair. KDFWR lists primitive camping at Stovall Park, and Green River Ferry has endpoint campground support near Mammoth Cave Campground rather than informal riverbank camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Munfordville-Stovall Park and continue to Green River Ferry for a long Green River day bridging Hart County and Mammoth Cave. Use the Munfordville gauge and note that the current July 3 reading is well above KDFWR\'s 300 to 600 cfs good band, so this should be treated as a higher-water route today.',
+      accessCaveats: [
+        'Stovall Park is the easiest side of this route: paved ramp, restrooms, primitive camping, and park amenities. Use the ramp efficiently because it also serves local anglers and park users.',
+        'Dennison Ferry sits on the corridor as the day-use-only midpoint bailout if the group does not want to commit all the way to Green River Ferry.',
+        'NPS says canoe and kayak users should use the access ramp just upstream from the ferry on the south side when finishing at Green River Ferry.',
+        'This is a very long day for a flatwater-style Green River trip. Use the shorter Green River family routes instead if the group is not comfortable with an all-day commitment.',
+      ],
+      watchFor: [
+        'Discharge above about 600 cfs, when broad-river current, debris, and the park ferry finish become substantially less forgiving.',
+        'Fatigue, exposed sun, broad-river wind, limited bailout options after Dennison, and reduced cell service closer to Mammoth Cave.',
+        'Ferry traffic and launch etiquette at the Green River Ferry finish, plus muddy or slick footing at park access points.',
+        'Fresh strainers, floating debris, and changing shoal lines after recent rain or releases.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'munfordville-stovall-park-ramp',
+        name: 'Munfordville-Stovall Park Ramp',
+        latitude: 37.2663,
+        longitude: -85.8892,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default full-corridor put-in with park amenities.',
+      },
+      {
+        id: 'dennison-ferry',
+        name: 'Dennison Ferry',
+        latitude: 37.2174,
+        longitude: -86.0493,
+        mileFromStart: 21,
+        segmentKind: 'creek',
+        note: 'Day-use-only midpoint bailout inside Mammoth Cave National Park.',
+      },
+      {
+        id: 'green-river-ferry',
+        name: 'Green River Ferry',
+        latitude: 37.1795,
+        longitude: -86.1123,
+        mileFromStart: 28.5,
+        segmentKind: 'creek',
+        note: 'Default downstream finish at the managed Mammoth Cave ferry access.',
+      },
+    ],
+  },
+  'green-river-lynn-camp-creek-stovall-park': {
     putIn: {
       id: 'lynn-camp-creek-vpa-1',
       name: 'Lynn Camp Creek Ramp',

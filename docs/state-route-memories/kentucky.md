@@ -1,10 +1,10 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-03 06:00 America/Chicago / 2026-07-03 11:00 UTC.
+Last summarized: 2026-07-03 06:20 America/Chicago / 2026-07-03 11:20 UTC.
 
 ## Current Inventory
 
-- Live routes: 96.
+- Live routes: 99.
 - Ledger candidates: 69 Kentucky-specific records. The newest live slugs from this run are `south-fork-kentucky-river-oneida-fish-creek`, `south-fork-kentucky-river-hacker-branch-kay-wood`, and `cumberland-river-redbird-cumberland-falls`.
 
 ## Status
@@ -20,6 +20,14 @@ Kentucky had been paused from the active automation rotation at user request whi
 - For Elkhorn specifically, do not substitute nearby bank/wade-only VPA sites for boat access; KDFWR explicitly prohibits boat carry-in/out at some Elkhorn VPA points.
 
 ## Current Guidance
+
+- 2026-07-03 06:20 America/Chicago / 2026-07-03 11:20 UTC three-route add pass
+  - Added `green-river-american-legion-lynn-camp-creek`, `green-river-hh-wilson-park-green-river-ferry`, and `green-river-stovall-park-green-river-ferry` to expand Kentucky beyond the 487-slug repo baseline at run start.
+  - The run reused the current KDFWR Pool 6 Green River page plus the current Hart County Green River page for the exact public access-chain mileages of American Legion -> Greensburg `2.0`, Greensburg -> Glenview `13.7`, Glenview -> Lynn Camp `19.2`, H.H. Wilson -> Stovall `4.0`, Stovall -> Dennison `21.0`, and Dennison -> Green River Ferry `7.5`, which support the three new public routes of `34.9`, `32.1`, and `28.5` miles.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for American Legion Park Ramp, H.H. Wilson Park Ramp, Lynn Camp Creek Ramp, Munfordville-Stovall Park Ramp, and Green River Ferry. Same-day direct USGS Water Services returned `0.95 ft` at `2026-07-03 05:15 CDT` for Greensburg (`03306500`) and `2040 cfs / 5.62 ft` at `2026-07-03 06:00 CDT` for Munfordville (`03308500`).
+  - Camping stays conservative by corridor: the two Greensburg-gauge routes ship as `nearby_basecamp` because Greensburg corridor lodging is the practical overnight support while private banks and the named accesses do not support route camping; the Stovall -> Green River Ferry route ships as `endpoint_campground` because KDFWR lists primitive camping at Stovall and campground support near the Green River Ferry finish.
+  - Safety notes stay focused on scrape-prone long-mileage conditions below the Greensburg band on the two upper routes, high-water broad-current consequences above the Munfordville band on the Stovall route, private-bank limits, exposed wind, fatigue on all three long combinations, the steep Lynn Camp finish, and Mammoth Cave ferry-finish etiquette at Green River Ferry.
+  - Bounded image review stayed negative for all three: no clearly rights-clean exact-route asset was selected from KDFWR access imagery, NPS place imagery, Commons, or same-river USGS media, so `docs/river-image-source-audit.csv` records no-image outcomes for the three new slugs.
 
 - 2026-07-03 06:00 America/Chicago / 2026-07-03 11:00 UTC three-route add pass
   - Added `south-fork-kentucky-river-oneida-fish-creek`, `south-fork-kentucky-river-hacker-branch-kay-wood`, and `cumberland-river-redbird-cumberland-falls` to expand Kentucky beyond the 497-route repo baseline at run start.
