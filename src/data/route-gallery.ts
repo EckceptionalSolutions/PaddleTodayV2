@@ -1676,6 +1676,26 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC0',
     },
   ],
+  'levisa-fork-jubilee-cedar-creek': [
+    {
+      id: 'levisa-fork-pikeville-commons',
+      src: '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+      alt: 'The Levisa Fork flows past Pikeville, Kentucky, with a broad river channel and wooded slopes nearby.',
+      caption: 'Levisa Fork in Pikeville',
+      credit: 'FatCat96 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
+  'levisa-fork-island-creek-thompson-road': [
+    {
+      id: 'levisa-fork-pikeville-commons',
+      src: '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+      alt: 'The Levisa Fork flows past Pikeville, Kentucky, with a broad river channel and wooded slopes nearby.',
+      caption: 'Levisa Fork in Pikeville',
+      credit: 'FatCat96 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
   'slate-creek-lions-club-old-slate-furnace': [
     {
       id: 'slate-creek-owingsville-usgs',
@@ -1687,6 +1707,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     },
   ],
   'levisa-fork-cedar-creek-thompson-road': [
+    {
+      id: 'levisa-fork-pikeville-commons',
+      src: '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+      alt: 'The Levisa Fork flows past Pikeville, Kentucky, with a broad river channel and wooded slopes nearby.',
+      caption: 'Levisa Fork in Pikeville',
+      credit: 'FatCat96 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
+  'levisa-fork-jubilee-thompson-road': [
     {
       id: 'levisa-fork-pikeville-commons',
       src: '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',

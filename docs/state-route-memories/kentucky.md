@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-02 19:14 America/Chicago / 2026-07-03 00:14 UTC.
+Last summarized: 2026-07-02 23:35 America/Chicago / 2026-07-03 04:35 UTC.
 
 ## Current Inventory
 
-- Live routes: 77.
-- Ledger candidates: 57 Kentucky-specific records. The newest live slugs from this run are `south-fork-kentucky-river-bishop-bend-kay-wood`, `south-fork-kentucky-river-cedar-valley-kay-wood`, and `south-fork-kentucky-river-rocky-branch-kay-wood`.
+- Live routes: 80.
+- Ledger candidates: 60 Kentucky-specific records. The newest live slugs from this run are `levisa-fork-jubilee-cedar-creek`, `levisa-fork-island-creek-thompson-road`, and `levisa-fork-jubilee-thompson-road`.
 
 ## Status
 
@@ -20,6 +20,13 @@ Kentucky had been paused from the active automation rotation at user request whi
 - For Elkhorn specifically, do not substitute nearby bank/wade-only VPA sites for boat access; KDFWR explicitly prohibits boat carry-in/out at some Elkhorn VPA points.
 
 ## Current Guidance
+
+- 2026-07-02 23:35 America/Chicago / 2026-07-03 04:35 UTC three-route add pass
+  - Added `levisa-fork-jubilee-cedar-creek`, `levisa-fork-island-creek-thompson-road`, and `levisa-fork-jubilee-thompson-road` to expand Kentucky beyond the 479-route repo baseline at run start.
+  - The run reused the current KDFWR Levisa Fork page for the exact `5.5` mile Jubilee -> Cedar segment plus the `1.5` mile Island Creek -> Cedar and `3.0` mile Cedar -> Thompson chain, which support the new public routes of about `5.5`, `4.5`, and `8.5` miles.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Jubilee Christian Church Canoe Access, Island Creek Ramp, Cedar Creek Canoe Access, and Thompson Road Canoe Access; same-day direct USGS Water Services returned `279 cfs / 6.32 ft` at Levisa Fork at Pikeville (`03209500`) at `2026-07-03 00:00 EDT`, still below the official `800-1400 cfs / 7.4-8.5 ft` good band.
+  - Camping stays conservative at `none` for all three because KDFWR still treats the Pikeville access chain as day-use public launches rather than overnight sites. Safety notes stay focused on low-water scraping below band, bridge and wood hazards, private-bank limits, and fatigue on the longest Jubilee -> Thompson continuation.
+  - Reused the approved CC0 Commons Levisa Fork corridor image already ingested for the adjacent Cedar -> Thompson route, and `docs/river-image-source-audit.csv` records the same-river reuse for all three new slugs.
 
 - 2026-07-02 19:14 America/Chicago / 2026-07-03 00:14 UTC three-route add pass
   - Added `south-fork-kentucky-river-bishop-bend-kay-wood`, `south-fork-kentucky-river-cedar-valley-kay-wood`, and `south-fork-kentucky-river-rocky-branch-kay-wood` to expand Kentucky beyond the 470-route repo baseline at run start.
