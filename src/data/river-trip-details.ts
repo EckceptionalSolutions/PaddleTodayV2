@@ -15666,6 +15666,132 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'green-river-greensburg-city-ramp-glenview-road': {
+    putIn: {
+      id: 'greensburg-city-ramp',
+      name: 'Greensburg City Ramp',
+      latitude: 37.2581,
+      longitude: -85.5057,
+    },
+    takeOut: {
+      id: 'glenview-road-carrydown',
+      name: 'Glenview Road Carrydown',
+      latitude: 37.291,
+      longitude: -85.5913,
+    },
+    logistics: {
+      distanceLabel: 'About 13.7 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6.5 hr, longer with low-water dragging, fishing stops, or upstream wind',
+      shuttle:
+        'Leave the downstream vehicle at Glenview Road Carrydown, then drive back to Greensburg City Park. The shuttle is short, but the Glenview landing has no amenities, so inspect it before committing.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey any posted landowner signage at Glenview.',
+      camping:
+        'Treat this as a day route with nearby Greensburg lodging support rather than route camping. KDFWR lists no camping at either endpoint, and private banks between them should not be treated as legal campsites.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Greensburg City Ramp and finish at Glenview Road Carrydown for the exact 13.7-mile upper Green segment that extends beyond the city ramp. Use the Greensburg gauge and expect a lower, scrape-prone day whenever the stage stays below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Greensburg City Ramp is the cleanest serviced launch in this upper Green cluster, with paved parking and restrooms before you leave town.',
+        'Glenview Road ends in the water and is surrounded by private land. Use only the obvious public road-end carrydown and obey posted signs.',
+        'There are no amenities at Glenview and no general-use public banks between the endpoints, so keep rests and the take-out inside the access footprint.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals and broad pools can slow the route more than the mileage suggests.',
+        'High water above about 1.75 ft, when current at bends and the private-bank Glenview finish become less forgiving.',
+        'Broad-river wind, bridge-adjacent current leaving town, and fresh wood after rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'greensburg-city-ramp',
+        name: 'Greensburg City Ramp',
+        latitude: 37.2581,
+        longitude: -85.5057,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default city-park put-in with the best services on this upper Green segment.',
+      },
+      {
+        id: 'glenview-road-carrydown',
+        name: 'Glenview Road Carrydown',
+        latitude: 37.291,
+        longitude: -85.5913,
+        mileFromStart: 13.7,
+        segmentKind: 'creek',
+        note: 'Default downstream finish at the no-amenity private-bank road-end carrydown.',
+      },
+    ],
+  },
+  'green-river-greensburg-city-ramp-lynn-camp-creek': {
+    putIn: {
+      id: 'greensburg-city-ramp',
+      name: 'Greensburg City Ramp',
+      latitude: 37.2581,
+      longitude: -85.5057,
+    },
+    takeOut: {
+      id: 'lynn-camp-creek-vpa-1',
+      name: 'Lynn Camp Creek Ramp',
+      latitude: 37.3533,
+      longitude: -85.7098,
+    },
+    logistics: {
+      distanceLabel: 'About 32.9 mi',
+      estimatedPaddleTime:
+        'About 9 hr to 12 hr, longer with low water, headwind, scouting, or a slower shuttle day',
+      shuttle:
+        'Stage the take-out at Lynn Camp Creek Ramp, then drive back to Greensburg City Park. This is a true all-day commitment, so inspect both landings first and leave substantial daylight margin before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect the public-use restrictions at Lynn Camp Creek VPA #1.',
+      camping:
+        'Treat this as a long day route with Greensburg lodging support rather than route camping. KDFWR lists no camping at Greensburg, Glenview, or Lynn Camp, and private banks along the corridor should not be treated as legal campsites.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Greensburg City Ramp and continue to Lynn Camp Creek Ramp for one of the longest current Greensburg-gauge routes in the app. Use the Greensburg gauge and expect a very long, scrape-prone day whenever the stage stays below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Greensburg City Ramp is the last serviced launch before the long lower commitment below town.',
+        'Glenview Road Carrydown is the only clear midpoint bailout on this route before the steep Lynn Camp finish. If the day is going sideways, use it instead of forcing the final 19.2 miles.',
+        'Lynn Camp Creek VPA #1 is private property opened to public use through KDFWR. Continuing access depends on respectful parking and staying inside the marked access footprint.',
+        'The Lynn Camp ramp is steep and better treated as a carry-down, especially when the river is low.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when exposed shoals and long slow pools can turn this into a dawn-to-dusk grind.',
+        'High water above about 1.75 ft, when current, muddy landings, and the steep Lynn Camp finish become less forgiving.',
+        'Broad-river wind, exposed sun, limited legal bailout options after Glenview, and fresh wood after rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'greensburg-city-ramp',
+        name: 'Greensburg City Ramp',
+        latitude: 37.2581,
+        longitude: -85.5057,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream launch with the best services in the corridor.',
+      },
+      {
+        id: 'glenview-road-carrydown',
+        name: 'Glenview Road Carrydown',
+        latitude: 37.291,
+        longitude: -85.5913,
+        mileFromStart: 13.7,
+        segmentKind: 'creek',
+        note: 'Last clean midpoint bailout before the long Lynn Camp commitment.',
+      },
+      {
+        id: 'lynn-camp-creek-vpa-1',
+        name: 'Lynn Camp Creek Ramp',
+        latitude: 37.3533,
+        longitude: -85.7098,
+        mileFromStart: 32.9,
+        segmentKind: 'creek',
+        note: 'Default downstream finish at the steep publicly open private ramp.',
+      },
+    ],
+  },
   'green-river-hh-wilson-park-green-river-ferry': {
     putIn: {
       id: 'hh-wilson-park-ramp',
@@ -15744,7 +15870,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-'green-river-rio-carrydown-dennison-ferry': {
+  'green-river-rio-carrydown-dennison-ferry': {
     putIn: {
       id: 'rio-carrydown-access',
       name: 'Rio Carrydown Access',
@@ -15783,6 +15909,74 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Slippery footing at Rio and Dennison, plus any fresh strainers or floating debris after rain.',
       ],
     },
+  },
+  'green-river-rio-carrydown-stovall-park': {
+    putIn: {
+      id: 'rio-carrydown-access',
+      name: 'Rio Carrydown Access',
+      latitude: 37.3183,
+      longitude: -85.7692,
+    },
+    takeOut: {
+      id: 'munfordville-stovall-park-ramp',
+      name: 'Munfordville-Stovall Park Ramp',
+      latitude: 37.2663,
+      longitude: -85.8892,
+    },
+    logistics: {
+      distanceLabel: 'About 12.0 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6.5 hr, longer with high water, wood scouting, or a slower group pace',
+      shuttle:
+        'Stage the downstream vehicle at Stovall Park in Munfordville, then drive back to Rio Carrydown Access. Inspect both landings first because Rio is simple and Stovall has a ramp drop at the waterline.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect Stovall Park and Hart County access rules.',
+      camping:
+        'This route can use legal endpoint camping at Stovall Park. Rio has no camping, but KDFWR lists seasonal camping and park amenities at the downstream Stovall finish.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Rio Carrydown Access and finish at Munfordville-Stovall Park Ramp for the 12-mile Hart County continuation. Use the Munfordville gauge, and note that the current July 3 reading is far above KDFWR\'s 300 to 600 cfs good band.',
+      accessCaveats: [
+        'Rio is a simple road-end launch with unpaved parking and no amenities. Pack efficiently and avoid spreading gear onto adjacent private ground.',
+        'H.H. Wilson Park sits 8 miles downstream as the cleanest legal bailout if the current, weather, or group pace changes mid-route.',
+        'Stovall Park is a developed finish with restrooms and camping, but KDFWR says the concrete ramp ends with a drop into the water. Finish under control.',
+        'Private banks between the named accesses are not general-purpose bailout or camping areas.',
+      ],
+      watchFor: [
+        'Low water below about 300 cfs, when sandbars and shoals slow the route noticeably.',
+        'High water above about 600 cfs, when current, wood, and the developed Stovall finish become less forgiving.',
+        'Broad-river wind, slick footing at simple carry-downs, and fresh floating debris after rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rio-carrydown-access',
+        name: 'Rio Carrydown Access',
+        latitude: 37.3183,
+        longitude: -85.7692,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream start at the road-end carrydown.',
+      },
+      {
+        id: 'hh-wilson-park-ramp',
+        name: 'H.H. Wilson Park Ramp',
+        latitude: 37.2979,
+        longitude: -85.8506,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Mid-route developed bailout with the cleaner launch if the group shortens the day.',
+      },
+      {
+        id: 'munfordville-stovall-park-ramp',
+        name: 'Munfordville-Stovall Park Ramp',
+        latitude: 37.2663,
+        longitude: -85.8892,
+        mileFromStart: 12,
+        segmentKind: 'creek',
+        note: 'Default downstream finish with park amenities and legal camping support.',
+      },
+    ],
   },
   'green-river-stovall-park-green-river-ferry': {
     putIn: {

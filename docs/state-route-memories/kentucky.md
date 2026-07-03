@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-03 14:31 America/Chicago / 2026-07-03 19:31 UTC.
+Last summarized: 2026-07-03 15:53 America/Chicago / 2026-07-03 20:53 UTC.
 
 ## Current Inventory
 
-- Live routes: 48.
-- Ledger candidates: 72 Kentucky-specific records. The newest live consolidation survivors from this run are `levisa-fork-jubilee-thompson-road` and `cumberland-river-redbird-cumberland-falls`.
+- Live routes: 51.
+- Ledger candidates: 72 Kentucky-specific records. The newest live Kentucky slugs are `green-river-greensburg-city-ramp-glenview-road`, `green-river-greensburg-city-ramp-lynn-camp-creek`, and `green-river-rio-carrydown-stovall-park`.
 
 ## Status
 
@@ -26,6 +26,14 @@ Kentucky had been paused from the active automation rotation at user request whi
 - For Elkhorn specifically, do not substitute nearby bank/wade-only VPA sites for boat access; KDFWR explicitly prohibits boat carry-in/out at some Elkhorn VPA points.
 
 ## Current Guidance
+
+- 2026-07-03 15:53 America/Chicago / 2026-07-03 20:53 UTC three-route add pass
+  - Added `green-river-greensburg-city-ramp-glenview-road`, `green-river-greensburg-city-ramp-lynn-camp-creek`, and `green-river-rio-carrydown-stovall-park` beyond the run-start baseline.
+  - The run reused the current KDFWR Pool 6 Green River page for the official site-to-site chain of Greensburg -> Glenview `13.7`, Glenview -> Lynn Camp `19.2`, and the official Greensburg stage ladder of Low below `1.0 ft`, Good `1.0-1.75 ft`, and High above `1.75 ft`, which supported the two new Greensburg-gauge routes at `13.7` and `32.9` miles.
+  - The run reused the current KDFWR Hart County Green River page for Rio -> H.H. Wilson `8.0` and H.H. Wilson -> Stovall `4.0`, which supported the new Rio -> Stovall public route at about `12.0` miles, while the Pool 6 page preserved the official Munfordville discharge ladder of Low below `300 cfs`, Good `300-600 cfs`, and High above `600 cfs`.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Greensburg City Ramp, Glenview Road Carrydown, Lynn Camp Creek VPA #1, Rio Carrydown Access, and Munfordville-Stovall Park Ramp. Same-day direct USGS Water Services returned `0.92 ft` at `2026-07-03 15:15 CDT` for Greensburg (`03306500`) and `1850 cfs / 5.33 ft` at `2026-07-03 15:00 CDT` for Munfordville (`03308500`), so all three slugs ship with honest below-band or above-band caution.
+  - Camping stays conservative by route: Greensburg -> Glenview and Greensburg -> Lynn Camp use `nearby_basecamp`, while Rio -> Stovall uses `endpoint_campground` because KDFWR still lists seasonal camping and park amenities at Stovall.
+  - Bounded image review stayed negative for all three slugs, so `docs/river-image-source-audit.csv` records no-image outcomes for the new Green River additions.
 
 - 2026-07-03 14:31 America/Chicago / 2026-07-03 19:31 UTC mixed-state add pass
   - Added `green-river-lynn-camp-creek-rio-carrydown` during the current three-route mixed-state run.
