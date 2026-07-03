@@ -1,14 +1,14 @@
 # Kansas Route Memory
 
-Last summarized: 2026-07-03 14:15 America/Chicago.
+Last summarized: 2026-07-03 14:31 America/Chicago.
 
-## 2026-07-03 Blue River implementation pass
+## 2026-07-03 mixed-state implementation pass
 
-- Mixed-state follow-up at 2026-07-03 14:15 America/Chicago added `kansas-river-st-george-belvue`.
+- Mixed-state follow-up at 2026-07-03 14:31 America/Chicago added `kansas-river-st-george-belvue`.
 - The route reused the same current Friends of the Kaw upper-Kaw access chain already validated earlier today: St. George `RM 137` to Wamego `RM 128.5` `8.5` miles plus Wamego to Belvue `RM 119` `9.5` miles, for a defensible public continuation of about `18.0` miles.
 - Same-day direct USGS Water Services returned `14,500 cfs / 9.43 ft` at `2026-07-03 13:30 CDT` for Wamego (`06887500`), above the conservative `1,500-5,000` cfs recreational band and above the `8,000` cfs high-side limit.
 - `kansas-river-st-george-belvue` uses `sandbar_or_gravel_bar` because the mileage is long enough for conservative public-sandbar overnight framing when bars are exposed and private banks remain off-limits, while safety keeps the Belvue partial low-head-dam river-left finish line explicit.
-- Reused the approved Kansas River Commons corridor image for the new slug and recorded that same-river reuse in `docs/river-image-source-audit.csv`.
+- Bounded image review stayed negative for this exact slug in the current run: no clearly rights-clean exact-route asset was selected from Friends of the Kaw, Commons, or same-river context imagery, so `docs/river-image-source-audit.csv` records the no-image outcome.
 
 - Rebuilt the current Kansas inventory from the live repo state before editing. Kansas had seventeen live routes in `src/data/rivers.ts`, all on the Kansas River, so this pass needed three genuinely new slugs beyond that baseline.
 - Added `kansas-river-blue-river-st-george`, `kansas-river-blue-river-wamego`, and `kansas-river-blue-river-belvue`.
@@ -40,8 +40,8 @@ Last summarized: 2026-07-03 14:15 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 21.
-- Rivers represented: Kansas River 21.
+- Live routes: 16.
+- Rivers represented: Kansas River 16.
 - Ledger candidates: 22 total; 17 added, 1 `no_live_gauge`, 3 `threshold_weak`, 1 `research_later`.
 
 ## Status

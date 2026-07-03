@@ -1,10 +1,10 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-03 14:15 America/Chicago / 2026-07-03 19:15 UTC.
+Last summarized: 2026-07-03 14:31 America/Chicago / 2026-07-03 19:31 UTC.
 
 ## Current Inventory
 
-- Live routes: 94.
+- Live routes: 48.
 - Ledger candidates: 72 Kentucky-specific records. The newest live consolidation survivors from this run are `levisa-fork-jubilee-thompson-road` and `cumberland-river-redbird-cumberland-falls`.
 
 ## Status
@@ -27,8 +27,8 @@ Kentucky had been paused from the active automation rotation at user request whi
 
 ## Current Guidance
 
-- 2026-07-03 14:15 America/Chicago / 2026-07-03 19:15 UTC mixed-state add pass
-  - Added `green-river-lynn-camp-creek-rio-carrydown` to expand Kentucky beyond the 500-route repo baseline at run start.
+- 2026-07-03 14:31 America/Chicago / 2026-07-03 19:31 UTC mixed-state add pass
+  - Added `green-river-lynn-camp-creek-rio-carrydown` during the current three-route mixed-state run.
   - The run reused the current KDFWR Pool 6 Green River page plus the current Hart County Green River page for the exact public mileages of Lynn Camp Creek -> H.H. Wilson `18.2` and Rio Carrydown -> H.H. Wilson `8.0`, which support the new Lynn-Camp-to-Rio public route of about `10.2` miles.
   - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Lynn Camp Creek Ramp and Rio Carrydown Access; same-day direct USGS Water Services returned `1900 cfs / 5.40 ft` at `2026-07-03 13:00 CDT` for Green River at Munfordville (`03308500`), above the official KDFWR good band of `300-600 cfs`.
   - Camping stays conservative at `none` because KDFWR still treats both endpoints as simple day-use launches with no public overnight support. Safety notes stay focused on private-bank limits, broad-river current above band, fresh wood, and the simple Rio carrydown finish.
