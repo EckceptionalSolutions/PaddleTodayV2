@@ -20394,6 +20394,120 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'upper-cumberland-river-varilla-4-mile': {
+    putIn: {
+      id: 'varilla-ramp',
+      name: 'Varilla Ramp',
+      latitude: 36.7447,
+      longitude: -83.6103,
+    },
+    takeOut: {
+      id: '4-mile-ramp',
+      name: '4 Mile Ramp',
+      latitude: 36.793,
+      longitude: -83.7534,
+    },
+    logistics: {
+      distanceLabel: 'About 13.8 mi',
+      estimatedPaddleTime:
+        'About 4.5 hr to 7 hr, longer with scouting, higher water, or low-water scraping',
+      shuttle:
+        'Stage the downstream vehicle at 4 Mile Ramp first, then drive back to Varilla by US-25E and US-119. This is a real point-to-point upper-river shuttle, not a quick roadside lap.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public ramps, follow Kentucky boating and PFD rules, and do not pass the planned take-out.',
+      camping:
+        'Treat this as a day route. KDFWR does not document developed camping or normal overnight support at either access.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Varilla Ramp and finish at 4 Mile Ramp for the official 13.8-mile Upper Cumberland segment above Pineville. Use the Williamsburg gauge and plan conservatively whenever the river is outside the 300 to 700 cfs good band.',
+      accessCaveats: [
+        '4 Mile Ramp is the required take-out. KDFWR says a low-head dam lies about three-quarters of a mile downstream of the ramp, so missing the finish is not acceptable.',
+        'Varilla has only a small gravel parking area and no other services. Start with shuttle and emergency plans already sorted out.',
+        'Most shoreline between the ramps is private, and the corridor is remote enough that improvised bank exits may be unrealistic.',
+      ],
+      watchFor: [
+        'The low-head dam below 4 Mile Ramp.',
+        'Fresh wood, rain-driven rises, and shallow riffles that become pushier above the official good band.',
+        'Fatigue or take-out confusion late in the run when the US-25E bridge at 4 Mile comes into view.',
+      ],
+    },
+  },
+  'upper-cumberland-river-artemus-barbourville': {
+    putIn: {
+      id: 'artemus-rock-access',
+      name: 'Artemus Rock Access',
+      latitude: 36.824,
+      longitude: -83.844,
+    },
+    takeOut: {
+      id: 'barbourville-ramp',
+      name: 'Barbourville Ramp',
+      latitude: 36.8603,
+      longitude: -83.8893,
+    },
+    logistics: {
+      distanceLabel: 'About 5.1 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr, longer with fishing stops, scouting, or higher water',
+      shuttle:
+        'Leave the downstream vehicle at Thompson Park in Barbourville, then drive back to Artemus. The shuttle is short, but the rough gravel-bar put-in is worth scouting before you commit the carry and parking.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public access points, follow Kentucky boating and PFD rules, and respect private banks between them.',
+      camping:
+        'Barbourville Ramp sits in Thompson Park, where KDFWR says an RV campground with full hookups is available. This route works best as a short campground-based day float rather than as river-camping travel.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Put in at Artemus Rock Access and take out at Barbourville Ramp for the short official Upper Cumberland segment into Thompson Park. The route is manageable at normal water, but the rough put-in and rain-sensitive current still deserve attention.',
+      accessCaveats: [
+        'KDFWR says the path to Artemus can be rough and muddy, and the gravel bar may not suit every vehicle. Confirm shuttle practicality before you launch.',
+        'Barbourville is the clean public finish. Do not rely on bridge shoulders or private banks between Artemus and town as substitute take-outs.',
+        'Even on this shorter segment, higher water above the official good band can hide more of the shallow features and make the current feel pushier than expected.',
+      ],
+      watchFor: [
+        'Shallow rapids and rock gardens during low water.',
+        'Fresh strainers or wood after rain.',
+        'Muddy footing at Artemus and faster current around bends on higher-water days.',
+      ],
+    },
+  },
+  'upper-cumberland-river-williamsburg-redbird': {
+    putIn: {
+      id: 'williamsburg-ramp',
+      name: 'Williamsburg Ramp',
+      latitude: 36.7452,
+      longitude: -84.158,
+    },
+    takeOut: {
+      id: 'redbird-ramp',
+      name: 'Redbird Ramp',
+      latitude: 36.7621,
+      longitude: -84.2216,
+    },
+    logistics: {
+      distanceLabel: 'About 11.5 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr, longer with fishing stops, wind, or higher-water caution',
+      shuttle:
+        'Stage the downstream vehicle at Redbird Ramp first, then drive back into Williamsburg to launch beside the Main Street Bridge. The shuttle is simple, but the route still covers enough river that weather and daylight matter.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public ramps, follow Kentucky boating and PFD rules, and stay off private banks between the accesses.',
+      camping:
+        'Treat this as a day route. KDFWR documents public ramps at Williamsburg and Redbird but does not document route camping or campground support for this exact segment.',
+      campingClassification: 'none',
+      summary:
+        'Launch in Williamsburg and finish at Redbird Ramp for the official 11.5-mile Upper Cumberland segment downstream of town. Use the Williamsburg gauge and expect a stronger push when the river is above the 300 to 700 cfs good band.',
+      accessCaveats: [
+        'The route starts in town but quickly feels more isolated, so plan food, daylight, and shuttle timing before launching.',
+        'Redbird is the intended public finish. Do not assume bridge areas or private banks beyond it are normal casual exits.',
+        'Higher-water days can make the long downstream glide feel easier at first and more consequential later, especially if fresh wood has moved into bends.',
+      ],
+      watchFor: [
+        'Mild rapids, fresh wood, and quicker current after rain.',
+        'Private banks and sparse legal stop options away from the named ramps.',
+        'Wind, fatigue, and finish-ramp approach speed on higher-water days.',
+      ],
+    },
+  },
   'barren-river-martinsville-potter-combs': {
     putIn: {
       id: 'martinsville-ford-claypool-ramp',

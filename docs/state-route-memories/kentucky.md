@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-03 01:19 America/Chicago / 2026-07-03 06:19 UTC.
+Last summarized: 2026-07-03 01:30 America/Chicago / 2026-07-03 06:30 UTC.
 
 ## Current Inventory
 
-- Live routes: 87.
-- Ledger candidates: 63 Kentucky-specific records. The newest live slugs from this run are `barren-river-state-street-james-r-hines`, `barren-river-james-r-hines-lonnie-white`, and `barren-river-state-street-lonnie-white`.
+- Live routes: 90.
+- Ledger candidates: 63 Kentucky-specific records. The newest live slugs from this run are `upper-cumberland-river-varilla-4-mile`, `upper-cumberland-river-artemus-barbourville`, and `upper-cumberland-river-williamsburg-redbird`.
 
 ## Status
 
@@ -20,6 +20,13 @@ Kentucky had been paused from the active automation rotation at user request whi
 - For Elkhorn specifically, do not substitute nearby bank/wade-only VPA sites for boat access; KDFWR explicitly prohibits boat carry-in/out at some Elkhorn VPA points.
 
 ## Current Guidance
+
+- 2026-07-03 01:30 America/Chicago / 2026-07-03 06:30 UTC three-route add pass
+  - Added `upper-cumberland-river-varilla-4-mile`, `upper-cumberland-river-artemus-barbourville`, and `upper-cumberland-river-williamsburg-redbird` to expand Kentucky beyond the 488-route repo baseline at run start.
+  - The run used the current KDFWR Upper Cumberland River page for the exact public site-to-site mileages of Varilla -> 4 Mile `13.8`, Artemus Rock Access -> Barbourville `5.1`, and Williamsburg -> Redbird `11.5`, plus the official Williamsburg gauge ladder of Low below `300 cfs / 3.0 ft`, Good `300-700 cfs / 3.0-3.8 ft`, and High above those marks.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Varilla Ramp, 4 Mile Ramp, Artemus Rock Access, Barbourville Ramp, Williamsburg Ramp, and Redbird Ramp; same-day direct USGS Water Services returned `1130 cfs / 4.38 ft` at Cumberland River at Williamsburg (`03404000`) at `2026-07-03 02:00 EDT`, above the official good band.
+  - Camping stays conservative by route: Varilla -> 4 Mile and Williamsburg -> Redbird ship as `none`, while Artemus -> Barbourville ships as `endpoint_campground` because KDFWR says the Thompson Park take-out includes an RV campground with full hookups. Safety notes stay focused on the 4 Mile low-head-dam hard stop, rough/muddy Artemus access, rain-driven rises, private-bank limits, and the more isolated upper-river character once downstream of the town launches.
+  - Bounded image review stayed negative for all three: no clearly rights-clean exact-route asset was selected from KDFWR access imagery, Commons, or same-river USGS media, so `docs/river-image-source-audit.csv` records no-image outcomes for the three new slugs.
 
 - 2026-07-03 01:19 America/Chicago / 2026-07-03 06:19 UTC three-route add pass
   - Added `barren-river-state-street-james-r-hines`, `barren-river-james-r-hines-lonnie-white`, and `barren-river-state-street-lonnie-white` to expand Kentucky beyond the 485-route repo baseline at run start.
