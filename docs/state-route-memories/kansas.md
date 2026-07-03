@@ -1,8 +1,14 @@
 # Kansas Route Memory
 
-Last summarized: 2026-07-03 09:35 America/Chicago.
+Last summarized: 2026-07-03 14:15 America/Chicago.
 
 ## 2026-07-03 Blue River implementation pass
+
+- Mixed-state follow-up at 2026-07-03 14:15 America/Chicago added `kansas-river-st-george-belvue`.
+- The route reused the same current Friends of the Kaw upper-Kaw access chain already validated earlier today: St. George `RM 137` to Wamego `RM 128.5` `8.5` miles plus Wamego to Belvue `RM 119` `9.5` miles, for a defensible public continuation of about `18.0` miles.
+- Same-day direct USGS Water Services returned `14,500 cfs / 9.43 ft` at `2026-07-03 13:30 CDT` for Wamego (`06887500`), above the conservative `1,500-5,000` cfs recreational band and above the `8,000` cfs high-side limit.
+- `kansas-river-st-george-belvue` uses `sandbar_or_gravel_bar` because the mileage is long enough for conservative public-sandbar overnight framing when bars are exposed and private banks remain off-limits, while safety keeps the Belvue partial low-head-dam river-left finish line explicit.
+- Reused the approved Kansas River Commons corridor image for the new slug and recorded that same-river reuse in `docs/river-image-source-audit.csv`.
 
 - Rebuilt the current Kansas inventory from the live repo state before editing. Kansas had seventeen live routes in `src/data/rivers.ts`, all on the Kansas River, so this pass needed three genuinely new slugs beyond that baseline.
 - Added `kansas-river-blue-river-st-george`, `kansas-river-blue-river-wamego`, and `kansas-river-blue-river-belvue`.
@@ -34,8 +40,8 @@ Last summarized: 2026-07-03 09:35 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 20.
-- Rivers represented: Kansas River 17.
+- Live routes: 21.
+- Rivers represented: Kansas River 21.
 - Ledger candidates: 22 total; 17 added, 1 `no_live_gauge`, 3 `threshold_weak`, 1 `research_later`.
 
 ## Status
@@ -65,6 +71,12 @@ Kansas reopened on 2026-06-26 once same-day USGS Water Services for Wamego (`068
 ## 2026-07-02 consolidation note
 
 - Redundant unpushed route permutations from the July 2 route-add wave were consolidated into canonical multi-access route records. If an earlier note in this file now repeats a canonical slug, treat that as evidence that the former point-to-point variant was folded into the live access-planner route rather than kept as a separate route.
+
+## 2026-07-03 upper-Kaw consolidation pass
+
+- Collapsed the densest upper- and lower-Kaw same-gauge subsets into the existing planner corridors and left Kansas at `15` live Kansas River slugs instead of the pre-pass `25`.
+- The main canonical survivors for these clustered families are now `kansas-river-manhattan-belvue`, `kansas-river-blue-river-belvue`, and `kansas-river-de-soto-kaw-point`, each of which preserves the intermediate public access ladder in trip details instead of keeping separate St. George, Wamego, Edwardsville, Turner Bridge, and Kaw Point subset cards.
+- Treat deleted slugs such as `kansas-river-st-george-belvue`, `kansas-river-st-george-wamego`, `kansas-river-wamego-belvue`, `kansas-river-manhattan-st-george`, `kansas-river-manhattan-wamego`, `kansas-river-de-soto-edwardsville`, `kansas-river-edwardsville-turner-bridge`, and `kansas-river-turner-bridge-kaw-point` as intentionally folded into those planner routes.
 
 ## 2026-07-02 Kansas continuation implementation pass
 

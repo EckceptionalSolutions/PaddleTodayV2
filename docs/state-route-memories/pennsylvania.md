@@ -341,3 +341,10 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 ## 2026-07-02 consolidation note
 
 - Redundant unpushed route permutations from the July 2 route-add wave were consolidated into canonical multi-access route records. If an earlier note in this file now repeats a canonical slug, treat that as evidence that the former point-to-point variant was folded into the live access-planner route rather than kept as a separate route.
+
+## 2026-07-03 Juniata and Susquehanna consolidation pass
+
+- Collapsed the Juniata River family from `31` live slugs to `9` by centering the live inventory on the existing planner corridors `juniata-river-granville-mifflin`, `juniata-river-lewistown-narrows-newport`, `juniata-river-greenwood-amity-hall`, `juniata-river-portstown-park-newton-hamilton`, `juniata-river-mifflin-muskrat-springs`, and `juniata-river-millerstown-amity-hall`.
+- Deleted short subset cards such as Granville-to-Victory, Lewistown-Narrows-to-Walker, and the Portstown/Riverside/Mt. Union/Shawmut permutations because those public split points already survive inside the planner-route access ladders.
+- Collapsed the Susquehanna River family from `40` live slugs to `16`, keeping the corridor planners `susquehanna-river-sayre-towanda`, `susquehanna-river-towanda-laceyville`, `susquehanna-river-laceyville-west-falls`, `susquehanna-river-canal-park-test-track`, `susquehanna-river-test-track-danville`, and `susquehanna-river-pfbc-danville-shikellamy-west` as the canonical same-gauge access ladders.
+- Treat now-missing subset slugs like `susquehanna-river-sayre-hornbrook`, `susquehanna-river-ulster-bridge-towanda`, `susquehanna-river-terrytown-laceyville`, `susquehanna-river-meshoppen-tunkhannock`, `susquehanna-river-canal-park-wetlands`, and `susquehanna-river-bloomsburg-danville` as intentionally folded into those planner corridors.

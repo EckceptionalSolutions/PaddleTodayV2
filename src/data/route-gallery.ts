@@ -726,25 +726,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
-  'kansas-river-de-soto-edwardsville': [
-    {
-      id: 'kansas-river-kansas-city-commons',
-      src: '/gallery/kansas-river-de-soto-edwardsville/kansas-river-kansas-city.jpg',
-      alt: 'The Kansas River flows through Kansas City with exposed sand and a low bridge crossing the wide channel.',
-      caption: 'Kansas River near Kansas City',
-      credit: 'James St. John via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY 2.0',
-    },
   ],
-  'kansas-river-edwardsville-turner-bridge': [
-    {
-      id: 'kansas-river-kansas-city-commons',
-      src: '/gallery/kansas-river-edwardsville-turner-bridge/kansas-river-kansas-city.jpg',
-      alt: 'The Kansas River flows through Kansas City with exposed sand and a low bridge crossing the wide channel.',
-      caption: 'Kansas River near Kansas City',
-      credit: 'James St. John via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY 2.0',
-    },
   ],
   'kansas-river-de-soto-kaw-point': [
     {
@@ -826,25 +808,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
-  'kansas-river-manhattan-st-george': [
-    {
-      id: 'kansas-river-lawrence-commons',
-      src: '/gallery/kansas-river-manhattan-st-george/kansas-river-lawrence.jpg',
-      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
-      caption: 'Kansas River corridor context',
-      credit: 'Dicklyon via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
-    },
   ],
-  'kansas-river-manhattan-wamego': [
-    {
-      id: 'kansas-river-lawrence-commons',
-      src: '/gallery/kansas-river-manhattan-wamego/kansas-river-lawrence.jpg',
-      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
-      caption: 'Kansas River corridor context',
-      credit: 'Dicklyon via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
-    },
   ],
   'kansas-river-manhattan-belvue': [
     {
@@ -856,25 +820,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
-  'kansas-river-blue-river-st-george': [
-    {
-      id: 'kansas-river-lawrence-commons',
-      src: '/gallery/kansas-river-manhattan-st-george/kansas-river-lawrence.jpg',
-      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
-      caption: 'Kansas River corridor context',
-      credit: 'Dicklyon via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
-    },
   ],
-  'kansas-river-blue-river-wamego': [
-    {
-      id: 'kansas-river-lawrence-commons',
-      src: '/gallery/kansas-river-manhattan-st-george/kansas-river-lawrence.jpg',
-      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
-      caption: 'Kansas River corridor context',
-      credit: 'Dicklyon via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
-    },
   ],
   'kansas-river-blue-river-belvue': [
     {
@@ -886,25 +832,8 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
-  'kansas-river-st-george-wamego': [
-    {
-      id: 'kansas-river-lawrence-commons',
-      src: '/gallery/kansas-river-st-george-wamego/kansas-river-lawrence.jpg',
-      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
-      caption: 'Kansas River corridor context',
-      credit: 'Dicklyon via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
-    },
   ],
-  'kansas-river-wamego-belvue': [
-    {
-      id: 'kansas-river-lawrence-commons',
-      src: '/gallery/kansas-river-wamego-belvue/kansas-river-lawrence.jpg',
-      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
-      caption: 'Kansas River corridor context',
-      credit: 'Dicklyon via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
-    },
+  ],
   ],
   'kansas-river-belvue-kaw-river-state-park': [
     {
@@ -926,15 +855,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
-  'kansas-river-turner-bridge-kaw-point': [
-    {
-      id: 'kansas-river-kansas-city-commons',
-      src: '/gallery/kansas-river-turner-bridge-kaw-point/kansas-river-kansas-city.jpg',
-      alt: 'The Kansas River flows through Kansas City with exposed sand and a low bridge crossing the wide channel.',
-      caption: 'Kansas River near Kansas City',
-      credit: 'James St. John via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY 2.0',
-    },
   ],
   'current-river-cedar-grove-akers': [
     {
@@ -1526,95 +1446,14 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
-  'south-fork-kentucky-river-rocky-branch-cedar-valley': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-commons',
-      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
-      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-cedar-valley-bishop-bend': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-shoals-commons',
-      src: '/gallery/south-fork-kentucky-river-cedar-valley-bishop-bend/south-fork-kentucky-river-bronner-bend-shoals.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River spreading across broad shoals below wooded Kentucky hills.',
-      caption: 'South Fork Kentucky River at Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-bishop-bend-hacker-branch': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-shoals-commons',
-      src: '/gallery/south-fork-kentucky-river-cedar-valley-bishop-bend/south-fork-kentucky-river-bronner-bend-shoals.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River spreading across broad shoals below wooded Kentucky hills.',
-      caption: 'South Fork Kentucky River at Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-hacker-branch-upper-wolf-creek': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-commons',
-      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
-      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-rocky-branch-bishop-bend': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-shoals-commons',
-      src: '/gallery/south-fork-kentucky-river-cedar-valley-bishop-bend/south-fork-kentucky-river-bronner-bend-shoals.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River spreading across broad shoals below wooded Kentucky hills.',
-      caption: 'South Fork Kentucky River at Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-oneida-bishop-bend': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-shoals-commons',
-      src: '/gallery/south-fork-kentucky-river-cedar-valley-bishop-bend/south-fork-kentucky-river-bronner-bend-shoals.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River spreading across broad shoals below wooded Kentucky hills.',
-      caption: 'South Fork Kentucky River at Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-oneida-hacker-branch': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-shoals-commons',
-      src: '/gallery/south-fork-kentucky-river-cedar-valley-bishop-bend/south-fork-kentucky-river-bronner-bend-shoals.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River spreading across broad shoals below wooded Kentucky hills.',
-      caption: 'South Fork Kentucky River at Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-oneida-upper-wolf-creek': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-shoals-commons',
-      src: '/gallery/south-fork-kentucky-river-cedar-valley-bishop-bend/south-fork-kentucky-river-bronner-bend-shoals.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River spreading across broad shoals below wooded Kentucky hills.',
-      caption: 'South Fork Kentucky River at Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-oneida-kay-wood': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-shoals-commons',
-      src: '/gallery/south-fork-kentucky-river-cedar-valley-bishop-bend/south-fork-kentucky-river-bronner-bend-shoals.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River spreading across broad shoals below wooded Kentucky hills.',
-      caption: 'South Fork Kentucky River at Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
   'south-fork-kentucky-river-oneida-fish-creek': [
     {
@@ -1626,115 +1465,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: public domain',
     },
   ],
-  'south-fork-kentucky-river-cedar-valley-hacker-branch': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-shoals-commons',
-      src: '/gallery/south-fork-kentucky-river-cedar-valley-bishop-bend/south-fork-kentucky-river-bronner-bend-shoals.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River spreading across broad shoals below wooded Kentucky hills.',
-      caption: 'South Fork Kentucky River at Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-rocky-branch-hacker-branch': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-shoals-commons',
-      src: '/gallery/south-fork-kentucky-river-cedar-valley-bishop-bend/south-fork-kentucky-river-bronner-bend-shoals.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River spreading across broad shoals below wooded Kentucky hills.',
-      caption: 'South Fork Kentucky River at Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-hacker-branch-kay-wood': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-commons',
-      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
-      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-hacker-branch-fish-creek': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-commons',
-      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
-      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-bishop-bend-upper-wolf-creek': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-commons',
-      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
-      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-rocky-branch-upper-wolf-creek': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-shoals-commons',
-      src: '/gallery/south-fork-kentucky-river-cedar-valley-bishop-bend/south-fork-kentucky-river-bronner-bend-shoals.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River spreading across broad shoals below wooded Kentucky hills.',
-      caption: 'South Fork Kentucky River at Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-cedar-valley-upper-wolf-creek': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-commons',
-      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
-      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-upper-wolf-creek-fish-creek': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-commons',
-      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
-      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-bishop-bend-fish-creek': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-commons',
-      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
-      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-rocky-branch-fish-creek': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-commons',
-      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
-      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
-  'south-fork-kentucky-river-cedar-valley-fish-creek': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-commons',
-      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
-      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
   ],
 
   ],

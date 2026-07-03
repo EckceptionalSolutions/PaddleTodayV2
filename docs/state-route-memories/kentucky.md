@@ -1,10 +1,10 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-03 15:05 America/Chicago / 2026-07-03 20:05 UTC.
+Last summarized: 2026-07-03 14:15 America/Chicago / 2026-07-03 19:15 UTC.
 
 ## Current Inventory
 
-- Live routes: 93.
+- Live routes: 94.
 - Ledger candidates: 72 Kentucky-specific records. The newest live consolidation survivors from this run are `levisa-fork-jubilee-thompson-road` and `cumberland-river-redbird-cumberland-falls`.
 
 ## Status
@@ -26,6 +26,13 @@ Kentucky had been paused from the active automation rotation at user request whi
 - For Elkhorn specifically, do not substitute nearby bank/wade-only VPA sites for boat access; KDFWR explicitly prohibits boat carry-in/out at some Elkhorn VPA points.
 
 ## Current Guidance
+
+- 2026-07-03 14:15 America/Chicago / 2026-07-03 19:15 UTC mixed-state add pass
+  - Added `green-river-lynn-camp-creek-rio-carrydown` to expand Kentucky beyond the 500-route repo baseline at run start.
+  - The run reused the current KDFWR Pool 6 Green River page plus the current Hart County Green River page for the exact public mileages of Lynn Camp Creek -> H.H. Wilson `18.2` and Rio Carrydown -> H.H. Wilson `8.0`, which support the new Lynn-Camp-to-Rio public route of about `10.2` miles.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Lynn Camp Creek Ramp and Rio Carrydown Access; same-day direct USGS Water Services returned `1900 cfs / 5.40 ft` at `2026-07-03 13:00 CDT` for Green River at Munfordville (`03308500`), above the official KDFWR good band of `300-600 cfs`.
+  - Camping stays conservative at `none` because KDFWR still treats both endpoints as simple day-use launches with no public overnight support. Safety notes stay focused on private-bank limits, broad-river current above band, fresh wood, and the simple Rio carrydown finish.
+  - Bounded image review stayed negative: no clearly rights-clean exact-route asset was selected from KDFWR access imagery, Commons, Hart County context, or same-river USGS media, so `docs/river-image-source-audit.csv` records the no-image outcome for the new slug.
 
 - 2026-07-03 11:31 America/Chicago / 2026-07-03 16:31 UTC three-route add pass
   - Added `goose-creek-jacks-tobacco-road`, `goose-creek-tobacco-road-dump-hollow`, and `goose-creek-dump-hollow-laurel-branch` to expand Kentucky beyond the 497-route repo baseline at run start.
@@ -661,3 +668,10 @@ Kentucky had been paused from the active automation rotation at user request whi
 ## 2026-07-02 consolidation note
 
 - Redundant unpushed route permutations from the July 2 route-add wave were consolidated into canonical multi-access route records. If an earlier note in this file now repeats a canonical slug, treat that as evidence that the former point-to-point variant was folded into the live access-planner route rather than kept as a separate route.
+
+## 2026-07-03 South Fork and Green consolidation pass
+
+- Collapsed the South Fork Kentucky River family from `28` route cards to a single canonical corridor slug: `south-fork-kentucky-river-oneida-fish-creek`.
+- That survivor now carries the full public access ladder through Rocky Branch, Cedar Valley, Bishop Bend, Hacker Branch, Upper Wolf Creek, and Kay Wood in trip details rather than keeping every same-gauge in/out permutation live.
+- Collapsed the Green River overlap clusters from `28` live Green slugs to `8`, centered on planner survivors such as `green-river-roachville-glenview-road`, `green-river-american-legion-lynn-camp-creek`, `green-river-lynn-camp-creek-stovall-park`, `green-river-hh-wilson-park-green-river-ferry`, `green-river-stovall-park-green-river-ferry`, and `green-river-dennison-ferry-houchins-ferry`.
+- `green-river-lynn-camp-creek-stovall-park` is now the canonical upper Hart County planner card with Rio Carrydown and H.H. Wilson preserved as intermediate public access points instead of separate duplicate slugs.
