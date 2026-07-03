@@ -22295,6 +22295,159 @@ export const rivers: River[] = [
     ],
   },
       {
+    id: 'kansas-river-st-george-belvue',
+    slug: 'kansas-river-st-george-belvue',
+    name: 'Kansas River',
+    reach: 'St. George / Boggs Landing to Belvue',
+    aliases: [
+      'Kaw River - St. George to Belvue',
+      'Kansas River - St. George / Boggs Landing to Belvue',
+      'St. George / Boggs Landing Access Ramp to Belvue Access Ramp',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Shorter upper-Kaw continuation from St. George to Belvue through Wamego. Friends of the Kaw documents the clean public access chain, and the Wamego gauge remains the clearest direct same-river check before the Belvue partial low-head-dam reach.',
+    statusText:
+      'Use the Kansas River at Wamego gauge. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect slow sandbar picking, while above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce. This route is shorter than the Manhattan and Blue River variants but still ends just below the Belvue partial low-head-dam hazard.',
+    latitude: 39.18726,
+    longitude: -96.42202,
+    gaugeSource: {
+      id: 'usgs-06887500',
+      provider: 'usgs',
+      siteId: '06887500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Kansas River at Wamego, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['low_head_dam', 'private_banks', 'strainers'],
+      safetyNotes: [
+        'Belvue partial low-head dam sits about one mile above the take-out; stay river left and do not paddle close to exposed or submerged dam rocks.',
+        'This is still an exposed Kansas River route, so wind, heat, fatigue, and sparse clean legal exits matter before the dam finish sequence.',
+        'Stay with public ramps and legal sandbar stops between the high-water marks; private banks above that line are off-limits.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.85,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. This roughly 18-mile route is more realistic as a long day trip than the upstream Belvue variants, but stable weather and clean dam planning still matter.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The public access chain is straightforward, but the total mileage, broad-river exposure, and Belvue partial low-head-dam finish sequence keep this above beginner level.',
+      confidenceNotes:
+        'Confidence is high for access, gauge placement, and route shape: Friends of the Kaw documents St. George at river mile 137, Wamego at 128.5, Belvue at 119, and the partial low-head dam at river mile 120. Confidence is moderate for scoring because the level bands are still broad Kansas River guidance rather than a route-specific ladder, even though the Wamego gauge is direct in the route corridor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'St. George / Boggs Landing, RM 137',
+        note: 'Friends of the Kaw lists St. George with GPS 39.18726, -96.42202, a concrete ramp, parking, and a practical public start for the shorter Belvue run.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Belvue Access Ramp, RM 119',
+        note: 'Friends of the Kaw lists Belvue with GPS 39.20284, -96.17552, a river-left concrete ramp, parking, portable toilet, and primitive camping by reservation through the city.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-119-belvue-access-ramp/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 18.0 mi',
+        note: 'Friends of the Kaw says St. George to Wamego is 8.5 miles and Wamego to Belvue is 9.5 miles, supporting this combined public route.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/',
+      },
+      {
+        label: 'Current gauge check',
+        value: '14,500 cfs / 9.43 ft at 2026-07-03 13:30 CDT',
+        note: 'Same-day direct USGS Water Services for station 06887500 at Wamego returned 14,500 cfs and 9.43 ft, well above the conservative recreational band used by the app.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=06887500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Dam hazard',
+        value: 'Belvue partial low-head dam at RM 120',
+        note: 'Friends of the Kaw flags a partial low-head dam about one mile above Belvue. It starts on river right and extends more than halfway across the river, so paddlers should stay river left and watch for exposed or submerged rocks.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-128-wamego-access-ramp/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: '1,000 / 1,500-5,000 / 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and everyone else below 8,000 cfs, while USACE recreation guidance supports the difficult-below-1,000 and no-impact 1,500-5,000 calibration.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Camping support',
+        value: 'Public sandbar camping between high-water marks',
+        note: 'Friends of the Kaw says the Kansas River is public, sandbar camping is allowed without a special permit, and private banks above the high-water mark remain off-limits.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/camping/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw St. George / Boggs Landing access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Wamego access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-128-wamego-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Belvue access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-119-belvue-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw camping on the Kaw',
+        url: 'https://kansasriver.org/paddle-and-fish/camping/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06887500 Kansas River at Wamego',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+      {
     id: 'kansas-river-blue-river-belvue',
     slug: 'kansas-river-blue-river-belvue',
     name: 'Kansas River',
@@ -45062,6 +45215,135 @@ export const rivers: River[] = [
         label: "NPS Canoeing, Kayaking and Boating",
         url: "https://www.nps.gov/maca/planyourvisit/canoeing-kayaking-and-boating.htm",
         provider: "nps",
+      },
+      {
+        label: "USGS 03308500 Green River at Munfordville",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03308500/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03308500 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03308500&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "green-river-lynn-camp-creek-rio-carrydown",
+    slug: "green-river-lynn-camp-creek-rio-carrydown",
+    name: "Green River",
+    reach: "Lynn Camp Creek Ramp to Rio Carrydown Access",
+    aliases: [
+      "Green River - Lynn Camp Creek to Rio",
+      "Hart County upper Green River Lynn Camp to Rio",
+      "KDFWR Hart County Lynn Camp Creek to Rio Carrydown",
+    ],
+    state: "Kentucky",
+    region: "Hart County",
+    summary:
+      "Shorter upper Hart County Green River split from Lynn Camp Creek Ramp to Rio Carrydown Access. KDFWR's Hart County mileage table supports this public route by combining the official Lynn Camp to H.H. Wilson and Rio to H.H. Wilson distances against the direct Munfordville gauge.",
+    statusText:
+      "Use the Green River at Munfordville gauge. KDFWR rates 300 to 600 cfs as good for boating and fishing. Below that expect a slower shoal-filled day; above that the steep Lynn Camp carry-down, wood, and faster current deserve more caution.",
+    latitude: 37.3533,
+    longitude: -85.7098,
+    gaugeSource: {
+      id: "usgs-03308500",
+      provider: "usgs",
+      siteId: "03308500",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Green River at Munfordville, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03308500/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 300,
+      idealMax: 600,
+      tooLow: 300,
+      tooHigh: 600,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Green River at Munfordville",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      windSensitivity: 0.6,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This shorter Hart County split is practical through spring, summer, and fall when the Munfordville gauge is stable. Lower water slows the shoals, while fresh rain and higher levels make Lynn Camp and Rio less forgiving.",
+      difficulty: "moderate",
+      difficultyNotes:
+        "This is a shorter moving-water Green River route rather than an all-day Mammoth Cave chain, but the steep Lynn Camp ramp, private-bank limits, and changing shoals keep it above true beginner level.",
+      confidenceNotes:
+        "Confidence is good for a conservative Kentucky add: KDFWR's Hart County Green River article still lists Lynn Camp Creek to H.H. Wilson Park as 18.2 miles and Rio Carrydown Access to H.H. Wilson Park as 8 miles, which supports a Lynn Camp to Rio split of about 10.2 miles. Current KDFWR access-detail pages still expose coordinates and public-use rules for Lynn Camp and Rio, the direct Munfordville gauge still carries the official 300 to 600 cfs good band, and USGS Water Services returned same-day July 3, 2026 values of 1,900 cfs and 5.40 ft from direct gauge 03308500 during this run. That discharge is well above KDFWR's good band, so the route should ship with explicit high-water caution.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Lynn Camp Creek to Rio, about 10.2 mi",
+        note: "KDFWR's Hart County page lists Lynn Camp Creek to H.H. Wilson Park as 18.2 miles and Rio Carrydown Access to H.H. Wilson Park as 8 miles, supporting a shorter Lynn Camp to Rio public split of about 10.2 miles.",
+        sourceUrl: "https://fw.ky.gov/Education/Pages/Green-River---Hart-County.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "300-600 cfs good",
+        note: "KDFWR rates the Green River gauge at Munfordville as Low below 300 cfs, Good from 300 to 600 cfs, and High above 600 cfs.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Lynn Camp Creek Ramp, 37.3533, -85.7098",
+        note: "KDFWR identifies Lynn Camp Creek VPA #1 as a free carry-down ramp on private property opened for public use, with steep access, gravel parking, and no camping.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=968",
+      },
+      {
+        label: "Take-out access",
+        value: "Rio Carrydown Access, 37.3183, -85.7692",
+        note: "KDFWR identifies Rio as a free carry-down access with unpaved parking, year-round availability, and no camping.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1171",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03308500 at 1,900 cfs / 5.40 ft",
+        note: "USGS Water Services returned same-day July 3, 2026 discharge and stage values for Green River at Munfordville during this run. The discharge is well above KDFWR's 300 to 600 cfs good band, so expect a high-water day with faster current and less margin.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03308500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Camping support",
+        value: "Day-trip corridor, no official campsite on this short split",
+        note: "KDFWR marks both Lynn Camp Creek and Rio as no-camping accesses; Stovall primitive camping exists farther downstream but is not part of this shorter route.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1171",
+      },
+      {
+        label: "Route character",
+        value: "Steep carry-down, shoals, bluffs, and private-bank limits",
+        note: "KDFWR describes the Hart County Green River corridor as scenic with shoals, bluffs, rocky banks, islands, and sandbars, while Lynn Camp remains the steeper publicly open private access in the cluster.",
+        sourceUrl: "https://fw.ky.gov/Education/Pages/Green-River---Hart-County.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Green River Hart County",
+        url: "https://fw.ky.gov/Education/Pages/Green-River---Hart-County.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Lynn Camp Creek Ramp",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=968",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Rio Carrydown Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1171",
+        provider: "local",
       },
       {
         label: "USGS 03308500 Green River at Munfordville",

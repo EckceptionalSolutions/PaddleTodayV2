@@ -1,10 +1,10 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-03 10:25 America/Chicago.
+Last summarized: 2026-07-03 14:15 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 75.
+- Live routes: 76.
 - Top represented rivers: Big Fork River 19, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4, Crow Wing River 3.
 - Ledger candidates: 73 total; 39 `added`, 19 `threshold_weak`, 10 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`, 1 `rejected`.
 
@@ -13,6 +13,13 @@ Last summarized: 2026-07-03 10:25 America/Chicago.
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-03 14:15 America/Chicago: added `big-fork-river-gowdy-kueffners`.
+- Stayed in Minnesota for one slot because the current official Big Fork Map 2 family still had this final short lower public pair with the same direct Big Falls gauge and public-water-access GIS backing, which was cleaner than forcing a weaker new-family search.
+- Current MN DNR `river_level_sites.json` reported site `5` (`Big Fork River at Big Falls, MN`) at `2.82 ft` on `2026-07-03 11:00 AM`; official bands remain Scrapable below `1.5 ft`, Low `1.5-2.8`, Medium `2.8-4.5`, High `4.5-6.0`, and Very High above `6.0`.
+- The official public-water-access GIS still resolves Gowdy `WAS02706` and Kueffners `WAS01788`, while current DNR Map 2 still places them at river miles `34.2` and `30.4`.
+- `big-fork-river-gowdy-kueffners` ships as `on_route_campsite` because Gowdy and Kueffners both remain documented watercraft-campsite stops and Kueffners still adds toilets.
+- Safety notes stay conservative around fresh storm wood, private-bank limits, cold water, and sparse-service lower-corridor judgment. No route-gallery image was added; `docs/river-image-source-audit.csv` records the bounded no-image outcome.
 
 - 2026-07-03 10:25 America/Chicago: added `big-fork-river-sturgeon-kueffners`, `big-fork-river-ben-linn-ivan-crawford`, and `big-fork-river-gowdy-reedy-flats`.
 - Stayed in Minnesota because the current official Big Fork Map 2 family still had three unused implementation-grade continuations with the same direct Big Falls gauge, official public-water-access GIS, and campsite-backed lower-corridor story, which was cleaner than reopening a weaker new-state search.

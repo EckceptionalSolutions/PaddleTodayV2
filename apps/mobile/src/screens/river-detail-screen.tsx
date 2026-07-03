@@ -6,6 +6,7 @@ import {
   type CampingClassification,
   type ApprovedTripReport,
   type DecisionChecklistItem,
+  type HourlyWeatherPoint,
   type RiverAccessPoint,
   type RiverRouteAccessPoint,
   type RiverAlertThreshold,
@@ -582,6 +583,7 @@ export default function RiverDetailScreen() {
                     detail={normalizeApiText(detail.liveData.weather.detail)}
                     tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Weather window'))}
                   />
+                  <WeatherDecisionCard detail={detail} />
                 </View>
                 <GaugeSourceActions detail={detail} />
               </SectionCard>
@@ -1535,6 +1537,51 @@ function HourlyWeatherStrip({ detail }: { detail: RiverDetailApiResult }) {
   );
 }
 
+function WeatherDecisionCard({ detail }: { detail: RiverDetailApiResult }) {
+  const model = weatherTimingModel(detail);
+
+  if (!model) {
+    return null;
+  }
+
+  return (
+    <View style={styles.weatherDecisionPanel}>
+      <View style={styles.weatherDecisionHeader}>
+        <View style={styles.weatherDecisionTitleWrap}>
+          <Text style={styles.weatherDecisionKicker}>Paddle window</Text>
+          <Text style={styles.weatherDecisionTitle}>{model.title}</Text>
+        </View>
+        <View style={[styles.weatherDecisionBadge, model.badgeStyle]}>
+          <MaterialCommunityIcons name={model.badgeIcon} color={colors.surfaceStrong} size={15} />
+          <Text style={styles.weatherDecisionBadgeText}>{model.badgeLabel}</Text>
+        </View>
+      </View>
+      <Text style={styles.weatherDecisionText}>{model.summary}</Text>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.weatherTimeline}>
+        {model.points.map((point, index) => {
+          const risk = hourlyWeatherRisk(point);
+          return (
+            <View
+              key={`${point.time}-${index}`}
+              style={[
+                styles.weatherTimelineCell,
+                index === 0 ? styles.weatherTimelineCellCurrent : null,
+                risk.level === 'watch' ? styles.weatherTimelineCellWatch : null,
+                risk.level === 'skip' ? styles.weatherTimelineCellSkip : null,
+              ]}
+            >
+              <Text style={styles.weatherTimelineHour}>{index === 0 ? 'Now' : formatHourLabel(point.time, point.label)}</Text>
+              <MaterialCommunityIcons name={risk.icon} color={risk.color} size={18} />
+              <Text style={styles.weatherTimelineRain}>{formatPercent(point.precipProbability, '0%')}</Text>
+              <Text style={styles.weatherTimelineWind}>{Math.round(point.windMph ?? 0)} mph</Text>
+            </View>
+          );
+        })}
+      </ScrollView>
+    </View>
+  );
+}
+
 function GaugeTrendChart({ detail }: { detail: RiverDetailApiResult }) {
   const unit = detail.gauge?.unit ?? detail.river.gaugeSource.unit;
   const samples = (detail.gauge?.recentSamples ?? []).slice(-10);
@@ -2223,6 +2270,90 @@ function weatherSubvalue(detail: RiverDetailApiResult) {
   }
 
   return normalizeApiText(detail.weather.conditionLabel || detail.weather.rainTimingLabel || 'Today');
+}
+
+function weatherTimingModel(detail: RiverDetailApiResult) {
+  const weather = detail.weather;
+  const points = (weather?.todayHourly ?? []).slice(0, 8);
+
+  if (!weather || points.length === 0) {
+    return null;
+  }
+
+  const firstRiskIndex = points.findIndex((point) => hourlyWeatherRisk(point).level !== 'clear');
+  const firstRiskPoint = firstRiskIndex >= 0 ? points[firstRiskIndex] : null;
+  const firstRisk = firstRiskPoint ? hourlyWeatherRisk(firstRiskPoint) : null;
+  const stormRisk = weather.next12hStormRisk || points.some((point) => hourlyWeatherRisk(point).kind === 'storm');
+  const riskStartsLater = firstRiskIndex >= 3;
+  const noEarlyRisk = firstRiskIndex === -1 || riskStartsLater;
+  const firstRiskTime = firstRiskPoint ? formatHourLabel(firstRiskPoint.time, firstRiskPoint.label) : null;
+  const riskLabel = firstRisk?.kind === 'storm' ? 'storm risk' : firstRisk?.kind === 'rain' ? 'rain risk' : 'wind';
+
+  if (firstRiskIndex === -1) {
+    return {
+      points,
+      title: 'No early weather block',
+      summary: 'No rain, storm, or wind spike is showing in the next few hours. Still re-check before launch.',
+      badgeLabel: 'Open',
+      badgeIcon: 'check-circle' as const,
+      badgeStyle: styles.weatherDecisionBadgeGood,
+    };
+  }
+
+  if (noEarlyRisk && firstRiskTime) {
+    return {
+      points,
+      title: `Aim to be off before ${firstRiskTime}`,
+      summary: `${normalizeApiText(riskLabel)} starts later in the forecast. A short paddle may still fit if shuttle, pace, and exit timing are conservative.`,
+      badgeLabel: stormRisk ? 'Storm later' : 'Later risk',
+      badgeIcon: stormRisk ? 'weather-lightning' as const : 'clock-outline' as const,
+      badgeStyle: styles.weatherDecisionBadgeWatch,
+    };
+  }
+
+  return {
+    points,
+    title: firstRiskTime ? `Weather risk near ${firstRiskTime}` : 'Weather needs attention',
+    summary: stormRisk
+      ? 'Storm risk is close enough that this should be treated as a launch-time safety check, not just an afternoon forecast note.'
+      : 'Rain or wind risk is early in the forecast. Confirm the latest radar and be ready to shorten or skip.',
+    badgeLabel: stormRisk ? 'Storm watch' : 'Check now',
+    badgeIcon: stormRisk ? 'weather-lightning' as const : 'alert-circle' as const,
+    badgeStyle: styles.weatherDecisionBadgeSkip,
+  };
+}
+
+function hourlyWeatherRisk(point: HourlyWeatherPoint): {
+  level: 'clear' | 'watch' | 'skip';
+  kind: 'clear' | 'rain' | 'storm' | 'wind';
+  icon: keyof typeof MaterialCommunityIcons.glyphMap;
+  color: string;
+} {
+  const condition = point.conditionLabel ?? '';
+  const rain = point.precipProbability ?? 0;
+  const wind = Math.max(point.windMph ?? 0, point.windGustMph ?? 0);
+
+  if (/(storm|thunder)/i.test(condition)) {
+    return { level: 'skip', kind: 'storm', icon: 'weather-lightning', color: colors.noGo };
+  }
+
+  if (rain >= 60 || (point.precipitationIn ?? 0) >= 0.08) {
+    return { level: 'skip', kind: 'rain', icon: 'weather-pouring', color: colors.noGo };
+  }
+
+  if (wind >= 20) {
+    return { level: 'skip', kind: 'wind', icon: 'weather-windy', color: colors.noGo };
+  }
+
+  if (rain >= 35 || (point.precipitationIn ?? 0) >= 0.02 || /(rain|showers)/i.test(condition)) {
+    return { level: 'watch', kind: 'rain', icon: 'weather-rainy', color: colors.fair };
+  }
+
+  if (wind >= 14) {
+    return { level: 'watch', kind: 'wind', icon: 'weather-windy', color: colors.fair };
+  }
+
+  return { level: 'clear', kind: 'clear', icon: 'weather-partly-cloudy', color: colors.accent };
 }
 
 function formatHourLabel(value: string, defaultLabel: string | null | undefined) {
@@ -4014,6 +4145,109 @@ const styles = StyleSheet.create({
   weatherMeta: {
     color: colors.textMuted,
     fontSize: 12,
+  },
+  weatherDecisionPanel: {
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+    padding: spacing.md,
+    gap: spacing.md,
+  },
+  weatherDecisionHeader: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
+  weatherDecisionTitleWrap: {
+    flex: 1,
+    minWidth: 0,
+    gap: 2,
+  },
+  weatherDecisionKicker: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.4,
+  },
+  weatherDecisionTitle: {
+    color: colors.text,
+    fontSize: 17,
+    lineHeight: 22,
+    fontWeight: '900',
+  },
+  weatherDecisionText: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
+  },
+  weatherDecisionBadge: {
+    minHeight: 30,
+    borderRadius: radius.pill,
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+  },
+  weatherDecisionBadgeGood: {
+    backgroundColor: colors.strong,
+  },
+  weatherDecisionBadgeWatch: {
+    backgroundColor: colors.fair,
+  },
+  weatherDecisionBadgeSkip: {
+    backgroundColor: colors.noGo,
+  },
+  weatherDecisionBadgeText: {
+    color: colors.surfaceStrong,
+    fontSize: 11,
+    fontWeight: '900',
+  },
+  weatherTimeline: {
+    gap: spacing.sm,
+    paddingRight: spacing.sm,
+  },
+  weatherTimelineCell: {
+    width: 72,
+    minHeight: 92,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    padding: spacing.sm,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 4,
+  },
+  weatherTimelineCellCurrent: {
+    borderColor: '#BFD6CC',
+    backgroundColor: colors.accentSoft,
+  },
+  weatherTimelineCellWatch: {
+    borderColor: 'rgba(138, 106, 42, 0.46)',
+    backgroundColor: '#F7EEDB',
+  },
+  weatherTimelineCellSkip: {
+    borderColor: 'rgba(140, 74, 54, 0.5)',
+    backgroundColor: '#F5E2D9',
+  },
+  weatherTimelineHour: {
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  weatherTimelineRain: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  weatherTimelineWind: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '700',
   },
   gaugeChartWrap: {
     gap: spacing.md,
