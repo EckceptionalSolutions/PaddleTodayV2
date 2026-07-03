@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-03 15:53 America/Chicago / 2026-07-03 20:53 UTC.
+Last summarized: 2026-07-03 21:05 America/Chicago / 2026-07-04 02:05 UTC.
 
 ## Current Inventory
 
-- Live routes: 51.
-- Ledger candidates: 72 Kentucky-specific records. The newest live Kentucky slugs are `green-river-greensburg-city-ramp-glenview-road`, `green-river-greensburg-city-ramp-lynn-camp-creek`, and `green-river-rio-carrydown-stovall-park`.
+- Live routes: 54.
+- Ledger candidates: 72 Kentucky-specific records. The newest live Kentucky slugs are `upper-salt-river-dry-branch-road-salt-river-ramp-3`, `upper-salt-river-rice-road-ford-drydock-road`, and `barren-river-tailwater-martinsville`.
 
 ## Status
 
@@ -26,6 +26,15 @@ Kentucky had been paused from the active automation rotation at user request whi
 - For Elkhorn specifically, do not substitute nearby bank/wade-only VPA sites for boat access; KDFWR explicitly prohibits boat carry-in/out at some Elkhorn VPA points.
 
 ## Current Guidance
+
+- 2026-07-03 21:05 America/Chicago / 2026-07-04 02:05 UTC mixed Kentucky add pass
+  - Added `upper-salt-river-dry-branch-road-salt-river-ramp-3`, `upper-salt-river-rice-road-ford-drydock-road`, and `barren-river-tailwater-martinsville` beyond the run-start baseline.
+  - The run used the current KDFWR Upper Salt River page for the exact official site-to-site mileages of Dry Branch Road Access -> Salt River Ramp 3 Access `3.1` and Rice Road Ford Access -> Drydock Road Access `7.5`, plus the official Salt River at Glensboro ladder of Low below `130 cfs / 3.7 ft`, Good `130-400 cfs / 3.7-4.5 ft`, and High above those marks.
+  - The run reused the current KDFWR Lower Barren River page for the exact public chain of Barren River Lake Tailwater -> Barren River VPA #3 `13.3` and Barren River VPA #3 -> Martinsville Ford / Claypool Ramp `3.9`, which supports the new `barren-river-tailwater-martinsville` public route at about `17.2` miles against the direct Finney stage gauge.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Dry Branch Road Access, Salt River Ramp 3 Access, Rice Road Ford Access, Drydock Road Access, Barren River Lake Tailwater, and Martinsville Ford / Claypool Ramp. Same-day direct USGS Water Services returned `134 cfs / 3.56 ft` at Salt River at Glensboro (`03295400`) at `2026-07-03 17:00 EDT` and `77.99 ft` at Barren River near Finney (`03313000`) at `2026-07-03 16:00 CDT`, so all three slugs ship with honest low-end caution.
+  - Camping stays conservative by route: both Upper Salt additions ship as `none`, while Tailwater -> Martinsville ships as `nearby_basecamp` because the tailwater campground amenities support staging but the route midpoint VPA expressly prohibits camping and the downstream finish is only a day-use ramp.
+  - Safety notes stay focused on the Salt River Ramp 3 low-head-dam hard stop, scrape-prone riffles near the lower edge of the Glensboro band, fresh wood and private-bank limits on both Upper Salt routes, and the long lower-Barren day commitment with VPA restrictions and release-sensitive current.
+  - Bounded image review stayed negative for all three: no clearly rights-clean exact-route asset was selected from KDFWR page imagery, Commons, or same-river USGS/general web review, so `docs/river-image-source-audit.csv` records no-image outcomes for the three new slugs.
 
 - 2026-07-03 15:53 America/Chicago / 2026-07-03 20:53 UTC three-route add pass
   - Added `green-river-greensburg-city-ramp-glenview-road`, `green-river-greensburg-city-ramp-lynn-camp-creek`, and `green-river-rio-carrydown-stovall-park` beyond the run-start baseline.

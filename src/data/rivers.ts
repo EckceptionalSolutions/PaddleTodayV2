@@ -38341,6 +38341,389 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: "upper-salt-river-dry-branch-road-salt-river-ramp-3",
+    slug: "upper-salt-river-dry-branch-road-salt-river-ramp-3",
+    name: "Upper Salt River",
+    reach: "Dry Branch Road Access to Salt River Ramp 3 Access",
+    aliases: [
+      "Upper Salt River - Dry Branch to Ramp 3",
+      "Salt River - Dry Branch Road to Salt River Park",
+      "Upper Salt River Harrodsburg segment",
+    ],
+    state: "Kentucky",
+    region: "Mercer County",
+    summary:
+      "Short Upper Salt River float from Dry Branch Road Access to Salt River Ramp 3 in Harrodsburg. KDFWR lists this exact 3.1-mile segment and ties it to the direct Glensboro gauge with official cfs and stage bands.",
+    statusText:
+      "Use the Salt River at Glensboro gauge. KDFWR rates 130 to 400 cfs or 3.7 to 4.5 ft as good. Below that expect scrape-prone riffles; above that the narrow channel and the mandatory take-out at Ramp 3 deserve more caution.",
+    latitude: 37.7348,
+    longitude: -84.8637,
+    gaugeSource: {
+      id: "usgs-03295400",
+      provider: "usgs",
+      siteId: "03295400",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Salt River at Glensboro, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/03295400/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["low_head_dam", "mandatory_takeout", "fast_rise", "private_banks"],
+      safetyNotes: [
+        "KDFWR says a low-head dam sits directly downstream of Salt River Ramp 3, so Ramp 3 is the mandatory finish rather than an optional stop.",
+        "The Upper Salt is narrow enough that rain can add push quickly even when the mileage is short.",
+        "Both accesses are simple carry-down style sites with private property close to the corridor, so stay inside the named access footprints.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 130,
+      idealMax: 400,
+      tooLow: 130,
+      tooHigh: 400,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Salt River at Glensboro",
+        url: "https://fw.ky.gov/Fish/Pages/Upper_Salt_River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "high",
+      windSensitivity: 0.3,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This short Upper Salt segment works best when the Glensboro gauge is inside KDFWR's good band. Dry spells expose more riffles and scrape lines, while storms quickly add current in the narrow channel.",
+      difficulty: "easy",
+      difficultyNotes:
+        "The mileage is short and the route is broad-audience friendly at normal flows, but the direct-downstream low-head dam means the take-out cannot be missed and higher water removes some of the margin.",
+      confidenceNotes:
+        "Confidence is good for a guarded Kentucky add: KDFWR lists Dry Branch Road Access to Salt River Ramp 3 Access as an exact 3.1-mile route, publishes official 130 to 400 cfs and 3.7 to 4.5 ft good bands for the Glensboro gauge, and current access-detail pages provide source-backed coordinates and public-use notes for both endpoints. Same-day USGS Water Services returned 134 cfs and 3.56 ft at 2026-07-03 17:00 EDT for Salt River at Glensboro, which keeps the live path current while honestly flagging a slightly below-band day.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Dry Branch Road Access to Salt River Ramp 3 Access, 3.1 mi",
+        note: "KDFWR lists this exact Upper Salt River site-to-site mileage on the current river page.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Upper_Salt_River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "130-400 cfs or 3.7-4.5 ft good",
+        note: "KDFWR rates the Salt River at Glensboro gauge as Low below 130 cfs or 3.7 ft, Good from 130 to 400 cfs or 3.7 to 4.5 ft, and High above those marks.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Upper_Salt_River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Dry Branch Road Access, 37.7348, -84.8637",
+        note: "KDFWR identifies Dry Branch Road Access as a public carry-down site for canoes and kayaks with limited parking and no amenities.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1256",
+      },
+      {
+        label: "Take-out access",
+        value: "Salt River Ramp 3 Access, 37.7562, -84.8723",
+        note: "KDFWR identifies Salt River Ramp 3 in Salt River Park as a public carry-down launch with parking and park seating, and warns that a low-head dam sits directly downstream.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=434",
+      },
+      {
+        label: "Mandatory take-out hazard",
+        value: "Low-head dam directly downstream of Ramp 3",
+        note: "KDFWR explicitly warns that a low-head dam is directly downstream of Salt River Ramp 3, making the access the required finish for this route.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Upper_Salt_River.aspx",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03295400 at 134 cfs / 3.56 ft",
+        note: "USGS Water Services returned same-day July 3, 2026 discharge and stage values for Salt River at Glensboro during this run. The cfs reading is barely inside the official runnable band, while stage still sits just below the 3.7 ft good floor.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03295400&parameterCd=00060,00065&siteStatus=all",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Upper Salt River",
+        url: "https://fw.ky.gov/Fish/Pages/Upper_Salt_River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Dry Branch Road Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1256",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Salt River Ramp 3 Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=434",
+        provider: "local",
+      },
+      {
+        label: "USGS 03295400 Salt River at Glensboro",
+        url: "https://waterdata.usgs.gov/monitoring-location/03295400/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03295400 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03295400&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "upper-salt-river-rice-road-ford-drydock-road",
+    slug: "upper-salt-river-rice-road-ford-drydock-road",
+    name: "Upper Salt River",
+    reach: "Rice Road Ford Access to Drydock Road Access",
+    aliases: [
+      "Upper Salt River - Rice Road Ford to Drydock Road",
+      "Salt River - Rice Road to Drydock",
+      "Upper Salt River Lawrenceburg west segment",
+    ],
+    state: "Kentucky",
+    region: "Anderson County",
+    summary:
+      "Mid-length Upper Salt River float from Rice Road Ford Access to Drydock Road Access west of Lawrenceburg. KDFWR lists this exact 7.5-mile segment and ties it to the direct Glensboro gauge with official cfs and stage bands.",
+    statusText:
+      "Use the Salt River at Glensboro gauge. KDFWR rates 130 to 400 cfs or 3.7 to 4.5 ft as good. Below that expect more scraping and slower riffles; above that the narrow bends, wood, and simple carry-down accesses deserve more respect.",
+    latitude: 37.9904,
+    longitude: -84.9194,
+    gaugeSource: {
+      id: "usgs-03295400",
+      provider: "usgs",
+      siteId: "03295400",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Salt River at Glensboro, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/03295400/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["fast_rise", "strainers", "private_banks"],
+      safetyNotes: [
+        "This Upper Salt segment is simple at normal flow, but it is still a narrow runoff-sensitive river where fresh wood and tight bends matter.",
+        "Rice Road and Drydock are both basic carry-down or ford-style public accesses with limited parking and no amenities.",
+        "Most of the shoreline between the named accesses is private, so do not treat bars or banks as casual public stops.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 130,
+      idealMax: 400,
+      tooLow: 130,
+      tooHigh: 400,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Salt River at Glensboro",
+        url: "https://fw.ky.gov/Fish/Pages/Upper_Salt_River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "high",
+      windSensitivity: 0.3,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This Upper Salt segment is most straightforward when the Glensboro gauge is inside the KDFWR good band. Drier periods expose more scrape-prone riffles, while fresh rain quickly adds current and muddier footing.",
+      difficulty: "easy",
+      difficultyNotes:
+        "The route is a manageable broad-audience river day in ordinary flow, but the simple carry-down accesses, wood, and runoff sensitivity keep it from being a no-thought flatwater shuttle.",
+      confidenceNotes:
+        "Confidence is good for a conservative Kentucky add: KDFWR lists Rice Road Ford Access to Drydock Road Access as an exact 7.5-mile route, publishes official 130 to 400 cfs and 3.7 to 4.5 ft good bands for the Glensboro gauge, and current access-detail pages provide source-backed coordinates and public-use notes for both endpoints. Same-day USGS Water Services returned 134 cfs and 3.56 ft at 2026-07-03 17:00 EDT for Salt River at Glensboro, which keeps the live path current while honestly flagging a scratchier below-stage day.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Rice Road Ford Access to Drydock Road Access, 7.5 mi",
+        note: "KDFWR lists this exact Upper Salt River site-to-site mileage on the current river page.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Upper_Salt_River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "130-400 cfs or 3.7-4.5 ft good",
+        note: "KDFWR rates the Salt River at Glensboro gauge as Low below 130 cfs or 3.7 ft, Good from 130 to 400 cfs or 3.7 to 4.5 ft, and High above those marks.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Upper_Salt_River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Rice Road Ford Access, 37.9904, -84.9194",
+        note: "KDFWR identifies Rice Road Ford as a public kayak and canoe access with limited parking at the ford and no amenities.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1258",
+      },
+      {
+        label: "Take-out access",
+        value: "Drydock Road Access, 38.0070, -84.9813",
+        note: "KDFWR identifies Drydock Road Access as a public carry-down site with limited parking and no amenities.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1259",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03295400 at 134 cfs / 3.56 ft",
+        note: "USGS Water Services returned same-day July 3, 2026 discharge and stage values for Salt River at Glensboro during this run. The cfs reading barely clears the official floor, while stage still sits slightly below the 3.7 ft good band.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03295400&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Narrow riffle-run river with simple roadside carries",
+        note: "KDFWR describes the Upper Salt as a semi-remote narrow river with riffle and run habitat, while both selected accesses stay minimal and private-property-adjacent.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Upper_Salt_River.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Upper Salt River",
+        url: "https://fw.ky.gov/Fish/Pages/Upper_Salt_River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Rice Road Ford Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1258",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Drydock Road Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1259",
+        provider: "local",
+      },
+      {
+        label: "USGS 03295400 Salt River at Glensboro",
+        url: "https://waterdata.usgs.gov/monitoring-location/03295400/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03295400 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03295400&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "barren-river-tailwater-martinsville",
+    slug: "barren-river-tailwater-martinsville",
+    name: "Barren River",
+    reach: "Barren River Lake Tailwater to Martinsville Ford / Claypool Ramp",
+    aliases: [
+      "Barren River - Tailwater to Martinsville Ford",
+      "Lower Barren River tailwater continuation",
+      "Barren River Lake Tailwater to Claypool",
+    ],
+    state: "Kentucky",
+    region: "South-Central Kentucky",
+    summary:
+      "Longer lower-Barren continuation from the public Barren River Lake Tailwater ramp to Martinsville Ford / Claypool Ramp. KDFWR's current mileage table supports this 17.2-mile route by chaining the official Tailwater-to-VPA and VPA-to-Martinsville segments against the direct Finney stage gauge.",
+    statusText:
+      "Use the Barren River near Finney gauge. KDFWR rates 78.0 to 78.5 ft as good for boating and fishing. Below that expect a longer scrape-prone day; above that open bends, release changes, and the broad downstream finish deserve more caution.",
+    latitude: 36.8947,
+    longitude: -86.1348,
+    gaugeSource: {
+      id: "usgs-03313000",
+      provider: "usgs",
+      siteId: "03313000",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Barren River near Finney, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03313000/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["fast_rise", "private_banks", "remote"],
+      safetyNotes: [
+        "This longer lower-Barren continuation is still an easy river at normal water, but release changes and fresh rain can add more current over a full-day commitment.",
+        "The route starts at a campground-style public tailwater launch and ends at a more basic ford-style ramp, so groups should not overestimate downstream amenities.",
+        "Much of the shoreline is private, and the VPA midpoint is a legal access point rather than a general-purpose rest or camping area.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 78.0,
+      idealMax: 78.5,
+      tooLow: 78.0,
+      tooHigh: 78.5,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Barren River near Finney",
+        url: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This longer lower-Barren route works best in normal spring and fall water. Summer lows lengthen the day through shoals and slower pools, while storms and release changes can add push over a route that already needs a full-day plan.",
+      difficulty: "easy",
+      difficultyNotes:
+        "The current is broad-audience friendly in ordinary conditions, but 17-plus miles of open river, wind, and private-bank limits make this more than a casual half-day float.",
+      confidenceNotes:
+        "Confidence is high for a conservative Kentucky add: KDFWR lists Barren River Lake Tailwater to Barren River VPA #3 as 13.3 miles and Barren River VPA #3 to Martinsville Ford / Claypool Ramp as 3.9 miles, which support this 17.2-mile chained route. The same page still publishes official low/good/high stage bands for Barren River near Finney, KDFWR access-detail pages still expose source-backed coordinates and public-use notes for both endpoints, and USGS Water Services returned a same-day July 3, 2026 stage reading of 77.99 ft at USGS 03313000. That keeps the live path current while honestly flagging a slightly below-band day.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Tailwater to Martinsville Ford, about 17.2 mi",
+        note: "KDFWR lists Tailwater to Barren River VPA #3 at 13.3 miles and Barren River VPA #3 to Martinsville Ford / Claypool Ramp at 3.9 miles, supporting this longer lower-Barren continuation of about 17.2 miles.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "78.0-78.5 ft good",
+        note: "KDFWR rates the Barren River near Finney gauge as Low below 78.0 ft, Good from 78.0 to 78.5 ft, and High above 78.5 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Barren River Lake Tailwater, 36.8947, -86.1348",
+        note: "KDFWR identifies the tailwater access as a free public ramp with campground amenities, restrooms, and year-round availability.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=6",
+      },
+      {
+        label: "Take-out access",
+        value: "Martinsville Ford / Claypool Ramp, 36.9134, -86.2293",
+        note: "KDFWR identifies Martinsville Ford as a free public ramp and bank-fishing access with plenty of parking along the ford crossing and no camping.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=624",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03313000 at 77.99 ft",
+        note: "USGS Water Services returned a same-day July 3, 2026 gage-height reading for Barren River near Finney during this run. That stage sits just below KDFWR's good band, so expect a slower low-water day.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03313000&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Tailwater launch, broad pools, shoals, and a ford-style finish",
+        note: "KDFWR describes the lower Barren corridor as a mix of shoals and deeper rocky pools, with the tailwater launch offering campground amenities and Martinsville providing a simpler ford-side public finish.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Lower Barren River",
+        url: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Barren River Lake Tailwater",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=6",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Martinsville Ford / Claypool Ramp",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=624",
+        provider: "local",
+      },
+      {
+        label: "USGS 03313000 Barren River near Finney",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03313000/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03313000 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03313000&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
     "id": "juniata-river-greenwood-amity-hall",
     "slug": "juniata-river-greenwood-amity-hall",
     "name": "Juniata River",

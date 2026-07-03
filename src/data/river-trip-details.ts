@@ -12776,6 +12776,150 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'upper-salt-river-dry-branch-road-salt-river-ramp-3': {
+    putIn: {
+      id: 'dry-branch-road-access',
+      name: 'Dry Branch Road Access',
+      latitude: 37.7348,
+      longitude: -84.8637,
+    },
+    takeOut: {
+      id: 'salt-river-ramp-3-access',
+      name: 'Salt River Ramp 3 Access',
+      latitude: 37.7562,
+      longitude: -84.8723,
+    },
+    logistics: {
+      distanceLabel: 'About 3.1 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2.5 hr, longer in low water or with careful scouting at the finish',
+      shuttle:
+        'Leave the downstream vehicle at Salt River Ramp 3 in Harrodsburg, then drive back to Dry Branch Road. Inspect Ramp 3 before launching because it is the mandatory finish above the low-head-dam hazard.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and avoid blocking the narrow parking or nearby private drives.',
+      camping:
+        'Treat this as a short day route. KDFWR lists no public camping or overnight support at either access, and the take-out sits immediately above a low-head dam rather than a campsite corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Dry Branch Road and finish at Salt River Ramp 3 for the official short Upper Salt River segment near Harrodsburg. Use the Glensboro gauge and do not drift past the Ramp 3 take-out.',
+      accessCaveats: [
+        'Dry Branch Road Access has limited parking and no amenities. Keep the vehicle compact and fully clear of the road edge.',
+        'Salt River Ramp 3 is the required finish. KDFWR says a low-head dam sits directly downstream of the access.',
+        'Both endpoints sit close to private property and should be treated as simple access footprints rather than general staging areas.',
+      ],
+      watchFor: [
+        'The low-head dam directly downstream of Salt River Ramp 3.',
+        'Low water near or below about 130 cfs, when riffles can scrape and slow the short route.',
+        'Higher water above about 400 cfs, when the narrow channel pushes faster into the finish approach.',
+        'Fresh wood, muddy footing, and private-bank limits away from the named accesses.',
+      ],
+    },
+  },
+  'upper-salt-river-rice-road-ford-drydock-road': {
+    putIn: {
+      id: 'rice-road-ford-access',
+      name: 'Rice Road Ford Access',
+      latitude: 37.9904,
+      longitude: -84.9194,
+    },
+    takeOut: {
+      id: 'drydock-road-access',
+      name: 'Drydock Road Access',
+      latitude: 38.007,
+      longitude: -84.9813,
+    },
+    logistics: {
+      distanceLabel: 'About 7.5 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr, longer with scrape lines, wood scouting, or a slow shuttle day',
+      shuttle:
+        'Stage the take-out at Drydock Road first, then drive back to Rice Road Ford near Lawrenceburg. Both accesses are limited roadside carries, so check footing and parking before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and stay off private banks between the endpoints.',
+      camping:
+        'Treat this as a day route. KDFWR lists no public camping or overnight support at Rice Road Ford or Drydock Road.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Rice Road Ford and finish at Drydock Road for the official 7.5-mile Upper Salt segment west of Lawrenceburg. Use the Glensboro gauge and expect a scratchier day whenever the river sits below the 130 to 400 cfs good band.',
+      accessCaveats: [
+        'Rice Road Ford parking depends on water level and bank space at the ford. Keep vehicles tight and do not block the crossing.',
+        'Drydock Road is a simple carry-down access with no amenities and very little staging room.',
+        'Most shoreline between the endpoints is private. Use only the named access areas for launching, landing, and rest stops.',
+      ],
+      watchFor: [
+        'Low water near or below about 130 cfs, when riffles and shallow runs become slower and scratchier.',
+        'Higher water above about 400 cfs, when bends and wood become less forgiving.',
+        'Fresh strainers after rain, muddy footing, and limited bailout options away from the two named public accesses.',
+      ],
+    },
+  },
+  'barren-river-tailwater-martinsville': {
+    putIn: {
+      id: 'barren-river-lake-tailwater',
+      name: 'Barren River Lake Tailwater',
+      latitude: 36.8947,
+      longitude: -86.1348,
+    },
+    takeOut: {
+      id: 'martinsville-ford-claypool-ramp',
+      name: 'Martinsville Ford / Claypool Ramp',
+      latitude: 36.9134,
+      longitude: -86.2293,
+    },
+    logistics: {
+      distanceLabel: 'About 17.2 mi',
+      estimatedPaddleTime:
+        'About 5.5 hr to 8.5 hr, longer with low-water dragging, headwind, or fishing stops',
+      shuttle:
+        'Leave the downstream vehicle at Martinsville Ford / Claypool Ramp, then drive back to the Barren River Lake Tailwater launch. This is a full-day lower-Barren commitment, so check weather and daylight before you launch.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect the VPA landowner rules at the midpoint access if you stop there.',
+      camping:
+        'The tailwater launch includes campground amenities, but the route itself should still be treated as a long day float unless you have separate legal overnight plans away from the river. The VPA midpoint specifically prohibits camping, fires, and alcohol.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch below Barren River Lake and finish at Martinsville Ford for the longer tailwater continuation on the lower Barren. Use the Finney stage gauge and expect a slower day whenever the river stays below the 78.0 to 78.5 ft good band.',
+      accessCaveats: [
+        'The tailwater launch has campground-style amenities, but Martinsville is a simpler ford-side finish with fewer services.',
+        'Barren River VPA #3 is a legal public midpoint access, not a campsite. KDFWR says no camping, fires, alcohol, or swimming there.',
+        'This route is long enough that wind, release changes, and low-water drag can matter more than the easy difficulty label suggests.',
+      ],
+      watchFor: [
+        'Low water below about 78.0 ft, when shoals and slow pools can turn the route into a grind.',
+        'High water above about 78.5 ft, when bends, bridge current, and the downstream landing become less forgiving.',
+        'Broad-river wind, woody debris after rain, boat traffic near the tailwater, and private-bank limits along the corridor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'barren-river-lake-tailwater',
+        name: 'Barren River Lake Tailwater',
+        latitude: 36.8947,
+        longitude: -86.1348,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream launch below Barren River Lake.',
+      },
+      {
+        id: 'barren-river-vpa-3',
+        name: 'Barren River VPA #3',
+        latitude: 36.9333,
+        longitude: -86.2043,
+        mileFromStart: 13.3,
+        segmentKind: 'creek',
+        note: 'Mid-route legal access point on voluntary public access land; no camping or fires.',
+      },
+      {
+        id: 'martinsville-ford-claypool-ramp',
+        name: 'Martinsville Ford / Claypool Ramp',
+        latitude: 36.9134,
+        longitude: -86.2293,
+        mileFromStart: 17.2,
+        segmentKind: 'creek',
+        note: 'Default downstream finish at the ford-side public ramp.',
+      },
+    ],
+  },
   'goose-creek-jacks-laurel-branch': {
     putIn: {
       id: 'jacks-bowling-branch-bridge-access',
