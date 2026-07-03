@@ -1,11 +1,11 @@
 # Arkansas Route Memory
 
-Last summarized: 2026-07-03 07:45 America/Chicago.
+Last summarized: 2026-07-03 15:05 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 29.
-- Ledger candidates: 23 Arkansas-specific implemented-route records plus older blocked Arkansas holds after the 2026-07-03 Bayou DeView follow-up add.
+- Live routes: 20.
+- Ledger candidates: 23 Arkansas-specific implemented-route records plus older blocked Arkansas holds after the 2026-07-03 Bayou DeView cleanup.
 
 ## Added Routes
 
@@ -23,7 +23,13 @@ Last summarized: 2026-07-03 07:45 America/Chicago.
 
 ## Status
 
-Arkansas now has twenty-nine live routes after the 2026-07-03 Bayou DeView combination follow-up added the last obvious AGFC-supported day-route permutations in that access chain. The state still looks partially harvested rather than exhausted: Bayou DeView, Buffalo, Crooked Creek, Saline, upper Illinois, Mulberry, Cossatot, Kings, and Ouachita all have live coverage, while the strongest remaining near-term leads are still blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs.
+Arkansas now has twenty live routes after the 2026-07-03 Bayou DeView consolidation collapsed the AGFC access-chain permutations into one canonical full-corridor route with intermediate access planning. The state still looks partially harvested rather than exhausted: Bayou DeView, Buffalo, Crooked Creek, Saline, upper Illinois, Mulberry, Cossatot, Kings, and Ouachita all have live coverage, while the strongest remaining near-term leads are still blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs.
+
+## 2026-07-03 Bayou DeView consolidation pass
+
+- Reduced the Bayou DeView family from ten live slugs to one canonical corridor slug, keeping only `bayou-deview-benson-creek-bank-of-brinkley`.
+- The surviving full-trail route now carries the public access planner directly in trip details: Benson Creek, Dark Corner, Hickson Lake, Rock Island Road, Apple Lake, and Bank of Brinkley all remain exposed as named public access points under the same AGFC and direct USGS evidence chain.
+- `docs/river-image-source-audit.csv` was pruned to the surviving canonical Bayou DeView slug so the image backlog no longer tracks deleted same-corridor permutations.
 
 ## 2026-07-03 Bayou DeView combination implementation pass
 

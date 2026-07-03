@@ -1,15 +1,21 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-03 11:31 America/Chicago / 2026-07-03 16:31 UTC.
+Last summarized: 2026-07-03 15:05 America/Chicago / 2026-07-03 20:05 UTC.
 
 ## Current Inventory
 
-- Live routes: 102.
-- Ledger candidates: 72 Kentucky-specific records. The newest live slugs from this run are `goose-creek-jacks-tobacco-road`, `goose-creek-tobacco-road-dump-hollow`, and `goose-creek-dump-hollow-laurel-branch`.
+- Live routes: 93.
+- Ledger candidates: 72 Kentucky-specific records. The newest live consolidation survivors from this run are `levisa-fork-jubilee-thompson-road` and `cumberland-river-redbird-cumberland-falls`.
 
 ## Status
 
-Kentucky had been paused from the active automation rotation at user request while work shifted to other states, but the current resumes have kept paying off because multiple KDFWR families now clear the same-day USGS gate again. It now has broad KDFWR-backed coverage across Levisa Fork, Slate Creek, Floyds Fork, South Fork Kentucky River, South Fork Licking River, North Fork Kentucky River, Russell Creek, Drakes Creek, Tygarts Creek, Big South Fork, Tradewater, Cumberland River, Barren River, and Green River, plus the guarded Elkhorn Creek whitewater route. KDFWR Blue Water Trails remain the best seed source for future resumes, but the remaining near-term leads are narrower and more likely to be blocked by threshold gaps, same-river gauge limits, or route-shape hazards around dams and whitewater.
+Kentucky had been paused from the active automation rotation at user request while work shifted to other states, but the current resumes have kept paying off because multiple KDFWR families now clear the same-day USGS gate again. It now has broad KDFWR-backed coverage across Levisa Fork, Slate Creek, Floyds Fork, South Fork Kentucky River, South Fork Licking River, North Fork Kentucky River, Russell Creek, Drakes Creek, Tygarts Creek, Big South Fork, Tradewater, Cumberland River, Barren River, and Green River, plus the guarded Elkhorn Creek whitewater route. The latest cleanup trimmed redundant Levisa Fork and Cumberland chain permutations into canonical corridor routes with preserved intermediate public access planning. KDFWR Blue Water Trails remain the best seed source for future resumes, but the remaining near-term leads are narrower and more likely to be blocked by threshold gaps, same-river gauge limits, or route-shape hazards around dams and whitewater.
+
+## 2026-07-03 Levisa Fork and Cumberland consolidation pass
+
+- Reduced the Levisa Fork Pikeville family to two live slugs by keeping the baseline short route `levisa-fork-cedar-creek-thompson-road` plus one canonical longer corridor slug, `levisa-fork-jubilee-thompson-road`.
+- Reduced the Cumberland family to one canonical upper-gorge slug, `cumberland-river-redbird-cumberland-falls`, with Long Bottom and Thunderstruck preserved as intermediate public access planner points in trip details instead of standalone same-gauge permutations.
+- `docs/river-image-source-audit.csv` was pruned to remove deleted Levisa Fork and Cumberland entries so the image backlog only tracks current live Kentucky slugs in those families.
 
 ## Main Blockers
 
