@@ -1,6 +1,21 @@
 # Kansas Route Memory
 
-Last summarized: 2026-06-26.
+Last summarized: 2026-07-03 09:35 America/Chicago.
+
+## 2026-07-03 Blue River implementation pass
+
+- Rebuilt the current Kansas inventory from the live repo state before editing. Kansas had seventeen live routes in `src/data/rivers.ts`, all on the Kansas River, so this pass needed three genuinely new slugs beyond that baseline.
+- Added `kansas-river-blue-river-st-george`, `kansas-river-blue-river-wamego`, and `kansas-river-blue-river-belvue`.
+- Route, gauge, and threshold evidence:
+  - Current Friends of the Kaw access pages still document the uninterrupted upper-Kaw chain at Linear Park / Blue River `RM 147.5`, St. George `RM 137`, Wamego `RM 128.5`, and Belvue `RM 119`, which supports the three Blue River combinations of about `11.5`, `20.0`, and `29.5` miles.
+  - The current Blue River page still confirms the launch is on the Blue River about one-third mile upstream from the Kansas River confluence, and current Manhattan-area Friends of the Kaw guidance still keeps the Tuttle Creek / Big Blue release caveat explicit near this launch family.
+  - Same-day direct USGS Water Services returned `14,800 cfs / 9.52 ft` at Wamego (`06887500`) at `2026-07-03 08:30 CDT`.
+  - Current Friends of the Kaw FAQ, camping, and river-safety guidance still supports Kansas public-river status, novice guidance below `5,000 cfs`, all-paddler guidance below `8,000 cfs`, and sandbar camping only between the high-water marks with private banks off-limits. The USACE Kansas River recreation appendix still supports the low-side `1,000 / 1,500-5,000 / 8,000` calibration used for broad Kaw scoring.
+- Camping, safety, and image posture:
+  - `kansas-river-blue-river-st-george` stays a guarded day trip with `caution` posture because it avoids the Belvue dam finish and is short enough that overnight framing would overstate the route.
+  - `kansas-river-blue-river-wamego` and `kansas-river-blue-river-belvue` use `sandbar_or_gravel_bar` because the mileage is long enough that conservative public sandbar overnight framing is defensible when sandbars are exposed and private banks remain off-limits.
+  - `kansas-river-blue-river-belvue` carries `advanced` safety posture with the Belvue partial low-head-dam left-side finish line; the Blue-River-to-St.-George and Blue-River-to-Wamego routes stay `caution` but still foreground Blue River release context, wind, private banks, and long exposed mileage.
+  - Reused the approved Kansas River Commons corridor image for all three slugs and recorded the same-river reuse in `docs/river-image-source-audit.csv`.
 
 ## 2026-07-02 lower-Kaw implementation pass
 
@@ -19,13 +34,13 @@ Last summarized: 2026-06-26.
 
 ## Current Inventory
 
-- Live routes: 17.
+- Live routes: 20.
 - Rivers represented: Kansas River 17.
 - Ledger candidates: 22 total; 17 added, 1 `no_live_gauge`, 3 `threshold_weak`, 1 `research_later`.
 
 ## Status
 
-Kansas reopened on 2026-06-26 once same-day USGS Water Services for Wamego (`06887500`) was verified directly in the runtime. The successful expansion wave now includes five upper-Kaw combination routes built from the existing Friends of the Kaw public-ramp sequence: `kansas-river-junction-city-manhattan`, `kansas-river-ogden-st-george`, `kansas-river-manhattan-wamego`, `kansas-river-junction-city-st-george`, and `kansas-river-ogden-wamego`.
+Kansas reopened on 2026-06-26 once same-day USGS Water Services for Wamego (`06887500`) was verified directly in the runtime. The successful expansion wave now includes the Blue River launch family on top of the earlier Junction City, Ogden, Manhattan, St. George, Wamego, and Belvue combinations, so the strongest remaining Kansas work is no longer more upper-Kaw recombinations but genuinely new route families or a manager-backed break in the current dam-separated gaps.
 
 ## Main Blockers
 
@@ -40,6 +55,7 @@ Kansas reopened on 2026-06-26 once same-day USGS Water Services for Wamego (`068
   - Both routes keep the conservative Friends of the Kaw safety/camping package: beginners stay under `5000 cfs`, everyone stays under `8000 cfs`, public sandbar camping is below the high-water mark only, and private banks remain off-limits.
   - A longer `kansas-river-junction-city-wamego` combination was researched but not kept because the current route audit rejects day routes above the repo's `35` mile ceiling.
 - Wamego-backed upper-Kaw combinations are still viable when they stay on the uninterrupted Junction City -> Ogden -> Manhattan -> St. George -> Wamego chain and do not cross a dam-separated break.
+- The current upper-Kaw chain now also includes Linear Park / Blue River -> St. George -> Wamego -> Belvue. Do not duplicate those three Blue River combinations unless Friends of the Kaw changes access status, the Wamego gauge story changes materially, or a better rights-clean image becomes available.
 - Treat long Kansas River combinations as `sandbar_or_gravel_bar` or similarly conservative overnight-capable content only when the note explicitly says public sandbar camping is below the high-water mark and private banks are off-limits.
 - Keep avoiding duplication across the Topeka Weir and Lawrence dam breaks unless a route manager publishes a stronger portage/access package.
 - Revisit Arkansas/Missouri River candidates only if they gain manager-grade endpoint and threshold evidence.

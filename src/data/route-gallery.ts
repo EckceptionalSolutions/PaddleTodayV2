@@ -856,6 +856,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
+  'kansas-river-blue-river-st-george': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-manhattan-st-george/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kansas-river-blue-river-wamego': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-manhattan-st-george/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kansas-river-blue-river-belvue': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-manhattan-st-george/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
   'kansas-river-st-george-wamego': [
     {
       id: 'kansas-river-lawrence-commons',

@@ -690,6 +690,187 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'kansas-river-blue-river-st-george': {
+    putIn: {
+      name: 'Linear Park / Blue River Access Ramp',
+      latitude: 39.19331,
+      longitude: -96.55763,
+    },
+    takeOut: {
+      name: 'St. George / Boggs Landing Access Ramp',
+      latitude: 39.18726,
+      longitude: -96.42202,
+    },
+    logistics: {
+      distanceLabel: 'About 11.5 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr, longer with low water, wind, stops, or Blue River release effects',
+      shuttle:
+        'Stage the take-out at St. George / Boggs Landing, then drive back to the Linear Park / Blue River launch. Inspect both ramps before launching because sand, mud, local parking, or high-water cleanup can change ramp usability.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Treat this as a day trip. Sandbars can be legal public river stops under current Kansas Riverkeeper guidance, but banks above the river are private; do not camp, picnic, or portage onto adjacent private land without permission.',
+      summary:
+        'Launch from Linear Park on the Blue River, paddle about one-third mile down to the Kansas River, and take out at St. George / Boggs Landing for an 11.5-mile upper-Kaw day. The Wamego USGS gauge is downstream of the take-out and should be treated as a proxy rather than a precise Blue-River-stage reading.',
+      accessCaveats: [
+        'The Linear Park / Blue River launch is on the Blue River just upstream of the Kansas confluence, so release-driven current can feel pushier near the start than the downstream Kaw itself.',
+        'Friends of the Kaw notes that nearby Manhattan-area Blue River access behavior changes when Tuttle Creek Reservoir releases exceed 500 cfs; check release context before using this launch.',
+        'St. George / Boggs Landing has strong amenities, but local events, mud, high-water cleanup, and ramp condition still need a same-day check.',
+        'All access and parking are subject to same-day city, county, and ramp conditions. Mud, silt, event closures, and shifted sand can change ramp usability.',
+      ],
+      watchFor: [
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar navigation slow or technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
+        'Private banks along the Kaw; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
+      ],
+    },
+  },
+  'kansas-river-blue-river-wamego': {
+    putIn: {
+      name: 'Linear Park / Blue River Access Ramp',
+      latitude: 39.19331,
+      longitude: -96.55763,
+    },
+    takeOut: {
+      name: 'Wamego Access Ramp',
+      latitude: 39.19828,
+      longitude: -96.30537,
+    },
+    logistics: {
+      distanceLabel: 'About 20 mi',
+      estimatedPaddleTime:
+        'About 6.5 hr to 9 hr, longer with low water, wind, sandbar stops, or the bridge-area turn into Wamego',
+      shuttle:
+        'Stage the take-out at the Wamego ramp beneath the K-99 bridge first, then drive back to the Linear Park / Blue River access. Inspect the Wamego landing before launching because the approach can require passing under the bridge and turning upstream along the bank.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'This is a long enough route that conservative sandbar camping may make more sense than a single push. Friends of the Kaw says you can camp on public sandbars between the high-water marks without a special permit, but private banks above that line are off-limits and sandbars become scarce above about 8,000 cfs.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch from Linear Park on the Blue River, join the Kansas River almost immediately downstream, and take out at Wamego for a long upper-Kaw continuation through St. George. The Wamego USGS gauge is direct for this route, but the app still treats the broad Kansas River thresholds conservatively.',
+      accessCaveats: [
+        'The Blue River launch sits just upstream of the Kansas confluence, so release-driven current can change the feel of the first reach before the river opens up into the Kaw.',
+        'At Wamego, Friends of the Kaw says it is often advisable to pass under the K-99 bridge and turn upstream next to the bank to reach the ramp.',
+        'Stay with public ramps and legal sandbar stops between the high-water marks. The banks above the river are private property.',
+        'All access and parking are subject to same-day city, county, mud, silt, high-water cleanup, and event conditions.',
+      ],
+      watchFor: [
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar navigation slow or technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, and bank hooks or fishing lines left in shoreline trees.',
+        'The final bridge-area approach into Wamego, where the safest line may include passing under K-99 and turning upstream along the bank.',
+        'Private banks along the Kaw; do not plan on using them for rest, camping, or bailout access.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'blue-river-linear-park-access',
+        name: 'Linear Park / Blue River Access Ramp',
+        latitude: 39.19331,
+        longitude: -96.55763,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream access just above the Kansas River confluence.',
+      },
+      {
+        id: 'st-george-boggs-landing',
+        name: 'St. George / Boggs Landing Access Ramp',
+        latitude: 39.18726,
+        longitude: -96.42202,
+        mileFromStart: 11.5,
+        segmentKind: 'creek',
+        note: 'Intermediate public access for the shorter St. George day route.',
+      },
+      {
+        id: 'wamego-access',
+        name: 'Wamego Access Ramp',
+        latitude: 39.19828,
+        longitude: -96.30537,
+        mileFromStart: 20,
+        segmentKind: 'creek',
+        note: 'Public ramp below K-99 and the direct gauge corridor finish for this route.',
+      },
+    ],
+  },
+  'kansas-river-blue-river-belvue': {
+    putIn: {
+      name: 'Linear Park / Blue River Access Ramp',
+      latitude: 39.19331,
+      longitude: -96.55763,
+    },
+    takeOut: {
+      name: 'Belvue Access Ramp',
+      latitude: 39.20284,
+      longitude: -96.17552,
+    },
+    logistics: {
+      distanceLabel: 'About 29.5 mi',
+      estimatedPaddleTime:
+        'Best planned as a very long day or conservative overnight; roughly 9 hr to 12.5 hr depending on wind, low water, and stop strategy',
+      shuttle:
+        'Stage the take-out at Belvue before driving back to the Linear Park / Blue River access. Inspect Belvue first because the take-out comes just below the partial low-head dam hazard and the ramp can change with sand, mud, or high-water cleanup.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'This route is long enough that conservative sandbar camping may make more sense than a single push. Friends of the Kaw says you can camp on public sandbars between the high-water marks without a special permit, but private banks above that line are off-limits and sandbars become scarce above about 8,000 cfs.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch from Linear Park on the Blue River, join the Kansas River almost immediately downstream, and take out at Belvue for a full upper-Kaw continuation through St. George and Wamego. The Wamego USGS gauge is direct in the route corridor, but the finish still requires careful Belvue dam planning.',
+      accessCaveats: [
+        'The Blue River launch sits just upstream of the Kansas confluence, so release-driven current can change the feel of the first reach before the river opens up into the Kaw.',
+        'At Wamego, Friends of the Kaw says it is often advisable to pass under the K-99 bridge and turn upstream next to the bank to reach the ramp; keep that line in mind if you stop or regroup there.',
+        'The Belvue partial low-head dam is at river mile 120, about one mile above the Belvue ramp. Friends of the Kaw says the dam begins on river right and extends more than halfway across the river; stay river left and watch for exposed or submerged rocks.',
+        'Stay with public ramps and legal sandbar stops between the high-water marks. The banks above the river are private property.',
+      ],
+      watchFor: [
+        'The partial low-head dam and associated exposed or submerged rocks near Belvue. Do not run right-side dam structures, and do not attempt this finish if visibility, flow, or group skill makes the left-side line uncertain.',
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar or rock navigation slow and technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, and bank hooks or fishing lines left in shoreline trees.',
+        'Private banks along the Kaw; do not plan on using them for rest, camping, or bailout access.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'blue-river-linear-park-access',
+        name: 'Linear Park / Blue River Access Ramp',
+        latitude: 39.19331,
+        longitude: -96.55763,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream access just above the Kansas River confluence.',
+      },
+      {
+        id: 'st-george-boggs-landing',
+        name: 'St. George / Boggs Landing Access Ramp',
+        latitude: 39.18726,
+        longitude: -96.42202,
+        mileFromStart: 11.5,
+        segmentKind: 'creek',
+        note: 'Intermediate public access for the shorter St. George day route.',
+      },
+      {
+        id: 'wamego-access',
+        name: 'Wamego Access Ramp',
+        latitude: 39.19828,
+        longitude: -96.30537,
+        mileFromStart: 20,
+        segmentKind: 'creek',
+        note: 'Public ramp below K-99 and a practical checkpoint before the Belvue dam reach.',
+      },
+      {
+        id: 'belvue-access',
+        name: 'Belvue Access Ramp',
+        latitude: 39.20284,
+        longitude: -96.17552,
+        mileFromStart: 29.5,
+        segmentKind: 'creek',
+        note: 'Default downstream access just below the partial low-head-dam hazard.',
+      },
+    ],
+  },
   'kansas-river-st-george-wamego': {
     putIn: {
       name: 'St. George / Boggs Landing Access Ramp',
