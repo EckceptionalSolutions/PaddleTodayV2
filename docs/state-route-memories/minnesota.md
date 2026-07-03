@@ -206,3 +206,9 @@ Minnesota still has the strongest official-source foundation and a broad existin
 ## 2026-07-02 consolidation note
 
 - Redundant unpushed route permutations from the July 2 route-add wave were consolidated into canonical multi-access route records. If an earlier note in this file now repeats a canonical slug, treat that as evidence that the former point-to-point variant was folded into the live access-planner route rather than kept as a separate route.
+
+## 2026-07-03 Big Fork consolidation pass
+
+- Collapsed the Big Fork family from `20` live slugs to `6` by keeping the corridor planners and deleting the shorter subset legs they already preserve through `accessPoints`.
+- The surviving Big Fork slugs are now `big-fork-river-highway-6-south-north`, `big-fork-river-johnson-big-falls-east`, `big-fork-river-big-falls-west-kueffners`, `big-fork-river-sturgeon-kueffners`, `big-fork-river-ben-linn-ivan-crawford`, and `big-fork-river-gowdy-reedy-flats`.
+- Treat deleted slugs such as `big-fork-river-johnson-grunwald`, `big-fork-river-grunwald-big-falls-east`, `big-fork-river-big-falls-west-sturgeon`, `big-fork-river-sturgeon-ben-linn`, `big-fork-river-ben-linn-gowdy`, `big-fork-river-gowdy-kueffners`, `big-fork-river-gowdy-ivan-crawford`, `big-fork-river-kueffners-reedy-flats`, `big-fork-river-kueffners-ivan-crawford`, and `big-fork-river-ivan-crawford-reedy-flats` as intentionally folded into those longer planners.

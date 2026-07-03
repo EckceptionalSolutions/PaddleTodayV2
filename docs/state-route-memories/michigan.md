@@ -73,3 +73,10 @@ Michigan is not exhausted, but the easy wins are mostly picked over. The current
 ## 2026-07-02 consolidation note
 
 - Redundant unpushed route permutations from the July 2 route-add wave were consolidated into canonical multi-access route records. If an earlier note in this file now repeats a canonical slug, treat that as evidence that the former point-to-point variant was folded into the live access-planner route rather than kept as a separate route.
+
+## 2026-07-03 Shiawassee and Clinton consolidation pass
+
+- Collapsed the Shiawassee River family from `11` live slugs to `2`, leaving only the existing access-planner corridors `shiawassee-river-byron-brady-street` and `shiawassee-river-mccurdy-cole-park`.
+- The deleted Shiawassee legs were the exact subset pairings already preserved inside those two planner routes: Byron/Walnut Hills, Walnut Hills/Geeck, Geeck/Shiatown, Shiatown/Lytle, Lytle/Brady, McCurdy/Harmon Patridge, Harmon Patridge/Henderson, Henderson/Ditch, and Ditch/Cole.
+- Collapsed the Clinton River family from `8` live slugs to `3`, leaving `clinton-river-downtown-utica-budd`, `clinton-river-budd-macarthur`, and `clinton-river-macarthur-harley-ensign`.
+- The deleted Clinton legs were the interior subset slices already preserved by the planner corridors: Downtown Utica/North Clinton, North Clinton/Rotary, Rotary/Budd, Budd/Shadyside, and Shadyside/MacArthur.
