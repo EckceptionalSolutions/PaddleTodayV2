@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-03 01:30 America/Chicago / 2026-07-03 06:30 UTC.
+Last summarized: 2026-07-03 04:20 America/Chicago / 2026-07-03 09:20 UTC.
 
 ## Current Inventory
 
-- Live routes: 90.
-- Ledger candidates: 63 Kentucky-specific records. The newest live slugs from this run are `upper-cumberland-river-varilla-4-mile`, `upper-cumberland-river-artemus-barbourville`, and `upper-cumberland-river-williamsburg-redbird`.
+- Live routes: 93.
+- Ledger candidates: 66 Kentucky-specific records. The newest live slugs from this run are `cumberland-river-redbird-longbottom`, `cumberland-river-longbottom-thunderstruck`, and `cumberland-river-longbottom-cumberland-falls`.
 
 ## Status
 
@@ -20,6 +20,14 @@ Kentucky had been paused from the active automation rotation at user request whi
 - For Elkhorn specifically, do not substitute nearby bank/wade-only VPA sites for boat access; KDFWR explicitly prohibits boat carry-in/out at some Elkhorn VPA points.
 
 ## Current Guidance
+
+- 2026-07-03 04:20 America/Chicago / 2026-07-03 09:20 UTC three-route add pass
+  - Added `cumberland-river-redbird-longbottom`, `cumberland-river-longbottom-thunderstruck`, and `cumberland-river-longbottom-cumberland-falls` to expand Kentucky beyond the 494-route repo baseline at run start.
+  - The run reused the current KDFWR Cumberland River page and current 2023 route map for the exact public ramp-to-ramp mileages of Redbird -> Longbottom `9.0`, Longbottom -> Thunderstruck `2.5`, and Thunderstruck -> Cumberland Falls `5.1`, which support the three new public routes of `9.0`, `2.5`, and `7.6` miles.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Redbird Ramp, Long Bottom Access, Thunderstruck Ramp, and Cumberland Falls Carrydown; same-day direct USGS Water Services returned `1100 cfs / 4.34 ft` at Cumberland River at Williamsburg (`03404000`) at `2026-07-03 05:00 EDT`, exactly at the top of the official `500-1100 cfs` preferred band and still below KDFWR's `2000 cfs` skilled-paddler challenge ceiling.
+  - Camping stays conservative by route: Redbird -> Longbottom ships as `on_route_campsite` because KDFWR says float campers use the banks downstream of Bee Shoals, Longbottom -> Thunderstruck stays `none` because the short middle split is better treated as a direct day shuttle, and Longbottom -> Cumberland Falls ships as `endpoint_campground` because KDFWR lists seasonal camping and year-round lodging at the Cumberland Falls carrydown endpoint.
+  - Safety notes stay focused on rugged Long Bottom access, shoals and mild whitewater, fast rises, private-bank limits, the easy-to-miss Thunderstruck exit, and the mandatory right-bank take-out above Cumberland Falls on the downstream combination.
+  - Bounded image review stayed negative for all three: no clearly rights-clean exact-route asset was selected from KDFWR access imagery, Kentucky State Parks context, Commons, or same-river USGS media, so `docs/river-image-source-audit.csv` records no-image outcomes for the three new slugs.
 
 - 2026-07-03 01:30 America/Chicago / 2026-07-03 06:30 UTC three-route add pass
   - Added `upper-cumberland-river-varilla-4-mile`, `upper-cumberland-river-artemus-barbourville`, and `upper-cumberland-river-williamsburg-redbird` to expand Kentucky beyond the 488-route repo baseline at run start.
