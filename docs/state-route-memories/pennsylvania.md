@@ -34,6 +34,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Run Notes
 
+- 2026-07-02 21:15 America/Chicago / 2026-07-03 02:15 UTC: Pennsylvania three-route implementation pass; added three more upper North Branch Susquehanna routes.
+  - Reused the current repo state as the real baseline and treated `476` live routes from the regenerated lead inbox as the starting count for this run, so the pass still needed three genuinely new slugs beyond that tree state.
+  - Implemented `susquehanna-river-sayre-wysox-township-park`, `susquehanna-river-ulster-bridge-terrytown`, and `susquehanna-river-wysox-township-park-laceyville` from the PFBC North Branch Section 1 guide family.
+  - Qualification package: the PFBC Section 1 guide and the 2021 North Branch brochure still publish exact public access coordinates and official river miles for Sayre PFBC, Ulster Bridge, Wysox Township Park, Terrytown PFBC, and Laceyville Borough. The Towanda stage guidance still says the river can be paddled as low as about `-0.5 ft`, uses about `2 ft` as the safe-base planning level, and says novice paddlers should stay off when Towanda is over about `5 ft`. Same-day direct USGS Water Services returned `2000 cfs / 0.57 ft` at Towanda (`01531500`) at `2026-07-02 21:45 EDT`.
+  - Camping and safety/logistics notes were added for all three routes. All three ship as `on_route_campsite` because official corridor camping support remains available at Harrigan Island, Hornbrook County Park, Riverside Acres Campground, and/or Endless Mountain Campground without implying permission to camp on undeveloped banks.
+  - No gallery image was added. Bounded Commons, PFBC guide imagery, and same-river USGS media checks found corridor context but no clearly rights-clean exact-route asset was selected for these three slugs.
+
 - 2026-07-02 17:05 America/Chicago / 2026-07-02 22:05 UTC: Pennsylvania three-route implementation pass; added three more upper North Branch Susquehanna routes.
   - Reused the current repo state as the real baseline and treated `473` live routes from the regenerated lead inbox as the starting count for this run, so the pass still needed three genuinely new slugs beyond that tree state.
   - Implemented `susquehanna-river-ulster-bridge-towanda`, `susquehanna-river-hornbrook-wysox-township-park`, and `susquehanna-river-hornbrook-terrytown` from the PFBC North Branch Section 1 guide and the 2021 North Branch brochure.
