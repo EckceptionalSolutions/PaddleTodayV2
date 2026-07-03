@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-02 23:35 America/Chicago / 2026-07-03 04:35 UTC.
+Last summarized: 2026-07-03 00:22 America/Chicago / 2026-07-03 05:22 UTC.
 
 ## Current Inventory
 
-- Live routes: 80.
-- Ledger candidates: 60 Kentucky-specific records. The newest live slugs from this run are `levisa-fork-jubilee-cedar-creek`, `levisa-fork-island-creek-thompson-road`, and `levisa-fork-jubilee-thompson-road`.
+- Live routes: 83.
+- Ledger candidates: 60 Kentucky-specific records. The newest live slugs from this run are `south-fork-kentucky-river-oneida-kay-wood`, `south-fork-kentucky-river-rocky-branch-fish-creek`, and `south-fork-kentucky-river-cedar-valley-fish-creek`.
 
 ## Status
 
@@ -20,6 +20,13 @@ Kentucky had been paused from the active automation rotation at user request whi
 - For Elkhorn specifically, do not substitute nearby bank/wade-only VPA sites for boat access; KDFWR explicitly prohibits boat carry-in/out at some Elkhorn VPA points.
 
 ## Current Guidance
+
+- 2026-07-03 00:22 America/Chicago / 2026-07-03 05:22 UTC three-route add pass
+  - Added `south-fork-kentucky-river-oneida-kay-wood`, `south-fork-kentucky-river-rocky-branch-fish-creek`, and `south-fork-kentucky-river-cedar-valley-fish-creek` to expand Kentucky beyond the 482-route repo baseline at run start.
+  - The run reused the current KDFWR South Fork Kentucky River page for the official site-to-site access chain of Oneida to Rocky Branch `6.8`, Rocky Branch to Cedar Valley `2.5`, Cedar Valley to Bishop Bend `4.7`, Bishop Bend to Hacker Branch `3.3`, Hacker Branch to Upper Wolf Creek `2.9`, Upper Wolf Creek to Kay Wood `5.6`, and Kay Wood to Fish Creek `7.9`, which support the new public routes of `25.8`, `26.9`, and `24.4` miles.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Oneida Ramp, Rocky Branch Road Access, Cedar Valley Road Access, Kay Wood Road Access, and Fish Creek Boat Ramp; same-day direct USGS Water Services returned `185 cfs / 4.19 ft` at South Fork Kentucky River at Booneville (`03281500`) at `2026-07-03 00:30 EDT`, below the official `350-900 cfs / 4.8-6.0 ft` good band.
+  - Camping stays conservative at `none` for all three because KDFWR still treats the access chain as day-use public launches rather than overnight sites. Safety notes stay focused on low-water scraping below band, wood and strainers, muddy step-outs, private-bank limits, and fatigue on the long chained downstream commitments.
+  - Reused the approved South Fork Commons corridor images for all three new slugs, and `docs/river-image-source-audit.csv` records the same-river reuse.
 
 - 2026-07-02 23:35 America/Chicago / 2026-07-03 04:35 UTC three-route add pass
   - Added `levisa-fork-jubilee-cedar-creek`, `levisa-fork-island-creek-thompson-road`, and `levisa-fork-jubilee-thompson-road` to expand Kentucky beyond the 479-route repo baseline at run start.
