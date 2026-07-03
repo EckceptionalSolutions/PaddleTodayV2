@@ -14169,6 +14169,87 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'guadalupe-river-sh72-fm236': {
+    putIn: {
+      id: 'sh-72-access-point',
+      name: 'SH 72',
+      latitude: 29.0903,
+      longitude: -97.3296,
+    },
+    takeOut: {
+      id: 'fm-236-access-point',
+      name: 'FM 236',
+      latitude: 29.0514,
+      longitude: -97.2647,
+    },
+    logistics: {
+      distanceLabel: 'About 7.2 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 4 hr at ordinary levels, longer if low water, weather, or wood slows the day',
+      shuttle:
+        'Stage FM 236 first, then drive back to SH 72. Inspect both bridge-side access points before leaving vehicles because they are simple highway accesses rather than staffed ramps or park marinas.',
+      permits:
+        'No route-specific paddling permit is known for this segment. Follow Texas boating and PFD rules, use only the named public launches, and obey posted bridge-access signs and any current TPWD guidance.',
+      camping:
+        'Treat this as a day trip. No established route camping or endpoint campground is documented in the current TPWD trail material for SH 72 to FM 236.',
+      campingClassification: 'none',
+      summary:
+        'Launch at SH 72 and take out at FM 236 for the lower official Guadalupe Valley segment. Use USGS 08175800 at Cuero with a conservative 200 cfs floor, then make a same-day call on weather, current, wood, and water quality before committing.',
+      accessCaveats: [
+        'TPWD identifies SH 72 and FM 236 as public access points with posted GPS coordinates, but both are still bridge-side highway accesses rather than improved park ramps.',
+        'TPWD identifies Hwy 183 as an emergency take-out about 2.6 miles below SH 72 if the planned exit becomes unusable or the group needs to shorten the trip.',
+        'The Cuero Guadalupe can see rainfall-driven high flows and undesirable water-quality conditions. Bring your own drinking water and treat storm runoff conservatively.',
+        'This route uses a conservative minimum-only threshold, not a full ideal-range recommendation. If the gauge is below about 200 cfs, expect more shallow routing, sandbar scraping, and log avoidance.',
+      ],
+      watchFor: [
+        'Flows near or below about 200 cfs, when shallow riffles, exposed gravel, and wood become more likely.',
+        'High or rising water after rainfall, when current speeds up, bridge-side landings get less forgiving, and water quality can degrade.',
+        'Snags, floating wood, overhanging limbs, and changing lines around bends and bridge approaches.',
+        'Heat, wind on open bends, private banks outside the public launches, and a longer downstream finish than the quiet scenery first suggests.',
+      ],
+    },
+  },
+  'guadalupe-river-fm766-fm236': {
+    putIn: {
+      id: 'fm-766-hells-gate',
+      name: "FM 766 (Hell's Gate)",
+      latitude: 29.1472,
+      longitude: -97.3177,
+    },
+    takeOut: {
+      id: 'fm-236-access-point',
+      name: 'FM 236',
+      latitude: 29.0514,
+      longitude: -97.2647,
+    },
+    logistics: {
+      distanceLabel: 'About 13.8 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 8 hr depending on level, weather, the dam-remnant portage, and how efficiently the group moves',
+      shuttle:
+        'Stage FM 236 first, then drive back to FM 766. Inspect both bridge-side access points before leaving vehicles because they are simple highway accesses rather than staffed ramps or park marinas.',
+      permits:
+        'No route-specific paddling permit is known for this segment. Follow Texas boating and PFD rules, use only the named public launches, and obey posted bridge-access signs and any current TPWD guidance.',
+      camping:
+        'Treat this as a long day trip. No established route camping or endpoint campground is documented in the current TPWD trail material for the full FM 766 to FM 236 run.',
+      campingClassification: 'none',
+      summary:
+        "Launch at Hell's Gate and take out at FM 236 for the full official Guadalupe Valley trail. Use USGS 08175800 at Cuero with a conservative 200 cfs floor, then make a same-day call on weather, current, wood, and the remnant-dam portage before committing to the full distance.",
+      accessCaveats: [
+        'TPWD identifies FM 766, SH 72, and FM 236 as public access points with posted GPS coordinates, but all are still bridge-side highway accesses rather than improved park ramps.',
+        'TPWD identifies Hwy 183 as an emergency take-out between SH 72 and FM 236 if the planned finish becomes impractical or the group needs to shorten the day.',
+        'The Cuero Guadalupe can see rainfall-driven high flows and undesirable water-quality conditions. Bring your own drinking water and treat storm runoff conservatively.',
+        'This route uses a conservative minimum-only threshold, not a full ideal-range recommendation. Even at moderate readings, the remnant-dam portage and long shuttle still require attention.',
+      ],
+      watchFor: [
+        'Mandatory portage around the remnants of a dam about 2.5 miles below FM 766; scout early, land with margin, and do not run it blindly.',
+        'Flows near or below about 200 cfs, when TPWD warns snags can be more prominent and the run can get scrape-prone.',
+        'High or rising water after rainfall, when current speeds up, water quality can degrade, and the portage line becomes less forgiving.',
+        'Faster riffles, floating wood, sweepers, strainers, and changing lines around bridge approaches and bends.',
+        'Private banks outside the public launches and a long downstream finish that can punish a late start in heat or headwind.',
+      ],
+    },
+  },
   'fox-river-yorkville-whitewater-course': {
     putIn: {
       id: 'marge-cline-course-put-in',
@@ -18558,6 +18639,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Stage around or above about 10 ft, rising water, fresh heavy rain, or park-launch flood impacts that can turn an easy short float into a poor access decision.',
         'Snags, logjams, floating debris, insects, thunderstorms, muddy footing, alligators, and other wildlife near the lower corridor and park take-out.',
         'Private banks between the launches and the temptation to treat state-park access as proof that any stop along the way is equally public.',
+      ],
+    },
+  },
+  'village-creek-fm418-state-park': {
+    putIn: {
+      id: 'village-creek-fm-418-boat-launch',
+      name: 'FM 418 Boat Launch',
+      latitude: 30.3978,
+      longitude: -94.2647,
+    },
+    takeOut: {
+      id: 'village-creek-state-park-canoe-launch',
+      name: 'Village Creek State Park canoe launch',
+      latitude: 30.2553,
+      longitude: -94.171,
+    },
+    logistics: {
+      distanceLabel: 'About 20.9 mi',
+      estimatedPaddleTime:
+        'Too long for one day for most groups; plan a very strong all-day push or an overnight with a legal camping plan',
+      shuttle:
+        'Stage the state-park take-out first, then drive back to FM 418. This is a long shuttle through the Big Thicket corridor, so verify park hours, preserve permit plans, launch conditions, and vehicle security before committing.',
+      permits:
+        'TPWD says overnight camping permits for the preserve corridor are free and available at the Big Thicket National Preserve Visitor Center. Follow current Big Thicket, Texas boating, PFD, and state-park entry and camping rules.',
+      camping:
+        'TPWD says the full trail is too long to paddle in one day and that free overnight camping permits are available through Big Thicket National Preserve; Village Creek State Park also has campsites and a cabin at the take-out.',
+      campingClassification: 'overnight_capable',
+      summary:
+        'Launch at FM 418 and finish at Village Creek State Park for the full public Village Creek trail. Use USGS 08041500 near Kountze with a conservative 200 cfs floor, then make a same-day call on water level, weather, wood, and whether the trip should be split overnight.',
+      accessCaveats: [
+        'TPWD publishes five access points along this trail, so groups should not force the entire route into one day unless they have the pace, weather window, and shuttle discipline for it.',
+        'TPWD says water quality is variable and not recommended for drinking. Bring your own water even if you plan to stop overnight.',
+        'The entire corridor sits within Big Thicket National Preserve boundaries, but preserve limits can be just above the high-water line in places. Respect boundary markers and private-bank limits.',
+        'The downstream Village Creek State Park canoe launch can be affected by flooding, and the lower corridor is where alligator awareness matters most even though sightings are uncommon.',
+      ],
+      watchFor: [
+        'Flows near or below about 200 cfs, or stage below roughly 3 ft, when TPWD says snags, logjams, and sandbars become more prominent and low-water delays compound over a 20.9-mile route.',
+        'High or rising water, especially around 10 ft or higher, when TPWD warns that the creek can become swift and hazardous despite the flatwater setting.',
+        'Heat, thunderstorms, insects, private-bank discipline, and fatigue from treating an easy-looking creek like a casual short float.',
+        'Snags, overhanging limbs, strainers, and the need to re-evaluate at SH 327, Baby Galvez, or US 96 instead of pressing on with a tired group.',
       ],
     },
   },

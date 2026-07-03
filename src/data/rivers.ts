@@ -41909,6 +41909,232 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: "guadalupe-river-sh72-fm236",
+    slug: "guadalupe-river-sh72-fm236",
+    name: "Guadalupe River",
+    reach: "SH 72 to FM 236",
+    aliases: [
+      "Guadalupe Valley Paddling Trail - SH 72 to FM 236",
+      "Guadalupe River - SH 72 to FM 236",
+      "Lower Cuero Guadalupe segment",
+    ],
+    state: "Texas",
+    region: "South Texas",
+    summary:
+      "Lower Cuero Guadalupe continuation from SH 72 to FM 236. TPWD still documents the exact 7.2-mile segment and public bridge accesses, and the Cuero USGS gauge gives a direct same-river condition check before committing.",
+    statusText:
+      "Use the Guadalupe River at Cuero gauge. Around 200 cfs is the conservative low-water floor for SH 72 to FM 236. No upper cfs band is claimed; high or rising water can make the longer downstream pools, wood, and bridge-side landings less forgiving.",
+    latitude: 29.0903,
+    longitude: -97.3296,
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["strainers", "fast_rise", "private_banks"],
+      safetyNotes: [
+        "This lower Cuero segment skips the remnant-dam portage but remains rainfall-sensitive, with faster current and murkier water after storms.",
+        "Low water can expose more wood and shallow riffles, while higher flows can make the long open bends and simple bridge accesses feel less forgiving.",
+        "Use only the named public bridge accesses and respect private banks except when portaging a hazard within the navigable corridor is necessary.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    gaugeSource: {
+      id: "usgs-08175800",
+      provider: "usgs",
+      siteId: "08175800",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Guadalupe Rv at Cuero, TX",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-08175800/",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 200,
+      thresholdSource: {
+        label: "Texas River Flows five-level Guadalupe / Cuero gauge table",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      thresholdSourceStrength: "community",
+      rainfallSensitivity: "high",
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonNotes:
+        "This lower Cuero reach can work much of the year, but it remains rainfall-sensitive. Runoff can create temporary high flows, stronger current, and poorer water quality, so same-day weather and river checks matter.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is flatter and less technical than the upstream Hell's Gate split, but it is still a real half-day paddle with wood, private-bank limits, and enough current change after rain to justify a conservative same-day call.",
+      confidenceNotes:
+        "Confidence is good for a conservative Texas add: TPWD currently names the exact SH 72-to-FM 236 segment with coordinates, mileage, route description, and access guidance; USGS 08175800 is the direct same-river gauge at Cuero; and the legacy Texas River Flows table ties a 200 cfs minimum to that same Cuero gauge. Confidence stays intentionally conservative because the threshold floor comes from an older corridor-wide flow table rather than a modern route-specific band, so the route ships minimum-only and does not claim an upper scoring range.",
+    },
+    evidenceNotes: [
+      {
+        label: "Direct live gauge",
+        value: "USGS 08175800 at 408 cfs / 7.33 ft",
+        note: "USGS Water Services returned same-day July 3, 2026 discharge and stage values for Guadalupe River at Cuero, confirming the direct live gauge path used for this route.",
+        sourceUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-08175800/",
+      },
+      {
+        label: "Conservative low-water floor",
+        value: "200 cfs minimum-only",
+        note: "The Texas River Flows five-level table lists Guadalupe Gonzales to Victoria on the Cuero gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        sourceUrl: "https://theworld.com/~reichert/riverflo.htm",
+      },
+      {
+        label: "Official route shape",
+        value: "SH 72 to FM 236, 7.2 mi",
+        note: "Current TPWD trail material identifies SH 72 to FM 236 as the lower segment of the Guadalupe Valley Paddling Trail and lists a 2-4 hour float time.",
+        sourceUrl: "https://tpwd.texas.gov/boating/paddling-trails/prairies-and-lakes/guadalupe-valley/",
+      },
+      {
+        label: "Exact public launch coordinates",
+        value: "29.0903, -97.3296 to 29.0514, -97.2647",
+        note: "TPWD publishes SH 72 and FM 236 as access points with current GPS coordinates and bridge-side driving directions.",
+        sourceUrl: "https://tpwd.texas.gov/boating/paddling-trails/prairies-and-lakes/guadalupe-valley/",
+      },
+      {
+        label: "Mid-route bailout and hazard context",
+        value: "Hwy 183 emergency take-out plus rain-sensitive current",
+        note: "TPWD identifies Hwy 183 as an emergency take-out 2.6 miles below SH 72 and warns that runoff can create temporary high flows and undesirable water quality conditions on this Cuero reach.",
+        sourceUrl: "https://tpwd.texas.gov/boating/paddling-trails/prairies-and-lakes/guadalupe-valley/",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "TPWD Guadalupe Valley Paddling Trail",
+        url: "https://tpwd.texas.gov/boating/paddling-trails/prairies-and-lakes/guadalupe-valley/",
+        provider: "local",
+      },
+      {
+        label: "TPWD Texas River/Stream Flow",
+        url: "https://tpwd.texas.gov/landwater/water/habitats/rivers/river_flow/",
+        provider: "local",
+      },
+      {
+        label: "Texas River Flows for 5 Levels of Paddling",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      {
+        label: "USGS 08175800 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-08175800/",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "guadalupe-river-fm766-fm236",
+    slug: "guadalupe-river-fm766-fm236",
+    name: "Guadalupe River",
+    reach: "FM 766 (Hell's Gate) to FM 236",
+    aliases: [
+      "Guadalupe Valley Paddling Trail - full Cuero route",
+      "Guadalupe River - Hell's Gate to FM 236",
+      "Full Guadalupe Valley Paddling Trail",
+    ],
+    state: "Texas",
+    region: "South Texas",
+    summary:
+      "Complete official Guadalupe Valley trail from Hell's Gate to FM 236. TPWD still documents the full 13.8-mile route and all three public accesses, and the Cuero USGS gauge gives a direct same-river condition check before the remnant-dam portage and long downstream finish.",
+    statusText:
+      "Use the Guadalupe River at Cuero gauge. Around 200 cfs is the conservative low-water floor for the full FM 766 to FM 236 trail. No upper cfs band is claimed; high or rising water makes the remnant-dam portage, wood, and long downstream finish more consequential.",
+    latitude: 29.1472,
+    longitude: -97.3177,
+    safetyProfile: {
+      riskLevel: "advanced",
+      hazards: ["dam", "mandatory_takeout", "strainers", "fast_rise", "private_banks"],
+      safetyNotes: [
+        "Mandatory portage around the remnant dam about 2.5 miles below FM 766; scout early and do not run it blindly.",
+        "This full trail adds mileage below SH 72, so high or rising water can turn a short technical issue into a longer judgment problem with fewer easy bank options.",
+        "Use only the named public bridge accesses and respect private banks except when a hazard portage within the navigable corridor is necessary.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    gaugeSource: {
+      id: "usgs-08175800",
+      provider: "usgs",
+      siteId: "08175800",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Guadalupe Rv at Cuero, TX",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-08175800/",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 200,
+      thresholdSource: {
+        label: "Texas River Flows five-level Guadalupe / Cuero gauge table",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      thresholdSourceStrength: "community",
+      rainfallSensitivity: "high",
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonNotes:
+        "This full trail can work much of the year, but the Cuero reach is rainfall-sensitive. Runoff can create temporary high flows, stronger current, and poorer water quality, so same-day weather and river checks matter.",
+      difficulty: "moderate",
+      difficultyNotes:
+        "The river itself stays mostly straightforward, but 13.8 miles plus the remnant-dam portage create a longer day that demands shuttle discipline, hazard recognition, and energy management even when the gauge looks friendly.",
+      confidenceNotes:
+        "Confidence is good for a conservative Texas add: TPWD currently names the full FM 766-to-FM 236 trail with all three public access coordinates, route mileage, float times, and hazard guidance; USGS 08175800 is the direct same-river gauge at Cuero; and the legacy Texas River Flows table ties a 200 cfs minimum to that same Cuero gauge. Confidence stays intentionally conservative because the threshold floor comes from an older corridor-wide flow table rather than a modern route-specific band, so the route ships minimum-only and does not claim an upper scoring range.",
+    },
+    evidenceNotes: [
+      {
+        label: "Direct live gauge",
+        value: "USGS 08175800 at 408 cfs / 7.33 ft",
+        note: "USGS Water Services returned same-day July 3, 2026 discharge and stage values for Guadalupe River at Cuero, confirming the direct live gauge path used for this route.",
+        sourceUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-08175800/",
+      },
+      {
+        label: "Conservative low-water floor",
+        value: "200 cfs minimum-only",
+        note: "The Texas River Flows five-level table lists Guadalupe Gonzales to Victoria on the Cuero gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        sourceUrl: "https://theworld.com/~reichert/riverflo.htm",
+      },
+      {
+        label: "Official route shape",
+        value: "FM 766 to FM 236, 13.8 mi",
+        note: "Current TPWD trail material identifies the full Guadalupe Valley Paddling Trail at about 13.8 miles and says paddlers can do the entire stretch or one of the shorter official segments.",
+        sourceUrl: "https://tpwd.texas.gov/boating/paddling-trails/prairies-and-lakes/guadalupe-valley/",
+      },
+      {
+        label: "Exact public launch coordinates",
+        value: "29.1472, -97.3177 to 29.0514, -97.2647",
+        note: "TPWD publishes FM 766 (Hell's Gate), SH 72, and FM 236 as current public access points with GPS coordinates and bridge-side driving directions.",
+        sourceUrl: "https://tpwd.texas.gov/boating/paddling-trails/prairies-and-lakes/guadalupe-valley/",
+      },
+      {
+        label: "Dam and bailout context",
+        value: "Remnant-dam portage plus Hwy 183 emergency take-out",
+        note: "TPWD warns that the remnants of a dam about 2.5 miles below FM 766 must be paddled around and identifies Hwy 183 as an emergency take-out between SH 72 and FM 236.",
+        sourceUrl: "https://tpwd.texas.gov/boating/paddling-trails/prairies-and-lakes/guadalupe-valley/",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "TPWD Guadalupe Valley Paddling Trail",
+        url: "https://tpwd.texas.gov/boating/paddling-trails/prairies-and-lakes/guadalupe-valley/",
+        provider: "local",
+      },
+      {
+        label: "TPWD Texas River/Stream Flow",
+        url: "https://tpwd.texas.gov/landwater/water/habitats/rivers/river_flow/",
+        provider: "local",
+      },
+      {
+        label: "Texas River Flows for 5 Levels of Paddling",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      {
+        label: "USGS 08175800 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-08175800/",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
     id: "fox-river-yorkville-whitewater-course",
     slug: "fox-river-yorkville-whitewater-course",
     name: "Fox River",
@@ -52656,6 +52882,134 @@ export const rivers: River[] = [
       {
         label: "NPS US 96 Boat Launch",
         url: "https://www.nps.gov/places/village-creek-us-96-boat-launch.htm",
+        provider: "nps",
+      },
+      {
+        label: "Texas River Flows for 5 Levels of Paddling",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      {
+        label: "USGS 08041500 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-08041500/",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "village-creek-fm418-state-park",
+    slug: "village-creek-fm418-state-park",
+    name: "Village Creek",
+    reach: "FM 418 Boat Launch to Village Creek State Park canoe launch",
+    aliases: [
+      "Village Creek - FM 418 to Village Creek State Park",
+      "Full Village Creek Paddling Trail",
+      "Village Creek overnight route",
+    ],
+    state: "Texas",
+    region: "East Texas",
+    summary:
+      "Complete Village Creek trail from FM 418 to Village Creek State Park. TPWD still documents the full 20.9-mile route and the entire public access chain, and the Kountze USGS gauge gives a direct same-creek condition check before a long day or overnight.",
+    statusText:
+      "Use the Village Creek near Kountze gauge. Around 200 cfs is the conservative low-water floor for the full FM 418 to Village Creek State Park route. No route-specific upper cfs band is claimed; stage below about 3 ft exposes more sandbars and logs, while 10+ ft can turn a long flatwater outing into a fast, hazardous commitment.",
+    latitude: 30.3978,
+    longitude: -94.2647,
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["fast_rise", "strainers", "private_banks"],
+      safetyNotes: [
+        "Village Creek is free-flowing and unrestrained by dams. Heavy rain and high water can create deceptively swift current on a route that often feels easy at normal levels.",
+        "Expect snags, logjams, overhanging limbs, and sandbars, especially when the creek is low or after storms move wood into the channel.",
+        "Use only the named public launches, respect Big Thicket and private-bank limits, and remember that alligators live in the lower corridor even though TPWD says they are rarely seen in the cooler creek itself.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    gaugeSource: {
+      id: "usgs-08041500",
+      provider: "usgs",
+      siteId: "08041500",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Village Ck nr Kountze, TX",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-08041500/",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 200,
+      thresholdSource: {
+        label: "Texas River Flows five-level Village Creek / Kountze gauge table",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      thresholdSourceStrength: "community",
+      rainfallSensitivity: "high",
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonNotes:
+        "This route can work year-round, but it is long enough that heat, insects, and rain-driven current matter more than on the short splits. Treat storms and rising water conservatively.",
+      difficulty: "moderate",
+      difficultyNotes:
+        "The water is usually easy flatwater, but 20.9 miles is too long for most one-day groups. Plan it as a strong all-day push or an overnight with a legal camping plan, and expect extra judgment at low water, in heat, or after rain.",
+      confidenceNotes:
+        "Confidence is good for a conservative Texas add: TPWD currently documents the full 20.9-mile Village Creek trail, all five public access coordinates, overnight-permit context, water-quality and hazard notes, and the preserve/private-boundary rules; TPWD state-park pages publish the take-out canoe-launch coordinate and campground logistics; USGS 08041500 remains the direct same-creek gauge; and the historic Texas River Flows table ties a 200 cfs minimum to that same Kountze gauge. Confidence stays intentionally conservative because the threshold floor comes from a legacy multi-level table rather than a modern manager-published exact-route band, so the route ships minimum-only and does not claim an upper scoring range.",
+    },
+    evidenceNotes: [
+      {
+        label: "Direct live gauge",
+        value: "USGS 08041500 at 219 cfs / 3.65 ft",
+        note: "USGS Water Services returned same-day July 3, 2026 discharge and stage values for Village Creek near Kountze, confirming the direct live gauge path used for this route.",
+        sourceUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-08041500/",
+      },
+      {
+        label: "Conservative low-water floor",
+        value: "200 cfs minimum-only",
+        note: "The Texas River Flows five-level table lists Village Creek at the Kountze gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        sourceUrl: "https://theworld.com/~reichert/riverflo.htm",
+      },
+      {
+        label: "Official route shape",
+        value: "FM 418 to Village Creek State Park, about 20.9 mi",
+        note: "Current TPWD trail material describes the full Village Creek trail as about 20.9 miles, says the entire trail is too long to paddle in one day, and publishes the adjacent segment mileages within the same access chain.",
+        sourceUrl: "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/village-creek/",
+      },
+      {
+        label: "Exact public launch coordinates",
+        value: "30.3978, -94.2647 to 30.2553, -94.1710",
+        note: "TPWD publishes the FM 418 access coordinate on the main trail page, and TPWD's current Village Creek State Park trails page publishes the canoe-launch coordinate at the downstream finish.",
+        sourceUrl: "https://tpwd.texas.gov/state-parks/village-creek/trails-info",
+      },
+      {
+        label: "Overnight and endpoint camping support",
+        value: "Free preserve overnight permits plus Village Creek State Park camping",
+        note: "TPWD says the entire trail is too long to paddle in one day and that overnight camping permits are free at the Big Thicket National Preserve Visitor Center, while Village Creek State Park offers tent and RV campsites plus a cabin at the take-out.",
+        sourceUrl: "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/village-creek/",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "TPWD Village Creek Paddling Trail",
+        url: "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/village-creek/",
+        provider: "local",
+      },
+      {
+        label: "TPWD Village Creek State Park",
+        url: "https://tpwd.texas.gov/state-parks/village-creek",
+        provider: "local",
+      },
+      {
+        label: "TPWD Village Creek State Park trails info",
+        url: "https://tpwd.texas.gov/state-parks/village-creek/trails-info",
+        provider: "local",
+      },
+      {
+        label: "NPS Paddling Trails - Village Creek",
+        url: "https://www.nps.gov/bith/planyourvisit/paddling-trails.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS FM 418 Boat Launch",
+        url: "https://www.nps.gov/places/village-creek-fm-418-boat-launch.htm",
         provider: "nps",
       },
       {
