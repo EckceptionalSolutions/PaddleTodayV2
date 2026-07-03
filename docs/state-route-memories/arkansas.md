@@ -1,11 +1,11 @@
 # Arkansas Route Memory
 
-Last summarized: 2026-07-03 07:11 America/Chicago.
+Last summarized: 2026-07-03 07:45 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 26.
-- Ledger candidates: 20 Arkansas-specific implemented-route records plus older blocked Arkansas holds after the 2026-07-03 Bayou DeView continuation add.
+- Live routes: 29.
+- Ledger candidates: 23 Arkansas-specific implemented-route records plus older blocked Arkansas holds after the 2026-07-03 Bayou DeView follow-up add.
 
 ## Added Routes
 
@@ -23,7 +23,21 @@ Last summarized: 2026-07-03 07:11 America/Chicago.
 
 ## Status
 
-Arkansas now has twenty-six live routes after the 2026-07-03 Bayou DeView continuation follow-up added three more AGFC-supported access-to-access segments beyond the prior Buffalo upper-corridor pass. The state still looks partially harvested rather than exhausted: Bayou DeView, Buffalo, Crooked Creek, Saline, upper Illinois, Mulberry, Cossatot, Kings, and Ouachita all have live coverage, while the strongest remaining near-term leads are still blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs.
+Arkansas now has twenty-nine live routes after the 2026-07-03 Bayou DeView combination follow-up added the last obvious AGFC-supported day-route permutations in that access chain. The state still looks partially harvested rather than exhausted: Bayou DeView, Buffalo, Crooked Creek, Saline, upper Illinois, Mulberry, Cossatot, Kings, and Ouachita all have live coverage, while the strongest remaining near-term leads are still blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs.
+
+## 2026-07-03 Bayou DeView combination implementation pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had twenty-six live route objects and matching trip-detail entries before this pass, so the Bayou DeView follow-up had to create three genuinely new slugs beyond that baseline.
+- Added `bayou-deview-hickson-lake-apple-lake`, `bayou-deview-rock-island-road-bank-of-brinkley`, and `bayou-deview-benson-creek-apple-lake` from the remaining AGFC Bayou DeView Water Trail access chain.
+- Route, gauge, and threshold evidence:
+  - AGFC still documents the exact public segment mileages of `6.5`, `2.9`, `1.5`, and `4.3` miles for Benson Creek to Hickson Lake, Hickson Lake to Rock Island Road, Rock Island Road to Apple Lake, and Apple Lake to Bank of Brinkley, which support the new combination routes of `10.9`, `4.4`, and `5.8` miles.
+  - Direct same-day official USGS Water Services for Bayou DeView near Brinkley (`07077730`) returned `15.26 ft` at `2026-07-03 07:00 CDT`.
+  - AGFC's current Bayou DeView guidance still says the trail needs about `14 ft` or higher to paddle and that the Dagmar Road gate closes at `17 ft`, so all three routes ship on the same conservative two-sided stage model with `tooLow: 14`, `idealMin: 14`, `idealMax: 16.9`, and `tooHigh: 17`.
+- Access, camping, and safety posture:
+  - All three routes stay `nearby_basecamp` because Sheffield Nelson Dagmar WMA still reports `14 primitive campsites`, but these lengths still read more defensibly as day floats with optional separate basecamp support rather than true overnight routes.
+  - `bayou-deview-hickson-lake-apple-lake`, `bayou-deview-rock-island-road-bank-of-brinkley`, and `bayou-deview-benson-creek-apple-lake` all retain the same Bayou DeView caution set around indistinct main channels, route-finding, floating wood, private-bank limits, and high-water danger as the gauge approaches the `17 ft` closure line.
+  - The two Apple Lake finish or pass-through routes carry the explicit Apple Lake WRA seasonal closure from `Nov. 1` through `Feb. 15`, while the Rock Island-to-Bank route also keeps the no-camping-on-Cache-River-NWR rule in the user-facing logistics.
+- No gallery image was added. Bounded AGFC, Dagmar WMA, Commons, and same-river USGS review surfaced corridor context only and did not produce a clearly rights-clean exact-route paddling image for the three new combination slugs.
 
 ## 2026-07-03 Bayou DeView continuation implementation pass
 
