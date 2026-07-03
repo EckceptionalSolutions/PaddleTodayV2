@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-03 21:05 America/Chicago / 2026-07-04 02:05 UTC.
+Last summarized: 2026-07-03 17:54 America/Chicago / 2026-07-03 22:54 UTC.
 
 ## Current Inventory
 
-- Live routes: 54.
-- Ledger candidates: 72 Kentucky-specific records. The newest live Kentucky slugs are `upper-salt-river-dry-branch-road-salt-river-ramp-3`, `upper-salt-river-rice-road-ford-drydock-road`, and `barren-river-tailwater-martinsville`.
+- Live routes: 37.
+- Ledger candidates: 72 Kentucky-specific records. The newest live Kentucky slugs are `upper-cumberland-river-4-mile-artemus`, `upper-cumberland-river-varilla-artemus`, and `upper-cumberland-river-4-mile-barbourville`.
 
 ## Status
 
@@ -26,6 +26,14 @@ Kentucky had been paused from the active automation rotation at user request whi
 - For Elkhorn specifically, do not substitute nearby bank/wade-only VPA sites for boat access; KDFWR explicitly prohibits boat carry-in/out at some Elkhorn VPA points.
 
 ## Current Guidance
+
+- 2026-07-03 17:54 America/Chicago / 2026-07-03 22:54 UTC Upper Cumberland continuation pass
+  - Added `upper-cumberland-river-4-mile-artemus`, `upper-cumberland-river-varilla-artemus`, and `upper-cumberland-river-4-mile-barbourville` beyond the live 34-route Kentucky baseline in this checkout.
+  - The run reused the current KDFWR Upper Cumberland River page for the exact public site-to-site mileages of 4 Mile -> Artemus `9.8` and Artemus -> Barbourville `5.1`, which also support the new Varilla -> Artemus public combination at about `23.6` miles through the existing Varilla -> 4 Mile `13.8` segment.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Varilla Ramp, 4 Mile Ramp, Artemus Rock Access, and Barbourville Ramp; same-day direct USGS Water Services returned `1010 cfs / 4.20 ft` at Cumberland River at Williamsburg (`03404000`) at `2026-07-03 18:00 EDT`, above the official Upper Cumberland good band of `300-700 cfs / 3.0-3.8 ft`.
+  - Camping stays conservative by route: 4 Mile -> Artemus and Varilla -> Artemus ship as `none`, while 4 Mile -> Barbourville ships as `endpoint_campground` because KDFWR still says Thompson Park at the Barbourville finish includes an RV campground with full hookups.
+  - Safety notes stay focused on rain-driven rises, mild rapids, private-bank limits, rough or muddy Artemus access, and the longer-day commitment on the Varilla -> Artemus combination.
+  - Bounded image review stayed negative for all three slugs, so `docs/river-image-source-audit.csv` records no-image outcomes for the new Upper Cumberland additions.
 
 - 2026-07-03 21:05 America/Chicago / 2026-07-04 02:05 UTC mixed Kentucky add pass
   - Added `upper-salt-river-dry-branch-road-salt-river-ramp-3`, `upper-salt-river-rice-road-ford-drydock-road`, and `barren-river-tailwater-martinsville` beyond the run-start baseline.

@@ -44758,6 +44758,260 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'upper-cumberland-river-4-mile-artemus',
+    slug: 'upper-cumberland-river-4-mile-artemus',
+    name: 'Upper Cumberland River',
+    reach: '4 Mile Ramp to Artemus Rock Access',
+    aliases: [
+      'Upper Cumberland River - 4 Mile to Artemus',
+      'Cumberland River - 4 Mile Ramp to Artemus Rock Access',
+      'Upper Cumberland River Pineville to Artemus float',
+    ],
+    state: 'Kentucky',
+    region: 'Daniel Boone Country',
+    summary:
+      'Upper Cumberland day float from 4 Mile Ramp to Artemus Rock Access north of Pineville. KDFWR lists this exact 9.8-mile segment and uses the Williamsburg gauge for the full corridor.',
+    statusText:
+      'Use the Cumberland River at Williamsburg gauge. KDFWR rates the corridor low below 300 cfs or 3.0 ft, good from 300 to 700 cfs or 3.0 to 3.8 ft, and high above that.',
+    latitude: 36.793,
+    longitude: -83.7534,
+    gaugeSource: {
+      id: 'usgs-03404000',
+      provider: 'usgs',
+      siteId: '03404000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cumberland River at Williamsburg, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'KDFWR describes mild rapids through the Upper Cumberland corridor, and this reach gets noticeably pushier after rain.',
+        'Artemus is a rough gravel-bar access that may be muddy or unsuitable for some vehicles, so scout the take-out before committing the shuttle.',
+        'Most banks between the named accesses are private, so plan breaks around the official endpoints rather than improvised stops.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 300,
+      idealMax: 700,
+      tooLow: 300,
+      tooHigh: 700,
+      thresholdSource: {
+        label: 'KDFWR Upper Cumberland recommended Williamsburg flow band',
+        url: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This mid-corridor Upper Cumberland segment is easiest when the official Williamsburg gauge stays inside the KDFWR good band. Low water exposes more shallow riffles, while rain can turn the run into a faster push than the mileage suggests.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route is short enough for a normal day float, but moving current, wood after storms, and the rough Artemus landing keep it above flatwater-touring difficulty.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: KDFWR lists 4 Mile Ramp to Artemus Rock Access as an exact 9.8-mile Upper Cumberland segment, publishes the official Williamsburg low/good/high ladder on the same corridor page, and KDFWR access-detail pages provide source-backed coordinates and access notes for both endpoints. Same-day USGS Water Services returned 1,010 cfs and 4.20 ft at 2026-07-03 18:00 EDT for the direct Williamsburg gauge, which keeps the live path current while honestly marking a high-water day.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: '4 Mile Ramp to Artemus Rock Access, 9.8 mi',
+        note: 'KDFWR lists this exact Upper Cumberland site-to-site mileage.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '300-700 cfs or 3.0-3.8 ft good',
+        note: 'KDFWR rates the Williamsburg gauge as Low below 300 cfs or 3.0 ft, Good from 300 to 700 cfs or 3.0 to 3.8 ft, and High above that.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: '4 Mile Ramp, 36.7930, -83.7534',
+        note: 'KDFWR access detail confirms the public ramp under the US-25E bridge north of Pineville.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=891',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Artemus Rock Access, 36.8240, -83.8440',
+        note: 'KDFWR access detail confirms the public gravel-bar take-out south of Artemus and warns that it can be rough and muddy.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1184',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03404000 at 1010 cfs / 4.20 ft',
+        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-07-03 18:00 EDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping posture',
+        value: 'No documented public camping at either endpoint',
+        note: 'KDFWR access detail for 4 Mile lists camping as None, and Artemus is documented as a rough access rather than an overnight facility.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=891',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Upper Cumberland River',
+        url: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR 4 Mile Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=891',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Artemus Rock Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1184',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03404000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03404000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'upper-cumberland-river-varilla-artemus',
+    slug: 'upper-cumberland-river-varilla-artemus',
+    name: 'Upper Cumberland River',
+    reach: 'Varilla Ramp to Artemus Rock Access',
+    aliases: [
+      'Upper Cumberland River - Varilla to Artemus',
+      'Cumberland River - Varilla Ramp to Artemus Rock Access',
+      'Upper Cumberland River long upper corridor',
+    ],
+    state: 'Kentucky',
+    region: 'Daniel Boone Country',
+    summary:
+      'Long Upper Cumberland corridor from Varilla Ramp to Artemus Rock Access above Barbourville. KDFWR lists the public chain as Varilla to 4 Mile at 13.8 miles plus 4 Mile to Artemus at 9.8 miles, supporting this about 23.6-mile combination on the official Williamsburg gauge ladder.',
+    statusText:
+      'Use the Cumberland River at Williamsburg gauge. KDFWR rates the corridor low below 300 cfs or 3.0 ft, good from 300 to 700 cfs or 3.0 to 3.8 ft, and high above that.',
+    latitude: 36.7447,
+    longitude: -83.6103,
+    gaugeSource: {
+      id: 'usgs-03404000',
+      provider: 'usgs',
+      siteId: '03404000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cumberland River at Williamsburg, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['fast_rise', 'strainers', 'private_banks', 'remote'],
+      safetyNotes: [
+        'This is a long committed upper-river day, and KDFWR says the corridor carries mild rapids that get pushier quickly after rain.',
+        'Artemus is a rough gravel-bar finish that may be muddy or unsuitable for some vehicles, so shuttle scouting matters before you launch at Varilla.',
+        'Services are sparse and most banks are private, so treat this as a genuine point-to-point commitment rather than a route with casual midstream exits.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 300,
+      idealMax: 700,
+      tooLow: 300,
+      tooHigh: 700,
+      thresholdSource: {
+        label: 'KDFWR Upper Cumberland recommended Williamsburg flow band',
+        url: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This longer Upper Cumberland combination is most straightforward when the official Williamsburg gauge stays inside the KDFWR good band. Low water extends the day with more scraping on riffles, while rain can turn the route into a long fast push with few comfortable recovery options.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The individual rapids are mild, but the long mileage, private-bank corridor, and rough Artemus take-out make this a more serious commitment than the shorter Upper Cumberland splits.',
+      confidenceNotes:
+        'Confidence is good for a guarded add: KDFWR lists Varilla Ramp to 4 Mile Ramp as 13.8 miles and 4 Mile Ramp to Artemus Rock Access as 9.8 miles on the same official Upper Cumberland corridor page, which supports this about 23.6-mile public combination against the same Williamsburg low/good/high ladder. KDFWR access-detail pages provide source-backed coordinates and access notes for Varilla, 4 Mile, and Artemus, and same-day USGS Water Services returned 1,010 cfs and 4.20 ft at 2026-07-03 18:00 EDT for the direct Williamsburg gauge, honestly placing the route above the official good band today.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route chain',
+        value: 'Varilla -> 4 Mile 13.8 mi plus 4 Mile -> Artemus 9.8 mi',
+        note: 'KDFWR lists both public site-to-site mileages on the Upper Cumberland corridor page, supporting this about 23.6-mile combination.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '300-700 cfs or 3.0-3.8 ft good',
+        note: 'KDFWR rates the Williamsburg gauge as Low below 300 cfs or 3.0 ft, Good from 300 to 700 cfs or 3.0 to 3.8 ft, and High above that.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Varilla Ramp, 36.7447, -83.6103',
+        note: 'KDFWR access detail confirms a public concrete ramp with small gravel parking east of Pineville.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=895',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Artemus Rock Access, 36.8240, -83.8440',
+        note: 'KDFWR access detail confirms the rough gravel-bar access south of Artemus and warns that muddy conditions can affect launch or recovery.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1184',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03404000 at 1010 cfs / 4.20 ft',
+        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-07-03 18:00 EDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping posture',
+        value: 'No documented public camping at Varilla, 4 Mile, or Artemus',
+        note: 'KDFWR access detail lists camping as None at Varilla and 4 Mile, and Artemus is documented as a rough access rather than an overnight facility.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=895',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Upper Cumberland River',
+        url: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Varilla Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=895',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Artemus Rock Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1184',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03404000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03404000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'upper-cumberland-river-artemus-barbourville',
     slug: 'upper-cumberland-river-artemus-barbourville',
     name: 'Upper Cumberland River',
@@ -44865,6 +45119,133 @@ export const rivers: River[] = [
       {
         label: 'KDFWR Artemus Rock Access',
         url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1184',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Barbourville Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1067',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03404000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03404000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'upper-cumberland-river-4-mile-barbourville',
+    slug: 'upper-cumberland-river-4-mile-barbourville',
+    name: 'Upper Cumberland River',
+    reach: '4 Mile Ramp to Barbourville Ramp',
+    aliases: [
+      'Upper Cumberland River - 4 Mile to Barbourville',
+      'Cumberland River - 4 Mile Ramp to Barbourville Ramp',
+      'Upper Cumberland River Pineville to Thompson Park',
+    ],
+    state: 'Kentucky',
+    region: 'Daniel Boone Country',
+    summary:
+      'Mid-length Upper Cumberland float from 4 Mile Ramp to Barbourville Ramp at Thompson Park. KDFWR lists the public chain as 4 Mile to Artemus at 9.8 miles plus Artemus to Barbourville at 5.1 miles, supporting this about 14.9-mile combination on the official Williamsburg gauge ladder.',
+    statusText:
+      'Use the Cumberland River at Williamsburg gauge. KDFWR rates the corridor low below 300 cfs or 3.0 ft, good from 300 to 700 cfs or 3.0 to 3.8 ft, and high above that.',
+    latitude: 36.793,
+    longitude: -83.7534,
+    gaugeSource: {
+      id: 'usgs-03404000',
+      provider: 'usgs',
+      siteId: '03404000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cumberland River at Williamsburg, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'KDFWR says the Barbourville reach can form small rapids at lower water, and the whole Upper Cumberland corridor rises quickly after rain.',
+        'The route passes the rough Artemus access mid-corridor, but paddlers should not treat it as an effortless bailout because the landing can be muddy and awkward.',
+        'Most banks outside the named accesses are private, so the clean public finish remains Thompson Park in Barbourville.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 300,
+      idealMax: 700,
+      tooLow: 300,
+      tooHigh: 700,
+      thresholdSource: {
+        label: 'KDFWR Upper Cumberland recommended Williamsburg flow band',
+        url: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This combined Upper Cumberland segment is easiest when the official Williamsburg gauge stays inside the KDFWR good band. Below that, shallow riffles and shoals lengthen the day; above it, the run becomes a quicker downstream push into Barbourville.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The route is longer than the short Artemus split and still includes moving current, possible wood, and a rough mid-corridor access, so it deserves more planning than a simple in-town float.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: KDFWR lists 4 Mile Ramp to Artemus Rock Access as 9.8 miles and Artemus Rock Access to Barbourville Ramp as 5.1 miles on the same official Upper Cumberland corridor page, which supports this about 14.9-mile public combination on the published Williamsburg low/good/high ladder. KDFWR access-detail pages provide source-backed coordinates and access notes for 4 Mile, Artemus, and Barbourville, and same-day USGS Water Services returned 1,010 cfs and 4.20 ft at 2026-07-03 18:00 EDT for the direct Williamsburg gauge, honestly indicating a high-water day.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route chain',
+        value: '4 Mile -> Artemus 9.8 mi plus Artemus -> Barbourville 5.1 mi',
+        note: 'KDFWR lists both public site-to-site mileages on the Upper Cumberland corridor page, supporting this about 14.9-mile combination.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '300-700 cfs or 3.0-3.8 ft good',
+        note: 'KDFWR rates the Williamsburg gauge as Low below 300 cfs or 3.0 ft, Good from 300 to 700 cfs or 3.0 to 3.8 ft, and High above that.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: '4 Mile Ramp, 36.7930, -83.7534',
+        note: 'KDFWR access detail confirms the public ramp under the US-25E bridge north of Pineville.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=891',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Barbourville Ramp, 36.8603, -83.8893',
+        note: 'KDFWR access detail confirms the public Thompson Park ramp with paved parking and park amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1067',
+      },
+      {
+        label: 'Camping support',
+        value: 'Thompson Park RV campground with full hookups',
+        note: 'KDFWR says the Barbourville ramp sits in Thompson Park, which includes an RV campground with full hookups.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03404000 at 1010 cfs / 4.20 ft',
+        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-07-03 18:00 EDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Upper Cumberland River',
+        url: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR 4 Mile Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=891',
         provider: 'local',
       },
       {

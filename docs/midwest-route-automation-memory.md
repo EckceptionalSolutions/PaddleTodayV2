@@ -7872,3 +7872,10 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
 ## 2026-07-02 consolidation note
 
 - Redundant unpushed route permutations from the July 2 route-add wave were consolidated into canonical multi-access route records. If an earlier note in this file now repeats a canonical slug, treat that as evidence that the former point-to-point variant was folded into the live access-planner route rather than kept as a separate route.
+
+## 2026-07-03 17:54 America/Chicago / 2026-07-03 22:54 UTC Kentucky implementation pass
+
+- Treated the live repo state at run start as the baseline and expanded the current tree from `367` to `370` route slugs by adding `upper-cumberland-river-4-mile-artemus`, `upper-cumberland-river-varilla-artemus`, and `upper-cumberland-river-4-mile-barbourville`.
+- Qualification path: current KDFWR Upper Cumberland River guidance still documents the exact public site-to-site mileages of 4 Mile -> Artemus `9.8` and Artemus -> Barbourville `5.1`, which also support the new Varilla -> Artemus combination by adding the existing official Varilla -> 4 Mile `13.8` segment for about `23.6` miles total; the same page still publishes the official Williamsburg ladder of Low below `300 cfs / 3.0 ft`, Good `300-700 cfs / 3.0-3.8 ft`, and High above those marks; current KDFWR access-detail pages still expose source-backed coordinates and public-use details for Varilla Ramp, 4 Mile Ramp, Artemus Rock Access, and Barbourville Ramp; and same-day direct USGS Water Services returned `1010 cfs / 4.20 ft` at `2026-07-03 18:00 EDT` for direct gauge `03404000`.
+- Added camping and safety/logistics notes for all three routes. Camping stays `none` for the Artemus finishes and `endpoint_campground` for the Barbourville finish because Thompson Park still includes RV camping support.
+- No gallery image was added; bounded KDFWR, Commons, and same-river USGS media review did not produce a clearly rights-clean exact-route asset for any of the three new slugs, and `docs/river-image-source-audit.csv` records the no-image outcomes.

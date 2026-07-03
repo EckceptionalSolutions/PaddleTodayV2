@@ -15926,6 +15926,82 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'upper-cumberland-river-4-mile-artemus': {
+    putIn: {
+      id: '4-mile-ramp',
+      name: '4 Mile Ramp',
+      latitude: 36.793,
+      longitude: -83.7534,
+    },
+    takeOut: {
+      id: 'artemus-rock-access',
+      name: 'Artemus Rock Access',
+      latitude: 36.824,
+      longitude: -83.844,
+    },
+    logistics: {
+      distanceLabel: 'About 9.8 mi',
+      estimatedPaddleTime:
+        'About 3.5 hr to 5.5 hr, longer with fishing stops, low-water scraping, or higher-water caution',
+      shuttle:
+        'Stage the downstream vehicle at Artemus Rock Access first, then drive back to 4 Mile Ramp. The shuttle is short, but the rough gravel-bar finish is worth scouting before you commit the run.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and stay off private banks between the endpoints.',
+      camping:
+        'Treat this as a day route. KDFWR documents no developed camping at 4 Mile and does not treat Artemus as an overnight facility.',
+      campingClassification: 'none',
+      summary:
+        'Launch at 4 Mile Ramp and finish at Artemus Rock Access for the official 9.8-mile Upper Cumberland segment north of Pineville. Use the Williamsburg gauge and expect a quicker push whenever the river is above the 300 to 700 cfs good band.',
+      accessCaveats: [
+        'Artemus is a rough gravel-bar access that KDFWR says may be muddy or unsuitable for some vehicles. Confirm the take-out before launching upstream.',
+        'This segment has clean public endpoints, but most shoreline between them is private. Do not count on random bars or bridge shoulders as substitute stops.',
+        'Higher-water days can make the route feel simpler at first and more pushy later, especially if wood has shifted into bends.',
+      ],
+      watchFor: [
+        'Shallow riffles and rock gardens during lower water.',
+        'Fresh wood, strainers, and faster current after rain.',
+        'Muddy footing and awkward recovery at Artemus.',
+      ],
+    },
+  },
+  'upper-cumberland-river-varilla-artemus': {
+    putIn: {
+      id: 'varilla-ramp',
+      name: 'Varilla Ramp',
+      latitude: 36.7447,
+      longitude: -83.6103,
+    },
+    takeOut: {
+      id: 'artemus-rock-access',
+      name: 'Artemus Rock Access',
+      latitude: 36.824,
+      longitude: -83.844,
+    },
+    logistics: {
+      distanceLabel: 'About 23.6 mi',
+      estimatedPaddleTime:
+        'About 7 hr to 10 hr, longer with low-water scraping, scouting, or higher-water caution',
+      shuttle:
+        'Leave the downstream vehicle at Artemus Rock Access, then drive back to Varilla Ramp. This is a real upper-river commitment with a long day on the water rather than a casual split float.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public access points, follow Kentucky boating and PFD rules, and respect private banks throughout the corridor.',
+      camping:
+        'Treat this as a long day route. KDFWR does not document developed camping or normal overnight support at Varilla, 4 Mile, or Artemus.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Varilla Ramp and finish at Artemus Rock Access for a long Upper Cumberland corridor route built from the official Varilla-to-4-Mile and 4-Mile-to-Artemus segments. Use the Williamsburg gauge and plan conservatively whenever the river is outside the 300 to 700 cfs good band.',
+      accessCaveats: [
+        'This is a long committed route with sparse services and few realistic legal stop options away from the named accesses.',
+        'Artemus is a rough gravel-bar take-out that may be muddy or awkward. Do not assume the finish will be easy to improvise at the end of a tiring day.',
+        'Low water can turn this route into a much longer grind, while high water can make the long downstream push feel more consequential than the mild rapids suggest.',
+      ],
+      watchFor: [
+        'Fresh wood, rain-driven rises, and mild rapids that stack up over a long day.',
+        'Private banks and limited bailout quality between the named accesses.',
+        'Fatigue, daylight management, and a muddy finish at Artemus.',
+      ],
+    },
+  },
   'upper-cumberland-river-artemus-barbourville': {
     putIn: {
       id: 'artemus-rock-access',
@@ -15961,6 +16037,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Shallow rapids and rock gardens during low water.',
         'Fresh strainers or wood after rain.',
         'Muddy footing at Artemus and faster current around bends on higher-water days.',
+      ],
+    },
+  },
+  'upper-cumberland-river-4-mile-barbourville': {
+    putIn: {
+      id: '4-mile-ramp',
+      name: '4 Mile Ramp',
+      latitude: 36.793,
+      longitude: -83.7534,
+    },
+    takeOut: {
+      id: 'barbourville-ramp',
+      name: 'Barbourville Ramp',
+      latitude: 36.8603,
+      longitude: -83.8893,
+    },
+    logistics: {
+      distanceLabel: 'About 14.9 mi',
+      estimatedPaddleTime:
+        'About 4.5 hr to 7 hr, longer with low-water scraping, scouting, or higher-water caution',
+      shuttle:
+        'Leave the downstream vehicle at Thompson Park in Barbourville, then drive back to 4 Mile Ramp. The shuttle is reasonable, but this is still a meaningful river day rather than an in-town park loop.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect private banks between them.',
+      camping:
+        'Barbourville Ramp sits in Thompson Park, where KDFWR says an RV campground with full hookups is available. Most paddlers will still treat the route itself as a day float into a campground-supported finish.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at 4 Mile Ramp and finish at Barbourville Ramp for an Upper Cumberland combination built from the official 4-Mile-to-Artemus and Artemus-to-Barbourville segments. Use the Williamsburg gauge and expect stronger current whenever the river is above the 300 to 700 cfs good band.',
+      accessCaveats: [
+        'Artemus sits mid-corridor and is a rough gravel-bar access rather than a clean casual bailout. Do not assume it will solve problems easily once the route is underway.',
+        'Barbourville is the intended public finish with the cleanest downstream services. Do not count on bridge shoulders or private banks as substitute exits.',
+        'At higher water the route can feel straightforward at the start and noticeably pushier later, especially when landing at Thompson Park.',
+      ],
+      watchFor: [
+        'Shallow rapids and scrape-prone riffles during lower water.',
+        'Fresh wood, faster current, and muddy mid-corridor landings after rain.',
+        'Fatigue on the longer day and approach speed into Barbourville at higher water.',
       ],
     },
   },
