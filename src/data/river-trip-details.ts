@@ -12048,6 +12048,258 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'bayou-deview-benson-creek-rock-island-road': {
+    putIn: {
+      id: 'benson-creek-access',
+      name: 'Benson Creek Access',
+      latitude: 34.93569,
+      longitude: -91.24092,
+    },
+    takeOut: {
+      id: 'rock-island-road-access',
+      name: 'Rock Island Road Access',
+      latitude: 34.85911,
+      longitude: -91.29025,
+    },
+    logistics: {
+      distanceLabel: 'About 9.4 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7 hr, longer if route-finding, wood, or low water slows the floodplain travel',
+      shuttle:
+        'Stage the take-out at Rock Island Road Access, then drive back to Benson Creek Access. Carry the AGFC georeferenced map before launching because this longer continuation crosses multiple indistinct floodplain turns and side-channel decisions.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
+      camping:
+        'Free first-come campsites marked by blue paint are available on Dagmar WMA near the lower half of the trail, but this continuation is still most defensible as a long day float unless the group separately confirms a primitive camp plan. Camping is not allowed on Cache River National Wildlife Refuge.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Benson Creek Access and take out at Rock Island Road Access for a longer upper-to-middle Bayou DeView day. This is still flatwater, but it is not a casual paddle: use the Brinkley gauge, carry the AGFC map, and expect a real route-finding commitment.',
+      accessCaveats: [
+        'Benson Creek and Rock Island Road are named public AGFC Bayou DeView Water Trail accesses reached by rural WMA roads rather than by developed park marinas.',
+        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
+        'The main channel is not always distinct. Carry the georeferenced map or equivalent offline navigation before leaving cell coverage.',
+        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
+      ],
+      watchFor: [
+        'Water below about 14 ft, when disconnected channels and shallow obstructions become more likely.',
+        'Water approaching or above 17 ft, when AGFC says the gate on Dagmar Road closes and high-water timber travel becomes more dangerous.',
+        'Floating logs, strainers, wind exposure in open pockets, and losing the marked route through indistinct floodplain channels.',
+        'Long-day fatigue, heat, insects, and limited bailout options once the group commits past Dark Corner and Hickson Lake.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'benson-creek-access',
+        name: 'Benson Creek Access',
+        latitude: 34.93569,
+        longitude: -91.24092,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream access for this longer upper-to-middle Bayou DeView continuation.',
+      },
+      {
+        id: 'dark-corner-access',
+        name: 'Dark Corner Access',
+        latitude: 34.91998,
+        longitude: -91.25798,
+        mileFromStart: 2.1,
+        segmentKind: 'creek',
+        note: 'Intermediate public access and bailout before the Hickson Lake half of the route.',
+      },
+      {
+        id: 'hickson-lake-access',
+        name: 'Hickson Lake Access',
+        latitude: 34.89039,
+        longitude: -91.29826,
+        mileFromStart: 6.5,
+        segmentKind: 'creek',
+        note: 'Mid-route public access where the corridor transitions into the lower Dagmar half.',
+      },
+      {
+        id: 'rock-island-road-access',
+        name: 'Rock Island Road Access',
+        latitude: 34.85911,
+        longitude: -91.29025,
+        mileFromStart: 9.4,
+        segmentKind: 'creek',
+        note: 'Default downstream access for this longer upper-to-middle continuation.',
+      },
+    ],
+  },
+  'bayou-deview-hickson-lake-bank-of-brinkley': {
+    putIn: {
+      id: 'hickson-lake-access',
+      name: 'Hickson Lake Access',
+      latitude: 34.89039,
+      longitude: -91.29826,
+    },
+    takeOut: {
+      id: 'bank-of-brinkley-access',
+      name: 'Bank of Brinkley Access',
+      latitude: 34.80024,
+      longitude: -91.30049,
+    },
+    logistics: {
+      distanceLabel: 'About 8.7 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7 hr, longer if route-finding, wind, or wood slows the lower floodplain channels',
+      shuttle:
+        'Stage the take-out at Bank of Brinkley Access, then drive back to Hickson Lake Access. Carry the AGFC georeferenced map before launching because this lower-half continuation still requires active navigation through multiple access-to-access decisions.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
+      camping:
+        'Free first-come campsites marked by blue paint are available on Dagmar WMA along the corridor, but this lower-half continuation is still usually handled as a long day float unless the group separately confirms a primitive camp plan. Camping is not allowed on Cache River National Wildlife Refuge.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Hickson Lake Access and take out at Bank of Brinkley Access for a longer lower-half Bayou DeView route. Use the Brinkley gauge, verify Apple Lake seasonal access, and carry the AGFC map because the lower channel remains indistinct and wood-prone even on an in-range day.',
+      accessCaveats: [
+        'Hickson Lake and Bank of Brinkley are named public AGFC Bayou DeView Water Trail accesses reached by WMA or refuge roads rather than by full-service launch parks.',
+        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
+        'Apple Lake Waterfowl Rest Area is closed to access from Nov. 1 through Feb. 15, so a mid-route bailout or staged vehicle there is not always available.',
+        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
+      ],
+      watchFor: [
+        'Water below about 14 ft, when shallow obstructions and disconnected lower channels become more likely.',
+        'Water approaching or above 17 ft, when AGFC says the access roads can close and high-water timber travel becomes more dangerous.',
+        'Floating logs, strainers, wind exposure in open reaches, and missing the marked route through the lower cypress-tupelo corridor.',
+        'Long-day fatigue, limited bailout options after Apple Lake, and the transition toward Cache River NWR where camping remains prohibited.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hickson-lake-access',
+        name: 'Hickson Lake Access',
+        latitude: 34.89039,
+        longitude: -91.29826,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream access for this lower-half Bayou DeView continuation.',
+      },
+      {
+        id: 'rock-island-road-access',
+        name: 'Rock Island Road Access',
+        latitude: 34.85911,
+        longitude: -91.29025,
+        mileFromStart: 2.9,
+        segmentKind: 'creek',
+        note: 'Intermediate public access and bailout before the Apple Lake leg.',
+      },
+      {
+        id: 'apple-lake-access',
+        name: 'Apple Lake Access',
+        latitude: 34.84159,
+        longitude: -91.282,
+        mileFromStart: 4.4,
+        segmentKind: 'creek',
+        note: 'Intermediate public access with seasonal closure from Nov. 1 through Feb. 15.',
+      },
+      {
+        id: 'bank-of-brinkley-access',
+        name: 'Bank of Brinkley Access',
+        latitude: 34.80024,
+        longitude: -91.30049,
+        mileFromStart: 8.7,
+        segmentKind: 'creek',
+        note: 'Default downstream access for this lower-half continuation.',
+      },
+    ],
+  },
+  'bayou-deview-benson-creek-bank-of-brinkley': {
+    putIn: {
+      id: 'benson-creek-access',
+      name: 'Benson Creek Access',
+      latitude: 34.93569,
+      longitude: -91.24092,
+    },
+    takeOut: {
+      id: 'bank-of-brinkley-access',
+      name: 'Bank of Brinkley Access',
+      latitude: 34.80024,
+      longitude: -91.30049,
+    },
+    logistics: {
+      distanceLabel: 'About 15.2 mi',
+      estimatedPaddleTime:
+        'About 8 hr to 12 hr, potentially longer if route-finding, wind, wood, or a primitive overnight stop breaks up the full trail',
+      shuttle:
+        'Stage the take-out at Bank of Brinkley Access, then drive back to Benson Creek Access. Carry the AGFC georeferenced map before launching because this full-trail route uses the entire access chain and leaves no room for casual navigation mistakes.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
+      camping:
+        'Free first-come campsites marked by blue paint are available on Dagmar WMA, making this full 15.2-mile trail the clearest Bayou DeView route for a conservative primitive overnight split. The sites have no amenities, and camping is not allowed on Cache River National Wildlife Refuge.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Benson Creek Access and take out at Bank of Brinkley Access for the full Bayou DeView Water Trail. The water stays flat, but this is a serious floodplain-navigation route: use the Brinkley gauge, carry the AGFC map offline, and treat the day length and campsite plan as part of the safety decision.',
+      accessCaveats: [
+        'Benson Creek and Bank of Brinkley are named public AGFC Bayou DeView Water Trail accesses reached by rural WMA or refuge roads rather than by developed park marinas.',
+        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
+        'The main channel is not always distinct. Carry the georeferenced map or equivalent offline navigation before leaving cell coverage.',
+        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
+      ],
+      watchFor: [
+        'Water below about 14 ft, when disconnected channels and shallow obstructions can turn the full trail into a very slow route-finding problem.',
+        'Water approaching or above 17 ft, when AGFC says the access roads can close and high-water timber travel becomes dangerous.',
+        'Floating logs, strainers, wind exposure in open pockets, and losing the marked route through indistinct floodplain channels.',
+        'Very long-day fatigue, heat, insects, limited bailout options late in the route, and the need to keep any primitive camp plan inside Dagmar WMA rather than on Cache River NWR.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'benson-creek-access',
+        name: 'Benson Creek Access',
+        latitude: 34.93569,
+        longitude: -91.24092,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream access for the full Bayou DeView Water Trail.',
+      },
+      {
+        id: 'dark-corner-access',
+        name: 'Dark Corner Access',
+        latitude: 34.91998,
+        longitude: -91.25798,
+        mileFromStart: 2.1,
+        segmentKind: 'creek',
+        note: 'Intermediate public access and bailout in the upper half of the trail.',
+      },
+      {
+        id: 'hickson-lake-access',
+        name: 'Hickson Lake Access',
+        latitude: 34.89039,
+        longitude: -91.29826,
+        mileFromStart: 6.5,
+        segmentKind: 'creek',
+        note: 'Main mid-route access where the trail enters the lower Dagmar half.',
+      },
+      {
+        id: 'rock-island-road-access',
+        name: 'Rock Island Road Access',
+        latitude: 34.85911,
+        longitude: -91.29025,
+        mileFromStart: 9.4,
+        segmentKind: 'creek',
+        note: 'Lower-middle public access and practical shorter-route finish if the full trail needs to be cut short.',
+      },
+      {
+        id: 'apple-lake-access',
+        name: 'Apple Lake Access',
+        latitude: 34.84159,
+        longitude: -91.282,
+        mileFromStart: 10.9,
+        segmentKind: 'creek',
+        note: 'Intermediate lower access with seasonal closure from Nov. 1 through Feb. 15.',
+      },
+      {
+        id: 'bank-of-brinkley-access',
+        name: 'Bank of Brinkley Access',
+        latitude: 34.80024,
+        longitude: -91.30049,
+        mileFromStart: 15.2,
+        segmentKind: 'creek',
+        note: 'Default downstream access for the full trail.',
+      },
+    ],
+  },
 'buffalo-river-ponca-kyles-landing': {
     putIn: {
       id: 'ponca-access',

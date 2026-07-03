@@ -1,11 +1,11 @@
 # Arkansas Route Memory
 
-Last summarized: 2026-07-02 16:35 America/Chicago.
+Last summarized: 2026-07-03 07:11 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 23.
-- Ledger candidates: 17 Arkansas-specific implemented-route records plus older blocked Arkansas holds after the 2026-07-02 Buffalo upper-corridor add.
+- Live routes: 26.
+- Ledger candidates: 20 Arkansas-specific implemented-route records plus older blocked Arkansas holds after the 2026-07-03 Bayou DeView continuation add.
 
 ## Added Routes
 
@@ -23,7 +23,21 @@ Last summarized: 2026-07-02 16:35 America/Chicago.
 
 ## Status
 
-Arkansas now has twenty-three live routes after the 2026-07-02 Buffalo upper-corridor follow-up added three more NPS-supported Buffalo access-to-access segments beyond the prior Bayou DeView consolidation and Crooked Creek work. The state still looks partially harvested rather than exhausted: Bayou DeView, Buffalo, Crooked Creek, Saline, upper Illinois, Mulberry, Cossatot, Kings, and Ouachita all have live coverage, while the strongest remaining near-term leads are still blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs.
+Arkansas now has twenty-six live routes after the 2026-07-03 Bayou DeView continuation follow-up added three more AGFC-supported access-to-access segments beyond the prior Buffalo upper-corridor pass. The state still looks partially harvested rather than exhausted: Bayou DeView, Buffalo, Crooked Creek, Saline, upper Illinois, Mulberry, Cossatot, Kings, and Ouachita all have live coverage, while the strongest remaining near-term leads are still blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs.
+
+## 2026-07-03 Bayou DeView continuation implementation pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had twenty-three live route objects and matching trip-detail entries before this pass, so the Bayou DeView follow-up had to create three genuinely new slugs beyond that baseline.
+- Added `bayou-deview-benson-creek-rock-island-road`, `bayou-deview-hickson-lake-bank-of-brinkley`, and `bayou-deview-benson-creek-bank-of-brinkley` from the remaining AGFC Bayou DeView Water Trail access chain.
+- Route, gauge, and threshold evidence:
+  - AGFC still documents the exact public segment mileages of `6.5`, `2.9`, `1.5`, and `4.3` miles for Benson Creek to Hickson Lake, Hickson Lake to Rock Island Road, Rock Island Road to Apple Lake, and Apple Lake to Bank of Brinkley, while the same official trail page still lists the full Benson Creek to Bank of Brinkley route at `15.2` river miles.
+  - Direct same-day official USGS Water Services for Bayou DeView near Brinkley (`07077730`) returned `15.26 ft` at `2026-07-03 03:00 CDT`.
+  - AGFC's current Bayou DeView guidance still says the trail needs about `14 ft` or higher to paddle and that the Dagmar Road gate closes at `17 ft`, so all three routes ship on the same conservative two-sided stage model with `tooLow: 14`, `idealMin: 14`, `idealMax: 16.9`, and `tooHigh: 17`.
+- Access, camping, and safety posture:
+  - `bayou-deview-benson-creek-rock-island-road` and `bayou-deview-hickson-lake-bank-of-brinkley` stay `nearby_basecamp` because the current Dagmar WMA primitive camping story supports a separate overnight basecamp rather than an in-route overnight need for those day-float lengths.
+  - `bayou-deview-benson-creek-bank-of-brinkley` uses `on_route_campsite` because AGFC still documents fourteen primitive campsites on Sheffield Nelson Dagmar WMA, which gives the full `15.2`-mile trail a defensible overnight option.
+  - The Bank-of-Brinkley finish route still carries the Apple Lake WRA seasonal closure from `Nov. 1` through `Feb. 15`, while all three routes retain the same Bayou DeView caution set around indistinct main channels, route-finding, floating wood, private-bank limits, and high-water danger as the gauge approaches the `17 ft` closure line.
+- No gallery image was added. Bounded AGFC, Dagmar WMA, Commons, and same-river USGS review surfaced corridor context only and did not produce a clearly rights-clean exact-route paddling image for the three new continuation slugs.
 
 ## 2026-07-02 Buffalo upper-corridor implementation pass
 
