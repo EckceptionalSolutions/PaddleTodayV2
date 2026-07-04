@@ -1,11 +1,11 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-03 14:31 America/Chicago.
+Last summarized: 2026-07-03 19:16 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 76.
-- Top represented rivers: Big Fork River 19, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4, Crow Wing River 3.
+- Live routes: 75.
+- Top represented rivers: Big Fork River 18, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4, Crow Wing River 3.
 - Ledger candidates: 73 total; 39 `added`, 19 `threshold_weak`, 10 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`, 1 `rejected`.
 
 ## Status
@@ -13,6 +13,11 @@ Last summarized: 2026-07-03 14:31 America/Chicago.
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-03 19:16 America/Chicago: consolidated away `big-fork-river-sturgeon-kueffners`.
+- The slug overlapped too directly with the surviving `big-fork-river-big-falls-west-kueffners` planner, which already preserves Sturgeon as the first named bailout and campsite checkpoint through `accessPoints`.
+- The live Big Fork family now keeps the more useful planner set of `big-fork-river-highway-6-south-north`, `big-fork-river-johnson-big-falls-east`, `big-fork-river-big-falls-west-kueffners`, `big-fork-river-ben-linn-ivan-crawford`, and `big-fork-river-gowdy-reedy-flats`.
+- `docs/river-image-source-audit.csv` was pruned to remove the deleted Sturgeon-to-Kueffners row so support docs only track the remaining live slugs.
 
 - 2026-07-03 14:15 America/Chicago: added `big-fork-river-gowdy-kueffners`.
 - Stayed in Minnesota for one slot because the current official Big Fork Map 2 family still had this final short lower public pair with the same direct Big Falls gauge and public-water-access GIS backing, which was cleaner than forcing a weaker new-family search.
@@ -210,5 +215,5 @@ Minnesota still has the strongest official-source foundation and a broad existin
 ## 2026-07-03 Big Fork consolidation pass
 
 - Collapsed the Big Fork family from `20` live slugs to `6` by keeping the corridor planners and deleting the shorter subset legs they already preserve through `accessPoints`.
-- The surviving Big Fork slugs are now `big-fork-river-highway-6-south-north`, `big-fork-river-johnson-big-falls-east`, `big-fork-river-big-falls-west-kueffners`, `big-fork-river-sturgeon-kueffners`, `big-fork-river-ben-linn-ivan-crawford`, and `big-fork-river-gowdy-reedy-flats`.
-- Treat deleted slugs such as `big-fork-river-johnson-grunwald`, `big-fork-river-grunwald-big-falls-east`, `big-fork-river-big-falls-west-sturgeon`, `big-fork-river-sturgeon-ben-linn`, `big-fork-river-ben-linn-gowdy`, `big-fork-river-gowdy-kueffners`, `big-fork-river-gowdy-ivan-crawford`, `big-fork-river-kueffners-reedy-flats`, `big-fork-river-kueffners-ivan-crawford`, and `big-fork-river-ivan-crawford-reedy-flats` as intentionally folded into those longer planners.
+- The surviving Big Fork slugs are now `big-fork-river-highway-6-south-north`, `big-fork-river-johnson-big-falls-east`, `big-fork-river-big-falls-west-kueffners`, `big-fork-river-ben-linn-ivan-crawford`, and `big-fork-river-gowdy-reedy-flats`.
+- Treat deleted slugs such as `big-fork-river-johnson-grunwald`, `big-fork-river-grunwald-big-falls-east`, `big-fork-river-big-falls-west-sturgeon`, `big-fork-river-sturgeon-ben-linn`, `big-fork-river-sturgeon-kueffners`, `big-fork-river-ben-linn-gowdy`, `big-fork-river-gowdy-kueffners`, `big-fork-river-gowdy-ivan-crawford`, `big-fork-river-kueffners-reedy-flats`, `big-fork-river-kueffners-ivan-crawford`, and `big-fork-river-ivan-crawford-reedy-flats` as intentionally folded into those longer planners.
