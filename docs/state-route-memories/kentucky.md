@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-03 17:54 America/Chicago / 2026-07-03 22:54 UTC.
+Last summarized: 2026-07-03 18:57 America/Chicago / 2026-07-03 23:57 UTC.
 
 ## Current Inventory
 
-- Live routes: 37.
-- Ledger candidates: 72 Kentucky-specific records. The newest live Kentucky slugs are `upper-cumberland-river-4-mile-artemus`, `upper-cumberland-river-varilla-artemus`, and `upper-cumberland-river-4-mile-barbourville`.
+- Live routes: 40.
+- Ledger candidates: 72 Kentucky-specific records. The newest live Kentucky slugs are `north-fork-kentucky-river-watts-hazard-city-ramp`, `north-fork-kentucky-river-roy-spencer-beattyville`, and `north-fork-kentucky-river-watts-perry-county-park`.
 
 ## Status
 
@@ -26,6 +26,14 @@ Kentucky had been paused from the active automation rotation at user request whi
 - For Elkhorn specifically, do not substitute nearby bank/wade-only VPA sites for boat access; KDFWR explicitly prohibits boat carry-in/out at some Elkhorn VPA points.
 
 ## Current Guidance
+
+- 2026-07-03 18:57 America/Chicago / 2026-07-03 23:57 UTC North Fork Kentucky continuation pass
+  - Added `north-fork-kentucky-river-watts-hazard-city-ramp`, `north-fork-kentucky-river-roy-spencer-beattyville`, and `north-fork-kentucky-river-watts-perry-county-park` beyond the live 37-route Kentucky baseline in this checkout.
+  - The run reused the current KDFWR North Fork Kentucky River page for the exact public site-to-site mileages of Watts -> Hazard `22.2`, Hazard -> Perry County Park `4.8`, and Roy Spencer -> Beattyville `34.0`, which support the extended Watts -> Perry County Park continuation at about `27.0` miles.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Watts Ramp, Hazard City Ramp, Perry County Park Ramp, Roy Spencer Ramp, and Beattyville Ramp. Same-day direct USGS Water Services returned `4.10 ft` at `2026-07-03 19:45 EDT` for North Fork Kentucky River at Hazard (`03277500`) plus `291 cfs / 1.66 ft` at `2026-07-03 18:30-19:00 EDT` for North Fork Kentucky River at Jackson (`03280000`), so Roy Spencer -> Beattyville ships in-band while both Hazard-gauge routes ship with honest slightly-below-band caution.
+  - Camping stays conservative by route: all three ship as `none` because the corridor documentation supports day-use public accesses but not a public river-camping plan.
+  - Safety notes stay focused on the Hazard low-head-dam context, shallow-riffle low-water slowdown, rain-driven rises, fresh wood, private-bank limits, sparse exits, and fatigue on the two longer full-day commitments.
+  - Bounded image review stayed negative for all three slugs, so `docs/river-image-source-audit.csv` records no-image outcomes for the new North Fork additions.
 
 - 2026-07-03 17:54 America/Chicago / 2026-07-03 22:54 UTC Upper Cumberland continuation pass
   - Added `upper-cumberland-river-4-mile-artemus`, `upper-cumberland-river-varilla-artemus`, and `upper-cumberland-river-4-mile-barbourville` beyond the live 34-route Kentucky baseline in this checkout.

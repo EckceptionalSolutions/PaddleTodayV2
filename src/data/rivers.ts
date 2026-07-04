@@ -30766,6 +30766,133 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'north-fork-kentucky-river-watts-hazard-city-ramp',
+    slug: 'north-fork-kentucky-river-watts-hazard-city-ramp',
+    name: 'North Fork Kentucky River',
+    reach: 'Watts Ramp to Hazard City Ramp and Fishing Pier',
+    aliases: [
+      'North Fork Kentucky River - Watts to Hazard',
+      'North Fork Kentucky River Ulvah to downtown Hazard',
+      'North Fork Kentucky River upper Hazard day float',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Longer upper Hazard float from Watts Ramp in Ulvah to the public city ramp behind Hazard City Hall. KDFWR publishes the exact 22.2-mile segment, official Hazard gauge bands, and source-backed coordinates for both endpoints.',
+    statusText:
+      'Use the North Fork Kentucky River at Hazard gauge. KDFWR rates the route low below 4.25 ft, good from 4.25 to 5.0 ft, and high above 5.0 ft.',
+    latitude: 37.1283,
+    longitude: -83.0519,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['low_head_dam', 'fast_rise', 'private_banks', 'remote'],
+      safetyNotes: [
+        'This is a long eastern Kentucky day that finishes at the Hazard City ramp directly upstream from a low-head dam. Identify the finish before launch and do not drift past it.',
+        'KDFWR says the Watts reach is relatively shallow with numerous riffles, and mountain rain can raise the North Fork quickly while pushing new wood into current lines.',
+        'Most banks away from the named accesses should be treated as private, steep, or muddy rather than casual stop points.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03277500',
+      provider: 'usgs',
+      siteId: '03277500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'North Fork Kentucky River at Hazard, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03277500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4.25,
+      idealMax: 5,
+      tooLow: 4.25,
+      tooHigh: 5,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for North Fork Kentucky River at Hazard',
+        url: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This longer upper-Hazard route can work across the warmer season when the Hazard gauge stays in shape, but the North Fork remains flashy and wood-prone after rain.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The current is broad-audience friendly at normal levels, but 22.2 miles with riffles, few developed exits, and a mandatory city-ramp finish above a low-head dam make this a committed day rather than a casual family float.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: KDFWR publishes the exact Watts-to-Hazard 22.2-mile route, the official Hazard stage bands, and source-backed access-detail coordinates for both ramps. Direct USGS 03277500 returned a same-day stage reading of 4.10 ft during this run, which keeps the live path current while honestly flagging a slightly below-band day.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Watts Ramp to Hazard City Ramp, 22.2 mi',
+        note: 'KDFWR lists Watts Ramp to Hazard City Ramp as a 22.2-mile North Fork Kentucky River segment in the access-mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '4.25-5.0 ft',
+        note: 'KDFWR rates the North Fork Kentucky River at Hazard as Low below 4.25 ft, Good from 4.25 to 5.0 ft, and High above 5.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Watts Ramp, 37.1283, -83.0519',
+        note: 'KDFWR lists Watts Ramp as a paved public launch under the Watts Drive bridge in Ulvah with published coordinates and unpaved parking.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1126',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Hazard City Ramp, 37.2513, -83.1962',
+        note: 'KDFWR lists the Hazard City Ramp and Fishing Pier as a paved public launch behind city hall with published coordinates, restrooms, parking, and a low-head-dam warning.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=952',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03277500 at 4.10 ft',
+        note: 'USGS Water Services returned a same-day stage of 4.10 ft at 19:45 EDT on July 3, 2026 for the North Fork Kentucky River at Hazard.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03277500&parameterCd=00065&siteStatus=all',
+      },
+      {
+        label: 'Route character',
+        value: 'Shallow riffles, long rural day, mandatory Hazard finish',
+        note: 'KDFWR says the Watts reach is relatively shallow with numerous riffles, while the Hazard finish sits directly upstream from a low-head dam and needs a clean take-out.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR North Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Watts Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1126',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Hazard City Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=952',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03277500 North Fork Kentucky River at Hazard',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03277500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03277500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03277500&parameterCd=00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'north-fork-kentucky-river-hazard-city-ramp-perry-county-park',
     slug: 'north-fork-kentucky-river-hazard-city-ramp-perry-county-park',
     name: 'North Fork Kentucky River',
@@ -31026,6 +31153,260 @@ export const rivers: River[] = [
         label: 'Carr Creek Campground',
         url: 'https://parks.ky.gov/explore/carr-creek-campground-7869',
         provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'north-fork-kentucky-river-roy-spencer-beattyville',
+    slug: 'north-fork-kentucky-river-roy-spencer-beattyville',
+    name: 'North Fork Kentucky River',
+    reach: 'Roy Spencer Ramp to Beattyville Ramp',
+    aliases: [
+      'North Fork Kentucky River - Roy Spencer to Beattyville',
+      'North Fork Kentucky River lower Jackson to Beattyville',
+      'North Fork Kentucky River KY 541 to Beattyville',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Long lower-North-Fork route from Roy Spencer Ramp to Beattyville. KDFWR publishes the exact 34.0-mile segment, official Jackson gauge bands, and source-backed coordinates for both public endpoints.',
+    statusText:
+      'Use the North Fork Kentucky River at Jackson gauge. KDFWR rates the route low below 200 cfs or 1.6 ft, good from 200 to 500 cfs or 1.6 to 2.5 ft, and high above 500 cfs or 2.5 ft.',
+    latitude: 37.6016,
+    longitude: -83.4476,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks', 'remote'],
+      safetyNotes: [
+        'This is a long remote-feeling eastern Kentucky float with few developed exits between the bridge launch and Beattyville.',
+        'The North Fork can rise quickly after rain, and long muddy banks plus fresh wood make self-rescue or improvised stops less attractive than the mileage alone suggests.',
+        'Beattyville is the planned finish. Do not continue downstream toward the confluence unless you have a separate route plan and lock-and-dam review.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03280000',
+      provider: 'usgs',
+      siteId: '03280000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'North Fork Kentucky River at Jackson, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03280000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 500,
+      tooLow: 200,
+      tooHigh: 500,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for North Fork Kentucky River at Jackson',
+        url: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This lower North Fork route is best when the Jackson gauge is stable inside the KDFWR band. Rain and mountain runoff matter more than the calendar because the route is long and sparsely serviced.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The water is not technical whitewater, but 34 miles with broad current, limited exits, and a downstream confluence approach make this a serious long-day route that casual paddlers should not underestimate.',
+      confidenceNotes:
+        'Confidence is good for a guarded add: KDFWR publishes the exact Roy-Spencer-to-Beattyville 34.0-mile route, the official Jackson cfs and stage bands, and source-backed access-detail coordinates for both ramps. Direct USGS 03280000 returned same-day discharge and stage during this run, with 291 cfs / 1.66 ft comfortably inside the official band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Roy Spencer Ramp to Beattyville Ramp, 34.0 mi',
+        note: 'KDFWR lists Roy Spencer Ramp to Beattyville Ramp as a 34.0-mile North Fork Kentucky River segment in the access-mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '200-500 cfs / 1.6-2.5 ft',
+        note: 'KDFWR rates the North Fork Kentucky River at Jackson as Low below 200 cfs or 1.6 ft, Good from 200 to 500 cfs or 1.6 to 2.5 ft, and High above 500 cfs or 2.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Roy Spencer Ramp, 37.6016, -83.4476',
+        note: 'KDFWR lists Roy Spencer Ramp as the bridge-side public launch below KY 541 with published coordinates, a small paved lot, and a picnic shelter.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=884',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Beattyville Ramp, 37.5707, -83.7027',
+        note: 'KDFWR lists Beattyville Ramp as a two-lane public launch off Water Street with published coordinates, large paved parking, and a fishing pier near the North and South Fork confluence area.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=311',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03280000 at 291 cfs / 1.66 ft',
+        note: 'USGS Water Services returned same-day Jackson values on July 3, 2026: 291 cfs at 18:30 EDT and 1.66 ft at 19:00 EDT.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03280000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route character',
+        value: 'Long rural lower-river day into Beattyville',
+        note: 'KDFWR says the Beattyville finish is a fully developed public ramp near the confluence while the Roy Spencer put-in is a simpler bridge access, making this a long committed rural float with few developed mid-route exits.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR North Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Roy Spencer Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=884',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Beattyville Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=311',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03280000 North Fork Kentucky River at Jackson',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03280000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03280000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03280000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'north-fork-kentucky-river-watts-perry-county-park',
+    slug: 'north-fork-kentucky-river-watts-perry-county-park',
+    name: 'North Fork Kentucky River',
+    reach: 'Watts Ramp to Perry County Park Ramp',
+    aliases: [
+      'North Fork Kentucky River - Watts to Perry County Park',
+      'North Fork Kentucky River Ulvah to Perry County Park',
+      'North Fork Kentucky River extended Hazard corridor',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Extended upper Hazard corridor from Watts Ramp to Perry County Park. KDFWR supports the route by chaining its exact Watts-to-Hazard and Hazard-to-Perry County mileage table against the official Hazard gauge bands.',
+    statusText:
+      'Use the North Fork Kentucky River at Hazard gauge. KDFWR rates the route low below 4.25 ft, good from 4.25 to 5.0 ft, and high above 5.0 ft.',
+    latitude: 37.1283,
+    longitude: -83.0519,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks', 'remote'],
+      safetyNotes: [
+        'This is a long upper-North-Fork route with only one developed midpoint at Hazard and a quieter public finish at Perry County Park.',
+        'KDFWR describes the Watts reach as relatively shallow with numerous riffles, and the drainage can rise quickly after rain while carrying fresh wood into the channel.',
+        'Most banks away from the named accesses should be treated as private, muddy, or too steep for casual emergency stops.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03277500',
+      provider: 'usgs',
+      siteId: '03277500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'North Fork Kentucky River at Hazard, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03277500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4.25,
+      idealMax: 5,
+      tooLow: 4.25,
+      tooHigh: 5,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for North Fork Kentucky River at Hazard',
+        url: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This longer upper-Hazard continuation can work across the warmer season when the Hazard gauge stays in shape, but runoff and wood matter more than the month.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The water is not technical, but 27 miles with riffles, limited exits, and a below-band slowdown risk make this a committed all-day route rather than a casual float.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: KDFWR publishes Watts Ramp to Hazard City Ramp at 22.2 miles and Hazard City Ramp to Perry County Park at 4.8 miles, which support this 27.0-mile continuation on one official Hazard gauge model. Direct USGS 03277500 returned a same-day stage of 4.10 ft during this run, which keeps the live path current while honestly flagging a slightly below-band day.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Watts Ramp to Perry County Park Ramp, about 27.0 mi',
+        note: 'KDFWR lists Watts Ramp to Hazard City Ramp at 22.2 miles and Hazard City Ramp to Perry County Park at 4.8 miles, supporting this longer upper-North-Fork continuation of about 27.0 miles.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '4.25-5.0 ft',
+        note: 'KDFWR rates the North Fork Kentucky River at Hazard as Low below 4.25 ft, Good from 4.25 to 5.0 ft, and High above 5.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Watts Ramp, 37.1283, -83.0519',
+        note: 'KDFWR lists Watts Ramp as a paved public launch under the Watts Drive bridge in Ulvah with published coordinates and unpaved parking.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1126',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Perry County Park Ramp, 37.2783, -83.2088',
+        note: 'KDFWR lists Perry County Park Ramp as a paved public launch with published coordinates, restrooms, parking, and other developed park amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=491',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03277500 at 4.10 ft',
+        note: 'USGS Water Services returned a same-day stage of 4.10 ft at 19:45 EDT on July 3, 2026 for the North Fork Kentucky River at Hazard.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03277500&parameterCd=00065&siteStatus=all',
+      },
+      {
+        label: 'Route character',
+        value: 'Long shallow-riffle upper-river day into Perry County Park',
+        note: 'KDFWR describes the Watts reach as relatively shallow with numerous riffles and documents Perry County Park as the next developed downstream public finish after Hazard.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR North Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/NF-Kentucky-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Watts Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1126',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Perry County Park Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=491',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03277500 North Fork Kentucky River at Hazard',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03277500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03277500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03277500&parameterCd=00065&siteStatus=all',
+        provider: 'usgs',
       },
     ],
   },

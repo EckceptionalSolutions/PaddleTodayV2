@@ -10445,6 +10445,43 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'north-fork-kentucky-river-watts-hazard-city-ramp': {
+    putIn: {
+      id: 'watts-ramp',
+      name: 'Watts Ramp',
+      latitude: 37.1283,
+      longitude: -83.0519,
+    },
+    takeOut: {
+      id: 'hazard-city-ramp',
+      name: 'Hazard City Ramp and Fishing Pier',
+      latitude: 37.2513,
+      longitude: -83.1962,
+    },
+    logistics: {
+      distanceLabel: 'About 22.2 mi',
+      estimatedPaddleTime: 'About 7 hr to 10 hr, longer with low water, wood scouting, or fishing stops',
+      shuttle:
+        'Long Perry County shuttle from Ulvah back to downtown Hazard. Stage the Hazard City finish first because the take-out sits directly upstream from a low-head dam and should already be identified before anyone launches from Watts.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public launches, follow Kentucky boating and PFD rules, and respect any posted city, bridge-access, or parking limits.',
+      camping:
+        'Treat this as a committed day trip. No public riverside camping is documented on the route, and most banks away from the named accesses should be treated as private or unsuitable for an overnight stop.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Watts Ramp and finish 22.2 miles downstream at Hazard City Ramp for the full upper-Hazard North Fork day. KDFWR gives the Hazard gauge a good band of 4.25 to 5.0 ft and describes this reach as a shallow-riffle float that becomes serious mainly because of the mileage and dam-adjacent finish.',
+      accessCaveats: [
+        'Watts is a paved bridge-side launch with unpaved parking rather than a fully serviced park ramp, so inspect footing and vehicle placement before committing to the shuttle.',
+        'Hazard City Ramp is the planned take-out directly upstream from a low-head dam. Know the landing, exit left cleanly, and do not drift below the city ramp while regrouping.',
+        'The Hazard gauge read slightly below the official band during this run, so expect slower current and more scrape-prone riffles than the ideal KDFWR day.',
+      ],
+      watchFor: [
+        'Shallow riffles and dragging once the Hazard stage falls below 4.25 ft.',
+        'Fast rain-driven rises, muddy current, and fresh wood or strainers moving into outside bends.',
+        'Fatigue, sparse developed exits, and the mandatory low-head-dam-aware finish in Hazard.',
+      ],
+    },
+  },
   'north-fork-kentucky-river-hazard-city-ramp-perry-county-park': {
     putIn: {
       id: 'hazard-city-ramp',
@@ -10518,6 +10555,131 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fresh wood, strainers, steep banks, sparse mid-route exits, and rain-driven rises in the eastern Kentucky drainage.',
       ],
     },
+  },
+  'north-fork-kentucky-river-roy-spencer-beattyville': {
+    putIn: {
+      id: 'roy-spencer-ramp',
+      name: 'Roy Spencer Ramp',
+      latitude: 37.6016,
+      longitude: -83.4476,
+    },
+    takeOut: {
+      id: 'beattyville-ramp',
+      name: 'Beattyville Ramp',
+      latitude: 37.5707,
+      longitude: -83.7027,
+    },
+    logistics: {
+      distanceLabel: 'About 34.0 mi',
+      estimatedPaddleTime: 'About 9 hr to 12 hr, longer with low water, fishing, or cleanup stops',
+      shuttle:
+        'Very long eastern Kentucky shuttle from the KY 541 bridge access at Roy Spencer to the developed Beattyville riverfront ramp. Stage Beattyville first because the finish is easier to identify and has the larger parking footprint.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public launches, follow Kentucky boating and PFD rules, and obey any posted local parking or boat-ramp instructions.',
+      camping:
+        'Treat this as a very long day float, not an assumed overnight. No general public river-camping program is documented on this corridor, and most banks away from the named public accesses should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Roy Spencer Ramp and finish 34.0 miles downstream at Beattyville for the lower North Fork Kentucky River marathon day. KDFWR gives the Jackson gauge a good band of 200 to 500 cfs, or 1.6 to 2.5 ft, and the same-day USGS reading landed inside that band during this run.',
+      accessCaveats: [
+        'Roy Spencer is a smaller bridge-area launch with a limited paved lot and simpler landing than the downstream finish. Inspect it before the shuttle commitment feels locked in.',
+        'Beattyville is the intended finish near the confluence area. Do not casually continue downstream toward the main Kentucky River corridor or the downstream lock-and-dam pool.',
+        'This route is long enough that weather changes, fatigue, and slow low-water miles matter more than the non-technical character of the current on a normal day.',
+      ],
+      watchFor: [
+        'Low water below 200 cfs or 1.6 ft, when long broad sections slow down and shallow shoals become more tedious.',
+        'High water above 500 cfs or 2.5 ft, when the lower North Fork gets faster, muddier, and less forgiving over a very long distance.',
+        'Fresh wood, strainers, limited mid-route exits, and private or muddy banks away from the named ramps.',
+      ],
+    },
+
+    accessPoints: [
+      {
+        id: 'roy-spencer-ramp',
+        name: 'Roy Spencer Ramp',
+        latitude: 37.6016,
+        longitude: -83.4476,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Bridge-area put-in and the only clean upstream public start for this long lower-North-Fork route.',
+      },
+      {
+        id: 'beattyville-ramp',
+        name: 'Beattyville Ramp',
+        latitude: 37.5707,
+        longitude: -83.7027,
+        mileFromStart: 34,
+        segmentKind: 'creek',
+        note: 'Developed downstream finish near the North and South Fork confluence area.',
+      },
+    ],
+  },
+  'north-fork-kentucky-river-watts-perry-county-park': {
+    putIn: {
+      id: 'watts-ramp',
+      name: 'Watts Ramp',
+      latitude: 37.1283,
+      longitude: -83.0519,
+    },
+    takeOut: {
+      id: 'perry-county-park-ramp',
+      name: 'Perry County Park Ramp',
+      latitude: 37.2783,
+      longitude: -83.2088,
+    },
+    logistics: {
+      distanceLabel: 'About 27.0 mi',
+      estimatedPaddleTime: 'About 8 hr to 11 hr, longer with low water, wood scouting, or fishing stops',
+      shuttle:
+        'Long Perry County shuttle from Ulvah to the Perry County Park finish. Stage the park take-out first because it is the cleaner developed finish, then return to Watts only after you are confident the group and forecast support a full-day effort.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public launches, follow Kentucky boating and PFD rules, and respect any posted city, park, or bridge-access parking limits.',
+      camping:
+        'Treat this as a committed day float. No public riverside camping plan is documented on the corridor, and banks away from the named accesses should be treated as private or unsuitable for overnight use.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Watts Ramp and continue all the way to Perry County Park for the full extended Hazard corridor on the North Fork Kentucky River. The route uses the official Hazard gauge band, but the length and below-band slowdown risk still make it a deliberate all-day plan.',
+      accessCaveats: [
+        'Watts is a simpler bridge-side launch with unpaved parking rather than a full park facility, so confirm footing and vehicle placement before leaving the shuttle car downstream.',
+        'Hazard City Ramp is the only clearly developed midpoint. It can work as a bailout, but do not miss the main route line while approaching the city corridor and its dam-adjacent riverfront context.',
+        'The Hazard gauge sat slightly below the official 4.25 to 5.0 ft band during this run, so expect slower current and more scrape-prone riffles than on an ideal day.',
+      ],
+      watchFor: [
+        'Shallow riffles and dragging once the Hazard stage falls below 4.25 ft.',
+        'Fast rain-driven rises, muddy current, and fresh wood or strainers moving into outside bends.',
+        'Fatigue, sparse developed exits, and the commitment of a long rural day with only one obvious midpoint bailout.',
+      ],
+    },
+
+    accessPoints: [
+      {
+        id: 'watts-ramp',
+        name: 'Watts Ramp',
+        latitude: 37.1283,
+        longitude: -83.0519,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Bridge-side upstream launch in Ulvah and the start of the full extended Hazard corridor.',
+      },
+      {
+        id: 'hazard-city-ramp',
+        name: 'Hazard City Ramp and Fishing Pier',
+        latitude: 37.2513,
+        longitude: -83.1962,
+        mileFromStart: 22.2,
+        segmentKind: 'creek',
+        note: 'Primary developed midpoint and bailout in the downtown Hazard corridor.',
+      },
+      {
+        id: 'perry-county-park-ramp',
+        name: 'Perry County Park Ramp',
+        latitude: 37.2783,
+        longitude: -83.2088,
+        mileFromStart: 27,
+        segmentKind: 'creek',
+        note: 'Canonical downstream finish at the developed county park launch.',
+      },
+    ],
   },
   'south-fork-licking-river-lair-ramp-terry-dam': {
     putIn: {
