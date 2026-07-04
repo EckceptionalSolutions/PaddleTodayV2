@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-03 18:57 America/Chicago / 2026-07-03 23:57 UTC.
+Last summarized: 2026-07-03 20:45 America/Chicago / 2026-07-04 01:45 UTC.
 
 ## Current Inventory
 
-- Live routes: 40.
-- Ledger candidates: 72 Kentucky-specific records. The newest live Kentucky slugs are `north-fork-kentucky-river-watts-hazard-city-ramp`, `north-fork-kentucky-river-roy-spencer-beattyville`, and `north-fork-kentucky-river-watts-perry-county-park`.
+- Live routes: 43.
+- Ledger candidates: 72 Kentucky-specific records. The newest live Kentucky slugs are `floyds-fork-north-beckley-cane-run`, `floyds-fork-seaton-valley-broad-run-valley`, and `floyds-fork-broad-run-valley-cliffside`.
 
 ## Status
 
@@ -26,6 +26,15 @@ Kentucky had been paused from the active automation rotation at user request whi
 - For Elkhorn specifically, do not substitute nearby bank/wade-only VPA sites for boat access; KDFWR explicitly prohibits boat carry-in/out at some Elkhorn VPA points.
 
 ## Current Guidance
+
+- 2026-07-03 20:45 America/Chicago / 2026-07-04 01:45 UTC Floyds Fork expansion pass
+  - Added `floyds-fork-north-beckley-cane-run`, `floyds-fork-seaton-valley-broad-run-valley`, and `floyds-fork-broad-run-valley-cliffside` beyond the live 40-route Kentucky baseline in this checkout.
+  - The run reused the current KDFWR Floyds Fork page for the official Fisherville gauge ladder of Low below `50 cfs / 1.3 ft`, Good `50-300 cfs / 1.3-2.5 ft`, and High above those marks, plus the older KDFWR route feature for the broader `35-500 cfs` recreation context on the same corridor.
+  - The run reused the current KDFWR Floyds Fork Blue Water Trail map and lower-section Floyds Fork PDF for the exact public route mileages of North Beckley -> Cane Run `10.7`, Seaton Valley -> Broad Run Valley `3.5`, and Broad Run Valley -> Cliffside `2.5`.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for North Beckley Canoe Access, Cane Run Canoe Access, Seaton Valley Paddling Access, Broad Run Valley Paddling Access, and Cliffside Paddling Access. Same-day direct USGS Water Services returned `67.4 cfs / 1.23 ft` at `2026-07-03 20:20 EDT` for Floyds Fork at Fisherville (`03298000`), just below the published stage floor but above the discharge floor, so all three slugs ship with honest low-end caution.
+  - Camping stays conservative at `none` for all three because the Parklands/KDFWR corridor supports day-use carry-down accesses but does not document a public overnight plan.
+  - Safety notes stay focused on Class I+ moving water, quick rain rises, strainers and fresh wood, low-water shoals and dragging, marked-landings-only discipline, the North Beckley / Oxbow braid choices, Mary’s Island split on the Seaton Valley route, and the signed Cane Run side-channel take-out.
+  - The approved Commons Floyds Fork image was reused for all three new slugs, and `docs/river-image-source-audit.csv` now records that same-creek reuse.
 
 - 2026-07-03 18:57 America/Chicago / 2026-07-03 23:57 UTC North Fork Kentucky continuation pass
   - Added `north-fork-kentucky-river-watts-hazard-city-ramp`, `north-fork-kentucky-river-roy-spencer-beattyville`, and `north-fork-kentucky-river-watts-perry-county-park` beyond the live 37-route Kentucky baseline in this checkout.

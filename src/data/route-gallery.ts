@@ -726,8 +726,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
-  ],
-  ],
   'kansas-river-de-soto-kaw-point': [
     {
       id: 'kansas-river-kansas-city-commons',
@@ -808,8 +806,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
-  ],
-  ],
   'kansas-river-manhattan-belvue': [
     {
       id: 'kansas-river-lawrence-commons',
@@ -820,8 +816,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
-  ],
-  ],
   'kansas-river-blue-river-belvue': [
     {
       id: 'kansas-river-lawrence-commons',
@@ -831,9 +825,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       credit: 'Dicklyon via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
-  ],
-  ],
-  ],
   ],
   'kansas-river-belvue-kaw-river-state-park': [
     {
@@ -854,7 +845,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       credit: 'Dicklyon via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
-  ],
   ],
   'current-river-cedar-grove-akers': [
     {
@@ -1446,14 +1436,35 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
+  'floyds-fork-north-beckley-cane-run': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
   ],
+  'floyds-fork-seaton-valley-broad-run-valley': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
   ],
-  ],
-  ],
-  ],
-  ],
-  ],
-  ],
+  'floyds-fork-broad-run-valley-cliffside': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
   ],
   'south-fork-kentucky-river-oneida-fish-creek': [
     {
@@ -1464,19 +1475,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       credit: 'Ernest Danglade via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: public domain',
     },
-  ],
-  ],
-  ],
-  ],
-  ],
-  ],
-  ],
-  ],
-  ],
-  ],
-  ],
-  ],
-
   ],
   'slate-creek-lions-club-old-slate-furnace': [
     {

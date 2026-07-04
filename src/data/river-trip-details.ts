@@ -10022,6 +10022,123 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'floyds-fork-north-beckley-cane-run': {
+    putIn: {
+      id: 'north-beckley-canoe-access',
+      name: 'North Beckley Canoe Access',
+      latitude: 38.2308,
+      longitude: -85.4682,
+    },
+    takeOut: {
+      id: 'cane-run-canoe-access',
+      name: 'Cane Run Canoe Access',
+      latitude: 38.1519,
+      longitude: -85.5026,
+    },
+    logistics: {
+      distanceLabel: 'About 10.7 mi',
+      estimatedPaddleTime: 'About 5.25 hr to 7.5 hr, longer with low water, scouting, or wood',
+      shuttle:
+        'Stage the take-out at Cane Run Canoe Access off Echo Trail, then drive back to North Beckley Canoe Access in Beckley Creek Park. Inspect the signed Cane Run side-channel exit before launching because drifting past it creates an avoidable downstream access problem.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a long day float. No camping plan is assumed between North Beckley and Cane Run, and Parklands property should be treated as day-use access unless clearly posted otherwise.',
+      summary:
+        'Launch at North Beckley Canoe Access and take out 10.7 miles downstream at Cane Run Canoe Access for the full upper Parklands Floyds Fork route. KDFWR ties the corridor to the Fisherville gauge and the Parklands/KDFWR route notes make the moving-water and take-out discipline explicit.',
+      accessCaveats: [
+        'North Beckley is a KDFWR carry-down site in Beckley Creek Park with limited-hours shoreline access, unpaved parking, and no ramp surface.',
+        'Cane Run is a KDFWR carry-down site off Echo Trail with unpaved parking. The Parklands route notes say the take-out is about 50 yards up the Cane Run side channel on river right and can be easy to miss.',
+        'The Parklands says Floyds Fork levels rise and fall quickly. Do not treat the gauge as a substitute for checking recent rain, gauge trend, and the creek at the launch.',
+        'Use marked landings only and respect private property throughout the corridor. Do not assume gravel bars, side channels, or park banks outside the designated accesses are legal stopping points.',
+      ],
+      watchFor: [
+        'Class I+ moving water with shallow riffles, braided chutes, and gravel bars that can require dragging at lower flows.',
+        'Downed timber, strainers, woody cover, and blind bends around The Oxbow, Distillery Bend, and bridge pinch points.',
+        'A long day commitment with fewer easy bailout options than the shorter Parklands segments.',
+        'High water above the corridor good band, when current speeds up through bends and fewer beaches remain for recovery.',
+        'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
+      ],
+    },
+  },
+  'floyds-fork-seaton-valley-broad-run-valley': {
+    putIn: {
+      id: 'seaton-valley-paddling-access',
+      name: 'Seaton Valley Paddling Access',
+      latitude: 38.1323,
+      longitude: -85.5191,
+    },
+    takeOut: {
+      id: 'broad-run-valley-paddling-access',
+      name: 'Broad Run Valley Paddling Access',
+      latitude: 38.1039,
+      longitude: -85.5455,
+    },
+    logistics: {
+      distanceLabel: 'About 3.5 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer with low water, scouting, or fishing',
+      shuttle:
+        'Stage the take-out at Broad Run Valley Paddling Access, then drive back to Seaton Valley Paddling Access in Turkey Run Park. Walk both carry-downs before launching because the Parklands corridor uses marked landings instead of broad public beaches.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a lower-Parklands day trip. KDFWR lists no camping at either access, and no legal on-route overnight plan was verified for this managed park corridor.',
+      summary:
+        'Launch at Seaton Valley Paddling Access and take out 3.5 miles downstream at Broad Run Valley Paddling Access for a scenic lower-Parklands Floyds Fork float. KDFWR documents the exact route and the same Fisherville gauge bands used upstream.',
+      accessCaveats: [
+        'Seaton Valley is a KDFWR carry-down site in Turkey Run Park with year-round limited-hours shoreline access and no listed camping.',
+        'Broad Run Valley is a KDFWR carry-down access with year-round limited-hours shoreline access and no listed camping.',
+        'The Parklands instructs paddlers to use marked landings only and not to take out on private property.',
+        'Floyds Fork rises and falls quickly after rain. Check the gauge trend, weather, and creek current before committing.',
+      ],
+      watchFor: [
+        'Class I+ moving water, shallow bedrock rapids, and braid choices around islands and chutes.',
+        'Strainers, fallen wood, and the mile-long Mary’s Island split where the KDFWR PDF says to stay left.',
+        'Longer recovery swims and fewer easy eddies once the creek pushes above the official good band.',
+        'Undercut banks, bluff-side current, and bedrock shelves through the lower Parklands section.',
+        'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
+      ],
+    },
+  },
+  'floyds-fork-broad-run-valley-cliffside': {
+    putIn: {
+      id: 'broad-run-valley-paddling-access',
+      name: 'Broad Run Valley Paddling Access',
+      latitude: 38.1039,
+      longitude: -85.5455,
+    },
+    takeOut: {
+      id: 'cliffside-paddling-access',
+      name: 'Cliffside Paddling Access',
+      latitude: 38.0864,
+      longitude: -85.552,
+    },
+    logistics: {
+      distanceLabel: 'About 2.5 mi',
+      estimatedPaddleTime: 'About 1.25 hr to 2.5 hr, longer with low water, scouting, or wood',
+      shuttle:
+        'Stage the take-out at Cliffside Paddling Access in Broad Run Park, then drive back to Broad Run Valley Paddling Access. Walk the Cliffside carry-down before launching so the finish is obvious from the water.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a short lower-Floyds Fork day float. KDFWR lists no camping at either access, and no legal on-route overnight plan was verified for this managed park corridor.',
+      summary:
+        'Launch at Broad Run Valley Paddling Access and take out 2.5 miles downstream at Cliffside Paddling Access for a short lower-Floyds Fork Parklands run. KDFWR documents the exact route and the same Fisherville gauge guidance used for the wider corridor.',
+      accessCaveats: [
+        'Broad Run Valley is a KDFWR carry-down access with year-round limited-hours shoreline access and no listed camping.',
+        'Cliffside is a KDFWR carry-down site in Broad Run Park with year-round limited-hours shoreline access and no listed camping.',
+        'The Parklands says to use marked landings only and not to take out on private property.',
+        'Floyds Fork rises and falls quickly after rain. Check trend, weather, and visible current before committing to this short but still moving-water run.',
+      ],
+      watchFor: [
+        'Class I+ moving water, shallow shoals, and quick bends that become less forgiving as levels rise.',
+        'Strainers, fallen wood, overhanging brush, and fresh storm debris.',
+        'Faster current and fewer easy recovery spots once the corridor pushes above the official good band.',
+        'Private-bank and managed-park boundary issues if you miss the designated take-out.',
+        'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
+      ],
+    },
+  },
   'slate-creek-lions-club-old-slate-furnace': {
     putIn: {
       id: 'lions-club-park',
