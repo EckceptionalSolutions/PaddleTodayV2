@@ -38483,6 +38483,113 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'loup-river-monroe-columbus',
+    slug: 'loup-river-monroe-columbus',
+    name: 'Loup River',
+    reach: 'Monroe county access to Columbus',
+    aliases: [
+      'Loup River Water Trail - Monroe to Columbus',
+      'Loup River - Monroe to Columbus',
+      'Monroe county access south of Monroe to Columbus hotel-side finish',
+    ],
+    state: 'Nebraska',
+    region: 'Central Nebraska',
+    summary:
+      'Managed middle Loup River Water Trail segment from the county access south of Monroe to the hotel-side finish in Columbus. City of Columbus materials describe this as the main 16-mile / 6-to-8-hour float in the public water-trail chain.',
+    statusText:
+      'Use the Loup River near Genoa gauge. Around 350 cfs is the conservative low-water marker from Nebraska Game and Parks / Nebraskaland route testing; below that expect shallow channel hunting and dragging. No ideal range or high cutoff is claimed.',
+    latitude: 41.471508,
+    longitude: -97.602729,
+    gaugeSource: {
+      id: 'usgs-06793000',
+      provider: 'usgs',
+      siteId: '06793000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Loup River near Genoa, Nebr.',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['private_banks', 'strainers'],
+      safetyNotes: [
+        'This is the core long Loup water-trail day. Wind, shallow-channel choices, and fresh wood can matter more than the easy rating suggests.',
+        'Nebraska access rules are strict: the water is public, but banks and stream bed are private unless safety or obstacle portage requires brief contact.',
+        'The Columbus finish is a simple hotel-side access with a trail walk, not a marina. Confirm current parking, trail circulation, and riverbank footing before leaving the upstream vehicle.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 350,
+      thresholdSource: {
+        label: 'Nebraska Game and Parks / Nebraskaland Loup River Water Trail flow guidance',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Spring usually offers more water, but summer remains paddlable when the maintained baseflow and same-day channel shape cooperate. Check wind, fresh wood, and finish access before committing.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Technically straightforward paddling, but the 16-mile middle segment is a committed day that asks for steady pace, route-finding discipline, and a real shuttle plan.',
+      confidenceNotes:
+        'Confidence is good for a conservative Nebraska add: Nebraskaland and the City of Columbus still document the Monroe and Columbus access story plus the 16-mile / 6-to-8-hour route shape, and same-day USGS Water Services returned current direct Genoa gauge data at 391 cfs and 4.42 ft on 2026-07-06. The app keeps the route minimum-only because the strongest numeric support is still the family-wide 350 cfs floor and the 1,600 cfs middle-segment trip narrative, not a full official paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Monroe to Columbus, about 16 mi / 6-8 hr',
+        note: 'The City of Columbus says the Monroe-to-Columbus portion is a 16-mile trek, and the official trail sign frames it as a six-to-eight-hour float.',
+        sourceUrl: 'https://www.columbusne.us/CivicAlerts.aspx?AID=1190&ARC=1617',
+      },
+      {
+        label: 'Public access chain',
+        value: 'Monroe county access to Columbus hotel-side finish',
+        note: 'The City of Columbus says Monroe has designated parking and a trail sign, while Columbus uses the Ramada / Quality Inn parking area plus Pawnee Park Trail access from the riverbank.',
+        sourceUrl: 'https://www.columbusne.us/CivicAlerts.aspx?AID=1190&ARC=1617',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 06793000 at 391 cfs / 4.42 ft',
+        note: 'USGS Water Services returned current Loup River near Genoa values of 391 cfs and 4.42 ft at 2026-07-06 02:45 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+      },
+      {
+        label: 'Threshold support',
+        value: '350 cfs minimum-only',
+        note: 'Nebraskaland says the George D. Syas-to-Monroe test at 350 cfs required deep-channel work but little walking, while the Monroe-to-Columbus run at 1,600 cfs had enough water throughout the channel. Paddle Today keeps the route minimum-only and does not infer a high-water ceiling.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+      },
+      {
+        label: 'Current access caveat',
+        value: 'Pawnee Park underpass closed since June 9, 2025',
+        note: 'The City of Columbus says the underpass connecting East and West Pawnee Park closed on June 9, 2025 and will remain closed for the foreseeable future, so paddlers should verify current pedestrian circulation for the hotel-side finish.',
+        sourceUrl: 'https://www.columbusne.us/CivicAlerts.asp?AID=1957',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Outdoor Nebraska / Nebraskaland Loup River Water Trail',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'City of Columbus Loup River Water Trail article',
+        url: 'https://www.columbusne.us/CivicAlerts.aspx?AID=1190&ARC=1617',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06793000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'loup-river-george-syas-columbus',
     slug: 'loup-river-george-syas-columbus',
     name: 'Loup River',
@@ -38590,6 +38697,118 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'loup-river-monroe-adm-access',
+    slug: 'loup-river-monroe-adm-access',
+    name: 'Loup River',
+    reach: 'Monroe county access to ADM access site',
+    aliases: [
+      'Loup River Water Trail - Monroe to ADM',
+      'Loup River - Monroe to ADM',
+      'Monroe county access south of Monroe to ADM access site',
+    ],
+    state: 'Nebraska',
+    region: 'Central Nebraska',
+    summary:
+      'Long lower Loup River Water Trail continuation from the county access south of Monroe to the newer ADM access site below Columbus. This combines the official 16-mile Monroe-to-Columbus float and the final 4.5-mile Columbus-to-ADM continuation into one same-gauge day.',
+    statusText:
+      'Use the Loup River near Genoa gauge. Around 350 cfs is the conservative low-water marker from Nebraska Game and Parks / Nebraskaland route testing; below that expect shallow channel hunting and dragging. No ideal range or high cutoff is claimed.',
+    latitude: 41.471508,
+    longitude: -97.602729,
+    gaugeSource: {
+      id: 'usgs-06793000',
+      provider: 'usgs',
+      siteId: '06793000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Loup River near Genoa, Nebr.',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['private_banks', 'strainers'],
+      safetyNotes: [
+        'This is a long sandy-river commitment. Wind, wrong-channel choices, and fresh wood can stack up before the industrial-style finish.',
+        'Nebraska access rules are strict: the water is public, but banks and stream bed are private unless safety or obstacle portage requires brief contact.',
+        'The final access is a leased area on ADM property rather than a park ramp. Inspect current signage, fencing, and riverbank footing before leaving the upstream vehicle.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 350,
+      thresholdSource: {
+        label: 'Nebraska Game and Parks / Nebraskaland Loup River Water Trail flow guidance',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'This long lower continuation shares the same Genoa-gauge reality as the upstream trail: spring usually offers more water, while summer is still possible at maintained baseflow if wind, channel shape, and downstream access all cooperate.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Technically straightforward paddling, but the 20.5-mile continuation asks for stamina, route-finding discipline, and a careful finish plan at a simple leased access area.',
+      confidenceNotes:
+        'Confidence is good for a conservative Nebraska add: Nebraskaland and the City of Columbus still document the Monroe, Columbus, and ADM access chain plus the 16-mile and 4.5-mile segment lengths, and same-day USGS Water Services returned current direct Genoa gauge data at 391 cfs and 4.42 ft on 2026-07-06. The app keeps the route minimum-only because the strongest numeric support remains the family-wide 350 cfs floor and 1,600 cfs middle-segment evidence rather than a full official paddling range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Monroe to Columbus to ADM, about 20.5 mi',
+        note: 'The City of Columbus describes Monroe to Columbus as 16 miles, and Nebraskaland says the ADM point sits 4.5 miles downstream of Columbus, supporting a roughly 20.5-mile continuation.',
+        sourceUrl: 'https://www.columbusne.us/CivicAlerts.aspx?AID=1190&ARC=1617',
+      },
+      {
+        label: 'Public access chain',
+        value: 'Monroe county access, Columbus hotel-side finish, ADM access site',
+        note: 'The City of Columbus says Monroe has designated parking and the Columbus finish uses the Ramada / Quality Inn lot plus Pawnee Park Trail, while a separate city announcement says the downstream leased access area lies south of Southeast 9th Street abutting the Loup River.',
+        sourceUrl: 'https://www.columbusne.us/CivicAlerts.aspx?AID=1328',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 06793000 at 391 cfs / 4.42 ft',
+        note: 'USGS Water Services returned current Loup River near Genoa values of 391 cfs and 4.42 ft at 2026-07-06 02:45 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+      },
+      {
+        label: 'Threshold support',
+        value: '350 cfs minimum-only',
+        note: 'Nebraskaland says the George D. Syas-to-Monroe test at 350 cfs required deep-channel work but little walking, while the Monroe-to-Columbus run at 1,600 cfs had enough water throughout the channel. Paddle Today uses 350 cfs as a conservative floor without inferring a high-water ceiling for the whole trail family.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+      },
+      {
+        label: 'ADM anchor',
+        value: '41.41603951, -97.2865376',
+        note: 'Global Energy Monitor lists the Columbus ADM power station at 41.41603951, -97.2865376. Paddle Today uses this only as a nearby practical anchor for the leased downstream access area identified by the City of Columbus, not as a surveyed river launch coordinate.',
+        sourceUrl: 'https://www.gem.wiki/Columbus_ADM_power_station',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Outdoor Nebraska / Nebraskaland Loup River Water Trail',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'City of Columbus Loup River Water Trail article',
+        url: 'https://www.columbusne.us/CivicAlerts.aspx?AID=1190&ARC=1617',
+        provider: 'local',
+      },
+      {
+        label: 'City of Columbus ADM access announcement',
+        url: 'https://www.columbusne.us/CivicAlerts.aspx?AID=1328',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06793000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'loup-river-columbus-adm-access',
     slug: 'loup-river-columbus-adm-access',
     name: 'Loup River',
@@ -38682,6 +38901,118 @@ export const rivers: River[] = [
       {
         label: 'Outdoor Nebraska / Nebraskaland Loup River Water Trail',
         url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'City of Columbus ADM access announcement',
+        url: 'https://www.columbusne.us/CivicAlerts.aspx?AID=1328',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06793000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'loup-river-george-syas-adm-access',
+    slug: 'loup-river-george-syas-adm-access',
+    name: 'Loup River',
+    reach: 'George D. Syas WMA to ADM access site',
+    aliases: [
+      'Loup River Water Trail - George D. Syas WMA to ADM',
+      'Loup River - George D. Syas to ADM',
+      'George D. Syas WMA fishing access to ADM access site south of Southeast 9th Street',
+    ],
+    state: 'Nebraska',
+    region: 'Central Nebraska',
+    summary:
+      'Longest public Loup River Water Trail continuation from the George D. Syas WMA fishing access to the downstream ADM access site below Columbus. This combines the official 8-mile upper segment, the 16-mile Monroe-to-Columbus day, and the final 4.5-mile ADM continuation into one same-gauge route.',
+    statusText:
+      'Use the Loup River near Genoa gauge. Around 350 cfs is the conservative low-water marker from Nebraska Game and Parks / Nebraskaland route testing; below that expect shallow channel hunting and dragging. No ideal range or high cutoff is claimed.',
+    latitude: 41.43328221,
+    longitude: -97.68464875,
+    gaugeSource: {
+      id: 'usgs-06793000',
+      provider: 'usgs',
+      siteId: '06793000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Loup River near Genoa, Nebr.',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['private_banks', 'strainers'],
+      safetyNotes: [
+        'This is the full braided-river commitment. Wind, shallow-channel choices, and fresh wood compound across more than one access segment rather than resetting at Monroe or Columbus.',
+        'Nebraska access rules are strict: the water is public, but banks and stream bed are private unless safety or obstacle portage requires brief contact.',
+        'The final access is a leased area on ADM property rather than a park ramp. Confirm current finish signage, fencing, and riverbank footing before leaving the upstream vehicle.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 350,
+      thresholdSource: {
+        label: 'Nebraska Game and Parks / Nebraskaland Loup River Water Trail flow guidance',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Spring usually offers the cleanest water and easiest channels, but the full continuation can still go in summer when maintained baseflow, weather, and the simple downstream access all cooperate. Rising water and storms make the route substantially less forgiving.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Technically straightforward paddling, but the 28.5-mile full continuation is a serious all-day river commitment that demands pace, route-finding discipline, and clean shuttle execution.',
+      confidenceNotes:
+        'Confidence is good for a conservative long-route add: Nebraskaland and the City of Columbus still document the George D. Syas, Monroe, Columbus, and ADM access chain plus the 8-mile, 16-mile, and 4.5-mile segment evidence, and same-day USGS Water Services returned current direct Genoa gauge data at 391 cfs and 4.42 ft on 2026-07-06. The app keeps the route minimum-only because the strongest numeric support is still the family-wide 350 cfs floor and 1,600 cfs middle-segment evidence, not a full official paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'George D. Syas to Monroe to Columbus to ADM, about 28.5 mi',
+        note: 'Nebraskaland says Monroe is eight miles below George D. Syas WMA, the City of Columbus says Monroe to Columbus is 16 miles, and Nebraskaland says the ADM point sits 4.5 miles downstream of Columbus, supporting a roughly 28.5-mile full continuation.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+      },
+      {
+        label: 'Public access chain',
+        value: 'George D. Syas WMA, Monroe county access, Columbus hotel-side finish, ADM access site',
+        note: 'Nebraskaland identifies the George D. Syas fishing access, the county-built Monroe access with parking, and the Quality Inn parking plus Pawnee Park Trail arrangement in Columbus, while the City of Columbus separately identifies the leased ADM access area south of Southeast 9th Street.',
+        sourceUrl: 'https://www.columbusne.us/CivicAlerts.aspx?AID=1328',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 06793000 at 391 cfs / 4.42 ft',
+        note: 'USGS Water Services returned current Loup River near Genoa values of 391 cfs and 4.42 ft at 2026-07-06 02:45 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+      },
+      {
+        label: 'Threshold support',
+        value: '350 cfs minimum-only',
+        note: 'Nebraskaland says the George D. Syas-to-Monroe test at 350 cfs required deep-channel work but little walking, while the Monroe-to-Columbus run at 1,600 cfs had enough water throughout the channel. Paddle Today keeps the full continuation minimum-only and does not infer a high-water ceiling.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+      },
+      {
+        label: 'Current access caveat',
+        value: 'Pawnee Park underpass closed since June 9, 2025',
+        note: 'The City of Columbus says the underpass connecting East and West Pawnee Park closed on June 9, 2025 and will remain closed for the foreseeable future, so paddlers should verify current pedestrian circulation near the Columbus checkpoint and downstream shuttle finish.',
+        sourceUrl: 'https://www.columbusne.us/CivicAlerts.asp?AID=1957',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Outdoor Nebraska / Nebraskaland Loup River Water Trail',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'City of Columbus Loup River Water Trail article',
+        url: 'https://www.columbusne.us/CivicAlerts.aspx?AID=1190&ARC=1617',
         provider: 'local',
       },
       {
