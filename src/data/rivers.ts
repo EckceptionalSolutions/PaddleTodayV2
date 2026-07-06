@@ -43386,6 +43386,357 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'saline-river-lyle-park-saline-crossing',
+    slug: 'saline-river-lyle-park-saline-crossing',
+    name: 'Saline River',
+    reach: 'Lyle Park Access to Saline Crossing Access',
+    aliases: [
+      'Saline River - Lyle Park to Saline Crossing',
+      'Saline River Water Trail lower Benton segment',
+      'Arkansas Water Trails Lyle to Saline Crossing',
+    ],
+    state: 'Arkansas',
+    region: 'Central Arkansas',
+    summary:
+      'Lower Benton Saline River day from Lyle Park to Saline Crossing. AGFC documents the exact 4.2-mile route, both public accesses, the direct Benton gauge ladder, and the low-dam / low-bridge hazard package, so this route ships with explicit mandatory-portage caveats rather than casual flatwater framing.',
+    statusText:
+      'Use the Saline River at Benton gauge. Around 3.6 to 5.0 ft is the broad paddle window; below about 4.0 ft AGFC says to portage around the Benton Water Purification Plant spillway, and above about 5.0 ft the lower route becomes experienced-only with tighter bridge clearance.',
+    latitude: 34.5873,
+    longitude: -92.6051,
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['low_head_dam', 'mandatory_takeout', 'fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'A Benton Water Purification Plant spillway or low dam sits about 1.6 miles below Lyle Park. AGFC says to portage around it when the river is below 4 ft.',
+        'AGFC also warns the downstream low-water bridge becomes a tighter hazard as the river rises; at 6 ft there is not enough air space to pass under it and portage becomes mandatory.',
+        'The Saline can rise quickly after rain, and fresh wood or strainers can turn this short lower segment into a much more consequential run.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07363000',
+      provider: 'usgs',
+      siteId: '07363000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Saline River at Benton, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07363000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3.6,
+      idealMax: 5,
+      tooLow: 3.5,
+      tooHigh: 5,
+      thresholdSource: {
+        label: 'Arkansas Game and Fish Saline River Water Trail gauge bands',
+        url: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'AGFC frames the Saline as rainfall dependent year-round moving water. Spring through early fall is workable when the Benton gauge is in range, but quick post-storm rises raise the lower-route hazard package quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The mileage is modest, but this is not a casual pond float. AGFC describes deep pools, fast chutes, riffles, and small waves, and the lower Benton hazard package requires active scouting and portage judgment.',
+      confidenceNotes:
+        'Confidence is good for a guarded add: AGFC publishes Lyle Park to Saline Crossing as an exact 4.2-mile public Saline River Water Trail route, exposes source-backed access coordinates for both ends, ties the corridor to the direct Benton USGS gauge, and gives explicit spillway and low-water-bridge safety rules for the lower river.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Lyle Park to Saline Crossing, 4.2 miles',
+        note: 'AGFC identifies Lyle Park to Saline Crossing as a reviewed lower Saline route with 2 to 3 hour timing in the typical and optimum bands.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07363000',
+        note: 'USGS Water Services returned same-day Saline River at Benton values of 329 cfs and 4.00 ft at 2026-07-06 13:30 CDT during this run, inside AGFC\'s typical-to-optimum lower-route window.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07363000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Stage model',
+        value: '3.5 / 3.6-5.0 / 5.0 ft',
+        note: 'AGFC labels 3.5 ft and below as low, 3.6-4.0 ft as typical, 4.1-5.0 ft as optimum, and 5.1-5.5 ft as high experienced-only water. Paddle Today uses 3.6-5.0 ft as the broad audience band and treats water above 5.0 ft as outside the general recommendation.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'Lyle Park Access 34.5873, -92.6051; Saline Crossing Access 34.54106, -92.60718',
+        note: 'AGFC publishes both public lower-route accesses as named map-linked Saline River Water Trail points.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Lower-route hazard rules',
+        value: 'Spillway portage below 4 ft; low bridge mandatory at 6 ft',
+        note: 'AGFC says the Benton Water Purification Plant spillway or low dam is hazardous and should be portaged when the river is below 4 ft, and that the downstream low-water bridge has insufficient clearance at 6 ft.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Camping classification',
+        value: 'none',
+        note: 'The reviewed AGFC route materials did not identify legal route camping for Lyle Park or Saline Crossing, and nearby banks should be treated as private.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'AGFC Saline River Water Trail',
+        url: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07363000 Saline River at Benton',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07363000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07363000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07363000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'saline-river-peeler-bend-saline-crossing',
+    slug: 'saline-river-peeler-bend-saline-crossing',
+    name: 'Saline River',
+    reach: 'Peeler Bend to Saline Crossing Access',
+    aliases: [
+      'Saline River - Peeler Bend to Saline Crossing',
+      'Saline River Water Trail middle-to-lower Benton segment',
+      'Arkansas Water Trails Peeler to Saline Crossing',
+    ],
+    state: 'Arkansas',
+    region: 'Central Arkansas',
+    summary:
+      'Extended lower Benton Saline route from Peeler Bend to Saline Crossing. AGFC documents the public Peeler-to-Lyle and Lyle-to-Saline segments, the direct Benton gauge ladder, and the spillway / low-bridge caution package, so this combined route ships with explicit lower-river hazard messaging.',
+    statusText:
+      'Use the Saline River at Benton gauge. Around 3.6 to 5.0 ft is the broad paddle window; below about 4.0 ft expect the spillway portage below Lyle Park, and above about 5.0 ft AGFC treats the lower river as experienced-only water.',
+    latitude: 34.5852,
+    longitude: -92.6467,
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['low_head_dam', 'mandatory_takeout', 'fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'This route includes the lower Benton spillway or low dam below Lyle Park. AGFC says to portage around it when the river is below 4 ft.',
+        'The downstream low-water bridge becomes a stronger clearance problem as water rises; AGFC says there is not enough air space at 6 ft and portage is mandatory.',
+        'Because this route links the shorter mid-river and lower-river segments, fatigue and slower decision-making can turn a modest hazard into a real problem late in the day.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07363000',
+      provider: 'usgs',
+      siteId: '07363000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Saline River at Benton, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07363000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3.6,
+      idealMax: 5,
+      tooLow: 3.5,
+      tooHigh: 5,
+      thresholdSource: {
+        label: 'Arkansas Game and Fish Saline River Water Trail gauge bands',
+        url: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'AGFC frames the Saline as rainfall dependent year-round moving water. Spring through early fall is workable, but this longer lower split should stay conservative because the spillway and bridge hazards get less forgiving after rain.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The Saline here is still a moving-water run with deep pools, riffles, and quick turns rather than flatwater. The added mileage plus the lower-river portage rules make this more demanding than the short Peeler-to-Lyle split.',
+      confidenceNotes:
+        'Confidence is good for a guarded combined route: AGFC publishes Peeler Bend to Lyle Park and Lyle Park to Saline Crossing as public lower-Saline route pieces under the same Benton gauge ladder, and the same route-manager page supplies the lower-river spillway and bridge hazard rules needed to keep the route defensible.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route geometry',
+        value: 'Peeler Bend to Lyle Park 3.8 miles plus Lyle Park to Saline Crossing 4.2 miles',
+        note: 'AGFC publishes both public lower-Saline segments, supporting an 8.0-mile Peeler Bend to Saline Crossing route through the same reviewed corridor.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07363000',
+        note: 'USGS Water Services returned same-day Saline River at Benton values of 329 cfs and 4.00 ft at 2026-07-06 13:30 CDT during this run, inside AGFC\'s typical-to-optimum lower-route window.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07363000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Stage model',
+        value: '3.5 / 3.6-5.0 / 5.0 ft',
+        note: 'AGFC labels 3.5 ft and below as low, 3.6-4.0 ft as typical, 4.1-5.0 ft as optimum, and 5.1-5.5 ft as high experienced-only water. Paddle Today uses 3.6-5.0 ft as the broad audience band and treats water above 5.0 ft as outside the general recommendation.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'Peeler Bend 34.5852, -92.6467; Saline Crossing Access 34.54106, -92.60718',
+        note: 'AGFC publishes both public route endpoints as named map-linked Saline River Water Trail accesses.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Lower-route hazard rules',
+        value: 'Spillway portage below 4 ft; low bridge mandatory at 6 ft',
+        note: 'AGFC says the Benton Water Purification Plant spillway or low dam is hazardous and should be portaged when the river is below 4 ft, and that the downstream low-water bridge has insufficient clearance at 6 ft.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Camping classification',
+        value: 'none',
+        note: 'The reviewed AGFC route materials did not identify legal route camping at Peeler Bend, Lyle Park, or Saline Crossing, and nearby banks should be treated as private.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'AGFC Saline River Water Trail',
+        url: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07363000 Saline River at Benton',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07363000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07363000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07363000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'saline-river-tony-kelly-saline-crossing',
+    slug: 'saline-river-tony-kelly-saline-crossing',
+    name: 'Saline River',
+    reach: 'Tony Kelly Ford Access to Saline Crossing Access',
+    aliases: [
+      'Saline River - Tony Kelly to Saline Crossing',
+      'Saline River Water Trail extended Benton route',
+      'Arkansas Water Trails Tony Kelly to Saline Crossing',
+    ],
+    state: 'Arkansas',
+    region: 'Central Arkansas',
+    summary:
+      'Long Benton Saline River day from Tony Kelly Ford to Saline Crossing. AGFC documents the public Tony Kelly-to-Lyle and Lyle-to-Saline pieces, the direct Benton gauge ladder, and the lower-river spillway / bridge hazard package, making this a longer guarded add rather than a casual float recommendation.',
+    statusText:
+      'Use the Saline River at Benton gauge. Around 3.6 to 5.0 ft is the broad paddle window; below about 4.0 ft expect the spillway portage below Lyle Park, and above about 5.0 ft AGFC treats the lower river as experienced-only water.',
+    latitude: 34.5844,
+    longitude: -92.6938,
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['low_head_dam', 'mandatory_takeout', 'fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'This route adds upper-mileage commitment before the same lower Benton spillway or low-dam portage. AGFC says to portage around that hazard when the river is below 4 ft.',
+        'The downstream low-water bridge becomes a stronger clearance problem as water rises; AGFC says there is not enough air space at 6 ft and portage is mandatory.',
+        'Longer mileage, heat, and fewer clean public exits after Lyle Park make this route less forgiving than the shorter Saline splits if weather or pace deteriorates.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07363000',
+      provider: 'usgs',
+      siteId: '07363000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Saline River at Benton, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07363000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3.6,
+      idealMax: 5,
+      tooLow: 3.5,
+      tooHigh: 5,
+      thresholdSource: {
+        label: 'Arkansas Game and Fish Saline River Water Trail gauge bands',
+        url: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'AGFC frames the Saline as rainfall dependent year-round moving water. Spring through early fall is workable, but this longer downstream combination should stay conservative because the lower-route hazards and commitment stack up quickly after storms.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The current stays in the recreational moving-water range when the gauge is right, but this is a longer 12-plus-mile commitment with riffles, shoals, fast chutes, and the same lower-river hazard package as the shorter downstream split.',
+      confidenceNotes:
+        'Confidence is good for a guarded combined route: AGFC publishes Tony Kelly Ford to Lyle Park and Lyle Park to Saline Crossing as public route pieces under the same Benton gauge ladder, and the route-manager page also documents the spillway and low-water-bridge rules needed to keep the extended lower corridor defensible.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route geometry',
+        value: 'Tony Kelly Ford to Lyle Park 8.2 miles plus Lyle Park to Saline Crossing 4.2 miles',
+        note: 'AGFC publishes both public route pieces, supporting a 12.4-mile Tony Kelly Ford to Saline Crossing day through the same reviewed Benton corridor.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07363000',
+        note: 'USGS Water Services returned same-day Saline River at Benton values of 329 cfs and 4.00 ft at 2026-07-06 13:30 CDT during this run, inside AGFC\'s typical-to-optimum lower-route window.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07363000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Stage model',
+        value: '3.5 / 3.6-5.0 / 5.0 ft',
+        note: 'AGFC labels 3.5 ft and below as low, 3.6-4.0 ft as typical, 4.1-5.0 ft as optimum, and 5.1-5.5 ft as high experienced-only water. Paddle Today uses 3.6-5.0 ft as the broad audience band and treats water above 5.0 ft as outside the general recommendation.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'Tony Kelly Ford Access 34.5844, -92.6938; Saline Crossing Access 34.54106, -92.60718',
+        note: 'AGFC publishes both public route endpoints as named map-linked Saline River Water Trail accesses.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Lower-route hazard rules',
+        value: 'Spillway portage below 4 ft; low bridge mandatory at 6 ft',
+        note: 'AGFC says the Benton Water Purification Plant spillway or low dam is hazardous and should be portaged when the river is below 4 ft, and that the downstream low-water bridge has insufficient clearance at 6 ft.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Camping classification',
+        value: 'none',
+        note: 'The reviewed AGFC route materials did not identify legal route camping at Tony Kelly Ford or Saline Crossing, and nearby banks should be treated as private.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'AGFC Saline River Water Trail',
+        url: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07363000 Saline River at Benton',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07363000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07363000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07363000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'upper-illinois-river-chamber-springs-woka',
     slug: 'upper-illinois-river-chamber-springs-woka',
     name: 'Illinois River',

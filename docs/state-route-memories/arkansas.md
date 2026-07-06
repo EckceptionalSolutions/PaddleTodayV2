@@ -1,11 +1,11 @@
 # Arkansas Route Memory
 
-Last summarized: 2026-07-03 15:05 America/Chicago.
+Last summarized: 2026-07-06 14:52 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 20.
-- Ledger candidates: 23 Arkansas-specific implemented-route records plus older blocked Arkansas holds after the 2026-07-03 Bayou DeView cleanup.
+- Live routes: 23.
+- Ledger candidates: 26 Arkansas-specific implemented-route records plus older blocked Arkansas holds after the 2026-07-06 Saline lower-corridor pass.
 
 ## Added Routes
 
@@ -23,7 +23,21 @@ Last summarized: 2026-07-03 15:05 America/Chicago.
 
 ## Status
 
-Arkansas now has twenty live routes after the 2026-07-03 Bayou DeView consolidation collapsed the AGFC access-chain permutations into one canonical full-corridor route with intermediate access planning. The state still looks partially harvested rather than exhausted: Bayou DeView, Buffalo, Crooked Creek, Saline, upper Illinois, Mulberry, Cossatot, Kings, and Ouachita all have live coverage, while the strongest remaining near-term leads are still blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs.
+Arkansas now has twenty-three live routes after the 2026-07-06 Saline lower-corridor pass expanded the lower Benton Saline family from three slugs to six while preserving the earlier Bayou DeView consolidation. The state still looks partially harvested rather than exhausted: Bayou DeView, Buffalo, Crooked Creek, Saline, upper Illinois, Mulberry, Cossatot, Kings, and Ouachita all have live coverage, while the strongest remaining near-term leads are still blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs.
+
+## 2026-07-06 Saline lower-corridor implementation pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had twenty live route objects and matching trip-detail entries before this pass, so the Saline follow-up had to create three genuinely new slugs beyond that baseline.
+- Added `saline-river-lyle-park-saline-crossing`, `saline-river-peeler-bend-saline-crossing`, and `saline-river-tony-kelly-saline-crossing` from the AGFC Saline River Water Trail lower Benton access chain.
+- Route, gauge, and threshold evidence:
+  - AGFC still documents Lyle Park to Saline Crossing at `4.2` miles, Peeler Bend to Lyle Park at `3.8` miles, and Tony Kelly Ford to Lyle Park at `8.2` miles, which supports the new public routes of `4.2`, `8.0`, and `12.4` miles.
+  - Direct same-day official USGS Water Services for Saline River at Benton (`07363000`) returned `329 cfs / 4.00 ft` at `2026-07-06 13:30 CDT`.
+  - AGFC's current Benton ladder still marks `3.5 ft` and below as low, `3.6-4.0 ft` as typical, `4.1-5.0 ft` as optimum, and `5.1-5.5 ft` as high experienced-only water, so all three routes ship on the same conservative two-sided stage model with `tooLow: 3.5`, `idealMin: 3.6`, `idealMax: 5.0`, and `tooHigh: 5.0`.
+- Access, camping, and safety posture:
+  - All three routes use source-backed public endpoint coordinates from AGFC for Tony Kelly Ford, Peeler Bend, Lyle Park, and Saline Crossing.
+  - All three routes stay `none` for camping because the reviewed AGFC materials did not identify route camping and nearby banks should be treated as private.
+  - The full lower corridor keeps the same guarded hazard package: AGFC says to portage around the Benton Water Purification Plant spillway or low dam when the river is below `4 ft`, and the downstream low-water bridge has insufficient clearance at `6 ft`, so all three slugs ship with explicit mandatory-portage caveats plus fast-rise, strainer, and private-bank warnings.
+- No gallery image was added. Bounded AGFC page imagery and Wikimedia Commons Saline bridge review did not produce a clearly rights-clean exact-route paddling image for the three new lower-corridor slugs.
 
 ## 2026-07-03 Bayou DeView consolidation pass
 

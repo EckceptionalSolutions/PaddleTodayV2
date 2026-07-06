@@ -15385,6 +15385,124 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+'saline-river-lyle-park-saline-crossing': {
+    putIn: {
+      id: 'lyle-park-access',
+      name: 'Lyle Park Access',
+      latitude: 34.5873,
+      longitude: -92.6051,
+    },
+    takeOut: {
+      id: 'saline-crossing-access',
+      name: 'Saline Crossing Access',
+      latitude: 34.54106,
+      longitude: -92.60718,
+    },
+    logistics: {
+      distanceLabel: 'About 4.2 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with scouting, low-water dragging, or the spillway portage',
+      shuttle:
+        'Stage the take-out at Saline Crossing, then drive back to Lyle Park. Inspect both ends before launching and decide in advance how the group will handle the spillway / low-dam portage below Lyle Park.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public Arkansas Water Trails accesses, follow Arkansas boating and PFD rules, and respect any same-day city, county, or wildlife-agency parking signs.',
+      camping:
+        'Treat this as a day trip. The reviewed AGFC route materials did not identify route camping at Lyle Park or Saline Crossing, and adjacent banks outside the public access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Lyle Park and take out at Saline Crossing for the lower Benton Saline split. This route includes the Benton spillway / low-dam and low-water-bridge hazard package, so scout, portage conservatively, and do not treat it like a casual downstream float.',
+      accessCaveats: [
+        'Cherry Demuth Access is currently closed, so do not depend on it as a planned mid-route bailout or shuttle point.',
+        'AGFC says the Benton Water Purification Plant spillway or low dam about 1.6 miles below Lyle Park can be hazardous and should be portaged when the river is below 4 ft.',
+        'AGFC also warns the downstream low-water bridge loses clearance as the river rises; at 6 ft there is not enough air space to pass under it and portage becomes mandatory.',
+        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property lines along the corridor.',
+      ],
+      watchFor: [
+        'Low water around and below 3.5 ft, when dragging, slower shoals, and a more awkward spillway portage become more likely.',
+        'Higher water above about 5.0 ft, when AGFC says the lower route becomes experienced-only and bridge / current consequences increase.',
+        'Fast chutes, riffles, strainers, fresh flood wood, muddy exits, and pushier current after thunderstorms.',
+        'The spillway / low-dam portage, downstream bridge clearance, private banks, and late-day decision fatigue on a short but hazard-heavy lower segment.',
+      ],
+    },
+  },
+'saline-river-peeler-bend-saline-crossing': {
+    putIn: {
+      id: 'peeler-bend',
+      name: 'Peeler Bend',
+      latitude: 34.5852,
+      longitude: -92.6467,
+    },
+    takeOut: {
+      id: 'saline-crossing-access',
+      name: 'Saline Crossing Access',
+      latitude: 34.54106,
+      longitude: -92.60718,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with scouting, low-water dragging, or the spillway portage',
+      shuttle:
+        'Stage the take-out at Saline Crossing, then drive back to Peeler Bend. Inspect Peeler, Lyle, and the Saline Crossing finish before launch so the group already knows the lower-hazard plan and any same-day parking issues.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public Arkansas Water Trails accesses, follow Arkansas boating and PFD rules, and respect any same-day city, county, or wildlife-agency parking signs.',
+      camping:
+        'Treat this as a day trip. The reviewed AGFC route materials did not identify legal route camping at Peeler Bend, Lyle Park, or Saline Crossing, and adjacent banks outside the public access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Peeler Bend and take out at Saline Crossing for an 8-mile lower Benton Saline day. The route extends the simple Peeler-to-Lyle split into the lower spillway / bridge hazard zone, so paddlers should plan the portage and final hazard sequence before leaving the put-in.',
+      accessCaveats: [
+        'Peeler Bend is a straightforward public access, but parking and launch conditions can change quickly with rain and runoff.',
+        'Lyle Park is the last clean developed public access before the lower spillway / low-dam and low-water-bridge hazard package.',
+        'Cherry Demuth Access is currently closed, so do not treat it as a dependable bailout or alternate shuttle point on this route.',
+        'AGFC says the Benton Water Purification Plant spillway or low dam below Lyle Park should be portaged when the river is below 4 ft, and the downstream low-water bridge loses clearance as the river rises.',
+      ],
+      watchFor: [
+        'Low water around and below 3.5 ft, when dragging across shoals and a slower portage sequence become more likely.',
+        'Higher water above about 5.0 ft, when AGFC says the lower route becomes experienced-only with faster current and tighter bridge clearance.',
+        'Fast chutes, riffles, strainers, fresh flood wood, muddy exits, and pushier current after thunderstorms.',
+        'Private banks, anglers, swimmers near town, and the risk of arriving at the lower hazard package late in the day or tired.',
+      ],
+    },
+  },
+'saline-river-tony-kelly-saline-crossing': {
+    putIn: {
+      id: 'tony-kelly-ford-access',
+      name: 'Tony Kelly Ford Access',
+      latitude: 34.5844,
+      longitude: -92.6938,
+    },
+    takeOut: {
+      id: 'saline-crossing-access',
+      name: 'Saline Crossing Access',
+      latitude: 34.54106,
+      longitude: -92.60718,
+    },
+    logistics: {
+      distanceLabel: 'About 12.4 mi',
+      estimatedPaddleTime:
+        'About 5.5 hr to 8 hr, longer with scouting, low-water dragging, swimming stops, or the lower spillway portage',
+      shuttle:
+        'Stage the take-out at Saline Crossing, then drive back to Tony Kelly Ford Access. Inspect Tony Kelly, Lyle Park, and Saline Crossing before launch so the group has a firm lower-hazard plan and realistic daylight pace.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public Arkansas Water Trails accesses, follow Arkansas boating and PFD rules, and respect any same-day city, county, or wildlife-agency parking signs.',
+      camping:
+        'Treat this as a long day trip. The reviewed AGFC route materials did not identify legal route camping at Tony Kelly Ford or Saline Crossing, and adjacent banks outside the public access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Tony Kelly Ford and take out at Saline Crossing for the longest current lower-Benton Saline day that still uses fully public named accesses. The route combines the upper Tony-Kelly segment with the downstream spillway / bridge hazard package, so mileage and hazard management both matter.',
+      accessCaveats: [
+        'Tony Kelly Ford is a simple public river access with limited parking and no developed campground support in the reviewed source set.',
+        'Lyle Park is the key intermediate public access before the lower spillway / low-dam and low-water-bridge hazards downstream of Benton.',
+        'Cherry Demuth Access is currently closed, so do not treat it as a dependable bailout or shuttle point on this route.',
+        'AGFC says the Benton Water Purification Plant spillway or low dam below Lyle Park should be portaged when the river is below 4 ft, and the downstream low-water bridge loses clearance as the river rises.',
+      ],
+      watchFor: [
+        'Low water around and below 3.5 ft, when dragging across shoals, slower pools, and the lower portage sequence can turn this into a long day.',
+        'Higher water above about 5.0 ft, when AGFC says the lower route becomes experienced-only and the long commitment becomes less forgiving.',
+        'Fast chutes, riffles, strainers, fresh flood wood, muddy exits, and pushier current after thunderstorms.',
+        'Private banks, anglers, swimmers near town, and the risk of reaching the lower-hazard package tired, late, or with limited daylight left.',
+      ],
+    },
+  },
 'upper-illinois-river-chamber-springs-woka': {
     putIn: {
       id: 'chamber-springs-access',
