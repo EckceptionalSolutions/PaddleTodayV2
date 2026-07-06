@@ -6,6 +6,12 @@ import { colors, radius, spacing } from '../theme/tokens';
 declare const require: <T = unknown>(moduleName: string) => T;
 
 const SELECTED_MARKER_COLOR = '#2563EB';
+const ROUTE_SPAN_COLOR = '#2563EB';
+
+export interface RouteSpanCoordinate {
+  latitude: number;
+  longitude: number;
+}
 
 export interface RoutePlotPoint {
   id: string;
@@ -16,6 +22,7 @@ export interface RoutePlotPoint {
   rating?: string | null;
   meta?: string | null;
   routeCount?: number | null;
+  spanCoordinates?: RouteSpanCoordinate[] | null;
 }
 
 export interface RoutePlotMapHandle {
@@ -28,6 +35,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   points: RoutePlotPoint[];
   selectedId?: string | null;
   userLocation?: { latitude: number; longitude: number; label?: string | null } | null;
+  backgroundSpanCoordinates?: RouteSpanCoordinate[] | null;
   onSelectPoint?: (point: RoutePlotPoint) => void;
   height?: number;
   showFooter?: boolean;
@@ -37,19 +45,22 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   points,
   selectedId,
   userLocation,
+  backgroundSpanCoordinates,
   onSelectPoint,
   height = 290,
   showFooter = true,
   fullBleed = false,
   markerMode = 'score',
 }, ref) {
-  const bounds = getBounds(points, userLocation);
+  const backgroundSpan = finiteSpanCoordinates(backgroundSpanCoordinates);
+  const bounds = getBounds(points, userLocation, backgroundSpan);
   const visiblePoints = points.filter(isFinitePoint);
   const nativeMarkerPoints = useMemo(
     () => [...visiblePoints].sort(compareMapPointIds),
     [visiblePoints]
   );
   const selectedPoint = visiblePoints.find((point) => point.id === selectedId) ?? visiblePoints[0] ?? null;
+  const selectedSpan = selectedId && selectedPoint ? routeSpanCoordinates(selectedPoint) : [];
   const nativeMaps = getNativeMaps();
   const mapRef = useRef<NativeMapView | null>(null);
   const previousSelectedIdRef = useRef<string | null | undefined>(selectedId);
@@ -73,6 +84,14 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
       return;
     }
 
+    if (selectedSpan.length >= 2) {
+      mapRef.current?.fitToCoordinates?.(selectedSpan, {
+        animated: true,
+        edgePadding: { top: 96, right: 72, bottom: showFooter ? 150 : 120, left: 72 },
+      });
+      return;
+    }
+
     mapRef.current?.animateToRegion?.(regionAroundPoint(selectedPoint), 260);
   }
 
@@ -81,10 +100,10 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
       return;
     }
 
-    const coordinates = visiblePoints.map((point) => ({
-      latitude: point.latitude,
-      longitude: point.longitude,
-    }));
+    const coordinates = [
+      ...backgroundSpan,
+      ...visiblePoints.flatMap((point) => routeSpanCoordinates(point)),
+    ];
 
     if (userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude)) {
       coordinates.push({ latitude: userLocation.latitude, longitude: userLocation.longitude });
@@ -183,6 +202,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   if (nativeMaps && visiblePoints.length > 0) {
     const MapView = nativeMaps.default;
     const Marker = nativeMaps.Marker;
+    const Polyline = nativeMaps.Polyline;
 
     return (
       <View style={[styles.shell, fullBleed ? styles.fullBleedShell : null]}>
@@ -218,6 +238,28 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
                 <View style={styles.nativeUserMarkerDot} />
               </View>
             </Marker>
+          ) : null}
+
+          {backgroundSpan.length >= 2 ? (
+            <Polyline
+              coordinates={backgroundSpan}
+              strokeColor="rgba(37, 99, 235, 0.28)"
+              strokeWidth={4}
+              lineCap="round"
+              lineJoin="round"
+              zIndex={0}
+            />
+          ) : null}
+
+          {selectedSpan.length >= 2 ? (
+            <Polyline
+              coordinates={selectedSpan}
+              strokeColor={ROUTE_SPAN_COLOR}
+              strokeWidth={5}
+              lineCap="round"
+              lineJoin="round"
+              zIndex={0}
+            />
           ) : null}
 
           {nativeMarkerPoints.map((point) => {
@@ -294,6 +336,9 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
             <View style={styles.userMarkerDot} />
           </View>
         ) : null}
+
+        {backgroundSpan.length >= 2 ? <ProjectedRouteSpan coordinates={backgroundSpan} bounds={bounds} tone="background" /> : null}
+        {selectedSpan.length >= 2 ? <ProjectedRouteSpan coordinates={selectedSpan} bounds={bounds} tone="selected" /> : null}
 
         {visiblePoints.map((point) => {
           const selected = point.id === selectedId;
@@ -375,8 +420,56 @@ function LegendDot({ color, label }: { color: string; label: string }) {
   );
 }
 
+function ProjectedRouteSpan({
+  coordinates,
+  bounds,
+  tone,
+}: {
+  coordinates: RouteSpanCoordinate[];
+  bounds: { minLat: number; maxLat: number; minLon: number; maxLon: number };
+  tone: 'background' | 'selected';
+}) {
+  const projected = coordinates.map((point) => projectPointNumber(point.latitude, point.longitude, bounds));
+  const left = Math.min(...projected.map((point) => point.left));
+  const right = Math.max(...projected.map((point) => point.left));
+  const top = Math.min(...projected.map((point) => point.top));
+  const bottom = Math.max(...projected.map((point) => point.top));
+
+  return (
+    <View
+      pointerEvents="none"
+      style={[
+        tone === 'selected' ? styles.projectedRouteSpanSelected : styles.projectedRouteSpanBackground,
+        {
+          left: `${left}%`,
+          top: `${top}%`,
+          width: `${Math.max(right - left, 3)}%`,
+          height: `${Math.max(bottom - top, 3)}%`,
+        },
+      ]}
+    />
+  );
+}
+
 function isFinitePoint(point: RoutePlotPoint) {
   return Number.isFinite(point.latitude) && Number.isFinite(point.longitude);
+}
+
+function isFiniteCoordinate(point: RouteSpanCoordinate) {
+  return Number.isFinite(point.latitude) && Number.isFinite(point.longitude);
+}
+
+function routeSpanCoordinates(point: RoutePlotPoint): RouteSpanCoordinate[] {
+  const span = finiteSpanCoordinates(point.spanCoordinates);
+  if (span.length >= 2) {
+    return span;
+  }
+
+  return [{ latitude: point.latitude, longitude: point.longitude }];
+}
+
+function finiteSpanCoordinates(coordinates: RouteSpanCoordinate[] | null | undefined) {
+  return coordinates?.filter(isFiniteCoordinate) ?? [];
 }
 
 function compareMapPointIds(left: RoutePlotPoint, right: RoutePlotPoint) {
@@ -385,11 +478,15 @@ function compareMapPointIds(left: RoutePlotPoint, right: RoutePlotPoint) {
 
 function getBounds(
   points: RoutePlotPoint[],
-  userLocation?: { latitude: number; longitude: number } | null
+  userLocation?: { latitude: number; longitude: number } | null,
+  extraCoordinates: RouteSpanCoordinate[] = []
 ) {
-  const coordinates = points
-    .filter(isFinitePoint)
-    .map((point) => ({ latitude: point.latitude, longitude: point.longitude }));
+  const coordinates = [
+    ...extraCoordinates,
+    ...points
+      .filter(isFinitePoint)
+      .flatMap((point) => routeSpanCoordinates(point)),
+  ];
 
   if (userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude)) {
     coordinates.push({ latitude: userLocation.latitude, longitude: userLocation.longitude });
@@ -432,6 +529,19 @@ function projectPoint(
   const top = `${clamp((1 - (latitude - bounds.minLat) / latSpan) * 100, 5, 95)}%` as const;
 
   return { left, top };
+}
+
+function projectPointNumber(
+  latitude: number,
+  longitude: number,
+  bounds: { minLat: number; maxLat: number; minLon: number; maxLon: number }
+) {
+  const lonSpan = Math.max(bounds.maxLon - bounds.minLon, 0.01);
+  const latSpan = Math.max(bounds.maxLat - bounds.minLat, 0.01);
+  return {
+    left: clamp(((longitude - bounds.minLon) / lonSpan) * 100, 5, 95),
+    top: clamp((1 - (latitude - bounds.minLat) / latSpan) * 100, 5, 95),
+  };
 }
 
 function regionFromBounds(bounds: { minLat: number; maxLat: number; minLon: number; maxLon: number }) {
@@ -628,6 +738,24 @@ const styles = StyleSheet.create({
     marginTop: -25,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  projectedRouteSpanBackground: {
+    position: 'absolute',
+    minWidth: 26,
+    minHeight: 26,
+    borderRadius: 999,
+    borderWidth: 3,
+    borderColor: 'rgba(37, 99, 235, 0.24)',
+    backgroundColor: 'rgba(37, 99, 235, 0.06)',
+  },
+  projectedRouteSpanSelected: {
+    position: 'absolute',
+    minWidth: 26,
+    minHeight: 26,
+    borderRadius: 999,
+    borderWidth: 3,
+    borderColor: 'rgba(37, 99, 235, 0.42)',
+    backgroundColor: 'rgba(37, 99, 235, 0.1)',
   },
   markerSelectedRing: {
     position: 'absolute',

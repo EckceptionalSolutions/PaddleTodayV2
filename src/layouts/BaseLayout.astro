@@ -118,7 +118,7 @@ const pageClass =
         .toLowerCase() || 'page'}`;
 const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN;
 const plausibleScriptSrc = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_SRC || 'https://plausible.io/js/script.js';
-const appleAppId = import.meta.env.PUBLIC_APPLE_APP_ID || '';
+const appleAppId = import.meta.env.PUBLIC_APPLE_APP_ID || '6769542734';
 const appStoreUrl = import.meta.env.PUBLIC_APP_STORE_URL || (appleAppId ? `https://apps.apple.com/app/id${appleAppId}` : '');
 const playStoreUrl =
   import.meta.env.PUBLIC_PLAY_STORE_URL || 'https://play.google.com/store/apps/details?id=com.paddletoday.mobile';
@@ -232,23 +232,7 @@ const appDownloadConfigJson = JSON.stringify({
         </div>
       </header>
 
-      <section class="app-download-prompt" data-app-download-prompt hidden aria-label="Paddle Today app download">
-        <div class="app-download-prompt__icon" aria-hidden="true">
-          <img src="/brand/paddle-today-logo-transparent-512.png" alt="" />
-        </div>
-        <div class="app-download-prompt__copy">
-          <strong>Paddle Today app</strong>
-          <span>Save rivers, check nearby routes, and get alerts faster.</span>
-        </div>
-        <a
-          class="app-download-prompt__cta"
-          href="#"
-          data-app-download-link
-          data-analytics-event="Open app download"
-          rel="noopener"
-        >
-          Download
-        </a>
+      <aside class="app-download-prompt" data-app-download-prompt hidden aria-label="Paddle Today app download">
         <button
           class="app-download-prompt__dismiss"
           type="button"
@@ -257,7 +241,39 @@ const appDownloadConfigJson = JSON.stringify({
         >
           &times;
         </button>
-      </section>
+        <div class="app-download-prompt__icon" aria-hidden="true">
+          <img src="/brand/paddle-today-logo-transparent-512.png" alt="" />
+        </div>
+        <div class="app-download-prompt__copy">
+          <div class="app-download-prompt__headline">
+            <span class="app-download-prompt__badge">New</span>
+            <strong>Paddle Today mobile apps</strong>
+          </div>
+          <p>Plan nearby paddles faster from your phone.</p>
+        </div>
+        <div class="app-download-prompt__actions" aria-label="App download links">
+          <a
+            class="app-download-prompt__cta"
+            href="#"
+            data-app-download-link="ios"
+            data-analytics-event="Open app download"
+            rel="noopener"
+            hidden
+          >
+            iPhone app
+          </a>
+          <a
+            class="app-download-prompt__cta app-download-prompt__cta--secondary"
+            href="#"
+            data-app-download-link="android"
+            data-analytics-event="Open app download"
+            rel="noopener"
+            hidden
+          >
+            Android app
+          </a>
+        </div>
+      </aside>
 
       <main class="main-shell">
         <slot />

@@ -334,6 +334,7 @@ export interface RiverSummaryApiItem {
     safetyProfile?: RouteSafetyProfile;
     putIn?: RiverAccessPoint;
     takeOut?: RiverAccessPoint;
+    accessPoints?: RiverRouteAccessPoint[];
     logistics?: RiverRouteLogistics;
   };
   sources: Array<{

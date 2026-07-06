@@ -4,6 +4,7 @@ import {
   ensureMapLibre,
   escapeHtml,
   markerClassForRating,
+  syncActualRiverLayer,
 } from './map-runtime.js';
 import { favoriteButtonMarkup as buildFavoriteButtonMarkup } from './favorite-button-markup.js';
 import { bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
@@ -499,15 +500,13 @@ function summaryLine(route) {
 }
 
 function midpointForRoute(route) {
-  if (
-    typeof route.putIn?.longitude === 'number' &&
-    typeof route.putIn?.latitude === 'number' &&
-    typeof route.takeOut?.longitude === 'number' &&
-    typeof route.takeOut?.latitude === 'number'
-  ) {
+  const coordinates = routeSpanCoordinates(route);
+  if (coordinates.length >= 2) {
+    const longitudes = coordinates.map((point) => point.longitude);
+    const latitudes = coordinates.map((point) => point.latitude);
     return {
-      longitude: (route.putIn.longitude + route.takeOut.longitude) / 2,
-      latitude: (route.putIn.latitude + route.takeOut.latitude) / 2,
+      longitude: (Math.min(...longitudes) + Math.max(...longitudes)) / 2,
+      latitude: (Math.min(...latitudes) + Math.max(...latitudes)) / 2,
     };
   }
 
@@ -519,6 +518,33 @@ function midpointForRoute(route) {
   }
 
   return null;
+}
+
+function accessCoordinate(point) {
+  if (!point || !Number.isFinite(point.latitude) || !Number.isFinite(point.longitude)) {
+    return null;
+  }
+
+  return {
+    latitude: point.latitude,
+    longitude: point.longitude,
+  };
+}
+
+function routeSpanCoordinates(route) {
+  const accessPoints = Array.isArray(route.accessPoints)
+    ? route.accessPoints
+        .map((point) => ({ point, coordinate: accessCoordinate(point) }))
+        .filter((entry) => entry.coordinate)
+        .sort((left, right) => Number(left.point.mileFromStart) - Number(right.point.mileFromStart))
+        .map((entry) => entry.coordinate)
+    : [];
+
+  if (accessPoints.length >= 2) {
+    return accessPoints;
+  }
+
+  return [accessCoordinate(route.putIn), accessCoordinate(route.takeOut)].filter(Boolean);
 }
 
 function routePopupMarkup(route) {
@@ -607,14 +633,16 @@ async function renderGroupMap(routes, { preserveViewport = false } = {}) {
     const features = [];
     const bounds = new maplibregl.LngLatBounds();
     let hasBounds = false;
+    const selectedRoute = routes.find((route) => route.slug === selectedSlug) ?? routes[0] ?? null;
+    syncActualRiverLayer(mapRuntime, 'river-group-actual-river-line', selectedRoute ? [selectedRoute.name] : [], {
+      lineColor: '#2563eb',
+      lineWidth: 6,
+      lineOpacity: 0.36,
+    });
 
     for (const route of routes) {
-      if (
-        typeof route.putIn?.longitude === 'number' &&
-        typeof route.putIn?.latitude === 'number' &&
-        typeof route.takeOut?.longitude === 'number' &&
-        typeof route.takeOut?.latitude === 'number'
-      ) {
+      const routeCoordinates = routeSpanCoordinates(route);
+      if (routeCoordinates.length >= 2) {
         features.push({
           type: 'Feature',
           properties: {
@@ -624,14 +652,12 @@ async function renderGroupMap(routes, { preserveViewport = false } = {}) {
           },
           geometry: {
             type: 'LineString',
-            coordinates: [
-              [route.putIn.longitude, route.putIn.latitude],
-              [route.takeOut.longitude, route.takeOut.latitude],
-            ],
+            coordinates: routeCoordinates.map((point) => [point.longitude, point.latitude]),
           },
         });
-        bounds.extend([route.putIn.longitude, route.putIn.latitude]);
-        bounds.extend([route.takeOut.longitude, route.takeOut.latitude]);
+        for (const point of routeCoordinates) {
+          bounds.extend([point.longitude, point.latitude]);
+        }
         hasBounds = true;
       }
 

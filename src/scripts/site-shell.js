@@ -11,7 +11,7 @@ const searchOpenButtons = Array.from(document.querySelectorAll('[data-site-searc
 const searchCloseButtons = Array.from(document.querySelectorAll('[data-site-search-close], [data-site-search-dismiss]'));
 const searchIndexNode = document.querySelector('[data-site-search-index]');
 const appDownloadPrompt = document.querySelector('[data-app-download-prompt]');
-const appDownloadLink = document.querySelector('[data-app-download-link]');
+const appDownloadLinks = Array.from(document.querySelectorAll('[data-app-download-link]'));
 const appDownloadDismiss = document.querySelector('[data-app-download-dismiss]');
 const appDownloadConfigNode = document.querySelector('[data-app-download-config]');
 
@@ -296,7 +296,7 @@ function dismissAppPrompt() {
 }
 
 function bindAppDownloadPrompt() {
-  if (!(appDownloadPrompt instanceof HTMLElement) || !(appDownloadLink instanceof HTMLAnchorElement)) {
+  if (!(appDownloadPrompt instanceof HTMLElement)) {
     return;
   }
 
@@ -311,18 +311,45 @@ function bindAppDownloadPrompt() {
 
   const platform = mobilePlatform();
   const config = appDownloadConfig();
-  const href = platform === 'ios' ? config.appStoreUrl : platform === 'android' ? config.playStoreUrl : '';
+  const platformHrefs = {
+    ios: typeof config.appStoreUrl === 'string' ? config.appStoreUrl : '',
+    android: typeof config.playStoreUrl === 'string' ? config.playStoreUrl : '',
+  };
+  const visiblePlatforms = platform ? [platform] : ['ios', 'android'];
+  const enabledPlatforms = [];
 
-  if (!href || typeof href !== 'string') {
+  for (const link of appDownloadLinks) {
+    if (!(link instanceof HTMLAnchorElement)) {
+      continue;
+    }
+
+    const linkPlatform = link.dataset.appDownloadLink;
+    const href = linkPlatform === 'ios' || linkPlatform === 'android' ? platformHrefs[linkPlatform] : '';
+    const shouldShow = Boolean(href && visiblePlatforms.includes(linkPlatform));
+
+    link.hidden = !shouldShow;
+
+    if (!shouldShow) {
+      continue;
+    }
+
+    link.href = href;
+    link.dataset.analyticsLabel = linkPlatform;
+    link.dataset.analyticsPlatform = linkPlatform;
+    enabledPlatforms.push(linkPlatform);
+  }
+
+  if (enabledPlatforms.length === 0) {
     return;
   }
 
-  appDownloadLink.href = href;
-  appDownloadLink.dataset.analyticsLabel = platform;
-  appDownloadLink.dataset.analyticsPlatform = platform;
-  appDownloadPrompt.dataset.platform = platform;
+  appDownloadPrompt.dataset.platform = platform || 'desktop';
   appDownloadPrompt.hidden = false;
-  trackEvent('View app download', { path, platform });
+  trackEvent('View app download', {
+    path,
+    platform: platform || 'desktop',
+    available_platforms: enabledPlatforms.join(','),
+  });
 
   if (appDownloadDismiss instanceof HTMLButtonElement) {
     appDownloadDismiss.addEventListener('click', dismissAppPrompt);

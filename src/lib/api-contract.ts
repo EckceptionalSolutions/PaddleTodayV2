@@ -43,6 +43,7 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
       safetyProfile: result.river.safetyProfile,
       putIn: result.river.putIn,
       takeOut: result.river.takeOut,
+      accessPoints: result.river.accessPoints,
       logistics: serializeLogistics(result.river.logistics),
     },
     sources: summarySourceBadges(result),

@@ -53,6 +53,9 @@ interface ExplorePreferences {
   viewMode?: 'list' | 'map';
 }
 
+type MapCoordinate = { latitude: number; longitude: number };
+type SummaryAccessPoint = NonNullable<RiverSummaryApiItem['river']['accessPoints']>[number];
+
 const confidenceRank = {
   High: 3,
   Medium: 2,
@@ -581,13 +584,68 @@ function useExploreMapPoints(results: ExploreRiver[], routeCounts: ReadonlyMap<s
           score: river.score,
           rating: river.rating,
           routeCount,
-          meta: [routeCount > 1 ? `${routeCount} route options` : '1 route', river.travelLabel ? `${river.travelLabel} drive` : null]
+          spanCoordinates: routeSpanCoordinatesForRiver(river),
+          meta: [
+            accessPointCountLabel(river),
+            routeCount > 1 ? `${routeCount} route options` : '1 route',
+            river.travelLabel ? `${river.travelLabel} drive` : null,
+          ]
             .filter(Boolean)
             .join(' - '),
         };
       }),
     [results, routeCounts]
   );
+}
+
+function routeSpanCoordinatesForRiver(river: RiverSummaryApiItem): MapCoordinate[] | null {
+  const accessPoints = river.river.accessPoints
+    ?.map((point) => ({ point, coordinate: accessCoordinate(point) }))
+    .filter(hasMappedAccessCoordinate)
+    .sort((left, right) => left.point.mileFromStart - right.point.mileFromStart);
+
+  if (accessPoints && accessPoints.length >= 2) {
+    return accessPoints.map((entry) => entry.coordinate);
+  }
+
+  const endpoints = [accessCoordinate(river.river.putIn), accessCoordinate(river.river.takeOut)].filter(isMapCoordinate);
+  if (endpoints.length >= 2) {
+    return endpoints;
+  }
+
+  return null;
+}
+
+function accessPointCountLabel(river: RiverSummaryApiItem) {
+  const accessPointCount = river.river.accessPoints?.filter((point) => accessCoordinate(point)).length ?? 0;
+  if (accessPointCount > 2) {
+    return `${accessPointCount} access points`;
+  }
+
+  return null;
+}
+
+function accessCoordinate(
+  point: { latitude?: number; longitude?: number } | null | undefined
+): MapCoordinate | null {
+  if (!point || !Number.isFinite(point.latitude) || !Number.isFinite(point.longitude)) {
+    return null;
+  }
+
+  return {
+    latitude: point.latitude as number,
+    longitude: point.longitude as number,
+  };
+}
+
+function isMapCoordinate(coordinate: MapCoordinate | null): coordinate is MapCoordinate {
+  return coordinate !== null;
+}
+
+function hasMappedAccessCoordinate(
+  entry: { point: SummaryAccessPoint; coordinate: MapCoordinate | null }
+): entry is { point: SummaryAccessPoint; coordinate: MapCoordinate } {
+  return entry.coordinate !== null;
 }
 
 function applyExploreFilters(

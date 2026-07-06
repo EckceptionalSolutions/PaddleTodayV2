@@ -49,7 +49,7 @@ import { AppErrorState, AppLoadingState } from '../components/app-state';
 import { RatingPill } from '../components/rating-pill';
 import { RoutePhotoCard } from '../components/route-photo-card';
 import { RouteReportSheet, type SelectedReportPhoto } from '../components/route-report-sheet';
-import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
+import { RoutePlotMap, type RoutePlotPoint, type RouteSpanCoordinate } from '../components/route-plot-map';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { SectionCard } from '../components/section-card';
 import { StatusPill } from '../components/status-pill';
@@ -144,6 +144,10 @@ export default function RiverDetailScreen() {
   const routePlotPoints = useMemo(
     () => (detail ? buildDetailRoutePoints(detail, selectedPutIn, selectedTakeOut) : []),
     [detail, selectedPutIn, selectedTakeOut]
+  );
+  const routeBackgroundSpan = useMemo(
+    () => (detail ? fullRouteSpanCoordinates(detail) : null),
+    [detail]
   );
   const communityReports = community?.reports ?? [];
   const communityPhotos = community?.photos ?? [];
@@ -736,6 +740,7 @@ export default function RiverDetailScreen() {
                 <RoutePlotMap
                   points={routePlotPoints}
                   selectedId={routePlotPoints[0]?.id ?? null}
+                  backgroundSpanCoordinates={routeBackgroundSpan}
                   height={220}
                   showFooter={false}
                   markerMode="pin"
@@ -2003,6 +2008,7 @@ function buildDetailRoutePoints(
   takeOut: RiverAccessPoint | undefined = detail.river.takeOut
 ): RoutePlotPoint[] {
   const points: RoutePlotPoint[] = [];
+  const selectedSpan = selectedSegmentSpanCoordinates(putIn, takeOut);
 
   if (hasCoordinates(putIn)) {
     points.push({
@@ -2013,6 +2019,7 @@ function buildDetailRoutePoints(
       rating: detail.rating,
       score: detail.score,
       meta: 'Put-in',
+      spanCoordinates: selectedSpan,
     });
   }
 
@@ -2043,8 +2050,49 @@ function buildDetailRoutePoints(
   return points;
 }
 
+function fullRouteSpanCoordinates(detail: RiverDetailApiResult): RouteSpanCoordinate[] | null {
+  const accessCoordinates = routeAccessPoints(detail)
+    .map(accessCoordinate)
+    .filter(isRouteSpanCoordinate);
+
+  if (accessCoordinates.length >= 2) {
+    return accessCoordinates;
+  }
+
+  return selectedSegmentSpanCoordinates(detail.river.putIn, detail.river.takeOut);
+}
+
+function selectedSegmentSpanCoordinates(
+  putIn: RiverAccessPoint | undefined,
+  takeOut: RiverAccessPoint | undefined
+): RouteSpanCoordinate[] | null {
+  const putInCoordinate = accessCoordinate(putIn);
+  const takeOutCoordinate = accessCoordinate(takeOut);
+
+  if (!putInCoordinate || !takeOutCoordinate) {
+    return null;
+  }
+
+  return [putInCoordinate, takeOutCoordinate];
+}
+
 function hasCoordinates(point: RiverAccessPoint | undefined): point is RiverAccessPoint & { latitude: number; longitude: number } {
   return Boolean(point && Number.isFinite(point.latitude) && Number.isFinite(point.longitude));
+}
+
+function accessCoordinate(point: { latitude?: number; longitude?: number } | null | undefined): RouteSpanCoordinate | null {
+  if (!point || !Number.isFinite(point.latitude) || !Number.isFinite(point.longitude)) {
+    return null;
+  }
+
+  return {
+    latitude: point.latitude as number,
+    longitude: point.longitude as number,
+  };
+}
+
+function isRouteSpanCoordinate(coordinate: RouteSpanCoordinate | null): coordinate is RouteSpanCoordinate {
+  return coordinate !== null;
 }
 
 function routeAccessPoints(detail: RiverDetailApiResult): RiverRouteAccessPoint[] {
