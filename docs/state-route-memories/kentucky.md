@@ -2,6 +2,14 @@
 
 Last summarized: 2026-07-06 00:45 America/Chicago / 2026-07-06 05:45 UTC.
 
+## 2026-07-06 South Fork restoration pass
+
+- Reused the live repo state as the only valid baseline and restored three South Fork Kentucky River slugs that were absent from the current tree at run start: `south-fork-kentucky-river-bishop-bend-kay-wood`, `south-fork-kentucky-river-cedar-valley-kay-wood`, and `south-fork-kentucky-river-rocky-branch-kay-wood`.
+- Current KDFWR South Fork Kentucky River guidance still documents the exact public access-chain mileages of Rocky Branch -> Cedar `2.5`, Cedar -> Bishop Bend `4.7`, Bishop Bend -> Hacker Branch `3.3`, Hacker Branch -> Upper Wolf Creek `2.9`, and Upper Wolf Creek -> Kay Wood `5.6`, which support the restored public route mileages of `19.0`, `16.5`, and `11.8`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Rocky Branch Road Access, Cedar Valley Road Access, Bishop Bend School Road Access, and Kay Wood Road Access. Same-day direct USGS Water Services returned `109 cfs / 3.82 ft` at `2026-07-06 01:30 EDT` for South Fork Kentucky River at Booneville (`03281500`), well below the official `350-900 cfs / 4.8-6.0 ft` good band, so all three restored slugs ship with explicit scrape-prone low-water caution rather than comfort framing.
+- Camping stays conservative at `none` for all three because KDFWR still documents only simple day-use launch sites with no public overnight support on this chain.
+- Bounded image posture remains no-gallery for all three slugs: `docs/river-image-source-audit.csv` now records the no-image outcome because bounded KDFWR, Commons, and same-river USGS media review did not produce a clearly rights-clean exact-route asset.
+
 ## 2026-07-06 Floyds Fork continuation pass
 
 - Reused the live repo state as the only valid baseline and added three Floyds Fork slugs that were absent from the current tree at run start: `floyds-fork-north-beckley-fisherville`, `floyds-fork-fisherville-broad-run-valley`, and `floyds-fork-cane-run-cliffside`.
