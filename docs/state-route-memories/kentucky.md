@@ -2,6 +2,15 @@
 
 Last summarized: 2026-07-06 06:24 America/Chicago / 2026-07-06 11:24 UTC.
 
+## 2026-07-06 Floyds Fork continuation pass
+
+- Reused the live repo state as the only valid baseline and added three Floyds Fork slugs that were absent from the current tree at run start: `floyds-fork-creekside-seaton-valley`, `floyds-fork-north-beckley-seaton-valley`, and `floyds-fork-seaton-valley-cliffside`.
+- Current KDFWR Floyds Fork guidance still documents the exact public route pieces of Creekside -> Fisherville `4.3`, Fisherville -> Cane Run `4.2`, and Cane Run -> Seaton Valley `3.1`, while the current lower Floyds Fork PDF still documents North Beckley -> Seaton Valley `13.7`, Seaton Valley -> Broad Run Valley `3.5`, and Broad Run Valley -> Cliffside `2.5`. That supports the new public route mileages of `11.6`, `13.7`, and `6.0`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Creekside, North Beckley, Seaton Valley, and Cliffside. Same-day direct USGS Water Services returned `41.4 cfs / 1.00 ft` at `2026-07-06 09:20 EDT` for Floyds Fork at Fisherville (`03298000`), below the official `50 cfs / 1.3 ft` good-band floor, so all three additions ship with honest scrape-prone low-end caution rather than broad comfort language.
+- Camping stays conservative at `none` for all three because the Parklands and KDFWR corridor still reads as managed day-use access without a verified public overnight plan.
+- Safety notes stay focused on Class I+ moving water, quick rain rises, strainers and fresh wood, low-water dragging, The Oxbow braid choice on the two upstream starts, the signed Cane Run side-channel zone, and Mary's Island stay-left guidance on the lower route.
+- Reused the approved Commons Floyds Fork image for all three slugs, and `docs/river-image-source-audit.csv` now records that same-creek reuse.
+
 ## 2026-07-06 Upper Green continuation pass
 
 - Reused the live repo state as the only valid baseline and added three missing Green River continuation slugs beyond the current tree at run start: `green-river-roachville-american-legion`, `green-river-american-legion-glenview-road`, and `green-river-stovall-park-dennison-ferry`.
@@ -54,8 +63,8 @@ Last summarized: 2026-07-06 06:24 America/Chicago / 2026-07-06 11:24 UTC.
 
 ## Current Inventory
 
-- Live routes: 52.
-- Ledger candidates: 75 Kentucky-specific records. The newest live Kentucky slugs are `floyds-fork-north-beckley-broad-run-valley`, `floyds-fork-fisherville-cliffside`, and `floyds-fork-north-beckley-cliffside`.
+- Live routes: 55.
+- Ledger candidates: 75 Kentucky-specific records. The newest live Kentucky slugs are `floyds-fork-creekside-seaton-valley`, `floyds-fork-north-beckley-seaton-valley`, and `floyds-fork-seaton-valley-cliffside`.
 
 ## 2026-07-05 Upper Green restoration pass
 

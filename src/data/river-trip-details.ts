@@ -10061,6 +10061,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'floyds-fork-creekside-seaton-valley': {
+    putIn: {
+      id: 'creekside-canoe-access',
+      name: 'Creekside Canoe Access',
+      latitude: 38.2158,
+      longitude: -85.4778,
+    },
+    takeOut: {
+      id: 'seaton-valley-paddling-access',
+      name: 'Seaton Valley Paddling Access',
+      latitude: 38.1323,
+      longitude: -85.5191,
+    },
+    logistics: {
+      distanceLabel: 'About 11.6 mi',
+      estimatedPaddleTime: 'About 5.5 hr to 7.5 hr, longer with low water, scouting, or fishing',
+      shuttle:
+        'Stage the take-out at Seaton Valley Paddling Access in Turkey Run Park, then drive back to Creekside Canoe Access. Walk both carry-downs before launching because the Parklands corridor uses marked landings instead of broad public beaches.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a long Parklands day trip. KDFWR lists no camping at either access, and no legal on-route overnight plan was verified for this managed park corridor.',
+      summary:
+        'Launch at Creekside Canoe Access and take out 11.6 miles downstream at Seaton Valley Paddling Access for a middle-to-lower Parklands Floyds Fork float. KDFWR gives a good Fisherville gauge band of 50 to 300 cfs, while route guidance adds low-water shoals, moving-water bends, and marked-landings-only discipline.',
+      accessCaveats: [
+        'Creekside is a KDFWR carry-down access near the Egg Lawn with no listed camping and limited parking detail.',
+        'Seaton Valley is a KDFWR carry-down site in Turkey Run Park with shoreline access and no listed camping.',
+        'The Parklands says Floyds Fork levels rise and fall quickly and instructs paddlers to use marked landings only and not to take out on private property.',
+        'The current Fisherville gauge reading during this run sat below the official cfs and stage good-band floors, so expect more scraping and a slower day than the mileage alone suggests.',
+      ],
+      watchFor: [
+        'Class I+ moving water with shallow gravel shoals, root wads, and wood that can require dragging at lower flows.',
+        'Bridge landmarks, bluff-lined bends, and the signed Cane Run side-channel area as you pass into the lower corridor.',
+        'Fewer easy recovery spots once the creek pushes above the official good band.',
+        'Private-bank and managed-park boundary issues if you miss the designated take-out.',
+        'Water-quality and runoff concerns after storms in the Floyds Fork watershed.',
+      ],
+    },
+  },
   'floyds-fork-cane-run-seaton-valley': {
     putIn: {
       id: 'cane-run-canoe-access',
@@ -10178,6 +10217,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'floyds-fork-north-beckley-seaton-valley': {
+    putIn: {
+      id: 'north-beckley-canoe-access',
+      name: 'North Beckley Canoe Access',
+      latitude: 38.2308,
+      longitude: -85.4682,
+    },
+    takeOut: {
+      id: 'seaton-valley-paddling-access',
+      name: 'Seaton Valley Paddling Access',
+      latitude: 38.1323,
+      longitude: -85.5191,
+    },
+    logistics: {
+      distanceLabel: 'About 13.7 mi',
+      estimatedPaddleTime: 'About 6.5 hr to 8.5 hr, longer with low water, scouting, or fishing',
+      shuttle:
+        'Stage the take-out at Seaton Valley Paddling Access in Turkey Run Park, then drive back to North Beckley Canoe Access in Beckley Creek Park. Inspect both carry-downs before launching because the Parklands corridor uses designated landings rather than broad public beaches.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a long Parklands day float. KDFWR lists no camping at either access, and no legal on-route overnight plan was verified for this managed park corridor.',
+      summary:
+        'Launch at North Beckley Canoe Access and take out 13.7 miles downstream at Seaton Valley Paddling Access for a long Parklands Floyds Fork route. KDFWR gives a good Fisherville gauge band of 50 to 300 cfs, while route guidance adds The Oxbow, bridge landmarks, wood, and take-out discipline.',
+      accessCaveats: [
+        'North Beckley is a KDFWR carry-down site in Beckley Creek Park with limited-hours shoreline access, unpaved parking, and no ramp surface.',
+        'Seaton Valley is a KDFWR carry-down site in Turkey Run Park with shoreline access and no listed camping.',
+        'The Parklands says Floyds Fork levels rise and fall quickly. Do not treat the gauge as a substitute for checking recent rain, gauge trend, and visible current at the launch.',
+        'The current Fisherville gauge reading during this run sat below the official cfs and stage good-band floors, so expect more scraping and a slower day than the mileage alone suggests.',
+      ],
+      watchFor: [
+        'Class I+ moving water with shallow riffles, braided chutes, and gravel bars that can require dragging at lower flows.',
+        'Downed timber, strainers, woody cover, and blind bends around The Oxbow, Distillery Bend, and bridge pinch points.',
+        'A long day commitment with fewer easy bailout options than the shorter Parklands segments.',
+        'Faster current and fewer easy recovery spots once the creek pushes above the official good band.',
+        'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
+      ],
+    },
+  },
   'floyds-fork-seaton-valley-broad-run-valley': {
     putIn: {
       id: 'seaton-valley-paddling-access',
@@ -10213,6 +10291,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Strainers, fallen wood, and the mile-long Mary’s Island split where the KDFWR PDF says to stay left.',
         'Longer recovery swims and fewer easy eddies once the creek pushes above the official good band.',
         'Undercut banks, bluff-side current, and bedrock shelves through the lower Parklands section.',
+        'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
+      ],
+    },
+  },
+  'floyds-fork-seaton-valley-cliffside': {
+    putIn: {
+      id: 'seaton-valley-paddling-access',
+      name: 'Seaton Valley Paddling Access',
+      latitude: 38.1323,
+      longitude: -85.5191,
+    },
+    takeOut: {
+      id: 'cliffside-paddling-access',
+      name: 'Cliffside Paddling Access',
+      latitude: 38.0864,
+      longitude: -85.552,
+    },
+    logistics: {
+      distanceLabel: 'About 6.0 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low water, scouting, or fishing',
+      shuttle:
+        'Stage the take-out at Cliffside Paddling Access in Broad Run Park, then drive back to Seaton Valley Paddling Access in Turkey Run Park. Walk both carry-downs before launching because the Parklands corridor uses marked landings instead of broad public beaches.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a lower-Parklands day trip. KDFWR lists no camping at either access, and no legal on-route overnight plan was verified for this managed park corridor.',
+      summary:
+        'Launch at Seaton Valley Paddling Access and take out 6.0 miles downstream at Cliffside Paddling Access for a lower-Parklands Floyds Fork float. KDFWR gives a good Fisherville gauge band of 50 to 300 cfs, while the lower-route guidance adds Mary\'s Island, bedrock shelves, wood, and marked-landings-only discipline.',
+      accessCaveats: [
+        'Seaton Valley is a KDFWR carry-down site in Turkey Run Park with shoreline access and no listed camping.',
+        'Cliffside is a KDFWR carry-down site in Broad Run Park with year-round limited-hours shoreline access and no listed camping.',
+        'The Parklands says to use marked landings only and not to take out on private property.',
+        'The current Fisherville gauge reading during this run sat below the official cfs and stage good-band floors, so expect more scraping and slower shoals than the mileage alone suggests.',
+      ],
+      watchFor: [
+        'Class I+ moving water, shallow bedrock rapids, and braid choices around islands and chutes.',
+        'Strainers, fallen wood, and the mile-long Mary\'s Island split where the KDFWR PDF says to stay left.',
+        'Longer recovery swims and fewer easy eddies once the creek pushes above the official good band.',
+        'Private-bank and managed-park boundary issues if you miss the designated take-out.',
         'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
       ],
     },
