@@ -7233,6 +7233,111 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'turkey-river-gilbertson-big-spring': {
+    putIn: {
+      name: 'Gilbertson Park / Elgin access corridor',
+      latitude: 42.95817,
+      longitude: -91.62423,
+    },
+    takeOut: {
+      name: 'Big Spring Campground / Water Trail Access #47',
+      latitude: 42.91229,
+      longitude: -91.483,
+    },
+    logistics: {
+      distanceLabel: '11.9 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr depending on level and stops',
+      shuttle:
+        'Use a rural two-car shuttle between the Elgin / Gilbertson corridor and Big Spring Campground. The road return is hilly and indirect enough that a bike shuttle is a bigger commitment than the river mileage suggests.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Fayette County and Clayton County rules at Gilbertson Park, Big Spring Campground, and any intermediate bridge pull-offs.',
+      camping:
+        'Gilbertson Park has modern campground facilities near Elgin, and Big Spring Campground has primitive riverside sites at the take-out. Treat overnight use as a separate campground plan rather than an automatic part of the paddle.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch from the Gilbertson Park / Elgin access corridor and take out at Big Spring Campground for the long upper-middle Turkey River day that stays above the Elkader dam pool. This is the cleaner all-day public route for paddlers who want a longer Driftless float without finishing in town.',
+      accessCaveats: [
+        'The practical Elgin launch is the Highway B64 bridge corridor by Gilbertson Park rather than a polished ramp. Walk the bank before unloading if you have not used the access before.',
+        'Big Spring Campground is the official Water Trail Access #47 take-out. Frieden Park is another official access about a half mile farther downstream, but use it only if you intentionally want the extra mileage and rougher finish.',
+        'Bridge or gravel-bar pauses do not guarantee legal long stops on private banks. Keep breaks to public access points or obvious riverbed areas below the high-water line when conditions allow.',
+      ],
+      watchFor: [
+        'Long shallow riffles and gravel bars when the Elkader proxy gauge falls toward the 250 cfs floor.',
+        'Outside-bend wood, farm-fence remnants, and shifting channels after storms in the broad valley above Big Spring.',
+        'Headwinds, hot exposed sections, and limited easy bail-out points once you leave the Gilbertson / Narrows access area.',
+      ],
+    },
+  },
+  'turkey-river-motor-mill-garber': {
+    putIn: {
+      name: 'Motor Mill Access #32',
+      latitude: 42.80692,
+      longitude: -91.35124,
+    },
+    takeOut: {
+      name: 'Garber Access #20',
+      latitude: 42.74002,
+      longitude: -91.26159,
+    },
+    logistics: {
+      distanceLabel: '12.4 mi',
+      estimatedPaddleTime: 'About 4 hr to 5.5 hr depending on level and stops',
+      shuttle:
+        'Use a two-car shuttle between Motor Mill and Garber before launching. The take-out comes late in a remote stretch, so confirm the Garber access and parking before committing to the day.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Clayton County and local access rules at Motor Mill and Garber, and respect private banks along the lower river corridor.',
+      camping:
+        'Motor Mill has county-managed campground options near the put-in. Treat camping as a separate site plan rather than an assumed part of the day trip.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Motor Mill and take out at Garber for a long scenic lower Turkey River float through wooded bluffs, limestone outcrops, and the Volga confluence. This is one of the cleanest direct-gauge Turkey River routes because the Garber USGS station sits at the downstream end.',
+      accessCaveats: [
+        'Motor Mill is a developed public access, but identify the carry path and parking before unloading because the historic-site layout spreads visitors across multiple areas.',
+        'Garber Access #20 is on river left just past the second bridge in town. If you miss it, the next practical public exit is not immediate.',
+        'This corridor has few easy public exits in between, so do not launch unless the group can finish a full 12-plus-mile day at the current level and weather.',
+      ],
+      watchFor: [
+        'Continuous Class I riffles that get scrapier near the 550 cfs floor and noticeably pushier as the river rises.',
+        'Floating wood, blind outside bends, and stronger current where the Volga River enters from river right.',
+        'Wind, sun exposure, and private-bank limits that make mid-route rest or emergency take-outs less flexible than upstream Turkey segments.',
+      ],
+    },
+  },
+  'turkey-river-elkader-garber': {
+    putIn: {
+      name: 'Elkader Whitewater Park / Elkader Access #39B',
+      latitude: 42.853356,
+      longitude: -91.402402,
+    },
+    takeOut: {
+      name: 'Garber Access #20',
+      latitude: 42.74002,
+      longitude: -91.26159,
+    },
+    logistics: {
+      distanceLabel: '18.9 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr depending on level, scouting, and breaks',
+      shuttle:
+        'Set the Garber vehicle first and treat this as a true full-day shuttle. Many groups will prefer an early launch because the route effectively combines the Elkader-to-Motor-Mill and Motor-Mill-to-Garber days.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted City of Elkader, water-trail, and Clayton County rules at the whitewater park, Motor Mill corridor, and Garber take-out.',
+      camping:
+        'Motor Mill campground sits near the midpoint and can support a split overnight if the group does not want a single long day. Do not assume legal camping anywhere else along private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Elkader Whitewater Park and stay on the Turkey River all the way to Garber for the full lower-river day. This route combines the engineered Elkader start, the wooded Motor Mill middle, and the remote canyon-like lower river under one direct Garber gauge story.',
+      accessCaveats: [
+        'The Elkader put-in sits by the whitewater feature. Flatwater groups should scout and choose a conservative launch line rather than blindly entering the ledges.',
+        'Motor Mill is the natural midpoint and easiest bail-out. If anyone in the group is fading there, end the day instead of forcing the lower 12.4-mile continuation.',
+        'Garber Access #20 arrives late and on river left after the second bridge. Missing it can turn a long day into an unnecessarily difficult retrieval problem.',
+      ],
+      watchFor: [
+        'The Elkader whitewater-park ledges at the start and any stronger hydraulics or recovery moves they create at higher water.',
+        'A long sequence of riffles, outside-bend wood, and fatigue-related mistakes late in the day as the route continues below Motor Mill.',
+        'Fast rises, muddy landings, and more consequential current when the Garber gauge is well above the conservative 550 cfs floor.',
+      ],
+    },
+  },
   'little-turkey-river-gouldsburg-eldorado': {
     putIn: {
       name: 'Gouldsburg Park Access #98',

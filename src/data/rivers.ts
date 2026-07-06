@@ -17744,6 +17744,345 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'turkey-river-gilbertson-big-spring',
+    slug: 'turkey-river-gilbertson-big-spring',
+    name: 'Turkey River',
+    reach: 'Gilbertson Park / Elgin to Big Spring Campground',
+    aliases: [
+      'Turkey River - Elgin to Big Spring',
+      'Turkey River - Gilbertson Park to Big Spring Campground',
+      'Turkey River Water Trail - Gilbertson Access #59 to Big Spring #47',
+    ],
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Long upper-middle Turkey River water-trail day from Elgin to Big Spring Campground, with broad valleys, riffles, sandbars, and a campground finish that avoids the Elkader dam take-out logistics.',
+    statusText:
+      'Use the Turkey River above French Hollow Creek at Elkader gauge as a downstream same-river proxy. Treat about 250 cfs / 5.5 ft as the conservative low-water floor for Elgin to Big Spring; below that expect scraping and slower progress.',
+    latitude: 42.95817,
+    longitude: -91.62423,
+    gaugeSource: {
+      id: 'usgs-05412020',
+      provider: 'usgs',
+      siteId: '05412020',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Turkey River above French Hollow Cr at Elkader, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412020/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 250,
+      thresholdSource: {
+        label: 'Miles Paddled Turkey River IV Elgin-to-Big-Spring guidance',
+        url: 'https://milespaddled.com/turkey-river-iv/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall works best. Big Spring adds reliable coldwater flow only at the end of this route, so the upstream Elgin half still gets scrapier first during dry spells and can rise quickly after storms.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is beginner-friendly moving water at normal levels, but it is a long day with shallow riffles, wide valley wind exposure, and limited bridge exits between Elgin and Big Spring.',
+      confidenceNotes:
+        'Confidence is good for a conservative Iowa add: the Turkey River Water Trail identifies the Elgin / Gilbertson-to-Big-Spring corridor through Access #59, #57, and #47; Miles Paddled documents the exact Elgin-to-Big-Spring trip with GPS points and says to look for roughly 5.5 ft or 250+ cfs on the Elkader gauge; Fayette County supports Gilbertson as a large public campground and trail property on the Turkey River; Clayton County / MyCountyParks confirms Big Spring Campground as Water Trail Access #47 with camping and canoe/kayak use; and same-day USGS Water Services returned 1,580 cfs and 7.10 ft at the downstream Elkader gauge at 2026-07-06 09:45 CDT. The app treats the Elkader gauge as a downstream same-river proxy, not a perfect reach-specific forecast.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official water-trail section',
+        value: 'Gilbertson #59 to Big Spring #47, about 11.9 mi',
+        note: 'The Turkey River Water Trail describes the Gilbertson Park corridor as an 11.9-mile float to Big Spring Trout Hatchery, with the option to continue another half mile to Frieden Park.',
+        sourceUrl: 'https://turkeyriver.org/wp-content/uploads/2025/05/TRWT-Guide_2025_Online.pdf',
+      },
+      {
+        label: 'Published route report',
+        value: 'Elgin / Gilbertson to Big Spring Campground',
+        note: 'Miles Paddled documents the exact Elgin-to-Big-Spring trip from the Highway B64 / Gilbertson side of Elgin to Big Spring Campground, including GPS points and shuttle notes.',
+        sourceUrl: 'https://milespaddled.com/turkey-river-iv/',
+      },
+      {
+        label: 'Proxy gauge floor',
+        value: '5.5 ft / 250 cfs minimum-only',
+        note: 'Miles Paddled says to look for 5.5 ft or 250+ cfs on the Elkader gauge for the Elgin-to-Big-Spring half of the route, while 5.25 ft / 220 cfs is very shallow.',
+        sourceUrl: 'https://milespaddled.com/turkey-river-iv/',
+      },
+      {
+        label: 'Current gauge check',
+        value: 'USGS 05412020 at 1,580 cfs / 7.10 ft',
+        note: 'USGS Water Services returned current Turkey River above French Hollow Creek at Elkader values of 1,580 cfs and 7.10 ft at 2026-07-06 09:45 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412020/',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Gilbertson Park / Elgin access corridor',
+        note: 'Fayette County says Gilbertson Park is a 1,000-acre public property stretching along the Turkey River near Elgin, with a modern campground and Turkey River recreational corridor access; Miles Paddled identifies the practical launch at the Highway B64 bridge upstream of the pedestrian bridge in Elgin.',
+        sourceUrl: 'https://www.fayettecountyconservation.org/gilbertson-conservation-education-a',
+      },
+      {
+        label: 'Public take-out and camping',
+        value: 'Big Spring Campground / Water Trail Access #47',
+        note: 'Clayton County / MyCountyParks says Big Spring Campground sits right along the Turkey River, offers primitive camping, lists canoe/kayak use, and identifies the site as Water Trail Access #47.',
+        sourceUrl: 'https://www.mycountyparks.com/county/Clayton/Park/Big-Spring-Campground',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Turkey River Water Trail guide PDF',
+        url: 'https://turkeyriver.org/wp-content/uploads/2025/05/TRWT-Guide_2025_Online.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Miles Paddled Turkey River IV',
+        url: 'https://milespaddled.com/turkey-river-iv/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Fayette County Gilbertson Park',
+        url: 'https://www.fayettecountyconservation.org/gilbertson-conservation-education-a',
+        provider: 'local',
+      },
+      {
+        label: 'MyCountyParks Big Spring Campground',
+        url: 'https://www.mycountyparks.com/county/Clayton/Park/Big-Spring-Campground',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05412020 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412020/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'turkey-river-motor-mill-garber',
+    slug: 'turkey-river-motor-mill-garber',
+    name: 'Turkey River',
+    reach: 'Motor Mill Access to Garber Access',
+    aliases: [
+      'Turkey River - Motor Mill to Garber',
+      'Turkey River - Motor Mill / Galaxy Road to Garber',
+      'Turkey River Water Trail - Access #32 to Access #20',
+    ],
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Remote lower Turkey River float from Motor Mill to Garber, with canyon-like wooded ridges, limestone outcrops, the Volga confluence, and a direct Garber gauge at the take-out corridor.',
+    statusText:
+      'Use the Turkey River at Garber gauge. Miles Paddled recommends this exact route at about 550 cfs, so Paddle Today keeps a conservative 550 cfs minimum-only floor rather than claiming a broader published range.',
+    latitude: 42.80692,
+    longitude: -91.35124,
+    gaugeSource: {
+      id: 'usgs-05412500',
+      provider: 'usgs',
+      siteId: '05412500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Turkey River at Garber, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 550,
+      thresholdSource: {
+        label: 'Miles Paddled Turkey River I Motor-Mill-to-Garber guidance',
+        url: 'https://milespaddled.com/turkey-river/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This lower corridor holds water better than many nearby Driftless rivers, but recent rain still pushes the riffles and muddies landings. Low drought windows can still slow the day despite the big watershed.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Technically friendly for experienced flatwater paddlers, but this is a long, relatively isolated day with few easy exits, many riffles, and private-bank limits along a broad rural corridor.',
+      confidenceNotes:
+        'Confidence is good for a conservative Iowa add: the Turkey River Water Trail names Motor Mill Access #32 to Garber Access #20 as a 12.4-mile official section; Miles Paddled documents the exact Motor-Mill-to-Garber route with GPS points and recommends the same-day 550 cfs Garber gauge reading used on the trip; the Garber USGS station is a direct live gauge at the take-out corridor and returned 2,970 cfs and 9.62 ft at 2026-07-06 09:15 CDT; and the Motor Mill access/campground context is manager-backed by Clayton County Conservation. The app stays minimum-only because the evidence supports a conservative exact-route floor, not a full ideal/high ladder.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official water-trail section',
+        value: 'Motor Mill #32 to Garber #20, 12.4 mi',
+        note: 'The Turkey River Water Trail guide describes the remote 12.4-mile stretch from Motor Mill to Garber as one of the best scenic sections on the river and identifies the Garber take-out just past the second bridge on river left.',
+        sourceUrl: 'https://turkeyriver.org/wp-content/uploads/2025/05/TRWT-Guide_2025_Online.pdf',
+      },
+      {
+        label: 'Published route report',
+        value: 'Motor Mill / Galaxy Road to Garber Access #20',
+        note: 'Miles Paddled documents Motor Mill / Galaxy Road as Trip 2 put-in and Highway X41 / Jupiter Road in Garber as the exact take-out for this route.',
+        sourceUrl: 'https://milespaddled.com/turkey-river/',
+      },
+      {
+        label: 'Exact-route threshold support',
+        value: '550 cfs conservative floor',
+        note: 'Miles Paddled paddled the exact Motor-Mill-to-Garber route at 550 cfs on the Garber gauge and says, "We recommend this level." Paddle Today uses that as a conservative minimum-only floor rather than inferring a broader range.',
+        sourceUrl: 'https://milespaddled.com/turkey-river/',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05412500 at 2,970 cfs / 9.62 ft',
+        note: 'USGS Water Services returned current Turkey River at Garber values of 2,970 cfs and 9.62 ft at 2026-07-06 09:15 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412500/',
+      },
+      {
+        label: 'Public put-in and camping',
+        value: 'Motor Mill Access and campground',
+        note: 'Clayton County Conservation lists water access to the Turkey River at Motor Mill Historic Site, and Miles Paddled describes a secluded campground with potable water, bathrooms, hiking trails, and an excellent boat landing at Motor Mill.',
+        sourceUrl: 'https://www.claytoncountyconservation.org/motor-mill-park',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Garber Access #20',
+        note: 'Miles Paddled identifies the dedicated Garber access at the second bridge on river left, and the official water-trail guide labels Garber Access #20 as the downstream take-out for this section.',
+        sourceUrl: 'https://milespaddled.com/turkey-river/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Turkey River Water Trail guide PDF',
+        url: 'https://turkeyriver.org/wp-content/uploads/2025/05/TRWT-Guide_2025_Online.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Miles Paddled Turkey River I',
+        url: 'https://milespaddled.com/turkey-river/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Clayton County Conservation Motor Mill Historic Site',
+        url: 'https://www.claytoncountyconservation.org/motor-mill-park',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05412500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Turkey River river levels',
+        url: 'https://turkeyriver.org/river-levels/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'turkey-river-elkader-garber',
+    slug: 'turkey-river-elkader-garber',
+    name: 'Turkey River',
+    reach: 'Elkader Whitewater Park to Garber Access',
+    aliases: [
+      'Turkey River - Elkader to Garber',
+      'Turkey River - Elkader Whitewater Park to Garber',
+      'Turkey River Water Trail - Elkader to Garber full day',
+    ],
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Full lower Turkey River day from Elkader to Garber, combining the whitewater-park / Motor Mill section with the long remote canyon run to Garber under one direct lower-river gauge.',
+    statusText:
+      'Use the Turkey River at Garber gauge. Miles Paddled recommends the exact Elkader-to-Garber route at about 550 cfs, so Paddle Today keeps a conservative 550 cfs minimum-only floor and does not claim a fuller paddling band.',
+    latitude: 42.853356,
+    longitude: -91.402402,
+    gaugeSource: {
+      id: 'usgs-05412500',
+      provider: 'usgs',
+      siteId: '05412500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Turkey River at Garber, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 550,
+      thresholdSource: {
+        label: 'Miles Paddled Turkey River I Elkader-to-Garber guidance',
+        url: 'https://milespaddled.com/turkey-river/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Best in spring through fall with stable weather. This full route benefits from the Turkey River watershed size, but wind, muddy water, and faster riffles stack up over a longer day when levels climb.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Not technically difficult for competent paddlers at normal levels, but it is a committed all-day route with the optional Elkader whitewater ledges at the start, many riffles, long mileage, and limited public exits before Garber.',
+      confidenceNotes:
+        'Confidence is good for a conservative long-route Iowa add: Miles Paddled documents the exact Elkader-to-Garber route as two consecutive legs on the same day with named GPS points and a recommended 550 cfs Garber-gauge level; the Turkey River Water Trail independently supports the same Elkader-to-Motor-Mill and Motor-Mill-to-Garber section chain; USGS 05412500 is a direct live gauge near the Garber take-out and returned 2,970 cfs and 9.62 ft at 2026-07-06 09:15 CDT; and Elkader, Motor Mill, and Garber all have named public access support in the current source stack. The app stays minimum-only because the strongest evidence is an exact-route recommended level, not a broader official ladder.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route chain',
+        value: 'Elkader #39B to Motor Mill #32 to Garber #20, about 18.9 mi',
+        note: 'The Turkey River Water Trail lists Elkader to Motor Mill as 6.5 miles and Motor Mill to Garber as 12.4 miles, supporting the full lower-river continuation from Elkader to Garber.',
+        sourceUrl: 'https://turkeyriver.org/wp-content/uploads/2025/05/TRWT-Guide_2025_Online.pdf',
+      },
+      {
+        label: 'Published route report',
+        value: 'Elkader to Garber exact day route',
+        note: 'Miles Paddled documents the Elkader-to-Motor-Mill and Motor-Mill-to-Garber legs together and describes the full lower Turkey River day as a standout 19-mile stretch.',
+        sourceUrl: 'https://milespaddled.com/turkey-river/',
+      },
+      {
+        label: 'Exact-route threshold support',
+        value: '550 cfs conservative floor',
+        note: 'Miles Paddled paddled the full Elkader-to-Garber route at 550 cfs on the Garber gauge and recommends that level. Paddle Today uses that as a conservative minimum-only floor instead of inferring a wider exact-route band.',
+        sourceUrl: 'https://milespaddled.com/turkey-river/',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05412500 at 2,970 cfs / 9.62 ft',
+        note: 'USGS Water Services returned current Turkey River at Garber values of 2,970 cfs and 9.62 ft at 2026-07-06 09:15 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412500/',
+      },
+      {
+        label: 'Public endpoint support',
+        value: 'Elkader Whitewater Park and Garber Access #20',
+        note: 'Miles Paddled identifies Main Street / Elkader Whitewater Park as the practical public launch and Garber Access #20 as the dedicated public take-out; the official water-trail guide corroborates the access names and sequence.',
+        sourceUrl: 'https://milespaddled.com/turkey-river/',
+      },
+      {
+        label: 'Overnight split option',
+        value: 'Motor Mill campground and access',
+        note: 'Miles Paddled says Motor Mill has a secluded campground and excellent boat landing that can split the full day into two legal trips, which is useful context for a long-route planner entry.',
+        sourceUrl: 'https://milespaddled.com/turkey-river/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Miles Paddled Turkey River I',
+        url: 'https://milespaddled.com/turkey-river/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Turkey River Water Trail guide PDF',
+        url: 'https://turkeyriver.org/wp-content/uploads/2025/05/TRWT-Guide_2025_Online.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05412500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Clayton County Conservation Motor Mill Historic Site',
+        url: 'https://www.claytoncountyconservation.org/motor-mill-park',
+        provider: 'local',
+      },
+      {
+        label: 'Iowa Whitewater Coalition Elkader Whitewater Park',
+        url: 'https://www.iowawhitewater.org/lhd/LHDelkader2.html',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'little-turkey-river-gouldsburg-eldorado',
     slug: 'little-turkey-river-gouldsburg-eldorado',
     name: 'Little Turkey River',
