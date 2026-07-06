@@ -14940,6 +14940,120 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'south-fork-kentucky-river-oneida-bishop-bend': {
+    putIn: {
+      id: 'oneida-ramp',
+      name: 'Oneida Ramp',
+      latitude: 37.2726,
+      longitude: -83.6532,
+    },
+    takeOut: {
+      id: 'bishop-bend-school-road-access',
+      name: 'Bishop Bend School Road Access',
+      latitude: 37.3377,
+      longitude: -83.6882,
+    },
+    logistics: {
+      distanceLabel: 'About 12.2 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Bishop Bend School Road Access, then drive back to Oneida Ramp. Oneida is the more developed paved launch, but Bishop Bend is a smaller dirt-road exit, so inspect the take-out before committing to the longest upper-middle South Fork option.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Oneida or Bishop Bend, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Oneida Ramp and take out about 12.2 miles downstream at Bishop Bend School Road Access for a long upper-middle South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Oneida Ramp is a free single-lane concrete launch with paved parking, but no listed amenities or camping.',
+        'Bishop Bend is a carry-down-only access with unpaved parking, a small dirt parking area, and no amenities.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect shallower shoals, more dragging, and a slower overall day than the official mileage alone suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow rock bars, mud banks, and dragging become more likely over a long day.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and recovery becomes less forgiving around bends and wood.',
+        'Wood, strainers, muddy step-outs, occasional riffles, private banks outside the access sites, and simple endurance or weather mistakes on the longest route in this corridor.',
+      ],
+    },
+  },
+  'south-fork-kentucky-river-rocky-branch-hacker-branch': {
+    putIn: {
+      id: 'rocky-branch-road-access',
+      name: 'Rocky Branch Road Access',
+      latitude: 37.3206,
+      longitude: -83.6648,
+    },
+    takeOut: {
+      id: 'hacker-branch-road-access',
+      name: 'Hacker Branch Road Access',
+      latitude: 37.3743,
+      longitude: -83.6708,
+    },
+    logistics: {
+      distanceLabel: 'About 10.5 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Hacker Branch Road Access, then drive back to Rocky Branch Road Access off KY-11. Both accesses are simple no-amenity sites with limited parking, so inspect the exit before launching and avoid counting on extra roadside room.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Rocky Branch or Hacker Branch, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Rocky Branch Road Access and take out about 10.5 miles downstream at Hacker Branch Road Access for a long middle South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Rocky Branch is a carry-down-only bridge-side access with limited parking and no amenities.',
+        'Hacker Branch is a carry-down-only access with unpaved parking and no ramp or listed amenities.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect more dragging and shallower rock-bar lines than the ideal band suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow rock bars, mud banks, and dragging become more likely over a long middle-chain day.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and fewer easy recovery spots remain.',
+        'Wood, strainers, muddy step-outs, occasional riffles, private banks outside the access sites, and fatigue from repeated shallow-line scouting on a longer day.',
+      ],
+    },
+  },
+  'south-fork-kentucky-river-cedar-valley-upper-wolf-creek': {
+    putIn: {
+      id: 'cedar-valley-road-access',
+      name: 'Cedar Valley Road Access',
+      latitude: 37.3363,
+      longitude: -83.656,
+    },
+    takeOut: {
+      id: 'upper-wolf-creek-ramp',
+      name: 'Upper Wolf Creek Ramp',
+      latitude: 37.3964,
+      longitude: -83.6767,
+    },
+    logistics: {
+      distanceLabel: 'About 10.9 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Upper Wolf Creek Ramp, then drive back to Cedar Valley Road Access. Upper Wolf Creek is the more developed paved-ramp exit, but Cedar Valley remains a simple gravel-and-dirt put-in with limited parking, so inspect both before leaving vehicles.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Cedar Valley or Upper Wolf Creek, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Cedar Valley Road Access and take out about 10.9 miles downstream at Upper Wolf Creek Ramp for a full middle-lower South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Cedar Valley is a carry-down-only gravel-and-dirt access with limited parking and no amenities.',
+        'Upper Wolf Creek is a free single-lane paved ramp with year-round 24-hour availability, unpaved parking, and no camping.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect shallower shoals, more scraping, and a slower overall day than the official mileage alone suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely over a longer full-corridor day.',
+        'High water above 900 cfs or 6.0 ft, when current becomes less forgiving around wood, bridge areas, and muddy landings.',
+        'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue from a longer downstream commitment with limited amenities.',
+      ],
+    },
+  },
   'south-fork-kentucky-river-oneida-fish-creek': {
     putIn: {
       id: 'oneida-ramp',
@@ -15026,8 +15140,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       {
         id: 'upper-wolf-creek-ramp',
         name: 'Upper Wolf Creek Ramp',
-        latitude: 37.4036,
-        longitude: -83.6798,
+        latitude: 37.3964,
+        longitude: -83.6767,
         mileFromStart: 20.2,
         segmentKind: 'creek',
         note: 'Developed ramp access in the lower corridor.',
@@ -15111,8 +15225,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       {
         id: 'upper-wolf-creek-ramp',
         name: 'Upper Wolf Creek Ramp',
-        latitude: 37.4036,
-        longitude: -83.6798,
+        latitude: 37.3964,
+        longitude: -83.6767,
         mileFromStart: 6.2,
         segmentKind: 'creek',
         note: 'Developed ramp access in the lower corridor.',
@@ -15196,8 +15310,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       {
         id: 'upper-wolf-creek-ramp',
         name: 'Upper Wolf Creek Ramp',
-        latitude: 37.4036,
-        longitude: -83.6798,
+        latitude: 37.3964,
+        longitude: -83.6767,
         mileFromStart: 10.9,
         segmentKind: 'creek',
         note: 'Developed ramp access in the lower corridor.',
@@ -15290,8 +15404,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       {
         id: 'upper-wolf-creek-ramp',
         name: 'Upper Wolf Creek Ramp',
-        latitude: 37.4036,
-        longitude: -83.6798,
+        latitude: 37.3964,
+        longitude: -83.6767,
         mileFromStart: 13.4,
         segmentKind: 'creek',
         note: 'Developed ramp access in the lower corridor.',

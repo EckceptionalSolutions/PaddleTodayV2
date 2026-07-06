@@ -1,6 +1,15 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-06 06:24 America/Chicago / 2026-07-06 11:24 UTC.
+Last summarized: 2026-07-06 16:40 America/Chicago / 2026-07-06 21:40 UTC.
+
+## 2026-07-06 South Fork restoration pass
+
+- Reused the live repo state as the only valid baseline and restored three South Fork Kentucky River slugs that were absent from the current tree at run start: `south-fork-kentucky-river-oneida-bishop-bend`, `south-fork-kentucky-river-rocky-branch-hacker-branch`, and `south-fork-kentucky-river-cedar-valley-upper-wolf-creek`.
+- Current KDFWR South Fork Kentucky River guidance still documents the exact public access-chain mileages of Oneida -> Rocky `6.8`, Rocky -> Cedar `2.5`, Cedar -> Bishop Bend `4.7`, Bishop Bend -> Hacker Branch `3.3`, and Hacker Branch -> Upper Wolf Creek `2.9`, which support the restored public route mileages of `12.2`, `10.5`, and `10.9`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Oneida Ramp, Rocky Branch Road Access, Cedar Valley Road Access, Bishop Bend School Road Access, Hacker Branch Road Access, and Upper Wolf Creek Ramp. Same-day direct USGS Water Services returned `103 cfs / 3.79 ft` at `2026-07-06 15:30 EDT` for South Fork Kentucky River at Booneville (`03281500`), well below the official `350-900 cfs / 4.8-6.0 ft` good band, so all three restored slugs ship with explicit scrape-prone low-water caution rather than comfort framing.
+- Refreshed the shared `Upper Wolf Creek Ramp` coordinate to the current KDFWR access-detail value of `37.3964, -83.6767` in the South Fork trip details so the live family matches the current official page instead of the older stored point.
+- Camping stays conservative at `none` for all three because KDFWR still documents only simple day-use launch sites with no public overnight support on this chain.
+- Reused the approved South Fork Commons corridor images for all three slugs, and `docs/river-image-source-audit.csv` now records the same-river reuse.
 
 ## 2026-07-06 Floyds Fork continuation pass
 
@@ -63,8 +72,8 @@ Last summarized: 2026-07-06 06:24 America/Chicago / 2026-07-06 11:24 UTC.
 
 ## Current Inventory
 
-- Live routes: 55.
-- Ledger candidates: 75 Kentucky-specific records. The newest live Kentucky slugs are `floyds-fork-creekside-seaton-valley`, `floyds-fork-north-beckley-seaton-valley`, and `floyds-fork-seaton-valley-cliffside`.
+- Live routes: 58.
+- Ledger candidates: 75 Kentucky-specific records. The newest live Kentucky slugs are `south-fork-kentucky-river-oneida-bishop-bend`, `south-fork-kentucky-river-rocky-branch-hacker-branch`, and `south-fork-kentucky-river-cedar-valley-upper-wolf-creek`.
 
 ## 2026-07-05 Upper Green restoration pass
 
