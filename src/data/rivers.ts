@@ -18435,6 +18435,122 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'north-fork-maquoketa-river-d61-ozark',
+    slug: 'north-fork-maquoketa-river-d61-ozark',
+    name: 'North Fork Maquoketa River',
+    reach: 'D61 Access / Whitewater Creek to Ozark Bridge / 21st Ave',
+    aliases: [
+      'North Fork Maquoketa River - D61 to Ozark Bridge',
+      'North Fork Maquoketa River - Whitewater Creek mouth to 21st Ave',
+      'North Fork Maquoketa River - D61 wilderness stretch to Ozark',
+    ],
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Remote Driftless continuation from the Whitewater Creek D61 access to Ozark Bridge, with bluff-lined bends, riffles, and a direct Fulton gauge on a corridor with very few clean exits.',
+    statusText:
+      'Use the North Fork Maquoketa near Fulton gauge. Treat 231 to 400 cfs as the broad target window, below 150 cfs as likely too shallow, and 701+ cfs as beyond the normal recreational recommendation.',
+    latitude: 42.27778,
+    longitude: -90.9371,
+    gaugeSource: {
+      id: 'usgs-05418400',
+      provider: 'usgs',
+      siteId: '05418400',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'North Fork Maquoketa River near Fulton, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 231,
+      idealMax: 400,
+      tooLow: 150,
+      tooHigh: 701,
+      thresholdSource: {
+        label: 'Wisconsin River Trips North Fork Maquoketa Whitewater-to-Ozark gauge ladder',
+        url: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and fall are the best scenery windows. Heavy rain quickly raises the North Fork and makes this isolated middle corridor faster and muddier, while dry late-summer periods make riffles scrapier and the Whitewater Creek launch shallower.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The rapids are mostly Class I at normal levels, but this is a committed 12-mile wilderness day with very few practical public exits once you leave Whitewater Creek and head toward Ozark Bridge.',
+      confidenceNotes:
+        'Confidence is good for a guarded Iowa add: Dubuque County still lists D61 Access as a true public canoe/kayak access on Whitewater Creek, Wisconsin River Trips still documents the exact Whitewater Creek Mouth to 21st Ave / Ozark Bridge continuation with the Fulton-gauge ladder, Jackson County still lists Ozark Bridge on the North Fork water-trail access table, and same-day USGS Water Services returned 939 cfs and 5.03 ft at the direct Fulton gauge at 2026-07-06 12:00 CDT.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'D61 Access on Whitewater Creek',
+        note: 'Dubuque County lists D61 Access as a true public canoe/kayak access on Whitewater Creek, and Wisconsin River Trips says paddlers use that access by taking out of the North Fork and moving a short distance up Whitewater Creek.',
+        sourceUrl: 'https://dubuquecountyiowa.gov/767/Paddling',
+      },
+      {
+        label: 'Published route report',
+        value: 'Whitewater Creek Mouth to 21st Ave / Ozark Bridge, 12.1 mi',
+        note: 'Wisconsin River Trips documents the exact Whitewater Creek Mouth to 21st Ave continuation through the bluff-heavy wilderness corridor downstream of Cascade.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Ozark Bridge / 21st Ave access area',
+        note: 'Jackson County Conservation lists Ozark Bridge on the North Fork water-trail access table, and Jones County describes Ozark Bridge as one of the practical Jackson County take-outs below Cascade.',
+        sourceUrl: 'https://www.mycountyparks.com/County/Jackson/Park/Maquoketa-River-Water-Trail',
+      },
+      {
+        label: 'Gauge ladder',
+        value: '231 to 400 cfs broad target',
+        note: 'Wisconsin River Trips uses the same Fulton-gauge ladder for the upper wilderness corridor, with less than 150 cfs flagged as too shallow and 701+ cfs pushed into the advanced-only range.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+      },
+      {
+        label: 'Current gauge check',
+        value: 'USGS 05418400 at 939 cfs / 5.03 ft',
+        note: 'USGS Water Services returned current North Fork Maquoketa River near Fulton values of 939 cfs and 5.03 ft at 2026-07-06 12:00 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.27778, -90.9371 to 42.19, -90.87',
+        note: 'The current D61 and Ozark access anchors come from the already-vetted county access pages and route-report corridor used by adjacent live North Fork routes.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Dubuque County paddling access list',
+        url: 'https://dubuquecountyiowa.gov/767/Paddling',
+        provider: 'local',
+      },
+      {
+        label: 'Jones County North Fork Maquoketa River',
+        url: 'https://www.jonescountyiowa.gov/conservation/rivers/maquoketa_river_north_fork/',
+        provider: 'local',
+      },
+      {
+        label: 'Jackson County Maquoketa River Water Trail',
+        url: 'https://www.mycountyparks.com/County/Jackson/Park/Maquoketa-River-Water-Trail',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin River Trips North Fork Maquoketa River',
+        url: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05418400 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'north-fork-maquoketa-river-cascade-ozark',
     slug: 'north-fork-maquoketa-river-cascade-ozark',
     name: 'North Fork Maquoketa River',
@@ -18658,6 +18774,253 @@ export const rivers: River[] = [
         label: 'Jackson County Maquoketa River Water Trail overview',
         url: 'https://www.mycountyparks.com/County/Jackson/Park/Maquoketa-River-Water-Trail',
         provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'north-fork-maquoketa-river-d61-caven',
+    slug: 'north-fork-maquoketa-river-d61-caven',
+    name: 'North Fork Maquoketa River',
+    reach: 'D61 Access / Whitewater Creek to Caven Bridge Access',
+    aliases: [
+      'North Fork Maquoketa River - D61 to Caven Bridge',
+      'North Fork Maquoketa River - Whitewater Creek to 60th Ave',
+      'North Fork Maquoketa River - D61 full wilderness continuation',
+    ],
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Long North Fork continuation from the Whitewater Creek D61 access to Caven Bridge, combining the isolated Ozark wilderness corridor with the short lower Ozark Wildlife Area finish under one direct Fulton gauge.',
+    statusText:
+      'Use the North Fork Maquoketa near Fulton gauge. Treat 231 to 400 cfs as the broad target window, below 150 cfs as likely too shallow, and 701+ cfs as beyond the normal recreational recommendation.',
+    latitude: 42.27778,
+    longitude: -90.9371,
+    gaugeSource: {
+      id: 'usgs-05418400',
+      provider: 'usgs',
+      siteId: '05418400',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'North Fork Maquoketa River near Fulton, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 231,
+      idealMax: 400,
+      tooLow: 150,
+      tooHigh: 701,
+      thresholdSource: {
+        label: 'Wisconsin River Trips North Fork Maquoketa Fulton gauge ladder',
+        url: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and fall are the best scenery windows. Heavy rain quickly raises the North Fork and makes this isolated corridor more pushy and muddy, while dry late-summer periods expose more gravel and force slower progress.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The whitewater is still mostly Class I at normal levels, but this is a long, remote day with very limited public exits between D61 and the undeveloped Jackson County bridge accesses.',
+      confidenceNotes:
+        'Confidence is good for a guarded Iowa add: Dubuque County still lists D61 Access as a true public canoe/kayak access on Whitewater Creek, Jackson County still lists both Ozark Bridge and Caven Bridge Access on the North Fork water trail, Wisconsin River Trips still publishes the exact Whitewater Creek-to-Ozark and Ozark-to-Caven route geometry with the same Fulton-gauge ladder, and same-day USGS Water Services returned 939 cfs and 5.03 ft at the direct Fulton gauge at 2026-07-06 12:00 CDT.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'D61 Access on Whitewater Creek',
+        note: 'Dubuque County lists D61 Access as a true public canoe/kayak access on Whitewater Creek, which is the practical launch for the Whitewater-to-Ozark continuation described by Wisconsin River Trips.',
+        sourceUrl: 'https://dubuquecountyiowa.gov/767/Paddling',
+      },
+      {
+        label: 'Published route chain',
+        value: 'Whitewater Creek Mouth to 21st Ave plus Ozark to Caven, about 16.5 mi',
+        note: 'Wisconsin River Trips documents the Whitewater Creek Mouth to 21st Ave / Ozark Bridge continuation at 12.1 miles and the Ozark Wildlife Area route from 21st Ave to 60th Ave / Caven at 4.4 miles, supporting the full D61-to-Caven continuation.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Caven Bridge Access / 60th Ave',
+        note: 'Jackson County Conservation lists Caven Bridge Access on the North Fork water-trail table and warns that the public take-out is on the east bank where the old bridge crossing used to be.',
+        sourceUrl: 'https://content.mycountyparks.com/Production/RelatedItem/Content/abb43783-a1f1-495a-9490-9542bf53fe5d',
+      },
+      {
+        label: 'Gauge ladder',
+        value: '231 to 400 cfs broad target',
+        note: 'Wisconsin River Trips uses the same Fulton-gauge ladder for both the Whitewater-to-Ozark and Ozark-to-Caven corridor, with less than 150 cfs flagged as too shallow and 701+ cfs as beyond the normal recreational recommendation.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river/ozark-wildlife-area',
+      },
+      {
+        label: 'Current gauge check',
+        value: 'USGS 05418400 at 939 cfs / 5.03 ft',
+        note: 'USGS Water Services returned current North Fork Maquoketa River near Fulton values of 939 cfs and 5.03 ft at 2026-07-06 12:00 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+      },
+      {
+        label: 'County corridor support',
+        value: 'Ozark and Caven as Jackson County finishes below Cascade',
+        note: 'Jones County describes the remote lower North Fork below Cascade and specifically names Ozark Bridge and Caven Bridge Access as the practical downstream Jackson County take-outs.',
+        sourceUrl: 'https://www.jonescountyiowa.gov/conservation/rivers/maquoketa_river_north_fork/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Dubuque County paddling access list',
+        url: 'https://dubuquecountyiowa.gov/767/Paddling',
+        provider: 'local',
+      },
+      {
+        label: 'Jones County North Fork Maquoketa River',
+        url: 'https://www.jonescountyiowa.gov/conservation/rivers/maquoketa_river_north_fork/',
+        provider: 'local',
+      },
+      {
+        label: 'Jackson County access table PDF',
+        url: 'https://content.mycountyparks.com/Production/RelatedItem/Content/abb43783-a1f1-495a-9490-9542bf53fe5d',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin River Trips North Fork Maquoketa River',
+        url: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin River Trips North Fork Maquoketa Ozark Wildlife Area',
+        url: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river/ozark-wildlife-area',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05418400 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'north-fork-maquoketa-river-cascade-caven',
+    slug: 'north-fork-maquoketa-river-cascade-caven',
+    name: 'North Fork Maquoketa River',
+    reach: 'Cascade Historic Limestone Silo to Caven Bridge Access',
+    aliases: [
+      'North Fork Maquoketa River - Cascade to Caven Bridge',
+      'North Fork Maquoketa River - Cascade full wilderness continuation',
+      'North Fork Maquoketa River - Cascade Historic Limestone Silo to 60th Ave',
+    ],
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Full North Fork Maquoketa wilderness planner from Cascade to Caven Bridge, combining the scenic Cascade opening, the isolated D61-to-Ozark middle, and the short Ozark Wildlife Area finish under one direct Fulton gauge.',
+    statusText:
+      'Use the North Fork Maquoketa near Fulton gauge. Treat 231 to 400 cfs as the broad target window, below 150 cfs as likely too shallow, and 701+ cfs as beyond the normal recreational recommendation.',
+    latitude: 42.29902,
+    longitude: -91.01244,
+    gaugeSource: {
+      id: 'usgs-05418400',
+      provider: 'usgs',
+      siteId: '05418400',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'North Fork Maquoketa River near Fulton, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 231,
+      idealMax: 400,
+      tooLow: 150,
+      tooHigh: 701,
+      thresholdSource: {
+        label: 'Wisconsin River Trips North Fork Maquoketa Fulton gauge ladder',
+        url: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and fall are the best scenery windows. Heavy rain quickly raises the North Fork and makes this full-corridor route far more consequential, while dry late-summer periods can turn the long middle miles into a scrape-heavy grind.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'This is a committed full-day or expert-planned long route. The rapids stay mostly Class I at normal levels, but the 24-mile distance, undeveloped exits, and remote middle miles make it far more serious than the shorter North Fork records.',
+      confidenceNotes:
+        'Confidence is good for a guarded planner-style Iowa add: the City of Cascade still supports the concrete launch below the historic limestone silo, Dubuque County still lists D61 Access as the public Whitewater Creek bridge exit, Jackson County still lists Ozark Bridge and Caven Bridge Access on the same water trail, Wisconsin River Trips still documents the component Cascade-to-D61, Whitewater-to-Ozark, and Ozark-to-Caven route geometry with the Fulton-gauge ladder, and same-day USGS Water Services returned 939 cfs and 5.03 ft at the direct Fulton gauge at 2026-07-06 12:00 CDT.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public launch support',
+        value: 'Cascade Historic Limestone Silo / Cascade landing',
+        note: 'The City of Cascade still says a landing and parking area near Riverview Park lets canoers and kayakers float the North Fork south of town, and the existing live Cascade routes use the same concrete-ramp launch by the historic silo.',
+        sourceUrl: 'https://www.cityofcascade.org/vnews/display.v/ART/5e94c9f386f55',
+      },
+      {
+        label: 'Published route chain',
+        value: 'Cascade to D61 plus Whitewater-to-Ozark plus Ozark-to-Caven, about 24.3 mi',
+        note: 'Wisconsin River Trips documents Cascade to D61 at 7.8 miles, Whitewater Creek Mouth to 21st Ave / Ozark Bridge at 12.1 miles, and the Ozark Wildlife Area route from 21st Ave to 60th Ave / Caven at 4.4 miles, supporting the full Cascade-to-Caven continuation.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+      },
+      {
+        label: 'County corridor support',
+        value: 'Cascade to Ozark / Caven wilderness stretch',
+        note: 'Jones County describes the lower North Fork below Cascade as a scenic remote corridor and specifically names the Jackson County Ozark Bridge and Caven Bridge Access take-outs.',
+        sourceUrl: 'https://www.jonescountyiowa.gov/conservation/rivers/maquoketa_river_north_fork/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Caven Bridge Access / 60th Ave',
+        note: 'Jackson County Conservation lists Caven Bridge Access on the North Fork water-trail table and notes that the public take-out is on the east bank at the old bridge corridor.',
+        sourceUrl: 'https://content.mycountyparks.com/Production/RelatedItem/Content/abb43783-a1f1-495a-9490-9542bf53fe5d',
+      },
+      {
+        label: 'Gauge ladder',
+        value: '231 to 400 cfs broad target',
+        note: 'Wisconsin River Trips uses the same Fulton-gauge ladder across the North Fork Maquoketa corridor, with less than 150 cfs flagged as too shallow and 701+ cfs as beyond the normal recreational recommendation.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river/ozark-wildlife-area',
+      },
+      {
+        label: 'Current gauge check',
+        value: 'USGS 05418400 at 939 cfs / 5.03 ft',
+        note: 'USGS Water Services returned current North Fork Maquoketa River near Fulton values of 939 cfs and 5.03 ft at 2026-07-06 12:00 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'City of Cascade Riverview Park',
+        url: 'https://www.cityofcascade.org/vnews/display.v/ART/5e94c9f386f55',
+        provider: 'local',
+      },
+      {
+        label: 'Dubuque County paddling access list',
+        url: 'https://dubuquecountyiowa.gov/767/Paddling',
+        provider: 'local',
+      },
+      {
+        label: 'Jones County North Fork Maquoketa River',
+        url: 'https://www.jonescountyiowa.gov/conservation/rivers/maquoketa_river_north_fork/',
+        provider: 'local',
+      },
+      {
+        label: 'Jackson County access table PDF',
+        url: 'https://content.mycountyparks.com/Production/RelatedItem/Content/abb43783-a1f1-495a-9490-9542bf53fe5d',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin River Trips North Fork Maquoketa River',
+        url: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin River Trips North Fork Maquoketa Ozark Wildlife Area',
+        url: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river/ozark-wildlife-area',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05418400 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+        provider: 'usgs',
       },
     ],
   },

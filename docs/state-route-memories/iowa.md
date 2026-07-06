@@ -12,6 +12,14 @@ Last summarized: 2026-07-06.
 
 Iowa remains mature overall, but the live tree still had room for one mixed continuation pass after fresh same-day source checks confirmed one longer Turkey River bridge-to-town segment and two public North Fork Maquoketa continuations out of Cascade.
 
+## 2026-07-06 North Fork Maquoketa continuation pass
+
+- Added `north-fork-maquoketa-river-d61-ozark`, `north-fork-maquoketa-river-d61-caven`, and `north-fork-maquoketa-river-cascade-caven`.
+- The implementation package stayed on the same live direct USGS Fulton gauge `05418400`, which returned `939 cfs / 5.03 ft` at `2026-07-06 12:00 CDT` in the current run.
+- Route shape and access support stayed internet-sourced and implementation-grade: Dubuque County still lists D61 Access as true public canoe/kayak access on Whitewater Creek, Jackson County still lists Ozark Bridge and Caven Bridge Access on the North Fork water trail, Jones County still describes the lower North Fork below Cascade as the remote Ozark/Caven wilderness corridor, and Wisconsin River Trips still documents the Whitewater Creek Mouth to 21st Ave continuation plus the Ozark Wildlife Area route with the same Fulton-gauge ladder.
+- All three routes reuse the same conservative two-sided Fulton-gauge model already accepted on the live North Fork routes: below `150 cfs` too shallow, `231-400 cfs` broad target, and `701+ cfs` beyond the normal recreational recommendation.
+- Camping stayed conservative at `none` because no verified legal on-route campsite cleared for these exact long corridor records. Bounded image review stayed negative, so no gallery asset was added.
+
 ## 2026-07-06 Turkey River and North Fork Maquoketa pass
 
 - Added `turkey-river-gilbertson-elkader`, `north-fork-maquoketa-river-cascade-d61`, and `north-fork-maquoketa-river-cascade-ozark`.

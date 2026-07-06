@@ -7476,6 +7476,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'north-fork-maquoketa-river-d61-ozark': {
+    putIn: {
+      name: 'D61 Access / Whitewater Creek bridge access',
+      latitude: 42.27778,
+      longitude: -90.9371,
+    },
+    takeOut: {
+      name: 'Ozark Bridge / 21st Ave access area',
+      latitude: 42.19,
+      longitude: -90.87,
+    },
+    logistics: {
+      distanceLabel: 'About 12.1 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6 hr depending on level and breaks',
+      shuttle:
+        'Set the Ozark vehicle first and treat this as a wilderness shuttle rather than a casual bike-back route. The county-road return is long, hilly, and slower than the map may suggest.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted county bridge-access parking rules, and use only the named public D61 and Ozark access areas.',
+      camping:
+        'Do not assume legal river camping on this route. No verified on-route campsite was cleared in this pass, and private banks should not be treated as informal overnight stops.',
+      summary:
+        'Launch at D61 Access on Whitewater Creek, work out to the North Fork, and continue through the bluff-heavy wilderness corridor to Ozark Bridge. This is the longer middle reach between the shorter Cascade-to-D61 and Ozark-to-Caven records.',
+      accessCaveats: [
+        'The D61 put-in is on Whitewater Creek rather than the main river. Expect a short final move downstream into the North Fork, and scout the muddy bridge-bank entry before unloading heavier boats.',
+        'Once you leave Whitewater Creek, practical public bailout options become scarce until Ozark Bridge. Do not launch late or with a group that is uncertain about covering the mileage.',
+        'Ozark Bridge is an undeveloped bridge access with a roadside pull-off and carry path rather than a polished ramp.',
+      ],
+      watchFor: [
+        'Long sequences of riffles, outside-bend boulders, and faster current when the Fulton gauge rises above the broad 231-400 cfs target range.',
+        'Fatigue, wood, blind bends, and limited easy exits in the middle miles of the corridor.',
+        'Private banks and private campground accesses that should not be treated as normal public stops or take-outs.',
+      ],
+    },
+  },
   'north-fork-maquoketa-river-cascade-ozark': {
     putIn: {
       name: 'Cascade Historic Limestone Silo / Cascade landing',
@@ -7507,6 +7541,74 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'A long sequence of riffles, outside-bend boulders, wood, and fatigue-related mistakes late in the day.',
         'Fast rises and muddier current after storms, which make this isolated corridor significantly more consequential than the short Ozark-to-Caven route.',
         'Private banks and private campground accesses that should not be treated as normal public take-outs.',
+      ],
+    },
+  },
+  'north-fork-maquoketa-river-d61-caven': {
+    putIn: {
+      name: 'D61 Access / Whitewater Creek bridge access',
+      latitude: 42.27778,
+      longitude: -90.9371,
+    },
+    takeOut: {
+      name: 'Caven Bridge Access / 60th Ave',
+      latitude: 42.18,
+      longitude: -90.83,
+    },
+    logistics: {
+      distanceLabel: 'About 16.5 mi',
+      estimatedPaddleTime: 'About 5.5 hr to 7.5 hr depending on level and breaks',
+      shuttle:
+        'Set the Caven vehicle first and treat this as a committed long-day shuttle. The return is long, hilly, and rural enough that a same-day shuttle check is worth the extra time.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted county bridge-access parking rules, and use only the named public D61 and Caven access areas.',
+      camping:
+        'Some groups may be tempted to split this route, but no verified legal on-route campsite was cleared in this pass. Plan it as a long day unless you separately confirm a legal overnight option.',
+      summary:
+        'Launch at D61 Access on Whitewater Creek and continue all the way to Caven Bridge for the full lower North Fork continuation below Whitewater Creek. This route adds the short Ozark Wildlife Area finish onto the longer D61-to-Ozark wilderness day.',
+      accessCaveats: [
+        'The D61 put-in is on Whitewater Creek rather than the main river. Scout the muddy bridge-bank launch and expect a short move into the North Fork before the route settles into the main corridor.',
+        'Public bailout options remain scarce until Ozark Bridge, and the final Caven access is still an undeveloped east-bank bridge corridor rather than a polished county ramp.',
+        'Use the east-bank Caven Bridge Access only; the west bank is private and should not be treated as a public take-out.',
+      ],
+      watchFor: [
+        'A long sequence of riffles, outside-bend boulders, and fatigue-related mistakes late in the day.',
+        'Fast rises after storms, muddier current, and harder landings throughout the isolated lower corridor.',
+        'Private banks, steep gravel-road approaches, and narrow roadside maneuvering at the undeveloped bridge accesses.',
+      ],
+    },
+  },
+  'north-fork-maquoketa-river-cascade-caven': {
+    putIn: {
+      name: 'Cascade Historic Limestone Silo / Cascade landing',
+      latitude: 42.29902,
+      longitude: -91.01244,
+    },
+    takeOut: {
+      name: 'Caven Bridge Access / 60th Ave',
+      latitude: 42.18,
+      longitude: -90.83,
+    },
+    logistics: {
+      distanceLabel: 'About 24.3 mi',
+      estimatedPaddleTime: 'About 8 hr to 10+ hr depending on level, stops, and daylight',
+      shuttle:
+        'Set the Caven vehicle first and treat this as a full-day or strongly preplanned long-route shuttle. The return is long and hilly enough that most groups should not treat it as a casual add-on after the paddle.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted City of Cascade and county bridge-access parking rules, and use named public access areas only.',
+      camping:
+        'This route reads like an overnight-capable corridor, but no verified legal on-route campsite was cleared in this pass. Do not assume gravel bars or private banks are legal overnight options.',
+      summary:
+        'Launch at Cascade and stay on the North Fork all the way to Caven Bridge for the full wilderness planner route. This strings together the scenic Cascade opener, the isolated Whitewater-to-Ozark middle, and the short Ozark Wildlife Area finish into one long serious day.',
+      accessCaveats: [
+        'Use the public ramp below the Cascade dam, not an improvised launch in the dam zone or above the structure.',
+        'Once you pass the Whitewater Creek mouth, practical public bailout options become scarce until Ozark or Caven. Do not launch late or with a group that is uncertain about the mileage.',
+        'Caven Bridge Access is an undeveloped east-bank access at the old bridge corridor rather than a polished ramp. Plan the finish and parking before committing to the route.',
+      ],
+      watchFor: [
+        'A very long sequence of riffles, outside-bend boulders, wood, and fatigue-related mistakes late in the day.',
+        'Fast rises and muddy water after storms, which make this full corridor much more consequential than the shorter live North Fork routes.',
+        'Private banks and private campground accesses that should not be treated as public stops or fallback take-outs.',
       ],
     },
   },
