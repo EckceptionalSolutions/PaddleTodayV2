@@ -1,22 +1,22 @@
 # Texas Route Memory
 
-Last summarized: 2026-07-03 09:30 America/Chicago / 2026-07-03 14:30 UTC.
+Last summarized: 2026-07-06 18:45 America/Chicago / 2026-07-06 23:45 UTC.
 
 ## Current Inventory
 
-- Live routes: 10.
-- Implemented routes: `village-creek-fm418-sh327`, `village-creek-sh327-baby-galvez`, `village-creek-baby-galvez-us-96`, `village-creek-us-96-state-park`, `village-creek-fm418-state-park`, `guadalupe-river-fm766-sh72`, `guadalupe-river-sh72-fm236`, `guadalupe-river-fm766-fm236`, `south-llano-river-state-park-junction-city-park`, and `south-llano-river-cupgrass-junction-city-park`.
-- Ledger candidates: 11 Texas-specific records, all marked `added`.
+- Live routes: 13.
+- Implemented routes: `village-creek-fm418-sh327`, `village-creek-sh327-baby-galvez`, `village-creek-baby-galvez-us-96`, `village-creek-us-96-state-park`, `village-creek-fm418-state-park`, `village-creek-fm418-baby-galvez`, `village-creek-sh327-us-96`, `village-creek-baby-galvez-state-park`, `guadalupe-river-fm766-sh72`, `guadalupe-river-sh72-fm236`, `guadalupe-river-fm766-fm236`, `south-llano-river-state-park-junction-city-park`, and `south-llano-river-cupgrass-junction-city-park`.
+- Ledger candidates: 14 Texas-specific records, all marked `added`.
 
 ## Status
 
-Texas still has three strong TPWD-first source families in V2, but the same overlap warning remains: South Llano no longer needs six near-duplicate slugs from the same four-access chain, and Village Creek or Guadalupe should only grow when a materially different day or overnight package appears. Village Creek now includes both the adjacent short splits and one long official full-trail option because TPWD explicitly says the 20.9-mile run is too long for one day and supports free preserve overnight permits plus state-park camping at the finish. Guadalupe now has the full official Cuero trail and its lower continuation because TPWD publishes all three access points, a real hazard package, and a direct same-river gauge story.
+Texas still has three strong TPWD-first source families in V2, but the overlap warning is stricter now. South Llano no longer needs six near-duplicate slugs from the same four-access chain, and Village Creek now has enough distinct short, medium, long, and overnight packages that it should be treated as saturated unless a future add introduces a genuinely different access or camping story. Guadalupe now has the full official Cuero trail and its lower continuation because TPWD publishes all three access points, a real hazard package, and a direct same-river gauge story.
 
 ## Current Guidance
 
 - Keep future Texas route work TPWD-first whenever possible: paddling-trail pages, leased-access pages, state-park pages, and direct USGS gauges are still the cleanest trust-first package.
 - Treat South Llano as saturated unless a future add introduces a materially different public access package, a stronger exact-route image, or a clearly new official trail segment. Do not recreate the deleted short-split permutations from the same Cupgrass / State Park / Flatrock / Junction chain.
-- Village Creek is largely exhausted for adjacent public segments. Do not duplicate `fm418-sh327`, `sh327-baby-galvez`, `baby-galvez-us-96`, `us-96-state-park`, or `fm418-state-park` unless a materially different overnight or access package appears.
+- Village Creek is now saturated for this source family. Do not duplicate `fm418-sh327`, `sh327-baby-galvez`, `baby-galvez-us-96`, `us-96-state-park`, `fm418-baby-galvez`, `sh327-us-96`, `baby-galvez-state-park`, or `fm418-state-park` unless a materially different overnight, image, or manager-backed route package appears.
 - Guadalupe is now close to saturated too. Do not mint more Cuero permutations unless they add a materially different public endpoint, camping package, or manager-backed threshold story beyond `fm766-sh72`, `sh72-fm236`, and `fm766-fm236`.
 - Treat the Texas threshold story as the weak link, not access. Both South Llano and Village Creek still ship as conservative `minimum-only` routes because the numeric floor comes from legacy/community tables rather than a modern manager-published exact-route band.
 - Keep the Guadalupe hazard split explicit: `fm766-sh72` and `fm766-fm236` retain the remnant-dam / mandatory-portage warning and should stay `advanced`, while `sh72-fm236` is the calmer lower continuation but still carries rainfall, wood, and private-bank cautions.
@@ -26,6 +26,13 @@ Texas still has three strong TPWD-first source families in V2, but the same over
 - Keep image expectations tight. The Texas families were reviewed through bounded TPWD / NPS or TPWD / TRPA / Commons / USGS searches, and no clearly rights-clean exact-route paddling image was selected for the new Guadalupe or Village Creek full-route slugs.
 
 ## Latest Run
+
+- 2026-07-06 18:45 America/Chicago / 2026-07-06 23:45 UTC three-route add pass
+  - Added `village-creek-fm418-baby-galvez`, `village-creek-sh327-us-96`, and `village-creek-baby-galvez-state-park`.
+  - Qualification path: current TPWD and Big Thicket NPS pages still document the full Village Creek access chain from FM 418 through TX 327, Baby Galvez, US 96, and Village Creek State Park; NPS launch pages still publish exact FM 418, TX 327, Baby Galvez, and US 96 coordinates; TPWD Village Creek State Park still publishes the canoe-launch coordinate plus campground and cabin support at the take-out; and same-day USGS Water Services returned `308 cfs / 4.33 ft` for direct gauge `08041500` at `2026-07-06 17:30 CDT`, above the legacy `200 cfs` minimum-only floor.
+  - These were kept despite the saturation warning because they still add materially different trip packages: a longer upper-to-middle day with TX 327 as bailout, a longer middle-corridor day with Baby Galvez as bailout, and a longer lower continuation that finishes at the campground-backed state-park launch.
+  - Threshold posture stayed conservative `minimum-only` using the historic Texas River Flows Village Creek / Kountze ladder at `200 / 400 / 700 / 1000 / 2000 cfs`, with current TPWD and NPS pages supplying route shape, camping, and hazard context instead of a modern route-specific band.
+  - No route-gallery image was added. `docs/river-image-source-audit.csv` records bounded TPWD / NPS / Commons / USGS review with no approved exact-route asset for the three new Texas slugs.
 
 - 2026-07-03 09:30 America/Chicago / 2026-07-03 14:30 UTC three-route add pass
   - Added `guadalupe-river-sh72-fm236`, `guadalupe-river-fm766-fm236`, and `village-creek-fm418-state-park`.

@@ -16168,6 +16168,76 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'village-creek-fm418-baby-galvez': {
+    putIn: {
+      id: 'village-creek-fm-418-boat-launch',
+      name: 'FM 418 Boat Launch',
+      latitude: 30.397794,
+      longitude: -94.265024,
+    },
+    takeOut: {
+      id: 'baby-galvez-road-boat-launch',
+      name: 'Baby Galvez Road Boat Launch',
+      latitude: 30.3345,
+      longitude: -94.20391,
+    },
+    logistics: {
+      distanceLabel: 'About 12.0 mi',
+      estimatedPaddleTime:
+        'About 4.5 hr to 7 hr at ordinary levels, longer near the floor or when heat, wood, or a slower group stretch out the day',
+      shuttle:
+        'Stage the Baby Galvez take-out first, then drive back to FM 418. Inspect both launches before leaving vehicles because the trip starts at an unpaved bridge launch, crosses the TX 327 midpoint, and ends at a simpler paved road-end ramp.',
+      permits:
+        'No route-specific paddling permit is known for this segment. Follow Texas boating and PFD rules, use only the named public launches, and obey current Big Thicket National Preserve regulations and any posted access signs.',
+      camping:
+        'Treat this as a long day trip by default. Big Thicket allows year-round sandbar camping on Village Creek for larger through-trips, and Village Creek State Park is a stronger downstream base-camp option if you want legal campground support beyond the route itself.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at FM 418 and take out at Baby Galvez Road for a longer upper-to-middle Village Creek float with TX 327 as the midpoint bailout. Use USGS 08041500 near Kountze with a conservative 200 cfs floor, then make a same-day call on current, weather, wood, and heat before committing.',
+      accessCaveats: [
+        'NPS identifies FM 418 as an unpaved bridge launch and Baby Galvez as a paved public boat ramp, but neither endpoint is a staffed park marina.',
+        'TX 327 is the clean midpoint bailout. Reassess there instead of forcing the continuation if the gauge, weather, wood load, or group pace is not matching the plan.',
+        'TPWD says Village Creek water quality is variable and not recommended for drinking. Carry enough water for a longer East Texas day.',
+        'Big Thicket boundary markers and private banks still matter on this longer segment. Do not plan casual picnics or bailouts above the ordinary high-water line.',
+        'This route uses a conservative minimum-only threshold, not a full ideal-range recommendation. If the gauge is below about 200 cfs, expect more dragging, shallow weaving, and wood dodging across a longer day.',
+      ],
+      watchFor: [
+        'Flows near or below about 200 cfs, or stage below roughly 3 ft, when exposed sandbars, logs, and shallow route-finding become more common over the longer mileage.',
+        'Stage around or above about 10 ft, rising water, or fresh heavy rain, when the creek can become swift and hazardous despite the flatwater character.',
+        'Snags, logjams, overhanging limbs, sandbars, insects, thunderstorms, and muddy or slick footing at the FM 418 and TX 327 bridge launches.',
+        'Private banks between the launches and the temptation to turn a long but easy-looking creek day into an unsupported off-route stop.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'village-creek-fm-418-boat-launch',
+        name: 'FM 418 Boat Launch',
+        latitude: 30.397794,
+        longitude: -94.265024,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upper Village Creek put-in.',
+      },
+      {
+        id: 'tx-327-boat-launch',
+        name: 'TX 327 Boat Launch',
+        latitude: 30.346944,
+        longitude: -94.239385,
+        mileFromStart: 8.6,
+        segmentKind: 'creek',
+        note: 'Primary midpoint bailout and the shortest official restart option.',
+      },
+      {
+        id: 'baby-galvez-road-boat-launch',
+        name: 'Baby Galvez Road Boat Launch',
+        latitude: 30.3345,
+        longitude: -94.20391,
+        mileFromStart: 12,
+        segmentKind: 'creek',
+        note: 'Default longer upper-to-middle finish at the paved public ramp.',
+      },
+    ],
+  },
 'village-creek-baby-galvez-us-96': {
     putIn: {
       id: 'baby-galvez-road-boat-launch',
@@ -16209,6 +16279,75 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'village-creek-sh327-us-96': {
+    putIn: {
+      id: 'tx-327-boat-launch',
+      name: 'TX 327 Boat Launch',
+      latitude: 30.346944,
+      longitude: -94.239385,
+    },
+    takeOut: {
+      id: 'us-96-boat-launch',
+      name: 'US 96 Boat Launch',
+      latitude: 30.2857,
+      longitude: -94.19145,
+    },
+    logistics: {
+      distanceLabel: 'About 10.5 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6.5 hr at ordinary levels, longer near the floor or when heat, wood, or a slow group stretch out the day',
+      shuttle:
+        'Stage the US 96 take-out first, then drive back to TX 327. Inspect all three named public launches before committing because Baby Galvez is the key midpoint bailout if conditions change after launch.',
+      permits:
+        'No route-specific paddling permit is known for this segment. Follow Texas boating and PFD rules, use only the named public launches, and obey current Big Thicket National Preserve regulations and any posted county or preserve access notices.',
+      camping:
+        'Treat this as a long day trip by default. Big Thicket says camping is allowed year-round on sandbars along Village Creek, and Village Creek State Park is a stronger downstream base-camp option if you want legal campground support instead of primitive sandbar choices.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at TX 327 and take out at US 96 for a longer middle-corridor Village Creek float with Baby Galvez as the midpoint bailout. Use USGS 08041500 near Kountze with a conservative 200 cfs floor, then make a same-day call on current, weather, wood, and heat before committing.',
+      accessCaveats: [
+        'NPS identifies TX 327 as a TxDOT-managed bridge launch, Baby Galvez as a paved public ramp, and US 96 as a paved Hardin County launch tied to the same public trail.',
+        'Baby Galvez is the clean midpoint reassessment point. Do not force the continuation to US 96 just because the first miles felt calm.',
+        'TPWD says Village Creek water quality is variable and not recommended for drinking. Carry enough water for a longer East Texas day.',
+        'This route uses a conservative minimum-only threshold, not a full ideal-range recommendation. If the gauge is below about 200 cfs, expect more scraping, wood dodging, and slow travel.',
+      ],
+      watchFor: [
+        'Flows near or below about 200 cfs, or stage below roughly 3 ft, when exposed sandbars and logs become more common and the longer mileage gets slower.',
+        'Stage around or above about 10 ft, rising water, or fresh heavy rain, when the creek can become swift and hazardous on an otherwise mellow corridor.',
+        'Snags, logjams, overhanging limbs, floating debris, insects, thunderstorms, sun exposure, and a longer self-supported shuttle than the short Village Creek links.',
+        "Private banks between the launches and overconfidence from the route's generally calm flatwater character.",
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'tx-327-boat-launch',
+        name: 'TX 327 Boat Launch',
+        latitude: 30.346944,
+        longitude: -94.239385,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default middle-corridor put-in below the highway bridge.',
+      },
+      {
+        id: 'baby-galvez-road-boat-launch',
+        name: 'Baby Galvez Road Boat Launch',
+        latitude: 30.3345,
+        longitude: -94.20391,
+        mileFromStart: 3.4,
+        segmentKind: 'creek',
+        note: 'Primary midpoint bailout before the longer lower continuation.',
+      },
+      {
+        id: 'us-96-boat-launch',
+        name: 'US 96 Boat Launch',
+        latitude: 30.2857,
+        longitude: -94.19145,
+        mileFromStart: 10.5,
+        segmentKind: 'creek',
+        note: 'Default longer middle-corridor finish near Lumberton.',
+      },
+    ],
+  },
 'village-creek-us-96-state-park': {
     putIn: {
       id: 'us-96-boat-launch',
@@ -16249,6 +16388,76 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private banks between the launches and the temptation to treat state-park access as proof that any stop along the way is equally public.',
       ],
     },
+  },
+  'village-creek-baby-galvez-state-park': {
+    putIn: {
+      id: 'baby-galvez-road-boat-launch',
+      name: 'Baby Galvez Road Boat Launch',
+      latitude: 30.3345,
+      longitude: -94.20391,
+    },
+    takeOut: {
+      id: 'village-creek-state-park-canoe-launch',
+      name: 'Village Creek State Park canoe launch',
+      latitude: 30.2553,
+      longitude: -94.171,
+    },
+    logistics: {
+      distanceLabel: 'About 10.3 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6.5 hr at ordinary levels, longer near the floor or when heat, wildlife delays, or flooding-sensitive access stretch out the day',
+      shuttle:
+        'Stage the Village Creek State Park take-out first, then drive back to Baby Galvez Road. Inspect the US 96 midpoint launch and the state-park finish before leaving vehicles because both are the clean contingency points if conditions or pace change.',
+      permits:
+        'No route-specific private paddling permit is known for a same-day trip, but you may need to pay any current state-park entrance fee at the take-out. Follow Texas boating and PFD rules, use the named public launches, and obey current Big Thicket and TPWD park notices.',
+      camping:
+        'This is the strongest longer lower Village Creek segment for legal campground support. Village Creek State Park has campsites, a cabin, and direct canoe-launch access at the take-out. Big Thicket also allows year-round sandbar camping on Village Creek for paddlers who have a more primitive overnight plan.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Baby Galvez Road and finish at Village Creek State Park for a longer lower Village Creek continuation with US 96 as the midpoint bailout. Use USGS 08041500 near Kountze with a conservative 200 cfs floor, then make a same-day call on current, flood impacts, weather, and wildlife before committing.',
+      accessCaveats: [
+        'NPS identifies Baby Galvez and US 96 as public boat ramps tied to the Village Creek trail, and TPWD separately publishes the state-park canoe-launch coordinate and paddling access.',
+        'Check with Village Creek State Park on the status of the canoe launch after flooding or storm damage. Do not assume the normal take-out path is usable on every visit.',
+        'TPWD says alligators live in the area. Give wildlife space, keep pets and food controlled, and do not create shoreline conflicts at the park launch.',
+        'TPWD says Village Creek water quality is variable and not recommended for drinking. Bring your own water even on a route that finishes inside the park.',
+        'This route uses a conservative minimum-only threshold, not a full ideal-range recommendation. If the gauge is below about 200 cfs, expect more shallow sandbars and wood on the lower miles.',
+      ],
+      watchFor: [
+        'Flows near or below about 200 cfs, or stage below roughly 3 ft, when exposed sandbars, logs, and shallow routing become more common.',
+        'Stage around or above about 10 ft, rising water, fresh heavy rain, or park-launch flood impacts that can turn a scenic lower day into a poor access decision.',
+        'Snags, logjams, floating debris, insects, thunderstorms, muddy footing, alligators, and other wildlife near the lower corridor and park take-out.',
+        'Private banks between the launches and the temptation to treat state-park access as proof that any stop along the way is equally public.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'baby-galvez-road-boat-launch',
+        name: 'Baby Galvez Road Boat Launch',
+        latitude: 30.3345,
+        longitude: -94.20391,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default lower-corridor put-in at the paved public ramp.',
+      },
+      {
+        id: 'us-96-boat-launch',
+        name: 'US 96 Boat Launch',
+        latitude: 30.2857,
+        longitude: -94.19145,
+        mileFromStart: 7.1,
+        segmentKind: 'creek',
+        note: 'Primary midpoint bailout before the state-park finish.',
+      },
+      {
+        id: 'village-creek-state-park-canoe-launch',
+        name: 'Village Creek State Park canoe launch',
+        latitude: 30.2553,
+        longitude: -94.171,
+        mileFromStart: 10.3,
+        segmentKind: 'creek',
+        note: 'Default longer lower finish with direct campground support.',
+      },
+    ],
   },
   'village-creek-fm418-state-park': {
     putIn: {
