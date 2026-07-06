@@ -16455,6 +16455,199 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'green-river-tailwater-roachville-ford': {
+    putIn: {
+      id: 'green-river-lake-tailwater',
+      name: 'Green River Lake Tailwater',
+      latitude: 37.2416,
+      longitude: -85.3441,
+    },
+    takeOut: {
+      id: 'roachville-ford',
+      name: 'Roachville Ford',
+      latitude: 37.2353,
+      longitude: -85.4241,
+    },
+    logistics: {
+      distanceLabel: 'About 12.5 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6.5 hr, longer with low-water dragging, fishing stops, or headwind',
+      shuttle:
+        'Stage the downstream vehicle at Roachville Ford, then drive back to the Green River Lake Tailwater ramp. Check the ford landing before launching because lower water can make the finish muddier and slower than the mileage suggests.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and stay off private banks between the endpoints.',
+      camping:
+        'Treat this as a day route. KDFWR does not document public camping or normal overnight support at the Tailwater ramp or Roachville Ford.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the public Green River Lake Tailwater ramp and finish at Roachville Ford for the first full Upper Green split. Use the Greensburg gauge and expect a scrape-prone day whenever the river sits below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'KDFWR says boats are not permitted upstream of the Tailwater ramp. Launch downstream only and do not drift back toward the dam area.',
+        'The first shoal lies about a quarter mile below the Highway 55 bridge at the launch, so treat the opening stretch as moving river rather than flat tailwater idling.',
+        'Roachville Ford is a low-water gravel ford with limited roadside parking and no amenities. Lower stages can require brief carry or drag moves at the finish.',
+        'Most shoreline between the named accesses is private and should not be treated as a casual stop or backup exit.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, sticky mud, and dragging become more common.',
+        'High water above about 1.75 ft, when current at bends and the ford landing gets less forgiving.',
+        'Fresh wood after rain, bridge-adjacent current, and the first shoal below Highway 55.',
+      ],
+    },
+  },
+  'green-river-tailwater-russell-ford': {
+    putIn: {
+      id: 'green-river-lake-tailwater',
+      name: 'Green River Lake Tailwater',
+      latitude: 37.2416,
+      longitude: -85.3441,
+    },
+    takeOut: {
+      id: 'russell-ford-access',
+      name: 'Russell Ford Access',
+      latitude: 37.2738,
+      longitude: -85.4784,
+    },
+    logistics: {
+      distanceLabel: 'About 19.1 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 9 hr, longer with low-water dragging, fishing stops, or scouting at the take-out',
+      shuttle:
+        'Stage the downstream vehicle at Russell Ford, then drive back to the Green River Lake Tailwater ramp. This is a real full-day upper-Green commitment, so check daylight, wind, and the Russell landing before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and stay off private banks between the endpoints.',
+      camping:
+        'Treat this as a long day route. KDFWR does not document public camping or normal overnight support at the Tailwater ramp, Roachville Ford, or Russell Ford.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the public Green River Lake Tailwater ramp and finish at Russell Ford for the longer Upper Green tailwater continuation. Use the Greensburg gauge and expect a slower day whenever the river sits below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'KDFWR says boats are not permitted upstream of the Tailwater ramp. Launch downstream only and do not drift back toward the dam area.',
+        'Roachville Ford is the clearest midpoint bailout if the first twelve miles are slower than planned, but it is still a muddy low-water ford rather than a polished ramp.',
+        'Russell Ford sits on river left in the middle of a shoal, and KDFWR warns unfamiliar paddlers can drift past it if they stay in the main right channel.',
+        'Most shoreline between the named accesses is private and should not be treated as a casual stop or backup exit.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, mud edges, and dragging become more likely across a long day.',
+        'High water above about 1.75 ft, when current through islands, chutes, and the Russell landing gets less forgiving.',
+        'Fresh wood after rain, the first shoal below Highway 55, and take-out confusion at Russell Ford.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'green-river-lake-tailwater',
+        name: 'Green River Lake Tailwater',
+        latitude: 37.2416,
+        longitude: -85.3441,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream launch below the no-upstream-boating tailwater zone.',
+      },
+      {
+        id: 'roachville-ford',
+        name: 'Roachville Ford',
+        latitude: 37.2353,
+        longitude: -85.4241,
+        mileFromStart: 12.5,
+        segmentKind: 'creek',
+        note: 'Mid-route legal bailout at the low-water ford.',
+      },
+      {
+        id: 'russell-ford-access',
+        name: 'Russell Ford Access',
+        latitude: 37.2738,
+        longitude: -85.4784,
+        mileFromStart: 19.1,
+        segmentKind: 'creek',
+        note: 'Default downstream finish on river left in the shoal.',
+      },
+    ],
+  },
+  'green-river-tailwater-greensburg-city-ramp': {
+    putIn: {
+      id: 'green-river-lake-tailwater',
+      name: 'Green River Lake Tailwater',
+      latitude: 37.2416,
+      longitude: -85.3441,
+    },
+    takeOut: {
+      id: 'greensburg-city-ramp',
+      name: 'Greensburg City Ramp',
+      latitude: 37.2581,
+      longitude: -85.5057,
+    },
+    logistics: {
+      distanceLabel: 'About 23.4 mi',
+      estimatedPaddleTime:
+        'About 7 hr to 10 hr, longer with low water, fishing stops, or slower loading at the city ramp',
+      shuttle:
+        'Stage the take-out at Greensburg City Ramp, then drive back to the Green River Lake Tailwater launch. This is a full Upper Green day, so confirm daylight, weather, and group pace before committing to the full distance.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey city-park signage at Greensburg.',
+      camping:
+        'Greensburg supports endpoint overnights better than on-route camping. KDFWR says the city-ramp take-out sits in a park with cabins and nearby RV hookups, but private banks between the accesses should not be treated as legal overnight stops.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at the public Green River Lake Tailwater ramp and continue to Greensburg City Ramp for the full Upper Green public route. Use the Greensburg gauge and expect a very long scrape-prone day whenever the river sits below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'KDFWR says boats are not permitted upstream of the Tailwater ramp. Launch downstream only and do not drift back toward the dam area.',
+        'Roachville Ford, Russell Ford, and American Legion Park all lie on the corridor and can shorten the day if pace or conditions change, but this route assumes the full Tailwater-to-Greensburg commitment.',
+        'Greensburg City Ramp is the cleanest landing in this family, but it still sits in an active public city park with cabins, anglers, and other local users. Keep the ramp area clear and efficient.',
+        'Most shoreline between the named accesses is private and should not be treated as a casual stop or backup exit.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, mud edges, and dragging become more likely across a very long day.',
+        'High water above about 1.75 ft, when current at bends and landings becomes less forgiving for casual paddlers.',
+        'Fresh wood after rain, the first shoal below Highway 55, islands and chutes above Russell Ford, and broad-river wind on exposed pools.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'green-river-lake-tailwater',
+        name: 'Green River Lake Tailwater',
+        latitude: 37.2416,
+        longitude: -85.3441,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream launch below the no-upstream-boating tailwater zone.',
+      },
+      {
+        id: 'roachville-ford',
+        name: 'Roachville Ford',
+        latitude: 37.2353,
+        longitude: -85.4241,
+        mileFromStart: 12.5,
+        segmentKind: 'creek',
+        note: 'Early legal bailout at the low-water ford.',
+      },
+      {
+        id: 'russell-ford-access',
+        name: 'Russell Ford Access',
+        latitude: 37.2738,
+        longitude: -85.4784,
+        mileFromStart: 19.1,
+        segmentKind: 'creek',
+        note: 'Mid-route legal bailout on river left in the shoal.',
+      },
+      {
+        id: 'american-legion-park-ramp',
+        name: 'American Legion Park Ramp',
+        latitude: 37.2441,
+        longitude: -85.4795,
+        mileFromStart: 21.4,
+        segmentKind: 'creek',
+        note: 'Late legal bailout at the public park ramp below Highway 417.',
+      },
+      {
+        id: 'greensburg-city-ramp',
+        name: 'Greensburg City Ramp',
+        latitude: 37.2581,
+        longitude: -85.5057,
+        mileFromStart: 23.4,
+        segmentKind: 'creek',
+        note: 'Default downstream finish at the paved city-ramp take-out.',
+      },
+    ],
+  },
   'green-river-roachville-russell-ford': {
     putIn: {
       id: 'roachville-ford',

@@ -2,6 +2,14 @@
 
 Last summarized: 2026-07-06 16:48 America/Chicago / 2026-07-06 21:48 UTC.
 
+## 2026-07-06 Upper Green tailwater continuation pass
+
+- Reused the live repo tree as the only valid baseline and added three Upper Green slugs that were absent from the working tree at run start: `green-river-tailwater-roachville-ford`, `green-river-tailwater-russell-ford`, and `green-river-tailwater-greensburg-city-ramp`.
+- Current KDFWR Pool 6 Green River guidance still documents the exact public route pieces of Tailwater -> Roachville `12.5`, Roachville -> Russell `6.6`, Russell -> American Legion `2.3`, and American Legion -> Greensburg `2.0`, which support the new public route mileages of `12.5`, `19.1`, and `23.4`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Green River Tailwater Ramp, Roachville Ford, Russell Ford Access, American Legion Park Ramp, and Greensburg City Ramp. Same-day direct USGS Water Services returned `0.93 ft` at `2026-07-06 17:15 CDT` for Green River at Greensburg (`03306500`), just below the official KDFWR good band of `1.0-1.75 ft`, so all three additions ship with explicit scrape-prone low-water caution rather than comfort framing.
+- Camping stays conservative by route: Tailwater -> Roachville and Tailwater -> Russell use `none`, while Tailwater -> Greensburg uses `endpoint_campground` because KDFWR documents cabins and RV hookups at the Greensburg city-park take-out but not legal on-river camping between the public accesses.
+- Bounded image posture remains no-gallery for all three slugs: `docs/river-image-source-audit.csv` now records the no-image outcome because bounded KDFWR, Commons, and same-river USGS media review did not produce a clearly rights-clean exact-route asset.
+
 ## 2026-07-06 South Fork split restoration pass
 
 - Reused the live repo state as the only valid baseline and restored three South Fork Kentucky River split slugs that were absent from the current tree at run start: `south-fork-kentucky-river-oneida-rocky-branch`, `south-fork-kentucky-river-rocky-branch-cedar-valley`, and `south-fork-kentucky-river-cedar-valley-bishop-bend`.

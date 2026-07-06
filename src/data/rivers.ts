@@ -48010,6 +48010,400 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: "green-river-tailwater-roachville-ford",
+    slug: "green-river-tailwater-roachville-ford",
+    name: "Green River",
+    reach: "Green River Lake Tailwater to Roachville Ford",
+    aliases: [
+      "Green River - Tailwater to Roachville",
+      "Upper Green River tailwater opener",
+      "KDFWR Upper Green Tailwater to Roachville Ford",
+    ],
+    state: "Kentucky",
+    region: "South-Central Kentucky",
+    summary:
+      "Upper Green opener from the public Green River Lake Tailwater ramp to Roachville Ford. KDFWR still lists this exact 12.5-mile public segment, keeps the endpoint access details current, and ties the corridor to the direct Greensburg stage gauge.",
+    statusText:
+      "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Below that expect slower shoals, more scraping, and a muddier ford finish; above that the broad current and bends deserve more caution.",
+    latitude: 37.2416,
+    longitude: -85.3441,
+    gaugeSource: {
+      id: "usgs-03306500",
+      provider: "usgs",
+      siteId: "03306500",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Green River at Greensburg, KY",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["fast_rise", "private_banks", "strainers"],
+      safetyNotes: [
+        "KDFWR says boats are not permitted upstream of the tailwater ramp and that the first shoal sits about a quarter mile below the Highway 55 bridge.",
+        "Roachville Ford is a low-water gravel ford that may require portaging or dragging during lower-flow periods.",
+        "Most shoreline between the named accesses is private, so stay with the public endpoints and avoid improvised bank exits.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 1.0,
+      idealMax: 1.75,
+      tooLow: 1.0,
+      tooHigh: 1.75,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Green River at Greensburg",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This upper-Green day is most practical in spring through fall when the Greensburg stage is stable. Summer lows can turn the shoals and ford finish into a slower scrape-fest, while storms or release changes can make the broad current pushier than it first looks.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is still a broad-audience Green River float, but the tailwater launch, first shoal, private banks, and low-water ford finish mean it is more than a lazy pond-style outing.",
+      confidenceNotes:
+        "Confidence is high for a conservative Kentucky add: KDFWR's Pool 6 Green River page still lists Green River Lake Tailwater Ramp to Roachville Ford as an exact 12.5-mile public segment, still publishes the official Greensburg gauge ladder of Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft, and current KDFWR access-detail pages still expose source-backed coordinates and public-use notes for both endpoints. USGS Water Services returned a same-day July 6, 2026 stage of 0.93 ft from direct gauge 03306500 during this run, honestly placing the route just below the official good band.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Green River Lake Tailwater to Roachville Ford, 12.5 mi",
+        note: "KDFWR's Pool 6 Green River page still lists this exact public float at 12.5 miles.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "1.0-1.75 ft good",
+        note: "KDFWR rates the Green River gauge at Greensburg as Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Green River Lake Tailwater, 37.2416, -85.3441",
+        note: "KDFWR identifies the tailwater ramp as a free public paved launch with security-lit parking, restroom facilities, and a no-upstream-boating rule above the ramp.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=588",
+      },
+      {
+        label: "Take-out access",
+        value: "Roachville Ford, 37.2353, -85.4241",
+        note: "KDFWR identifies Roachville Ford as a free public low-water ford access with limited roadside parking and no amenities.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=221",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03306500 at 0.93 ft",
+        note: "USGS Water Services returned a same-day July 6, 2026 gage-height reading for Green River at Greensburg during this run. That stage sits just below KDFWR's good band.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Tailwater opener, first shoal below Highway 55, and low-water ford finish",
+        note: "KDFWR says the first shoal is a quarter mile below the Highway 55 bridge at the launch and describes Roachville as a low-water ford with shallow riffles, pools, and water willow beds where portaging may be needed in lower flows.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Green River Lake Tailwater",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=588",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Roachville Ford",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=221",
+        provider: "local",
+      },
+      {
+        label: "USGS 03306500 Green River at Greensburg",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03306500 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "green-river-tailwater-russell-ford",
+    slug: "green-river-tailwater-russell-ford",
+    name: "Green River",
+    reach: "Green River Lake Tailwater to Russell Ford Access",
+    aliases: [
+      "Green River - Tailwater to Russell Ford",
+      "Upper Green River long tailwater split",
+      "KDFWR Upper Green Tailwater to Russell",
+    ],
+    state: "Kentucky",
+    region: "South-Central Kentucky",
+    summary:
+      "Longer upper Green route from the public Green River Lake Tailwater ramp to Russell Ford Access. KDFWR supports this 19.1-mile public route by combining the exact 12.5-mile Tailwater-to-Roachville segment with the exact 6.6-mile Roachville-to-Russell segment on the same Greensburg stage model.",
+    statusText:
+      "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Below that expect a longer scrape-prone day; above that the broader current, islands, and easy-to-miss Russell landing deserve more caution.",
+    latitude: 37.2416,
+    longitude: -85.3441,
+    gaugeSource: {
+      id: "usgs-03306500",
+      provider: "usgs",
+      siteId: "03306500",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Green River at Greensburg, KY",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["fast_rise", "private_banks", "strainers", "remote"],
+      safetyNotes: [
+        "KDFWR says boats are not permitted upstream of the tailwater ramp and that the first shoal sits below Highway 55 shortly after launch.",
+        "This longer route passes Roachville, then continues into the islands and chutes above Russell Ford, where paddlers unfamiliar with the route can drift past the left-side take-out.",
+        "Most banks are private and services are sparse, so treat this as a full point-to-point day rather than a route with casual public stopovers.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 1.0,
+      idealMax: 1.75,
+      tooLow: 1.0,
+      tooHigh: 1.75,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Green River at Greensburg",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This upper-Green combination is best in spring through fall when the Greensburg stage is stable. Summer lows expose more shoals and mud through a longer day, while storms or release changes can turn the islands and wider current into a more sustained push.",
+      difficulty: "moderate",
+      difficultyNotes:
+        "The current is still broad-audience friendly at normal levels, but nearly twenty miles of private-bank river, shoals, and a subtle take-out make this more committed than the shorter Upper Green splits.",
+      confidenceNotes:
+        "Confidence is high for a conservative Kentucky add: KDFWR's Pool 6 Green River page still lists Green River Lake Tailwater to Roachville Ford as 12.5 miles and Roachville Ford to Russell Ford as 6.6 miles, supporting this 19.1-mile public route. The same page still publishes the official Greensburg gauge ladder of Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft, current KDFWR access-detail pages still expose source-backed coordinates and public-use notes for the Tailwater and Russell endpoints, and USGS Water Services returned a same-day July 6, 2026 stage of 0.93 ft from direct gauge 03306500 during this run.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route chain",
+        value: "Tailwater -> Roachville 12.5 mi plus Roachville -> Russell 6.6 mi",
+        note: "KDFWR lists both public site-to-site mileages on the Pool 6 Green River page, supporting this combined 19.1-mile route.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "1.0-1.75 ft good",
+        note: "KDFWR rates the Green River gauge at Greensburg as Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Green River Lake Tailwater, 37.2416, -85.3441",
+        note: "KDFWR identifies the tailwater ramp as a free public paved launch with security-lit parking, restroom facilities, and a no-upstream-boating rule above the ramp.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=588",
+      },
+      {
+        label: "Take-out access",
+        value: "Russell Ford Access, 37.2738, -85.4784",
+        note: "KDFWR identifies Russell Ford as a free public carry-down access with unpaved parking and year-round 24-hour availability.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=955",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03306500 at 0.93 ft",
+        note: "USGS Water Services returned a same-day July 6, 2026 gage-height reading for Green River at Greensburg during this run. That stage sits just below KDFWR's good band.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Tailwater launch, islands and chutes, and a subtle left-bank take-out",
+        note: "KDFWR says the route begins below the Tailwater shoal and describes the Roachville-to-Russell section as islands and chutes through water willow beds where paddlers can drift past the Russell Ford landing if they are not watching the left bank.",
+        sourceUrl: "https://fw.ky.gov/Education/Pages/Upper-Green-River.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Upper Green River",
+        url: "https://fw.ky.gov/Education/Pages/Upper-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Green River Lake Tailwater",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=588",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Russell Ford Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=955",
+        provider: "local",
+      },
+      {
+        label: "USGS 03306500 Green River at Greensburg",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03306500 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "green-river-tailwater-greensburg-city-ramp",
+    slug: "green-river-tailwater-greensburg-city-ramp",
+    name: "Green River",
+    reach: "Green River Lake Tailwater to Greensburg City Ramp",
+    aliases: [
+      "Green River - Tailwater to Greensburg",
+      "Upper Green full tailwater route",
+      "KDFWR Upper Green Tailwater to Greensburg City Ramp",
+    ],
+    state: "Kentucky",
+    region: "South-Central Kentucky",
+    summary:
+      "Full Upper Green River route from the public Green River Lake Tailwater ramp to Greensburg City Ramp. KDFWR supports this 23.4-mile public route by chaining the exact Tailwater-to-Roachville, Roachville-to-Russell, Russell-to-American-Legion, and American-Legion-to-Greensburg segments against the same direct Greensburg stage gauge.",
+    statusText:
+      "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Below that expect a long scrape-prone day; above that the broader current, islands, and city-ramp finish deserve more caution.",
+    latitude: 37.2416,
+    longitude: -85.3441,
+    gaugeSource: {
+      id: "usgs-03306500",
+      provider: "usgs",
+      siteId: "03306500",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Green River at Greensburg, KY",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["fast_rise", "private_banks", "strainers", "remote"],
+      safetyNotes: [
+        "KDFWR says boats are not permitted upstream of the tailwater ramp and that the first shoal sits below Highway 55 shortly after launch.",
+        "This long route continues through the islands and chutes above Russell Ford before broadening toward Greensburg, so low water, woody debris, and fatigue matter more than on the shorter splits.",
+        "Most banks are private, and the clean legal landings are the named accesses at Roachville, Russell Ford, American Legion Park, and Greensburg City Ramp.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 1.0,
+      idealMax: 1.75,
+      tooLow: 1.0,
+      tooHigh: 1.75,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Green River at Greensburg",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This full upper-Green route is best in spring through fall when the Greensburg stage is stable. Summer lows can add dragging and muddy landings across a very long day, while storms or release changes can make the route feel much pushier than the easy label suggests.",
+      difficulty: "moderate",
+      difficultyNotes:
+        "The current is still recreational at normal stages, but 23-plus miles of shoals, islands, private banks, and limited legal stops make this a full-day commitment rather than a casual float.",
+      confidenceNotes:
+        "Confidence is high for a conservative Kentucky add: KDFWR's Pool 6 Green River page still lists Green River Lake Tailwater to Roachville Ford as 12.5 miles, Roachville Ford to Russell Ford as 6.6 miles, Russell Ford to American Legion Park Ramp as 2.3 miles, and American Legion Park Ramp to Greensburg City Ramp as 2.0 miles, supporting this 23.4-mile public route. The same page still publishes the official Greensburg gauge ladder of Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft, current KDFWR access-detail pages still expose source-backed coordinates and public-use notes for the Tailwater and Greensburg endpoints, and USGS Water Services returned a same-day July 6, 2026 stage of 0.93 ft from direct gauge 03306500 during this run.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route chain",
+        value: "12.5 + 6.6 + 2.3 + 2.0 mi",
+        note: "KDFWR lists Tailwater to Roachville at 12.5 miles, Roachville to Russell at 6.6, Russell to American Legion at 2.3, and American Legion to Greensburg at 2.0, supporting a combined public route of about 23.4 miles.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "1.0-1.75 ft good",
+        note: "KDFWR rates the Green River gauge at Greensburg as Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Green River Lake Tailwater, 37.2416, -85.3441",
+        note: "KDFWR identifies the tailwater ramp as a free public paved launch with security-lit parking, restroom facilities, and a no-upstream-boating rule above the ramp.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=588",
+      },
+      {
+        label: "Take-out access",
+        value: "Greensburg City Ramp, 37.2581, -85.5057",
+        note: "KDFWR identifies Greensburg City Ramp as a free paved city ramp with paved parking and nearby cabins and RV hookups at the park.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=220",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03306500 at 0.93 ft",
+        note: "USGS Water Services returned a same-day July 6, 2026 gage-height reading for Green River at Greensburg during this run. That stage sits just below KDFWR's good band.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Tailwater launch, islands and chutes, then a paved city-ramp finish",
+        note: "KDFWR describes the route as starting below the Tailwater shoal, continuing through the islands and chutes above Russell Ford, and finishing at Greensburg City Park with the cleanest public landing and nearby overnight support on the corridor.",
+        sourceUrl: "https://fw.ky.gov/Education/Pages/Upper-Green-River.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Upper Green River",
+        url: "https://fw.ky.gov/Education/Pages/Upper-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Green River Lake Tailwater",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=588",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Greensburg City Ramp",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=220",
+        provider: "local",
+      },
+      {
+        label: "USGS 03306500 Green River at Greensburg",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03306500 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
     id: "green-river-roachville-russell-ford",
     slug: "green-river-roachville-russell-ford",
     name: "Green River",
