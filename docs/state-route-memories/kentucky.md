@@ -7,6 +7,15 @@ Last summarized: 2026-07-03 20:45 America/Chicago / 2026-07-04 01:45 UTC.
 - Live routes: 43.
 - Ledger candidates: 72 Kentucky-specific records. The newest live Kentucky slugs are `floyds-fork-north-beckley-cane-run`, `floyds-fork-seaton-valley-broad-run-valley`, and `floyds-fork-broad-run-valley-cliffside`.
 
+## 2026-07-05 Floyds Fork continuation pass
+
+- Reused the live repo state as the only valid baseline and added three Floyds Fork slugs that were absent from the current tree at run start: `floyds-fork-creekside-cane-run`, `floyds-fork-fisherville-seaton-valley`, and `floyds-fork-cane-run-broad-run-valley`.
+- Current KDFWR Floyds Fork guidance still documents the exact public route pieces of Creekside -> Fisherville `4.3`, Fisherville -> Cane Run `4.2`, and Cane Run -> Seaton Valley `3.1`, while the lower Floyds Fork PDF still documents Seaton Valley -> Broad Run Valley `3.5`, which supports the new public route mileages of `8.5`, `7.3`, and `6.6`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Creekside Canoe Access, Fisherville Canoe Access, Cane Run Canoe Access, Seaton Valley Paddling Access, and Broad Run Valley Paddling Access.
+- Same-day direct USGS Water Services returned `50.8 cfs / 1.09 ft` at `2026-07-05 20:20 EDT` for Floyds Fork at Fisherville (`03298000`), just above the official discharge floor but below the official stage floor of `1.3 ft`, so all three additions ship with honest scrape-prone low-water caution rather than broad comfort language.
+- Camping stays conservative at `none` for all three because KDFWR and The Parklands still document this corridor as a managed day-use access chain with marked landings, not a public overnight route.
+- Reused the approved Floyds Fork Commons corridor image for all three slugs and recorded the reuse in `docs/river-image-source-audit.csv`.
+
 ## Status
 
 Kentucky had been paused from the active automation rotation at user request while work shifted to other states, but the current resumes have kept paying off because multiple KDFWR families now clear the same-day USGS gate again. It now has broad KDFWR-backed coverage across Levisa Fork, Slate Creek, Floyds Fork, South Fork Kentucky River, South Fork Licking River, North Fork Kentucky River, Russell Creek, Drakes Creek, Tygarts Creek, Big South Fork, Tradewater, Cumberland River, Barren River, and Green River, plus the guarded Elkhorn Creek whitewater route. The latest cleanup trimmed redundant Levisa Fork and Cumberland chain permutations into canonical corridor routes with preserved intermediate public access planning. KDFWR Blue Water Trails remain the best seed source for future resumes, but the remaining near-term leads are narrower and more likely to be blocked by threshold gaps, same-river gauge limits, or route-shape hazards around dams and whitewater.

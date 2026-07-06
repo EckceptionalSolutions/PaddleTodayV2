@@ -9905,6 +9905,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'floyds-fork-fisherville-seaton-valley': {
+    putIn: {
+      id: 'fisherville-canoe-access',
+      name: 'Fisherville Canoe Access',
+      latitude: 38.1887,
+      longitude: -85.4779,
+    },
+    takeOut: {
+      id: 'seaton-valley-paddling-access',
+      name: 'Seaton Valley Paddling Access',
+      latitude: 38.1323,
+      longitude: -85.5191,
+    },
+    logistics: {
+      distanceLabel: 'About 7.3 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with low water, scouting, or fishing',
+      shuttle:
+        'Stage the take-out at Seaton Valley Paddling Access in Turkey Run Park, then drive back to Fisherville Canoe Access on Old Taylorsville Road. Inspect both carry-downs before launching because the Parklands corridor uses marked landings rather than broad beaches.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a Parklands day trip. KDFWR lists no camping at either access, and no legal on-route overnight plan was verified for this managed park corridor.',
+      summary:
+        'Launch at Fisherville Canoe Access and take out 7.3 miles downstream at Seaton Valley Paddling Access for a longer Parklands Floyds Fork float. KDFWR gives a good Fisherville gauge band of 50 to 300 cfs, while the route guidance adds low-water shoals, waves, wood, and marked-landings-only discipline.',
+      accessCaveats: [
+        'Fisherville is a KDFWR carry-down site off Old Taylorsville Road with unpaved parking and no listed amenities.',
+        'Seaton Valley is a KDFWR carry-down access in Turkey Run Park with shoreline access and no camping listed.',
+        'The Parklands instructs paddlers to use marked landings only and not to take out on private property.',
+        'The current Fisherville gauge reading during this run sat just above the discharge floor but below the official stage floor, so expect more scraping and slower shoals than the mileage alone suggests.',
+      ],
+      watchFor: [
+        'Class I+ moving water with shallow gravel shoals that often require walking at low water.',
+        'Waves, root wads, downed limbs, and swifter current through bends and bridge pinch points.',
+        'The signed Cane Run side-channel area, followed by more pushy lower-corridor current into Turkey Run.',
+        'High water above the good band, when current speeds up and recovery spots become scarcer.',
+        'Water-quality and runoff concerns after storms in the Floyds Fork watershed.',
+      ],
+    },
+  },
   'floyds-fork-north-beckley-creekside': {
     putIn: {
       id: 'north-beckley-canoe-access',
@@ -9983,6 +10022,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'floyds-fork-creekside-cane-run': {
+    putIn: {
+      id: 'creekside-canoe-access',
+      name: 'Creekside Canoe Access',
+      latitude: 38.2158,
+      longitude: -85.4778,
+    },
+    takeOut: {
+      id: 'cane-run-canoe-access',
+      name: 'Cane Run Canoe Access',
+      latitude: 38.1519,
+      longitude: -85.5026,
+    },
+    logistics: {
+      distanceLabel: 'About 8.5 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, scouting, or fishing',
+      shuttle:
+        'Stage the take-out at Cane Run Canoe Access off Echo Trail, then drive back to Creekside Canoe Access. Inspect the signed Cane Run side-channel exit before launching because drifting past it creates an avoidable downstream access problem.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a Parklands day trip. No camping plan is assumed between Creekside and Cane Run, and banks away from public access areas should be treated as private or managed park land unless clearly posted otherwise.',
+      summary:
+        'Launch at Creekside Canoe Access and take out 8.5 miles downstream at Cane Run Canoe Access for a longer middle-corridor Floyds Fork float. KDFWR gives a good Fisherville gauge band of 50 to 300 cfs, while route guidance adds bluff-lined moving water, bridge landmarks, and the Cane Run side-channel finish.',
+      accessCaveats: [
+        'Creekside is a KDFWR carry-down access near the Egg Lawn with no listed amenities. Confirm parking rules and the carry path before unloading boats.',
+        'Cane Run is a KDFWR carry-down site off Echo Trail with unpaved parking.',
+        'The Parklands says Floyds Fork levels rise and fall quickly and that lower water can expose shoals requiring wading.',
+        'Stay on the creek and use named public accesses only. Respect private property and managed park boundaries throughout the corridor.',
+      ],
+      watchFor: [
+        'Class I+ moving water with shallow gravel shoals that often require walking at low water.',
+        'Undercut banks, root wads, downed limbs, and faster water near Distillery Bend and bridge pinch points.',
+        'Bridge approaches, the Cane Run side-channel take-out, and fewer easy recovery spots as flows rise.',
+        'High water above the good band, when current speeds up through bends and recovery spots become scarcer.',
+        'Water-quality and runoff concerns after storms in the Floyds Fork watershed.',
+      ],
+    },
+  },
   'floyds-fork-cane-run-seaton-valley': {
     putIn: {
       id: 'cane-run-canoe-access',
@@ -10018,6 +10096,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Strainers, fallen wood, overhanging brush, and fresh storm debris.',
         'Longer recovery swims and fewer eddies when flows push above the official good band.',
         'Private-bank and managed-park boundary issues if you miss the designated take-out.',
+        'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
+      ],
+    },
+  },
+  'floyds-fork-cane-run-broad-run-valley': {
+    putIn: {
+      id: 'cane-run-canoe-access',
+      name: 'Cane Run Canoe Access',
+      latitude: 38.1519,
+      longitude: -85.5026,
+    },
+    takeOut: {
+      id: 'broad-run-valley-paddling-access',
+      name: 'Broad Run Valley Paddling Access',
+      latitude: 38.1039,
+      longitude: -85.5455,
+    },
+    logistics: {
+      distanceLabel: 'About 6.6 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, scouting, or fishing',
+      shuttle:
+        'Stage the take-out at Broad Run Valley Paddling Access, then drive back to Cane Run Canoe Access off Echo Trail. Walk both carry-downs before launching because the Parklands corridor uses marked landings instead of broad public beaches.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a lower-Parklands day trip. KDFWR lists no camping at either access, and no legal on-route overnight plan was verified for this managed park corridor.',
+      summary:
+        'Launch at Cane Run Canoe Access and take out 6.6 miles downstream at Broad Run Valley Paddling Access for a longer lower-Parklands Floyds Fork float. KDFWR documents the exact route pieces and the same Fisherville gauge bands used upstream.',
+      accessCaveats: [
+        'Cane Run is a KDFWR carry-down site off Echo Trail with unpaved parking.',
+        'Broad Run Valley is a KDFWR carry-down access with year-round limited-hours shoreline access and no listed camping.',
+        'The Parklands instructs paddlers to use marked landings only and not to take out on private property.',
+        'The current Fisherville gauge reading during this run sat just above the discharge floor but below the official stage floor, so expect more scraping and slower shoals than the mileage alone suggests.',
+      ],
+      watchFor: [
+        'Class I+ moving water, shallow bedrock rapids, and braid choices around islands and chutes.',
+        'Strainers, fallen wood, and the mile-long Mary\'s Island split where the KDFWR PDF says to stay left.',
+        'Longer recovery swims and fewer easy eddies once the creek pushes above the official good band.',
+        'Undercut banks, bluff-side current, and bedrock shelves through the lower Parklands section.',
         'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
       ],
     },
