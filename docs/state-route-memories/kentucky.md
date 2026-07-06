@@ -1,6 +1,15 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-05 22:26 America/Chicago / 2026-07-06 03:26 UTC.
+Last summarized: 2026-07-06 00:45 America/Chicago / 2026-07-06 05:45 UTC.
+
+## 2026-07-06 Floyds Fork continuation pass
+
+- Reused the live repo state as the only valid baseline and added three Floyds Fork slugs that were absent from the current tree at run start: `floyds-fork-north-beckley-fisherville`, `floyds-fork-fisherville-broad-run-valley`, and `floyds-fork-cane-run-cliffside`.
+- Current KDFWR Floyds Fork guidance still documents the exact public route pieces of North Beckley -> Creekside `2.1`, Creekside -> Fisherville `4.3`, Fisherville -> Cane Run `4.2`, and Cane Run -> Seaton Valley `3.1`, while the current lower Floyds Fork PDF still documents Seaton Valley -> Broad Run Valley `3.5` and Broad Run Valley -> Cliffside `2.5`. That supports the new public route mileages of `6.4`, `10.8`, and `9.1`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for North Beckley, Fisherville, Cane Run, Broad Run Valley, and Cliffside. Same-day direct USGS Water Services returned `48.7 cfs / 1.07 ft` at `2026-07-06 00:20 EDT` for Floyds Fork at Fisherville (`03298000`), just below the official `50 cfs / 1.3 ft` good-band floor, so all three additions ship with honest scrape-prone low-end caution rather than comfort framing.
+- Camping stays conservative at `none` for all three because the Parklands/KDFWR corridor still reads as a managed day-use access chain without a verified public overnight plan.
+- Safety notes stay focused on Class I+ moving water, quick rain rises, strainers and fresh wood, low-water dragging, The Oxbow braid choice on the upstream route, the signed Cane Run side-channel area on the longer lower routes, Mary’s Island stay-left guidance on the lower routes, and marked-landings-only / private-bank discipline throughout the corridor.
+- Reused the approved Commons Floyds Fork image for all three slugs, and `docs/river-image-source-audit.csv` now records that same-creek reuse.
 
 ## 2026-07-05 Upper Green split restoration pass
 

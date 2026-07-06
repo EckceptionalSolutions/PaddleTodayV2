@@ -10256,6 +10256,123 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'floyds-fork-north-beckley-fisherville': {
+    putIn: {
+      id: 'north-beckley-canoe-access',
+      name: 'North Beckley Canoe Access',
+      latitude: 38.2308,
+      longitude: -85.4682,
+    },
+    takeOut: {
+      id: 'fisherville-canoe-access',
+      name: 'Fisherville Canoe Access',
+      latitude: 38.1887,
+      longitude: -85.4779,
+    },
+    logistics: {
+      distanceLabel: 'About 6.4 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, scouting, or fishing',
+      shuttle:
+        'Stage the take-out at Fisherville Canoe Access on Old Taylorsville Road, then drive back to North Beckley Canoe Access in Beckley Creek Park. Inspect the Fisherville landing before launching so the right-bank finish just below KY 155 is easy to spot.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a Parklands day trip. No camping plan is assumed between North Beckley and Fisherville, and banks away from public access areas should be treated as private or managed park land unless clearly posted otherwise.',
+      summary:
+        'Launch at North Beckley Canoe Access and take out 6.4 miles downstream at Fisherville Canoe Access for a mid-length Parklands Floyds Fork float. KDFWR gives a good Fisherville gauge band of 50 to 300 cfs, while route guidance adds Oxbow braid choices, bluff-lined current, and low-water shoal walking.',
+      accessCaveats: [
+        'North Beckley is a KDFWR carry-down site in Beckley Creek Park with limited-hours shoreline access, unpaved parking, and no ramp surface.',
+        'Fisherville is a KDFWR carry-down site off Old Taylorsville Road with unpaved parking and no listed amenities.',
+        'The Parklands says Floyds Fork levels rise and fall quickly. Do not treat the gauge as a substitute for checking recent rain, gauge trend, and the creek at the launch.',
+        'Use marked landings only and respect private property throughout the corridor. Do not assume gravel bars, side channels, or park banks outside the designated accesses are legal stopping points.',
+      ],
+      watchFor: [
+        'Class I+ moving water with shallow riffles, braided chutes, and gravel bars that can require dragging at lower flows.',
+        'Downed timber, strainers, woody cover, and blind bends around The Oxbow, Distillery Bend, and bridge pinch points.',
+        'Bridge approaches at I-64, Beckley Creek Parkway, Echo Trail, the railroad trestle, Taylorsville Road, and KY 155.',
+        'High water above the corridor good band, when current speeds up through bends and fewer beaches remain for recovery.',
+        'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
+      ],
+    },
+  },
+  'floyds-fork-fisherville-broad-run-valley': {
+    putIn: {
+      id: 'fisherville-canoe-access',
+      name: 'Fisherville Canoe Access',
+      latitude: 38.1887,
+      longitude: -85.4779,
+    },
+    takeOut: {
+      id: 'broad-run-valley-paddling-access',
+      name: 'Broad Run Valley Paddling Access',
+      latitude: 38.1039,
+      longitude: -85.5455,
+    },
+    logistics: {
+      distanceLabel: 'About 10.8 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, scouting, or fishing',
+      shuttle:
+        'Stage the take-out at Broad Run Valley Paddling Access, then drive back to Fisherville Canoe Access on Old Taylorsville Road. Inspect both carry-downs before launching because the Parklands corridor uses marked landings rather than broad public beaches.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a long Parklands day trip. KDFWR lists no camping at either access, and no legal on-route overnight plan was verified for this managed park corridor.',
+      summary:
+        'Launch at Fisherville Canoe Access and take out 10.8 miles downstream at Broad Run Valley Paddling Access for a long lower-Parklands Floyds Fork float. KDFWR gives a good Fisherville gauge band of 50 to 300 cfs, while the lower-route guidance adds Mary\'s Island, bedrock shelves, wood, and marked-landings-only discipline.',
+      accessCaveats: [
+        'Fisherville is a KDFWR carry-down site off Old Taylorsville Road with unpaved parking and no listed amenities.',
+        'Broad Run Valley is a KDFWR carry-down access with year-round limited-hours shoreline access and no listed camping.',
+        'The Parklands instructs paddlers to use marked landings only and not to take out on private property.',
+        'The current Fisherville gauge reading during this run sat just below the official cfs and stage good-band floors, so expect more scraping and slower shoals than the mileage alone suggests.',
+      ],
+      watchFor: [
+        'Class I+ moving water with shallow gravel shoals, waves, and faster current through bends and bridge pinch points.',
+        'The signed Cane Run side-channel area, followed by more pushy lower-corridor current into Turkey Run and Broad Run.',
+        'Strainers, fallen wood, bluff-side current, and the mile-long Mary\'s Island split where the KDFWR PDF says to stay left.',
+        'Longer recovery swims and fewer easy eddies once the creek pushes above the official good band.',
+        'Water-quality and runoff concerns after storms in the Floyds Fork watershed.',
+      ],
+    },
+  },
+  'floyds-fork-cane-run-cliffside': {
+    putIn: {
+      id: 'cane-run-canoe-access',
+      name: 'Cane Run Canoe Access',
+      latitude: 38.1519,
+      longitude: -85.5026,
+    },
+    takeOut: {
+      id: 'cliffside-paddling-access',
+      name: 'Cliffside Paddling Access',
+      latitude: 38.0864,
+      longitude: -85.552,
+    },
+    logistics: {
+      distanceLabel: 'About 9.1 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, scouting, or fishing',
+      shuttle:
+        'Stage the take-out at Cliffside Paddling Access in Broad Run Park, then drive back to Cane Run Canoe Access off Echo Trail. Walk both carry-downs before launching because the Parklands corridor uses marked landings instead of broad public beaches.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a long lower-Parklands day trip. KDFWR lists no camping at either access, and no legal on-route overnight plan was verified for this managed park corridor.',
+      summary:
+        'Launch at Cane Run Canoe Access and take out 9.1 miles downstream at Cliffside Paddling Access for the full lower-Parklands Floyds Fork float. KDFWR gives a good Fisherville gauge band of 50 to 300 cfs, while the lower-route guidance adds Mary\'s Island, bedrock shelves, wood, and marked-landings-only discipline.',
+      accessCaveats: [
+        'Cane Run is a KDFWR carry-down site off Echo Trail with unpaved parking.',
+        'Cliffside is a KDFWR carry-down site in Broad Run Park with year-round limited-hours shoreline access and no listed camping.',
+        'The Parklands instructs paddlers to use marked landings only and not to take out on private property.',
+        'The current Fisherville gauge reading during this run sat just below the official cfs and stage good-band floors, so expect more scraping and slower shoals than the mileage alone suggests.',
+      ],
+      watchFor: [
+        'Class I+ moving water, shallow bedrock rapids, and braid choices around islands and chutes.',
+        'Strainers, fallen wood, and the mile-long Mary\'s Island split where the KDFWR PDF says to stay left.',
+        'Longer recovery swims and fewer easy eddies once the creek pushes above the official good band.',
+        'Private-bank and managed-park boundary issues if you miss the designated take-out.',
+        'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
+      ],
+    },
+  },
   'slate-creek-lions-club-old-slate-furnace': {
     putIn: {
       id: 'lions-club-park',

@@ -1466,6 +1466,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
+  'floyds-fork-north-beckley-fisherville': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-fisherville-broad-run-valley': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-cane-run-cliffside': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
   'south-fork-kentucky-river-oneida-fish-creek': [
     {
       id: 'south-fork-kentucky-river-bronner-bend-commons',
