@@ -10,6 +10,15 @@ Last summarized: 2026-07-06 06:24 America/Chicago / 2026-07-06 11:24 UTC.
 - Camping stays conservative by route: Roachville -> American Legion uses `none`, American Legion -> Glenview uses `nearby_basecamp`, and Stovall -> Dennison uses `endpoint_campground` because primitive camping remains available at the Stovall Park put-in while Dennison itself stays day-use only.
 - Bounded image posture remains no-gallery for all three slugs: `docs/river-image-source-audit.csv` now records the no-image outcome because bounded KDFWR, Commons, and same-river USGS media review did not produce a clearly rights-clean exact-route asset.
 
+## 2026-07-06 Floyds Fork full-corridor continuation pass
+
+- Reused the live repo state as the only valid baseline and added three Floyds Fork slugs that were absent from the current tree at run start: `floyds-fork-north-beckley-broad-run-valley`, `floyds-fork-fisherville-cliffside`, and `floyds-fork-north-beckley-cliffside`.
+- Current KDFWR Floyds Fork guidance still documents the exact public route pieces of Fisherville -> Cane Run `4.2` and Cane Run -> Seaton Valley `3.1`, while the current lower Floyds Fork PDF still documents North Beckley -> Broad Run Valley `17.2`, Broad Run Valley -> Cliffside `2.5`, and North Beckley -> Cliffside `19.7`. That supports the new public route mileages of `17.2`, `13.3`, and `19.7`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for North Beckley, Fisherville, Broad Run Valley, and Cliffside. Same-day official USGS current conditions showed `43.6 cfs / 1.02 ft` at `2026-07-06 07:20 EDT` for Floyds Fork at Fisherville (`03298000`), below the official `50 cfs / 1.3 ft` good-band floor, so all three additions ship with honest scrape-prone low-end caution rather than comfort framing.
+- Camping stays conservative at `none` for all three because the Parklands/KDFWR corridor still reads as a managed day-use access chain without a verified public overnight plan.
+- Safety notes stay focused on Class I+ moving water, quick rain rises, strainers and fresh wood, low-water dragging, The Oxbow braid choice on the upstream reach, the signed Cane Run side-channel area on the lower reaches, Maryâ€™s Island stay-left guidance, fatigue on the two longest commitments, and marked-landings-only / private-bank discipline throughout the corridor.
+- Reused the approved Commons Floyds Fork image for all three slugs, and `docs/river-image-source-audit.csv` now records that same-creek reuse.
+
 ## 2026-07-06 Green River restoration pass
 
 - Reused the live repo state as the only valid baseline and restored three Green River slugs that were absent from the current tree at run start: `green-river-glenview-road-lynn-camp-creek`, `green-river-rio-carrydown-hh-wilson-park`, and `green-river-hh-wilson-park-dennison-ferry`.
@@ -45,8 +54,8 @@ Last summarized: 2026-07-06 06:24 America/Chicago / 2026-07-06 11:24 UTC.
 
 ## Current Inventory
 
-- Live routes: 49.
-- Ledger candidates: 72 Kentucky-specific records. The newest live Kentucky slugs are `green-river-roachville-greensburg-city-ramp`, `green-river-russell-ford-greensburg-city-ramp`, and `green-river-russell-ford-glenview-road`.
+- Live routes: 52.
+- Ledger candidates: 75 Kentucky-specific records. The newest live Kentucky slugs are `floyds-fork-north-beckley-broad-run-valley`, `floyds-fork-fisherville-cliffside`, and `floyds-fork-north-beckley-cliffside`.
 
 ## 2026-07-05 Upper Green restoration pass
 

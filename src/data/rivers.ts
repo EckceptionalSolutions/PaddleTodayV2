@@ -30412,6 +30412,144 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'floyds-fork-north-beckley-broad-run-valley',
+    slug: 'floyds-fork-north-beckley-broad-run-valley',
+    name: 'Floyds Fork',
+    reach: 'North Beckley Canoe Access to Broad Run Valley Paddling Access',
+    aliases: [
+      'Floyds Fork - North Beckley to Broad Run Valley',
+      'Floyds Fork Parklands North Beckley to Broad Run Valley',
+      "Floyd's Fork near-full Parklands float",
+    ],
+    state: 'Kentucky',
+    region: 'Louisville Metro',
+    summary:
+      "Near-full Parklands Floyds Fork float linking North Beckley to Broad Run Valley. KDFWR's lower-corridor PDF publishes the exact 17.2-mile route, while the access-detail records and route feature keep the upper Oxbow and lower Mary's Island hazard context explicit.",
+    statusText:
+      'Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and older Parklands/KDFWR guidance treats 35 to 500 cfs as the broader recreation range. Below that expect scraping and long shoal walks; above that expect quicker current, fewer easy recoveries, and a much bigger commitment.',
+    latitude: 38.2308,
+    longitude: -85.4682,
+    gaugeSource: {
+      id: 'usgs-03298000',
+      provider: 'usgs',
+      siteId: '03298000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Floyds Fork at Fisherville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 50,
+      idealMax: 300,
+      tooLow: 35,
+      tooHigh: 500,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Floyds Fork near Fisherville',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This long Parklands route is most realistic in spring through fall. Low summer flows can turn the full corridor into a drawn-out scrape-and-walk day, while storm runoff quickly makes the bends, bridge approaches, and lower chutes less forgiving.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This remains Class I+ moving water, but the route is long enough that fatigue and missed route-reading matter. The Parklands and KDFWR keep braid choices, wood, quick level changes, and marked-landings-only discipline explicit enough for a moderate rating.',
+      confidenceNotes:
+        'Confidence is high for a conservative add: the lower Floyds Fork PDF publishes North Beckley to Broad Run Valley as a 17.2-mile recommended route, KDFWR access-detail pages provide source-backed coordinates for both endpoints, and the corridor uses direct USGS 03298000 with official Fisherville low/good/high bands. Same-day USGS Water Services values were available during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '50-300 cfs / 1.3-2.5 ft',
+        note: 'KDFWR rates Floyds Fork near Fisherville as Low below 50 cfs or 1.3 ft, Good from 50 to 300 cfs or 1.3 to 2.5 ft, and High above 300 cfs or 2.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+      },
+      {
+        label: 'Broader recreation band',
+        value: '35-500 cfs',
+        note: 'A KDFWR Floyds Fork feature says the best floating levels for fishing and recreation are 35 to 500 cfs, with higher levels suited only to experienced paddlers.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+      },
+      {
+        label: 'Chained public route segment',
+        value: 'North Beckley Canoe Access to Broad Run Valley Paddling Access, 17.2 miles',
+        note: 'The KDFWR lower Floyds Fork PDF lists North Beckley to Broad Run Valley as a 17.2-mile recommended route and also publishes the shorter public route pieces that make up the same corridor.',
+        sourceUrl: 'https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf',
+      },
+      {
+        label: 'Put-in access',
+        value: 'North Beckley Canoe Access, 38.2308, -85.4682',
+        note: 'KDFWR identifies North Beckley Canoe Access as a free carry-down site in Beckley Creek Park with limited-hours shoreline access and unpaved parking.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=876',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Broad Run Valley Paddling Access, 38.1039, -85.5455',
+        note: 'KDFWR identifies Broad Run Valley Paddling Access as a free carry-down site with year-round limited-hours shoreline access and no camping listed.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1142',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03298000 at 43.6 cfs / 1.02 ft',
+        note: 'USGS current conditions showed same-day values of 43.6 cfs and 1.02 ft at 2026-07-06 07:20 EDT for Floyds Fork at Fisherville during this run, below the official good-band floor.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03298000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route hazards',
+        value: "Class I+ moving water, Oxbow and Mary's Island braid choices, wood",
+        note: "KDFWR's route feature says to stay in the main current around The Oxbow and expect dragging through braided summer chutes, while the lower Floyds Fork PDF says to veer left at Mary's Island and expect shallow bedrock rapids, undercut banks, strainers, and changing current through the lower Parklands corridor.",
+        sourceUrl: 'https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Floyds Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: "KDFWR Floyd's Fork route feature",
+        url: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR North Beckley Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=876',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Broad Run Valley Paddling Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1142',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Floyds Fork lower-section PDF',
+        url: 'https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03298000 Floyds Fork at Fisherville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03298000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03298000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'The Parklands paddling guidance',
+        url: 'https://theparklands.org/find-an-activity/paddling/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'floyds-fork-fisherville-broad-run-valley',
     slug: 'floyds-fork-fisherville-broad-run-valley',
     name: 'Floyds Fork',
@@ -30550,6 +30688,144 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'floyds-fork-fisherville-cliffside',
+    slug: 'floyds-fork-fisherville-cliffside',
+    name: 'Floyds Fork',
+    reach: 'Fisherville Canoe Access to Cliffside Paddling Access',
+    aliases: [
+      'Floyds Fork - Fisherville to Cliffside',
+      'Floyds Fork Parklands Fisherville to Cliffside',
+      "Floyd's Fork extended lower Parklands float",
+    ],
+    state: 'Kentucky',
+    region: 'Louisville Metro',
+    summary:
+      "Extended lower-Parklands Floyds Fork float linking Fisherville to Cliffside. KDFWR documents the lower public route pieces and both endpoint access records, while the lower-corridor PDF keeps Mary's Island, bluff, and strainer context explicit.",
+    statusText:
+      'Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and older Parklands/KDFWR guidance treats 35 to 500 cfs as the broader recreation range. Below that expect scraping and slow braid choices; above that expect faster current and fewer forgiving recovery spots.',
+    latitude: 38.1887,
+    longitude: -85.4779,
+    gaugeSource: {
+      id: 'usgs-03298000',
+      provider: 'usgs',
+      siteId: '03298000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Floyds Fork at Fisherville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 50,
+      idealMax: 300,
+      tooLow: 35,
+      tooHigh: 500,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Floyds Fork near Fisherville',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This longer lower-Parklands route is most realistic in spring through fall. Low summer flows extend the day with shoal scraping and bedrock drag points, while storm runoff can quickly make the lower bends and chutes more forceful.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This remains Class I+ moving water with route-reading responsibility, not a casual urban float. The lower PDF and Parklands guidance keep the braid choices, strainers, wood, and quick water-level changes explicit enough for a moderate rating.',
+      confidenceNotes:
+        'Confidence is high for a conservative add: KDFWR names Fisherville to Cane Run at 4.2 miles and Cane Run to Seaton Valley at 3.1 miles, while the lower Floyds Fork PDF names Seaton Valley to Broad Run Valley at 3.5 miles and Broad Run Valley to Cliffside at 2.5 miles, supporting a 13.3-mile public Fisherville-to-Cliffside route. KDFWR provides source-backed coordinates for both endpoints, ties the corridor to direct USGS 03298000, and publishes official Fisherville low/good/high bands. Same-day USGS Water Services values were available during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '50-300 cfs / 1.3-2.5 ft',
+        note: 'KDFWR rates Floyds Fork near Fisherville as Low below 50 cfs or 1.3 ft, Good from 50 to 300 cfs or 1.3 to 2.5 ft, and High above 300 cfs or 2.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+      },
+      {
+        label: 'Broader recreation band',
+        value: '35-500 cfs',
+        note: 'A KDFWR Floyds Fork feature says the best floating levels for fishing and recreation are 35 to 500 cfs, with higher levels suited only to experienced paddlers.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+      },
+      {
+        label: 'Chained public route segment',
+        value: 'Fisherville Canoe Access to Cliffside Paddling Access, 13.3 miles',
+        note: 'KDFWR lists Fisherville Canoe Access to Cane Run Canoe Access as 4.2 miles and Cane Run Canoe Access to Seaton Valley Paddling Access as 3.1 miles, while the lower Floyds Fork PDF lists Seaton Valley Paddling Access to Broad Run Valley Paddling Access as 3.5 miles and Broad Run Valley Paddling Access to Cliffside Paddling Access as 2.5 miles, supporting a 13.3-mile public Fisherville-to-Cliffside float.',
+        sourceUrl: 'https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Fisherville Canoe Access, 38.1887, -85.4779',
+        note: 'KDFWR identifies Fisherville Canoe Access as a free carry-down site off Old Taylorsville Road with unpaved parking.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=877',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Cliffside Paddling Access, 38.0864, -85.5520',
+        note: 'KDFWR identifies Cliffside Paddling Access as a free carry-down site in Broad Run Park with year-round limited-hours shoreline access and no camping listed.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1143',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03298000 at 43.6 cfs / 1.02 ft',
+        note: 'USGS current conditions showed same-day values of 43.6 cfs and 1.02 ft at 2026-07-06 07:20 EDT for Floyds Fork at Fisherville during this run, below the official good-band floor.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03298000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route hazards',
+        value: "Class I+ moving water, Mary's Island split, bedrock rapids, wood",
+        note: "The lower Floyds Fork PDF says paddlers may encounter strainers, should veer left at Mary's Island, and should expect shallow bedrock rapids, braided chutes, undercut banks, and changing current through the lower Parklands section.",
+        sourceUrl: 'https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Floyds Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: "KDFWR Floyd's Fork route feature",
+        url: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Fisherville Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=877',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cliffside Paddling Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1143',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Floyds Fork lower-section PDF',
+        url: 'https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03298000 Floyds Fork at Fisherville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03298000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03298000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'The Parklands paddling guidance',
+        url: 'https://theparklands.org/find-an-activity/paddling/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'floyds-fork-cane-run-cliffside',
     slug: 'floyds-fork-cane-run-cliffside',
     name: 'Floyds Fork',
@@ -30658,6 +30934,144 @@ export const rivers: River[] = [
       {
         label: 'KDFWR Cane Run Canoe Access',
         url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1092',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cliffside Paddling Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1143',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Floyds Fork lower-section PDF',
+        url: 'https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03298000 Floyds Fork at Fisherville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03298000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03298000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'The Parklands paddling guidance',
+        url: 'https://theparklands.org/find-an-activity/paddling/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'floyds-fork-north-beckley-cliffside',
+    slug: 'floyds-fork-north-beckley-cliffside',
+    name: 'Floyds Fork',
+    reach: 'North Beckley Canoe Access to Cliffside Paddling Access',
+    aliases: [
+      'Floyds Fork - North Beckley to Cliffside',
+      'Floyds Fork Parklands North Beckley to Cliffside',
+      "Floyd's Fork full Parklands corridor",
+    ],
+    state: 'Kentucky',
+    region: 'Louisville Metro',
+    summary:
+      "Full Parklands Floyds Fork corridor linking North Beckley to Cliffside. KDFWR's lower-corridor PDF publishes the exact 19.7-mile route, while the route feature and Parklands guidance keep the upper Oxbow and lower Mary's Island hazard story explicit.",
+    statusText:
+      'Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and older Parklands/KDFWR guidance treats 35 to 500 cfs as the broader recreation range. Below that expect long scraping sections and a very slow day; above that expect stronger current, fewer easy recoveries, and a committing full-corridor float.',
+    latitude: 38.2308,
+    longitude: -85.4682,
+    gaugeSource: {
+      id: 'usgs-03298000',
+      provider: 'usgs',
+      siteId: '03298000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Floyds Fork at Fisherville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 50,
+      idealMax: 300,
+      tooLow: 35,
+      tooHigh: 500,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Floyds Fork near Fisherville',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This full-corridor Parklands route is most realistic in spring through fall. Low summer flows can turn the mileage into an all-day scrape, while storm runoff quickly makes the upper braid choices, middle bends, and lower chutes more forceful.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This remains Class I+ moving water, but the route length and moving-water decision count justify a moderate rating. KDFWR and The Parklands keep the braid choices, wood, quick level changes, and marked-landings-only discipline explicit enough that this should not be treated like a casual greenway drift.',
+      confidenceNotes:
+        'Confidence is high for a conservative add: the lower Floyds Fork PDF publishes North Beckley to Cliffside as a 19.7-mile recommended route, KDFWR access-detail pages provide source-backed coordinates for both endpoints, and the corridor uses direct USGS 03298000 with official Fisherville low/good/high bands. Same-day USGS Water Services values were available during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '50-300 cfs / 1.3-2.5 ft',
+        note: 'KDFWR rates Floyds Fork near Fisherville as Low below 50 cfs or 1.3 ft, Good from 50 to 300 cfs or 1.3 to 2.5 ft, and High above 300 cfs or 2.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+      },
+      {
+        label: 'Broader recreation band',
+        value: '35-500 cfs',
+        note: 'A KDFWR Floyds Fork feature says the best floating levels for fishing and recreation are 35 to 500 cfs, with higher levels suited only to experienced paddlers.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+      },
+      {
+        label: 'Chained public route segment',
+        value: 'North Beckley Canoe Access to Cliffside Paddling Access, 19.7 miles',
+        note: 'The KDFWR lower Floyds Fork PDF lists North Beckley to Cliffside as a 19.7-mile recommended route and also publishes the shorter public route pieces that make up the same corridor.',
+        sourceUrl: 'https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf',
+      },
+      {
+        label: 'Put-in access',
+        value: 'North Beckley Canoe Access, 38.2308, -85.4682',
+        note: 'KDFWR identifies North Beckley Canoe Access as a free carry-down site in Beckley Creek Park with limited-hours shoreline access and unpaved parking.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=876',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Cliffside Paddling Access, 38.0864, -85.5520',
+        note: 'KDFWR identifies Cliffside Paddling Access as a free carry-down site in Broad Run Park with year-round limited-hours shoreline access and no camping listed.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1143',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03298000 at 43.6 cfs / 1.02 ft',
+        note: 'USGS current conditions showed same-day values of 43.6 cfs and 1.02 ft at 2026-07-06 07:20 EDT for Floyds Fork at Fisherville during this run, below the official good-band floor.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03298000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route hazards',
+        value: "Class I+ moving water, Oxbow and Mary's Island braid choices, wood",
+        note: "KDFWR's route feature says to stay in the main current around The Oxbow and expect dragging through braided summer chutes, while the lower Floyds Fork PDF says to veer left at Mary's Island and expect shallow bedrock rapids, undercut banks, strainers, and changing current through the lower Parklands corridor.",
+        sourceUrl: 'https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Floyds Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: "KDFWR Floyd's Fork route feature",
+        url: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR North Beckley Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=876',
         provider: 'local',
       },
       {
