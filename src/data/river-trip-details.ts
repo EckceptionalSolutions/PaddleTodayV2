@@ -14821,6 +14821,126 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'green-river-roachville-greensburg-city-ramp': {
+    putIn: {
+      id: 'roachville-ford',
+      name: 'Roachville Ford',
+      latitude: 37.2353,
+      longitude: -85.4241,
+    },
+    takeOut: {
+      id: 'greensburg-city-ramp',
+      name: 'Greensburg City Ramp',
+      latitude: 37.2581,
+      longitude: -85.5057,
+    },
+    logistics: {
+      distanceLabel: 'About 11.1 mi',
+      estimatedPaddleTime:
+        'About 4.5 hr to 7 hr, longer with low water, fishing stops, or slow loading at the city ramp',
+      shuttle:
+        'Stage the take-out at Greensburg City Ramp, then drive back to Roachville Ford. Use the south side of Roachville via Thunder Road for the shorter shuttle, and leave extra daylight because this full upper-Green day is noticeably longer than the split floats.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey city-park signage at Greensburg.',
+      camping:
+        'Greensburg supports endpoint overnights better than on-route camping. KDFWR says the city-ramp take-out sits in a park with cabins, nearby RV hookups, and shuttle help, but private banks between the accesses should not be treated as legal overnight stops.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Roachville Ford and continue to Greensburg City Ramp for the full upper-Green public float. Use the Greensburg gauge and expect a scrape-prone day whenever the river sits below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Roachville Ford is a low-water ford with limited roadside parking and may require brief carry or drag moves during very low flows.',
+        'Russell Ford and American Legion Park both lie on the corridor and can shorten the day if conditions or group energy change, but this route assumes the full Roachville-to-Greensburg float.',
+        'Greensburg City Ramp is the easiest landing in this family, but it still sits in a public city park with cabins, anglers, and other local users. Keep the ramp area clear and efficient.',
+        'KDFWR notes private-property concerns around Green River accesses. Use the named public accesses only and avoid treating intermediate banks as public.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, mud edges, and dragging become more likely.',
+        'High water above about 1.75 ft, when current at bends and landings becomes less forgiving for casual paddlers.',
+        'Bridge-adjacent current, anglers, woody debris after rain, and broad-river wind on exposed pools.',
+        'City-park activity at Greensburg and limited legal stopping options away from the named accesses.',
+      ],
+    },
+  },
+  'green-river-russell-ford-greensburg-city-ramp': {
+    putIn: {
+      id: 'russell-ford-access',
+      name: 'Russell Ford Access',
+      latitude: 37.2738,
+      longitude: -85.4784,
+    },
+    takeOut: {
+      id: 'greensburg-city-ramp',
+      name: 'Greensburg City Ramp',
+      latitude: 37.2581,
+      longitude: -85.5057,
+    },
+    logistics: {
+      distanceLabel: 'About 4.5 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr, longer with fishing stops, shoal scouting, or low water',
+      shuttle:
+        'Stage the take-out at Greensburg City Ramp, then drive back to Russell Ford on Ralph Vaughn Road. The shuttle is short, but Russell Ford parking is limited and Greensburg can have city-park traffic.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey city-park signage at Greensburg.',
+      camping:
+        'Greensburg supports endpoint overnights better than on-route camping. KDFWR says the city-ramp take-out sits in a park with cabins, nearby RV hookups, and shuttle help, but private banks between the accesses should not be treated as legal overnight stops.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Russell Ford and take out about 4.5 miles downstream at Greensburg City Ramp for the full upper-Green public float. Use the Greensburg gauge and expect a scrape-prone day whenever the river sits below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Russell Ford is a carry-down gravel-bar access with limited unpaved parking and no amenities. Keep the approach clear for other users.',
+        'Greensburg City Ramp is the easier landing, but it sits in a public city park with cabins, anglers, and other local users. Keep the ramp area clear and efficient.',
+        'American Legion Park lies between the endpoints and can shorten the day if conditions or group energy change, but this route assumes the full Russell-to-Greensburg float.',
+        'KDFWR notes private-property concerns around Pool 6 access sites. Use the named public accesses only and avoid treating intermediate banks as public.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, mud edges, and dragging become more likely.',
+        'High water above about 1.75 ft, when current at bends and landings becomes less forgiving for casual paddlers.',
+        'Bridge-adjacent current, anglers, woody debris after rain, and broad-river wind on exposed pools.',
+        'City-park activity at Greensburg and limited legal stopping options away from the named accesses.',
+      ],
+    },
+  },
+  'green-river-russell-ford-glenview-road': {
+    putIn: {
+      id: 'russell-ford-access',
+      name: 'Russell Ford Access',
+      latitude: 37.2738,
+      longitude: -85.4784,
+    },
+    takeOut: {
+      id: 'glenview-road-carrydown',
+      name: 'Glenview Road Carrydown',
+      latitude: 37.291,
+      longitude: -85.5913,
+    },
+    logistics: {
+      distanceLabel: 'About 18.0 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 9 hr, longer with low water, fishing stops, or a slower group pace',
+      shuttle:
+        'Stage the take-out at Glenview Road, then drive back to Russell Ford on Ralph Vaughn Road. This is a committed Upper Green day, so keep both access areas compact and leave daylight margin for a long finish at the no-amenity road end.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey any local or landowner signage at Glenview.',
+      camping:
+        'Treat this as a day trip with Greensburg corridor lodging support rather than route camping. Greensburg City Park cabins and town services sit on the corridor, but KDFWR lists no camping at Russell Ford or Glenview and private banks should not be treated as legal campsites.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Russell Ford and continue to Glenview Road for a longer Upper Green float. Use the Greensburg gauge and expect a slower, more scrape-prone day whenever the stage stays near or below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Russell Ford is a simple gravel-bar carry-down with limited parking and no amenities. Keep the approach clear for other users.',
+        'American Legion Park and Greensburg City Ramp both sit on the corridor and can shorten the day if the group needs an earlier legal take-out.',
+        'Glenview Road Carrydown ends in the water and is surrounded by private land. Use only the obvious public road-end access and obey posted signs.',
+        'This route uses the direct Greensburg stage gauge. Trend, recent rain, and broad-river wind still matter more than a single number across a route this long.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, mud edges, and slower pools can turn this into a draggy full-day float.',
+        'High water above about 1.75 ft, when current along bends and at the Glenview finish gets less forgiving.',
+        'Shallow riffles, deep rocky pools, bridge-adjacent current, private-bank limits, broad-river wind, and woody debris after storms.',
+        'Slippery gravel or mud at Russell Ford and steep footing at the Glenview road-end carrydown.',
+      ],
+    },
+  },
   'green-river-greensburg-city-ramp-glenview-road': {
     putIn: {
       id: 'greensburg-city-ramp',

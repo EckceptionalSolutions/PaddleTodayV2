@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-04T00:57:55.378Z",
+  "generatedAt": "2026-07-06T03:25:14.897Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
     "totalLedgerCandidates": 718,
-    "currentRouteCount": 388,
+    "currentRouteCount": 397,
     "leadCount": 269,
     "discoveryFocusStates": [
       "South Dakota",
@@ -570,6 +570,40 @@
           "putInCoordinates": null,
           "takeOutCoordinates": null,
           "coordinateSource": "Not captured because modern public-access legitimacy remains unresolved."
+        },
+        "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+        "discoveryTier": "supported_midwest"
+      },
+      {
+        "candidateId": "in-white-lick-creek-brownsburg-avon-family",
+        "lane": "fresh_source_discovery",
+        "priority": 100,
+        "state": "IN",
+        "river": "White Lick Creek",
+        "route": "E.CR200N to E.Hendricks CR / Brownsburg-Avon family",
+        "currentStatus": "research_later",
+        "lastReviewed": "2026-06-21",
+        "reviewCount": 14,
+        "duplicateRisk": false,
+        "blocker": "2026-06-21 stale-cleanup exit to research_later. The threshold gate is still clear, but repeated same-day official rechecks now make the downstream access blocker look durable rather than near-ready. Same-day USGS Water Services IV now returns White Lick Creek at Mooresville 03353800 values of 217 cfs and 7.47 ft at 2026-06-21 12:30 EDT, and current American Whitewater page source still exposes a route-level runnabl...",
+        "retryCondition": "Retry only if Avon, Washington Township, Hendricks County, Indiana DNR, or another manager-grade source newly confirms one downstream White Lick Trail / Washington Township Park area access as a legitimate public paddlecraft take-out with coordinates, parking/loading rules, and ordinary private-boater use. Upstream Arbuckle Acres / White Lick Creek Greenway evidence is materially stronger now, and Blue Heron Park sh...",
+        "gauge": {
+          "quality": "direct_current_looking_but_access_legitimacy_unresolved",
+          "id": "03353800",
+          "provider": "USGS/American Whitewater",
+          "notes": "USGS 03353800 White Lick Creek at Mooresville still returns same-day Water Services IV values, with a 2026-06-21 recheck showing 224 cfs and 7.49 ft at 09:30 EDT, and current American Whitewater page source uses that gauge for the E.CR200N-to-E.Hendricks-CR reach. The remaining blocker is endpoint legitimacy, not live-gauge support."
+        },
+        "thresholdSupport": {
+          "strength": "american_whitewater",
+          "notes": "Current American Whitewater page source exposes a 450-2250 cfs runnable envelope on the direct Mooresville gauge for E.CR200N to E.Hendricks CR. That clears the numeric-threshold gate conservatively enough for the family, but it does not resolve the lack of manager-grade public endpoint authority."
+        },
+        "endpoints": {
+          "putIn": "Arbuckle Acres Park / White Lick Creek Greenway family",
+          "takeOut": "White Lick Trail / Washington Township Park corridor family",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Current official Brownsburg and Avon pages now identify the likely public park/trail families more clearly. Avon now clarifies that White Lick Trail runs only from CR 100N to CR 100S through Washington Township Park while Blue Heron Park is separate at US 36, but no manager-grade page yet publishes the actual paddlecraft launch/take-out points or coordinates."
         },
         "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
         "discoveryTier": "supported_midwest"
@@ -1817,40 +1851,6 @@
         },
         "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family in this adjacent expansion state, then seed or strengthen the ledger candidate.",
         "discoveryTier": "adjacent_expansion"
-      },
-      {
-        "candidateId": "in-white-lick-creek-brownsburg-avon-family",
-        "lane": "fresh_source_discovery",
-        "priority": 95,
-        "state": "IN",
-        "river": "White Lick Creek",
-        "route": "E.CR200N to E.Hendricks CR / Brownsburg-Avon family",
-        "currentStatus": "research_later",
-        "lastReviewed": "2026-06-21",
-        "reviewCount": 14,
-        "duplicateRisk": false,
-        "blocker": "2026-06-21 stale-cleanup exit to research_later. The threshold gate is still clear, but repeated same-day official rechecks now make the downstream access blocker look durable rather than near-ready. Same-day USGS Water Services IV now returns White Lick Creek at Mooresville 03353800 values of 217 cfs and 7.47 ft at 2026-06-21 12:30 EDT, and current American Whitewater page source still exposes a route-level runnabl...",
-        "retryCondition": "Retry only if Avon, Washington Township, Hendricks County, Indiana DNR, or another manager-grade source newly confirms one downstream White Lick Trail / Washington Township Park area access as a legitimate public paddlecraft take-out with coordinates, parking/loading rules, and ordinary private-boater use. Upstream Arbuckle Acres / White Lick Creek Greenway evidence is materially stronger now, and Blue Heron Park sh...",
-        "gauge": {
-          "quality": "direct_current_looking_but_access_legitimacy_unresolved",
-          "id": "03353800",
-          "provider": "USGS/American Whitewater",
-          "notes": "USGS 03353800 White Lick Creek at Mooresville still returns same-day Water Services IV values, with a 2026-06-21 recheck showing 224 cfs and 7.49 ft at 09:30 EDT, and current American Whitewater page source uses that gauge for the E.CR200N-to-E.Hendricks-CR reach. The remaining blocker is endpoint legitimacy, not live-gauge support."
-        },
-        "thresholdSupport": {
-          "strength": "american_whitewater",
-          "notes": "Current American Whitewater page source exposes a 450-2250 cfs runnable envelope on the direct Mooresville gauge for E.CR200N to E.Hendricks CR. That clears the numeric-threshold gate conservatively enough for the family, but it does not resolve the lack of manager-grade public endpoint authority."
-        },
-        "endpoints": {
-          "putIn": "Arbuckle Acres Park / White Lick Creek Greenway family",
-          "takeOut": "White Lick Trail / Washington Township Park corridor family",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Current official Brownsburg and Avon pages now identify the likely public park/trail families more clearly. Avon now clarifies that White Lick Trail runs only from CR 100N to CR 100S through Washington Township Park while Blue Heron Park is separate at US 36, but no manager-grade page yet publishes the actual paddlecraft launch/take-out points or coordinates."
-        },
-        "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
-        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "ks-arkansas-river-wichita-lincoln-47th-family",
@@ -10140,6 +10140,40 @@
       "discoveryTier": "supported_midwest"
     },
     {
+      "candidateId": "in-white-lick-creek-brownsburg-avon-family",
+      "lane": "fresh_source_discovery",
+      "priority": 100,
+      "state": "IN",
+      "river": "White Lick Creek",
+      "route": "E.CR200N to E.Hendricks CR / Brownsburg-Avon family",
+      "currentStatus": "research_later",
+      "lastReviewed": "2026-06-21",
+      "reviewCount": 14,
+      "duplicateRisk": false,
+      "blocker": "2026-06-21 stale-cleanup exit to research_later. The threshold gate is still clear, but repeated same-day official rechecks now make the downstream access blocker look durable rather than near-ready. Same-day USGS Water Services IV now returns White Lick Creek at Mooresville 03353800 values of 217 cfs and 7.47 ft at 2026-06-21 12:30 EDT, and current American Whitewater page source still exposes a route-level runnabl...",
+      "retryCondition": "Retry only if Avon, Washington Township, Hendricks County, Indiana DNR, or another manager-grade source newly confirms one downstream White Lick Trail / Washington Township Park area access as a legitimate public paddlecraft take-out with coordinates, parking/loading rules, and ordinary private-boater use. Upstream Arbuckle Acres / White Lick Creek Greenway evidence is materially stronger now, and Blue Heron Park sh...",
+      "gauge": {
+        "quality": "direct_current_looking_but_access_legitimacy_unresolved",
+        "id": "03353800",
+        "provider": "USGS/American Whitewater",
+        "notes": "USGS 03353800 White Lick Creek at Mooresville still returns same-day Water Services IV values, with a 2026-06-21 recheck showing 224 cfs and 7.49 ft at 09:30 EDT, and current American Whitewater page source uses that gauge for the E.CR200N-to-E.Hendricks-CR reach. The remaining blocker is endpoint legitimacy, not live-gauge support."
+      },
+      "thresholdSupport": {
+        "strength": "american_whitewater",
+        "notes": "Current American Whitewater page source exposes a 450-2250 cfs runnable envelope on the direct Mooresville gauge for E.CR200N to E.Hendricks CR. That clears the numeric-threshold gate conservatively enough for the family, but it does not resolve the lack of manager-grade public endpoint authority."
+      },
+      "endpoints": {
+        "putIn": "Arbuckle Acres Park / White Lick Creek Greenway family",
+        "takeOut": "White Lick Trail / Washington Township Park corridor family",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "Current official Brownsburg and Avon pages now identify the likely public park/trail families more clearly. Avon now clarifies that White Lick Trail runs only from CR 100N to CR 100S through Washington Township Park while Blue Heron Park is separate at US 36, but no manager-grade page yet publishes the actual paddlecraft launch/take-out points or coordinates."
+      },
+      "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+      "discoveryTier": "supported_midwest"
+    },
+    {
       "candidateId": "in-eel-river-north-family",
       "lane": "threshold_discovery",
       "priority": 100,
@@ -14069,40 +14103,6 @@
         "coordinateSource": "Not captured because threshold support failed first."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "supported_midwest"
-    },
-    {
-      "candidateId": "in-white-lick-creek-brownsburg-avon-family",
-      "lane": "fresh_source_discovery",
-      "priority": 95,
-      "state": "IN",
-      "river": "White Lick Creek",
-      "route": "E.CR200N to E.Hendricks CR / Brownsburg-Avon family",
-      "currentStatus": "research_later",
-      "lastReviewed": "2026-06-21",
-      "reviewCount": 14,
-      "duplicateRisk": false,
-      "blocker": "2026-06-21 stale-cleanup exit to research_later. The threshold gate is still clear, but repeated same-day official rechecks now make the downstream access blocker look durable rather than near-ready. Same-day USGS Water Services IV now returns White Lick Creek at Mooresville 03353800 values of 217 cfs and 7.47 ft at 2026-06-21 12:30 EDT, and current American Whitewater page source still exposes a route-level runnabl...",
-      "retryCondition": "Retry only if Avon, Washington Township, Hendricks County, Indiana DNR, or another manager-grade source newly confirms one downstream White Lick Trail / Washington Township Park area access as a legitimate public paddlecraft take-out with coordinates, parking/loading rules, and ordinary private-boater use. Upstream Arbuckle Acres / White Lick Creek Greenway evidence is materially stronger now, and Blue Heron Park sh...",
-      "gauge": {
-        "quality": "direct_current_looking_but_access_legitimacy_unresolved",
-        "id": "03353800",
-        "provider": "USGS/American Whitewater",
-        "notes": "USGS 03353800 White Lick Creek at Mooresville still returns same-day Water Services IV values, with a 2026-06-21 recheck showing 224 cfs and 7.49 ft at 09:30 EDT, and current American Whitewater page source uses that gauge for the E.CR200N-to-E.Hendricks-CR reach. The remaining blocker is endpoint legitimacy, not live-gauge support."
-      },
-      "thresholdSupport": {
-        "strength": "american_whitewater",
-        "notes": "Current American Whitewater page source exposes a 450-2250 cfs runnable envelope on the direct Mooresville gauge for E.CR200N to E.Hendricks CR. That clears the numeric-threshold gate conservatively enough for the family, but it does not resolve the lack of manager-grade public endpoint authority."
-      },
-      "endpoints": {
-        "putIn": "Arbuckle Acres Park / White Lick Creek Greenway family",
-        "takeOut": "White Lick Trail / Washington Township Park corridor family",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Current official Brownsburg and Avon pages now identify the likely public park/trail families more clearly. Avon now clarifies that White Lick Trail runs only from CR 100N to CR 100S through Washington Township Park while Blue Heron Park is separate at US 36, but no manager-grade page yet publishes the actual paddlecraft launch/take-out points or coordinates."
-      },
-      "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
       "discoveryTier": "supported_midwest"
     },
     {

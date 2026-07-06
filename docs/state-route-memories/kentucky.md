@@ -1,11 +1,20 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-05 22:45 America/Chicago / 2026-07-06 03:45 UTC.
+Last summarized: 2026-07-05 22:26 America/Chicago / 2026-07-06 03:26 UTC.
 
 ## Current Inventory
 
-- Live routes: 46.
-- Ledger candidates: 72 Kentucky-specific records. The newest live Kentucky slugs are `cumberland-river-redbird-longbottom`, `cumberland-river-longbottom-thunderstruck`, and `cumberland-river-longbottom-cumberland-falls`.
+- Live routes: 49.
+- Ledger candidates: 72 Kentucky-specific records. The newest live Kentucky slugs are `green-river-roachville-greensburg-city-ramp`, `green-river-russell-ford-greensburg-city-ramp`, and `green-river-russell-ford-glenview-road`.
+
+## 2026-07-05 Upper Green restoration pass
+
+- Reused the live repo state as the only valid baseline and restored three Upper Green slugs that were absent from the current tree at run start: `green-river-roachville-greensburg-city-ramp`, `green-river-russell-ford-greensburg-city-ramp`, and `green-river-russell-ford-glenview-road`.
+- Current KDFWR Upper Green and Pool 6 Green River guidance still document the exact public route pieces of Roachville -> Russell `6.6`, Russell -> American Legion `2.3`, American Legion -> Greensburg `2.0`, and Greensburg -> Glenview `13.7`, while the Upper Green article still frames Russell -> Greensburg as about `4.5` miles. That supports the restored public route mileages of `11.1`, `4.5`, and `18.0`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Roachville Ford, Russell Ford Access, Greensburg City Ramp, and Glenview Road Carrydown.
+- Same-day direct USGS Water Services returned `1.09 ft` at `2026-07-05 21:15 CDT` for Green River at Greensburg (`03306500`), which sits just inside KDFWR's official `1.0-1.75 ft` good band and lets all three slugs keep a straightforward two-sided stage model without overstating comfort.
+- Camping stays conservative by route: Roachville -> Greensburg and Russell -> Greensburg use `endpoint_campground` because Greensburg City Park and nearby RV hookups sit at the finish, while Russell -> Glenview stays `nearby_basecamp` because Glenview has no camping and the better overnight support remains back in the Greensburg corridor.
+- Bounded image posture remains no-gallery for all three slugs: `docs/river-image-source-audit.csv` now records the no-image outcome because bounded KDFWR, Commons, and same-river USGS media review did not produce a clearly rights-clean exact-route asset for these restored routes.
 
 ## 2026-07-05 Cumberland split restoration pass
 
@@ -27,7 +36,7 @@ Last summarized: 2026-07-05 22:45 America/Chicago / 2026-07-06 03:45 UTC.
 
 ## Status
 
-Kentucky had been paused from the active automation rotation at user request while work shifted to other states, but the current resumes have kept paying off because multiple KDFWR families now clear the same-day USGS gate again. It now has broad KDFWR-backed coverage across Levisa Fork, Slate Creek, Floyds Fork, South Fork Kentucky River, South Fork Licking River, North Fork Kentucky River, Russell Creek, Drakes Creek, Tygarts Creek, Big South Fork, Tradewater, Cumberland River, Barren River, and Green River, plus the guarded Elkhorn Creek whitewater route. The latest cleanup trimmed redundant Levisa Fork and Cumberland chain permutations into canonical corridor routes with preserved intermediate public access planning. KDFWR Blue Water Trails remain the best seed source for future resumes, but the remaining near-term leads are narrower and more likely to be blocked by threshold gaps, same-river gauge limits, or route-shape hazards around dams and whitewater.
+Kentucky had been paused from the active automation rotation at user request while work shifted to other states, but the current resumes have kept paying off because multiple KDFWR families now clear the same-day USGS gate again. It now has broad KDFWR-backed coverage across Levisa Fork, Slate Creek, Floyds Fork, South Fork Kentucky River, South Fork Licking River, North Fork Kentucky River, Russell Creek, Drakes Creek, Tygarts Creek, Big South Fork, Tradewater, Cumberland River, Barren River, and Green River, plus the guarded Elkhorn Creek whitewater route. The latest live-baseline restorations brought back both Cumberland and Upper Green slugs that had fallen out of the current tree while preserving the same intermediate public access planning. KDFWR Blue Water Trails remain the best seed source for future resumes, but the remaining near-term leads are narrower and more likely to be blocked by threshold gaps, same-river gauge limits, or route-shape hazards around dams and whitewater.
 
 ## 2026-07-03 Levisa Fork and Cumberland consolidation pass
 
