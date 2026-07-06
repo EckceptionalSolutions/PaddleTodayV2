@@ -14821,6 +14821,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'green-river-roachville-russell-ford': {
+    putIn: {
+      id: 'roachville-ford',
+      name: 'Roachville Ford',
+      latitude: 37.2353,
+      longitude: -85.4241,
+    },
+    takeOut: {
+      id: 'russell-ford-access',
+      name: 'Russell Ford Access',
+      latitude: 37.2738,
+      longitude: -85.4784,
+    },
+    logistics: {
+      distanceLabel: 'About 6.6 mi',
+      estimatedPaddleTime:
+        'About 2.5 hr to 4.5 hr, longer with low-water dragging, fishing stops, or scouting around the shoals',
+      shuttle:
+        'Stage the downstream vehicle at Russell Ford first, then drive back to Roachville Ford. The shuttle is simple, but both accesses are limited roadside or gravel-bar setups with no amenities.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and stay off private banks between the endpoints.',
+      camping:
+        'Treat this as a day route. KDFWR does not document camping or normal overnight support at Roachville or Russell Ford.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Roachville Ford and take out at Russell Ford for the manageable 6.6-mile Upper Green float. Use the Greensburg gauge and expect a slower, scrape-prone ride whenever the stage sits below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Roachville Ford is a low-water gravel ford with limited roadside parking and no services. Be ready for muddy footing and brief carry or drag moves at lower water.',
+        'Russell Ford sits in the middle of a shoal on river left. KDFWR warns that paddlers unfamiliar with the route can drift past the take-out if they stay in the main right channel.',
+        'Both endpoints are public, but most shoreline between them is private and should not be treated as a casual stop or backup exit.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, sticky mud, and dragging become more common.',
+        'High water above about 1.75 ft, when current through islands, chutes, and bends gets pushier.',
+        'Fresh wood, bridge-adjacent current, and take-out confusion at Russell Ford.',
+      ],
+    },
+  },
   'green-river-roachville-greensburg-city-ramp': {
     putIn: {
       id: 'roachville-ford',
@@ -14861,6 +14899,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'green-river-russell-ford-american-legion': {
+    putIn: {
+      id: 'russell-ford-access',
+      name: 'Russell Ford Access',
+      latitude: 37.2738,
+      longitude: -85.4784,
+    },
+    takeOut: {
+      id: 'american-legion-park-ramp',
+      name: 'American Legion Park Ramp',
+      latitude: 37.2441,
+      longitude: -85.4795,
+    },
+    logistics: {
+      distanceLabel: 'About 2.3 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2 hr, longer with low-water dragging, fishing stops, or a slower group',
+      shuttle:
+        'Stage the take-out at American Legion Park first, then drive back to Russell Ford on Ralph Vaughn Road. The shuttle is short, but both accesses are compact and can be busy with local users.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and stay off private banks between the endpoints.',
+      camping:
+        'Treat this as a day route. KDFWR does not document camping or normal overnight support at Russell Ford or American Legion Park.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Russell Ford and finish at American Legion Park for the short 2.3-mile Upper Green split. Use the Greensburg gauge and expect a scrape-prone ride whenever the stage sits below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Russell Ford is a simple gravel-bar carry-down with limited unpaved parking and no amenities.',
+        'American Legion Park is the intended public finish on this split. Keep the ramp area clear for anglers and other park users.',
+        'Even on this short route, private banks between the endpoints should not be treated as casual take-outs.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shallow shoals and muddy edges become more noticeable.',
+        'High water above about 1.75 ft, when current at bends and the park landing gets less forgiving.',
+        'Bridge-adjacent current, fresh wood after rain, and other users at both public accesses.',
+      ],
+    },
+  },
   'green-river-russell-ford-greensburg-city-ramp': {
     putIn: {
       id: 'russell-ford-access',
@@ -14898,6 +14974,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'High water above about 1.75 ft, when current at bends and landings becomes less forgiving for casual paddlers.',
         'Bridge-adjacent current, anglers, woody debris after rain, and broad-river wind on exposed pools.',
         'City-park activity at Greensburg and limited legal stopping options away from the named accesses.',
+      ],
+    },
+  },
+  'green-river-american-legion-greensburg': {
+    putIn: {
+      id: 'american-legion-park-ramp',
+      name: 'American Legion Park Ramp',
+      latitude: 37.2441,
+      longitude: -85.4795,
+    },
+    takeOut: {
+      id: 'greensburg-city-ramp',
+      name: 'Greensburg City Ramp',
+      latitude: 37.2581,
+      longitude: -85.5057,
+    },
+    logistics: {
+      distanceLabel: 'About 2.0 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2 hr, longer with low-water dragging, fishing stops, or a slower group',
+      shuttle:
+        'Stage the take-out at Greensburg City Ramp, then drive back to American Legion Park. The shuttle is very short, but both accesses can have local park or angler traffic.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey city-park signage at Greensburg.',
+      camping:
+        'Greensburg supports endpoint overnights better than on-route camping. KDFWR says the city-ramp take-out sits in a park with cabins, nearby RV hookups, and shuttle help, but private banks between the accesses should not be treated as legal overnight stops.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at American Legion Park and finish at Greensburg City Ramp for the short 2-mile in-town Upper Green segment. Use the Greensburg gauge and expect a scrape-prone ride whenever the stage sits below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'American Legion Park is a public ramp, but the gravel and muddy bank can be slick at lower water.',
+        'Greensburg City Ramp is the cleanest landing in this family, but it sits in an active public city park with cabins, anglers, and other local users.',
+        'Private banks between the endpoints should not be treated as casual take-outs even though town stays close by.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals and mud edges become more noticeable.',
+        'High water above about 1.75 ft, when current at bends and the city-ramp landing gets less forgiving.',
+        'Anglers, bridge-adjacent current, and fresh wood after rain on the broad in-town corridor.',
       ],
     },
   },

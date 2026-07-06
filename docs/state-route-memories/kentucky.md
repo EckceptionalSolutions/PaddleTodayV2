@@ -2,6 +2,14 @@
 
 Last summarized: 2026-07-05 22:26 America/Chicago / 2026-07-06 03:26 UTC.
 
+## 2026-07-05 Upper Green split restoration pass
+
+- Reused the live repo state as the only valid baseline and restored three short Upper Green slugs that were absent from the current tree at run start: `green-river-roachville-russell-ford`, `green-river-russell-ford-american-legion`, and `green-river-american-legion-greensburg`.
+- Current KDFWR Upper Green and Pool 6 Green River guidance still document the exact public route pieces of Roachville -> Russell `6.6`, Russell -> American Legion `2.3`, and American Legion -> Greensburg `2.0`, while the current access-detail pages still support the source-backed coordinates and public-use notes for Roachville Ford, Russell Ford Access, American Legion Park Ramp, and Greensburg City Ramp.
+- Same-day direct USGS Water Services returned `1.08 ft` at `2026-07-05 22:15 CDT` for Green River at Greensburg (`03306500`), which sits just inside KDFWR's official `1.0-1.75 ft` good band and lets all three restored slugs keep the same straightforward two-sided stage model.
+- Camping stays conservative by route: Roachville -> Russell and Russell -> American Legion use `none`, while American Legion -> Greensburg uses `endpoint_campground` because the Greensburg finish still has city-park lodging and nearby RV-hookup support.
+- Bounded image posture remains no-gallery for all three slugs: `docs/river-image-source-audit.csv` now records the no-image outcome because bounded KDFWR, Commons, and same-river USGS media review did not produce a clearly rights-clean exact-route asset.
+
 ## Current Inventory
 
 - Live routes: 49.
