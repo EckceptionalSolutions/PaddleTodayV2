@@ -1,6 +1,14 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-06 00:45 America/Chicago / 2026-07-06 05:45 UTC.
+Last summarized: 2026-07-06 06:24 America/Chicago / 2026-07-06 11:24 UTC.
+
+## 2026-07-06 Upper Green continuation pass
+
+- Reused the live repo state as the only valid baseline and added three missing Green River continuation slugs beyond the current tree at run start: `green-river-roachville-american-legion`, `green-river-american-legion-glenview-road`, and `green-river-stovall-park-dennison-ferry`.
+- Current KDFWR Upper Green and Pool 6 Green River guidance still documents the exact public route pieces of Roachville -> Russell `6.6`, Russell -> American Legion `2.3`, American Legion -> Greensburg `2.0`, Greensburg -> Glenview `13.7`, and Stovall -> Dennison `21.0`, which support the new public route mileages of `8.9`, `15.7`, and `21.0`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Roachville Ford, American Legion Park Ramp, Stovall Park Ramp, Dennison Ferry, Greensburg City Ramp, and Glenview Road Carrydown. Same-day direct USGS Water Services returned `1.02 ft` at `2026-07-06 05:15 CDT` for Green River at Greensburg (`03306500`) and `1180 cfs / 4.28 ft` at `2026-07-06 06:00 CDT` for Green River at Munfordville (`03308500`), which leaves the two Upper Green additions just inside the official Greensburg good band while the Stovall-to-Dennison route ships with explicit above-band higher-water caution.
+- Camping stays conservative by route: Roachville -> American Legion uses `none`, American Legion -> Glenview uses `nearby_basecamp`, and Stovall -> Dennison uses `endpoint_campground` because primitive camping remains available at the Stovall Park put-in while Dennison itself stays day-use only.
+- Bounded image posture remains no-gallery for all three slugs: `docs/river-image-source-audit.csv` now records the no-image outcome because bounded KDFWR, Commons, and same-river USGS media review did not produce a clearly rights-clean exact-route asset.
 
 ## 2026-07-06 Green River restoration pass
 

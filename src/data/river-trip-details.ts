@@ -15376,6 +15376,74 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'green-river-roachville-american-legion': {
+    putIn: {
+      id: 'roachville-ford',
+      name: 'Roachville Ford',
+      latitude: 37.2353,
+      longitude: -85.4241,
+    },
+    takeOut: {
+      id: 'american-legion-park-ramp',
+      name: 'American Legion Park Ramp',
+      latitude: 37.2441,
+      longitude: -85.4795,
+    },
+    logistics: {
+      distanceLabel: 'About 8.9 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr, longer with low-water dragging, fishing stops, or route-finding around the shoals',
+      shuttle:
+        'Stage the take-out at American Legion Park first, then drive back to Roachville Ford. The shuttle is simple, but both accesses are compact and the launch can be muddy at lower water.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and stay off private banks between the endpoints.',
+      camping:
+        'Treat this as a day route. KDFWR does not document camping or normal overnight support at Roachville Ford or American Legion Park.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Roachville Ford and finish at American Legion Park for a longer Upper Green split into the Greensburg corridor. Use the Greensburg gauge and expect more scraping whenever the stage sits near or below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Roachville Ford is a low-water gravel ford with limited roadside parking and no services. Be ready for muddy footing and brief carry or drag moves at lower water.',
+        'Russell Ford sits on the corridor as the clearest early bailout if the islands and chutes are slower than planned.',
+        'American Legion Park is the intended public finish, but the graded gravel-and-mud bank can be slick and busy with local anglers or park users.',
+        'The named endpoints are public, but most shoreline between them is private and should not be treated as a casual stop or backup exit.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, sticky mud, and dragging become more common.',
+        'High water above about 1.75 ft, when current through islands, chutes, and the park approach gets pushier.',
+        'Fresh wood after rain, take-out confusion at Russell Ford if you plan to reassess there, and bridge-adjacent current near Greensburg.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'roachville-ford',
+        name: 'Roachville Ford',
+        latitude: 37.2353,
+        longitude: -85.4241,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream launch at the low-water ford.',
+      },
+      {
+        id: 'russell-ford-access',
+        name: 'Russell Ford Access',
+        latitude: 37.2738,
+        longitude: -85.4784,
+        mileFromStart: 6.6,
+        segmentKind: 'creek',
+        note: 'Early legal bailout if the upper miles are slower than expected.',
+      },
+      {
+        id: 'american-legion-park-ramp',
+        name: 'American Legion Park Ramp',
+        latitude: 37.2441,
+        longitude: -85.4795,
+        mileFromStart: 8.9,
+        segmentKind: 'creek',
+        note: 'Default downstream finish at the public park ramp below Highway 417.',
+      },
+    ],
+  },
   'green-river-roachville-greensburg-city-ramp': {
     putIn: {
       id: 'roachville-ford',
@@ -15532,6 +15600,74 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'green-river-american-legion-glenview-road': {
+    putIn: {
+      id: 'american-legion-park-ramp',
+      name: 'American Legion Park Ramp',
+      latitude: 37.2441,
+      longitude: -85.4795,
+    },
+    takeOut: {
+      id: 'glenview-road-carrydown',
+      name: 'Glenview Road Carrydown',
+      latitude: 37.291,
+      longitude: -85.5913,
+    },
+    logistics: {
+      distanceLabel: 'About 15.7 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7.5 hr, longer with low-water dragging, fishing stops, or a slower shuttle day',
+      shuttle:
+        'Stage the take-out at Glenview Road Carrydown, then drive back to American Legion Park. The shuttle is short, but the Glenview landing has no amenities, so inspect the road-end access before committing.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey any landowner signage at Glenview.',
+      camping:
+        'Treat this as a day trip with nearby Greensburg lodging support rather than route camping. KDFWR lists no camping at either endpoint, and private banks between them should not be treated as legal campsites.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at American Legion Park and continue to Glenview Road for a longer Upper Green float below town. Use the Greensburg gauge and expect a slower, more scrape-prone day whenever the stage stays near or below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'American Legion Park uses a graded muddy and gravel bank below Highway 417 rather than a clean concrete city ramp.',
+        'Greensburg City Ramp is the clearest serviced midpoint bailout if the group does not want to commit past town.',
+        'Glenview Road Carrydown ends in the water and is surrounded by private land. Use only the obvious public road-end carrydown and obey posted signs.',
+        'This route uses the direct Greensburg stage gauge. Trend, recent rain, and broad-river wind still matter more than a single number across a route this long.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, mud edges, and slower pools can turn this into a draggy full-day float.',
+        'High water above about 1.75 ft, when current along bends and at the Glenview finish gets less forgiving.',
+        'Broad-river wind, bridge-adjacent current leaving town, private-bank limits, and fresh wood after storms.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'american-legion-park-ramp',
+        name: 'American Legion Park Ramp',
+        latitude: 37.2441,
+        longitude: -85.4795,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream launch on the Greensburg corridor.',
+      },
+      {
+        id: 'greensburg-city-ramp',
+        name: 'Greensburg City Ramp',
+        latitude: 37.2581,
+        longitude: -85.5057,
+        mileFromStart: 2,
+        segmentKind: 'creek',
+        note: 'Serviced town bailout before the lower Glenview reach.',
+      },
+      {
+        id: 'glenview-road-carrydown',
+        name: 'Glenview Road Carrydown',
+        latitude: 37.291,
+        longitude: -85.5913,
+        mileFromStart: 15.7,
+        segmentKind: 'creek',
+        note: 'Default downstream finish at the no-amenity private-bank road end.',
+      },
+    ],
+  },
   'green-river-russell-ford-glenview-road': {
     putIn: {
       id: 'russell-ford-access',
@@ -15627,6 +15763,66 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 13.7,
         segmentKind: 'creek',
         note: 'Default downstream finish at the no-amenity private-bank road-end carrydown.',
+      },
+    ],
+  },
+  'green-river-stovall-park-dennison-ferry': {
+    putIn: {
+      id: 'munfordville-stovall-park-ramp',
+      name: 'Munfordville-Stovall Park Ramp',
+      latitude: 37.2663,
+      longitude: -85.8892,
+    },
+    takeOut: {
+      id: 'dennison-ferry',
+      name: 'Dennison Ferry',
+      latitude: 37.2174,
+      longitude: -86.0493,
+    },
+    logistics: {
+      distanceLabel: 'About 21.0 mi',
+      estimatedPaddleTime:
+        'About 7 hr to 10 hr, longer in lower water, broad-river wind, or with a slower group pace',
+      shuttle:
+        'Stage the take-out at Dennison Ferry in Mammoth Cave National Park, then drive back to Stovall Park in Munfordville. Build in extra road time, confirm park access before leaving vehicles, and start early enough to avoid finishing the carry-out at dusk.',
+      permits:
+        'No permit is required for a same-day paddle, but this route finishes inside Mammoth Cave National Park. Follow Kentucky boating rules, park signs, and standard USCG PFD requirements, and do not assume improvised bankside camping is legal.',
+      camping:
+        'Both endpoints offer the clearest legal overnight support in this pair. KDFWR lists primitive camping at Stovall Park, while Dennison Ferry remains day-use only and private banks downstream should not be treated as legal campsites.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Munfordville-Stovall Park and take out at Dennison Ferry for the official 21-mile Green River run into Mammoth Cave. Use the Munfordville gauge, and note that the current July 6 reading is well above KDFWR\'s 300 to 600 cfs good band, so this should be treated as a higher-water route today.',
+      accessCaveats: [
+        'Stovall Park is the easiest side of this route: paved ramp, restrooms, primitive camping, and park amenities. Use the ramp efficiently because it also serves local anglers and park users.',
+        'Dennison Ferry is day-use only and finishes with a carry-down and carry-up park access rather than a simple motorboat ramp. Save real energy for the take-out.',
+        'This route finishes inside Mammoth Cave National Park, so check park access status and stay within the marked public footprint at Dennison.',
+        'Private banks between the named accesses are not general-purpose bailout or camping areas even when sandbars are exposed.',
+      ],
+      watchFor: [
+        'Discharge below about 300 cfs, when this long route slows down and gets more consequential for a same-day plan.',
+        'Discharge above about 600 cfs, when broad-river current, wood, and the park carry-down finish become less forgiving.',
+        'Broad-river wind, exposed sun, muddy footing, fresh strainers after rain, and reduced cell coverage closer to Mammoth Cave.',
+        'The park carry-down and carry-up at Dennison Ferry, especially when the banks are slick or the river is high.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'munfordville-stovall-park-ramp',
+        name: 'Munfordville-Stovall Park Ramp',
+        latitude: 37.2663,
+        longitude: -85.8892,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream launch with park amenities and primitive camping support.',
+      },
+      {
+        id: 'dennison-ferry',
+        name: 'Dennison Ferry',
+        latitude: 37.2174,
+        longitude: -86.0493,
+        mileFromStart: 21,
+        segmentKind: 'creek',
+        note: 'Default downstream finish at the Mammoth Cave day-use carry-down.',
       },
     ],
   },
