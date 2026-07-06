@@ -12950,6 +12950,117 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'conodoguinet-creek-willow-mill-vincent-difilippo': {
+    putIn: {
+      name: 'Willow Mill Park launch',
+      latitude: 40.2567096,
+      longitude: -77.0411725,
+    },
+    takeOut: {
+      name: 'Vincent DiFilippo Nature Preserve launch',
+      latitude: 40.2576825,
+      longitude: -77.0209403,
+    },
+    logistics: {
+      distanceLabel: 'About 4.4 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3 hr 30 min depending on depth, wood, bridge scouting, and shuttle speed',
+      shuttle:
+        'Stage the take-out at Vincent DiFilippo Nature Preserve before driving back to Willow Mill Park. Both are county-listed public launches, but inspect the access path and footing first because recent rain, mud, or treefall can change the feel quickly on this creek.',
+      permits:
+        'No route-specific launch permit is known for this township-to-township segment. Follow current township-park, boating, and PFD rules, and make a same-day judgment instead of assuming the county guide guarantees ideal conditions.',
+      camping:
+        'Treat this as a day trip. The current county access table documents park amenities at both ends but does not verify route camping or public overnight use for this exact corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Willow Mill Park and take out at Vincent DiFilippo Nature Preserve for a short Conodoguinet day. Use the direct Hogestown gauge and the county floor of 1.7 ft, then make a same-day visual call on wood, current, and bridge approaches.',
+      accessCaveats: [
+        'Cumberland County lists both endpoints as named public launches and gives them official street-address access, but the route coordinates in PaddleToday are derived from those official addresses because the county table does not publish launch lat/longs.',
+        'Willow Mill is an improved concrete ramp with parking and portable toilets, while Vincent DiFilippo is also listed as a concrete launch. Same-day mud, maintenance, and fallen trees can still change launch ease.',
+        'The county says boating should be above 1.7 ft at Hogestown. Treat lower readings as a scrape-and-drag signal, not as a casual green light.',
+      ],
+      watchFor: [
+        'Dragging and shallow turns when the Hogestown gauge is near or below 1.7 ft.',
+        'Strainers, fresh flood wood, undercut banks, bridge-area current, and slick launch footing after rain.',
+        'A faster, pushier creek once levels rise toward the 6 ft action stage, even though the route itself is short.',
+        'Private banks away from the named public launches; do not assume ad hoc pull-offs are legitimate take-out options.',
+      ],
+    },
+  },
+  'conodoguinet-creek-vincent-difilippo-good-hope': {
+    putIn: {
+      name: 'Vincent DiFilippo Nature Preserve launch',
+      latitude: 40.2576825,
+      longitude: -77.0209403,
+    },
+    takeOut: {
+      name: 'Good Hope Access',
+      latitude: 40.2546304,
+      longitude: -76.9753045,
+    },
+    logistics: {
+      distanceLabel: 'About 5.2 mi',
+      estimatedPaddleTime:
+        'About 2 hr 30 min to 4 hr depending on depth, bridge scouting, and how much wood has shifted since the last rain',
+      shuttle:
+        'Stage the take-out at Good Hope Access before driving back to Vincent DiFilippo Nature Preserve. Inspect Good Hope on arrival because the county calls it a shallow PFBC launch with a permit requirement and modest parking.',
+      permits:
+        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC, township-park, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The current county and PFBC materials confirm access and parking, not public overnight use or route camping for this exact segment.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Vincent DiFilippo Nature Preserve and take out at the PFBC Good Hope Access for a moderate-length Conodoguinet day. Use the direct Hogestown gauge and the county floor of 1.7 ft, then make a same-day call on wood, current, and the Good Hope ramp condition.',
+      accessCaveats: [
+        'Cumberland County lists both endpoints as named public launches and gives them official street-address access, but the route coordinates in PaddleToday are derived from those official addresses because the county table does not publish launch lat/longs.',
+        'Good Hope is a PFBC site with a shallow earthen ramp improved by matting and about ten parking spaces. It is more basic than a broad municipal park launch.',
+        'The county says boating should be above 1.7 ft at Hogestown. Treat lower readings as a drag-and-scrape signal and much higher readings as a caution flag for stronger current and more debris.',
+      ],
+      watchFor: [
+        'Dragging and shallow bridge or riffle lines when the Hogestown gauge is near or below 1.7 ft.',
+        'Fresh wood, overhanging limbs, bridge current, and narrow turns that can feel quicker after thunderstorms.',
+        'Action-stage current and flooded edges once the gauge rises toward 6 ft, even if the launches remain open.',
+        'Private banks and limited bailout options away from the named public launches.',
+      ],
+    },
+  },
+  'conodoguinet-creek-good-hope-acri-meadow': {
+    putIn: {
+      name: 'Good Hope Access',
+      latitude: 40.2546304,
+      longitude: -76.9753045,
+    },
+    takeOut: {
+      name: 'Acri Meadow Park launch',
+      latitude: 40.2754696,
+      longitude: -76.9528854,
+    },
+    logistics: {
+      distanceLabel: 'About 7.8 mi',
+      estimatedPaddleTime:
+        'About 3 hr 15 min to 5 hr depending on level, wood, scouting, and how quickly the downstream park launch is moving',
+      shuttle:
+        'Stage the take-out at Acri Meadow Park before driving back to Good Hope Access. Good Hope is the more limited endpoint, so inspect the PFBC ramp and parking first before committing to the shuttle.',
+      permits:
+        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC, township, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The current county and PFBC materials confirm launch access and park amenities, but they do not verify public overnight use or route camping for this exact corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Good Hope Access and take out at Acri Meadow Park for a longer lower-central Conodoguinet day. Use the direct Hogestown gauge and the county floor of 1.7 ft, then make a same-day visual call on current, wood, and bridge approaches.',
+      accessCaveats: [
+        'Cumberland County lists both endpoints as named public launches and gives them official street-address access, but the route coordinates in PaddleToday are derived from those official addresses because the county table does not publish launch lat/longs.',
+        'Good Hope is a smaller PFBC launch with a permit requirement, while Acri Meadow is a municipal park with an unimproved launch area and steeper slope to the water.',
+        'The county says boating should be above 1.7 ft at Hogestown. PaddleToday keeps this route minimum-only because the county publishes a floor and flood-context stages, not a route-specific ideal high-water band.',
+      ],
+      watchFor: [
+        'Dragging, shallow bends, and slower travel when the Hogestown gauge is near or below 1.7 ft.',
+        'Fresh wood, bridge-current acceleration, muddy banks, and slick unimproved take-out footing at Acri Meadow after rain.',
+        'A faster pushy creek and floodplain spread once the gauge climbs toward the 6 ft action stage.',
+        'Private banks and limited legal bailout choices away from the named public launches.',
+      ],
+    },
+  },
   'wabash-river-vera-cruz-white-bridge': {
     putIn: {
       id: 'vera-cruz-paddlesports-launch',
