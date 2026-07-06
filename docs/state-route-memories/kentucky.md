@@ -2,6 +2,14 @@
 
 Last summarized: 2026-07-06 00:45 America/Chicago / 2026-07-06 05:45 UTC.
 
+## 2026-07-06 Green River restoration pass
+
+- Reused the live repo state as the only valid baseline and restored three Green River slugs that were absent from the current tree at run start: `green-river-glenview-road-lynn-camp-creek`, `green-river-rio-carrydown-hh-wilson-park`, and `green-river-hh-wilson-park-dennison-ferry`.
+- Current KDFWR Pool 6 guidance still documents the exact public Green River site-to-site mileages of Glenview -> Lynn Camp `19.2`, H.H. Wilson -> Stovall `3.6`, and Stovall -> Dennison `21.0`, while the current Hart County Green River article still documents Rio Carrydown -> H.H. Wilson as `8` miles. Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Glenview Road Carrydown, Lynn Camp Creek VPA #1, Rio Carrydown Access, H.H. Wilson Park Ramp, and Dennison Ferry Carrydown.
+- Same-day direct USGS Water Services returned `1.06 ft` at `2026-07-06 01:15 CDT` for Green River at Greensburg (`03306500`), which sits inside KDFWR's official `1.0-1.75 ft` good band for the Glenview-to-Lynn-Camp route. The same run returned `1210 cfs / 4.33 ft` at `2026-07-06 02:00 CDT` for Green River at Munfordville (`03308500`), above KDFWR's official `300-600 cfs` good band, so the Rio-to-Wilson and H.H.-Wilson-to-Dennison routes ship with explicit higher-water caution rather than comfort framing.
+- Camping stays conservative by route: Glenview -> Lynn Camp uses `none`, Rio -> H.H. Wilson uses `none`, and H.H. Wilson -> Dennison uses `on_route_campsite` because Stovall Park's primitive camping remains the clearest legal overnight support on that corridor while Dennison itself remains day-use only.
+- Bounded image review stayed negative for all three slugs, so `docs/river-image-source-audit.csv` now records no-image outcomes for the restored routes.
+
 ## 2026-07-06 South Fork restoration pass
 
 - Reused the live repo state as the only valid baseline and restored three South Fork Kentucky River slugs that were absent from the current tree at run start: `south-fork-kentucky-river-bishop-bend-kay-wood`, `south-fork-kentucky-river-cedar-valley-kay-wood`, and `south-fork-kentucky-river-rocky-branch-kay-wood`.
