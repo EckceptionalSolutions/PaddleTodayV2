@@ -1,11 +1,20 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-03 20:45 America/Chicago / 2026-07-04 01:45 UTC.
+Last summarized: 2026-07-05 22:45 America/Chicago / 2026-07-06 03:45 UTC.
 
 ## Current Inventory
 
-- Live routes: 43.
-- Ledger candidates: 72 Kentucky-specific records. The newest live Kentucky slugs are `floyds-fork-north-beckley-cane-run`, `floyds-fork-seaton-valley-broad-run-valley`, and `floyds-fork-broad-run-valley-cliffside`.
+- Live routes: 46.
+- Ledger candidates: 72 Kentucky-specific records. The newest live Kentucky slugs are `cumberland-river-redbird-longbottom`, `cumberland-river-longbottom-thunderstruck`, and `cumberland-river-longbottom-cumberland-falls`.
+
+## 2026-07-05 Cumberland split restoration pass
+
+- Reused the live repo state as the only valid baseline and restored three Cumberland-above-the-falls slugs that were absent from the current tree at run start: `cumberland-river-redbird-longbottom`, `cumberland-river-longbottom-thunderstruck`, and `cumberland-river-longbottom-cumberland-falls`.
+- Current KDFWR Cumberland River guidance plus the current route map still document the exact public ramp-to-ramp mileages of Redbird -> Longbottom `9.0`, Longbottom -> Thunderstruck `2.5`, and Thunderstruck -> Cumberland Falls `5.1`, which support the restored public route mileages of `9.0`, `2.5`, and `7.6`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Redbird Ramp, Long Bottom Access, Thunderstruck Ramp, and Cumberland Falls Carrydown.
+- Same-day direct USGS Water Services returned `1260 cfs / 4.57 ft` at `2026-07-05 22:00 EDT` for Cumberland River at Williamsburg (`03404000`), above the official `500-1100 cfs` preferred band but still below KDFWR's `2000 cfs` skilled-paddler challenge ceiling, so the restored slugs keep explicit stronger-water caution instead of comfort framing.
+- Camping stays conservative by route: Redbird -> Longbottom uses `on_route_campsite`, Longbottom -> Thunderstruck stays `none`, and Longbottom -> Cumberland Falls uses `endpoint_campground`.
+- Bounded image posture remains unchanged: `docs/river-image-source-audit.csv` already records the prior no-image outcome for all three slugs because bounded KDFWR, Kentucky State Parks, Commons, and same-river USGS media review did not produce a clearly rights-clean exact-route asset.
 
 ## 2026-07-05 Floyds Fork continuation pass
 
@@ -23,7 +32,7 @@ Kentucky had been paused from the active automation rotation at user request whi
 ## 2026-07-03 Levisa Fork and Cumberland consolidation pass
 
 - Reduced the Levisa Fork Pikeville family to two live slugs by keeping the baseline short route `levisa-fork-cedar-creek-thompson-road` plus one canonical longer corridor slug, `levisa-fork-jubilee-thompson-road`.
-- Reduced the Cumberland family to one canonical upper-gorge slug, `cumberland-river-redbird-cumberland-falls`, with Long Bottom and Thunderstruck preserved as intermediate public access planner points in trip details instead of standalone same-gauge permutations.
+- A later 2026-07-05 live-baseline restoration pass reintroduced `cumberland-river-redbird-longbottom`, `cumberland-river-longbottom-thunderstruck`, and `cumberland-river-longbottom-cumberland-falls`, so the current Kentucky tree again keeps both the canonical full gorge slug and the three public split routes.
 - `docs/river-image-source-audit.csv` was pruned to remove deleted Levisa Fork and Cumberland entries so the image backlog only tracks current live Kentucky slugs in those families.
 
 ## Main Blockers
