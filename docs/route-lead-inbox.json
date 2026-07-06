@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-06T15:35:42.846Z",
+  "generatedAt": "2026-07-06T16:37:44.033Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
-    "totalLedgerCandidates": 728,
-    "currentRouteCount": 427,
-    "leadCount": 269,
+    "totalLedgerCandidates": 730,
+    "currentRouteCount": 430,
+    "leadCount": 268,
     "discoveryFocusStates": [
       "South Dakota",
       "Illinois",
@@ -224,16 +224,16 @@
       "threshold_discovery": 109,
       "coordinate_cleanup": 0,
       "access_legitimacy": 0,
-      "live_provider_recheck": 97,
+      "live_provider_recheck": 96,
       "blocked_recheck": 8
     },
     "byStatus": {
       "implemented": 75,
       "threshold_weak": 109,
-      "added": 361,
+      "added": 364,
       "research_later": 55,
       "blocked_until_date": 13,
-      "no_live_gauge": 87,
+      "no_live_gauge": 86,
       "rejected": 15,
       "gauge_proxy_weak": 10,
       "duplicate_corridor": 3
@@ -7505,36 +7505,6 @@
           "takeOut": null,
           "coordinatesPresent": false,
           "notes": "MDC confirms one public access at Lanagan; a downstream/upstream public endpoint pair with source-backed coordinates was not selected."
-        },
-        "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-        "discoveryTier": "supported_midwest"
-      },
-      {
-        "candidateId": "ia-north-fork-maquoketa-river-cascade-d61",
-        "lane": "live_provider_recheck",
-        "priority": 58,
-        "state": "IA",
-        "river": "North Fork Maquoketa River",
-        "route": "Cascade Historic Limestone Silo to Hwy D61 / Whitewater Creek",
-        "currentStatus": "no_live_gauge",
-        "lastReviewed": "2026-05-26",
-        "reviewCount": 4,
-        "duplicateRisk": false,
-        "blocker": "Dubuque County now explicitly lists D61 Access as a true public canoe/kayak access on Whitewater Creek, which improves the take-out authority. The route still cannot be added because the route's Fulton gauge is not currently live enough for PaddleToday scoring: the USGS legacy current-conditions page for 05418400 shows latest visible discharge and gage-height observations only through April 18, 2026, and the modern...",
-        "retryCondition": "Retry only if USGS 05418400 North Fork Maquoketa River near Fulton resumes current discharge/gage-height observations, or if a different direct same-river live gauge with route-specific North Fork Maquoketa guidance becomes available.",
-        "gauge": {
-          "quality": "direct",
-          "notes": "USGS 05418400 North Fork Maquoketa River near Fulton, IA is downstream on the same North Fork Maquoketa corridor and is the gauge Wisconsin River Trips uses for its Cascade-to-D61 route ladder. It is the right gauge in principle, but it is not currently usable as a live route signal because the visible current-conditions data stop at April 18, 2026 in this run."
-        },
-        "thresholdSupport": {
-          "strength": "strong_community",
-          "notes": "Wisconsin River Trips publishes a Fulton-gauge ladder for the Cascade-to-D61 route: less than 150 cfs may be too shallow, 231-300 cfs is average and good, 301-400 cfs is above average but still good, 551-700 cfs is high and likely less attractive, 701-1000 cfs is very high / advanced, and 1001+ cfs is expert-only."
-        },
-        "endpoints": {
-          "putIn": "Cascade Historic Limestone Silo / Cascade canoe-kayak landing",
-          "takeOut": "Hwy D61 / Whitewater Creek bridge access",
-          "coordinatesPresent": false,
-          "coordinateSource": "The put-in is anchored to the City of Cascade Riverview Park page's nearby landing-and-parking reference, the Silos and Smokestacks address at 215 Pierce St SW, and WRT's Cascade Historic Limestone Silo launch notes. The take-out is now better supported because Dubuque County lists D61 Access as a true public canoe/kayak access on Whitewater Creek, and WRT describes the Hwy D61 bridge access, but exact coordinate-level endpoint entry was still deferred because the live-gauge blocker prevented implementation."
         },
         "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
         "discoveryTier": "supported_midwest"
@@ -16598,36 +16568,6 @@
         "takeOut": null,
         "coordinatesPresent": false,
         "notes": "MDC confirms one public access at Lanagan; a downstream/upstream public endpoint pair with source-backed coordinates was not selected."
-      },
-      "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-      "discoveryTier": "supported_midwest"
-    },
-    {
-      "candidateId": "ia-north-fork-maquoketa-river-cascade-d61",
-      "lane": "live_provider_recheck",
-      "priority": 58,
-      "state": "IA",
-      "river": "North Fork Maquoketa River",
-      "route": "Cascade Historic Limestone Silo to Hwy D61 / Whitewater Creek",
-      "currentStatus": "no_live_gauge",
-      "lastReviewed": "2026-05-26",
-      "reviewCount": 4,
-      "duplicateRisk": false,
-      "blocker": "Dubuque County now explicitly lists D61 Access as a true public canoe/kayak access on Whitewater Creek, which improves the take-out authority. The route still cannot be added because the route's Fulton gauge is not currently live enough for PaddleToday scoring: the USGS legacy current-conditions page for 05418400 shows latest visible discharge and gage-height observations only through April 18, 2026, and the modern...",
-      "retryCondition": "Retry only if USGS 05418400 North Fork Maquoketa River near Fulton resumes current discharge/gage-height observations, or if a different direct same-river live gauge with route-specific North Fork Maquoketa guidance becomes available.",
-      "gauge": {
-        "quality": "direct",
-        "notes": "USGS 05418400 North Fork Maquoketa River near Fulton, IA is downstream on the same North Fork Maquoketa corridor and is the gauge Wisconsin River Trips uses for its Cascade-to-D61 route ladder. It is the right gauge in principle, but it is not currently usable as a live route signal because the visible current-conditions data stop at April 18, 2026 in this run."
-      },
-      "thresholdSupport": {
-        "strength": "strong_community",
-        "notes": "Wisconsin River Trips publishes a Fulton-gauge ladder for the Cascade-to-D61 route: less than 150 cfs may be too shallow, 231-300 cfs is average and good, 301-400 cfs is above average but still good, 551-700 cfs is high and likely less attractive, 701-1000 cfs is very high / advanced, and 1001+ cfs is expert-only."
-      },
-      "endpoints": {
-        "putIn": "Cascade Historic Limestone Silo / Cascade canoe-kayak landing",
-        "takeOut": "Hwy D61 / Whitewater Creek bridge access",
-        "coordinatesPresent": false,
-        "coordinateSource": "The put-in is anchored to the City of Cascade Riverview Park page's nearby landing-and-parking reference, the Silos and Smokestacks address at 215 Pierce St SW, and WRT's Cascade Historic Limestone Silo launch notes. The take-out is now better supported because Dubuque County lists D61 Access as a true public canoe/kayak access on Whitewater Creek, and WRT describes the Hwy D61 bridge access, but exact coordinate-level endpoint entry was still deferred because the live-gauge blocker prevented implementation."
       },
       "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
       "discoveryTier": "supported_midwest"

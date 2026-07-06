@@ -17857,6 +17857,129 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'turkey-river-gilbertson-elkader',
+    slug: 'turkey-river-gilbertson-elkader',
+    name: 'Turkey River',
+    reach: 'Gilbertson Park / Elgin to Elkader Access',
+    aliases: [
+      'Turkey River - Elgin to Elkader',
+      'Turkey River - Gilbertson Park to Elkader Access',
+      'Turkey River Water Trail - Gilbertson Access #59 to Elkader #39A',
+    ],
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Long upper Turkey River water-trail day from Elgin to the mandatory Elkader take-out, with broad valleys, gravel bars, Big Spring coldwater support, and a direct Elkader gauge at the finish.',
+    statusText:
+      'Use the Turkey River above French Hollow Creek at Elkader gauge. Treat about 250 cfs / 5.5 ft as the conservative minimum for the full Elgin-to-Elkader day; 220 cfs / 5.25 ft is very shallow and better limited to the shorter Big-Spring-to-Elkader half.',
+    latitude: 42.95817,
+    longitude: -91.62423,
+    gaugeSource: {
+      id: 'usgs-05412020',
+      provider: 'usgs',
+      siteId: '05412020',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Turkey River above French Hollow Cr at Elkader, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412020/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['dam', 'mandatory_takeout', 'strainers'],
+      safetyNotes: [
+        'The Elkader take-out and portage are mandatory; the official water-trail guide says not to pass the portages because the dam is just downstream.',
+        'This is a long day with few clean public exits after Elgin. Do not launch unless the group can comfortably finish before the Elkader dam corridor.',
+        'Storm-changed wood, shallow riffles, and the slowing current above the dam pool can turn a simple-looking day into a tiring one for casual groups.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 250,
+      thresholdSource: {
+        label: 'Miles Paddled Turkey River IV Elgin-to-Elkader guidance',
+        url: 'https://milespaddled.com/turkey-river-iv/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall works best. Big Spring adds coldwater support late in the route, but the upper Elgin half still gets shallow first during dry spells and rises quickly after thunderstorms.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly beginner-friendly moving water at normal levels, but the 19.5-mile commitment, limited exits, and mandatory Elkader take-out above the dam make this more serious than a casual park float.',
+      confidenceNotes:
+        'Confidence is good for a guarded Iowa add: the 2025 Turkey River Water Trail guide still documents the official access chain from Gilbertson #59 through Narrows #57 and Big Spring #47/Frieden #46 to Elkader #39A, Miles Paddled documents the exact Elgin-to-Elkader trip with GPS points and recommends about 5.5 ft / 250+ cfs on the Elkader gauge for the full route, Fayette County supports Gilbertson as a public Turkey River campground property, MyCountyParks confirms Big Spring Campground as Water Trail Access #47, and same-day USGS Water Services returned 1,550 cfs and 7.07 ft at the Elkader gauge at 2026-07-06 10:45 CDT.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route chain',
+        value: 'Gilbertson #59 to Big Spring #47 to Elkader #39A, about 19.5 mi',
+        note: 'The 2025 Turkey River Water Trail guide lists Gilbertson to Big Spring at 11.9 miles and Big Spring to Elkader at 7.6 miles, supporting the full Elgin-to-Elkader continuation on the safe side of the dam.',
+        sourceUrl: 'https://turkeyriver.org/wp-content/uploads/2025/05/TRWT-Guide_2025_Online.pdf',
+      },
+      {
+        label: 'Published route report',
+        value: 'Elgin / Gilbertson to Elkader Access 39A',
+        note: 'Miles Paddled documents the exact Elgin-to-Elkader trip with route narrative, GPS points, and a recommendation to look for about 5.5 ft or 250+ cfs on the Elkader gauge.',
+        sourceUrl: 'https://milespaddled.com/turkey-river-iv/',
+      },
+      {
+        label: 'Route-specific minimum',
+        value: '5.5 ft / 250 cfs conservative floor',
+        note: 'Miles Paddled says the full Elgin-to-Elkader route is best around 5.5 ft or 250+ cfs on the Elkader gauge, while 5.25 ft / 220 cfs is very shallow and better suited only to the lower Big-Spring-to-Elkader half.',
+        sourceUrl: 'https://milespaddled.com/turkey-river-iv/',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05412020 at 1,550 cfs / 7.07 ft',
+        note: 'USGS Water Services returned current Turkey River above French Hollow Creek at Elkader values of 1,550 cfs and 7.07 ft at 2026-07-06 10:45 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412020/',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Gilbertson Park / Elgin access corridor',
+        note: 'Fayette County says Gilbertson Park is a 1,000-acre public property along the Turkey River near Elgin with campground and paddling access, and Miles Paddled identifies the practical launch near the Highway B64 bridge.',
+        sourceUrl: 'https://www.fayettecountyconservation.org/gilbertson-conservation-education-a',
+      },
+      {
+        label: 'Mandatory take-out',
+        value: 'Elkader Access #39A / Sandpit Road',
+        note: 'The official water-trail guide warns paddlers to take out before the Elkader dam, and Miles Paddled documents Access 39A off Sandpit Road as the practical landing for this exact route.',
+        sourceUrl: 'https://milespaddled.com/turkey-river-iv/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Turkey River Water Trail guide PDF',
+        url: 'https://turkeyriver.org/wp-content/uploads/2025/05/TRWT-Guide_2025_Online.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Miles Paddled Turkey River IV',
+        url: 'https://milespaddled.com/turkey-river-iv/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Fayette County Gilbertson Park',
+        url: 'https://www.fayettecountyconservation.org/gilbertson-conservation-education-a',
+        provider: 'local',
+      },
+      {
+        label: 'MyCountyParks Big Spring Campground',
+        url: 'https://www.mycountyparks.com/county/Clayton/Park/Big-Spring-Campground',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05412020 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412020/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'turkey-river-motor-mill-garber',
     slug: 'turkey-river-motor-mill-garber',
     name: 'Turkey River',
@@ -18187,6 +18310,243 @@ export const rivers: River[] = [
         label: 'Turkey River near Eldorado river levels',
         url: 'https://turkeyriver.org/river-levels/',
         provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'north-fork-maquoketa-river-cascade-d61',
+    slug: 'north-fork-maquoketa-river-cascade-d61',
+    name: 'North Fork Maquoketa River',
+    reach: 'Cascade Historic Limestone Silo to D61 Access',
+    aliases: [
+      'North Fork Maquoketa River - Cascade to Hwy D61',
+      'North Fork Maquoketa River - Cascade Historic Limestone Silo to Whitewater Creek',
+      'North Fork Maquoketa River - Cascade Riverfront Park to D61',
+    ],
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Scenic Driftless North Fork float from Cascade’s concrete launch below the old falls to the Whitewater Creek D61 access, with bluffs, boulders, riffles, and a direct Fulton gauge ladder.',
+    statusText:
+      'Use the North Fork Maquoketa near Fulton gauge. Treat 231 to 400 cfs as the broad target window, below 150 cfs as likely too shallow, and 701+ cfs as beyond the normal recreational recommendation.',
+    latitude: 42.29902,
+    longitude: -91.01244,
+    gaugeSource: {
+      id: 'usgs-05418400',
+      provider: 'usgs',
+      siteId: '05418400',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'North Fork Maquoketa River near Fulton, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 231,
+      idealMax: 400,
+      tooLow: 150,
+      tooHigh: 701,
+      thresholdSource: {
+        label: 'Wisconsin River Trips North Fork Maquoketa Cascade-to-D61 gauge ladder',
+        url: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and fall are the best scenery windows. Heavy rain can quickly make the North Fork pushy and muddy, while dry late-summer windows expose more gravel and make the D61 take-out creek shallower.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly Class I moving water at normal levels, but the launch sits just below Cascade’s dam zone, the route has many riffles and outside-bend boulders, and the D61 exit requires attention at the Whitewater Creek mouth.',
+      confidenceNotes:
+        'Confidence is good for a guarded Iowa add: the City of Cascade still says the Riverview Park corridor has a nearby landing and parking area for canoers and kayakers floating south of town, Wisconsin River Trips and Miles Paddled both document the exact Cascade-to-D61 route with GPS points and Fulton-gauge context, Dubuque County now lists D61 Access as a true public canoe/kayak access on Whitewater Creek, and same-day USGS Water Services returned 943 cfs and 5.04 ft at the direct Fulton gauge at 2026-07-06 11:00 CDT.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public launch support',
+        value: 'Cascade Historic Limestone Silo / Cascade landing',
+        note: 'The City of Cascade says a landing and parking area within walking distance of Riverview Park gives canoers and kayakers the opportunity to float the North Fork to points south of Cascade, and WRT describes a long concrete ramp by the historic limestone silo below the dam.',
+        sourceUrl: 'https://www.cityofcascade.org/vnews/display.v/ART/5e94c9f386f55',
+      },
+      {
+        label: 'Published route report',
+        value: 'Cascade Historic Limestone Silo to Hwy D61, 7.8 mi',
+        note: 'Wisconsin River Trips documents the exact 7.8-mile Cascade-to-D61 route and Miles Paddled documents the same corridor with GPS points and route notes.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+      },
+      {
+        label: 'Public take-out',
+        value: 'D61 Access on Whitewater Creek',
+        note: 'Dubuque County lists D61 Access as a true public canoe/kayak access on Whitewater Creek, and WRT says the route exits there by paddling a short distance up Whitewater Creek to the bridge access.',
+        sourceUrl: 'https://dubuquecountyiowa.gov/767/Paddling',
+      },
+      {
+        label: 'Gauge ladder',
+        value: '231 to 400 cfs broad target',
+        note: 'Wisconsin River Trips publishes the route-specific Fulton-gauge ladder used by this corridor, with less than 150 cfs flagged as too shallow and 701+ cfs pushed into the advanced-only range.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+      },
+      {
+        label: 'Current gauge check',
+        value: 'USGS 05418400 at 943 cfs / 5.04 ft',
+        note: 'USGS Water Services returned current North Fork Maquoketa River near Fulton values of 943 cfs and 5.04 ft at 2026-07-06 11:00 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.29902, -91.01244 to 42.27778, -90.9371',
+        note: 'Miles Paddled publishes GPS points for the Cascade Riverfront Park / Pierce Street launch and the Highway D61 take-out on Whitewater Creek; the city and county pages corroborate the access names and public-use context.',
+        sourceUrl: 'https://milespaddled.com/maquoketa-river-north-fork-iii/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'City of Cascade Riverview Park',
+        url: 'https://www.cityofcascade.org/vnews/display.v/ART/5e94c9f386f55',
+        provider: 'local',
+      },
+      {
+        label: 'Silos and Smokestacks Cascade Historic Limestone Silo',
+        url: 'https://www.silosandsmokestacks.org/attraction/cascade-limestone-silo/',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin River Trips North Fork Maquoketa River',
+        url: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Miles Paddled Maquoketa River North Fork III',
+        url: 'https://milespaddled.com/maquoketa-river-north-fork-iii/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Dubuque County paddling access list',
+        url: 'https://dubuquecountyiowa.gov/767/Paddling',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05418400 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'north-fork-maquoketa-river-cascade-ozark',
+    slug: 'north-fork-maquoketa-river-cascade-ozark',
+    name: 'North Fork Maquoketa River',
+    reach: 'Cascade Historic Limestone Silo to Ozark Bridge / 21st Ave',
+    aliases: [
+      'North Fork Maquoketa River - Cascade to Ozark Bridge',
+      'North Fork Maquoketa River - Cascade Historic Limestone Silo to 21st Ave',
+      'North Fork Maquoketa River - Cascade wilderness stretch to Ozark',
+    ],
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Long North Fork Maquoketa wilderness day from Cascade to Ozark Bridge, with remote Driftless bluffs, boulders, light rapids, and a direct Fulton gauge on a corridor that has few intermediate exits.',
+    statusText:
+      'Use the North Fork Maquoketa near Fulton gauge. Treat 231 to 400 cfs as the broad target window, below 150 cfs as likely too shallow, and 701+ cfs as beyond the normal recreational recommendation.',
+    latitude: 42.29902,
+    longitude: -91.01244,
+    gaugeSource: {
+      id: 'usgs-05418400',
+      provider: 'usgs',
+      siteId: '05418400',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'North Fork Maquoketa River near Fulton, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 231,
+      idealMax: 400,
+      tooLow: 150,
+      tooHigh: 701,
+      thresholdSource: {
+        label: 'Wisconsin River Trips North Fork Maquoketa Fulton gauge ladder',
+        url: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and fall are the best scenery windows. Heavy rain quickly raises the North Fork and makes this long no-bailout day more consequential, while dry late-summer periods turn riffles scrapier and slower.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The whitewater is mostly easy at normal levels, but this is a committed near-20-mile day with no reliable intermediate public exit once you pass the Whitewater Creek mouth and enter the long wooded bluff corridor to Ozark.',
+      confidenceNotes:
+        'Confidence is good for a guarded Iowa add: the City of Cascade still points paddlers to the landing-and-parking corridor south of Riverview Park, Jones County still describes roughly 18 miles between Cascade and the Jackson County Ozark/Caven take-outs, Jackson County lists Ozark Bridge on the water-trail access table, Wisconsin River Trips documents both the Cascade-to-D61 route and the Whitewater-Creek-mouth-to-21st-Ave continuation, and same-day USGS Water Services returned 943 cfs and 5.04 ft at the direct Fulton gauge at 2026-07-06 11:00 CDT.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public launch support',
+        value: 'Cascade Historic Limestone Silo / Cascade landing',
+        note: 'The City of Cascade says the Riverview Park corridor has a nearby landing and parking area for canoers and kayakers floating south of town, and WRT describes the practical concrete-ramp launch by the historic limestone silo below the dam.',
+        sourceUrl: 'https://www.cityofcascade.org/vnews/display.v/ART/5e94c9f386f55',
+      },
+      {
+        label: 'Official long-corridor support',
+        value: 'Cascade to Ozark / Caven wilderness stretch, about 18 mi',
+        note: 'Jones County describes about 18 miles between Cascade and the Jackson County Ozark Bridge or Caven Bridge take-outs through a long, largely inaccessible wilderness corridor.',
+        sourceUrl: 'https://www.jonescountyiowa.gov/conservation/rivers/maquoketa_river_north_fork/',
+      },
+      {
+        label: 'Published continuation mileage',
+        value: 'Cascade to D61 plus Whitewater Creek mouth to 21st Ave, about 19.9 mi',
+        note: 'Wisconsin River Trips documents Cascade Historic Limestone Silo to D61 at 7.8 miles and Whitewater Creek Mouth to 21st Ave / Ozark Bridge at 12.1 miles, supporting the long Cascade-to-Ozark continuation.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Ozark Bridge / 21st Ave access area',
+        note: 'Jackson County Conservation lists Ozark Bridge on the North Fork water-trail access table, and the existing Ozark-to-Caven route in this corridor uses those published access-area coordinates.',
+        sourceUrl: 'https://www.mycountyparks.com/County/Jackson/Park/Maquoketa-River-Water-Trail',
+      },
+      {
+        label: 'Gauge ladder',
+        value: '231 to 400 cfs broad target',
+        note: 'Wisconsin River Trips uses the same Fulton gauge ladder for the scenic upper North Fork corridor, with less than 150 cfs flagged as too shallow and 701+ cfs pushed into the advanced-only range.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+      },
+      {
+        label: 'Current gauge check',
+        value: 'USGS 05418400 at 943 cfs / 5.04 ft',
+        note: 'USGS Water Services returned current North Fork Maquoketa River near Fulton values of 943 cfs and 5.04 ft at 2026-07-06 11:00 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'City of Cascade Riverview Park',
+        url: 'https://www.cityofcascade.org/vnews/display.v/ART/5e94c9f386f55',
+        provider: 'local',
+      },
+      {
+        label: 'Jones County North Fork Maquoketa River',
+        url: 'https://www.jonescountyiowa.gov/conservation/rivers/maquoketa_river_north_fork/',
+        provider: 'local',
+      },
+      {
+        label: 'Jackson County Maquoketa River Water Trail',
+        url: 'https://www.mycountyparks.com/County/Jackson/Park/Maquoketa-River-Water-Trail',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin River Trips North Fork Maquoketa River',
+        url: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05418400 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+        provider: 'usgs',
       },
     ],
   },

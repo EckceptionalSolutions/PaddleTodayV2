@@ -7268,6 +7268,42 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'turkey-river-gilbertson-elkader': {
+    putIn: {
+      name: 'Gilbertson Park / Elgin access corridor',
+      latitude: 42.95817,
+      longitude: -91.62423,
+    },
+    takeOut: {
+      name: 'Elkader Access #39A / Sandpit Road',
+      latitude: 42.8618,
+      longitude: -91.40877,
+    },
+    logistics: {
+      distanceLabel: '19.5 mi',
+      estimatedPaddleTime: 'About 6 hr 30 min to 8 hr 30 min',
+      shuttle:
+        'Use a two-car shuttle between the Elgin / Gilbertson corridor and Elkader Access #39A off Sandpit Road. This is a real full-day route, so many groups will prefer an early launch and a pre-scouted take-out.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Fayette County, Clayton County, and Elkader access rules, and respect private banks away from named public access points.',
+      camping:
+        'Gilbertson Park has campground facilities at the put-in. Big Spring Campground and rougher Frieden Park camping are mid-route options only if you intentionally split the trip; do not assume legal overnight use elsewhere on private banks.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch from the Gilbertson Park / Elgin corridor and stay on the Turkey River all the way to Elkader Access #39A for the full upper Turkey River day. The route combines the broad upper valley, the Big Spring corridor, and the mandatory pre-dam Elkader take-out in one long trip.',
+      accessCaveats: [
+        'The practical Elgin launch is the Highway B64 bridge corridor by Gilbertson Park rather than a polished ramp. Walk the bank before unloading if you have not used it before.',
+        'Big Spring Campground and Frieden Park are the main mid-route public decision points if the group needs to shorten or split the day.',
+        'Elkader Access #39A is upstream of the dam. Land on river left at the marked access and do not continue toward the dam unless you are intentionally portaging with current local guidance.',
+      ],
+      watchFor: [
+        'Long shallow riffles and gravel bars when the Elkader gauge falls toward the 250 cfs floor.',
+        'Outside-bend wood, abandoned debris, and shifting channels after storms in the broad valley above Big Spring.',
+        'Headwinds, heat, and fatigue late in the day as the current slows into the Elkader dam pool.',
+        'Mandatory take-out behavior at Elkader; never drift past posted dam warnings.',
+      ],
+    },
+  },
   'turkey-river-motor-mill-garber': {
     putIn: {
       name: 'Motor Mill Access #32',
@@ -7403,6 +7439,74 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Swift current and light Class I riffles immediately downstream of the put-in that become pushier above the target range.',
         'Muddy undeveloped banks at both ends, plus steep bridge-area approaches and limited roadside maneuvering on gravel roads.',
         'Cold shoulder-season water, fast rises after heavy rain, and private-property boundaries around road-right-of-way and west-bank access.',
+      ],
+    },
+  },
+  'north-fork-maquoketa-river-cascade-d61': {
+    putIn: {
+      name: 'Cascade Historic Limestone Silo / Cascade landing',
+      latitude: 42.29902,
+      longitude: -91.01244,
+    },
+    takeOut: {
+      name: 'D61 Access / Whitewater Creek bridge access',
+      latitude: 42.27778,
+      longitude: -90.9371,
+    },
+    logistics: {
+      distanceLabel: '7.8 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr',
+      shuttle:
+        'Use a paved but hilly two-car shuttle between the Cascade silo launch and D61 east of Cascade. The shuttle is short enough for a strong bike option, but the county roads have limited shoulders.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted City of Cascade and county bridge-access parking rules, and use only the named public launch and take-out areas.',
+      camping:
+        'Do not assume legal river camping on this route. Nearby campgrounds and private tubing accesses are separate arrangements and should not be treated as route camping permission.',
+      summary:
+        'Launch at the concrete ramp by the Cascade Historic Limestone Silo and paddle to the D61 bridge access on Whitewater Creek. This is a scenic North Fork drift with bluffs, boulders, riffles, and a short final move up Whitewater Creek to the take-out.',
+      accessCaveats: [
+        'Use the public ramp below the Cascade dam, not an improvised launch in the dam zone or above the structure.',
+        'The D61 take-out is on Whitewater Creek rather than the main river. Watch for the creek mouth and save enough energy to paddle or wade the short final distance upstream to the bridge access.',
+        'The bridge access can be muddy and the bank is not a polished ramp, so scout the landing before committing to the route with heavier boats.',
+      ],
+      watchFor: [
+        'Light rapids and stronger eddy lines near Cascade, especially if you launch above the preferred concrete-ramp entry point.',
+        'Outside-bend boulders, wood, and faster current as levels climb above the broad 231-400 cfs target range.',
+        'Private campground access points that are not public exits unless you have separate permission.',
+      ],
+    },
+  },
+  'north-fork-maquoketa-river-cascade-ozark': {
+    putIn: {
+      name: 'Cascade Historic Limestone Silo / Cascade landing',
+      latitude: 42.29902,
+      longitude: -91.01244,
+    },
+    takeOut: {
+      name: 'Ozark Bridge / 21st Ave access area',
+      latitude: 42.19,
+      longitude: -90.87,
+    },
+    logistics: {
+      distanceLabel: 'About 18 to 20 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr depending on level and breaks',
+      shuttle:
+        'Set the Ozark vehicle first and treat this as a committed full-day shuttle. The road return is long and hilly enough that a bike shuttle is unrealistic for most groups.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted City of Cascade and county bridge-access parking rules, and use named public access areas only.',
+      camping:
+        'Some paddlers treat this as a two-day corridor, but no verified legal on-route campsite was cleared in this pass. Plan it as a long day unless you independently confirm legal overnight options.',
+      summary:
+        'Launch at Cascade and stay on the North Fork all the way to Ozark Bridge for the long wilderness continuation. This route strings together the scenic Cascade reach and the bluff-heavy Whitewater-to-Ozark corridor with very few practical public exits in between.',
+      accessCaveats: [
+        'Use the public ramp below the Cascade dam, not an improvised launch in the dam zone or above the structure.',
+        'Once you pass the Whitewater Creek mouth, public bailout options become scarce until Ozark Bridge. Do not launch late or with a group that is uncertain about covering the mileage.',
+        'Ozark Bridge is an undeveloped bridge access. Expect a basic roadside pull-off and a carry path rather than a polished county ramp.',
+      ],
+      watchFor: [
+        'A long sequence of riffles, outside-bend boulders, wood, and fatigue-related mistakes late in the day.',
+        'Fast rises and muddier current after storms, which make this isolated corridor significantly more consequential than the short Ozark-to-Caven route.',
+        'Private banks and private campground accesses that should not be treated as normal public take-outs.',
       ],
     },
   },
