@@ -14249,7 +14249,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-'susquehanna-river-hornbrook-terrytown': {
+  'susquehanna-river-hornbrook-terrytown': {
     putIn: {
       name: 'Larnard Hornbrook Park ramp',
       latitude: 41.809444,
@@ -14284,6 +14284,120 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Towanda stages below about 1 foot, when shallower lower-riverbed spots can create class I to II style wave trains and expose more rocks.',
         'Towanda stages above about 4 feet, when the current moves faster and small errors cost more energy late in the day; PFBC says novice paddlers should stay off above about 5 feet.',
         'Headwind, thunderstorms, floating wood, fatigue, private shorelines, and drifting past the Terrytown PFBC finish after settling into the long lower-corridor rhythm.',
+      ],
+    },
+  },
+  'susquehanna-river-hornbrook-towanda': {
+    putIn: {
+      name: 'Larnard Hornbrook Park ramp',
+      latitude: 41.809444,
+      longitude: -76.486111,
+    },
+    takeOut: {
+      name: 'Towanda Riverfront Park ramp',
+      latitude: 41.768611,
+      longitude: -76.438611,
+    },
+    logistics: {
+      distanceLabel: 'About 5 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 3 hr in ordinary conditions, longer with headwind, low-water line picking, or careful approach to the Towanda bridge area',
+      shuttle:
+        'Stage the take-out at Towanda Riverfront Park first, then drive back to Larnard Hornbrook Park. Inspect both accesses before launching because mud, bridge-current push, storm cleanup, or local park activity can change the practical landing angle.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, county-park, borough, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. Hornbrook Park can support a nearby basecamp-style stay, but the route should not imply open riverbank camping between the named accesses.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Larnard Hornbrook Park and take out at Towanda Riverfront Park for a short upper-Bradford-County Susquehanna day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and keep the mile-274 strainer area plus the Towanda bridge riffles on the same-day checklist.',
+      accessCaveats: [
+        'PFBC Section 1 publishes both Larnard Hornbrook Park and Towanda Riverfront Park coordinates directly in the official access table.',
+        'Hornbrook is a park access rather than a huge ramp complex. Confirm same-day footing, parking, and launch angle before leaving the shuttle vehicle.',
+        'Towanda is a stronger town landing, but bridge current and riverfront activity can still complicate the finish if you arrive tired or in rising water.',
+        'Stay within the named public accesses and do not assume islands, bars, or private banks are legitimate substitutes.',
+      ],
+      watchFor: [
+        'Fast riffles with a strainer in the mile-274 area and fast riffles before the bridge at mile 270 flagged by PFBC.',
+        'Towanda stages below about 0 to 1 foot, when the broad channel gets scratchier and more technical around shallow riffle lines.',
+        'Towanda stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and the risk of drifting past the obvious Towanda take-out near the bridge corridor.',
+      ],
+    },
+  },
+  'susquehanna-river-towanda-terrytown': {
+    putIn: {
+      name: 'Towanda Riverfront Park ramp',
+      latitude: 41.768611,
+      longitude: -76.438611,
+    },
+    takeOut: {
+      name: 'Terrytown PFBC ramp',
+      latitude: 41.714167,
+      longitude: -76.281667,
+    },
+    logistics: {
+      distanceLabel: 'About 16 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7.5 hr in ordinary conditions, longer with headwind, low-water scouting, or a relaxed shuttle day',
+      shuttle:
+        'Stage the take-out at Terrytown PFBC first, then drive back to Towanda Riverfront Park. Inspect both landings before launching because broad-river mud, event traffic, flood cleanup, or local maintenance can change how straightforward the carry feels.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, borough, boating, and PFD rules.',
+      camping:
+        'Treat this as a day float. Riverside Acres Campground is listed in the PFBC Section 1 corridor and can support a nearby basecamp stay, but the route itself should not imply open riverbank camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Towanda Riverfront Park and take out at Terrytown PFBC for a mid-corridor North Branch day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet, and scout the fast-riffle miles downstream of Towanda before committing.',
+      accessCaveats: [
+        'PFBC Section 1 publishes both Towanda Riverfront Park and Terrytown PFBC coordinates directly in the official access table.',
+        'This route starts at a stronger town access but still finishes at a gravel PFBC landing. Confirm same-day footing, parking, and any local closures at both ends.',
+        'PFBC treats 15 to 18 miles around the 2-foot Towanda level as more of an experienced-paddler day distance. Do not underrate the time commitment just because the river is broad and mostly open.',
+        'Stay within the named public accesses and do not assume mid-route bars, islands, or informal pull-offs are legitimate take-out substitutes.',
+      ],
+      watchFor: [
+        'Fast riffles before the bridge at mile 270, then more fast current at miles 269 and 268 flagged by PFBC.',
+        'Towanda stages below about 1 foot, when the lower riverbed funnels current and can create class I to II style wave trains in shallow spots.',
+        'Towanda stages above about 4 feet, when the corridor moves faster and small mistakes at the end of a long day cost more time; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and missing the Terrytown PFBC take-out after relaxing into the long flatwater rhythm.',
+      ],
+    },
+  },
+  'susquehanna-river-wysox-township-park-terrytown': {
+    putIn: {
+      name: 'Wysox Township Park access',
+      latitude: 41.770833,
+      longitude: -76.397778,
+    },
+    takeOut: {
+      name: 'Terrytown PFBC ramp',
+      latitude: 41.714167,
+      longitude: -76.281667,
+    },
+    logistics: {
+      distanceLabel: 'About 13.6 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6.5 hr in ordinary conditions, longer with headwind, low-water wave trains, or extra time checking the lower fast-riffle sections',
+      shuttle:
+        'Stage the take-out at Terrytown PFBC first, then drive back to Wysox Township Park. Inspect both landings before launching because mud, flood cleanup, campground traffic, or local maintenance can change how straightforward the carry feels.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, township-park, boating, and PFD rules.',
+      camping:
+        'Riverside Acres Campground and the French Azilum Historical Site overnight stop are both listed on this official corridor. Treat that as on-route camping support only and not as permission to camp on broad gravel bars, islands, or private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Wysox Township Park and take out at Terrytown PFBC for a lower Section 1 Susquehanna day with clean public endpoints. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and watch the mile-267, mile-261, and mile-258 fast-water zones carefully.',
+      accessCaveats: [
+        'PFBC and the North Branch guide family publish both Wysox Township Park and Terrytown PFBC coordinates directly in the official access tables.',
+        'This is a public-access route, but French Azilum and Riverside Acres remain support points rather than the planned take-out. Stay committed to the Terrytown PFBC finish unless you have made a deliberate legal overnight plan.',
+        'Terrytown is a gravel PFBC landing rather than a big municipal ramp. Confirm same-day footing, parking, and any local closure or maintenance issues before leaving the shuttle.',
+        'The broad river still has private banks and islands away from the named accesses. Stay within the obvious public launch, campground, and finish zones only.',
+      ],
+      watchFor: [
+        'A long fast-riffle section at mile 267, plus more fast riffles at miles 261 and 258 flagged by PFBC.',
+        'Towanda stages below about 1 foot, when lower-riverbed shallows can create class I to II style wave trains and more exposed rocks.',
+        'Towanda stages above about 4 feet, when current speeds up and the route stops feeling as forgiving; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and drifting past the Terrytown PFBC finish after settling into the long lower-corridor rhythm.',
       ],
     },
   },
