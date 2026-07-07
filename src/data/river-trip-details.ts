@@ -7889,6 +7889,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'jacks-fork-river-highway-17-bay-creek': {
+    putIn: {
+      name: 'Buck Hollow / Highway 17 Bridge Access',
+      latitude: 37.057183,
+      longitude: -91.664061,
+    },
+    takeOut: {
+      name: 'Bay Creek River Access',
+      latitude: 37.1231,
+      longitude: -91.5018,
+    },
+    logistics: {
+      distanceLabel: 'About 18.2 mi',
+      estimatedPaddleTime: 'About 8 hr to 10 hr depending on level, scouting, and low-water dragging',
+      shuttle:
+        'Use a rural two-car or authorized outfitter shuttle between Buck Hollow / Highway 17 and Bay Creek. The take-out uses a remote Highway 106 gravel-road approach, so inspect the landing before launching and do not assume navigation apps will choose the right road-end turn.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, posted access signs, no-glass/no-polystyrene river rules, and any current park river closures or advisories.',
+      camping:
+        'Bay Creek has primitive NPS camping context, but treat this app route as a long day float unless you have checked current park camping rules and have a legal overnight plan. Do not assume private banks or informal gravel bars are available.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Buck Hollow and take out at Bay Creek for a longer official upper Jacks Fork day built from the current NPS float-time rows. Use the Mountain View gauge as the same conservative low-water check already used on adjacent upper-Jacks routes.',
+      accessCaveats: [
+        'Buck Hollow and Bay Creek are official NPS river accesses, but the coordinates here are practical access anchors rather than an NPS coordinate table. Follow current park signs and actual landing layout on arrival.',
+        'Buck Hollow is the Highway 17 bridge access north of Mountain View. Do not confuse it with the upstream Prongs / Highway Y section, which is a separate, more seasonal reach.',
+        'Bay Creek is a remote road-end access near primitive backcountry camping. Weather, washboarding, flood damage, or temporary park management can change practical access conditions.',
+      ],
+      watchFor: [
+        'Repeated scraping, dragging, and possible short lining when the Mountain View gauge is near or below the 100 cfs conservative floor.',
+        'Fast riffles, wood, strainers, blind bends, bluff ledges, and Class I-II moving-water consequences on a longer remote upper-river route.',
+        'Rapid rises after thunderstorms, cold spring-fed water, limited cell service, and longer-than-expected shuttle friction on rural gravel roads.',
+      ],
+    },
+  },
   'jacks-fork-river-blue-spring-rymers': {
     putIn: {
       name: 'Blue Spring River Access',
@@ -7920,6 +7955,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       watchFor: [
         'Dragging, shallow riffles, and possible short lining or poling when the Mountain View gauge is near or below the 100 cfs conservative floor.',
         'Fast riffles, tight bends, wood, strainers, bluff ledges, and Class I-II moving-water consequences on a short but remote upper-river route.',
+        'Rapid rises after thunderstorms, cold spring-fed water, limited cell service, and long rural shuttle friction.',
+      ],
+    },
+  },
+  'jacks-fork-river-blue-spring-bay-creek': {
+    putIn: {
+      name: 'Blue Spring River Access',
+      latitude: 37.054497,
+      longitude: -91.638198,
+    },
+    takeOut: {
+      name: 'Bay Creek River Access',
+      latitude: 37.1231,
+      longitude: -91.5018,
+    },
+    logistics: {
+      distanceLabel: 'About 15.6 mi',
+      estimatedPaddleTime: 'About 7 hr to 9 hr depending on level, stops, and low-water dragging',
+      shuttle:
+        'Use a rural two-car or authorized outfitter shuttle between Blue Spring and Bay Creek. Both accesses rely on remote gravel-road approaches off Highway OO or Highway 106, so inspect the take-out before launching and allow more shuttle time than the mileage suggests.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, posted access signs, no-glass/no-polystyrene river rules, and any current park river closures or advisories.',
+      camping:
+        'Blue Spring and Bay Creek both have primitive NPS camping context, but treat this as a long day float unless you have checked current park camping rules and have a legal overnight plan. Do not assume private banks or unsanctioned gravel bars are available.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Blue Spring and take out at Bay Creek for a long upper Jacks Fork day built from the current NPS float-time rows. Use the Mountain View gauge as the same conservative low-water check already used on adjacent upper-Jacks routes.',
+      accessCaveats: [
+        'Blue Spring and Bay Creek are official NPS river accesses, but the exact coordinates used here are practical topo-derived access anchors rather than an NPS coordinate table. Follow signed access roads and parking layout on arrival.',
+        'Blue Spring on the Jacks Fork is the river access across from the geologic feature, not the separate Blue Spring on the Current River.',
+        'Bay Creek is a remote road-end access near primitive backcountry camping. Scout the take-out and parking before committing, especially after storms.',
+      ],
+      watchFor: [
+        'Prolonged scraping, dragging, and possible short lining or poling when the Mountain View gauge is near or below the 100 cfs conservative floor.',
+        'Fast riffles, wood, strainers, bluff ledges, and a long remote access-to-access day with few easy exits between named landings.',
         'Rapid rises after thunderstorms, cold spring-fed water, limited cell service, and long rural shuttle friction.',
       ],
     },
@@ -7956,6 +8026,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Regular scraping, poling, or short lining when the Mountain View gauge is near or below the 100 cfs conservative floor.',
         'Fast riffles, wood, strainers, blind bends, and remote access-to-access travel with few easy exits between the named landings.',
         'Rapid rises after thunderstorms, limited cell service, private land away from the public accesses, and longer-than-expected shuttle time on rural gravel roads.',
+      ],
+    },
+  },
+  'jacks-fork-river-rymers-alley-spring': {
+    putIn: {
+      name: 'Rymers Access',
+      latitude: 37.061386,
+      longitude: -91.559117,
+    },
+    takeOut: {
+      name: 'Alley Spring River Access',
+      latitude: 37.1484,
+      longitude: -91.4499,
+    },
+    logistics: {
+      distanceLabel: 'About 14.8 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr depending on level, stops, and low-water dragging',
+      shuttle:
+        'Use a rural two-car or authorized outfitter shuttle between Rymers and Alley Spring. The shuttle mixes remote gravel-road access with the busier Alley Spring developed area, so inspect the take-out and current parking layout before launching.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, posted access signs, no-glass/no-polystyrene river rules, and any current park river closures or advisories.',
+      camping:
+        'Rymers has primitive camping context and Alley Spring has developed campground context, but treat this as a day float unless you have checked current park camping rules and have a legal overnight plan. Do not assume private banks or informal gravel bars are available.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Rymers and take out at Alley Spring for a long upper Jacks Fork day built from the current NPS float-time rows. Use the direct Alley Spring gauge as the same conservative 100 cfs low-water check already used on the downstream Bay-Creek-to-Alley split.',
+      accessCaveats: [
+        'Rymers and Alley Spring are official NPS river accesses, but the coordinates here are practical access anchors rather than an NPS coordinate table. Follow signed access roads and current landing layout on arrival.',
+        'Alley Spring is a developed park access with campground and ranger-station context; use the signed river access rather than improvised banks near the spring area.',
+        'This is a long remote corridor between named accesses. Plan the shuttle before launching and do not assume quick mid-route bailouts if storms build.',
+      ],
+      watchFor: [
+        'Frequent scraping, dragging, and slower travel when the Alley Spring gauge is near the 100 cfs conservative floor.',
+        'Fast riffles, wood, strainers, blind bends, and Class I-II moving-water consequences on a long upper-river route.',
+        'Rapid rises after thunderstorms, cold spring-fed water, limited cell service, and crowding or parking friction once you reach Alley Spring.',
       ],
     },
   },

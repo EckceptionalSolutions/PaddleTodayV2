@@ -22890,6 +22890,140 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'jacks-fork-river-highway-17-bay-creek',
+    slug: 'jacks-fork-river-highway-17-bay-creek',
+    name: 'Jacks Fork River',
+    reach: 'Buck Hollow / Highway 17 Bridge to Bay Creek River Access',
+    aliases: [
+      'Jacks Fork - Highway 17 to Bay Creek',
+      'Upper Jacks Fork - Highway 17 to Bay Creek',
+      'Buck Hollow to Bay Creek long split',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Longer upper Jacks Fork day from Buck Hollow to Bay Creek, backed by current NPS float-time rows, primitive camping context at both public accesses, and the same direct Mountain View gauge used conservatively on adjacent upper-river splits.',
+    statusText:
+      'Use the Jacks Fork near Mountain View gauge. Around 100 cfs is the conservative low-water floor; below that, expect repeated scraping, dragging, and possible short lining through riffles above Bay Creek. High or rising water deserves extra caution in this narrow upper-river corridor.',
+    latitude: 37.057183,
+    longitude: -91.664061,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'This longer upper-Jacks split chains together three seasonal NPS float-time rows, so the remote shuttle and long stretch between easy exits matter more than the modest mileage might suggest.',
+        'The direct Mountain View gauge was below the 100 cfs conservative floor during this run, which matches the expected scrape-prone, drag-heavy character on shallow riffles above Rymers.',
+        'Use only the named NPS accesses at Buck Hollow and Bay Creek. Private banks, informal pull-offs, and unsanctioned gravel bars are not substitutes for the signed river accesses.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07065200',
+      provider: 'usgs',
+      siteId: '07065200',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jacks Fork near Mountain View, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065200/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Mountain View gauge rating and adjacent upper-Jacks trip rows',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The upper Jacks Fork is seasonal. Current NPS materials still say portions are navigable only during certain times because of low water, and this longer Buck-Hollow-to-Bay-Creek day is most reliable in spring or after rain. Thunderstorms can raise the valley quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This longer upper-river reach still carries Class I-II Ozark character with riffles, shoals, bluff pools, wood, and remote shuttle logistics. It should be treated as moving water, not a casual flatwater float.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: the current NPS float-times page still lists Highway 17 to Blue Spring as 2.6 miles / 1 hour, Blue Spring to Rymers as 6.6 miles / 3 hours, and Rymers to Bay Creek as 9 miles / 4 hours, which supports a combined public Buck-Hollow-to-Bay-Creek route of about 18.2 miles / 8 hours; the current NPS park brochure still places Buck Hollow at river mile 88 and Bay Creek at river mile 74 with primitive camping context; and same-day USGS Water Services IV returned 95.0 cfs and 0.89 ft at 2026-07-06 19:45 CDT for direct gauge 07065200. The app keeps only the existing conservative 100 cfs minimum-only upper-Jacks model already used by adjacent implemented splits.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Highway 17 to Bay Creek, about 18.2 mi / 8 hr',
+        note: 'The current NPS float-times page still lists Highway 17 to Blue Spring as 2.6 miles / 1 hour, Blue Spring to Rymers as 6.6 miles / 3 hours, and Rymers to Bay Creek as 9 miles / 4 hours, which supports a combined Buck-Hollow-to-Bay-Creek public day route of about 18.2 miles / 8 hours.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Buck Hollow at Highway 17, river mile 88',
+        note: 'The current NPS park brochure lists Buck Hollow where Highway 17 crosses the Jacks Fork and places it at river mile 88.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Bay Creek, river mile 74',
+        note: 'The current NPS park brochure lists Bay Creek as a river access with picnic area and primitive campsites west of Eminence off Highway 106.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07065200 at 95.0 cfs / 0.89 ft',
+        note: 'A same-day Water Services IV refresh returned 95.0 cfs and 0.89 ft at 2026-07-06 19:45 CDT for Jacks Fork near Mountain View, the direct upper-Jacks gauge already used by adjacent routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065200',
+      },
+      {
+        label: 'Low-water floor',
+        value: '100 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Mountain View gauge Good beginning at 100 cfs, and the adjacent implemented upper-Jacks routes already use that conservative floor. The app keeps only the same 100 cfs minimum-only model here.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+      },
+      {
+        label: 'Coordinate support',
+        value: 'Buck Hollow bridge access to Bay Creek River Access',
+        note: 'This route reuses the same Buck Hollow and Bay Creek access anchors already implemented on adjacent upper Jacks Fork routes, keeping the endpoint interpretation consistent across the corridor.',
+        sourceUrl: 'https://topoquest.com/place-detail.php?id=713232',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Jacks Fork estimated float times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle Jacks Fork River',
+        url: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark National Scenic Riverways park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Jacks Fork Mountain View gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07065200 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065200/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07065200 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065200',
+        provider: 'usgs',
+      },
+      {
+        label: 'TopoQuest Bay Creek area features',
+        url: 'https://topoquest.com/place-detail.php?id=713232',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'jacks-fork-river-blue-spring-rymers',
     slug: 'jacks-fork-river-blue-spring-rymers',
     name: 'Jacks Fork River',
@@ -23019,6 +23153,140 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'jacks-fork-river-blue-spring-bay-creek',
+    slug: 'jacks-fork-river-blue-spring-bay-creek',
+    name: 'Jacks Fork River',
+    reach: 'Blue Spring River Access to Bay Creek River Access',
+    aliases: [
+      'Jacks Fork - Blue Spring to Bay Creek',
+      'Upper Jacks Fork - Blue Spring to Bay Creek',
+      'Blue Spring to Bay Creek long split',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Long upper Jacks Fork day from Blue Spring to Bay Creek, backed by current NPS float-time rows, primitive camping context at both named accesses, and the same direct Mountain View gauge used conservatively on adjacent upper-Jacks routes.',
+    statusText:
+      'Use the Jacks Fork near Mountain View gauge. Around 100 cfs is the conservative low-water floor; below that, expect prolonged scraping, dragging, and slower travel over shallow riffles. High or rising water deserves extra caution on this remote access-to-access corridor.',
+    latitude: 37.054497,
+    longitude: -91.638198,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'This route combines two seasonal upper-Jacks NPS float-time rows into a longer remote day, so wood, strainers, and limited easy exits matter more than the moderate river mileage suggests.',
+        'The direct Mountain View gauge was below the 100 cfs conservative floor during this run, which matches the expectation of repeated shallow riffles and longer dragging if paddlers push the route in dry conditions.',
+        'Blue Spring and Bay Creek both carry NPS camping context, but private banks and informal roadside pull-offs are not substitutes for the signed public river accesses.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07065200',
+      provider: 'usgs',
+      siteId: '07065200',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jacks Fork near Mountain View, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065200/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Mountain View gauge rating and adjacent upper-Jacks trip rows',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The upper Jacks Fork is seasonal. Current NPS materials still say portions are navigable only during certain times because of low water, and this longer Blue-Spring-to-Bay-Creek section is most reliable in spring or after rain. Thunderstorms can raise the corridor quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a long upper-river Ozark float with Class I-II moving water, bluff pools, shoals, wood, and limited easy exits between named accesses. Treat it as a remote moving-water day, not a casual lower-river outing.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: the current NPS float-times page still lists Blue Spring to Rymers as 6.6 miles / 3 hours and Rymers to Bay Creek as 9 miles / 4 hours, which supports a combined Blue-Spring-to-Bay-Creek route of about 15.6 miles / 7 hours; the current NPS park brochure still places Blue Spring at river mile 87 and Bay Creek at river mile 74 with primitive camping context; and same-day USGS Water Services IV returned 95.0 cfs and 0.89 ft at 2026-07-06 19:45 CDT for direct gauge 07065200. The app keeps only the same conservative 100 cfs minimum-only upper-Jacks model already used by adjacent implemented splits.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Blue Spring to Bay Creek, about 15.6 mi / 7 hr',
+        note: 'The current NPS float-times page still lists Blue Spring to Rymers as 6.6 miles / 3 hours and Rymers to Bay Creek as 9 miles / 4 hours, which supports a combined Blue-Spring-to-Bay-Creek public day route of about 15.6 miles / 7 hours.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Blue Spring on Jacks Fork, river mile 87',
+        note: 'The current NPS park brochure lists Blue Spring on the Jacks Fork as a river access with primitive camping context, across from the geologic feature.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Bay Creek, river mile 74',
+        note: 'The current NPS park brochure lists Bay Creek as a river access with picnic area and primitive campsites west of Eminence off Highway 106.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07065200 at 95.0 cfs / 0.89 ft',
+        note: 'A same-day Water Services IV refresh returned 95.0 cfs and 0.89 ft at 2026-07-06 19:45 CDT for Jacks Fork near Mountain View, the direct upper-Jacks gauge already used by adjacent routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065200',
+      },
+      {
+        label: 'Low-water floor',
+        value: '100 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Mountain View gauge Good beginning at 100 cfs, and adjacent implemented upper-Jacks routes already use that conservative floor. The app keeps only the same 100 cfs minimum-only model here.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+      },
+      {
+        label: 'Coordinate support',
+        value: 'Blue Spring River Access to Bay Creek River Access',
+        note: 'This route reuses the same Blue Spring and Bay Creek access anchors already implemented on adjacent upper Jacks Fork routes, keeping the endpoint interpretation consistent across the corridor.',
+        sourceUrl: 'https://topoquest.com/place-detail.php?id=713232',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Jacks Fork estimated float times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle Jacks Fork River',
+        url: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark National Scenic Riverways park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Jacks Fork Mountain View gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07065200 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065200/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07065200 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065200',
+        provider: 'usgs',
+      },
+      {
+        label: 'TopoQuest Bay Creek area features',
+        url: 'https://topoquest.com/place-detail.php?id=713232',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'jacks-fork-river-rymers-bay-creek',
     slug: 'jacks-fork-river-rymers-bay-creek',
     name: 'Jacks Fork River',
@@ -23142,6 +23410,140 @@ export const rivers: River[] = [
       },
       {
         label: 'TopoQuest Bay Creek area features',
+        url: 'https://topoquest.com/place-detail.php?id=713232',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'jacks-fork-river-rymers-alley-spring',
+    slug: 'jacks-fork-river-rymers-alley-spring',
+    name: 'Jacks Fork River',
+    reach: 'Rymers Access to Alley Spring Access',
+    aliases: [
+      'Jacks Fork - Rymers to Alley Spring',
+      'Upper Jacks Fork - Rymers to Alley Spring',
+      'Rymers to Alley long split',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Long upper Jacks Fork day from Rymers to Alley Spring, backed by current NPS float-time rows, public access support at both named landings, and the direct Alley Spring gauge used with the same conservative 100 cfs floor already applied on the downstream upper-Jacks reach.',
+    statusText:
+      'Use the Jacks Fork at Alley Spring gauge. Around 100 cfs is the conservative low-water floor; below that, expect frequent scraping and slow travel above Alley Spring. High or rising water deserves extra caution, and this long remote corridor is not casual flood-stage water.',
+    latitude: 37.061386,
+    longitude: -91.559117,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'This route combines two seasonal upper-Jacks float-time rows into a long remote day with few easy exits between Rymers, Bay Creek, and Alley Spring.',
+        'The direct Alley Spring gauge was only slightly above the 100 cfs conservative floor during this run, so paddlers should still expect shallow riffles, possible dragging, and slower travel above Alley Spring.',
+        'Rymers and Bay Creek have primitive camping context and Alley Spring has developed campground context, but use only signed public accesses and check current NPS rules before relying on any overnight plan.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07065495',
+      provider: 'usgs',
+      siteId: '07065495',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jacks Fork at Alley Spring, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065495/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Alley Spring gauge rating and adjacent upper-Jacks trip rows',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065495&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Current NPS materials still frame the upper Jacks Fork as seasonal water where low stages can limit navigation and storms can raise the corridor quickly. This long Rymers-to-Alley day is most reliable in spring or after rain, and same-day closure checks still matter.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a long upper-river Ozark float with Class I-II moving water, shoals, wood, bluff pools, and limited easy exits until Alley Spring. It should not be treated like the easier spring-fed water below Alley Spring.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: the current NPS float-times page still lists Rymers to Bay Creek as 9 miles / 4 hours and Bay Creek to Alley Spring as 5.8 miles / 2 hours, which supports a combined Rymers-to-Alley-Spring route of about 14.8 miles / 6 hours; the current NPS park brochure still places Rymers at river mile 82 and Alley Spring at river mile 69 with camping and access context; and same-day USGS Water Services IV returned 103 cfs and 1.51 ft at 2026-07-06 20:30 CDT for direct gauge 07065495 at Alley Spring. The app keeps only the existing conservative 100 cfs minimum-only upper-Jacks model already used by Bay-Creek-to-Alley.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Rymers to Alley Spring, about 14.8 mi / 6 hr',
+        note: 'The current NPS float-times page still lists Rymers to Bay Creek as 9 miles / 4 hours and Bay Creek to Alley Spring as 5.8 miles / 2 hours, which supports a combined Rymers-to-Alley-Spring public day route of about 14.8 miles / 6 hours.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Rymers, river mile 82',
+        note: 'The current NPS park brochure lists Rymers as a river access with primitive campsites and road directions from US 60 and Highway M.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Alley Spring, river mile 69',
+        note: 'The current NPS park brochure lists Alley Spring as a Jacks Fork river access with campground, ranger station, picnic area, and hiking-trail context.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07065495 at 103 cfs / 1.51 ft',
+        note: 'A same-day Water Services IV refresh returned 103 cfs and 1.51 ft at 2026-07-06 20:30 CDT for Jacks Fork at Alley Spring, the direct gauge already used by Bay-Creek-to-Alley.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065495',
+      },
+      {
+        label: 'Low-water floor',
+        value: '100 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Alley Spring gauge Good beginning at 100 cfs, and the adjacent implemented Bay-Creek-to-Alley route already uses that conservative floor. The app keeps only the same 100 cfs minimum-only model here.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07065495&hours=168',
+      },
+      {
+        label: 'Coordinate support',
+        value: 'Rymers Access to Alley Spring River Access',
+        note: 'This route reuses the same Rymers, Bay Creek, and Alley Spring access anchors already implemented on adjacent upper Jacks Fork routes, keeping the endpoint interpretation consistent across the corridor.',
+        sourceUrl: 'https://topoquest.com/place-detail.php?id=713232',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Jacks Fork estimated float times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle Jacks Fork River',
+        url: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark National Scenic Riverways park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Jacks Fork Alley Spring gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065495&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07065495 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065495/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07065495 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065495',
+        provider: 'usgs',
+      },
+      {
+        label: 'TopoQuest Alley Spring area features',
         url: 'https://topoquest.com/place-detail.php?id=713232',
         provider: 'local',
       },

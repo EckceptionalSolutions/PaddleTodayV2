@@ -2,10 +2,12 @@
 
 Last summarized: 2026-06-04 08:58 America/Chicago.
 
+Latest run: added three new Jacks Fork continuations sourced from current NPS and same-day USGS evidence: `jacks-fork-river-highway-17-bay-creek`, `jacks-fork-river-blue-spring-bay-creek`, and `jacks-fork-river-rymers-alley-spring`. The current NPS float-times page still lists Highway 17 -> Blue Spring `2.6 mi / 1 hr`, Blue Spring -> Rymers `6.6 mi / 3 hr`, Rymers -> Bay Creek `9 mi / 4 hr`, and Bay Creek -> Alley Spring `5.8 mi / 2 hr`, which supports the new public combined routes of `18.2`, `15.6`, and `14.8` miles. The current park brochure still confirms Buck Hollow, Blue Spring, Rymers, Bay Creek, and Alley Spring as named public accesses with camping context. Same-day direct USGS Water Services IV returned `95.0 cfs / 0.89 ft` at `2026-07-06 19:45 CDT` for Mountain View gauge `07065200` and `103 cfs / 1.51 ft` at `2026-07-06 20:30 CDT` for Alley Spring gauge `07065495`, so all three routes ship on the existing conservative `100 cfs` minimum-only upper-Jacks model. Reused the approved same-river Commons upper-Jacks corridor image for all three new slugs.
+
 ## Current Inventory
 
-- Live routes: 37.
-- Top represented rivers: Big Piney River 6, Current River 5, Meramec River 5, Eleven Point River 4, James River 3, Jacks Fork River 3.
+- Live routes: 40.
+- Top represented rivers: Big Piney River 6, Jacks Fork River 6, Current River 5, Meramec River 5, Eleven Point River 4, James River 3.
 - Ledger candidates: the structured ledger has a large Missouri backlog; many remain blocked by stale live-gauge evidence, weak threshold support, route-definition uncertainty, or endpoint-coordinate/access gaps.
 
 ## Status

@@ -896,6 +896,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
   ],
+  'jacks-fork-river-highway-17-bay-creek': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-highway-17-bay-creek/jacks-fork-upper.jpg',
+      alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
   'jacks-fork-river-blue-spring-rymers': [
     {
       id: 'jacks-fork-upper-commons',
@@ -906,10 +916,30 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
   ],
+  'jacks-fork-river-blue-spring-bay-creek': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-blue-spring-bay-creek/jacks-fork-upper.jpg',
+      alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
   'jacks-fork-river-rymers-bay-creek': [
     {
       id: 'jacks-fork-upper-commons',
       src: '/gallery/jacks-fork-river-rymers-bay-creek/jacks-fork-upper.jpg',
+      alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'jacks-fork-river-rymers-alley-spring': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-rymers-alley-spring/jacks-fork-upper.jpg',
       alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
       caption: 'Upper Jacks Fork River corridor',
       credit: 'Chris M Morris via Wikimedia Commons',
