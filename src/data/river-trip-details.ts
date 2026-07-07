@@ -12950,6 +12950,117 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'conodoguinet-creek-willow-mill-good-hope': {
+    putIn: {
+      name: 'Willow Mill Park launch',
+      latitude: 40.2567096,
+      longitude: -77.0411725,
+    },
+    takeOut: {
+      name: 'Good Hope Access',
+      latitude: 40.2546304,
+      longitude: -76.9753045,
+    },
+    logistics: {
+      distanceLabel: 'About 9.6 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr 30 min depending on depth, wood, bridge scouting, and how scrape-prone the creek feels on the day',
+      shuttle:
+        'Stage the take-out at Good Hope Access before driving back to Willow Mill Park. Inspect Good Hope first because the county calls it a shallow PFBC launch with modest parking and a permit requirement.',
+      permits:
+        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC, township-park, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The current county and PFBC materials verify launch access and parking, not public overnight use or route camping for this exact segment.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Willow Mill Park and take out at the PFBC Good Hope Access for a longer upper-middle Conodoguinet day. Use the direct Hogestown gauge and the county floor of 1.7 ft, then make a same-day call on wood, current, and whether the creek looks too scrape-prone to justify the mileage.',
+      accessCaveats: [
+        'Cumberland County lists both endpoints as named public launches and gives them official street-address access, but the route coordinates in PaddleToday are derived from those official addresses because the county table does not publish launch lat/longs.',
+        'Willow Mill is an improved concrete ramp with parking and portable toilets, while Good Hope is a shallower PFBC launch with matting and more limited parking.',
+        'The county says boating should be above 1.7 ft at Hogestown. This route was reviewed when the direct gauge was only 1.71 ft at 2026-07-06 19:30 EDT, so expect low-water scraping rather than a generous margin.',
+      ],
+      watchFor: [
+        'Dragging and shallow bridge or riffle lines when the Hogestown gauge is near the 1.7 ft floor.',
+        'Fresh wood, overhanging limbs, bridge current, and narrow turns that can feel quicker after thunderstorms.',
+        'Action-stage current and flooded edges once the gauge rises toward 6 ft, even if the launches remain open.',
+        'Private banks and limited bailout options away from the named public launches.',
+      ],
+    },
+  },
+  'conodoguinet-creek-vincent-difilippo-acri-meadow': {
+    putIn: {
+      name: 'Vincent DiFilippo Nature Preserve launch',
+      latitude: 40.2576825,
+      longitude: -77.0209403,
+    },
+    takeOut: {
+      name: 'Acri Meadow Park launch',
+      latitude: 40.2754696,
+      longitude: -76.9528854,
+    },
+    logistics: {
+      distanceLabel: 'About 13 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 8 hr depending on depth, bridge scouting, strainers, and how quickly the lower creek is moving',
+      shuttle:
+        'Stage the take-out at Acri Meadow Park before driving back to Vincent DiFilippo Nature Preserve. Inspect the unimproved slope at Acri Meadow on arrival because muddy footing can change the feel quickly after rain.',
+      permits:
+        'No route-specific launch permit is known for the two chosen endpoints. Follow current township-park, boating, and PFD rules, and do not assume the public guide guarantees ideal same-day conditions.',
+      camping:
+        'Treat this as a day trip. The current county materials confirm launch access and park amenities, but they do not verify public overnight use or route camping for this exact corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Vincent DiFilippo Nature Preserve and take out at Acri Meadow Park for a long middle-to-lower Conodoguinet day. Use the direct Hogestown gauge and the county floor of 1.7 ft, then make a same-day call on current, wood, and whether the creek has enough depth to justify the full mileage.',
+      accessCaveats: [
+        'Cumberland County lists both endpoints as named public launches and gives them official street-address access, but the route coordinates in PaddleToday are derived from those official addresses because the county table does not publish launch lat/longs.',
+        'Vincent DiFilippo is listed as a concrete launch, while Acri Meadow is a municipal park with an unimproved launch area and steeper slope to the water.',
+        'The county says boating should be above 1.7 ft at Hogestown. This route was reviewed when the direct gauge was only 1.71 ft at 2026-07-06 19:30 EDT, so expect a slower low-water day if you go near the floor.',
+      ],
+      watchFor: [
+        'Dragging, shallow bends, and slower travel when the Hogestown gauge is near or below 1.7 ft.',
+        'Fresh wood, bridge-current acceleration, muddy banks, and slick unimproved take-out footing at Acri Meadow after rain.',
+        'A faster pushy creek and floodplain spread once the gauge climbs toward the 6 ft action stage.',
+        'Private banks and limited legal bailout choices away from the named public launches.',
+      ],
+    },
+  },
+  'conodoguinet-creek-willow-mill-acri-meadow': {
+    putIn: {
+      name: 'Willow Mill Park launch',
+      latitude: 40.2567096,
+      longitude: -77.0411725,
+    },
+    takeOut: {
+      name: 'Acri Meadow Park launch',
+      latitude: 40.2754696,
+      longitude: -76.9528854,
+    },
+    logistics: {
+      distanceLabel: 'About 17.4 mi',
+      estimatedPaddleTime:
+        'About 7 hr to 10 hr depending on depth, wood, scouting stops, and whether low water turns the day into repeated scrape sections',
+      shuttle:
+        'Stage the take-out at Acri Meadow Park before driving back to Willow Mill Park. Inspect both launches before committing because a full central-creek day gets much less attractive if the lower take-out is muddy or the creek is barely above the county floor.',
+      permits:
+        'No route-specific launch permit is known for the two chosen endpoints. Follow current township-park, boating, and PFD rules, and skip the route if same-day conditions look too low, too woody, or too pushy.',
+      camping:
+        'Treat this as a day trip. The current county materials confirm launch access and park amenities, but they do not verify public overnight use or route camping for this exact corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Willow Mill Park and take out at Acri Meadow Park for a full central Conodoguinet day. Use the direct Hogestown gauge and the county floor of 1.7 ft, then make a conservative same-day judgment on whether the creek has enough water and clear enough channels to justify the full 17.4-mile plan.',
+      accessCaveats: [
+        'Cumberland County lists both endpoints as named public launches and gives them official street-address access, but the route coordinates in PaddleToday are derived from those official addresses because the county table does not publish launch lat/longs.',
+        'Willow Mill is an improved concrete launch with parking, while Acri Meadow is a more basic municipal-park finish with an unimproved slope to the water.',
+        'The county says boating should be above 1.7 ft at Hogestown. This route was reviewed when the direct gauge was only 1.71 ft at 2026-07-06 19:30 EDT, so the app treats it as a marginal low-water full day rather than a routine green-light recommendation.',
+      ],
+      watchFor: [
+        'Repeated scraping, shallow bridge lines, and slow mileage whenever the Hogestown gauge is near the 1.7 ft floor.',
+        'Fresh wood, overhanging limbs, bridge-current acceleration, and muddy banks after thunderstorms.',
+        'A faster pushy creek, floodplain spread, and fewer forgiving eddies once the gauge rises toward the 6 ft action stage.',
+        'Private banks and limited legal bailout choices away from the named public launches.',
+      ],
+    },
+  },
   'conodoguinet-creek-willow-mill-vincent-difilippo': {
     putIn: {
       name: 'Willow Mill Park launch',

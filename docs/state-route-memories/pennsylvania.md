@@ -358,6 +358,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## 2026-07-06 Conodoguinet pass
 
+- 2026-07-06 19:35 America/Chicago / 2026-07-07 00:35 UTC: Pennsylvania three-route implementation pass; added three longer current Cumberland County Conodoguinet routes beyond the live 438-route baseline at run start.
+- Implemented `conodoguinet-creek-willow-mill-good-hope`, `conodoguinet-creek-vincent-difilippo-acri-meadow`, and `conodoguinet-creek-willow-mill-acri-meadow`.
+- Qualification package: Cumberland County still publishes the Conodoguinet access table updated June 2024 with named public launches, street addresses, and official mile markers for Willow Mill Park (`23.2`), Vincent DiFilippo Nature Preserve (`18.8`), Good Hope Access (`13.6`), and Acri Meadow Park (`5.8`). The county water-trails page still says recommended boating on the creek is above `1.7 ft` at the direct Hogestown gauge, with `6 ft` action stage and `8 ft` flood stage. Same-day USGS Water Services returned `282 cfs / 1.71 ft` at `2026-07-06 19:30 EDT` for direct USGS `01570000`, just above the county floor.
+- The implementation stays conservative `minimum-only` because the county publishes a usable low-water floor and flood-context stages, not a route-specific ideal high-water band. The same-day gauge being only `0.01 ft` above the county floor is carried into the route messaging as low-water scrape caution, not ignored.
+- Camping stays `none` for all three because the current county and PFBC materials verify launch access and park amenities, not public overnight support for these exact segments.
+- No gallery image was added. Bounded Commons, county-site, and same-creek USGS review did not produce a clearly rights-clean exact-route paddling image for any of the three slugs.
+
 - 2026-07-06 13:40 America/Chicago / 2026-07-06 18:40 UTC: Pennsylvania three-route implementation pass; added three current Cumberland County Conodoguinet routes beyond the live 433-route baseline at run start.
 - Implemented `conodoguinet-creek-willow-mill-vincent-difilippo`, `conodoguinet-creek-vincent-difilippo-good-hope`, and `conodoguinet-creek-good-hope-acri-meadow`.
 - Qualification package: Cumberland County still publishes the Conodoguinet access table updated June 2024 with named public launches, street addresses, and official mile markers for Willow Mill Park (`23.2`), Vincent DiFilippo Nature Preserve (`18.8`), Good Hope Access (`13.6`), and Acri Meadow Park (`5.8`). The county water-trails page still says recommended boating on the creek is above `1.7 ft` at the direct Hogestown gauge, with `6 ft` action stage and `8 ft` flood stage. Same-day USGS Water Services returned `411 cfs / 2.04 ft` at `2026-07-06 13:30 EDT` for direct USGS `01570000`.
