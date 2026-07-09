@@ -2,6 +2,14 @@
 
 Last summarized: 2026-07-09 08:05 America/Chicago / 2026-07-09 13:05 UTC.
 
+## 2026-07-09 South Fork split completion pass
+
+- Reused the live repo state as the only valid baseline and added three South Fork Kentucky River split slugs that were absent from the current tree at run start: `south-fork-kentucky-river-bishop-bend-hacker-branch`, `south-fork-kentucky-river-hacker-branch-upper-wolf-creek`, and `south-fork-kentucky-river-kay-wood-fish-creek`.
+- Current KDFWR South Fork Kentucky River guidance still documents the exact public access-chain mileages of Bishop Bend -> Hacker Branch `3.3`, Hacker Branch -> Upper Wolf Creek `2.9`, and Kay Wood -> Fish Creek `7.9`, which support the new public route mileages directly without relying on inferred corridor sums.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Bishop Bend School Road Access, Hacker Branch Road Access, Upper Wolf Creek Ramp, Kay Wood Road Access, and Fish Creek Boat Ramp. Same-day direct USGS Water Services returned `284 cfs / 4.56 ft` at `2026-07-09 08:30 EDT` for South Fork Kentucky River at Booneville (`03281500`), still just below the official `350-900 cfs / 4.8-6.0 ft` good band, so all three additions ship with explicit scrape-prone low-water caution rather than comfort framing.
+- Camping stays conservative at `none` for all three because KDFWR still documents only simple day-use launch access with no public overnight support on this lower chain.
+- Reused the approved South Fork Commons corridor image for all three slugs, and `docs/river-image-source-audit.csv` now records the same-river reuse.
+
 ## 2026-07-09 mixed Kentucky restoration and continuation pass
 
 - Reused the live repo state as the only valid baseline and added three Kentucky slugs that were absent from the current tree at run start: `kinniconick-creek-leatherwood-branch-garrison`, `barren-river-vpa-3-potter-combs`, and `south-fork-kentucky-river-hacker-branch-kay-wood`.
