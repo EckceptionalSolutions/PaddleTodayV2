@@ -54153,6 +54153,390 @@ export const rivers: River[] = [
 
 
   {
+    id: 'kinniconick-creek-leatherwood-branch-mcdowells-creek',
+    slug: 'kinniconick-creek-leatherwood-branch-mcdowells-creek',
+    name: 'Kinniconick Creek',
+    reach: 'Leatherwood Branch Park Access to McDowells Creek Park Access',
+    aliases: [
+      'Kinniconick Creek - Leatherwood Branch to McDowells Creek',
+      'Kinniconick Creek upper public chain',
+      'KDFWR Kinniconick Creek access chain',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Long upper Kinniconick Creek day from Leatherwood Branch Park Access to McDowells Creek Park Access. KDFWR documents the chained public route mileage and explicitly tells paddlers to use the Tygarts Creek gauge as the best current proxy for Kinniconick levels.',
+    statusText:
+      'Use the Tygarts Creek near Greenup gauge as the official Kinniconick proxy. KDFWR rates Kinniconick low below 2.5 ft or 50 cfs, good from 2.5 to 3.5 ft or 50 to 130 cfs, and high above that.',
+    latitude: 38.5105,
+    longitude: -83.3274,
+    gaugeSource: {
+      id: 'usgs-03217000',
+      provider: 'usgs',
+      siteId: '03217000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Tygarts Creek near Greenup, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/03217000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks', 'remote'],
+      safetyNotes: [
+        'KDFWR describes Kinniconick as rain-sensitive and uses a proxy gauge because there is no current direct stream gage on the creek.',
+        'This is a long headwaters-to-mid-corridor route with simple park accesses but limited easy bailout comfort between the named public sites.',
+        'Wood, mud banks, and private banks matter more when the route is scraping near the low end of the official band.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.5,
+      idealMax: 3.5,
+      tooLow: 2.5,
+      tooHigh: 3.5,
+      thresholdSource: {
+        label: 'KDFWR Kinniconick Creek proxy gauge guidance',
+        url: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical window. KDFWR treats Kinniconick as a rain-responsive creek, so low summer flows can scrape while fresh rain can push the broad good band toward a much faster, woodier run.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Kinniconick is not technical whitewater, but this long route is still a committed moving-water day with shallow riffles at the low end, muddy accesses, and limited public stops away from the named landings.',
+      confidenceNotes:
+        'Confidence is good for a conservative Kentucky add: current KDFWR guidance still lists Leatherwood Branch Park Access to Puncheon / Pipe Lick at 13.1 miles and Puncheon / Pipe Lick to McDowells Creek Park Access at 14.1 miles, supporting a 27.2-mile chained public route. KDFWR explicitly says that no current stream gage exists on Kinniconick Creek and that Tygarts Creek is used in lieu of Kinniconick because it closely mimics levels there, while the same page publishes official low/good/high stage and discharge bands. Current KDFWR access-detail pages still provide source-backed coordinates and public-use notes for Leatherwood Branch and McDowells Creek, and the official USGS legacy current page for 03217000 showed same-day values of 38.5 cfs and 2.80 ft at 2026-07-09 06:45 EDT during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official proxy level band',
+        value: '2.5-3.5 ft or 50-130 cfs good',
+        note: 'KDFWR says no current stream gage is available for Kinniconick Creek and that Tygarts Creek should be used in lieu of Kinniconick because it closely mimics levels there. The same page rates Kinniconick low below 2.5 ft or 50 cfs, good from 2.5 to 3.5 ft or 50 to 130 cfs, and high above that.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+      },
+      {
+        label: 'Chained public route segment',
+        value: 'Leatherwood Branch Park Access to McDowells Creek Park Access, 27.2 miles',
+        note: 'KDFWR lists Leatherwood Branch Park Access to Puncheon / Pipe Lick at 13.1 miles and Puncheon / Pipe Lick to McDowells Creek Park Access at 14.1 miles, supporting a 27.2-mile public chained route.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Leatherwood Branch Park Access, 38.5105, -83.3274',
+        note: 'KDFWR access detail identifies Leatherwood Branch Park Access as a public ramp with no listed camping support.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1130',
+      },
+      {
+        label: 'Take-out access',
+        value: 'McDowells Creek Park Access, 38.5746, -83.1896',
+        note: 'KDFWR access detail identifies McDowells Creek Park Access as a public ramp with no listed camping support.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1129',
+      },
+      {
+        label: 'Live proxy-gauge support',
+        value: 'USGS 03217000 at 38.5 cfs / 2.80 ft',
+        note: 'The official USGS legacy current page for Tygarts Creek near Greenup showed same-day values at 2026-07-09 06:45 EDT during this run, and the stage sits inside KDFWRs published Kinniconick good band even though discharge was below the cfs floor.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03217000',
+      },
+      {
+        label: 'Camping posture',
+        value: 'No public camping documented at either endpoint',
+        note: 'Current KDFWR access-detail pages list Camping as None for both Leatherwood Branch Park Access and McDowells Creek Park Access.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1130',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Kinniconick Creek',
+        url: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Leatherwood Branch Park Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1130',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR McDowells Creek Park Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1129',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03217000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03217000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03217000 legacy current page',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03217000',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kinniconick-creek-leatherwood-branch-mill-pond-creek',
+    slug: 'kinniconick-creek-leatherwood-branch-mill-pond-creek',
+    name: 'Kinniconick Creek',
+    reach: 'Leatherwood Branch Park Access to Mill Pond Creek Access',
+    aliases: [
+      'Kinniconick Creek - Leatherwood Branch to Mill Pond Creek',
+      'Kinniconick Creek upper-to-lower chain',
+      'KDFWR Kinniconick Creek access chain',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Very long Kinniconick Creek route from Leatherwood Branch Park Access to Mill Pond Creek Access. KDFWR documents the exact chained public mileage and applies the same official Tygarts Creek proxy ladder to the whole Kinniconick access chain.',
+    statusText:
+      'Use the Tygarts Creek near Greenup gauge as the official Kinniconick proxy. KDFWR rates Kinniconick low below 2.5 ft or 50 cfs, good from 2.5 to 3.5 ft or 50 to 130 cfs, and high above that.',
+    latitude: 38.5105,
+    longitude: -83.3274,
+    gaugeSource: {
+      id: 'usgs-03217000',
+      provider: 'usgs',
+      siteId: '03217000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Tygarts Creek near Greenup, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/03217000/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['fast_rise', 'strainers', 'private_banks', 'remote'],
+      safetyNotes: [
+        'This is one of the longest public Kinniconick combinations and should be treated as an all-day shuttle with limited public bailout comfort.',
+        'KDFWRs proxy ladder still applies, but a broad good band does not remove the fatigue and route-management consequences of a nearly 29-mile creek day.',
+        'Low-water scraping, mud banks, fresh wood, and private banks remain the practical problems even when the gauge looks usable.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.5,
+      idealMax: 3.5,
+      tooLow: 2.5,
+      tooHigh: 3.5,
+      thresholdSource: {
+        label: 'KDFWR Kinniconick Creek proxy gauge guidance',
+        url: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical window. Longer Kinniconick combinations are most forgiving when the proxy gauge trend is steady rather than rising hard after rain or sliding toward the low floor during summer dryness.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The water itself is generally easier than whitewater, but the route length, creek wood, muddy landings, and sparse public stop options make this a stronger commitment than a casual beginner float.',
+      confidenceNotes:
+        'Confidence is good for a conservative Kentucky add: current KDFWR guidance still lists Leatherwood Branch Park Access to Puncheon / Pipe Lick at 13.1 miles, Puncheon / Pipe Lick to McDowells Creek Park Access at 14.1 miles, and McDowells Creek Park Access to Mill Pond Creek Access at 1.6 miles, supporting a 28.8-mile public chained route. KDFWR explicitly applies the Tygarts Creek proxy to Kinniconick and publishes official low/good/high stage and discharge bands on the same page. Current KDFWR access-detail pages still provide source-backed coordinates and public-use notes for Leatherwood Branch and Mill Pond Creek, and the official USGS legacy current page for 03217000 showed same-day values of 38.5 cfs and 2.80 ft at 2026-07-09 06:45 EDT during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official proxy level band',
+        value: '2.5-3.5 ft or 50-130 cfs good',
+        note: 'KDFWR says no current stream gage is available for Kinniconick Creek and that Tygarts Creek should be used in lieu of Kinniconick because it closely mimics levels there. The same page rates Kinniconick low below 2.5 ft or 50 cfs, good from 2.5 to 3.5 ft or 50 to 130 cfs, and high above that.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+      },
+      {
+        label: 'Chained public route segment',
+        value: 'Leatherwood Branch Park Access to Mill Pond Creek Access, 28.8 miles',
+        note: 'KDFWR lists Leatherwood Branch Park Access to Puncheon / Pipe Lick at 13.1 miles, Puncheon / Pipe Lick to McDowells Creek Park Access at 14.1 miles, and McDowells Creek Park Access to Mill Pond Creek Access at 1.6 miles, supporting a 28.8-mile public chained route.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Leatherwood Branch Park Access, 38.5105, -83.3274',
+        note: 'KDFWR access detail identifies Leatherwood Branch Park Access as a public ramp with no listed camping support.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1130',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Mill Pond Creek Access, 38.5882, -83.1919',
+        note: 'KDFWR access detail identifies Mill Pond Creek Access as a public ramp with no listed camping support.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1128',
+      },
+      {
+        label: 'Live proxy-gauge support',
+        value: 'USGS 03217000 at 38.5 cfs / 2.80 ft',
+        note: 'The official USGS legacy current page for Tygarts Creek near Greenup showed same-day values at 2026-07-09 06:45 EDT during this run, and the stage sits inside KDFWRs published Kinniconick good band even though discharge was below the cfs floor.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03217000',
+      },
+      {
+        label: 'Camping posture',
+        value: 'No public camping documented at either endpoint',
+        note: 'Current KDFWR access-detail pages list Camping as None for both Leatherwood Branch Park Access and Mill Pond Creek Access.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1128',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Kinniconick Creek',
+        url: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Leatherwood Branch Park Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1130',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Mill Pond Creek Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1128',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03217000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03217000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03217000 legacy current page',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03217000',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kinniconick-creek-mcdowells-creek-garrison',
+    slug: 'kinniconick-creek-mcdowells-creek-garrison',
+    name: 'Kinniconick Creek',
+    reach: 'McDowells Creek Park Access to Garrison Ramp',
+    aliases: [
+      'Kinniconick Creek - McDowells Creek to Garrison',
+      'Kinniconick Creek lower public chain',
+      'KDFWR Kinniconick Creek access chain',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Shorter lower Kinniconick Creek run from McDowells Creek Park Access to Garrison Ramp. KDFWR documents the downstream public chain and applies the same official Tygarts Creek proxy ladder to Kinniconick Creek.',
+    statusText:
+      'Use the Tygarts Creek near Greenup gauge as the official Kinniconick proxy. KDFWR rates Kinniconick low below 2.5 ft or 50 cfs, good from 2.5 to 3.5 ft or 50 to 130 cfs, and high above that.',
+    latitude: 38.5746,
+    longitude: -83.1896,
+    gaugeSource: {
+      id: 'usgs-03217000',
+      provider: 'usgs',
+      siteId: '03217000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Tygarts Creek near Greenup, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/03217000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Even this shorter lower route still uses the same official proxy gauge because KDFWR says Kinniconick has no current direct stream gage.',
+        'The downstream mileage is shorter, but fresh wood, muddy landings, and private banks still matter when the creek is near the low floor or rising after rain.',
+        'Garrison is the intended public finish; do not drift past the named take-out expecting better public access below town.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.5,
+      idealMax: 3.5,
+      tooLow: 2.5,
+      tooHigh: 3.5,
+      thresholdSource: {
+        label: 'KDFWR Kinniconick Creek proxy gauge guidance',
+        url: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical window. This shorter lower route is easier to finish in marginal water than the long chained options, but low water still exposes shoals and rain can quickly speed up the creek.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This lower Kinniconick segment is shorter and easier to manage than the long upstream combinations, but it still involves moving current, creek wood, muddy ramps, and private-bank discipline.',
+      confidenceNotes:
+        'Confidence is good for a conservative Kentucky add: current KDFWR guidance still lists McDowells Creek Park Access to Mill Pond Creek Access at 1.6 miles and Mill Pond Creek Access to Garrison Ramp at 2.7 miles, supporting a 4.3-mile lower public route. KDFWR explicitly applies the Tygarts Creek proxy to Kinniconick and publishes official low/good/high stage and discharge bands on the same page. Current KDFWR access-detail pages still provide source-backed coordinates and public-use notes for McDowells Creek Park Access, Mill Pond Creek Access, and Garrison Ramp, and the official USGS legacy current page for 03217000 showed same-day values of 38.5 cfs and 2.80 ft at 2026-07-09 06:45 EDT during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official proxy level band',
+        value: '2.5-3.5 ft or 50-130 cfs good',
+        note: 'KDFWR says no current stream gage is available for Kinniconick Creek and that Tygarts Creek should be used in lieu of Kinniconick because it closely mimics levels there. The same page rates Kinniconick low below 2.5 ft or 50 cfs, good from 2.5 to 3.5 ft or 50 to 130 cfs, and high above that.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'McDowells Creek Park Access to Garrison Ramp, 4.3 miles',
+        note: 'KDFWR lists McDowells Creek Park Access to Mill Pond Creek Access at 1.6 miles and Mill Pond Creek Access to Garrison Ramp at 2.7 miles, supporting a 4.3-mile lower public route.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'McDowells Creek Park Access, 38.5746, -83.1896',
+        note: 'KDFWR access detail identifies McDowells Creek Park Access as a public ramp with no listed camping support.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1129',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Garrison Ramp, 38.6083, -83.1637',
+        note: 'KDFWR access detail identifies Garrison Ramp as a public ramp with no listed camping support.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=318',
+      },
+      {
+        label: 'Live proxy-gauge support',
+        value: 'USGS 03217000 at 38.5 cfs / 2.80 ft',
+        note: 'The official USGS legacy current page for Tygarts Creek near Greenup showed same-day values at 2026-07-09 06:45 EDT during this run, and the stage sits inside KDFWRs published Kinniconick good band even though discharge was below the cfs floor.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03217000',
+      },
+      {
+        label: 'Camping posture',
+        value: 'No public camping documented at either endpoint',
+        note: 'Current KDFWR access-detail pages list Camping as None for both McDowells Creek Park Access and Garrison Ramp.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=318',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Kinniconick Creek',
+        url: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR McDowells Creek Park Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1129',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Mill Pond Creek Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1128',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Garrison Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=318',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03217000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03217000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03217000 legacy current page',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03217000',
+        provider: 'usgs',
+      },
+    ],
+  },
+  
+  {
     id: 'upper-cumberland-river-varilla-4-mile',
     slug: 'upper-cumberland-river-varilla-4-mile',
     name: 'Upper Cumberland River',

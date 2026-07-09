@@ -19363,7 +19363,201 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
-
+  'kinniconick-creek-leatherwood-branch-mcdowells-creek': {
+    putIn: {
+      id: 'leatherwood-branch-park-access',
+      name: 'Leatherwood Branch Park Access',
+      latitude: 38.5105,
+      longitude: -83.3274,
+    },
+    takeOut: {
+      id: 'mcdowells-creek-park-access',
+      name: 'McDowells Creek Park Access',
+      latitude: 38.5746,
+      longitude: -83.1896,
+    },
+    logistics: {
+      distanceLabel: 'About 27.2 mi',
+      estimatedPaddleTime:
+        'About 8 hr to 11 hr, longer with low-water scraping, fishing, or wood scouting',
+      shuttle:
+        'Stage the downstream vehicle at McDowells Creek Park Access, then drive back to Leatherwood Branch Park Access. This is a real all-day creek shuttle, not a casual short float, and the middle route passes through long private-bank stretches.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day county park or roadside parking limits.',
+      camping:
+        'Treat this as a committed day trip. KDFWR lists camping as None at Leatherwood Branch Park Access and McDowells Creek Park Access, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Leatherwood Branch Park Access and take out about 27.2 miles downstream at McDowells Creek Park Access for a very long Kinniconick Creek day. KDFWR says to use the Tygarts Creek gauge as the Kinniconick proxy, with a good band of 2.5 to 3.5 ft or 50 to 130 cfs.',
+      accessCaveats: [
+        'Leatherwood Branch and McDowells Creek are both public KDFWR accesses, but neither is documented as a campground or service-heavy overnight facility.',
+        'This route includes the Puncheon / Pipe Lick intermediate segment even though the middle stop is not treated here as a primary endpoint with source-backed coordinates.',
+        'The proxy gauge stage sat inside the official good band during this run, but the same official reading showed discharge below the cfs floor, so expect scrape-prone shoals and a slower day than the mileage alone suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 2.5 ft or 50 cfs, when shallow riffles, rock bars, and dragging become more likely over a very long creek day.',
+        'High water above 3.5 ft or 130 cfs, when rain-driven rises, wood, and muddy landings make the creek less forgiving.',
+        'Wood, strainers, private banks outside the access sites, and fatigue from an all-day lower-eastern-Kentucky shuttle.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'leatherwood-branch-park-access',
+        name: 'Leatherwood Branch Park Access',
+        latitude: 38.5105,
+        longitude: -83.3274,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the long upper Kinniconick route.',
+      },
+      {
+        id: 'mcdowells-creek-park-access',
+        name: 'McDowells Creek Park Access',
+        latitude: 38.5746,
+        longitude: -83.1896,
+        mileFromStart: 27.2,
+        segmentKind: 'creek',
+        note: 'Default take-out for the upper-to-mid chain route.',
+      },
+    ],
+  },
+  'kinniconick-creek-leatherwood-branch-mill-pond-creek': {
+    putIn: {
+      id: 'leatherwood-branch-park-access',
+      name: 'Leatherwood Branch Park Access',
+      latitude: 38.5105,
+      longitude: -83.3274,
+    },
+    takeOut: {
+      id: 'mill-pond-creek-access',
+      name: 'Mill Pond Creek Access',
+      latitude: 38.5882,
+      longitude: -83.1919,
+    },
+    logistics: {
+      distanceLabel: 'About 28.8 mi',
+      estimatedPaddleTime:
+        'About 8.5 hr to 11.5 hr, longer with low-water scraping, fishing, or wood scouting',
+      shuttle:
+        'Stage the downstream vehicle at Mill Pond Creek Access, then drive back to Leatherwood Branch Park Access. This is one of the longest Kinniconick public combinations and needs real daylight, shuttle, and weather planning.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day county park or roadside parking limits.',
+      camping:
+        'Treat this as a committed day trip. KDFWR lists camping as None at Leatherwood Branch Park Access and Mill Pond Creek Access, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Leatherwood Branch Park Access and take out about 28.8 miles downstream at Mill Pond Creek Access for the longest Kinniconick Creek route added in this pass. KDFWR says to use the Tygarts Creek gauge as the Kinniconick proxy, with a good band of 2.5 to 3.5 ft or 50 to 130 cfs.',
+      accessCaveats: [
+        'Leatherwood Branch and Mill Pond are public KDFWR accesses, but neither is documented as a campground or service-heavy overnight facility.',
+        'This route passes the Puncheon / Pipe Lick and McDowells Creek chain before the Mill Pond finish, so missing daylight or underestimating low-water speed can create a much longer day than expected.',
+        'The proxy gauge stage sat inside the official good band during this run, but the same official reading showed discharge below the cfs floor, so expect scrape-prone shoals and slower progress.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 2.5 ft or 50 cfs, when shallow riffles, rock bars, and dragging become more likely over a very long creek day.',
+        'High water above 3.5 ft or 130 cfs, when rain-driven rises, wood, and muddy landings make the creek less forgiving.',
+        'Wood, strainers, private banks outside the access sites, and fatigue from a nearly 29-mile creek commitment.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'leatherwood-branch-park-access',
+        name: 'Leatherwood Branch Park Access',
+        latitude: 38.5105,
+        longitude: -83.3274,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the full chained Kinniconick route.',
+      },
+      {
+        id: 'mcdowells-creek-park-access',
+        name: 'McDowells Creek Park Access',
+        latitude: 38.5746,
+        longitude: -83.1896,
+        mileFromStart: 27.2,
+        segmentKind: 'creek',
+        note: 'Intermediate public bailout and split point late in the route.',
+      },
+      {
+        id: 'mill-pond-creek-access',
+        name: 'Mill Pond Creek Access',
+        latitude: 38.5882,
+        longitude: -83.1919,
+        mileFromStart: 28.8,
+        segmentKind: 'creek',
+        note: 'Default take-out for the longest Kinniconick chain in this pass.',
+      },
+    ],
+  },
+  'kinniconick-creek-mcdowells-creek-garrison': {
+    putIn: {
+      id: 'mcdowells-creek-park-access',
+      name: 'McDowells Creek Park Access',
+      latitude: 38.5746,
+      longitude: -83.1896,
+    },
+    takeOut: {
+      id: 'garrison-ramp',
+      name: 'Garrison Ramp',
+      latitude: 38.6083,
+      longitude: -83.1637,
+    },
+    logistics: {
+      distanceLabel: 'About 4.3 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 3 hr, longer with low-water scraping, fishing, or wood scouting',
+      shuttle:
+        'Stage the downstream vehicle at Garrison Ramp, then drive back to McDowells Creek Park Access. The shuttle is short, but the route still deserves a fresh look for wood, mud, and gauge trend before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day county park or roadside parking limits.',
+      camping:
+        'Treat this as a day route. KDFWR lists camping as None at McDowells Creek Park Access and Garrison Ramp, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at McDowells Creek Park Access and take out about 4.3 miles downstream at Garrison Ramp for a shorter lower Kinniconick Creek float. KDFWR says to use the Tygarts Creek gauge as the Kinniconick proxy, with a good band of 2.5 to 3.5 ft or 50 to 130 cfs.',
+      accessCaveats: [
+        'McDowells Creek and Garrison are both public KDFWR accesses, but neither is documented as a campground or service-heavy overnight facility.',
+        'Mill Pond Creek is the intermediate public access in the middle of this route; it is useful as a bailout or split point rather than something to ignore.',
+        'The proxy gauge stage sat inside the official good band during this run, but the same official reading showed discharge below the cfs floor, so expect scrape-prone riffles and more boat handling around shoals.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 2.5 ft or 50 cfs, when shallow riffles, rock bars, and dragging become more likely even on a shorter route.',
+        'High water above 3.5 ft or 130 cfs, when rain-driven rises, wood, and muddy landings make the creek less forgiving.',
+        'Wood, strainers, private banks outside the access sites, and take-out discipline at Garrison.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mcdowells-creek-park-access',
+        name: 'McDowells Creek Park Access',
+        latitude: 38.5746,
+        longitude: -83.1896,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the shorter lower route.',
+      },
+      {
+        id: 'mill-pond-creek-access',
+        name: 'Mill Pond Creek Access',
+        latitude: 38.5882,
+        longitude: -83.1919,
+        mileFromStart: 1.6,
+        segmentKind: 'creek',
+        note: 'Intermediate public bailout and split point.',
+      },
+      {
+        id: 'garrison-ramp',
+        name: 'Garrison Ramp',
+        latitude: 38.6083,
+        longitude: -83.1637,
+        mileFromStart: 4.3,
+        segmentKind: 'creek',
+        note: 'Default take-out for the lower Kinniconick route.',
+      },
+    ],
+  },
   'upper-cumberland-river-varilla-4-mile': {
     putIn: {
       id: 'varilla-ramp',

@@ -1,6 +1,15 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-09 06:20 America/Chicago / 2026-07-09 11:20 UTC.
+Last summarized: 2026-07-09 07:45 America/Chicago / 2026-07-09 12:45 UTC.
+
+## 2026-07-09 Kinniconick implementation pass
+
+- Reused the live repo state as the only valid baseline and added three Kinniconick Creek slugs that were absent from the current tree at run start: `kinniconick-creek-leatherwood-branch-mcdowells-creek`, `kinniconick-creek-leatherwood-branch-mill-pond-creek`, and `kinniconick-creek-mcdowells-creek-garrison`.
+- Current KDFWR Kinniconick Creek guidance still documents the exact public route pieces of Leatherwood Branch Park Access -> Puncheon / Pipe Lick `13.1`, Puncheon / Pipe Lick -> McDowells Creek Park Access `14.1`, McDowells Creek Park Access -> Mill Pond Creek Access `1.6`, and Mill Pond Creek Access -> Garrison Ramp `2.7`, which support the new public route mileages of `27.2`, `28.8`, and `4.3`.
+- The same KDFWR page still explicitly says no current stream gage is available on Kinniconick Creek and that Tygarts Creek should be used in lieu of Kinniconick because it closely mimics levels there. It still publishes official proxy bands of Low below `2.5 ft / 50 cfs`, Good `2.5-3.5 ft / 50-130 cfs`, and High above `3.5 ft / 130 cfs`. During this run, the official USGS legacy current page for `03217000` showed same-day `38.5 cfs / 2.80 ft` at `2026-07-09 06:45 EDT`, which leaves stage inside the official good band while discharge remains below the cfs floor, so all three additions ship with explicit low-water scraping caution instead of comfort framing.
+- Current KDFWR access-detail pages still support source-backed coordinates and public-use notes for Leatherwood Branch Park Access, McDowells Creek Park Access, Mill Pond Creek Access, and Garrison Ramp.
+- Camping stays conservative at `none` for all three because KDFWR still lists Camping as None at the reviewed accesses and does not document legal on-route overnight support.
+- Bounded image posture remains no-gallery for all three slugs: `docs/river-image-source-audit.csv` now records the no-image outcome because bounded KDFWR, Commons, and same-river context review did not produce a clearly rights-clean exact-route asset.
 
 ## 2026-07-09 South Fork restoration pass
 
