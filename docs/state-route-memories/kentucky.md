@@ -1,6 +1,14 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-09 10:55 America/Chicago / 2026-07-09 15:55 UTC.
+Last summarized: 2026-07-09 17:10 America/Chicago / 2026-07-09 22:10 UTC.
+
+## 2026-07-09 Floyds Fork and Upper Cumberland continuation pass
+
+- Reused the live repo state as the only valid baseline and added three Kentucky slugs that were absent from the current tree at run start: `floyds-fork-creekside-broad-run-valley`, `floyds-fork-creekside-cliffside`, and `upper-cumberland-river-varilla-barbourville`.
+- Current KDFWR Floyds Fork guidance still lists Creekside Canoe Access -> Fisherville Canoe Access `4.3`, Fisherville Canoe Access -> Cane Run Canoe Access `4.2`, and Cane Run Canoe Access -> Seaton Valley Paddling Access `3.1`, while the current lower Floyds Fork PDF still lists Seaton Valley Paddling Access -> Broad Run Valley Paddling Access `3.5` and Broad Run Valley Paddling Access -> Cliffside Paddling Access `2.5`, which support the new public Floyds Fork routes of `15.1` and `17.6` miles.
+- Current KDFWR Upper Cumberland guidance still lists Varilla Ramp -> 4 Mile Ramp `13.8`, 4 Mile Ramp -> Artemus Rock Access `9.8`, and Artemus Rock Access -> Barbourville Ramp `5.1`, which support the new public Varilla-to-Barbourville continuation at `28.7` miles.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Creekside Canoe Access, Broad Run Valley Paddling Access, Cliffside Paddling Access, Varilla Ramp, Artemus Rock Access, and Barbourville Ramp. Same-day direct USGS Water Services returned `187 cfs / 1.93 ft` at `2026-07-09 14:20 EDT` for Floyds Fork at Fisherville (`03298000`) and `1070 cfs / 4.29 ft` at `2026-07-09 14:00 EDT` for Cumberland River at Williamsburg (`03404000`). The Floyds additions ship inside the official good band; the Upper Cumberland continuation ships with explicit above-band fast-water caution.
+- Reused the approved Commons Floyds Fork corridor image for both new Floyds slugs and recorded a bounded no-image outcome for `upper-cumberland-river-varilla-barbourville`.
 
 ## 2026-07-09 South Fork continuation restoration pass
 

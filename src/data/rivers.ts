@@ -31213,6 +31213,144 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'floyds-fork-creekside-broad-run-valley',
+    slug: 'floyds-fork-creekside-broad-run-valley',
+    name: 'Floyds Fork',
+    reach: 'Creekside Canoe Access to Broad Run Valley Paddling Access',
+    aliases: [
+      'Floyds Fork - Creekside to Broad Run Valley',
+      'Floyds Fork Parklands Creekside to Broad Run Valley',
+      "Floyd's Fork long Parklands float",
+    ],
+    state: 'Kentucky',
+    region: 'Louisville Metro',
+    summary:
+      'Long Parklands Floyds Fork route linking Creekside to Broad Run Valley. KDFWR documents the public route pieces and endpoint access records, while the lower-corridor PDF keeps Marys Island, wood, and marked-landings-only discipline explicit.',
+    statusText:
+      'Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and older Parklands/KDFWR guidance treats 35 to 500 cfs as the broader recreation range. Below that expect scraping and a slower day; above it expect faster bends and fewer easy recoveries.',
+    latitude: 38.2158,
+    longitude: -85.4778,
+    gaugeSource: {
+      id: 'usgs-03298000',
+      provider: 'usgs',
+      siteId: '03298000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Floyds Fork at Fisherville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 50,
+      idealMax: 300,
+      tooLow: 35,
+      tooHigh: 500,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Floyds Fork near Fisherville',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This longer Parklands route is most realistic in spring through fall. Low summer flows extend the day with shoal scraping, while storm runoff quickly makes the lower bends and chutes more forceful.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This remains Class I+ moving water with route-reading responsibility, not a casual flatwater greenway float. The lower PDF and Parklands guidance keep shoals, braid choices, wood, and quick water-level changes explicit enough for a moderate rating.',
+      confidenceNotes:
+        'Confidence is high for a conservative add: KDFWR names Creekside to Fisherville at 4.3 miles, Fisherville to Cane Run at 4.2 miles, and Cane Run to Seaton Valley at 3.1 miles, while the lower Floyds Fork PDF names Seaton Valley to Broad Run Valley at 3.5 miles, supporting a 15.1-mile public Creekside-to-Broad-Run-Valley float. KDFWR gives source-backed coordinates for both endpoints, publishes official Fisherville low/good/high bands on the same corridor, and same-day USGS Water Services values were available during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '50-300 cfs / 1.3-2.5 ft',
+        note: 'KDFWR rates Floyds Fork near Fisherville as Low below 50 cfs or 1.3 ft, Good from 50 to 300 cfs or 1.3 to 2.5 ft, and High above 300 cfs or 2.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+      },
+      {
+        label: 'Broader recreation band',
+        value: '35-500 cfs',
+        note: 'A KDFWR Floyds Fork feature says the best floating levels for fishing and recreation are 35 to 500 cfs, with higher levels suited only to experienced paddlers.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+      },
+      {
+        label: 'Chained public route segment',
+        value: 'Creekside Canoe Access to Broad Run Valley Paddling Access, 15.1 miles',
+        note: 'KDFWR lists Creekside Canoe Access to Fisherville Canoe Access as 4.3 miles, Fisherville Canoe Access to Cane Run Canoe Access as 4.2 miles, and Cane Run Canoe Access to Seaton Valley Paddling Access as 3.1 miles, while the lower Floyds Fork PDF lists Seaton Valley Paddling Access to Broad Run Valley Paddling Access as 3.5 miles, supporting a 15.1-mile public Creekside-to-Broad-Run-Valley float.',
+        sourceUrl: 'https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Creekside Canoe Access, 38.2158, -85.4778',
+        note: 'KDFWR identifies Creekside Canoe Access as a free carry-down access at The Parklands with unpaved parking.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1091',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Broad Run Valley Paddling Access, 38.1039, -85.5455',
+        note: 'KDFWR identifies Broad Run Valley Paddling Access as a free carry-down site with year-round limited-hours shoreline access and no camping listed.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1142',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03298000 at 187 cfs / 1.93 ft',
+        note: 'USGS Water Services returned same-day values of 187 cfs and 1.93 ft at 2026-07-09 14:20 EDT for Floyds Fork at Fisherville during this run, inside the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03298000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route hazards',
+        value: "Class I+ moving water, Mary's Island split, bedrock shelves, wood",
+        note: "The lower Floyds Fork PDF says paddlers may encounter strainers, should veer left at Mary's Island, and should expect shallow bedrock rapids, braided chutes, undercut banks, and changing current through the lower Parklands section.",
+        sourceUrl: 'https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Floyds Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: "KDFWR Floyd's Fork route feature",
+        url: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Creekside Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1091',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Broad Run Valley Paddling Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1142',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Floyds Fork lower-section PDF',
+        url: 'https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03298000 Floyds Fork at Fisherville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03298000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03298000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'The Parklands paddling guidance',
+        url: 'https://theparklands.org/find-an-activity/paddling/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'floyds-fork-cane-run-seaton-valley',
     slug: 'floyds-fork-cane-run-seaton-valley',
     name: 'Floyds Fork',
@@ -32669,6 +32807,144 @@ export const rivers: River[] = [
       {
         label: 'KDFWR Fisherville Canoe Access',
         url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=877',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cliffside Paddling Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1143',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Floyds Fork lower-section PDF',
+        url: 'https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03298000 Floyds Fork at Fisherville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03298000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03298000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'The Parklands paddling guidance',
+        url: 'https://theparklands.org/find-an-activity/paddling/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'floyds-fork-creekside-cliffside',
+    slug: 'floyds-fork-creekside-cliffside',
+    name: 'Floyds Fork',
+    reach: 'Creekside Canoe Access to Cliffside Paddling Access',
+    aliases: [
+      'Floyds Fork - Creekside to Cliffside',
+      'Floyds Fork Parklands Creekside to Cliffside',
+      "Floyd's Fork near-full Parklands float",
+    ],
+    state: 'Kentucky',
+    region: 'Louisville Metro',
+    summary:
+      'Near-full Parklands Floyds Fork route from Creekside to Cliffside. KDFWR documents the public route pieces and endpoint access records, while the lower-corridor PDF keeps Marys Island, bedrock shelves, wood, and marked-landings-only discipline explicit.',
+    statusText:
+      'Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and older Parklands/KDFWR guidance treats 35 to 500 cfs as the broader recreation range. Below that expect scraping and a longer day; above it expect faster current and fewer forgiving recovery spots.',
+    latitude: 38.2158,
+    longitude: -85.4778,
+    gaugeSource: {
+      id: 'usgs-03298000',
+      provider: 'usgs',
+      siteId: '03298000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Floyds Fork at Fisherville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 50,
+      idealMax: 300,
+      tooLow: 35,
+      tooHigh: 500,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Floyds Fork near Fisherville',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This near-full Parklands route is most realistic in spring through fall. Low summer flows extend the day with shoal scraping and drag points, while storm runoff quickly makes the lower bends and chutes more forceful.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This remains Class I+ moving water with route-reading responsibility, not a casual greenway float. The long mileage, braid choices, wood, and quick water-level changes justify a moderate rating.',
+      confidenceNotes:
+        'Confidence is high for a conservative add: KDFWR names Creekside to Fisherville at 4.3 miles, Fisherville to Cane Run at 4.2 miles, and Cane Run to Seaton Valley at 3.1 miles, while the lower Floyds Fork PDF names Seaton Valley to Broad Run Valley at 3.5 miles and Broad Run Valley to Cliffside at 2.5 miles, supporting a 17.6-mile public Creekside-to-Cliffside float. KDFWR gives source-backed coordinates for both endpoints, publishes official Fisherville low/good/high bands on the same corridor, and same-day USGS Water Services values were available during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '50-300 cfs / 1.3-2.5 ft',
+        note: 'KDFWR rates Floyds Fork near Fisherville as Low below 50 cfs or 1.3 ft, Good from 50 to 300 cfs or 1.3 to 2.5 ft, and High above 300 cfs or 2.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+      },
+      {
+        label: 'Broader recreation band',
+        value: '35-500 cfs',
+        note: 'A KDFWR Floyds Fork feature says the best floating levels for fishing and recreation are 35 to 500 cfs, with higher levels suited only to experienced paddlers.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+      },
+      {
+        label: 'Chained public route segment',
+        value: 'Creekside Canoe Access to Cliffside Paddling Access, 17.6 miles',
+        note: 'KDFWR lists Creekside Canoe Access to Fisherville Canoe Access as 4.3 miles, Fisherville Canoe Access to Cane Run Canoe Access as 4.2 miles, and Cane Run Canoe Access to Seaton Valley Paddling Access as 3.1 miles, while the lower Floyds Fork PDF lists Seaton Valley Paddling Access to Broad Run Valley Paddling Access as 3.5 miles and Broad Run Valley Paddling Access to Cliffside Paddling Access as 2.5 miles, supporting a 17.6-mile public Creekside-to-Cliffside float.',
+        sourceUrl: 'https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Creekside Canoe Access, 38.2158, -85.4778',
+        note: 'KDFWR identifies Creekside Canoe Access as a free carry-down access at The Parklands with unpaved parking.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1091',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Cliffside Paddling Access, 38.0864, -85.5520',
+        note: 'KDFWR identifies Cliffside Paddling Access as a free carry-down site in Broad Run Park with year-round limited-hours shoreline access and no camping listed.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1143',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03298000 at 187 cfs / 1.93 ft',
+        note: 'USGS Water Services returned same-day values of 187 cfs and 1.93 ft at 2026-07-09 14:20 EDT for Floyds Fork at Fisherville during this run, inside the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03298000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route hazards',
+        value: "Class I+ moving water, Mary's Island split, bedrock shelves, wood",
+        note: "The lower Floyds Fork PDF says paddlers may encounter strainers, should veer left at Mary's Island, and should expect shallow bedrock rapids, braided chutes, undercut banks, and changing current through the lower Parklands section.",
+        sourceUrl: 'https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Floyds Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: "KDFWR Floyd's Fork route feature",
+        url: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Creekside Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1091',
         provider: 'local',
       },
       {
@@ -48621,6 +48897,133 @@ export const rivers: River[] = [
       {
         label: 'KDFWR Artemus Rock Access',
         url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1184',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03404000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03404000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'upper-cumberland-river-varilla-barbourville',
+    slug: 'upper-cumberland-river-varilla-barbourville',
+    name: 'Upper Cumberland River',
+    reach: 'Varilla Ramp to Barbourville Ramp',
+    aliases: [
+      'Upper Cumberland River - Varilla to Barbourville',
+      'Cumberland River - Varilla Ramp to Barbourville Ramp',
+      'Upper Cumberland River full upper corridor',
+    ],
+    state: 'Kentucky',
+    region: 'Daniel Boone Country',
+    summary:
+      'Full upper-corridor Upper Cumberland route from Varilla Ramp to Barbourville Ramp at Thompson Park. KDFWR lists the public chain as Varilla to 4 Mile at 13.8 miles, 4 Mile to Artemus at 9.8 miles, and Artemus to Barbourville at 5.1 miles, supporting this 28.7-mile combination on the official Williamsburg gauge ladder.',
+    statusText:
+      'Use the Cumberland River at Williamsburg gauge. KDFWR rates the corridor low below 300 cfs or 3.0 ft, good from 300 to 700 cfs or 3.0 to 3.8 ft, and high above that.',
+    latitude: 36.7447,
+    longitude: -83.6103,
+    gaugeSource: {
+      id: 'usgs-03404000',
+      provider: 'usgs',
+      siteId: '03404000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cumberland River at Williamsburg, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['fast_rise', 'strainers', 'private_banks', 'remote'],
+      safetyNotes: [
+        'This is a long committed Upper Cumberland day, and KDFWR says the corridor carries mild rapids that get pushier quickly after rain.',
+        'Artemus sits mid-corridor as a rough gravel-bar access that may be muddy or awkward, so it is not a casual bailout if conditions deteriorate.',
+        'Most banks outside the named accesses are private and services are sparse, so treat this as a genuine point-to-point commitment rather than a casual float with easy exits.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 300,
+      idealMax: 700,
+      tooLow: 300,
+      tooHigh: 700,
+      thresholdSource: {
+        label: 'KDFWR Upper Cumberland recommended Williamsburg flow band',
+        url: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This full upper-corridor combination is most straightforward when the official Williamsburg gauge stays inside the KDFWR good band. Low water extends the day with more scraping on riffles, while rain can turn the route into a long fast push with few comfortable recovery options.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The individual rapids are mild, but the long mileage, private-bank corridor, and rough mid-corridor Artemus landing make this a serious day rather than a casual float.',
+      confidenceNotes:
+        'Confidence is good for a guarded add: KDFWR lists Varilla Ramp to 4 Mile Ramp as 13.8 miles, 4 Mile Ramp to Artemus Rock Access as 9.8 miles, and Artemus Rock Access to Barbourville Ramp as 5.1 miles on the same official Upper Cumberland corridor page, which supports this 28.7-mile public combination against the same Williamsburg low/good/high ladder. KDFWR access-detail pages provide source-backed coordinates and access notes for Varilla, Artemus, and Barbourville, and same-day USGS Water Services returned 1,070 cfs and 4.29 ft at 2026-07-09 14:00 EDT for the direct Williamsburg gauge, honestly placing the route above the official good band today.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route chain',
+        value: 'Varilla -> 4 Mile 13.8 mi plus 4 Mile -> Artemus 9.8 mi plus Artemus -> Barbourville 5.1 mi',
+        note: 'KDFWR lists all three public site-to-site mileages on the Upper Cumberland corridor page, supporting this 28.7-mile combination.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '300-700 cfs or 3.0-3.8 ft good',
+        note: 'KDFWR rates the Williamsburg gauge as Low below 300 cfs or 3.0 ft, Good from 300 to 700 cfs or 3.0 to 3.8 ft, and High above that.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Varilla Ramp, 36.7447, -83.6103',
+        note: 'KDFWR access detail confirms a public concrete ramp with small gravel parking east of Pineville.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=895',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Barbourville Ramp, 36.8603, -83.8893',
+        note: 'KDFWR access detail confirms the public Thompson Park ramp with paved parking and park amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1067',
+      },
+      {
+        label: 'Camping support',
+        value: 'Thompson Park RV campground with full hookups',
+        note: 'KDFWR says the Barbourville ramp sits in Thompson Park, which includes an RV campground with full hookups.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03404000 at 1070 cfs / 4.29 ft',
+        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-07-09 14:00 EDT during this run, above the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Upper Cumberland River',
+        url: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Varilla Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=895',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Barbourville Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1067',
         provider: 'local',
       },
       {

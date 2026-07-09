@@ -10516,6 +10516,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'floyds-fork-creekside-broad-run-valley': {
+    putIn: {
+      id: 'creekside-canoe-access',
+      name: 'Creekside Canoe Access',
+      latitude: 38.2158,
+      longitude: -85.4778,
+    },
+    takeOut: {
+      id: 'broad-run-valley-paddling-access',
+      name: 'Broad Run Valley Paddling Access',
+      latitude: 38.1039,
+      longitude: -85.5455,
+    },
+    logistics: {
+      distanceLabel: 'About 15.1 mi',
+      estimatedPaddleTime: 'About 6.5 hr to 9 hr, longer with low water, scouting, or fishing',
+      shuttle:
+        'Stage the take-out at Broad Run Valley Paddling Access, then drive back to Creekside Canoe Access. Inspect both carry-downs before launching because this long Parklands route depends on designated landings rather than broad public beaches.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a long Parklands day trip. KDFWR lists no camping at either access, and no legal on-route overnight plan was verified for this managed park corridor.',
+      summary:
+        'Launch at Creekside Canoe Access and take out 15.1 miles downstream at Broad Run Valley Paddling Access for a long Parklands Floyds Fork float. KDFWR gives a good Fisherville gauge band of 50 to 300 cfs, while the lower-route guidance adds the Cane Run zone, Marys Island, bedrock shelves, wood, and marked-landings-only discipline.',
+      accessCaveats: [
+        'Creekside is a KDFWR carry-down access near the Egg Lawn with no listed amenities beyond the access itself.',
+        'Broad Run Valley is a KDFWR carry-down access with year-round limited-hours shoreline access and no listed camping.',
+        'The Parklands instructs paddlers to use marked landings only and not to take out on private property.',
+        'The same-day Fisherville gauge reading during this run sat inside the official good band, but Floyds Fork still rises and falls quickly after rain.',
+      ],
+      watchFor: [
+        'Class I+ moving water with shallow gravel shoals, bedrock shelves, and longer stretches where low water can force dragging.',
+        'The signed Cane Run side-channel area, followed by more pushy lower-corridor current into Turkey Run and Broad Run.',
+        "Strainers, fallen wood, bluff-side current, and the mile-long Mary's Island split where the KDFWR PDF says to stay left.",
+        'Longer recovery swims and fewer easy eddies once the creek pushes above the official good band.',
+        'Water-quality and runoff concerns after storms in the Floyds Fork watershed.',
+      ],
+    },
+  },
   'floyds-fork-cane-run-seaton-valley': {
     putIn: {
       id: 'cane-run-canoe-access',
@@ -10940,6 +10979,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Class I+ moving water with shallow gravel shoals, bedrock shelves, waves, and faster current through bends and bridge pinch points.',
         'The signed Cane Run side-channel area, followed by more pushy lower-corridor current into Turkey Run and Broad Run.',
         'Strainers, fallen wood, bluff-side current, and the mile-long Mary\'s Island split where the KDFWR PDF says to stay left.',
+        'Longer recovery swims and fewer easy eddies once the creek pushes above the official good band.',
+        'Water-quality and runoff concerns after storms in the Floyds Fork watershed.',
+      ],
+    },
+  },
+  'floyds-fork-creekside-cliffside': {
+    putIn: {
+      id: 'creekside-canoe-access',
+      name: 'Creekside Canoe Access',
+      latitude: 38.2158,
+      longitude: -85.4778,
+    },
+    takeOut: {
+      id: 'cliffside-paddling-access',
+      name: 'Cliffside Paddling Access',
+      latitude: 38.0864,
+      longitude: -85.552,
+    },
+    logistics: {
+      distanceLabel: 'About 17.6 mi',
+      estimatedPaddleTime: 'About 7.5 hr to 10 hr, longer with low water, scouting, or fishing',
+      shuttle:
+        'Stage the take-out at Cliffside Paddling Access in Broad Run Park, then drive back to Creekside Canoe Access. Inspect both carry-downs before launching because this near-full Parklands route depends on the designated landings rather than broad public beaches.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a full-day Parklands commitment, not an overnight route. KDFWR lists no camping at either access, and no legal on-route overnight plan was verified for this managed park corridor.',
+      summary:
+        'Launch at Creekside Canoe Access and take out 17.6 miles downstream at Cliffside Paddling Access for a near-full public Parklands Floyds Fork route. KDFWR gives a good Fisherville gauge band of 50 to 300 cfs, while the route guidance adds the Cane Run side-channel zone, Marys Island, bedrock shelves, wood, and marked-landings-only discipline.',
+      accessCaveats: [
+        'Creekside is a KDFWR carry-down access near the Egg Lawn with no listed amenities beyond the access itself.',
+        'Cliffside is a KDFWR carry-down site in Broad Run Park with year-round limited-hours shoreline access and no listed camping.',
+        'The Parklands instructs paddlers to use marked landings only and not to take out on private property.',
+        'The same-day Fisherville gauge reading during this run sat inside the official good band, but Floyds Fork still rises and falls quickly after rain.',
+      ],
+      watchFor: [
+        'Class I+ moving water with shallow gravel shoals, bedrock shelves, waves, and long stretches where low water can force dragging.',
+        'The signed Cane Run side-channel area, followed by more pushy lower-corridor current into Turkey Run and Broad Run.',
+        "Strainers, fallen wood, bluff-side current, and the mile-long Mary's Island split where the KDFWR PDF says to stay left.",
         'Longer recovery swims and fewer easy eddies once the creek pushes above the official good band.',
         'Water-quality and runoff concerns after storms in the Floyds Fork watershed.',
       ],
@@ -20390,6 +20468,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fresh wood, rain-driven rises, and mild rapids that stack up over a long day.',
         'Private banks and limited bailout quality between the named accesses.',
         'Fatigue, daylight management, and a muddy finish at Artemus.',
+      ],
+    },
+  },
+  'upper-cumberland-river-varilla-barbourville': {
+    putIn: {
+      id: 'varilla-ramp',
+      name: 'Varilla Ramp',
+      latitude: 36.7447,
+      longitude: -83.6103,
+    },
+    takeOut: {
+      id: 'barbourville-ramp',
+      name: 'Barbourville Ramp',
+      latitude: 36.8603,
+      longitude: -83.8893,
+    },
+    logistics: {
+      distanceLabel: 'About 28.7 mi',
+      estimatedPaddleTime:
+        'About 8.5 hr to 11.5 hr, longer with low-water scraping, scouting, or higher-water caution',
+      shuttle:
+        'Leave the downstream vehicle at Thompson Park in Barbourville, then drive back to Varilla Ramp. This is a full upper-river commitment with a long day on the water rather than a casual split float.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public access points, follow Kentucky boating and PFD rules, and respect private banks throughout the corridor.',
+      camping:
+        'Barbourville Ramp sits in Thompson Park, where KDFWR says an RV campground with full hookups is available. Most paddlers will still treat the route itself as a very long day float into a campground-supported finish.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Varilla Ramp and finish at Barbourville Ramp for a full Upper Cumberland corridor route built from the official Varilla-to-4-Mile, 4-Mile-to-Artemus, and Artemus-to-Barbourville segments. Use the Williamsburg gauge and plan conservatively whenever the river is outside the 300 to 700 cfs good band.',
+      accessCaveats: [
+        'This is a long committed route with sparse services and few realistic legal stop options away from the named accesses.',
+        'Artemus sits mid-corridor as a rough gravel-bar access rather than a clean casual bailout. Do not assume it will solve problems easily once the route is underway.',
+        'Barbourville is the intended public finish with the cleanest downstream services, including Thompson Park campground support.',
+      ],
+      watchFor: [
+        'Fresh wood, rain-driven rises, and mild rapids that stack up over a long day.',
+        'Private banks and limited bailout quality between the named accesses.',
+        'Fatigue, daylight management, and faster approach speed into Barbourville on higher-water days.',
       ],
     },
   },
