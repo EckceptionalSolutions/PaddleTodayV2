@@ -6266,7 +6266,7 @@ export const rivers: River[] = [
     evidenceNotes: [
       {
         label: 'DNR bands',
-        value: '345 / 500–1,500 / 1,750 cfs',
+        value: '345 / 500â€“1,500 / 1,750 cfs',
         note: 'MN DNR interprets the lower North Fork Crow gauge as Scrapable below 345 cfs, Low from 345 to 500, Medium from 500 to 1,500, High from 1,500 to 1,750, and Very High above 1,750.',
         sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
       },
@@ -11276,7 +11276,7 @@ export const rivers: River[] = [
       {
         label: 'Route character',
         value: 'Light rapids upstream; more suburban and flowage paddling near Grafton',
-        note: 'Wisconsin River Trips’ Milwaukee overview breaks this corridor into a livelier Waubedonia-to-Ehlers section and a slower Grafton Canoe Launch-to-Veterans section with only minor rapids in the upper stretch.',
+        note: 'Wisconsin River Tripsâ€™ Milwaukee overview breaks this corridor into a livelier Waubedonia-to-Ehlers section and a slower Grafton Canoe Launch-to-Veterans section with only minor rapids in the upper stretch.',
         sourceUrl: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river',
       },
       {
@@ -11803,7 +11803,7 @@ export const rivers: River[] = [
     state: 'Wisconsin',
     region: 'Northwest Wisconsin',
     summary:
-      'Classic upper Bois Brule day through clear spring-fed water, narrow wooded corridors, historic lodges, and mostly class I rapids. This Stone’s Bridge-to-Winneboujou version is the friendlier Brule choice, but the river still needs enough water and respect for ledges, strainers, and cold Northwoods conditions.',
+      'Classic upper Bois Brule day through clear spring-fed water, narrow wooded corridors, historic lodges, and mostly class I rapids. This Stoneâ€™s Bridge-to-Winneboujou version is the friendlier Brule choice, but the river still needs enough water and respect for ledges, strainers, and cold Northwoods conditions.',
     statusText:
       'Use the Brule gauge as a direct same-segment screen. Below 125 cfs is not recommended; 200 to 350 cfs is the best novice-friendly medium band; above 600 cfs the current becomes an intermediate judgment call.',
     latitude: 46.43415,
@@ -11836,7 +11836,7 @@ export const rivers: River[] = [
         'Late spring through fall is the main paddling season. The upper Brule is more spring-fed and stable than many rivers, but DNR warns lower/northern sections can rise quickly after rain and snowmelt.',
       difficulty: 'moderate',
       difficultyNotes:
-        'Wisconsin DNR calls Stone’s Bridge to Winneboujou an easygoing upper-river trip that nearly anyone can handle, while Wisconsin Trail Guide still lists class I-II features and tells paddlers to scout rapids and know their limits.',
+        'Wisconsin DNR calls Stoneâ€™s Bridge to Winneboujou an easygoing upper-river trip that nearly anyone can handle, while Wisconsin Trail Guide still lists class I-II features and tells paddlers to scout rapids and know their limits.',
       confidenceNotes:
         'Confidence is high-moderate: Wisconsin DNR supports the exact public-landings corridor and river rules, Wisconsin Trail Guide publishes route-specific level bands, Wisconsin River Trips confirms the same classic section, and American Whitewater corroborates the same USGS gauge family. The main limitation is that the numeric bands are guide/community guidance rather than a Wisconsin DNR live interpretation ladder.',
     },
@@ -11856,13 +11856,13 @@ export const rivers: River[] = [
       {
         label: 'Official corridor',
         value: "Stone's Bridge to Winneboujou",
-        note: 'Wisconsin DNR describes Stone’s Bridge to Winneboujou as an easygoing upper-river trip and gives an approximate four-hour time between landings.',
+        note: 'Wisconsin DNR describes Stoneâ€™s Bridge to Winneboujou as an easygoing upper-river trip and gives an approximate four-hour time between landings.',
         sourceUrl: 'https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/paddle',
       },
       {
         label: 'Classic route confirmation',
         value: '9.3 to 9.6 miles',
-        note: 'Wisconsin River Trips identifies Stone’s Bridge Landing to Winneboujou Landing as the classic upper Bois Brule segment, while Wisconsin Trail Guide river-mile points put Stone’s Bridge to Winneboujou at about 9.6 river miles.',
+        note: 'Wisconsin River Trips identifies Stoneâ€™s Bridge Landing to Winneboujou Landing as the classic upper Bois Brule segment, while Wisconsin Trail Guide river-mile points put Stoneâ€™s Bridge to Winneboujou at about 9.6 river miles.',
         sourceUrl: 'https://www.wisconsinrivertrips.com/segments/bois-brule',
       },
       {
@@ -12275,7 +12275,7 @@ export const rivers: River[] = [
     summary:
       'Short urban Wauwatosa-to-Milwaukee run with bedrock riffles, remediation rapids, strainers, and one stronger ledge. This is a gauge-sensitive moving-water route for skilled paddlers, not a casual family float.',
     statusText:
-      'Hard urban swiftwater only. Treat roughly 151 to 250 cfs at Wauwatosa as the best window, below 100 cfs as too thin, and above 400 cfs as beyond PaddleToday’s normal rec-paddling recommendation. Avoid after heavy rain, sewer-overflow alerts, or uncertain take-out access.',
+      'Hard urban swiftwater only. Treat roughly 151 to 250 cfs at Wauwatosa as the best window, below 100 cfs as too thin, and above 400 cfs as beyond PaddleTodayâ€™s normal rec-paddling recommendation. Avoid after heavy rain, sewer-overflow alerts, or uncertain take-out access.',
     latitude: 43.05436,
     longitude: -88.02431,
     routeType: 'whitewater',
@@ -13387,7 +13387,7 @@ export const rivers: River[] = [
     id: 'wisconsin-river-arena-spring-green',
     slug: 'wisconsin-river-arena-spring-green',
     name: 'Wisconsin River',
-    reach: 'Arena Landing to Peck’s Landing / Spring Green',
+    reach: 'Arena Landing to Peckâ€™s Landing / Spring Green',
     state: 'Wisconsin',
     region: 'Lower Wisconsin Riverway',
     summary:
@@ -13460,7 +13460,7 @@ export const rivers: River[] = [
         provider: 'wisconsin_trail_guide',
       },
       {
-        label: 'Travel Wisconsin Peck’s Landing',
+        label: 'Travel Wisconsin Peckâ€™s Landing',
         url: 'https://www.travelwisconsin.com/canoeing-kayaking-sup/pecks-landing-365711',
         provider: 'local',
       },
@@ -13475,7 +13475,7 @@ export const rivers: River[] = [
     id: 'wisconsin-river-spring-green-muscoda',
     slug: 'wisconsin-river-spring-green-muscoda',
     name: 'Wisconsin River',
-    reach: 'Peck’s Landing / Spring Green to Muscoda',
+    reach: 'Peckâ€™s Landing / Spring Green to Muscoda',
     state: 'Wisconsin',
     region: 'Lower Wisconsin Riverway',
     summary:
@@ -13548,7 +13548,7 @@ export const rivers: River[] = [
         provider: 'wisconsin_trail_guide',
       },
       {
-        label: 'Travel Wisconsin Peck’s Landing',
+        label: 'Travel Wisconsin Peckâ€™s Landing',
         url: 'https://www.travelwisconsin.com/canoeing-kayaking-sup/pecks-landing-365711',
         provider: 'local',
       },
@@ -15223,7 +15223,7 @@ export const rivers: River[] = [
     summary:
       'Short Cuyahoga Valley National Park run from Peninsula to Boston, with an initial Class II pulse that settles into mostly Class I current and an excellent shuttle/public-access story.',
     statusText:
-      'Use the Jaite gauge. Treat roughly 500 to 1200 cfs as the best beginner-friendly window, 300 cfs as the low runnable floor, and 5000 cfs as American Whitewater’s high runnable ceiling rather than a broad novice recommendation.',
+      'Use the Jaite gauge. Treat roughly 500 to 1200 cfs as the best beginner-friendly window, 300 cfs as the low runnable floor, and 5000 cfs as American Whitewaterâ€™s high runnable ceiling rather than a broad novice recommendation.',
     latitude: 41.2428,
     longitude: -81.55067,
     gaugeSource: {
@@ -15266,7 +15266,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'AW rates the run Class I-II and calls it a good novice/open-canoe section, but the first half-mile still has enough current, wave trains, and wood potential to require basic moving-water skills.',
       confidenceNotes:
-        'Confidence is strong for a guarded add: American Whitewater documents the exact Lock 29 to Boston Mills Road reach, direct Jaite gauge, and numeric range. NPS now maintains official river-access pages for both Lock 29 and Boston Store, each with current paddler logistics, while ODNR’s water-trail map corroborates the public CVNP access pair.',
+        'Confidence is strong for a guarded add: American Whitewater documents the exact Lock 29 to Boston Mills Road reach, direct Jaite gauge, and numeric range. NPS now maintains official river-access pages for both Lock 29 and Boston Store, each with current paddler logistics, while ODNRâ€™s water-trail map corroborates the public CVNP access pair.',
     },
     evidenceNotes: [
       {
@@ -18326,7 +18326,7 @@ export const rivers: River[] = [
     state: 'Iowa',
     region: 'Northeast Iowa',
     summary:
-      'Scenic Driftless North Fork float from Cascade’s concrete launch below the old falls to the Whitewater Creek D61 access, with bluffs, boulders, riffles, and a direct Fulton gauge ladder.',
+      'Scenic Driftless North Fork float from Cascadeâ€™s concrete launch below the old falls to the Whitewater Creek D61 access, with bluffs, boulders, riffles, and a direct Fulton gauge ladder.',
     statusText:
       'Use the North Fork Maquoketa near Fulton gauge. Treat 231 to 400 cfs as the broad target window, below 150 cfs as likely too shallow, and 701+ cfs as beyond the normal recreational recommendation.',
     latitude: 42.29902,
@@ -18359,7 +18359,7 @@ export const rivers: River[] = [
         'Spring and fall are the best scenery windows. Heavy rain can quickly make the North Fork pushy and muddy, while dry late-summer windows expose more gravel and make the D61 take-out creek shallower.',
       difficulty: 'moderate',
       difficultyNotes:
-        'Mostly Class I moving water at normal levels, but the launch sits just below Cascade’s dam zone, the route has many riffles and outside-bend boulders, and the D61 exit requires attention at the Whitewater Creek mouth.',
+        'Mostly Class I moving water at normal levels, but the launch sits just below Cascadeâ€™s dam zone, the route has many riffles and outside-bend boulders, and the D61 exit requires attention at the Whitewater Creek mouth.',
       confidenceNotes:
         'Confidence is good for a guarded Iowa add: the City of Cascade still says the Riverview Park corridor has a nearby landing and parking area for canoers and kayakers floating south of town, Wisconsin River Trips and Miles Paddled both document the exact Cascade-to-D61 route with GPS points and Fulton-gauge context, Dubuque County now lists D61 Access as a true public canoe/kayak access on Whitewater Creek, and same-day USGS Water Services returned 943 cfs and 5.04 ft at the direct Fulton gauge at 2026-07-06 11:00 CDT.',
     },
@@ -31772,7 +31772,7 @@ export const rivers: River[] = [
     state: 'Kentucky',
     region: 'Louisville Metro',
     summary:
-      'Scenic lower-Parklands Floyds Fork float from Turkey Run into Broad Run Valley. The KDFWR Floyds Fork PDF names this exact 3.5-mile route and adds Mary’s Island, bluff, and strainer cautions.',
+      'Scenic lower-Parklands Floyds Fork float from Turkey Run into Broad Run Valley. The KDFWR Floyds Fork PDF names this exact 3.5-mile route and adds Maryâ€™s Island, bluff, and strainer cautions.',
     statusText:
       'Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and older Parklands/KDFWR guidance treats 35 to 500 cfs as the wider recreation window. Lower water stretches the trip; higher water makes the braid and island bends pushier.',
     latitude: 38.1323,
@@ -31843,8 +31843,8 @@ export const rivers: River[] = [
       },
       {
         label: 'Route hazards',
-        value: 'Mary’s Island split, strainers, shallow rapids, bluff and bedrock sections',
-        note: 'The KDFWR PDF says paddlers may encounter strainers, should veer left at Mary’s Island, and should expect shallow bedrock rapids, braided chutes, undercut banks, and changing current through this lower Parklands section.',
+        value: 'Maryâ€™s Island split, strainers, shallow rapids, bluff and bedrock sections',
+        note: 'The KDFWR PDF says paddlers may encounter strainers, should veer left at Maryâ€™s Island, and should expect shallow bedrock rapids, braided chutes, undercut banks, and changing current through this lower Parklands section.',
         sourceUrl: 'https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf',
       },
     ],
@@ -43624,456 +43624,10 @@ export const rivers: River[] = [
       },
     ],
   },
-  {
-    id: "goose-creek-jacks-tobacco-road",
-    slug: "goose-creek-jacks-tobacco-road",
-    name: "Goose Creek",
-    reach: "Jacks / Bowling Branch Bridge Access to Tobacco Road Bridge Ramp",
-    aliases: [
-      "Goose Creek - Jacks to Tobacco Road",
-      "Goose Creek lower Manchester upper split",
-      "Goose Creek - Bowling Branch to Tobacco Road",
-    ],
-    state: "Kentucky",
-    region: "Eastern Kentucky",
-    summary:
-      "Short lower-Goose bridge-to-bridge float from Jacks / Bowling Branch to Tobacco Road. KDFWR publishes this exact 2.2-mile public segment and the official Manchester gauge bands.",
-    statusText:
-      "Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs as good for boating and fishing. Below that is low and likely to mean scraping or dragging; above that is high and deserves extra narrow-creek caution.",
-    latitude: 37.2052,
-    longitude: -83.7372,
-    gaugeSource: {
-      id: "usgs-03281100",
-      provider: "usgs",
-      siteId: "03281100",
-      metric: "discharge_cfs",
-      unit: "cfs",
-      kind: "direct",
-      siteName: "Goose Creek at Manchester, KY",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
-    },
-    profile: {
-      thresholdModel: "two-sided",
-      idealMin: 175,
-      idealMax: 514,
-      tooLow: 175,
-      tooHigh: 514,
-      thresholdSource: {
-        label: "KDFWR recommended river levels for Goose Creek at Manchester",
-        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "high",
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        "Goose Creek is a smaller eastern Kentucky stream that changes quickly after rain. Spring and rainy fall windows are the most reliable; warm dry stretches can leave it scrape-prone even when the gauge still looks close.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This short lower-Goose split stays below the Rawlings / Stinson low-head-dam hazard, but it is still a narrow shallow creek with rock bars, bridge landings, wood, and limited parking. Treat it as an easy moving-water creek only in the official good band.",
-      confidenceNotes:
-        "Confidence is good for a conservative Kentucky add: KDFWR documents Jacks/Bowling Branch to Tobacco Road as a 2.2-mile public segment and publishes official low/good/high cfs and stage bands for direct gauge USGS 03281100 Goose Creek at Manchester. KDFWR access-detail pages provide source-backed coordinates and access notes for both bridge sites, and same-day USGS Water Services returned 10.4 cfs and 5.84 ft at 2026-07-03 11:45 EDT during this run. The creek is therefore well below the good band today, so the app should score it low and preserve scraping caution.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route shape",
-        value: "Jacks to Tobacco Road, 2.2 mi",
-        note: "KDFWR lists Jacks/Bowling Branch Bridge Access to Tobacco Road Bridge Ramp as a 2.2-mile public downstream segment.",
-        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
-      },
-      {
-        label: "Official level band",
-        value: "175-514 cfs good",
-        note: "KDFWR rates Goose Creek at Manchester as Low below 175 cfs, Good from 175 to 514 cfs, and High above 514 cfs; the same page also publishes matching stage bands of Low below 7.4 ft, Good from 7.4 to 8.5 ft, and High above 8.5 ft.",
-        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
-      },
-      {
-        label: "Put-in access",
-        value: "Jacks/Bowling Branch Bridge Access, 37.2052, -83.7372",
-        note: "KDFWR identifies Jacks/Bowling Branch as a year-round carry-down access beside the Phil Young Road bridge with limited roadside parking and no amenities.",
-        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1195",
-      },
-      {
-        label: "Take-out access",
-        value: "Tobacco Road Bridge Ramp, 37.2163, -83.7175",
-        note: "KDFWR identifies Tobacco Road Bridge Ramp as a year-round bridge-side access with limited parking and no amenities.",
-        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196",
-      },
-      {
-        label: "Live-gauge support",
-        value: "USGS 03281100 at 10.4 cfs / 5.84 ft",
-        note: "USGS Water Services returned same-day discharge and gage-height readings for Goose Creek at Manchester during this route-add run. Both values sit below KDFWR's good bands, so the route should score low today.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "KDFWR Goose Creek",
-        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
-        provider: "local",
-      },
-      {
-        label: "KDFWR Jacks/Bowling Branch Bridge Access",
-        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1195",
-        provider: "local",
-      },
-      {
-        label: "KDFWR Tobacco Road Bridge Ramp",
-        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196",
-        provider: "local",
-      },
-      {
-        label: "USGS 03281100 Goose Creek at Manchester",
-        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
-        provider: "usgs",
-      },
-      {
-        label: "USGS 03281100 Water Services current values",
-        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
-        provider: "usgs",
-      },
-    ],
-  },
-  {
-    id: "goose-creek-tobacco-road-dump-hollow",
-    slug: "goose-creek-tobacco-road-dump-hollow",
-    name: "Goose Creek",
-    reach: "Tobacco Road Bridge Ramp to Dump Hollow Ford",
-    aliases: [
-      "Goose Creek - Tobacco Road to Dump Hollow",
-      "Goose Creek lower Manchester middle split",
-      "Goose Creek - Frazier Bridge to Dump Hollow",
-    ],
-    state: "Kentucky",
-    region: "Eastern Kentucky",
-    summary:
-      "Very short Goose Creek bridge-to-ford link from Tobacco Road to Dump Hollow. KDFWR publishes this exact 0.8-mile public segment and the official Manchester gauge bands.",
-    statusText:
-      "Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs as good for boating and fishing. Below that is low and likely to mean scraping or dragging; above that is high and deserves extra narrow-creek caution, especially at the Dump Hollow ford.",
-    latitude: 37.2163,
-    longitude: -83.7175,
-    gaugeSource: {
-      id: "usgs-03281100",
-      provider: "usgs",
-      siteId: "03281100",
-      metric: "discharge_cfs",
-      unit: "cfs",
-      kind: "direct",
-      siteName: "Goose Creek at Manchester, KY",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
-    },
-    profile: {
-      thresholdModel: "two-sided",
-      idealMin: 175,
-      idealMax: 514,
-      tooLow: 175,
-      tooHigh: 514,
-      thresholdSource: {
-        label: "KDFWR recommended river levels for Goose Creek at Manchester",
-        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "high",
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        "Goose Creek is a smaller eastern Kentucky stream that changes quickly after rain. Spring and rainy fall windows are the most reliable; warm dry stretches can leave it scrape-prone even when the gauge still looks close.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is a short lower-Goose split below the Rawlings / Stinson low-head-dam problem, but it is still a narrow shallow creek with rock bars, limited parking, and a ford-style take-out that becomes less forgiving in higher water.",
-      confidenceNotes:
-        "Confidence is good for a conservative Kentucky add: KDFWR documents Tobacco Road to Dump Hollow as a 0.8-mile public segment and publishes official low/good/high cfs and stage bands for direct gauge USGS 03281100 Goose Creek at Manchester. KDFWR access-detail pages provide source-backed coordinates and access notes for both landings, and same-day USGS Water Services returned 10.4 cfs and 5.84 ft at 2026-07-03 11:45 EDT during this run. The creek is therefore well below the good band today, so the app should score it low and preserve scraping caution.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route shape",
-        value: "Tobacco Road to Dump Hollow, 0.8 mi",
-        note: "KDFWR lists Tobacco Road Bridge Ramp to Dump Hollow Ford as a 0.8-mile public downstream segment.",
-        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
-      },
-      {
-        label: "Official level band",
-        value: "175-514 cfs good",
-        note: "KDFWR rates Goose Creek at Manchester as Low below 175 cfs, Good from 175 to 514 cfs, and High above 514 cfs; the same page also publishes matching stage bands of Low below 7.4 ft, Good from 7.4 to 8.5 ft, and High above 8.5 ft.",
-        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
-      },
-      {
-        label: "Put-in access",
-        value: "Tobacco Road Bridge Ramp, 37.2163, -83.7175",
-        note: "KDFWR identifies Tobacco Road Bridge Ramp as a year-round bridge-side access with limited parking and no amenities.",
-        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196",
-      },
-      {
-        label: "Take-out access",
-        value: "Dump Hollow Ford, 37.2127, -83.7040",
-        note: "KDFWR identifies Dump Hollow as a ford-style access where high water can make it difficult or dangerous to ford the creek or turn a vehicle around.",
-        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197",
-      },
-      {
-        label: "Live-gauge support",
-        value: "USGS 03281100 at 10.4 cfs / 5.84 ft",
-        note: "USGS Water Services returned same-day discharge and gage-height readings for Goose Creek at Manchester during this route-add run. Both values sit below KDFWR's good bands, so the route should score low today.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "KDFWR Goose Creek",
-        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
-        provider: "local",
-      },
-      {
-        label: "KDFWR Tobacco Road Bridge Ramp",
-        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196",
-        provider: "local",
-      },
-      {
-        label: "KDFWR Dump Hollow Ford",
-        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197",
-        provider: "local",
-      },
-      {
-        label: "USGS 03281100 Goose Creek at Manchester",
-        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
-        provider: "usgs",
-      },
-      {
-        label: "USGS 03281100 Water Services current values",
-        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
-        provider: "usgs",
-      },
-    ],
-  },
-  {
-    id: "goose-creek-tobacco-road-laurel-branch",
-    slug: "goose-creek-tobacco-road-laurel-branch",
-    name: "Goose Creek",
-    reach: "Tobacco Road Bridge Ramp to Laurel Branch Road Access",
-    aliases: [
-      "Goose Creek - Tobacco Road to Laurel Branch",
-      "Goose Creek lower Manchester downstream continuation",
-      "Goose Creek - Frazier Bridge to Laurel Branch",
-    ],
-    state: "Kentucky",
-    region: "Eastern Kentucky",
-    summary:
-      "Short lower-Goose continuation from Tobacco Road Bridge Ramp to Laurel Branch Road Access. KDFWR's current mileage table supports this 5.6-mile route by chaining the official Tobacco-to-Dump and Dump-to-Laurel segments against the direct Manchester gauge.",
-    statusText:
-      "Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs as good for boating and fishing. Below that is low and likely to mean scraping or dragging; above that is high and deserves extra narrow-creek caution.",
-    latitude: 37.2163,
-    longitude: -83.7175,
-    gaugeSource: {
-      id: "usgs-03281100",
-      provider: "usgs",
-      siteId: "03281100",
-      metric: "discharge_cfs",
-      unit: "cfs",
-      kind: "direct",
-      siteName: "Goose Creek at Manchester, KY",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
-    },
-    profile: {
-      thresholdModel: "two-sided",
-      idealMin: 175,
-      idealMax: 514,
-      tooLow: 175,
-      tooHigh: 514,
-      thresholdSource: {
-        label: "KDFWR recommended river levels for Goose Creek at Manchester",
-        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "high",
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        "Goose Creek is a smaller eastern Kentucky stream that changes quickly after rain. Spring and rainy fall windows are the most reliable; warm dry stretches can leave it scrape-prone even when the gauge still looks close.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This lower-Goose continuation stays below the Rawlings / Stinson low-head-dam hazard, but it is still a narrow shallow creek with rock bars, wood, limited parking, and a ford-style intermediate access that becomes more complicated in high water.",
-      confidenceNotes:
-        "Confidence is good for a conservative add: KDFWR documents Tobacco Road Bridge Ramp to Dump Hollow Ford as 0.8 mile and Dump Hollow Ford to Laurel Branch Road Access as 4.8 miles, which combine cleanly into a 5.6-mile public route. KDFWR publishes official low/good/high cfs and stage bands for direct gauge USGS 03281100 Goose Creek at Manchester, and same-day USGS Water Services returned 175 cfs and 7.24 ft at 2026-07-09 10:45 EDT. Discharge touched the official good-floor while stage stayed below the 7.4 ft floor, so the route keeps explicit scrape-prone low-water caution.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route chain",
-        value: "Tobacco Road to Laurel Branch, 5.6 mi combined",
-        note: "KDFWR lists Tobacco Road Bridge Ramp to Dump Hollow Ford as 0.8 mile and Dump Hollow Ford to Laurel Branch Road Access as 4.8 miles, which combine into a 5.6-mile downstream Goose Creek route.",
-        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
-      },
-      {
-        label: "Official level band",
-        value: "175-514 cfs good",
-        note: "KDFWR rates Goose Creek at Manchester as Low below 175 cfs, Good from 175 to 514 cfs, and High above 514 cfs; the same page also publishes matching stage bands of Low below 7.4 ft, Good from 7.4 to 8.5 ft, and High above 8.5 ft.",
-        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
-      },
-      {
-        label: "Put-in access",
-        value: "Tobacco Road Bridge Ramp, 37.2163, -83.7175",
-        note: "KDFWR identifies Tobacco Road Bridge Ramp as a year-round bridge-side access with limited parking and no amenities.",
-        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196",
-      },
-      {
-        label: "Take-out access",
-        value: "Laurel Branch Road Access, 37.2370, -83.6703",
-        note: "KDFWR identifies Laurel Branch Road as a year-round carry-down access with limited parking, no amenities, and private banks outside the immediate launch area.",
-        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1198",
-      },
-      {
-        label: "Live-gauge support",
-        value: "USGS 03281100 at 175 cfs / 7.24 ft",
-        note: "USGS Water Services returned same-day discharge and gage-height readings for Goose Creek at Manchester at 2026-07-09 10:45 EDT during this run. The discharge touched the official good floor while stage remained below the good band.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Route character",
-        value: "Rock bars, ford intermediate, roadside take-out",
-        note: "KDFWR describes Goose Creek as a relatively shallow stream with riffles, pools, and abundant rock bars. Dump Hollow remains the clean intermediate bailout, but high water can make the ford difficult or dangerous.",
-        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "KDFWR Goose Creek",
-        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
-        provider: "local",
-      },
-      {
-        label: "KDFWR Tobacco Road Bridge Ramp",
-        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196",
-        provider: "local",
-      },
-      {
-        label: "KDFWR Dump Hollow Ford",
-        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197",
-        provider: "local",
-      },
-      {
-        label: "KDFWR Laurel Branch Road Access",
-        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1198",
-        provider: "local",
-      },
-      {
-        label: "USGS 03281100 Goose Creek at Manchester",
-        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
-        provider: "usgs",
-      },
-      {
-        label: "USGS 03281100 Water Services current values",
-        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
-        provider: "usgs",
-      },
-    ],
-  },
-  {
-    id: "goose-creek-dump-hollow-laurel-branch",
-    slug: "goose-creek-dump-hollow-laurel-branch",
-    name: "Goose Creek",
-    reach: "Dump Hollow Ford to Laurel Branch Road Access",
-    aliases: [
-      "Goose Creek - Dump Hollow to Laurel Branch",
-      "Goose Creek lower Manchester lower split",
-      "Goose Creek - Dump Hollow Ford to Laurel Branch",
-    ],
-    state: "Kentucky",
-    region: "Eastern Kentucky",
-    summary:
-      "Short lower-Goose ford-to-roadside float from Dump Hollow to Laurel Branch. KDFWR publishes this exact 4.8-mile public segment and the official Manchester gauge bands.",
-    statusText:
-      "Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs as good for boating and fishing. Below that is low and likely to mean scraping or dragging; above that is high and deserves extra narrow-creek caution, especially if Dump Hollow is hard to use.",
-    latitude: 37.2127,
-    longitude: -83.704,
-    gaugeSource: {
-      id: "usgs-03281100",
-      provider: "usgs",
-      siteId: "03281100",
-      metric: "discharge_cfs",
-      unit: "cfs",
-      kind: "direct",
-      siteName: "Goose Creek at Manchester, KY",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
-    },
-    profile: {
-      thresholdModel: "two-sided",
-      idealMin: 175,
-      idealMax: 514,
-      tooLow: 175,
-      tooHigh: 514,
-      thresholdSource: {
-        label: "KDFWR recommended river levels for Goose Creek at Manchester",
-        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "high",
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        "Goose Creek is a smaller eastern Kentucky stream that changes quickly after rain. Spring and rainy fall windows are the most reliable; warm dry stretches can leave it scrape-prone even when the gauge still looks close.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This lower-Goose split stays below the Rawlings / Stinson low-head-dam hazard, but it is still a narrow shallow creek with rock bars, wood, limited parking, and a ford-style put-in that becomes more complicated in high water.",
-      confidenceNotes:
-        "Confidence is good for a conservative Kentucky add: KDFWR documents Dump Hollow to Laurel Branch as a 4.8-mile public segment and publishes official low/good/high cfs and stage bands for direct gauge USGS 03281100 Goose Creek at Manchester. KDFWR access-detail pages provide source-backed coordinates and access notes for both sites, and same-day USGS Water Services returned 10.4 cfs and 5.84 ft at 2026-07-03 11:45 EDT during this run. The creek is therefore well below the good band today, so the app should score it low and preserve scraping caution.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route shape",
-        value: "Dump Hollow to Laurel Branch, 4.8 mi",
-        note: "KDFWR lists Dump Hollow Ford to Laurel Branch Road Access as a 4.8-mile public downstream segment.",
-        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
-      },
-      {
-        label: "Official level band",
-        value: "175-514 cfs good",
-        note: "KDFWR rates Goose Creek at Manchester as Low below 175 cfs, Good from 175 to 514 cfs, and High above 514 cfs; the same page also publishes matching stage bands of Low below 7.4 ft, Good from 7.4 to 8.5 ft, and High above 8.5 ft.",
-        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
-      },
-      {
-        label: "Put-in access",
-        value: "Dump Hollow Ford, 37.2127, -83.7040",
-        note: "KDFWR identifies Dump Hollow as a ford-style access where high water can make it difficult or dangerous to ford the creek or turn a vehicle around.",
-        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197",
-      },
-      {
-        label: "Take-out access",
-        value: "Laurel Branch Road Access, 37.2370, -83.6703",
-        note: "KDFWR identifies Laurel Branch Road as a year-round carry-down access with limited parking, no amenities, and private banks outside the immediate launch area.",
-        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1198",
-      },
-      {
-        label: "Live-gauge support",
-        value: "USGS 03281100 at 10.4 cfs / 5.84 ft",
-        note: "USGS Water Services returned same-day discharge and gage-height readings for Goose Creek at Manchester during this route-add run. Both values sit below KDFWR's good bands, so the route should score low today.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "KDFWR Goose Creek",
-        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
-        provider: "local",
-      },
-      {
-        label: "KDFWR Dump Hollow Ford",
-        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197",
-        provider: "local",
-      },
-      {
-        label: "KDFWR Laurel Branch Road Access",
-        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1198",
-        provider: "local",
-      },
-      {
-        label: "USGS 03281100 Goose Creek at Manchester",
-        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
-        provider: "usgs",
-      },
-          ],
-  },
+  
+  
+  
+  
             {
     id: 'saline-river-tony-kelly-peeler-bend',
     slug: 'saline-river-tony-kelly-peeler-bend',
@@ -47675,674 +47229,11 @@ export const rivers: River[] = [
 
 
 
-  {
-    id: 'cumberland-river-redbird-thunderstruck',
-    slug: 'cumberland-river-redbird-thunderstruck',
-    name: 'Cumberland River',
-    reach: 'Redbird Ramp to Thunderstruck Ramp',
-    aliases: [
-      'Cumberland River - Redbird to Thunderstruck',
-      'Upper Cumberland above the falls',
-      'North Fork Cumberland River upper float',
-    ],
-    state: 'Kentucky',
-    region: 'Daniel Boone Country',
-    routeType: 'whitewater',
-    summary:
-      'Remote upper Cumberland run from Redbird Ramp to Thunderstruck Ramp above Cumberland Falls. Current KDFWR route and map pages still support this as the first official upstream-of-the-falls float and tie it to the direct Williamsburg gauge with a 500 to 1,100 cfs preferred band.',
-    statusText:
-      'Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best, lower water can mean dragging, and flows up to 2,000 cfs are challenging for skilled paddlers only.',
-    latitude: 36.7621,
-    longitude: -84.2216,
-    gaugeSource: {
-      id: 'usgs-03404000',
-      provider: 'usgs',
-      siteId: '03404000',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Cumberland River at Williamsburg, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['whitewater', 'fast_rise', 'private_banks', 'remote'],
-      safetyNotes: [
-        'This is a remote moving-water gorge float with shoals and mild whitewater rapids, not a casual flatwater cruise.',
-        'KDFWR says water above 1,100 cfs becomes more challenging and up to 2,000 cfs is for skilled paddlers only.',
-        'Long Bottom and Mouth of Indian Creek are not dependable normal exits because KDFWR describes those roads as extremely rough.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 500,
-      idealMax: 1100,
-      tooLow: 500,
-      tooHigh: 2000,
-      thresholdSource: {
-        label: 'KDFWR Cumberland River recommended Williamsburg flow band',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'This forested Cumberland run is best when the Williamsburg gauge is inside the KDFWR band. Dry spells can expose shoals, while storms can push the gorge into a more technical day quickly.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The route has mild whitewater, broad shoals, and a remote finish. It is manageable for competent moving-water paddlers at normal levels but should not be treated like an easy family float.',
-      confidenceNotes:
-        'Confidence is good for a guarded restore: KDFWR explicitly names Redbird and Thunderstruck as the upstream official float endpoints, publishes the 500 to 1,100 cfs Williamsburg band with higher-water caution up to 2,000 cfs, and KDFWR access-detail pages provide source-backed coordinates for both ramps. Same-day USGS Water Services returned 1,080 cfs and 4.30 ft at 2026-07-09 11:00 EDT, which sits inside the official preferred band.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Redbird Ramp to Thunderstruck Ramp, about 11 mi',
-        note: 'KDFWR presents this as the first of the two official upstream Cumberland Falls floats, and the current route map still supports the chained Redbird to Longbottom and Longbottom to Thunderstruck distances.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-      {
-        label: 'Official level band',
-        value: '500-1100 cfs best; up to 2000 cfs challenging',
-        note: 'KDFWR says lower water may require dragging and higher water up to 2,000 cfs is challenging for skilled paddlers only.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Redbird Ramp, 36.7621, -84.2216',
-        note: 'KDFWR access detail lists Redbird as a paved public ramp with year-round availability.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=904',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Thunderstruck Ramp, 36.8077, -84.3546',
-        note: 'KDFWR access detail lists Thunderstruck as a year-round public ramp with unpaved parking.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03404000 at 1080 cfs / 4.30 ft',
-        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-07-09 11:00 EDT during this run.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Camping support',
-        value: 'Float-camping banks downstream of Bee Shoals',
-        note: 'KDFWR says float campers use the banks downstream of Bee Shoals as camping sites on this route.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR Cumberland River',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Cumberland River detailed map',
-        url: 'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Redbird Ramp',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=904',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Thunderstruck Ramp',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03404000 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03404000 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'cumberland-river-thunderstruck-cumberland-falls',
-    slug: 'cumberland-river-thunderstruck-cumberland-falls',
-    name: 'Cumberland River',
-    reach: 'Thunderstruck Ramp to Cumberland Falls Carrydown',
-    aliases: [
-      'Cumberland River - Thunderstruck to Cumberland Falls',
-      'Upper Cumberland gorge to the falls',
-      'North Fork Cumberland River lower float above the falls',
-    ],
-    state: 'Kentucky',
-    region: 'Daniel Boone Country',
-    routeType: 'whitewater',
-    summary:
-      'Shorter but more consequential upstream-of-the-falls Cumberland run from Thunderstruck Ramp to Cumberland Falls Carrydown. Current KDFWR guidance still uses the direct Williamsburg gauge and explicitly warns paddlers to work right and take out before the falls.',
-    statusText:
-      'Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best, lower water can mean dragging, and higher water up to 2,000 cfs is challenging for skilled paddlers only. Missing the take-out is not acceptable because the falls are immediately downstream.',
-    latitude: 36.8077,
-    longitude: -84.3546,
-    gaugeSource: {
-      id: 'usgs-03404000',
-      provider: 'usgs',
-      siteId: '03404000',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Cumberland River at Williamsburg, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-    },
-    safetyProfile: {
-      riskLevel: 'advanced',
-      hazards: ['whitewater', 'mandatory_takeout', 'fast_rise', 'private_banks', 'remote'],
-      safetyNotes: [
-        'KDFWR says several drops lead toward Cumberland Falls and paddlers must work to the right of the river before the KY 90 bridge.',
-        'Any upset or missed line near the finish can create a treacherous situation because the current leads directly toward the 68-foot falls.',
-        'Treat this as an advanced moving-water route even when the gauge is inside the preferred band.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 500,
-      idealMax: 1100,
-      tooLow: 500,
-      tooHigh: 2000,
-      thresholdSource: {
-        label: 'KDFWR Cumberland River recommended Williamsburg flow band',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'This gorge route is most defensible when the Williamsburg gauge stays in or near the KDFWR band and weather is stable. Rain can make the rapid sequence and final take-out substantially more serious.',
-      difficulty: 'hard',
-      difficultyNotes:
-        'The route includes Class II-style rapid features at higher water, a fast gorge finish, and a mandatory take-out above Cumberland Falls.',
-      confidenceNotes:
-        'Confidence is good for a guarded restore because KDFWR explicitly names Thunderstruck as the put-in, the Cumberland Falls carrydown as the take-out, and the right-bank take-out behavior above the falls. The direct Williamsburg gauge and official flow band are the same as the upstream segment. Same-day USGS Water Services returned 1,080 cfs and 4.30 ft at 2026-07-09 11:00 EDT, inside the preferred band.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Thunderstruck to Cumberland Falls, about 5 mi',
-        note: 'KDFWR presents this as the second of the two official upstream Cumberland Falls floats, and the current route map still publishes Thunderstruck to Cumberland Falls as 5.1 miles.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-      {
-        label: 'Mandatory take-out warning',
-        value: 'Work right and take out below the KY 90 bridge',
-        note: 'KDFWR says paddlers must work to the right and take out at the parking lot for viewing Cumberland Falls because the rapids otherwise lead toward the falls.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Thunderstruck Ramp, 36.8077, -84.3546',
-        note: 'KDFWR access detail lists Thunderstruck as a public year-round ramp.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Cumberland Falls Carrydown, 36.8421, -84.3435',
-        note: 'KDFWR access detail lists Cumberland Falls as a public seasonal carrydown with paved parking, seasonal camping, and year-round lodging at the state resort park.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=987',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03404000 at 1080 cfs / 4.30 ft',
-        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-07-09 11:00 EDT during this run.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Camping support',
-        value: 'Cumberland Falls campground and lodging at the take-out',
-        note: 'KDFWR access detail for Cumberland Falls says camping is seasonal and lodging is year-round at the state resort park.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=987',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR Cumberland River',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Cumberland River detailed map',
-        url: 'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Thunderstruck Ramp',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Cumberland Falls Carrydown',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=987',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03404000 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03404000 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'cumberland-river-redbird-longbottom',
-    slug: 'cumberland-river-redbird-longbottom',
-    name: 'Cumberland River',
-    reach: 'Redbird Ramp to Long Bottom Access',
-    aliases: [
-      'Cumberland River - Redbird to Long Bottom',
-      'Upper Cumberland Bee Shoals split',
-      'North Fork Cumberland River upper half above the falls',
-    ],
-    state: 'Kentucky',
-    region: 'Daniel Boone Country',
-    routeType: 'whitewater',
-    summary:
-      'Remote upper Cumberland split from Redbird Ramp to Long Bottom Access above Cumberland Falls. Current KDFWR route and map pages tie the segment to the direct Williamsburg gauge and the same official 500 to 1,100 cfs preferred band used on the rest of the upstream-of-the-falls corridor.',
-    statusText:
-      'Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best, lower water can mean dragging, and flows up to 2,000 cfs are challenging for skilled paddlers only. Scout the Long Bottom road and carry before committing because the take-out is rougher than the main Redbird and Thunderstruck ramps.',
-    latitude: 36.7621,
-    longitude: -84.2216,
-    gaugeSource: {
-      id: 'usgs-03404000',
-      provider: 'usgs',
-      siteId: '03404000',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Cumberland River at Williamsburg, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['whitewater', 'fast_rise', 'private_banks', 'remote'],
-      safetyNotes: [
-        'This is a remote moving-water gorge float with shoals and mild whitewater, not a casual flatwater trip.',
-        'KDFWR says lower water may require dragging and flows above 1,100 cfs become more technical, with up to 2,000 cfs for skilled paddlers only.',
-        'KDFWR says the last section of Forest Service Road 536 to Long Bottom is extremely rugged and best suited to high-clearance four-wheel-drive vehicles.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 500,
-      idealMax: 1100,
-      tooLow: 500,
-      tooHigh: 2000,
-      thresholdSource: {
-        label: 'KDFWR Cumberland River recommended Williamsburg flow band',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'This upper Cumberland split is best when the Williamsburg gauge is in the KDFWR band. Dry spells expose shoals, while storms quickly make the gorge pushier and the Long Bottom exit muddier and less forgiving.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The route is shorter than the full Redbird-to-Thunderstruck run but still includes remote shoals, mild whitewater, and a rough carry-down finish.',
-      confidenceNotes:
-        'Confidence is good for a guarded add: the current KDFWR page and 2023 route map name Redbird and Long Bottom as public accesses, publish the Williamsburg 500 to 1,100 cfs preferred band with skilled-paddler caution up to 2,000 cfs, and KDFWR access-detail pages provide source-backed coordinates for both named endpoints. Same-day USGS Water Services returned 1,260 cfs and 4.57 ft at 2026-07-05 22:00 EDT, which is slightly above the preferred band but still below the official skilled-paddler challenge ceiling.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Redbird Ramp to Long Bottom Access, 9 mi',
-        note: 'The current KDFWR route map publishes Redbird to Longbottom as a 9-mile ramp-to-ramp distance.',
-        sourceUrl:
-          'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
-      },
-      {
-        label: 'Official level band',
-        value: '500-1100 cfs best; up to 2000 cfs challenging',
-        note: 'KDFWR says lower water may require dragging and higher water up to 2,000 cfs is challenging for skilled paddlers only.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Redbird Ramp, 36.7621, -84.2216',
-        note: 'KDFWR access detail lists Redbird as a paved public ramp with year-round availability.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=904',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Long Bottom Access, 36.7772, -84.3455',
-        note: 'KDFWR access detail lists Long Bottom as a year-round public carry-down access and the route page warns the final road approach is extremely rugged.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=665',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03404000 at 1260 cfs / 4.57 ft',
-        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-07-05 22:00 EDT during this run.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Camping support',
-        value: 'Primitive float-camping banks downstream of Bee Shoals',
-        note: 'KDFWR says float campers use the banks downstream of Bee Shoals on this upper corridor.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR Cumberland River',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Cumberland River detailed map',
-        url: 'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Redbird Ramp',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=904',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Long Bottom Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=665',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03404000 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03404000 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'cumberland-river-longbottom-thunderstruck',
-    slug: 'cumberland-river-longbottom-thunderstruck',
-    name: 'Cumberland River',
-    reach: 'Long Bottom Access to Thunderstruck Ramp',
-    aliases: [
-      'Cumberland River - Long Bottom to Thunderstruck',
-      'Upper Cumberland middle split',
-      'North Fork Cumberland River Long Bottom connector',
-    ],
-    state: 'Kentucky',
-    region: 'Daniel Boone Country',
-    routeType: 'whitewater',
-    summary:
-      'Short middle-gorge Cumberland split from Long Bottom Access to Thunderstruck Ramp above Cumberland Falls. The current KDFWR route map gives the exact 2.5-mile ramp-to-ramp distance and uses the same direct Williamsburg gauge with the official 500 to 1,100 cfs preferred band.',
-    statusText:
-      'Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best, lower water can mean dragging, and flows up to 2,000 cfs are challenging for skilled paddlers only. Long Bottom is a rough carry-down and Thunderstruck is easy to miss if you drift past the left-bank access.',
-    latitude: 36.7772,
-    longitude: -84.3455,
-    gaugeSource: {
-      id: 'usgs-03404000',
-      provider: 'usgs',
-      siteId: '03404000',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Cumberland River at Williamsburg, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['whitewater', 'fast_rise', 'private_banks', 'remote'],
-      safetyNotes: [
-        'Even though it is short, this segment still includes shoals and moving-water decision points in a remote gorge corridor.',
-        'KDFWR describes Long Bottom road access as extremely rugged and says Thunderstruck is easy to miss without paying attention to the left-bank exit.',
-        'Treat flows above 1,100 cfs as a stronger-water skilled-paddler day, with 2,000 cfs as KDFWR’s upper challenge line.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 500,
-      idealMax: 1100,
-      tooLow: 500,
-      tooHigh: 2000,
-      thresholdSource: {
-        label: 'KDFWR Cumberland River recommended Williamsburg flow band',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'The short mileage keeps this segment practical, but it still relies on the same rain-sensitive Cumberland gorge band as the adjacent official floats. Low water can scrape, and storms quickly sharpen the shoals and make the rough Long Bottom access harder to manage.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'This is the shortest upstream-of-the-falls split, but the rough carry-down, shoals, and remote setting make it a moving-water route rather than a casual beginner shuttle.',
-      confidenceNotes:
-        'Confidence is good for a guarded add because the current KDFWR map names Longbottom and Thunderstruck as public ramp-to-ramp endpoints at 2.5 miles, KDFWR access-detail pages provide coordinates for both, and the direct Williamsburg gauge plus official 500 to 1,100 cfs band apply to the whole corridor. Same-day USGS Water Services returned 1,260 cfs and 4.57 ft at 2026-07-05 22:00 EDT, which is above the preferred band but still below the official challenge ceiling.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Long Bottom Access to Thunderstruck Ramp, 2.5 mi',
-        note: 'The current KDFWR route map publishes Longbottom to Thunderstruck as a 2.5-mile ramp-to-ramp distance.',
-        sourceUrl:
-          'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
-      },
-      {
-        label: 'Official level band',
-        value: '500-1100 cfs best; up to 2000 cfs challenging',
-        note: 'KDFWR says lower water may require dragging and higher water up to 2,000 cfs is challenging for skilled paddlers only.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Long Bottom Access, 36.7772, -84.3455',
-        note: 'KDFWR access detail lists Long Bottom as a year-round public carry-down access with unpaved parking.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=665',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Thunderstruck Ramp, 36.8077, -84.3546',
-        note: 'KDFWR access detail lists Thunderstruck as a year-round public ramp, and the route page warns the access is easy to miss unless paddlers pay attention to the left-bank take-out.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03404000 at 1260 cfs / 4.57 ft',
-        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-07-05 22:00 EDT during this run.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Access caveat',
-        value: 'Long Bottom road is extremely rugged',
-        note: 'KDFWR says the last section of Forest Service Road 536 down to Long Bottom is extremely rugged and recommends high-clearance four-wheel drive vehicles.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR Cumberland River',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Cumberland River detailed map',
-        url: 'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Long Bottom Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=665',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Thunderstruck Ramp',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03404000 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03404000 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'cumberland-river-longbottom-cumberland-falls',
-    slug: 'cumberland-river-longbottom-cumberland-falls',
-    name: 'Cumberland River',
-    reach: 'Long Bottom Access to Cumberland Falls Carrydown',
-    aliases: [
-      'Cumberland River - Long Bottom to Cumberland Falls',
-      'Upper Cumberland lower gorge combination',
-      'North Fork Cumberland River Long Bottom to falls',
-    ],
-    state: 'Kentucky',
-    region: 'Daniel Boone Country',
-    routeType: 'whitewater',
-    summary:
-      'Lower upstream-of-the-falls Cumberland combination from Long Bottom Access to the public Cumberland Falls carrydown. The current KDFWR route map supports the exact 7.6-mile distance by combining Longbottom to Thunderstruck and Thunderstruck to Cumberland Falls under one direct Williamsburg gauge and one official 500 to 1,100 cfs preferred band.',
-    statusText:
-      'Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best, lower water can mean dragging, and flows up to 2,000 cfs are challenging for skilled paddlers only. Missing the right-bank take-out above Cumberland Falls is not acceptable.',
-    latitude: 36.7772,
-    longitude: -84.3455,
-    gaugeSource: {
-      id: 'usgs-03404000',
-      provider: 'usgs',
-      siteId: '03404000',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Cumberland River at Williamsburg, KY',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-    },
-    safetyProfile: {
-      riskLevel: 'advanced',
-      hazards: ['whitewater', 'mandatory_takeout', 'fast_rise', 'private_banks', 'remote'],
-      safetyNotes: [
-        'This route combines the rough Long Bottom access with the downstream gorge section that ends at a mandatory take-out above Cumberland Falls.',
-        'KDFWR says paddlers must work right before the KY 90 bridge and take out at the falls parking area because missing the finish leads toward the 68-foot falls.',
-        'The Long Bottom road approach is extremely rugged, so do not treat this as a quick roadside rescue-friendly route.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 500,
-      idealMax: 1100,
-      tooLow: 500,
-      tooHigh: 2000,
-      thresholdSource: {
-        label: 'KDFWR Cumberland River recommended Williamsburg flow band',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'This longer lower-gorge combination is most defensible when the Williamsburg gauge stays in or near the KDFWR band and weather is stable. Rain can quickly turn the gorge, rapid sequence, and final mandatory take-out into a much more serious day.',
-      difficulty: 'hard',
-      difficultyNotes:
-        'The route includes gorge shoals, the Pitch Rapids and lower drop sequence, a rough upstream access road, and a mandatory take-out above Cumberland Falls.',
-      confidenceNotes:
-        'Confidence is good for a guarded add because the current KDFWR page and 2023 route map name Longbottom, Thunderstruck, and Cumberland Falls as public access points, publish the official Williamsburg 500 to 1,100 cfs preferred band with skilled-paddler caution up to 2,000 cfs, and KDFWR access-detail pages provide source-backed coordinates for Long Bottom and Cumberland Falls. Same-day USGS Water Services returned 1,260 cfs and 4.57 ft at 2026-07-05 22:00 EDT, which is above the preferred band but still below the official challenge ceiling.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Long Bottom Access to Cumberland Falls, 7.6 mi',
-        note: 'The current KDFWR route map publishes Longbottom to Thunderstruck as 2.5 miles and Thunderstruck to Cumberland Falls as 5.1 miles, which support this 7.6-mile combination.',
-        sourceUrl:
-          'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
-      },
-      {
-        label: 'Mandatory take-out warning',
-        value: 'Work right and take out below the KY 90 bridge',
-        note: 'KDFWR says paddlers must work to the right and take out at the public falls parking/carrydown area because the current otherwise leads toward Cumberland Falls.',
-        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-      },
-      {
-        label: 'Put-in access',
-        value: 'Long Bottom Access, 36.7772, -84.3455',
-        note: 'KDFWR access detail lists Long Bottom as a year-round public carry-down access and the route page warns the final road approach is extremely rugged.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=665',
-      },
-      {
-        label: 'Take-out access',
-        value: 'Cumberland Falls Carrydown, 36.8421, -84.3435',
-        note: 'KDFWR access detail lists Cumberland Falls as a public year-round carrydown with paved parking, seasonal camping, and year-round lodging at the state resort park.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=987',
-      },
-      {
-        label: 'Live-gauge support',
-        value: 'USGS 03404000 at 1260 cfs / 4.57 ft',
-        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-07-05 22:00 EDT during this run.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-      },
-      {
-        label: 'Camping support',
-        value: 'Cumberland Falls campground and lodging at the take-out',
-        note: 'KDFWR access detail for Cumberland Falls says camping is seasonal and lodging is year-round at the state resort park.',
-        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=987',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'KDFWR Cumberland River',
-        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Cumberland River detailed map',
-        url: 'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Long Bottom Access',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=665',
-        provider: 'local',
-      },
-      {
-        label: 'KDFWR Cumberland Falls Carrydown',
-        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=987',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 03404000 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 03404000 Water Services current values',
-        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
-        provider: 'usgs',
-      },
-    ],
-  },
+  
+  
+  
+  
+  
   {
     id: 'cumberland-river-redbird-cumberland-falls',
     slug: 'cumberland-river-redbird-cumberland-falls',
