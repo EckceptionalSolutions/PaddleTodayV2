@@ -1,6 +1,14 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-09 15:40 America/Chicago / 2026-07-09 20:40 UTC.
+Last summarized: 2026-07-09 16:35 America/Chicago / 2026-07-09 21:35 UTC.
+
+## 2026-07-09 Upper Green restoration pass
+
+- Reused the live repo state as the only valid baseline and restored three Upper Green slugs that were absent from the current tree at run start: `green-river-roachville-greensburg-city-ramp`, `green-river-russell-ford-greensburg-city-ramp`, and `green-river-greensburg-city-ramp-glenview-road`.
+- Current KDFWR Upper Green and Pool 6 guidance still documents Roachville Ford -> Russell Ford `6.6`, Russell Ford -> Greensburg as about `4.5`, and Greensburg City Ramp -> Glenview Ford `13.7`, which support the restored public route mileages of `11.1`, `4.5`, and `13.7`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Roachville Ford, Russell Ford Access, Greensburg City Ramp, and Glenview Road Carrydown. Same-day direct USGS Water Services returned `1.40 ft` at `2026-07-09 16:15 CDT` for Green River at Greensburg (`03306500`), inside the official `1.0-1.75 ft` good band, so the restored slugs ship with normal in-band Green River framing rather than low-water caution.
+- Camping stays conservative by route: `green-river-roachville-greensburg-city-ramp` and `green-river-russell-ford-greensburg-city-ramp` use `endpoint_campground` because KDFWR still frames Greensburg City Ramp as the city-park endpoint with cabins and nearby RV support, while `green-river-greensburg-city-ramp-glenview-road` stays `nearby_basecamp` because Glenview has no campground and the Greensburg services are support rather than on-route camping.
+- Reconfirmed the existing bounded no-image posture for all three slugs; their `docs/river-image-source-audit.csv` rows already remained valid and did not need new entries.
 
 ## 2026-07-09 South Fork split restoration pass
 
