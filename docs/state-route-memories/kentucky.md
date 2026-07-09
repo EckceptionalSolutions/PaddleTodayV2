@@ -1,6 +1,14 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-09 17:10 America/Chicago / 2026-07-09 22:10 UTC.
+Last summarized: 2026-07-09 14:45 America/Chicago / 2026-07-09 19:45 UTC.
+
+## 2026-07-09 Goose Creek split restoration pass
+
+- Reused the live repo state as the only valid baseline and restored three Goose Creek split slugs that were absent from the current tree at run start: `goose-creek-jacks-tobacco-road`, `goose-creek-tobacco-road-dump-hollow`, and `goose-creek-dump-hollow-laurel-branch`.
+- Current KDFWR Goose Creek guidance still lists Jacks / Bowling Branch Bridge Access -> Tobacco Road Bridge Ramp `2.2`, Tobacco Road Bridge Ramp -> Dump Hollow Ford `0.8`, and Dump Hollow Ford -> Laurel Branch Road Access `4.8`, which support the restored public route mileages directly without inferred geometry.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Jacks / Bowling Branch Bridge Access, Tobacco Road Bridge Access, Dump Hollow Ford Road, and Laurel Branch Road Carrydown. Same-day direct USGS Water Services returned `136 cfs / 7.03 ft` at `2026-07-09 14:45 EDT` for Goose Creek at Manchester (`03281100`), below KDFWR's official `175-514 cfs / 7.4-8.5 ft` good band, so all three restored slugs ship with explicit scrape-prone low-water caution rather than comfort framing.
+- Camping stays conservative at `none` for all three because KDFWR still documents only simple roadside carry-down access with no public overnight support on this lower Goose corridor.
+- Bounded image posture remains no-gallery for all three slugs: `docs/river-image-source-audit.csv` now records the no-image outcome because bounded KDFWR, Commons, and same-creek review did not produce a clearly rights-clean exact-route asset.
 
 ## 2026-07-09 Floyds Fork and Upper Cumberland continuation pass
 

@@ -43774,6 +43774,357 @@ export const rivers: River[] = [
     ]
   },
   {
+    id: "goose-creek-jacks-tobacco-road",
+    slug: "goose-creek-jacks-tobacco-road",
+    name: "Goose Creek",
+    reach: "Jacks / Bowling Branch Bridge Access to Tobacco Road Bridge Ramp",
+    aliases: [
+      "Goose Creek - Jacks to Tobacco Road",
+      "Goose Creek lower Manchester upper split",
+      "Goose Creek - Bowling Branch to Tobacco Road",
+    ],
+    state: "Kentucky",
+    region: "Eastern Kentucky",
+    summary:
+      "Short lower-Goose split from Jacks / Bowling Branch Bridge Access to Tobacco Road Bridge Ramp. KDFWR documents the exact 2.2-mile public segment below the Rawlings / Stinson low-head-dam warning and ties it to the direct Manchester gauge.",
+    statusText:
+      "Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs as good for boating and fishing. Below that is low and likely to mean scraping or dragging; above that is high and deserves extra narrow-creek caution.",
+    latitude: 37.2052,
+    longitude: -83.7372,
+    gaugeSource: {
+      id: "usgs-03281100",
+      provider: "usgs",
+      siteId: "03281100",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Goose Creek at Manchester, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 175,
+      idealMax: 514,
+      tooLow: 175,
+      tooHigh: 514,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Goose Creek at Manchester",
+        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "high",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "Goose Creek is a small eastern Kentucky stream that can change quickly after rain. Spring and rainy fall windows are the most reliable; dry warm stretches can leave even this short split scrape-prone when the Manchester gauge sits below the official band.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This short lower-Goose split avoids the upstream low-head-dam problem, but it is still a narrow creek with shallow riffles, rock bars, bridge-access footing, and limited parking.",
+      confidenceNotes:
+        "Confidence is good for a conservative Kentucky add: current KDFWR Goose Creek guidance still lists Jacks / Bowling Branch Bridge Access to Tobacco Road Bridge Ramp as a 2.2-mile public segment below the Rawlings / Stinson low-head-dam warning, KDFWR access-detail pages still expose coordinates and year-round public access notes for both endpoints, and same-day USGS Water Services returned 136 cfs and 7.03 ft at 2026-07-09 14:45 EDT for direct gauge 03281100. The creek is below KDFWR's good band today, so the app should score it low and preserve scraping caution.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Jacks to Tobacco Road, 2.2 mi",
+        note: "KDFWR lists Jacks / Bowling Branch Bridge Access to Tobacco Road Bridge Ramp as a 2.2-mile public segment on Goose Creek.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "175-514 cfs good",
+        note: "KDFWR rates Goose Creek at Manchester as Low below 175 cfs, Good from 175 to 514 cfs, and High above 514 cfs; the same page also publishes stage bands of Low below 7.4 ft, Good from 7.4 to 8.5 ft, and High above 8.5 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Jacks/Bowling Branch Bridge Access, 37.2052, -83.7372",
+        note: "KDFWR identifies Jacks / Bowling Branch as a year-round carry-down access with unpaved parking and no amenities.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1195",
+      },
+      {
+        label: "Take-out access",
+        value: "Tobacco Road Bridge Ramp, 37.2163, -83.7175",
+        note: "KDFWR identifies Tobacco Road as a year-round carry-down bridge access with unpaved parking and no amenities.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03281100 at 136 cfs / 7.03 ft",
+        note: "USGS Water Services returned same-day discharge and gage-height readings for Goose Creek at Manchester at 2026-07-09 14:45 EDT during this route-add run. Both values sit below KDFWR's good bands, so the route should score low today.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Narrow creek, bridge access, rock bars, private banks",
+        note: "KDFWR describes Goose Creek as a relatively shallow stream with riffles, pools, and rock bars, and this split stays on the lower public corridor below the upstream low-head-dam warning.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Goose Creek",
+        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Jacks/Bowling Branch Bridge Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1195",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Tobacco Road Bridge Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196",
+        provider: "local",
+      },
+      {
+        label: "USGS 03281100 Goose Creek at Manchester",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03281100 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "goose-creek-tobacco-road-dump-hollow",
+    slug: "goose-creek-tobacco-road-dump-hollow",
+    name: "Goose Creek",
+    reach: "Tobacco Road Bridge Ramp to Dump Hollow Ford",
+    aliases: [
+      "Goose Creek - Tobacco Road to Dump Hollow",
+      "Goose Creek lower Manchester middle split",
+      "Goose Creek - Frazier Bridge to Dump Hollow",
+    ],
+    state: "Kentucky",
+    region: "Eastern Kentucky",
+    summary:
+      "Very short lower-Goose split from Tobacco Road Bridge Ramp to Dump Hollow Ford. KDFWR documents the exact 0.8-mile public segment and the direct Manchester gauge, making this the quickest official Goose Creek option below the Rawlings / Stinson warning.",
+    statusText:
+      "Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs as good for boating and fishing. Below that is low and likely to mean scraping or dragging; above that is high and deserves extra narrow-creek caution.",
+    latitude: 37.2163,
+    longitude: -83.7175,
+    gaugeSource: {
+      id: "usgs-03281100",
+      provider: "usgs",
+      siteId: "03281100",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Goose Creek at Manchester, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 175,
+      idealMax: 514,
+      tooLow: 175,
+      tooHigh: 514,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Goose Creek at Manchester",
+        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "high",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This tiny Goose Creek split is most realistic in wetter spring-to-fall windows. Dry warm spells can make the creek scrape-prone, while a quick rain can turn the same narrow slot into a much faster run.",
+      difficulty: "easy",
+      difficultyNotes:
+        "The mileage is short, but the route still depends on small carry-down and ford-style accesses, shallow rock bars, and careful footing rather than a groomed park launch.",
+      confidenceNotes:
+        "Confidence is good for a conservative Kentucky add: current KDFWR Goose Creek guidance still lists Tobacco Road Bridge Ramp to Dump Hollow Ford as a 0.8-mile public segment, KDFWR access-detail pages still expose coordinates and year-round public access notes for both endpoints, and same-day USGS Water Services returned 136 cfs and 7.03 ft at 2026-07-09 14:45 EDT for direct gauge 03281100. The creek is below KDFWR's good band today, so the app should score it low and preserve scraping caution.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Tobacco Road to Dump Hollow, 0.8 mi",
+        note: "KDFWR lists Tobacco Road Bridge Ramp to Dump Hollow Ford as a 0.8-mile public segment on Goose Creek.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "175-514 cfs good",
+        note: "KDFWR rates Goose Creek at Manchester as Low below 175 cfs, Good from 175 to 514 cfs, and High above 514 cfs; the same page also publishes stage bands of Low below 7.4 ft, Good from 7.4 to 8.5 ft, and High above 8.5 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Tobacco Road Bridge Ramp, 37.2163, -83.7175",
+        note: "KDFWR identifies Tobacco Road as a year-round carry-down bridge access with unpaved parking and no amenities.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196",
+      },
+      {
+        label: "Take-out access",
+        value: "Dump Hollow Ford, 37.2127, -83.7040",
+        note: "KDFWR identifies Dump Hollow Ford as a year-round ford-style carry-down with unpaved parking and no amenities.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03281100 at 136 cfs / 7.03 ft",
+        note: "USGS Water Services returned same-day discharge and gage-height readings for Goose Creek at Manchester at 2026-07-09 14:45 EDT during this route-add run. Both values sit below KDFWR's good bands, so the route should score low today.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Bridge access, ford finish, shallow riffles, private banks",
+        note: "KDFWR describes Goose Creek as a shallow stream with riffles, pools, and rock bars, and Dump Hollow remains a ford-style landing that deserves extra care after rain.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Goose Creek",
+        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Tobacco Road Bridge Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Dump Hollow Ford Road",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197",
+        provider: "local",
+      },
+      {
+        label: "USGS 03281100 Goose Creek at Manchester",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03281100 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "goose-creek-dump-hollow-laurel-branch",
+    slug: "goose-creek-dump-hollow-laurel-branch",
+    name: "Goose Creek",
+    reach: "Dump Hollow Ford to Laurel Branch Road Access",
+    aliases: [
+      "Goose Creek - Dump Hollow to Laurel Branch",
+      "Goose Creek lower Manchester lower split",
+      "Goose Creek - Dump Hollow Ford to Laurel Branch",
+    ],
+    state: "Kentucky",
+    region: "Eastern Kentucky",
+    summary:
+      "Lower-Goose split from Dump Hollow Ford to Laurel Branch Road Access. KDFWR documents the exact 4.8-mile public segment and the direct Manchester gauge, giving the lower corridor a clean downstream day-float option.",
+    statusText:
+      "Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs as good for boating and fishing. Below that is low and likely to mean scraping or dragging; above that is high and deserves extra narrow-creek caution.",
+    latitude: 37.2127,
+    longitude: -83.704,
+    gaugeSource: {
+      id: "usgs-03281100",
+      provider: "usgs",
+      siteId: "03281100",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Goose Creek at Manchester, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 175,
+      idealMax: 514,
+      tooLow: 175,
+      tooHigh: 514,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Goose Creek at Manchester",
+        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "high",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This lower Goose Creek split is most reliable in wetter spring and fall windows. Dry spells can leave it scrape-prone, while fresh rain can make the narrow creek noticeably faster by the Laurel Branch finish.",
+      difficulty: "easy",
+      difficultyNotes:
+        "The route is a straightforward lower-creek float in the official band, but it still uses a ford-style upstream access, limited roadside parking, and a narrow wood-prone channel.",
+      confidenceNotes:
+        "Confidence is good for a conservative Kentucky add: current KDFWR Goose Creek guidance still lists Dump Hollow Ford to Laurel Branch Road Access as a 4.8-mile public segment, KDFWR access-detail pages still expose coordinates and year-round public access notes for both endpoints, and same-day USGS Water Services returned 136 cfs and 7.03 ft at 2026-07-09 14:45 EDT for direct gauge 03281100. The creek is below KDFWR's good band today, so the app should score it low and preserve scraping caution.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Dump Hollow to Laurel Branch, 4.8 mi",
+        note: "KDFWR lists Dump Hollow Ford to Laurel Branch Road Access as a 4.8-mile public segment on Goose Creek.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "175-514 cfs good",
+        note: "KDFWR rates Goose Creek at Manchester as Low below 175 cfs, Good from 175 to 514 cfs, and High above 514 cfs; the same page also publishes stage bands of Low below 7.4 ft, Good from 7.4 to 8.5 ft, and High above 8.5 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Dump Hollow Ford, 37.2127, -83.7040",
+        note: "KDFWR identifies Dump Hollow Ford as a year-round ford-style carry-down with unpaved parking and no amenities.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197",
+      },
+      {
+        label: "Take-out access",
+        value: "Laurel Branch Road Access, 37.2370, -83.6703",
+        note: "KDFWR identifies Laurel Branch Road as a year-round carry-down roadside access with unpaved parking and no amenities.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1198",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03281100 at 136 cfs / 7.03 ft",
+        note: "USGS Water Services returned same-day discharge and gage-height readings for Goose Creek at Manchester at 2026-07-09 14:45 EDT during this route-add run. Both values sit below KDFWR's good bands, so the route should score low today.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Ford access, shallow pools, wood, private banks",
+        note: "KDFWR describes Goose Creek as a shallow stream with riffles, pools, and rock bars, and this lower split still depends on careful footing and private-bank discipline away from the named accesses.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Goose Creek",
+        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Dump Hollow Ford Road",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Laurel Branch Road Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1198",
+        provider: "local",
+      },
+      {
+        label: "USGS 03281100 Goose Creek at Manchester",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03281100 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
     id: "goose-creek-jacks-laurel-branch",
     slug: "goose-creek-jacks-laurel-branch",
     name: "Goose Creek",
