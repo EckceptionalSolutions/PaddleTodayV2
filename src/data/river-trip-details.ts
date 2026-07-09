@@ -14233,6 +14233,75 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'barren-river-vpa-3-potter-combs': {
+    putIn: {
+      id: 'barren-river-vpa-3',
+      name: 'Barren River VPA #3',
+      latitude: 36.9333,
+      longitude: -86.2043,
+    },
+    takeOut: {
+      id: 'potter-combs-ramp',
+      name: 'Potter/Combs Ramp',
+      latitude: 37.0027,
+      longitude: -86.4184,
+    },
+    logistics: {
+      distanceLabel: 'About 27.9 mi',
+      estimatedPaddleTime:
+        'About 8 hr to 11 hr, longer in low water, wind, or with fishing stops',
+      shuttle:
+        'Stage the downstream vehicle at Potter/Combs Ramp in Weldon Pete Park, then drive back to Barren River VPA #3 on Highway 101. The road shuttle is simple, but the route itself is a long lower-Barren commitment from a constrained VPA launch to a pooled park finish.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey the voluntary public access rules at VPA #3.',
+      camping:
+        'Treat this as a full day trip. KDFWR documents no camping or fires at the private-land VPA launch, and Potter/Combs is a public park ramp rather than a campground corridor.',
+      campingClassification: 'none',
+      summary:
+        "Launch at Barren River VPA #3 and take out at Potter/Combs Ramp for a long lower-Barren continuation. Use the Finney stage gauge and plan conservatively whenever the river is outside KDFWR's 78.0 to 78.5 ft good band.",
+      accessCaveats: [
+        'Barren River VPA #3 is a voluntary public access site on private property. KDFWR says no camping, no fires, no alcohol, and no swimming at the access.',
+        'Martinsville Ford / Claypool Ramp is the only clean public intermediate bailout in the middle of this route, so note it before launching.',
+        'Potter/Combs Ramp sits in Weldon Pete Park above a dam-influenced pooled section. Treat it as the planned finish rather than a casual pass-through.',
+        'This is one of the longest lower-Barren routes now in the tree. Start early enough to avoid finishing at dusk if the current drags.',
+      ],
+      watchFor: [
+        'Low water below about 78.0 ft, when shoals, slow pools, and dragging become more likely across a very long day.',
+        'High water above about 78.5 ft, when current at bends and the park take-out becomes less forgiving.',
+        'Broad-river wind, heat exposure, woody debris after rain, and limited legal stopping options away from the named accesses.',
+        'Private banks and the tighter VPA launch footprint at the upstream end of a long shuttle.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'barren-river-vpa-3',
+        name: 'Barren River VPA #3',
+        latitude: 36.9333,
+        longitude: -86.2043,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the long VPA-to-Potter/Combs continuation.',
+      },
+      {
+        id: 'martinsville-ford-claypool-ramp',
+        name: 'Martinsville Ford / Claypool Ramp',
+        latitude: 36.9134,
+        longitude: -86.2293,
+        mileFromStart: 3.9,
+        segmentKind: 'creek',
+        note: 'Intermediate public bailout and split point.',
+      },
+      {
+        id: 'potter-combs-ramp',
+        name: 'Potter/Combs Ramp',
+        latitude: 37.0027,
+        longitude: -86.4184,
+        mileFromStart: 27.9,
+        segmentKind: 'creek',
+        note: 'Default take-out at Weldon Pete Park.',
+      },
+    ],
+  },
   'upper-salt-river-dry-branch-road-salt-river-ramp-3': {
     putIn: {
       id: 'dry-branch-road-access',
@@ -15731,6 +15800,73 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 16.4,
         segmentKind: 'creek',
         note: 'Default take-out for the lower full-chain route.',
+      },
+    ],
+  },
+  'south-fork-kentucky-river-hacker-branch-kay-wood': {
+    putIn: {
+      id: 'hacker-branch-road-access',
+      name: 'Hacker Branch Road Access',
+      latitude: 37.3743,
+      longitude: -83.6708,
+    },
+    takeOut: {
+      id: 'kay-wood-road-access',
+      name: 'Kay Wood Road Access',
+      latitude: 37.4594,
+      longitude: -83.6509,
+    },
+    logistics: {
+      distanceLabel: 'About 8.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Kay Wood Road Access, then drive back to Hacker Branch Road Access. Both accesses are simple carry-down-style sites, so inspect parking, mud, and river approach before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Hacker Branch, Upper Wolf Creek, or Kay Wood, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Hacker Branch Road Access and take out about 8.5 miles downstream at Kay Wood Road Access for a shorter lower South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Hacker Branch is a bridge-side carry-down with unpaved parking and no developed amenities.',
+        'Kay Wood is a carry-down-only access with roadside-style unpaved parking and no amenities.',
+        'The current Booneville gauge reading was just below the official good band during this run, so expect more scraping and slower shoals than the mileage alone suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and muddy landings become less forgiving around bends and ramps.',
+        'Wood, strainers, mud banks, occasional riffles, and private banks outside the access sites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hacker-branch-road-access',
+        name: 'Hacker Branch Road Access',
+        latitude: 37.3743,
+        longitude: -83.6708,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the shorter lower split.',
+      },
+      {
+        id: 'upper-wolf-creek-ramp',
+        name: 'Upper Wolf Creek Ramp',
+        latitude: 37.3964,
+        longitude: -83.6767,
+        mileFromStart: 2.9,
+        segmentKind: 'creek',
+        note: 'Intermediate paved-ramp access.',
+      },
+      {
+        id: 'kay-wood-road-access',
+        name: 'Kay Wood Road Access',
+        latitude: 37.4594,
+        longitude: -83.6509,
+        mileFromStart: 8.5,
+        segmentKind: 'creek',
+        note: 'Default take-out for this route.',
       },
     ],
   },
@@ -19555,6 +19691,83 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 4.3,
         segmentKind: 'creek',
         note: 'Default take-out for the lower Kinniconick route.',
+      },
+    ],
+  },
+  'kinniconick-creek-leatherwood-branch-garrison': {
+    putIn: {
+      id: 'leatherwood-branch-park-access',
+      name: 'Leatherwood Branch Park Access',
+      latitude: 38.5105,
+      longitude: -83.3274,
+    },
+    takeOut: {
+      id: 'garrison-ramp',
+      name: 'Garrison Ramp',
+      latitude: 38.6083,
+      longitude: -83.1637,
+    },
+    logistics: {
+      distanceLabel: 'About 31.5 mi',
+      estimatedPaddleTime:
+        'About 9 hr to 12 hr, longer with low-water scraping, fishing, or repeated wood scouting',
+      shuttle:
+        'Stage the downstream vehicle at Garrison Ramp, then drive back to Leatherwood Branch Park Access near Vanceburg. The road shuttle is manageable, but the route itself is a very long creek commitment and should be started early.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day county park or roadside parking limits.',
+      camping:
+        'Treat this as a full-day route rather than an overnight assumption. KDFWR lists camping as None at Leatherwood Branch, McDowells Creek, Mill Pond Creek, and Garrison, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Leatherwood Branch Park Access and take out about 31.5 miles downstream at Garrison Ramp for the full public Kinniconick Creek chain. KDFWR says to use the Tygarts Creek gauge as the Kinniconick proxy, with a good band of 2.5 to 3.5 ft or 50 to 130 cfs.',
+      accessCaveats: [
+        'Leatherwood Branch and Garrison are both public KDFWR accesses, but neither is documented as a campground or overnight facility.',
+        'McDowells Creek and Mill Pond Creek are the only intermediate public split points late in the route. Have them marked before launching rather than treating the day as one blind push.',
+        'The proxy gauge stage sat inside the official good band during this run, but the same official reading showed discharge below the cfs floor, so expect scrape-prone riffles and a longer day than the map mileage alone suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 2.5 ft or 50 cfs, when shallow riffles, rock bars, and dragging become more likely over a very long day.',
+        'High water above 3.5 ft or 130 cfs, when rain-driven rises, wood, and muddy landings make the creek less forgiving.',
+        'Wood, strainers, fatigue, and private banks outside the access sites on the longest Kinniconick chain now in the tree.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'leatherwood-branch-park-access',
+        name: 'Leatherwood Branch Park Access',
+        latitude: 38.5105,
+        longitude: -83.3274,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the full chained Kinniconick route.',
+      },
+      {
+        id: 'mcdowells-creek-park-access',
+        name: 'McDowells Creek Park Access',
+        latitude: 38.5746,
+        longitude: -83.1896,
+        mileFromStart: 27.2,
+        segmentKind: 'creek',
+        note: 'Intermediate public bailout and split point late in the route.',
+      },
+      {
+        id: 'mill-pond-creek-access',
+        name: 'Mill Pond Creek Access',
+        latitude: 38.5882,
+        longitude: -83.1919,
+        mileFromStart: 28.8,
+        segmentKind: 'creek',
+        note: 'Intermediate public bailout and shorter split finish.',
+      },
+      {
+        id: 'garrison-ramp',
+        name: 'Garrison Ramp',
+        latitude: 38.6083,
+        longitude: -83.1637,
+        mileFromStart: 31.5,
+        segmentKind: 'creek',
+        note: 'Default take-out for the full Kinniconick chain.',
       },
     ],
   },

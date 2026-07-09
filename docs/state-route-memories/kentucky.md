@@ -1,6 +1,16 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-09 07:45 America/Chicago / 2026-07-09 12:45 UTC.
+Last summarized: 2026-07-09 08:05 America/Chicago / 2026-07-09 13:05 UTC.
+
+## 2026-07-09 mixed Kentucky restoration and continuation pass
+
+- Reused the live repo state as the only valid baseline and added three Kentucky slugs that were absent from the current tree at run start: `kinniconick-creek-leatherwood-branch-garrison`, `barren-river-vpa-3-potter-combs`, and `south-fork-kentucky-river-hacker-branch-kay-wood`.
+- Current KDFWR Kinniconick Creek guidance still documents the exact public route pieces of Leatherwood Branch Park Access -> Puncheon / Pipe Lick `13.1`, Puncheon / Pipe Lick -> McDowells Creek Park Access `14.1`, McDowells Creek Park Access -> Mill Pond Creek Access `1.6`, and Mill Pond Creek Access -> Garrison Ramp `2.7`, which support the restored public route mileage of `31.5`.
+- Current KDFWR Lower Barren River guidance still documents the exact public route pieces of Barren River VPA #3 -> Martinsville Ford / Claypool Ramp `3.9` and Martinsville Ford / Claypool Ramp -> Potter/Combs Ramp `24.0`, which support the new public continuation of `27.9` miles against the direct Finney stage gauge.
+- Current KDFWR South Fork Kentucky River guidance still documents the exact public route pieces of Hacker Branch Road Access -> Upper Wolf Creek Ramp `2.9` and Upper Wolf Creek Ramp -> Kay Wood Road Access `5.6`, which support the restored public route mileage of `8.5`.
+- Same-day direct USGS Water Services returned `42.6 cfs / 2.83 ft` at `2026-07-09 07:45 EDT` for Tygarts Creek near Greenup (`03217000`), `78.02 ft` at `2026-07-09 07:00 CDT` for Barren River near Finney (`03313000`), and `297 cfs / 4.60 ft` at `2026-07-09 07:30 EDT` for South Fork Kentucky River at Booneville (`03281500`). Kinniconick and South Fork both stay explicit low-water caution adds because stage or discharge sit just below part of the official good band, while the Barren continuation sits just inside the official Finney good band.
+- Camping stays conservative by route: `kinniconick-creek-leatherwood-branch-garrison` and `barren-river-vpa-3-potter-combs` stay `none`, and `south-fork-kentucky-river-hacker-branch-kay-wood` also stays `none` because the reviewed KDFWR access pages only support day-use launch access.
+- Bounded image posture stays no-gallery for the new Kinniconick and Barren slugs, while the South Fork slug reuses the approved Commons corridor image and that reuse is recorded in `docs/river-image-source-audit.csv`.
 
 ## 2026-07-09 Kinniconick implementation pass
 

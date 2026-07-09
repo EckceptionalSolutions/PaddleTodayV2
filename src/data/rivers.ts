@@ -42424,6 +42424,133 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: "barren-river-vpa-3-potter-combs",
+    slug: "barren-river-vpa-3-potter-combs",
+    name: "Barren River",
+    reach: "Barren River VPA #3 to Potter/Combs Ramp",
+    aliases: [
+      "Barren River - Highway 101 VPA to Potter/Combs",
+      "Lower Barren River upper-middle continuation",
+      "Barren River VPA #3 to Weldon Pete Park",
+    ],
+    state: "Kentucky",
+    region: "South-Central Kentucky",
+    summary:
+      "Long lower-Barren continuation from the Highway 101 voluntary public access site to Potter/Combs Ramp at Weldon Pete Park. KDFWR's current mileage table supports this 27.9-mile route by chaining the official VPA-to-Martinsville and Martinsville-to-Potter/Combs segments against the direct Finney stage gauge.",
+    statusText:
+      "Use the Barren River near Finney gauge. KDFWR rates 78.0 to 78.5 ft as good for boating and fishing. Below that expect a slower scrape-prone day; above that open bends, shoals, and the park take-out deserve more caution.",
+    latitude: 36.9333,
+    longitude: -86.2043,
+    gaugeSource: {
+      id: "usgs-03313000",
+      provider: "usgs",
+      siteId: "03313000",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Barren River near Finney, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03313000/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["fast_rise", "private_banks", "remote"],
+      safetyNotes: [
+        "This is a long lower-Barren day that starts from a private-land voluntary public access site, so treat the launch as a narrow access footprint rather than a general-purpose staging area.",
+        "KDFWR says Martinsville carries shallow shoals and Potter/Combs sits above a dam-influenced pooled section, which makes low water slower and the finish less casual than the mileage first suggests.",
+        "Private banks dominate most of the corridor, and the route is too long to assume easy roadside recovery if weather or fatigue goes sideways mid-day.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 78.0,
+      idealMax: 78.5,
+      tooLow: 78.0,
+      tooHigh: 78.5,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Barren River near Finney",
+        url: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This upper-middle lower-Barren continuation is most practical in spring and wetter fall periods when the Finney stage is inside or near the official good band. Summer lows can drag out the shoal miles, while storms or release changes can add more push than the broad river appearance suggests.",
+      difficulty: "moderate",
+      difficultyNotes:
+        "The route is straightforward to read at normal water, but 27.9 miles from a simple VPA launch to the pooled park finish makes this a real endurance day with little room for sloppy timing.",
+      confidenceNotes:
+        "Confidence is good for a conservative Kentucky add: KDFWR still lists Barren River VPA #3 to Martinsville Ford / Claypool Ramp as 3.9 miles and Martinsville Ford / Claypool Ramp to Potter/Combs Ramp as 24.0 miles, which support this 27.9-mile chained public route against the same official Barren River near Finney low/good/high stage ladder. KDFWR access-detail pages still provide source-backed coordinates and public-use notes for both endpoints, and USGS Water Services returned a same-day stage of 78.02 ft at 2026-07-09 07:00 CDT for direct gauge 03313000, just inside the official good band.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official level band",
+        value: "78.0-78.5 ft good",
+        note: "KDFWR rates the Barren River near Finney gauge as Low below 78.0 ft, Good from 78.0 to 78.5 ft, and High above 78.5 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+      },
+      {
+        label: "Chained public route segment",
+        value: "Barren River VPA #3 to Potter/Combs Ramp, 27.9 miles",
+        note: "KDFWR lists Barren River VPA #3 to Martinsville Ford / Claypool Ramp as 3.9 miles and Martinsville Ford / Claypool Ramp to Potter/Combs Ramp as 24.0 miles, supporting a 27.9-mile public VPA-to-Potter/Combs continuation.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Barren River VPA #3, 36.9333, -86.2043",
+        note: "KDFWR identifies Barren River VPA #3 as a private-property voluntary public access carry-in site with no camping, no fires, and year-round limited-hours shoreline access.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=993",
+      },
+      {
+        label: "Take-out access",
+        value: "Potter/Combs Ramp, 37.0027, -86.4184",
+        note: "KDFWR identifies Potter/Combs Ramp at Weldon Pete Park as a public year-round ramp with gravel parking and park amenities but no campground support.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=628",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03313000 at 78.02 ft",
+        note: "USGS Water Services returned a same-day gage-height reading for Barren River near Finney at 2026-07-09 07:00 CDT during this run, which sits just inside the KDFWR good band.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03313000&parameterCd=00065&siteStatus=all",
+      },
+      {
+        label: "Camping posture",
+        value: "No public camping documented at either endpoint",
+        note: "KDFWR lists no camping or fires at the VPA launch, and Potter/Combs is documented as a park ramp rather than a public overnight facility.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=993",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Lower Barren River",
+        url: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Barren River VPA #3",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=993",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Potter/Combs Ramp",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=628",
+        provider: "local",
+      },
+      {
+        label: "USGS 03313000 Barren River near Finney",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03313000/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03313000 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03313000&parameterCd=00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
     id: "upper-salt-river-dry-branch-road-salt-river-ramp-3",
     slug: "upper-salt-river-dry-branch-road-salt-river-ramp-3",
     name: "Upper Salt River",
@@ -45586,6 +45713,128 @@ export const rivers: River[] = [
       {
         label: 'KDFWR Fish Creek Boat Ramp',
         url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=994',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03281500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+            {
+    id: 'south-fork-kentucky-river-hacker-branch-kay-wood',
+    slug: 'south-fork-kentucky-river-hacker-branch-kay-wood',
+    name: 'South Fork Kentucky River',
+    reach: 'Hacker Branch Road Access to Kay Wood Road Access',
+    aliases: [
+      'South Fork Kentucky River - Hacker Branch to Kay Wood',
+      'South Fork Kentucky River lower-middle split',
+      'KDFWR South Fork Kentucky River access chain',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Shorter lower South Fork Kentucky River float from Hacker Branch Road Access to Kay Wood Road Access. Current KDFWR guidance still supports this chained public reach with the Booneville gauge and the simpler downstream access chain.',
+    statusText:
+      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Below that is low and likely scrape-prone; above that is high and faster around shoals, bends, and wood.',
+    latitude: 37.3743,
+    longitude: -83.6708,
+    gaugeSource: {
+      id: 'usgs-03281500',
+      provider: 'usgs',
+      siteId: '03281500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Kentucky River at Booneville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 900,
+      tooLow: 350,
+      tooHigh: 900,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This lower South Fork split is most practical from spring through fall when the Booneville gauge trend is steady. Lower water exposes more scrape-prone shoals, while rain can muddy the simple carry-down landings and add fresh wood quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR describes the South Fork as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles. This is one of the shorter lower-chain days, but it is still moving-water paddling rather than flatwater touring.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky restoration: current KDFWR guidance still lists Hacker Branch Road Access to Upper Wolf Creek Ramp as 2.9 miles and Upper Wolf Creek Ramp to Kay Wood Road Access as 5.6 miles, supporting an 8.5-mile public lower-chain float. KDFWR still publishes exact public endpoint coordinates and official Booneville low/good/high bands tied to direct USGS gauge 03281500, and USGS Water Services returned same-day July 9, 2026 discharge and stage during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '350-900 cfs / 4.8-6.0 ft',
+        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Chained public route segment',
+        value: 'Hacker Branch Road Access to Kay Wood Road Access, 8.5 miles',
+        note: 'KDFWR lists Hacker Branch Road Access to Upper Wolf Creek Ramp as 2.9 miles and Upper Wolf Creek Ramp to Kay Wood Road Access as 5.6 miles, supporting an 8.5-mile public Hacker-Branch-to-Kay-Wood float on the same access chain.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Hacker Branch Road Access, 37.3743, -83.6708',
+        note: 'KDFWR identifies Hacker Branch Road Access as a carry-down-only access with unpaved parking and no camping.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1122',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Kay Wood Road Access, 37.4594, -83.6509',
+        note: 'KDFWR identifies Kay Wood Road Access as a carry-down-only access with unpaved parking and no camping.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03281500 at 297 cfs / 4.60 ft',
+        note: 'USGS Water Services returned same-day values of 297 cfs and 4.60 ft at 2026-07-09 07:30 EDT for South Fork Kentucky River at Booneville during this run, just below the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping posture',
+        value: 'No public camping documented at either endpoint',
+        note: 'KDFWR identifies both Hacker Branch Road Access and Kay Wood Road Access as simple carry-down launches with no camping support.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1122',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR South Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR South Fork Kentucky River access guide',
+        url: 'https://fw.ky.gov/Fish/Documents/South%20Fork%20of%20Kentucky%20River.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Hacker Branch Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1122',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Kay Wood Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
         provider: 'local',
       },
       {
@@ -54531,6 +54780,133 @@ export const rivers: River[] = [
       {
         label: 'USGS 03217000 legacy current page',
         url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03217000',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kinniconick-creek-leatherwood-branch-garrison',
+    slug: 'kinniconick-creek-leatherwood-branch-garrison',
+    name: 'Kinniconick Creek',
+    reach: 'Leatherwood Branch Park Access to Garrison Ramp',
+    aliases: [
+      'Kinniconick Creek - Leatherwood Branch to Garrison',
+      'Kinniconick Creek full public chain',
+      'KDFWR Kinniconick Creek access chain',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Full public Kinniconick Creek route from Leatherwood Branch Park Access to Garrison Ramp. KDFWR documents the exact chained public mileage and explicitly tells paddlers to use the Tygarts Creek gauge as the best current proxy for Kinniconick levels.',
+    statusText:
+      'Use the Tygarts Creek near Greenup gauge as the official Kinniconick proxy. KDFWR rates Kinniconick low below 2.5 ft or 50 cfs, good from 2.5 to 3.5 ft or 50 to 130 cfs, and high above that.',
+    latitude: 38.5105,
+    longitude: -83.3274,
+    gaugeSource: {
+      id: 'usgs-03217000',
+      provider: 'usgs',
+      siteId: '03217000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Tygarts Creek near Greenup, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/03217000/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['fast_rise', 'strainers', 'private_banks', 'remote'],
+      safetyNotes: [
+        'This is the full public Kinniconick chain, so the main risk is commitment rather than technical whitewater: it is a very long creek day with limited public bailout comfort away from the named accesses.',
+        'KDFWR still uses Tygarts Creek as a proxy because Kinniconick has no current direct stream gage, so treat any rising weather as a cue to re-check conditions rather than trusting the broad band blindly.',
+        'Low-water scraping, muddy landings, fresh wood, and private banks become more consequential over thirty-plus miles than they do on the shorter downstream splits.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.5,
+      idealMax: 3.5,
+      tooLow: 2.5,
+      tooHigh: 3.5,
+      thresholdSource: {
+        label: 'KDFWR Kinniconick Creek proxy gauge guidance',
+        url: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical window. This full Kinniconick chain is most forgiving when the proxy gauge trend is steady. Summer dryness extends the day with more scraping, while fresh rain can quickly turn the creek into a faster woodier commitment.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Kinniconick is not technical whitewater, but 31.5 miles of moving water with muddy accesses, shoals, wood, and sparse public stopping options makes this a serious endurance route.',
+      confidenceNotes:
+        'Confidence is good for a conservative Kentucky add: current KDFWR guidance still lists Leatherwood Branch Park Access to Puncheon / Pipe Lick at 13.1 miles, Puncheon / Pipe Lick to McDowells Creek Park Access at 14.1 miles, McDowells Creek Park Access to Mill Pond Creek Access at 1.6 miles, and Mill Pond Creek Access to Garrison Ramp at 2.7 miles, supporting a 31.5-mile public chained route. KDFWR explicitly says no current stream gage exists on Kinniconick Creek and that Tygarts Creek should be used in lieu of Kinniconick because it closely mimics levels there, while the same page publishes official low/good/high stage and discharge bands. Current KDFWR access-detail pages still provide source-backed coordinates and public-use notes for Leatherwood Branch Park Access and Garrison Ramp, and USGS Water Services returned same-day values of 42.6 cfs and 2.83 ft at 2026-07-09 07:45 EDT for direct gauge 03217000.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official proxy level band',
+        value: '2.5-3.5 ft or 50-130 cfs good',
+        note: 'KDFWR says no current stream gage is available for Kinniconick Creek and that Tygarts Creek should be used in lieu of Kinniconick because it closely mimics levels there. The same page rates Kinniconick low below 2.5 ft or 50 cfs, good from 2.5 to 3.5 ft or 50 to 130 cfs, and high above that.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+      },
+      {
+        label: 'Chained public route segment',
+        value: 'Leatherwood Branch Park Access to Garrison Ramp, 31.5 miles',
+        note: 'KDFWR lists Leatherwood Branch Park Access to Puncheon / Pipe Lick at 13.1 miles, Puncheon / Pipe Lick to McDowells Creek Park Access at 14.1 miles, McDowells Creek Park Access to Mill Pond Creek Access at 1.6 miles, and Mill Pond Creek Access to Garrison Ramp at 2.7 miles, supporting a 31.5-mile public full-chain float.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Leatherwood Branch Park Access, 38.5105, -83.3274',
+        note: 'KDFWR access detail identifies Leatherwood Branch Park Access as a public park launch with a paved parking area and no listed camping support.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1130',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Garrison Ramp, 38.6083, -83.1637',
+        note: 'KDFWR access detail identifies Garrison Ramp as a public paved ramp with parking and no listed camping support.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=318',
+      },
+      {
+        label: 'Live proxy-gauge support',
+        value: 'USGS 03217000 at 42.6 cfs / 2.83 ft',
+        note: 'USGS Water Services returned same-day values at 2026-07-09 07:45 EDT for Tygarts Creek near Greenup during this run. The stage sits inside KDFWRs published Kinniconick good band even though discharge remains below the cfs floor.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03217000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping posture',
+        value: 'No public camping documented at either endpoint',
+        note: 'Current KDFWR access-detail pages list Camping as None for both Leatherwood Branch Park Access and Garrison Ramp.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1130',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Kinniconick Creek',
+        url: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Leatherwood Branch Park Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1130',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Garrison Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=318',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03217000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03217000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03217000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03217000&parameterCd=00060,00065&siteStatus=all',
         provider: 'usgs',
       },
     ],
