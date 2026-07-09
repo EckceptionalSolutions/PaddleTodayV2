@@ -1,6 +1,14 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-06 16:48 America/Chicago / 2026-07-06 21:48 UTC.
+Last summarized: 2026-07-09 06:20 America/Chicago / 2026-07-09 11:20 UTC.
+
+## 2026-07-09 South Fork restoration pass
+
+- Reused the live repo state as the only valid baseline and restored three South Fork Kentucky River slugs that were absent from the current tree at run start: `south-fork-kentucky-river-oneida-upper-wolf-creek`, `south-fork-kentucky-river-upper-wolf-creek-fish-creek`, and `south-fork-kentucky-river-hacker-branch-fish-creek`.
+- Current KDFWR South Fork Kentucky River guidance still documents the exact public access-chain mileages of Oneida -> Rocky `6.8`, Rocky -> Cedar `2.5`, Cedar -> Bishop Bend `4.7`, Bishop Bend -> Hacker Branch `3.3`, Hacker Branch -> Upper Wolf Creek `2.9`, Upper Wolf Creek -> Kay Wood `5.6`, and Kay Wood -> Fish Creek `7.9`, which support the restored public route mileages of `20.2`, `13.5`, and `16.4`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Oneida Ramp, Hacker Branch Road Access, Upper Wolf Creek Ramp, and Fish Creek Boat Ramp. Same-day direct USGS Water Services returned `325 cfs / 4.69 ft` at `2026-07-09 05:30 EDT` for South Fork Kentucky River at Booneville (`03281500`), just below the official `350-900 cfs / 4.8-6.0 ft` good band, so all three restored slugs ship with explicit scrape-prone low-water caution rather than comfort framing.
+- Camping stays conservative at `none` for all three because KDFWR still documents only simple day-use launch sites with no public overnight support on this chain.
+- Reused the approved South Fork Commons corridor images for all three slugs, and `docs/river-image-source-audit.csv` now records the same-river reuse.
 
 ## 2026-07-06 Upper Green tailwater continuation pass
 
@@ -88,8 +96,8 @@ Last summarized: 2026-07-06 16:48 America/Chicago / 2026-07-06 21:48 UTC.
 
 ## Current Inventory
 
-- Live routes: 58.
-- Ledger candidates: 75 Kentucky-specific records. The newest live Kentucky slugs are `south-fork-kentucky-river-oneida-bishop-bend`, `south-fork-kentucky-river-rocky-branch-hacker-branch`, and `south-fork-kentucky-river-cedar-valley-upper-wolf-creek`.
+- Live routes: 70.
+- Ledger candidates: 87 Kentucky-specific records. The newest live Kentucky slugs are `south-fork-kentucky-river-oneida-upper-wolf-creek`, `south-fork-kentucky-river-upper-wolf-creek-fish-creek`, and `south-fork-kentucky-river-hacker-branch-fish-creek`.
 
 ## 2026-07-05 Upper Green restoration pass
 
