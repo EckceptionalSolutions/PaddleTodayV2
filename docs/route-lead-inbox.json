@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-09T22:40:25.399Z",
+  "generatedAt": "2026-07-09T23:43:32.591Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
     "totalLedgerCandidates": 757,
-    "currentRouteCount": 425,
+    "currentRouteCount": 428,
     "leadCount": 268,
     "discoveryFocusStates": [
       "South Dakota",
