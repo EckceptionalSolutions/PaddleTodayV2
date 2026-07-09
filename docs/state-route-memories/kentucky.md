@@ -2,6 +2,14 @@
 
 Last summarized: 2026-07-09 10:55 America/Chicago / 2026-07-09 15:55 UTC.
 
+## 2026-07-09 South Fork continuation restoration pass
+
+- Reused the live repo state as the only valid baseline and restored three South Fork Kentucky River slugs that were absent from the current tree at run start: `south-fork-kentucky-river-oneida-kay-wood`, `south-fork-kentucky-river-rocky-branch-fish-creek`, and `south-fork-kentucky-river-cedar-valley-fish-creek`.
+- Current KDFWR South Fork Kentucky River guidance still documents the exact public access-chain mileages of Oneida -> Rocky `6.8`, Rocky -> Cedar `2.5`, Cedar -> Bishop Bend `4.7`, Bishop Bend -> Hacker Branch `3.3`, Hacker Branch -> Upper Wolf Creek `2.9`, Upper Wolf Creek -> Kay Wood `5.6`, and Kay Wood -> Fish Creek `7.9`, which support the restored public route mileages of `25.8`, `26.9`, and `24.4`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Oneida Ramp, Rocky Branch Road Access, Cedar Valley Road Access, Kay Wood Road Access, and Fish Creek Boat Ramp. Same-day direct USGS Water Services returned `239 cfs / 4.40 ft` at `2026-07-09 12:30 EDT` for South Fork Kentucky River at Booneville (`03281500`), below the official `350-900 cfs / 4.8-6.0 ft` good band, so all three restored slugs ship with explicit scrape-prone low-water caution rather than comfort framing.
+- Camping stays conservative at `none` for all three because KDFWR still documents only simple day-use launch sites with no public overnight support on this chain.
+- Reused the approved South Fork Commons corridor image for all three slugs, and `docs/river-image-source-audit.csv` now records the same-river reuse.
+
 ## 2026-07-09 Buck Creek implementation pass
 
 - Reused the live repo state as the only valid baseline and added three Buck Creek slugs that were absent from the current tree at run start: `buck-creek-rainey-road-stab-road`, `buck-creek-stab-road-bent-road`, and `buck-creek-bent-road-poplarville-road`.
@@ -111,7 +119,7 @@ Last summarized: 2026-07-09 10:55 America/Chicago / 2026-07-09 15:55 UTC.
 - Current KDFWR Floyds Fork guidance still documents the exact public route pieces of Fisherville -> Cane Run `4.2` and Cane Run -> Seaton Valley `3.1`, while the current lower Floyds Fork PDF still documents North Beckley -> Broad Run Valley `17.2`, Broad Run Valley -> Cliffside `2.5`, and North Beckley -> Cliffside `19.7`. That supports the new public route mileages of `17.2`, `13.3`, and `19.7`.
 - Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for North Beckley, Fisherville, Broad Run Valley, and Cliffside. Same-day official USGS current conditions showed `43.6 cfs / 1.02 ft` at `2026-07-06 07:20 EDT` for Floyds Fork at Fisherville (`03298000`), below the official `50 cfs / 1.3 ft` good-band floor, so all three additions ship with honest scrape-prone low-end caution rather than comfort framing.
 - Camping stays conservative at `none` for all three because the Parklands/KDFWR corridor still reads as a managed day-use access chain without a verified public overnight plan.
-- Safety notes stay focused on Class I+ moving water, quick rain rises, strainers and fresh wood, low-water dragging, The Oxbow braid choice on the upstream reach, the signed Cane Run side-channel area on the lower reaches, Maryâ€™s Island stay-left guidance, fatigue on the two longest commitments, and marked-landings-only / private-bank discipline throughout the corridor.
+- Safety notes stay focused on Class I+ moving water, quick rain rises, strainers and fresh wood, low-water dragging, The Oxbow braid choice on the upstream reach, the signed Cane Run side-channel area on the lower reaches, MaryÃ¢â‚¬â„¢s Island stay-left guidance, fatigue on the two longest commitments, and marked-landings-only / private-bank discipline throughout the corridor.
 - Reused the approved Commons Floyds Fork image for all three slugs, and `docs/river-image-source-audit.csv` now records that same-creek reuse.
 
 ## 2026-07-06 Green River restoration pass
@@ -136,7 +144,7 @@ Last summarized: 2026-07-09 10:55 America/Chicago / 2026-07-09 15:55 UTC.
 - Current KDFWR Floyds Fork guidance still documents the exact public route pieces of North Beckley -> Creekside `2.1`, Creekside -> Fisherville `4.3`, Fisherville -> Cane Run `4.2`, and Cane Run -> Seaton Valley `3.1`, while the current lower Floyds Fork PDF still documents Seaton Valley -> Broad Run Valley `3.5` and Broad Run Valley -> Cliffside `2.5`. That supports the new public route mileages of `6.4`, `10.8`, and `9.1`.
 - Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for North Beckley, Fisherville, Cane Run, Broad Run Valley, and Cliffside. Same-day direct USGS Water Services returned `48.7 cfs / 1.07 ft` at `2026-07-06 00:20 EDT` for Floyds Fork at Fisherville (`03298000`), just below the official `50 cfs / 1.3 ft` good-band floor, so all three additions ship with honest scrape-prone low-end caution rather than comfort framing.
 - Camping stays conservative at `none` for all three because the Parklands/KDFWR corridor still reads as a managed day-use access chain without a verified public overnight plan.
-- Safety notes stay focused on Class I+ moving water, quick rain rises, strainers and fresh wood, low-water dragging, The Oxbow braid choice on the upstream route, the signed Cane Run side-channel area on the longer lower routes, Mary’s Island stay-left guidance on the lower routes, and marked-landings-only / private-bank discipline throughout the corridor.
+- Safety notes stay focused on Class I+ moving water, quick rain rises, strainers and fresh wood, low-water dragging, The Oxbow braid choice on the upstream route, the signed Cane Run side-channel area on the longer lower routes, Maryâ€™s Island stay-left guidance on the lower routes, and marked-landings-only / private-bank discipline throughout the corridor.
 - Reused the approved Commons Floyds Fork image for all three slugs, and `docs/river-image-source-audit.csv` now records that same-creek reuse.
 
 ## 2026-07-05 Upper Green split restoration pass
@@ -205,7 +213,7 @@ Kentucky had been paused from the active automation rotation at user request whi
   - The run reused the current KDFWR Floyds Fork Blue Water Trail map and lower-section Floyds Fork PDF for the exact public route mileages of North Beckley -> Cane Run `10.7`, Seaton Valley -> Broad Run Valley `3.5`, and Broad Run Valley -> Cliffside `2.5`.
   - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for North Beckley Canoe Access, Cane Run Canoe Access, Seaton Valley Paddling Access, Broad Run Valley Paddling Access, and Cliffside Paddling Access. Same-day direct USGS Water Services returned `67.4 cfs / 1.23 ft` at `2026-07-03 20:20 EDT` for Floyds Fork at Fisherville (`03298000`), just below the published stage floor but above the discharge floor, so all three slugs ship with honest low-end caution.
   - Camping stays conservative at `none` for all three because the Parklands/KDFWR corridor supports day-use carry-down accesses but does not document a public overnight plan.
-  - Safety notes stay focused on Class I+ moving water, quick rain rises, strainers and fresh wood, low-water shoals and dragging, marked-landings-only discipline, the North Beckley / Oxbow braid choices, Mary’s Island split on the Seaton Valley route, and the signed Cane Run side-channel take-out.
+  - Safety notes stay focused on Class I+ moving water, quick rain rises, strainers and fresh wood, low-water shoals and dragging, marked-landings-only discipline, the North Beckley / Oxbow braid choices, Maryâ€™s Island split on the Seaton Valley route, and the signed Cane Run side-channel take-out.
   - The approved Commons Floyds Fork image was reused for all three new slugs, and `docs/river-image-source-audit.csv` now records that same-creek reuse.
 
 - 2026-07-03 18:57 America/Chicago / 2026-07-03 23:57 UTC North Fork Kentucky continuation pass
