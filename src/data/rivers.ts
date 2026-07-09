@@ -42551,6 +42551,411 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'buck-creek-rainey-road-stab-road',
+    slug: 'buck-creek-rainey-road-stab-road',
+    name: 'Buck Creek',
+    reach: 'Rainey Road Fishing Access to KY-1675 Fishing Access',
+    aliases: [
+      'Buck Creek - Rainey Road to Stab Road',
+      'Buck Creek - Dahl Road to Stab',
+      'Upper Buck Creek first float',
+    ],
+    state: 'Kentucky',
+    region: 'Pulaski County',
+    summary:
+      'Short first Buck Creek float from Rainey Road to the Stab / KY-1675 bridge. KDFWR still presents this as the opening official Buck Creek segment, and the direct near-Shopville USGS gauge plus same-gauge local paddling floor support a conservative minimum-only add.',
+    statusText:
+      'Use the Buck Creek near Shopville gauge. Same-gauge local Buck Creek paddling guidance says about 100 cfs and 2.0 ft or better is the minimum for a fun float. Below that expect dragging; higher water pushes faster through the bluff-lined bends.',
+    latitude: 37.1792,
+    longitude: -84.4564,
+    gaugeSource: {
+      id: 'usgs-03407500',
+      provider: 'usgs',
+      siteId: '03407500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Buck Creek near Shopville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03407500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'KDFWR describes this as a family-friendly low-water Buck Creek segment, but shallow shoals still mean boat dragging and quick storms can add push fast.',
+        'Both accesses are simple carry-down sites with unpaved parking and no amenities.',
+        'Most shoreline between the named accesses is private, so stay inside the public access footprints.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'Buck Creek Outfitters same-gauge minimum for Buck Creek near Shopville',
+        url: 'https://www.facebook.com/BuckCreekOutfittersLLC/photos/d41d8cd9/733125648816278/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Buck Creek is often scraped out in dry spells and rises quickly after rain. The route is most believable after enough water has returned to clear the 100 cfs / 2.0 ft local floor.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is the shortest and broadest-audience Buck Creek add, but it is still a moving stream with shoals, bluff turns, and enough private-bank pressure that paddlers should not treat it like flatwater.',
+      confidenceNotes:
+        'Confidence is reasonable but intentionally conservative: KDFWR still names Rainey Road to the Stab / KY-1675 bridge as the first official Buck Creek float, current KDFWR access-detail pages provide source-backed coordinates for both carry-downs, and same-day USGS Water Services returned 63.5 cfs and 1.91 ft at 2026-07-09 11:30 EDT from the direct Shopville gauge. The weak point is thresholds, so the route stays minimum-only off repeated same-gauge local guidance that about 100 cfs and 2.0 ft is the floor for a fun float.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Rainey Road to KY-1675 / Stab, 4.2 mi',
+        note: 'The current KDFWR Buck Creek article and detailed map still present this as the first official float on the creek.',
+        sourceUrl: 'https://fw.ky.gov/Education/Documents/Buck-Creek.pdf',
+      },
+      {
+        label: 'Minimum-flow support',
+        value: 'About 100 cfs and 2.0 ft minimum',
+        note: 'Buck Creek Outfitters continues to tell paddlers that Buck Creek needs to be above about 100 cfs and 2.0 ft at the Shopville gauge to avoid a frustrating scrape-heavy float.',
+        sourceUrl:
+          'https://www.facebook.com/BuckCreekOutfittersLLC/posts/if-you-are-kayaking-buck-creek-from-rainey-road-to-the-stab-fire-department-brid/866964780672912/',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Rainey Road Fishing Access, 37.1792, -84.4564',
+        note: 'KDFWR identifies Rainey Road as a public carry-down access with unpaved parking and no amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=521',
+      },
+      {
+        label: 'Take-out access',
+        value: 'KY-1675 Fishing Access, 37.1516, -84.4392',
+        note: 'KDFWR identifies the Stab / KY-1675 bridge as a public carry-down access with unpaved parking and no amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1219',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03407500 at 63.5 cfs / 1.91 ft',
+        note: 'USGS Water Services returned same-day values for Buck Creek near Shopville, KY at 2026-07-09 11:30 EDT during this run, which keeps the live path current while honestly flagging a below-floor day.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03407500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route character',
+        value: 'Bluff turns and karst side trip at Stab',
+        note: 'KDFWR says the route runs past sandstone-and-limestone bluffs and finishes near the Short Creek karst-window side trip east of Stab.',
+        sourceUrl: 'https://fw.ky.gov/Education/Documents/Buck-Creek.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Buck Creek',
+        url: 'https://fw.ky.gov/Education/Pages/Buck-Creek.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Floating Buck Creek article',
+        url: 'https://fw.ky.gov/Education/Documents/Buck-Creek.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Rainey Road Fishing Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=521',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR KY-1675 Fishing Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1219',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03407500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03407500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03407500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03407500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Buck Creek Outfitters same-gauge level guidance',
+        url: 'https://www.facebook.com/BuckCreekOutfittersLLC/posts/if-you-are-kayaking-buck-creek-from-rainey-road-to-the-stab-fire-department-brid/866964780672912/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'buck-creek-stab-road-bent-road',
+    slug: 'buck-creek-stab-road-bent-road',
+    name: 'Buck Creek',
+    reach: 'KY-1675 Fishing Access to Bent Road Fishing Access',
+    aliases: [
+      'Buck Creek - Stab Road to Bent Road',
+      'Buck Creek - Stab to The Bent',
+      'Buck Creek middle gorge float',
+    ],
+    state: 'Kentucky',
+    region: 'Pulaski County',
+    summary:
+      'Longer middle Buck Creek float from the Stab / KY-1675 bridge to Bent Road. KDFWR still treats this as the scenic The Bent segment, and the direct Shopville gauge plus same-gauge local floor support a guarded minimum-only route.',
+    statusText:
+      'Use the Buck Creek near Shopville gauge. Same-gauge local Buck Creek paddling guidance says about 100 cfs and 2.0 ft or better is the minimum for a worthwhile trip. Below that expect dragging; higher water pushes harder against bluffs and makes the Bent Road carry-out less forgiving.',
+    latitude: 37.1516,
+    longitude: -84.4392,
+    gaugeSource: {
+      id: 'usgs-03407500',
+      provider: 'usgs',
+      siteId: '03407500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Buck Creek near Shopville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03407500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'KDFWR warns that higher flows on this bluff-walled section can push boats into strainers and tight cliff bases.',
+        'Bent Road is a real public take-out, but KDFWR says the carry-out is steep enough that many paddlers will park at the top and walk boats up.',
+        'Treat the corridor as a day float between named public accesses only. The banks and woods away from those accesses are not general public staging areas.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'Buck Creek Outfitters same-gauge minimum for Buck Creek near Shopville',
+        url: 'https://www.facebook.com/BuckCreekOutfittersLLC/photos/d41d8cd9/733125648816278/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This The Bent segment becomes scrapy during dry spells and materially pushier after rain. The route stays minimum-only because the source trail supports a floor, not a clean ideal or high cutoff.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The mileage, the square-shaped Bent gorge turns, and the steep Bent Road finish make this more committed than the short upstream float even though it is still broad-audience moving water at ordinary levels.',
+      confidenceNotes:
+        'Confidence is reasonable and intentionally cautious: KDFWR still names KY-1675 to Bent Road as a 7.5-mile official Buck Creek float, the current KDFWR access-detail pages still provide coordinates and public-use notes for both carry-downs, and same-day USGS Water Services returned 63.5 cfs and 1.91 ft at 2026-07-09 11:30 EDT from the direct Shopville gauge. Numeric threshold support remains community-grade, so the route stays minimum-only on the repeated same-gauge 100 cfs / 2.0 ft floor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'KY-1675 / Stab to Bent Road, 7.5 mi',
+        note: 'The current KDFWR Buck Creek article and map still identify this exact middle segment as the next official float below Stab.',
+        sourceUrl: 'https://fw.ky.gov/Education/Documents/Buck-Creek.pdf',
+      },
+      {
+        label: 'Minimum-flow support',
+        value: 'About 100 cfs and 2.0 ft minimum',
+        note: 'Buck Creek Outfitters continues to use the Shopville gauge and says the creek needs to be above about 100 cfs and 2.0 ft for a fun float.',
+        sourceUrl:
+          'https://www.facebook.com/BuckCreekOutfittersLLC/posts/if-you-are-kayaking-buck-creek-from-rainey-road-to-the-stab-fire-department-brid/866964780672912/',
+      },
+      {
+        label: 'Put-in access',
+        value: 'KY-1675 Fishing Access, 37.1516, -84.4392',
+        note: 'KDFWR identifies the Stab bridge as a public carry-down access with year-round shoreline availability.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1219',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Bent Road Fishing Access, 37.1038, -84.4350',
+        note: 'KDFWR identifies Bent Road as a public carry-down access and the Buck Creek article warns the carry-out can be steep and rough.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=522',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03407500 at 63.5 cfs / 1.91 ft',
+        note: 'USGS Water Services returned same-day values for Buck Creek near Shopville, KY at 2026-07-09 11:30 EDT during this run, which keeps the gauge live while honestly flagging a below-floor day.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03407500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Hazard and route character',
+        value: 'The Bent gorge and steep Bent carry-out',
+        note: 'KDFWR says this section enters the square-shaped Bent, warns about strainers at higher flows, and notes the Bent Road carry-out is steep and rocky.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Buck-Creek.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Buck Creek',
+        url: 'https://fw.ky.gov/Education/Pages/Buck-Creek.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Floating Buck Creek article',
+        url: 'https://fw.ky.gov/Education/Documents/Buck-Creek.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR KY-1675 Fishing Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1219',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Bent Road Fishing Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=522',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03407500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03407500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03407500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03407500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Buck Creek Outfitters same-gauge level guidance',
+        url: 'https://www.facebook.com/BuckCreekOutfittersLLC/posts/if-you-are-kayaking-buck-creek-from-rainey-road-to-the-stab-fire-department-brid/866964780672912/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'buck-creek-bent-road-poplarville-road',
+    slug: 'buck-creek-bent-road-poplarville-road',
+    name: 'Buck Creek',
+    reach: 'Bent Road Fishing Access to Poplarville Road Fishing Access',
+    aliases: [
+      'Buck Creek - Bent Road to Poplarville Road',
+      'Buck Creek - Bent to Poplarville',
+      'Buck Creek lower gorge float',
+    ],
+    state: 'Kentucky',
+    region: 'Pulaski County',
+    summary:
+      'Lower Buck Creek gorge float from Bent Road to the easier Poplarville take-out. KDFWR still treats this as one of the signature Buck Creek paddles, and the direct Shopville gauge plus same-gauge local floor support a guarded minimum-only route.',
+    statusText:
+      'Use the Buck Creek near Shopville gauge. Same-gauge local Buck Creek paddling guidance says about 100 cfs and 2.0 ft or better is the minimum for a worthwhile trip. Below that expect more walking through shallow drops; higher water makes the small waterfalls and island lines much less forgiving.',
+    latitude: 37.1038,
+    longitude: -84.435,
+    gaugeSource: {
+      id: 'usgs-03407500',
+      provider: 'usgs',
+      siteId: '03407500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Buck Creek near Shopville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03407500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'KDFWR says several lower-route drops include small waterfalls that can be dicey at higher flows and are sometimes best walked even in low fall water.',
+        'KDFWR also says the safer island line is left because the right chute may stay blocked by a fallen tree.',
+        'Poplarville is the easier public finish; KDFWR says the steeper Dykes Bridge carry-out a mile upstream is more strenuous and should not be the default take-out for general users.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'Buck Creek Outfitters same-gauge minimum for Buck Creek near Shopville',
+        url: 'https://www.facebook.com/BuckCreekOutfittersLLC/photos/d41d8cd9/733125648816278/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This lower gorge section gets especially scratchy in normal fall lows and more serious after rain. The route stays minimum-only because the source trail supports a same-gauge floor, not a defensible ideal or high-side band.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is still a family-scale creek trip at the right level, but the six-mile length, multiple drops, island line choice, and shallow low-water exits make it more technical than the short upstream float.',
+      confidenceNotes:
+        'Confidence is reasonable but conservative: KDFWR still names Bent Road to Poplarville as an official nearly 6-mile Buck Creek float, current KDFWR access-detail pages still provide coordinates and public-use notes for both carry-downs, and same-day USGS Water Services returned 63.5 cfs and 1.91 ft at 2026-07-09 11:30 EDT from the direct Shopville gauge. Threshold support stays community-grade, so the route remains minimum-only on the repeated same-gauge 100 cfs / 2.0 ft floor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Bent Road to Poplarville Road, about 6.0 mi',
+        note: 'The current KDFWR Buck Creek article and map still present this as the lower official float, choosing Poplarville as the easier finish instead of the steep Dykes carry-out.',
+        sourceUrl: 'https://fw.ky.gov/Education/Documents/Buck-Creek.pdf',
+      },
+      {
+        label: 'Minimum-flow support',
+        value: 'About 100 cfs and 2.0 ft minimum',
+        note: 'Buck Creek Outfitters continues to use the Shopville gauge and says the creek needs to be above about 100 cfs and 2.0 ft for a fun float.',
+        sourceUrl:
+          'https://www.facebook.com/BuckCreekOutfittersLLC/posts/if-you-are-kayaking-buck-creek-from-rainey-road-to-the-stab-fire-department-brid/866964780672912/',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Bent Road Fishing Access, 37.1038, -84.4350',
+        note: 'KDFWR identifies Bent Road as a public carry-down access with unpaved parking and no amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=522',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Poplarville Road Fishing Access, 37.0469, -84.4314',
+        note: 'KDFWR identifies Poplarville Road as a public carry-down access with unpaved parking and no amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=520',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03407500 at 63.5 cfs / 1.91 ft',
+        note: 'USGS Water Services returned same-day values for Buck Creek near Shopville, KY at 2026-07-09 11:30 EDT during this run, which keeps the gauge live while honestly flagging a below-floor day.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03407500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Hazard and route character',
+        value: 'Small waterfalls, island left line, Dykes Cave corridor',
+        note: 'KDFWR says this lower gorge includes several drops that can be dicey at higher flows, recommends the left island line because the right chute may be blocked, and notes the Dykes Bridge carry-out is steep compared with the easier Poplarville finish.',
+        sourceUrl: 'https://fw.ky.gov/Education/Documents/Buck-Creek.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Buck Creek',
+        url: 'https://fw.ky.gov/Education/Pages/Buck-Creek.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Floating Buck Creek article',
+        url: 'https://fw.ky.gov/Education/Documents/Buck-Creek.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Bent Road Fishing Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=522',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Poplarville Road Fishing Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=520',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03407500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03407500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03407500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03407500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Buck Creek Outfitters same-gauge level guidance',
+        url: 'https://www.facebook.com/BuckCreekOutfittersLLC/posts/if-you-are-kayaking-buck-creek-from-rainey-road-to-the-stab-fire-department-brid/866964780672912/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: "upper-salt-river-dry-branch-road-salt-river-ramp-3",
     slug: "upper-salt-river-dry-branch-road-salt-river-ramp-3",
     name: "Upper Salt River",

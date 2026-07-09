@@ -14302,6 +14302,121 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'buck-creek-rainey-road-stab-road': {
+    putIn: {
+      id: 'rainey-road-fishing-access',
+      name: 'Rainey Road Fishing Access',
+      latitude: 37.1792,
+      longitude: -84.4564,
+    },
+    takeOut: {
+      id: 'ky-1675-fishing-access',
+      name: 'KY-1675 Fishing Access',
+      latitude: 37.1516,
+      longitude: -84.4392,
+    },
+    logistics: {
+      distanceLabel: 'About 4.2 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr, longer with low-water dragging, fishing stops, or a slow first-time shuttle',
+      shuttle:
+        'Leave the downstream vehicle at the KY-1675 / Stab bridge, then drive back to Rainey Road. Both accesses are simple carry-downs with unpaved parking, so check footing and parking space before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and stay off private banks between the endpoints.',
+      camping:
+        'Treat this as a day route. KDFWR lists no public camping or overnight support at either Buck Creek access.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Rainey Road and finish at the KY-1675 / Stab bridge for the first official Buck Creek float. Use the Shopville gauge and expect dragging whenever the creek stays below the same-gauge 100 cfs / 2.0 ft local floor.',
+      accessCaveats: [
+        'Rainey Road is a simple carry-down access with unpaved parking and no amenities.',
+        'The Stab / KY-1675 take-out is at the bridge only. Do not assume extra public staging room beyond the marked access footprint.',
+        'Most shoreline between the endpoints is private, so launch, land, and regroup only at the named public accesses.',
+      ],
+      watchFor: [
+        'Low water near or below about 100 cfs, when shallow shoals can turn the short float into a scrape-and-walk day.',
+        'Faster current after rain, especially through bluff turns and around woody cover.',
+        'Fresh strainers, slick footing at both carry-downs, and private-bank limits away from the named accesses.',
+      ],
+    },
+  },
+  'buck-creek-stab-road-bent-road': {
+    putIn: {
+      id: 'ky-1675-fishing-access',
+      name: 'KY-1675 Fishing Access',
+      latitude: 37.1516,
+      longitude: -84.4392,
+    },
+    takeOut: {
+      id: 'bent-road-fishing-access',
+      name: 'Bent Road Fishing Access',
+      latitude: 37.1038,
+      longitude: -84.435,
+    },
+    logistics: {
+      distanceLabel: 'About 7.5 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5.5 hr, longer with low-water dragging, scout pauses, or a careful carry-out at Bent Road',
+      shuttle:
+        'Stage the take-out at Bent Road, then drive back to the KY-1675 / Stab bridge. Bent Road is public but the final carry-out is steep enough that many paddlers leave vehicles at the top and walk boats up.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and avoid stopping on private banks through the gorge.',
+      camping:
+        'Treat this as a day route. KDFWR lists no public camping or overnight support at the Stab or Bent Road accesses.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Stab / KY-1675 bridge and finish at Bent Road for the scenic Buck Creek middle-gorge float through the Bent. Use the Shopville gauge and expect a scratchier day whenever the creek stays below the same-gauge 100 cfs / 2.0 ft floor.',
+      accessCaveats: [
+        'The KY-1675 bridge access is a basic carry-down with no restroom, dock, or staging pad.',
+        'KDFWR says Bent Road is the legal take-out, but the final carry-out is steep and rocky enough that some paddlers will want to park at the top and walk boats up.',
+        'This is a bluff-walled private-bank corridor. Use only the named public launches for launching, landing, and breaks.',
+      ],
+      watchFor: [
+        'Low water near or below about 100 cfs, when long shoals and rocky runs become slower and more scrape-prone.',
+        'Higher post-rain current that can push boats toward strainers and cliff bases through the Bent.',
+        'Fresh wood, tight turns, and a strenuous finish carry at Bent Road.',
+      ],
+    },
+  },
+  'buck-creek-bent-road-poplarville-road': {
+    putIn: {
+      id: 'bent-road-fishing-access',
+      name: 'Bent Road Fishing Access',
+      latitude: 37.1038,
+      longitude: -84.435,
+    },
+    takeOut: {
+      id: 'poplarville-road-fishing-access',
+      name: 'Poplarville Road Fishing Access',
+      latitude: 37.0469,
+      longitude: -84.4314,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr, longer with low-water walking, scout stops at drops, or a slow finish below Dykes Cave',
+      shuttle:
+        'Stage the take-out at Poplarville Road first, then drive back to Bent Road. Poplarville is the easier public finish; KDFWR says the Dykes Bridge carry-out a mile upstream is steeper and more strenuous.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and stay off private banks through the gorge.',
+      camping:
+        'Treat this as a day route. KDFWR lists no public camping or overnight support at Bent Road or Poplarville Road.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Bent Road and finish at Poplarville Road for the lower Buck Creek gorge float. Use the Shopville gauge and expect to walk more of the shallow drops whenever the creek stays below the same-gauge 100 cfs / 2.0 ft floor.',
+      accessCaveats: [
+        'Bent Road is a basic carry-down start with unpaved parking and no services.',
+        'Poplarville is the recommended easier finish. Do not assume Dykes Bridge is the default take-out just because it appears first on some older guide references.',
+        'The Poplarville parking area is small and roadside. Keep vehicles tight and fully clear of local traffic.',
+      ],
+      watchFor: [
+        'Low water near or below about 100 cfs, when shallow drops and the post-Dykes stretch can require boat walking.',
+        'Several lower-route drops and small waterfalls that KDFWR says can become dicey at higher flows.',
+        'The island line where KDFWR recommends staying left because the right chute may still be blocked by a fallen tree.',
+        'Fresh strainers, cold spring inflows, and private-bank limits away from the two named accesses.',
+      ],
+    },
+  },
   'upper-salt-river-dry-branch-road-salt-river-ramp-3': {
     putIn: {
       id: 'dry-branch-road-access',

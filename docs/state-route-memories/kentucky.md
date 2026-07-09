@@ -2,6 +2,15 @@
 
 Last summarized: 2026-07-09 10:55 America/Chicago / 2026-07-09 15:55 UTC.
 
+## 2026-07-09 Buck Creek implementation pass
+
+- Reused the live repo state as the only valid baseline and added three Buck Creek slugs that were absent from the current tree at run start: `buck-creek-rainey-road-stab-road`, `buck-creek-stab-road-bent-road`, and `buck-creek-bent-road-poplarville-road`.
+- Current KDFWR Buck Creek guidance plus the current detailed map still document the official route pieces of Rainey Road -> KY-1675 / Stab `4.2`, KY-1675 / Stab -> Bent Road `7.5`, and Bent Road -> Poplarville Road `6.0`, which support the three new public route mileages directly without inferred endpoint geometry.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Rainey Road Fishing Access, KY-1675 Fishing Access, Bent Road Fishing Access, and Poplarville Road Fishing Access. Same-day direct USGS Water Services returned `63.5 cfs / 1.91 ft` at `2026-07-09 11:30 EDT` for Buck Creek near Shopville (`03407500`), which keeps the live path current but below the same-gauge local Buck Creek paddling floor.
+- Threshold posture stays intentionally conservative for all three adds: KDFWR still supplies route shape and hazard context but not a numeric runnable band, so the routes use a `minimum-only` model off repeated same-gauge Buck Creek Outfitters guidance that about `100 cfs / 2.0 ft` is the minimum for a fun float.
+- Camping stays conservative at `none` for all three because KDFWR lists no camping or overnight support at these access points and the reviewed Buck Creek route package is still a day-float corridor.
+- Bounded image posture remains no-gallery for all three slugs. `docs/river-image-source-audit.csv` now records no-image outcomes because bounded KDFWR, Commons, and same-creek context review did not produce a clearly rights-clean exact-route asset for these additions.
+
 ## 2026-07-09 Cumberland and Goose restoration pass
 
 - Reused the live repo state as the only valid baseline and restored or added three Kentucky slugs that were absent from the current tree at run start: `cumberland-river-redbird-thunderstruck`, `cumberland-river-thunderstruck-cumberland-falls`, and `goose-creek-tobacco-road-laurel-branch`.
