@@ -1,6 +1,15 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-09 09:27 America/Chicago / 2026-07-09 14:27 UTC.
+Last summarized: 2026-07-09 10:55 America/Chicago / 2026-07-09 15:55 UTC.
+
+## 2026-07-09 Cumberland and Goose restoration pass
+
+- Reused the live repo state as the only valid baseline and restored or added three Kentucky slugs that were absent from the current tree at run start: `cumberland-river-redbird-thunderstruck`, `cumberland-river-thunderstruck-cumberland-falls`, and `goose-creek-tobacco-road-laurel-branch`.
+- Current KDFWR Cumberland River guidance plus the current detailed map still document Redbird -> Longbottom `9.0`, Longbottom -> Thunderstruck `2.5`, and Thunderstruck -> Cumberland Falls `5.1`, which support the restored public route mileages of about `11.5` and `5.1` for the two above-the-falls Cumberland slugs.
+- Current KDFWR Goose Creek guidance still documents Tobacco Road Bridge Ramp -> Dump Hollow Ford `0.8` and Dump Hollow Ford -> Laurel Branch Road Access `4.8`, which support the new downstream Goose Creek continuation at `5.6` miles.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Redbird Ramp, Thunderstruck Ramp, Cumberland Falls Carrydown, Tobacco Road Bridge Ramp, Dump Hollow Ford, and Laurel Branch Road Access. Same-day direct USGS Water Services returned `1080 cfs / 4.30 ft` at `2026-07-09 11:00 EDT` for Cumberland River at Williamsburg (`03404000`) and `175 cfs / 7.24 ft` at `2026-07-09 10:45 EDT` for Goose Creek at Manchester (`03281100`). The Cumberland restores sit inside the official preferred band; Goose Creek touched the cfs floor while stage stayed just below the `7.4 ft` floor, so the Goose add keeps explicit scrape-prone low-water caution.
+- Camping stays conservative by route: `cumberland-river-redbird-thunderstruck` uses `on_route_campsite` because KDFWR still says float campers use the banks downstream of Bee Shoals, `cumberland-river-thunderstruck-cumberland-falls` uses `endpoint_campground` because the carrydown access still lists seasonal camping and year-round lodging at Cumberland Falls State Resort Park, and `goose-creek-tobacco-road-laurel-branch` stays `none`.
+- Bounded image posture remains no-gallery for all three slugs. `docs/river-image-source-audit.csv` records no-image outcomes because bounded KDFWR, Kentucky State Parks, Commons, and same-river context review did not produce a clearly rights-clean exact-route asset for these additions.
 
 ## 2026-07-09 South Fork mid-chain restoration pass
 
