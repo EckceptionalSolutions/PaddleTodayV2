@@ -45772,6 +45772,322 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'conodoguinet-creek-willow-mill-vincent-difilippo',
+    slug: 'conodoguinet-creek-willow-mill-vincent-difilippo',
+    name: 'Conodoguinet Creek',
+    reach: 'Willow Mill Park to Vincent DiFilippo Nature Preserve',
+    aliases: [
+      'Conodoguinet Creek - Willow Mill to Vincent DiFilippo',
+      'Conodoguinet Creek - Willow Mill Park to DiFilippo Preserve',
+      'Cumberland County Conodoguinet upper-central short day',
+    ],
+    state: 'Pennsylvania',
+    region: 'South Central Pennsylvania',
+    summary:
+      'Short Cumberland County Conodoguinet day from Willow Mill Park to Vincent DiFilippo Nature Preserve. The county water-trail materials publish both named public launches, official mile markers, and direct Hogestown gauge guidance for when this creek is worth putting on the water.',
+    statusText:
+      'Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was only 1.52 ft at 2026-07-10 15:30 EDT, so expect dragging and shallow bridge lines rather than a routine green-light day.',
+    latitude: 40.2567096,
+    longitude: -77.0411725,
+    gaugeSource: {
+      id: 'usgs-01570000',
+      provider: 'usgs',
+      siteId: '01570000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Conodoguinet Creek near Hogestown, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01570000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 1.7,
+      thresholdSource: {
+        label: 'Cumberland County Water Trails Hogestown gauge guidance',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The county treats this as a warm-season creek route that needs enough depth at Hogestown to avoid scraping. Rain can quickly raise current, debris, and bridge-clearance consequences even when the baseline route is otherwise approachable.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a short moving-water creek link with improved public launches, but it still needs a same-day check for wood, dragging, and stronger post-rain current.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Willow Mill Park and Vincent DiFilippo Nature Preserve as named public Conodoguinet launches with official mile markers of 23.2 and 18.8, which define this 4.4-mile access pair. The same county page still says boating should be above 1.7 ft at the direct Hogestown gauge, while USGS Water Services returned same-day July 10, 2026 values of 219 cfs and 1.52 ft at 2026-07-10 15:30 EDT, below the county floor. Endpoint coordinates are derived from the official access-table street addresses through the U.S. Census geocoder because the current county access table does not publish launch lat/longs.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Willow Mill Park to Vincent DiFilippo Nature Preserve, about 4.4 mi',
+        note: 'The current Cumberland County access table places Willow Mill Park at mile 23.2 and Vincent DiFilippo Nature Preserve at mile 18.8 on the Conodoguinet.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024',
+      },
+      {
+        label: 'Public access addresses',
+        value: '80 Willow Mill Park Road to 110 Sample Bridge Road',
+        note: 'Cumberland County identifies Willow Mill Park and Vincent DiFilippo Nature Preserve as named public launch sites with those official street addresses. Route coordinates are derived from those exact access addresses using the U.S. Census geocoder.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01570000 at Hogestown',
+        note: 'USGS Water Services returned same-day July 10, 2026 values of 219 cfs and 1.52 ft for Conodoguinet Creek near Hogestown at 2026-07-10 15:30 EDT.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01570000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Official minimum guidance',
+        value: 'Boat above 1.7 ft at Hogestown',
+        note: 'Cumberland County says recommended stream levels for boating on the Conodoguinet are above 1.7 ft at the Hogestown gauge.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+      },
+      {
+        label: 'High-water context',
+        value: 'Action stage 6 ft, flood stage 8 ft',
+        note: 'The county safety alert and the USGS station page both identify 6 ft as action stage and 8 ft as flood stage at Hogestown, which supports a conservative no-high-band posture rather than a broad all-level recommendation.',
+        sourceUrl: 'https://waterdata.usgs.gov/pa/nwis/uv?site_no=01570000',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Cumberland County Water Trails',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      {
+        label: 'Conodoguinet Creek access table update',
+        url: 'https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01570000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-01570000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01570000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01570000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'conodoguinet-creek-vincent-difilippo-good-hope',
+    slug: 'conodoguinet-creek-vincent-difilippo-good-hope',
+    name: 'Conodoguinet Creek',
+    reach: 'Vincent DiFilippo Nature Preserve to Good Hope Access',
+    aliases: [
+      'Conodoguinet Creek - DiFilippo to Good Hope',
+      'Conodoguinet Creek - Vincent DiFilippo Nature Preserve to Good Hope Access',
+      'Cumberland County Conodoguinet mid-creek day',
+    ],
+    state: 'Pennsylvania',
+    region: 'South Central Pennsylvania',
+    summary:
+      'Mid-creek Cumberland County Conodoguinet day from Vincent DiFilippo Nature Preserve to the PFBC Good Hope Access. The current county access table still defines the pair cleanly, and the same direct Hogestown gauge gives a current depth check for the whole corridor.',
+    statusText:
+      'Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was only 1.52 ft at 2026-07-10 15:30 EDT, so expect dragging and shallow bridge approaches rather than a routine easy day.',
+    latitude: 40.2576825,
+    longitude: -77.0209403,
+    gaugeSource: {
+      id: 'usgs-01570000',
+      provider: 'usgs',
+      siteId: '01570000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Conodoguinet Creek near Hogestown, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01570000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 1.7,
+      thresholdSource: {
+        label: 'Cumberland County Water Trails Hogestown gauge guidance',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This middle Conodoguinet corridor can work through much of the warm season when the creek is above the county low-water floor, but rain raises current and floating wood quickly on the same day.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route stays in the easier creek-day bucket when Hogestown is above the county floor, but it still needs a real same-day check for wood, shallow bridge approaches, and the PFBC launch conditions at Good Hope.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Vincent DiFilippo Nature Preserve and Good Hope Access as named public launches at miles 18.8 and 13.6, which defines this 5.2-mile route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 10, 2026 values of 219 cfs and 1.52 ft at 2026-07-10 15:30 EDT, below the county floor. The Good Hope endpoint legitimacy is especially strong because the county table identifies it as a PFBC access requiring the normal launch-permit or registration package. Endpoint coordinates are derived from the official access-table street addresses through the U.S. Census geocoder because the county table does not publish launch lat/longs.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Vincent DiFilippo Nature Preserve to Good Hope Access, about 5.2 mi',
+        note: 'The current Cumberland County access table places Vincent DiFilippo Nature Preserve at mile 18.8 and Good Hope Access at mile 13.6 on the Conodoguinet.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024',
+      },
+      {
+        label: 'Public access addresses',
+        value: '110 Sample Bridge Road to 700 Good Hope Road',
+        note: 'Cumberland County identifies both endpoints as named public launches with those street addresses. Route coordinates are derived from those official access addresses using the U.S. Census geocoder.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01570000 at Hogestown',
+        note: 'USGS Water Services returned same-day July 10, 2026 values of 219 cfs and 1.52 ft for Conodoguinet Creek near Hogestown at 2026-07-10 15:30 EDT.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01570000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Official minimum guidance',
+        value: 'Boat above 1.7 ft at Hogestown',
+        note: 'Cumberland County says recommended stream levels for boating on the Conodoguinet are above 1.7 ft at the Hogestown gauge.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+      },
+      {
+        label: 'PFBC endpoint legitimacy',
+        value: 'Good Hope Access is a PFBC launch site',
+        note: 'The county access table identifies Good Hope as a PFBC-maintained site with a shallow earthen ramp improved by matting and says a PA DCNR launch permit or PFBC use permit is required.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Cumberland County Water Trails',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      {
+        label: 'Conodoguinet Creek access table update',
+        url: 'https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01570000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-01570000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01570000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01570000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'conodoguinet-creek-good-hope-acri-meadow',
+    slug: 'conodoguinet-creek-good-hope-acri-meadow',
+    name: 'Conodoguinet Creek',
+    reach: 'Good Hope Access to Acri Meadow Park',
+    aliases: [
+      'Conodoguinet Creek - Good Hope to Acri Meadow',
+      'Conodoguinet Creek - Good Hope Access to Acri Meadow Park',
+      'Cumberland County Conodoguinet lower-central day',
+    ],
+    state: 'Pennsylvania',
+    region: 'South Central Pennsylvania',
+    summary:
+      'Longer lower-central Conodoguinet day from the PFBC Good Hope Access to Acri Meadow Park. Cumberland County still publishes both launches, the official mile spacing, and the same direct Hogestown gauge recommendation that keeps the route scoreable without over-claiming a high-water comfort band.',
+    statusText:
+      'Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was only 1.52 ft at 2026-07-10 15:30 EDT, so expect scraping, slower travel, and a more conditional lower-creek day.',
+    latitude: 40.2546304,
+    longitude: -76.9753045,
+    gaugeSource: {
+      id: 'usgs-01570000',
+      provider: 'usgs',
+      siteId: '01570000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Conodoguinet Creek near Hogestown, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01570000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 1.7,
+      thresholdSource: {
+        label: 'Cumberland County Water Trails Hogestown gauge guidance',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The lower-central creek stays usable in the warm season when depth clears the county floor, but rain raises current and bridge-area consequences quickly while broad urban-edge banks stay muddy after floods.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a straightforward creek day when Hogestown is above the minimum, but the 7.8-mile length, mixed launch quality, and bridge/wood scouting still make it more committed than a park pond outing.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Good Hope Access and Acri Meadow Park as named public launches at miles 13.6 and 5.8, which defines this 7.8-mile lower-central route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 10, 2026 values of 219 cfs and 1.52 ft at 2026-07-10 15:30 EDT, below the county floor. The route intentionally stays minimum-only because the county publishes a launch recommendation floor plus action and flood stages, not a route-specific ideal high band. Endpoint coordinates are derived from the official access-table street addresses through the U.S. Census geocoder because the county table does not publish launch lat/longs.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Good Hope Access to Acri Meadow Park, about 7.8 mi',
+        note: 'The current Cumberland County access table places Good Hope Access at mile 13.6 and Acri Meadow Park at mile 5.8 on the Conodoguinet.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024',
+      },
+      {
+        label: 'Public access addresses',
+        value: '700 Good Hope Road to 55 Acri Meadow Drive',
+        note: 'Cumberland County identifies both endpoints as named public launches with those street addresses. Route coordinates are derived from those official access addresses using the U.S. Census geocoder.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01570000 at Hogestown',
+        note: 'USGS Water Services returned same-day July 10, 2026 values of 219 cfs and 1.52 ft for Conodoguinet Creek near Hogestown at 2026-07-10 15:30 EDT.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01570000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Official minimum guidance',
+        value: 'Boat above 1.7 ft at Hogestown',
+        note: 'Cumberland County says recommended stream levels for boating on the Conodoguinet are above 1.7 ft at the Hogestown gauge.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+      },
+      {
+        label: 'High-water context',
+        value: 'Action stage 6 ft, flood stage 8 ft',
+        note: 'The county safety alert and the USGS station page identify 6 ft as action stage and 8 ft as flood stage at Hogestown, supporting a conservative minimum-only scoring posture rather than an expansive upper band.',
+        sourceUrl: 'https://waterdata.usgs.gov/pa/nwis/uv?site_no=01570000',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Cumberland County Water Trails',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      {
+        label: 'Conodoguinet Creek access table update',
+        url: 'https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01570000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-01570000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01570000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01570000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'conodoguinet-creek-willow-mill-acri-meadow',
     slug: 'conodoguinet-creek-willow-mill-acri-meadow',
     name: 'Conodoguinet Creek',

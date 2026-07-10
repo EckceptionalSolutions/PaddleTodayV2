@@ -11,6 +11,14 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Current Pennsylvania candidate ledger rows: 50 implemented rows as of 2026-06-25 UTC.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
+## 2026-07-10 Conodoguinet re-add pass
+
+- 2026-07-10 15:32 America/Chicago / 2026-07-10 20:32 UTC: Pennsylvania three-route implementation pass; restored three Conodoguinet Creek slugs beyond the live 433-route baseline at run start.
+- Implemented `conodoguinet-creek-willow-mill-vincent-difilippo`, `conodoguinet-creek-vincent-difilippo-good-hope`, and `conodoguinet-creek-good-hope-acri-meadow`.
+- Qualification package: Cumberland County still publishes the Conodoguinet water-trails page with current Hogestown guidance to boat above `1.7 ft`, with `6 ft` action stage and `8 ft` flood stage, and the June 2024 county access-table update still lists the named public launches, street addresses, and official mile markers for Willow Mill Park (`23.2`), Vincent DiFilippo Nature Preserve (`18.8`), Good Hope Access (`13.6`), and Acri Meadow Park (`5.8`). Same-day direct USGS Water Services returned `219 cfs / 1.52 ft` at `2026-07-10 15:30 EDT` for direct USGS `01570000`, below the county floor, so all three routes ship with explicit low-water scrape caution instead of comfort framing.
+- Camping stays `none` for all three because the current county and PFBC materials verify launch access and park amenities, not public overnight support for these exact segments.
+- No gallery image was added. Existing bounded Commons, county-site, and same-creek USGS image review remained sufficient, and no clearly rights-clean exact-route asset surfaced for local reuse.
+
 ## Source Priorities
 
 - Pennsylvania Fish and Boat Commission water-trail pages and access information.
