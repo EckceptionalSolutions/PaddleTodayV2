@@ -9343,6 +9343,119 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'jacks-fork-river-highway-17-chilton': {
+    putIn: {
+      name: 'Buck Hollow / Highway 17 Bridge Access',
+      latitude: 37.057183,
+      longitude: -91.664061,
+    },
+    takeOut: {
+      name: 'Joshua T. Chilton Memorial Landing / Eminence',
+      latitude: 37.152717,
+      longitude: -91.353486,
+    },
+    logistics: {
+      distanceLabel: 'About 30.3 mi by current NPS segment totals',
+      estimatedPaddleTime:
+        'About 13 hr to 20 hr depending on level, stops, and low-water dragging above Alley Spring',
+      shuttle:
+        'Stage the take-out at Joshua T. Chilton Memorial Landing in Eminence, then drive to Buck Hollow on Highway 17. This is the longest current Jacks Fork continuation in the app, so inspect both endpoints, shuttle timing, and weather before committing.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, MDC/cooperative-area rules at Joshua T. Chilton, no-glass/no-polystyrene rules, and any current park closures, alerts, or advisories.',
+      camping:
+        'Blue Spring, Rymers, and Bay Creek all have primitive camping context and Alley Spring has developed campground context, but treat this route as an overnighter or exceptional long day only if you have checked current NPS rules and made a separate legal overnight plan.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Buck Hollow and take out at Joshua T. Chilton Memorial Landing in Eminence for the full Buck-Hollow-to-town continuation. Use the direct Eminence gauge conservatively and treat below-floor readings as a reason to shorten or break up the trip, not force the whole route.',
+      accessCaveats: [
+        'Buck Hollow, Blue Spring, Rymers, Bay Creek, Alley Spring, and Joshua T. Chilton are all named public accesses, but the coordinates used here are practical access anchors rather than one official coordinate table. Follow signed access roads and current landing layouts on arrival.',
+        'Buck Hollow is the Highway 17 bridge access north of Mountain View. Do not confuse it with the upstream Prongs / Highway Y section, which is a separate and even more seasonal reach.',
+        'This route passes from remote upper-river gravel roads into the developed Alley Spring area and finally the Eminence town corridor. Stay with signed public accesses and lawful stops rather than private banks.',
+        'The current park alerts feed showed no live closure naming these Jacks Fork endpoints on the review date, but same-day alert and road-condition checks still matter before you leave vehicles.',
+      ],
+      watchFor: [
+        'Repeated scraping, dragging, and possible short lining when the Eminence gauge is below the 200 cfs conservative floor, especially before you reach Alley Spring.',
+        'Fast riffles, wood, strainers, bluff ledges, and Class I-II moving-water consequences over an extremely long mixed upper-lower river day.',
+        'Rapid rises after thunderstorms, cold spring-fed water, limited cell service, long rural shuttle friction, and busy lower-river traffic into Eminence.',
+        'Fatigue, daylight management, and the temptation to press on after the upper corridor is obviously too shallow. Treat a below-floor reading as a signal to shorten the objective.',
+      ],
+    },
+  },
+  'jacks-fork-river-blue-spring-chilton': {
+    putIn: {
+      name: 'Blue Spring River Access',
+      latitude: 37.054497,
+      longitude: -91.638198,
+    },
+    takeOut: {
+      name: 'Joshua T. Chilton Memorial Landing / Eminence',
+      latitude: 37.152717,
+      longitude: -91.353486,
+    },
+    logistics: {
+      distanceLabel: 'About 27.7 mi by current NPS segment totals',
+      estimatedPaddleTime:
+        'About 12 hr to 16 hr depending on level, stops, and low-water dragging above Alley Spring',
+      shuttle:
+        'Stage the take-out at Joshua T. Chilton Memorial Landing in Eminence, then drive to Blue Spring. Inspect the Blue Spring road and the Chilton landing first because this route combines remote upper-river access with a long lower-river finish.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, MDC/cooperative-area rules at Joshua T. Chilton, no-glass/no-polystyrene rules, and any current park closures, alerts, or advisories.',
+      camping:
+        'Blue Spring, Rymers, and Bay Creek all have primitive camping context and Alley Spring has developed campground context, but treat this route as an overnighter or exceptional long day only if you have checked current NPS rules and made a separate legal overnight plan.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Blue Spring and take out at Joshua T. Chilton Memorial Landing in Eminence for the long Blue-Spring-to-town continuation. Use the direct Eminence gauge conservatively and expect the upper half to feel scrape-prone when conditions are near or below the 200 cfs floor.',
+      accessCaveats: [
+        'Blue Spring, Rymers, Bay Creek, Alley Spring, and Joshua T. Chilton are all named public accesses, but the coordinates used here are practical access anchors rather than one official coordinate table. Follow signed access roads and current landing layouts on arrival.',
+        'Blue Spring on the Jacks Fork is the river access across from the geologic feature, not the separate Blue Spring on the Current River.',
+        'This route stays remote for much of the upper half before entering the developed Alley Spring area and the Eminence town corridor. Stay with signed public accesses and lawful stops rather than private banks.',
+        'The current park alerts feed showed no live closure naming these Jacks Fork endpoints on the review date, but same-day alert and road-condition checks still matter before you leave vehicles.',
+      ],
+      watchFor: [
+        'Prolonged scraping, dragging, and possible short lining when the Eminence gauge is below the 200 cfs conservative floor, especially before you reach Alley Spring.',
+        'Fast riffles, wood, strainers, bluff ledges, and a very long mixed upper-lower river day with limited easy exits before Alley Spring.',
+        'Rapid rises after thunderstorms, cold spring-fed water, limited cell service, and the sudden shift from remote upper river to heavier traffic into town.',
+        'Fatigue, daylight management, and the temptation to continue when the upper corridor is obviously too shallow. Treat a below-floor reading as a reason to shorten the day.',
+      ],
+    },
+  },
+  'jacks-fork-river-rymers-chilton': {
+    putIn: {
+      name: 'Rymers Access',
+      latitude: 37.061386,
+      longitude: -91.559117,
+    },
+    takeOut: {
+      name: 'Joshua T. Chilton Memorial Landing / Eminence',
+      latitude: 37.152717,
+      longitude: -91.353486,
+    },
+    logistics: {
+      distanceLabel: 'About 21.1 mi by current NPS segment totals',
+      estimatedPaddleTime:
+        'About 9 hr to 12 hr depending on level, stops, and low-water dragging above Alley Spring',
+      shuttle:
+        'Stage the take-out at Joshua T. Chilton Memorial Landing in Eminence, then drive to Rymers. The shuttle mixes remote upper-river access with the busier town landing, so inspect both endpoints and current parking before launching.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, MDC/cooperative-area rules at Joshua T. Chilton, no-glass/no-polystyrene rules, and any current park closures, alerts, or advisories.',
+      camping:
+        'Rymers has primitive camping context, Bay Creek has backcountry camping context, and Alley Spring has developed campground context, but treat this route as a long day or separate legal overnight plan rather than assuming informal camps are available.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Rymers and take out at Joshua T. Chilton Memorial Landing in Eminence for the long upper-to-lower Jacks continuation. Use the direct Eminence gauge conservatively and expect more scraping above Alley Spring when conditions are near or below the 200 cfs floor.',
+      accessCaveats: [
+        'Rymers, Bay Creek, Alley Spring, and Joshua T. Chilton are named public accesses, but the coordinates here are practical access anchors rather than one official coordinate table. Follow signed access roads and current landing layout on arrival.',
+        'This route transitions from the remote upper corridor into the developed Alley Spring area and then the Eminence town-access corridor. Stay with signed public accesses and lawful stops rather than private banks.',
+        'The current park alerts feed showed no live closure naming these Jacks Fork endpoints on the review date, but same-day alert and road-condition checks still matter before you leave vehicles.',
+      ],
+      watchFor: [
+        'Frequent scraping, dragging, and slower travel when the Eminence gauge is below the 200 cfs conservative floor, especially before you reach Alley Spring.',
+        'Fast riffles, wood, strainers, blind bends, and Class I-II moving-water consequences on a long route that still starts on the upper Jacks Fork.',
+        'Rapid rises after thunderstorms, cold spring-fed water, limited cell service on the upper half, and busier boat traffic once you pass Alley Spring.',
+        'Long-day fatigue and the temptation to keep going in marginal water just because the lower finish is closer to town.',
+      ],
+    },
+  },
   'gasconade-river-rollins-ferry-pointers-creek': {
     putIn: {
       name: 'Rollins Ferry Access',

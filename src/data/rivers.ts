@@ -24110,6 +24110,429 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'jacks-fork-river-highway-17-chilton',
+    slug: 'jacks-fork-river-highway-17-chilton',
+    name: 'Jacks Fork River',
+    reach: 'Buck Hollow / Highway 17 Bridge Access to Joshua T. Chilton Memorial Landing',
+    aliases: [
+      'Jacks Fork - Highway 17 to Eminence',
+      'Upper-lower Jacks Fork Buck Hollow to Chilton',
+      'Buck Hollow to Chilton full continuation',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Full Buck-Hollow-to-Eminence Jacks Fork continuation that links the longest current upper-Jacks corridor into the classic Alley-to-town finish, using current NPS route rows, named public accesses, and the direct Eminence gauge conservatively.',
+    statusText:
+      'Use the Jacks Fork at Eminence gauge. Around 200 cfs is the conservative low-water floor; below that, expect scrape-prone upper-river riffles, slower travel, and a very long day.',
+    latitude: 37.057183,
+    longitude: -91.664061,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'This is the longest currently supported Jacks Fork continuation in the app, combining the full upper Buck Hollow corridor with the lower Eminence finish.',
+        'The direct Eminence gauge was below the 200 cfs conservative floor during this run, so expect repeated scraping, slow progress, and more walking or lining above Alley Spring.',
+        'Buck Hollow is a remote gravel-road put-in and Joshua T. Chilton sits in the town-access corridor. Use only named public accesses and check current park alerts before leaving vehicles.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07066000',
+      provider: 'usgs',
+      siteId: '07066000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jacks Fork at Eminence, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07066000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 200,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Eminence gauge rating and lower-Jacks trip rows',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07066000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS says paddling is available year-round, but this full continuation still depends on the most seasonal upper Jacks Fork water above Blue Spring, Rymers, and Bay Creek. Dry periods can turn the upper miles into a scrape-and-drag slog, while storms can raise the entire corridor quickly.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'This is a very long mixed upper-lower Jacks Fork route with Class I-II moving water, wood, riffles, bluff pools, remote shuttle logistics, and the fatigue of linking the whole Buck-Hollow-to-Eminence chain in one push.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: the current NPS float-times page still lists Highway 17 to Blue Spring as 2.6 miles / 1 hour, Blue Spring to Rymers as 6.6 miles / 3 hours, Rymers to Bay Creek as 9 miles / 4 hours, Bay Creek to Alley Spring as 5.8 miles / 2 hours, and Alley Spring to Eminence as 6.3 miles / 3 hours, which supports a combined Buck-Hollow-to-Eminence route of about 30.3 miles / 13 hours; the older NPS Paddle Jacks Fork River page still directly lists Hwy 17 to Alley as a 16-hour float, reinforcing the all-day posture; the current park brochure still places Buck Hollow at river mile 88 and Alley Spring at river mile 69 with named public access support; MDC still confirms Joshua T. Chilton Memorial Landing as a public Jacks Fork take-out in Eminence; and same-day USGS Water Services IV returned 171 cfs and 1.89 ft at 2026-07-09 09:30 PM CDT for direct gauge 07066000 at Eminence. The app keeps only the existing conservative 200 cfs minimum-only lower-Jacks model already used by Bay-Creek-to-Chilton.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Buck Hollow to Eminence, about 30.3 mi / 13 hr',
+        note: 'The current NPS float-times page still lists Highway 17 to Blue Spring as 2.6 miles / 1 hour, Blue Spring to Rymers as 6.6 miles / 3 hours, Rymers to Bay Creek as 9 miles / 4 hours, Bay Creek to Alley Spring as 5.8 miles / 2 hours, and Alley Spring to Eminence as 6.3 miles / 3 hours, which supports a combined Buck-Hollow-to-Eminence public route of about 30.3 miles / 13 hours.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Legacy NPS timing row',
+        value: 'Hwy 17 to Alley, 16 hr',
+        note: 'The NPS Paddle Jacks Fork River page still directly lists Hwy 17 to Alley as a 16-hour float, reinforcing that this full Buck-Hollow-to-town continuation is beyond a casual day-float posture.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+      },
+      {
+        label: 'Public endpoints',
+        value: 'Buck Hollow river mile 88 to Joshua T. Chilton Memorial Landing',
+        note: 'The current NPS park brochure still places Buck Hollow where Highway 17 crosses the Jacks Fork at river mile 88, and the current MDC Joshua T. Chilton page still confirms the Eminence take-out.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07066000 at 171 cfs / 1.89 ft',
+        note: 'A same-day Water Services IV refresh returned 171 cfs and 1.89 ft at 2026-07-09 09:30 PM CDT for Jacks Fork at Eminence, the direct gauge chosen for this full continuation.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07066000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '200 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Eminence gauge Good beginning at 200 cfs, and the adjacent implemented Alley-Spring-to-Chilton and Bay-Creek-to-Chilton routes already use that same conservative floor. The app keeps only the 200 cfs minimum-only model here.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07066000&hours=168',
+      },
+      {
+        label: 'Closure check',
+        value: 'No Jacks-specific endpoint closure in current park alerts JSON',
+        note: 'The current Ozark National Scenic Riverways alerts feed showed active notices for Akers Ferry, campground reservations, and unrelated area closures, but no live alert naming Buck Hollow, Blue Spring, Rymers, Bay Creek, Alley Spring, or Joshua T. Chilton Memorial Landing as closed endpoints for this route on the review date.',
+        sourceUrl: 'https://www.nps.gov/ozar/park-alerts-ozar.json',
+      },
+      {
+        label: 'Coordinate support',
+        value: 'Buck Hollow bridge access to Joshua T. Chilton Memorial Landing',
+        note: 'This route reuses the same Buck Hollow, Blue Spring, Rymers, Bay Creek, Alley Spring, and Joshua T. Chilton access anchors already implemented on adjacent Jacks Fork routes, keeping the endpoint interpretation consistent across the corridor.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/joshua-t-chilton-memorial-landing-eminence',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Jacks Fork estimated float times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle Jacks Fork River',
+        url: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark National Scenic Riverways park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark park alerts JSON',
+        url: 'https://www.nps.gov/ozar/park-alerts-ozar.json',
+        provider: 'nps',
+      },
+      {
+        label: 'MDC Joshua T. Chilton Memorial Landing',
+        url: 'https://mdc.mo.gov/discover-nature/places/joshua-t-chilton-memorial-landing-eminence',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Jacks Fork Eminence gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07066000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07066000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07066000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07066000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07066000',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'jacks-fork-river-blue-spring-chilton',
+    slug: 'jacks-fork-river-blue-spring-chilton',
+    name: 'Jacks Fork River',
+    reach: 'Blue Spring River Access to Joshua T. Chilton Memorial Landing',
+    aliases: [
+      'Jacks Fork - Blue Spring to Eminence',
+      'Upper-lower Jacks Fork Blue Spring to Chilton',
+      'Blue Spring to Chilton continuation',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Long Blue-Spring-to-Eminence continuation that links the upper Jacks Fork corridor into the classic Alley-to-town finish, using current NPS float-time rows, named public accesses, and the direct Eminence gauge conservatively.',
+    statusText:
+      'Use the Jacks Fork at Eminence gauge. Around 200 cfs is the conservative low-water floor; below that, expect scrape-prone upper-river riffles, slower travel, and a very long day above Alley Spring.',
+    latitude: 37.054497,
+    longitude: -91.638198,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'This route links the long upper Blue Spring corridor into the lower Eminence finish, so it still carries upper-river seasonality and remote-shuttle consequences.',
+        'The direct Eminence gauge was below the 200 cfs conservative floor during this run, so expect scraping and slower travel above Alley Spring even though the lower section gains spring water.',
+        'Blue Spring is a primitive upper access, while Joshua T. Chilton sits in the town-access corridor. Use only the named public accesses and check current park alerts before leaving vehicles.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07066000',
+      provider: 'usgs',
+      siteId: '07066000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jacks Fork at Eminence, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07066000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 200,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Eminence gauge rating and lower-Jacks trip rows',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07066000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS says paddling is available year-round, but this continuation still depends on the seasonal upper Jacks Fork water above Rymers and Bay Creek before it reaches the spring-fed lower corridor. Dry periods can leave the upper miles scrape-prone, while storms can raise the whole route quickly.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'This is a very long mixed upper-lower Jacks Fork route with Class I-II moving water, wood, riffles, bluff pools, remote shuttle logistics, and the fatigue of linking the Blue-Spring-to-Eminence chain in one push.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: the current NPS float-times page still lists Blue Spring to Rymers as 6.6 miles / 3 hours, Rymers to Bay Creek as 9 miles / 4 hours, Bay Creek to Alley Spring as 5.8 miles / 2 hours, and Alley Spring to Eminence as 6.3 miles / 3 hours, which supports a combined Blue-Spring-to-Eminence route of about 27.7 miles / 12 hours; the current park brochure still places Blue Spring at river mile 87 and Alley Spring at river mile 69 with named public access support; MDC still confirms Joshua T. Chilton Memorial Landing as a public Jacks Fork take-out in Eminence; and same-day USGS Water Services IV returned 171 cfs and 1.89 ft at 2026-07-09 09:30 PM CDT for direct gauge 07066000 at Eminence. The app keeps only the existing conservative 200 cfs minimum-only lower-Jacks model already used by Bay-Creek-to-Chilton.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Blue Spring to Eminence, about 27.7 mi / 12 hr',
+        note: 'The current NPS float-times page still lists Blue Spring to Rymers as 6.6 miles / 3 hours, Rymers to Bay Creek as 9 miles / 4 hours, Bay Creek to Alley Spring as 5.8 miles / 2 hours, and Alley Spring to Eminence as 6.3 miles / 3 hours, which supports a combined Blue-Spring-to-Eminence public route of about 27.7 miles / 12 hours.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Public endpoints',
+        value: 'Blue Spring river mile 87 to Joshua T. Chilton Memorial Landing',
+        note: 'The current NPS park brochure still lists Blue Spring on the Jacks Fork as a river access with primitive camping context, and the current MDC Joshua T. Chilton page still confirms the Eminence take-out.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07066000 at 171 cfs / 1.89 ft',
+        note: 'A same-day Water Services IV refresh returned 171 cfs and 1.89 ft at 2026-07-09 09:30 PM CDT for Jacks Fork at Eminence, the direct gauge chosen for this continuation.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07066000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '200 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Eminence gauge Good beginning at 200 cfs, and the adjacent implemented Alley-Spring-to-Chilton and Bay-Creek-to-Chilton routes already use that same conservative floor. The app keeps only the 200 cfs minimum-only model here.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07066000&hours=168',
+      },
+      {
+        label: 'Closure check',
+        value: 'No Jacks-specific endpoint closure in current park alerts JSON',
+        note: 'The current Ozark National Scenic Riverways alerts feed showed active notices for Akers Ferry, campground reservations, and unrelated area closures, but no live alert naming Blue Spring, Rymers, Bay Creek, Alley Spring, or Joshua T. Chilton Memorial Landing as closed endpoints for this route on the review date.',
+        sourceUrl: 'https://www.nps.gov/ozar/park-alerts-ozar.json',
+      },
+      {
+        label: 'Coordinate support',
+        value: 'Blue Spring River Access to Joshua T. Chilton Memorial Landing',
+        note: 'This route reuses the same Blue Spring, Rymers, Bay Creek, Alley Spring, and Joshua T. Chilton access anchors already implemented on adjacent Jacks Fork routes, keeping the endpoint interpretation consistent across the corridor.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/joshua-t-chilton-memorial-landing-eminence',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Jacks Fork estimated float times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle Jacks Fork River',
+        url: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark National Scenic Riverways park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark park alerts JSON',
+        url: 'https://www.nps.gov/ozar/park-alerts-ozar.json',
+        provider: 'nps',
+      },
+      {
+        label: 'MDC Joshua T. Chilton Memorial Landing',
+        url: 'https://mdc.mo.gov/discover-nature/places/joshua-t-chilton-memorial-landing-eminence',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Jacks Fork Eminence gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07066000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07066000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07066000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07066000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07066000',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'jacks-fork-river-rymers-chilton',
+    slug: 'jacks-fork-river-rymers-chilton',
+    name: 'Jacks Fork River',
+    reach: 'Rymers Access to Joshua T. Chilton Memorial Landing',
+    aliases: [
+      'Jacks Fork - Rymers to Eminence',
+      'Upper-lower Jacks Fork Rymers to Chilton',
+      'Rymers to Chilton continuation',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Long Rymers-to-Eminence continuation that links the upper Jacks Fork corridor into the classic Alley-to-town finish, using current NPS float-time rows, named public accesses, and the direct Eminence gauge conservatively.',
+    statusText:
+      'Use the Jacks Fork at Eminence gauge. Around 200 cfs is the conservative low-water floor; below that, expect scrape-prone riffles above Alley Spring and slower-than-normal travel into town.',
+    latitude: 37.061386,
+    longitude: -91.559117,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'This route starts on the seasonal upper Jacks Fork at Rymers, then finishes on the busier lower corridor into Eminence.',
+        'The direct Eminence gauge was below the 200 cfs conservative floor during this run, so expect scraping and slower travel above Alley Spring even though the lower finish is spring-supported.',
+        'Rymers has primitive camping context, Bay Creek and Alley Spring sit mid-corridor, and Joshua T. Chilton is the town take-out. Use only signed public accesses and check current park alerts before leaving vehicles.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07066000',
+      provider: 'usgs',
+      siteId: '07066000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jacks Fork at Eminence, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07066000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 200,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Eminence gauge rating and lower-Jacks trip rows',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07066000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS says paddling is available year-round, but this continuation still depends on the seasonal upper Jacks Fork water above Bay Creek before reaching the spring-fed lower corridor. Dry periods can slow the upper half materially, while storms can raise the whole route quickly.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'This is a long mixed upper-lower Jacks Fork route with Class I-II moving water, wood, riffles, bluff pools, remote access on the upper half, and the fatigue of linking the Rymers-to-Eminence chain in one push.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: the current NPS float-times page still lists Rymers to Bay Creek as 9 miles / 4 hours, Bay Creek to Alley Spring as 5.8 miles / 2 hours, and Alley Spring to Eminence as 6.3 miles / 3 hours, which supports a combined Rymers-to-Eminence route of about 21.1 miles / 9 hours; the current park brochure still places Rymers at river mile 82 and Alley Spring at river mile 69 with named public access support; MDC still confirms Joshua T. Chilton Memorial Landing as a public Jacks Fork take-out in Eminence; and same-day USGS Water Services IV returned 171 cfs and 1.89 ft at 2026-07-09 09:30 PM CDT for direct gauge 07066000 at Eminence. The app keeps only the existing conservative 200 cfs minimum-only lower-Jacks model already used by Bay-Creek-to-Chilton.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Rymers to Eminence, about 21.1 mi / 9 hr',
+        note: 'The current NPS float-times page still lists Rymers to Bay Creek as 9 miles / 4 hours, Bay Creek to Alley Spring as 5.8 miles / 2 hours, and Alley Spring to Eminence as 6.3 miles / 3 hours, which supports a combined Rymers-to-Eminence public route of about 21.1 miles / 9 hours.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Public endpoints',
+        value: 'Rymers river mile 82 to Joshua T. Chilton Memorial Landing',
+        note: 'The current NPS park brochure still lists Rymers as a river access with primitive campsites, and the current MDC Joshua T. Chilton page still confirms the Eminence take-out.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07066000 at 171 cfs / 1.89 ft',
+        note: 'A same-day Water Services IV refresh returned 171 cfs and 1.89 ft at 2026-07-09 09:30 PM CDT for Jacks Fork at Eminence, the direct gauge chosen for this continuation.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07066000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '200 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Eminence gauge Good beginning at 200 cfs, and the adjacent implemented Alley-Spring-to-Chilton and Bay-Creek-to-Chilton routes already use that same conservative floor. The app keeps only the 200 cfs minimum-only model here.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07066000&hours=168',
+      },
+      {
+        label: 'Closure check',
+        value: 'No Jacks-specific endpoint closure in current park alerts JSON',
+        note: 'The current Ozark National Scenic Riverways alerts feed showed active notices for Akers Ferry, campground reservations, and unrelated area closures, but no live alert naming Rymers, Bay Creek, Alley Spring, or Joshua T. Chilton Memorial Landing as closed endpoints for this route on the review date.',
+        sourceUrl: 'https://www.nps.gov/ozar/park-alerts-ozar.json',
+      },
+      {
+        label: 'Coordinate support',
+        value: 'Rymers Access to Joshua T. Chilton Memorial Landing',
+        note: 'This route reuses the same Rymers, Bay Creek, Alley Spring, and Joshua T. Chilton access anchors already implemented on adjacent Jacks Fork routes, keeping the endpoint interpretation consistent across the corridor.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/joshua-t-chilton-memorial-landing-eminence',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Jacks Fork estimated float times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle Jacks Fork River',
+        url: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark National Scenic Riverways park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark park alerts JSON',
+        url: 'https://www.nps.gov/ozar/park-alerts-ozar.json',
+        provider: 'nps',
+      },
+      {
+        label: 'MDC Joshua T. Chilton Memorial Landing',
+        url: 'https://mdc.mo.gov/discover-nature/places/joshua-t-chilton-memorial-landing-eminence',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Jacks Fork Eminence gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07066000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07066000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07066000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07066000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07066000',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'jacks-fork-river-alley-spring-chilton',
     slug: 'jacks-fork-river-alley-spring-chilton',
     name: 'Jacks Fork River',

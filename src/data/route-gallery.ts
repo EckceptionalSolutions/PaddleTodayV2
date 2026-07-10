@@ -986,6 +986,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
   ],
+  'jacks-fork-river-highway-17-chilton': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-highway-17-chilton/jacks-fork-upper.jpg',
+      alt: 'The Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'jacks-fork-river-blue-spring-chilton': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-blue-spring-chilton/jacks-fork-upper.jpg',
+      alt: 'The Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'jacks-fork-river-rymers-chilton': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-rymers-chilton/jacks-fork-upper.jpg',
+      alt: 'The Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
   'current-river-waymeyer-van-buren': [
     {
       id: 'ozark-riverways-canoeing-nps',
