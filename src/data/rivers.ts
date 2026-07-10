@@ -23550,6 +23550,280 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'jacks-fork-river-highway-17-alley-spring',
+    slug: 'jacks-fork-river-highway-17-alley-spring',
+    name: 'Jacks Fork River',
+    reach: 'Buck Hollow / Highway 17 Bridge to Alley Spring Access',
+    aliases: [
+      'Jacks Fork - Highway 17 to Alley Spring',
+      'Upper Jacks Fork - Highway 17 to Alley Spring',
+      'Buck Hollow to Alley Spring',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Full upper Jacks Fork continuation from Buck Hollow to Alley Spring, backed by current NPS float-time support, named public accesses throughout the corridor, and the direct Alley Spring gauge used conservatively.',
+    statusText:
+      'Use the Jacks Fork at Alley Spring gauge. Around 100 cfs is the conservative low-water floor; below that, expect repeated scraping, dragging, and possible short lining across this all-day upper-river route.',
+    latitude: 37.057183,
+    longitude: -91.664061,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'This is the longest currently supported upper Jacks Fork continuation in the app, with few easy exits between Buck Hollow, Blue Spring, Rymers, Bay Creek, and Alley Spring.',
+        'The direct Alley Spring gauge was below the 100 cfs conservative floor during this run, so expect prolonged scraping, dragging, and slower-than-normal progress if you attempt it at similar levels.',
+        'Use only the named public accesses and check current park alerts before leaving vehicles. Remote gravel-road shuttle time and storm runoff matter as much as the river mileage here.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07065495',
+      provider: 'usgs',
+      siteId: '07065495',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jacks Fork at Alley Spring, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065495/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Alley Spring gauge rating and adjacent upper-Jacks trip rows',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065495&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Current NPS materials still frame the upper Jacks Fork as seasonal water where low stages can limit navigation and storms can raise the corridor quickly. This full Buck-Hollow-to-Alley continuation is most reliable in spring or after rain, and same-day closure checks still matter.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'This is a very long upper-river Ozark float with Class I-II moving water, shoals, wood, bluff pools, and a remote shuttle. The route is materially more committing than the shorter upper-Jacks planners and should not be treated like the easier water below Alley Spring.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: the current NPS float-times page still lists Highway 17 to Blue Spring as 2.6 miles / 1 hour, Blue Spring to Rymers as 6.6 miles / 3 hours, Rymers to Bay Creek as 9 miles / 4 hours, and Bay Creek to Alley Spring as 5.8 miles / 2 hours, which supports a combined Buck-Hollow-to-Alley route of about 24 miles; the older NPS Paddle Jacks Fork River page still directly lists Hwy 17 to Alley as a 16-hour float, which reinforces the all-day posture; the current park brochure still places Buck Hollow at river mile 88 and Alley Spring at river mile 69 with named public access support; and same-day USGS Water Services IV returned 91.9 cfs and 1.44 ft at 2026-07-09 06:30 PM CDT for direct gauge 07065495 at Alley Spring. The app keeps only the existing conservative 100 cfs minimum-only upper-Jacks model already used on adjacent Alley-supported routes.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'About 24.0 mi, all-day upper Jacks continuation',
+        note: 'The current NPS float-times page still lists Highway 17 to Blue Spring as 2.6 miles / 1 hour, Blue Spring to Rymers as 6.6 miles / 3 hours, Rymers to Bay Creek as 9 miles / 4 hours, and Bay Creek to Alley Spring as 5.8 miles / 2 hours, which supports a combined Buck-Hollow-to-Alley route of about 24.0 miles and 10 paddle-hours before stops.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Legacy NPS timing row',
+        value: 'Hwy 17 to Alley, 16 hr',
+        note: 'The NPS Paddle Jacks Fork River page still directly lists Hwy 17 to Alley as a 16-hour float, reinforcing that this is an all-day upper-river planner rather than a casual split.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+      },
+      {
+        label: 'Public endpoints',
+        value: 'Buck Hollow river mile 88 to Alley Spring river mile 69',
+        note: 'The current NPS park brochure still places Buck Hollow where Highway 17 crosses the Jacks Fork at river mile 88 and Alley Spring at river mile 69 with campground, ranger-station, and river-access context.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07065495 at 91.9 cfs / 1.44 ft',
+        note: 'A same-day Water Services IV refresh returned 91.9 cfs and 1.44 ft at 2026-07-09 06:30 PM CDT for Jacks Fork at Alley Spring, the direct gauge chosen for this full upper-corridor continuation.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065495',
+      },
+      {
+        label: 'Low-water floor',
+        value: '100 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Alley Spring gauge Good beginning at 100 cfs, and the adjacent implemented Bay-Creek-to-Alley and Rymers-to-Alley routes already use that same conservative floor. The app keeps only the 100 cfs minimum-only model here.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07065495&hours=168',
+      },
+      {
+        label: 'Closure check',
+        value: 'No Jacks-specific endpoint closure in current park alerts JSON',
+        note: 'The current Ozark National Scenic Riverways alerts feed showed active notices for Akers Ferry, campground reservations, and unrelated area closures, but no live alert naming Buck Hollow, Blue Spring, Rymers, Bay Creek, or Alley Spring as closed endpoints for this route on the review date.',
+        sourceUrl: 'https://www.nps.gov/ozar/park-alerts-ozar.json',
+      },
+      {
+        label: 'Coordinate support',
+        value: 'Buck Hollow bridge access to Alley Spring River Access',
+        note: 'This route reuses the same Buck Hollow and Alley Spring access anchors already implemented on adjacent upper Jacks Fork routes, keeping the endpoint interpretation consistent across the corridor.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Jacks Fork estimated float times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle Jacks Fork River',
+        url: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark National Scenic Riverways park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark park alerts JSON',
+        url: 'https://www.nps.gov/ozar/park-alerts-ozar.json',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Jacks Fork Alley Spring gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065495&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07065495 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065495/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07065495 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065495',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'jacks-fork-river-blue-spring-alley-spring',
+    slug: 'jacks-fork-river-blue-spring-alley-spring',
+    name: 'Jacks Fork River',
+    reach: 'Blue Spring River Access to Alley Spring Access',
+    aliases: [
+      'Jacks Fork - Blue Spring to Alley Spring',
+      'Upper Jacks Fork - Blue Spring to Alley Spring',
+      'Blue Spring to Alley long split',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Long upper Jacks Fork continuation from Blue Spring to Alley Spring, backed by current NPS float-time rows, named public accesses through the corridor, and the direct Alley Spring gauge used conservatively.',
+    statusText:
+      'Use the Jacks Fork at Alley Spring gauge. Around 100 cfs is the conservative low-water floor; below that, expect steady scraping, dragging, and a slower-than-normal day above Alley Spring.',
+    latitude: 37.054497,
+    longitude: -91.638198,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'This route chains together three seasonal upper-Jacks segments, so the long gap between easy exits and the remote gravel-road shuttle matter more than the clean river-mile math suggests.',
+        'The direct Alley Spring gauge was below the 100 cfs conservative floor during this run, so expect scrape-prone riffles and slower progress unless you catch a stronger water window.',
+        'Blue Spring, Rymers, Bay Creek, and Alley Spring all have public access context, but use only signed accesses and check current park alerts before relying on any mid-route bailout or overnight plan.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07065495',
+      provider: 'usgs',
+      siteId: '07065495',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jacks Fork at Alley Spring, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065495/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Alley Spring gauge rating and adjacent upper-Jacks trip rows',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065495&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Current NPS materials still frame the upper Jacks Fork as seasonal water where low stages can limit navigation and storms can raise the corridor quickly. This Blue-Spring-to-Alley continuation is most reliable in spring or after rain, and same-day closure checks still matter.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'This is a long upper-river Ozark float with Class I-II moving water, shoals, wood, bluff pools, and limited easy exits before Alley Spring. It is materially more committing than the shorter Blue Spring and Bay Creek splits.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: the current NPS float-times page still lists Blue Spring to Rymers as 6.6 miles / 3 hours, Rymers to Bay Creek as 9 miles / 4 hours, and Bay Creek to Alley Spring as 5.8 miles / 2 hours, which supports a combined Blue-Spring-to-Alley route of about 21.4 miles / 9 hours; the current park brochure still places Blue Spring at river mile 87 and Alley Spring at river mile 69 with named public access support; and same-day USGS Water Services IV returned 91.9 cfs and 1.44 ft at 2026-07-09 06:30 PM CDT for direct gauge 07065495 at Alley Spring. The app keeps only the existing conservative 100 cfs minimum-only upper-Jacks model already used on adjacent Alley-supported routes.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Blue Spring to Alley Spring, about 21.4 mi / 9 hr',
+        note: 'The current NPS float-times page still lists Blue Spring to Rymers as 6.6 miles / 3 hours, Rymers to Bay Creek as 9 miles / 4 hours, and Bay Creek to Alley Spring as 5.8 miles / 2 hours, which supports a combined Blue-Spring-to-Alley-Spring public day route of about 21.4 miles / 9 hours.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Public endpoints',
+        value: 'Blue Spring river mile 87 to Alley Spring river mile 69',
+        note: 'The current NPS park brochure still places Blue Spring on the Jacks Fork at river mile 87 and Alley Spring at river mile 69 with named public river-access support and camping context at both ends of the corridor.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07065495 at 91.9 cfs / 1.44 ft',
+        note: 'A same-day Water Services IV refresh returned 91.9 cfs and 1.44 ft at 2026-07-09 06:30 PM CDT for Jacks Fork at Alley Spring, the direct gauge chosen for this route.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065495',
+      },
+      {
+        label: 'Low-water floor',
+        value: '100 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Alley Spring gauge Good beginning at 100 cfs, and the adjacent implemented Bay-Creek-to-Alley and Rymers-to-Alley routes already use that same conservative floor. The app keeps only the 100 cfs minimum-only model here.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07065495&hours=168',
+      },
+      {
+        label: 'Closure check',
+        value: 'No Jacks-specific endpoint closure in current park alerts JSON',
+        note: 'The current Ozark National Scenic Riverways alerts feed showed active notices for Akers Ferry, campground reservations, and unrelated area closures, but no live alert naming Blue Spring, Rymers, Bay Creek, or Alley Spring as closed endpoints for this route on the review date.',
+        sourceUrl: 'https://www.nps.gov/ozar/park-alerts-ozar.json',
+      },
+      {
+        label: 'Coordinate support',
+        value: 'Blue Spring River Access to Alley Spring River Access',
+        note: 'This route reuses the same Blue Spring, Rymers, Bay Creek, and Alley Spring access anchors already implemented on adjacent upper Jacks Fork routes, keeping the endpoint interpretation consistent across the corridor.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Jacks Fork estimated float times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle Jacks Fork River',
+        url: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark National Scenic Riverways park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark park alerts JSON',
+        url: 'https://www.nps.gov/ozar/park-alerts-ozar.json',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Jacks Fork Alley Spring gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065495&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07065495 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065495/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07065495 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065495',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'jacks-fork-river-bay-creek-alley-spring',
     slug: 'jacks-fork-river-bay-creek-alley-spring',
     name: 'Jacks Fork River',
@@ -23687,6 +23961,151 @@ export const rivers: River[] = [
         label: 'FloatMissouri Jacks Fork River guide',
         url: 'https://www.floatmissouri.com/plan/missouri-rivers/jacks-fork-river/',
         provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'jacks-fork-river-bay-creek-chilton',
+    slug: 'jacks-fork-river-bay-creek-chilton',
+    name: 'Jacks Fork River',
+    reach: 'Bay Creek River Access to Joshua T. Chilton Memorial Landing',
+    aliases: [
+      'Jacks Fork - Bay Creek to Eminence',
+      'Jacks Fork - Bay Creek to Chilton',
+      'Upper-lower Jacks Fork Bay Creek to Eminence continuation',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Bay Creek-to-Eminence continuation that links the upper Bay Creek float into the classic Alley Spring-to-town finish, using current NPS float-time rows, public access support, and the direct Eminence gauge conservatively.',
+    statusText:
+      'Use the Jacks Fork at Eminence gauge. Around 200 cfs is the conservative low-water floor; below that, expect shallow riffles, slower travel, and extra scraping, especially above Alley Spring.',
+    latitude: 37.1231,
+    longitude: -91.5018,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'This route starts on the more seasonal upper Jacks Fork above Alley Spring, then finishes on the busier lower corridor into Eminence.',
+        'The direct Eminence gauge was below the 200 cfs conservative floor during this run, so expect scrape-prone riffles and slower-than-normal travel, especially before you reach the stronger Alley Spring water.',
+        'Bay Creek is a remote gravel-road put-in, while the Chilton finish sits in the town-access corridor with private banks nearby. Use only signed public accesses and check current park alerts before leaving vehicles.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07066000',
+      provider: 'usgs',
+      siteId: '07066000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jacks Fork at Eminence, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07066000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 200,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Eminence gauge rating and lower-Jacks trip rows',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07066000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS says paddling is available year-round but portions of the Jacks Fork can still be limited by low water. This Bay-Creek-to-Eminence continuation depends on the more seasonal upper section above Alley Spring, while storms can quickly change current, wood, and landing conditions across the whole day.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This route mixes seasonal Class I-II upper-river water above Alley Spring with the busier lower Jacks corridor into Eminence. It is easier than the full upper routes, but still more demanding than the short Alley-to-Chilton float because it starts upstream of the spring-fed lower section.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: the current NPS float-times page still lists Bay Creek to Alley Spring as 5.8 miles / 2 hours and Alley Spring to Eminence as 6.3 miles / 3 hours, which supports a combined Bay-Creek-to-Eminence route of about 12.1 miles / 5 hours; the current park brochure still places Bay Creek at river mile 74 and Alley Spring at river mile 69 with named public access support; MDC still confirms Joshua T. Chilton Memorial Landing as a public Jacks Fork take-out in Eminence; and same-day USGS Water Services IV returned 174 cfs and 1.90 ft at 2026-07-09 06:30 PM CDT for direct gauge 07066000 at Eminence. The app keeps only the existing conservative 200 cfs minimum-only lower-Jacks model already used by Alley-Spring-to-Chilton.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Bay Creek to Eminence, about 12.1 mi / 5 hr',
+        note: 'The current NPS float-times page still lists Bay Creek to Alley Spring as 5.8 miles / 2 hours and Alley Spring to Eminence as 6.3 miles / 3 hours, which supports a combined Bay-Creek-to-Eminence public day route of about 12.1 miles / 5 hours.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Bay Creek, river mile 74',
+        note: 'The current NPS park brochure still lists Bay Creek as a Jacks Fork river access with picnic area and primitive campsites west of Eminence off Highway 106.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Joshua T. Chilton Memorial Landing in Eminence',
+        note: 'MDC still identifies Joshua T. Chilton Memorial Landing in Eminence as a Jacks Fork River access where boats may be used under the cooperative-area regulations.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/joshua-t-chilton-memorial-landing-eminence',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07066000 at 174 cfs / 1.90 ft',
+        note: 'A same-day Water Services IV refresh returned 174 cfs and 1.90 ft at 2026-07-09 06:30 PM CDT for Jacks Fork at Eminence, the direct gauge chosen for this route.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07066000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '200 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Eminence gauge Good beginning at 200 cfs, and the adjacent implemented Alley-Spring-to-Chilton route already uses that same conservative floor. The app keeps only the 200 cfs minimum-only model here.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07066000&hours=168',
+      },
+      {
+        label: 'Closure check',
+        value: 'No Jacks-specific endpoint closure in current park alerts JSON',
+        note: 'The current Ozark National Scenic Riverways alerts feed showed active notices for Akers Ferry, campground reservations, and unrelated area closures, but no live alert naming Bay Creek, Alley Spring, or Joshua T. Chilton Memorial Landing as closed endpoints for this route on the review date.',
+        sourceUrl: 'https://www.nps.gov/ozar/park-alerts-ozar.json',
+      },
+      {
+        label: 'Coordinate support',
+        value: 'Bay Creek River Access to Joshua T. Chilton Memorial Landing',
+        note: 'This route reuses the same Bay Creek and Joshua T. Chilton access anchors already implemented on the adjacent Bay-Creek-to-Alley and Alley-Spring-to-Chilton routes, keeping the endpoint interpretation consistent across the corridor.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Jacks Fork estimated float times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle Jacks Fork River',
+        url: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark National Scenic Riverways park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark park alerts JSON',
+        url: 'https://www.nps.gov/ozar/park-alerts-ozar.json',
+        provider: 'nps',
+      },
+      {
+        label: 'MDC Joshua T. Chilton Memorial Landing',
+        url: 'https://mdc.mo.gov/discover-nature/places/joshua-t-chilton-memorial-landing-eminence',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Jacks Fork Eminence gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07066000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07066000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07066000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07066000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07066000',
+        provider: 'usgs',
       },
     ],
   },

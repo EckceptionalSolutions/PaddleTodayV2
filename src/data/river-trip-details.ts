@@ -8064,6 +8064,82 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'jacks-fork-river-highway-17-alley-spring': {
+    putIn: {
+      name: 'Buck Hollow / Highway 17 Bridge Access',
+      latitude: 37.057183,
+      longitude: -91.664061,
+    },
+    takeOut: {
+      name: 'Alley Spring River Access',
+      latitude: 37.1484,
+      longitude: -91.4499,
+    },
+    logistics: {
+      distanceLabel: 'About 24 mi by current NPS segment totals',
+      estimatedPaddleTime:
+        'About 10 hr to 16 hr depending on level, stops, scouting, and low-water dragging',
+      shuttle:
+        'Use a rural two-car or authorized outfitter shuttle between Buck Hollow / Highway 17 and Alley Spring. Stage the Alley Spring take-out first, then inspect the Buck Hollow launch because this route commits you to the longest current upper-Jacks continuation in the app.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, posted access signs, no-glass/no-polystyrene river rules, and any current park river closures, alerts, or advisories.',
+      camping:
+        'Blue Spring, Rymers, and Bay Creek all have primitive camping context and Alley Spring has developed campground context, but treat this route as a very long day planner unless you have checked current NPS rules and made a separate legal overnight plan.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Buck Hollow and take out at Alley Spring for the full upper Jacks Fork continuation supported by the current NPS float-time rows and the legacy NPS Hwy 17-to-Alley timing line. Use the direct Alley Spring gauge conservatively and expect scrape-prone travel when conditions are near or below the 100 cfs floor.',
+      accessCaveats: [
+        'Buck Hollow, Blue Spring, Rymers, Bay Creek, and Alley Spring are official NPS river accesses, but the coordinates used here are practical access anchors rather than an NPS coordinate table. Follow signed access roads and the current landing layout on arrival.',
+        'Buck Hollow is the Highway 17 bridge access north of Mountain View. Do not confuse it with the upstream Prongs / Highway Y section, which is a separate, more seasonal reach.',
+        'This is an all-day remote corridor with long gaps between easy exits. Plan the shuttle, food, and timing before launching and do not assume you can improvise mid-route on private banks.',
+        'The current park alerts feed showed no live closure naming these Jacks Fork endpoints on the review date, but same-day alert and road-condition checks still matter before you leave vehicles.',
+      ],
+      watchFor: [
+        'Repeated scraping, dragging, and possible short lining when the Alley Spring gauge is below the 100 cfs conservative floor.',
+        'Fast riffles, wood, strainers, bluff ledges, and Class I-II moving-water consequences over a very long upper-river day.',
+        'Rapid rises after thunderstorms, cold spring-fed water, limited cell service, and long rural shuttle friction on gravel roads.',
+        'Fatigue, daylight management, and the temptation to press on after missing the best water window. Treat a below-floor reading as a reason to shorten the day, not to force the full route.',
+      ],
+    },
+  },
+  'jacks-fork-river-blue-spring-alley-spring': {
+    putIn: {
+      name: 'Blue Spring River Access',
+      latitude: 37.054497,
+      longitude: -91.638198,
+    },
+    takeOut: {
+      name: 'Alley Spring River Access',
+      latitude: 37.1484,
+      longitude: -91.4499,
+    },
+    logistics: {
+      distanceLabel: 'About 21.4 mi by current NPS segment totals',
+      estimatedPaddleTime:
+        'About 9 hr to 11 hr depending on level, stops, scouting, and low-water dragging',
+      shuttle:
+        'Use a rural two-car or authorized outfitter shuttle between Blue Spring and Alley Spring. Stage the Alley Spring take-out first, then inspect the Blue Spring road and landing because both endpoints can take more time than the map distance suggests.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, posted access signs, no-glass/no-polystyrene river rules, and any current park river closures, alerts, or advisories.',
+      camping:
+        'Blue Spring, Rymers, and Bay Creek all have primitive camping context and Alley Spring has developed campground context, but treat this route as a long day planner unless you have checked current NPS rules and made a separate legal overnight plan.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Blue Spring and take out at Alley Spring for a long upper Jacks Fork continuation built from the current NPS float-time rows. Use the direct Alley Spring gauge conservatively and expect scrape-prone travel when conditions are near or below the 100 cfs floor.',
+      accessCaveats: [
+        'Blue Spring, Rymers, Bay Creek, and Alley Spring are official NPS river accesses, but the coordinates used here are practical access anchors rather than an NPS coordinate table. Follow signed access roads and current parking layout on arrival.',
+        'Blue Spring on the Jacks Fork is the river access across from the geologic feature, not the separate Blue Spring on the Current River.',
+        'This is a long remote corridor between named accesses. Plan the shuttle and bailout logic before launching and do not assume quick road access if weather turns.',
+        'The current park alerts feed showed no live closure naming these Jacks Fork endpoints on the review date, but same-day alert and road-condition checks still matter before you leave vehicles.',
+      ],
+      watchFor: [
+        'Prolonged scraping, dragging, and possible short lining or poling when the Alley Spring gauge is below the 100 cfs conservative floor.',
+        'Fast riffles, wood, strainers, bluff ledges, and a long remote access-to-access day with few easy exits between named landings.',
+        'Rapid rises after thunderstorms, cold spring-fed water, limited cell service, and long rural shuttle friction.',
+        'Fatigue, daylight management, and the temptation to continue when the upper corridor is obviously too shallow. Treat a below-floor reading as a reason to shorten the day.',
+      ],
+    },
+  },
   'jacks-fork-river-alley-spring-chilton': {
     putIn: {
       name: 'Alley Spring Access',
@@ -9226,6 +9302,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Wide, shallow riffles in the few miles above Alley Spring, plus slick shelf rock, gravel bars, and occasional wood.',
         'High or rising water after storms. MoHERP currently treats high/flood Alley Spring readings as unsuitable for casual or inexperienced trips.',
         'Cold spring water near the take-out, limited cell service, remote-road shuttle logistics, and busy summer access traffic.',
+      ],
+    },
+  },
+  'jacks-fork-river-bay-creek-chilton': {
+    putIn: {
+      name: 'Bay Creek River Access / Backcountry Campground',
+      latitude: 37.1231,
+      longitude: -91.5018,
+    },
+    takeOut: {
+      name: 'Joshua T. Chilton Memorial Landing / Eminence',
+      latitude: 37.152717,
+      longitude: -91.353486,
+    },
+    logistics: {
+      distanceLabel: 'About 12.1 mi by current NPS segment totals',
+      estimatedPaddleTime:
+        'About 5 hr to 8 hr depending on level, stops, and low-water dragging above Alley Spring',
+      shuttle:
+        'Stage the take-out at Joshua T. Chilton Memorial Landing in Eminence, then drive west on Highway 106 and County Road 106-425 to Bay Creek. Inspect Bay Creek first because the gravel road, remote campground layout, and weather can add friction before an already longer day.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, MDC/cooperative-area rules at Joshua T. Chilton, no-glass/no-polystyrene rules, and any current park closures, alerts, or advisories.',
+      camping:
+        'Bay Creek is a reservable backcountry campground, but treat this app route as a day float unless you have a separate legal overnight plan and current NPS reservation. Do not assume private banks or informal gravel bars are available.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Bay Creek and take out at Joshua T. Chilton Memorial Landing in Eminence for the continuation that links the upper Bay Creek float into the classic lower Jacks finish. Use the direct Eminence gauge conservatively and expect the route to feel scrape-prone when the gauge is near or below the 200 cfs floor.',
+      accessCaveats: [
+        'Bay Creek is a remote NPS backcountry campground/access reached by gravel road from Highway 106, while Joshua T. Chilton is an MDC-listed cooperative landing in the Eminence town corridor. Inspect both endpoints before launching.',
+        'The route passes through the developed Alley Spring area before continuing to Eminence. Stay with the signed public accesses and lawful river corridor rather than using private banks near town.',
+        'Endpoint coordinates are carried from the adjacent implemented Bay Creek and Joshua T. Chilton routes rather than an NPS coordinate table. Follow current signs, posted closures, and the actual landing layout on arrival.',
+        'The current park alerts feed showed no live closure naming Bay Creek, Alley Spring, or Joshua T. Chilton on the review date, but same-day alert and road-condition checks still matter before you leave vehicles.',
+      ],
+      watchFor: [
+        'Dragging and shallow riffles when the Eminence gauge is below the 200 cfs conservative floor, especially on the upper Bay-Creek-to-Alley part of the day.',
+        'Fast riffles, wood, strainers, and limited easy exits above Alley Spring, followed by heavier canoe, tube, and motorboat traffic into Eminence.',
+        'High or rising water after storms, cold spring water near Alley Spring, fishing lines, swimmers, and crowded landings in peak season.',
+        'Private banks near Eminence and long-day fatigue if you start the route in marginal water or too late in the day.',
       ],
     },
   },

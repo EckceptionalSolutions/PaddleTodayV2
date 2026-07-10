@@ -946,10 +946,40 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
   ],
+  'jacks-fork-river-highway-17-alley-spring': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-highway-17-alley-spring/jacks-fork-upper.jpg',
+      alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'jacks-fork-river-blue-spring-alley-spring': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-blue-spring-alley-spring/jacks-fork-upper.jpg',
+      alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
   'jacks-fork-river-bay-creek-alley-spring': [
     {
       id: 'jacks-fork-upper-commons',
       src: '/gallery/jacks-fork-river-bay-creek-alley-spring/jacks-fork-upper.jpg',
+      alt: 'The Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'jacks-fork-river-bay-creek-chilton': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-bay-creek-chilton/jacks-fork-upper.jpg',
       alt: 'The Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
       caption: 'Jacks Fork River corridor',
       credit: 'Chris M Morris via Wikimedia Commons',
