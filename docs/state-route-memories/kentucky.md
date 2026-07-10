@@ -10,6 +10,12 @@ Last summarized: 2026-07-10 06:50 America/Chicago / 2026-07-10 11:50 UTC.
 - Camping stays route-specific: `green-river-roachville-american-legion` stays `none`, `green-river-american-legion-glenview-road` stays `nearby_basecamp` because Greensburg lodging and cabins remain corridor support rather than route camping, and `green-river-stovall-park-dennison-ferry` stays `endpoint_campground` because Stovall still offers seasonal camping while Dennison remains day-use only.
 - Existing bounded no-image review stayed valid for all three slugs. `docs/river-image-source-audit.csv` already records the no-gallery outcome for each route, so no new gallery asset was added in this pass.
 
+## 2026-07-10 South Fork and Goose consolidation pass
+
+- Audited the live unpushed Kentucky family set against the current repo state and only collapsed the families whose surviving planner cards already preserve named public intermediate accesses, the same direct gauge, and the same `none` camping posture.
+- Re-collapsed the South Fork Kentucky River family back to canonical `south-fork-kentucky-river-oneida-fish-creek`, removing the shorter Oneida-to-Fish-Creek permutations because the surviving trip details still carry Rocky Branch, Cedar Valley, Bishop Bend, Hacker Branch, Upper Wolf Creek, and Kay Wood as explicit access-planner stops under the same Booneville gauge and hazard story.
+- Re-collapsed the lower Goose Creek family back to canonical `goose-creek-jacks-laurel-branch`, removing the Jacks/Tobacco/Dump Hollow split slugs because the surviving planner card still preserves those three intermediate public accesses and the same below-Rawlings low-head-dam avoidance, Manchester gauge thresholds, and `none` camping posture.
+
 ## 2026-07-10 Upper Green restoration pass
 
 ## 2026-07-10 South Fork upper-middle re-add pass
