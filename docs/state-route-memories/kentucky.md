@@ -2,6 +2,12 @@
 
 Last summarized: 2026-07-10 02:50 America/Chicago / 2026-07-10 07:50 UTC.
 
+## 2026-07-10 South Fork consolidation audit
+
+- Audited the live unpushed route range and re-collapsed the current South Fork Kentucky River permutation family back to the canonical `south-fork-kentucky-river-oneida-fish-creek` planner card.
+- Kept the full public access ladder in the surviving trip details through Rocky Branch, Cedar Valley, Bishop Bend, Hacker Branch, Upper Wolf Creek, and Kay Wood instead of shipping separate same-gauge point-to-point slugs again.
+- This fold-back remains justified because the corridor shares one Booneville gauge, one KDFWR access-mileage stack, the same `none` camping posture, and no new dam, mandatory take-out, or materially different threshold split surfaced in the restored variants.
+
 ## 2026-07-10 Cumberland split restoration pass
 
 - Reused the live repo state as the only valid baseline and restored three Cumberland-above-the-falls slugs that were absent from the current tree at run start: `cumberland-river-redbird-longbottom`, `cumberland-river-longbottom-thunderstruck`, and `cumberland-river-longbottom-cumberland-falls`.
