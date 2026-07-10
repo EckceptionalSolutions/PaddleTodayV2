@@ -37,7 +37,7 @@ export async function handleRiverRequest(
     const replyEmail = clean(body?.replyEmail, 240);
     const honeypot = clean(body?.company, 240);
 
-    if (!routeName || !state || !notes) {
+    if (!routeName || !state) {
       return sendJson(
         response,
         400,
@@ -47,11 +47,11 @@ export async function handleRiverRequest(
       );
     }
 
-    if (notes.length < 12 || routeName.length < 3) {
+    if (routeName.length < 3) {
       return sendJson(
         response,
         400,
-        { requestId, error: 'not_enough_detail', message: 'Please provide more detail.' },
+        { requestId, error: 'not_enough_detail', message: 'Please provide a river or route name.' },
         includeBody,
         'no-store'
       );

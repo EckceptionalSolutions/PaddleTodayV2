@@ -39,7 +39,7 @@ if (form instanceof HTMLFormElement) {
     const replyEmail = String(formData.get('replyEmail') || '').trim();
     const company = String(formData.get('company') || '').trim();
 
-    const validationError = validateForm({ routeName, state, notes, replyEmail });
+    const validationError = validateForm({ routeName, state, replyEmail });
     if (validationError) {
       setStatus(validationError);
       return;
@@ -153,7 +153,7 @@ function setSubmitting(isSubmitting) {
 }
 
 function attachValidationListeners(formElement) {
-  const fields = ['routeName', 'state', 'notes', 'replyEmail']
+  const fields = ['routeName', 'state', 'replyEmail']
     .map((name) => formElement.elements.namedItem(name))
     .filter((field) => field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement);
 
@@ -167,7 +167,7 @@ function attachValidationListeners(formElement) {
   }
 }
 
-function validateForm({ routeName, state, notes, replyEmail }) {
+function validateForm({ routeName, state, replyEmail }) {
   let firstInvalidField = null;
 
   const setFirstInvalid = (field) => {
@@ -178,7 +178,6 @@ function validateForm({ routeName, state, notes, replyEmail }) {
 
   const routeField = getField('routeName');
   const stateField = getField('state');
-  const notesField = getField('notes');
   const emailField = getField('replyEmail');
 
   if (routeField) {
@@ -191,12 +190,6 @@ function validateForm({ routeName, state, notes, replyEmail }) {
     const message = state ? '' : 'Add a state.';
     setFieldError(stateField, message);
     if (message) setFirstInvalid(stateField);
-  }
-
-  if (notesField) {
-    const message = notes.length >= 12 ? '' : 'Add at least 12 characters of detail.';
-    setFieldError(notesField, message);
-    if (message) setFirstInvalid(notesField);
   }
 
   if (emailField) {
@@ -227,8 +220,6 @@ function validateSingleField(field) {
     message = value.length >= 3 ? '' : 'Add a route or river name.';
   } else if (field.name === 'state') {
     message = value ? '' : 'Add a state.';
-  } else if (field.name === 'notes') {
-    message = value.length >= 12 ? '' : 'Add at least 12 characters of detail.';
   } else if (field.name === 'replyEmail') {
     message = !value || field.validity.valid ? '' : 'Enter a valid email address or leave it blank.';
   }

@@ -6,25 +6,22 @@ const requestEmail = 'hello@paddletoday.com';
 
 <BaseLayout
   title="Request A Route | Paddle Today"
-  description="Request a route for Paddle Today to review. If you only know the river, start there and include any useful source links."
+  description="Request a route for Paddle Today to review. A river name and state are enough to get it on the list."
 >
   <section class="info-hero">
     <p class="eyebrow" data-request-kicker>Request a route</p>
-    <h1 data-request-title>Ask us to add a route.</h1>
+    <h1 data-request-title>Request a river or route.</h1>
     <p class="muted" data-request-lede>
-      Send the basics and any useful source links. If you only know the river, start there. The fastest requests to add are the ones with a clear put-in, take-out, and matching USGS gauge.
+      A name and state are enough. Put-in, take-out, gauge, or local notes help us review it faster, but you do not need to have all of that ready.
     </p>
   </section>
 
   <section class="request-layout request-layout--single">
     <article class="request-card">
       <p class="eyebrow">Request form</p>
-      <h2 data-request-form-title>What to send</h2>
+      <h2 data-request-form-title>Start with the basics</h2>
       <p class="muted" data-request-form-note>
-        A route name or river name, state, and enough context to understand the stretch. If you can give us the put-in, take-out, and a USGS gauge link, it is usually very easy for us to review and add.
-      </p>
-      <p class="muted">
-        Best-case request: route name, state, put-in, take-out, and the exact USGS gauge that should drive the call. DNR, park, or club links help too.
+        Send the river or route you want tracked. If you only know the river, leave the rest blank.
       </p>
 
       <form class="request-form" data-request-form novalidate>
@@ -43,34 +40,37 @@ const requestEmail = 'hello@paddletoday.com';
           <input name="state" required placeholder="MN, WI, IA, etc." maxlength="32" autocomplete="address-level1" />
         </label>
 
-        <label>
-          Put-in name
-          <input name="putIn" placeholder="Launch or access name" />
-        </label>
+        <details class="request-form__optional">
+          <summary class="request-form__optional-title">Optional details</summary>
+          <p class="request-form__hint">These help us review the route faster. Leave anything blank if you are not sure.</p>
 
-        <label>
-          Take-out name
-          <input name="takeOut" placeholder="Exit or access name" />
-        </label>
+          <label>
+            Put-in name
+            <input name="putIn" placeholder="Launch or access name" />
+          </label>
 
-        <label>
-          Known links
-          <span class="request-form__hint">Example USGS gauge link: https://waterdata.usgs.gov/monitoring-location/05372995/</span>
-          <textarea name="sources" rows="3" placeholder="Paste one or more USGS, DNR, park, club, or outfitter URLs"></textarea>
-        </label>
+          <label>
+            Take-out name
+            <input name="takeOut" placeholder="Exit or access name" />
+          </label>
 
-        <label>
-          Additional information *
-          <span class="request-form__hint" id="request-notes-hint">Minimum 12 characters. Include anything that helps.</span>
-          <textarea
-            name="notes"
-            rows="5"
-            required
-            minlength="12"
-            aria-describedby="request-notes-hint"
-            placeholder="Distance, difficulty, hazards, shuttle notes, gauge context, which USGS gauge applies, local demand, or anything else useful."
-          ></textarea>
-        </label>
+          <label>
+            Useful links
+            <span class="request-form__hint">USGS, DNR, park, club, outfitter, or map links all help.</span>
+            <textarea name="sources" rows="3" placeholder="Paste any links you already have"></textarea>
+          </label>
+
+          <label>
+            Anything else?
+            <span class="request-form__hint" id="request-notes-hint">Distance, difficulty, hazards, shuttle notes, or why you want this route.</span>
+            <textarea
+              name="notes"
+              rows="4"
+              aria-describedby="request-notes-hint"
+              placeholder="Share whatever you know. A sentence is plenty."
+            ></textarea>
+          </label>
+        </details>
 
         <label>
           Your email (optional)
