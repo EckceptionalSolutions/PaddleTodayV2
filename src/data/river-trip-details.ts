@@ -799,6 +799,43 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'current-river-cedar-grove-pulltite': {
+    putIn: {
+      name: 'Cedar Grove Boat Launch / access',
+      latitude: 37.42238,
+      longitude: -91.6083,
+    },
+    takeOut: {
+      name: 'Pulltite river access / campground area',
+      latitude: 37.33505,
+      longitude: -91.47959,
+    },
+    logistics: {
+      distanceLabel: '17.3 mi',
+      estimatedPaddleTime:
+        'Long day, about 7 hr in canoes and kayaks; longer with low water, wind, stops, rafts, or tubes',
+      shuttle:
+        'Use a two-car or authorized outfitter shuttle between Cedar Grove and Pulltite. Cell service is limited in the park, so stage the take-out and settle the pickup plan before launching.',
+      permits:
+        'No route-specific private-vessel paddling fee is known inside Ozark National Scenic Riverways. Follow NPS rules, posted signs, designated access layouts, parking limits, no-glass/no-polystyrene rules, and any current river closure notices.',
+      camping:
+        'This continuation is long enough that many groups should treat it as an overnight-capable route rather than force a one-day push. Akers and Pulltite both have NPS campground support, and gravel-bar camping has NPS rules and location limits; do not assume any bank is public just because it is reachable from the river.',
+      campingClassification: 'overnight_capable',
+      summary:
+        'Launch at Cedar Grove and take out at Pulltite for the combined NPS-listed 17.3-mile Upper Current continuation. Use the Akers USGS gauge as a same-day route check, with the app keeping the score conservative at a 230 cfs minimum-only floor.',
+      accessCaveats: [
+        'Cedar Grove, Akers, and Pulltite are standard Ozark National Scenic Riverways access areas, but flood repairs, construction zones, parking, outfitter traffic, and temporary closure notices can change the practical launch or landing.',
+        'Pulltite remains the most flood-damaged Upper Current campground. Inspect the take-out before launching and follow current NPS signs rather than assuming every facility is fully normal.',
+        'This route is much longer than the individual Upper Current day floats. Daylight, weather, and a realistic bailout plan at Akers matter more than on a short scenic float.',
+      ],
+      watchFor: [
+        'Shallow riffles, scraping, and dragging when the Akers gauge is near or below the 230 cfs floor, especially over a 17.3-mile day.',
+        'High or rising water, fresh wood, cloudy water, and faster current after rain. NPS lists Akers at 4.00 ft and Pulltite at 4.20 ft as non-motorized closure levels in flood conditions.',
+        'Cold spring-fed water, crowding on warm weekends, motorized-boat interactions under park horsepower rules, and limited cell service.',
+        'Federal river rules: PFD requirements, children under 7 wearing PFDs, no glass or polystyrene, no vessel lashing, cave closures, and leash rules for dogs when on land.',
+      ],
+    },
+  },
   'current-river-akers-ferry-pulltite': {
     putIn: {
       name: 'Akers Lower / Akers Ferry access',
@@ -829,6 +866,43 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       watchFor: [
         'Shallow riffles, scraping, and possible dragging when the Akers gauge is near or below the 230 cfs floor.',
         'High or rising water, fresh wood, cloudy water, and faster current after rain. NPS lists Akers at 4.00 ft and Pulltite at 4.20 ft as non-motorized closure levels in flood conditions.',
+        'Cold spring-fed water, crowding on warm weekends, motorized-boat interactions under park horsepower rules, and limited cell service.',
+        'Federal river rules: PFD requirements, children under 7 wearing PFDs, no glass or polystyrene, no vessel lashing, cave closures, and leash rules for dogs when on land.',
+      ],
+    },
+  },
+  'current-river-akers-ferry-round-spring': {
+    putIn: {
+      name: 'Akers Lower / Akers Ferry access',
+      latitude: 37.37591,
+      longitude: -91.55148,
+    },
+    takeOut: {
+      name: 'Round Spring river access / campground area',
+      latitude: 37.27996,
+      longitude: -91.40792,
+    },
+    logistics: {
+      distanceLabel: '18.5 mi',
+      estimatedPaddleTime:
+        'Long day, about 8 hr in canoes and kayaks; longer with low water, wind, stops, rafts, or tubes',
+      shuttle:
+        'Use a two-car or authorized outfitter shuttle between Akers Ferry and Round Spring. Cell service is limited in the park, so stage the take-out and confirm the pickup plan before launching.',
+      permits:
+        'No route-specific private-vessel paddling fee is known inside Ozark National Scenic Riverways. Follow NPS rules, posted signs, designated access layouts, parking limits, no-glass/no-polystyrene rules, and any current river closure notices.',
+      camping:
+        'This continuation is long enough that many groups should treat it as an overnight-capable route rather than a casual day float. Pulltite and Round Spring have NPS campground support, and gravel-bar camping has park rules and location limits; do not assume any bank is public just because it is reachable from the river.',
+      campingClassification: 'overnight_capable',
+      summary:
+        'Launch at Akers Ferry and take out at Round Spring for the combined NPS-listed 18.5-mile Upper Current continuation. Use the upstream Akers USGS gauge as a conservative same-day route check, with the app keeping the score at a 300 cfs minimum-only floor.',
+      accessCaveats: [
+        'Akers, Pulltite, and Round Spring are standard Ozark National Scenic Riverways access areas, but flood repairs, construction zones, parking, outfitter traffic, and temporary closure notices can change the practical launch or landing.',
+        'The Akers gauge is upstream of much of this route. Treat it as a proxy and pair it with a visual check at Akers and again at Pulltite if conditions look questionable.',
+        'This route is much longer than the standard NPS day segments. Daylight, weather, and a realistic bailout plan at Pulltite matter more than on a short easy float.',
+      ],
+      watchFor: [
+        'Shallow riffles, scraping, and dragging when the Akers gauge is near or below the 300 cfs floor, especially over an 18.5-mile day.',
+        'High or rising water, fresh wood, cloudy water, and faster current after rain. NPS lists Akers at 4.00 ft, Pulltite at 4.20 ft, and Round Spring Bridge at 5.20 ft as flood-closure markers.',
         'Cold spring-fed water, crowding on warm weekends, motorized-boat interactions under park horsepower rules, and limited cell service.',
         'Federal river rules: PFD requirements, children under 7 wearing PFDs, no glass or polystyrene, no vessel lashing, cave closures, and leash rules for dogs when on land.',
       ],
@@ -865,6 +939,43 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Shallow riffles, scraping, and slower travel when the Akers gauge is near or below the 300 cfs floor.',
         'High or rising water, fresh wood, cloudy water, and faster current after rain. NPS lists Pulltite at 4.20 ft and Round Spring Bridge at 5.20 ft as non-motorized closure levels during flood conditions.',
         'Cold spring-fed water, crowding on warm weekends, motorized-boat interactions under park horsepower rules, and limited cell service.',
+        'Federal river rules: PFD requirements, children under 7 wearing PFDs, no glass or polystyrene, no vessel lashing, cave closures, and leash rules for dogs when on land.',
+      ],
+    },
+  },
+  'current-river-cedar-grove-round-spring': {
+    putIn: {
+      name: 'Cedar Grove Boat Launch / access',
+      latitude: 37.42238,
+      longitude: -91.6083,
+    },
+    takeOut: {
+      name: 'Round Spring river access / campground area',
+      latitude: 37.27996,
+      longitude: -91.40792,
+    },
+    logistics: {
+      distanceLabel: '26.2 mi',
+      estimatedPaddleTime:
+        'Very long day, roughly 11 hr in canoes and kayaks; many groups should split it overnight rather than force one push',
+      shuttle:
+        'Use a two-car or authorized outfitter shuttle between Cedar Grove and Round Spring. Cell service is limited in the park, so stage the take-out and settle the pickup plan before launching.',
+      permits:
+        'No route-specific private-vessel paddling fee is known inside Ozark National Scenic Riverways. Follow NPS rules, posted signs, designated access layouts, parking limits, no-glass/no-polystyrene rules, and any current river closure notices.',
+      camping:
+        'This full Upper Current continuation is long enough that many groups should plan it as an overnight-capable route. Akers, Pulltite, and Round Spring all have NPS campground support, and gravel-bar camping has park rules and location limits; do not assume any bank is public just because it is reachable from the river.',
+      campingClassification: 'overnight_capable',
+      summary:
+        'Launch at Cedar Grove and take out at Round Spring for the full NPS-listed 26.2-mile Upper Current continuation. Use the upstream Akers USGS gauge as a conservative route check, with the app keeping the score at a 300 cfs minimum-only floor because the downstream half is not directly gauged.',
+      accessCaveats: [
+        'Cedar Grove, Akers, Pulltite, and Round Spring are standard Ozark National Scenic Riverways access areas, but flood repairs, construction zones, parking, outfitter traffic, and temporary closure notices can change the practical launch or landing.',
+        'The Akers gauge is upstream of much of this route. Treat it as a proxy and re-evaluate at Akers or Pulltite instead of forcing the full continuation if water, weather, or fatigue looks wrong.',
+        'This route is too long for a casual scenic float. Daylight, pace, weather, and whether the group has a legal overnight plan matter before leaving Cedar Grove.',
+      ],
+      watchFor: [
+        'Shallow riffles, scraping, and dragging when the Akers gauge is near or below the 300 cfs floor, especially over a 26.2-mile route.',
+        'High or rising water, fresh wood, cloudy water, and faster current after rain. NPS lists Akers at 4.00 ft, Pulltite at 4.20 ft, and Round Spring Bridge at 5.20 ft as flood-closure markers.',
+        'Cold spring-fed water, crowding on warm weekends, motorized-boat interactions under park horsepower rules, limited cell service, and fatigue from treating a full-river continuation like a routine day float.',
         'Federal river rules: PFD requirements, children under 7 wearing PFDs, no glass or polystyrene, no vessel lashing, cave closures, and leash rules for dogs when on land.',
       ],
     },

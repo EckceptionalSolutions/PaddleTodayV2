@@ -876,6 +876,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
   ],
+  'current-river-cedar-grove-pulltite': [
+    {
+      id: 'current-river-welch-spring-commons',
+      src: '/gallery/current-river-cedar-grove-pulltite/current-river-welch-spring.jpg',
+      alt: 'The clear Current River flows below wooded Ozark hills with gravel bars and shoals along the long Upper Current corridor.',
+      caption: 'Upper Current River corridor near Welch Spring',
+      credit: 'Kbh3rd via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'current-river-akers-ferry-round-spring': [
+    {
+      id: 'current-river-welch-spring-commons',
+      src: '/gallery/current-river-akers-ferry-round-spring/current-river-welch-spring.jpg',
+      alt: 'The clear Current River flows below wooded Ozark hills with gravel bars along the Upper Current corridor.',
+      caption: 'Upper Current River corridor near Welch Spring',
+      credit: 'Kbh3rd via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'current-river-cedar-grove-round-spring': [
+    {
+      id: 'current-river-welch-spring-commons',
+      src: '/gallery/current-river-cedar-grove-round-spring/current-river-welch-spring.jpg',
+      alt: 'The clear Current River flows below wooded Ozark hills along a long Ozark National Scenic Riverways continuation.',
+      caption: 'Current River corridor near Welch Spring',
+      credit: 'Kbh3rd via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
   'jacks-fork-river-alley-spring-chilton': [
     {
       id: 'jacks-fork-upper-commons',

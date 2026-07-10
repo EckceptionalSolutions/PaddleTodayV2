@@ -22172,7 +22172,477 @@ export const rivers: River[] = [
       },
     ],
   },
-    {
+  {
+    id: 'current-river-cedar-grove-pulltite',
+    slug: 'current-river-cedar-grove-pulltite',
+    name: 'Current River',
+    reach: 'Cedar Grove to Pulltite',
+    aliases: [
+      'Upper Current River - Cedar Grove to Pulltite',
+      'Current River - Cedar Grove Access to Pulltite',
+      'Current River - Cedargrove to Pulltite Campground',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Long Upper Current continuation inside Ozark National Scenic Riverways that combines the Cedar Grove to Akers and Akers to Pulltite public floats. NPS still documents both segments, the Akers gauge is live in the middle of the route, and the score stays conservative because the low-water floor is community-calibrated.',
+    statusText:
+      'Use the Current River above Akers gauge. Around 230 cfs is the conservative low-water floor for Cedar Grove to Pulltite; below that, expect long shallow shoals and dragging. Do not treat high or rising water as casual, and respect NPS closure notices.',
+    latitude: 37.42238,
+    longitude: -91.6083,
+    gaugeSource: {
+      id: 'usgs-07064533',
+      provider: 'usgs',
+      siteId: '07064533',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Current River above Akers, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07064533/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 230,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Akers gauge trip evidence for Upper Current River continuations',
+        url: 'https://rivers.moherp.org/gauge/?gauge=7064533&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The Upper Current is spring-fed and commonly paddled beyond peak spring runoff, but a long continuation like this still slows dramatically in low summer water. Heavy rain can raise the river quickly, add debris, and trigger NPS non-motorized closures.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'NPS treats both component segments as standard easy Upper Current floats, but the combined 17.3-mile day is a much bigger commitment. The river is still mostly approachable at ordinary levels, yet fatigue, cold spring water, crowds, motorboat rules, and limited cell service matter more over a 7-hour route.',
+      confidenceNotes:
+        'Confidence is good for a conservative continuation add: NPS still lists Cedar Grove to Akers as 7.7 miles / 3 hours and Akers to Pulltite as 9.6 miles / 4 hours, private-vessel guidance still requires designated access use, USGS 07064533 above Akers returned same-day July 10, 2026 discharge and gage-height observations, and Rivers.MOHERP still supports the same 230 cfs floor used on the adjacent Upper Current segments. The app keeps this minimum-only because the numeric low-water floor remains community-calibrated and no official ideal/high band is claimed.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: '17.3 mi / about 7 hr',
+        note: 'NPS Estimated Float Times lists Cedar Grove to Akers at 7.7 miles / 3 hours and Akers to Pulltite at 9.6 miles / 4 hours, which supports this combined 17.3-mile continuation.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Upper Current access context',
+        value: 'Cedar Grove, Akers, and Pulltite named by NPS',
+        note: 'NPS Paddle the Upper Current River still names Cedar Grove, Akers, and Pulltite among the popular Upper Current access points for private paddlers.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-the-upper-current-river.htm',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 07064533 at 269 cfs / 1.00 ft',
+        note: 'USGS Current River above Akers returned same-day discharge and gage height at 2026-07-10 15:30 CDT. The gauge sits in the middle of this route corridor and remains the cleanest product-supported live source for the continuation.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07064533&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Low-water floor',
+        value: '230 cfs minimum-only',
+        note: 'Rivers.MOHERP still provides exact Cedar Grove-to-Akers and Akers-to-Pulltite trip evidence plus broader Upper Current good-condition reports around the same Akers gauge floor. Paddle Today keeps the continuation on the same conservative 230 cfs minimum-only model.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=7064533&hours=168',
+      },
+      {
+        label: 'NPS high-water closure context',
+        value: 'Akers 4.00 ft / Pulltite 4.20 ft',
+        note: 'The NPS river-level guidance and Superintendent Compendium still frame flood closure behavior around the Akers and Pulltite gauges and instruct paddlers to check current conditions before launching.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/levels.htm',
+      },
+      {
+        label: 'Camping support',
+        value: 'Akers and Pulltite campgrounds',
+        note: 'The current park brochure still lists Akers and Pulltite campgrounds and river access points in the Upper Current district, which supports treating this longer route as overnight-capable rather than a casual short day float.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Access rules',
+        value: 'Designated river access points only',
+        note: 'NPS private-vessel guidance still tells paddlers to use designated river access points, unload promptly, and park only in designated areas.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floating.htm',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '37.42238, -91.6083 to 37.33505, -91.47959',
+        note: 'Coordinates reuse the practical Cedar Grove and Pulltite access-area anchors already used on adjacent Current River routes. They are route-ready access anchors, not survey-grade ramp corners.',
+        sourceUrl: 'https://mapcarta.com/N12516648353',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Estimated Float Times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle the Upper Current River',
+        url: 'https://www.nps.gov/thingstodo/paddle-the-upper-current-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Floating in the Ozarks',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floating.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS River Levels',
+        url: 'https://www.nps.gov/ozar/planyourvisit/levels.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark Superintendent Compendium',
+        url: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Current River Akers gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=7064533&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07064533 Current River above Akers',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07064533/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07064533 instant values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07064533&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Mapcarta Cedar Grove Boat Launch',
+        url: 'https://mapcarta.com/N12516648353',
+        provider: 'local',
+      },
+      {
+        label: 'Mapcarta Pulltite Campground',
+        url: 'https://mapcarta.com/21155320',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'current-river-akers-ferry-round-spring',
+    slug: 'current-river-akers-ferry-round-spring',
+    name: 'Current River',
+    reach: 'Akers Ferry to Round Spring',
+    aliases: [
+      'Upper Current River - Akers to Round Spring',
+      'Current River - Akers Ferry to Round Spring',
+      'Current River - Akers Lower to Round Spring Campground',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Long Upper Current continuation inside Ozark National Scenic Riverways that combines the Akers to Pulltite and Pulltite to Round Spring public floats. NPS still documents both sections, the Akers gauge is live at the upstream end, and the app stays conservative because the lower half relies on the same upstream gauge relationship already used on Pulltite to Round Spring.',
+    statusText:
+      'Use the Current River above Akers gauge as an upstream route check. Around 300 cfs is the conservative low-water floor for Akers to Round Spring; below that, expect slower shoals and dragging over a long day. Do not treat high or rising water as casual, and check NPS closure notices before launching.',
+    latitude: 37.37591,
+    longitude: -91.55148,
+    gaugeSource: {
+      id: 'usgs-07064533',
+      provider: 'usgs',
+      siteId: '07064533',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Current River above Akers, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07064533/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Akers gauge trip evidence for lower Upper Current continuations',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07064533&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The Upper Current is spring-fed and floatable well beyond spring runoff, but this 18.5-mile continuation is still sensitive to low-water drag and storm-driven debris. Heavy rain can raise the river quickly and push the park toward flood closures.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'NPS treats both component segments as standard easy Upper Current floats, but combining them into an 8-hour route makes pace, weather, and exit discipline much more important. Cold spring water, outfitter traffic, and limited cell service matter more over the longer day.',
+      confidenceNotes:
+        'Confidence is good for a conservative continuation add: NPS still lists Akers to Pulltite as 9.6 miles / 4 hours and Pulltite to Round Spring as 8.9 miles / 4 hours, the park brochure still identifies all three access areas as Upper Current river points with campground support, USGS 07064533 returned same-day July 10, 2026 discharge and gage-height observations, and Rivers.MOHERP still ties exact Pulltite-to-Round-Spring reports to the Akers gauge. The app keeps this minimum-only and proxy-gauged because the live source sits upstream of the downstream half and there is no official route-specific ideal/high band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: '18.5 mi / about 8 hr',
+        note: 'NPS Estimated Float Times lists Akers to Pulltite at 9.6 miles / 4 hours and Pulltite to Round Spring at 8.9 miles / 4 hours, which supports this combined 18.5-mile continuation.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Upper Current access context',
+        value: 'Akers, Pulltite, and Round Spring named by NPS',
+        note: 'The current park brochure still lists Akers, Pulltite, and Round Spring as Upper Current river access points with ranger-station and campground context.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Live proxy gauge',
+        value: 'USGS 07064533 at 269 cfs / 1.00 ft',
+        note: 'USGS Current River above Akers returned same-day discharge and gage height at 2026-07-10 15:30 CDT. The gauge is at the upstream end of this continuation, so Paddle Today treats it as a proxy for the full Akers-to-Round-Spring route.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07064533&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP still ties exact Pulltite-to-Round-Spring Good reports to the Akers gauge, with nearby lower-Upper-Current reports around the same floor. Paddle Today keeps the longer continuation on the same conservative 300 cfs minimum-only model used for Pulltite to Round Spring.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07064533&hours=168',
+      },
+      {
+        label: 'NPS high-water closure context',
+        value: 'Akers 4.00 ft / Pulltite 4.20 ft / Round Spring Bridge 5.20 ft',
+        note: 'The NPS river-level guidance and Superintendent Compendium still provide the flood-closure context for the Upper Current landings used on this continuation. Treat those as high-water caution and closure support, not as an ideal gauge band.',
+        sourceUrl: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+      },
+      {
+        label: 'Flood-repair caveat',
+        value: 'Pulltite remains partly repaired',
+        note: 'NPS said in March 2025 that Akers and Round Spring group sites were expected to reopen by Memorial Day while Pulltite would partially reopen with fewer family sites and ongoing repairs. Inspect Pulltite and Round Spring before leaving a vehicle.',
+        sourceUrl: 'https://www.nps.gov/ozar/learn/news/2025-03-11-campground-repairs.htm',
+      },
+      {
+        label: 'Access rules',
+        value: 'Designated river access points only',
+        note: 'NPS private-vessel guidance still tells paddlers to use designated river access points, unload promptly, and park only in designated areas.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floating.htm',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '37.37591, -91.55148 to 37.27996, -91.40792',
+        note: 'Coordinates reuse the practical Akers and Round Spring access-area anchors already used on adjacent Current River routes. They are route-ready access anchors, not survey-grade ramp corners.',
+        sourceUrl: 'https://mapcarta.com/N1785576990',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Estimated Float Times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Floating in the Ozarks',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floating.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS River Levels',
+        url: 'https://www.nps.gov/ozar/planyourvisit/levels.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark Superintendent Compendium',
+        url: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS 2025 campground and access repairs',
+        url: 'https://www.nps.gov/ozar/learn/news/2025-03-11-campground-repairs.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Current River Akers gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07064533&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07064533 Current River above Akers',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07064533/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07064533 instant values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07064533&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Mapcarta Akers Lower',
+        url: 'https://mapcarta.com/N1785576990',
+        provider: 'local',
+      },
+      {
+        label: 'Mapcarta Round Spring Campground',
+        url: 'https://mapcarta.com/N12663429799',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'current-river-cedar-grove-round-spring',
+    slug: 'current-river-cedar-grove-round-spring',
+    name: 'Current River',
+    reach: 'Cedar Grove to Round Spring',
+    aliases: [
+      'Upper Current River - Cedar Grove to Round Spring',
+      'Current River - Cedargrove to Round Spring',
+      'Current River - Cedar Grove Access to Round Spring Campground',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Full Upper Current continuation inside Ozark National Scenic Riverways from Cedar Grove to Round Spring. NPS still documents all three component segments, the Akers gauge remains live, and the route ships conservatively because the downstream half still depends on the same upstream gauge relationship used on Pulltite to Round Spring.',
+    statusText:
+      'Use the Current River above Akers gauge as an upstream route check. Around 300 cfs is the conservative low-water floor for Cedar Grove to Round Spring; below that, expect a very long day with repeated shallow shoals and dragging. Do not treat high or rising water as casual, and respect NPS closure notices.',
+    latitude: 37.42238,
+    longitude: -91.6083,
+    gaugeSource: {
+      id: 'usgs-07064533',
+      provider: 'usgs',
+      siteId: '07064533',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Current River above Akers, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07064533/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Akers gauge trip evidence for full Upper Current continuations',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07064533&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The Upper Current is spring-fed and remains runnable well beyond peak runoff, but a 26.2-mile continuation amplifies low-water drag, fatigue, and storm timing. Heavy rain can raise the river quickly, add debris, and push the park toward non-motorized closures.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Each component segment is an easy NPS float at ordinary levels, but this full continuation is an all-day commitment bordering on an overnight plan for many groups. Pace, weather, cold water, crowding, and access discipline matter more than the simple segment ratings suggest.',
+      confidenceNotes:
+        'Confidence is good for a guarded long-route add: NPS still lists Cedar Grove to Akers as 7.7 miles / 3 hours, Akers to Pulltite as 9.6 miles / 4 hours, and Pulltite to Round Spring as 8.9 miles / 4 hours; the park brochure still confirms the full Upper Current access chain and campground context; USGS 07064533 returned same-day July 10, 2026 observations; and Rivers.MOHERP still supports the same lower-Upper-Current floor already used on Pulltite to Round Spring. The app keeps this minimum-only and proxy-gauged because the live source sits upstream of much of the route and no official ideal/high band exists for the full continuation.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: '26.2 mi / about 11 hr',
+        note: 'NPS Estimated Float Times lists Cedar Grove to Akers at 7.7 miles / 3 hours, Akers to Pulltite at 9.6 miles / 4 hours, and Pulltite to Round Spring at 8.9 miles / 4 hours, which supports this 26.2-mile full Upper Current continuation.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Upper Current access chain',
+        value: 'Cedar Grove, Akers, Pulltite, and Round Spring',
+        note: 'The current park brochure still identifies all four named access areas in the Upper Current district, along with campground and ranger-station context for the middle and downstream stops.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Live proxy gauge',
+        value: 'USGS 07064533 at 269 cfs / 1.00 ft',
+        note: 'USGS Current River above Akers returned same-day discharge and gage height at 2026-07-10 15:30 CDT. Because the gauge sits upstream of much of this full route, Paddle Today treats it as a proxy and pairs it with a conservative low-water-only model.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07064533&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP still ties exact Pulltite-to-Round-Spring reports and nearby lower-Upper-Current trip rows to the Akers gauge, which is the limiting downstream evidence for the full continuation. Paddle Today therefore uses the same conservative 300 cfs floor rather than the lower 230 cfs floor used on the shorter upstream-only routes.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07064533&hours=168',
+      },
+      {
+        label: 'NPS high-water closure context',
+        value: 'Akers 4.00 ft / Pulltite 4.20 ft / Round Spring Bridge 5.20 ft',
+        note: 'The NPS river-level guidance and Superintendent Compendium still provide flood-closure context for the full Upper Current corridor and direct paddlers to check current conditions before launching.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/levels.htm',
+      },
+      {
+        label: 'Camping support',
+        value: 'Akers, Pulltite, and Round Spring campgrounds',
+        note: 'The current park brochure still lists campgrounds at Akers, Pulltite, and Round Spring, which supports treating this very long continuation as overnight-capable rather than a default one-day float.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Access rules',
+        value: 'Designated river access points only',
+        note: 'NPS private-vessel guidance still tells paddlers to use designated river access points, unload promptly, and park only in designated areas.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floating.htm',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '37.42238, -91.6083 to 37.27996, -91.40792',
+        note: 'Coordinates reuse the practical Cedar Grove and Round Spring access-area anchors already used on adjacent Current River routes. They are route-ready access anchors, not survey-grade ramp corners.',
+        sourceUrl: 'https://mapcarta.com/N12516648353',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Estimated Float Times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle the Upper Current River',
+        url: 'https://www.nps.gov/thingstodo/paddle-the-upper-current-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Floating in the Ozarks',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floating.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS River Levels',
+        url: 'https://www.nps.gov/ozar/planyourvisit/levels.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark Superintendent Compendium',
+        url: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS 2025 campground and access repairs',
+        url: 'https://www.nps.gov/ozar/learn/news/2025-03-11-campground-repairs.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Current River Akers gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07064533&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07064533 Current River above Akers',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07064533/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07064533 instant values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07064533&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Mapcarta Cedar Grove Boat Launch',
+        url: 'https://mapcarta.com/N12516648353',
+        provider: 'local',
+      },
+      {
+        label: 'Mapcarta Round Spring Campground',
+        url: 'https://mapcarta.com/N12663429799',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'current-river-cedar-grove-akers',
     slug: 'current-river-cedar-grove-akers',
     name: 'Current River',
