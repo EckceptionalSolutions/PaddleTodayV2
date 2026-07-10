@@ -2,6 +2,14 @@
 
 Last summarized: 2026-07-10 06:50 America/Chicago / 2026-07-10 11:50 UTC.
 
+## 2026-07-10 Green continuation re-add pass
+
+- Reused the live repo state as the only valid baseline and restored three Green River slugs that were absent from the current tree at run start: `green-river-roachville-american-legion`, `green-river-american-legion-glenview-road`, and `green-river-stovall-park-dennison-ferry`.
+- Current KDFWR Upper Green and Pool 6 Green River guidance still documents the exact public route pieces of Roachville -> Russell `6.6`, Russell -> American Legion `2.3`, American Legion -> Greensburg `2.0`, Greensburg -> Glenview `13.7`, and Stovall -> Dennison `21.0`, which support the restored public route mileages of `8.9`, `15.7`, and `21.0`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Roachville Ford, American Legion Park Ramp, Glenview Road Carrydown, Munfordville-Stovall Park Ramp, and Dennison Ferry. NPS still documents Dennison Ferry as a Mammoth Cave river access with a canoe/kayak ramp and stairs. Same-day direct USGS Water Services returned `1.64 ft` at `2026-07-10 11:15 CDT` for Green River at Greensburg (`03306500`) and `1670 cfs / 5.04 ft` at `2026-07-10 11:00 CDT` for Green River at Munfordville (`03308500`), which keeps the two upper-Green restores inside the official good band while the Stovall-to-Dennison restore ships with explicit above-band fast-water caution.
+- Camping stays route-specific: `green-river-roachville-american-legion` stays `none`, `green-river-american-legion-glenview-road` stays `nearby_basecamp` because Greensburg lodging and cabins remain corridor support rather than route camping, and `green-river-stovall-park-dennison-ferry` stays `endpoint_campground` because Stovall still offers seasonal camping while Dennison remains day-use only.
+- Existing bounded no-image review stayed valid for all three slugs. `docs/river-image-source-audit.csv` already records the no-gallery outcome for each route, so no new gallery asset was added in this pass.
+
 ## 2026-07-10 Upper Green restoration pass
 
 ## 2026-07-10 South Fork upper-middle re-add pass
