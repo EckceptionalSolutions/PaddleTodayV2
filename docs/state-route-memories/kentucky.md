@@ -1,6 +1,14 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-10 00:55 America/Chicago / 2026-07-10 05:55 UTC.
+Last summarized: 2026-07-10 02:50 America/Chicago / 2026-07-10 07:50 UTC.
+
+## 2026-07-10 Cumberland split restoration pass
+
+- Reused the live repo state as the only valid baseline and restored three Cumberland-above-the-falls slugs that were absent from the current tree at run start: `cumberland-river-redbird-longbottom`, `cumberland-river-longbottom-thunderstruck`, and `cumberland-river-longbottom-cumberland-falls`.
+- Current KDFWR Cumberland River guidance and the current 2023 route map still document the exact public ramp-to-ramp mileages of Redbird -> Longbottom `9.0`, Longbottom -> Thunderstruck `2.5`, and Thunderstruck -> Cumberland Falls `5.1`, which support the restored public route mileages of `9.0`, `2.5`, and `7.6`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Redbird Ramp, Long Bottom Access, Thunderstruck Ramp, and Cumberland Falls Carrydown. Same-day direct USGS Water Services returned `1190 cfs / 4.46 ft` at `2026-07-10 03:00 EDT` for Cumberland River at Williamsburg (`03404000`), above the official `500-1100 cfs` preferred band but still below KDFWR's `2000 cfs` skilled-paddler ceiling.
+- Camping stays route-specific: `cumberland-river-redbird-longbottom` uses `on_route_campsite` because KDFWR still says float campers use the banks downstream of Bee Shoals, `cumberland-river-longbottom-thunderstruck` stays `none`, and `cumberland-river-longbottom-cumberland-falls` uses `endpoint_campground` because Cumberland Falls State Resort Park still provides seasonal camping and year-round lodging at the take-out.
+- Reconfirmed the bounded no-image posture for the corridor. Existing KDFWR, Kentucky State Parks, Commons, and same-river USGS review still did not surface a clearly rights-clean exact-route asset, so no gallery photo was added.
 
 ## 2026-07-10 South Fork restoration pass
 

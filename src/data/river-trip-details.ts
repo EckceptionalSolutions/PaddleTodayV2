@@ -20586,6 +20586,120 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   
   
   
+  'cumberland-river-redbird-longbottom': {
+    putIn: {
+      id: 'redbird-ramp',
+      name: 'Redbird Ramp',
+      latitude: 36.7621,
+      longitude: -84.2216,
+    },
+    takeOut: {
+      id: 'long-bottom-access',
+      name: 'Long Bottom Access',
+      latitude: 36.7772,
+      longitude: -84.3455,
+    },
+    logistics: {
+      distanceLabel: 'About 9 mi',
+      estimatedPaddleTime:
+        'About 3.5 hr to 5.5 hr, longer with fishing, low-water scraping, or a careful Long Bottom shuttle',
+      shuttle:
+        'Stage the Long Bottom vehicle first, then drive back to Redbird on KY 204 and KY 478. Scout the final Forest Service Road 536 approach before committing because KDFWR says the last stretch down to Long Bottom is extremely rugged.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public access points, follow Kentucky boating and PFD rules, and keep emergency plans realistic for a remote gorge float.',
+      camping:
+        'KDFWR says float campers use the banks downstream of Bee Shoals on this corridor. Treat that as primitive on-route overnight context rather than developed campground support, and avoid private banks outside the commonly used river corridor.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Redbird Ramp and take out at Long Bottom for the first half of the official upstream Cumberland Falls corridor. Use the Williamsburg gauge and treat the rough Long Bottom road plus remote shoals as part of the difficulty, not just the mileage.',
+      accessCaveats: [
+        'Redbird is the easy public ramp; Long Bottom is a legitimate public access but the road and carry are much rougher than a normal paved take-out.',
+        'The route is remote enough that daylight, weather, and self-rescue capacity matter more than on a town-edge river.',
+        'Same-day USGS flow on this run was above the official preferred band, so expect more push than a lower-band beginner day.',
+      ],
+      watchFor: [
+        'Summer Shoals, Bee Shoals, Crow Shoals, and fresh wood after rain.',
+        'Muddy footing, rough carry-down logistics, and very rugged road access at Long Bottom.',
+        'Private banks and sparse bailout options away from the named public endpoints.',
+      ],
+    },
+  },
+  'cumberland-river-longbottom-thunderstruck': {
+    putIn: {
+      id: 'long-bottom-access',
+      name: 'Long Bottom Access',
+      latitude: 36.7772,
+      longitude: -84.3455,
+    },
+    takeOut: {
+      id: 'thunderstruck-ramp',
+      name: 'Thunderstruck Ramp',
+      latitude: 36.8077,
+      longitude: -84.3546,
+    },
+    logistics: {
+      distanceLabel: 'About 2.5 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 3 hr, longer with scouting, low-water scraping, or a slow Long Bottom carry',
+      shuttle:
+        'Stage the Thunderstruck vehicle first, then drive back to Long Bottom. Scout both accesses before launching because Long Bottom is a rough carry-down and Thunderstruck is easy to miss if you drift past the left-bank ramp.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public access points, follow Kentucky boating and PFD rules, and do not assume private banks are acceptable backup exits.',
+      camping:
+        'Treat this as a short day route. KDFWR documents primitive float-camping on the broader corridor, but this middle split is better planned as a direct shuttle between the two named accesses.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Long Bottom and take out at Thunderstruck for the short middle split on the official Cumberland-above-the-falls chain. The mileage is modest, but the rough put-in, shoals, and remote setting still make it a moving-water route.',
+      accessCaveats: [
+        'Long Bottom is a real public access, but KDFWR says the final road approach is extremely rugged and best suited to high-clearance four-wheel-drive vehicles.',
+        'Thunderstruck is the intended finish. KDFWR warns it is easy to miss once you drop through Thunderstruck Shoals unless you are watching the left bank closely.',
+        'Same-day USGS flow on this run was above the official preferred band, so expect a stronger-water feel than a lower-band casual outing.',
+      ],
+      watchFor: [
+        'Long Branch shoals, Thunderstruck Shoals, and fresh wood after rain.',
+        'Muddy footing and rough access logistics at Long Bottom.',
+        'Private banks and the temptation to drift past Thunderstruck instead of finishing at the named public ramp.',
+      ],
+    },
+  },
+  'cumberland-river-longbottom-cumberland-falls': {
+    putIn: {
+      id: 'long-bottom-access',
+      name: 'Long Bottom Access',
+      latitude: 36.7772,
+      longitude: -84.3455,
+    },
+    takeOut: {
+      id: 'cumberland-falls-carrydown',
+      name: 'Cumberland Falls Carrydown',
+      latitude: 36.8421,
+      longitude: -84.3435,
+    },
+    logistics: {
+      distanceLabel: 'About 7.6 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr, longer with scouting, stronger water, or careful take-out setup above the falls',
+      shuttle:
+        'Stage the Cumberland Falls vehicle first, then drive back to Long Bottom. Inspect the falls-side carrydown before launching because the mandatory right-bank take-out above the falls is the core safety gate for the route.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and do not launch if your group is not prepared for a mandatory take-out above Cumberland Falls.',
+      camping:
+        'Cumberland Falls State Resort Park has seasonal campground space and year-round lodging at the take-out. Treat this as a campground-based gorge day rather than a wilderness overnight.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Long Bottom and finish at Cumberland Falls Carrydown for the lower half of the official upstream Cumberland Falls corridor. The route is longer than Thunderstruck-to-Falls and still ends at a mandatory take-out above the 68-foot drop, so it deserves full whitewater attention.',
+      accessCaveats: [
+        'Long Bottom is a legitimate public access, but KDFWR says the final road approach is extremely rugged and best suited to high-clearance four-wheel-drive vehicles.',
+        'KDFWR says to work to the right side of the river before the KY 90 bridge and take out at the public falls parking/carrydown area. Missing that move is a stand-down failure, not a recoverable inconvenience.',
+        'Same-day USGS flow on this run was above the official preferred band, so treat this as a firmer-water gorge day even before any extra rain arrives.',
+      ],
+      watchFor: [
+        'Thunderstruck Shoals, Pitch Rapids, Slick Shoals gorge current, and the drop sequence below Blue Bend.',
+        'The mandatory take-out above Cumberland Falls.',
+        'Rough access logistics at Long Bottom, rain-driven rises, private gorge banks, and sparse mid-route exits.',
+      ],
+    },
+  },
   'cumberland-river-redbird-cumberland-falls': {
     putIn: {
       id: 'redbird-ramp',
