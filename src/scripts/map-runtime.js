@@ -213,3 +213,110 @@ export function bindMarkerPopup(marker, markerNode, options = {}) {
     applySelectedState(true);
   });
 }
+
+export function riverNameVariants(name) {
+  const cleanName = String(name || '').trim();
+  if (!cleanName) {
+    return [];
+  }
+
+  const variants = new Set([cleanName]);
+  const withoutParenthetical = cleanName.replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g, ' ').trim();
+  if (withoutParenthetical) {
+    variants.add(withoutParenthetical);
+  }
+
+  const withoutForkPrefix = cleanName.replace(/^(?:North|South|East|West|Middle|Little|Big)\s+Fork\s+/i, '');
+  if (withoutForkPrefix && withoutForkPrefix !== cleanName) {
+    variants.add(withoutForkPrefix);
+  }
+
+  return [...variants];
+}
+
+function actualRiverLayerRegistry(mapRuntime) {
+  if (!mapRuntime.__paddleTodayActualRiverLayers) {
+    mapRuntime.__paddleTodayActualRiverLayers = new Map();
+  }
+
+  if (!mapRuntime.__paddleTodayActualRiverLayerListeners) {
+    const reapply = () => {
+      for (const [layerId, config] of mapRuntime.__paddleTodayActualRiverLayers.entries()) {
+        applyActualRiverLayer(mapRuntime, layerId, config.names, config.options);
+      }
+    };
+
+    mapRuntime.__paddleTodayActualRiverLayerListeners = true;
+    if (typeof mapRuntime.on === 'function') {
+      mapRuntime.on('load', reapply);
+      mapRuntime.on('styledata', reapply);
+      mapRuntime.on('idle', reapply);
+    }
+  }
+
+  return mapRuntime.__paddleTodayActualRiverLayers;
+}
+
+function applyActualRiverLayer(mapRuntime, layerId, names, options = {}) {
+  if (typeof mapRuntime.getSource === 'function' && !mapRuntime.getSource('openmaptiles')) {
+    return;
+  }
+
+  const filter = [
+    'all',
+    ['match', ['geometry-type'], ['LineString', 'MultiLineString'], true, false],
+    ['match', ['get', 'class'], ['river', 'stream', 'canal'], true, false],
+    [
+      'any',
+      ['match', ['get', 'name'], names, true, false],
+      ['match', ['get', 'name_en'], names, true, false],
+      ['match', ['get', 'name:en'], names, true, false],
+      ['match', ['get', 'name:latin'], names, true, false],
+    ],
+  ];
+
+  if (mapRuntime.getLayer(layerId)) {
+    mapRuntime.setFilter(layerId, filter);
+    mapRuntime.setPaintProperty(layerId, 'line-color', options.lineColor ?? '#2563eb');
+    mapRuntime.setPaintProperty(layerId, 'line-width', options.lineWidth ?? 5);
+    mapRuntime.setPaintProperty(layerId, 'line-opacity', options.lineOpacity ?? 0.58);
+    return;
+  }
+
+  mapRuntime.addLayer({
+    id: layerId,
+    type: 'line',
+    source: 'openmaptiles',
+    'source-layer': 'waterway',
+    filter,
+    layout: {
+      'line-cap': 'round',
+      'line-join': 'round',
+    },
+    paint: {
+      'line-color': options.lineColor ?? '#2563eb',
+      'line-width': options.lineWidth ?? 5,
+      'line-opacity': options.lineOpacity ?? 0.58,
+    },
+  });
+}
+
+export function syncActualRiverLayer(mapRuntime, layerId, riverNames, options = {}) {
+  if (!mapRuntime || typeof mapRuntime.addLayer !== 'function' || typeof mapRuntime.getLayer !== 'function') {
+    return;
+  }
+
+  const names = [...new Set((riverNames || []).flatMap(riverNameVariants))];
+  const registry = actualRiverLayerRegistry(mapRuntime);
+
+  if (names.length === 0) {
+    registry.delete(layerId);
+    if (mapRuntime.getLayer(layerId)) {
+      mapRuntime.removeLayer(layerId);
+    }
+    return;
+  }
+
+  registry.set(layerId, { names, options: { ...options } });
+  applyActualRiverLayer(mapRuntime, layerId, names, options);
+}

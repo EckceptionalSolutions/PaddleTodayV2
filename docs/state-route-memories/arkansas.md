@@ -1,16 +1,19 @@
 # Arkansas Route Memory
 
-Last summarized: 2026-06-04 08:55 America/Chicago.
+Last summarized: 2026-07-06 14:52 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 8.
-- Ledger candidates: 11 Arkansas-specific records after the Kyle's Landing-to-Pruitt add was logged.
+- Live routes: 23.
+- Ledger candidates: 26 Arkansas-specific implemented-route records plus older blocked Arkansas holds after the 2026-07-06 Saline lower-corridor pass.
 
 ## Added Routes
 
 - `buffalo-river-ponca-kyles-landing` - Buffalo River, Ponca to Kyle's Landing. Added 2026-05-31 as a guarded `routeType: whitewater` route on direct USGS `07055660` at Ponca. Uses conservative `minimum-only` scoring with `tooLow: 130 cfs`; NPS's `1,600 cfs` Ponca unsafe level is retained as a hard caveat rather than a full two-sided scoring band.
 - `buffalo-river-kyles-landing-pruitt` - Buffalo River, Kyle's Landing to Pruitt. Added 2026-06-01 as a guarded `routeType: whitewater` route on direct/downstream-corridor USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
+- `buffalo-river-kyles-landing-erbie` - Buffalo River, Kyle's Landing to Erbie. Added 2026-07-02 as a guarded `routeType: whitewater` route on downstream-corridor USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
+- `buffalo-river-erbie-ozark` - Buffalo River, Erbie to Ozark. Added 2026-07-02 as a guarded `routeType: whitewater` route on downstream-corridor USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
+- `buffalo-river-ozark-pruitt` - Buffalo River, Ozark to Pruitt. Added 2026-07-02 as a guarded `routeType: whitewater` route on direct USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
 - `buffalo-river-pruitt-hasty` - Buffalo River, Pruitt to Hasty. Added 2026-05-31 as a guarded `routeType: whitewater` route on direct USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
 - `buffalo-river-tyler-bend-gilbert` - Buffalo River, Tyler Bend to Gilbert. Added 2026-06-01 UTC as a guarded `routeType: whitewater` middle-district route on direct USGS `07056000` near St. Joe. Uses conservative `minimum-only` scoring with `tooLow: 120 cfs` from Rivers.MOHERP St. Joe bands and same-route/nearby middle-Buffalo trip evidence; high/flood values are caveats only, not a full two-sided scoring band.
 - `cossatot-river-ed-banks-highway-278` - Cossatot River, Ed Banks Access to Highway 278 Access. Added 2026-06-01 UTC as an expert-only `routeType: whitewater` route on direct USGS `07340300` near Vandervoort. Uses conservative `two-sided` stage scoring from Arkansas State Parks floater guidance: `tooLow: 3.3 ft`, `idealMin: 3.8 ft`, `idealMax: 4.8 ft`, `tooHigh: 5.4 ft`.
@@ -20,7 +23,98 @@ Last summarized: 2026-06-04 08:55 America/Chicago.
 
 ## Status
 
-Arkansas is paused from the active automation rotation at user request while work shifts to other states. It already has eight high-value federal and state corridor routes, and repeated recent no-add passes show that the remaining near-term leads are blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs. Resume only if Dragover gets separate west/upstream and east/downstream endpoint coordinates, product-style USGS fetches recover, primary threshold support appears for lower Buffalo/Spring River, or the user explicitly resumes Arkansas.
+Arkansas now has twenty-three live routes after the 2026-07-06 Saline lower-corridor pass expanded the lower Benton Saline family from three slugs to six while preserving the earlier Bayou DeView consolidation. The state still looks partially harvested rather than exhausted: Bayou DeView, Buffalo, Crooked Creek, Saline, upper Illinois, Mulberry, Cossatot, Kings, and Ouachita all have live coverage, while the strongest remaining near-term leads are still blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs.
+
+## 2026-07-06 Saline lower-corridor implementation pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had twenty live route objects and matching trip-detail entries before this pass, so the Saline follow-up had to create three genuinely new slugs beyond that baseline.
+- Added `saline-river-lyle-park-saline-crossing`, `saline-river-peeler-bend-saline-crossing`, and `saline-river-tony-kelly-saline-crossing` from the AGFC Saline River Water Trail lower Benton access chain.
+- Route, gauge, and threshold evidence:
+  - AGFC still documents Lyle Park to Saline Crossing at `4.2` miles, Peeler Bend to Lyle Park at `3.8` miles, and Tony Kelly Ford to Lyle Park at `8.2` miles, which supports the new public routes of `4.2`, `8.0`, and `12.4` miles.
+  - Direct same-day official USGS Water Services for Saline River at Benton (`07363000`) returned `329 cfs / 4.00 ft` at `2026-07-06 13:30 CDT`.
+  - AGFC's current Benton ladder still marks `3.5 ft` and below as low, `3.6-4.0 ft` as typical, `4.1-5.0 ft` as optimum, and `5.1-5.5 ft` as high experienced-only water, so all three routes ship on the same conservative two-sided stage model with `tooLow: 3.5`, `idealMin: 3.6`, `idealMax: 5.0`, and `tooHigh: 5.0`.
+- Access, camping, and safety posture:
+  - All three routes use source-backed public endpoint coordinates from AGFC for Tony Kelly Ford, Peeler Bend, Lyle Park, and Saline Crossing.
+  - All three routes stay `none` for camping because the reviewed AGFC materials did not identify route camping and nearby banks should be treated as private.
+  - The full lower corridor keeps the same guarded hazard package: AGFC says to portage around the Benton Water Purification Plant spillway or low dam when the river is below `4 ft`, and the downstream low-water bridge has insufficient clearance at `6 ft`, so all three slugs ship with explicit mandatory-portage caveats plus fast-rise, strainer, and private-bank warnings.
+- No gallery image was added. Bounded AGFC page imagery and Wikimedia Commons Saline bridge review did not produce a clearly rights-clean exact-route paddling image for the three new lower-corridor slugs.
+
+## 2026-07-03 Bayou DeView consolidation pass
+
+- Reduced the Bayou DeView family from ten live slugs to one canonical corridor slug, keeping only `bayou-deview-benson-creek-bank-of-brinkley`.
+- The surviving full-trail route now carries the public access planner directly in trip details: Benson Creek, Dark Corner, Hickson Lake, Rock Island Road, Apple Lake, and Bank of Brinkley all remain exposed as named public access points under the same AGFC and direct USGS evidence chain.
+- `docs/river-image-source-audit.csv` was pruned to the surviving canonical Bayou DeView slug so the image backlog no longer tracks deleted same-corridor permutations.
+
+## 2026-07-03 Bayou DeView combination implementation pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had twenty-six live route objects and matching trip-detail entries before this pass, so the Bayou DeView follow-up had to create three genuinely new slugs beyond that baseline.
+- Added `bayou-deview-hickson-lake-apple-lake`, `bayou-deview-rock-island-road-bank-of-brinkley`, and `bayou-deview-benson-creek-apple-lake` from the remaining AGFC Bayou DeView Water Trail access chain.
+- Route, gauge, and threshold evidence:
+  - AGFC still documents the exact public segment mileages of `6.5`, `2.9`, `1.5`, and `4.3` miles for Benson Creek to Hickson Lake, Hickson Lake to Rock Island Road, Rock Island Road to Apple Lake, and Apple Lake to Bank of Brinkley, which support the new combination routes of `10.9`, `4.4`, and `5.8` miles.
+  - Direct same-day official USGS Water Services for Bayou DeView near Brinkley (`07077730`) returned `15.26 ft` at `2026-07-03 07:00 CDT`.
+  - AGFC's current Bayou DeView guidance still says the trail needs about `14 ft` or higher to paddle and that the Dagmar Road gate closes at `17 ft`, so all three routes ship on the same conservative two-sided stage model with `tooLow: 14`, `idealMin: 14`, `idealMax: 16.9`, and `tooHigh: 17`.
+- Access, camping, and safety posture:
+  - All three routes stay `nearby_basecamp` because Sheffield Nelson Dagmar WMA still reports `14 primitive campsites`, but these lengths still read more defensibly as day floats with optional separate basecamp support rather than true overnight routes.
+  - `bayou-deview-hickson-lake-apple-lake`, `bayou-deview-rock-island-road-bank-of-brinkley`, and `bayou-deview-benson-creek-apple-lake` all retain the same Bayou DeView caution set around indistinct main channels, route-finding, floating wood, private-bank limits, and high-water danger as the gauge approaches the `17 ft` closure line.
+  - The two Apple Lake finish or pass-through routes carry the explicit Apple Lake WRA seasonal closure from `Nov. 1` through `Feb. 15`, while the Rock Island-to-Bank route also keeps the no-camping-on-Cache-River-NWR rule in the user-facing logistics.
+- No gallery image was added. Bounded AGFC, Dagmar WMA, Commons, and same-river USGS review surfaced corridor context only and did not produce a clearly rights-clean exact-route paddling image for the three new combination slugs.
+
+## 2026-07-03 Bayou DeView continuation implementation pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had twenty-three live route objects and matching trip-detail entries before this pass, so the Bayou DeView follow-up had to create three genuinely new slugs beyond that baseline.
+- Added `bayou-deview-benson-creek-rock-island-road`, `bayou-deview-hickson-lake-bank-of-brinkley`, and `bayou-deview-benson-creek-bank-of-brinkley` from the remaining AGFC Bayou DeView Water Trail access chain.
+- Route, gauge, and threshold evidence:
+  - AGFC still documents the exact public segment mileages of `6.5`, `2.9`, `1.5`, and `4.3` miles for Benson Creek to Hickson Lake, Hickson Lake to Rock Island Road, Rock Island Road to Apple Lake, and Apple Lake to Bank of Brinkley, while the same official trail page still lists the full Benson Creek to Bank of Brinkley route at `15.2` river miles.
+  - Direct same-day official USGS Water Services for Bayou DeView near Brinkley (`07077730`) returned `15.26 ft` at `2026-07-03 03:00 CDT`.
+  - AGFC's current Bayou DeView guidance still says the trail needs about `14 ft` or higher to paddle and that the Dagmar Road gate closes at `17 ft`, so all three routes ship on the same conservative two-sided stage model with `tooLow: 14`, `idealMin: 14`, `idealMax: 16.9`, and `tooHigh: 17`.
+- Access, camping, and safety posture:
+  - `bayou-deview-benson-creek-rock-island-road` and `bayou-deview-hickson-lake-bank-of-brinkley` stay `nearby_basecamp` because the current Dagmar WMA primitive camping story supports a separate overnight basecamp rather than an in-route overnight need for those day-float lengths.
+  - `bayou-deview-benson-creek-bank-of-brinkley` uses `on_route_campsite` because AGFC still documents fourteen primitive campsites on Sheffield Nelson Dagmar WMA, which gives the full `15.2`-mile trail a defensible overnight option.
+  - The Bank-of-Brinkley finish route still carries the Apple Lake WRA seasonal closure from `Nov. 1` through `Feb. 15`, while all three routes retain the same Bayou DeView caution set around indistinct main channels, route-finding, floating wood, private-bank limits, and high-water danger as the gauge approaches the `17 ft` closure line.
+- No gallery image was added. Bounded AGFC, Dagmar WMA, Commons, and same-river USGS review surfaced corridor context only and did not produce a clearly rights-clean exact-route paddling image for the three new continuation slugs.
+
+## 2026-07-02 Buffalo upper-corridor implementation pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had twenty live route objects and matching trip-detail entries before this pass, so the Buffalo follow-up had to create three genuinely new slugs beyond that baseline.
+- Added `buffalo-river-kyles-landing-erbie`, `buffalo-river-erbie-ozark`, and `buffalo-river-ozark-pruitt` from the Buffalo National River upper-district access chain between Kyle's Landing and Pruitt.
+- Route, gauge, and threshold evidence:
+  - NPS now documents the exact public segment mileages and route pages for `5.7` / `5.4` / `2.1` mile Kyles-to-Erbie, Erbie-to-Ozark, and Ozark-to-Pruitt trips, while the official access mileage page supports `5.6` / `5.5` / `2.1` river miles between those accesses.
+  - Direct same-day official USGS current conditions for Buffalo River at Pruitt (`07055680`) showed `148 cfs / 3.82 ft` at `2026-07-02 15:15 CDT`.
+  - The current NPS-linked Buffalo Float Guide still marks Pruitt as Very Low below `100 cfs`, Low from `100-200 cfs`, Moderate from `200-1,000 cfs`, High from `1,000-2,000 cfs`, and Flood above `2,000 cfs`, while the current NPS paddling page still says levels above `2,000 cfs` at Pruitt/Hwy. 7 are unsafe. All three routes therefore ship on the same conservative `minimum-only` model with `tooLow: 100` and a high-water caveat rather than a full ideal range.
+- Access, camping, and safety posture:
+  - All three routes now use official NPS coordinate anchors from Getting Around, with endpoint campground classification support at Kyles, Erbie, and Ozark plus a developed major take-out at Pruitt.
+  - Kyles-to-Erbie carries the strongest upper-district caution set: rough Kyle's Landing road, NPS high-clearance / four-wheel-drive recommendation, not-for-beginners warning, swift current, sharp bends, and occasional obstacles.
+  - Erbie-to-Ozark and Ozark-to-Pruitt stay shorter and more approachable, but they still carry upper-Buffalo cautions around bouncy riffles, wood, cold water, rising levels, limited cell service, and developed-access crowding.
+  - Gallery coverage was completed by reusing the already-approved NPS public-domain Buffalo corridor image stored for `buffalo-river-kyles-landing-pruitt`; the reuse is documented in the image audit for all three new slugs.
+
+## 2026-07-02 Bayou DeView downstream implementation pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had seventeen live route objects and matching trip-detail entries before this pass, so the Bayou DeView downstream follow-up had to create three genuinely new slugs beyond that baseline.
+- Added `bayou-deview-hickson-lake-rock-island-road`, `bayou-deview-rock-island-road-apple-lake`, and `bayou-deview-apple-lake-bank-of-brinkley` from the lower half of the AGFC Bayou DeView Water Trail corridor.
+- Route, gauge, and threshold evidence:
+  - AGFC still documents the exact public segment mileages of `2.9`, `1.5`, and `4.3` miles for Hickson Lake to Rock Island Road, Rock Island Road to Apple Lake, and Apple Lake to Bank of Brinkley, and still exposes map-linked endpoint coordinates for all four accesses.
+  - Direct same-day official USGS current conditions for Bayou Deview near Brinkley (`07077730`) returned `15.26 ft` at `2026-07-02 14:00 CDT`.
+  - AGFC's current Bayou DeView guidance still says the trail needs about `14 ft` or higher to paddle and that the Dagmar Road gate closes at `17 ft`, so all three routes ship on the same conservative two-sided stage model with `tooLow: 14`, `idealMin: 14`, `idealMax: 16.9`, and `tooHigh: 17`.
+- Access, camping, and safety posture:
+  - All three routes stay `nearby_basecamp` because AGFC still says free first-come campsites marked by blue paint are available on Dagmar WMA, but those campsites are a separate basecamp plan rather than part of the normal short day floats and camping is not allowed on Cache River NWR.
+  - The Rock Island to Apple Lake and Apple Lake to Bank of Brinkley routes now carry the explicit Apple Lake WRA seasonal access closure from `Nov. 1` through `Feb. 15`.
+  - All three routes carry the same Bayou DeView caution set around indistinct main channels, route-finding, private-bank limits, floating wood, and high-water danger as the gauge approaches the `17 ft` road-closure line.
+  - No gallery image was added. Bounded AGFC, Sheffield Nelson Dagmar WMA, Commons, and same-river USGS review did not surface a clearly rights-clean exact-route paddling image for the three new downstream slugs.
+
+## 2026-07-02 Crooked Creek implementation pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had fourteen live route objects and matching trip-detail entries before this pass, so the Crooked Creek adds had to create three genuinely new slugs beyond that baseline.
+- Added `crooked-creek-lower-pyatt-kelleys-slab`, `crooked-creek-lower-pyatt-kelleys-slab`, and `crooked-creek-lower-pyatt-kelleys-slab` from the AGFC Crooked Creek water-trail corridor.
+- Route, gauge, and threshold evidence:
+  - AGFC still documents exact public segment mileages of `6.7`, `5.2`, and `6.6` miles for Lower Pyatt-to-Snow, Snow-to-Mark Oliver, and Mark Oliver-to-Kelley's Slab, and still exposes map-linked endpoint coordinates for all four accesses.
+  - Direct USGS Water Services returned same-day Crooked Creek at Kelly Crossing near Yellville (`07055607`) values of `513 cfs / 12.05 ft` at `2026-07-02 02:45 CDT`.
+  - AGFC's current Crooked Creek guidance still says a moderate floating level is `12-12.5 ft`, so all three routes ship conservatively as minimum-only stage routes with `tooLow: 12` rather than a stitched ideal/high ladder.
+- Access, camping, and safety posture:
+  - `crooked-creek-lower-pyatt-kelleys-slab` uses `endpoint_campground` because AGFC explicitly identifies primitive campsites at Snow Access.
+  - `crooked-creek-lower-pyatt-kelleys-slab` uses `on_route_campsite` because Snow Access and the Brooksher Crooked Creek Preserve cover the overnight story on that middle reach.
+  - `crooked-creek-lower-pyatt-kelleys-slab` uses `endpoint_campground` because AGFC identifies camping at Fred Berry Crooked Creek Nature Center with prior permission and a one-night limit.
+  - All three routes carry private-bank, flashy-water, strainer, and Kelley’s Slab hazard caveats because AGFC warns that almost all surrounding property is private and that Kelley’s Slab can become hazardous under some conditions.
+- No gallery image was added. Bounded AGFC, Commons, and USGS review did not surface a clearly rights-clean exact-route paddling image for the Crooked Creek slugs.
 
 ## Main Blockers
 
@@ -143,6 +237,8 @@ Arkansas is paused from the active automation rotation at user request while wor
 
 - 2026-06-01 05:11 no-add pass: current Arkansas coverage remains eight V2 routes: `buffalo-river-ponca-kyles-landing`, `buffalo-river-kyles-landing-pruitt`, `buffalo-river-pruitt-hasty`, `buffalo-river-tyler-bend-gilbert`, `cossatot-river-ed-banks-highway-278`, `kings-river-rockhouse-trigger-gap`, `mulberry-river-redding-turner-bend`, and `ouachita-river-remmel-whitewater-park`. No route was added. Fresh source checks focused on Upper Ouachita / Dragover, with quick blocker reconciliation for lower Buffalo, Spring River, Big Piney Creek, and Illinois Bayou. Dragover remains `needs_manual_coordinates`: USFS confirms Dragover Day Use river access/canoe launching, no fee, all-year use, and site coordinate `34.64140281, -93.63034455`; AW confirms the exact 2.9-mile I-II Dragover reach with west/upstream and east/downstream accesses, route hazards, and current runnable stage context; USGS `07356000` still exposes product-visible values of `581 cfs / 3.88 ft` at `2026-05-31 23:45 CDT`. The blocker is unchanged because separate west/upstream and east/downstream endpoint coordinates are not source-backed tightly enough for V2 implementation. Lower Buffalo, Spring River, Big Piney Creek, and Illinois Bayou remain `threshold_weak`. No app data or image-audit status changed.
 
+- 2026-06-25 04:48 add pass: added `saline-river-tony-kelly-peeler-bend`, `saline-river-peeler-bend-lyle-park`, and `upper-illinois-river-chamber-springs-woka`. Current Arkansas coverage is now fourteen V2 routes: `buffalo-river-ponca-kyles-landing`, `buffalo-river-kyles-landing-pruitt`, `buffalo-river-pruitt-hasty`, `buffalo-river-tyler-bend-gilbert`, `cossatot-river-ed-banks-highway-278`, `kings-river-rockhouse-trigger-gap`, `mulberry-river-redding-turner-bend`, `ouachita-river-remmel-whitewater-park`, `saline-river-tony-kelly-lyle-park`, `saline-river-tony-kelly-peeler-bend`, `saline-river-peeler-bend-lyle-park`, `upper-illinois-river-chamber-springs-siloam-kayak-park`, `upper-illinois-river-siloam-kayak-park-woka`, and `upper-illinois-river-chamber-springs-woka`. The two new Saline splits cleared because AGFC still documents exact Tony Kelly-to-Peeler `4.4 mi` and Peeler-to-Lyle `3.8 mi` public segments, still exposes coordinate-linked public access pins, and still ties the corridor to the direct Benton `07363000` gauge with low water at `3.5 ft` and below, broad public paddling from `3.6-5.0 ft`, and experienced-only current above `5.0 ft`; same-day USGS Water Services returned `72.0 cfs / 3.47 ft` at `2026-06-25 03:30 CDT`, below the preferred band. The full Upper Illinois route cleared because AGFC still documents Chamber Springs-to-WOKA as an exact `15.5 mi` public route with coordinate-linked endpoints and the same direct `07195400` Siloam gauge guidance of `200-1,000 cfs` broad flow with experienced-only current above `1,000 cfs`; same-day USGS Water Services returned `3,050 cfs / 9.92 ft` at `2026-06-25 04:00 CDT`, well above the broad public band. No gallery image was added; bounded Commons, AGFC page imagery, WOKA/Siloam context, Illinois River Watershed Partnership, Saline bridge leads, and USGS media review did not produce a clearly rights-clean exact-route paddling asset for local reuse.
+
 - 2026-06-01 04:51 no-add pass: current Arkansas coverage remains eight V2 routes: `buffalo-river-ponca-kyles-landing`, `buffalo-river-kyles-landing-pruitt`, `buffalo-river-pruitt-hasty`, `buffalo-river-tyler-bend-gilbert`, `cossatot-river-ed-banks-highway-278`, `kings-river-rockhouse-trigger-gap`, `mulberry-river-redding-turner-bend`, and `ouachita-river-remmel-whitewater-park`. No route was added. Fresh official/source checks kept Upper Ouachita / Dragover at `needs_manual_coordinates`: USGS `07356000` showed `581 cfs / 3.88 ft` at `2026-05-31 23:45 CDT`, AW showed the exact 2.9-mile Dragover reach runnable with west/upstream and east/downstream access text, and USFS confirms Dragover Day Use river access/canoe launching plus a single site coordinate, but separate access coordinates remain too loosely sourced for V2 implementation. Lower Buffalo, Spring River, Big Piney Creek, and Illinois Bayou remain `threshold_weak`; official gauges still show recent product-visible values, but no accepted route-specific numeric threshold model and public endpoint package cleared. No app data or image-audit status changed.
 
 - 2026-06-01 04:31 no-add pass: current Arkansas coverage remains eight V2 routes: `buffalo-river-ponca-kyles-landing`, `buffalo-river-kyles-landing-pruitt`, `buffalo-river-pruitt-hasty`, `buffalo-river-tyler-bend-gilbert`, `cossatot-river-ed-banks-highway-278`, `kings-river-rockhouse-trigger-gap`, `mulberry-river-redding-turner-bend`, and `ouachita-river-remmel-whitewater-park`. No route was added. Fresh official checks improved several blockers but did not clear implementation. Upper Ouachita / Dragover was promoted to `needs_manual_coordinates`: official USGS `07356000` exposed recent values (`3,200 cfs / 5.92 ft` at `2026-05-31 15:30 CDT`), USFS confirms Dragover Day Use river access and site coordinates, and AW supplies a `3.0-7.0 ft` Dragover range, but separate upstream/west and downstream/east access coordinates are not source-backed tightly enough for V2. Illinois Bayou moved from `no_live_gauge` to `threshold_weak`: official USGS `07257500` exposed recent values (`1,530 cfs / 8.26 ft` at `2026-05-31 15:30 CDT`), but no selected public endpoint pair or accepted route-specific threshold model cleared. Big Piney Creek moved from `research_later` to `threshold_weak`: the USGS `07257006` gauge is product-visible, but Helton's private-fee access, unresolved endpoint coordinates, and community-only threshold ladders remain short. Lower Buffalo and Spring River remain `threshold_weak`. No app data or image-audit status changed.
@@ -209,6 +305,7 @@ Arkansas is paused from the active automation rotation at user request while wor
 
 - Run Arkansas as a cautious NPS/USFS/AW-first discovery cadence.
 - Prefer Buffalo National River, Ozark-St. Francis National Forest, Arkansas State Parks, Arkansas Game and Fish, USACE, city/county parks, and AW exact-reach evidence.
+- Crooked Creek is now live across Lower Pyatt, Snow, Mark Oliver, and Kelley's Slab combinations. Do not duplicate those combinations unless AGFC changes mileage, access status, or gauge guidance, or a route-quality image/source improvement is the actual goal.
 - Do not duplicate the upper Buffalo Ponca-to-Kyle's route. Next Buffalo reviews should focus on different access-to-access reaches with direct gauge and threshold support, especially Maumee/Highway 14/Shipps Ferry and lower Buffalo options.
 - Do not re-add Kyle's Landing-to-Pruitt; it is already implemented as `buffalo-river-kyles-landing-pruitt`. Revisit only if NPS changes Pruitt Float Guide bands, access status changes, endpoint coordinates improve, or a rights-clean route photo appears.
 - Do not re-add Pruitt-to-Hasty; it is already implemented as a guarded whitewater route. If reviewing adjacent Buffalo reaches, keep them distinct by access pair and require their own gauge/threshold support.

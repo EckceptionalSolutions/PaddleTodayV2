@@ -1,17 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-24T00:59:44.487Z",
+  "generatedAt": "2026-07-10T08:01:18.613Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
-    "totalLedgerCandidates": 582,
-    "currentRouteCount": 340,
-    "leadCount": 271,
+    "totalLedgerCandidates": 763,
+    "currentRouteCount": 425,
+    "leadCount": 268,
     "discoveryFocusStates": [
       "South Dakota",
       "Illinois",
-      "Nebraska",
       "North Dakota",
-      "Indiana",
       "Arkansas",
       "Kentucky",
       "Pennsylvania",
@@ -55,21 +53,6 @@
         "ledgerStrategy": "Seed 2-4 fresh candidates only when a source trail includes public endpoints, a plausible supported live gauge, and numeric threshold evidence or a credible path to it."
       },
       {
-        "state": "Nebraska",
-        "tier": "undercovered_supported_midwest",
-        "sourceFamilies": [
-          "Nebraska Game and Parks access/water-trail pages",
-          "county/city river-access systems",
-          "USGS gauge clusters"
-        ],
-        "searchQueries": [
-          "Nebraska official water trail canoe kayak USGS gauge public access",
-          "Nebraska state parks canoe kayak river access USGS flow",
-          "Nebraska American Whitewater USGS public access route"
-        ],
-        "ledgerStrategy": "Seed 2-4 fresh candidates only when a source trail includes public endpoints, a plausible supported live gauge, and numeric threshold evidence or a credible path to it."
-      },
-      {
         "state": "North Dakota",
         "tier": "undercovered_supported_midwest",
         "sourceFamilies": [
@@ -81,21 +64,6 @@
           "\"North Dakota\" official water trail canoe kayak USGS gauge public access",
           "\"North Dakota\" state parks canoe kayak river access USGS flow",
           "\"North Dakota\" American Whitewater USGS public access route"
-        ],
-        "ledgerStrategy": "Seed 2-4 fresh candidates only when a source trail includes public endpoints, a plausible supported live gauge, and numeric threshold evidence or a credible path to it."
-      },
-      {
-        "state": "Indiana",
-        "tier": "undercovered_supported_midwest",
-        "sourceFamilies": [
-          "Indiana DNR public access",
-          "regional water-trail groups",
-          "American Whitewater + USGS gauge clusters"
-        ],
-        "searchQueries": [
-          "Indiana official water trail canoe kayak USGS gauge public access",
-          "Indiana state parks canoe kayak river access USGS flow",
-          "Indiana American Whitewater USGS public access route"
         ],
         "ledgerStrategy": "Seed 2-4 fresh candidates only when a source trail includes public endpoints, a plausible supported live gauge, and numeric threshold evidence or a credible path to it."
       },
@@ -256,16 +224,16 @@
       "threshold_discovery": 109,
       "coordinate_cleanup": 0,
       "access_legitimacy": 0,
-      "live_provider_recheck": 99,
+      "live_provider_recheck": 96,
       "blocked_recheck": 8
     },
     "byStatus": {
-      "implemented": 49,
+      "implemented": 78,
       "threshold_weak": 109,
-      "added": 239,
+      "added": 394,
       "research_later": 55,
       "blocked_until_date": 13,
-      "no_live_gauge": 89,
+      "no_live_gauge": 86,
       "rejected": 15,
       "gauge_proxy_weak": 10,
       "duplicate_corridor": 3
@@ -569,8 +537,8 @@
           "takeOutCoordinates": null,
           "coordinateSource": "Not captured because dam-adjacent access and threshold gates failed first."
         },
-        "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "in-flatrock-river-st-omer-st-paul-family",
@@ -603,8 +571,8 @@
           "takeOutCoordinates": null,
           "coordinateSource": "Not captured because modern public-access legitimacy remains unresolved."
         },
-        "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "in-white-lick-creek-brownsburg-avon-family",
@@ -637,8 +605,8 @@
           "takeOutCoordinates": null,
           "coordinateSource": "Current official Brownsburg and Avon pages now identify the likely public park/trail families more clearly. Avon now clarifies that White Lick Trail runs only from CR 100N to CR 100S through Washington Township Park while Blue Heron Park is separate at US 36, but no manager-grade page yet publishes the actual paddlecraft launch/take-out points or coordinates."
         },
-        "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "in-east-fork-whitewater-richmond-gorge",
@@ -671,8 +639,8 @@
           "takeOutCoordinates": null,
           "coordinateSource": "Test Road public launch lead exists from Richmond/contractor project sources; upstream put-in coordinates and access authority were not source-clean."
         },
-        "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "mi-maple-river-northern-lower-maple-road-family",
@@ -2102,7 +2070,7 @@
       {
         "candidateId": "ne-missouri-river-mnrr-nebraska-family",
         "lane": "fresh_source_discovery",
-        "priority": 76,
+        "priority": 81,
         "state": "NE",
         "river": "Missouri River",
         "route": "Missouri National Recreational River Nebraska-side paddling family",
@@ -2130,8 +2098,8 @@
           "takeOutCoordinates": null,
           "coordinateSource": "Not captured because no selected day route cleared threshold/product-live gates."
         },
-        "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+        "discoveryTier": "supported_midwest"
       }
     ],
     "threshold_discovery": [
@@ -2244,6 +2212,74 @@
         "discoveryTier": "undercovered_supported_midwest"
       },
       {
+        "candidateId": "il-cache-river-lower-cache-canoe-trail",
+        "lane": "threshold_discovery",
+        "priority": 100,
+        "state": "IL",
+        "river": "Cache River",
+        "route": "Lower Cache River Canoe Trail",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-06-20",
+        "reviewCount": 2,
+        "duplicateRisk": false,
+        "blocker": "2026-06-20 product-fit refresh. The public trail story remains strong, but the route looks less like a normal gauge-scored river segment than it did on the seed pass. Miles Paddled's 2024 Lower Cache report corroborates the public Access Road launch, describes the trail as a choose-your-own-adventure 4-mile loop in essentially still swamp water, notes that the paddling area is held up by earthen dams so there is usu...",
+        "retryCondition": "Retry only if IDNR, Cache River Wetlands partners, USFWS, or another official manager publishes numeric water-level guidance tied to a product-fetchable gauge for the Lower Cache canoe trail, or if PaddleToday adds support for manager-maintained loop/flatwater routes that do not score off a normal river gauge model.",
+        "gauge": {
+          "quality": "gauge_context_unselected_threshold_missing",
+          "id": "03612000",
+          "provider": "USGS",
+          "notes": "USGS 03612000 Cache River at Forman remains broad same-basin context only. Current public route reporting describes the Lower Cache trail as a mostly still-water loop whose day-to-day paddleability is mediated locally by managed swamp conditions rather than a clear product gauge rule."
+        },
+        "thresholdSupport": {
+          "strength": "weak_without_numeric_model",
+          "notes": "IDNR documents the canoe trail and access, but no numeric paddling floor, preferred range, or closure threshold tied to a supported live gauge was found. Miles Paddled's 2024 report reinforces that the trail behaves more like managed flatwater than a normally gauged river reach."
+        },
+        "endpoints": {
+          "putIn": "Lower Cache River access area",
+          "takeOut": "Loop/out-and-back Lower Cache canoe trail or private launch south of Perks family",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Not captured because the bigger blocker is still the missing scoreable water-level model; current source reporting frames the route as a loop/out-and-back swamp trail from the Access Road launch rather than a simple gauge-scored point-to-point river reach."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "undercovered_supported_midwest"
+      },
+      {
+        "candidateId": "il-dupage-river-knoch-knolls-naperville-family",
+        "lane": "threshold_discovery",
+        "priority": 100,
+        "state": "IL",
+        "river": "DuPage River",
+        "route": "Knoch Knolls Park / Naperville river-trip family",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-06-22",
+        "reviewCount": 3,
+        "duplicateRisk": false,
+        "blocker": "2026-06-22 threshold refresh plus public-access tightening. The access story is now materially stronger and the future public pair is cleaner. Current Naperville Park District materials still list Knoch Knolls Park at 336 Knoch Knolls Road as an easy boat/canoe launch, and the district FAQ now says Naperville maintains four designated canoe/kayak launch sites on its DuPage corridor and has jurisdiction over park-pro...",
+        "retryCondition": "Retry only if Naperville, Openlands, Plainfield Park District, Will County, or another strong route-specific source publishes numeric paddling guidance tied to a selected live gauge for Knoch Knolls Park to Eaton Preserve or another selected official launch pair, and if current manager-backed coordinates can then be captured for the chosen endpoints.",
+        "gauge": {
+          "quality": "unselected_live_gauge_and_threshold_fit_weak",
+          "id": null,
+          "provider": "USGS",
+          "notes": "Likely gauge leads still include Naperville-area DuPage gauges and downstream DuPage River at Shorewood, but no single gauge/threshold package cleared the Illinois add bar during this pass even after the public route family narrowed."
+        },
+        "thresholdSupport": {
+          "strength": "supplemental_local_only",
+          "notes": "IllinoisPaddle local scrape/action/flood notes are still useful research leads, but they remain supplemental local evidence rather than a defensible route-specific scoring model for the narrowed Knoch Knolls downstream family."
+        },
+        "endpoints": {
+          "putIn": "Knoch Knolls Park",
+          "takeOut": "Eaton Preserve",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Current Naperville Park District and Openlands sources make Knoch Knolls Park the clean public put-in anchor, and current Openlands plus Plainfield Park District make Eaton Preserve at 135th Street the cleanest public downstream take-out. Will County's current Riverview Farmstead page confirms a legitimate farther-downstream launch, but the threshold model still fails before exact coordinate capture."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "undercovered_supported_midwest"
+      },
+      {
         "candidateId": "il-kankakee-river-state-park-day-trip-family",
         "lane": "threshold_discovery",
         "priority": 100,
@@ -2343,41 +2379,7 @@
           "coordinateSource": "Current official Indy Parks pages make Broad Ripple Park, Art's Center Canoe Launch, and Riverside Regional Park the manager-backed access anchors, while Frank's current trip page makes Broad Ripple to Riverside the cleanest exact downstream public pair. Exact coordinates were not captured because the threshold model still fails first and Rocky Ripple remains operator-defined rather than manager-defined."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
-      },
-      {
-        "candidateId": "in-blue-river-white-cloud-blue-river-chapel",
-        "lane": "threshold_discovery",
-        "priority": 100,
-        "state": "IN",
-        "river": "Blue River",
-        "route": "White Cloud to Blue River Chapel",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-06-11",
-        "reviewCount": 26,
-        "duplicateRisk": false,
-        "blocker": "2026-06-11 17:42 America/Chicago / 2026-06-11 22:42 UTC blocker refresh. Rebuilt the live Indiana route inventory from src/data/rivers.ts and src/data/river-trip-details.ts and confirmed 0 Indiana routes and 0 Indiana trip-detail keys. Reviewed all 21 Indiana ledger rows before discovery. 2026-06-11 17:42 America/Chicago product-style USGS Water Services IV retry succeeded for 18 of 19 Indiana ledger gauges: 0409975...",
-        "retryCondition": "Retry when official USGS 03303000 is same-day product-current and a manager/AW/official or otherwise strong same-route source supplies numeric gauge-tied paddling guidance with source-clean public endpoints and dam/portage context.",
-        "gauge": {
-          "quality": "direct_product_live_verified",
-          "id": "03303000",
-          "provider": "USGS/American Whitewater",
-          "notes": "USGS Water Services IV for 03303000 returned same-day values from this workspace on 2026-06-11 where the gauge id was part of the retry set; remaining blocker is threshold/access/hazard evidence, not product-live alone."
-        },
-        "thresholdSupport": {
-          "strength": "weak",
-          "notes": "AW supports route/gauge identity, and RiverScout exposes a 200-800 cfs community optimal range, but no strong manager/AW/official numeric threshold band was captured for V2. Forum/community advice around 150 cfs low floor and 3-4 ft ideal was also not accepted for implementation."
-        },
-        "endpoints": {
-          "putIn": "White Cloud access / USGS White Cloud corridor",
-          "takeOut": "Blue River Chapel public access",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Not captured because live-gauge and threshold gates failed first. Legacy IndianaOutfitters/DNR-derived access text supports Blue River Chapel but is too old to resolve the White Cloud put-in and dam context by itself."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "in-kankakee-national-water-trail-family",
@@ -2417,7 +2419,7 @@
           "coordinateSource": "NWIPA Kankakee River National Water Trail access-point table; NIRPC water-trail map corroborates both sites as DNR-owned and names the 15.5-mile segment."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "in-tippecanoe-river-state-park-winamac-family",
@@ -2451,47 +2453,7 @@
           "coordinateSource": "The current Indiana DNR property map clearly preserves the upstream state-park canoe-launch feature, and IndianaOutfitters preserves the downstream Winamac Access Site and Winamac City Park canoe-access directions. Exact accepted coordinates are still intentionally unclaimed because the route remains threshold-blocked and the downstream public access point is not yet anchored by a manager-published canoe-access coordinate."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
-      },
-      {
-        "candidateId": "in-cedar-creek-tonkel-road-state-road-1",
-        "lane": "threshold_discovery",
-        "priority": 100,
-        "state": "IN",
-        "river": "Cedar Creek",
-        "route": "Tonkel Road to State Road 1 / Leo-Cedarville",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-06-11",
-        "reviewCount": 12,
-        "duplicateRisk": false,
-        "blocker": "2026-06-11 17:42 America/Chicago / 2026-06-11 22:42 UTC blocker refresh. Rebuilt the live Indiana route inventory from src/data/rivers.ts and src/data/river-trip-details.ts and confirmed 0 Indiana routes and 0 Indiana trip-detail keys. Reviewed all 21 Indiana ledger rows before discovery. 2026-06-11 17:42 America/Chicago product-style USGS Water Services IV retry succeeded for 18 of 19 Indiana ledger gauges: 0409975...",
-        "retryCondition": "Retry only if a route-matching Cedar Creek gauge exposes product-fetchable current data and NEIWT, DNR, AW, a manager, or another strong source publishes numeric route-specific low/ideal/high or conservative minimum-only guidance. Recheck public access at Tonkel Road and SR 1, OHWM/private-bank limits, current logjam conditions, and low-head-dam map context before implementation.",
-        "gauge": {
-          "quality": "not_selected",
-          "id": null,
-          "provider": "USGS",
-          "notes": "Selected gauge remains unverified through the app-supported USGS Water Services path in the 2026-06-10 12:02 America/Chicago / 2026-06-10 17:02 UTC refresh; product-live remains unsatisfied."
-        },
-        "thresholdSupport": {
-          "strength": "qualitative_only",
-          "notes": "NEIWT notes spring/early-summer moderate levels and summer/fall lower levels, but this is not numeric enough for PaddleToday scoring."
-        },
-        "endpoints": {
-          "putIn": "Tonkel Road access / river-left carry-down",
-          "takeOut": "State Road 1 / Leo-Cedarville river-left access",
-          "coordinatesPresent": true,
-          "putInCoordinates": {
-            "latitude": 41.22085,
-            "longitude": -85.026873
-          },
-          "takeOutCoordinates": {
-            "latitude": 41.202773,
-            "longitude": -85.026873
-          },
-          "coordinateSource": "Northeast Indiana Water Trails Suggested Trips page; implementation deferred because threshold/gauge support failed."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "in-west-fork-white-river-noblesville-family",
@@ -2531,7 +2493,7 @@
           "coordinateSource": "Hamilton County and Noblesville official pages confirm the public access names/addresses; coordinates are from Hoosier Canoe Club / Paddling.com search-visible launch records and need official GIS confirmation before implementation."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "in-pigeon-river-mongo-state-line-family",
@@ -2565,7 +2527,7 @@
           "coordinateSource": "Endpoint coordinates were not promoted because the candidate failed live-gauge and threshold gates, and the access story needs modern DNR/public-access confirmation rather than old guide or bridge assumptions."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "in-whitewater-river-metamora-brookville-family",
@@ -2605,7 +2567,7 @@
           "coordinateSource": "Harrison's facility page exposes Willow Park map coordinates at 39.2452237513122, -84.8076751835926. Whitewater Township's current parks page and Green Acres' FAQ both support the small-boat ramp at 5180 Lawrenceburg Road as the cleanest self-access take-out. Miami Conservancy District maps the 5180 access at 39.19237672017283, -84.79518286799662 but also separately labels Riverview Park as river access at mile 1.9 and still surfaces Riverview in current river-access list results, so 5180 is the preferred coordinate-backed take-out while the Riverfront/Riverview naming mismatch remains unresolved."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "in-eel-river-north-family",
@@ -2639,7 +2601,7 @@
           "coordinateSource": "Not captured because access freshness, dam safety, live-gauge, and threshold gates failed first. Future work should use modern manager-grade public-access sources rather than legacy bridge/corner directions."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "in-big-blue-river-knightstown-family",
@@ -2676,7 +2638,7 @@
           "coordinateSource": "Paddling.com provides Knightstown launch coordinates and DNR-public-access labeling, but no source-backed downstream public take-out was selected."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "in-trail-creek-michigan-city-friendship-gardens-family",
@@ -2710,7 +2672,7 @@
           "coordinateSource": "Not captured because the live-gauge and threshold gates failed first; future work should use NWIPA, Michigan City, Indiana DNR public-access/Where-to-Fish, or other manager-grade sources rather than livery or informal launch assumptions."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "mi-rifle-river-selkirk-sterling-family",
@@ -4916,38 +4878,38 @@
         "discoveryTier": "frontier_expansion"
       },
       {
-        "candidateId": "il-cache-river-lower-cache-canoe-trail",
+        "candidateId": "in-blue-river-white-cloud-blue-river-chapel",
         "lane": "threshold_discovery",
-        "priority": 98,
-        "state": "IL",
-        "river": "Cache River",
-        "route": "Lower Cache River Canoe Trail",
+        "priority": 99,
+        "state": "IN",
+        "river": "Blue River",
+        "route": "White Cloud to Blue River Chapel",
         "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-06-20",
-        "reviewCount": 2,
+        "lastReviewed": "2026-06-11",
+        "reviewCount": 26,
         "duplicateRisk": false,
-        "blocker": "2026-06-20 product-fit refresh. The public trail story remains strong, but the route looks less like a normal gauge-scored river segment than it did on the seed pass. Miles Paddled's 2024 Lower Cache report corroborates the public Access Road launch, describes the trail as a choose-your-own-adventure 4-mile loop in essentially still swamp water, notes that the paddling area is held up by earthen dams so there is usu...",
-        "retryCondition": "Retry only if IDNR, Cache River Wetlands partners, USFWS, or another official manager publishes numeric water-level guidance tied to a product-fetchable gauge for the Lower Cache canoe trail, or if PaddleToday adds support for manager-maintained loop/flatwater routes that do not score off a normal river gauge model.",
+        "blocker": "2026-06-11 17:42 America/Chicago / 2026-06-11 22:42 UTC blocker refresh. Rebuilt the live Indiana route inventory from src/data/rivers.ts and src/data/river-trip-details.ts and confirmed 0 Indiana routes and 0 Indiana trip-detail keys. Reviewed all 21 Indiana ledger rows before discovery. 2026-06-11 17:42 America/Chicago product-style USGS Water Services IV retry succeeded for 18 of 19 Indiana ledger gauges: 0409975...",
+        "retryCondition": "Retry when official USGS 03303000 is same-day product-current and a manager/AW/official or otherwise strong same-route source supplies numeric gauge-tied paddling guidance with source-clean public endpoints and dam/portage context.",
         "gauge": {
-          "quality": "gauge_context_unselected_threshold_missing",
-          "id": "03612000",
-          "provider": "USGS",
-          "notes": "USGS 03612000 Cache River at Forman remains broad same-basin context only. Current public route reporting describes the Lower Cache trail as a mostly still-water loop whose day-to-day paddleability is mediated locally by managed swamp conditions rather than a clear product gauge rule."
+          "quality": "direct_product_live_verified",
+          "id": "03303000",
+          "provider": "USGS/American Whitewater",
+          "notes": "USGS Water Services IV for 03303000 returned same-day values from this workspace on 2026-06-11 where the gauge id was part of the retry set; remaining blocker is threshold/access/hazard evidence, not product-live alone."
         },
         "thresholdSupport": {
-          "strength": "weak_without_numeric_model",
-          "notes": "IDNR documents the canoe trail and access, but no numeric paddling floor, preferred range, or closure threshold tied to a supported live gauge was found. Miles Paddled's 2024 report reinforces that the trail behaves more like managed flatwater than a normally gauged river reach."
+          "strength": "weak",
+          "notes": "AW supports route/gauge identity, and RiverScout exposes a 200-800 cfs community optimal range, but no strong manager/AW/official numeric threshold band was captured for V2. Forum/community advice around 150 cfs low floor and 3-4 ft ideal was also not accepted for implementation."
         },
         "endpoints": {
-          "putIn": "Lower Cache River access area",
-          "takeOut": "Loop/out-and-back Lower Cache canoe trail or private launch south of Perks family",
+          "putIn": "White Cloud access / USGS White Cloud corridor",
+          "takeOut": "Blue River Chapel public access",
           "coordinatesPresent": false,
           "putInCoordinates": null,
           "takeOutCoordinates": null,
-          "coordinateSource": "Not captured because the bigger blocker is still the missing scoreable water-level model; current source reporting frames the route as a loop/out-and-back swamp trail from the Access Road launch rather than a simple gauge-scored point-to-point river reach."
+          "coordinateSource": "Not captured because live-gauge and threshold gates failed first. Legacy IndianaOutfitters/DNR-derived access text supports Blue River Chapel but is too old to resolve the White Cloud put-in and dam context by itself."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "mi-betsie-river-thompsonville-family",
@@ -5058,38 +5020,44 @@
         "discoveryTier": "supported_midwest"
       },
       {
-        "candidateId": "il-dupage-river-knoch-knolls-naperville-family",
+        "candidateId": "in-cedar-creek-tonkel-road-state-road-1",
         "lane": "threshold_discovery",
         "priority": 97,
-        "state": "IL",
-        "river": "DuPage River",
-        "route": "Knoch Knolls Park / Naperville river-trip family",
+        "state": "IN",
+        "river": "Cedar Creek",
+        "route": "Tonkel Road to State Road 1 / Leo-Cedarville",
         "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-06-22",
-        "reviewCount": 3,
+        "lastReviewed": "2026-06-11",
+        "reviewCount": 12,
         "duplicateRisk": false,
-        "blocker": "2026-06-22 threshold refresh plus public-access tightening. The access story is now materially stronger and the future public pair is cleaner. Current Naperville Park District materials still list Knoch Knolls Park at 336 Knoch Knolls Road as an easy boat/canoe launch, and the district FAQ now says Naperville maintains four designated canoe/kayak launch sites on its DuPage corridor and has jurisdiction over park-pro...",
-        "retryCondition": "Retry only if Naperville, Openlands, Plainfield Park District, Will County, or another strong route-specific source publishes numeric paddling guidance tied to a selected live gauge for Knoch Knolls Park to Eaton Preserve or another selected official launch pair, and if current manager-backed coordinates can then be captured for the chosen endpoints.",
+        "blocker": "2026-06-11 17:42 America/Chicago / 2026-06-11 22:42 UTC blocker refresh. Rebuilt the live Indiana route inventory from src/data/rivers.ts and src/data/river-trip-details.ts and confirmed 0 Indiana routes and 0 Indiana trip-detail keys. Reviewed all 21 Indiana ledger rows before discovery. 2026-06-11 17:42 America/Chicago product-style USGS Water Services IV retry succeeded for 18 of 19 Indiana ledger gauges: 0409975...",
+        "retryCondition": "Retry only if a route-matching Cedar Creek gauge exposes product-fetchable current data and NEIWT, DNR, AW, a manager, or another strong source publishes numeric route-specific low/ideal/high or conservative minimum-only guidance. Recheck public access at Tonkel Road and SR 1, OHWM/private-bank limits, current logjam conditions, and low-head-dam map context before implementation.",
         "gauge": {
-          "quality": "unselected_live_gauge_and_threshold_fit_weak",
+          "quality": "not_selected",
           "id": null,
           "provider": "USGS",
-          "notes": "Likely gauge leads still include Naperville-area DuPage gauges and downstream DuPage River at Shorewood, but no single gauge/threshold package cleared the Illinois add bar during this pass even after the public route family narrowed."
+          "notes": "Selected gauge remains unverified through the app-supported USGS Water Services path in the 2026-06-10 12:02 America/Chicago / 2026-06-10 17:02 UTC refresh; product-live remains unsatisfied."
         },
         "thresholdSupport": {
-          "strength": "supplemental_local_only",
-          "notes": "IllinoisPaddle local scrape/action/flood notes are still useful research leads, but they remain supplemental local evidence rather than a defensible route-specific scoring model for the narrowed Knoch Knolls downstream family."
+          "strength": "qualitative_only",
+          "notes": "NEIWT notes spring/early-summer moderate levels and summer/fall lower levels, but this is not numeric enough for PaddleToday scoring."
         },
         "endpoints": {
-          "putIn": "Knoch Knolls Park",
-          "takeOut": "Eaton Preserve",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Current Naperville Park District and Openlands sources make Knoch Knolls Park the clean public put-in anchor, and current Openlands plus Plainfield Park District make Eaton Preserve at 135th Street the cleanest public downstream take-out. Will County's current Riverview Farmstead page confirms a legitimate farther-downstream launch, but the threshold model still fails before exact coordinate capture."
+          "putIn": "Tonkel Road access / river-left carry-down",
+          "takeOut": "State Road 1 / Leo-Cedarville river-left access",
+          "coordinatesPresent": true,
+          "putInCoordinates": {
+            "latitude": 41.22085,
+            "longitude": -85.026873
+          },
+          "takeOutCoordinates": {
+            "latitude": 41.202773,
+            "longitude": -85.026873
+          },
+          "coordinateSource": "Northeast Indiana Water Trails Suggested Trips page; implementation deferred because threshold/gauge support failed."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "mo-platte-river-platte-falls-conservation-area-loop",
@@ -5563,74 +5531,6 @@
         "discoveryTier": "adjacent_expansion"
       },
       {
-        "candidateId": "ne-calamus-river-highway-7-calamus-sra",
-        "lane": "threshold_discovery",
-        "priority": 92,
-        "state": "NE",
-        "river": "Calamus River",
-        "route": "Nebraska Highway 7 to Calamus Reservoir State Recreation Area",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-06-12",
-        "reviewCount": 30,
-        "duplicateRisk": false,
-        "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06787500 Calamus near Burwell still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT. No route was added because current product data, a selected short public day route, and numeric paddling thresholds remain unresolved.",
-        "retryCondition": "Retry only if a shorter public endpoint pair is source-backed, a product-supported Calamus gauge is selected, and numeric low/ideal/high paddling guidance is published by an official manager or credible route source.",
-        "gauge": {
-          "quality": "no_current_product_data",
-          "id": "06787500 Calamus River gauge family",
-          "provider": "USGS",
-          "notes": "USGS 06787500 did not expose current product-ready IV data in this run; the only returned discharge value was from 1994, so it cannot support PaddleToday scoring."
-        },
-        "thresholdSupport": {
-          "strength": "not_ready",
-          "notes": "No numeric paddling floor, preferred band, or high-water cutoff tied to a selected Calamus gauge surfaced."
-        },
-        "endpoints": {
-          "putIn": "Nebraska Highway 7 bridge access",
-          "takeOut": "Calamus Reservoir State Recreation Area / Hannaman Bayou tailwater",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Official endpoint text reviewed; no implementation coordinate package captured because the route is not yet threshold-ready."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
-      },
-      {
-        "candidateId": "ne-elkhorn-river-public-access-family",
-        "lane": "threshold_discovery",
-        "priority": 92,
-        "state": "NE",
-        "river": "Elkhorn River",
-        "route": "Elkhorn public-access / Waterloo gauge family",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-06-12",
-        "reviewCount": 30,
-        "duplicateRisk": false,
-        "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06799350 Elkhorn at West Point returned product-style current values of 628 cfs and 4.09 ft at 2026-06-12 12:15 CDT. No route was added because no exact selected public reach with source-backed numeric paddling thresholds tied to the selected Elkhorn gauge has cleared.",
-        "retryCondition": "Retry only if NGPC/NRD/local managers or a credible route source identifies a selected public Elkhorn segment with endpoint coordinates and numeric paddling guidance tied to a product-supported USGS or official live gauge.",
-        "gauge": {
-          "quality": "product_live_verified",
-          "id": "06799350",
-          "provider": "USGS",
-          "notes": "USGS 06799350 Elkhorn River at West Point returned product-style current IV data in this run, but no accepted numeric paddling threshold model is tied to a selected public reach."
-        },
-        "thresholdSupport": {
-          "strength": "not_ready",
-          "notes": "No source-backed numeric paddling threshold model tied to a selected Elkhorn gauge surfaced."
-        },
-        "endpoints": {
-          "putIn": "Elkhorn Crossing / Graske Crossing / Waterloo access family",
-          "takeOut": "Unselected downstream public access",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Not captured; selected route and threshold gates failed first."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
-      },
-      {
         "candidateId": "ks-arkansas-river-wichita-hutchinson-family",
         "lane": "threshold_discovery",
         "priority": 87,
@@ -5689,38 +5589,72 @@
         "discoveryTier": "supported_midwest"
       },
       {
-        "candidateId": "ne-niobrara-river-cornell-smith-brewer-norden-family",
+        "candidateId": "ne-calamus-river-highway-7-calamus-sra",
         "lane": "threshold_discovery",
-        "priority": 86,
+        "priority": 87,
         "state": "NE",
-        "river": "Niobrara River",
-        "route": "Cornell Bridge / Smith Falls / Brewer Bridge / Norden Bridge family",
+        "river": "Calamus River",
+        "route": "Nebraska Highway 7 to Calamus Reservoir State Recreation Area",
         "currentStatus": "threshold_weak",
         "lastReviewed": "2026-06-12",
         "reviewCount": 30,
         "duplicateRisk": false,
-        "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06461500 Niobrara near Sparks still returned product-style current IV values of 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT, and NPS/NGPC corridor support remains strong. No route was added because no source-backed numeric paddling threshold model tied to a selected Cornell/Smith/Brewer/Norden public day segment has surfaced.",
-        "retryCondition": "Retry only if NPS, NGPC, Middle Niobrara NRD, USGS, or another credible manager publishes numeric Niobrara paddling thresholds tied to Sparks or another product-supported gauge and a short public endpoint pair is selected with source-backed coordinates.",
+        "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06787500 Calamus near Burwell still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT. No route was added because current product data, a selected short public day route, and numeric paddling thresholds remain unresolved.",
+        "retryCondition": "Retry only if a shorter public endpoint pair is source-backed, a product-supported Calamus gauge is selected, and numeric low/ideal/high paddling guidance is published by an official manager or credible route source.",
         "gauge": {
-          "quality": "product_live_verified",
-          "id": "06461500",
+          "quality": "no_current_product_data",
+          "id": "06787500 Calamus River gauge family",
           "provider": "USGS",
-          "notes": "USGS 06461500 Niobrara River near Sparks returned product-style current IV data in this run, but no accepted numeric paddling threshold model is tied to a selected public day segment."
+          "notes": "USGS 06787500 did not expose current product-ready IV data in this run; the only returned discharge value was from 1994, so it cannot support PaddleToday scoring."
         },
         "thresholdSupport": {
           "strength": "not_ready",
-          "notes": "NPS provides seasonal low-water cautions but explicitly does not publish minimal/optimal recreational flow bands; no numeric app threshold model was accepted."
+          "notes": "No numeric paddling floor, preferred band, or high-water cutoff tied to a selected Calamus gauge surfaced."
         },
         "endpoints": {
-          "putIn": "Cornell Bridge / Fort Niobrara National Wildlife Refuge access family",
-          "takeOut": "Smith Falls, Brewer Bridge, or Norden Bridge family",
+          "putIn": "Nebraska Highway 7 bridge access",
+          "takeOut": "Calamus Reservoir State Recreation Area / Hannaman Bayou tailwater",
           "coordinatesPresent": false,
           "putInCoordinates": null,
           "takeOutCoordinates": null,
-          "coordinateSource": "Not captured because the route needs a selected public day segment and threshold/product-live gates failed first."
+          "coordinateSource": "Official endpoint text reviewed; no implementation coordinate package captured because the route is not yet threshold-ready."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
+      },
+      {
+        "candidateId": "ne-elkhorn-river-public-access-family",
+        "lane": "threshold_discovery",
+        "priority": 87,
+        "state": "NE",
+        "river": "Elkhorn River",
+        "route": "Elkhorn public-access / Waterloo gauge family",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-06-12",
+        "reviewCount": 30,
+        "duplicateRisk": false,
+        "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06799350 Elkhorn at West Point returned product-style current values of 628 cfs and 4.09 ft at 2026-06-12 12:15 CDT. No route was added because no exact selected public reach with source-backed numeric paddling thresholds tied to the selected Elkhorn gauge has cleared.",
+        "retryCondition": "Retry only if NGPC/NRD/local managers or a credible route source identifies a selected public Elkhorn segment with endpoint coordinates and numeric paddling guidance tied to a product-supported USGS or official live gauge.",
+        "gauge": {
+          "quality": "product_live_verified",
+          "id": "06799350",
+          "provider": "USGS",
+          "notes": "USGS 06799350 Elkhorn River at West Point returned product-style current IV data in this run, but no accepted numeric paddling threshold model is tied to a selected public reach."
+        },
+        "thresholdSupport": {
+          "strength": "not_ready",
+          "notes": "No source-backed numeric paddling threshold model tied to a selected Elkhorn gauge surfaced."
+        },
+        "endpoints": {
+          "putIn": "Elkhorn Crossing / Graske Crossing / Waterloo access family",
+          "takeOut": "Unselected downstream public access",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Not captured; selected route and threshold gates failed first."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "pa-three-rivers-water-trail-pittsburgh-family",
@@ -5789,6 +5723,40 @@
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge. Keep the candidate parked unless the gauge relationship is explicit.",
         "discoveryTier": "adjacent_expansion"
+      },
+      {
+        "candidateId": "ne-niobrara-river-cornell-smith-brewer-norden-family",
+        "lane": "threshold_discovery",
+        "priority": 81,
+        "state": "NE",
+        "river": "Niobrara River",
+        "route": "Cornell Bridge / Smith Falls / Brewer Bridge / Norden Bridge family",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-06-12",
+        "reviewCount": 30,
+        "duplicateRisk": false,
+        "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06461500 Niobrara near Sparks still returned product-style current IV values of 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT, and NPS/NGPC corridor support remains strong. No route was added because no source-backed numeric paddling threshold model tied to a selected Cornell/Smith/Brewer/Norden public day segment has surfaced.",
+        "retryCondition": "Retry only if NPS, NGPC, Middle Niobrara NRD, USGS, or another credible manager publishes numeric Niobrara paddling thresholds tied to Sparks or another product-supported gauge and a short public endpoint pair is selected with source-backed coordinates.",
+        "gauge": {
+          "quality": "product_live_verified",
+          "id": "06461500",
+          "provider": "USGS",
+          "notes": "USGS 06461500 Niobrara River near Sparks returned product-style current IV data in this run, but no accepted numeric paddling threshold model is tied to a selected public day segment."
+        },
+        "thresholdSupport": {
+          "strength": "not_ready",
+          "notes": "NPS provides seasonal low-water cautions but explicitly does not publish minimal/optimal recreational flow bands; no numeric app threshold model was accepted."
+        },
+        "endpoints": {
+          "putIn": "Cornell Bridge / Fort Niobrara National Wildlife Refuge access family",
+          "takeOut": "Smith Falls, Brewer Bridge, or Norden Bridge family",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Not captured because the route needs a selected public day segment and threshold/product-live gates failed first."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "supported_midwest"
       }
     ],
     "coordinate_cleanup": [],
@@ -7542,36 +7510,6 @@
         "discoveryTier": "supported_midwest"
       },
       {
-        "candidateId": "ia-north-fork-maquoketa-river-cascade-d61",
-        "lane": "live_provider_recheck",
-        "priority": 58,
-        "state": "IA",
-        "river": "North Fork Maquoketa River",
-        "route": "Cascade Historic Limestone Silo to Hwy D61 / Whitewater Creek",
-        "currentStatus": "no_live_gauge",
-        "lastReviewed": "2026-05-26",
-        "reviewCount": 4,
-        "duplicateRisk": false,
-        "blocker": "Dubuque County now explicitly lists D61 Access as a true public canoe/kayak access on Whitewater Creek, which improves the take-out authority. The route still cannot be added because the route's Fulton gauge is not currently live enough for PaddleToday scoring: the USGS legacy current-conditions page for 05418400 shows latest visible discharge and gage-height observations only through April 18, 2026, and the modern...",
-        "retryCondition": "Retry only if USGS 05418400 North Fork Maquoketa River near Fulton resumes current discharge/gage-height observations, or if a different direct same-river live gauge with route-specific North Fork Maquoketa guidance becomes available.",
-        "gauge": {
-          "quality": "direct",
-          "notes": "USGS 05418400 North Fork Maquoketa River near Fulton, IA is downstream on the same North Fork Maquoketa corridor and is the gauge Wisconsin River Trips uses for its Cascade-to-D61 route ladder. It is the right gauge in principle, but it is not currently usable as a live route signal because the visible current-conditions data stop at April 18, 2026 in this run."
-        },
-        "thresholdSupport": {
-          "strength": "strong_community",
-          "notes": "Wisconsin River Trips publishes a Fulton-gauge ladder for the Cascade-to-D61 route: less than 150 cfs may be too shallow, 231-300 cfs is average and good, 301-400 cfs is above average but still good, 551-700 cfs is high and likely less attractive, 701-1000 cfs is very high / advanced, and 1001+ cfs is expert-only."
-        },
-        "endpoints": {
-          "putIn": "Cascade Historic Limestone Silo / Cascade canoe-kayak landing",
-          "takeOut": "Hwy D61 / Whitewater Creek bridge access",
-          "coordinatesPresent": false,
-          "coordinateSource": "The put-in is anchored to the City of Cascade Riverview Park page's nearby landing-and-parking reference, the Silos and Smokestacks address at 215 Pierce St SW, and WRT's Cascade Historic Limestone Silo launch notes. The take-out is now better supported because Dubuque County lists D61 Access as a true public canoe/kayak access on Whitewater Creek, and WRT describes the Hwy D61 bridge access, but exact coordinate-level endpoint entry was still deferred because the live-gauge blocker prevented implementation."
-        },
-        "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-        "discoveryTier": "supported_midwest"
-      },
-      {
         "candidateId": "mi-thunder-bay-river-long-rapids-family",
         "lane": "live_provider_recheck",
         "priority": 58,
@@ -8082,7 +8020,7 @@
           "coordinateSource": "Endpoint names came from local route/access search context; coordinates were not captured because live-gauge and threshold gates failed first."
         },
         "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "mi-cass-river-vassar-tuscola",
@@ -8746,70 +8684,6 @@
         "discoveryTier": "undercovered_supported_midwest"
       },
       {
-        "candidateId": "ky-south-fork-licking-public-access-pools",
-        "lane": "live_provider_recheck",
-        "priority": 46,
-        "state": "KY",
-        "river": "South Fork Licking River",
-        "route": "Lair / Terry Dam / Cynthiana / Robinson / Pendleton County access family",
-        "currentStatus": "no_live_gauge",
-        "lastReviewed": "2026-06-04",
-        "reviewCount": 42,
-        "duplicateRisk": false,
-        "blocker": "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: South Fork Licking remains no_live_gauge. Product-style USGS Water Services IV fetch for 03252500 failed unable to connect, so KDFWR access/threshold context still cannot clear the product-live gate or the low-head-dam route-shape gate.",
-        "retryCondition": "Retry only if USGS 03252500 or 03253000 exposes same-day product-fetchable data and a specific KDFWR-supported point-to-point route can be selected without forcing users into low-head-dam ambiguity.",
-        "gauge": {
-          "quality": "direct_but_stale",
-          "id": "03252500 / 03253000",
-          "provider": "USGS",
-          "notes": "USGS 03252500 remains a Cynthiana gauge lead, but the 2026-06-03 20:13 America/Chicago / 2026-06-04 01:13 UTC check found no modern continuous current data and did not verify a product-ready live gauge path."
-        },
-        "thresholdSupport": {
-          "strength": "official_bands_pending_live_gauge_and_route_shape",
-          "notes": "KDFWR's bands are numeric and official, but endpoint selection and low-head-dam exposure need route-specific cleanup before any implementation."
-        },
-        "endpoints": {
-          "putIn": "Unselected South Fork Licking public access",
-          "takeOut": "Unselected South Fork Licking public access",
-          "coordinatesPresent": false,
-          "coordinateSource": "Coordinate work was deferred because the live-gauge gate and low-head-dam route-shape issues blocked implementation."
-        },
-        "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-        "discoveryTier": "adjacent_expansion"
-      },
-      {
-        "candidateId": "ky-north-fork-kentucky-river-access-chain",
-        "lane": "live_provider_recheck",
-        "priority": 46,
-        "state": "KY",
-        "river": "North Fork Kentucky River",
-        "route": "Douthitt Park / Jackson access-chain family",
-        "currentStatus": "no_live_gauge",
-        "lastReviewed": "2026-06-04",
-        "reviewCount": 62,
-        "duplicateRisk": false,
-        "blocker": "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: North Fork Kentucky remains no_live_gauge. Product-style USGS Water Services IV fetches for Jackson 03280000 and Hazard 03277500 failed unable to connect, leaving the low-head-dam/access-chain route short of the product-live gate.",
-        "retryCondition": "Retry when USGS 03280000 or 03277500 exposes same-day product-fetchable values and a specific KDFWR-supported public access pair is selected.",
-        "gauge": {
-          "quality": "direct_but_stale",
-          "id": "03280000",
-          "provider": "USGS",
-          "notes": "USGS 03280000 remains a North Fork Kentucky gauge lead, but the 2026-06-03 20:13 America/Chicago / 2026-06-04 01:13 UTC check still showed stale 2026-05-26 official values and did not verify a current product-ready live gauge path."
-        },
-        "thresholdSupport": {
-          "strength": "official_numeric_pending_live_gauge",
-          "notes": "KDFWR publishes official Hazard and Jackson stage bands plus Jackson cfs bands. Threshold support is strong enough to revisit, but not usable until a supported live gauge clears."
-        },
-        "endpoints": {
-          "putIn": "Unselected KDFWR North Fork Kentucky River public access",
-          "takeOut": "Unselected downstream KDFWR North Fork Kentucky River public access",
-          "coordinatesPresent": false,
-          "coordinateSource": "KDFWR access records include at least Douthitt Park coordinates; full endpoint coordinate work was deferred because the live-gauge gate failed."
-        },
-        "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-        "discoveryTier": "adjacent_expansion"
-      },
-      {
         "candidateId": "mo-meramec-short-bend-cook-station",
         "lane": "live_provider_recheck",
         "priority": 46,
@@ -9134,7 +9008,7 @@
           "coordinateSource": "Official endpoint names and map context reviewed; implementation-grade coordinates were not captured because live-provider support failed first."
         },
         "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       }
     ],
     "blocked_recheck": [
@@ -9209,7 +9083,7 @@
           "coordinateSource": "NWIPA Deep River Water Trail page lists coordinates for the public access chain, but implementation deferred before selecting the safest public take-out because the live-gauge and threshold gates failed."
         },
         "recommendedNextStep": "Revisit only if the retry condition is satisfied or the retry date has passed with new evidence.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "in-big-pine-creek-rainsville-twin-bridges",
@@ -9243,7 +9117,7 @@
           "coordinateSource": "American Whitewater route map exposes Put In and Take Out coordinates for reach 2563. Those remain useful location anchors, and current NICHES pages plus their direct Google Maps links now materially strengthen the Twin Bridges take-out and the separate 450 Harrison access as mapped public endpoints. Current Warren County and Indiana DNR engineering records now also make the blocked upstream crossing more explicit by identifying a Big Pine Creek bridge on Rainsville Road and the same one-span steel truss bridge about 0.15 mile north of Rainsville. But the AW coordinate pair still is not enough to ship because none of those current bridge or engineering records confirms paddler launch legitimacy, shoulder loading, or parking rules at the upstream Rainsville crossing."
         },
         "recommendedNextStep": "Revisit only if the retry condition is satisfied or the retry date has passed with new evidence.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "mi-rogue-river-rockford-grand-rogue",
@@ -9742,6 +9616,74 @@
       "discoveryTier": "undercovered_supported_midwest"
     },
     {
+      "candidateId": "il-cache-river-lower-cache-canoe-trail",
+      "lane": "threshold_discovery",
+      "priority": 100,
+      "state": "IL",
+      "river": "Cache River",
+      "route": "Lower Cache River Canoe Trail",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-06-20",
+      "reviewCount": 2,
+      "duplicateRisk": false,
+      "blocker": "2026-06-20 product-fit refresh. The public trail story remains strong, but the route looks less like a normal gauge-scored river segment than it did on the seed pass. Miles Paddled's 2024 Lower Cache report corroborates the public Access Road launch, describes the trail as a choose-your-own-adventure 4-mile loop in essentially still swamp water, notes that the paddling area is held up by earthen dams so there is usu...",
+      "retryCondition": "Retry only if IDNR, Cache River Wetlands partners, USFWS, or another official manager publishes numeric water-level guidance tied to a product-fetchable gauge for the Lower Cache canoe trail, or if PaddleToday adds support for manager-maintained loop/flatwater routes that do not score off a normal river gauge model.",
+      "gauge": {
+        "quality": "gauge_context_unselected_threshold_missing",
+        "id": "03612000",
+        "provider": "USGS",
+        "notes": "USGS 03612000 Cache River at Forman remains broad same-basin context only. Current public route reporting describes the Lower Cache trail as a mostly still-water loop whose day-to-day paddleability is mediated locally by managed swamp conditions rather than a clear product gauge rule."
+      },
+      "thresholdSupport": {
+        "strength": "weak_without_numeric_model",
+        "notes": "IDNR documents the canoe trail and access, but no numeric paddling floor, preferred range, or closure threshold tied to a supported live gauge was found. Miles Paddled's 2024 report reinforces that the trail behaves more like managed flatwater than a normally gauged river reach."
+      },
+      "endpoints": {
+        "putIn": "Lower Cache River access area",
+        "takeOut": "Loop/out-and-back Lower Cache canoe trail or private launch south of Perks family",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "Not captured because the bigger blocker is still the missing scoreable water-level model; current source reporting frames the route as a loop/out-and-back swamp trail from the Access Road launch rather than a simple gauge-scored point-to-point river reach."
+      },
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+      "discoveryTier": "undercovered_supported_midwest"
+    },
+    {
+      "candidateId": "il-dupage-river-knoch-knolls-naperville-family",
+      "lane": "threshold_discovery",
+      "priority": 100,
+      "state": "IL",
+      "river": "DuPage River",
+      "route": "Knoch Knolls Park / Naperville river-trip family",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-06-22",
+      "reviewCount": 3,
+      "duplicateRisk": false,
+      "blocker": "2026-06-22 threshold refresh plus public-access tightening. The access story is now materially stronger and the future public pair is cleaner. Current Naperville Park District materials still list Knoch Knolls Park at 336 Knoch Knolls Road as an easy boat/canoe launch, and the district FAQ now says Naperville maintains four designated canoe/kayak launch sites on its DuPage corridor and has jurisdiction over park-pro...",
+      "retryCondition": "Retry only if Naperville, Openlands, Plainfield Park District, Will County, or another strong route-specific source publishes numeric paddling guidance tied to a selected live gauge for Knoch Knolls Park to Eaton Preserve or another selected official launch pair, and if current manager-backed coordinates can then be captured for the chosen endpoints.",
+      "gauge": {
+        "quality": "unselected_live_gauge_and_threshold_fit_weak",
+        "id": null,
+        "provider": "USGS",
+        "notes": "Likely gauge leads still include Naperville-area DuPage gauges and downstream DuPage River at Shorewood, but no single gauge/threshold package cleared the Illinois add bar during this pass even after the public route family narrowed."
+      },
+      "thresholdSupport": {
+        "strength": "supplemental_local_only",
+        "notes": "IllinoisPaddle local scrape/action/flood notes are still useful research leads, but they remain supplemental local evidence rather than a defensible route-specific scoring model for the narrowed Knoch Knolls downstream family."
+      },
+      "endpoints": {
+        "putIn": "Knoch Knolls Park",
+        "takeOut": "Eaton Preserve",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "Current Naperville Park District and Openlands sources make Knoch Knolls Park the clean public put-in anchor, and current Openlands plus Plainfield Park District make Eaton Preserve at 135th Street the cleanest public downstream take-out. Will County's current Riverview Farmstead page confirms a legitimate farther-downstream launch, but the threshold model still fails before exact coordinate capture."
+      },
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+      "discoveryTier": "undercovered_supported_midwest"
+    },
+    {
       "candidateId": "il-dupage-river-shorewood-black-road-shepley",
       "lane": "fresh_source_discovery",
       "priority": 100,
@@ -9909,41 +9851,7 @@
         "coordinateSource": "Current official Indy Parks pages make Broad Ripple Park, Art's Center Canoe Launch, and Riverside Regional Park the manager-backed access anchors, while Frank's current trip page makes Broad Ripple to Riverside the cleanest exact downstream public pair. Exact coordinates were not captured because the threshold model still fails first and Rocky Ripple remains operator-defined rather than manager-defined."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
-    },
-    {
-      "candidateId": "in-blue-river-white-cloud-blue-river-chapel",
-      "lane": "threshold_discovery",
-      "priority": 100,
-      "state": "IN",
-      "river": "Blue River",
-      "route": "White Cloud to Blue River Chapel",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-06-11",
-      "reviewCount": 26,
-      "duplicateRisk": false,
-      "blocker": "2026-06-11 17:42 America/Chicago / 2026-06-11 22:42 UTC blocker refresh. Rebuilt the live Indiana route inventory from src/data/rivers.ts and src/data/river-trip-details.ts and confirmed 0 Indiana routes and 0 Indiana trip-detail keys. Reviewed all 21 Indiana ledger rows before discovery. 2026-06-11 17:42 America/Chicago product-style USGS Water Services IV retry succeeded for 18 of 19 Indiana ledger gauges: 0409975...",
-      "retryCondition": "Retry when official USGS 03303000 is same-day product-current and a manager/AW/official or otherwise strong same-route source supplies numeric gauge-tied paddling guidance with source-clean public endpoints and dam/portage context.",
-      "gauge": {
-        "quality": "direct_product_live_verified",
-        "id": "03303000",
-        "provider": "USGS/American Whitewater",
-        "notes": "USGS Water Services IV for 03303000 returned same-day values from this workspace on 2026-06-11 where the gauge id was part of the retry set; remaining blocker is threshold/access/hazard evidence, not product-live alone."
-      },
-      "thresholdSupport": {
-        "strength": "weak",
-        "notes": "AW supports route/gauge identity, and RiverScout exposes a 200-800 cfs community optimal range, but no strong manager/AW/official numeric threshold band was captured for V2. Forum/community advice around 150 cfs low floor and 3-4 ft ideal was also not accepted for implementation."
-      },
-      "endpoints": {
-        "putIn": "White Cloud access / USGS White Cloud corridor",
-        "takeOut": "Blue River Chapel public access",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because live-gauge and threshold gates failed first. Legacy IndianaOutfitters/DNR-derived access text supports Blue River Chapel but is too old to resolve the White Cloud put-in and dam context by itself."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "in-kankakee-national-water-trail-family",
@@ -9983,7 +9891,7 @@
         "coordinateSource": "NWIPA Kankakee River National Water Trail access-point table; NIRPC water-trail map corroborates both sites as DNR-owned and names the 15.5-mile segment."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "in-tippecanoe-river-state-park-winamac-family",
@@ -10017,7 +9925,7 @@
         "coordinateSource": "The current Indiana DNR property map clearly preserves the upstream state-park canoe-launch feature, and IndianaOutfitters preserves the downstream Winamac Access Site and Winamac City Park canoe-access directions. Exact accepted coordinates are still intentionally unclaimed because the route remains threshold-blocked and the downstream public access point is not yet anchored by a manager-published canoe-access coordinate."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "in-east-fork-whitewater-brookville-dam-tailwater",
@@ -10050,48 +9958,8 @@
         "takeOutCoordinates": null,
         "coordinateSource": "Not captured because dam-adjacent access and threshold gates failed first."
       },
-      "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-      "discoveryTier": "undercovered_supported_midwest"
-    },
-    {
-      "candidateId": "in-cedar-creek-tonkel-road-state-road-1",
-      "lane": "threshold_discovery",
-      "priority": 100,
-      "state": "IN",
-      "river": "Cedar Creek",
-      "route": "Tonkel Road to State Road 1 / Leo-Cedarville",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-06-11",
-      "reviewCount": 12,
-      "duplicateRisk": false,
-      "blocker": "2026-06-11 17:42 America/Chicago / 2026-06-11 22:42 UTC blocker refresh. Rebuilt the live Indiana route inventory from src/data/rivers.ts and src/data/river-trip-details.ts and confirmed 0 Indiana routes and 0 Indiana trip-detail keys. Reviewed all 21 Indiana ledger rows before discovery. 2026-06-11 17:42 America/Chicago product-style USGS Water Services IV retry succeeded for 18 of 19 Indiana ledger gauges: 0409975...",
-      "retryCondition": "Retry only if a route-matching Cedar Creek gauge exposes product-fetchable current data and NEIWT, DNR, AW, a manager, or another strong source publishes numeric route-specific low/ideal/high or conservative minimum-only guidance. Recheck public access at Tonkel Road and SR 1, OHWM/private-bank limits, current logjam conditions, and low-head-dam map context before implementation.",
-      "gauge": {
-        "quality": "not_selected",
-        "id": null,
-        "provider": "USGS",
-        "notes": "Selected gauge remains unverified through the app-supported USGS Water Services path in the 2026-06-10 12:02 America/Chicago / 2026-06-10 17:02 UTC refresh; product-live remains unsatisfied."
-      },
-      "thresholdSupport": {
-        "strength": "qualitative_only",
-        "notes": "NEIWT notes spring/early-summer moderate levels and summer/fall lower levels, but this is not numeric enough for PaddleToday scoring."
-      },
-      "endpoints": {
-        "putIn": "Tonkel Road access / river-left carry-down",
-        "takeOut": "State Road 1 / Leo-Cedarville river-left access",
-        "coordinatesPresent": true,
-        "putInCoordinates": {
-          "latitude": 41.22085,
-          "longitude": -85.026873
-        },
-        "takeOutCoordinates": {
-          "latitude": 41.202773,
-          "longitude": -85.026873
-        },
-        "coordinateSource": "Northeast Indiana Water Trails Suggested Trips page; implementation deferred because threshold/gauge support failed."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "in-west-fork-white-river-noblesville-family",
@@ -10131,7 +9999,7 @@
         "coordinateSource": "Hamilton County and Noblesville official pages confirm the public access names/addresses; coordinates are from Hoosier Canoe Club / Paddling.com search-visible launch records and need official GIS confirmation before implementation."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "in-pigeon-river-mongo-state-line-family",
@@ -10165,7 +10033,7 @@
         "coordinateSource": "Endpoint coordinates were not promoted because the candidate failed live-gauge and threshold gates, and the access story needs modern DNR/public-access confirmation rather than old guide or bridge assumptions."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "in-flatrock-river-st-omer-st-paul-family",
@@ -10198,8 +10066,8 @@
         "takeOutCoordinates": null,
         "coordinateSource": "Not captured because modern public-access legitimacy remains unresolved."
       },
-      "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "in-whitewater-river-metamora-brookville-family",
@@ -10239,7 +10107,7 @@
         "coordinateSource": "Harrison's facility page exposes Willow Park map coordinates at 39.2452237513122, -84.8076751835926. Whitewater Township's current parks page and Green Acres' FAQ both support the small-boat ramp at 5180 Lawrenceburg Road as the cleanest self-access take-out. Miami Conservancy District maps the 5180 access at 39.19237672017283, -84.79518286799662 but also separately labels Riverview Park as river access at mile 1.9 and still surfaces Riverview in current river-access list results, so 5180 is the preferred coordinate-backed take-out while the Riverfront/Riverview naming mismatch remains unresolved."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "in-white-lick-creek-brownsburg-avon-family",
@@ -10272,8 +10140,8 @@
         "takeOutCoordinates": null,
         "coordinateSource": "Current official Brownsburg and Avon pages now identify the likely public park/trail families more clearly. Avon now clarifies that White Lick Trail runs only from CR 100N to CR 100S through Washington Township Park while Blue Heron Park is separate at US 36, but no manager-grade page yet publishes the actual paddlecraft launch/take-out points or coordinates."
       },
-      "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "in-eel-river-north-family",
@@ -10307,7 +10175,7 @@
         "coordinateSource": "Not captured because access freshness, dam safety, live-gauge, and threshold gates failed first. Future work should use modern manager-grade public-access sources rather than legacy bridge/corner directions."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "in-big-blue-river-knightstown-family",
@@ -10344,7 +10212,7 @@
         "coordinateSource": "Paddling.com provides Knightstown launch coordinates and DNR-public-access labeling, but no source-backed downstream public take-out was selected."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "in-east-fork-whitewater-richmond-gorge",
@@ -10377,8 +10245,8 @@
         "takeOutCoordinates": null,
         "coordinateSource": "Test Road public launch lead exists from Richmond/contractor project sources; upstream put-in coordinates and access authority were not source-clean."
       },
-      "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "in-trail-creek-michigan-city-friendship-gardens-family",
@@ -10412,7 +10280,7 @@
         "coordinateSource": "Not captured because the live-gauge and threshold gates failed first; future work should use NWIPA, Michigan City, Indiana DNR public-access/Where-to-Fish, or other manager-grade sources rather than livery or informal launch assumptions."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "mi-rifle-river-selkirk-sterling-family",
@@ -13796,38 +13664,38 @@
       "discoveryTier": "supported_midwest"
     },
     {
-      "candidateId": "il-cache-river-lower-cache-canoe-trail",
+      "candidateId": "in-blue-river-white-cloud-blue-river-chapel",
       "lane": "threshold_discovery",
-      "priority": 98,
-      "state": "IL",
-      "river": "Cache River",
-      "route": "Lower Cache River Canoe Trail",
+      "priority": 99,
+      "state": "IN",
+      "river": "Blue River",
+      "route": "White Cloud to Blue River Chapel",
       "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-06-20",
-      "reviewCount": 2,
+      "lastReviewed": "2026-06-11",
+      "reviewCount": 26,
       "duplicateRisk": false,
-      "blocker": "2026-06-20 product-fit refresh. The public trail story remains strong, but the route looks less like a normal gauge-scored river segment than it did on the seed pass. Miles Paddled's 2024 Lower Cache report corroborates the public Access Road launch, describes the trail as a choose-your-own-adventure 4-mile loop in essentially still swamp water, notes that the paddling area is held up by earthen dams so there is usu...",
-      "retryCondition": "Retry only if IDNR, Cache River Wetlands partners, USFWS, or another official manager publishes numeric water-level guidance tied to a product-fetchable gauge for the Lower Cache canoe trail, or if PaddleToday adds support for manager-maintained loop/flatwater routes that do not score off a normal river gauge model.",
+      "blocker": "2026-06-11 17:42 America/Chicago / 2026-06-11 22:42 UTC blocker refresh. Rebuilt the live Indiana route inventory from src/data/rivers.ts and src/data/river-trip-details.ts and confirmed 0 Indiana routes and 0 Indiana trip-detail keys. Reviewed all 21 Indiana ledger rows before discovery. 2026-06-11 17:42 America/Chicago product-style USGS Water Services IV retry succeeded for 18 of 19 Indiana ledger gauges: 0409975...",
+      "retryCondition": "Retry when official USGS 03303000 is same-day product-current and a manager/AW/official or otherwise strong same-route source supplies numeric gauge-tied paddling guidance with source-clean public endpoints and dam/portage context.",
       "gauge": {
-        "quality": "gauge_context_unselected_threshold_missing",
-        "id": "03612000",
-        "provider": "USGS",
-        "notes": "USGS 03612000 Cache River at Forman remains broad same-basin context only. Current public route reporting describes the Lower Cache trail as a mostly still-water loop whose day-to-day paddleability is mediated locally by managed swamp conditions rather than a clear product gauge rule."
+        "quality": "direct_product_live_verified",
+        "id": "03303000",
+        "provider": "USGS/American Whitewater",
+        "notes": "USGS Water Services IV for 03303000 returned same-day values from this workspace on 2026-06-11 where the gauge id was part of the retry set; remaining blocker is threshold/access/hazard evidence, not product-live alone."
       },
       "thresholdSupport": {
-        "strength": "weak_without_numeric_model",
-        "notes": "IDNR documents the canoe trail and access, but no numeric paddling floor, preferred range, or closure threshold tied to a supported live gauge was found. Miles Paddled's 2024 report reinforces that the trail behaves more like managed flatwater than a normally gauged river reach."
+        "strength": "weak",
+        "notes": "AW supports route/gauge identity, and RiverScout exposes a 200-800 cfs community optimal range, but no strong manager/AW/official numeric threshold band was captured for V2. Forum/community advice around 150 cfs low floor and 3-4 ft ideal was also not accepted for implementation."
       },
       "endpoints": {
-        "putIn": "Lower Cache River access area",
-        "takeOut": "Loop/out-and-back Lower Cache canoe trail or private launch south of Perks family",
+        "putIn": "White Cloud access / USGS White Cloud corridor",
+        "takeOut": "Blue River Chapel public access",
         "coordinatesPresent": false,
         "putInCoordinates": null,
         "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because the bigger blocker is still the missing scoreable water-level model; current source reporting frames the route as a loop/out-and-back swamp trail from the Access Road launch rather than a simple gauge-scored point-to-point river reach."
+        "coordinateSource": "Not captured because live-gauge and threshold gates failed first. Legacy IndianaOutfitters/DNR-derived access text supports Blue River Chapel but is too old to resolve the White Cloud put-in and dam context by itself."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "mi-betsie-river-thompsonville-family",
@@ -13938,38 +13806,44 @@
       "discoveryTier": "supported_midwest"
     },
     {
-      "candidateId": "il-dupage-river-knoch-knolls-naperville-family",
+      "candidateId": "in-cedar-creek-tonkel-road-state-road-1",
       "lane": "threshold_discovery",
       "priority": 97,
-      "state": "IL",
-      "river": "DuPage River",
-      "route": "Knoch Knolls Park / Naperville river-trip family",
+      "state": "IN",
+      "river": "Cedar Creek",
+      "route": "Tonkel Road to State Road 1 / Leo-Cedarville",
       "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-06-22",
-      "reviewCount": 3,
+      "lastReviewed": "2026-06-11",
+      "reviewCount": 12,
       "duplicateRisk": false,
-      "blocker": "2026-06-22 threshold refresh plus public-access tightening. The access story is now materially stronger and the future public pair is cleaner. Current Naperville Park District materials still list Knoch Knolls Park at 336 Knoch Knolls Road as an easy boat/canoe launch, and the district FAQ now says Naperville maintains four designated canoe/kayak launch sites on its DuPage corridor and has jurisdiction over park-pro...",
-      "retryCondition": "Retry only if Naperville, Openlands, Plainfield Park District, Will County, or another strong route-specific source publishes numeric paddling guidance tied to a selected live gauge for Knoch Knolls Park to Eaton Preserve or another selected official launch pair, and if current manager-backed coordinates can then be captured for the chosen endpoints.",
+      "blocker": "2026-06-11 17:42 America/Chicago / 2026-06-11 22:42 UTC blocker refresh. Rebuilt the live Indiana route inventory from src/data/rivers.ts and src/data/river-trip-details.ts and confirmed 0 Indiana routes and 0 Indiana trip-detail keys. Reviewed all 21 Indiana ledger rows before discovery. 2026-06-11 17:42 America/Chicago product-style USGS Water Services IV retry succeeded for 18 of 19 Indiana ledger gauges: 0409975...",
+      "retryCondition": "Retry only if a route-matching Cedar Creek gauge exposes product-fetchable current data and NEIWT, DNR, AW, a manager, or another strong source publishes numeric route-specific low/ideal/high or conservative minimum-only guidance. Recheck public access at Tonkel Road and SR 1, OHWM/private-bank limits, current logjam conditions, and low-head-dam map context before implementation.",
       "gauge": {
-        "quality": "unselected_live_gauge_and_threshold_fit_weak",
+        "quality": "not_selected",
         "id": null,
         "provider": "USGS",
-        "notes": "Likely gauge leads still include Naperville-area DuPage gauges and downstream DuPage River at Shorewood, but no single gauge/threshold package cleared the Illinois add bar during this pass even after the public route family narrowed."
+        "notes": "Selected gauge remains unverified through the app-supported USGS Water Services path in the 2026-06-10 12:02 America/Chicago / 2026-06-10 17:02 UTC refresh; product-live remains unsatisfied."
       },
       "thresholdSupport": {
-        "strength": "supplemental_local_only",
-        "notes": "IllinoisPaddle local scrape/action/flood notes are still useful research leads, but they remain supplemental local evidence rather than a defensible route-specific scoring model for the narrowed Knoch Knolls downstream family."
+        "strength": "qualitative_only",
+        "notes": "NEIWT notes spring/early-summer moderate levels and summer/fall lower levels, but this is not numeric enough for PaddleToday scoring."
       },
       "endpoints": {
-        "putIn": "Knoch Knolls Park",
-        "takeOut": "Eaton Preserve",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Current Naperville Park District and Openlands sources make Knoch Knolls Park the clean public put-in anchor, and current Openlands plus Plainfield Park District make Eaton Preserve at 135th Street the cleanest public downstream take-out. Will County's current Riverview Farmstead page confirms a legitimate farther-downstream launch, but the threshold model still fails before exact coordinate capture."
+        "putIn": "Tonkel Road access / river-left carry-down",
+        "takeOut": "State Road 1 / Leo-Cedarville river-left access",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 41.22085,
+          "longitude": -85.026873
+        },
+        "takeOutCoordinates": {
+          "latitude": 41.202773,
+          "longitude": -85.026873
+        },
+        "coordinateSource": "Northeast Indiana Water Trails Suggested Trips page; implementation deferred because threshold/gauge support failed."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "ky-red-river-upper-ky746-ky715",
@@ -14509,74 +14383,6 @@
       "discoveryTier": "adjacent_expansion"
     },
     {
-      "candidateId": "ne-calamus-river-highway-7-calamus-sra",
-      "lane": "threshold_discovery",
-      "priority": 92,
-      "state": "NE",
-      "river": "Calamus River",
-      "route": "Nebraska Highway 7 to Calamus Reservoir State Recreation Area",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-06-12",
-      "reviewCount": 30,
-      "duplicateRisk": false,
-      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06787500 Calamus near Burwell still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT. No route was added because current product data, a selected short public day route, and numeric paddling thresholds remain unresolved.",
-      "retryCondition": "Retry only if a shorter public endpoint pair is source-backed, a product-supported Calamus gauge is selected, and numeric low/ideal/high paddling guidance is published by an official manager or credible route source.",
-      "gauge": {
-        "quality": "no_current_product_data",
-        "id": "06787500 Calamus River gauge family",
-        "provider": "USGS",
-        "notes": "USGS 06787500 did not expose current product-ready IV data in this run; the only returned discharge value was from 1994, so it cannot support PaddleToday scoring."
-      },
-      "thresholdSupport": {
-        "strength": "not_ready",
-        "notes": "No numeric paddling floor, preferred band, or high-water cutoff tied to a selected Calamus gauge surfaced."
-      },
-      "endpoints": {
-        "putIn": "Nebraska Highway 7 bridge access",
-        "takeOut": "Calamus Reservoir State Recreation Area / Hannaman Bayou tailwater",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Official endpoint text reviewed; no implementation coordinate package captured because the route is not yet threshold-ready."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
-    },
-    {
-      "candidateId": "ne-elkhorn-river-public-access-family",
-      "lane": "threshold_discovery",
-      "priority": 92,
-      "state": "NE",
-      "river": "Elkhorn River",
-      "route": "Elkhorn public-access / Waterloo gauge family",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-06-12",
-      "reviewCount": 30,
-      "duplicateRisk": false,
-      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06799350 Elkhorn at West Point returned product-style current values of 628 cfs and 4.09 ft at 2026-06-12 12:15 CDT. No route was added because no exact selected public reach with source-backed numeric paddling thresholds tied to the selected Elkhorn gauge has cleared.",
-      "retryCondition": "Retry only if NGPC/NRD/local managers or a credible route source identifies a selected public Elkhorn segment with endpoint coordinates and numeric paddling guidance tied to a product-supported USGS or official live gauge.",
-      "gauge": {
-        "quality": "product_live_verified",
-        "id": "06799350",
-        "provider": "USGS",
-        "notes": "USGS 06799350 Elkhorn River at West Point returned product-style current IV data in this run, but no accepted numeric paddling threshold model is tied to a selected public reach."
-      },
-      "thresholdSupport": {
-        "strength": "not_ready",
-        "notes": "No source-backed numeric paddling threshold model tied to a selected Elkhorn gauge surfaced."
-      },
-      "endpoints": {
-        "putIn": "Elkhorn Crossing / Graske Crossing / Waterloo access family",
-        "takeOut": "Unselected downstream public access",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Not captured; selected route and threshold gates failed first."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
-    },
-    {
       "candidateId": "sd-missouri-national-recreational-river-day-trips",
       "lane": "fresh_source_discovery",
       "priority": 92,
@@ -14698,38 +14504,72 @@
       "discoveryTier": "supported_midwest"
     },
     {
-      "candidateId": "ne-niobrara-river-cornell-smith-brewer-norden-family",
+      "candidateId": "ne-calamus-river-highway-7-calamus-sra",
       "lane": "threshold_discovery",
-      "priority": 86,
+      "priority": 87,
       "state": "NE",
-      "river": "Niobrara River",
-      "route": "Cornell Bridge / Smith Falls / Brewer Bridge / Norden Bridge family",
+      "river": "Calamus River",
+      "route": "Nebraska Highway 7 to Calamus Reservoir State Recreation Area",
       "currentStatus": "threshold_weak",
       "lastReviewed": "2026-06-12",
       "reviewCount": 30,
       "duplicateRisk": false,
-      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06461500 Niobrara near Sparks still returned product-style current IV values of 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT, and NPS/NGPC corridor support remains strong. No route was added because no source-backed numeric paddling threshold model tied to a selected Cornell/Smith/Brewer/Norden public day segment has surfaced.",
-      "retryCondition": "Retry only if NPS, NGPC, Middle Niobrara NRD, USGS, or another credible manager publishes numeric Niobrara paddling thresholds tied to Sparks or another product-supported gauge and a short public endpoint pair is selected with source-backed coordinates.",
+      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06787500 Calamus near Burwell still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT. No route was added because current product data, a selected short public day route, and numeric paddling thresholds remain unresolved.",
+      "retryCondition": "Retry only if a shorter public endpoint pair is source-backed, a product-supported Calamus gauge is selected, and numeric low/ideal/high paddling guidance is published by an official manager or credible route source.",
       "gauge": {
-        "quality": "product_live_verified",
-        "id": "06461500",
+        "quality": "no_current_product_data",
+        "id": "06787500 Calamus River gauge family",
         "provider": "USGS",
-        "notes": "USGS 06461500 Niobrara River near Sparks returned product-style current IV data in this run, but no accepted numeric paddling threshold model is tied to a selected public day segment."
+        "notes": "USGS 06787500 did not expose current product-ready IV data in this run; the only returned discharge value was from 1994, so it cannot support PaddleToday scoring."
       },
       "thresholdSupport": {
         "strength": "not_ready",
-        "notes": "NPS provides seasonal low-water cautions but explicitly does not publish minimal/optimal recreational flow bands; no numeric app threshold model was accepted."
+        "notes": "No numeric paddling floor, preferred band, or high-water cutoff tied to a selected Calamus gauge surfaced."
       },
       "endpoints": {
-        "putIn": "Cornell Bridge / Fort Niobrara National Wildlife Refuge access family",
-        "takeOut": "Smith Falls, Brewer Bridge, or Norden Bridge family",
+        "putIn": "Nebraska Highway 7 bridge access",
+        "takeOut": "Calamus Reservoir State Recreation Area / Hannaman Bayou tailwater",
         "coordinatesPresent": false,
         "putInCoordinates": null,
         "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because the route needs a selected public day segment and threshold/product-live gates failed first."
+        "coordinateSource": "Official endpoint text reviewed; no implementation coordinate package captured because the route is not yet threshold-ready."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
+    },
+    {
+      "candidateId": "ne-elkhorn-river-public-access-family",
+      "lane": "threshold_discovery",
+      "priority": 87,
+      "state": "NE",
+      "river": "Elkhorn River",
+      "route": "Elkhorn public-access / Waterloo gauge family",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-06-12",
+      "reviewCount": 30,
+      "duplicateRisk": false,
+      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06799350 Elkhorn at West Point returned product-style current values of 628 cfs and 4.09 ft at 2026-06-12 12:15 CDT. No route was added because no exact selected public reach with source-backed numeric paddling thresholds tied to the selected Elkhorn gauge has cleared.",
+      "retryCondition": "Retry only if NGPC/NRD/local managers or a credible route source identifies a selected public Elkhorn segment with endpoint coordinates and numeric paddling guidance tied to a product-supported USGS or official live gauge.",
+      "gauge": {
+        "quality": "product_live_verified",
+        "id": "06799350",
+        "provider": "USGS",
+        "notes": "USGS 06799350 Elkhorn River at West Point returned product-style current IV data in this run, but no accepted numeric paddling threshold model is tied to a selected public reach."
+      },
+      "thresholdSupport": {
+        "strength": "not_ready",
+        "notes": "No source-backed numeric paddling threshold model tied to a selected Elkhorn gauge surfaced."
+      },
+      "endpoints": {
+        "putIn": "Elkhorn Crossing / Graske Crossing / Waterloo access family",
+        "takeOut": "Unselected downstream public access",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "Not captured; selected route and threshold gates failed first."
+      },
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "pa-three-rivers-water-trail-pittsburgh-family",
@@ -14958,6 +14798,74 @@
       "discoveryTier": "adjacent_expansion"
     },
     {
+      "candidateId": "ne-niobrara-river-cornell-smith-brewer-norden-family",
+      "lane": "threshold_discovery",
+      "priority": 81,
+      "state": "NE",
+      "river": "Niobrara River",
+      "route": "Cornell Bridge / Smith Falls / Brewer Bridge / Norden Bridge family",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-06-12",
+      "reviewCount": 30,
+      "duplicateRisk": false,
+      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06461500 Niobrara near Sparks still returned product-style current IV values of 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT, and NPS/NGPC corridor support remains strong. No route was added because no source-backed numeric paddling threshold model tied to a selected Cornell/Smith/Brewer/Norden public day segment has surfaced.",
+      "retryCondition": "Retry only if NPS, NGPC, Middle Niobrara NRD, USGS, or another credible manager publishes numeric Niobrara paddling thresholds tied to Sparks or another product-supported gauge and a short public endpoint pair is selected with source-backed coordinates.",
+      "gauge": {
+        "quality": "product_live_verified",
+        "id": "06461500",
+        "provider": "USGS",
+        "notes": "USGS 06461500 Niobrara River near Sparks returned product-style current IV data in this run, but no accepted numeric paddling threshold model is tied to a selected public day segment."
+      },
+      "thresholdSupport": {
+        "strength": "not_ready",
+        "notes": "NPS provides seasonal low-water cautions but explicitly does not publish minimal/optimal recreational flow bands; no numeric app threshold model was accepted."
+      },
+      "endpoints": {
+        "putIn": "Cornell Bridge / Fort Niobrara National Wildlife Refuge access family",
+        "takeOut": "Smith Falls, Brewer Bridge, or Norden Bridge family",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "Not captured because the route needs a selected public day segment and threshold/product-live gates failed first."
+      },
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+      "discoveryTier": "supported_midwest"
+    },
+    {
+      "candidateId": "ne-missouri-river-mnrr-nebraska-family",
+      "lane": "fresh_source_discovery",
+      "priority": 81,
+      "state": "NE",
+      "river": "Missouri River",
+      "route": "Missouri National Recreational River Nebraska-side paddling family",
+      "currentStatus": "research_later",
+      "lastReviewed": "2026-06-12",
+      "reviewCount": 30,
+      "duplicateRisk": false,
+      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06467500 Missouri River at Yankton returned current stage-only data of 10.29 ft at 2026-06-12 12:30 CDT. No route was added because no selected Nebraska-side MNRR public day reach and no numeric private-paddlecraft threshold model tied to an accepted gauge surfaced.",
+      "retryCondition": "Retry only if NPS, USACE, NGPC, or a water-trail manager identifies a specific Nebraska-side MNRR day reach with public endpoint coordinates, a direct product-supported Missouri River gauge, and numeric stage/flow go/no-go guidance for private paddlecraft.",
+      "gauge": {
+        "quality": "partial_stage_only",
+        "id": "06467500",
+        "provider": "USGS",
+        "notes": "USGS 06467500 returned current stage-only IV data in this run; no direct discharge or accepted private-paddlecraft stage threshold model is tied to a selected Nebraska-side day segment."
+      },
+      "thresholdSupport": {
+        "strength": "not_ready",
+        "notes": "No route-specific numeric private-paddlecraft stage or flow guidance surfaced; do not adapt Kansas River or small-river bands to the Missouri River."
+      },
+      "endpoints": {
+        "putIn": "Unselected MNRR public launch",
+        "takeOut": "Unselected MNRR public launch",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "Not captured because no selected day route cleared threshold/product-live gates."
+      },
+      "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+      "discoveryTier": "supported_midwest"
+    },
+    {
       "candidateId": "mi-middle-branch-ontonagon-burned-dam-bond-falls",
       "lane": "live_provider_recheck",
       "priority": 77,
@@ -15058,40 +14966,6 @@
       },
       "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
       "discoveryTier": "supported_midwest"
-    },
-    {
-      "candidateId": "ne-missouri-river-mnrr-nebraska-family",
-      "lane": "fresh_source_discovery",
-      "priority": 76,
-      "state": "NE",
-      "river": "Missouri River",
-      "route": "Missouri National Recreational River Nebraska-side paddling family",
-      "currentStatus": "research_later",
-      "lastReviewed": "2026-06-12",
-      "reviewCount": 30,
-      "duplicateRisk": false,
-      "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06467500 Missouri River at Yankton returned current stage-only data of 10.29 ft at 2026-06-12 12:30 CDT. No route was added because no selected Nebraska-side MNRR public day reach and no numeric private-paddlecraft threshold model tied to an accepted gauge surfaced.",
-      "retryCondition": "Retry only if NPS, USACE, NGPC, or a water-trail manager identifies a specific Nebraska-side MNRR day reach with public endpoint coordinates, a direct product-supported Missouri River gauge, and numeric stage/flow go/no-go guidance for private paddlecraft.",
-      "gauge": {
-        "quality": "partial_stage_only",
-        "id": "06467500",
-        "provider": "USGS",
-        "notes": "USGS 06467500 returned current stage-only IV data in this run; no direct discharge or accepted private-paddlecraft stage threshold model is tied to a selected Nebraska-side day segment."
-      },
-      "thresholdSupport": {
-        "strength": "not_ready",
-        "notes": "No route-specific numeric private-paddlecraft stage or flow guidance surfaced; do not adapt Kansas River or small-river bands to the Missouri River."
-      },
-      "endpoints": {
-        "putIn": "Unselected MNRR public launch",
-        "takeOut": "Unselected MNRR public launch",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because no selected day route cleared threshold/product-live gates."
-      },
-      "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-      "discoveryTier": "undercovered_supported_midwest"
     },
     {
       "candidateId": "mo-castor-river-maple-flats-zalma-family",
@@ -16699,36 +16573,6 @@
       "discoveryTier": "supported_midwest"
     },
     {
-      "candidateId": "ia-north-fork-maquoketa-river-cascade-d61",
-      "lane": "live_provider_recheck",
-      "priority": 58,
-      "state": "IA",
-      "river": "North Fork Maquoketa River",
-      "route": "Cascade Historic Limestone Silo to Hwy D61 / Whitewater Creek",
-      "currentStatus": "no_live_gauge",
-      "lastReviewed": "2026-05-26",
-      "reviewCount": 4,
-      "duplicateRisk": false,
-      "blocker": "Dubuque County now explicitly lists D61 Access as a true public canoe/kayak access on Whitewater Creek, which improves the take-out authority. The route still cannot be added because the route's Fulton gauge is not currently live enough for PaddleToday scoring: the USGS legacy current-conditions page for 05418400 shows latest visible discharge and gage-height observations only through April 18, 2026, and the modern...",
-      "retryCondition": "Retry only if USGS 05418400 North Fork Maquoketa River near Fulton resumes current discharge/gage-height observations, or if a different direct same-river live gauge with route-specific North Fork Maquoketa guidance becomes available.",
-      "gauge": {
-        "quality": "direct",
-        "notes": "USGS 05418400 North Fork Maquoketa River near Fulton, IA is downstream on the same North Fork Maquoketa corridor and is the gauge Wisconsin River Trips uses for its Cascade-to-D61 route ladder. It is the right gauge in principle, but it is not currently usable as a live route signal because the visible current-conditions data stop at April 18, 2026 in this run."
-      },
-      "thresholdSupport": {
-        "strength": "strong_community",
-        "notes": "Wisconsin River Trips publishes a Fulton-gauge ladder for the Cascade-to-D61 route: less than 150 cfs may be too shallow, 231-300 cfs is average and good, 301-400 cfs is above average but still good, 551-700 cfs is high and likely less attractive, 701-1000 cfs is very high / advanced, and 1001+ cfs is expert-only."
-      },
-      "endpoints": {
-        "putIn": "Cascade Historic Limestone Silo / Cascade canoe-kayak landing",
-        "takeOut": "Hwy D61 / Whitewater Creek bridge access",
-        "coordinatesPresent": false,
-        "coordinateSource": "The put-in is anchored to the City of Cascade Riverview Park page's nearby landing-and-parking reference, the Silos and Smokestacks address at 215 Pierce St SW, and WRT's Cascade Historic Limestone Silo launch notes. The take-out is now better supported because Dubuque County lists D61 Access as a true public canoe/kayak access on Whitewater Creek, and WRT describes the Hwy D61 bridge access, but exact coordinate-level endpoint entry was still deferred because the live-gauge blocker prevented implementation."
-      },
-      "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-      "discoveryTier": "supported_midwest"
-    },
-    {
       "candidateId": "mi-thunder-bay-river-long-rapids-family",
       "lane": "live_provider_recheck",
       "priority": 58,
@@ -17239,7 +17083,7 @@
         "coordinateSource": "Endpoint names came from local route/access search context; coordinates were not captured because live-gauge and threshold gates failed first."
       },
       "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "mi-cass-river-vassar-tuscola",
@@ -17724,7 +17568,7 @@
         "coordinateSource": "NWIPA Deep River Water Trail page lists coordinates for the public access chain, but implementation deferred before selecting the safest public take-out because the live-gauge and threshold gates failed."
       },
       "recommendedNextStep": "Revisit only if the retry condition is satisfied or the retry date has passed with new evidence.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "mo-flat-creek-mcdowell-stubblefield",
@@ -17976,70 +17820,6 @@
       "discoveryTier": "undercovered_supported_midwest"
     },
     {
-      "candidateId": "ky-south-fork-licking-public-access-pools",
-      "lane": "live_provider_recheck",
-      "priority": 46,
-      "state": "KY",
-      "river": "South Fork Licking River",
-      "route": "Lair / Terry Dam / Cynthiana / Robinson / Pendleton County access family",
-      "currentStatus": "no_live_gauge",
-      "lastReviewed": "2026-06-04",
-      "reviewCount": 42,
-      "duplicateRisk": false,
-      "blocker": "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: South Fork Licking remains no_live_gauge. Product-style USGS Water Services IV fetch for 03252500 failed unable to connect, so KDFWR access/threshold context still cannot clear the product-live gate or the low-head-dam route-shape gate.",
-      "retryCondition": "Retry only if USGS 03252500 or 03253000 exposes same-day product-fetchable data and a specific KDFWR-supported point-to-point route can be selected without forcing users into low-head-dam ambiguity.",
-      "gauge": {
-        "quality": "direct_but_stale",
-        "id": "03252500 / 03253000",
-        "provider": "USGS",
-        "notes": "USGS 03252500 remains a Cynthiana gauge lead, but the 2026-06-03 20:13 America/Chicago / 2026-06-04 01:13 UTC check found no modern continuous current data and did not verify a product-ready live gauge path."
-      },
-      "thresholdSupport": {
-        "strength": "official_bands_pending_live_gauge_and_route_shape",
-        "notes": "KDFWR's bands are numeric and official, but endpoint selection and low-head-dam exposure need route-specific cleanup before any implementation."
-      },
-      "endpoints": {
-        "putIn": "Unselected South Fork Licking public access",
-        "takeOut": "Unselected South Fork Licking public access",
-        "coordinatesPresent": false,
-        "coordinateSource": "Coordinate work was deferred because the live-gauge gate and low-head-dam route-shape issues blocked implementation."
-      },
-      "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-      "discoveryTier": "adjacent_expansion"
-    },
-    {
-      "candidateId": "ky-north-fork-kentucky-river-access-chain",
-      "lane": "live_provider_recheck",
-      "priority": 46,
-      "state": "KY",
-      "river": "North Fork Kentucky River",
-      "route": "Douthitt Park / Jackson access-chain family",
-      "currentStatus": "no_live_gauge",
-      "lastReviewed": "2026-06-04",
-      "reviewCount": 62,
-      "duplicateRisk": false,
-      "blocker": "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: North Fork Kentucky remains no_live_gauge. Product-style USGS Water Services IV fetches for Jackson 03280000 and Hazard 03277500 failed unable to connect, leaving the low-head-dam/access-chain route short of the product-live gate.",
-      "retryCondition": "Retry when USGS 03280000 or 03277500 exposes same-day product-fetchable values and a specific KDFWR-supported public access pair is selected.",
-      "gauge": {
-        "quality": "direct_but_stale",
-        "id": "03280000",
-        "provider": "USGS",
-        "notes": "USGS 03280000 remains a North Fork Kentucky gauge lead, but the 2026-06-03 20:13 America/Chicago / 2026-06-04 01:13 UTC check still showed stale 2026-05-26 official values and did not verify a current product-ready live gauge path."
-      },
-      "thresholdSupport": {
-        "strength": "official_numeric_pending_live_gauge",
-        "notes": "KDFWR publishes official Hazard and Jackson stage bands plus Jackson cfs bands. Threshold support is strong enough to revisit, but not usable until a supported live gauge clears."
-      },
-      "endpoints": {
-        "putIn": "Unselected KDFWR North Fork Kentucky River public access",
-        "takeOut": "Unselected downstream KDFWR North Fork Kentucky River public access",
-        "coordinatesPresent": false,
-        "coordinateSource": "KDFWR access records include at least Douthitt Park coordinates; full endpoint coordinate work was deferred because the live-gauge gate failed."
-      },
-      "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-      "discoveryTier": "adjacent_expansion"
-    },
-    {
       "candidateId": "mo-meramec-short-bend-cook-station",
       "lane": "live_provider_recheck",
       "priority": 46,
@@ -18202,7 +17982,7 @@
         "coordinateSource": "American Whitewater route map exposes Put In and Take Out coordinates for reach 2563. Those remain useful location anchors, and current NICHES pages plus their direct Google Maps links now materially strengthen the Twin Bridges take-out and the separate 450 Harrison access as mapped public endpoints. Current Warren County and Indiana DNR engineering records now also make the blocked upstream crossing more explicit by identifying a Big Pine Creek bridge on Rainsville Road and the same one-span steel truss bridge about 0.15 mile north of Rainsville. But the AW coordinate pair still is not enough to ship because none of those current bridge or engineering records confirms paddler launch legitimacy, shoulder loading, or parking rules at the upstream Rainsville crossing."
       },
       "recommendedNextStep": "Revisit only if the retry condition is satisfied or the retry date has passed with new evidence.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "mo-big-sugar-creek-cyclone-deep-ford",
@@ -18587,7 +18367,7 @@
         "coordinateSource": "Official endpoint names and map context reviewed; implementation-grade coordinates were not captured because live-provider support failed first."
       },
       "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     }
   ]
 }

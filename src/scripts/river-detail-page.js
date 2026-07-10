@@ -3,6 +3,7 @@
   bindMarkerPopup,
   ensureMapLibre,
   escapeHtml,
+  syncActualRiverLayer,
 } from './map-runtime.js';
 import { readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { bindFavoriteButtons } from './favorites-ui.js';
@@ -3093,6 +3094,24 @@ function activeAccessPoints() {
   ].filter(Boolean);
 }
 
+function fullRouteAccessPoints() {
+  const accessPoints = Array.isArray(plannerAccessPoints)
+    ? plannerAccessPoints
+        .filter(hasCoordinates)
+        .slice()
+        .sort((left, right) => Number(left.mileFromStart) - Number(right.mileFromStart))
+    : [];
+
+  if (accessPoints.length >= 2) {
+    return accessPoints;
+  }
+
+  return [
+    hasCoordinates(riverContext.putIn) ? riverContext.putIn : null,
+    hasCoordinates(riverContext.takeOut) ? riverContext.takeOut : null,
+  ].filter(Boolean);
+}
+
 function buildAccessRouteLine(points) {
   return {
     type: 'Feature',
@@ -3579,6 +3598,7 @@ async function renderDetailMap(result = null) {
 
   const accessContext = activeAccessContext;
   const points = activeAccessPoints();
+  const fullRoutePoints = fullRouteAccessPoints();
 
   if (!points.length) {
     if (detailMapStatus instanceof HTMLElement) {
@@ -3624,9 +3644,21 @@ async function renderDetailMap(result = null) {
       await waitForMapStyle(detailMapRuntime);
 
       detailMapMarkers = clearDetailMarkers(detailMapMarkers);
+      syncActualRiverLayer(detailMapRuntime, 'detail-actual-river-line', [riverContext.name], {
+        lineColor: routeLineColor(result),
+        lineWidth: 6,
+        lineOpacity: 0.42,
+      });
+      syncAccessRouteLine(detailMapRuntime, 'detail-route-full-line', 'detail-route-full-line', fullRoutePoints, result, {
+        lineWidth: 3,
+        lineOpacity: 0.26,
+      });
       syncAccessRouteLine(detailMapRuntime, 'detail-route-line', 'detail-route-line', points, result);
 
     const bounds = new maplibregl.LngLatBounds();
+    for (const point of fullRoutePoints) {
+      bounds.extend([point.longitude, point.latitude]);
+    }
     for (const point of points) {
       const markerNode = document.createElement('button');
       markerNode.type = 'button';
@@ -3653,7 +3685,7 @@ async function renderDetailMap(result = null) {
       bounds.extend([point.longitude, point.latitude]);
     }
 
-    if (points.length > 1) {
+    if (points.length > 1 || fullRoutePoints.length > 1) {
       detailMapRuntime.fitBounds(bounds, {
         padding: { top: 44, right: 44, bottom: 44, left: 44 },
         maxZoom: 11.6,

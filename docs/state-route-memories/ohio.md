@@ -1,24 +1,24 @@
 # Ohio Route Memory
 
-Last summarized: 2026-05-31.
+Last summarized: 2026-06-26.
 
 ## Current Inventory
 
-- Live routes: 5.
-- Rivers represented: Cuyahoga River, Grand River, Great Miami River, Little Miami River, Vermilion River.
-- Ledger candidates: 5 total; 5 added.
+- Live routes: 8.
+- Rivers represented: Cuyahoga River, Grand River, Great Miami River, Little Beaver Creek, Little Miami River, Vermilion River.
+- Ledger candidates: 8 total; 8 added.
 
 ## Status
 
-Ohio has a clean seed set implemented, with no additional unresolved ledger backlog in the current candidate file.
+Ohio now has a broader seed set implemented, including three Little Beaver Creek whitewater routes added from the official Ohio River Water Trail guide.
 
 ## Main Blockers
 
-- No current blockers are recorded in the ledger for the five tracked Ohio candidates because all are added.
+- No current Ohio blockers are recorded in the ledger because the tracked Ohio candidates are all implemented.
 
 ## Current Guidance
 
 - Do not run broad Ohio cadence from the current ledger alone.
-- If expanding Ohio, seed fresh candidates first from ODNR water trails, local park districts, USGS gauges, and any manager-published level guidance.
-- Treat new Ohio work as discovery, not implementation from an existing queue.
+- If expanding Ohio again, seed fresh candidates from ODNR water trails, local park districts, PFBC/Ohio River Water Trail materials near the border, direct USGS gauges, and manager-published level guidance.
+- Little Beaver Creek is now covered with a minimum-only official floor at `300 cfs` on USGS `03109500`, Beaver Creek State Park camping support, and approved same-river Commons image reuse near Lock 57.
 

@@ -4,7 +4,7 @@ Created 2026-06-08 for the `nebraska-route-additions` automation.
 
 ## Current Inventory
 
-- Current live Nebraska routes in `src/data/rivers.ts`: 1 as of 2026-06-12 11:11 implementation pass (`platte-river-schramm-louisville`).
+- Current live Nebraska routes in `src/data/rivers.ts`: 9 as of 2026-07-06 after the latest Loup continuation pass (`platte-river-schramm-louisville`, `platte-river-schramm-platte-river-state-park`, `platte-river-platte-river-state-park-louisville`, `loup-river-george-syas-monroe`, `loup-river-george-syas-columbus`, `loup-river-monroe-columbus`, `loup-river-columbus-adm-access`, `loup-river-monroe-adm-access`, and `loup-river-george-syas-adm-access`).
 - Current Nebraska candidate ledger rows: 7 as of 2026-06-12 12:58 blocker refresh.
 - Automation posture: seed a small official-source candidate set, then add at most one route only if all gates clear.
 
@@ -27,6 +27,29 @@ Created 2026-06-08 for the `nebraska-route-additions` automation.
 - Start from official NGPC water-trail maps/pages.
 - Likely first families to evaluate: Platte River Water Trail / Schramm-to-Louisville area, Elkhorn River official access segments, Niobrara public day segments, Calamus River canoe trail, and Missouri National Recreational River day segments.
 - Record every reviewed lead in `docs/route-candidate-ledger.json`, even on no-add runs.
+
+## 2026-07-06 Loup continuation pass
+
+- Rebuilt the live Nebraska inventory from the repo state at run start and treated the app count, not the generated inbox count, as the baseline.
+- Added `loup-river-monroe-columbus`, `loup-river-monroe-adm-access`, and `loup-river-george-syas-adm-access` from the same official Loup River Water Trail chain already in the repo.
+- Qualification path:
+  - Current Outdoor Nebraska / Nebraskaland still documents the public George D. Syas WMA start, the county-built Monroe access with parking, the hotel-side Columbus finish, and the fourth access 4.5 miles downstream near ADM.
+  - Current City of Columbus material still describes Monroe as the signed public county access south of Monroe, still frames Monroe-to-Columbus as a 16-mile / 6-to-8-hour float, and still confirms the leased ADM access area south of Southeast 9th Street as the downstream continuation.
+  - Same-day direct USGS Water Services returned `391 cfs / 4.42 ft` at `2026-07-06 02:45 CDT` for direct Genoa gauge `06793000`.
+  - Threshold posture remains conservative `minimum-only` at `350 cfs` because the strongest numeric support is still the Nebraskaland low-water floor plus the 1,600 cfs middle-segment trip narrative, not a full official range.
+- Endpoint anchors remain the accepted practical public-access coordinates already used in the live family: George D. Syas `41.43328221, -97.68464875`, Monroe `41.471508, -97.602729`, Columbus hotel-side finish `41.4195401, -97.3672208`, and the downstream ADM-area anchor `41.41603951, -97.2865376`.
+- Current access caveat still applies: the City of Columbus says the Pawnee Park underpass connecting East and West Pawnee Park closed on June 9, 2025 and remains closed for the foreseeable future, so the Columbus checkpoint / finish continues to carry a same-day trail-circulation warning.
+- No route-gallery image was added. `docs/river-image-source-audit.csv` records bounded Nebraskaland, City of Columbus, Global Energy Monitor, Wikimedia Commons, and same-river USGS media review without a selected rights-clean exact-route asset for the three new slugs.
+
+## 2026-07-02 11:05 Implementation Pass
+
+- Rebuilt current Nebraska inventory from `src/data/rivers.ts` and `src/data/river-trip-details.ts`: 2 live Nebraska routes and 2 Nebraska trip-detail objects before editing (`platte-river-schramm-louisville` and `loup-river-george-syas-monroe`).
+- Implemented `loup-river-george-syas-columbus`, `loup-river-george-syas-columbus`, and `loup-river-columbus-adm-access` from the same official Loup River Water Trail access chain.
+- The prior Loup blocker cleared because current Nebraskaland and City of Columbus sources now gave a strong enough implementation package: George D. Syas WMA, the county-built Monroe access with parking, the hotel-side Columbus finish, and the newer ADM access site south of Southeast 9th Street are all named publicly; segment distances remain `8`, `16`, and `4.5` miles or matching `2-3 hour` / `6-8 hour` float language; and the Columbus finish still uses the Quality Inn / Ramada parking area plus Pawnee Park Trail from the riverbank.
+- Same-day direct USGS Water Services returned current product-style values for `06793000` Loup River near Genoa: `321 cfs / 4.31 ft` at `2026-07-02 08:45 CDT`. Threshold posture stays conservative minimum-only at `350 cfs` because Nebraskaland supports the low-water floor and the `1600 cfs` middle-segment trip story, but no official high-water ceiling surfaced.
+- Endpoint coordinates remain practical public-access anchors rather than survey-grade launch pins: George D. Syas `41.43328221, -97.68464875`, Monroe `41.471508, -97.602729`, Columbus hotel-side finish `41.4195401, -97.3672208`, and the downstream ADM-area anchor `41.41603951, -97.2865376`.
+- Current access caveat: the City of Columbus says the Pawnee Park underpass connecting East and West Pawnee Park closed on June 9, 2025 and remains closed for the foreseeable future, so the Columbus finish keeps an explicit same-day trail/connection warning.
+- No route-gallery image was added. `docs/river-image-source-audit.csv` records bounded Nebraskaland, City of Columbus, Global Energy Monitor, Wikimedia Commons, and same-river USGS media review without a selected rights-clean exact-route asset.
 
 ## 2026-06-12 12:58 Blocker Refresh
 

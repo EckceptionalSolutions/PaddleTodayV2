@@ -14,7 +14,7 @@ export function alertMutationMessage(
   deliveryMethod: 'email' | 'push' = 'email'
 ) {
   const thresholdLabel = alertThresholdLabel(threshold);
-  const alertLabel = deliveryMethod === 'push' ? 'native alert' : 'alert';
+  const alertLabel = deliveryMethod === 'push' ? 'phone alert' : 'alert';
   if (response.duplicate) {
     return `Already watching this route for ${thresholdLabel} with this ${alertLabel}.`;
   }
@@ -24,7 +24,7 @@ export function alertMutationMessage(
   }
 
   if (deliveryMethod === 'push') {
-    return `Native alert saved. You will get notified on the next ${thresholdLabel} crossing.`;
+    return `${thresholdLabel} phone alert is on. You will get notified when this route crosses that call.`;
   }
 
   return `Alert saved. You will get emailed on the next ${thresholdLabel} crossing, with an unsubscribe link in the email.`;

@@ -1634,12 +1634,45 @@ function featuredRouteLineColor(rating) {
   return '#1e7397';
 }
 
+function routeAccessCoordinate(point, kind = 'access') {
+  if (!Number.isFinite(point?.latitude) || !Number.isFinite(point?.longitude)) {
+    return null;
+  }
+
+  return {
+    ...point,
+    kind,
+    latitude: point.latitude,
+    longitude: point.longitude,
+  };
+}
+
 function routeAccessPoints(item) {
-  const putIn = item?.cardRoute?.river?.putIn;
-  const takeOut = item?.cardRoute?.river?.takeOut;
+  const river = item?.cardRoute?.river;
+  const sortedAccessPoints = Array.isArray(river?.accessPoints)
+    ? river.accessPoints
+        .map((point) => ({ point, coordinate: routeAccessCoordinate(point) }))
+        .filter((entry) => entry.coordinate)
+        .sort((left, right) => {
+          const leftMile = Number(left.point.mileFromStart);
+          const rightMile = Number(right.point.mileFromStart);
+          return (Number.isFinite(leftMile) ? leftMile : 0) - (Number.isFinite(rightMile) ? rightMile : 0);
+        })
+        .map((entry, index, points) => ({
+          ...entry.coordinate,
+          kind: index === 0 ? 'putIn' : index === points.length - 1 ? 'takeOut' : 'access',
+        }))
+    : [];
+
+  if (sortedAccessPoints.length >= 2) {
+    return sortedAccessPoints;
+  }
+
+  const putIn = river?.putIn;
+  const takeOut = river?.takeOut;
   return [
-    Number.isFinite(putIn?.latitude) && Number.isFinite(putIn?.longitude) ? { ...putIn, kind: 'putIn' } : null,
-    Number.isFinite(takeOut?.latitude) && Number.isFinite(takeOut?.longitude) ? { ...takeOut, kind: 'takeOut' } : null,
+    routeAccessCoordinate(putIn, 'putIn'),
+    routeAccessCoordinate(takeOut, 'takeOut'),
   ].filter(Boolean);
 }
 
@@ -3465,7 +3498,159 @@ function markerClassFor(item) {
 }
 
 function isSummaryMapStyleReady() {
-  return Boolean(mapRuntime && typeof mapRuntime.isStyleLoaded === 'function' && mapRuntime.isStyleLoaded());
+  if (!mapRuntime) {
+    return false;
+  }
+
+  const mapLoaded = typeof mapRuntime.loaded !== 'function' || mapRuntime.loaded();
+  const styleLoaded = typeof mapRuntime.isStyleLoaded !== 'function' || mapRuntime.isStyleLoaded();
+  return mapLoaded && styleLoaded;
+}
+
+async function waitForSummaryMapReady() {
+  if (isSummaryMapStyleReady()) {
+    return;
+  }
+
+  await new Promise((resolve) => {
+    let settled = false;
+    const finish = () => {
+      if (!settled && isSummaryMapStyleReady()) {
+        settled = true;
+        resolve();
+      }
+    };
+
+    mapRuntime.once('load', finish);
+    mapRuntime.once('idle', finish);
+    mapRuntime.once('styledata', finish);
+    window.setTimeout(() => {
+      if (!settled) {
+        settled = true;
+        resolve();
+      }
+    }, 2500);
+  });
+}
+
+function bindSummaryMapLayerRefresh() {
+  if (!mapRuntime || mapRuntime.__paddleTodaySummaryLayerRefreshBound) {
+    return;
+  }
+
+  const refresh = () => {
+    if (!isSummaryMapStyleReady()) {
+      return;
+    }
+    syncSummaryRouteLines(lastSummaryMapItems);
+    syncSummaryRouteLine();
+  };
+
+  mapRuntime.__paddleTodaySummaryLayerRefreshBound = true;
+  mapRuntime.on('idle', refresh);
+  mapRuntime.on('styledata', refresh);
+}
+
+function buildSummaryRouteLineFeature(item) {
+  const accessPoints = routeAccessPoints(item);
+  if (accessPoints.length < 2) {
+    return null;
+  }
+
+  return {
+    type: 'Feature',
+    properties: {
+      key: item.key,
+      rating: item.cardRoute.rating,
+    },
+    geometry: {
+      type: 'LineString',
+      coordinates: accessPoints.map((point) => [point.longitude, point.latitude]),
+    },
+  };
+}
+
+function syncSummaryRouteLines(items) {
+  if (!mapRuntime || !isSummaryMapStyleReady()) {
+    return;
+  }
+
+  const sourceId = 'summary-route-lines';
+  const casingLayerId = 'summary-route-lines-casing';
+  const layerId = 'summary-route-lines';
+  const features = items.map(buildSummaryRouteLineFeature).filter(Boolean);
+
+  if (features.length === 0) {
+    if (mapRuntime.getLayer(layerId)) {
+      mapRuntime.removeLayer(layerId);
+    }
+    if (mapRuntime.getLayer(casingLayerId)) {
+      mapRuntime.removeLayer(casingLayerId);
+    }
+    if (mapRuntime.getSource(sourceId)) {
+      mapRuntime.removeSource(sourceId);
+    }
+    return;
+  }
+
+  const data = {
+    type: 'FeatureCollection',
+    features,
+  };
+
+  if (mapRuntime.getSource(sourceId)) {
+    mapRuntime.getSource(sourceId).setData(data);
+  } else {
+    mapRuntime.addSource(sourceId, {
+      type: 'geojson',
+      data,
+    });
+  }
+
+  if (!mapRuntime.getLayer(casingLayerId)) {
+    mapRuntime.addLayer({
+      id: casingLayerId,
+      type: 'line',
+      source: sourceId,
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round',
+      },
+      paint: {
+        'line-color': '#ffffff',
+        'line-width': 9.5,
+        'line-opacity': 0.86,
+        'line-blur': 0.25,
+      },
+    });
+  }
+
+  if (!mapRuntime.getLayer(layerId)) {
+    mapRuntime.addLayer({
+      id: layerId,
+      type: 'line',
+      source: sourceId,
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round',
+      },
+      paint: {
+        'line-color': [
+          'match',
+          ['get', 'rating'],
+          'Strong',
+          '#2c8a54',
+          'Good',
+          '#2c8a54',
+          'Fair',
+          '#ad752c',
+          '#bb5840',
+        ],
+        'line-width': 5.6,
+        'line-opacity': 0.94,
+      },
+    });
+  }
 }
 
 function syncSummaryRouteLine() {
@@ -3474,6 +3659,7 @@ function syncSummaryRouteLine() {
   }
 
   const sourceId = 'summary-selected-route-line';
+  const casingLayerId = 'summary-selected-route-line-casing';
   const layerId = 'summary-selected-route-line';
   const selectedItem = lastSummaryMapItems.find((item) => item.key === selectedSummaryMapKey);
   const accessPoints = selectedItem ? routeAccessPoints(selectedItem) : [];
@@ -3496,6 +3682,21 @@ function syncSummaryRouteLine() {
         data: routeLine,
       });
       mapRuntime.addLayer({
+        id: casingLayerId,
+        type: 'line',
+        source: sourceId,
+        layout: {
+          'line-cap': 'round',
+          'line-join': 'round',
+        },
+        paint: {
+          'line-color': '#ffffff',
+          'line-width': 13,
+          'line-opacity': 0.9,
+          'line-blur': 0.35,
+        },
+      });
+      mapRuntime.addLayer({
         id: layerId,
         type: 'line',
         source: sourceId,
@@ -3505,8 +3706,8 @@ function syncSummaryRouteLine() {
         },
         paint: {
           'line-color': featuredRouteLineColor(selectedItem.cardRoute.rating),
-          'line-width': 4,
-          'line-opacity': 0.86,
+          'line-width': 8,
+          'line-opacity': 0.95,
         },
       });
     }
@@ -3518,8 +3719,49 @@ function syncSummaryRouteLine() {
   if (mapRuntime.getLayer(layerId)) {
     mapRuntime.removeLayer(layerId);
   }
+  if (mapRuntime.getLayer(casingLayerId)) {
+    mapRuntime.removeLayer(casingLayerId);
+  }
   if (mapRuntime.getSource(sourceId)) {
     mapRuntime.removeSource(sourceId);
+  }
+}
+
+function focusSummaryMapRoute(key) {
+  if (!mapRuntime || !key) {
+    return;
+  }
+
+  const item = lastSummaryMapItems.find((candidate) => candidate.key === key);
+  const accessPoints = item ? routeAccessPoints(item) : [];
+  if (accessPoints.length > 1) {
+    const longitudes = accessPoints.map((point) => point.longitude);
+    const latitudes = accessPoints.map((point) => point.latitude);
+    const compact = window.matchMedia('(max-width: 720px)').matches;
+    mapRuntime.fitBounds(
+      [
+        [Math.min(...longitudes), Math.min(...latitudes)],
+        [Math.max(...longitudes), Math.max(...latitudes)],
+      ],
+      {
+        padding: compact
+          ? { top: 72, right: 72, bottom: 72, left: 72 }
+          : { top: 110, right: 110, bottom: 110, left: 110 },
+        maxZoom: 11.2,
+        duration: 550,
+      }
+    );
+    return;
+  }
+
+  const marker = mapMarkersByKey.get(key);
+  const lngLat = marker?.getLngLat?.();
+  if (lngLat) {
+    mapRuntime.flyTo({
+      center: [lngLat.lng, lngLat.lat],
+      zoom: Math.max(mapRuntime.getZoom(), 9),
+      duration: 550,
+    });
   }
 }
 
@@ -3748,6 +3990,7 @@ function openSummaryMapItem(key, { scrollCard = true } = {}) {
   }
 
   updateSummaryMapSelection(key);
+  focusSummaryMapRoute(key);
   focusSummaryMapCard(key, { scroll: scrollCard });
   closeSummaryMapPopups(key);
   const popup = marker.getPopup?.();
@@ -3935,17 +4178,14 @@ async function renderSummaryMap(items) {
       });
 
       mapRuntime.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
-      await Promise.race([
-        new Promise((resolve) => {
-          if (mapRuntime.loaded()) {
-            resolve();
-            return;
-          }
-          mapRuntime.once('load', resolve);
-        }),
-        new Promise((resolve) => window.setTimeout(resolve, 2500)),
-      ]);
+      bindSummaryMapLayerRefresh();
+      await waitForSummaryMapReady();
     }
+    if (renderVersion !== summaryMapRenderVersion) {
+      return;
+    }
+
+    await waitForSummaryMapReady();
     if (renderVersion !== summaryMapRenderVersion) {
       return;
     }
@@ -3959,7 +4199,10 @@ async function renderSummaryMap(items) {
     const bounds = new maplibregl.LngLatBounds();
     let hasBounds = false;
 
+    syncSummaryRouteLines(items);
+
     for (const item of items) {
+      const routePoints = routeAccessPoints(item);
       const markerNode = document.createElement('button');
       markerNode.type = 'button';
       markerNode.className = markerClassFor(item);
@@ -3985,6 +4228,7 @@ async function renderSummaryMap(items) {
         onSelectedChange(selected) {
           if (selected) {
             updateSummaryMapSelection(item.key);
+            focusSummaryMapRoute(item.key);
             focusSummaryMapCard(item.key);
           } else if (selectedSummaryMapKey === item.key) {
             updateSummaryMapSelection(null);
@@ -3992,12 +4236,17 @@ async function renderSummaryMap(items) {
         },
       });
       markerNode.addEventListener('click', () => {
-        updateSummaryMapSelection(item.key);
-        focusSummaryMapCard(item.key);
+        openSummaryMapItem(item.key);
       });
       mapMarkers.push(marker);
       mapMarkersByKey.set(item.key, marker);
-      bounds.extend([item.cardRoute.river.longitude, item.cardRoute.river.latitude]);
+      if (routePoints.length > 1) {
+        for (const point of routePoints) {
+          bounds.extend([point.longitude, point.latitude]);
+        }
+      } else {
+        bounds.extend([item.cardRoute.river.longitude, item.cardRoute.river.latitude]);
+      }
       hasBounds = true;
     }
 

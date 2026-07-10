@@ -6,6 +6,7 @@ import {
   type CampingClassification,
   type ApprovedTripReport,
   type DecisionChecklistItem,
+  type HourlyWeatherPoint,
   type RiverAccessPoint,
   type RiverRouteAccessPoint,
   type RiverAlertThreshold,
@@ -31,7 +32,6 @@ import {
   StyleProp,
   StyleSheet,
   Text,
-  TextInput,
   ViewStyle,
   View,
 } from 'react-native';
@@ -43,13 +43,13 @@ import {
   useRiverHistoryQuery,
   useRouteCommunityQuery,
 } from '../api/queries';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HistoryBars } from '../components/history-bars';
 import { AppErrorState, AppLoadingState } from '../components/app-state';
 import { RatingPill } from '../components/rating-pill';
 import { RoutePhotoCard } from '../components/route-photo-card';
 import { RouteReportSheet, type SelectedReportPhoto } from '../components/route-report-sheet';
-import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
+import { RoutePlotMap, type RoutePlotPoint, type RouteSpanCoordinate } from '../components/route-plot-map';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { SectionCard } from '../components/section-card';
 import { StatusPill } from '../components/status-pill';
@@ -77,7 +77,7 @@ import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
 const DETAIL_SECTIONS = ['Today', 'Access', 'Reports', 'More'] as const;
-const ANDROID_NAV_CONTROL_MIN_INSET = 40;
+const ANDROID_NAV_CONTROL_MIN_INSET = 96;
 
 type DetailSection = (typeof DETAIL_SECTIONS)[number];
 
@@ -98,6 +98,9 @@ export default function RiverDetailScreen() {
   const params = useLocalSearchParams<{ slug?: string | string[] }>();
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const bottomContentInset = Platform.OS === 'android'
+    ? Math.max(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET)
+    : insets.bottom;
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug ?? '';
   const detailQuery = useRiverDetailQuery(slug);
   const historyQuery = useRiverHistoryQuery(slug, 7);
@@ -109,8 +112,7 @@ export default function RiverDetailScreen() {
   const scrollRef = useRef<ScrollView | null>(null);
   const sectionTabsYRef = useRef(0);
   const conditionsYRef = useRef(0);
-  const [draftEmail, setDraftEmail] = useState(storedEmail);
-  const [alertStatus, setAlertStatus] = useState('Choose notifications or email for route alerts.');
+  const [alertStatus, setAlertStatus] = useState('Choose Good or Strong phone notifications for this route.');
   const [pendingThreshold, setPendingThreshold] = useState<RiverAlertThreshold | null>(null);
   const [reportName, setReportName] = useState('');
   const [reportEmail, setReportEmail] = useState(storedEmail);
@@ -143,13 +145,16 @@ export default function RiverDetailScreen() {
     () => (detail ? buildDetailRoutePoints(detail, selectedPutIn, selectedTakeOut) : []),
     [detail, selectedPutIn, selectedTakeOut]
   );
+  const routeBackgroundSpan = useMemo(
+    () => (detail ? fullRouteSpanCoordinates(detail) : null),
+    [detail]
+  );
   const communityReports = community?.reports ?? [];
   const communityPhotos = community?.photos ?? [];
   const siblingRouteCount = groupQuery.data?.result.routes.length ?? 0;
   const detailSlug = detail?.river.slug ?? null;
 
   useEffect(() => {
-    setDraftEmail(storedEmail);
     setReportEmail((current) => current || storedEmail);
   }, [storedEmail]);
 
@@ -201,51 +206,6 @@ export default function RiverDetailScreen() {
   }
 
   const riverSlug = detail.river.slug;
-  async function submitRiverAlert(threshold: RiverAlertThreshold) {
-    const email = draftEmail.trim().toLowerCase();
-    if (!isValidEmailAddress(email)) {
-      setAlertStatus('Enter a valid email address before turning on alerts.');
-      return;
-    }
-
-    setPendingThreshold(threshold);
-    try {
-      trackAppEvent('alert_create_started', {
-        slug: riverSlug,
-        threshold,
-      });
-      await setEmail(email);
-      const response = await createAlertMutation.mutateAsync({
-        email,
-        riverSlug,
-        threshold,
-      });
-      await recordRouteAlert({ riverSlug, threshold, deliveryMethod: 'email' });
-      trackAppEvent('alert_create_succeeded', {
-        slug: riverSlug,
-        threshold,
-        duplicate: response.duplicate,
-        reactivated: response.reactivated,
-      });
-      setAlertStatus(alertMutationMessage(response, threshold));
-    } catch (error) {
-      captureAppException(error, {
-        name: 'alert_create_failed',
-        extra: {
-          slug: riverSlug,
-          threshold,
-        },
-      });
-      setAlertStatus(
-        error instanceof PaddleTodayApiError && error.message
-          ? error.message
-          : `Could not save the ${alertThresholdLabel(threshold)} alert right now.`
-      );
-    } finally {
-      setPendingThreshold(null);
-    }
-  }
-
   async function submitNativeRiverAlert(threshold: RiverAlertThreshold) {
     setPendingThreshold(threshold);
     try {
@@ -284,7 +244,7 @@ export default function RiverDetailScreen() {
       setAlertStatus(
         error instanceof PaddleTodayApiError && error.message
           ? error.message
-          : `Could not save the ${alertThresholdLabel(threshold)} native alert right now.`
+          : `Could not save the ${alertThresholdLabel(threshold)} phone alert right now.`
       );
     } finally {
       setPendingThreshold(null);
@@ -474,14 +434,14 @@ export default function RiverDetailScreen() {
   }
 
   return (
-    <>
+    <SafeAreaView edges={['bottom']} style={styles.screenSafeArea}>
       <Stack.Screen options={{ title: detail.river.name }} />
       <ScrollView
         ref={scrollRef}
         style={styles.screen}
         contentContainerStyle={[
           styles.content,
-          { paddingBottom: spacing.xl + Math.max(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET) },
+          { paddingBottom: spacing.xl + bottomContentInset },
         ]}
         stickyHeaderIndices={[2]}
         refreshControl={
@@ -627,6 +587,7 @@ export default function RiverDetailScreen() {
                     detail={normalizeApiText(detail.liveData.weather.detail)}
                     tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Weather window'))}
                   />
+                  <WeatherDecisionCard detail={detail} />
                 </View>
                 <GaugeSourceActions detail={detail} />
               </SectionCard>
@@ -779,6 +740,7 @@ export default function RiverDetailScreen() {
                 <RoutePlotMap
                   points={routePlotPoints}
                   selectedId={routePlotPoints[0]?.id ?? null}
+                  backgroundSpanCoordinates={routeBackgroundSpan}
                   height={220}
                   showFooter={false}
                   markerMode="pin"
@@ -838,7 +800,7 @@ export default function RiverDetailScreen() {
                 </View>
                 <View style={styles.alertCtaCopy}>
                   <Text style={styles.alertCtaTitle}>Alert me at Good or Strong</Text>
-                  <Text style={styles.alertCtaText}>Choose phone notifications or email for this route.</Text>
+                  <Text style={styles.alertCtaText}>Choose phone notifications for this route.</Text>
                 </View>
                 <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={22} />
               </Pressable>
@@ -880,16 +842,13 @@ export default function RiverDetailScreen() {
         visible={alertSheetVisible}
         routeName={detail.river.name}
         routeReach={detail.river.reach}
-        draftEmail={draftEmail}
         status={alertStatus}
         pendingThreshold={pendingThreshold}
         mutationPending={createAlertMutation.isPending}
         onClose={() => setAlertSheetVisible(false)}
-        onEmailChange={setDraftEmail}
         onNativeAlert={(threshold) => void submitNativeRiverAlert(threshold)}
-        onEmailAlert={(threshold) => void submitRiverAlert(threshold)}
       />
-    </>
+    </SafeAreaView>
   );
 }
 
@@ -1583,6 +1542,51 @@ function HourlyWeatherStrip({ detail }: { detail: RiverDetailApiResult }) {
   );
 }
 
+function WeatherDecisionCard({ detail }: { detail: RiverDetailApiResult }) {
+  const model = weatherTimingModel(detail);
+
+  if (!model) {
+    return null;
+  }
+
+  return (
+    <View style={styles.weatherDecisionPanel}>
+      <View style={styles.weatherDecisionHeader}>
+        <View style={styles.weatherDecisionTitleWrap}>
+          <Text style={styles.weatherDecisionKicker}>Paddle window</Text>
+          <Text style={styles.weatherDecisionTitle}>{model.title}</Text>
+        </View>
+        <View style={[styles.weatherDecisionBadge, model.badgeStyle]}>
+          <MaterialCommunityIcons name={model.badgeIcon} color={colors.surfaceStrong} size={15} />
+          <Text style={styles.weatherDecisionBadgeText}>{model.badgeLabel}</Text>
+        </View>
+      </View>
+      <Text style={styles.weatherDecisionText}>{model.summary}</Text>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.weatherTimeline}>
+        {model.points.map((point, index) => {
+          const risk = hourlyWeatherRisk(point);
+          return (
+            <View
+              key={`${point.time}-${index}`}
+              style={[
+                styles.weatherTimelineCell,
+                index === 0 ? styles.weatherTimelineCellCurrent : null,
+                risk.level === 'watch' ? styles.weatherTimelineCellWatch : null,
+                risk.level === 'skip' ? styles.weatherTimelineCellSkip : null,
+              ]}
+            >
+              <Text style={styles.weatherTimelineHour}>{index === 0 ? 'Now' : formatHourLabel(point.time, point.label)}</Text>
+              <MaterialCommunityIcons name={risk.icon} color={risk.color} size={18} />
+              <Text style={styles.weatherTimelineRain}>{formatPercent(point.precipProbability, '0%')}</Text>
+              <Text style={styles.weatherTimelineWind}>{Math.round(point.windMph ?? 0)} mph</Text>
+            </View>
+          );
+        })}
+      </ScrollView>
+    </View>
+  );
+}
+
 function GaugeTrendChart({ detail }: { detail: RiverDetailApiResult }) {
   const unit = detail.gauge?.unit ?? detail.river.gaugeSource.unit;
   const samples = (detail.gauge?.recentSamples ?? []).slice(-10);
@@ -1688,26 +1692,20 @@ function AlertSetupSheet({
   visible,
   routeName,
   routeReach,
-  draftEmail,
   status,
   pendingThreshold,
   mutationPending,
   onClose,
-  onEmailChange,
   onNativeAlert,
-  onEmailAlert,
 }: {
   visible: boolean;
   routeName: string;
   routeReach: string;
-  draftEmail: string;
   status: string;
   pendingThreshold: RiverAlertThreshold | null;
   mutationPending: boolean;
   onClose: () => void;
-  onEmailChange: (email: string) => void;
   onNativeAlert: (threshold: RiverAlertThreshold) => void;
-  onEmailAlert: (threshold: RiverAlertThreshold) => void;
 }) {
   return (
     <Modal animationType="slide" transparent visible={visible} onRequestClose={onClose}>
@@ -1749,40 +1747,6 @@ function AlertSetupSheet({
             </View>
             <Text style={styles.alertHelper}>
               {nativeAlertHelperText()}
-            </Text>
-          </View>
-
-          <View style={styles.alertSheetSection}>
-            <Text style={styles.alertSheetSectionTitle}>Email</Text>
-            <TextInput
-              autoCapitalize="none"
-              autoCorrect={false}
-              keyboardType="email-address"
-              placeholder="you@example.com"
-              placeholderTextColor={colors.textMuted}
-              style={styles.alertInput}
-              value={draftEmail}
-              onChangeText={onEmailChange}
-            />
-            <View style={styles.alertButtonRow}>
-              {(['good', 'strong'] as const).map((threshold) => {
-                const isPending = pendingThreshold === threshold && mutationPending;
-                return (
-                  <Pressable
-                    key={threshold}
-                    style={[styles.alertButtonSecondary, isPending ? styles.alertButtonDisabled : null]}
-                    disabled={isPending}
-                    onPress={() => onEmailAlert(threshold)}
-                  >
-                    <Text style={styles.alertButtonSecondaryText}>
-                      {isPending ? 'Saving...' : `Email at ${alertThresholdLabel(threshold)}`}
-                    </Text>
-                  </Pressable>
-                );
-              })}
-            </View>
-            <Text style={styles.alertHelper}>
-              Your email is used for route alerts and stored locally on this device for the next alert form.
             </Text>
           </View>
 
@@ -2044,6 +2008,7 @@ function buildDetailRoutePoints(
   takeOut: RiverAccessPoint | undefined = detail.river.takeOut
 ): RoutePlotPoint[] {
   const points: RoutePlotPoint[] = [];
+  const selectedSpan = selectedSegmentSpanCoordinates(putIn, takeOut);
 
   if (hasCoordinates(putIn)) {
     points.push({
@@ -2054,6 +2019,7 @@ function buildDetailRoutePoints(
       rating: detail.rating,
       score: detail.score,
       meta: 'Put-in',
+      spanCoordinates: selectedSpan,
     });
   }
 
@@ -2084,8 +2050,49 @@ function buildDetailRoutePoints(
   return points;
 }
 
+function fullRouteSpanCoordinates(detail: RiverDetailApiResult): RouteSpanCoordinate[] | null {
+  const accessCoordinates = routeAccessPoints(detail)
+    .map(accessCoordinate)
+    .filter(isRouteSpanCoordinate);
+
+  if (accessCoordinates.length >= 2) {
+    return accessCoordinates;
+  }
+
+  return selectedSegmentSpanCoordinates(detail.river.putIn, detail.river.takeOut);
+}
+
+function selectedSegmentSpanCoordinates(
+  putIn: RiverAccessPoint | undefined,
+  takeOut: RiverAccessPoint | undefined
+): RouteSpanCoordinate[] | null {
+  const putInCoordinate = accessCoordinate(putIn);
+  const takeOutCoordinate = accessCoordinate(takeOut);
+
+  if (!putInCoordinate || !takeOutCoordinate) {
+    return null;
+  }
+
+  return [putInCoordinate, takeOutCoordinate];
+}
+
 function hasCoordinates(point: RiverAccessPoint | undefined): point is RiverAccessPoint & { latitude: number; longitude: number } {
   return Boolean(point && Number.isFinite(point.latitude) && Number.isFinite(point.longitude));
+}
+
+function accessCoordinate(point: { latitude?: number; longitude?: number } | null | undefined): RouteSpanCoordinate | null {
+  if (!point || !Number.isFinite(point.latitude) || !Number.isFinite(point.longitude)) {
+    return null;
+  }
+
+  return {
+    latitude: point.latitude as number,
+    longitude: point.longitude as number,
+  };
+}
+
+function isRouteSpanCoordinate(coordinate: RouteSpanCoordinate | null): coordinate is RouteSpanCoordinate {
+  return coordinate !== null;
 }
 
 function routeAccessPoints(detail: RiverDetailApiResult): RiverRouteAccessPoint[] {
@@ -2311,6 +2318,90 @@ function weatherSubvalue(detail: RiverDetailApiResult) {
   }
 
   return normalizeApiText(detail.weather.conditionLabel || detail.weather.rainTimingLabel || 'Today');
+}
+
+function weatherTimingModel(detail: RiverDetailApiResult) {
+  const weather = detail.weather;
+  const points = (weather?.todayHourly ?? []).slice(0, 8);
+
+  if (!weather || points.length === 0) {
+    return null;
+  }
+
+  const firstRiskIndex = points.findIndex((point) => hourlyWeatherRisk(point).level !== 'clear');
+  const firstRiskPoint = firstRiskIndex >= 0 ? points[firstRiskIndex] : null;
+  const firstRisk = firstRiskPoint ? hourlyWeatherRisk(firstRiskPoint) : null;
+  const stormRisk = weather.next12hStormRisk || points.some((point) => hourlyWeatherRisk(point).kind === 'storm');
+  const riskStartsLater = firstRiskIndex >= 3;
+  const noEarlyRisk = firstRiskIndex === -1 || riskStartsLater;
+  const firstRiskTime = firstRiskPoint ? formatHourLabel(firstRiskPoint.time, firstRiskPoint.label) : null;
+  const riskLabel = firstRisk?.kind === 'storm' ? 'storm risk' : firstRisk?.kind === 'rain' ? 'rain risk' : 'wind';
+
+  if (firstRiskIndex === -1) {
+    return {
+      points,
+      title: 'No early weather block',
+      summary: 'No rain, storm, or wind spike is showing in the next few hours. Still re-check before launch.',
+      badgeLabel: 'Open',
+      badgeIcon: 'check-circle' as const,
+      badgeStyle: styles.weatherDecisionBadgeGood,
+    };
+  }
+
+  if (noEarlyRisk && firstRiskTime) {
+    return {
+      points,
+      title: `Aim to be off before ${firstRiskTime}`,
+      summary: `${normalizeApiText(riskLabel)} starts later in the forecast. A short paddle may still fit if shuttle, pace, and exit timing are conservative.`,
+      badgeLabel: stormRisk ? 'Storm later' : 'Later risk',
+      badgeIcon: stormRisk ? 'weather-lightning' as const : 'clock-outline' as const,
+      badgeStyle: styles.weatherDecisionBadgeWatch,
+    };
+  }
+
+  return {
+    points,
+    title: firstRiskTime ? `Weather risk near ${firstRiskTime}` : 'Weather needs attention',
+    summary: stormRisk
+      ? 'Storm risk is close enough that this should be treated as a launch-time safety check, not just an afternoon forecast note.'
+      : 'Rain or wind risk is early in the forecast. Confirm the latest radar and be ready to shorten or skip.',
+    badgeLabel: stormRisk ? 'Storm watch' : 'Check now',
+    badgeIcon: stormRisk ? 'weather-lightning' as const : 'alert-circle' as const,
+    badgeStyle: styles.weatherDecisionBadgeSkip,
+  };
+}
+
+function hourlyWeatherRisk(point: HourlyWeatherPoint): {
+  level: 'clear' | 'watch' | 'skip';
+  kind: 'clear' | 'rain' | 'storm' | 'wind';
+  icon: keyof typeof MaterialCommunityIcons.glyphMap;
+  color: string;
+} {
+  const condition = point.conditionLabel ?? '';
+  const rain = point.precipProbability ?? 0;
+  const wind = Math.max(point.windMph ?? 0, point.windGustMph ?? 0);
+
+  if (/(storm|thunder)/i.test(condition)) {
+    return { level: 'skip', kind: 'storm', icon: 'weather-lightning', color: colors.noGo };
+  }
+
+  if (rain >= 60 || (point.precipitationIn ?? 0) >= 0.08) {
+    return { level: 'skip', kind: 'rain', icon: 'weather-pouring', color: colors.noGo };
+  }
+
+  if (wind >= 20) {
+    return { level: 'skip', kind: 'wind', icon: 'weather-windy', color: colors.noGo };
+  }
+
+  if (rain >= 35 || (point.precipitationIn ?? 0) >= 0.02 || /(rain|showers)/i.test(condition)) {
+    return { level: 'watch', kind: 'rain', icon: 'weather-rainy', color: colors.fair };
+  }
+
+  if (wind >= 14) {
+    return { level: 'watch', kind: 'wind', icon: 'weather-windy', color: colors.fair };
+  }
+
+  return { level: 'clear', kind: 'clear', icon: 'weather-partly-cloudy', color: colors.accent };
 }
 
 function formatHourLabel(value: string, defaultLabel: string | null | undefined) {
@@ -2556,6 +2647,10 @@ function ageLabel(value: string) {
 }
 
 const styles = StyleSheet.create({
+  screenSafeArea: {
+    flex: 1,
+    backgroundColor: colors.canvas,
+  },
   screen: {
     flex: 1,
     backgroundColor: colors.canvas,
@@ -3755,16 +3850,6 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     fontWeight: '900',
   },
-  alertInput: {
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: radius.md,
-    backgroundColor: colors.surface,
-    color: colors.text,
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-    fontSize: 16,
-  },
   alertButtonRow: {
     flexDirection: 'row',
     gap: spacing.sm,
@@ -3782,28 +3867,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 6,
   },
-  alertButtonSecondary: {
-    flex: 1,
-    minWidth: 140,
-    backgroundColor: colors.surfaceStrong,
-    borderWidth: 1,
-    borderColor: colors.accent,
-    borderRadius: radius.pill,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   alertButtonDisabled: {
     opacity: 0.6,
   },
   alertButtonText: {
     color: colors.surfaceStrong,
-    fontSize: 13,
-    fontWeight: '900',
-  },
-  alertButtonSecondaryText: {
-    color: colors.accent,
     fontSize: 13,
     fontWeight: '900',
   },
@@ -3816,12 +3884,6 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 12,
     lineHeight: 17,
-  },
-  alertEmailLabel: {
-    color: colors.text,
-    fontSize: 13,
-    fontWeight: '900',
-    marginTop: spacing.sm,
   },
   communityPhotoStrip: {
     gap: spacing.sm,
@@ -4131,6 +4193,109 @@ const styles = StyleSheet.create({
   weatherMeta: {
     color: colors.textMuted,
     fontSize: 12,
+  },
+  weatherDecisionPanel: {
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+    padding: spacing.md,
+    gap: spacing.md,
+  },
+  weatherDecisionHeader: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
+  weatherDecisionTitleWrap: {
+    flex: 1,
+    minWidth: 0,
+    gap: 2,
+  },
+  weatherDecisionKicker: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.4,
+  },
+  weatherDecisionTitle: {
+    color: colors.text,
+    fontSize: 17,
+    lineHeight: 22,
+    fontWeight: '900',
+  },
+  weatherDecisionText: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
+  },
+  weatherDecisionBadge: {
+    minHeight: 30,
+    borderRadius: radius.pill,
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+  },
+  weatherDecisionBadgeGood: {
+    backgroundColor: colors.strong,
+  },
+  weatherDecisionBadgeWatch: {
+    backgroundColor: colors.fair,
+  },
+  weatherDecisionBadgeSkip: {
+    backgroundColor: colors.noGo,
+  },
+  weatherDecisionBadgeText: {
+    color: colors.surfaceStrong,
+    fontSize: 11,
+    fontWeight: '900',
+  },
+  weatherTimeline: {
+    gap: spacing.sm,
+    paddingRight: spacing.sm,
+  },
+  weatherTimelineCell: {
+    width: 72,
+    minHeight: 92,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    padding: spacing.sm,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 4,
+  },
+  weatherTimelineCellCurrent: {
+    borderColor: '#BFD6CC',
+    backgroundColor: colors.accentSoft,
+  },
+  weatherTimelineCellWatch: {
+    borderColor: 'rgba(138, 106, 42, 0.46)',
+    backgroundColor: '#F7EEDB',
+  },
+  weatherTimelineCellSkip: {
+    borderColor: 'rgba(140, 74, 54, 0.5)',
+    backgroundColor: '#F5E2D9',
+  },
+  weatherTimelineHour: {
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  weatherTimelineRain: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  weatherTimelineWind: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '700',
   },
   gaugeChartWrap: {
     gap: spacing.md,

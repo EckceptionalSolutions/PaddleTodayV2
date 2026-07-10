@@ -184,6 +184,66 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Public domain',
     },
   ],
+  'little-fork-river-dentaybow-devereaux': [
+    {
+      id: 'little-fork-river-cook-rapids-dpla',
+      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.jpg',
+      alt: 'The Little Fork River tumbles through a rocky rapid below tree-lined banks near Cook, Minnesota.',
+      caption: 'Little Fork River below the rapids near Cook',
+      credit: 'Minnesota State University Moorhead via DPLA/Wikimedia Commons',
+      takenLabel: 'Public domain',
+    },
+  ],
+  'little-fork-river-highway-73-samuelson': [
+    {
+      id: 'little-fork-river-cook-rapids-dpla',
+      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.jpg',
+      alt: 'The Little Fork River tumbles through a rocky rapid below tree-lined banks near Cook, Minnesota.',
+      caption: 'Little Fork River below the rapids near Cook',
+      credit: 'Minnesota State University Moorhead via DPLA/Wikimedia Commons',
+      takenLabel: 'Public domain',
+    },
+  ],
+  'little-fork-river-highway-73-silverdale': [
+    {
+      id: 'little-fork-river-cook-rapids-dpla',
+      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.jpg',
+      alt: 'The Little Fork River tumbles through a rocky rapid below tree-lined banks near Cook, Minnesota.',
+      caption: 'Little Fork River below the rapids near Cook',
+      credit: 'Minnesota State University Moorhead via DPLA/Wikimedia Commons',
+      takenLabel: 'Public domain',
+    },
+  ],
+  'little-beaver-creek-pioneer-village-sprucevale': [
+    {
+      id: 'little-beaver-creek-ohio-river-water-trail-commons',
+      src: '/gallery/little-beaver-creek-pioneer-village-sprucevale/little-beaver-creek-ohio-river-water-trail.jpg',
+      alt: 'Kayakers paddle the Little Beaver Creek corridor near Ohioville with wooded banks and gentle current under a bright sky.',
+      caption: 'Little Beaver Creek corridor near Ohioville',
+      credit: 'Dr. Vincent Troia via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'little-beaver-creek-sprucevale-lock-57-park': [
+    {
+      id: 'little-beaver-creek-ohio-river-water-trail-commons',
+      src: '/gallery/little-beaver-creek-pioneer-village-sprucevale/little-beaver-creek-ohio-river-water-trail.jpg',
+      alt: 'Kayakers paddle the Little Beaver Creek corridor near Ohioville with wooded banks and gentle current under a bright sky.',
+      caption: 'Little Beaver Creek corridor near Ohioville',
+      credit: 'Dr. Vincent Troia via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'little-beaver-creek-pioneer-village-lock-57-park': [
+    {
+      id: 'little-beaver-creek-ohio-river-water-trail-commons',
+      src: '/gallery/little-beaver-creek-pioneer-village-sprucevale/little-beaver-creek-ohio-river-water-trail.jpg',
+      alt: 'Kayakers paddle the Little Beaver Creek corridor near Ohioville with wooded banks and gentle current under a bright sky.',
+      caption: 'Little Beaver Creek corridor near Ohioville',
+      credit: 'Dr. Vincent Troia via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
   'red-lake-river-smiley-bridge-centennial-park': [
     {
       id: 'red-lake-river-red-lake-falls-kiddle',
@@ -666,7 +726,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
-  'kansas-river-de-soto-edwardsville': [
+  'kansas-river-de-soto-kaw-point': [
     {
       id: 'kansas-river-kansas-city-commons',
       src: '/gallery/kansas-river-de-soto-edwardsville/kansas-river-kansas-city.jpg',
@@ -676,10 +736,10 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
   ],
-  'kansas-river-edwardsville-turner-bridge': [
+  'kansas-river-eudora-turner-bridge': [
     {
       id: 'kansas-river-kansas-city-commons',
-      src: '/gallery/kansas-river-edwardsville-turner-bridge/kansas-river-kansas-city.jpg',
+      src: '/gallery/kansas-river-de-soto-edwardsville/kansas-river-kansas-city.jpg',
       alt: 'The Kansas River flows through Kansas City with exposed sand and a low bridge crossing the wide channel.',
       caption: 'Kansas River near Kansas City',
       credit: 'James St. John via Wikimedia Commons',
@@ -696,6 +756,26 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
+  'kansas-river-junction-city-manhattan': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-junction-city-manhattan/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kansas-river-junction-city-st-george': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-manhattan-st-george/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
   'kansas-river-ogden-manhattan': [
     {
       id: 'kansas-river-lawrence-commons',
@@ -706,7 +786,17 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
-  'kansas-river-manhattan-st-george': [
+  'kansas-river-ogden-st-george': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-ogden-st-george/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kansas-river-ogden-wamego': [
     {
       id: 'kansas-river-lawrence-commons',
       src: '/gallery/kansas-river-manhattan-st-george/kansas-river-lawrence.jpg',
@@ -716,20 +806,20 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
-  'kansas-river-st-george-wamego': [
+  'kansas-river-manhattan-belvue': [
     {
       id: 'kansas-river-lawrence-commons',
-      src: '/gallery/kansas-river-st-george-wamego/kansas-river-lawrence.jpg',
+      src: '/gallery/kansas-river-manhattan-st-george/kansas-river-lawrence.jpg',
       alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
       caption: 'Kansas River corridor context',
       credit: 'Dicklyon via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
-  'kansas-river-wamego-belvue': [
+  'kansas-river-blue-river-belvue': [
     {
       id: 'kansas-river-lawrence-commons',
-      src: '/gallery/kansas-river-wamego-belvue/kansas-river-lawrence.jpg',
+      src: '/gallery/kansas-river-manhattan-st-george/kansas-river-lawrence.jpg',
       alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
       caption: 'Kansas River corridor context',
       credit: 'Dicklyon via Wikimedia Commons',
@@ -754,16 +844,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Kansas River corridor context',
       credit: 'Dicklyon via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
-    },
-  ],
-  'kansas-river-turner-bridge-kaw-point': [
-    {
-      id: 'kansas-river-kansas-city-commons',
-      src: '/gallery/kansas-river-turner-bridge-kaw-point/kansas-river-kansas-city.jpg',
-      alt: 'The Kansas River flows through Kansas City with exposed sand and a low bridge crossing the wide channel.',
-      caption: 'Kansas River near Kansas City',
-      credit: 'James St. John via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
   ],
   'current-river-cedar-grove-akers': [
@@ -816,10 +896,30 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
   ],
+  'jacks-fork-river-highway-17-bay-creek': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-highway-17-bay-creek/jacks-fork-upper.jpg',
+      alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
   'jacks-fork-river-blue-spring-rymers': [
     {
       id: 'jacks-fork-upper-commons',
       src: '/gallery/jacks-fork-river-blue-spring-rymers/jacks-fork-upper.jpg',
+      alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'jacks-fork-river-blue-spring-bay-creek': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-blue-spring-bay-creek/jacks-fork-upper.jpg',
       alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
       caption: 'Upper Jacks Fork River corridor',
       credit: 'Chris M Morris via Wikimedia Commons',
@@ -836,10 +936,80 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
   ],
+  'jacks-fork-river-rymers-alley-spring': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-rymers-alley-spring/jacks-fork-upper.jpg',
+      alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'jacks-fork-river-highway-17-alley-spring': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-highway-17-alley-spring/jacks-fork-upper.jpg',
+      alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'jacks-fork-river-blue-spring-alley-spring': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-blue-spring-alley-spring/jacks-fork-upper.jpg',
+      alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
   'jacks-fork-river-bay-creek-alley-spring': [
     {
       id: 'jacks-fork-upper-commons',
       src: '/gallery/jacks-fork-river-bay-creek-alley-spring/jacks-fork-upper.jpg',
+      alt: 'The Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'jacks-fork-river-bay-creek-chilton': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-bay-creek-chilton/jacks-fork-upper.jpg',
+      alt: 'The Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'jacks-fork-river-highway-17-chilton': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-highway-17-chilton/jacks-fork-upper.jpg',
+      alt: 'The Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'jacks-fork-river-blue-spring-chilton': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-blue-spring-chilton/jacks-fork-upper.jpg',
+      alt: 'The Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'jacks-fork-river-rymers-chilton': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-rymers-chilton/jacks-fork-upper.jpg',
       alt: 'The Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
       caption: 'Jacks Fork River corridor',
       credit: 'Chris M Morris via Wikimedia Commons',
@@ -1196,6 +1366,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'NPS asset: public domain',
     },
   ],
+  'buffalo-river-kyles-landing-erbie': [
+    {
+      id: 'buffalo-river-kyles-erbie-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River winds past wooded Ozark bluffs in the same upper-river corridor used for the Kyles Landing to Erbie route.',
+      caption: 'Upper Buffalo River corridor',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'buffalo-river-erbie-ozark': [
+    {
+      id: 'buffalo-river-erbie-ozark-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River curves through a bluff-lined Ozark corridor similar to the Erbie to Ozark segment.',
+      caption: 'Buffalo River corridor near Ozark',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'buffalo-river-ozark-pruitt': [
+    {
+      id: 'buffalo-river-ozark-pruitt-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River corridor between Ozark and Pruitt shows broad water, forested bluffs, and a bend through the valley.',
+      caption: 'Buffalo River corridor between Ozark and Pruitt',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
   'buffalo-river-tyler-bend-gilbert': [
     {
       id: 'buffalo-river-gilbert-aerial-nps',
@@ -1326,7 +1526,127 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
-  'south-fork-kentucky-river-rocky-branch-cedar-valley': [
+  'floyds-fork-creekside-seaton-valley': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-north-beckley-cane-run': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-north-beckley-seaton-valley': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-seaton-valley-broad-run-valley': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-seaton-valley-cliffside': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-broad-run-valley-cliffside': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-north-beckley-fisherville': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-north-beckley-broad-run-valley': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-fisherville-broad-run-valley': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-fisherville-cliffside': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-cane-run-cliffside': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-north-beckley-cliffside': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+'south-fork-kentucky-river-oneida-fish-creek': [
     {
       id: 'south-fork-kentucky-river-bronner-bend-commons',
       src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
@@ -1334,56 +1654,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'South Fork Kentucky River near Bronner Bend Shoals',
       credit: 'Ernest Danglade via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
-  'south-fork-kentucky-river-cedar-valley-bishop-bend': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-shoals-commons',
-      src: '/gallery/south-fork-kentucky-river-cedar-valley-bishop-bend/south-fork-kentucky-river-bronner-bend-shoals.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River spreading across broad shoals below wooded Kentucky hills.',
-      caption: 'South Fork Kentucky River at Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
-  'south-fork-kentucky-river-bishop-bend-hacker-branch': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-shoals-commons',
-      src: '/gallery/south-fork-kentucky-river-cedar-valley-bishop-bend/south-fork-kentucky-river-bronner-bend-shoals.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River spreading across broad shoals below wooded Kentucky hills.',
-      caption: 'South Fork Kentucky River at Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
-  'south-fork-kentucky-river-hacker-branch-upper-wolf-creek': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-commons',
-      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
-      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
-  'levisa-fork-jubilee-island-creek': [
-    {
-      id: 'levisa-fork-pikeville-commons',
-      src: '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
-      alt: 'The Levisa Fork flows past Pikeville, Kentucky, with a broad river channel and wooded slopes nearby.',
-      caption: 'Levisa Fork in Pikeville',
-      credit: 'FatCat96 via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC0',
-    },
-  ],
-  'levisa-fork-island-creek-cedar-creek': [
-    {
-      id: 'levisa-fork-pikeville-commons',
-      src: '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
-      alt: 'The Levisa Fork flows past Pikeville, Kentucky, with a broad river channel and wooded slopes nearby.',
-      caption: 'Levisa Fork in Pikeville',
-      credit: 'FatCat96 via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC0',
     },
   ],
   'slate-creek-lions-club-old-slate-furnace': [
@@ -1397,6 +1667,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     },
   ],
   'levisa-fork-cedar-creek-thompson-road': [
+    {
+      id: 'levisa-fork-pikeville-commons',
+      src: '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+      alt: 'The Levisa Fork flows past Pikeville, Kentucky, with a broad river channel and wooded slopes nearby.',
+      caption: 'Levisa Fork in Pikeville',
+      credit: 'FatCat96 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
+  'levisa-fork-jubilee-thompson-road': [
     {
       id: 'levisa-fork-pikeville-commons',
       src: '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
@@ -1436,7 +1716,97 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 3.0',
     },
   ],
+  'big-south-fork-blue-heron-worley': [
+    {
+      id: 'big-south-fork-leatherwood-ford-commons',
+      src: '/gallery/big-south-fork-blue-heron-yamacraw/big-south-fork-leatherwood-ford.jpg',
+      alt: 'The Big South Fork flows through a wooded gorge corridor with clear green water and rocky banks.',
+      caption: 'Big South Fork corridor',
+      credit: 'Brian Stansberry via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 3.0',
+    },
+  ],
+  'big-south-fork-yamacraw-alum-ford': [
+    {
+      id: 'big-south-fork-leatherwood-ford-commons',
+      src: '/gallery/big-south-fork-blue-heron-yamacraw/big-south-fork-leatherwood-ford.jpg',
+      alt: 'The Big South Fork flows through a wooded gorge corridor with clear green water and rocky banks.',
+      caption: 'Big South Fork corridor',
+      credit: 'Brian Stansberry via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 3.0',
+    },
+  ],
+  'big-south-fork-blue-heron-alum-ford': [
+    {
+      id: 'big-south-fork-leatherwood-ford-commons',
+      src: '/gallery/big-south-fork-blue-heron-yamacraw/big-south-fork-leatherwood-ford.jpg',
+      alt: 'The Big South Fork flows through a wooded gorge corridor with clear green water and rocky banks.',
+      caption: 'Big South Fork corridor',
+      credit: 'Brian Stansberry via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 3.0',
+    },
+  ],
   'tradewater-river-bellville-montezuma': [
+    {
+      id: 'tradewater-river-commons',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
+      caption: 'Tradewater River near Dawson Springs',
+      credit: 'Jomegat via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'tradewater-river-montezuma-fishtrap': [
+    {
+      id: 'tradewater-river-commons',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
+      caption: 'Tradewater River near Dawson Springs',
+      credit: 'Jomegat via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'tradewater-river-fishtrap-vfw-bridge': [
+    {
+      id: 'tradewater-river-commons',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
+      caption: 'Tradewater River near Dawson Springs',
+      credit: 'Jomegat via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'tradewater-river-vfw-bridge-granger-landing': [
+    {
+      id: 'tradewater-river-commons',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
+      caption: 'Tradewater River near Dawson Springs',
+      credit: 'Jomegat via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'tradewater-river-montezuma-vfw-bridge': [
+    {
+      id: 'tradewater-river-commons',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
+      caption: 'Tradewater River near Dawson Springs',
+      credit: 'Jomegat via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'tradewater-river-fishtrap-granger-landing': [
+    {
+      id: 'tradewater-river-commons',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
+      caption: 'Tradewater River near Dawson Springs',
+      credit: 'Jomegat via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'tradewater-river-montezuma-granger-landing': [
     {
       id: 'tradewater-river-commons',
       src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
@@ -1634,3 +2004,4 @@ export function getRoutePreviewPhoto(route: RoutePhotoTarget): RoutePreviewPhoto
     isPlaceholder: true,
   };
 }
+

@@ -10,11 +10,14 @@ import { SectionCard } from '../components/section-card';
 import { StatusPill } from '../components/status-pill';
 import { formatRelativeTime, normalizeApiText, verdictForRating } from '../lib/format';
 import { photoForRiver } from '../lib/route-photos';
+import { routePreviewFactLine } from '../lib/route-facts';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, shadow, spacing } from '../theme/tokens';
 
 const SORT_MODES = ['Best', 'Shortest', 'Easiest', 'Confidence'] as const;
 type SortMode = (typeof SORT_MODES)[number];
+type MapCoordinate = { latitude: number; longitude: number };
+type HubAccessPoint = NonNullable<RiverDetailApiResult['river']['accessPoints']>[number];
 
 export default function RiverHubScreen() {
   const params = useLocalSearchParams<{ riverId?: string | string[] }>();
@@ -339,8 +342,57 @@ function routeMapPoints(routes: RiverDetailApiResult[]): RoutePlotPoint[] {
     longitude: route.river.longitude,
     score: route.score,
     rating: route.rating,
-    meta: `${route.score} ${route.rating}`,
+    spanCoordinates: routeSpanCoordinates(route),
+    meta: [accessPointCountLabel(route), `${route.score} ${route.rating}`].filter(Boolean).join(' - '),
   }));
+}
+
+function routeSpanCoordinates(route: RiverDetailApiResult): MapCoordinate[] | null {
+  const accessPoints = route.river.accessPoints
+    ?.map((point) => ({ point, coordinate: accessCoordinate(point) }))
+    .filter(hasMappedAccessCoordinate)
+    .sort((left, right) => left.point.mileFromStart - right.point.mileFromStart);
+
+  if (accessPoints && accessPoints.length >= 2) {
+    return accessPoints.map((entry) => entry.coordinate);
+  }
+
+  const endpoints = [accessCoordinate(route.river.putIn), accessCoordinate(route.river.takeOut)].filter(isMapCoordinate);
+  if (endpoints.length >= 2) {
+    return endpoints;
+  }
+
+  return null;
+}
+
+function accessPointCountLabel(route: RiverDetailApiResult) {
+  const accessPointCount = route.river.accessPoints?.filter((point) => accessCoordinate(point)).length ?? 0;
+  if (accessPointCount > 2) {
+    return `${accessPointCount} access points`;
+  }
+
+  return null;
+}
+
+function accessCoordinate(point: { latitude?: number; longitude?: number } | null | undefined): MapCoordinate | null {
+  if (!point || !Number.isFinite(point.latitude) || !Number.isFinite(point.longitude)) {
+    return null;
+  }
+
+  return {
+    latitude: point.latitude as number,
+    longitude: point.longitude as number,
+  };
+}
+
+function isMapCoordinate(coordinate: MapCoordinate | null): coordinate is MapCoordinate {
+  return coordinate !== null;
+}
+
+function hasMappedAccessCoordinate(
+  entry: { point: HubAccessPoint; coordinate: MapCoordinate | null }
+): entry is { point: HubAccessPoint; coordinate: MapCoordinate } {
+  return entry.coordinate !== null;
 }
 
 function PlanningStat({ label, value }: { label: string; value: string }) {
@@ -429,7 +481,7 @@ function routePlanningStats(routes: RiverDetailApiResult[]) {
 
 function sortIcon(sortMode: SortMode) {
   if (sortMode === 'Shortest') return 'map-marker-distance';
-  if (sortMode === 'Easiest') return 'paddle';
+  if (sortMode === 'Easiest') return 'waves';
   if (sortMode === 'Confidence') return 'shield-check-outline';
   return 'star-outline';
 }
@@ -446,24 +498,8 @@ function compactUpdatedLabel(value: string | undefined) {
   return formatRelativeTime(value).replace(/^Updated\s+/i, '');
 }
 
-function compactPaddleTime(value: string) {
-  if (!value) return 'Unknown';
-  return value
-    .replace(/^About\s+/i, '')
-    .replace(/roughly\s+/i, '')
-    .replace(/\s+depending.*$/i, '')
-    .replace(/\s+longer.*$/i, '')
-    .replace(/\s+hr\b/gi, 'h')
-    .replace(/\s+min\b/gi, 'm')
-    .replace(/\s+to\s+/gi, '-')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
 function routeMetaLine(route: RiverDetailApiResult) {
-  return [route.river.distanceLabel, compactPaddleTime(route.river.estimatedPaddleTime), capitalize(route.river.profile.difficulty)]
-    .filter(Boolean)
-    .join(' - ');
+  return routePreviewFactLine(route.river);
 }
 
 function scoreBreakdownRows(breakdown: ScoreBreakdown) {
@@ -533,10 +569,6 @@ function toneScoreBox(rating: RiverDetailApiResult['rating']) {
   }
 
   return { backgroundColor: '#F0DDD3' };
-}
-
-function capitalize(value: string) {
-  return value.slice(0, 1).toUpperCase() + value.slice(1);
 }
 
 const styles = StyleSheet.create({

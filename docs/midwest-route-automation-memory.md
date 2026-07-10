@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-01 19:58 America/Chicago / 2026-07-02 00:58 UTC: Pennsylvania three-route implementation pass (`3-new-routes-automation`).
+  - Reused the current route queue after the earlier Pennsylvania lower-Juniata adds and stayed internet-first on the official PFBC lower Juniata family because the access table still had three clean remaining Newport finishes with direct same-day USGS support.
+  - Added three internet-sourced Pennsylvania routes: `juniata-river-lewistown-narrows-newport`, `juniata-river-lewistown-narrows-newport`, and `juniata-river-lewistown-narrows-newport`.
+  - Qualification path: the current PFBC lower Juniata guide still documents exact public access coordinates for Lewistown Narrows, Mifflintown, Walker, and Newport plus official river-mile spacing of `28`, `24`, and `18` miles for those pairs, lower-corridor caution points at miles `33` and `10.5`, and the Newport minimum gauge floor of `3.5 ft`; same-day direct USGS `01567000` returned `1370 cfs / 3.68 ft` at `2026-07-01 20:15 EDT`.
+  - Added camping and safety/logistics notes for all three routes and recorded bounded no-image outcomes for each after Commons, PFBC-guide-imagery, and USGS-media review.
+
 - 2026-06-23 09:07 America/Chicago / 2026-06-23 14:07 UTC: Pennsylvania three-route implementation pass (`3-new-routes-automation`).
   - Reused the current route queue after recent Kentucky/Pennsylvania adds, then stayed internet-first on the official PFBC North Branch Susquehanna source family because Section 2 still offered clean public access pairs, explicit caution miles, and current direct USGS support.
   - Added three internet-sourced Pennsylvania routes: `susquehanna-river-laceyville-meshoppen`, `susquehanna-river-tunkhannock-whites-ferry`, and `susquehanna-river-whites-ferry-west-falls`.
@@ -7861,3 +7867,15 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
   - No route qualified. Platte, Niobrara, Calamus, and Elkhorn remain `threshold_weak`; Missouri National Recreational River remains `research_later`.
   - Decisive blockers remain missing source-backed numeric paddling thresholds tied to a selected product-supported gauge, with Missouri also lacking a selected Nebraska-side public day reach.
   - No app route data, trip details, route gallery, or image-audit rows changed; validate as a docs-only/no-add run.
+
+
+## 2026-07-02 consolidation note
+
+- Redundant unpushed route permutations from the July 2 route-add wave were consolidated into canonical multi-access route records. If an earlier note in this file now repeats a canonical slug, treat that as evidence that the former point-to-point variant was folded into the live access-planner route rather than kept as a separate route.
+
+## 2026-07-03 17:54 America/Chicago / 2026-07-03 22:54 UTC Kentucky implementation pass
+
+- Treated the live repo state at run start as the baseline and expanded the current tree from `367` to `370` route slugs by adding `upper-cumberland-river-4-mile-artemus`, `upper-cumberland-river-varilla-artemus`, and `upper-cumberland-river-4-mile-barbourville`.
+- Qualification path: current KDFWR Upper Cumberland River guidance still documents the exact public site-to-site mileages of 4 Mile -> Artemus `9.8` and Artemus -> Barbourville `5.1`, which also support the new Varilla -> Artemus combination by adding the existing official Varilla -> 4 Mile `13.8` segment for about `23.6` miles total; the same page still publishes the official Williamsburg ladder of Low below `300 cfs / 3.0 ft`, Good `300-700 cfs / 3.0-3.8 ft`, and High above those marks; current KDFWR access-detail pages still expose source-backed coordinates and public-use details for Varilla Ramp, 4 Mile Ramp, Artemus Rock Access, and Barbourville Ramp; and same-day direct USGS Water Services returned `1010 cfs / 4.20 ft` at `2026-07-03 18:00 EDT` for direct gauge `03404000`.
+- Added camping and safety/logistics notes for all three routes. Camping stays `none` for the Artemus finishes and `endpoint_campground` for the Barbourville finish because Thompson Park still includes RV camping support.
+- No gallery image was added; bounded KDFWR, Commons, and same-river USGS media review did not produce a clearly rights-clean exact-route asset for any of the three new slugs, and `docs/river-image-source-audit.csv` records the no-image outcomes.

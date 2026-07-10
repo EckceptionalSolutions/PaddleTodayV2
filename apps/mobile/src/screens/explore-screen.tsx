@@ -28,7 +28,6 @@ import {
 import { RoutePlotMap, type RoutePlotMapHandle, type RoutePlotPoint } from '../components/route-plot-map';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { resolveApiBaseUrl } from '../lib/api-base-url';
-import { formatRelativeTime } from '../lib/format';
 import { distanceMiles, distancePenalty, formatTravelTime } from '../lib/location';
 import {
   descriptionForExploreIntent,
@@ -53,6 +52,9 @@ interface ExplorePreferences {
   filters: ExploreFilters;
   viewMode?: 'list' | 'map';
 }
+
+type MapCoordinate = { latitude: number; longitude: number };
+type SummaryAccessPoint = NonNullable<RiverSummaryApiItem['river']['accessPoints']>[number];
 
 const confidenceRank = {
   High: 3,
@@ -109,7 +111,7 @@ export default function ExploreScreen() {
     () => applyExploreFilters(rivers, draftFilters, location),
     [rivers, draftFilters, location]
   );
-  const selectedRiver = results.find((river) => river.river.slug === selectedSlug) ?? results[0] ?? null;
+  const selectedRiver = selectedSlug ? results.find((river) => river.river.slug === selectedSlug) ?? null : null;
   const activeFilterCount = countActiveFilters(filters);
 
   useEffect(() => {
@@ -198,8 +200,8 @@ export default function ExploreScreen() {
       return;
     }
 
-    if (!selectedSlug || !results.some((river) => river.river.slug === selectedSlug)) {
-      setSelectedSlug(results[0].river.slug);
+    if (selectedSlug && !results.some((river) => river.river.slug === selectedSlug)) {
+      setSelectedSlug(null);
     }
   }, [results, selectedSlug]);
 
@@ -243,7 +245,6 @@ export default function ExploreScreen() {
       <FullScreenExploreMap
         activeFilterCount={activeFilterCount}
         filters={filters}
-        generatedAt={summaryQuery.data?.generatedAt}
         requestedIntent={requestedIntent}
         mapHeight={windowHeight}
         results={results}
@@ -261,7 +262,6 @@ export default function ExploreScreen() {
         }}
         onOpenRiverRoutes={openExploreRiverRoutes}
         onOpenRoute={(route) => router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug } })}
-        onRefresh={() => summaryQuery.refetch()}
         onClearIntent={() => {
           setFilters(defaultFilters);
           setDraftFilters(defaultFilters);
@@ -314,7 +314,6 @@ export default function ExploreScreen() {
 function FullScreenExploreMap({
   activeFilterCount,
   filters,
-  generatedAt,
   requestedIntent,
   mapHeight,
   results,
@@ -330,7 +329,6 @@ function FullScreenExploreMap({
   onContributePhotos,
   onOpenRiverRoutes,
   onOpenRoute,
-  onRefresh,
   onClearIntent,
   onSearchChange,
   onSelectSlug,
@@ -340,7 +338,6 @@ function FullScreenExploreMap({
 }: {
   activeFilterCount: number;
   filters: ExploreFilters;
-  generatedAt?: string;
   requestedIntent: ExploreIntentId | null;
   mapHeight: number;
   results: ExploreRiver[];
@@ -356,10 +353,9 @@ function FullScreenExploreMap({
   onContributePhotos: (slug: string) => void;
   onOpenRiverRoutes: (route: ExploreRiver) => void;
   onOpenRoute: (route: ExploreRiver) => void;
-  onRefresh: () => void;
   onClearIntent: () => void;
   onSearchChange: (query: string) => void;
-  onSelectSlug: (slug: string) => void;
+  onSelectSlug: (slug: string | null) => void;
   onToggleSaved: (river: ExploreRiver) => void;
   onUseLocation: () => void;
   isSaved: (slug: string) => boolean;
@@ -368,7 +364,7 @@ function FullScreenExploreMap({
   const mapRef = useRef<RoutePlotMapHandle | null>(null);
   const points = useExploreMapPoints(results, routeCounts);
   const requesting = status === 'requesting';
-  const floatingControlBottom = sheetHeightValue(sheetSnap) + spacing.md;
+  const floatingControlBottom = (selectedRiver ? sheetHeightValue(sheetSnap) : 0) + spacing.md;
   const userOutOfRange = Boolean(userLocation && results.length === 0 && activeFilterCount === 0);
   const selectedRouteCount = selectedRiver ? routeGroupMetaForRoute(selectedRiver, routeCounts).routeCount : 0;
   const searchResultSignature = points.map((point) => point.id).join('|');
@@ -422,7 +418,10 @@ function FullScreenExploreMap({
           points={points}
           selectedId={selectedSlug}
           userLocation={userLocation}
-          onSelectPoint={(point) => onSelectSlug(point.id)}
+          onSelectPoint={(point) => {
+            setSheetSnap('peek');
+            onSelectSlug(point.id);
+          }}
           height={mapHeight}
           showFooter={false}
           fullBleed
@@ -458,17 +457,15 @@ function FullScreenExploreMap({
               </View>
             ) : null}
           </Pressable>
-          <Pressable
+          <View
             style={styles.mapStatusChip}
-            onPress={onRefresh}
-            accessibilityRole="button"
-            accessibilityLabel={`Refresh route map. ${results.length} routes, updated ${compactUpdatedLabel(generatedAt)}`}
+            accessibilityRole="text"
+            accessibilityLabel={`${results.length} routes`}
           >
             <Text style={styles.mapStatusChipText} numberOfLines={1}>
-              {results.length} routes - {compactUpdatedLabel(generatedAt)}
+              {results.length} routes
             </Text>
-            <MaterialCommunityIcons name="refresh" color={colors.accent} size={16} />
-          </Pressable>
+          </View>
         </View>
         {intentBanner ? (
           <View style={styles.intentBanner}>
@@ -552,6 +549,10 @@ function FullScreenExploreMap({
           bottomInset={bottomInset}
           routeCount={selectedRouteCount}
           isSaved={isSaved}
+          onClose={() => {
+            setSheetSnap('peek');
+            onSelectSlug(null);
+          }}
           onOpenRoute={() => {
             if (selectedRiver) {
               onOpenRoute(selectedRiver);
@@ -582,11 +583,69 @@ function useExploreMapPoints(results: ExploreRiver[], routeCounts: ReadonlyMap<s
           longitude: river.river.longitude,
           score: river.score,
           rating: river.rating,
-          meta: [river.river.reach, river.travelLabel, routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - '),
+          routeCount,
+          spanCoordinates: routeSpanCoordinatesForRiver(river),
+          meta: [
+            accessPointCountLabel(river),
+            routeCount > 1 ? `${routeCount} route options` : '1 route',
+            river.travelLabel ? `${river.travelLabel} drive` : null,
+          ]
+            .filter(Boolean)
+            .join(' - '),
         };
       }),
     [results, routeCounts]
   );
+}
+
+function routeSpanCoordinatesForRiver(river: RiverSummaryApiItem): MapCoordinate[] | null {
+  const accessPoints = river.river.accessPoints
+    ?.map((point) => ({ point, coordinate: accessCoordinate(point) }))
+    .filter(hasMappedAccessCoordinate)
+    .sort((left, right) => left.point.mileFromStart - right.point.mileFromStart);
+
+  if (accessPoints && accessPoints.length >= 2) {
+    return accessPoints.map((entry) => entry.coordinate);
+  }
+
+  const endpoints = [accessCoordinate(river.river.putIn), accessCoordinate(river.river.takeOut)].filter(isMapCoordinate);
+  if (endpoints.length >= 2) {
+    return endpoints;
+  }
+
+  return null;
+}
+
+function accessPointCountLabel(river: RiverSummaryApiItem) {
+  const accessPointCount = river.river.accessPoints?.filter((point) => accessCoordinate(point)).length ?? 0;
+  if (accessPointCount > 2) {
+    return `${accessPointCount} access points`;
+  }
+
+  return null;
+}
+
+function accessCoordinate(
+  point: { latitude?: number; longitude?: number } | null | undefined
+): MapCoordinate | null {
+  if (!point || !Number.isFinite(point.latitude) || !Number.isFinite(point.longitude)) {
+    return null;
+  }
+
+  return {
+    latitude: point.latitude as number,
+    longitude: point.longitude as number,
+  };
+}
+
+function isMapCoordinate(coordinate: MapCoordinate | null): coordinate is MapCoordinate {
+  return coordinate !== null;
+}
+
+function hasMappedAccessCoordinate(
+  entry: { point: SummaryAccessPoint; coordinate: MapCoordinate | null }
+): entry is { point: SummaryAccessPoint; coordinate: MapCoordinate } {
+  return entry.coordinate !== null;
 }
 
 function applyExploreFilters(
@@ -709,10 +768,6 @@ function estimateDriveMinutes(miles: number) {
 
 function nullableNumber(value: number | null) {
   return typeof value === 'number' && Number.isFinite(value) ? value : Number.POSITIVE_INFINITY;
-}
-
-function compactUpdatedLabel(value: string | undefined) {
-  return formatRelativeTime(value).replace(/^Updated\s+/i, '');
 }
 
 function errorDetailForExploreQuery(error: unknown) {

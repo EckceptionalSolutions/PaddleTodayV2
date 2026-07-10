@@ -2,14 +2,15 @@ import type { RiverAlertThreshold, RiverSummaryApiItem } from '@paddletoday/api-
 import { PaddleTodayApiError } from '@paddletoday/api-client';
 import { useRouter } from 'expo-router';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { useEffect, useMemo, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useMemo, useState } from 'react';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useCreateRiverAlertMutation, useRiverSummaryQuery } from '../api/queries';
 import { AppLoadingState } from '../components/app-state';
 import { RiverCard } from '../components/river-card';
 import { SectionCard } from '../components/section-card';
-import { alertMutationMessage, alertThresholdLabel, isValidEmailAddress } from '../lib/alerts';
+import { alertMutationMessage, alertThresholdLabel } from '../lib/alerts';
+import { registerForRiverAlertPushNotifications } from '../lib/native-notifications';
 import { useAlertPreferences, type SavedRouteAlertRecord } from '../providers/alert-preferences-provider';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -22,9 +23,8 @@ export default function SavedScreen() {
   const summaryQuery = useRiverSummaryQuery();
   const createAlertMutation = useCreateRiverAlertMutation();
   const { savedRivers, isHydrated, isSaved, toggleSavedRiver } = useSavedRivers();
-  const { email: storedEmail, setEmail, routeAlerts, recordRouteAlert, alertForRiver } = useAlertPreferences();
-  const [draftEmail, setDraftEmail] = useState(storedEmail);
-  const [alertStatus, setAlertStatus] = useState('Saved route alerts use the same email for each route on this device.');
+  const { routeAlerts, recordRouteAlert, alertForRiver } = useAlertPreferences();
+  const [alertStatus, setAlertStatus] = useState('You will get a phone notification when a route reaches your selected call.');
   const [pendingAlertKey, setPendingAlertKey] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<SavedTab>('routes');
 
@@ -39,29 +39,25 @@ export default function SavedScreen() {
   );
   const savedGroups = groupSavedRoutes(savedSummaries);
 
-  useEffect(() => {
-    setDraftEmail(storedEmail);
-  }, [storedEmail]);
-
   async function submitSavedRouteAlert(river: RiverSummaryApiItem, threshold: RiverAlertThreshold) {
-    const email = draftEmail.trim().toLowerCase();
-    if (!isValidEmailAddress(email)) {
-      setAlertStatus('Enter a valid email before saving route alerts.');
-      return;
-    }
-
     const key = `${river.river.slug}:${threshold}`;
     setPendingAlertKey(key);
     setAlertStatus(`Saving ${alertThresholdLabel(threshold)} alert for ${river.river.name}...`);
     try {
-      await setEmail(email);
+      const registration = await registerForRiverAlertPushNotifications();
+      if (!registration.ok || !registration.expoPushToken) {
+        setAlertStatus(registration.message);
+        return;
+      }
+
       const response = await createAlertMutation.mutateAsync({
-        email,
         riverSlug: river.river.slug,
         threshold,
+        deliveryMethod: 'push',
+        expoPushToken: registration.expoPushToken,
       });
-      await recordRouteAlert({ riverSlug: river.river.slug, threshold, deliveryMethod: 'email' });
-      setAlertStatus(alertMutationMessage(response, threshold));
+      await recordRouteAlert({ riverSlug: river.river.slug, threshold, deliveryMethod: 'push' });
+      setAlertStatus(alertMutationMessage(response, threshold, 'push'));
     } catch (error) {
       setAlertStatus(
         error instanceof PaddleTodayApiError && error.message
@@ -183,21 +179,8 @@ export default function SavedScreen() {
       {activeTab === 'alerts' && savedSummaries.length > 0 ? (
         <SectionCard
           title="Saved alerts"
-          subtitle="Turn on Good or Strong email alerts for repeat routes."
+          subtitle="Get notified when saved routes reach Good or Strong."
         >
-          <View style={styles.alertEmailRow}>
-            <MaterialCommunityIcons name="email-outline" color={colors.accent} size={18} />
-            <TextInput
-              autoCapitalize="none"
-              autoCorrect={false}
-              keyboardType="email-address"
-              placeholder="you@example.com"
-              placeholderTextColor={colors.textMuted}
-              style={styles.alertInput}
-              value={draftEmail}
-              onChangeText={setDraftEmail}
-            />
-          </View>
           <View style={styles.alertRouteList}>
             {savedSummaries.map((river) => (
               <SavedAlertRow
@@ -333,13 +316,13 @@ function SavedAlertRow({
         <Text style={styles.savedAlertName}>{river.river.name}</Text>
         <Text style={styles.savedAlertReach} numberOfLines={1}>{river.river.reach}</Text>
         <Text style={styles.savedAlertState}>
-          {alert ? `${alertThresholdLabel(alert.threshold)} ${alert.deliveryMethod} alert on` : 'No saved alert on this device'}
+          {alert ? `${alertThresholdLabel(alert.threshold)} alert is on` : 'No alert set'}
         </Text>
       </Pressable>
       <View style={styles.savedAlertActions}>
         {(['good', 'strong'] as const).map((threshold) => {
           const pending = pendingAlertKey === `${river.river.slug}:${threshold}`;
-          const selected = alert?.threshold === threshold && alert.deliveryMethod === 'email';
+          const selected = alert?.threshold === threshold && alert.deliveryMethod === 'push';
           return (
             <Pressable
               key={threshold}
@@ -563,24 +546,6 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontSize: 14,
     lineHeight: 20,
-  },
-  alertEmailRow: {
-    minHeight: 46,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surface,
-    paddingHorizontal: spacing.sm,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-  },
-  alertInput: {
-    flex: 1,
-    color: colors.text,
-    fontSize: 15,
-    fontWeight: '700',
-    paddingVertical: spacing.sm,
   },
   alertRouteList: {
     gap: spacing.sm,

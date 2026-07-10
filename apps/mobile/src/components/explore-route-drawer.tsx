@@ -2,10 +2,9 @@ import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import type { Dispatch, SetStateAction } from 'react';
 import { useEffect, useMemo, useRef } from 'react';
-import { Animated, Linking, PanResponder, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { normalizeApiText } from '../lib/format';
+import { Animated, Linking, PanResponder, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { mapUrlForAccessPoint } from '../lib/maps';
-import { routeFactItems, routeFactLine } from '../lib/route-facts';
+import { routeDecisionLine, routePreviewFactLine } from '../lib/route-facts';
 import { RoutePhotoCard } from './route-photo-card';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -23,6 +22,7 @@ interface ExploreRouteDrawerProps {
   bottomInset?: number;
   routeCount?: number;
   isSaved: (slug: string) => boolean;
+  onClose: () => void;
   onOpenRoute: () => void;
   onOpenRiverRoutes?: () => void;
   onContributePhotos: (slug: string) => void;
@@ -36,12 +36,15 @@ export function ExploreRouteDrawer({
   bottomInset = 0,
   routeCount = 1,
   isSaved,
+  onClose,
   onOpenRoute,
   onOpenRiverRoutes,
   onContributePhotos,
   onToggleSaved,
 }: ExploreRouteDrawerProps) {
-  const sheetGesture = useMapSheetPanResponder(sheetSnap, setSheetSnap);
+  const { height: windowHeight } = useWindowDimensions();
+  const maxSheetHeight = Math.max(sheetHeightValue('half'), Math.round(windowHeight * 0.86));
+  const sheetGesture = useMapSheetPanResponder(sheetSnap, setSheetSnap, maxSheetHeight, onClose);
   const selectedDirectionsUrl = mapUrlForAccessPoint(selectedRiver.river.putIn);
   const expanded = sheetSnap !== 'peek';
   const full = sheetSnap === 'full';
@@ -49,7 +52,14 @@ export function ExploreRouteDrawer({
   return (
     <Animated.View style={[styles.mapSheet, styles.fullMapSheet, sheetHeightStyle(bottomInset), { height: sheetGesture.animatedHeight }]}>
       <View style={styles.mapSheetHandleWrap} collapsable={false} {...sheetGesture.panHandlers}>
-        <View style={styles.mapSheetHandle} />
+        <Pressable
+          style={styles.mapSheetHandleButton}
+          onPress={() => setSheetSnap(nextSheetSnap(sheetSnap))}
+          accessibilityRole="button"
+          accessibilityLabel={sheetSnap === 'peek' ? 'Expand route drawer' : 'Collapse route drawer'}
+        >
+          <View style={styles.mapSheetHandle} />
+        </Pressable>
       </View>
       <View style={styles.mapPreviewHeader}>
         <View style={styles.mapPreviewDragRegion} collapsable={false} {...sheetGesture.panHandlers}>
@@ -81,36 +91,23 @@ export function ExploreRouteDrawer({
             size={22}
           />
         </Pressable>
+        <Pressable
+          style={styles.mapPreviewClose}
+          onPress={onClose}
+          hitSlop={8}
+          accessibilityRole="button"
+          accessibilityLabel="Close route drawer"
+        >
+          <MaterialCommunityIcons name="close" color={colors.textMuted} size={21} />
+        </Pressable>
       </View>
       {expanded ? (
         <RoutePhotoCard
           river={selectedRiver.river}
           compact
-          height={82}
+          height={full ? 108 : 82}
           onContributePhotos={() => onContributePhotos(selectedRiver.river.slug)}
         />
-      ) : null}
-      {expanded ? (
-        <View style={styles.mapPreviewFacts}>
-          {drawerFactItems(selectedRiver).slice(0, 3).map((fact) => (
-            <View key={fact} style={styles.mapPreviewFactPill}>
-              <Text style={styles.mapPreviewFactText} numberOfLines={1}>{fact}</Text>
-            </View>
-          ))}
-        </View>
-      ) : null}
-      <Text style={styles.mapPreviewReason} numberOfLines={expanded ? 2 : 1}>
-        {drawerDecisionLine(selectedRiver)}
-      </Text>
-      {expanded ? (
-        <View style={styles.conditionChipRow}>
-          {drawerConditionItems(selectedRiver).map((item) => (
-            <View key={item.label} style={styles.conditionChip}>
-              <Text style={styles.conditionChipLabel}>{item.label}</Text>
-              <Text style={styles.conditionChipValue} numberOfLines={1}>{item.value}</Text>
-            </View>
-          ))}
-        </View>
       ) : null}
       <View style={styles.mapSheetActions}>
         <Pressable
@@ -121,26 +118,18 @@ export function ExploreRouteDrawer({
         >
           <Text style={styles.mapPreviewOpenText} numberOfLines={1}>Open route</Text>
         </Pressable>
-        {routeCount > 1 && onOpenRiverRoutes ? (
-          <Pressable
-            style={styles.mapPreviewCompareButton}
-            onPress={onOpenRiverRoutes}
-            accessibilityRole="button"
-            accessibilityLabel={`Compare ${routeCount} ${selectedRiver.river.name} routes`}
-          >
-            <Text style={styles.mapPreviewCompareText} numberOfLines={1}>Compare routes</Text>
-          </Pressable>
-        ) : null}
-        {selectedDirectionsUrl ? (
-          <Pressable
-            style={styles.mapDirectionsButton}
-            onPress={() => void Linking.openURL(selectedDirectionsUrl)}
-            accessibilityRole="button"
-            accessibilityLabel={`Directions to ${selectedRiver.river.name} put-in`}
-          >
-            <MaterialCommunityIcons name="directions" color={colors.accent} size={19} />
-          </Pressable>
-        ) : null}
+        <Pressable
+          style={[styles.mapDirectionsButton, selectedDirectionsUrl ? null : styles.mapDirectionsButtonDisabled]}
+          disabled={!selectedDirectionsUrl}
+          onPress={() => selectedDirectionsUrl ? void Linking.openURL(selectedDirectionsUrl) : undefined}
+          accessibilityRole="button"
+          accessibilityLabel={`Directions to ${selectedRiver.river.name} put-in`}
+        >
+          <MaterialCommunityIcons name="directions" color={selectedDirectionsUrl ? colors.accent : colors.textMuted} size={18} />
+          <Text style={[styles.mapDirectionsText, selectedDirectionsUrl ? null : styles.mapDirectionsTextDisabled]} numberOfLines={1}>
+            Directions
+          </Text>
+        </Pressable>
         <Pressable
           style={styles.mapSheetSnapButton}
           onPress={() => setSheetSnap(nextSheetSnap(sheetSnap))}
@@ -151,79 +140,131 @@ export function ExploreRouteDrawer({
         </Pressable>
       </View>
       {full ? (
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.selectedDetails}>
-          <View style={styles.selectedStatGrid}>
-            <DrawerStat label="Score" value={`${selectedRiver.score} / ${selectedRiver.rating}`} icon="chart-donut" />
-            <DrawerStat label="Distance" value={selectedRiver.river.distanceLabel || 'Unknown'} icon="map-marker-distance" />
-            <DrawerStat label="Paddle time" value={selectedRiver.river.estimatedPaddleTime || 'Unknown'} icon="clock-outline" />
-            <DrawerStat label="Difficulty" value={capitalize(selectedRiver.river.difficulty)} icon="waves" />
+        <ScrollView
+          style={styles.drawerContentScroll}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.drawerContent}
+        >
+          <Text style={styles.mapPreviewReason}>
+            {drawerDecisionLine(selectedRiver)}
+          </Text>
+          <View style={styles.drawerDetailGrid}>
+            <DrawerDetailItem
+              icon="map-marker-distance"
+              label="Distance"
+              value={selectedRiver.river.distanceLabel || 'Unknown'}
+            />
+            <DrawerDetailItem
+              icon="clock-outline"
+              label="Paddle time"
+              value={selectedRiver.river.estimatedPaddleTime || 'Unknown'}
+            />
+            <DrawerDetailItem
+              icon="waves"
+              label="Difficulty"
+              value={capitalize(selectedRiver.river.difficulty)}
+            />
           </View>
+          <View style={styles.conditionChipRow}>
+            {drawerConditionItems(selectedRiver).map((item) => (
+              <View key={item.label} style={styles.conditionChip}>
+                <Text style={styles.conditionChipLabel}>{item.label}</Text>
+                <Text style={styles.conditionChipValue} numberOfLines={1}>{item.value}</Text>
+              </View>
+            ))}
+          </View>
+          {routeCount > 1 && onOpenRiverRoutes ? (
+            <Pressable
+              style={styles.drawerCompareButton}
+              onPress={onOpenRiverRoutes}
+              accessibilityRole="button"
+              accessibilityLabel={`Compare ${routeCount} ${selectedRiver.river.name} routes`}
+            >
+              <MaterialCommunityIcons name="map-marker-path" color={colors.accent} size={17} />
+              <Text style={styles.drawerCompareText} numberOfLines={1}>Compare {routeCount} routes</Text>
+            </Pressable>
+          ) : null}
           <View style={styles.selectedNote}>
             <Text style={styles.selectedNoteTitle}>Route context</Text>
             <Text style={styles.selectedNoteText}>{drawerFactLine(selectedRiver)}</Text>
           </View>
         </ScrollView>
-      ) : null}
+      ) : expanded ? (
+        <Text style={styles.mapPreviewReason} numberOfLines={2}>
+          {drawerDecisionLine(selectedRiver)}
+        </Text>
+      ) : (
+        <Text style={styles.mapPreviewReason} numberOfLines={1}>
+          {drawerDecisionLine(selectedRiver)}
+        </Text>
+      )}
     </Animated.View>
   );
 }
 
-function DrawerStat({
+function DrawerDetailItem({
+  icon,
   label,
   value,
-  icon,
 }: {
+  icon: keyof typeof MaterialCommunityIcons.glyphMap;
   label: string;
   value: string;
-  icon: keyof typeof MaterialCommunityIcons.glyphMap;
 }) {
   return (
-    <View style={styles.selectedStat}>
-      <MaterialCommunityIcons name={icon} color={colors.accent} size={17} />
-      <Text style={styles.selectedStatLabel}>{label}</Text>
-      <Text style={styles.selectedStatValue} numberOfLines={2}>{value}</Text>
+    <View style={styles.drawerDetailItem}>
+      <MaterialCommunityIcons name={icon} color={colors.accent} size={16} />
+      <Text style={styles.drawerDetailLabel}>{label}</Text>
+      <Text style={styles.drawerDetailValue} numberOfLines={2}>{value}</Text>
     </View>
   );
 }
 
 function useMapSheetPanResponder(
   sheetSnap: MapSheetSnap,
-  setSheetSnap: Dispatch<SetStateAction<MapSheetSnap>>
+  setSheetSnap: Dispatch<SetStateAction<MapSheetSnap>>,
+  maxSheetHeight: number,
+  onClose: () => void
 ) {
-  const animatedHeight = useRef(new Animated.Value(sheetHeightValue(sheetSnap))).current;
+  const animatedHeight = useRef(new Animated.Value(sheetHeightValue(sheetSnap, maxSheetHeight))).current;
   const currentSnapRef = useRef(sheetSnap);
 
   useEffect(() => {
     currentSnapRef.current = sheetSnap;
     Animated.spring(animatedHeight, {
-      toValue: sheetHeightValue(sheetSnap),
+      toValue: sheetHeightValue(sheetSnap, maxSheetHeight),
       useNativeDriver: false,
       damping: 22,
       stiffness: 210,
       mass: 0.75,
     }).start();
-  }, [animatedHeight, sheetSnap]);
+  }, [animatedHeight, maxSheetHeight, sheetSnap]);
 
   const panResponder = useMemo(
     () =>
       PanResponder.create({
-        onStartShouldSetPanResponder: () => true,
+        onStartShouldSetPanResponder: () => false,
         onMoveShouldSetPanResponder: (_event, gestureState) => Math.abs(gestureState.dy) > 3,
         onMoveShouldSetPanResponderCapture: (_event, gestureState) => Math.abs(gestureState.dy) > 3,
         onPanResponderGrant: () => {
           animatedHeight.stopAnimation();
         },
         onPanResponderMove: (_event, gestureState) => {
-          const baseHeight = sheetHeightValue(currentSnapRef.current);
-          animatedHeight.setValue(clampSheetHeight(baseHeight - gestureState.dy));
+          const baseHeight = sheetHeightValue(currentSnapRef.current, maxSheetHeight);
+          animatedHeight.setValue(clampSheetHeight(baseHeight - gestureState.dy, maxSheetHeight));
         },
         onPanResponderTerminationRequest: () => false,
         onPanResponderRelease: (_event, gestureState) => {
           const nextSnap = snapSheetAfterDrag(currentSnapRef.current, gestureState.dy);
+          if (!nextSnap) {
+            onClose();
+            return;
+          }
+
           currentSnapRef.current = nextSnap;
           setSheetSnap(nextSnap);
           Animated.spring(animatedHeight, {
-            toValue: sheetHeightValue(nextSnap),
+            toValue: sheetHeightValue(nextSnap, maxSheetHeight),
             useNativeDriver: false,
             damping: 22,
             stiffness: 210,
@@ -232,7 +273,7 @@ function useMapSheetPanResponder(
         },
         onPanResponderTerminate: () => {
           Animated.spring(animatedHeight, {
-            toValue: sheetHeightValue(currentSnapRef.current),
+            toValue: sheetHeightValue(currentSnapRef.current, maxSheetHeight),
             useNativeDriver: false,
             damping: 22,
             stiffness: 210,
@@ -240,22 +281,22 @@ function useMapSheetPanResponder(
           }).start();
         },
       }),
-    [animatedHeight, setSheetSnap]
+    [animatedHeight, maxSheetHeight, onClose, setSheetSnap]
   );
 
   return { panHandlers: panResponder.panHandlers, animatedHeight };
 }
 
-function sheetHeightStyle(_bottomInset = 0) {
+function sheetHeightStyle(bottomInset = 0) {
   return {
-    paddingBottom: spacing.sm,
+    paddingBottom: spacing.sm + bottomInset,
   };
 }
 
-export function sheetHeightValue(value: MapSheetSnap) {
-  if (value === 'full') return 510;
-  if (value === 'half') return 356;
-  return 168;
+export function sheetHeightValue(value: MapSheetSnap, maxHeight = 510) {
+  if (value === 'full') return Math.min(460, maxHeight);
+  if (value === 'half') return Math.min(306, Math.max(286, maxHeight - 184));
+  return 196;
 }
 
 function nextSheetSnap(value: MapSheetSnap): MapSheetSnap {
@@ -264,13 +305,14 @@ function nextSheetSnap(value: MapSheetSnap): MapSheetSnap {
   return 'peek';
 }
 
-function snapSheetAfterDrag(value: MapSheetSnap, dragY: number): MapSheetSnap {
+function snapSheetAfterDrag(value: MapSheetSnap, dragY: number): MapSheetSnap | null {
   if (dragY < -48) {
     if (value === 'peek') return 'half';
     return 'full';
   }
 
   if (dragY > 28) {
+    if (value === 'peek') return null;
     if (value === 'full') return 'half';
     return 'peek';
   }
@@ -278,22 +320,12 @@ function snapSheetAfterDrag(value: MapSheetSnap, dragY: number): MapSheetSnap {
   return value;
 }
 
-function clampSheetHeight(height: number) {
-  return Math.min(sheetHeightValue('full'), Math.max(sheetHeightValue('peek'), height));
-}
-
-function drawerFactItems(river: ExploreDrawerRiver) {
-  return routeFactItems(river.river, {
-    includePaddleTime: true,
-    includeNoCamping: true,
-  }).filter((fact) => fact !== river.river.distanceLabel || !river.travelLabel)
-    .slice(0, river.travelLabel ? 2 : 3)
-    .concat(river.travelLabel ? [river.travelLabel] : []);
+function clampSheetHeight(height: number, maxSheetHeight: number) {
+  return Math.min(sheetHeightValue('full', maxSheetHeight), Math.max(sheetHeightValue('peek', maxSheetHeight), height));
 }
 
 function drawerFactLine(river: ExploreDrawerRiver) {
-  const base = routeFactLine(river.river, {
-    includePaddleTime: true,
+  const base = routePreviewFactLine(river.river, {
     includeNoCamping: true,
   });
 
@@ -305,14 +337,12 @@ function drawerFactLine(river: ExploreDrawerRiver) {
 }
 
 function drawerDecisionLine(river: ExploreDrawerRiver) {
-  return `${river.rating}: ${normalizeApiText(river.summary.shortExplanation)}`;
+  return routeDecisionLine(river.rating, river.summary.shortExplanation);
 }
 
 function drawerConditionItems(river: ExploreDrawerRiver) {
   return [
-    { label: 'Gauge', value: normalizeApiText(river.gaugeBandLabel) },
-    { label: 'Confidence', value: river.confidence.label },
-    { label: 'Data', value: river.liveData.overall === 'live' ? 'Live' : normalizeApiText(river.liveData.overall) },
+    { label: 'Gauge', value: river.gaugeBandLabel },
     { label: 'Drive', value: river.travelLabel ?? river.river.region },
   ];
 }
@@ -349,6 +379,12 @@ const styles = StyleSheet.create({
     paddingTop: 9,
     paddingBottom: 4,
     minHeight: 18,
+  },
+  mapSheetHandleButton: {
+    minWidth: 72,
+    minHeight: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   mapSheetHandle: {
     width: 42,
@@ -409,10 +445,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  mapPreviewFacts: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 6,
+  mapPreviewClose: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.border,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   mapPreviewReason: {
     color: colors.textMuted,
@@ -446,18 +487,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '900',
   },
-  mapPreviewFactPill: {
-    maxWidth: '100%',
-    borderRadius: radius.pill,
-    backgroundColor: colors.canvasMuted,
-    paddingHorizontal: 9,
-    paddingVertical: 5,
-  },
-  mapPreviewFactText: {
-    color: colors.text,
-    fontSize: 11,
-    fontWeight: '900',
-  },
   mapPreviewOpenButton: {
     flex: 1,
     borderRadius: radius.pill,
@@ -471,7 +500,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '900',
   },
-  mapPreviewCompareButton: {
+  mapDirectionsButton: {
     flex: 1,
     borderRadius: radius.pill,
     borderWidth: 1,
@@ -480,22 +509,21 @@ const styles = StyleSheet.create({
     minHeight: 40,
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row',
+    gap: 6,
     paddingHorizontal: spacing.sm,
   },
-  mapPreviewCompareText: {
+  mapDirectionsButtonDisabled: {
+    borderColor: colors.border,
+    backgroundColor: colors.canvasMuted,
+  },
+  mapDirectionsText: {
     color: colors.accent,
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: '900',
   },
-  mapDirectionsButton: {
-    width: 44,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.accent,
-    backgroundColor: colors.surfaceStrong,
-    minHeight: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
+  mapDirectionsTextDisabled: {
+    color: colors.textMuted,
   },
   mapSheetActions: {
     flexDirection: 'row',
@@ -509,35 +537,55 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  selectedDetails: {
+  drawerContentScroll: {
+    flex: 1,
+    minHeight: 0,
+  },
+  drawerContent: {
     gap: spacing.sm,
     paddingBottom: spacing.lg,
   },
-  selectedStatGrid: {
+  drawerDetailGrid: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
     gap: spacing.sm,
   },
-  selectedStat: {
-    width: '48%',
-    minHeight: 78,
+  drawerDetailItem: {
+    flex: 1,
+    minHeight: 76,
     borderRadius: radius.md,
     backgroundColor: colors.surface,
     padding: spacing.sm,
     justifyContent: 'center',
     gap: 3,
   },
-  selectedStatLabel: {
+  drawerDetailLabel: {
     color: colors.textMuted,
-    fontSize: 10,
+    fontSize: 9,
     fontWeight: '900',
     textTransform: 'uppercase',
-    letterSpacing: 0.3,
+    letterSpacing: 0.25,
   },
-  selectedStatValue: {
+  drawerDetailValue: {
     color: colors.text,
+    fontSize: 12,
+    lineHeight: 16,
+    fontWeight: '900',
+  },
+  drawerCompareButton: {
+    minHeight: 40,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 7,
+    paddingHorizontal: spacing.md,
+  },
+  drawerCompareText: {
+    color: colors.accent,
     fontSize: 13,
-    lineHeight: 17,
     fontWeight: '900',
   },
   selectedNote: {

@@ -30,7 +30,7 @@ import { type ExploreIntentId } from '../lib/explore-intents';
 import { photoForRiver } from '../lib/route-photos';
 import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
 import { isRecord, parseJson } from '../lib/storage';
-import { routeFactItems, routeFactLine } from '../lib/route-facts';
+import { routeDecisionLine, routePreviewFactItems, routePreviewFactLine } from '../lib/route-facts';
 import {
   buildBoardSnapshot,
   selectBestNowPicks,
@@ -402,7 +402,7 @@ function BoardHero({
                 <Text style={styles.headlineName}>{headline.river.name}</Text>
                 <Text style={styles.headlineReach} numberOfLines={1}>{routeReachWithState(headline)}</Text>
                 <Text style={styles.headlineText} numberOfLines={2}>
-                  {verdictForRating(headline.rating)} - {normalizeApiText(headline.summary.shortExplanation)}
+                  {routeDecisionLine(verdictForRating(headline.rating), headline.summary.shortExplanation)}
                 </Text>
               </View>
             </Pressable>
@@ -1184,16 +1184,18 @@ function emptyTitleForMode(mode: BoardMode, hasLocation: boolean, locationStatus
 }
 
 function homeFactItems(river: BoardItem) {
-  return routeFactItems(river.river, {
+  return routePreviewFactItems(river.river, {
     travelMinutes: isNearbyPick(river) ? river.travelMinutes : null,
     includeNoCamping: true,
-  }).concat(isNearbyPick(river) ? [distanceLabelForRiver(river)] : []);
+    driveDistanceLabel: isNearbyPick(river) ? distanceLabelForRiver(river) : null,
+  });
 }
 
 function homeFactLine(river: BoardItem) {
-  return routeFactLine(river.river, {
+  return routePreviewFactLine(river.river, {
     travelMinutes: isNearbyPick(river) ? river.travelMinutes : null,
     includeNoCamping: true,
+    driveDistanceLabel: isNearbyPick(river) ? distanceLabelForRiver(river) : null,
   });
 }
 
