@@ -13360,6 +13360,120 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'yellow-breeches-creek-simpson-park-lower-allen-community-park': {
+    putIn: {
+      name: 'Simpson Park launch',
+      latitude: 40.164151,
+      longitude: -76.976192,
+    },
+    takeOut: {
+      name: 'Lower Allen Community Park launch',
+      latitude: 40.172373,
+      longitude: -76.913787,
+    },
+    logistics: {
+      distanceLabel: 'About 4.7 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3 hr 30 min depending on depth, wood, and how much scraping or scouting the creek needs that day',
+      shuttle:
+        'Stage the take-out at Lower Allen Community Park before driving back to Simpson Park. Inspect both township launches first because low water, mud, or recent storm cleanup can change the easiest carry line.',
+      permits:
+        'No route-specific paddling permit is known for these township-park launches. Follow current township, boating, and PFD rules. If you extend to PFBC launches on a different plan, those separate access points may require registration or a PFBC/state-park launch permit.',
+      camping:
+        'Lower Allen Community Park offers camping by reservation at the take-out. Treat that as endpoint campground support only and not as permission to camp elsewhere on the creek corridor.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Simpson Park and take out at Lower Allen Community Park for a short-to-medium Yellow Breeches day. Use the Camp Hill gauge as the county-endorsed same-creek proxy and expect scraping or slower lines when it sits below the recommended 1.4-foot floor.',
+      accessCaveats: [
+        'Cumberland County still publishes both endpoints as official Yellow Breeches access points with exact coordinates on the county story map.',
+        'The county recommends boating when the Camp Hill gauge reads about 1.4 to 2.0 feet. This route was reviewed when the proxy gauge was 1.38 feet at 2026-07-10 08:13 EDT, so low-water dragging is a real possibility.',
+        'The county currently warns of a full blockage above B7 and recommends B6 as the downstream finish there. Treat this route as a self-contained upper-middle segment rather than a casual continuation downstream.',
+        'Trail use is limited to daylight hours and the county asks paddlers to respect private property not designated for public use.',
+      ],
+      watchFor: [
+        'Scraping, shallow riffles, and slow progress when the Camp Hill gauge is near or below 1.4 ft.',
+        'Fresh wood, strainers, overhanging limbs, and muddy banks after thunderstorms.',
+        'Quicker current and more debris once the creek rises toward the 6 ft action stage, even if the short route still looks tame from shore.',
+        'Private banks and limited legal bailout choices away from the named public launches.',
+      ],
+    },
+  },
+  'yellow-breeches-creek-mccormick-park-liberty-forge': {
+    putIn: {
+      name: 'McCormick Park launch',
+      latitude: 40.165436,
+      longitude: -76.95508,
+    },
+    takeOut: {
+      name: 'Liberty Forge bridge access',
+      latitude: 40.177495,
+      longitude: -76.924172,
+    },
+    logistics: {
+      distanceLabel: 'About 4.1 mi',
+      estimatedPaddleTime:
+        'About 1 hr 45 min to 3 hr depending on depth, wood, and how careful the bridge-side finish feels on the day',
+      shuttle:
+        'Stage the take-out at Liberty Forge before driving back to McCormick Park. Inspect the Old Forge Road bridge-access area first because parking is limited and same-day resort activity can affect the simplest finish.',
+      permits:
+        'No route-specific paddling permit is known for this park-to-bridge segment. Follow current township, boating, and PFD rules, and obey any posted public-access instructions at Liberty Forge.',
+      camping:
+        'Lower Allen Community Park sits on this official corridor and offers camping by reservation, but it is an on-route support option rather than part of the normal route finish.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at McCormick Park and take out at the public Liberty Forge bridge access for a short Yellow Breeches float. Use the Camp Hill gauge as the county-endorsed same-creek proxy and keep the day conservative when the creek is below the recommended floor.',
+      accessCaveats: [
+        'Cumberland County still publishes both endpoints as official Yellow Breeches access points with exact coordinates on the county story map.',
+        'The county story map says the public may access the creek for boating at the Old Forge Road bridge at Liberty Forge and should follow posted access rules; it also asks paddlers to limit parking to individuals and small groups only.',
+        'The county recommends boating when the Camp Hill gauge reads about 1.4 to 2.0 feet. This route was reviewed when the proxy gauge was 1.38 feet at 2026-07-10 08:13 EDT, so expect scrape-prone shallows.',
+        'The current county advisory flags a full blockage above B7 farther downstream, so do not assume a safe continuation beyond the intended take-out.',
+      ],
+      watchFor: [
+        'Scraping, shallow bends, and slower travel when the Camp Hill gauge is near or below 1.4 ft.',
+        'Fresh wood, small strainers, slippery banks, and bridge-area current at the Liberty Forge finish.',
+        'Fast rises and more debris after thunderstorms on a creek that can change quickly despite its short mileage.',
+        'Private banks and drifting past the intended bridge-side public finish into less clear access context.',
+      ],
+    },
+  },
+  'yellow-breeches-creek-lower-allen-community-park-yellow-breeches-park': {
+    putIn: {
+      name: 'Lower Allen Community Park launch',
+      latitude: 40.172373,
+      longitude: -76.913787,
+    },
+    takeOut: {
+      name: 'Yellow Breeches Park launch',
+      latitude: 40.183811,
+      longitude: -76.912682,
+    },
+    logistics: {
+      distanceLabel: 'About 2.4 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2 hr depending on depth, wood, and how much low-water line picking is needed',
+      shuttle:
+        'Stage the take-out at Yellow Breeches Park before driving back to Lower Allen Community Park. Inspect the Sheepford Road finish first because informal roadside parking and muddy footing can change the feel quickly after rain.',
+      permits:
+        'No route-specific paddling permit is known for these township launches. Follow current township, boating, and PFD rules, and do not assume the route should continue downstream into the posted B7 hazard area.',
+      camping:
+        'Lower Allen Community Park offers camping by reservation at the put-in. Treat that as endpoint campground support only and not as permission to camp elsewhere on the creek corridor.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Lower Allen Community Park and take out at Yellow Breeches Park for a short lower-middle Yellow Breeches float. This route intentionally ends at B6 because the county currently recommends B6 as the safe downstream finish above the posted blockage near B7.',
+      accessCaveats: [
+        'Cumberland County still publishes both endpoints as official Yellow Breeches access points with exact coordinates on the county story map.',
+        'The county currently warns that a large fallen tree and logjam completely block the creek upstream of Slate Hill Road and specifically recommends B6 Yellow Breeches Park to avoid the hazard.',
+        'The county recommends boating when the Camp Hill gauge reads about 1.4 to 2.0 feet. This route was reviewed when the proxy gauge was 1.38 feet at 2026-07-10 08:13 EDT, so low-water scraping is likely.',
+        'Trail use is limited to daylight hours and the county asks paddlers to respect private property not designated for public use.',
+      ],
+      watchFor: [
+        'Scraping, shallow lines, and slower travel when the Camp Hill gauge is near or below 1.4 ft.',
+        'Fresh wood, strainers, and muddy footing at the informal Yellow Breeches Park finish after storms.',
+        'The posted downstream blockage and the B7 dam-portage area; do not drift past the intended B6 take-out assuming the lower trail is clear.',
+        'Private banks and limited legal bailout choices away from the named public launches.',
+      ],
+    },
+  },
   'conodoguinet-creek-willow-mill-good-hope': {
     putIn: {
       name: 'Willow Mill Park launch',
