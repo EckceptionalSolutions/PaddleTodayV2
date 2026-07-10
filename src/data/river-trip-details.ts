@@ -15625,6 +15625,121 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'south-fork-kentucky-river-oneida-rocky-branch': {
+    putIn: {
+      id: 'oneida-ramp',
+      name: 'Oneida Ramp',
+      latitude: 37.2726,
+      longitude: -83.6532,
+    },
+    takeOut: {
+      id: 'rocky-branch-road-access',
+      name: 'Rocky Branch Road Access',
+      latitude: 37.3206,
+      longitude: -83.6648,
+    },
+    logistics: {
+      distanceLabel: 'About 6.8 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Rocky Branch Road Access, then drive back to Oneida Ramp near Oneida Elementary School. Oneida is the more developed paved launch, but Rocky Branch has limited roadside parking and a simpler bridge-side exit.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Oneida or Rocky Branch, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Oneida Ramp and take out about 6.8 miles downstream at Rocky Branch Road Access for an upper South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Oneida Ramp is a free single-lane concrete launch with paved parking, but no listed amenities or camping.',
+        'Rocky Branch is a carry-down-only bridge-side access with unpaved parking, limited parking, and no amenities.',
+        'The current Booneville gauge reading during this run sat inside the official good band, but fresh rain can still muddy landings and speed up the broad current lines.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow rock bars, mud banks, and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and fewer easy recovery spots remain.',
+        'Wood, strainers, muddy step-outs, occasional riffles, and private banks outside the access sites.',
+      ],
+    },
+  },
+  'south-fork-kentucky-river-rocky-branch-cedar-valley': {
+    putIn: {
+      id: 'rocky-branch-road-access',
+      name: 'Rocky Branch Road Access',
+      latitude: 37.3206,
+      longitude: -83.6648,
+    },
+    takeOut: {
+      id: 'cedar-valley-road-access',
+      name: 'Cedar Valley Road Access',
+      latitude: 37.3363,
+      longitude: -83.656,
+    },
+    logistics: {
+      distanceLabel: 'About 2.5 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Cedar Valley Road Access, then drive back to Rocky Branch Road Access off KY-11. Inspect both gravel access roads before launching because parking is limited and muddy approaches can change after rain.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow posted Kentucky boating and PFD requirements, and respect any same-day access or parking limits at the roadside launch areas.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Rocky Branch or Cedar Valley, and adjacent banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Rocky Branch Road Access and take out 2.5 miles downstream at Cedar Valley Road Access for a short South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Rocky Branch is a carry-down-only bridge-side access with limited parking and no amenities.',
+        'Cedar Valley is a carry-down-only gravel-and-dirt access with limited parking; KDFWR notes private-adjacent banks outside the access site.',
+        'The current Booneville gauge reading during this run sat inside the official good band, but fresh rain can still muddy the simple carry-down exits.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow rock bars, mud banks, and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and fewer easy recovery spots remain.',
+        'Wood, strainers, muddy step-outs, occasional riffles, and fishing-line traffic near easier roadside access points.',
+        'Private banks outside the access sites.',
+      ],
+    },
+  },
+  'south-fork-kentucky-river-cedar-valley-bishop-bend': {
+    putIn: {
+      id: 'cedar-valley-road-access',
+      name: 'Cedar Valley Road Access',
+      latitude: 37.3363,
+      longitude: -83.656,
+    },
+    takeOut: {
+      id: 'bishop-bend-school-road-access',
+      name: 'Bishop Bend School Road Access',
+      latitude: 37.3377,
+      longitude: -83.6882,
+    },
+    logistics: {
+      distanceLabel: 'About 4.7 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Bishop Bend School Road Access, then drive back to Cedar Valley Road Access. Drive both access roads before launching because each has limited dirt or gravel parking and no developed amenities.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Cedar Valley or Bishop Bend, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Cedar Valley Road Access and take out 4.7 miles downstream at Bishop Bend School Road Access for a modest South Fork Kentucky River day. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Cedar Valley is a carry-down-only gravel-and-dirt access with limited parking and no amenities.',
+        'Bishop Bend is a carry-down-only access with unpaved parking, a small dirt parking area, and no amenities.',
+        'The current Booneville gauge reading during this run sat inside the official good band, but fresh rain can still make muddy landings and broad bends less forgiving.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when rock bars, shoals, and drag-outs become more common.',
+        'High water above 900 cfs or 6.0 ft, when current quickens around bends and woody debris becomes less forgiving.',
+        'Mud banks, wood, occasional riffles, private-adjacent banks, and limited bailout options outside the named accesses.',
+      ],
+    },
+  },
   'south-fork-kentucky-river-oneida-fish-creek': {
     putIn: {
       id: 'oneida-ramp',

@@ -2,6 +2,14 @@
 
 Last summarized: 2026-07-10 02:50 America/Chicago / 2026-07-10 07:50 UTC.
 
+## 2026-07-10 South Fork split re-add pass
+
+- Reused the live repo state as the only valid baseline and restored three South Fork Kentucky River split slugs that were absent from the current tree at run start: `south-fork-kentucky-river-oneida-rocky-branch`, `south-fork-kentucky-river-rocky-branch-cedar-valley`, and `south-fork-kentucky-river-cedar-valley-bishop-bend`.
+- Current KDFWR South Fork Kentucky River guidance still documents the exact public segment mileages of Oneida -> Rocky Branch `6.8`, Rocky Branch -> Cedar Valley `2.5`, and Cedar Valley -> Bishop Bend `4.7`, which support the restored public route mileages directly without inferred geometry.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Oneida Ramp, Rocky Branch Road Access, Cedar Valley Road Access, and Bishop Bend School Road Access. Same-day direct USGS Water Services returned `497 cfs / 5.16 ft` at `2026-07-10 05:30 EDT` for South Fork Kentucky River at Booneville (`03281500`), inside the official `350-900 cfs / 4.8-6.0 ft` good band.
+- Camping stays conservative at `none` for all three because KDFWR still documents only simple day-use launch sites with no public overnight support on this chain.
+- Reused the approved South Fork Commons corridor image already wired in route gallery and refreshed the matching image-audit rows for all three slugs.
+
 ## 2026-07-10 South Fork split restoration pass
 
 - Reused the live repo state as the only valid baseline and restored three South Fork Kentucky River slugs that were absent from the current tree at run start: `south-fork-kentucky-river-oneida-upper-wolf-creek`, `south-fork-kentucky-river-upper-wolf-creek-fish-creek`, and `south-fork-kentucky-river-hacker-branch-fish-creek`.
