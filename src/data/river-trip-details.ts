@@ -15952,8 +15952,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       longitude: -83.6882,
     },
     logistics: {
-      distanceLabel: 'About 12.2 mi',
-      estimatedPaddleTime: 'About 4.5 hr to 6.5 hr, longer with low water, fishing, or scouting',
+      distanceLabel: 'About 14.0 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, fishing, or scouting',
       shuttle:
         'Stage the take-out at Bishop Bend School Road Access, then drive back to Oneida Ramp. Oneida is the more developed paved launch, but Bishop Bend is a smaller dirt-road exit, so inspect the take-out before committing to the longest upper-middle South Fork option.',
       permits:
@@ -15962,7 +15962,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Treat this as a day trip. KDFWR lists no camping at Oneida or Bishop Bend, and banks outside the access sites should be treated as private.',
       campingClassification: 'none',
       summary:
-        'Launch at Oneida Ramp and take out about 12.2 miles downstream at Bishop Bend School Road Access for a long upper-middle South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+        'Launch at Oneida Ramp and take out about 14.0 miles downstream at Bishop Bend School Road Access for a long upper-middle South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
       accessCaveats: [
         'Oneida Ramp is a free single-lane concrete launch with paved parking, but no listed amenities or camping.',
         'Bishop Bend is a carry-down-only access with unpaved parking, a small dirt parking area, and no amenities.',
