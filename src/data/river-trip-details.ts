@@ -14980,6 +14980,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'goose-creek-tobacco-road-laurel-branch': {
+    putIn: {
+      id: 'tobacco-road-bridge-ramp',
+      name: 'Tobacco Road Bridge Ramp',
+      latitude: 37.2163,
+      longitude: -83.7175,
+    },
+    takeOut: {
+      id: 'laurel-branch-road-access',
+      name: 'Laurel Branch Road Access',
+      latitude: 37.237,
+      longitude: -83.6703,
+    },
+    logistics: {
+      distanceLabel: 'About 5.6 mi',
+      estimatedPaddleTime:
+        'About 2.5 hr to 4 hr, longer with low-water scraping, wood scouting, or a careful Dump Hollow bailout check',
+      shuttle:
+        'Stage the take-out at Laurel Branch first, then drive back upstream to Tobacco Road. Parking is limited at both accesses, and the intermediate Dump Hollow ford is the only clean public bailout between them.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed roadside accesses, follow Kentucky boating and PFD rules, and avoid treating private creek banks as public stopovers.',
+      camping:
+        'Treat this as a day float. KDFWR does not document public camping at Tobacco Road, Dump Hollow, or Laurel Branch, and all three are limited roadside accesses rather than overnight sites.',
+      campingClassification: 'none',
+      summary:
+        "Launch at Tobacco Road and take out at Laurel Branch for the downstream Goose Creek continuation. Use the Manchester gauge and expect scrape-prone low-water travel whenever the creek sits below or barely touches KDFWR's good band.",
+      accessCaveats: [
+        'Tobacco Road and Laurel Branch both have limited parking and no amenities.',
+        'Dump Hollow is the only clean public bailout in the middle, but KDFWR says high water can make the ford difficult or dangerous and can also complicate vehicle turnaround.',
+        'Goose Creek is a flashy small stream. Rain-driven rises can change the feel quickly even when the gauge was near the floor earlier in the day.',
+      ],
+      watchFor: [
+        'Low water below about 175 cfs or 7.4 ft, when rock bars, riffles, and dragging become likely.',
+        'High water above about 514 cfs or 8.5 ft, when the narrow creek gets pushier and the Dump Hollow bailout becomes more consequential.',
+        'Strainers, fresh wood after storms, shallow riffles, and slick footing at the roadside accesses.',
+        'Private banks and the need to stay disciplined about the Laurel Branch take-out.',
+      ],
+    },
+  },
   'goose-creek-jacks-laurel-branch': {
     putIn: {
       id: 'jacks-bowling-branch-bridge-access',
@@ -18886,6 +18925,82 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   
   
   
+  'cumberland-river-redbird-thunderstruck': {
+    putIn: {
+      id: 'redbird-ramp',
+      name: 'Redbird Ramp',
+      latitude: 36.7621,
+      longitude: -84.2216,
+    },
+    takeOut: {
+      id: 'thunderstruck-ramp',
+      name: 'Thunderstruck Ramp',
+      latitude: 36.8077,
+      longitude: -84.3546,
+    },
+    logistics: {
+      distanceLabel: 'About 11 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6.5 hr, longer with scouting, fishing, or low-water scraping',
+      shuttle:
+        'Stage the Thunderstruck take-out first, then drive back to Redbird on KY 204 and KY 478. Do not count on Long Bottom or Mouth of Indian Creek as routine shuttle points because KDFWR describes those roads as extremely rough.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public ramps, follow Kentucky boating and PFD rules, and keep emergency plans realistic for a remote gorge float.',
+      camping:
+        'KDFWR says float campers use the banks downstream of Bee Shoals on this route. Treat that as primitive on-route overnight context rather than developed campground support, and avoid private banks outside the commonly used river corridor.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Redbird Ramp and take out at Thunderstruck for the first official upstream Cumberland Falls float. Use the Williamsburg gauge and treat water above the 1,100 cfs preferred band as a more technical skilled-paddler day.',
+      accessCaveats: [
+        'Redbird and Thunderstruck are the clean public endpoints. Long Bottom and Mouth of Indian Creek are route-context accesses only and are not dependable normal shuttle points.',
+        'The float is remote enough that daylight, weather, and group self-rescue capacity matter more than on a town-edge run.',
+        'Same-day USGS flow on this run was above the official preferred band, so expect a firmer-water gorge day than a lower-band outing.',
+      ],
+      watchFor: [
+        'Summer Shoals, Bee Shoals, Crow Shoals, and Thunderstruck Shoals.',
+        'Fresh wood, limited bailout options, and fast rises after rain.',
+        'Private banks and rough gorge exits away from the named ramps.',
+      ],
+    },
+  },
+  'cumberland-river-thunderstruck-cumberland-falls': {
+    putIn: {
+      id: 'thunderstruck-ramp',
+      name: 'Thunderstruck Ramp',
+      latitude: 36.8077,
+      longitude: -84.3546,
+    },
+    takeOut: {
+      id: 'cumberland-falls-carrydown',
+      name: 'Cumberland Falls Carrydown',
+      latitude: 36.8421,
+      longitude: -84.3435,
+    },
+    logistics: {
+      distanceLabel: 'About 5 mi',
+      estimatedPaddleTime:
+        'About 2.5 hr to 4.5 hr, longer with scouting or higher-water caution',
+      shuttle:
+        'Stage the Cumberland Falls vehicle first, then drive back to Thunderstruck by KY 90, US 27, and KY 700. Inspect the take-out before launching because the finish above the falls is the core safety gate for the route.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR put-in and Cumberland Falls Carrydown only, follow Kentucky boating and PFD rules, and do not launch if your group is not prepared for a mandatory take-out above the falls.',
+      camping:
+        'Cumberland Falls State Resort Park has campground, cabin, and lodge support at the take-out area, so this works best as a campground-based gorge day rather than a wilderness overnight.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Thunderstruck and finish at Cumberland Falls Carrydown for the shorter official gorge float. The route is only about five miles, but the mandatory right-bank take-out above the falls makes it more serious than the mileage suggests.',
+      accessCaveats: [
+        'KDFWR says to work to the right side of the river before the KY 90 bridge and take out at the falls parking and carrydown area. Missing that move is a stand-down failure, not a recoverable inconvenience.',
+        'This run includes the Pitch Rapids, Slick Shoals gorge, and several drops before the bridge. Treat it as a whitewater route even though KDFWR also frames it as a good angling float.',
+        'Same-day flow on this run was above the preferred band, and the mandatory-take-out hazard still makes the route advanced.',
+      ],
+      watchFor: [
+        'Pitch Rapids, Slick Shoals gorge current, and the drop sequence below Blue Bend.',
+        'The mandatory take-out above Cumberland Falls.',
+        'Rain-driven rises, private gorge banks, and sparse mid-route exits.',
+      ],
+    },
+  },
   'cumberland-river-redbird-longbottom': {
     putIn: {
       id: 'redbird-ramp',

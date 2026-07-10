@@ -2,6 +2,14 @@
 
 Last summarized: 2026-07-10 02:50 America/Chicago / 2026-07-10 07:50 UTC.
 
+## 2026-07-10 Cumberland plus Upper Cumberland add pass
+
+- Reused the live repo state as the only valid baseline and added three Kentucky slugs that were absent from the current tree at run start: `cumberland-river-redbird-thunderstruck`, `cumberland-river-thunderstruck-cumberland-falls`, and `goose-creek-tobacco-road-laurel-branch`.
+- Current KDFWR Cumberland River guidance and the current detailed map still document Redbird -> Longbottom `9.0`, Longbottom -> Thunderstruck `2.5`, and Thunderstruck -> Cumberland Falls `5.1`, which support the restored public route mileages of about `11.5` and `5.1` for the two above-the-falls Cumberland slugs. Current KDFWR Goose Creek guidance still documents Tobacco Road Bridge Ramp -> Dump Hollow Ford `0.8` and Dump Hollow Ford -> Laurel Branch Road Access `4.8`, which support the downstream Goose continuation at `5.6` miles.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Redbird Ramp, Thunderstruck Ramp, Cumberland Falls Carrydown, Tobacco Road Bridge Ramp, Dump Hollow Ford, and Laurel Branch Road Access. Same-day direct USGS Water Services returned `1200 cfs / 4.48 ft` at `2026-07-10 04:00 EDT` for Cumberland River at Williamsburg (`03404000`) and `58.1 cfs / 6.47 ft` at `2026-07-10 03:45 EDT` for Goose Creek at Manchester (`03281100`), which keeps the Cumberland restores above the preferred band while Goose Creek stays below its official good band.
+- Camping stays route-specific: `cumberland-river-redbird-thunderstruck` uses `on_route_campsite` because KDFWR still says float campers use the banks downstream of Bee Shoals, `cumberland-river-thunderstruck-cumberland-falls` uses `endpoint_campground` because Cumberland Falls State Resort Park still provides seasonal camping and year-round lodging at the take-out, and `goose-creek-tobacco-road-laurel-branch` stays `none`.
+- Reconfirmed the bounded no-image posture for all three routes. Existing KDFWR, Kentucky State Parks, Commons, and same-river / same-creek USGS review did not surface a clearly rights-clean exact-route asset, so no gallery photo was added.
+
 ## 2026-07-10 South Fork consolidation audit
 
 - Audited the live unpushed route range and re-collapsed the current South Fork Kentucky River permutation family back to the canonical `south-fork-kentucky-river-oneida-fish-creek` planner card.
