@@ -4,6 +4,14 @@ Last summarized: 2026-07-10 06:50 America/Chicago / 2026-07-10 11:50 UTC.
 
 ## 2026-07-10 Upper Green restoration pass
 
+## 2026-07-10 South Fork upper-middle re-add pass
+
+- Reused the live repo state as the only valid baseline and restored three South Fork Kentucky River slugs that were absent from the current tree at run start: `south-fork-kentucky-river-oneida-cedar-valley`, `south-fork-kentucky-river-rocky-branch-upper-wolf-creek`, and `south-fork-kentucky-river-bishop-bend-fish-creek`.
+- Current KDFWR South Fork Kentucky River guidance still documents the exact public access-chain mileages of Oneida -> Rocky Branch `6.8`, Rocky Branch -> Cedar Valley `2.5`, Cedar Valley -> Bishop Bend `4.7`, Bishop Bend -> Hacker Branch `3.3`, Hacker Branch -> Upper Wolf Creek `2.9`, Upper Wolf Creek -> Kay Wood `5.6`, and Kay Wood -> Fish Creek `7.9`, which support the restored public route mileages of `9.3`, `13.4`, and `19.7`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Oneida Ramp, Rocky Branch Road Access, Cedar Valley Road Access, Bishop Bend School Road Access, Upper Wolf Creek Ramp, and Fish Creek Boat Ramp. Same-day direct USGS Water Services returned `423 cfs / 4.97 ft` at `2026-07-10 11:30 EDT` for South Fork Kentucky River at Booneville (`03281500`), inside the official `350-900 cfs / 4.8-6.0 ft` good band.
+- Camping stays conservative at `none` for all three because KDFWR still documents only simple day-use public launches with no public overnight support on this chain.
+- Reused the approved South Fork Commons corridor image for all three slugs and restored the matching `docs/river-image-source-audit.csv` rows.
+
 - Reused the live repo state as the only valid baseline and restored three Upper Green slugs that were absent from the current tree at run start: `green-river-tailwater-roachville-ford`, `green-river-tailwater-russell-ford`, and `green-river-roachville-russell-ford`.
 - Current KDFWR Pool 6 Green River guidance still documents the exact public route pieces of Tailwater -> Roachville `12.5` and Roachville -> Russell `6.6`, while the current Upper Green River page still describes the Roachville -> Russell islands-and-chutes section and the easy-to-miss Russell Ford take-out.
 - Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Green River Tailwater Ramp, Roachville Ford, and Russell Ford Access. Same-day direct USGS Water Services returned `1.58 ft` at `2026-07-10 06:15 CDT` for Green River at Greensburg (`03306500`), inside the official `1.0-1.75 ft` good band.
