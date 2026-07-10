@@ -11989,6 +11989,86 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'tradewater-river-bellville-fishtrap': {
+    putIn: {
+      id: 'bellville-road-access',
+      name: 'Bellville Road Access',
+      latitude: 37.381,
+      longitude: -87.8001,
+    },
+    takeOut: {
+      id: 'fishtrap-bridge-ramp',
+      name: 'Fishtrap Bridge Ramp',
+      latitude: 37.3988,
+      longitude: -87.9049,
+    },
+    logistics: {
+      distanceLabel: 'About 15.9 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 8 hr 30 min, longer with wood scouting, soft current, or a slower group pace',
+      shuttle:
+        'Stage the take-out at Fishtrap first, then drive back to Bellville through Providence. This is a committed rural shuttle, so inspect both bridge accesses before launching and leave enough daylight for a full-day Tradewater plan.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect fishing-license requirements if you plan to fish.',
+      camping:
+        'No camping plan is assumed. KDFWR lists Bellville and Fishtrap as simple public accesses with no camping amenities, so treat this as a long day trip rather than an overnight route.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Bellville Road Access and take out at Fishtrap Bridge Ramp for a longer Providence-area Tradewater day. Use the Providence gauge as the route check, but stay conservative whenever recent rain leaves discharge elevated or fresh wood moving through the channel.',
+      accessCaveats: [
+        'Bellville is a carry-down access with unpaved parking beside private property. Keep vehicles and banks tight to the documented access area.',
+        'Fishtrap is a simple bridge landing with a small gravel lot and no amenities. Confirm the final take-out line before you launch so the lower bridge exit does not turn into an avoidable scramble.',
+        'KDFWR limits bank and wade fishing to the public access areas because adjacent property is private. Do not plan on informal bank stops or camping along the route.',
+        'This route effectively combines the official Bellville-to-Montezuma and Montezuma-to-Fishtrap segments, so it needs a fuller daylight, hydration, and fatigue plan than either shorter float alone.',
+      ],
+      watchFor: [
+        'Flashy post-rain rises, muddy current, fresh wood, and strainers on bends or in braided channels.',
+        'High water above 50 cfs or 15 ft at Providence, when KDFWR moves the route out of the good band and the Tradewater becomes too pushy for casual paddling.',
+        'The current Providence stage can still look reasonable while discharge is elevated, so treat recent weather as a real hazard signal rather than relying on one number.',
+        'Longer-mileage fatigue, sparse services, slick bridge landings, and private banks across a full rural day.',
+      ],
+    },
+  },
+  'tradewater-river-bellville-vfw-bridge': {
+    putIn: {
+      id: 'bellville-road-access',
+      name: 'Bellville Road Access',
+      latitude: 37.381,
+      longitude: -87.8001,
+    },
+    takeOut: {
+      id: 'vfw-bridge-ramp',
+      name: 'VFW Bridge Ramp',
+      latitude: 37.4794,
+      longitude: -87.9539,
+    },
+    logistics: {
+      distanceLabel: 'About 25.4 mi',
+      estimatedPaddleTime:
+        'About 8 hr to 10 hr 30 min, longer with wood scouting, soft current mileage, or a slower group pace',
+      shuttle:
+        'Stage the take-out at VFW Bridge first, then drive back to Bellville through Providence. This is a serious full-day rural shuttle and float, so confirm both landings before launch and leave enough daylight to finish without a dusk take-out.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect fishing-license requirements if you plan to fish.',
+      camping:
+        'No camping plan is assumed. KDFWR lists Bellville and VFW as simple public accesses with no camping amenities, so treat this as a very long day trip rather than an overnight route.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Bellville Road Access and take out at VFW Bridge Ramp for a very long lower Tradewater combination day. Use the Providence gauge as the route check, but stay conservative whenever recent rain leaves discharge elevated or fresh wood moving through the channel.',
+      accessCaveats: [
+        'Bellville is a carry-down access with unpaved parking beside private property. Keep vehicles and banks tight to the documented access area.',
+        'VFW Bridge Ramp is the easiest access in this lower chain, but it still sits in a rural corridor where storms can leave mud, debris, or confusing shoreline conditions.',
+        'KDFWR limits bank and wade fishing to the public access areas because adjacent property is private. Do not plan on informal bank stops or camping along the route.',
+        'This route effectively combines the official Bellville-to-Montezuma, Montezuma-to-Fishtrap, and Fishtrap-to-VFW segments, so it should be reserved for groups comfortable with a very full day on a flashy rural river.',
+      ],
+      watchFor: [
+        'Flashy post-rain rises, muddy current, fresh wood, and strainers on bends or in braided channels.',
+        'High water above 50 cfs or 15 ft at Providence, when KDFWR moves the route out of the good band and the Tradewater becomes too pushy for a route this long.',
+        'The current Providence stage can still look reasonable while discharge is elevated, so treat recent weather as a real hazard signal rather than relying on one number.',
+        'Very long-day fatigue, heat, sparse services, private banks, and the risk of arriving at the take-out late if the group underestimates the mileage.',
+      ],
+    },
+  },
   'tradewater-river-montezuma-fishtrap': {
     putIn: {
       id: 'montezuma-bridge-ramp',
@@ -16568,6 +16648,100 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fishing Creek hazards such as Boone\'s Dam stay off this main route, but do not mistake side-water or tributary mouths for usable exits.',
       ],
     },
+  },
+  'south-fork-kentucky-river-oneida-hacker-branch': {
+    putIn: {
+      id: 'oneida-ramp',
+      name: 'Oneida Ramp',
+      latitude: 37.2726,
+      longitude: -83.6532,
+    },
+    takeOut: {
+      id: 'hacker-branch-road-access',
+      name: 'Hacker Branch Road Access',
+      latitude: 37.3743,
+      longitude: -83.6708,
+    },
+    logistics: {
+      distanceLabel: 'About 17.3 mi',
+      estimatedPaddleTime: 'About 6 hr to 8.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Hacker Branch Road Access, then drive back to Oneida Ramp. Oneida is the easier paved launch, while Hacker Branch is a simpler bridge-side carry-down finish; the middle chain between them still has limited bailout comfort and simple dirt-road accesses.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a committed day trip. KDFWR lists no camping at Oneida or Hacker Branch, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Oneida Ramp and take out about 17.3 miles downstream at Hacker Branch Road Access for a full upper-middle South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Oneida Ramp is a free single-lane concrete launch with paved parking, but no listed amenities or camping.',
+        'Hacker Branch is a bridge-side carry-down with unpaved parking and no developed amenities.',
+        'The current Booneville gauge reading was inside the official good band during this run, but fresh rain can still muddy the landings and speed up the broader shoals.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely over a long chained day.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and muddy landings become less forgiving.',
+        'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue from repeated low-water line scouting.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'oneida-ramp',
+        name: 'Oneida Ramp',
+        latitude: 37.2726,
+        longitude: -83.6532,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the long upper-middle route.',
+      },
+      {
+        id: 'rocky-branch-road-access',
+        name: 'Rocky Branch Road Access',
+        latitude: 37.3206,
+        longitude: -83.6648,
+        mileFromStart: 6.8,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'cedar-valley-road-access',
+        name: 'Cedar Valley Road Access',
+        latitude: 37.3363,
+        longitude: -83.656,
+        mileFromStart: 9.3,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'bishop-bend-school-road-access',
+        name: 'Bishop Bend School Road Access',
+        latitude: 37.3377,
+        longitude: -83.6882,
+        mileFromStart: 14.0,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'hacker-branch-road-access',
+        name: 'Hacker Branch Road Access',
+        latitude: 37.3743,
+        longitude: -83.6708,
+        mileFromStart: 17.3,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'hacker-branch-road-access',
+        name: 'Hacker Branch Road Access',
+        latitude: 37.3743,
+        longitude: -83.6708,
+        mileFromStart: 17.3,
+        segmentKind: 'creek',
+        note: 'Default take-out for the long upper-middle route.',
+      },
+    ],
   },
   'south-fork-kentucky-river-oneida-upper-wolf-creek': {
     putIn: {

@@ -36174,6 +36174,270 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'tradewater-river-bellville-fishtrap',
+    slug: 'tradewater-river-bellville-fishtrap',
+    name: 'Tradewater River',
+    reach: 'Bellville Road Access to Fishtrap Bridge Ramp',
+    aliases: [
+      'Tradewater River - Bellville Road to Fishtrap Bridge',
+      'Tradewater River - Bellville to Fishtrap',
+      'Tradewater extended Providence segment',
+    ],
+    state: 'Kentucky',
+    region: 'Western Kentucky',
+    summary:
+      'Longer Providence-area Tradewater float from Bellville Road Access to Fishtrap Bridge Ramp. KDFWR supports the chained 15.9-mile public route with official access-to-access mileage, public endpoint coordinates, and the Providence gauge sitting in the upstream corridor.',
+    statusText:
+      'Use the Tradewater River at Providence gauge. KDFWR rates 5 to 50 cfs, or 10 to 15 ft, as good. Recent rain can leave the stage inside band while the discharge still runs high, so treat flashy weather and fresh wood as deciding factors before committing to this longer day.',
+    latitude: 37.381,
+    longitude: -87.8001,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'KDFWR describes the Tradewater as extremely flashy, with rain events capable of raising the river very fast.',
+        'Woody debris, braided channels, and strainers are ordinary hazards on this corridor even when the official gauge is near the recommended band.',
+        'All three public landings sit in rural private-bank country. Use the signed accesses and do not treat mid-route banks as open public stops.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03384100',
+      provider: 'usgs',
+      siteId: '03384100',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Tradewater River near Providence, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03384100/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 5,
+      idealMax: 50,
+      tooLow: 5,
+      tooHigh: 50,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Tradewater River at Providence',
+        url: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'KDFWR positions the Tradewater as a warm-season small-river float, but same-day and forecast rain matter more than a rough seasonal assumption because this drainage responds quickly and can move wood after every storm.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This remains a gentle western-Kentucky river at ordinary levels, but 15.9 miles of rural mileage, sparse bailout options, wood, braided current lines, and flashy runoff make it a committed moderate day rather than a casual float.',
+      confidenceNotes:
+        'Confidence is good for a conservative Kentucky add: KDFWR still lists Bellville-to-Montezuma at 9.2 miles and Montezuma-to-Fishtrap at 6.7 miles, supporting this 15.9-mile public chain. Current KDFWR access-detail pages still expose endpoint coordinates and public-use notes for Bellville and Fishtrap, and direct USGS Water Services returned same-day Providence values of 741 cfs and 17.68 ft on July 10, 2026. The route still ships with strong flashy-water caution because both the discharge and stage sat above the KDFWR good band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route chain',
+        value: 'Bellville Road Access to Fishtrap Bridge Ramp, about 15.9 mi',
+        note: 'KDFWR lists Bellville to Montezuma as 9.2 miles and Montezuma to Fishtrap as 6.7 miles, supporting a combined public Tradewater route of about 15.9 miles.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '5-50 cfs / 10-15 ft at Providence',
+        note: 'KDFWR rates the Providence gauge low below 5 cfs or 10.0 ft, good from 5.0 to 50.0 cfs or 10.0 to 15.0 ft, and high above 50.0 cfs or 15.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Bellville Road Access, 37.3810, -87.8001',
+        note: 'KDFWR lists Bellville Road Access as a free carry-down launch with unpaved parking and published coordinates.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1202',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Fishtrap Bridge Ramp, 37.3988, -87.9049',
+        note: 'KDFWR lists Fishtrap Bridge Ramp as a free carry-down access with published coordinates at the bridge landing.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1203',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03384100 at 741 cfs / 17.68 ft',
+        note: 'USGS Water Services returned same-day July 10, 2026 discharge and gage-height values for Tradewater River near Providence at 08:45 CDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03384100&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'No endpoint campground support',
+        note: 'KDFWR treats Bellville and Fishtrap as simple access sites rather than campgrounds, so this route ships as a day-trip float without camping assumptions.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Tradewater River',
+        url: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Bellville Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1202',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Fishtrap Bridge Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1203',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03384100 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03384100/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03384100 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03384100&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wikimedia Commons Tradewater River image source',
+        url: 'https://commons.wikimedia.org/wiki/File:Tradewater_River_4899.JPG',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'tradewater-river-bellville-vfw-bridge',
+    slug: 'tradewater-river-bellville-vfw-bridge',
+    name: 'Tradewater River',
+    reach: 'Bellville Road Access to VFW Bridge Ramp',
+    aliases: [
+      'Tradewater River - Bellville Road to VFW Bridge',
+      'Tradewater River - Bellville to VFW',
+      'Tradewater long Providence combination segment',
+    ],
+    state: 'Kentucky',
+    region: 'Western Kentucky',
+    summary:
+      'Very long lower Tradewater float from Bellville Road Access to VFW Bridge Ramp. KDFWR supports the chained 25.4-mile public route with official access-to-access mileage, public endpoint coordinates, and the Providence gauge sitting directly on the upper corridor.',
+    statusText:
+      'Use the Tradewater River at Providence gauge. KDFWR rates 5 to 50 cfs, or 10 to 15 ft, as good, but this 25.4-mile day should stay conservative because rain can leave the discharge high, wood fresh, and the lower river more committed than the stage alone suggests.',
+    latitude: 37.381,
+    longitude: -87.8001,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'KDFWR describes the Tradewater as extremely flashy, with rain events capable of raising the river very fast.',
+        'Woody debris, braided channels, and strainers are ordinary hazards on this corridor even when the official gauge is near the recommended band.',
+        'This long route stays in private-bank country for most of the day. Use the signed public accesses and do not treat mid-route banks or bars as assumed public support.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03384100',
+      provider: 'usgs',
+      siteId: '03384100',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Tradewater River near Providence, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03384100/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 5,
+      idealMax: 50,
+      tooLow: 5,
+      tooHigh: 50,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Tradewater River at Providence',
+        url: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Warm-season weather helps with daylight on a 25.4-mile day, but recent rain, forecast rain, and fresh wood matter more than a rough seasonal assumption on a river this flashy.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The current is still a gentle western-Kentucky river at ordinary levels, but 25.4 miles of rural mileage, sparse bailout options, wood, braided current lines, and private-bank limits make this a serious all-day commitment.',
+      confidenceNotes:
+        'Confidence is good for a conservative Kentucky add: KDFWR still lists Bellville-to-Montezuma at 9.2 miles, Montezuma-to-Fishtrap at 6.7 miles, and Fishtrap-to-VFW at 9.5 miles, supporting this 25.4-mile public chain. Current KDFWR access-detail pages still expose coordinates and public-use notes for Bellville and VFW, and direct USGS Water Services returned same-day Providence values of 741 cfs and 17.68 ft on July 10, 2026. The route still ships with strong flashy-water caution because both the discharge and stage sat above the KDFWR good band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route chain',
+        value: 'Bellville Road Access to VFW Bridge Ramp, about 25.4 mi',
+        note: 'KDFWR lists Bellville to Montezuma as 9.2 miles, Montezuma to Fishtrap as 6.7 miles, and Fishtrap to VFW as 9.5 miles, supporting a combined public Tradewater route of about 25.4 miles.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '5-50 cfs / 10-15 ft at Providence',
+        note: 'KDFWR rates the Providence gauge low below 5 cfs or 10.0 ft, good from 5.0 to 50.0 cfs or 10.0 to 15.0 ft, and high above 50.0 cfs or 15.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Bellville Road Access, 37.3810, -87.8001',
+        note: 'KDFWR lists Bellville Road Access as a free carry-down launch with unpaved parking and published coordinates.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1202',
+      },
+      {
+        label: 'Take-out access',
+        value: 'VFW Bridge Ramp, 37.4794, -87.9539',
+        note: 'KDFWR lists VFW Bridge Ramp as a free paved public ramp with published coordinates and a large gravel-and-grass parking area.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=619',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03384100 at 741 cfs / 17.68 ft',
+        note: 'USGS Water Services returned same-day July 10, 2026 discharge and gage-height values for Tradewater River near Providence at 08:45 CDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03384100&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'No endpoint campground support',
+        note: 'KDFWR treats Bellville and VFW as simple access sites rather than campgrounds, so this route ships as a day-trip float without camping assumptions.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Tradewater River',
+        url: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Bellville Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1202',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR VFW Bridge Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=619',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03384100 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03384100/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03384100 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03384100&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wikimedia Commons Tradewater River image source',
+        url: 'https://commons.wikimedia.org/wiki/File:Tradewater_River_4899.JPG',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'tradewater-river-montezuma-fishtrap',
     slug: 'tradewater-river-montezuma-fishtrap',
     name: 'Tradewater River',
@@ -46839,6 +47103,128 @@ export const rivers: River[] = [
       {
         label: 'KDFWR Fish Creek Boat Ramp',
         url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=994',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03281500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'south-fork-kentucky-river-oneida-hacker-branch',
+    slug: 'south-fork-kentucky-river-oneida-hacker-branch',
+    name: 'South Fork Kentucky River',
+    reach: 'Oneida Ramp to Hacker Branch Road Access',
+    aliases: [
+      'South Fork Kentucky River - Oneida to Hacker Branch',
+      'South Fork Kentucky River long upper-middle access chain',
+      'KDFWR South Fork Kentucky River access chain',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Long upper-middle South Fork Kentucky River float from Oneida Ramp to Hacker Branch Road Access. Current KDFWR guidance still supports this chained public reach with the Booneville gauge and the easier access chain below the Narrows.',
+    statusText:
+      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Same-day USGS values during this run were 497 cfs and 5.16 ft, inside that good band; fresh rain can still speed up the broad shoals and muddy the landings.',
+    latitude: 37.2726,
+    longitude: -83.6532,
+    gaugeSource: {
+      id: 'usgs-03281500',
+      provider: 'usgs',
+      siteId: '03281500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Kentucky River at Booneville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 900,
+      tooLow: 350,
+      tooHigh: 900,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This long chained South Fork day is most practical from spring through fall when the Booneville gauge trend is stable. Lower summer flows expose more rock bars and dragging, while rain can quickly raise the current and muddy the simpler landings.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR describes the South Fork as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles. This route stays in the easier public access chain, but its length makes it a full moving-water commitment.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: current KDFWR guidance still documents the exact chained public access sequence of Oneida Ramp to Rocky Branch Road Access at 6.8 miles, Rocky Branch Road Access to Cedar Valley Road Access at 2.5 miles, Cedar Valley Road Access to Bishop Bend School Road Access at 4.7 miles, and Bishop Bend School Road Access to Hacker Branch Road Access at 3.3 miles, supporting a 17.3-mile public float. KDFWR still publishes exact public endpoint coordinates and official Booneville low/good/high bands tied to direct USGS gauge 03281500, and USGS Water Services returned same-day July 10, 2026 discharge and stage during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '350-900 cfs / 4.8-6.0 ft',
+        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Chained public route segment',
+        value: 'Oneida Ramp to Hacker Branch Road Access, 17.3 miles',
+        note: 'KDFWR lists Oneida Ramp to Rocky Branch Road Access as 6.8 miles, Rocky Branch Road Access to Cedar Valley Road Access as 2.5 miles, Cedar Valley Road Access to Bishop Bend School Road Access as 4.7 miles, and Bishop Bend School Road Access to Hacker Branch Road Access as 3.3 miles, supporting a 17.3-mile public Oneida-to-Hacker-Branch float on the same access chain.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Oneida Ramp, 37.2726, -83.6532',
+        note: 'KDFWR identifies Oneida Ramp as a free single-lane concrete ramp near Oneida Elementary School with paved parking and no camping.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=903',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Hacker Branch Road Access, 37.3743, -83.6708',
+        note: 'KDFWR identifies Hacker Branch Road Access as a carry-down-only access with unpaved parking and no camping.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1122',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03281500 at 497 cfs / 5.16 ft',
+        note: 'USGS Water Services returned same-day values of 497 cfs and 5.16 ft at 2026-07-10 05:30 EDT for South Fork Kentucky River at Booneville during this run, inside the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'No endpoint campground support',
+        note: 'KDFWR lists no camping at Oneida or Hacker Branch, so this route ships as a long day-trip float without endpoint camping assumptions.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR South Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR South Fork Kentucky River access guide',
+        url: 'https://fw.ky.gov/Fish/Documents/South%20Fork%20of%20Kentucky%20River.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Oneida Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=903',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Hacker Branch Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1122',
         provider: 'local',
       },
       {
