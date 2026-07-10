@@ -1,6 +1,14 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-10 02:50 America/Chicago / 2026-07-10 07:50 UTC.
+Last summarized: 2026-07-10 06:50 America/Chicago / 2026-07-10 11:50 UTC.
+
+## 2026-07-10 Upper Green restoration pass
+
+- Reused the live repo state as the only valid baseline and restored three Upper Green slugs that were absent from the current tree at run start: `green-river-tailwater-roachville-ford`, `green-river-tailwater-russell-ford`, and `green-river-roachville-russell-ford`.
+- Current KDFWR Pool 6 Green River guidance still documents the exact public route pieces of Tailwater -> Roachville `12.5` and Roachville -> Russell `6.6`, while the current Upper Green River page still describes the Roachville -> Russell islands-and-chutes section and the easy-to-miss Russell Ford take-out.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Green River Tailwater Ramp, Roachville Ford, and Russell Ford Access. Same-day direct USGS Water Services returned `1.58 ft` at `2026-07-10 06:15 CDT` for Green River at Greensburg (`03306500`), inside the official `1.0-1.75 ft` good band.
+- Camping stays conservative at `none` for all three because KDFWR still documents day-use access only, with no public overnight support at the Tailwater ramp, Roachville Ford, or Russell Ford.
+- Reconfirmed the existing bounded no-image posture already recorded in `docs/river-image-source-audit.csv` for all three slugs; no gallery photo was added in this pass.
 
 ## 2026-07-10 South Fork split re-add pass
 
