@@ -16214,7 +16214,244 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-'susquehanna-river-test-track-indian-head': {
+  'south-fork-kentucky-river-oneida-upper-wolf-creek': {
+    putIn: {
+      id: 'oneida-ramp',
+      name: 'Oneida Ramp',
+      latitude: 37.2726,
+      longitude: -83.6532,
+    },
+    takeOut: {
+      id: 'upper-wolf-creek-ramp',
+      name: 'Upper Wolf Creek Ramp',
+      latitude: 37.3964,
+      longitude: -83.6767,
+    },
+    logistics: {
+      distanceLabel: 'About 20.2 mi',
+      estimatedPaddleTime: 'About 6.5 hr to 9 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Upper Wolf Creek Ramp, then drive back to Oneida Ramp. Oneida is the easier paved launch, while Upper Wolf Creek is the more developed paved-ramp finish; the middle chain between them still has limited bailout comfort and simple dirt-road accesses.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a committed day trip. KDFWR lists no camping at Oneida or Upper Wolf Creek, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Oneida Ramp and take out about 20.2 miles downstream at Upper Wolf Creek Ramp for a full upper-middle South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Oneida Ramp is a free single-lane concrete launch with paved parking, but no listed amenities or camping.',
+        'Upper Wolf Creek is a free single-lane paved ramp with year-round 24-hour availability, unpaved parking, and no camping.',
+        'The current Booneville gauge reading was inside the official good band during this run, but fresh rain can still muddy the landings and speed up the broader shoals.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely over a long chained day.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and muddy landings become less forgiving.',
+        'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue from repeated low-water line scouting.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'oneida-ramp',
+        name: 'Oneida Ramp',
+        latitude: 37.2726,
+        longitude: -83.6532,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the long upper-middle route.',
+      },
+      {
+        id: 'rocky-branch-road-access',
+        name: 'Rocky Branch Road Access',
+        latitude: 37.3206,
+        longitude: -83.6648,
+        mileFromStart: 6.8,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'cedar-valley-road-access',
+        name: 'Cedar Valley Road Access',
+        latitude: 37.3363,
+        longitude: -83.656,
+        mileFromStart: 9.3,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'bishop-bend-school-road-access',
+        name: 'Bishop Bend School Road Access',
+        latitude: 37.3377,
+        longitude: -83.6882,
+        mileFromStart: 14.0,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'hacker-branch-road-access',
+        name: 'Hacker Branch Road Access',
+        latitude: 37.3743,
+        longitude: -83.6708,
+        mileFromStart: 17.3,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'upper-wolf-creek-ramp',
+        name: 'Upper Wolf Creek Ramp',
+        latitude: 37.3964,
+        longitude: -83.6767,
+        mileFromStart: 20.2,
+        segmentKind: 'creek',
+        note: 'Default take-out for the long upper-middle route.',
+      },
+    ],
+  },
+  'south-fork-kentucky-river-upper-wolf-creek-fish-creek': {
+    putIn: {
+      id: 'upper-wolf-creek-ramp',
+      name: 'Upper Wolf Creek Ramp',
+      latitude: 37.3964,
+      longitude: -83.6767,
+    },
+    takeOut: {
+      id: 'fish-creek-boat-ramp',
+      name: 'Fish Creek Boat Ramp',
+      latitude: 37.4906,
+      longitude: -83.6894,
+    },
+    logistics: {
+      distanceLabel: 'About 13.5 mi',
+      estimatedPaddleTime: 'About 5 hr to 7.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Fish Creek Boat Ramp, then drive back to Upper Wolf Creek Ramp. Upper Wolf Creek is the more developed paved put-in, while Fish Creek is a simpler paved ramp with gravel parking and a longer downstream finish.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a committed day trip. KDFWR lists no camping at Upper Wolf Creek, Kay Wood, or Fish Creek, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Upper Wolf Creek Ramp and take out about 13.5 miles downstream at Fish Creek Boat Ramp for a longer lower South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Upper Wolf Creek is a free single-lane paved ramp with unpaved parking and year-round 24-hour availability.',
+        'Fish Creek is a free single-lane paved ramp with gravel parking and no listed amenities or camping.',
+        'The current Booneville gauge reading was inside the official good band during this run, but fresh rain can still muddy the landings and speed up the broader shoals.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely over a long lower-corridor day.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and muddy landings become less forgiving near the ramps.',
+        'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue from repeated low-water line scouting.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'upper-wolf-creek-ramp',
+        name: 'Upper Wolf Creek Ramp',
+        latitude: 37.3964,
+        longitude: -83.6767,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the lower-corridor route.',
+      },
+      {
+        id: 'kay-wood-road-access',
+        name: 'Kay Wood Road Access',
+        latitude: 37.4594,
+        longitude: -83.6509,
+        mileFromStart: 5.6,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'fish-creek-boat-ramp',
+        name: 'Fish Creek Boat Ramp',
+        latitude: 37.4906,
+        longitude: -83.6894,
+        mileFromStart: 13.5,
+        segmentKind: 'creek',
+        note: 'Default take-out for the lower-corridor route.',
+      },
+    ],
+  },
+  'south-fork-kentucky-river-hacker-branch-fish-creek': {
+    putIn: {
+      id: 'hacker-branch-road-access',
+      name: 'Hacker Branch Road Access',
+      latitude: 37.3743,
+      longitude: -83.6708,
+    },
+    takeOut: {
+      id: 'fish-creek-boat-ramp',
+      name: 'Fish Creek Boat Ramp',
+      latitude: 37.4906,
+      longitude: -83.6894,
+    },
+    logistics: {
+      distanceLabel: 'About 16.4 mi',
+      estimatedPaddleTime: 'About 5.5 hr to 8 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Fish Creek Boat Ramp, then drive back to Hacker Branch Road Access. Hacker Branch is a simpler bridge-side carry-down with unpaved parking, while Fish Creek is the easier paved-ramp finish.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a committed day trip. KDFWR lists no camping at Hacker Branch, Upper Wolf Creek, Kay Wood, or Fish Creek, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Hacker Branch Road Access and take out about 16.4 miles downstream at Fish Creek Boat Ramp for a full lower South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Hacker Branch is a bridge-side carry-down with unpaved parking and no developed amenities.',
+        'Fish Creek is a free single-lane paved ramp with gravel parking and no listed amenities or camping.',
+        'The current Booneville gauge reading was inside the official good band during this run, but fresh rain can still muddy the landings and speed up the broader shoals.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely over a long lower-corridor day.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and muddy landings become less forgiving around bends and ramps.',
+        'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue from repeated low-water line scouting.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hacker-branch-road-access',
+        name: 'Hacker Branch Road Access',
+        latitude: 37.3743,
+        longitude: -83.6708,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the lower full-chain route.',
+      },
+      {
+        id: 'upper-wolf-creek-ramp',
+        name: 'Upper Wolf Creek Ramp',
+        latitude: 37.3964,
+        longitude: -83.6767,
+        mileFromStart: 2.9,
+        segmentKind: 'creek',
+        note: 'Intermediate paved-ramp access.',
+      },
+      {
+        id: 'kay-wood-road-access',
+        name: 'Kay Wood Road Access',
+        latitude: 37.4594,
+        longitude: -83.6509,
+        mileFromStart: 8.5,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'fish-creek-boat-ramp',
+        name: 'Fish Creek Boat Ramp',
+        latitude: 37.4906,
+        longitude: -83.6894,
+        mileFromStart: 16.4,
+        segmentKind: 'creek',
+        note: 'Default take-out for the lower full-chain route.',
+      },
+    ],
+  },
+  'susquehanna-river-test-track-indian-head': {
     putIn: {
       name: 'Test Track Park',
       latitude: 41.04,
