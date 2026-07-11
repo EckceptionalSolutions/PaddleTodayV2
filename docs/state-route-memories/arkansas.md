@@ -1,11 +1,11 @@
 # Arkansas Route Memory
 
-Last summarized: 2026-07-06 14:52 America/Chicago.
+Last summarized: 2026-07-11 18:45 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 23.
-- Ledger candidates: 26 Arkansas-specific implemented-route records plus older blocked Arkansas holds after the 2026-07-06 Saline lower-corridor pass.
+- Live routes: 26.
+- Ledger candidates: older implemented-route records plus blocked Arkansas holds remain in `docs/route-candidate-ledger.json`; this run did not recount them.
 
 ## Added Routes
 
@@ -18,12 +18,31 @@ Last summarized: 2026-07-06 14:52 America/Chicago.
 - `buffalo-river-tyler-bend-gilbert` - Buffalo River, Tyler Bend to Gilbert. Added 2026-06-01 UTC as a guarded `routeType: whitewater` middle-district route on direct USGS `07056000` near St. Joe. Uses conservative `minimum-only` scoring with `tooLow: 120 cfs` from Rivers.MOHERP St. Joe bands and same-route/nearby middle-Buffalo trip evidence; high/flood values are caveats only, not a full two-sided scoring band.
 - `cossatot-river-ed-banks-highway-278` - Cossatot River, Ed Banks Access to Highway 278 Access. Added 2026-06-01 UTC as an expert-only `routeType: whitewater` route on direct USGS `07340300` near Vandervoort. Uses conservative `two-sided` stage scoring from Arkansas State Parks floater guidance: `tooLow: 3.3 ft`, `idealMin: 3.8 ft`, `idealMax: 4.8 ft`, `tooHigh: 5.4 ft`.
 - `kings-river-rockhouse-trigger-gap` - Kings River, Rockhouse Access to Trigger Gap. Added 2026-05-31 as a conservative recreational route on direct same-river USGS `07050500` near Berryville. Uses `minimum-only` stage scoring with `tooLow: 3.2 ft`; no ideal range or high cutoff is claimed because the numeric floor is local route-guide evidence rather than an official AGFC paddling band.
+- `crooked-creek-lower-pyatt-snow` - Crooked Creek, Lower Pyatt Access to Snow Access. Added 2026-07-11 as a conservative recreational route on direct USGS `07055607` at Kelly Crossing near Yellville. Uses `minimum-only` stage scoring with `tooLow: 12 ft` from AGFC's current `12-12.5 ft` moderate band and keeps camping conservative as `endpoint_campground` because AGFC documents primitive campsites at Snow Access.
+- `crooked-creek-snow-mark-oliver` - Crooked Creek, Snow Access to Mark Oliver Access. Added 2026-07-11 as a conservative recreational route on direct USGS `07055607` at Kelly Crossing near Yellville. Uses `minimum-only` stage scoring with `tooLow: 12 ft` from AGFC's current `12-12.5 ft` moderate band and keeps camping as `on_route_campsite` because AGFC documents Snow Access campsites and Brooksher Crooked Creek Preserve.
+- `crooked-creek-mark-oliver-kelleys-slab` - Crooked Creek, Mark Oliver Access to Kelley's Slab Access. Added 2026-07-11 as a conservative recreational route on direct USGS `07055607` at Kelly Crossing near Yellville. Uses `minimum-only` stage scoring with `tooLow: 12 ft` from AGFC's current `12-12.5 ft` moderate band and keeps camping conservative as `nearby_basecamp` because Fred Berry Crooked Creek Nature Center requires separate permission and is not a river-access campsite.
 - `mulberry-river-redding-turner-bend` - Mulberry River, Redding Recreation Area to Turner Bend. Added 2026-06-01 UTC as a guarded `routeType: whitewater` route on USGS `07252000` near Mulberry. Uses conservative `two-sided` stage scoring from American Whitewater's exact reach gauge-info page: `tooLow: 1.55 ft`, `idealMin: 1.55 ft`, `idealMax: 6.0 ft`, and `tooHigh: 6.0 ft`; Turner Bend staff-gauge bands remain supplemental caveats only.
 - `ouachita-river-remmel-whitewater-park` - Ouachita River, Remmel Dam to Ouachita River Whitewater Park. Added 2026-06-01 as a guarded dam-release `routeType: whitewater` route on direct USGS `07359002` at Remmel Dam. Uses mixed AW/Entergy `two-sided` cfs scoring: `tooLow: 200 cfs`, `idealMin: 3,500 cfs`, `idealMax: 4,000 cfs`, and `tooHigh: 4,000 cfs`. The 200 cfs floor is an AW scrape-through kayak floor; the 3,500-4,000 cfs recreation window and >4,000 cfs not-recommended warning are Entergy guidance.
 
 ## Status
 
-Arkansas now has twenty-three live routes after the 2026-07-06 Saline lower-corridor pass expanded the lower Benton Saline family from three slugs to six while preserving the earlier Bayou DeView consolidation. The state still looks partially harvested rather than exhausted: Bayou DeView, Buffalo, Crooked Creek, Saline, upper Illinois, Mulberry, Cossatot, Kings, and Ouachita all have live coverage, while the strongest remaining near-term leads are still blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs.
+Arkansas now has twenty-six live routes after the 2026-07-11 Crooked Creek split pass expanded the existing corridor planner into three exact AGFC day segments. The state still looks partially harvested rather than exhausted: Bayou DeView, Buffalo, Crooked Creek, Saline, upper Illinois, Mulberry, Cossatot, Kings, and Ouachita all have live coverage, while the strongest remaining near-term leads are still blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs.
+
+## 2026-07-11 Crooked Creek split implementation pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had twenty-three live route objects and matching trip-detail entries before this pass, so the Crooked Creek follow-up had to create three genuinely new slugs beyond that baseline.
+- Added `crooked-creek-lower-pyatt-snow`, `crooked-creek-snow-mark-oliver`, and `crooked-creek-mark-oliver-kelleys-slab` from the AGFC Crooked Creek Water Trail access chain.
+- Route, gauge, and threshold evidence:
+  - AGFC still documents exact public segment mileages of `6.7`, `5.2`, and `6.6` miles for Lower Pyatt-to-Snow, Snow-to-Mark Oliver, and Mark Oliver-to-Kelley's Slab, and still exposes map-linked endpoint coordinates for all four accesses.
+  - Direct same-day official USGS Water Services for Crooked Creek at Kelly Crossing near Yellville (`07055607`) returned `217 cfs / 10.84 ft` at `2026-07-11 17:45 CDT`.
+  - AGFC's current Crooked Creek guidance still says a moderate floating level is `12-12.5 ft`, so all three routes ship conservatively as minimum-only stage routes with `tooLow: 12` rather than an invented ideal/high ladder.
+- Access, camping, and safety posture:
+  - All three routes use source-backed public endpoint coordinates from AGFC for Lower Pyatt, Snow, Mark Oliver, and Kelley's Slab.
+  - `crooked-creek-lower-pyatt-snow` uses `endpoint_campground` because AGFC explicitly identifies primitive campsites at Snow Access.
+  - `crooked-creek-snow-mark-oliver` uses `on_route_campsite` because AGFC still documents Snow Access campsites and Brooksher Crooked Creek Preserve.
+  - `crooked-creek-mark-oliver-kelleys-slab` uses `nearby_basecamp` because AGFC says Fred Berry Crooked Creek Nature Center camping requires separate permission and is not part of the river-access endpoints.
+  - All three routes carry private-bank, flashy-water, strainer, and rural self-rescue caveats, and the downstream Mark-Oliver-to-Kelley's-Slab segment keeps the explicit Kelley’s Slab hazard scout note because AGFC warns it can be hazardous under some conditions.
+- No gallery image was added. Bounded AGFC, Commons, and USGS review did not surface a clearly rights-clean exact-route paddling image for the three new Crooked Creek split slugs.
 
 ## 2026-07-06 Saline lower-corridor implementation pass
 

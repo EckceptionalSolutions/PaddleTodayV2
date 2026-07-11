@@ -17108,6 +17108,121 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'crooked-creek-lower-pyatt-snow': {
+    putIn: {
+      id: 'lower-pyatt-access',
+      name: 'Lower Pyatt Access',
+      latitude: 36.24665,
+      longitude: -92.83494,
+    },
+    takeOut: {
+      id: 'snow-access',
+      name: 'Snow Access',
+      latitude: 36.24352,
+      longitude: -92.79995,
+    },
+    logistics: {
+      distanceLabel: '6.7 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr depending on level, fishing stops, and how much dragging the shoals require',
+      shuttle:
+        'Stage the take-out at Snow Access, then drive back to Lower Pyatt Access. Snow is the first clean public split on the Crooked Creek trail and works well when the longer corridor feels too ambitious for current conditions.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC access points, follow Arkansas boating and PFD rules, and respect posted parking signs at each access.',
+      camping:
+        'Primitive campsites at Snow Access can support a legal endpoint overnight, but AGFC limits camping to one night per campsite and private banks remain off-limits.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Lower Pyatt Access and take out at Snow Access for the first official Crooked Creek segment. This is a rain-sensitive Ozark creek float keyed to the Kelly Crossing gauge rather than to a broad flatwater assumption.',
+      accessCaveats: [
+        'Lower Pyatt and Snow are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than full-service park ramps.',
+        "The current Kelly Crossing gauge reading during this run was below AGFC's moderate band, so expect more scraping and slower riffles than the best Crooked Creek days.",
+        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.',
+      ],
+      watchFor: [
+        'Water below about 12 ft, when scraping and slower riffles become more likely.',
+        'Fast post-rain rises, fresh wood, strainers, muddy exits, and stronger current than the clear-water appearance suggests.',
+        'Shoals, riffles, small waves, rural self-rescue conditions, and limited services at both accesses.',
+      ],
+    },
+  },
+  'crooked-creek-snow-mark-oliver': {
+    putIn: {
+      id: 'snow-access',
+      name: 'Snow Access',
+      latitude: 36.24352,
+      longitude: -92.79995,
+    },
+    takeOut: {
+      id: 'mark-oliver-access',
+      name: 'Mark Oliver Access',
+      latitude: 36.24973,
+      longitude: -92.7486,
+    },
+    logistics: {
+      distanceLabel: '5.2 mi',
+      estimatedPaddleTime:
+        'About 2.5 hr to 4 hr depending on level, wood scouting, and how much time you spend at the camps or shoals',
+      shuttle:
+        'Stage the take-out at Mark Oliver Access, then drive back to Snow Access. This is the shortest Crooked Creek day that still keeps the named Snow camps and Brooksher preserve support in play.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC access points, follow Arkansas boating and PFD rules, and respect posted parking signs at each access.',
+      camping:
+        'Snow Access campsites and Brooksher Crooked Creek Preserve give this reach real designated-campsite support, but private banks remain off-limits and Brooksher has no road access.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Snow Access and take out at Mark Oliver Access for the middle official Crooked Creek segment. This is a rain-sensitive Ozark creek float keyed to the Kelly Crossing gauge rather than to a broad flatwater assumption.',
+      accessCaveats: [
+        'Snow and Mark Oliver are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than full-service park ramps.',
+        "The current Kelly Crossing gauge reading during this run was below AGFC's moderate band, so expect more scraping and slower riffles than the best Crooked Creek days.",
+        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.',
+      ],
+      watchFor: [
+        'Water below about 12 ft, when scraping and slower riffles become more likely.',
+        'Fast post-rain rises, fresh wood, strainers, muddy exits, and stronger current than the clear-water appearance suggests.',
+        'Shoals, riffles, small waves, rural self-rescue conditions, and the lack of road access at Brooksher if a camping stop is part of a longer plan.',
+      ],
+    },
+  },
+  'crooked-creek-mark-oliver-kelleys-slab': {
+    putIn: {
+      id: 'mark-oliver-access',
+      name: 'Mark Oliver Access',
+      latitude: 36.24973,
+      longitude: -92.7486,
+    },
+    takeOut: {
+      id: 'kelleys-slab-access',
+      name: "Kelley's Slab Access",
+      latitude: 36.22921,
+      longitude: -92.71045,
+    },
+    logistics: {
+      distanceLabel: '6.6 mi',
+      estimatedPaddleTime:
+        "About 3 hr to 4.5 hr depending on level, wood scouting, and whether you pause to inspect Kelley's Slab before finishing",
+      shuttle:
+        "Stage the take-out at Kelley's Slab Access, then drive back to Mark Oliver Access. This lower middle Crooked Creek segment is a practical day float, but the Kelley finish deserves a scout when the creek is up or dirty.",
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC access points, follow Arkansas boating and PFD rules, and respect posted parking signs at each access.',
+      camping:
+        'Fred Berry Crooked Creek Nature Center can support a nearby basecamp with manager permission and a one-night limit, but no campsite is documented directly at Mark Oliver or Kelley\'s Slab.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Launch at Mark Oliver Access and take out at Kelley's Slab for the lower middle official Crooked Creek segment. This is a rain-sensitive Ozark creek float keyed to the Kelly Crossing gauge rather than to a broad flatwater assumption.",
+      accessCaveats: [
+        "Mark Oliver and Kelley's Slab are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than full-service park ramps.",
+        "The current Kelly Crossing gauge reading during this run was below AGFC's moderate band, so expect more scraping and slower riffles than the best Crooked Creek days.",
+        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.',
+        "Scout Kelley's Slab before committing to the final take-out when the creek is up, dirty, or unfamiliar.",
+      ],
+      watchFor: [
+        'Water below about 12 ft, when scraping and slower riffles become more likely.',
+        "Fast post-rain rises, fresh wood, strainers, muddy exits, and stronger current than the clear-water appearance suggests.",
+        "Shoals, riffles, small waves, rural self-rescue conditions, and the Kelley’s Slab finish hazard AGFC flags under some conditions.",
+      ],
+    },
+  },
 'wabash-river-linn-grove-hale-street': {
     putIn: {
       id: 'linn-grove-park',
