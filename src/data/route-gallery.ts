@@ -1066,7 +1066,37 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'NPS asset: public domain',
     },
   ],
+  'current-river-big-spring-cataract': [
+    {
+      id: 'ozark-riverways-canoeing-nps',
+      src: '/gallery/current-river-big-spring-gooseneck/ozark-riverways-canoeing.jpg',
+      alt: 'Visitors paddle canoes through a wooded Ozark National Scenic Riverways corridor.',
+      caption: 'Canoeing in Ozark National Scenic Riverways',
+      credit: 'Cecil W. Stoughton/NPS History Collection via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'current-river-van-buren-cataract': [
+    {
+      id: 'ozark-riverways-canoeing-nps',
+      src: '/gallery/current-river-van-buren-big-spring/ozark-riverways-canoeing.jpg',
+      alt: 'Visitors paddle canoes through a wooded Ozark National Scenic Riverways corridor.',
+      caption: 'Canoeing in Ozark National Scenic Riverways',
+      credit: 'Cecil W. Stoughton/NPS History Collection via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
   'current-river-big-spring-gooseneck': [
+    {
+      id: 'ozark-riverways-canoeing-nps',
+      src: '/gallery/current-river-big-spring-gooseneck/ozark-riverways-canoeing.jpg',
+      alt: 'Visitors paddle canoes through a wooded Ozark National Scenic Riverways corridor.',
+      caption: 'Canoeing in Ozark National Scenic Riverways',
+      credit: 'Cecil W. Stoughton/NPS History Collection via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'current-river-cataract-gooseneck': [
     {
       id: 'ozark-riverways-canoeing-nps',
       src: '/gallery/current-river-big-spring-gooseneck/ozark-riverways-canoeing.jpg',

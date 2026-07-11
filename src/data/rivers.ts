@@ -25407,6 +25407,254 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'current-river-big-spring-cataract',
+    slug: 'current-river-big-spring-cataract',
+    name: 'Current River',
+    reach: 'Big Spring Upper River Landing to Cataract Landing',
+    aliases: [
+      'Lower Current River - Big Spring to Cataract',
+      'Current River - Big Spring to Cataract',
+      'Current River - Big Spring Upper Landing to Cataract',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Mid-length lower Current day from Big Spring to Cataract Landing. NPS lists this section at 8.8 miles and about four hours, and the Van Buren USGS gauge remains the direct conservative low-water check for the same lower-river cluster.',
+    statusText:
+      'Use the Current River at Van Buren gauge. Around 700 cfs is the conservative low-water floor carried across this lower-Current family; below that, expect shallow shoals, slower travel, and possible scraping. No ideal range or high cutoff is claimed.',
+    latitude: 36.9475519,
+    longitude: -90.9901267,
+    gaugeSource: {
+      id: 'usgs-07067000',
+      provider: 'usgs',
+      siteId: '07067000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Current River at Van Buren, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 700,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Van Buren gauge rating and adjacent lower-Current trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS lists the Lower Current season as year-round, but low summer levels can stretch this day and make shoals scrape-prone. High or rising water can trigger closures, add debris, and make the Cataract landing harder to judge. Check NPS closure notices before leaving vehicles.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'NPS lists Big Spring to Cataract as about a four-hour lower-Current section. It is generally straightforward moving water at normal levels, but lower-river motorboats, summer crowds, private-bank issues, slick landings, and stronger current after rain still matter.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only add: the current NPS float-times page lists Big Spring to Cataract at 8.8 miles and 4 hours; the current park brochure confirms Big Spring as a named lower-Current access with campground and river-access context; USGS 07067000 showed same-day July 11, 2026 discharge and gage-height observations at Van Buren; and AnyplaceAmerica publishes Cataract Landing coordinates for the named lower-Current landing inside Ozark National Scenic Riverways. The app still uses only a 700 cfs low-water floor because the numeric threshold support is community-calibrated rather than an official manager band, and the Cataract coordinate remains topo-derived rather than an official NPS GIS point.',
+    },
+    evidenceNotes: [
+      {
+        label: 'NPS route shape',
+        value: 'Big Spring to Cataract, 8.8 mi / 4 hr',
+        note: 'The current NPS Estimated Float Times page lists Big Spring to Cataract as an 8.8-mile lower Current float that typically takes about 4 hours.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Big Spring access context',
+        value: 'Big Spring lower-Current public landing',
+        note: 'The current NPS park brochure places Big Spring at lower Current river mile 16 and lists river access, boat access, campground, picnic area, ranger station, and trails there.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 07067000',
+        note: 'USGS Current River at Van Buren showed same-day July 11, 2026 discharge and gage-height observations, with 1,080 cfs and 3.01 ft at 12:30 CDT during review.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '700 cfs minimum-only',
+        note: 'Rivers.MOHERP still supports the same conservative Van Buren floor already used on the adjacent lower-Current sections. Paddle Today keeps only the 700 cfs minimum-only floor and does not infer an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '36.9475519, -90.9901267 to 36.8964418, -90.9073471',
+        note: 'The put-in reuses the implemented Big Spring upper landing coordinate. The take-out uses the topo-derived Cataract Landing point published by AnyplaceAmerica for the named Ozark National Scenic Riverways landing.',
+        sourceUrl:
+          'https://www.anyplaceamerica.com/directory/mo/carter-county-29035/locales/cataract-landing-741415/',
+      },
+      {
+        label: 'High-water closure context',
+        value: 'Van Buren Bridge 5.00 ft closed level',
+        note: 'The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and lists Van Buren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff.',
+        sourceUrl: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Estimated Float Times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark Superintendent Compendium',
+        url: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Current River Van Buren gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07067000 Current River at Van Buren',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07067000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000',
+        provider: 'usgs',
+      },
+      {
+        label: 'Cataract Landing topo coordinate',
+        url: 'https://www.anyplaceamerica.com/directory/mo/carter-county-29035/locales/cataract-landing-741415/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'current-river-van-buren-cataract',
+    slug: 'current-river-van-buren-cataract',
+    name: 'Current River',
+    reach: 'Van Buren Riverfront Park to Cataract Landing',
+    aliases: [
+      'Lower Current River - Van Buren to Cataract',
+      'Current River - Van Buren to Cataract',
+      'Current River - Watercress Park to Cataract',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Longer lower Current continuation from Van Buren to Cataract Landing. The current NPS float-times page supports this public combination at about 13.1 miles and 6 hours, and the Van Buren USGS gauge is the direct low-water check at the put-in town.',
+    statusText:
+      'Use the Current River at Van Buren gauge. Around 700 cfs is the conservative low-water floor carried across this lower-Current family; below that, expect shallow shoals, slower travel, and a longer scrape-prone day. No ideal range or high cutoff is claimed.',
+    latitude: 36.9939,
+    longitude: -91.014,
+    gaugeSource: {
+      id: 'usgs-07067000',
+      provider: 'usgs',
+      siteId: '07067000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Current River at Van Buren, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 700,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Van Buren gauge rating and adjacent lower-Current trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS lists the Lower Current season as year-round, but low summer levels can drag this combined section out well past the nominal six-hour estimate. High or rising water can trigger closures, add debris, and make both Big Spring and Cataract landing decisions less forgiving.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The current NPS float-times page supports this route by combining Van Buren to Big Spring and Big Spring to Cataract into roughly a six-hour lower-Current day. The water itself is generally approachable at ordinary levels, but the mileage, motorboats, crowds, limited exits, and lower-river logistics make it more committed than the short split sections.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only add: the current NPS float-times page lists Van Buren to Big Spring at 4.3 miles / 2 hours and Big Spring to Cataract at 8.8 miles / 4 hours, which support this public continuation at about 13.1 miles / 6 hours; the current park brochure confirms Watercress Park in Van Buren and Big Spring as named lower-Current public accesses with campground or service context; USGS 07067000 showed same-day July 11, 2026 discharge and gage-height observations at Van Buren; and AnyplaceAmerica publishes Cataract Landing coordinates for the named lower-Current landing inside Ozark National Scenic Riverways. The app still uses only a 700 cfs low-water floor because the numeric threshold support is community-calibrated rather than an official manager band, and the Cataract coordinate remains topo-derived rather than an official NPS GIS point.',
+    },
+    evidenceNotes: [
+      {
+        label: 'NPS route shape',
+        value: 'Van Buren to Cataract, about 13.1 mi / 6 hr',
+        note: 'The current NPS Estimated Float Times page lists Van Buren to Big Spring at 4.3 miles / 2 hours and Big Spring to Cataract at 8.8 miles / 4 hours, supporting this public continuation at about 13.1 miles and 6 hours.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Park brochure context',
+        value: 'Watercress Park mile 21 to Big Spring mile 16',
+        note: 'The current NPS park brochure places Watercress Park in Van Buren at lower Current river mile 21 and Big Spring at river mile 16, confirming the public lower-Current access chain that anchors this continuation.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 07067000',
+        note: 'USGS Current River at Van Buren showed same-day July 11, 2026 discharge and gage-height observations, with 1,080 cfs and 3.01 ft at 12:30 CDT during review.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '700 cfs minimum-only',
+        note: 'Rivers.MOHERP still supports the same conservative Van Buren floor already used on adjacent lower-Current routes. Paddle Today keeps only the 700 cfs minimum-only floor and does not infer an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '36.9939, -91.0140 to 36.8964418, -90.9073471',
+        note: 'The Van Buren put-in reuses the existing practical public ramp anchor. The take-out uses the topo-derived Cataract Landing point published by AnyplaceAmerica for the named Ozark National Scenic Riverways landing.',
+        sourceUrl:
+          'https://www.anyplaceamerica.com/directory/mo/carter-county-29035/locales/cataract-landing-741415/',
+      },
+      {
+        label: 'High-water closure context',
+        value: 'Van Buren Bridge 5.00 ft closed level',
+        note: 'The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and lists Van Buren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff.',
+        sourceUrl: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Estimated Float Times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark Superintendent Compendium',
+        url: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Current River Van Buren gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07067000 Current River at Van Buren',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07067000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000',
+        provider: 'usgs',
+      },
+      {
+        label: 'Cataract Landing topo coordinate',
+        url: 'https://www.anyplaceamerica.com/directory/mo/carter-county-29035/locales/cataract-landing-741415/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'current-river-big-spring-gooseneck',
     slug: 'current-river-big-spring-gooseneck',
     name: 'Current River',
@@ -25537,6 +25785,130 @@ export const rivers: River[] = [
       {
         label: 'Hawes Recreation Area topo coordinate',
         url: 'https://www.anyplaceamerica.com/directory/mo/ripley-county-29181/parks/hawes-recreation-area-758920/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'current-river-cataract-gooseneck',
+    slug: 'current-river-cataract-gooseneck',
+    name: 'Current River',
+    reach: 'Cataract Landing to Gooseneck / Hawes Recreation Area',
+    aliases: [
+      'Lower Current River - Cataract to Gooseneck',
+      'Current River - Cataract to Gooseneck',
+      'Current River - Cataract to Hawes',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Short final lower Current section from Cataract Landing to Gooseneck / Hawes. The current NPS float-times page lists this stretch at 6.2 miles and about three hours, and the Van Buren USGS gauge remains the conservative same-river low-water check for the cluster.',
+    statusText:
+      'Use the Current River at Van Buren gauge. Around 700 cfs is the conservative low-water floor carried across this lower-Current family; below that, expect shallow shoals, slower travel, and possible scraping. No ideal range or high cutoff is claimed.',
+    latitude: 36.8964418,
+    longitude: -90.9073471,
+    gaugeSource: {
+      id: 'usgs-07067000',
+      provider: 'usgs',
+      siteId: '07067000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Current River at Van Buren, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 700,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Van Buren gauge rating and adjacent lower-Current trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS lists the Lower Current season as year-round, but low summer levels can still expose scrape-prone shoals. High or rising water can trigger closures, add debris, and make the final Gooseneck landing harder to judge. Check NPS closure notices before leaving vehicles.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The current NPS float-times page lists Cataract to Gooseneck at about three hours. It is generally approachable moving water at ordinary levels, but lower-river motorboats, summer crowds, private-bank limits, and the end-of-river setting still matter.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only add: the current NPS float-times page lists Cataract to Gooseneck at 6.2 miles / 3 hours; the current park brochure confirms Gooseneck at lower Current river mile 0 with primitive camping and picnic context; USGS 07067000 showed same-day July 11, 2026 discharge and gage-height observations at Van Buren; and AnyplaceAmerica publishes Cataract Landing coordinates for the named lower-Current landing inside Ozark National Scenic Riverways. The app still uses only a 700 cfs low-water floor because the numeric threshold support is community-calibrated rather than an official manager band, the put-in coordinate remains topo-derived rather than an official NPS GIS point, and Gooseneck/Hawes naming should still be verified against signs on arrival.',
+    },
+    evidenceNotes: [
+      {
+        label: 'NPS route shape',
+        value: 'Cataract to Gooseneck, 6.2 mi / 3 hr',
+        note: 'The current NPS Estimated Float Times page lists Cataract to Gooseneck as a 6.2-mile lower Current float that typically takes about 3 hours.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Gooseneck access context',
+        value: 'Lower Current river mile 0 with primitive camping',
+        note: 'The current NPS park brochure places Gooseneck at lower Current river mile 0 and lists a picnic area plus primitive camping area in the Lower Current District.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 07067000',
+        note: 'USGS Current River at Van Buren showed same-day July 11, 2026 discharge and gage-height observations, with 1,080 cfs and 3.01 ft at 12:30 CDT during review. The gauge is upstream but remains the same lower-Current gauge used by adjacent implemented routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '700 cfs minimum-only',
+        note: 'Rivers.MOHERP still supports the same conservative Van Buren floor already used on adjacent lower-Current routes. Paddle Today keeps only the 700 cfs minimum-only floor and does not infer an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '36.8964418, -90.9073471 to 36.8194989, -90.9470707',
+        note: 'The put-in uses the topo-derived Cataract Landing point published by AnyplaceAmerica. The take-out reuses the implemented Gooseneck / Hawes point already used by adjacent lower-Current routes.',
+        sourceUrl:
+          'https://www.anyplaceamerica.com/directory/mo/carter-county-29035/locales/cataract-landing-741415/',
+      },
+      {
+        label: 'High-water closure context',
+        value: 'Van Buren Bridge 5.00 ft closed level',
+        note: 'The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and lists Van Buren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff.',
+        sourceUrl: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Estimated Float Times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark Superintendent Compendium',
+        url: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Current River Van Buren gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07067000 Current River at Van Buren',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07067000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000',
+        provider: 'usgs',
+      },
+      {
+        label: 'Cataract Landing topo coordinate',
+        url: 'https://www.anyplaceamerica.com/directory/mo/carter-county-29035/locales/cataract-landing-741415/',
         provider: 'local',
       },
     ],

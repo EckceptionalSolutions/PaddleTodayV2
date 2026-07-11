@@ -8356,6 +8356,76 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'current-river-big-spring-cataract': {
+    putIn: {
+      name: 'Big Spring Upper River Landing',
+      latitude: 36.9475519,
+      longitude: -90.9901267,
+    },
+    takeOut: {
+      name: 'Cataract Landing',
+      latitude: 36.8964418,
+      longitude: -90.9073471,
+    },
+    logistics: {
+      distanceLabel: 'About 8.8 mi',
+      estimatedPaddleTime: 'About 4 hr, longer with low water, stops, wind, crowds, or motorboat traffic',
+      shuttle:
+        'Stage the take-out at Cataract Landing before driving back to the Big Spring river-access area. Verify the signed Cataract landing and road approach before launching because this lower-river access is simpler and less developed than the Big Spring area.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, Big Spring day-use and campground rules, Missouri boating laws, no-glass/no-polystyrene rules, and any posted NPS closure or access notices.',
+      camping:
+        'Treat this as a day float unless you have a separate legal camping plan. Big Spring has formal campground support before launch, but do not assume private banks or informal gravel bars are legal overnight stops downstream.',
+      summary:
+        'Launch at the Big Spring upper river landing and take out at Cataract for a mid-length lower Current River day. Use the direct Van Buren gauge as a conservative low-water check and expect the lower-river mix of motorboats, crowds, and private-bank constraints.',
+      accessCaveats: [
+        'NPS distinguishes Big Spring (upper) as a Current River landing from Big Spring Boat Ramp (lower), which is trailered boats only with no floater access. Start from the signed upper landing.',
+        'The Cataract coordinate is a topo-derived landing point, not an official NPS GIS table. Follow the signed landing, parking, and turnaround layout on arrival.',
+        'Do not assume services, restrooms, or staffed oversight at Cataract comparable to the Big Spring area.',
+      ],
+      watchFor: [
+        'Shallow shoals, scraping, and slower travel when the Van Buren gauge is near or below the 700 cfs conservative floor.',
+        'Motorboat wakes, summer crowds, tubes, slick landings, swimmers, fishing lines, and wind on the lower-river pools.',
+        'High or rising water, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.',
+        'Private banks, limited cell service outside Van Buren, and confusion between the signed Cataract landing and nearby private property.',
+      ],
+    },
+  },
+  'current-river-van-buren-cataract': {
+    putIn: {
+      name: 'Van Buren Riverfront Park Access',
+      latitude: 36.9939,
+      longitude: -91.014,
+    },
+    takeOut: {
+      name: 'Cataract Landing',
+      latitude: 36.8964418,
+      longitude: -90.9073471,
+    },
+    logistics: {
+      distanceLabel: 'About 13.1 mi',
+      estimatedPaddleTime: 'About 6 hr, longer with low water, stops, wind, crowds, or motorboat traffic',
+      shuttle:
+        'Stage the take-out at Cataract before driving back to Van Buren Riverfront Park. This is a longer lower-river shuttle and day, so verify access roads, parking, daylight, and the signed Cataract landing before launching.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, Van Buren cooperative-area rules, Missouri boating laws, no-glass/no-polystyrene rules, and any posted NPS closure or access notices.',
+      camping:
+        'Treat this as a long day unless you have a separate legal campground plan before or after the float. Do not assume private banks or informal gravel bars are legal overnight stops.',
+      summary:
+        'Launch at Van Buren Riverfront Park and take out at Cataract for a longer lower Current continuation. Use the direct Van Buren gauge as a conservative low-water check and plan for motorboats, crowds, limited exits, and a lower-river shuttle.',
+      accessCaveats: [
+        'Van Buren Riverfront Park is MDC-listed under a cooperative agreement rather than MDC-owned land; posted city or owner rules may apply beyond the MDC-listed boating regulations.',
+        'The Cataract coordinate is a topo-derived landing point, not an official NPS GIS table. Follow the signed landing, parking, and turnaround layout on arrival.',
+        'This route passes the Big Spring area mid-run; do not confuse the signed upper river landing with the lower trailered-boat-only ramp if you stop there.',
+      ],
+      watchFor: [
+        'Shallow shoals, scraping, and a slower six-hour day when the Van Buren gauge is near or below the 700 cfs conservative floor.',
+        'Motorboat wakes, summer crowds, tubes, slick ramps, swimmers, fishing lines, and busy lower-river access zones.',
+        'High or rising water, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.',
+        'Private banks, limited cell service outside Van Buren, and confusion between the signed Cataract landing and nearby private property.',
+      ],
+    },
+  },
   'current-river-big-spring-gooseneck': {
     putIn: {
       name: 'Big Spring Upper River Landing',
@@ -8389,6 +8459,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Motorboat wakes, long pool sections, wind, summer crowds, tubes, slick landings, swimmers, fishing lines, and crowded access areas.',
         'High or rising water, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.',
         'Private banks, limited cell service, few easy exits, and confusion between Gooseneck and Hawes naming at the take-out.',
+      ],
+    },
+  },
+  'current-river-cataract-gooseneck': {
+    putIn: {
+      name: 'Cataract Landing',
+      latitude: 36.8964418,
+      longitude: -90.9073471,
+    },
+    takeOut: {
+      name: 'Gooseneck / Hawes Recreation Area',
+      latitude: 36.8194989,
+      longitude: -90.9470707,
+    },
+    logistics: {
+      distanceLabel: 'About 6.2 mi',
+      estimatedPaddleTime: 'About 3 hr, longer with low water, stops, wind, crowds, or motorboat traffic',
+      shuttle:
+        'Stage the take-out at Gooseneck / Hawes before driving back to Cataract Landing. Verify both signed landings before launch because this lower-river pair uses simpler downstream accesses and ends near the river mouth.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, Gooseneck / Hawes day-use and campground rules, Missouri boating laws, no-glass/no-polystyrene rules, and any posted NPS closure or access notices.',
+      camping:
+        'This can work as a short day float, with the clearest formal overnight support at the primitive camping area near Gooseneck / Hawes after the take-out. Do not assume private banks or informal gravel bars are legal overnight stops upstream.',
+      summary:
+        'Launch at Cataract and finish at Gooseneck / Hawes for the last public lower Current section. Use the Van Buren gauge as a conservative low-water check and expect lower-river motorboats, private-bank constraints, and end-of-river logistics.',
+      accessCaveats: [
+        'The Cataract coordinate is a topo-derived landing point, not an official NPS GIS table. Follow the signed landing, parking, and turnaround layout on arrival.',
+        'NPS materials use both Gooseneck and Hawes naming for the downstream endpoint. Confirm the signed river landing before leaving a vehicle.',
+        'This route ends near the Current River mouth. Do not continue onto the Black River or other downstream big-river water without a separate plan.',
+      ],
+      watchFor: [
+        'Shallow shoals, scraping, and slower travel when the Van Buren gauge is near or below the 700 cfs conservative floor.',
+        'Motorboat wakes, summer crowds, tubes, slick landings, swimmers, fishing lines, and wind on the lower-river pools.',
+        'High or rising water, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.',
+        'Private banks, limited cell service, and confusion between Gooseneck and Hawes naming at the take-out.',
       ],
     },
   },
