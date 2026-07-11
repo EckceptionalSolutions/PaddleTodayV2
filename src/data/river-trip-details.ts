@@ -8674,6 +8674,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'eleven-point-river-cane-bluff-whitten': {
+    putIn: {
+      name: 'Cane Bluff River Access',
+      latitude: 36.796246,
+      longitude: -91.405675,
+    },
+    takeOut: {
+      name: 'Whitten River Access',
+      latitude: 36.732356,
+      longitude: -91.214837,
+    },
+    logistics: {
+      distanceLabel: 'About 18.3 mi by Forest Service river miles',
+      estimatedPaddleTime: 'About 7.5 hr to 10.5 hr depending on level, breaks, and group pace',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Cane Bluff and Whitten. Both approaches use rural Forest Service roads, and the Whitten descent is steep enough that it is worth scouting before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, no-glass/no-polystyrene river rules, float-camp rules, and posted parking signs.',
+      camping:
+        'Cane Bluff allows dispersed camping and the Forest Service river-mile notes identify designated float camps between Greer, Turner, and Whitten, so this corridor can support a conservative legal overnight plan. Do not assume private banks or informal gravel bars are open for camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Cane Bluff and take out at Whitten for a long Eleven Point continuation that starts on the smaller upper river and finishes on the colder spring-fed lower corridor. Use the Bardley gauge as a conservative low-water estimate, then make a same-day visual call at the launch.',
+      accessCaveats: [
+        'Cane Bluff and Whitten are official Forest Service river accesses with published coordinates, but rural road conditions, parking limits, and site rules can change after storms.',
+        'The Bardley gauge is downstream of the Cane Bluff half, so the upper miles can still feel shallower and slower than the gauge alone suggests near the 300 cfs floor.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'Shallow riffles, scraping, and occasional short portages above Greer Spring when the Bardley gauge is near the 300 cfs floor.',
+        'Mary Decker Shoal, fresh wood, blind bends, cold-water transition below Greer Spring, and limited easy exits on a long route.',
+        'Motorized users under the 25 hp limit, weekend congestion near Whitten, and fatigue if the full continuation is forced into one push.',
+      ],
+    },
+  },
   'eleven-point-river-thomasville-cane-bluff': {
     putIn: {
       name: 'Thomasville River Access',
@@ -8847,6 +8882,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'eleven-point-river-turner-mill-south-riverton': {
+    putIn: {
+      name: 'Turner Mill South River Access',
+      latitude: 36.76456,
+      longitude: -91.26653037,
+    },
+    takeOut: {
+      name: 'Riverton East River Access / Highway 160',
+      latitude: 36.649183,
+      longitude: -91.199614,
+    },
+    logistics: {
+      distanceLabel: 'About 14.1 mi by Forest Service river miles',
+      estimatedPaddleTime: 'About 6 hr to 8.5 hr depending on level, stops, wind, and shuttle timing',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Turner Mill South and Riverton East. Inspect the Riverton East finish before launching because it is the cleaner river-left take-out just above Highway 160.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, no-glass/no-polystyrene river rules, float-camp rules, Missouri boating rules, and posted parking signs.',
+      camping:
+        'Turner Mill South has limited campsites and the Forest Service river-mile notes identify designated float camps between Whitten and Riverton, so this corridor can support a legal overnight split. Riverton East itself is day-use only.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Turner Mill South and take out at Riverton East for a long lower Eleven Point continuation through the White Ribbon trout water. Use the Bardley gauge as a conservative low-water check and keep extra margin for distance, weather, and cold water.',
+      accessCaveats: [
+        'Turner Mill South and Riverton East are official Forest Service river accesses with published coordinates, but road, parking, and day-use rules can change after storms.',
+        'Riverton East is the preferred river-left finish just above Highway 160; Riverton West is a separate day-use area on river right and is not the default take-out for this route.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'A full-day commitment, shoals and slower travel when the Bardley gauge is near the 300 cfs floor, and wind or fatigue on the long middle miles.',
+        'Cold spring-fed water, fresh wood, blind bends, Halls Bay near the end of the route, and rapid rises after rain.',
+        'Motorized users under the 25 hp limit and limited developed bailouts between Turner Mill South and Riverton East.',
+      ],
+    },
+  },
   'eleven-point-river-whitten-riverton': {
     putIn: {
       name: 'Whitten River Access',
@@ -8878,6 +8948,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Shallow shoals and occasional scraping when the Bardley gauge falls near the 300 cfs floor.',
         'Halls Bay near the end of the route: the right channel is a fast ledge line above normal water, while the left is a tricky shallow S-curve with swift current.',
         'Cold spring-fed water, rapid rises after rain, fresh wood, boat traffic, and the 25 hp motor allowance on this part of the National Wild and Scenic River.',
+      ],
+    },
+  },
+  'eleven-point-river-whitten-narrows': {
+    putIn: {
+      name: 'Whitten River Access',
+      latitude: 36.732356,
+      longitude: -91.214837,
+    },
+    takeOut: {
+      name: 'Highway 142 River Access / The Narrows',
+      latitude: 36.550194,
+      longitude: -91.191532,
+    },
+    logistics: {
+      distanceLabel: 'About 16.3 to 16.7 mi by Forest Service mileage notes',
+      estimatedPaddleTime: 'About 6.5 hr to 9 hr depending on level, stops, and wind',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Whitten and Highway 142 River Access. The Narrows is the last Forest Service access in the scenic-river corridor, so inspect the finish before launching and do not plan on floating past it without a separate downstream plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, no-glass/no-polystyrene river rules, float-camp rules, Missouri boating rules, and posted parking signs.',
+      camping:
+        'Treat this as a long day trip or a separate legal overnight plan. The corridor includes designated float-camp support between Whitten and Riverton, but Highway 142 itself is day-use only and private banks should not be assumed for camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Whitten and take out at Highway 142 / The Narrows for the long lower-Eleven continuation to the last scenic-river access. Use the Bardley gauge as a conservative low-water check and keep extra margin for cold water, weather, and distance.',
+      accessCaveats: [
+        'Whitten and Highway 142 are official Forest Service river accesses with published coordinates, ramps, parking, and day-use rules.',
+        'Highway 142 / The Narrows is the last access on the southern end of the Eleven Point National Scenic River Area. Missing it pushes the trip toward Arkansas and changes the route plan.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'Shallow shoals and slower travel when the Bardley gauge falls near the 300 cfs floor.',
+        'Halls Bay, fresh flood wood, blind bends, thunderstorms, and cold-water swims on a long lower-river reach.',
+        'Limited developed exits below Riverton and motorized users under the 25 hp limit upstream from The Narrows.',
       ],
     },
   },
