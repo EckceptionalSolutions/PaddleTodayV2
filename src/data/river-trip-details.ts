@@ -13779,6 +13779,118 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'yellow-breeches-creek-simpson-park-mccormick-park': {
+    putIn: {
+      name: 'Simpson Park launch',
+      latitude: 40.164151,
+      longitude: -76.976192,
+    },
+    takeOut: {
+      name: 'McCormick Park launch',
+      latitude: 40.165436,
+      longitude: -76.95508,
+    },
+    logistics: {
+      distanceLabel: 'About 1.1 mi',
+      estimatedPaddleTime:
+        'About 35 min to 1 hr 30 min depending on depth, wood, and how much scraping the creek needs that day',
+      shuttle:
+        'The shuttle is short, but stage the McCormick Park take-out first so you can inspect both township launches before committing. Low water, mud, and fresh wood matter more than the mileage suggests.',
+      permits:
+        'No route-specific paddling permit is known for these township-park launches. Follow current township, boating, and PFD rules. If you extend to separate PFBC launches on another day, those accesses may require registration or a PFBC/state-park launch permit.',
+      camping:
+        'Treat this as a short day float. Cumberland County verifies the launch access but does not document public overnight support for this exact Simpson-to-McCormick segment.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Simpson Park and take out at McCormick Park for the shortest current Yellow Breeches public segment. Use the Camp Hill gauge as the county-endorsed same-creek proxy and expect scrape-prone shallow water when it sits below the 1.4-foot recommendation.',
+      accessCaveats: [
+        'Cumberland County still publishes both endpoints as official Yellow Breeches access points with exact coordinates on the county story map.',
+        'The county recommends boating when the Camp Hill gauge reads about 1.4 to 2.0 feet. This route was reviewed when the proxy gauge was 1.25 feet at 2026-07-11 00:45 EDT, so scraping is likely despite the short mileage.',
+        'Trail use is limited to daylight hours and the county asks paddlers to respect private property not designated for public use.',
+      ],
+      watchFor: [
+        'Scraping, shallow riffles, and slow progress when the Camp Hill gauge is near or below 1.4 ft.',
+        'Fresh wood, strainers, overhanging limbs, and muddy banks after thunderstorms.',
+        'Private banks and limited legal bailout choices away from the named public launches.',
+      ],
+    },
+  },
+  'yellow-breeches-creek-mccormick-park-lower-allen-community-park': {
+    putIn: {
+      name: 'McCormick Park launch',
+      latitude: 40.165436,
+      longitude: -76.95508,
+    },
+    takeOut: {
+      name: 'Lower Allen Community Park launch',
+      latitude: 40.172373,
+      longitude: -76.913787,
+    },
+    logistics: {
+      distanceLabel: 'About 3.6 mi',
+      estimatedPaddleTime:
+        'About 1 hr 30 min to 3 hr depending on depth, wood, and how much scraping or scouting the creek needs that day',
+      shuttle:
+        'Stage the Lower Allen Community Park take-out first, then drive back to McCormick Park. Inspect both launches because low water, mud, or same-day storm cleanup can change the easiest carry line.',
+      permits:
+        'No route-specific paddling permit is known for these township-park launches. Follow current township, boating, and PFD rules. If you extend to separate PFBC launches on a different plan, those accesses may require registration or a PFBC/state-park launch permit.',
+      camping:
+        'Lower Allen Community Park offers camping by reservation at the take-out. Treat that as endpoint campground support only and not as permission to camp elsewhere on the creek corridor.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at McCormick Park and take out at Lower Allen Community Park for a short-to-medium Yellow Breeches day. Use the Camp Hill gauge as the county-endorsed same-creek proxy and expect scraping or slower lines when it sits below the recommended 1.4-foot floor.',
+      accessCaveats: [
+        'Cumberland County still publishes both endpoints as official Yellow Breeches access points with exact coordinates on the county story map.',
+        'The county recommends boating when the Camp Hill gauge reads about 1.4 to 2.0 feet. This route was reviewed when the proxy gauge was 1.25 feet at 2026-07-11 00:45 EDT, so low-water dragging is a real possibility.',
+        'The current county advisory flags a full blockage above B7 farther downstream, so treat this route as a self-contained middle segment rather than a casual continuation.',
+        'Trail use is limited to daylight hours and the county asks paddlers to respect private property not designated for public use.',
+      ],
+      watchFor: [
+        'Scraping, shallow riffles, and slow progress when the Camp Hill gauge is near or below 1.4 ft.',
+        'Fresh wood, strainers, overhanging limbs, and muddy banks after thunderstorms.',
+        'Quicker current and more debris once the creek rises toward the 6 ft action stage, even if the short route still looks mellow from shore.',
+        'Private banks and limited legal bailout choices away from the named public launches.',
+      ],
+    },
+  },
+  'yellow-breeches-creek-liberty-forge-yellow-breeches-park': {
+    putIn: {
+      name: 'Liberty Forge bridge access',
+      latitude: 40.177495,
+      longitude: -76.924172,
+    },
+    takeOut: {
+      name: 'Yellow Breeches Park launch',
+      latitude: 40.183811,
+      longitude: -76.912682,
+    },
+    logistics: {
+      distanceLabel: 'About 1.9 mi',
+      estimatedPaddleTime:
+        'About 45 min to 1 hr 45 min depending on depth, wood, and how much low-water line picking is needed',
+      shuttle:
+        'Stage the Yellow Breeches Park take-out first, then inspect the Liberty Forge bridge access before driving the short shuttle. Parking is limited at Liberty Forge and muddy footing can change quickly after rain.',
+      permits:
+        'No route-specific paddling permit is known for this bridge-to-park segment. Follow current township, boating, and PFD rules, obey any posted public-access instructions at Liberty Forge, and do not assume the route should continue downstream into the posted B7 hazard area.',
+      camping:
+        'Treat this as a short day route. Cumberland County documents public launch access at Liberty Forge and Yellow Breeches Park, but it does not document public overnight support for this exact segment.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the public Liberty Forge bridge access and take out at Yellow Breeches Park for a short lower-middle Yellow Breeches float. This route intentionally ends at B6 because the county currently recommends B6 as the safe downstream finish above the posted blockage near B7.',
+      accessCaveats: [
+        'Cumberland County still publishes both endpoints as official Yellow Breeches access points with exact coordinates on the county story map.',
+        'The county story map says the public may access the creek for boating at the Old Forge Road bridge at Liberty Forge and should follow posted access rules; it also asks paddlers to limit parking to individuals and small groups only.',
+        'The county currently warns that a large fallen tree and logjam completely block the creek upstream of Slate Hill Road and specifically recommends B6 Yellow Breeches Park to avoid the hazard.',
+        'The county recommends boating when the Camp Hill gauge reads about 1.4 to 2.0 feet. This route was reviewed when the proxy gauge was 1.25 feet at 2026-07-11 00:45 EDT, so low-water scraping is likely.',
+      ],
+      watchFor: [
+        'Scraping, shallow lines, and slower travel when the Camp Hill gauge is near or below 1.4 ft.',
+        'Fresh wood, strainers, and muddy footing at the bridge put-in or the Yellow Breeches Park finish after storms.',
+        'The posted downstream blockage and the B7 dam-portage area; do not drift past the intended B6 take-out assuming the lower trail is clear.',
+        'Private banks and limited legal bailout choices away from the named public launches.',
+      ],
+    },
+  },
   'conodoguinet-creek-willow-mill-good-hope': {
     putIn: {
       name: 'Willow Mill Park launch',

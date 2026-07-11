@@ -11,6 +11,14 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Current Pennsylvania candidate ledger rows: 50 implemented rows as of 2026-06-25 UTC.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
+## 2026-07-11 Yellow Breeches completion pass
+
+- 2026-07-11 00:25 America/Chicago / 2026-07-11 05:25 UTC: Pennsylvania three-route implementation pass; added the remaining current Yellow Breeches Creek short-to-middle slugs beyond the live repo baseline at run start.
+- Implemented `yellow-breeches-creek-simpson-park-mccormick-park`, `yellow-breeches-creek-mccormick-park-lower-allen-community-park`, and `yellow-breeches-creek-liberty-forge-yellow-breeches-park`.
+- Qualification package: Cumberland County still publishes the Yellow Breeches water-trails page with Camp Hill guidance of `1.4-2.0 ft`, `6 ft` action stage, `7 ft` flood stage, and the active advisory that a large fallen tree/logjam completely blocks the creek upstream of B7 / Slate Hill Road and that paddlers should use B6 Yellow Breeches Park instead. The county story map still publishes exact access coordinates and route-piece mileages for Simpson Park, McCormick Park, Lower Allen Community Park, Liberty Forge, and Yellow Breeches Park, which support the new `1.1`, `3.6`, and `1.9` mile combinations. Same-day USGS Water Services returned `147 cfs / 1.25 ft` at `2026-07-11 00:45 EDT` for proxy gauge USGS `01571500`, below the county floor, so all three routes ship with explicit scrape-prone low-water framing instead of comfort language.
+- Camping stays route-specific: `yellow-breeches-creek-simpson-park-mccormick-park` and `yellow-breeches-creek-liberty-forge-yellow-breeches-park` stay `none`, while `yellow-breeches-creek-mccormick-park-lower-allen-community-park` uses `endpoint_campground` because Lower Allen Community Park remains a reservation campground at the finish.
+- No gallery image was added. Bounded Commons, county-storymap/county-site, and same-creek USGS image review still did not produce a clearly rights-clean exact-route asset for local reuse.
+
 ## 2026-07-10 Yellow Breeches continuation pass
 
 - 2026-07-10 23:20 America/Chicago / 2026-07-11 04:20 UTC: Pennsylvania three-route implementation pass; added three more Yellow Breeches Creek slugs beyond the live repo baseline at run start.
