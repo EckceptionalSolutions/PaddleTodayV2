@@ -8709,6 +8709,76 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'eleven-point-river-cane-bluff-riverton': {
+    putIn: {
+      name: 'Cane Bluff River Access',
+      latitude: 36.796246,
+      longitude: -91.405675,
+    },
+    takeOut: {
+      name: 'Riverton East River Access / Highway 160',
+      latitude: 36.649183,
+      longitude: -91.199614,
+    },
+    logistics: {
+      distanceLabel: 'About 26.3 mi by Forest Service river miles',
+      estimatedPaddleTime: 'About 9 hr to 12.5 hr depending on level, stops, wind, and whether you split the route overnight',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Cane Bluff and Riverton East. Inspect the Riverton East finish before launching because it is the cleaner river-left take-out just above Highway 160.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, no-glass/no-polystyrene river rules, float-camp rules, Missouri boating rules, and posted parking signs.',
+      camping:
+        'Cane Bluff allows dispersed camping and the Forest Service corridor includes designated float camps between Greer, Turner, Whitten, and Riverton, so this route can support a legal overnight split. Do not assume private banks or informal gravel bars are open for camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Cane Bluff and take out at Riverton East for a full-corridor Eleven Point continuation that starts on the smaller upper river and finishes at the classic Highway 160 lower-river landing. Use the Bardley gauge as a conservative low-water estimate, then make a same-day visual call at the launch.',
+      accessCaveats: [
+        'Cane Bluff and Riverton East are official Forest Service river accesses with published coordinates, but rural roads, parking limits, and site rules can change after storms.',
+        'The Bardley gauge is downstream of the Cane Bluff half, so the upper miles can still feel shallower and slower than the gauge alone suggests near the 300 cfs floor.',
+        'Riverton East is the preferred river-left finish just above Highway 160; do not confuse it with other Riverton access points or assume private banks between public accesses are legal substitutes.',
+      ],
+      watchFor: [
+        'Shallow riffles, scraping, and occasional short portages above Greer Spring when the Bardley gauge is near the 300 cfs floor.',
+        'Mary Decker Shoal, Halls Bay near the end, fresh wood, blind bends, thunderstorms, and cold spring-fed water on a very long route.',
+        'Fatigue, wind on wider lower stretches, motorized users under the 25 hp limit, and limited developed bailouts if you force the whole continuation into one push.',
+      ],
+    },
+  },
+  'eleven-point-river-cane-bluff-narrows': {
+    putIn: {
+      name: 'Cane Bluff River Access',
+      latitude: 36.796246,
+      longitude: -91.405675,
+    },
+    takeOut: {
+      name: 'Highway 142 River Access / The Narrows',
+      latitude: 36.550194,
+      longitude: -91.191532,
+    },
+    logistics: {
+      distanceLabel: 'About 35.0 mi by Forest Service river miles',
+      estimatedPaddleTime: 'About 12 hr to 18 hr total; treat it as an overnight-capable corridor rather than a casual one-day float',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Cane Bluff and Highway 142. The Narrows is the last Forest Service access in the scenic-river corridor, so inspect the finish before launching and do not plan on floating past it without a separate downstream plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, no-glass/no-polystyrene river rules, float-camp rules, Missouri boating rules, and posted parking signs.',
+      camping:
+        'This corridor is long enough that the safer conservative plan is usually an overnight split using designated float camps or another clearly legal Forest Service option. The Eleven Point corridor includes float camps, but private banks and informal gravel bars should not be assumed to be legal campsites.',
+      campingClassification: 'overnight_capable',
+      summary:
+        'Launch at Cane Bluff and take out at Highway 142 / The Narrows for a full scenic-river continuation that spans the upper Eleven Point, the Greer-to-Turner trout water, and the last access above Arkansas. Use the Bardley gauge as a conservative low-water estimate and build a real overnight plan instead of improvising one on river.',
+      accessCaveats: [
+        'Cane Bluff and Highway 142 are official Forest Service accesses with published coordinates, but road, parking, and site rules can change after storms.',
+        'The Bardley gauge is downstream of the Cane Bluff half, so the upper miles can still feel shallower and slower than the gauge alone suggests near the 300 cfs floor.',
+        'Highway 142 / The Narrows is the last access on the southern end of the Eleven Point National Scenic River Area. Missing it pushes the trip toward Arkansas and changes the route plan materially.',
+      ],
+      watchFor: [
+        'Shallow riffles and occasional short portages above Greer Spring when the Bardley gauge is near the 300 cfs floor.',
+        'Mary Decker Shoal, Halls Bay, fresh flood wood, blind bends, thunderstorms, and cold-water swims on a long multi-section route.',
+        'Overnight logistics, fatigue, motorized users under the 25 hp limit, and the need to use legal float camps or another source-backed overnight option rather than informal stops.',
+      ],
+    },
+  },
   'eleven-point-river-thomasville-cane-bluff': {
     putIn: {
       name: 'Thomasville River Access',
@@ -8914,6 +8984,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'A full-day commitment, shoals and slower travel when the Bardley gauge is near the 300 cfs floor, and wind or fatigue on the long middle miles.',
         'Cold spring-fed water, fresh wood, blind bends, Halls Bay near the end of the route, and rapid rises after rain.',
         'Motorized users under the 25 hp limit and limited developed bailouts between Turner Mill South and Riverton East.',
+      ],
+    },
+  },
+  'eleven-point-river-turner-mill-south-narrows': {
+    putIn: {
+      name: 'Turner Mill South River Access',
+      latitude: 36.76456,
+      longitude: -91.26653037,
+    },
+    takeOut: {
+      name: 'Highway 142 River Access / The Narrows',
+      latitude: 36.550194,
+      longitude: -91.191532,
+    },
+    logistics: {
+      distanceLabel: 'About 22.8 mi by Forest Service river miles',
+      estimatedPaddleTime: 'About 8.5 hr to 12 hr depending on level, stops, wind, and whether you split the route overnight',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Turner Mill South and Highway 142. The Narrows is the last Forest Service access in the scenic-river corridor, so inspect the finish before launching and do not plan on drifting past it without a separate downstream plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, no-glass/no-polystyrene river rules, float-camp rules, Missouri boating rules, and posted parking signs.',
+      camping:
+        'Turner Mill South has limited campsites and the Forest Service corridor includes designated float camps between Whitten, Riverton, and the lower river, so this route can support a legal overnight split. Highway 142 itself is day-use only and private banks should not be assumed to be legal campsites.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Turner Mill South and take out at Highway 142 / The Narrows for a long lower-Eleven continuation through the White Ribbon trout water and the widening scenic corridor below Riverton. Use the Bardley gauge as a conservative low-water check and keep extra margin for weather, distance, and take-out discipline.',
+      accessCaveats: [
+        'Turner Mill South and Highway 142 are official Forest Service accesses with published coordinates, but road, parking, and site rules can change after storms.',
+        'Highway 142 / The Narrows is the last access on the southern end of the Eleven Point National Scenic River Area. Missing it pushes the trip toward Arkansas and changes the route plan materially.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'A full-day commitment, shoals and slower travel when the Bardley gauge is near the 300 cfs floor, and fatigue if the route is forced into one push.',
+        'Halls Bay, fresh flood wood, blind bends, cold spring-fed water, thunderstorms, and rapid rises after rain.',
+        'Motorized users under the 25 hp limit, limited developed exits below Riverton, and the need to stage a clear finish plan at Highway 142 before launching.',
       ],
     },
   },

@@ -1,6 +1,8 @@
 # Missouri Route Memory
 
-Last summarized: 2026-07-11 01:12 America/Chicago.
+Last summarized: 2026-07-11 15:20 America/Chicago.
+
+Latest run: added three new Eleven Point extended continuations sourced from current Forest Service, MDC, and same-day USGS evidence: `eleven-point-river-cane-bluff-riverton`, `eleven-point-river-cane-bluff-narrows`, and `eleven-point-river-turner-mill-south-narrows`. The current Forest Service pages still show Cane Bluff, Turner Mill South, Riverton East, and Highway 142 open with published coordinates and access details; Forest Service river-mile notes place Cane Bluff at `9.3`, Turner Mill at `21.5`, Riverton at `35.6`, and Highway 142 at `44.3`; the current Eleven Point page still says the corridor has seven designated float camps; and same-day direct USGS Water Services returned `514 cfs / 2.66 ft` at `2026-07-11 14:30 CDT` for direct Bardley gauge `07071500`. Together those sources support the three new public routes at about `26.3`, `35.0`, and `22.8` miles. All three routes keep the existing conservative `300 cfs` minimum-only Bardley floor already used on adjacent Eleven Point routes because the numeric support is still community-calibrated rather than an official manager band. Reused the approved same-river Commons Eleven Point corridor image for all three new slugs.
 
 Latest run: added three new Eleven Point lower continuations sourced from current Forest Service, MDC, and same-day USGS evidence: `eleven-point-river-cane-bluff-whitten`, `eleven-point-river-turner-mill-south-riverton`, and `eleven-point-river-whitten-narrows`. The current Forest Service pages still show Cane Bluff, Turner Mill South, Whitten, Riverton East, and Highway 142 open with published coordinates and access details; Forest Service river-mile notes place Cane Bluff at `9.3`, Turner Mill at `21.5`, Whitten at `27.6`, Riverton at `35.6`, and Highway 142 at `44.3`, while the Whitten page still says visitors travel about `8 miles` from Whitten to Riverton and the Highway 142 page still says The Narrows is `8.7 miles` below Riverton. Together those sources support the three new public routes at about `18.3`, `14.1`, and `16.3-16.7` miles. Same-day direct USGS Water Services returned `524 cfs / 2.68 ft` at `2026-07-11 13:30 CDT` for direct Bardley gauge `07071500`. All three routes keep the existing conservative `300 cfs` minimum-only Bardley floor already used on adjacent Eleven Point routes because the numeric support is still community-calibrated rather than an official manager band. Reused the approved same-river Commons Eleven Point corridor image for all three new slugs.
 
@@ -20,8 +22,8 @@ Latest run: added three new Jacks Fork continuations sourced from current NPS an
 
 ## Current Inventory
 
-- Live routes: 61.
-- Top represented rivers: Jacks Fork River 15, Current River 12, Eleven Point River 9, Big Piney River 6, Meramec River 5, James River 4.
+- Live routes: 64.
+- Top represented rivers: Jacks Fork River 15, Eleven Point River 15, Current River 12, Big Piney River 6, Meramec River 5, James River 4.
 - Ledger candidates: the structured ledger has a large Missouri backlog; many remain blocked by stale live-gauge evidence, weak threshold support, route-definition uncertainty, or endpoint-coordinate/access gaps.
 
 ## Status
