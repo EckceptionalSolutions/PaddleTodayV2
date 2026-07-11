@@ -25671,6 +25671,428 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'current-river-waymeyer-big-spring',
+    slug: 'current-river-waymeyer-big-spring',
+    name: 'Current River',
+    reach: 'Waymeyer Access to Big Spring Upper River Landing',
+    aliases: [
+      'Lower Current River - Waymeyer to Big Spring',
+      'Current River - Waymeyer to Big Spring',
+      'Current River - Waymeyer to Big Spring Upper Landing',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Combined lower Current River day from Waymeyer to the Big Spring upper river landing. Current NPS mileage and float-time guidance support the section, and the direct Van Buren gauge gives a conservative low-water check.',
+    statusText:
+      'Use the Current River at Van Buren gauge. Around 700 cfs is a conservative low-water floor for this lower-Current cluster; below that, expect shallow shoals, slower travel, and more dragging risk over a longer day. No ideal range or high cutoff is claimed.',
+    latitude: 37.054302,
+    longitude: -91.055459,
+    gaugeSource: {
+      id: 'usgs-07067000',
+      provider: 'usgs',
+      siteId: '07067000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Current River at Van Buren, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 700,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Van Buren gauge rating and lower-Current trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS lists the Lower Current season as year-round, but this longer spring-fed reach can still get scrape-prone at low summer water and can close or become debris-heavy in flood conditions. Check NPS closure notices before leaving vehicles.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'NPS lower-Current guidance supports this combined Waymeyer-to-Big-Spring route as an approachable moving-water float at normal levels, but the longer mileage, motorboat traffic, private-bank issues, slick landings, and stronger current after rain make it more committing than the short split sections.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only add: current NPS float-time guidance lists Waymeyer to Raftyard at 1.7 miles / 0.5 hour, Raftyard to Van Buren at 4.8 miles / 2 hours, and Van Buren to Big Spring at 4.3 miles / 2 hours, which together define an about 10.8-mile public lower-Current route from Waymeyer to the Big Spring upper landing. NPS also separately identifies Waymeyer as a lower-river access, distinguishes Big Spring upper from the lower motorized-only boat ramp, and keeps the lower Current on designated public access use. Same-day USGS Water Services returned 1,080 cfs and 3.01 ft at 2026-07-11 00:30 CDT for direct gauge 07067000 at Van Buren. Paddle Today keeps the same conservative 700 cfs minimum-only floor already used on the adjacent lower-Current routes because the numeric support is still community-calibrated rather than an official manager band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'NPS route shape',
+        value: 'Waymeyer to Big Spring, about 10.8 mi',
+        note: 'Current NPS float-times guidance lists Waymeyer to Raftyard at 1.7 miles, Raftyard to Van Buren at 4.8 miles, and Van Buren to Big Spring at 4.3 miles, which combine into an about 10.8-mile public lower Current route.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'NPS timing support',
+        value: 'About 5 hr total',
+        note: 'NPS lower-Current guidance lists Waymeyer to Van Buren at about 3 hours and Van Buren to Big Spring at about 2 hours, supporting a full lower-river day rather than a short out-and-back.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm',
+      },
+      {
+        label: 'Public endpoints',
+        value: 'Waymeyer and Big Spring upper landing',
+        note: 'NPS says Waymeyer remains a non-commercial floater access, and the park brochure plus compendium distinguish Big Spring upper as the Current River landing while reserving the lower boat ramp for trailered boats only.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 07067000 at 1,080 cfs / 3.01 ft',
+        note: 'Same-day USGS Water Services returned 1,080 cfs and 3.01 ft at 2026-07-11 00:30 CDT for Current River at Van Buren, the direct same-river gauge already used on the adjacent lower Current routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '700 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Van Buren gauge Good beginning around 700 cfs and provides route-family lower Current trip evidence. Paddle Today keeps only the conservative 700 cfs floor and does not infer an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+      },
+      {
+        label: 'Camping context',
+        value: 'Big Spring campground and day-use area',
+        note: 'The NPS park brochure lists Big Spring with campground, picnic, ranger-station, and river-access context, so the route can finish at a campground-supported landing even though private-bank camping should not be assumed en route.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '37.054302, -91.055459 to 36.9475519, -90.9901267',
+        note: 'Waymeyer uses the existing published paddling-access coordinate and Big Spring uses the existing USGS-topo-derived upper river access point already accepted for the adjacent lower Current route. Do not substitute the lower motorized-only ramp.',
+        sourceUrl: 'https://paddling.com/paddle/locations/waymeyer-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Ozark float times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle the Lower Current River',
+        url: 'https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark Superintendent Compendium',
+        url: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Waymeyer access update',
+        url: 'https://home.nps.gov/ozar/learn/news/update-on-river-access-areas-at-waymeyer-chilton-boat-launch-and-pin-oak.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Current River Van Buren gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07067000 Current River at Van Buren',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Paddling.com Waymeyer Access',
+        url: 'https://paddling.com/paddle/locations/waymeyer-access',
+        provider: 'local',
+      },
+      {
+        label: 'Big Spring River Access topo coordinate',
+        url: 'https://www.anyplaceamerica.com/directory/mo/carter-county-29035/locales/big-spring-river-access-741420/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'current-river-van-buren-gooseneck',
+    slug: 'current-river-van-buren-gooseneck',
+    name: 'Current River',
+    reach: 'Van Buren Riverfront Park to Gooseneck / Hawes Recreation Area',
+    aliases: [
+      'Lower Current River - Van Buren to Gooseneck',
+      'Current River - Van Buren to Gooseneck',
+      'Current River - Van Buren to Hawes',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Long lower Current River day from Van Buren to Gooseneck / Hawes near the river mouth. Current NPS mileage and float-time guidance support the section, and the direct Van Buren gauge gives a conservative low-water check.',
+    statusText:
+      'Use the Current River at Van Buren gauge. Around 700 cfs is the conservative low-water floor for this lower-Current cluster; below that, expect shallow shoals, slower travel, and a very long day. No ideal range or high cutoff is claimed.',
+    latitude: 36.9939,
+    longitude: -91.014,
+    gaugeSource: {
+      id: 'usgs-07067000',
+      provider: 'usgs',
+      siteId: '07067000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Current River at Van Buren, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 700,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Van Buren gauge rating and lower-Current trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS lists the Lower Current season as year-round, but this long downstream route gets much slower at low water and more consequential in flood conditions. Check NPS closure notices before leaving vehicles.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'NPS lower-Current guidance supports this route as approachable moving water at ordinary levels, but the 19-plus-mile shape, motorboat traffic, long pools, limited exits, private-bank issues, and end-of-river shuttle make it more committed than a short easy float.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only add: current NPS float-times guidance lists Van Buren to Big Spring at 4.3 miles / 2 hours, Big Spring to Cataract at 8.8 miles / 4 hours, and Cataract to Gooseneck at 6.2 miles / 3 hours, which together define an about 19.3-mile public lower-Current route to Gooseneck / Hawes. The NPS brochure still confirms Van Buren / Watercress Park, Big Spring, and Gooseneck / Hawes as named public accesses, with Hawes / Gooseneck also carrying primitive-camping context. Same-day USGS Water Services returned 1,080 cfs and 3.01 ft at 2026-07-11 00:30 CDT for direct gauge 07067000 at Van Buren. Paddle Today keeps only the existing conservative 700 cfs minimum-only floor because the numeric support remains community-calibrated rather than an official manager band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'NPS route shape',
+        value: 'Van Buren to Gooseneck, about 19.3 mi',
+        note: 'Current NPS float-times guidance lists Van Buren to Big Spring at 4.3 miles, Big Spring to Cataract at 8.8 miles, and Cataract to Gooseneck at 6.2 miles, which combine into an about 19.3-mile public lower Current route.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'NPS timing support',
+        value: 'About 8 hr total',
+        note: 'NPS lower-Current guidance lists Van Buren to Gooseneck as an about 8-hour route, matching the long committed day shape used here.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm',
+      },
+      {
+        label: 'Public endpoints',
+        value: 'Van Buren Riverfront Park to Gooseneck / Hawes',
+        note: 'MDC still confirms Van Buren Riverfront Park as a public launch, while the NPS brochure and Recreation.gov keep Gooseneck / Hawes as a named lower Current camping and river-access area.',
+        sourceUrl: 'https://www.recreation.gov/camping/poi/258899',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 07067000 at 1,080 cfs / 3.01 ft',
+        note: 'Same-day USGS Water Services returned 1,080 cfs and 3.01 ft at 2026-07-11 00:30 CDT for Current River at Van Buren, the direct same-river gauge already used on the adjacent lower Current routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '700 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Van Buren gauge Good beginning around 700 cfs and provides lower-Current trip evidence including the downstream Big-Spring-to-Gooseneck section. Paddle Today keeps only the conservative 700 cfs floor.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+      },
+      {
+        label: 'Camping context',
+        value: 'Primitive camping at Gooseneck / Hawes',
+        note: 'The NPS brochure marks Gooseneck / Hawes for primitive camping, picnic, river access, and boat access, and Recreation.gov corroborates Hawes Campground as a lower Current primitive-camping area.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '36.9939, -91.0140 to 36.8194989, -90.9470707',
+        note: 'Van Buren uses the existing practical ramp anchor from MDC context, and Gooseneck uses the existing USGS-topo-derived Hawes Recreation Area point already accepted on the adjacent lower Current route. Confirm the signed river landing on arrival.',
+        sourceUrl: 'https://www.anyplaceamerica.com/directory/mo/ripley-county-29181/parks/hawes-recreation-area-758920/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Ozark float times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle the Lower Current River',
+        url: 'https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark Superintendent Compendium',
+        url: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'MDC Van Buren Riverfront Park',
+        url: 'https://mdc.mo.gov/discover-nature/places/van-buren-riverfront-park',
+        provider: 'local',
+      },
+      {
+        label: 'Recreation.gov Hawes Campground',
+        url: 'https://www.recreation.gov/camping/poi/258899',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Current River Van Buren gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07067000 Current River at Van Buren',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Hawes Recreation Area topo coordinate',
+        url: 'https://www.anyplaceamerica.com/directory/mo/ripley-county-29181/parks/hawes-recreation-area-758920/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'current-river-waymeyer-gooseneck',
+    slug: 'current-river-waymeyer-gooseneck',
+    name: 'Current River',
+    reach: 'Waymeyer Access to Gooseneck / Hawes Recreation Area',
+    aliases: [
+      'Lower Current River - Waymeyer to Gooseneck',
+      'Current River - Waymeyer to Gooseneck',
+      'Current River - Waymeyer to Hawes',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Full lower Current River continuation from Waymeyer to Gooseneck / Hawes near the river mouth. Current NPS mileage and float-time guidance support the section, and the direct Van Buren gauge gives a conservative low-water check.',
+    statusText:
+      'Use the Current River at Van Buren gauge. Around 700 cfs is the conservative low-water floor for this lower-Current cluster; below that, expect shallow shoals, slower travel, and a very long day or overnight plan. No ideal range or high cutoff is claimed.',
+    latitude: 37.054302,
+    longitude: -91.055459,
+    gaugeSource: {
+      id: 'usgs-07067000',
+      provider: 'usgs',
+      siteId: '07067000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Current River at Van Buren, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 700,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Van Buren gauge rating and lower-Current trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS lists the Lower Current season as year-round, but this full continuation is long enough that low summer water, heat, headwinds, and crowded landings can turn it into an overnight or very slow day. High or rising water can trigger closures and make the take-outs harder to judge.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The water itself is generally approachable at ordinary lower-Current levels, but the 25-plus-mile shape, motorboat traffic, private-bank issues, few easy exits, and end-of-river logistics make this a committed route that exceeds a casual short float.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only add: current NPS float-times guidance lists Waymeyer to Raftyard at 1.7 miles / 0.5 hour, Raftyard to Van Buren at 4.8 miles / 2 hours, Van Buren to Big Spring at 4.3 miles / 2 hours, Big Spring to Cataract at 8.8 miles / 4 hours, and Cataract to Gooseneck at 6.2 miles / 3 hours, which together define an about 25.8-mile public lower-Current continuation from Waymeyer to Gooseneck / Hawes. NPS and Recreation.gov still support the access chain and primitive-camping context at the downstream finish. Same-day USGS Water Services returned 1,080 cfs and 3.01 ft at 2026-07-11 00:30 CDT for direct gauge 07067000 at Van Buren. Paddle Today keeps only the existing conservative 700 cfs minimum-only floor because the numeric support remains community-calibrated rather than an official manager band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'NPS route shape',
+        value: 'Waymeyer to Gooseneck, about 25.8 mi',
+        note: 'Current NPS float-times guidance lists Waymeyer to Raftyard at 1.7 miles, Raftyard to Van Buren at 4.8 miles, Van Buren to Big Spring at 4.3 miles, Big Spring to Cataract at 8.8 miles, and Cataract to Gooseneck at 6.2 miles, which combine into an about 25.8-mile public lower Current continuation.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'NPS timing support',
+        value: 'About 11 hr total',
+        note: 'NPS lower-Current guidance lists Waymeyer to Van Buren at about 3 hours and Van Buren to Gooseneck at about 8 hours, supporting a very long full-continuation route rather than a casual short float.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm',
+      },
+      {
+        label: 'Public endpoints',
+        value: 'Waymeyer to Gooseneck / Hawes',
+        note: 'NPS still supports Waymeyer as a lower-Current floater access, and the park brochure plus Recreation.gov keep Gooseneck / Hawes as a named public lower-Current access with primitive camping context.',
+        sourceUrl: 'https://www.recreation.gov/camping/poi/258899',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 07067000 at 1,080 cfs / 3.01 ft',
+        note: 'Same-day USGS Water Services returned 1,080 cfs and 3.01 ft at 2026-07-11 00:30 CDT for Current River at Van Buren, the direct same-river gauge already used on the adjacent lower Current routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '700 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Van Buren gauge Good beginning around 700 cfs and provides lower-Current trip evidence across the downstream family. Paddle Today keeps only the conservative 700 cfs floor.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+      },
+      {
+        label: 'Camping context',
+        value: 'Primitive camping at Gooseneck / Hawes',
+        note: 'The NPS brochure and Recreation.gov both describe Gooseneck / Hawes with primitive camping context, which makes the downstream finish the clearest legal overnight support point for this long continuation.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '37.054302, -91.055459 to 36.8194989, -90.9470707',
+        note: 'Waymeyer uses the existing published paddling-access coordinate and Gooseneck uses the existing USGS-topo-derived Hawes Recreation Area point already accepted on the adjacent lower Current route. Confirm the signed access layout on arrival.',
+        sourceUrl: 'https://www.anyplaceamerica.com/directory/mo/ripley-county-29181/parks/hawes-recreation-area-758920/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Ozark float times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle the Lower Current River',
+        url: 'https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark Superintendent Compendium',
+        url: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Waymeyer access update',
+        url: 'https://home.nps.gov/ozar/learn/news/update-on-river-access-areas-at-waymeyer-chilton-boat-launch-and-pin-oak.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Recreation.gov Hawes Campground',
+        url: 'https://www.recreation.gov/camping/poi/258899',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Current River Van Buren gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07067000 Current River at Van Buren',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Paddling.com Waymeyer Access',
+        url: 'https://paddling.com/paddle/locations/waymeyer-access',
+        provider: 'local',
+      },
+      {
+        label: 'Hawes Recreation Area topo coordinate',
+        url: 'https://www.anyplaceamerica.com/directory/mo/ripley-county-29181/parks/hawes-recreation-area-758920/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'eleven-point-river-cane-bluff-greer-crossing',
     slug: 'eleven-point-river-cane-bluff-greer-crossing',
     name: 'Eleven Point River',

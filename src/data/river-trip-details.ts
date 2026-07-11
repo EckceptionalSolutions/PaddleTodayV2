@@ -8392,6 +8392,113 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'current-river-waymeyer-big-spring': {
+    putIn: {
+      name: 'Waymeyer Access',
+      latitude: 37.054302,
+      longitude: -91.055459,
+    },
+    takeOut: {
+      name: 'Big Spring Upper River Landing',
+      latitude: 36.9475519,
+      longitude: -90.9901267,
+    },
+    logistics: {
+      distanceLabel: 'About 10.8 mi',
+      estimatedPaddleTime: 'About 5 hr, longer with low water, stops, wind, crowds, or motorboat traffic',
+      shuttle:
+        'Stage the take-out in the Big Spring river-access/campground area before driving back north to Waymeyer. Inspect the signed access layout at both ends because Waymeyer can be crowded and eroded and Big Spring has separate upper and lower boat-ramp areas.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules at both accesses, Missouri boating laws, no-glass/no-polystyrene rules, and any posted NPS closure or access notices.',
+      camping:
+        'This can work as a long day float, but the clearest formal camping support is at Big Spring after the take-out. Do not assume private banks or informal gravel bars are legal overnight stops without a separate plan and current NPS rules.',
+      summary:
+        'Launch at Waymeyer and finish at the Big Spring upper river landing for a longer lower Current River day. Use the direct Van Buren gauge as a conservative low-water check and expect the same busier, more motorized lower-river character as the adjacent split sections.',
+      accessCaveats: [
+        'NPS has described Waymeyer as a non-commercial floater access while warning about erosion and limited safe unloading room on summer weekends. Follow current NPS signs and avoid blocking the access.',
+        'NPS distinguishes Big Spring (upper) as a Current River landing from Big Spring Boat Ramp (lower), which is trailered boats only with no floater access. Confirm the signed upper landing before leaving a vehicle.',
+        'The Big Spring coordinate is the existing USGS-topo-derived upper river access point already used in the adjacent route, not the spring overlook, natural-area point, or lower motorized-only ramp.',
+      ],
+      watchFor: [
+        'Shallow shoals, scraping, and slower travel when the Van Buren gauge is near or below the 700 cfs conservative floor.',
+        'Motorboat wakes, summer crowds, tubes, slick ramps, swimmers, fishing lines, and crowded loading at Waymeyer, Van Buren, and Big Spring.',
+        'High or rising water, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.',
+        'Private banks, limited cell service outside Van Buren, and confusion between the Big Spring upper landing and the lower motorized-only ramp.',
+      ],
+    },
+  },
+  'current-river-van-buren-gooseneck': {
+    putIn: {
+      name: 'Van Buren Riverfront Park Access',
+      latitude: 36.9939,
+      longitude: -91.014,
+    },
+    takeOut: {
+      name: 'Gooseneck / Hawes Recreation Area',
+      latitude: 36.8194989,
+      longitude: -90.9470707,
+    },
+    logistics: {
+      distanceLabel: 'About 19.3 mi',
+      estimatedPaddleTime: 'About 8 hr, longer with low water, stops, wind, crowds, or motorboat traffic',
+      shuttle:
+        'Stage the take-out at Gooseneck / Hawes before driving back to Van Buren Riverfront Park. This is a long lower-river shuttle, so verify roads, parking, daylight, and the signed river landing before launching.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, campground and day-use rules at Gooseneck / Hawes, Van Buren cooperative-area rules, Missouri boating laws, and any posted NPS closure or access notices.',
+      camping:
+        'Plan this as a very long day or an intentionally staged overnight. Gooseneck / Hawes has primitive NPS campground context at the finish, but campsite availability, closures, fees, and river conditions can change.',
+      summary:
+        'Launch at Van Buren Riverfront Park and finish at Gooseneck / Hawes for a long lower Current River continuation. Use the direct Van Buren gauge as a conservative low-water check and expect motorboats, long pool sections, limited exits, and end-of-river logistics.',
+      accessCaveats: [
+        'Van Buren Riverfront Park is MDC-listed under a cooperative agreement rather than MDC-owned land; posted city or owner rules may apply beyond the MDC-listed boating regulations.',
+        'NPS materials use both Gooseneck and Hawes naming for the downstream endpoint. Confirm the signed Gooseneck / Hawes river access before leaving a vehicle.',
+        'The Gooseneck coordinate is the existing USGS-topo-derived Hawes Recreation Area point already used by the adjacent route, not an official NPS GIS landing table.',
+        'This route ends near the Current River mouth. Do not continue onto the Black River or other downstream big-river water without a separate plan.',
+      ],
+      watchFor: [
+        'Shallow shoals, scraping, and a slower all-day float when the Van Buren gauge is near or below the 700 cfs conservative floor.',
+        'Motorboat wakes, long pool sections, wind, summer crowds, tubes, slick landings, swimmers, fishing lines, and crowded access areas.',
+        'High or rising water, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.',
+        'Private banks, limited cell service, few easy exits, and confusion between Gooseneck and Hawes naming at the take-out.',
+      ],
+    },
+  },
+  'current-river-waymeyer-gooseneck': {
+    putIn: {
+      name: 'Waymeyer Access',
+      latitude: 37.054302,
+      longitude: -91.055459,
+    },
+    takeOut: {
+      name: 'Gooseneck / Hawes Recreation Area',
+      latitude: 36.8194989,
+      longitude: -90.9470707,
+    },
+    logistics: {
+      distanceLabel: 'About 25.8 mi',
+      estimatedPaddleTime: 'About 11 hr, longer with low water, stops, wind, crowds, or motorboat traffic',
+      shuttle:
+        'Stage the take-out at Gooseneck / Hawes before driving north to Waymeyer. This is the full lower-Current continuation, so verify access hours, parking, daylight, and whether you are treating it as a very long day or a staged overnight.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, campground and day-use rules at Gooseneck / Hawes, Missouri boating laws, no-glass/no-polystyrene rules, and any posted NPS closure or access notices.',
+      camping:
+        'Do not treat this as casual roadside gravel-bar camping. The clearest legal overnight support is the primitive camping context at Gooseneck / Hawes or a separate compliant plan made before launch.',
+      summary:
+        'Launch at Waymeyer and finish at Gooseneck / Hawes for the full public lower Current continuation. Use the direct Van Buren gauge as a conservative low-water check and plan for a very long day or staged overnight with motorboats, long pools, limited exits, and end-of-river logistics.',
+      accessCaveats: [
+        'NPS has described Waymeyer as a non-commercial floater access while warning about erosion and limited unloading room on summer weekends. Follow current NPS signs and avoid blocking the access.',
+        'NPS materials use both Gooseneck and Hawes naming for the downstream endpoint. Confirm the signed river landing before leaving a vehicle.',
+        'The Gooseneck coordinate is the existing USGS-topo-derived Hawes Recreation Area point already used by the adjacent route, not an official NPS GIS landing table.',
+        'This route passes the lower Current access chain and ends near the river mouth. Do not continue onto the Black River without a separate plan.',
+      ],
+      watchFor: [
+        'Shallow shoals, scraping, and an exceptionally long day when the Van Buren gauge is near or below the 700 cfs conservative floor.',
+        'Motorboat wakes, long pool sections, wind, summer crowds, tubes, slick landings, swimmers, fishing lines, and crowded access areas.',
+        'High or rising water, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.',
+        'Private banks, limited cell service, few easy exits, heat exposure, and fatigue if trying to force the full continuation into one day.',
+      ],
+    },
+  },
   'eleven-point-river-cane-bluff-greer-crossing': {
     putIn: {
       name: 'Cane Bluff River Access',
