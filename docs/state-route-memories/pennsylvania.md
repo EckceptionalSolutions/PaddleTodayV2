@@ -11,6 +11,14 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Current Pennsylvania candidate ledger rows: 50 implemented rows as of 2026-06-25 UTC.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
+## 2026-07-10 Yellow Breeches continuation pass
+
+- 2026-07-10 23:20 America/Chicago / 2026-07-11 04:20 UTC: Pennsylvania three-route implementation pass; added three more Yellow Breeches Creek slugs beyond the live repo baseline at run start.
+- Implemented `yellow-breeches-creek-simpson-park-liberty-forge`, `yellow-breeches-creek-simpson-park-yellow-breeches-park`, and `yellow-breeches-creek-mccormick-park-yellow-breeches-park`.
+- Qualification package: Cumberland County still publishes the Yellow Breeches water-trails page with Camp Hill guidance of `1.4-2.0 ft`, `6 ft` action stage, `7 ft` flood stage, and the active advisory that a large fallen tree/logjam completely blocks the creek upstream of B7 / Slate Hill Road and that paddlers should use B6 Yellow Breeches Park instead. The county story map still publishes exact access coordinates and route-piece mileages for Simpson Park, McCormick Park, Lower Allen Community Park, Liberty Forge, and Yellow Breeches Park, which support the new `5.2`, `7.1`, and `6.0` mile combinations. Same-day USGS Water Services returned `149 cfs / 1.26 ft` at `2026-07-10 23:45 EDT` for proxy gauge USGS `01571500`, below the county floor, so all three routes ship with explicit scrape-prone low-water framing instead of comfort language.
+- Camping stays `on_route_campsite` for all three because Lower Allen Community Park remains an official on-route reservation campground, but the new route finishes themselves do not imply open corridor camping elsewhere on the creek.
+- No gallery image was added. Bounded Commons, county-storymap/county-site, and same-creek USGS image review still did not produce a clearly rights-clean exact-route asset for local reuse.
+
 ## 2026-07-10 Conodoguinet re-add pass
 
 - 2026-07-10 15:32 America/Chicago / 2026-07-10 20:32 UTC: Pennsylvania three-route implementation pass; restored three Conodoguinet Creek slugs beyond the live 433-route baseline at run start.

@@ -49028,6 +49028,366 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'yellow-breeches-creek-simpson-park-liberty-forge',
+    slug: 'yellow-breeches-creek-simpson-park-liberty-forge',
+    name: 'Yellow Breeches Creek',
+    reach: 'Simpson Park to Liberty Forge',
+    aliases: [
+      'Yellow Breeches Creek - Simpson Park to Liberty Forge',
+      'Yellow Breeches Creek - Bowmansdale to Old Forge Road',
+      'Yellow Breeches Creek upper-middle continuation',
+    ],
+    state: 'Pennsylvania',
+    region: 'South Central Pennsylvania',
+    summary:
+      'Longer upper-middle Yellow Breeches day from Simpson Park to the public Liberty Forge bridge access. Cumberland County still documents the full access chain, the bridge-side public-use terms at Liberty Forge, and the Camp Hill gauge guidance used for the whole trail.',
+    statusText:
+      'Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.26 ft at 2026-07-10 23:45 EDT, so expect frequent scraping and slower pool-to-riffle progress rather than a smooth beginner green-light.',
+    latitude: 40.164151,
+    longitude: -76.976192,
+    gaugeSource: {
+      id: 'usgs-01571500',
+      provider: 'usgs',
+      siteId: '01571500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Yellow Breeches Creek near Camp Hill, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01571500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Cumberland County says Yellow Breeches conditions can change quickly and that paddlers should check the Camp Hill gauge before every outing.',
+        'Liberty Forge is a public boating access only at the Old Forge Road bridge area; follow posted access rules and do not treat the golf-resort grounds as an unrestricted take-out zone.',
+        'The county currently warns of a full blockage near B7 farther downstream, so do not assume a safe continuation beyond the intended bridge-side finish.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1.4,
+      idealMax: 2.0,
+      tooLow: 1.4,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'Cumberland County Yellow Breeches Camp Hill gauge guidance',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through early fall is the clearest fit, but summer thunderstorms can raise this small creek quickly and low summer water can turn even a moderate day into a scrape-and-drag outing.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is easy moving water in ordinary conditions, but the longer distance, shallow low-water bends, bridge-side finish, and limited legal bailout options make it more serious than the shortest township segments.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Simpson Park and Liberty Forge as named public Yellow Breeches access points, and the county story map still gives exact endpoint coordinates plus the 1.1-mile Simpson-to-McCormick, 3.6-mile McCormick-to-Lower-Allen, and 0.5-mile Lower-Allen-to-Liberty legs that define this 5.2-mile route. The story map also still says the public may access the creek for boating at the Old Forge Road bridge at Liberty Forge while following posted rules. The county still recommends boating at 1.4 to 2.0 ft on the Camp Hill gauge, and same-day USGS Water Services returned 149 cfs and 1.26 ft at 2026-07-10 23:45 EDT for USGS 01571500.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Simpson Park to Liberty Forge, about 5.2 mi',
+        note: 'The county story map lists Simpson Park to McCormick Park as 1.1 miles, McCormick Park to Lower Allen Community Park as 3.6 miles, and Lower Allen Community Park to Liberty Forge as 0.5 miles.',
+        sourceUrl: 'https://gis.ccpa.net/storymaps/yellowbreeches/',
+      },
+      {
+        label: 'Public endpoint coordinates',
+        value: '40.164151, -76.976192 to 40.177495, -76.924172',
+        note: 'Cumberland County still publishes Simpson Park and Liberty Forge as official Yellow Breeches access points with those coordinates.',
+        sourceUrl: 'https://gis.ccpa.net/storymaps/yellowbreeches/',
+      },
+      {
+        label: 'Public-use access terms',
+        value: 'Bridge-side boating access at Liberty Forge',
+        note: 'The county story map says the public may access the creek for boating at the bridge at Old Forge Road, with parking at the miniature-golf area and posted access rules controlling use.',
+        sourceUrl: 'https://gis.ccpa.net/storymaps/yellowbreeches/',
+      },
+      {
+        label: 'Official same-creek proxy gauge',
+        value: 'USGS 01571500 at 149 cfs / 1.26 ft',
+        note: 'USGS Water Services returned same-day 2026-07-10 values of 149 cfs and 1.26 ft for Yellow Breeches Creek near Camp Hill at 23:45 EDT.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01571500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Official level guidance',
+        value: 'Recommended 1.4 to 2.0 ft; action stage 6 ft; flood stage 7 ft',
+        note: 'Cumberland County says the Camp Hill gauge should read between 1.4 and 2.0 feet for boating, with action stage at 6 feet and flood stage at 7 feet.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Cumberland County Water Trails',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      {
+        label: 'Yellow Breeches story map',
+        url: 'https://gis.ccpa.net/storymaps/yellowbreeches/',
+        provider: 'local',
+      },
+      {
+        label: 'PFBC Water Trail Guides and Maps',
+        url: 'https://pfbc.pa.gov/WaterTrail.htm',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01571500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-01571500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01571500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01571500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'yellow-breeches-creek-simpson-park-yellow-breeches-park',
+    slug: 'yellow-breeches-creek-simpson-park-yellow-breeches-park',
+    name: 'Yellow Breeches Creek',
+    reach: 'Simpson Park to Yellow Breeches Park',
+    aliases: [
+      'Yellow Breeches Creek - Simpson Park to Yellow Breeches Park',
+      'Yellow Breeches Creek - Bowmansdale to Sheepford Road',
+      'Yellow Breeches Creek long B6 continuation',
+    ],
+    state: 'Pennsylvania',
+    region: 'South Central Pennsylvania',
+    summary:
+      'Longest currently shippable Yellow Breeches public day from Simpson Park to Yellow Breeches Park. Cumberland County still documents the full access chain, the Camp Hill gauge guidance, and the current B6 finish that stays above the posted B7 blockage.',
+    statusText:
+      'Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.26 ft at 2026-07-10 23:45 EDT, so treat this as a scrape-prone low-water outing rather than a broad green-light.',
+    latitude: 40.164151,
+    longitude: -76.976192,
+    gaugeSource: {
+      id: 'usgs-01571500',
+      provider: 'usgs',
+      siteId: '01571500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Yellow Breeches Creek near Camp Hill, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01571500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Cumberland County says Yellow Breeches conditions can change quickly and that paddlers should check the Camp Hill gauge before every outing.',
+        'The county currently warns of a complete blockage just upstream of B7 / Slate Hill Road and recommends taking out at B6 Yellow Breeches Park instead, which is why this route stops there.',
+        'Stay with named public launches and do not treat the B7 dam-portage area or private banks downstream as a routine continuation.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1.4,
+      idealMax: 2.0,
+      tooLow: 1.4,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'Cumberland County Yellow Breeches Camp Hill gauge guidance',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through early fall is the clearest fit, but summer thunderstorms can raise this small creek quickly and low summer water can turn a longer route into a scratchy, slower day.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is easy moving water in ordinary conditions, but seven-plus miles, low-water scrape potential, wood movement after storms, and the need to stop before the posted downstream hazard make it a real day plan rather than a casual drift.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Simpson Park and Yellow Breeches Park as named public Yellow Breeches access points, and the county story map still gives exact endpoint coordinates plus the 1.1-mile Simpson-to-McCormick, 3.6-mile McCormick-to-Lower-Allen, 0.5-mile Lower-Allen-to-Liberty, and 1.9-mile Liberty-to-Yellow-Breeches legs that define this 7.1-mile route. The county still recommends boating at 1.4 to 2.0 ft on the Camp Hill gauge, same-day USGS Water Services returned 149 cfs and 1.26 ft at 2026-07-10 23:45 EDT for USGS 01571500, and the current county advisory explicitly recommends B6 as the safer downstream finish because of the blockage above B7.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Simpson Park to Yellow Breeches Park, about 7.1 mi',
+        note: 'The county story map lists Simpson Park to McCormick Park as 1.1 miles, McCormick Park to Lower Allen Community Park as 3.6 miles, Lower Allen Community Park to Liberty Forge as 0.5 miles, and Liberty Forge to Yellow Breeches Park as 1.9 miles.',
+        sourceUrl: 'https://gis.ccpa.net/storymaps/yellowbreeches/',
+      },
+      {
+        label: 'Public endpoint coordinates',
+        value: '40.164151, -76.976192 to 40.183811, -76.912682',
+        note: 'Cumberland County still publishes Simpson Park and Yellow Breeches Park as official Yellow Breeches access points with those coordinates.',
+        sourceUrl: 'https://gis.ccpa.net/storymaps/yellowbreeches/',
+      },
+      {
+        label: 'Official same-creek proxy gauge',
+        value: 'USGS 01571500 at 149 cfs / 1.26 ft',
+        note: 'USGS Water Services returned same-day 2026-07-10 values of 149 cfs and 1.26 ft for Yellow Breeches Creek near Camp Hill at 23:45 EDT.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01571500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Official level guidance',
+        value: 'Recommended 1.4 to 2.0 ft; action stage 6 ft; flood stage 7 ft',
+        note: 'Cumberland County says the Camp Hill gauge should read between 1.4 and 2.0 feet for boating, with action stage at 6 feet and flood stage at 7 feet.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+      },
+      {
+        label: 'Current finish rationale',
+        value: 'County recommends B6 instead of continuing toward B7',
+        note: 'The county page currently warns that a large fallen tree and logjam completely block the creek upstream of the Slate Hill Road take-out and specifically recommends taking out at B6 Yellow Breeches Park to avoid the hazard.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Cumberland County Water Trails',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      {
+        label: 'Yellow Breeches story map',
+        url: 'https://gis.ccpa.net/storymaps/yellowbreeches/',
+        provider: 'local',
+      },
+      {
+        label: 'PFBC Water Trail Guides and Maps',
+        url: 'https://pfbc.pa.gov/WaterTrail.htm',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01571500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-01571500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01571500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01571500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'yellow-breeches-creek-mccormick-park-yellow-breeches-park',
+    slug: 'yellow-breeches-creek-mccormick-park-yellow-breeches-park',
+    name: 'Yellow Breeches Creek',
+    reach: 'McCormick Park to Yellow Breeches Park',
+    aliases: [
+      'Yellow Breeches Creek - McCormick Park to Yellow Breeches Park',
+      'Yellow Breeches Creek - Mechanicsburg to Sheepford Road',
+      'Yellow Breeches Creek middle-lower continuation',
+    ],
+    state: 'Pennsylvania',
+    region: 'South Central Pennsylvania',
+    summary:
+      'Middle-lower Yellow Breeches continuation from McCormick Park to Yellow Breeches Park. Cumberland County still documents the full access chain, the bridge-side Liberty Forge public-use terms, and the B6 finish that stays above the current downstream blockage.',
+    statusText:
+      'Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.26 ft at 2026-07-10 23:45 EDT, so expect scrape-prone shallows and slower-than-normal travel.',
+    latitude: 40.165436,
+    longitude: -76.95508,
+    gaugeSource: {
+      id: 'usgs-01571500',
+      provider: 'usgs',
+      siteId: '01571500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Yellow Breeches Creek near Camp Hill, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01571500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Cumberland County classifies Yellow Breeches as Class I-II moving water and says flow conditions can change rapidly.',
+        'Liberty Forge is a public boating access only at the Old Forge Road bridge area; follow posted access rules and do not treat the golf-resort grounds as an unrestricted stop or take-out.',
+        'The county currently warns of a complete blockage just upstream of B7 / Slate Hill Road and recommends taking out at B6 Yellow Breeches Park instead.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1.4,
+      idealMax: 2.0,
+      tooLow: 1.4,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'Cumberland County Yellow Breeches Camp Hill gauge guidance',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Warm-season windows are the easiest fit, but the creek is quick to rise after thunderstorms and quick to get scratchy when the Camp Hill proxy falls below the county floor.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route is approachable at normal summer levels, but six miles of moving water, low-water scraping, fresh wood, and the need to finish before the posted downstream hazard keep it from being a mindless drift.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes McCormick Park and Yellow Breeches Park as named public Yellow Breeches access points, and the county story map still gives exact endpoint coordinates plus the 3.6-mile McCormick-to-Lower-Allen, 0.5-mile Lower-Allen-to-Liberty, and 1.9-mile Liberty-to-Yellow-Breeches legs that define this 6.0-mile route. The story map also still says the public may access the creek for boating at the Old Forge Road bridge at Liberty Forge while following posted rules. The county still recommends boating at 1.4 to 2.0 ft on the Camp Hill gauge, same-day USGS Water Services returned 149 cfs and 1.26 ft at 2026-07-10 23:45 EDT for USGS 01571500, and the current county advisory explicitly recommends B6 as the safer downstream finish because of the blockage above B7.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'McCormick Park to Yellow Breeches Park, about 6.0 mi',
+        note: 'The county story map lists McCormick Park to Lower Allen Community Park as 3.6 miles, Lower Allen Community Park to Liberty Forge as 0.5 miles, and Liberty Forge to Yellow Breeches Park as 1.9 miles.',
+        sourceUrl: 'https://gis.ccpa.net/storymaps/yellowbreeches/',
+      },
+      {
+        label: 'Public endpoint coordinates',
+        value: '40.165436, -76.955080 to 40.183811, -76.912682',
+        note: 'Cumberland County still publishes McCormick Park and Yellow Breeches Park as official Yellow Breeches access points with those coordinates.',
+        sourceUrl: 'https://gis.ccpa.net/storymaps/yellowbreeches/',
+      },
+      {
+        label: 'Public-use access terms',
+        value: 'Bridge-side boating access at Liberty Forge',
+        note: 'The county story map says the public may access the creek for boating at the bridge at Old Forge Road, with parking at the miniature-golf area and posted access rules controlling use.',
+        sourceUrl: 'https://gis.ccpa.net/storymaps/yellowbreeches/',
+      },
+      {
+        label: 'Official same-creek proxy gauge',
+        value: 'USGS 01571500 at 149 cfs / 1.26 ft',
+        note: 'USGS Water Services returned same-day 2026-07-10 values of 149 cfs and 1.26 ft for Yellow Breeches Creek near Camp Hill at 23:45 EDT.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01571500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Current finish rationale',
+        value: 'County recommends B6 instead of continuing toward B7',
+        note: 'The county page currently warns that a large fallen tree and logjam completely block the creek upstream of the Slate Hill Road take-out and specifically recommends taking out at B6 Yellow Breeches Park to avoid the hazard.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Cumberland County Water Trails',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      {
+        label: 'Yellow Breeches story map',
+        url: 'https://gis.ccpa.net/storymaps/yellowbreeches/',
+        provider: 'local',
+      },
+      {
+        label: 'PFBC Water Trail Guides and Maps',
+        url: 'https://pfbc.pa.gov/WaterTrail.htm',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01571500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-01571500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01571500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01571500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
 
 
 
