@@ -8534,6 +8534,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'eleven-point-river-cane-bluff-turner-mill': {
+    putIn: {
+      name: 'Cane Bluff River Access',
+      latitude: 36.796246,
+      longitude: -91.405675,
+    },
+    takeOut: {
+      name: 'Turner Mill South River Access',
+      latitude: 36.76456,
+      longitude: -91.26653037,
+    },
+    logistics: {
+      distanceLabel: 'About 12.2 mi by Forest Service river miles',
+      estimatedPaddleTime: 'About 5.5 hr to 8 hr depending on level, breaks, and shuttle timing',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Cane Bluff and Turner Mill South. Both accesses use rural Forest Service roads, so inspect the Turner side before committing and confirm you are staging at the river-right South landing rather than the separate North day-use area.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, no-glass/no-polystyrene river rules, campground and day-use rules, and posted parking signs.',
+      camping:
+        'Cane Bluff allows dispersed camping and Turner Mill South has limited dispersed campsites, but treat this as a day float unless you have checked current Forest Service rules and built a separate legal overnight plan.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Cane Bluff and take out at Turner Mill South for a longer Eleven Point day that starts on the smaller upper river and finishes on the more dependable Greer Spring-supported flow. Use the Bardley gauge as a conservative low-water check, then make a same-day visual call at the launch.',
+      accessCaveats: [
+        'Cane Bluff and Turner Mill South are official Forest Service river accesses with published coordinates, but road conditions, parking limits, and site rules can change after storms.',
+        'The Bardley gauge is downstream of the upper half, so Cane Bluff-to-Greer can still feel shallower and slower than the gauge alone suggests even when the Turner half improves below Greer Spring.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'Shallow riffles, scraping, and occasional short portages above Greer Spring when the Bardley gauge is near the 300 cfs floor.',
+        'Mary Decker Shoal, fresh wood, blind bends, and rapid rises after rain on a long route with limited easy exits.',
+        'Cold spring-fed water below Greer, motorized users under the 25 hp limit, and Turner Mill North versus Turner Mill South take-out confusion at the finish.',
+      ],
+    },
+  },
   'eleven-point-river-thomasville-cane-bluff': {
     putIn: {
       name: 'Thomasville River Access',
@@ -8600,6 +8635,76 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Mary Decker Shoal and shallow bouldery spots, especially when the Bardley gauge is near the 300 cfs floor.',
         'Cold spring-fed water, rapid rises after rain, fresh wood, blind bends, and remote-feeling gaps between accesses.',
         'Motorized users are allowed on this part of the National Wild and Scenic River under the 25 hp limit.',
+      ],
+    },
+  },
+  'eleven-point-river-greer-crossing-whitten': {
+    putIn: {
+      name: 'Greer Crossing Recreation Area',
+      latitude: 36.79356389,
+      longitude: -91.32854167,
+    },
+    takeOut: {
+      name: 'Whitten River Access',
+      latitude: 36.732356,
+      longitude: -91.214837,
+    },
+    logistics: {
+      distanceLabel: 'About 11 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr depending on level, stops, and shuttle timing',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Greer Crossing and Whitten. Both approaches use rural Forest Service roads, and the Whitten descent is steep enough that it is worth scouting before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, campground and day-use restrictions, no-glass/no-polystyrene river rules, and posted parking signs.',
+      camping:
+        'Greer Crossing has campground facilities, but treat this as a day float unless you have a separate legal overnight plan that uses designated float camps or another approved camping option.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Greer Crossing and take out at Whitten for a longer spring-fed Eleven Point run through the Blue and White Ribbon trout water. Use the Bardley gauge as a conservative low-water check, then make a same-day visual call at the launch.',
+      accessCaveats: [
+        'Greer Crossing and Whitten are official Forest Service river accesses with published coordinates, but road, parking, campground, and site rules can change.',
+        'This is longer than the split sections and still has limited easy exits. Treat the 11-mile distance, shuttle timing, and weather as part of the go or no-go decision.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'Mary Decker Shoal, shallow shoals, and occasional dragging when the Bardley gauge falls near the 300 cfs floor.',
+        'Cold spring-fed water, fresh wood, blind bends, and rapid rises after rain.',
+        'Motorized users under the 25 hp limit and weekend congestion near Greer or Whitten.',
+      ],
+    },
+  },
+  'eleven-point-river-greer-crossing-riverton': {
+    putIn: {
+      name: 'Greer Crossing Recreation Area',
+      latitude: 36.79356389,
+      longitude: -91.32854167,
+    },
+    takeOut: {
+      name: 'Riverton East River Access / Highway 160',
+      latitude: 36.649183,
+      longitude: -91.199614,
+    },
+    logistics: {
+      distanceLabel: 'About 19 mi',
+      estimatedPaddleTime: 'About 8 hr to 11 hr depending on level, stops, wind, and group pace',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Greer Crossing and Riverton East at Highway 160. Inspect the take-out before launching because this is a long route and Riverton East is the cleaner river-left finish just above the bridge.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, campground and day-use restrictions, no-glass/no-polystyrene river rules, Missouri boating rules, and posted parking signs.',
+      camping:
+        'Greer Crossing has campground facilities, but Riverton East is day-use only. Treat this as a long day float or a separate overnight plan using designated float camps or another legal camping option rather than assuming riverbank camping is allowed.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Greer Crossing and take out at Riverton East for a long lower Eleven Point day that the Forest Service also frames as an excellent easy overnighter. Use the Bardley gauge as a conservative low-water check and keep extra margin for distance, weather, and cold water.',
+      accessCaveats: [
+        'Greer Crossing and Riverton East are official Forest Service river accesses with published coordinates, but road, parking, campground, and day-use rules can change.',
+        'Riverton East is the river-left take-out just above Highway 160; Riverton West is a separate day-use area on river right and is not the default finish for this route.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'A full-day commitment, slow shoals and occasional scraping when the Bardley gauge is near the 300 cfs floor, and wind or fatigue on the long middle miles.',
+        'Mary Decker Shoal early in the route, then cold spring-fed water, fresh wood, blind bends, and rapid rises after rain.',
+        'Halls Bay near the end of the route, weekend traffic, and motorized users under the 25 hp limit.',
       ],
     },
   },

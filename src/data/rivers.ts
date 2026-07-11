@@ -26230,6 +26230,148 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'eleven-point-river-cane-bluff-turner-mill',
+    slug: 'eleven-point-river-cane-bluff-turner-mill',
+    name: 'Eleven Point River',
+    reach: 'Cane Bluff River Access to Turner Mill South River Access',
+    aliases: [
+      'Eleven Point River - Cane Bluff to Turner Mill',
+      'Upper Eleven Point - Cane Bluff to Turner',
+      'Eleven Point National Scenic River - Cane Bluff to Turner Mill South',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Upper-to-mid Eleven Point day from Cane Bluff to Turner Mill South, linking the smaller upper river to the more dependable Greer Spring-supported flow with official Forest Service access at both ends.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge as a conservative low-water check. Around 300 cfs remains the floor; below that, expect more scraping and occasional short portages above Greer Spring even if the Turner half still has better spring support. No exact high-water cutoff is claimed.',
+    latitude: 36.796246,
+    longitude: -91.405675,
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'The first half above Greer Spring is still the smaller upper Eleven Point, so the Bardley gauge can overstate how easy the Cane Bluff side will feel near the 300 cfs floor.',
+        'Greer Spring boosts the lower half, but this longer route still includes blind bends, fresh wood risk after rain, Mary Decker Shoal, and limited easy exits between public accesses.',
+        'Use only the named Forest Service accesses. Turner Mill North and Turner Mill South are separate landings, and private banks between them are not substitutes for a planned take-out.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and Cane Bluff-to-Turner trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This longer route starts on the small upper river above Greer Spring and finishes on the more dependable spring-fed section to Turner Mill South. The Bardley gauge remains a conservative same-river estimate rather than a perfect on-reach reading for the Cane Bluff half.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Expect upper-river shallows and occasional dragging before Greer Spring, then a colder spring-fed run with shoals and Mary Decker Shoal near Turner Mill South. The route is still mostly Class I-style Ozark water, but it is longer and more remote than the split sections.',
+      confidenceNotes:
+        'Confidence is good for a conservative Eleven Point continuation: current Forest Service pages still show Cane Bluff and Turner Mill South open with published coordinates, river-mile notes place Cane Bluff at mile 9.3 and Turner Mill at mile 21.5, same-day USGS 07071500 returned official Bardley values during this run, and current Rivers.MOHERP Bardley rows still support the familiar 300 cfs minimum-only floor with exact same-corridor trip evidence. The app keeps the threshold model conservative because the route-specific numeric support remains community-calibrated rather than an official paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Cane Bluff to Turner Mill South, about 12.2 river miles',
+        note: 'Forest Service river-mile notes place Cane Bluff at mile 9.3 from Thomasville and Turner Mill Access at mile 21.5, supporting this combined public segment through Greer Crossing and Mary Decker Shoal.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Cane Bluff River Access',
+        note: 'The Forest Service lists Cane Bluff as open and identifies it as the first public access below Thomasville, with a vault toilet, trailer parking, and coordinates 36.796246, -91.405675.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/cane-bluff-river-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Turner Mill South River Access',
+        note: 'The Forest Service lists Turner Mill South as open on river right, with limited dispersed campsites, a single-lane concrete boat launch, toilet facilities, and coordinates 36.76456, -91.26653037.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07071500 at 503 cfs / 2.64 ft',
+        note: 'A same-day Water Services IV refresh returned 503 cfs and 2.64 ft at 2026-07-11 10:30 CDT for Eleven Point River near Bardley, the direct same-river gauge already used by adjacent Eleven Point routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Bardley gauge Good beginning at 300 cfs and includes exact Cane Bluff-to-Turner trip evidence. The app keeps only the conservative 300 cfs floor and does not infer an ideal range or upper cutoff from those community rows.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Upper-river shallows to Greer Spring-supported shoals',
+        note: 'Forest Service pages describe Cane Bluff as the first public access below the smaller upper river and Greer-to-Turner as a popular float that passes Mary Decker Shoal, while Turner Mill South marks the start of the colder White Ribbon Trout Area downstream.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Cane Bluff River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/cane-bluff-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Greer Crossing Recreation Area',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Turner Mill South River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/groups/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Eleven Point River prospects',
+        url: 'https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'eleven-point-river-greer-crossing-turner-mill',
     slug: 'eleven-point-river-greer-crossing-turner-mill',
     name: 'Eleven Point River',
@@ -26332,6 +26474,270 @@ export const rivers: River[] = [
       {
         label: 'Forest Service Eleven Point National Wild and Scenic River',
         url: 'https://www.fs.usda.gov/r09/marktwain/recreation/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Eleven Point River prospects',
+        url: 'https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'eleven-point-river-greer-crossing-whitten',
+    slug: 'eleven-point-river-greer-crossing-whitten',
+    name: 'Eleven Point River',
+    reach: 'Greer Crossing Recreation Area to Whitten River Access',
+    aliases: [
+      'Eleven Point River - Greer to Whitten',
+      'Eleven Point River - Greer Crossing to Whitten',
+      'Mid Eleven Point - Greer Spring to Whitten',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Spring-fed Eleven Point day from Greer Crossing to Whitten, with official Forest Service access at both ends, a direct Bardley gauge, and a practical one-day link through the Blue and White Ribbon trout water.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge as a conservative low-water check. Around 300 cfs remains the floor; below that, expect shoals and occasional dragging even though Greer Spring makes this reach more dependable than the upper river. No exact high-water cutoff is claimed.',
+    latitude: 36.79356389,
+    longitude: -91.32854167,
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and adjacent Greer-to-Whitten trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Greer Spring more than doubles the volume of the Eleven Point just above this reach, so it is more dependable than the warmer upper river. The Forest Service still warns that the river can rise rapidly after rain and that cold-water spring conditions persist well downstream.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is generally Class I spring-fed Ozark water with shoals, Mary Decker Shoal near the start, cold water, and a longer remote feel than the short split sections. Motorized users are also allowed under the 25 hp limit.',
+      confidenceNotes:
+        'Confidence is good for a conservative mid-river Eleven Point add: the Forest Service explicitly says Greer to Whitten is an 11-mile float, both access pages still show Site Open with published coordinates, same-day USGS 07071500 returned official Bardley values during this run, and current Rivers.MOHERP Bardley rows still support the familiar 300 cfs minimum-only floor through the exact adjacent Greer-to-Turner and Turner-to-Whitten segments. The app keeps the threshold model conservative because the numeric support is still community-calibrated rather than a manager-published paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Greer to Whitten, about 11 miles',
+        note: 'The Forest Service Whitten page says visitors enjoy the 11 mile float from Greer downriver to Whitten, making this a named public one-day route between two official accesses.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Greer Crossing Recreation Area',
+        note: 'The Forest Service lists Greer Crossing as open, with a campground, boat launch, parking, and coordinates 36.79356389, -91.32854167.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Whitten River Access',
+        note: 'The Forest Service lists Whitten as open on the right bank, with a vault toilet, single-lane concrete boat ramp, parking for vehicles with trailers, and coordinates 36.732356, -91.214837.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07071500 at 503 cfs / 2.64 ft',
+        note: 'A same-day Water Services IV refresh returned 503 cfs and 2.64 ft at 2026-07-11 10:30 CDT for Eleven Point River near Bardley, the direct same-river gauge already used by the adjacent Eleven Point routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Bardley gauge Good beginning at 300 cfs, and the exact adjacent Greer-to-Turner and Turner-to-Whitten rows both support keeping that same conservative floor for this combined route. The app does not infer an ideal range or upper cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Greer Spring, Mary Decker Shoal, trout-water transition',
+        note: 'Forest Service pages say Greer to Turner passes Mary Decker Shoal, Greer Spring more than doubles the river volume, and the river from Turner Mill downstream remains cold White Ribbon Trout Area water shared by paddlers, anglers, and motorized users.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Greer Crossing Recreation Area',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Whitten River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Turner Mill South River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/groups/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Eleven Point River prospects',
+        url: 'https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'eleven-point-river-greer-crossing-riverton',
+    slug: 'eleven-point-river-greer-crossing-riverton',
+    name: 'Eleven Point River',
+    reach: 'Greer Crossing Recreation Area to Riverton East River Access',
+    aliases: [
+      'Eleven Point River - Greer to Riverton',
+      'Eleven Point River - Greer Crossing to Riverton East',
+      'Lower Eleven Point - Greer Spring to Highway 160',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Longer lower Eleven Point day from Greer Crossing to Riverton East, using official Forest Service access pages, the direct Bardley gauge, and the Forest Service one-long-day or easy-overnighter route shape.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge as a conservative low-water check. Around 300 cfs remains the floor, but this is a long 19-mile cold-water route, so low water, wind, or wood can turn it into a very slow day. No exact high-water cutoff is claimed.',
+    latitude: 36.79356389,
+    longitude: -91.32854167,
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and adjacent Greer-to-Riverton trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Greer Spring more than doubles the river volume just above the put-in, and the Forest Service says Greer to Riverton is an excellent two-day float that can often be done on one long day. Use the app as a conservative low-water check, but expect cold water, wood, and travel time to matter more than a short split section.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is mostly Class I spring-fed Ozark water, but the route is long and includes Mary Decker Shoal, multiple cold-water shoal sequences, Halls Bay near the end, wind exposure, and limited developed exits between the named accesses.',
+      confidenceNotes:
+        'Confidence is good for a conservative long Eleven Point add: the Forest Service explicitly lists Greer to Riverton as a 19-mile float, Greer Crossing and Riverton East still show Site Open with published coordinates and access details, same-day USGS 07071500 returned official Bardley values during this run, and current Rivers.MOHERP Bardley rows still support the familiar 300 cfs minimum-only floor through the exact adjacent Greer-to-Turner, Turner-to-Whitten, and Whitten-to-Riverton segments. The app keeps the threshold model conservative because the numeric support remains community-calibrated rather than a manager-published paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Greer to Riverton, about 19 miles',
+        note: 'The Forest Service Greer Crossing page lists Greer to Riverton as a 19-mile float and says it is an excellent two-day trip that can often be completed on one long day.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Greer Crossing Recreation Area',
+        note: 'The Forest Service lists Greer Crossing as open, with a campground, boat launch, parking, and coordinates 36.79356389, -91.32854167.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Riverton East River Access',
+        note: 'The Forest Service lists Riverton East as open and 7.6 miles downriver of Whitten, with a paved road, concrete boat ramp, canoe launch, vault toilet, and coordinates 36.649183, -91.199614.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-east-river-access',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07071500 at 503 cfs / 2.64 ft',
+        note: 'A same-day Water Services IV refresh returned 503 cfs and 2.64 ft at 2026-07-11 10:30 CDT for Eleven Point River near Bardley, the direct same-river gauge already used by the existing lower Eleven Point routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Bardley gauge Good beginning at 300 cfs, and the exact adjacent Greer-to-Turner, Turner-to-Whitten, and Whitten-to-Riverton rows support keeping that same conservative floor for this longer combined route. The app does not infer an ideal range or upper cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Long cold-water float with shoals and Halls Bay',
+        note: 'Forest Service pages say Greer to Turner passes Mary Decker Shoal, Turner Mill downstream stays in cold White Ribbon Trout Area water, and the Whitten-to-Riverton section adds Halls Bay plus more shoals, motorized users, and long-distance exposure.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Greer Crossing Recreation Area',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Whitten River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Riverton East River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-east-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/groups/eleven-point-national-wild-and-scenic-river',
         provider: 'local',
       },
       {

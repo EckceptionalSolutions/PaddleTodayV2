@@ -1116,6 +1116,26 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
+  'eleven-point-river-greer-crossing-whitten': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-greer-crossing-whitten/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-greer-crossing-riverton': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-greer-crossing-riverton/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
   'eleven-point-river-turner-mill-south-whitten': [
     {
       id: 'eleven-point-river-missouri-commons',
@@ -1978,6 +1998,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     {
       id: 'eleven-point-river-missouri-commons',
       src: '/gallery/eleven-point-river-cane-bluff-greer-crossing/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-cane-bluff-turner-mill': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-cane-bluff-turner-mill/eleven-point-river-missouri.jpg',
       alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
       caption: 'Eleven Point River in Missouri',
       credit: 'Charlie Llewellin via Wikimedia Commons',
