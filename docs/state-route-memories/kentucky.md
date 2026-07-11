@@ -2,6 +2,14 @@
 
 Last summarized: 2026-07-10 06:50 America/Chicago / 2026-07-10 11:50 UTC.
 
+## 2026-07-11 Hart County Green restoration pass
+
+- Reused the live repo state as the only valid baseline and restored three Green River slugs that were absent from the current tree at run start: `green-river-glenview-road-lynn-camp-creek`, `green-river-hh-wilson-park-dennison-ferry`, and `green-river-rio-carrydown-hh-wilson-park`.
+- Current KDFWR Pool 6 Green River guidance still documents the exact public route pieces of Glenview Ford -> Lynn Camp Creek `19.2`, H.H. Wilson Ramp -> Stovall Park `3.6`, and Stovall Park -> Dennison Ferry `21.0`, while the current KDFWR Hart County Green River page still documents Rio Carrydown Access -> H.H. Wilson Park `8.0`, which support the restored public route mileages of `19.2`, `24.6`, and `8.0`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Glenview Road Carrydown, Lynn Camp Creek VPA #1, H.H. Wilson Park Ramp, Dennison Ferry Carrydown, and Rio Carrydown Access. Same-day direct USGS Water Services returned `1.69 ft` at `2026-07-11 15:15 CDT` for Green River at Greensburg (`03306500`) and `2960 cfs / 6.98 ft` at `2026-07-11 15:00 CDT` for Green River at Munfordville (`03308500`), which keeps the Glenview-to-Lynn restore inside the official good band while the two Munfordville-gauge restores ship with explicit above-band high-water caution.
+- Camping stays route-specific: `green-river-glenview-road-lynn-camp-creek` stays `none`, `green-river-hh-wilson-park-dennison-ferry` stays `on_route_campsite` because the Mammoth Cave corridor still supports primitive riverbank camping by permit-compatible trip style rather than developed finish camping, and `green-river-rio-carrydown-hh-wilson-park` stays `none`.
+- Existing bounded no-image review stayed valid for all three slugs. `docs/river-image-source-audit.csv` already records the no-gallery outcome for each route, so no new gallery asset was added in this pass.
+
 ## 2026-07-11 Upper Green restoration pass
 
 - Reused the live repo state as the only valid baseline and restored three Upper Green slugs that were absent from the current tree at run start: `green-river-russell-ford-american-legion`, `green-river-russell-ford-glenview-road`, and `green-river-greensburg-city-ramp-lynn-camp-creek`.

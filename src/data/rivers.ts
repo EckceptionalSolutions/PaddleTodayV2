@@ -51328,6 +51328,368 @@ export const rivers: River[] = [
 
 
   {
+    id: "green-river-glenview-road-lynn-camp-creek",
+    slug: "green-river-glenview-road-lynn-camp-creek",
+    name: "Green River",
+    reach: "Glenview Road Carrydown to Lynn Camp Creek Ramp",
+    aliases: [
+      "Green River - Glenview to Lynn Camp",
+      "Upper Green Glenview to Lynn Camp",
+      "KDFWR Pool 6 Glenview Ford to Lynn Camp Creek Ramp",
+    ],
+    state: "Kentucky",
+    region: "South-Central Kentucky",
+    summary:
+      "Long upper-to-mid Pool 6 Green River float from Glenview Road Carrydown to Lynn Camp Creek Ramp. KDFWR documents the 19.2-mile public route, exact endpoint coordinates, and official Greensburg stage bands tied to the local USGS gauge.",
+    statusText:
+      "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Below that expect a slower, scrape-prone all-day float; above that the broader current, private-bank corridor, and longer shuttle deserve more caution.",
+    latitude: 37.291,
+    longitude: -85.5913,
+    gaugeSource: {
+      id: "usgs-03306500",
+      provider: "usgs",
+      siteId: "03306500",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Green River at Greensburg, KY",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 1.0,
+      idealMax: 1.75,
+      tooLow: 1.0,
+      tooHigh: 1.75,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Green River at Greensburg",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This longer Pool 6 link is most practical in spring through fall when the Greensburg stage is stable. Summer can still work, but lower water, exposed shoals, and slow pools matter more across a 19-mile day.",
+      difficulty: "moderate",
+      difficultyNotes:
+        "The current is still recreational Green River water, but this 19.2-mile day adds commitment. Low water, broad-river wind, private-bank limits, and a steep Lynn Camp finish make it more demanding than the shorter Upper Green segments.",
+      confidenceNotes:
+        "Confidence is good for a conservative Kentucky restore: KDFWR's Pool 6 page still lists Glenview Ford to Lynn Camp Creek Ramp as a 19.2-mile public segment, preserves the official Greensburg gauge ladder of Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft, and current KDFWR access-detail pages still expose coordinates and availability for both endpoints. USGS Water Services returned a same-day July 11, 2026 stage of 1.69 ft at 15:15 CDT from direct gauge 03306500 during this run, inside the official good band.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Glenview Ford to Lynn Camp Creek Ramp, 19.2 mi",
+        note: "KDFWR lists Glenview Ford to Lynn Camp Creek Ramp as a 19.2-mile Green River Pool 6 access-to-access segment.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "1.0-1.75 ft good",
+        note: "KDFWR rates the Green River gauge at Greensburg as Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Glenview Road Carrydown, 37.291, -85.5913",
+        note: "KDFWR identifies Glenview Road Carrydown as a free public carry-down/ramp access with unpaved parking, year-round availability, and no camping.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1080",
+      },
+      {
+        label: "Take-out access",
+        value: "Lynn Camp Creek Ramp, 37.3533, -85.7098",
+        note: "KDFWR identifies Lynn Camp Creek VPA #1 as a free publicly open private launch with unpaved parking, year-round availability, and no camping.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=968",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03306500 at 1.69 ft",
+        note: "USGS Water Services returned a same-day July 11, 2026 15:15 CDT gage-height reading for Green River at Greensburg during this run. That stage sits inside the KDFWR good band.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Private-bank corridor, broad pools, steep Lynn ramp",
+        note: "KDFWR describes Glenview as a private-bank road-end carrydown and Lynn Camp as a steep ramp at the mouth of the creek on privately owned land open to the public, shaping this as a long broad-river float with a careful finish.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Glenview Road Carrydown",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1080",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Lynn Camp Creek VPA #1",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=968",
+        provider: "local",
+      },
+      {
+        label: "USGS 03306500 Green River at Greensburg",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03306500 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "green-river-hh-wilson-park-dennison-ferry",
+    slug: "green-river-hh-wilson-park-dennison-ferry",
+    name: "Green River",
+    reach: "H.H. Wilson Park Ramp to Dennison Ferry Carrydown",
+    aliases: [
+      "Green River - H.H. Wilson to Dennison Ferry",
+      "Hart County to Mammoth Cave from H.H. Wilson",
+      "KDFWR Pool 6 H.H. Wilson to Dennison Ferry",
+    ],
+    state: "Kentucky",
+    region: "Hart County / Mammoth Cave",
+    summary:
+      "Long Green River float from H.H. Wilson Park Ramp into Mammoth Cave at Dennison Ferry. KDFWR supports this public route by chaining the official 3.6-mile Wilson-to-Stovall segment with the 21.0-mile Stovall-to-Dennison run, plus direct Munfordville gauge guidance and endpoint coordinates.",
+    statusText:
+      "Use the Green River at Munfordville gauge. KDFWR rates 300 to 600 cfs as good for boating and fishing. Below that expect a slower, more consequential all-day trip; above that the broad current, wood, and park carry-down finish deserve more caution.",
+    latitude: 37.2979,
+    longitude: -85.8506,
+    gaugeSource: {
+      id: "usgs-03308500",
+      provider: "usgs",
+      siteId: "03308500",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Green River at Munfordville, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03308500/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 300,
+      idealMax: 600,
+      tooLow: 300,
+      tooHigh: 600,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Green River at Munfordville",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This long Hart County to Mammoth Cave route is most practical in spring through fall when the Munfordville gauge is stable and the group has full daylight. Lower water slows the day substantially, while storms or releases can raise debris before the park finish.",
+      difficulty: "moderate",
+      difficultyNotes:
+        "This is a flatwater-style Green River route, but 24.6 miles, limited bailout options, private banks, open-river wind, and a day-use-only park finish make it a committed moderate outing rather than a casual family float.",
+      confidenceNotes:
+        "Confidence is good for a conservative Kentucky restore: KDFWR's Pool 6 page still lists H.H. Wilson Ramp to Stovall Park Ramp as 3.6 miles and Stovall Park Ramp to Dennison Ferry as 21.0 miles, which together support this 24.6-mile public chain. Current KDFWR access-detail pages still expose coordinates and public availability for H.H. Wilson and Dennison Ferry, the Pool 6 page preserves the official Munfordville discharge ladder of Low below 300 cfs, Good from 300 to 600 cfs, and High above 600 cfs, and USGS Water Services returned same-day July 11, 2026 values of 2960 cfs and 6.98 ft at 15:00 CDT from direct gauge 03308500 during this run. That discharge is well above the official good band, so the route needs honest high-water caution today.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "H.H. Wilson Ramp to Dennison Ferry, about 24.6 mi",
+        note: "KDFWR lists H.H. Wilson Ramp to Stovall Park Ramp as 3.6 miles and Stovall Park Ramp to Dennison Ferry as 21.0 miles, supporting a combined public float of about 24.6 miles.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "300-600 cfs good",
+        note: "KDFWR rates the Green River gauge at Munfordville as Low below 300 cfs, Good from 300 to 600 cfs, and High above 600 cfs.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "H.H. Wilson Park Ramp, 37.2979, -85.8506",
+        note: "KDFWR identifies H.H. Wilson Park as a free paved single-lane ramp with unpaved parking, year-round availability, and no camping.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=240",
+      },
+      {
+        label: "Take-out access",
+        value: "Dennison Ferry Carrydown, 37.2174, -86.0493",
+        note: "KDFWR identifies Dennison Ferry as a free day-use-only carry-down access inside Mammoth Cave National Park with unpaved parking and no camping.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1015",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03308500 at 2960 cfs / 6.98 ft",
+        note: "USGS Water Services returned same-day July 11, 2026 discharge and stage values for Green River at Munfordville during this run. The discharge is far above the KDFWR good band, so this route needs honest higher-water caution today.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03308500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Broad pools, springs and caves corridor, park carry-down finish",
+        note: "KDFWR describes Pool 6 as a scenic section with numerous springs, caves, and wildlife, while Dennison finishes inside Mammoth Cave National Park at a day-use-only carry-down with high muddy banks and park infrastructure.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR H.H. Wilson Park Ramp",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=240",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Dennison Ferry Carrydown",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1015",
+        provider: "local",
+      },
+      {
+        label: "NPS Canoeing, Kayaking and Boating",
+        url: "https://www.nps.gov/maca/planyourvisit/canoeing-kayaking-and-boating.htm",
+        provider: "nps",
+      },
+      {
+        label: "USGS 03308500 Green River at Munfordville",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03308500/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03308500 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03308500&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "green-river-rio-carrydown-hh-wilson-park",
+    slug: "green-river-rio-carrydown-hh-wilson-park",
+    name: "Green River",
+    reach: "Rio Carrydown Access to H.H. Wilson Park Ramp",
+    aliases: [
+      "Green River - Rio to H.H. Wilson",
+      "Green River Hart County Rio to Wilson",
+      "KDFWR Hart County Blue Water Trail upper segment",
+    ],
+    state: "Kentucky",
+    region: "South-Central Kentucky",
+    summary:
+      "Hart County Green River float from Rio Carrydown Access to H.H. Wilson Park Ramp. KDFWR's Hart County Blue Water Trail supports the 8-mile public segment, endpoint coordinates, and official Munfordville discharge bands tied to the local USGS gauge.",
+    statusText:
+      "Use the Green River at Munfordville gauge. KDFWR rates 300 to 600 cfs as good for boating and fishing. Below that expect shallower riffles and more dragging; above that the broad river, bends, and landings deserve extra current and debris caution.",
+    latitude: 37.3183,
+    longitude: -85.7692,
+    gaugeSource: {
+      id: "usgs-03308500",
+      provider: "usgs",
+      siteId: "03308500",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Green River at Munfordville, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03308500/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 300,
+      idealMax: 600,
+      tooLow: 300,
+      tooHigh: 600,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Green River at Munfordville",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This Hart County segment is most practical in spring through fall when the Munfordville gauge is stable. Summer still works when enough water is present, but lower levels expose more gravel and riffles, while storms can raise debris and current quickly.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is a family-friendly Class I float only when the Munfordville discharge is stable near KDFWR's good band. High water, fresh wood, private banks, and the H.H. Wilson ramp drop can make the finish less forgiving than a casual park paddle.",
+      confidenceNotes:
+        "Confidence is high for a conservative Kentucky restore: KDFWR's Hart County Green River article still lists Rio Carrydown Access to H.H. Wilson Park as an 8-mile public float, current KDFWR access-detail pages still expose endpoint coordinates and year-round availability, and the Pool 6 page preserves the official Munfordville discharge ladder of Low below 300 cfs, Good from 300 to 600 cfs, and High above 600 cfs. USGS Water Services returned same-day July 11, 2026 direct-gauge values of 2960 cfs and 6.98 ft at 15:00 CDT from 03308500 during this run, currently far above the good band.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Rio Carrydown to H.H. Wilson, 8 mi",
+        note: "KDFWR's Hart County Green River article describes Rio Carrydown Access to H.H. Wilson Park as an 8-mile float.",
+        sourceUrl: "https://fw.ky.gov/Education/Pages/Green-River---Hart-County.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "300-600 cfs good",
+        note: "KDFWR rates the Green River gauge at Munfordville as Low below 300 cfs, Good from 300 to 600 cfs, and High above 600 cfs.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Rio Carrydown Access, 37.3183, -85.7692",
+        note: "KDFWR identifies Rio as a free carry-down access with unpaved parking, year-round availability, and no camping.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1171",
+      },
+      {
+        label: "Take-out access",
+        value: "H.H. Wilson Park Ramp, 37.2979, -85.8506",
+        note: "KDFWR identifies H.H. Wilson Park as a free paved single-lane ramp with unpaved parking and year-round 24-hour availability.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=240",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03308500 at 2960 cfs / 6.98 ft",
+        note: "USGS Water Services returned same-day July 11, 2026 discharge and stage values for Green River at Munfordville during this run. The discharge is far above the KDFWR good band, so this route needs honest higher-water caution today.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03308500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Bluffs, islands, chutes, sandbars, mild riffles",
+        note: "KDFWR describes the Hart County Blue Water Trail as scenic and family-friendly with river bluffs, islands, chutes, mild riffles, long deep holes, and sandbars along the Rio-to-Wilson part of the float.",
+        sourceUrl: "https://fw.ky.gov/Education/Pages/Green-River---Hart-County.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Green River Hart County",
+        url: "https://fw.ky.gov/Education/Pages/Green-River---Hart-County.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Rio Carrydown Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1171",
+        provider: "local",
+      },
+      {
+        label: "KDFWR H.H. Wilson Park Ramp",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=240",
+        provider: "local",
+      },
+      {
+        label: "USGS 03308500 Green River at Munfordville",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03308500/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03308500 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03308500&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
     id: "green-river-hh-wilson-park-green-river-ferry",
     slug: "green-river-hh-wilson-park-green-river-ferry",
     name: "Green River",
