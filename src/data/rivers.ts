@@ -48768,6 +48768,124 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: "green-river-russell-ford-american-legion",
+    slug: "green-river-russell-ford-american-legion",
+    name: "Green River",
+    reach: "Russell Ford Access to American Legion Park Ramp",
+    aliases: [
+      "Green River - Russell Ford to American Legion Park",
+      "Green River Upper Greensburg segment",
+      "KDFWR Upper Green Russell Ford to American Legion",
+    ],
+    state: "Kentucky",
+    region: "South-Central Kentucky",
+    summary:
+      "Short Green County Green River segment from Russell Ford back to Greensburg. KDFWR documents the 2.3-mile public-access route, exact endpoint coordinates, and official Greensburg stage bands tied to the local USGS gauge.",
+    statusText:
+      "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Today the gauge is in-band at 1.63 ft; below that expect exposed shoals and muddier landings, while above that the current and park approach deserve more caution.",
+    latitude: 37.2738,
+    longitude: -85.4784,
+    gaugeSource: {
+      id: "usgs-03306500",
+      provider: "usgs",
+      siteId: "03306500",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Green River at Greensburg, KY",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 1.0,
+      idealMax: 1.75,
+      tooLow: 1.0,
+      tooHigh: 1.75,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Green River at Greensburg",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This upper Pool 6 segment is more reliable in spring and wetter fall periods. Summer can still work, but low stages expose shoals and muddy landings quickly, while storms can raise current and broad-river wind effects.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is a short public-ramp Green River segment with easy route-finding, but it is still a broad moving river with shoals, muddy edges, private banks, and current that becomes less forgiving above the KDFWR good band.",
+      confidenceNotes:
+        "Confidence is high for a conservative Kentucky restore: KDFWR still lists Russell Ford to American Legion Park Ramp as a 2.3-mile Green River segment, publishes coordinates and access-detail pages for both public endpoints, and gives official Greensburg gauge stage bands of Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft. USGS Water Services returned a same-day July 11, 2026 Greensburg stage value of 1.63 ft at 11:15 CDT from the direct route gauge during this run, keeping the live-gauge support current and in band.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Russell Ford to American Legion Park, 2.3 mi",
+        note: "KDFWR lists Russell Ford to American Legion Park Ramp as a 2.3-mile Green River access-to-access segment.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "1.0-1.75 ft good",
+        note: "KDFWR rates the Green River gauge at Greensburg as Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Russell Ford Access, 37.2738, -85.4784",
+        note: "KDFWR identifies Russell Ford as a free carry-down access with unpaved parking and year-round 24-hour availability.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=955",
+      },
+      {
+        label: "Take-out access",
+        value: "American Legion Park Ramp, 37.2441, -85.4795",
+        note: "KDFWR identifies American Legion Park as a free single-lane unpaved ramp with year-round 24-hour boat-ramp availability and ample unpaved parking.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=954",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03306500 at 1.63 ft",
+        note: "USGS Water Services returned a same-day July 11, 2026 11:15 CDT gage-height reading for Green River at Greensburg during this run. That stage sits inside the KDFWR good band.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Shoals, deep rocky pools, muddy park landing",
+        note: "KDFWR describes the Russell Ford to American Legion reach as having good shoals with several deep rocky pools and a graded muddy/gravel park landing at the take-out.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Russell Ford Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=955",
+        provider: "local",
+      },
+      {
+        label: "KDFWR American Legion Park Ramp",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=954",
+        provider: "local",
+      },
+      {
+        label: "USGS 03306500 Green River at Greensburg",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03306500 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
     id: "green-river-russell-ford-greensburg-city-ramp",
     slug: "green-river-russell-ford-greensburg-city-ramp",
     name: "Green River",
@@ -48926,6 +49044,134 @@ export const rivers: River[] = [
         mileFromStart: 4.5,
         segmentKind: "creek",
         note: "Default downstream finish at the serviced city ramp.",
+      },
+    ],
+  },
+  {
+    id: "green-river-russell-ford-glenview-road",
+    slug: "green-river-russell-ford-glenview-road",
+    name: "Green River",
+    reach: "Russell Ford Access to Glenview Road Carrydown",
+    aliases: [
+      "Green River - Russell Ford to Glenview",
+      "Upper Green Russell Ford to Glenview",
+      "KDFWR Pool 6 Russell Ford to Glenview Ford chain",
+    ],
+    state: "Kentucky",
+    region: "South-Central Kentucky",
+    summary:
+      "Longer Upper Green River float from Russell Ford Access to Glenview Road Carrydown. KDFWR's official Pool 6 mileage table supports this 18-mile public route by chaining the Russell Ford, American Legion, Greensburg, and Glenview access sequence against the direct Greensburg USGS gauge.",
+    statusText:
+      "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Today the gauge is in-band at 1.63 ft; below that expect slower shoals and more dragging, while above that the broader current and private-bank corridor deserve more caution.",
+    latitude: 37.2738,
+    longitude: -85.4784,
+    gaugeSource: {
+      id: "usgs-03306500",
+      provider: "usgs",
+      siteId: "03306500",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Green River at Greensburg, KY",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 1.0,
+      idealMax: 1.75,
+      tooLow: 1.0,
+      tooHigh: 1.75,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Green River at Greensburg",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This 18-mile Upper Green route is most practical in spring through fall when the Greensburg stage is stable. Summer can still work, but lower water, slower pools, and exposed wind become more noticeable over a near-full-day float.",
+      difficulty: "moderate",
+      difficultyNotes:
+        "The river itself remains recreational, but 18 miles, limited public bailout options away from the named access chain, and the no-amenity Glenview finish make this a more committed day than the shorter Greensburg family runs.",
+      confidenceNotes:
+        "Confidence is good for a conservative Kentucky restore: KDFWR's Pool 6 page still lists Russell Ford to American Legion Park Ramp as 2.3 miles, American Legion Park Ramp to Greensburg City Ramp as 2.0 miles, and Greensburg City Ramp to Glenview Ford as 13.7 miles, which together support this 18-mile public route. Current KDFWR access pages still expose coordinates and public-use details for Russell Ford and Glenview, the corridor still includes the official Greensburg city-ramp bailout and cabin context, the direct Greensburg gauge still carries the official 1.0 to 1.75 ft good band, and USGS Water Services returned a same-day July 11, 2026 stage of 1.63 ft at 11:15 CDT from direct gauge 03306500 during this run.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Russell Ford to Glenview Ford, about 18.0 mi",
+        note: "KDFWR lists Russell Ford to American Legion Park Ramp as 2.3 miles, American Legion Park Ramp to Greensburg City Ramp as 2.0 miles, and Greensburg City Ramp to Glenview Ford as 13.7 miles, supporting a combined public route of about 18 miles.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "1.0-1.75 ft good",
+        note: "KDFWR rates the Green River gauge at Greensburg as Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Russell Ford Access, 37.2738, -85.4784",
+        note: "KDFWR identifies Russell Ford as a free carry-down access with limited unpaved parking and year-round 24-hour availability.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Russell-Ford-Access.aspx",
+      },
+      {
+        label: "Take-out access",
+        value: "Glenview Road Carrydown, 37.291, -85.5913",
+        note: "KDFWR identifies Glenview Ford as a public road-end carry-down with unpaved parking, no amenities, and private land surrounding the access.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Glenview-Ford-Access.aspx",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03306500 at 1.63 ft",
+        note: "USGS Water Services returned a same-day July 11, 2026 11:15 CDT gage-height reading for Green River at Greensburg during this run. That stage sits inside the KDFWR good band.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Shoals, deep pools, city-ramp bailout, private-bank finish",
+        note: "KDFWR describes Russell Ford as a shoal-and-pool access, American Legion as the halfway park access, Greensburg as the city-park stop with cabins, and Glenview as the private-bank road-end finish.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Russell Ford Access",
+        url: "https://fw.ky.gov/Fish/Pages/Russell-Ford-Access.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR American Legion Park Access",
+        url: "https://fw.ky.gov/Fish/Pages/American-Legion-Park-Access.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Greensburg City Ramp",
+        url: "https://fw.ky.gov/Fish/Pages/Greensburg-City-Ramp.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Glenview Ford Access",
+        url: "https://fw.ky.gov/Fish/Pages/Glenview-Ford-Access.aspx",
+        provider: "local",
+      },
+      {
+        label: "USGS 03306500 Green River at Greensburg",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03306500 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
       },
     ],
   },
@@ -49186,6 +49432,130 @@ export const rivers: River[] = [
       {
         label: "KDFWR Greensburg City Ramp",
         url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=220",
+        provider: "local",
+      },
+      {
+        label: "USGS 03306500 Green River at Greensburg",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03306500 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "green-river-greensburg-city-ramp-lynn-camp-creek",
+    slug: "green-river-greensburg-city-ramp-lynn-camp-creek",
+    name: "Green River",
+    reach: "Greensburg City Ramp to Lynn Camp Creek Ramp",
+    aliases: [
+      "Green River - Greensburg to Lynn Camp",
+      "Upper Green Greensburg to Lynn Camp",
+      "KDFWR Pool 6 Greensburg City Ramp to Lynn Camp Creek chain",
+    ],
+    state: "Kentucky",
+    region: "South-Central Kentucky",
+    summary:
+      "Long upper Green River continuation from Greensburg City Ramp to Lynn Camp Creek Ramp. KDFWR supports this 32.9-mile public route by combining the official Greensburg-to-Glenview and Glenview-to-Lynn-Camp segments against the direct Greensburg USGS gauge.",
+    statusText:
+      "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Today the gauge is in-band at 1.63 ft; below that expect a slower all-day grind, while above that the broad current, private banks, and steep Lynn Camp finish deserve more caution.",
+    latitude: 37.2581,
+    longitude: -85.5057,
+    gaugeSource: {
+      id: "usgs-03306500",
+      provider: "usgs",
+      siteId: "03306500",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Green River at Greensburg, KY",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 1.0,
+      idealMax: 1.75,
+      tooLow: 1.0,
+      tooHigh: 1.75,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Green River at Greensburg",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      windSensitivity: 0.75,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This long Greensburg-to-Lynn-Camp continuation is most practical in spring through fall when the stage is stable and the group has full daylight. Lower summer water can turn the long pools below Glenview into a real endurance day.",
+      difficulty: "hard",
+      difficultyNotes:
+        "The current stays recreational, but 32.9 miles, broad-river wind, sparse legal stops below Glenview, private-bank limits, and the steep Lynn Camp finish make this a hard planning route.",
+      confidenceNotes:
+        "Confidence is good for a conservative Kentucky restore: KDFWR's Pool 6 page still lists Greensburg City Ramp to Glenview Ford as 13.7 miles and Glenview Ford to Lynn Camp Creek Ramp as 19.2 miles, which together support this 32.9-mile public route. Current KDFWR access-detail pages still expose coordinates and public-use rules for Greensburg, Glenview, and Lynn Camp, the direct Greensburg gauge still carries the official 1.0 to 1.75 ft good band, and USGS Water Services returned a same-day July 11, 2026 stage of 1.63 ft at 11:15 CDT from direct gauge 03306500 during this run.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Greensburg City Ramp to Lynn Camp Creek Ramp, about 32.9 mi",
+        note: "KDFWR lists Greensburg City Ramp to Glenview Ford as 13.7 miles and Glenview Ford to Lynn Camp Creek Ramp as 19.2 miles, supporting a combined public route of about 32.9 miles.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "1.0-1.75 ft good",
+        note: "KDFWR rates the Green River gauge at Greensburg as Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Greensburg City Ramp, 37.2581, -85.5057",
+        note: "KDFWR identifies Greensburg City Ramp as a free paved single-lane public launch in city park with restrooms, paved parking, and no camping.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=220",
+      },
+      {
+        label: "Take-out access",
+        value: "Lynn Camp Creek Ramp, 37.3533, -85.7098",
+        note: "KDFWR identifies Lynn Camp Creek VPA #1 as a publicly open private site with unpaved parking, day-use-only rules, no camping, and a steep ramp better treated as a carry-down.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=968",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03306500 at 1.63 ft",
+        note: "USGS Water Services returned a same-day July 11, 2026 11:15 CDT gage-height reading for Green River at Greensburg during this run. That stage sits inside the KDFWR good band.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "City park start, private-bank Glenview midpoint, steep Lynn finish",
+        note: "KDFWR describes Greensburg as the last serviced stop on the upper trail, Glenview as a private-land-surrounded road-end carrydown, and Lynn Camp as a steep publicly open private access with limited amenities.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Greensburg City Ramp",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=220",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Glenview Road Carrydown",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1080",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Lynn Camp Creek VPA #1",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=968",
         provider: "local",
       },
       {

@@ -2,6 +2,14 @@
 
 Last summarized: 2026-07-10 06:50 America/Chicago / 2026-07-10 11:50 UTC.
 
+## 2026-07-11 Upper Green restoration pass
+
+- Reused the live repo state as the only valid baseline and restored three Upper Green slugs that were absent from the current tree at run start: `green-river-russell-ford-american-legion`, `green-river-russell-ford-glenview-road`, and `green-river-greensburg-city-ramp-lynn-camp-creek`.
+- Current KDFWR Pool 6 Green River guidance still documents the exact public route pieces of Russell -> American Legion `2.3`, American Legion -> Greensburg `2.0`, Greensburg -> Glenview `13.7`, and Glenview -> Lynn Camp `19.2`, which support the restored public route mileages of `2.3`, `18.0`, and `32.9`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Russell Ford Access, American Legion Park Ramp, Greensburg City Ramp, Glenview Road Carrydown, and Lynn Camp Creek VPA #1. Same-day direct USGS Water Services returned `1.63 ft` at `2026-07-11 11:15 CDT` for Green River at Greensburg (`03306500`), inside the official `1.0-1.75 ft` good band.
+- Camping stays route-specific: `green-river-russell-ford-american-legion` stays `none`, `green-river-russell-ford-glenview-road` stays `nearby_basecamp` because Greensburg cabins and lodging remain corridor support rather than route camping, and `green-river-greensburg-city-ramp-lynn-camp-creek` stays `none` because Lynn Camp is a day-use VPA finish rather than a campground.
+- Existing bounded no-image review stayed valid for all three slugs. `docs/river-image-source-audit.csv` already records the no-gallery outcome for each route, so no new gallery asset was added in this pass.
+
 ## 2026-07-10 Green continuation re-add pass
 
 - Reused the live repo state as the only valid baseline and restored three Green River slugs that were absent from the current tree at run start: `green-river-roachville-american-legion`, `green-river-american-legion-glenview-road`, and `green-river-stovall-park-dennison-ferry`.
