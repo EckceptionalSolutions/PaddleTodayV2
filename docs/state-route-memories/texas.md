@@ -27,6 +27,12 @@ Texas still has three strong TPWD-first source families in V2, but the overlap w
 
 ## Latest Run
 
+- 2026-07-11 20:45 America/Chicago / 2026-07-12 01:45 UTC restoration pass
+  - Restored `village-creek-sh327-baby-galvez`, `village-creek-baby-galvez-us-96`, and `village-creek-us-96-state-park` because the live repo baseline at run start only carried the full `village-creek-fm418-state-park` planner even though the shorter public splits were already documented in trip details, the image audit, and prior Texas route notes.
+  - Qualification path: current TPWD and Big Thicket NPS pages still document the Village Creek public access chain at TX 327, Baby Galvez Road, US 96, and Village Creek State Park; NPS launch pages still publish the TX 327, Baby Galvez, and US 96 coordinates; TPWD still publishes the state-park canoe-launch coordinate plus campground support; and same-day direct USGS Water Services returned `287 cfs / 4.14 ft` for direct gauge `08041500` at `2026-07-11 19:30 CDT`, above the legacy `200 cfs` minimum-only floor.
+  - Threshold posture stayed conservative `minimum-only` using the historic Texas River Flows Village Creek / Kountze ladder at `200 / 400 / 700 / 1000 / 2000 cfs`, with current TPWD and NPS pages supplying route shape, camping, and hazard context instead of a modern route-specific band.
+  - No route-gallery image was added. Existing bounded no-image audit rows for the three restored slugs remained valid.
+
 - 2026-07-11 10:35 America/Chicago / 2026-07-11 15:35 UTC restoration pass
   - Restored `south-llano-river-cupgrass-state-park`, `south-llano-river-state-park-flatrock-lane`, and `south-llano-river-flatrock-lane-junction-city-park` because the live repo baseline at run start only carried the two longer South Llano slugs.
   - Qualification path: current TPWD pages still document Cupgrass to South Llano River State Park as about `9.3` miles, South Llano River State Park to Flatrock Lane Crossing as `4.7` miles, and Flatrock Lane Crossing to Junction City Park as `1.6` miles, while publishing exact coordinates for all four public access points plus the required bridge portage inside the park where applicable. Same-day USGS Water Services returned `51.6 cfs / 2.14 ft` for direct gauge `08149900` at `2026-07-11 09:55 CDT`.
