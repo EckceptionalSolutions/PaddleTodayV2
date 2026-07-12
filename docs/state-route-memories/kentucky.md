@@ -1,6 +1,14 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-11 17:30 America/Chicago / 2026-07-11 22:30 UTC.
+Last summarized: 2026-07-11 20:30 America/Chicago / 2026-07-12 01:30 UTC.
+
+## 2026-07-11 Upper Green and Hart County restoration pass
+
+- Reused the live repo state as the only valid baseline and restored three Green River slugs that were absent from the current tree at run start: `green-river-tailwater-american-legion`, `green-river-hh-wilson-stovall`, and `green-river-lynn-camp-creek-hh-wilson-park`.
+- Current KDFWR Pool 6 Green River guidance still documents the exact public route pieces of Tailwater -> Roachville `12.5`, Roachville -> Russell `6.6`, Russell -> American Legion `2.3`, H.H. Wilson -> Stovall `3.6`, and Lynn Camp Creek -> H.H. Wilson `18.2`, which support the restored public route mileages of `21.4`, `3.6`, and `18.2`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Green River Lake Tailwater, American Legion Park Ramp, H.H. Wilson Park Ramp, Munfordville-Stovall Park Ramp, and Lynn Camp Creek VPA #1. Same-day direct USGS Water Services returned `1.68 ft` at `2026-07-11 20:15 CDT` for Green River at Greensburg (`03306500`) and `2660 cfs / 6.55 ft` at `2026-07-11 20:00 CDT` for Green River at Munfordville (`03308500`), which keeps the Tailwater-to-American-Legion restore inside the official good band while both Munfordville-gauge restores ship with explicit above-band high-water caution.
+- Camping stays route-specific: `green-river-tailwater-american-legion` stays `none`, `green-river-hh-wilson-stovall` stays `endpoint_campground` because Stovall still offers seasonal camping at the finish, and `green-river-lynn-camp-creek-hh-wilson-park` stays `none`.
+- Existing bounded no-image review stayed valid for all three slugs. `docs/river-image-source-audit.csv` now records the no-gallery outcome for each route, so no new gallery asset was added in this pass.
 
 ## 2026-07-11 South Fork split restoration pass
 

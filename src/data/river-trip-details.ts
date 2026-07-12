@@ -18078,6 +18078,83 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'green-river-tailwater-american-legion': {
+    putIn: {
+      id: 'green-river-lake-tailwater',
+      name: 'Green River Lake Tailwater',
+      latitude: 37.2416,
+      longitude: -85.3441,
+    },
+    takeOut: {
+      id: 'american-legion-park-ramp',
+      name: 'American Legion Park Ramp',
+      latitude: 37.2441,
+      longitude: -85.4795,
+    },
+    logistics: {
+      distanceLabel: 'About 21.4 mi',
+      estimatedPaddleTime:
+        'About 6.5 hr to 9.5 hr, longer with low water, fishing stops, or scouting at intermediate landings',
+      shuttle:
+        'Stage the downstream vehicle at American Legion Park Ramp, then drive back to the Green River Lake Tailwater launch. This is a full Upper Green day, so confirm daylight, weather, and group pace before committing to the entire distance.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and stay off private banks between the endpoints.',
+      camping:
+        'Treat this as a long day route. KDFWR does not document public camping or normal overnight support at the Tailwater ramp, Roachville Ford, Russell Ford, or American Legion Park.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the public Green River Lake Tailwater ramp and finish at American Legion Park for the longer Upper Green continuation. Use the Greensburg gauge and expect a slower day whenever the river sits below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'KDFWR says boats are not permitted upstream of the Tailwater ramp. Launch downstream only and do not drift back toward the dam area.',
+        'Roachville Ford is the clearest first midpoint bailout if the opening miles are slower than planned, and Russell Ford is the last major upstream public landing before the American Legion finish.',
+        'American Legion Park is a simpler unpaved park access than the Greensburg City Ramp farther downstream. Finish efficiently and watch footing at the landing.',
+        'Most shoreline between the named accesses is private and should not be treated as a casual stop or backup exit.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, mud edges, and dragging become more likely across a long day.',
+        'High water above about 1.75 ft, when current through islands, chutes, and the park landing gets less forgiving.',
+        'Fresh wood after rain, the first shoal below Highway 55, and take-out confusion around the Russell and American Legion access sequence.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'green-river-lake-tailwater',
+        name: 'Green River Lake Tailwater',
+        latitude: 37.2416,
+        longitude: -85.3441,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream launch below the no-upstream-boating tailwater zone.',
+      },
+      {
+        id: 'roachville-ford',
+        name: 'Roachville Ford',
+        latitude: 37.2353,
+        longitude: -85.4241,
+        mileFromStart: 12.5,
+        segmentKind: 'creek',
+        note: 'Mid-route legal bailout at the low-water ford.',
+      },
+      {
+        id: 'russell-ford-access',
+        name: 'Russell Ford Access',
+        latitude: 37.2738,
+        longitude: -85.4784,
+        mileFromStart: 19.1,
+        segmentKind: 'creek',
+        note: 'Late-route developed bailout on river left before the final park finish.',
+      },
+      {
+        id: 'american-legion-park-ramp',
+        name: 'American Legion Park Ramp',
+        latitude: 37.2441,
+        longitude: -85.4795,
+        mileFromStart: 21.4,
+        segmentKind: 'creek',
+        note: 'Default downstream finish at the public park ramp.',
+      },
+    ],
+  },
   'green-river-tailwater-russell-ford': {
     putIn: {
       id: 'green-river-lake-tailwater',
@@ -18906,6 +18983,47 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'green-river-hh-wilson-stovall': {
+    putIn: {
+      id: 'hh-wilson-park-ramp',
+      name: 'H.H. Wilson Park Ramp',
+      latitude: 37.2979,
+      longitude: -85.8506,
+    },
+    takeOut: {
+      id: 'munfordville-stovall-park-ramp',
+      name: 'Munfordville-Stovall Park Ramp',
+      latitude: 37.2663,
+      longitude: -85.8892,
+    },
+    logistics: {
+      distanceLabel: 'About 3.6 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 3 hr, longer with fishing stops, wind, or slower ramp loading',
+      shuttle:
+        'Stage the take-out at Munfordville-Stovall Park, then drive back to H.H. Wilson Park Ramp. Both are KDFWR-listed public ramps, but H.H. Wilson has limited unpaved parking and Stovall is a busy city park access; keep the ramp clear for other boaters.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public ramps, follow Kentucky boating and PFD rules, obey city park rules at Stovall Park, and carry required safety gear.',
+      camping:
+        'Treat this as a short day trip. Stovall Park lists seasonal camping, but this route does not assume overnight use or any private-bank stopping between the ramps.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at H.H. Wilson Park Ramp and take out about 3.6 miles downstream at Munfordville-Stovall Park Ramp. KDFWR gives a good Munfordville gauge band of 300 to 600 cfs for Green River Pool 6, and today sits far above that range.',
+      accessCaveats: [
+        'H.H. Wilson Park Ramp is a single-lane paved ramp with a small gravel parking area. KDFWR warns that the end of the ramp does not extend far into the water and there is a drop at the end of the concrete.',
+        'Stovall Park Ramp is a city-owned single-lane paved ramp with paved parking, restrooms, picnic areas, and park traffic. Use the ramp efficiently and avoid blocking trailers or local park users.',
+        'KDFWR notes private-property concerns around Pool 6 access sites. Stay with the named public ramps and do not use private banks for lunch stops, scouting, or parking.',
+        'The Munfordville gauge is direct for this Hart County segment, but local wind, release timing, rain, and ramp conditions still control the launch decision.',
+      ],
+      watchFor: [
+        'High water above KDFWR\'s 600 cfs good band, when a broad river can push much harder at ramps, rocky banks, and bends.',
+        'Low water below 300 cfs, which can expose shoals, ramp drops, and shallow edges around access points.',
+        'Motorboats, anglers, fishing lines, swimmers near parks, and other ramp users on a popular Pool 6 corridor.',
+        'Wind on open pools, hot-weather exposure, muddy banks, and limited legal stopping options away from public access.',
+        'Fresh woody debris, storm runoff, and changing release or lake-tailwater conditions upstream of the Munfordville reach.',
+      ],
+    },
+  },
   'green-river-hh-wilson-park-dennison-ferry': {
     putIn: {
       id: 'hh-wilson-park-ramp',
@@ -19222,6 +19340,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         note: 'Default downstream finish at the road-end carrydown access.',
       },
     ],
+  },
+  'green-river-lynn-camp-creek-hh-wilson-park': {
+    putIn: {
+      id: 'lynn-camp-creek-vpa-1',
+      name: 'Lynn Camp Creek Ramp',
+      latitude: 37.3533,
+      longitude: -85.7098,
+    },
+    takeOut: {
+      id: 'hh-wilson-park-ramp',
+      name: 'H.H. Wilson Park Ramp',
+      latitude: 37.2979,
+      longitude: -85.8506,
+    },
+    logistics: {
+      distanceLabel: 'About 18.2 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 9 hr, longer with low water, family pacing, or sandbar and fishing stops',
+      shuttle:
+        'Stage the take-out at H.H. Wilson Park Ramp, then drive back to Lynn Camp Creek Ramp. This is a committed day, so leave extra daylight and keep both access areas tight because Lynn Camp and Wilson each have limited space and no built-in shuttle services.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect the private-land terms at Lynn Camp Creek VPA #1.',
+      camping:
+        'Treat this as a full day float, not a camping route. KDFWR lists no camping at either endpoint, and the private banks and sandbars between Lynn Camp and H.H. Wilson should not be assumed legal overnight stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Lynn Camp Creek Ramp and take out at H.H. Wilson Park for the longer upper Hart County Green River segment. Use the Munfordville gauge and treat today as above-band higher water rather than comfort flow.',
+      accessCaveats: [
+        'Lynn Camp Creek VPA #1 is privately owned but open to the public through KDFWR. Continuing access depends on respectful use, clean parking, and staying within the obvious access footprint.',
+        'The Lynn Camp ramp is steep and KDFWR says it is better used as a carry-down site. Launch carefully and avoid blocking the narrow approach.',
+        'H.H. Wilson Park Ramp has a drop at the end of the concrete. Expect a less forgiving finish than a typical city-park ramp, especially when the river is high or the group is tired.',
+        'This route uses the direct Munfordville gauge for the Hart County corridor, but same-day weather, debris, and daylight matter as much as the cfs reading on a float this long.',
+      ],
+      watchFor: [
+        'Low water below 300 cfs, when the longer mileage can turn into a slow scrape-and-drag day.',
+        'High water above 600 cfs, when broad-river current, fresh wood, and the Wilson landing become less forgiving.',
+        'Fatigue, exposed sun, broad-river wind, fishing lines, and limited legal bailout options away from the named accesses.',
+        'Slippery footing at Lynn Camp, the ramp drop at Wilson, and any fresh strainers or downed trees after rain.',
+      ],
+    },
   },
   'green-river-lynn-camp-creek-stovall-park': {
     putIn: {
