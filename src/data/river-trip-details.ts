@@ -15841,6 +15841,123 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'goose-creek-jacks-tobacco-road': {
+    putIn: {
+      id: 'jacks-bowling-branch-bridge-access',
+      name: 'Jacks / Bowling Branch Bridge Access',
+      latitude: 37.2052,
+      longitude: -83.7372,
+    },
+    takeOut: {
+      id: 'tobacco-road-bridge-ramp',
+      name: 'Tobacco Road Bridge Ramp',
+      latitude: 37.2163,
+      longitude: -83.7175,
+    },
+    logistics: {
+      distanceLabel: 'About 2.2 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2 hr, longer with low-water scraping or wood scouting',
+      shuttle:
+        'Stage the take-out at Tobacco Road, then drive back upstream to the Jacks / Bowling Branch bridge access. Both accesses are small roadside carry-down sites, so park compactly and fully off the road edge.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed roadside accesses, follow Kentucky boating and PFD rules, and avoid treating private creek banks as public stopovers.',
+      camping:
+        'Treat this as a short day float. KDFWR does not document public camping at either bridge access.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Jacks / Bowling Branch and take out at Tobacco Road for the short upper lower-Manchester Goose Creek split. Use the Manchester gauge and expect scraping whenever flows sit below KDFWR\'s 175 to 514 cfs good band.',
+      accessCaveats: [
+        'Both endpoints are simple carry-down bridge accesses with limited unpaved parking and no amenities.',
+        'This split starts below the Rawlings / Stinson access so it avoids the upstream low-head-dam warning attached to that Manchester ramp.',
+        'Goose Creek is a flashy small stream. Rain-driven rises can change the feel quickly even when the gauge was low earlier in the day.',
+      ],
+      watchFor: [
+        'Low water below about 175 cfs or 7.4 ft, when rock bars, riffles, and dragging become likely.',
+        'High water above about 514 cfs or 8.5 ft, when the narrow creek gets pushier and bridge landings are less forgiving.',
+        'Strainers, fresh wood after storms, shallow riffles, and slick footing at both bridge accesses.',
+        'Private banks and limited roadside parking if someone wants an unscheduled stop.',
+      ],
+    },
+  },
+  'goose-creek-tobacco-road-dump-hollow': {
+    putIn: {
+      id: 'tobacco-road-bridge-ramp',
+      name: 'Tobacco Road Bridge Ramp',
+      latitude: 37.2163,
+      longitude: -83.7175,
+    },
+    takeOut: {
+      id: 'dump-hollow-ford-road',
+      name: 'Dump Hollow Ford',
+      latitude: 37.2127,
+      longitude: -83.704,
+    },
+    logistics: {
+      distanceLabel: 'About 0.8 mi',
+      estimatedPaddleTime:
+        'About 30 min to 1 hr, longer with low-water scraping, wood, or ford scouting',
+      shuttle:
+        'Stage the take-out at Dump Hollow Ford, then drive back to Tobacco Road. Both accesses are small carry-down roadside sites with limited parking and no amenities.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed roadside accesses, follow Kentucky boating and PFD rules, and avoid treating private creek banks as public stopovers.',
+      camping:
+        'Treat this as a very short day float. KDFWR does not document public camping at Tobacco Road or Dump Hollow.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Tobacco Road and take out at Dump Hollow for the shortest Goose Creek split in the lower Manchester chain. Use the Manchester gauge and treat below-band days as scrape-prone even on this short reach.',
+      accessCaveats: [
+        'Both endpoints are simple carry-down accesses with limited unpaved parking and no amenities.',
+        'Dump Hollow is a ford-style take-out. KDFWR warns it can be difficult or dangerous at high water, so inspect the landing before launching.',
+        'Goose Creek is a flashy small stream. Rain-driven rises can change the feel quickly even when the gauge was low earlier in the day.',
+      ],
+      watchFor: [
+        'Low water below about 175 cfs or 7.4 ft, when scraping can dominate a very short trip.',
+        'High water above about 514 cfs or 8.5 ft, when the ford-style finish gets less forgiving.',
+        'Strainers, fresh wood after storms, and slick footing at the ford exit.',
+        'Private banks and limited roadside parking outside the named accesses.',
+      ],
+    },
+  },
+  'goose-creek-dump-hollow-laurel-branch': {
+    putIn: {
+      id: 'dump-hollow-ford-road',
+      name: 'Dump Hollow Ford',
+      latitude: 37.2127,
+      longitude: -83.704,
+    },
+    takeOut: {
+      id: 'laurel-branch-road-access',
+      name: 'Laurel Branch Road Access',
+      latitude: 37.237,
+      longitude: -83.6703,
+    },
+    logistics: {
+      distanceLabel: 'About 4.8 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr, longer with low-water scraping or scouting around wood',
+      shuttle:
+        'Stage the take-out at Laurel Branch Road, then drive back upstream to Dump Hollow Ford. Both accesses are roadside carry-down sites with limited parking and no amenities.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed roadside accesses, follow Kentucky boating and PFD rules, and avoid treating private creek banks as public stopovers.',
+      camping:
+        'Treat this as a day float. KDFWR does not document public camping at Dump Hollow or Laurel Branch.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Dump Hollow Ford and take out at Laurel Branch for the lower Goose Creek split below Manchester. Use the Manchester gauge and expect scraping whenever flows sit below KDFWR\'s 175 to 514 cfs good band.',
+      accessCaveats: [
+        'Both endpoints are simple roadside carry-down accesses with limited parking and no amenities.',
+        'Dump Hollow works as a ford-style put-in and can be difficult or dangerous at high water, so inspect footing and current before committing.',
+        'Goose Creek is a flashy small stream. Rain-driven rises can change the feel quickly even when the gauge was low earlier in the day.',
+      ],
+      watchFor: [
+        'Low water below about 175 cfs or 7.4 ft, when rock bars, riffles, and dragging become likely.',
+        'High water above about 514 cfs or 8.5 ft, when the narrow creek gets pushier and roadside landings are less forgiving.',
+        'Strainers, fresh wood after storms, shallow riffles, and slick footing at the ford launch.',
+        'Private banks and limited roadside parking if someone wants an unscheduled stop.',
+      ],
+    },
+  },
   'goose-creek-jacks-laurel-branch': {
     putIn: {
       id: 'jacks-bowling-branch-bridge-access',
