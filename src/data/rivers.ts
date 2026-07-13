@@ -26043,6 +26043,426 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'eleven-point-river-thomasville-greer-crossing',
+    slug: 'eleven-point-river-thomasville-greer-crossing',
+    name: 'Eleven Point River',
+    reach: 'Thomasville River Access to Greer Crossing Recreation Area',
+    aliases: [
+      'Eleven Point River - Thomasville to Greer',
+      'Upper Eleven Point - Thomasville to Greer Crossing',
+      'Eleven Point National Scenic River - Thomasville to Greer',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Long upper Eleven Point continuation from Thomasville to Greer Crossing, using official Forest Service public access at both ends and the Bardley gauge only as a conservative same-river floor check for the smaller upper miles.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge only as a conservative same-river estimate. Around 300 cfs remains the floor carried from adjacent Eleven Point routes; below that, expect scraping, walking, or short portages on the smaller upper river before Greer Spring boosts the flow. No ideal range or high-water cutoff is claimed.',
+    latitude: 36.78548,
+    longitude: -91.528058,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['cold_water', 'fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'The Forest Service says this Thomasville section is usually best from March through June and can require walking or portages in drought season, so treat the upper miles as smaller, shallower water than the downstream gauge alone suggests.',
+        'Greer Spring enters just above the take-out and changes the character of the finish with colder, faster water. Old bridge remnants, fresh wood, blind bends, and rapid rises after rain all deserve extra margin on a long day.',
+        'Use only the named Forest Service accesses and planned legal camps. The Bardley gauge is downstream, and private banks or informal gravel bars are not substitutes for Thomasville or Greer Crossing.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and adjacent upper Eleven Point trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6],
+      seasonNotes:
+        'The current Forest Service Thomasville page says this upper section is usually floated March through June and can require walking or portages in drought season. Greer Spring improves the lower end of the route, but the Bardley gauge remains a conservative downstream estimate rather than a perfect on-reach reading for the Thomasville half.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a very long upper-river Ozark continuation with Class I-II character, shallow riffles, possible short portages, blind bends, old bridge remnants, and a colder spring-fed finish near Greer Crossing.',
+      confidenceNotes:
+        'Confidence is acceptable but intentionally conservative: the current Forest Service Thomasville page still shows Site Open, still names Thomasville to Greer as a 16.6-mile float, and still says the section usually works March through June; the current Greer Crossing page confirms the public take-out and campground support; the Eleven Point National Wild and Scenic River page still places Greer at mile 16.6 from Thomasville; same-day USGS Water Services returned 483 cfs and 2.60 ft at 2026-07-13 08:30 CDT for direct same-river gauge 07071500; and Rivers.MOHERP still rates Bardley Good beginning at 300 cfs. Because the best numeric support remains community-calibrated and the gauge is downstream of Greer Spring, the app keeps only the conservative 300 cfs minimum-only floor already used on adjacent upper Eleven Point routes.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Thomasville to Greer, 16.6 miles',
+        note: 'The current Forest Service Thomasville River Access page says Thomasville to Greer Access is a 16.6-mile float, and the Eleven Point National Wild and Scenic River page places Greer Crossing at mile 16.6 from Thomasville.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/thomasville-river-access',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Thomasville River Access, Site Open',
+        note: 'The current Forest Service Thomasville page marks the site open, identifies the State Highway 99 bridge as the put-in, publishes coordinates 36.78548, -91.528058, and notes vault toilets.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/thomasville-river-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Greer Crossing Recreation Area',
+        note: 'The current Forest Service Greer Crossing page describes a campground, boat launch, and day-use area at the take-out and publishes coordinates 36.79356389, -91.32854167.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07071500 at 483 cfs / 2.60 ft',
+        note: 'Same-day USGS Water Services returned 483 cfs and 2.60 ft at 2026-07-13 08:30 CDT for Eleven Point River near Bardley, the direct same-river gauge already used by adjacent Eleven Point routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+      },
+      {
+        label: 'Conservative floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP still rates the Bardley gauge Good beginning at 300 cfs. Paddle Today keeps only that conservative floor and does not infer an ideal range or upper cutoff for this upstream continuation.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Upper-river character',
+        value: 'Usually March through June, Class I-II, walking or portages possible',
+        note: 'The current Forest Service Thomasville page says this section usually works March through June, can require walking or portages in drought season, and has Class I-II rapids.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/thomasville-river-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Thomasville River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/thomasville-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Greer Crossing Recreation Area',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/groups/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Eleven Point River prospects',
+        url: 'https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'eleven-point-river-thomasville-turner-mill-south',
+    slug: 'eleven-point-river-thomasville-turner-mill-south',
+    name: 'Eleven Point River',
+    reach: 'Thomasville River Access to Turner Mill South River Access',
+    aliases: [
+      'Eleven Point River - Thomasville to Turner Mill South',
+      'Upper Eleven Point - Thomasville to Turner Mill',
+      'Eleven Point National Scenic River - Thomasville to Turner',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Very long upper-to-mid Eleven Point continuation from Thomasville to Turner Mill South, linking the smaller upper river with the colder spring-fed trout water below Greer Spring.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge only as a conservative same-river estimate. Around 300 cfs remains the floor carried from adjacent Eleven Point routes; below that, expect more scraping, walking, or short portages on the upper river even if the Greer-to-Turner half still looks more dependable. No ideal range or high-water cutoff is claimed.',
+    latitude: 36.78548,
+    longitude: -91.528058,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['cold_water', 'fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'The Thomasville half is still the smaller upper Eleven Point, so the downstream Bardley gauge can overstate how easy the first miles will feel near the 300 cfs floor.',
+        'This route then passes into colder spring-fed water below Greer Spring, where Mary Decker Shoal, fresh wood, blind bends, and long distances between developed exits matter more than on a short split route.',
+        'Use only the named Forest Service accesses and legal float camps. Turner Mill North and Turner Mill South are separate landings, and private banks are not a substitute for a staged overnight or planned finish.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and adjacent upper-to-mid Eleven Point trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This route starts on the uppermost spring-favored Eleven Point section and finishes on the more dependable Greer Spring-supported trout water to Turner Mill South. The Bardley gauge remains a conservative downstream estimate rather than a perfect on-reach reading for the upper half.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a very long Ozark continuation with upper-river shallows, Class I-II character, occasional walking or portaging in low water, then colder spring-fed shoals and long rural shuttle logistics below Greer Spring.',
+      confidenceNotes:
+        'Confidence is acceptable but intentionally conservative: the current Forest Service Thomasville page still shows Site Open, still says the reach is usually floated March through June, and still names Thomasville to Greer as a 16.6-mile float; the Eleven Point National Wild and Scenic River page still places Turner Mill at mile 21.5 from Thomasville; the current Turner Mill South page confirms the public take-out with coordinates and limited campsite context; same-day USGS Water Services returned 483 cfs and 2.60 ft at 2026-07-13 08:30 CDT for direct same-river gauge 07071500; and Rivers.MOHERP still rates Bardley Good beginning at 300 cfs. Because the strongest numeric support remains community-calibrated and much of the route sits upstream of the gauge, the app keeps only the conservative 300 cfs minimum-only floor already used on adjacent Eleven Point routes.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Thomasville to Turner Mill South, about 21.5 river miles',
+        note: 'The Eleven Point National Wild and Scenic River page places Turner Mill at mile 21.5 from Thomasville, and the current Turner Mill South page says the access sits 4.9 miles downriver of Greer Crossing.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Thomasville River Access, Site Open',
+        note: 'The current Forest Service Thomasville page marks the site open, identifies the State Highway 99 bridge as the put-in, publishes coordinates 36.78548, -91.528058, and notes vault toilets.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/thomasville-river-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Turner Mill South River Access',
+        note: 'The current Forest Service Turner Mill South page says the access is on river right with limited dispersed campsites, a single-lane concrete boat launch, toilet facilities, and coordinates 36.76456, -91.26653037.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07071500 at 483 cfs / 2.60 ft',
+        note: 'Same-day USGS Water Services returned 483 cfs and 2.60 ft at 2026-07-13 08:30 CDT for Eleven Point River near Bardley, the direct same-river gauge already used by adjacent Eleven Point routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+      },
+      {
+        label: 'Conservative floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP still rates the Bardley gauge Good beginning at 300 cfs. Paddle Today keeps only that conservative floor and does not infer an ideal range or upper cutoff for this longer continuation.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Upper-river shallows to spring-fed shoals',
+        note: 'The current Forest Service Thomasville page says the route can require walking or portages in drought season, while Turner Mill South marks the colder spring-fed section below Greer Crossing and Mary Decker Shoal.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/thomasville-river-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Thomasville River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/thomasville-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Greer Crossing Recreation Area',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Turner Mill South River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/groups/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Eleven Point River prospects',
+        url: 'https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'eleven-point-river-thomasville-whitten',
+    slug: 'eleven-point-river-thomasville-whitten',
+    name: 'Eleven Point River',
+    reach: 'Thomasville River Access to Whitten River Access',
+    aliases: [
+      'Eleven Point River - Thomasville to Whitten',
+      'Upper Eleven Point - Thomasville to Whitten',
+      'Eleven Point National Scenic River - Thomasville to Whitten',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Full upper-to-lower Eleven Point continuation from Thomasville to Whitten, combining the smaller upper river with the longer cold-water trout corridor downstream of Greer Spring.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge only as a conservative same-river estimate. Around 300 cfs remains the floor carried from adjacent Eleven Point routes; below that, expect scrape-prone upper miles even if the lower Whitten half still looks more comfortable. No ideal range or high-water cutoff is claimed.',
+    latitude: 36.78548,
+    longitude: -91.528058,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['cold_water', 'fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'This is a very long continuation that starts on the smaller upper Eleven Point, where the Bardley gauge can overstate how easy the first miles will feel near the 300 cfs floor.',
+        'Below Greer Spring the river gets colder and more forceful, with Mary Decker Shoal, fresh wood risk after rain, blind bends, and long spacing between developed exits before Whitten.',
+        'Treat this as an overnight-capable route, not a casual one-day add-on. Use only the named Forest Service accesses and legal float camps instead of improvising stops on private banks or undesignated gravel bars.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and adjacent upper-to-lower Eleven Point trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This route starts on the spring-favored upper Eleven Point where drought can force walking or portages, then finishes on the colder, more dependable trout water below Greer Spring. The Bardley gauge remains a conservative downstream estimate rather than a perfect on-reach reading for the upper half.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a very long Ozark continuation with Class I-II upper-river character, possible low-water walking or portages, then a long cold-water lower half with shoals, wind exposure, and limited easy exits before Whitten.',
+      confidenceNotes:
+        'Confidence is acceptable but intentionally conservative: the current Forest Service Thomasville page still shows Site Open, still says the route is usually floated March through June, and still names Thomasville to Greer as a 16.6-mile float; the Eleven Point National Wild and Scenic River page still places Whitten at mile 27.6 from Thomasville; the current Whitten page confirms the public take-out with ramp details and coordinates; same-day USGS Water Services returned 483 cfs and 2.60 ft at 2026-07-13 08:30 CDT for direct same-river gauge 07071500; and Rivers.MOHERP still rates Bardley Good beginning at 300 cfs. Because the strongest numeric support remains community-calibrated and much of the route sits upstream of the gauge, the app keeps only the conservative 300 cfs minimum-only floor already used on adjacent Eleven Point routes.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Thomasville to Whitten, about 27.6 river miles',
+        note: 'The Eleven Point National Wild and Scenic River page places Whitten at mile 27.6 from Thomasville, and the current Whitten page still names the 11-mile Greer-to-Whitten float that anchors the lower half of this continuation.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/groups/eleven-point-national-wild-and-scenic-river',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Thomasville River Access, Site Open',
+        note: 'The current Forest Service Thomasville page marks the site open, identifies the State Highway 99 bridge as the put-in, publishes coordinates 36.78548, -91.528058, and notes vault toilets.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/thomasville-river-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Whitten River Access',
+        note: 'The current Forest Service Whitten page says the access is on the right bank with a vault toilet, single-lane concrete boat ramp, trailer parking, and coordinates 36.732356, -91.214837.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07071500 at 483 cfs / 2.60 ft',
+        note: 'Same-day USGS Water Services returned 483 cfs and 2.60 ft at 2026-07-13 08:30 CDT for Eleven Point River near Bardley, the direct same-river gauge already used by adjacent Eleven Point routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+      },
+      {
+        label: 'Conservative floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP still rates the Bardley gauge Good beginning at 300 cfs. Paddle Today keeps only that conservative floor and does not infer an ideal range or upper cutoff for this long continuation.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Upper-river shallows into cold-water trout corridor',
+        note: 'The current Forest Service Thomasville page says the upper miles can require walking or portages in drought season, while the current Whitten page still names the popular 11-mile Greer-to-Whitten float in the colder lower corridor.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Thomasville River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/thomasville-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Greer Crossing Recreation Area',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Turner Mill South River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Whitten River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/groups/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Eleven Point River prospects',
+        url: 'https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'current-river-waymeyer-big-spring',
     slug: 'current-river-waymeyer-big-spring',
     name: 'Current River',
