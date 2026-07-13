@@ -17443,6 +17443,189 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'south-fork-kentucky-river-rocky-branch-bishop-bend': {
+    putIn: {
+      id: 'rocky-branch-road-access',
+      name: 'Rocky Branch Road Access',
+      latitude: 37.3206,
+      longitude: -83.6648,
+    },
+    takeOut: {
+      id: 'bishop-bend-school-road-access',
+      name: 'Bishop Bend School Road Access',
+      latitude: 37.3377,
+      longitude: -83.6882,
+    },
+    logistics: {
+      distanceLabel: 'About 7.2 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Bishop Bend School Road Access, then drive back to Rocky Branch Road Access. Both landings are simple carry-down sites, so inspect parking, mud, and footing before leaving the shuttle.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Rocky Branch, Cedar Valley, or Bishop Bend, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Rocky Branch Road Access and take out about 7.2 miles downstream at Bishop Bend School Road Access for a shorter South Fork Kentucky River split. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Rocky Branch is a carry-down-only gravel-and-dirt access with limited parking and no amenities.',
+        'Bishop Bend is a gravel-and-dirt carry-down with only a small dirt parking area and no amenities.',
+        'The current Booneville gauge reading was inside the official good band during this run, but same-day mud, wood, and changed shoal lines still control the real launch call.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and muddy landings become less forgiving.',
+        'Wood, strainers, mud banks, occasional riffles, and private banks outside the access sites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rocky-branch-road-access',
+        name: 'Rocky Branch Road Access',
+        latitude: 37.3206,
+        longitude: -83.6648,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this upper-middle South Fork split.',
+      },
+      {
+        id: 'cedar-valley-road-access',
+        name: 'Cedar Valley Road Access',
+        latitude: 37.3363,
+        longitude: -83.656,
+        mileFromStart: 2.5,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'bishop-bend-school-road-access',
+        name: 'Bishop Bend School Road Access',
+        latitude: 37.3377,
+        longitude: -83.6882,
+        mileFromStart: 7.2,
+        segmentKind: 'creek',
+        note: 'Default take-out for this route.',
+      },
+    ],
+  },
+  'south-fork-kentucky-river-bishop-bend-hacker-branch': {
+    putIn: {
+      id: 'bishop-bend-school-road-access',
+      name: 'Bishop Bend School Road Access',
+      latitude: 37.3377,
+      longitude: -83.6882,
+    },
+    takeOut: {
+      id: 'hacker-branch-road-access',
+      name: 'Hacker Branch Road Access',
+      latitude: 37.3743,
+      longitude: -83.6708,
+    },
+    logistics: {
+      distanceLabel: 'About 3.3 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Hacker Branch Road Access, then drive back to Bishop Bend School Road Access. Both are simple carry-down accesses, so inspect parking, mud, and bank footing before leaving the shuttle.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a short day trip. KDFWR lists no camping at Bishop Bend or Hacker Branch, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Bishop Bend School Road Access and take out about 3.3 miles downstream at Hacker Branch Road Access for a short South Fork Kentucky River split. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Bishop Bend is a gravel-and-dirt carry-down with only a small dirt parking area and no amenities.',
+        'Hacker Branch is a bridge-side carry-down with unpaved roadside parking and no amenities.',
+        'The current Booneville gauge reading was inside the official good band during this run, but same-day mud, wood, and changed shoal lines still control the real launch call.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and the short split becomes less forgiving.',
+        'Wood, strainers, mud banks, occasional riffles, and private banks outside the access sites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'bishop-bend-school-road-access',
+        name: 'Bishop Bend School Road Access',
+        latitude: 37.3377,
+        longitude: -83.6882,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this short lower split.',
+      },
+      {
+        id: 'hacker-branch-road-access',
+        name: 'Hacker Branch Road Access',
+        latitude: 37.3743,
+        longitude: -83.6708,
+        mileFromStart: 3.3,
+        segmentKind: 'creek',
+        note: 'Default take-out for this route.',
+      },
+    ],
+  },
+  'south-fork-kentucky-river-hacker-branch-upper-wolf-creek': {
+    putIn: {
+      id: 'hacker-branch-road-access',
+      name: 'Hacker Branch Road Access',
+      latitude: 37.3743,
+      longitude: -83.6708,
+    },
+    takeOut: {
+      id: 'upper-wolf-creek-ramp',
+      name: 'Upper Wolf Creek Ramp',
+      latitude: 37.3964,
+      longitude: -83.6767,
+    },
+    logistics: {
+      distanceLabel: 'About 2.9 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Upper Wolf Creek Ramp, then drive back to Hacker Branch Road Access. Hacker Branch is the simpler carry-down put-in, while Upper Wolf Creek is the more developed paved-ramp finish.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a short day trip. KDFWR lists no camping at Hacker Branch or Upper Wolf Creek, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Hacker Branch Road Access and take out about 2.9 miles downstream at Upper Wolf Creek Ramp for a short lower South Fork Kentucky River split. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Hacker Branch is a bridge-side carry-down with unpaved roadside parking and no amenities.',
+        'Upper Wolf Creek is a free single-lane paved ramp with unpaved parking and year-round 24-hour availability.',
+        'The current Booneville gauge reading was inside the official good band during this run, but same-day mud, wood, and changed shoal lines still control the real launch call.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and the short split becomes less forgiving at the take-out.',
+        'Wood, strainers, mud banks, occasional riffles, and private banks outside the access sites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hacker-branch-road-access',
+        name: 'Hacker Branch Road Access',
+        latitude: 37.3743,
+        longitude: -83.6708,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this short lower-ramp split.',
+      },
+      {
+        id: 'upper-wolf-creek-ramp',
+        name: 'Upper Wolf Creek Ramp',
+        latitude: 37.3964,
+        longitude: -83.6767,
+        mileFromStart: 2.9,
+        segmentKind: 'creek',
+        note: 'Default take-out for this route.',
+      },
+    ],
+  },
   'south-fork-kentucky-river-hacker-branch-fish-creek': {
     putIn: {
       id: 'hacker-branch-road-access',
