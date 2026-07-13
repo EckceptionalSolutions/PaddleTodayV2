@@ -2485,6 +2485,108 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'sauk-river-st-martin-eagle-park': {
+    putIn: {
+      name: 'St. Martin Public Water Access / County Road 12',
+      latitude: 45.520241,
+      longitude: -94.67885,
+    },
+    takeOut: {
+      name: 'Eagle Park carry-in access',
+      latitude: 45.4754595,
+      longitude: -94.3502588,
+    },
+    logistics: {
+      distanceLabel: '30.9 mi',
+      estimatedPaddleTime: 'About 9 hr to 12 hr, or split overnight',
+      shuttle:
+        'Use a standard vehicle shuttle between St. Martin and Eagle Park. Because this is a long corridor, most groups should inspect both ends before launching rather than assuming a simple quick-shuttle day.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county and city access rules at St. Martin, intermediate parks, and Eagle Park.',
+      camping:
+        'Rockville County Park sits mid-route and has a watercraft campsite, making this a defensible overnight split. Otherwise treat it as a very long day and do not assume informal shoreline camping is legal.',
+      summary:
+        'Launch at St. Martin Canoe Access and finish at Eagle Park for the central Sauk corridor. This is the long family member to choose when the St. Martin gauge is solid and you want more commitment than the short lower routes.',
+      accessCaveats: [
+        'St. Martin is a simple county carry-in rather than a full-service landing, so settle your staging and parking plan before unloading boats.',
+        'This route passes multiple intermediate accesses, which is useful for bailout planning but also makes it easy to underestimate how long the full St. Martin-to-Eagle commitment really is.',
+        'Rockville County Park is the cleanest intentional overnight split because it is the documented watercraft-campsite stop on this corridor.',
+      ],
+      watchFor: [
+        'Long-mileage fatigue and weather exposure on a route that is easy in character but not short.',
+        'Shallow riffles, slow vegetation-choked miles, and extra drag if the St. Martin gauge trends toward 14 ft.',
+        'Fresh wood, strainers, and cold-water consequences far from your planned take-out.',
+      ],
+    },
+  },
+  'sauk-river-miller-landing-knights-of-columbus': {
+    putIn: {
+      name: 'Miller Landing carry-in access',
+      latitude: 45.5504544,
+      longitude: -94.2641031,
+    },
+    takeOut: {
+      name: 'Knights of Columbus Park carry-in access',
+      latitude: 45.5670560130672,
+      longitude: -94.2286380074072,
+    },
+    logistics: {
+      distanceLabel: '3.1 mi',
+      estimatedPaddleTime: 'About 1 hr 15 min to 2 hr',
+      shuttle:
+        'Short lower-Sauk self-shuttle between Miller Landing and Knights of Columbus Park. This is one of the easier St. Cloud-area setups when you want a quick route and simple retrieval.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted local rules at Miller Landing and Knights of Columbus Park.',
+      camping:
+        'Treat this as a day trip. Both endpoints are managed access parks rather than overnight river camps.',
+      summary:
+        'Use Miller Landing as the put-in and Knights of Columbus Park as the take-out for a short urban lower-Sauk paddle that ends before the Heims rapid finish.',
+      accessCaveats: [
+        'Miller Landing is a managed county access with posted hours, so do not assume unlimited late retrieval.',
+        'Knights of Columbus Park is a city park with parking and restrooms, but it is still smarter to scout the exact carry-out before launching if you have not used it before.',
+        'Because the route is short, wind, weeds, or a head-scratching take-out can distort the day more than the mileage suggests.',
+      ],
+      watchFor: [
+        'Vegetation and slower current when the St. Martin gauge slides toward 14 ft.',
+        'Fresh wood or strainers after storms in this tree-lined lower corridor.',
+        'Cold-water exposure outside midsummer, even on a short easy shuttle.',
+      ],
+    },
+  },
+  'sauk-river-knights-of-columbus-heims-mill': {
+    putIn: {
+      name: 'Knights of Columbus Park carry-in access',
+      latitude: 45.5670560130672,
+      longitude: -94.2286380074072,
+    },
+    takeOut: {
+      name: 'Heims Mill Canoe Access',
+      latitude: 45.5936215,
+      longitude: -94.1813947,
+    },
+    logistics: {
+      distanceLabel: '4.5 mi',
+      estimatedPaddleTime: 'About 1 hr 45 min to 2 hr 45 min',
+      shuttle:
+        'Short St. Cloud-area self-shuttle between Knights of Columbus Park and Heims Mill. Keep the take-out vehicle at Heims because the confluence finish is not where you want to improvise when tired.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted city and county access rules.',
+      camping:
+        'Treat this as a day trip. Heims Mill has picnic and restroom amenities but is not a campground.',
+      summary:
+        'Put in at Knights of Columbus Park and finish at Heims Mill for the short lower-Sauk route that includes the DNR-noted Class I-II finish into the Mississippi corridor.',
+      accessCaveats: [
+        'Knights of Columbus Park is a defined city park endpoint, but you should still identify the carry-out path before launching because it is easy to think of it as a generic park stop rather than a specific river exit.',
+        'Heims Mill is a simple carry-in county access with amenities, not a broad paved ramp or a place to loiter while sorting out a shuttle plan.',
+        'Do not let the short mileage hide the fact that the lower 2.5 miles are the technical part of the Sauk family.',
+      ],
+      watchFor: [
+        'Boulder-filled Class I-II rapids in the final 2.5 miles, especially if the gauge trends low.',
+        'Shallow rock dodging or partial walk-downs if the St. Martin gauge falls toward or below 14 ft.',
+        'Wood, tight lines, and cold-water consequences near the Mississippi confluence.',
+      ],
+    },
+  },
   'snake-river-canary-cross-lake': {
     putIn: {
       name: 'Snake River #1 / Canary Road public water access',

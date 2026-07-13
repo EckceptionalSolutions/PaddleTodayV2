@@ -4735,6 +4735,358 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'sauk-river-st-martin-eagle-park',
+    slug: 'sauk-river-st-martin-eagle-park',
+    name: 'Sauk River',
+    reach: 'St. Martin Canoe Access to Eagle Park',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Long central-Sauk corridor that turns the St. Martin gauge into a realistic same-river decision for a bigger day. It is the family choice when you want more commitment than the short lower sections without stepping into the St. Cloud rapids finish.',
+    statusText:
+      'Treat 15 to 17 ft at St. Martin as the best broad-audience range. Below 14 ft this long reach gets scrape-prone and weedy, while above 20 ft the mileage and faster current stack up into a much more serious outing.',
+    latitude: 45.520241,
+    longitude: -94.67885,
+    gaugeSource: {
+      id: 'mn-dnr-328',
+      provider: 'mn_dnr',
+      siteId: '328',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Sauk River nr St. Martin, CR12',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=16051001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=16051001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05270500',
+        provider: 'usgs',
+        siteId: '05270500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Sauk River near St. Cloud, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 15,
+      idealMax: 17,
+      tooLow: 14,
+      tooHigh: 20,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Sauk River near St. Martin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. Low summer flow and vegetation matter more here because the route is long enough that a merely slow river can still turn the day into a grind.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The river character stays mostly easy, but 30.9 miles of moving water, wood management, and weather exposure push this beyond a casual beginner float.',
+      confidenceNotes:
+        'Confidence is good because MN DNR names both endpoints on the official water-trail map, the St. Martin gauge sits directly at the put-in, and Eagle Park has city backing. The main uncertainty is same-day endurance and wood, not the route identity.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Current level',
+        value: '15.34 ft at 10:00 AM',
+        note: 'MN DNR listed the St. Martin gauge at 15.34 ft on July 13, 2026, which lands in the official Medium band.',
+        sourceUrl: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'DNR bands',
+        value: '14 / 15 / 17 / 20 ft',
+        note: 'MN DNR interprets the St. Martin gauge as Scrapable below 14 ft, Low from 14 to 15, Medium from 15 to 17, High from 17 to 20, and Very High above 20.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Route shape',
+        value: '30.9 river miles',
+        note: 'MN DNR Map 2 places St. Martin at river mile 47.1 and Eagle Park at river mile 16.2.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Camping support',
+        value: 'Mid-route watercraft campsite',
+        note: 'Rockville County Park sits along this corridor and Stearns County documents a watercraft campsite there, giving this longer route a defensible overnight split instead of forcing a pure ultra-day.',
+        sourceUrl: 'https://www.stearnscountymn.gov/397/Rockville-County-Park',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Sauk River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Stearns County St. Martin Canoe Access',
+        url: 'https://www.stearnscountymn.gov/st-martin-canoe-access',
+      },
+      {
+        label: 'Stearns County Rockville County Park',
+        url: 'https://www.stearnscountymn.gov/397/Rockville-County-Park',
+      },
+      {
+        label: 'City of Rockville Eagle Park',
+        url: 'https://www.rockvillecity.org/eaglepark',
+      },
+      {
+        label: 'USGS 05270500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05270500/',
+      },
+    ],
+  },
+  {
+    id: 'sauk-river-miller-landing-knights-of-columbus',
+    slug: 'sauk-river-miller-landing-knights-of-columbus',
+    name: 'Sauk River',
+    reach: 'Miller Landing to Knights of Columbus Park',
+    state: 'Minnesota',
+    region: 'St. Cloud Area',
+    summary:
+      'Short urban lower-Sauk shuttle that keeps the logistics easy while avoiding the Class I-II mouth rapids. It is the simple St. Cloud-area pick when you want a quick gauge-backed paddle instead of the longer Rockville day or the Heims finish.',
+    statusText:
+      'Treat 15 to 17 ft at St. Martin as the cleanest range. Below 14 ft this short reach gets slower and weedier, while flood-style caution matters more once the Sauk climbs above 20 ft.',
+    latitude: 45.5504544,
+    longitude: -94.2641031,
+    gaugeSource: {
+      id: 'mn-dnr-328',
+      provider: 'mn_dnr',
+      siteId: '328',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Sauk River nr St. Martin, CR12',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=16051001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=16051001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05270500',
+        provider: 'usgs',
+        siteId: '05270500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Sauk River near St. Cloud, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 15,
+      idealMax: 17,
+      tooLow: 14,
+      tooHigh: 20,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Sauk River near St. Martin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the normal window. Low summer water and vegetation show up before this short reach fully quits, but the short mileage helps keep the risk bounded.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a broad-audience lower-Sauk shuttle at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid zone on this split.',
+      confidenceNotes:
+        'Confidence is high because MN DNR names both endpoints on the official map, Stearns County documents Miller Landing, and St. Cloud documents Knights of Columbus Park on the Sauk River.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Current level',
+        value: '15.34 ft at 10:00 AM',
+        note: 'MN DNR listed the St. Martin gauge at 15.34 ft on July 13, 2026, which lands in the official Medium band.',
+        sourceUrl: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'DNR bands',
+        value: '14 / 15 / 17 / 20 ft',
+        note: 'MN DNR interprets the St. Martin gauge as Scrapable below 14 ft, Low from 14 to 15, Medium from 15 to 17, High from 17 to 20, and Very High above 20.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Route shape',
+        value: '3.1 river miles',
+        note: 'MN DNR Map 2 places Miller Landing at river mile 7.6 and Knights of Columbus Park at river mile 4.5.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Access support',
+        value: 'Official county and city endpoints',
+        note: 'Stearns County documents Miller Landing on the Sauk and St. Cloud documents Knights of Columbus Park as a Sauk River park with parking, restrooms, and picnic amenities.',
+        sourceUrl: 'https://www.ci.stcloud.mn.us/facilities/facility/details/Knights-of-Columbus-30',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Sauk River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Stearns County Miller Landing',
+        url: 'https://www.stearnscountymn.gov/miller-landing',
+      },
+      {
+        label: 'St. Cloud Knights of Columbus Park',
+        url: 'https://www.ci.stcloud.mn.us/facilities/facility/details/Knights-of-Columbus-30',
+      },
+      {
+        label: 'USGS 05270500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05270500/',
+      },
+    ],
+  },
+  {
+    id: 'sauk-river-knights-of-columbus-heims-mill',
+    slug: 'sauk-river-knights-of-columbus-heims-mill',
+    name: 'Sauk River',
+    reach: 'Knights of Columbus Park to Heims Mill',
+    state: 'Minnesota',
+    region: 'St. Cloud Area',
+    summary:
+      'Compact Sauk finish with the route-family rapid section packed into a short shuttle. Choose this over the easier Miller-to-Knights split when you specifically want the lower Class I-II finish into the Mississippi confluence.',
+    statusText:
+      'Treat 15 to 17 ft at St. Martin as the best all-around range. Below 14 ft the final rapids can turn bony or partly impassable, while above 20 ft the short mileage does not cancel the stronger consequence.',
+    latitude: 45.5670560130672,
+    longitude: -94.2286380074072,
+    gaugeSource: {
+      id: 'mn-dnr-328',
+      provider: 'mn_dnr',
+      siteId: '328',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Sauk River nr St. Martin, CR12',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=16051001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=16051001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05270500',
+        provider: 'usgs',
+        siteId: '05270500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Sauk River near St. Cloud, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 15,
+      idealMax: 17,
+      tooLow: 14,
+      tooHigh: 20,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Sauk River near St. Martin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. This short lower reach can still become a poor choice at low water because the rapids near the mouth go bony before the broader river fully shuts down.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The final 2.5 miles include DNR-noted boulder-filled Class I-II rapids, so this is a short but not casual lower-Sauk finish.',
+      confidenceNotes:
+        'Confidence is good because MN DNR names both endpoints and explicitly warns about the rapid finish, while city and county pages document the public access parks. The main uncertainty is same-day wood and how pushy the final rapids feel at the upper end of the band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Current level',
+        value: '15.34 ft at 10:00 AM',
+        note: 'MN DNR listed the St. Martin gauge at 15.34 ft on July 13, 2026, which lands in the official Medium band.',
+        sourceUrl: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'DNR bands',
+        value: '14 / 15 / 17 / 20 ft',
+        note: 'MN DNR interprets the St. Martin gauge as Scrapable below 14 ft, Low from 14 to 15, Medium from 15 to 17, High from 17 to 20, and Very High above 20.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Route shape',
+        value: '4.5 river miles',
+        note: 'MN DNR Map 2 places Knights of Columbus Park at river mile 4.5 and Heims Mill at river mile 0.0.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Rapid finish',
+        value: 'Class I-II in final 2.5 mi',
+        note: 'MN DNR warns the final 2.5 miles are boulder-filled Class I-II rapids that may not be passable at low water.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Access support',
+        value: 'Official city and county endpoints',
+        note: 'St. Cloud documents Knights of Columbus Park on the Sauk River, and Stearns County confirms Heims Mill Canoe Access has carry-in access plus restroom and picnic amenities.',
+        sourceUrl: 'https://www.stearnscountymn.gov/heims-mill-canoe-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Sauk River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'St. Cloud Knights of Columbus Park',
+        url: 'https://www.ci.stcloud.mn.us/facilities/facility/details/Knights-of-Columbus-30',
+      },
+      {
+        label: 'Stearns County Heims Mill Canoe Access',
+        url: 'https://www.stearnscountymn.gov/heims-mill-canoe-access',
+      },
+      {
+        label: 'USGS 05270500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05270500/',
+      },
+    ],
+  },
+  {
     id: 'snake-river-canary-cross-lake',
     slug: 'snake-river-canary-cross-lake',
     name: 'Snake River',
