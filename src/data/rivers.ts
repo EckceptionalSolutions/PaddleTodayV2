@@ -51550,6 +51550,134 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: "village-creek-fm418-baby-galvez",
+    slug: "village-creek-fm418-baby-galvez",
+    name: "Village Creek",
+    reach: "FM 418 Boat Launch to Baby Galvez Road Boat Launch",
+    aliases: [
+      "Village Creek - FM 418 to Baby Galvez",
+      "Village Creek - Upper to middle Village Creek",
+      "Long upper Village Creek day",
+    ],
+    state: "Texas",
+    region: "East Texas",
+    summary:
+      "Longer Big Thicket Village Creek day from FM 418 to Baby Galvez Road. TPWD and NPS keep the public access chain live, and the direct Kountze USGS gauge still gives the same same-creek condition check used on the shorter trail splits.",
+    statusText:
+      "Use the Village Creek near Kountze gauge. Around 200 cfs is the conservative low-water floor for FM 418 to Baby Galvez. No route-specific upper cfs band is claimed; low water exposes more sandbars and logs, while heavy rain can turn this longer flatwater day swift quickly.",
+    latitude: 30.397794,
+    longitude: -94.265024,
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["fast_rise", "strainers", "private_banks"],
+      safetyNotes: [
+        "Village Creek is free-flowing and can rise fast after rain even though this corridor often looks calm at ordinary levels.",
+        "Expect snags, logjams, overhanging limbs, and sandbars, especially when the creek is low or after storms move wood into the channel.",
+        "Use only the named public launches, stay off private banks except when a hazard portage is necessary, and reassess at TX 327 instead of assuming the longer continuation is always easy enough to press on.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    gaugeSource: {
+      id: "usgs-08041500",
+      provider: "usgs",
+      siteId: "08041500",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Village Ck nr Kountze, TX",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-08041500/",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 200,
+      thresholdSource: {
+        label: "Texas River Flows five-level Village Creek / Kountze gauge table",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      thresholdSourceStrength: "community",
+      rainfallSensitivity: "high",
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonNotes:
+        "This route can work year-round, but nearly 12 miles of exposed creek makes summer heat, insects, and rain-driven current matter more than on the shortest split. Treat storms and rising water conservatively.",
+      difficulty: "easy",
+      difficultyNotes:
+        "Usually calm flatwater and friendly for broad audiences, but this is a real half-day to full-day shuttle. Low water can add dragging or wood dodging, and high water removes the easy feel quickly.",
+      confidenceNotes:
+        "Confidence is good for a conservative Texas add: TPWD still publishes the Village Creek access chain, the FM 418 and Baby Galvez launches remain source-backed public endpoints through TPWD and NPS, USGS 08041500 is the direct live gauge in the same creek corridor, and the legacy Texas River Flows table still gives a usable 200 cfs minimum. TPWD's segment table currently lists TX 327 to Baby Galvez at 3.37 miles while the NPS trail summary rounds that middle segment shorter; Paddle Today uses the more specific TPWD segment table for route mileage and keeps the route minimum-only rather than claiming a stronger range.",
+    },
+    evidenceNotes: [
+      {
+        label: "Direct live gauge",
+        value: "USGS 08041500 at 227 cfs / 3.68 ft",
+        note: "USGS Water Services returned same-day July 13, 2026 discharge and stage values for Village Creek near Kountze, confirming the direct live gauge path used for this route.",
+        sourceUrl: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08041500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Conservative low-water floor",
+        value: "200 cfs minimum-only",
+        note: "The Texas River Flows five-level table lists Village Creek at the Kountze gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        sourceUrl: "https://theworld.com/~reichert/riverflo.htm",
+      },
+      {
+        label: "Official route shape",
+        value: "FM 418 to Baby Galvez Rd, about 12.0 mi",
+        note: "Current TPWD trail material lists FM 418 to TX 327 at 8.6 miles and TX 327 to Baby Galvez Road at 3.37 miles, which together support this longer continuation.",
+        sourceUrl: "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/village-creek/",
+      },
+      {
+        label: "Exact public launch coordinates",
+        value: "30.397794, -94.265024 to 30.33450, -94.20391",
+        note: "NPS publishes the FM 418 and Baby Galvez Road launches as named public endpoints with current GPS coordinates and launch descriptions.",
+        sourceUrl: "https://www.nps.gov/places/village-creek-baby-galvez-road-boat-launch.htm",
+      },
+      {
+        label: "Intermediate public bailout",
+        value: "TX 327 at 8.6 mi",
+        note: "NPS identifies TX 327 as the next public launch 8.6 miles below FM 418, giving the longer route a clear midpoint reassessment option.",
+        sourceUrl: "https://www.nps.gov/places/village-creek-fm-418-boat-launch.htm",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "TPWD Village Creek Paddling Trail",
+        url: "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/village-creek/",
+        provider: "local",
+      },
+      {
+        label: "NPS Paddling Trails - Village Creek",
+        url: "https://www.nps.gov/bith/planyourvisit/paddling-trails.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS FM 418 Boat Launch",
+        url: "https://www.nps.gov/places/village-creek-fm-418-boat-launch.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS Baby Galvez Road Boat Launch",
+        url: "https://www.nps.gov/places/village-creek-baby-galvez-road-boat-launch.htm",
+        provider: "nps",
+      },
+      {
+        label: "TPWD Analysis of Texas Waterways - Village Creek",
+        url: "https://tpwd.texas.gov/publications/pwdpubs/pwd_rp_t3200_1047/11_e_tx_village_creek.phtml",
+        provider: "local",
+      },
+      {
+        label: "Texas River Flows for 5 Levels of Paddling",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      {
+        label: "USGS 08041500 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-08041500/",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
     id: "village-creek-baby-galvez-us-96",
     slug: "village-creek-baby-galvez-us-96",
     name: "Village Creek",
@@ -51678,6 +51806,134 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: "village-creek-sh327-us-96",
+    slug: "village-creek-sh327-us-96",
+    name: "Village Creek",
+    reach: "TX 327 Boat Launch to US 96 Boat Launch",
+    aliases: [
+      "Village Creek - TX 327 to US 96",
+      "Village Creek - SH 327 to Lumberton",
+      "Middle Village Creek long day",
+    ],
+    state: "Texas",
+    region: "East Texas",
+    summary:
+      "Longer middle-corridor Village Creek float from TX 327 to the public US 96 launch near Lumberton. NPS keeps both launches live, TPWD still documents the access chain, and the direct Kountze gauge remains the same conservative condition check.",
+    statusText:
+      "Use the Village Creek near Kountze gauge. Around 200 cfs is the conservative low-water floor for TX 327 to US 96. No route-specific upper cfs band is claimed; this longer middle corridor gets slower and woodier near the floor and markedly swifter after heavy rain.",
+    latitude: 30.346944,
+    longitude: -94.239385,
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["fast_rise", "strainers", "private_banks"],
+      safetyNotes: [
+        "This route can still feel mellow at ordinary levels, but Village Creek has no dams moderating runoff and can become deceptively fast after rain.",
+        "Expect snags, overhanging trees, logjams, and sandbars, especially late in dry spells or after storms shift wood into the channel.",
+        "Stay with the named public launches and legal stream corridor. Baby Galvez is the clean midpoint bailout if conditions, heat, or group pace stop matching the plan.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    gaugeSource: {
+      id: "usgs-08041500",
+      provider: "usgs",
+      siteId: "08041500",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Village Ck nr Kountze, TX",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-08041500/",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 200,
+      thresholdSource: {
+        label: "Texas River Flows five-level Village Creek / Kountze gauge table",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      thresholdSourceStrength: "community",
+      rainfallSensitivity: "high",
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonNotes:
+        "This route can work year-round, but about ten and a half miles of creek makes heat, insects, and rain-driven current more relevant than on the short starter segments.",
+      difficulty: "easy",
+      difficultyNotes:
+        "The water is usually easy flatwater, but this is a real half-day to full-day route. Low water can add dragging and wood dodging, while high water removes the beginner feel quickly.",
+      confidenceNotes:
+        "Confidence is good for a conservative Texas add: NPS publishes exact coordinates for the TX 327, Baby Galvez, and US 96 public launches, TPWD still keeps the Village Creek paddling-trail package live, USGS 08041500 is the direct same-creek gauge, and the legacy Texas River Flows table still provides a usable 200 cfs minimum. TPWD's segment table currently lists TX 327 to Baby Galvez at 3.37 miles while the NPS trail summary rounds that middle segment shorter; Paddle Today uses the more specific TPWD segment table for route mileage and keeps the route minimum-only rather than claiming a stronger range.",
+    },
+    evidenceNotes: [
+      {
+        label: "Direct live gauge",
+        value: "USGS 08041500 at 227 cfs / 3.68 ft",
+        note: "USGS Water Services returned same-day July 13, 2026 discharge and stage values for Village Creek near Kountze, confirming the direct live gauge path used for this route.",
+        sourceUrl: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08041500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Conservative low-water floor",
+        value: "200 cfs minimum-only",
+        note: "The Texas River Flows five-level table lists Village Creek at the Kountze gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        sourceUrl: "https://theworld.com/~reichert/riverflo.htm",
+      },
+      {
+        label: "Official route shape",
+        value: "TX 327 to US 96, about 10.5 mi",
+        note: "Current TPWD trail material lists TX 327 to Baby Galvez Road at 3.37 miles and Baby Galvez Road to US 96 at 7.1 miles, which together support this longer middle-corridor continuation.",
+        sourceUrl: "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/village-creek/",
+      },
+      {
+        label: "Exact public launch coordinates",
+        value: "30.346944, -94.239385 to 30.28570, -94.19145",
+        note: "NPS publishes the TX 327 and US 96 boat launches as named public endpoints with current GPS coordinates and launch descriptions.",
+        sourceUrl: "https://www.nps.gov/places/village-creek-us-96-boat-launch.htm",
+      },
+      {
+        label: "Intermediate public bailout",
+        value: "Baby Galvez at about 3.4 mi",
+        note: "NPS and TPWD both keep Baby Galvez in the middle of the public access chain, giving the route a clear reassessment and early take-out option before the lower continuation to US 96.",
+        sourceUrl: "https://www.nps.gov/places/village-creek-baby-galvez-road-boat-launch.htm",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "TPWD Village Creek Paddling Trail",
+        url: "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/village-creek/",
+        provider: "local",
+      },
+      {
+        label: "NPS Paddling Trails - Village Creek",
+        url: "https://www.nps.gov/bith/planyourvisit/paddling-trails.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS TX 327 Boat Launch",
+        url: "https://www.nps.gov/places/village-creek-tx-327-boat-launch.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS Baby Galvez Road Boat Launch",
+        url: "https://www.nps.gov/places/village-creek-baby-galvez-road-boat-launch.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS US 96 Boat Launch",
+        url: "https://www.nps.gov/places/village-creek-us-96-boat-launch.htm",
+        provider: "nps",
+      },
+      {
+        label: "Texas River Flows for 5 Levels of Paddling",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      {
+        label: "USGS 08041500 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-08041500/",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
     id: "village-creek-us-96-state-park",
     slug: "village-creek-us-96-state-park",
     name: "Village Creek",
@@ -51786,6 +52042,139 @@ export const rivers: River[] = [
       {
         label: "NPS Paddling Trails - Village Creek",
         url: "https://www.nps.gov/bith/planyourvisit/paddling-trails.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS US 96 Boat Launch",
+        url: "https://www.nps.gov/places/village-creek-us-96-boat-launch.htm",
+        provider: "nps",
+      },
+      {
+        label: "Texas River Flows for 5 Levels of Paddling",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      {
+        label: "USGS 08041500 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-08041500/",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "village-creek-baby-galvez-state-park",
+    slug: "village-creek-baby-galvez-state-park",
+    name: "Village Creek",
+    reach: "Baby Galvez Road Boat Launch to Village Creek State Park canoe launch",
+    aliases: [
+      "Village Creek - Baby Galvez to Village Creek State Park",
+      "Village Creek - lower Big Thicket continuation",
+      "Village Creek - Baby Galvez to state park",
+    ],
+    state: "Texas",
+    region: "East Texas",
+    summary:
+      "Longer lower Village Creek day from Baby Galvez Road to Village Creek State Park. TPWD and NPS still document the lower public access chain, and the same direct Kountze USGS gauge anchors a conservative same-day flow check before you commit.",
+    statusText:
+      "Use the Village Creek near Kountze gauge. Around 200 cfs is the conservative low-water floor for Baby Galvez to Village Creek State Park. No route-specific upper cfs band is claimed; flooding can affect the state-park launch and higher water can turn this longer lower corridor much faster.",
+    latitude: 30.3345,
+    longitude: -94.20391,
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["fast_rise", "strainers", "private_banks"],
+      safetyNotes: [
+        "Village Creek remains a free-flowing flood-responsive stream all the way to the state-park launch, so a calm-looking lower corridor is not a substitute for a same-day water-level call.",
+        "Expect logs, snags, sandbars, and changing launch conditions after storms or floods. The state-park canoe launch can be affected by flooding.",
+        "Use only the named public launches, respect private banks, and remember that alligators live in this lower corridor even though conflicts are uncommon when paddlers give wildlife space.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    gaugeSource: {
+      id: "usgs-08041500",
+      provider: "usgs",
+      siteId: "08041500",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Village Ck nr Kountze, TX",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-08041500/",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 200,
+      thresholdSource: {
+        label: "Texas River Flows five-level Village Creek / Kountze gauge table",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      thresholdSourceStrength: "community",
+      rainfallSensitivity: "high",
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonNotes:
+        "This lower continuation can work year-round, but ten-plus miles, heat, insects, and flood-sensitive park access matter more here than on the short final segment.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is usually easy flatwater between public launches, but the longer mileage, flood-sensitive finish, and wildlife context make it a more committed day than the short US 96 to state-park run.",
+      confidenceNotes:
+        "Confidence is good for a conservative Texas add: TPWD and NPS still keep the lower Village Creek access chain live, NPS publishes the Baby Galvez public launch coordinate, TPWD publishes the Village Creek State Park canoe-launch coordinate and campground logistics, USGS 08041500 remains the direct same-creek gauge, and the legacy Texas River Flows table still provides a usable 200 cfs minimum. Confidence stays intentionally conservative because the threshold floor comes from a legacy multi-level table rather than a modern manager-published route band, so the route ships minimum-only and does not claim an upper scoring range.",
+    },
+    evidenceNotes: [
+      {
+        label: "Direct live gauge",
+        value: "USGS 08041500 at 227 cfs / 3.68 ft",
+        note: "USGS Water Services returned same-day July 13, 2026 discharge and stage values for Village Creek near Kountze, confirming the direct live gauge path used for this route.",
+        sourceUrl: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08041500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Conservative low-water floor",
+        value: "200 cfs minimum-only",
+        note: "The Texas River Flows five-level table lists Village Creek at the Kountze gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        sourceUrl: "https://theworld.com/~reichert/riverflo.htm",
+      },
+      {
+        label: "Official route shape",
+        value: "Baby Galvez Rd to Village Creek State Park, about 10.3 mi",
+        note: "Current TPWD and NPS Village Creek trail pages identify Baby Galvez Road to US 96 as 7.1 miles and US 96 to Village Creek State Park as 3.2 miles, which together support this longer lower continuation.",
+        sourceUrl: "https://www.nps.gov/bith/planyourvisit/paddling-trails.htm",
+      },
+      {
+        label: "Exact public launch coordinates",
+        value: "30.33450, -94.20391 to 30.2553, -94.1710",
+        note: "NPS publishes the Baby Galvez Road launch coordinate, and TPWD's current state-park trails information publishes the canoe-launch coordinate inside Village Creek State Park.",
+        sourceUrl: "https://tpwd.texas.gov/state-parks/village-creek/trails-info",
+      },
+      {
+        label: "Endpoint campground support",
+        value: "Village Creek State Park campsites and cabin at take-out",
+        note: "TPWD says the park has tent and RV campsites, a cabin, and direct access to the Village Creek paddling trail from the canoe launch.",
+        sourceUrl: "https://tpwd.texas.gov/state-parks/village-creek",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "TPWD Village Creek Paddling Trail",
+        url: "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/village-creek/",
+        provider: "local",
+      },
+      {
+        label: "TPWD Village Creek State Park",
+        url: "https://tpwd.texas.gov/state-parks/village-creek",
+        provider: "local",
+      },
+      {
+        label: "TPWD Village Creek State Park trails info",
+        url: "https://tpwd.texas.gov/state-parks/village-creek/trails-info",
+        provider: "local",
+      },
+      {
+        label: "NPS Paddling Trails - Village Creek",
+        url: "https://www.nps.gov/bith/planyourvisit/paddling-trails.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS Baby Galvez Road Boat Launch",
+        url: "https://www.nps.gov/places/village-creek-baby-galvez-road-boat-launch.htm",
         provider: "nps",
       },
       {

@@ -1,6 +1,6 @@
 # Texas Route Memory
 
-Last summarized: 2026-07-11 10:35 America/Chicago / 2026-07-11 15:35 UTC.
+Last summarized: 2026-07-13 11:31 America/Chicago / 2026-07-13 16:31 UTC.
 
 ## Current Inventory
 
@@ -26,6 +26,12 @@ Texas still has three strong TPWD-first source families in V2, but the overlap w
 - Keep image expectations tight. The Texas families were reviewed through bounded TPWD / NPS or TPWD / TRPA / Commons / USGS searches, and no clearly rights-clean exact-route paddling image was selected for the new Guadalupe or Village Creek full-route slugs.
 
 ## Latest Run
+
+- 2026-07-13 11:31 America/Chicago / 2026-07-13 16:31 UTC restoration pass
+  - Restored `village-creek-fm418-baby-galvez`, `village-creek-sh327-us-96`, and `village-creek-baby-galvez-state-park` because the live repo baseline at run start still omitted those three longer `Village Creek` continuations even though their trip-detail records and image-audit rows remained in the tree.
+  - Qualification path: current TPWD still serves the Village Creek paddling-trail page with the `8.6`, `3.37`, `7.1`, and `3.2` mile access ladder plus the warning that the full trail is too long for one day; current Big Thicket NPS still serves the public access chain from FM 418 through TX 327, Baby Galvez Road, US 96, and Village Creek State Park with year-round sandbar-camping context; TPWD still serves the Village Creek State Park canoe-launch and campground pages; and same-day direct USGS Water Services returned `227 cfs / 3.68 ft` for direct gauge `08041500` at `2026-07-13 10:30 CDT`, above the legacy `200 cfs` minimum-only floor.
+  - These restores keep the prior saturation warning intact, but they remain acceptable because each slug still carries a materially different trip package: a longer upper-to-middle day with TX 327 bailout, a longer middle-corridor day with Baby Galvez bailout, and a longer lower continuation with state-park campground support at the finish.
+  - No route-gallery image was added. Existing bounded no-image audit rows for the three restored slugs remained valid.
 
 - 2026-07-11 20:45 America/Chicago / 2026-07-12 01:45 UTC restoration pass
   - Restored `village-creek-sh327-baby-galvez`, `village-creek-baby-galvez-us-96`, and `village-creek-us-96-state-park` because the live repo baseline at run start only carried the full `village-creek-fm418-state-park` planner even though the shorter public splits were already documented in trip details, the image audit, and prior Texas route notes.
