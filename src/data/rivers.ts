@@ -4184,6 +4184,340 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'sauk-river-frogtown-rockville',
+    slug: 'sauk-river-frogtown-rockville',
+    name: 'Sauk River',
+    reach: 'Frogtown Park to Rockville County Park',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Short lower-Sauk warm-up with an easy current, a clean public put-in, and a county-park take-out that keeps the logistics simple for a quick Central Minnesota paddle.',
+    statusText:
+      'Treat 15 to 17 ft at St. Martin as the best lower-Sauk zone. Below 14 ft the river trends scrape-prone and weedy, while flood-style caution starts to matter above 20 ft.',
+    latitude: 45.45775,
+    longitude: -94.421,
+    gaugeSource: {
+      id: 'mn-dnr-328',
+      provider: 'mn_dnr',
+      siteId: '328',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Sauk River nr St. Martin, CR12',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=16051001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=16051001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05270500',
+        provider: 'usgs',
+        siteId: '05270500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Sauk River near St. Cloud, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 15,
+      idealMax: 17,
+      tooLow: 14,
+      tooHigh: 20,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Sauk River near St. Martin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. Summer low water and vegetation can dull this short reach before it fully quits.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is one of the friendlier lower-Sauk segments at normal levels, but wood, strainers, and cold-water exposure still matter.',
+      confidenceNotes:
+        'Confidence is high because MN DNR names both access points on the water-trail map, Cold Spring documents the Frogtown canoe landing, and Stearns County documents Rockville County Park plus its watercraft campsite.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '14 / 15 / 17 / 20 ft',
+        note: 'MN DNR interprets the St. Martin gauge as Scrapable below 14 ft, Low from 14 to 15, Medium from 15 to 17, High from 17 to 20, and Very High above 20.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Route shape',
+        value: '5.0 river miles',
+        note: 'MN DNR Map 2 places Frogtown Park at river mile 21.8 and Rockville County Park at river mile 16.8.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Access support',
+        value: 'Official city and county endpoints',
+        note: 'Cold Spring confirms Frogtown Park has a canoe landing on the Sauk, and Stearns County confirms Rockville County Park has carry-in access, drinking water, and a watercraft campsite.',
+        sourceUrl: 'https://www.stearnscountymn.gov/397/Rockville-County-Park',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Sauk River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Cold Spring Frogtown Park',
+        url: 'https://coldspringmn.gov/index.asp?SEC=70D61018-342B-4C4E-93F2-C0546E96A196',
+      },
+      {
+        label: 'Stearns County Rockville County Park',
+        url: 'https://www.stearnscountymn.gov/397/Rockville-County-Park',
+      },
+      {
+        label: 'USGS 05270500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05270500/',
+      },
+    ],
+  },
+  {
+    id: 'sauk-river-rockville-miller-landing',
+    slug: 'sauk-river-rockville-miller-landing',
+    name: 'Sauk River',
+    reach: 'Rockville County Park to Miller Landing',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Clean lower-Sauk day trip linking a county-park put-in with the standard Miller take-out. It is a strong mainstream option when the St. Martin gauge sits in the DNR medium band.',
+    statusText:
+      'Treat 15 to 17 ft at St. Martin as the sweet spot. Below 14 ft gets shallower and weedier, and above 20 ft is well past the broad-audience version of this paddle.',
+    latitude: 45.4755294,
+    longitude: -94.3507888,
+    gaugeSource: {
+      id: 'mn-dnr-328',
+      provider: 'mn_dnr',
+      siteId: '328',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Sauk River nr St. Martin, CR12',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=16051001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=16051001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05270500',
+        provider: 'usgs',
+        siteId: '05270500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Sauk River near St. Cloud, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 15,
+      idealMax: 17,
+      tooLow: 14,
+      tooHigh: 20,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Sauk River near St. Martin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. Expect summer low-water and vegetation slowdowns before the segment becomes a true no-go.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This remains a broad-audience Sauk float at normal levels, but recent wood, strainers, and cold-water exposure still deserve routine river judgment.',
+      confidenceNotes:
+        'Confidence is high because MN DNR names both access points and Rockville County Park plus Miller Landing each have official Stearns County facility pages.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '14 / 15 / 17 / 20 ft',
+        note: 'MN DNR interprets the St. Martin gauge as Scrapable below 14 ft, Low from 14 to 15, Medium from 15 to 17, High from 17 to 20, and Very High above 20.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Route shape',
+        value: '9.2 river miles',
+        note: 'MN DNR Map 2 places Rockville County Park at river mile 16.8 and Miller Landing at river mile 7.6.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Camping and services',
+        value: 'Watercraft campsite at put-in',
+        note: 'Stearns County confirms Rockville County Park has a watercraft campsite and drinking water near the parking lot, while Miller Landing is a managed carry-in rest area.',
+        sourceUrl: 'https://www.stearnscountymn.gov/397/Rockville-County-Park',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Sauk River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Stearns County Rockville County Park',
+        url: 'https://www.stearnscountymn.gov/397/Rockville-County-Park',
+      },
+      {
+        label: 'Stearns County Miller Landing',
+        url: 'https://www.stearnscountymn.gov/393/Miller-Landing',
+      },
+      {
+        label: 'USGS 05270500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05270500/',
+      },
+    ],
+  },
+  {
+    id: 'sauk-river-pineview-heims-mill',
+    slug: 'sauk-river-pineview-heims-mill',
+    name: 'Sauk River',
+    reach: 'Pineview Park to Heims Mill',
+    state: 'Minnesota',
+    region: 'St. Cloud Area',
+    summary:
+      'Compact lower-Sauk run into the Mississippi confluence with a more serious finish than the mileage suggests. This is the lower family member to choose when you want the Class I-II mouth section, not the mellow upstream float.',
+    statusText:
+      'Treat 15 to 17 ft at St. Martin as the best all-around range. Below 14 ft can make the rapids at the mouth bony or partially impassable, while above 20 ft pushes the finish well beyond a casual urban paddle.',
+    latitude: 45.5600406,
+    longitude: -94.2446825,
+    gaugeSource: {
+      id: 'mn-dnr-328',
+      provider: 'mn_dnr',
+      siteId: '328',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Sauk River nr St. Martin, CR12',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=16051001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=16051001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05270500',
+        provider: 'usgs',
+        siteId: '05270500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Sauk River near St. Cloud, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 15,
+      idealMax: 17,
+      tooLow: 14,
+      tooHigh: 20,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Sauk River near St. Martin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. The final rapid section can get bony at low water well before the broader lower Sauk stops being paddleable upstream.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The last 2.5 miles include DNR-noted Class I-II rapids, so this is not the same skill demand as the easy lower-Sauk floats upstream.',
+      confidenceNotes:
+        'Confidence is good because MN DNR names both access points, the St. Martin gauge has official bands, and Stearns County documents Heims Mill. It is slightly below the other Sauk adds because Pineview access support comes from the official DNR StoryMap plus St. Cloud park inventory rather than a dedicated city facility page.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '14 / 15 / 17 / 20 ft',
+        note: 'MN DNR interprets the St. Martin gauge as Scrapable below 14 ft, Low from 14 to 15, Medium from 15 to 17, High from 17 to 20, and Very High above 20.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Route shape',
+        value: '6.2 river miles',
+        note: 'MN DNR Map 2 places Pineview Park at river mile 6.2 and Heims Mill at river mile 0.0.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Rapid finish',
+        value: 'Class I-II in final 2.5 mi',
+        note: 'MN DNR warns the final 2.5 miles are boulder-filled Class I-II rapids that may not be passable at low water.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Access support',
+        value: 'Official DNR and county endpoint support',
+        note: 'The official DNR StoryMap names Pineview Park carry-in access, and Stearns County confirms Heims Mill Canoe Access has carry-in access, restroom, picnic area, and fishing.',
+        sourceUrl: 'https://www.stearnscountymn.gov/389/Heims-Mill-Canoe-Access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Sauk River StoryMap',
+        url: 'https://storymaps.arcgis.com/stories/704b758016e741bd9bb2d3ab29539086',
+      },
+      {
+        label: 'MN DNR Sauk River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'St. Cloud Park and Recreation annual report',
+        url: 'https://www.ci.stcloud.mn.us/Archive.aspx?ADID=2348',
+      },
+      {
+        label: 'Stearns County Heims Mill Canoe Access',
+        url: 'https://www.stearnscountymn.gov/389/Heims-Mill-Canoe-Access',
+      },
+      {
+        label: 'USGS 05270500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05270500/',
+      },
+    ],
+  },
+  {
     id: 'sauk-river-eagle-miller-landing',
     slug: 'sauk-river-eagle-miller-landing',
     name: 'Sauk River',

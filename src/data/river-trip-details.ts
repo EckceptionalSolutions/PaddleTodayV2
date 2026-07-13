@@ -2353,6 +2353,105 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'sauk-river-frogtown-rockville': {
+    putIn: {
+      name: 'Frogtown Park canoe landing',
+      latitude: 45.45775,
+      longitude: -94.421,
+    },
+    takeOut: {
+      name: 'Rockville County Park carry-in access',
+      latitude: 45.4755294,
+      longitude: -94.3507888,
+    },
+    logistics: {
+      distanceLabel: '5.0 mi',
+      estimatedPaddleTime: 'About 1 hr 45 min to 2 hr 45 min',
+      shuttle:
+        'Short Cold Spring to Rockville self-shuttle. Rockville County Park is the easier place to leave a vehicle for a quick out-and-back day.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted city-park and county-park rules.',
+      camping:
+        'Rockville County Park has a watercraft campsite, but treat this route as a day trip unless you separately confirm current county camping rules and fees.',
+      summary:
+        'Use Frogtown Park in Cold Spring as the put-in and Rockville County Park as the take-out. This is the short lower-Sauk option when you want a quick trip without committing to Miller Landing or the St. Cloud finish.',
+      accessCaveats: [
+        'Frogtown Park launches just below the Cold Spring dam area, so make sure you are starting at the signed downstream canoe landing rather than anywhere above the obstruction.',
+        'Rockville County Park has posted hours and county rules that still deserve a same-day check before you leave a shuttle vehicle.',
+      ],
+      watchFor: [
+        'Fresh wood and strainers after storms.',
+        'Scrapier water and slower progress when the St. Martin gauge falls toward 14 ft.',
+        'Cold-water exposure outside midsummer, even on this shorter easy segment.',
+      ],
+    },
+  },
+  'sauk-river-rockville-miller-landing': {
+    putIn: {
+      name: 'Rockville County Park carry-in access',
+      latitude: 45.4755294,
+      longitude: -94.3507888,
+    },
+    takeOut: {
+      name: 'Miller Landing carry-in access',
+      latitude: 45.5504544,
+      longitude: -94.2641031,
+    },
+    logistics: {
+      distanceLabel: '9.2 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr 30 min',
+      shuttle:
+        'Standard Stearns County self-shuttle between Rockville County Park and Miller Landing. Confirm county-park hours before leaving vehicles overnight or late into the day.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county-park and landing rules.',
+      camping:
+        'Rockville County Park has a watercraft campsite and is the cleaner overnight hook if you want to stage this route, but treat the paddle itself as a day trip unless you separately confirm current camping rules and fees.',
+      summary:
+        'Put in at Rockville County Park and take out at Miller Landing. This is the straightforward full lower-Sauk day when the river is in the DNR medium band and you want more mileage than the Frogtown split.',
+      accessCaveats: [
+        'Rockville County Park has drinking water and a watercraft campsite, but local rules still win over any stale online assumptions.',
+        'Miller Landing is a managed county access with posted hours rather than an always-open informal pull-off.',
+      ],
+      watchFor: [
+        'Vegetation and shallow stretches when the St. Martin gauge slides toward 14 ft.',
+        'Downed trees or fresh strainers after summer storms.',
+        'Fatigue creep on a route that stays mostly easy but still covers a full lower-Sauk day.',
+      ],
+    },
+  },
+  'sauk-river-pineview-heims-mill': {
+    putIn: {
+      name: 'Pineview Park carry-in access',
+      latitude: 45.5600406,
+      longitude: -94.2446825,
+    },
+    takeOut: {
+      name: 'Heims Mill Canoe Access',
+      latitude: 45.5936215,
+      longitude: -94.1813947,
+    },
+    logistics: {
+      distanceLabel: '6.2 mi',
+      estimatedPaddleTime: 'About 2 hr 15 min to 3 hr 30 min',
+      shuttle:
+        'Short St. Cloud-area self-shuttle between Pineview Park and Heims Mill. Keep the take-out vehicle at Heims because the Mississippi confluence and rapid finish are not a place to improvise exhausted logistics.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county and city access rules.',
+      camping:
+        'Treat this as a day trip. Heims Mill is a carry-in county access with picnic amenities, not a campground.',
+      summary:
+        'Use Pineview Park as the put-in and Heims Mill as the take-out for the St. Cloud finish of the Sauk. This is the lower family member that adds the final Class I-II rapid section before the Mississippi.',
+      accessCaveats: [
+        'The official DNR StoryMap lists Pineview carry-in access on Saukview Drive, while St. Cloud park inventory material uses a nearby Pineview Park address; follow the signed carry-in on arrival rather than over-trusting one address string.',
+        'Heims Mill is a defined county carry-in with restroom and picnic amenities, but it is still a simple riverside access rather than a broad launch ramp.',
+      ],
+      watchFor: [
+        'Boulder-filled Class I-II rapids in the final 2.5 miles, especially if the river is low.',
+        'Shallow rock dodging or partial walk-downs if the St. Martin gauge falls toward or below 14 ft.',
+        'Wood, tight lines, and cold-water consequences near the Mississippi confluence.',
+      ],
+    },
+  },
   'sauk-river-spring-hill-st-martin': {
     putIn: {
       name: 'Spring Hill County Park carry-in access',
