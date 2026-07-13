@@ -51318,6 +51318,113 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'conodoguinet-creek-willow-mill-good-hope',
+    slug: 'conodoguinet-creek-willow-mill-good-hope',
+    name: 'Conodoguinet Creek',
+    reach: 'Willow Mill Park to Good Hope Access',
+    aliases: [
+      'Conodoguinet Creek - Willow Mill to Good Hope',
+      'Conodoguinet Creek - Willow Mill Park to Good Hope Access',
+      'Cumberland County Conodoguinet upper-middle day',
+    ],
+    state: 'Pennsylvania',
+    region: 'South Central Pennsylvania',
+    summary:
+      'Longer upper-middle Conodoguinet day from Willow Mill Park to the PFBC Good Hope Access. Cumberland County still publishes both named public launches, official mile markers, and the direct Hogestown gauge floor needed to keep this creek scoreable without over-claiming a high-water comfort band.',
+    statusText:
+      'Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was 1.69 ft at 2026-07-13 15:30 EDT, so expect a scrape-prone day and treat the route as below the county floor.',
+    latitude: 40.2567096,
+    longitude: -77.0411725,
+    gaugeSource: {
+      id: 'usgs-01570000',
+      provider: 'usgs',
+      siteId: '01570000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Conodoguinet Creek near Hogestown, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01570000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 1.7,
+      thresholdSource: {
+        label: 'Cumberland County Water Trails Hogestown gauge guidance',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This upper-middle Conodoguinet corridor works best in the warm season when the creek stays above the county floor. Thunderstorms can quickly raise current, move wood, and make bridge approaches more consequential on the same day.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is still broad-audience moving water, but the 9.6-mile length, shallow-floor posture, and mixed launch character make it more committed than the shorter Conodoguinet split routes.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Willow Mill Park and Good Hope Access as named public Conodoguinet launches at miles 23.2 and 13.6, which defines this 9.6-mile route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 13, 2026 values of 275 cfs and 1.69 ft at 2026-07-13 15:30 EDT. The Good Hope endpoint legitimacy is especially strong because the county table identifies it as a PFBC access requiring the normal launch-permit or registration package. Endpoint coordinates are derived from the official access-table street addresses through the U.S. Census geocoder because the county table does not publish launch lat/longs.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Willow Mill Park to Good Hope Access, about 9.6 mi',
+        note: 'The current Cumberland County access table places Willow Mill Park at mile 23.2 and Good Hope Access at mile 13.6 on the Conodoguinet.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024',
+      },
+      {
+        label: 'Public access addresses',
+        value: '80 Willow Mill Park Road to 700 Good Hope Road',
+        note: 'Cumberland County identifies both endpoints as named public launches with those official street addresses. Route coordinates are derived from those exact access addresses using the U.S. Census geocoder.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01570000 at Hogestown',
+        note: 'USGS Water Services returned same-day July 13, 2026 values of 275 cfs and 1.69 ft for Conodoguinet Creek near Hogestown at 2026-07-13 15:30 EDT.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01570000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Official minimum guidance',
+        value: 'Boat above 1.7 ft at Hogestown',
+        note: 'Cumberland County says recommended stream levels for boating on the Conodoguinet are above 1.7 ft at the Hogestown gauge.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+      },
+      {
+        label: 'PFBC endpoint legitimacy',
+        value: 'Good Hope Access is a PFBC launch site',
+        note: 'The county access table identifies Good Hope as a PFBC-maintained site with a shallow earthen ramp improved by matting and says a PA DCNR launch permit or PFBC use permit is required.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Cumberland County Water Trails',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      {
+        label: 'Conodoguinet Creek access table update',
+        url: 'https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01570000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-01570000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01570000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01570000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'conodoguinet-creek-vincent-difilippo-good-hope',
     slug: 'conodoguinet-creek-vincent-difilippo-good-hope',
     name: 'Conodoguinet Creek',
@@ -51421,6 +51528,108 @@ export const rivers: River[] = [
         label: 'PFBC launch permit vs boat registration',
         url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
         provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'conodoguinet-creek-vincent-difilippo-acri-meadow',
+    slug: 'conodoguinet-creek-vincent-difilippo-acri-meadow',
+    name: 'Conodoguinet Creek',
+    reach: 'Vincent DiFilippo Nature Preserve to Acri Meadow Park',
+    aliases: [
+      'Conodoguinet Creek - DiFilippo to Acri Meadow',
+      'Conodoguinet Creek - Vincent DiFilippo Nature Preserve to Acri Meadow Park',
+      'Cumberland County Conodoguinet middle-to-lower day',
+    ],
+    state: 'Pennsylvania',
+    region: 'South Central Pennsylvania',
+    summary:
+      'Long middle-to-lower Conodoguinet day from Vincent DiFilippo Nature Preserve to Acri Meadow Park. Cumberland County still publishes both named public launches, official mile markers, and the same direct Hogestown gauge floor for deciding whether this creek has enough depth to justify a longer day.',
+    statusText:
+      'Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was 1.69 ft at 2026-07-13 15:30 EDT, so expect a slow scrape-prone run and treat the route as below the county floor.',
+    latitude: 40.2576825,
+    longitude: -77.0209403,
+    gaugeSource: {
+      id: 'usgs-01570000',
+      provider: 'usgs',
+      siteId: '01570000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Conodoguinet Creek near Hogestown, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01570000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 1.7,
+      thresholdSource: {
+        label: 'Cumberland County Water Trails Hogestown gauge guidance',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This longer middle-to-lower corridor depends on enough depth at Hogestown to avoid repeated dragging. Rain can quickly add current, muddy banks, and bridge-area consequences on the same day.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The route stays in the easier moving-water category when conditions are right, but the 13-mile length and shallow-floor posture make it a committed day rather than a casual park float.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Vincent DiFilippo Nature Preserve and Acri Meadow Park as named public Conodoguinet launches at miles 18.8 and 5.8, which defines this 13-mile route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 13, 2026 values of 275 cfs and 1.69 ft at 2026-07-13 15:30 EDT. The route intentionally stays minimum-only because the county publishes a launch recommendation floor plus action and flood stages, not a route-specific ideal band. Endpoint coordinates are derived from the official access-table street addresses through the U.S. Census geocoder because the county table does not publish launch lat/longs.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Vincent DiFilippo Nature Preserve to Acri Meadow Park, about 13 mi',
+        note: 'The current Cumberland County access table places Vincent DiFilippo Nature Preserve at mile 18.8 and Acri Meadow Park at mile 5.8 on the Conodoguinet.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024',
+      },
+      {
+        label: 'Public access addresses',
+        value: '110 Sample Bridge Road to 55 Acri Meadow Drive',
+        note: 'Cumberland County identifies both endpoints as named public launches with those official street addresses. Route coordinates are derived from those exact access addresses using the U.S. Census geocoder.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01570000 at Hogestown',
+        note: 'USGS Water Services returned same-day July 13, 2026 values of 275 cfs and 1.69 ft for Conodoguinet Creek near Hogestown at 2026-07-13 15:30 EDT.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01570000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Official minimum guidance',
+        value: 'Boat above 1.7 ft at Hogestown',
+        note: 'Cumberland County says recommended stream levels for boating on the Conodoguinet are above 1.7 ft at the Hogestown gauge.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+      },
+      {
+        label: 'High-water context',
+        value: 'Action stage 6 ft, flood stage 8 ft',
+        note: 'The county safety alert and the USGS station page identify 6 ft as action stage and 8 ft as flood stage at Hogestown, supporting a conservative minimum-only scoring posture rather than an expansive upper band.',
+        sourceUrl: 'https://waterdata.usgs.gov/pa/nwis/uv?site_no=01570000',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Cumberland County Water Trails',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      {
+        label: 'Conodoguinet Creek access table update',
+        url: 'https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01570000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-01570000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01570000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01570000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
       },
     ],
   },
@@ -52107,6 +52316,140 @@ export const rivers: River[] = [
 
 
 
+  {
+    id: "village-creek-fm418-sh327",
+    slug: "village-creek-fm418-sh327",
+    name: "Village Creek",
+    reach: "FM 418 Boat Launch to TX 327 Boat Launch",
+    aliases: [
+      "Village Creek - FM 418 to SH 327",
+      "Village Creek - FM 418 to TX 327",
+      "Upper Village Creek Paddling Trail",
+    ],
+    state: "Texas",
+    region: "East Texas",
+    summary:
+      "Easy Big Thicket flatwater day from FM 418 to TX 327. TPWD and NPS still document the exact 8.6-mile segment, and the Kountze USGS gauge gives a direct same-creek condition check.",
+    statusText:
+      "Use the Village Creek near Kountze gauge. Around 200 cfs is the conservative low-water floor for FM 418 to TX 327. The gauge was 229 cfs and 3.70 ft at 2026-07-13 14:30 CDT, just above the minimum-only floor; no route-specific upper cfs band is claimed.",
+    latitude: 30.397794,
+    longitude: -94.265024,
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["fast_rise", "strainers", "private_banks"],
+      safetyNotes: [
+        "Village Creek is free-flowing and unrestrained by dams. Heavy rain and high water can create deceptively swift current on a route that often feels easy at normal levels.",
+        "Expect snags, logjams, overhanging limbs, and sandbars, especially when the creek is low or after storms move wood into the channel.",
+        "Respect Big Thicket boundary markers and private-bank limits. Use only the named public launches and only step onto private banks when necessary to portage a hazard.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    gaugeSource: {
+      id: "usgs-08041500",
+      provider: "usgs",
+      siteId: "08041500",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Village Ck nr Kountze, TX",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-08041500/",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 200,
+      thresholdSource: {
+        label: "Texas River Flows five-level Village Creek / Kountze gauge table",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      thresholdSourceStrength: "community",
+      rainfallSensitivity: "high",
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonNotes:
+        "This route can work year-round, but summer heat and insects make low-water days less pleasant, and rainfall can push the creek from calm flatwater into a much faster run. Treat storms and rising water conservatively.",
+      difficulty: "easy",
+      difficultyNotes:
+        "Usually calm flatwater and friendly for novice groups, but 8.6 miles is still a real half-day shuttle. Low water can force dragging or short portages around sandbars and logs, and high water removes the easy feel quickly.",
+      confidenceNotes:
+        "Confidence is good for a conservative Texas add: TPWD currently names the exact FM 418-to-SH 327 segment with coordinates, mileage, route description, water-quality warning, and private-boundary cautions; NPS publishes both launch pages with tighter GPS coordinates and the same 8.6-mile relationship; USGS 08041500 is the direct live gauge in the route corridor; and the historic Texas River Flows table ties a 200 cfs minimum to that same Kountze gauge. USGS Water Services returned same-day July 13, 2026 values of 229 cfs and 3.70 ft at 2026-07-13 14:30 CDT, which keeps the route barely above the conservative floor. Confidence stays intentionally conservative because the threshold floor comes from a legacy multi-level table rather than a modern manager-published route band, so the route ships minimum-only and does not claim an upper scoring range.",
+    },
+    evidenceNotes: [
+      {
+        label: "Direct live gauge",
+        value: "USGS 08041500 at 229 cfs / 3.70 ft",
+        note: "USGS Water Services returned same-day July 13, 2026 discharge and stage values for Village Creek near Kountze, confirming the direct live gauge path used for this route.",
+        sourceUrl: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08041500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Conservative low-water floor",
+        value: "200 cfs minimum-only",
+        note: "The Texas River Flows five-level table lists Village Creek at the Kountze gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        sourceUrl: "https://theworld.com/~reichert/riverflo.htm",
+      },
+      {
+        label: "Official route shape",
+        value: "FM 418 to TX 327, 8.6 mi",
+        note: "Current TPWD and NPS Village Creek trail pages both identify FM 418 to TX 327 as an 8.6-mile upper segment of the paddling trail.",
+        sourceUrl: "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/village-creek/",
+      },
+      {
+        label: "Exact public launch coordinates",
+        value: "30.397794, -94.265024 to 30.346944, -94.239385",
+        note: "NPS publishes the FM 418 Boat Launch and TX 327 Boat Launch as the exact public endpoints for this route, with trailer parking and launch access at both bridges.",
+        sourceUrl: "https://www.nps.gov/places/village-creek-fm-418-boat-launch.htm",
+      },
+      {
+        label: "Highway right-of-way access context",
+        value: "100 yd at FM 418, 200 yd at SH 327",
+        note: "TPWD Analysis of Texas Waterways says 100 yards of shoreline are available on the highway right-of-way at FM 418 and 200 yards at SH 327, reinforcing the public launch/take-out story for this corridor.",
+        sourceUrl: "https://tpwd.texas.gov/publications/pwdpubs/pwd_rp_t3200_1047/11_e_tx_village_creek.phtml",
+      },
+      {
+        label: "Hazard and water-quality context",
+        value: "No dams, but logs, sandbars, and high-water speed",
+        note: "TPWD says the creek has no human-built obstructions on this segment, but can hold snags, logjams, and sandbars to avoid or portage around, and that the variable water quality is not recommended for drinking.",
+        sourceUrl: "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/village-creek/",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "TPWD Village Creek Paddling Trail",
+        url: "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/village-creek/",
+        provider: "local",
+      },
+      {
+        label: "NPS Paddle Village Creek",
+        url: "https://home.nps.gov/thingstodo/paddle-village-creek.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS FM 418 Boat Launch",
+        url: "https://www.nps.gov/places/village-creek-fm-418-boat-launch.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS TX 327 Boat Launch",
+        url: "https://www.nps.gov/places/village-creek-tx-327-boat-launch.htm",
+        provider: "nps",
+      },
+      {
+        label: "TPWD Analysis of Texas Waterways - Village Creek",
+        url: "https://tpwd.texas.gov/publications/pwdpubs/pwd_rp_t3200_1047/11_e_tx_village_creek.phtml",
+        provider: "local",
+      },
+      {
+        label: "Texas River Flows for 5 Levels of Paddling",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      {
+        label: "USGS 08041500 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-08041500/",
+        provider: "usgs",
+      },
+    ],
+  },
   {
     id: "village-creek-sh327-baby-galvez",
     slug: "village-creek-sh327-baby-galvez",
