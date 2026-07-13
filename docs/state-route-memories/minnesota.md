@@ -14,6 +14,13 @@ Minnesota still has the strongest official-source foundation and a broad existin
 
 ## Latest Run
 
+- 2026-07-13 17:24 America/Chicago: added `sauk-river-frogtown-eagle-park`, `sauk-river-frogtown-miller-landing`, and `sauk-river-rockville-heims-mill`.
+- Reused the already-proven Sauk River Map 2 / St. Martin gauge family because the live repo baseline still had room for three non-duplicate lower-Sauk planners with distinct trip commitment: a short Frogtown-to-Eagle warmup, the DNR-signaled Frogtown-to-Miller extension, and the full Rockville-to-Heims day with the Class I-II mouth finish.
+- Current MN DNR site `328` (`Sauk River nr St. Martin, CR12`) was carrying `15.34 ft` at `2026-07-13 10:00 AM`; official bands remain Scrapable below `14 ft`, Low `14-15 ft`, Medium `15-17 ft`, High `17-20 ft`, and Very High above `20 ft`.
+- DNR Map 2 still places Frogtown at river mile `21.8`, Eagle Park at `16.2`, Rockville County Park at `16.8`, Miller Landing at `7.6`, and Heims Mill at `0.0`, while Cold Spring, Rockville, Stearns County, and St. Cloud pages keep the public-access legitimacy intact.
+- Camping posture stayed conservative. `sauk-river-frogtown-eagle-park` ships as a day-trip card, while `sauk-river-frogtown-miller-landing` and `sauk-river-rockville-heims-mill` keep Rockville County Park as the real watercraft-campsite bailout or staging point without implying informal shoreline camping.
+- No new route-gallery asset was added. `docs/river-image-source-audit.csv` records corridor-image reuse from the existing Sauk Commons asset for the three new slugs.
+
 - 2026-07-03 19:16 America/Chicago: consolidated away `big-fork-river-sturgeon-kueffners`.
 - The slug overlapped too directly with the surviving `big-fork-river-big-falls-west-kueffners` planner, which already preserves Sturgeon as the first named bailout and campsite checkpoint through `accessPoints`.
 - The live Big Fork family now keeps the more useful planner set of `big-fork-river-highway-6-south-north`, `big-fork-river-johnson-big-falls-east`, `big-fork-river-big-falls-west-kueffners`, `big-fork-river-ben-linn-ivan-crawford`, and `big-fork-river-gowdy-reedy-flats`.

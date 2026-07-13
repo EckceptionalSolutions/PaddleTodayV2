@@ -2386,6 +2386,73 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'sauk-river-frogtown-eagle-park': {
+    putIn: {
+      name: 'Frogtown Park canoe landing',
+      latitude: 45.45775,
+      longitude: -94.421,
+    },
+    takeOut: {
+      name: 'Eagle Park carry-in access',
+      latitude: 45.4754595,
+      longitude: -94.3502588,
+    },
+    logistics: {
+      distanceLabel: '5.6 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr 15 min',
+      shuttle:
+        'Short Cold Spring to Rockville self-shuttle. Eagle Park is a straightforward lower-Sauk finish when you want to keep the day simple and avoid the Miller or St. Cloud retrievals.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted city-park rules at Frogtown and Eagle Park.',
+      camping:
+        'Treat this as a day trip. Eagle Park is a launch/landing park, and any Rockville County Park camping nearby should be treated as separate staging rather than route-included overnight support.',
+      summary:
+        'Launch at Frogtown Park in Cold Spring and take out at Eagle Park in Rockville. This is the short lower-Sauk extension that gives you more mileage than the Frogtown-to-Rockville split without committing to the full Miller day.',
+      accessCaveats: [
+        'Frogtown Park launches just below the Cold Spring dam area, so make sure you are using the signed downstream canoe landing rather than any upstream water near the obstruction.',
+        'Eagle Park is a popular local landing and fishing spot, so it is worth scouting the exact carry-out and parking flow before you launch.',
+      ],
+      watchFor: [
+        'Fresh wood and strainers after storms.',
+        'Scrapier water and thicker vegetation when the St. Martin gauge falls toward 14 ft.',
+        'Cold-water exposure outside midsummer, even on this shorter easy segment.',
+      ],
+    },
+  },
+  'sauk-river-frogtown-miller-landing': {
+    putIn: {
+      name: 'Frogtown Park canoe landing',
+      latitude: 45.45775,
+      longitude: -94.421,
+    },
+    takeOut: {
+      name: 'Miller Landing carry-in access',
+      latitude: 45.5504544,
+      longitude: -94.2641031,
+    },
+    logistics: {
+      distanceLabel: '14.2 mi',
+      estimatedPaddleTime: 'About 4 hr 30 min to 6 hr 30 min',
+      shuttle:
+        'Standard lower-Sauk self-shuttle from Cold Spring to Waite Park. Keep the take-out vehicle at Miller Landing so you are not solving the longest drive after a full paddling day.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted city, county-park, and landing rules.',
+      camping:
+        'Rockville County Park sits mid-route with a watercraft campsite if you want a bailout or staged split, but treat this as a day route unless you separately confirm current county camping rules and fees.',
+      summary:
+        'Use Frogtown Park as the put-in and Miller Landing as the take-out for the full lower-Sauk day. This is the route to pick when you want DNR’s recommended Eagle-to-Miller float plus the extra five miles that DNR says you can add from Frogtown.',
+      accessCaveats: [
+        'Frogtown Park is the downstream-of-dam start; do not improvise a put-in above the Cold Spring obstruction.',
+        'Miller Landing is a managed county access with posted hours, so do not assume unlimited late-night retrieval if the day runs long.',
+        'Rockville County Park is the cleanest mid-route bailout or split because it is the documented watercraft-campsite stop on this corridor.',
+      ],
+      watchFor: [
+        'Vegetation and shallow stretches when the St. Martin gauge slides toward 14 ft.',
+        'Downed trees or fresh strainers after storms.',
+        'Longer-day fatigue on a route that stays easy in character but still covers over 14 river miles.',
+      ],
+    },
+  },
   'sauk-river-rockville-miller-landing': {
     putIn: {
       name: 'Rockville County Park carry-in access',
@@ -2416,6 +2483,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Vegetation and shallow stretches when the St. Martin gauge slides toward 14 ft.',
         'Downed trees or fresh strainers after summer storms.',
         'Fatigue creep on a route that stays mostly easy but still covers a full lower-Sauk day.',
+      ],
+    },
+  },
+  'sauk-river-rockville-heims-mill': {
+    putIn: {
+      name: 'Rockville County Park carry-in access',
+      latitude: 45.4755294,
+      longitude: -94.3507888,
+    },
+    takeOut: {
+      name: 'Heims Mill Canoe Access',
+      latitude: 45.5936215,
+      longitude: -94.1813947,
+    },
+    logistics: {
+      distanceLabel: '16.8 mi',
+      estimatedPaddleTime: 'About 5 hr 30 min to 7 hr 30 min',
+      shuttle:
+        'Full lower-Sauk self-shuttle from Rockville County Park to Heims Mill. Put the take-out vehicle at Heims because the Mississippi-confluence finish is not where you want to improvise tired logistics.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county-park and city/county access rules at both ends.',
+      camping:
+        'Rockville County Park has the cleaner campsite-and-drinking-water staging story, but this still works best as a long day unless you deliberately plan a county-approved overnight split.',
+      summary:
+        'Launch at Rockville County Park and finish at Heims Mill for the longest lower-Sauk day route that still fits the product’s normal day-trip ceiling. This is the one-card choice when you want the full lower corridor plus the DNR-noted Class I-II mouth section.',
+      accessCaveats: [
+        'Rockville County Park has posted hours, drinking water, and a watercraft campsite, but local rules still override any stale assumptions when you arrive.',
+        'Heims Mill is a managed carry-in with restroom and picnic amenities, not a broad paved ramp or a place to sort out a casual shuttle plan.',
+        'Because the route is long and the technical section comes late, it is worth scouting the take-out before you launch.',
+      ],
+      watchFor: [
+        'Vegetation, shallow stretches, and extra drag when the St. Martin gauge trends toward 14 ft.',
+        'Boulder-filled Class I-II rapids in the final 2.5 miles, especially at lower water.',
+        'Fatigue, wood, and cold-water consequences near the Mississippi confluence finish.',
       ],
     },
   },
