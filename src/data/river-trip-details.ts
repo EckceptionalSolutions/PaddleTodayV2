@@ -8814,6 +8814,111 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'eleven-point-river-thomasville-greer-crossing': {
+    putIn: {
+      name: 'Thomasville River Access',
+      latitude: 36.78548,
+      longitude: -91.528058,
+    },
+    takeOut: {
+      name: 'Greer Crossing Recreation Area',
+      latitude: 36.79356389,
+      longitude: -91.32854167,
+    },
+    logistics: {
+      distanceLabel: 'About 16.6 mi',
+      estimatedPaddleTime: 'About 7 hr to 10 hr depending on level, walking, and how long you stop around springs or shoals',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Thomasville and Greer Crossing. Both approaches use rural roads, and Greer Crossing is the cleaner downstream finish with campground and day-use support.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, posted parking signs, no-glass/no-polystyrene river rules, campground rules at Greer, and any current Forest Service alerts or closures.',
+      camping:
+        'Thomasville has dispersed-camping context and Greer Crossing has a campground, but treat this as a long day float unless you have checked current Forest Service rules and built a separate legal overnight plan.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Thomasville and take out at Greer Crossing for the full upper-Eleven public continuation to Greer Spring. Use the Bardley gauge only as a conservative same-river estimate and expect the upper miles to need more local judgment than the colder finish near Greer.',
+      accessCaveats: [
+        'The current Forest Service Thomasville page says this section is usually best from March through June and can require walking or portages in drought season.',
+        'The Bardley gauge is well downstream, so the Thomasville half can scrape or feel more marginal than the gauge alone suggests.',
+        'Thomasville and Greer Crossing are the named public accesses for this route. Do not assume private banks, informal gravel bars, or roadside pull-offs are legal substitutes.',
+      ],
+      watchFor: [
+        'Old low-water bridge remnants, shallow riffles, walking or short portages, and fresh wood on the upper half.',
+        'Rapid rises after rain, blind bends, and a colder, faster finish where Greer Spring enters just above the take-out.',
+        'A long shuttle day with limited easy exits between official accesses.',
+      ],
+    },
+  },
+  'eleven-point-river-thomasville-turner-mill-south': {
+    putIn: {
+      name: 'Thomasville River Access',
+      latitude: 36.78548,
+      longitude: -91.528058,
+    },
+    takeOut: {
+      name: 'Turner Mill South River Access',
+      latitude: 36.76456,
+      longitude: -91.26653037,
+    },
+    logistics: {
+      distanceLabel: 'About 21.5 mi by Forest Service river miles',
+      estimatedPaddleTime: 'About 8.5 hr to 12 hr depending on level, walking, breaks, and shuttle timing',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Thomasville and Turner Mill South. Inspect the Turner finish before launching and confirm you are staging at the river-right South landing rather than the separate North day-use area.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, posted parking signs, no-glass/no-polystyrene river rules, float-camp rules, and any current Forest Service alerts or closures.',
+      camping:
+        'This corridor can support a conservative legal overnight plan using designated float camps or another clearly legal Forest Service option. Turner Mill South itself has limited campsite context, but private banks and informal gravel bars should not be assumed to be legal campsites.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Thomasville and take out at Turner Mill South for a very long upper-to-mid Eleven Point continuation. Use the Bardley gauge only as a conservative same-river estimate and build real margin for the smaller upper-river start before Greer Spring improves the flow.',
+      accessCaveats: [
+        'The current Forest Service Thomasville page says the upper miles are usually best from March through June and can require walking or portages in drought season.',
+        'The Bardley gauge is downstream of the upper half, so the Thomasville-to-Greer portion can still feel shallower and slower than the gauge alone suggests.',
+        'Turner Mill North and Turner Mill South are separate landings. Confirm the intended river-right South take-out before staging vehicles and avoid crossing private land.',
+      ],
+      watchFor: [
+        'Old bridge remnants, shallow riffles, and short walking or portage moments before Greer Spring.',
+        'Mary Decker Shoal, colder spring-fed water below Greer, fresh wood, blind bends, and rapid rises after rain.',
+        'Fatigue, limited easy exits, and the need to use legal float camps or another source-backed overnight plan instead of improvising one on river.',
+      ],
+    },
+  },
+  'eleven-point-river-thomasville-whitten': {
+    putIn: {
+      name: 'Thomasville River Access',
+      latitude: 36.78548,
+      longitude: -91.528058,
+    },
+    takeOut: {
+      name: 'Whitten River Access',
+      latitude: 36.732356,
+      longitude: -91.214837,
+    },
+    logistics: {
+      distanceLabel: 'About 27.6 mi by Forest Service river miles',
+      estimatedPaddleTime: 'About 10 hr to 14 hr total; treat it as an overnight-capable corridor rather than a casual one-day float',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Thomasville and Whitten. Both approaches use rural Forest Service roads, and the Whitten descent is steep enough that it is worth scouting before launch day.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, posted parking signs, no-glass/no-polystyrene river rules, float-camp rules, and any current Forest Service alerts or closures.',
+      camping:
+        'This corridor is long enough that the safer conservative plan is usually an overnight split using designated float camps or another clearly legal Forest Service option. Thomasville has dispersed-camping context, Whitten is day-use focused, and private banks or informal gravel bars should not be assumed to be legal campsites.',
+      campingClassification: 'overnight_capable',
+      summary:
+        'Launch at Thomasville and take out at Whitten for a full upper-to-lower Eleven Point continuation. Use the Bardley gauge only as a conservative same-river estimate and build a real overnight or all-day plan instead of assuming the lower Whitten finish makes the upper miles easy.',
+      accessCaveats: [
+        'The current Forest Service Thomasville page says the upper miles are usually best from March through June and can require walking or portages in drought season.',
+        'The Bardley gauge is downstream of much of the route, so the Thomasville half can still feel scrape-prone near the 300 cfs floor even if the lower miles look more comfortable.',
+        'Whitten can be busy on weekends with both motorized and nonmotorized users. Do not assume private banks, informal pull-offs, or undesignated gravel bars are legal substitutes for a planned finish or overnight stop.',
+      ],
+      watchFor: [
+        'Old bridge remnants, shallow riffles, and possible walking or short portages before Greer Spring.',
+        'Mary Decker Shoal, cold-water transition, fresh wood, blind bends, and rapid rises after rain on a very long route.',
+        'Fatigue, limited developed exits, and the need to use legal float camps or another source-backed overnight plan rather than forcing the continuation without margin.',
+      ],
+    },
+  },
   'eleven-point-river-greer-crossing-turner-mill': {
     putIn: {
       name: 'Greer Crossing Recreation Area',
@@ -16798,7 +16903,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       accessCaveats: [
         'Upper Wolf Creek is a free single-lane paved ramp with unpaved parking and year-round 24-hour availability.',
         'Fish Creek is a free single-lane paved ramp with gravel parking and no listed amenities or camping.',
-        'The current Booneville gauge reading during this run sat just below the official good band, so expect scrape-prone shoals, slower progress, and muddier line choices than on a cleaner green-light day.',
+        'The current Booneville gauge reading was just below the official good band during this run, so expect more scraping, slower shoals, and a longer day than the official mileage alone suggests.',
         'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
       ],
       watchFor: [
@@ -16865,7 +16970,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       accessCaveats: [
         'Hacker Branch is a bridge-side carry-down with unpaved parking and no developed amenities.',
         'Fish Creek is a free single-lane paved ramp with gravel parking and no listed amenities or camping.',
-        'The current Booneville gauge reading during this run sat just below the official good band, so expect scrape-prone shoals, slower progress, and muddier line choices than on a cleaner green-light day.',
+        'The current Booneville gauge reading was just below the official good band during this run, so expect more scraping, slower shoals, and a longer day than the official mileage alone suggests.',
         'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
       ],
       watchFor: [
@@ -16910,6 +17015,261 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 16.4,
         segmentKind: 'creek',
         note: 'Default take-out for the lower full-chain route.',
+      },
+    ],
+  },
+  'south-fork-kentucky-river-bishop-bend-kay-wood': {
+    putIn: {
+      id: 'bishop-bend-school-road-access',
+      name: 'Bishop Bend School Road Access',
+      latitude: 37.3377,
+      longitude: -83.6882,
+    },
+    takeOut: {
+      id: 'kay-wood-road-access',
+      name: 'Kay Wood Road Access',
+      latitude: 37.4594,
+      longitude: -83.6509,
+    },
+    logistics: {
+      distanceLabel: 'About 11.8 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Kay Wood Road Access, then drive back to Bishop Bend School Road Access. Inspect both carry-down landings first because roadside parking, mud, and low-water shoals can lengthen the day quickly.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Bishop Bend, Hacker Branch, Upper Wolf Creek, or Kay Wood, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Bishop Bend School Road Access and take out about 11.8 miles downstream at Kay Wood Road Access for a lower-middle South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Bishop Bend is a gravel-and-dirt carry-down with only a small dirt parking area and no amenities.',
+        'Kay Wood is a carry-down-only access with roadside-style unpaved parking and no amenities.',
+        'The current Booneville gauge reading was above the official good band during this run, so expect faster current, muddier landings, and extra caution at the lower end of the route.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and muddy landings become less forgiving around bends and wood.',
+        'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue from repeated line scouting.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'bishop-bend-school-road-access',
+        name: 'Bishop Bend School Road Access',
+        latitude: 37.3377,
+        longitude: -83.6882,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this lower-middle South Fork chain.',
+      },
+      {
+        id: 'hacker-branch-road-access',
+        name: 'Hacker Branch Road Access',
+        latitude: 37.3743,
+        longitude: -83.6708,
+        mileFromStart: 3.3,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'upper-wolf-creek-ramp',
+        name: 'Upper Wolf Creek Ramp',
+        latitude: 37.3964,
+        longitude: -83.6767,
+        mileFromStart: 6.2,
+        segmentKind: 'creek',
+        note: 'Developed ramp access in the lower corridor.',
+      },
+      {
+        id: 'kay-wood-road-access',
+        name: 'Kay Wood Road Access',
+        latitude: 37.4594,
+        longitude: -83.6509,
+        mileFromStart: 11.8,
+        segmentKind: 'creek',
+        note: 'Default take-out for this route.',
+      },
+    ],
+  },
+  'south-fork-kentucky-river-cedar-valley-kay-wood': {
+    putIn: {
+      id: 'cedar-valley-road-access',
+      name: 'Cedar Valley Road Access',
+      latitude: 37.3363,
+      longitude: -83.656,
+    },
+    takeOut: {
+      id: 'kay-wood-road-access',
+      name: 'Kay Wood Road Access',
+      latitude: 37.4594,
+      longitude: -83.6509,
+    },
+    logistics: {
+      distanceLabel: 'About 16.5 mi',
+      estimatedPaddleTime: 'About 5.5 hr to 7.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Kay Wood Road Access, then drive back to Cedar Valley Road Access. Inspect both carry-down landings first because limited parking, mud, and low-water shoals can stretch this middle-lower day well past the map time.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Cedar Valley, Bishop Bend, Hacker Branch, Upper Wolf Creek, or Kay Wood, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Cedar Valley Road Access and take out about 16.5 miles downstream at Kay Wood Road Access for a longer middle-lower South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Cedar Valley is a gravel-and-dirt canoe and kayak access with limited parking and no amenities.',
+        'Kay Wood is a carry-down-only access with roadside-style unpaved parking and no amenities.',
+        'The current Booneville gauge reading was above the official good band during this run, so expect faster current, muddier landings, and a longer day than the mileage alone suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely over a long day.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and muddy landings become less forgiving around bends and wood.',
+        'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue from repeated line scouting.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cedar-valley-road-access',
+        name: 'Cedar Valley Road Access',
+        latitude: 37.3363,
+        longitude: -83.656,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this middle-lower South Fork chain.',
+      },
+      {
+        id: 'bishop-bend-school-road-access',
+        name: 'Bishop Bend School Road Access',
+        latitude: 37.3377,
+        longitude: -83.6882,
+        mileFromStart: 4.7,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'hacker-branch-road-access',
+        name: 'Hacker Branch Road Access',
+        latitude: 37.3743,
+        longitude: -83.6708,
+        mileFromStart: 8.0,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'upper-wolf-creek-ramp',
+        name: 'Upper Wolf Creek Ramp',
+        latitude: 37.3964,
+        longitude: -83.6767,
+        mileFromStart: 10.9,
+        segmentKind: 'creek',
+        note: 'Developed ramp access in the lower corridor.',
+      },
+      {
+        id: 'kay-wood-road-access',
+        name: 'Kay Wood Road Access',
+        latitude: 37.4594,
+        longitude: -83.6509,
+        mileFromStart: 16.5,
+        segmentKind: 'creek',
+        note: 'Default take-out for this route.',
+      },
+    ],
+  },
+  'south-fork-kentucky-river-rocky-branch-kay-wood': {
+    putIn: {
+      id: 'rocky-branch-road-access',
+      name: 'Rocky Branch Road Access',
+      latitude: 37.3206,
+      longitude: -83.6648,
+    },
+    takeOut: {
+      id: 'kay-wood-road-access',
+      name: 'Kay Wood Road Access',
+      latitude: 37.4594,
+      longitude: -83.6509,
+    },
+    logistics: {
+      distanceLabel: 'About 19.0 mi',
+      estimatedPaddleTime: 'About 6 hr to 8.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Kay Wood Road Access, then drive back to Rocky Branch Road Access. Inspect both carry-down landings first because limited parking, mud, and repeated low-water shoals make this a full-day South Fork commitment.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Rocky Branch, Cedar Valley, Bishop Bend, Hacker Branch, Upper Wolf Creek, or Kay Wood, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Rocky Branch Road Access and take out about 19.0 miles downstream at Kay Wood Road Access for a long middle-to-lower South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Rocky Branch is a gravel-and-dirt canoe and kayak access with limited parking and no amenities.',
+        'Kay Wood is a carry-down-only access with roadside-style unpaved parking and no amenities.',
+        'The current Booneville gauge reading was above the official good band during this run, so expect faster current, muddier landings, and a longer day than the mileage alone suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely over a long day.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and muddy landings become less forgiving around bends and wood.',
+        'Wood, strainers, mud banks, occasional riffles, private banks outside the access sites, and fatigue from repeated line scouting.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rocky-branch-road-access',
+        name: 'Rocky Branch Road Access',
+        latitude: 37.3206,
+        longitude: -83.6648,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this middle-to-lower South Fork chain.',
+      },
+      {
+        id: 'cedar-valley-road-access',
+        name: 'Cedar Valley Road Access',
+        latitude: 37.3363,
+        longitude: -83.656,
+        mileFromStart: 2.5,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'bishop-bend-school-road-access',
+        name: 'Bishop Bend School Road Access',
+        latitude: 37.3377,
+        longitude: -83.6882,
+        mileFromStart: 7.2,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'hacker-branch-road-access',
+        name: 'Hacker Branch Road Access',
+        latitude: 37.3743,
+        longitude: -83.6708,
+        mileFromStart: 10.5,
+        segmentKind: 'creek',
+        note: 'Intermediate carry-down access.',
+      },
+      {
+        id: 'upper-wolf-creek-ramp',
+        name: 'Upper Wolf Creek Ramp',
+        latitude: 37.3964,
+        longitude: -83.6767,
+        mileFromStart: 13.4,
+        segmentKind: 'creek',
+        note: 'Developed ramp access in the lower corridor.',
+      },
+      {
+        id: 'kay-wood-road-access',
+        name: 'Kay Wood Road Access',
+        latitude: 37.4594,
+        longitude: -83.6509,
+        mileFromStart: 19.0,
+        segmentKind: 'creek',
+        note: 'Default take-out for this route.',
       },
     ],
   },

@@ -1,6 +1,14 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-11 20:30 America/Chicago / 2026-07-12 01:30 UTC.
+Last summarized: 2026-07-13 08:30 America/Chicago / 2026-07-13 13:30 UTC.
+
+## 2026-07-13 South Fork Kay Wood restoration pass
+
+- Reused the live repo state as the only valid baseline and restored three South Fork Kentucky River slugs that were absent from the current tree at run start: `south-fork-kentucky-river-bishop-bend-kay-wood`, `south-fork-kentucky-river-cedar-valley-kay-wood`, and `south-fork-kentucky-river-rocky-branch-kay-wood`.
+- Current KDFWR South Fork Kentucky River guidance still documents the exact public access-chain mileages of Bishop Bend -> Hacker Branch `3.3`, Hacker Branch -> Upper Wolf Creek `2.9`, Upper Wolf Creek -> Kay Wood `5.6`, Cedar Valley -> Bishop Bend `4.7`, and Rocky Branch -> Cedar Valley `2.5`, which support the restored public route mileages of `11.8`, `16.5`, and `19.0`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Rocky Branch Road Access (`asid=1124`), Cedar Valley Road Access (`asid=1125`), Bishop Bend School Road Access (`asid=1123`), and Kay Wood Road Access (`asid=1121`). Same-day direct USGS Water Services returned `1050 cfs / 6.24 ft` at `2026-07-13 08:30 EDT` for South Fork Kentucky River at Booneville (`03281500`), above the official `350-900 cfs / 4.8-6.0 ft` good band, so all three restored slugs ship with explicit above-band fast-water caution rather than scrape framing.
+- Camping stays conservative at `none` for all three because KDFWR still documents only simple day-use launch sites with no public overnight support on this chain.
+- Bounded image review stayed negative for all three slugs. `docs/river-image-source-audit.csv` now records the no-gallery outcome for each route, so no route-gallery asset was added in this pass.
 
 ## 2026-07-11 Upper Green and Hart County restoration pass
 

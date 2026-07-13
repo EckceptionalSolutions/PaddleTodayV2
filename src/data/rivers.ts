@@ -49378,6 +49378,372 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'south-fork-kentucky-river-bishop-bend-kay-wood',
+    slug: 'south-fork-kentucky-river-bishop-bend-kay-wood',
+    name: 'South Fork Kentucky River',
+    reach: 'Bishop Bend School Road Access to Kay Wood Road Access',
+    aliases: [
+      'South Fork Kentucky River - Bishop Bend to Kay Wood',
+      'South Fork Kentucky River lower-middle chain',
+      'KDFWR South Fork Kentucky River access chain',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Lower-middle South Fork continuation from Bishop Bend School Road Access to Kay Wood Road Access. Current KDFWR guidance still supports this exact chained public float, but the Booneville gauge sat above the official good band during this run.',
+    statusText:
+      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Same-day USGS values during this run were 1050 cfs and 6.24 ft, above the official good band, so expect faster current and less forgiving muddy landings.',
+    latitude: 37.3377,
+    longitude: -83.6882,
+    gaugeSource: {
+      id: 'usgs-03281500',
+      provider: 'usgs',
+      siteId: '03281500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Kentucky River at Booneville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 900,
+      tooLow: 350,
+      tooHigh: 900,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This lower-middle South Fork chain is most practical from spring through fall when the Booneville gauge trend is stable. Lower summer flows expose more rock bars and dragging, while rain can quickly raise current and muddy the carry-down landings.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR describes the South Fork as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles. This route is shorter than the full Oneida chain, but it is still a moving-water day rather than a lazy pond float.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: current KDFWR guidance still documents Bishop Bend School Road Access to Hacker Branch Road Access at 3.3 miles, Hacker Branch Road Access to Upper Wolf Creek Ramp at 2.9 miles, and Upper Wolf Creek Ramp to Kay Wood Road Access at 5.6 miles, supporting an 11.8-mile public float. KDFWR still publishes exact public endpoint coordinates and official Booneville low/good/high bands tied to direct USGS gauge 03281500, and USGS Water Services returned same-day values of 1050 cfs and 6.24 ft at 2026-07-13 08:30 EDT during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '350-900 cfs / 4.8-6.0 ft',
+        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Chained public route segment',
+        value: 'Bishop Bend School Road Access to Kay Wood Road Access, 11.8 miles',
+        note: 'KDFWR lists Bishop Bend School Road Access to Hacker Branch Road Access as 3.3 miles, Hacker Branch Road Access to Upper Wolf Creek Ramp as 2.9 miles, and Upper Wolf Creek Ramp to Kay Wood Road Access as 5.6 miles, supporting an 11.8-mile public Bishop-Bend-to-Kay-Wood float on the same access chain.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Bishop Bend School Road Access, 37.3377, -83.6882',
+        note: 'KDFWR identifies Bishop Bend School Road Access as a gravel-and-dirt carry-down access with a small dirt parking area and no camping.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1123',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Kay Wood Road Access, 37.4594, -83.6509',
+        note: 'KDFWR identifies Kay Wood Road Access as a carry-down-only access with unpaved parking and no camping.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03281500 at 1050 cfs / 6.24 ft',
+        note: 'USGS Water Services returned same-day values of 1050 cfs and 6.24 ft at 2026-07-13 08:30 EDT for South Fork Kentucky River at Booneville during this run, above the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route character',
+        value: 'Broad river, rock bars, occasional riffles',
+        note: 'KDFWR describes the South Fork Kentucky River as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR South Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR South Fork Kentucky River access guide',
+        url: 'https://fw.ky.gov/Fish/Documents/South%20Fork%20of%20Kentucky%20River.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Bishop Bend School Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1123',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Kay Wood Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03281500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'south-fork-kentucky-river-cedar-valley-kay-wood',
+    slug: 'south-fork-kentucky-river-cedar-valley-kay-wood',
+    name: 'South Fork Kentucky River',
+    reach: 'Cedar Valley Road Access to Kay Wood Road Access',
+    aliases: [
+      'South Fork Kentucky River - Cedar Valley to Kay Wood',
+      'South Fork Kentucky River middle-lower chain',
+      'KDFWR South Fork Kentucky River access chain',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Long middle-lower South Fork continuation from Cedar Valley Road Access to Kay Wood Road Access. Current KDFWR guidance still supports this exact chained public float, but the Booneville gauge sat above the official good band during this run.',
+    statusText:
+      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Same-day USGS values during this run were 1050 cfs and 6.24 ft, above the official good band, so expect faster current and less forgiving muddy landings.',
+    latitude: 37.3363,
+    longitude: -83.656,
+    gaugeSource: {
+      id: 'usgs-03281500',
+      provider: 'usgs',
+      siteId: '03281500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Kentucky River at Booneville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 900,
+      tooLow: 350,
+      tooHigh: 900,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This middle-lower South Fork chain is most practical from spring through fall when the Booneville gauge trend is stable. Lower summer flows expose more rock bars and dragging, while rain can quickly raise current and muddy the carry-down landings.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR describes the South Fork as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles. The longer distance and repeated low-water lines make this more committed than the shorter lower splits.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: current KDFWR guidance still documents Cedar Valley Road Access to Bishop Bend School Road Access at 4.7 miles, Bishop Bend School Road Access to Hacker Branch Road Access at 3.3 miles, Hacker Branch Road Access to Upper Wolf Creek Ramp at 2.9 miles, and Upper Wolf Creek Ramp to Kay Wood Road Access at 5.6 miles, supporting a 16.5-mile public float. KDFWR still publishes exact public endpoint coordinates and official Booneville low/good/high bands tied to direct USGS gauge 03281500, and USGS Water Services returned same-day values of 1050 cfs and 6.24 ft at 2026-07-13 08:30 EDT during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '350-900 cfs / 4.8-6.0 ft',
+        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Chained public route segment',
+        value: 'Cedar Valley Road Access to Kay Wood Road Access, 16.5 miles',
+        note: 'KDFWR lists Cedar Valley Road Access to Bishop Bend School Road Access as 4.7 miles, Bishop Bend School Road Access to Hacker Branch Road Access as 3.3 miles, Hacker Branch Road Access to Upper Wolf Creek Ramp as 2.9 miles, and Upper Wolf Creek Ramp to Kay Wood Road Access as 5.6 miles, supporting a 16.5-mile public Cedar-Valley-to-Kay-Wood float on the same access chain.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Cedar Valley Road Access, 37.3363, -83.656',
+        note: 'KDFWR identifies Cedar Valley Road Access as a gravel-and-dirt canoe and kayak access with limited parking and no camping.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1125',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Kay Wood Road Access, 37.4594, -83.6509',
+        note: 'KDFWR identifies Kay Wood Road Access as a carry-down-only access with unpaved parking and no camping.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03281500 at 1050 cfs / 6.24 ft',
+        note: 'USGS Water Services returned same-day values of 1050 cfs and 6.24 ft at 2026-07-13 08:30 EDT for South Fork Kentucky River at Booneville during this run, above the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route character',
+        value: 'Broad river, rock bars, occasional riffles',
+        note: 'KDFWR describes the South Fork Kentucky River as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR South Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR South Fork Kentucky River access guide',
+        url: 'https://fw.ky.gov/Fish/Documents/South%20Fork%20of%20Kentucky%20River.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cedar Valley Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1125',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Kay Wood Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03281500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'south-fork-kentucky-river-rocky-branch-kay-wood',
+    slug: 'south-fork-kentucky-river-rocky-branch-kay-wood',
+    name: 'South Fork Kentucky River',
+    reach: 'Rocky Branch Road Access to Kay Wood Road Access',
+    aliases: [
+      'South Fork Kentucky River - Rocky Branch to Kay Wood',
+      'South Fork Kentucky River middle-to-lower chain',
+      'KDFWR South Fork Kentucky River access chain',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Long middle-to-lower South Fork continuation from Rocky Branch Road Access to Kay Wood Road Access. Current KDFWR guidance still supports this exact chained public float, but the Booneville gauge sat above the official good band during this run.',
+    statusText:
+      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Same-day USGS values during this run were 1050 cfs and 6.24 ft, above the official good band, so expect faster current and less forgiving muddy landings.',
+    latitude: 37.3206,
+    longitude: -83.6648,
+    gaugeSource: {
+      id: 'usgs-03281500',
+      provider: 'usgs',
+      siteId: '03281500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Kentucky River at Booneville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 900,
+      tooLow: 350,
+      tooHigh: 900,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This middle-to-lower South Fork chain is most practical from spring through fall when the Booneville gauge trend is stable. Lower summer flows expose more rock bars and dragging, while rain can quickly raise current and muddy the carry-down landings.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR describes the South Fork as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles. At nineteen miles, this route is a full moving-water commitment with more fatigue and line-picking than the shorter lower corridor.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: current KDFWR guidance still documents Rocky Branch Road Access to Cedar Valley Road Access at 2.5 miles, Cedar Valley Road Access to Bishop Bend School Road Access at 4.7 miles, Bishop Bend School Road Access to Hacker Branch Road Access at 3.3 miles, Hacker Branch Road Access to Upper Wolf Creek Ramp at 2.9 miles, and Upper Wolf Creek Ramp to Kay Wood Road Access at 5.6 miles, supporting a 19.0-mile public float. KDFWR still publishes exact public endpoint coordinates and official Booneville low/good/high bands tied to direct USGS gauge 03281500, and USGS Water Services returned same-day values of 1050 cfs and 6.24 ft at 2026-07-13 08:30 EDT during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '350-900 cfs / 4.8-6.0 ft',
+        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Chained public route segment',
+        value: 'Rocky Branch Road Access to Kay Wood Road Access, 19.0 miles',
+        note: 'KDFWR lists Rocky Branch Road Access to Cedar Valley Road Access as 2.5 miles, Cedar Valley Road Access to Bishop Bend School Road Access as 4.7 miles, Bishop Bend School Road Access to Hacker Branch Road Access as 3.3 miles, Hacker Branch Road Access to Upper Wolf Creek Ramp as 2.9 miles, and Upper Wolf Creek Ramp to Kay Wood Road Access as 5.6 miles, supporting a 19.0-mile public Rocky-Branch-to-Kay-Wood float on the same access chain.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Rocky Branch Road Access, 37.3206, -83.6648',
+        note: 'KDFWR identifies Rocky Branch Road Access as a gravel-and-dirt canoe and kayak access with limited parking and no camping.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1124',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Kay Wood Road Access, 37.4594, -83.6509',
+        note: 'KDFWR identifies Kay Wood Road Access as a carry-down-only access with unpaved parking and no camping.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03281500 at 1050 cfs / 6.24 ft',
+        note: 'USGS Water Services returned same-day values of 1050 cfs and 6.24 ft at 2026-07-13 08:30 EDT for South Fork Kentucky River at Booneville during this run, above the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route character',
+        value: 'Broad river, rock bars, occasional riffles',
+        note: 'KDFWR describes the South Fork Kentucky River as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR South Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR South Fork Kentucky River access guide',
+        url: 'https://fw.ky.gov/Fish/Documents/South%20Fork%20of%20Kentucky%20River.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Rocky Branch Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1124',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Kay Wood Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03281500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'conodoguinet-creek-willow-mill-vincent-difilippo',
     slug: 'conodoguinet-creek-willow-mill-vincent-difilippo',
     name: 'Conodoguinet Creek',
@@ -59610,4 +59976,3 @@ export const rivers: River[] = [
     ],
   },
 ];
-

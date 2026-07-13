@@ -1796,36 +1796,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: public domain',
     },
   ],
-  'south-fork-kentucky-river-oneida-upper-wolf-creek': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-commons',
-      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
-      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
-  'south-fork-kentucky-river-upper-wolf-creek-fish-creek': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-commons',
-      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
-      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
-  'south-fork-kentucky-river-hacker-branch-fish-creek': [
-    {
-      id: 'south-fork-kentucky-river-bronner-bend-commons',
-      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
-      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
-      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
-      credit: 'Ernest Danglade via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
   'slate-creek-lions-club-old-slate-furnace': [
     {
       id: 'slate-creek-owingsville-usgs',
@@ -2138,6 +2108,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     {
       id: 'eleven-point-river-missouri-commons',
       src: '/gallery/eleven-point-river-thomasville-cane-bluff/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-thomasville-greer-crossing': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-thomasville-greer-crossing/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-thomasville-turner-mill-south': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-thomasville-turner-mill-south/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-thomasville-whitten': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-thomasville-whitten/eleven-point-river-missouri.jpg',
       alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
       caption: 'Eleven Point River in Missouri',
       credit: 'Charlie Llewellin via Wikimedia Commons',
