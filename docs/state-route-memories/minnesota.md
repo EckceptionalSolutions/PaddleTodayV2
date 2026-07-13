@@ -14,6 +14,13 @@ Minnesota still has the strongest official-source foundation and a broad existin
 
 ## Latest Run
 
+- 2026-07-13 18:20 America/Chicago: added `sauk-river-frogtown-knights-of-columbus`, `sauk-river-rockville-knights-of-columbus`, and `sauk-river-miller-landing-heims-mill`.
+- Stayed in Minnesota because the lower Sauk family still had three unused official access-to-access planners with the same direct St. Martin gauge, current DNR interpretation bands, and clean city/county endpoint support, which remained stronger than reopening a weaker new-state search late in the run.
+- Current MN DNR site `328` (`Sauk River nr St. Martin, CR12`) still showed `15.34 ft` at `2026-07-13 10:00 AM`; official bands remain Scrapable below `14 ft`, Low `14-15 ft`, Medium `15-17 ft`, High `17-20 ft`, and Very High above `20 ft`. Same-day USGS `05270500` near St. Cloud remained live at about `2.41 ft / 413 cfs` through the late-afternoon recheck.
+- DNR Map 2 still places Frogtown at river mile `21.8`, Rockville County Park at `16.8`, Miller Landing at `7.6`, Knights of Columbus Park at `4.5`, and Heims Mill at `0.0`. Cold Spring, Stearns County, and St. Cloud pages still keep the endpoint legitimacy intact, and DNR still warns that the final `2.5` miles into Heims carry boulder-filled Class I-II rapids.
+- Camping posture stayed conservative. `sauk-river-frogtown-knights-of-columbus` keeps Rockville County Park as the real on-route watercraft-campsite bailout, `sauk-river-rockville-knights-of-columbus` can stage from Rockville's endpoint campsite without implying a route overnight, and `sauk-river-miller-landing-heims-mill` remains a day-trip card.
+- Reused the existing Sauk Commons family asset for all three new slugs and recorded matching image-audit rows.
+
 - 2026-07-13 17:24 America/Chicago: added `sauk-river-frogtown-eagle-park`, `sauk-river-frogtown-miller-landing`, and `sauk-river-rockville-heims-mill`.
 - Reused the already-proven Sauk River Map 2 / St. Martin gauge family because the live repo baseline still had room for three non-duplicate lower-Sauk planners with distinct trip commitment: a short Frogtown-to-Eagle warmup, the DNR-signaled Frogtown-to-Miller extension, and the full Rockville-to-Heims day with the Class I-II mouth finish.
 - Current MN DNR site `328` (`Sauk River nr St. Martin, CR12`) was carrying `15.34 ft` at `2026-07-13 10:00 AM`; official bands remain Scrapable below `14 ft`, Low `14-15 ft`, Medium `15-17 ft`, High `17-20 ft`, and Very High above `20 ft`.

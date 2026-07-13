@@ -2453,6 +2453,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'sauk-river-frogtown-knights-of-columbus': {
+    putIn: {
+      name: 'Frogtown Park canoe landing',
+      latitude: 45.45775,
+      longitude: -94.421,
+    },
+    takeOut: {
+      name: 'Knights of Columbus Park carry-in access',
+      latitude: 45.5670560130672,
+      longitude: -94.2286380074072,
+    },
+    logistics: {
+      distanceLabel: '17.3 mi',
+      estimatedPaddleTime: 'About 5 hr 15 min to 7 hr 15 min',
+      shuttle:
+        'Full lower-Sauk self-shuttle from Cold Spring to St. Cloud. Leave the take-out vehicle at Knights of Columbus Park so the longest drive happens before the long paddling day, not after it.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted city, county-park, and access rules along the corridor.',
+      camping:
+        'Rockville County Park sits mid-route with a watercraft campsite and is the cleanest bailout or intentional split. Otherwise treat this as a long day and do not assume informal shoreline camping is legal.',
+      summary:
+        'Launch at Frogtown Park in Cold Spring and finish at Knights of Columbus Park in St. Cloud for the full easy lower-Sauk day that still stops before the Heims rapid finish.',
+      accessCaveats: [
+        'Frogtown Park is the downstream-of-dam start, so do not improvise a put-in above the Cold Spring obstruction.',
+        'Knights of Columbus Park is a defined city endpoint with parking and restrooms, but it is still worth scouting the exact carry-out before you launch if you have not used it before.',
+        'Rockville County Park remains the cleanest mid-route bailout or deliberate overnight split because it is the documented watercraft-campsite stop on this corridor.',
+      ],
+      watchFor: [
+        'Vegetation and shallow stretches when the St. Martin gauge slides toward 14 ft.',
+        'Downed trees or fresh strainers after storms.',
+        'Longer-day fatigue and weather exposure on a route that stays easy in character but covers over 17 river miles.',
+      ],
+    },
+  },
   'sauk-river-rockville-miller-landing': {
     putIn: {
       name: 'Rockville County Park carry-in access',
@@ -2483,6 +2517,39 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Vegetation and shallow stretches when the St. Martin gauge slides toward 14 ft.',
         'Downed trees or fresh strainers after summer storms.',
         'Fatigue creep on a route that stays mostly easy but still covers a full lower-Sauk day.',
+      ],
+    },
+  },
+  'sauk-river-rockville-knights-of-columbus': {
+    putIn: {
+      name: 'Rockville County Park carry-in access',
+      latitude: 45.4755294,
+      longitude: -94.3507888,
+    },
+    takeOut: {
+      name: 'Knights of Columbus Park carry-in access',
+      latitude: 45.5670560130672,
+      longitude: -94.2286380074072,
+    },
+    logistics: {
+      distanceLabel: '12.3 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr 45 min',
+      shuttle:
+        'Standard Stearns County to St. Cloud self-shuttle between Rockville County Park and Knights of Columbus Park. Confirm local park hours before leaving vehicles late into the day.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county-park and city-park rules.',
+      camping:
+        'Rockville County Park has the clean campsite-and-drinking-water staging story, so this can work as an endpoint-campground start. The paddle itself still reads best as a day trip unless you intentionally stage it from Rockville.',
+      summary:
+        'Put in at Rockville County Park and take out at Knights of Columbus Park for a medium lower-Sauk day that keeps the campsite-backed put-in but exits before the Heims rapid finish.',
+      accessCaveats: [
+        'Rockville County Park has posted hours, drinking water, and a watercraft campsite, but local rules still override any stale assumptions when you arrive.',
+        'Knights of Columbus Park is a popular St. Cloud park, so it is smarter to identify the exact carry-out and parking flow before launching than to treat it as a generic stop.',
+      ],
+      watchFor: [
+        'Vegetation and shallow stretches when the St. Martin gauge slides toward 14 ft.',
+        'Storm debris and strainers after recent rain.',
+        'Fatigue creep on a route that stays mostly easy but still covers a solid lower-Sauk day.',
       ],
     },
   },
@@ -2651,6 +2718,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Vegetation and slower current when the St. Martin gauge slides toward 14 ft.',
         'Fresh wood or strainers after storms in this tree-lined lower corridor.',
         'Cold-water exposure outside midsummer, even on a short easy shuttle.',
+      ],
+    },
+  },
+  'sauk-river-miller-landing-heims-mill': {
+    putIn: {
+      name: 'Miller Landing carry-in access',
+      latitude: 45.5504544,
+      longitude: -94.2641031,
+    },
+    takeOut: {
+      name: 'Heims Mill Canoe Access',
+      latitude: 45.5936215,
+      longitude: -94.1813947,
+    },
+    logistics: {
+      distanceLabel: '7.6 mi',
+      estimatedPaddleTime: 'About 2 hr 30 min to 4 hr',
+      shuttle:
+        'Lower-Sauk self-shuttle from Waite Park to Heims Mill. Keep the take-out vehicle at Heims because the confluence finish is not where you want to improvise tired logistics after the rapid section.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county access rules at Miller Landing and Heims Mill.',
+      camping:
+        'Treat this as a day trip. Miller Landing and Heims Mill are managed access parks rather than overnight river camps.',
+      summary:
+        'Use Miller Landing as the put-in and Heims Mill as the take-out for the full Waite Park-to-confluence lower-Sauk finish that includes the DNR-noted Class I-II section near the mouth.',
+      accessCaveats: [
+        'Miller Landing is a managed county access with posted hours, so do not assume unlimited late retrieval if the day runs long.',
+        'Heims Mill is a simple carry-in county access with restroom and picnic amenities, not a broad ramp or a place to sort out a casual shuttle plan.',
+        'Do not let the moderate mileage hide the fact that the lower 2.5 miles are the technical part of the Sauk family.',
+      ],
+      watchFor: [
+        'Boulder-filled Class I-II rapids in the final 2.5 miles, especially if the gauge trends low.',
+        'Shallow rock dodging or partial walk-downs if the St. Martin gauge falls toward or below 14 ft.',
+        'Wood, tight lines, and cold-water consequences near the Mississippi confluence.',
       ],
     },
   },
