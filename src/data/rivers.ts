@@ -1845,6 +1845,127 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'otter-tail-river-phelps-mill-west-red-river-lake',
+    slug: 'otter-tail-river-phelps-mill-west-red-river-lake',
+    name: 'Otter Tail River',
+    reach: 'Phelps Mill County Park to West Red River Lake',
+    state: 'Minnesota',
+    region: 'West Central Minnesota',
+    summary:
+      'Official MN DNR day trip from Phelps Mill through the lake-and-river corridor to West Red River Lake. It has public-water-access records at both ends and an official interpreted Otter Tail gauge just downstream, but wind on lakes and low-water obstructions still need same-day checks.',
+    statusText:
+      'Use the Elizabeth DNR gauge conservatively: 300 to 700 cfs is the official medium band, below 100 cfs is scrapable, and above 1200 cfs is very high.',
+    latitude: 46.3821667,
+    longitude: -95.8210176,
+    gaugeSource: {
+      id: 'mn-dnr-159',
+      provider: 'mn_dnr',
+      siteId: '159',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'Otter Tail River nr Elizabeth, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=56050001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=56050001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 300,
+      idealMax: 700,
+      tooLow: 100,
+      tooHigh: 1200,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Otter Tail River near Elizabeth',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.2,
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the normal window. The route crosses lake-influenced water, so wind and direction-finding can matter as much as flow once the gauge clears the low band.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR frames this as gentle paddling through forests, fields, and lakes. The main hazards are low-water dragging, bridge or culvert obstructions, and wind exposure on lake sections.',
+      confidenceNotes:
+        'Route and access confidence is high: MN DNR recommends the exact Phelps Mill to West Red River Lake day trip, and Minnesota public-water-access GIS resolves both endpoints. Threshold confidence is good but conservative because the interpreted Elizabeth gauge sits about four river miles downstream of the take-out rather than inside the trip.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Scout bridges, culverts, and any fast constricted water; DNR warns that obstructions can have little headroom and fast current.',
+        'Low flows can require main-channel picking or short walks, while high flows make rocks, bridge approaches, and wood less forgiving.',
+        'Lake sections are exposed to wind; DNR specifically cautions against windy days on the Otter Tail lake crossings.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '11.8 river miles',
+        note: 'MN DNR recommends Phelps Mill County Park carry-in access at river mile 85 to West Red River Lake trailer access at river mile 73.2 as a Map 2 day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/otter-tail-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS00559 and WAS00822',
+        note: 'Minnesota public-water-access GIS resolves Phelps Mill and West Red River Lake as public access sites with river-mile records that match the DNR route page.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '100 / 300-700 / 1200 cfs',
+        note: 'MN DNR interprets the Elizabeth gauge as Scrapable below 100 cfs, Low from 100 to 300, Medium from 300 to 700, High from 700 to 1200, and Very High above 1200.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Route character',
+        value: 'Gentle, lake-influenced day trip',
+        note: 'DNR describes this reach as gentle water through forests, fields, and lakes, with lake direction-finding and wind exposure as practical concerns.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/otter-tail-river/segments-maps.html',
+      },
+      {
+        label: 'Hazards',
+        value: 'Obstructions, low water, and wind',
+        note: 'DNR warns paddlers to inspect culverts, bridges, dams, and obstructions, to expect walking at low flows, and to avoid lake crossings on windy days.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/otter-tail-river/segments-maps.html',
+      },
+      {
+        label: 'Wikimedia Commons route image',
+        value: 'Phelps Mill / Otter Tail River, CC BY-SA 2.0',
+        note: 'A rights-clean Commons photo at Phelps Mill was added to the route gallery as endpoint context for this segment.',
+        sourceUrl:
+          'https://commons.wikimedia.org/wiki/File:Otter_Tail_River_and_the_Historic_Phelps_Mill_(37084692324).jpg',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Otter Tail River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/otter-tail-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Wikimedia Commons Phelps Mill photo',
+        url: 'https://commons.wikimedia.org/wiki/File:Otter_Tail_River_and_the_Historic_Phelps_Mill_(37084692324).jpg',
+      },
+    ],
+  },
+  {
     id: 'cannon-river-welch',
     slug: 'cannon-river-welch',
     name: 'Cannon River',
@@ -5581,6 +5702,131 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'mississippi-river-steamboat-blackberry-bridge',
+    slug: 'mississippi-river-steamboat-blackberry-bridge',
+    name: 'Mississippi River',
+    reach: 'Steamboat Landing to Blackberry Bridge',
+    state: 'Minnesota',
+    region: 'Grand Rapids Area',
+    summary:
+      'Official MN DNR upper-Mississippi day trip below Grand Rapids with public accesses at both ends and a direct DNR interpreted gauge at Grand Rapids. It is usually an easy flatwater route, but low-water riffles, upstream dams, and big-river exposure still need a same-day check.',
+    statusText:
+      'Use the Grand Rapids DNR gauge: 44 to 1410 cfs is the official medium band. Below 30 cfs is scrapable, and above 1910 cfs is very high.',
+    latitude: 47.2325351,
+    longitude: -93.522906,
+    gaugeSource: {
+      id: 'mn-dnr-124',
+      provider: 'mn_dnr',
+      siteId: '124',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'direct',
+      siteName: 'Mississippi River at Grand Rapids, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=09064001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=09064001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05211000',
+        provider: 'usgs',
+        siteId: '05211000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Mississippi River at Grand Rapids, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 44,
+      idealMax: 1410,
+      tooLow: 30,
+      tooHigh: 1910,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River at Grand Rapids',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the usual window. The DNR medium band is broad, so same-day visual checks still matter at the launch, especially when the river is low or rising after rain.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR describes this recommended day trip as easy paddling with no significant rapids, though small riffles can appear at low water.',
+      confidenceNotes:
+        'Confidence is high for a conservative add: MN DNR recommends the exact Steamboat Access to Blackberry Bridge trip, the DNR public-water-access GIS resolves both endpoints, and the Grand Rapids DNR/USGS gauge sits at the route-start corridor with official interpretation bands. The app still calls out upstream dam portages because Grand Rapids-area paddlers must avoid continuing into dam hazards outside this day route.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Do not treat the broader Grand Rapids corridor as dam-free; DNR warns of two upstream dams near town that must be portaged.',
+        'Expect shallow riffles and exposed bars when the Grand Rapids gauge falls into the low band.',
+        'Use legal public stops such as Sucher\'s Campsite or the named accesses; do not assume private banks are available for breaks.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '8 river miles',
+        note: 'MN DNR recommends Steamboat Access at river mile 1178.9 to Blackberry Bridge Access at river mile 1170.9 as the Map 3 day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS00984 and WAS02539',
+        note: 'Minnesota public-water-access GIS resolves Mississippi River Steamboat Landing and Mississippi River Blackberry Bridge with matching river-mile records.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '30 / 44-1410 / 1910 cfs',
+        note: 'MN DNR interprets the Grand Rapids gauge as Scrapable below 30 cfs, Low from 30 to 44, Medium from 44 to 1410, High from 1410 to 1910, and Very High above 1910.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Route character',
+        value: 'Easy paddling with low-water riffles',
+        note: 'DNR says this trip passes farmland and wooded banks, has no significant rapids, and may expose small riffles at low water.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'Rest stop',
+        value: 'Sucher\'s Campsite if unoccupied',
+        note: 'DNR points to Sucher\'s Campsite as a good picnic stop on this day trip when it is available.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'USGS 05211000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05211000/',
+      },
+    ],
+  },
+  {
     id: 'mississippi-river-east-river-flats-hidden-falls',
     slug: 'mississippi-river-east-river-flats-hidden-falls',
     name: 'Mississippi River',
@@ -6608,6 +6854,120 @@ export const rivers: River[] = [
       {
         label: 'Minnesota Power reservoir recreation information',
         url: 'https://www.mpland.com/Recreation/Reservoirs',
+      },
+    ],
+  },
+  {
+    id: 'st-louis-river-paupores-brookston',
+    slug: 'st-louis-river-paupores-brookston',
+    name: 'St. Louis River',
+    reach: 'Paupores to Brookston',
+    state: 'Minnesota',
+    region: 'Duluth Area',
+    summary:
+      'Official MN DNR middle-St. Louis day trip with public trailer accesses, on-route watercraft campsites, and an interpreted DNR gauge upstream at Floodwood. It is a short mileage day, but Class I-II rapids and high-water consequences make this a skill-filtered route.',
+    statusText:
+      'Use the Floodwood DNR gauge conservatively: 28 to 37 ft is the official medium band, below 24.4 ft is scrapable, and above 42 ft is very high.',
+    latitude: 46.8741117,
+    longitude: -92.7652286,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'mn-dnr-338',
+      provider: 'mn_dnr',
+      siteId: '338',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'proxy',
+      siteName: 'St. Louis River at Floodwood, CSAH8',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=03034001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=03034001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 28,
+      idealMax: 37,
+      tooLow: 24.4,
+      tooHigh: 42,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for St. Louis River at Floodwood',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'DNR says St. Louis River flow usually peaks in late April, remains moderate in May, and recedes through summer. Use the gauge and local rain history rather than the calendar alone.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'DNR Map 2 describes steady current, occasional shallow rapids, and Class I-II rapids that can become dangerous in high water.',
+      confidenceNotes:
+        'Route and access confidence is high: MN DNR recommends the exact Paupores to Brookston trip, and public-water-access GIS resolves both endpoints. Threshold confidence is good but intentionally conservative because the interpreted Floodwood gauge is upstream of Paupores rather than in the exact 7.9-mile segment.',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'fast_rise', 'strainers', 'remote', 'cold_water'],
+      safetyNotes: [
+        'Class I-II rapids can become dangerous in high water; scout if the gauge is rising or above the medium band.',
+        'The short distance does not remove rescue exposure. Railroad, forest, and sparse-road context can slow exit and response.',
+        'Cold water, strainers, shallow rock gardens, and fresh wood are realistic hazards on this middle-river reach.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '7.9 river miles',
+        note: 'MN DNR recommends Paupores trailer access at river mile 61.8 to Brookston trailer access near river mile 53.9 as a Map 2 day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/st-louis-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS00609 and WAS02081',
+        note: 'Minnesota public-water-access GIS resolves Paupores and Brookston as St. Louis River public access sites with matching river-mile records.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '24.4 / 28-37 / 42 ft',
+        note: 'MN DNR interprets the Floodwood gauge as Scrapable below 24.4 ft, Low from 24.4 to 28, Medium from 28 to 37, High from 37 to 42, and Very High above 42.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Rapids and high-water caution',
+        value: 'Class I-II rapids',
+        note: 'DNR says Map 2 includes steady current, occasional shallow rapids, and Class I-II rapids that can become dangerous at high water.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/st-louis-river/segments-maps.html',
+      },
+      {
+        label: 'Camping support',
+        value: 'Watercraft campsites on route',
+        note: 'DNR Map 2 places multiple watercraft campsites between Paupores and Brookston and describes them as first-come sites with basic amenities.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/stlouis2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR St. Louis River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/st-louis-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR St. Louis River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/stlouis2.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
       },
     ],
   },

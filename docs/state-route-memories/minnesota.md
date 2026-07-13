@@ -1,18 +1,25 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-03 19:16 America/Chicago.
+Last summarized: 2026-07-13 13:40 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 75.
-- Top represented rivers: Big Fork River 18, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4, Crow Wing River 3.
-- Ledger candidates: 73 total; 39 `added`, 19 `threshold_weak`, 10 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`, 1 `rejected`.
+- Live routes: 64.
+- Top represented rivers: Little Fork River 8, Big Fork River 5, Mississippi River 5, Minnesota River 4, Root River 4, North Fork Crow River 3, Snake River 3, Zumbro River 3.
+- Ledger candidates: 78 total; 47 `added`, 18 `threshold_weak`, 8 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`, 1 `rejected`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-13 13:40 America/Chicago: added `otter-tail-river-phelps-mill-west-red-river-lake`, `st-louis-river-paupores-brookston`, and `mississippi-river-steamboat-blackberry-bridge`.
+- Baseline at run start was 61 live Minnesota routes; patched route data now imports 64 Minnesota routes with no missing trip-detail entries found during the baseline check.
+- Stayed in Minnesota and promoted three previously blocked official DNR day trips because the current MN DNR river-level feed now exposes official interpreted gauge ladders: Otter Tail Elizabeth site `159` at `100 / 300-700 / 1200 cfs`, St. Louis Floodwood site `338` at `24.4 / 28-37 / 42 ft`, and Mississippi Grand Rapids site `124` at `30 / 44-1410 / 1910 cfs`.
+- Minnesota public-water-access GIS resolves all six endpoints: Phelps Mill `WAS00559`, West Red River Lake `WAS00822`, Paupores `WAS00609`, Brookston `WAS02081`, Steamboat Landing `WAS00984`, and Blackberry Bridge `WAS02539`.
+- `otter-tail-river-phelps-mill-west-red-river-lake` ships as a lake-influenced easy day with wind, low-water, and obstruction caveats; `st-louis-river-paupores-brookston` ships as a whitewater/advanced route because DNR calls out Class I-II rapids and high-water danger; `mississippi-river-steamboat-blackberry-bridge` ships as an easy upper-Mississippi day with upstream dam-portage caveats and low-water riffle cautions.
+- Added one approved Commons Phelps Mill / Otter Tail River route-gallery image for the Otter Tail route and recorded bounded no-image outcomes for St. Louis and Mississippi.
 
 - 2026-07-03 19:16 America/Chicago: consolidated away `big-fork-river-sturgeon-kueffners`.
 - The slug overlapped too directly with the surviving `big-fork-river-big-falls-west-kueffners` planner, which already preserves Sturgeon as the first named bailout and campsite checkpoint through `accessPoints`.

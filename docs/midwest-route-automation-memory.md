@@ -1,5 +1,12 @@
 # Midwest Route Automation Memory
 
+- 2026-07-13 13:40 America/Chicago / 2026-07-13 18:40 UTC: Minnesota three-route implementation pass (`minnesota-route-additions-2`).
+  - Added three Minnesota slugs beyond the 61-route Minnesota baseline at run start: `otter-tail-river-phelps-mill-west-red-river-lake`, `st-louis-river-paupores-brookston`, and `mississippi-river-steamboat-blackberry-bridge`.
+  - Qualification path: current MN DNR state-water-trail pages document Phelps Mill to West Red River Lake `11.8` miles, Paupores to Brookston `7.9` miles, and Steamboat Landing to Blackberry Bridge `8` miles; Minnesota public-water-access GIS resolves all six public endpoints with coordinates and access IDs; and the current MN DNR river-level feed exposes official interpreted bands for Otter Tail Elizabeth site `159`, St. Louis Floodwood site `338`, and Mississippi Grand Rapids site `124`.
+  - Implemented conservative gauge models: Otter Tail uses the downstream Elizabeth proxy with `ideal 300-700 cfs`, `tooLow 100`, `tooHigh 1200`; St. Louis uses the upstream Floodwood proxy with `ideal 28-37 ft`, `tooLow 24.4`, `tooHigh 42`; Mississippi uses the direct Grand Rapids corridor gauge with `ideal 44-1410 cfs`, `tooLow 30`, `tooHigh 1910`.
+  - Added camping and safety/logistics notes: Otter Tail stays day-trip/no-camping with lake wind and obstruction caveats; St. Louis is `whitewater` / advanced with on-route watercraft campsite support and Class I-II/high-water cautions; Mississippi stays a day route with Sucher's Campsite as a picnic/rest stop, upstream dam-portage warnings, and low-water riffle caveats.
+  - Added one approved Wikimedia Commons Phelps Mill image to the Otter Tail gallery and recorded bounded no-image outcomes for St. Louis and Mississippi.
+
 - 2026-07-01 19:58 America/Chicago / 2026-07-02 00:58 UTC: Pennsylvania three-route implementation pass (`3-new-routes-automation`).
   - Reused the current route queue after the earlier Pennsylvania lower-Juniata adds and stayed internet-first on the official PFBC lower Juniata family because the access table still had three clean remaining Newport finishes with direct same-day USGS support.
   - Added three internet-sourced Pennsylvania routes: `juniata-river-lewistown-narrows-newport`, `juniata-river-lewistown-narrows-newport`, and `juniata-river-lewistown-narrows-newport`.

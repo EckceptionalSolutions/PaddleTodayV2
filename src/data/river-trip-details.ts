@@ -1636,6 +1636,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'otter-tail-river-phelps-mill-west-red-river-lake': {
+    putIn: {
+      name: 'Otter Tail River, Phelps Mill Public Water Access Site',
+      latitude: 46.3821667,
+      longitude: -95.8210176,
+    },
+    takeOut: {
+      name: 'West Red River Lake Public Water Access Site',
+      latitude: 46.3886343,
+      longitude: -95.9911976,
+    },
+    logistics: {
+      distanceLabel: '11.8 mi',
+      estimatedPaddleTime: 'About 4 hr 15 min to 6 hr depending on wind, lake travel, and level',
+      shuttle:
+        'Stage the take-out at West Red River Lake first, then drive to Phelps Mill County Park. The road shuttle is straightforward, but the paddle includes lake-influenced water where wind can stretch the day.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Otter Tail County and DNR public-water-access rules at Phelps Mill and West Red River Lake.',
+      camping:
+        'No established watercraft campsite is documented on this day segment. Use nearby legal park or campground options only if independently confirmed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Phelps Mill County Park and take out at West Red River Lake for MN DNR\'s 11.8-mile Otter Tail day trip. Use the Elizabeth gauge as a conservative downstream level check, then make a same-day wind and obstruction call before committing.',
+      accessCaveats: [
+        'Phelps Mill is an Otter Tail County-administered public access with a DNR GIS record; local park events and parking rules can still affect staging.',
+        'West Red River Lake is a DNR public access with no restroom listed in the public-water-access record.',
+        'The Elizabeth gauge is downstream of the route finish, so it is a corridor indicator rather than an exact on-site measurement.',
+      ],
+      watchFor: [
+        'Wind exposure and route-finding across lake-influenced sections.',
+        'Low-water dragging, shallow riffles, or short walks when the Elizabeth gauge is in the low band.',
+        'Culverts, bridge constrictions, dams, snags, and low-headroom obstructions that should be inspected before committing.',
+      ],
+    },
+  },
   'cannon-river-welch': {
     putIn: {
       name: 'Riverside Park canoe launch (Cannon Falls)',
@@ -2857,6 +2892,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'mississippi-river-steamboat-blackberry-bridge': {
+    putIn: {
+      name: 'Mississippi River, Steamboat Landing Public Water Access Site',
+      latitude: 47.2325351,
+      longitude: -93.522906,
+    },
+    takeOut: {
+      name: 'Mississippi River, Blackberry Bridge Public Water Access Site',
+      latitude: 47.1736507,
+      longitude: -93.4186453,
+    },
+    logistics: {
+      distanceLabel: '8 mi',
+      estimatedPaddleTime: 'About 2 hr 45 min to 4 hr depending on level, wind, and stops',
+      shuttle:
+        'Stage the take-out at Blackberry Bridge, then drive upstream to Steamboat Landing in Grand Rapids. The route is short enough for a relaxed day but exposed enough that wind and low water can still slow the pace.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted City of Grand Rapids and DNR public-water-access rules at Steamboat Landing and Blackberry Bridge.',
+      camping:
+        'DNR identifies Sucher\'s Campsite as a possible picnic stop if unoccupied, but this route should be planned as a day trip unless legal overnight use is independently confirmed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Steamboat Landing and take out at Blackberry Bridge for MN DNR\'s 8-mile upper Mississippi day trip. The Grand Rapids gauge is direct and officially interpreted, but the route still needs a same-day low-water and wind check.',
+      accessCaveats: [
+        'Steamboat Landing is a City of Grand Rapids public access with no restroom listed in the DNR GIS record.',
+        'Blackberry Bridge is a DNR public access with parking but no restroom listed in the GIS record.',
+        'DNR\'s broader Grand Rapids segment includes dam portages near town. Stay within the selected downstream day trip and do not continue into dam hazards without a separate plan.',
+      ],
+      watchFor: [
+        'Small riffles, exposed bars, and slower current when the Grand Rapids gauge is in the low band.',
+        'Wind on open bends and slow pools.',
+        'Floating debris, fresh wood, and private banks along the farmland and wooded corridor.',
+      ],
+    },
+  },
   'mississippi-river-east-river-flats-hidden-falls': {
     putIn: {
       name: 'East River Flats Park',
@@ -3304,6 +3374,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Class I-II rapids that deserve scouting and occasional portaging.',
         'Scraping and short river walks when releases hover near the 175 cfs floor.',
         'Fresh wood, cold water, and fast current changes after storms or release shifts.',
+      ],
+    },
+  },
+  'st-louis-river-paupores-brookston': {
+    putIn: {
+      name: 'St. Louis River, Paupores Public Water Access Site',
+      latitude: 46.8741117,
+      longitude: -92.7652286,
+    },
+    takeOut: {
+      name: 'St. Louis River, Brookston Public Water Access Site',
+      latitude: 46.8693332,
+      longitude: -92.6040058,
+    },
+    logistics: {
+      distanceLabel: '7.9 mi',
+      estimatedPaddleTime: 'About 2 hr 45 min to 4 hr 30 min depending on level, scouting, and stops',
+      shuttle:
+        'Set the Brookston take-out first, then drive upstream to Paupores. The road shuttle is manageable, but the river day should be paced for scouting, campsite checks, and high-water judgment rather than mileage alone.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted DNR public-water-access and watercraft-campsite rules at Paupores, Brookston, and any river camps.',
+      camping:
+        'MN DNR Map 2 shows multiple primitive watercraft campsites between Paupores and Brookston. Treat them as first-come basic sites and carry out trash.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Paupores and take out at Brookston for MN DNR\'s 7.9-mile middle St. Louis day trip. The Floodwood gauge provides official interpreted bands, but the route remains skill-filtered because of Class I-II rapids and high-water consequences.',
+      accessCaveats: [
+        'Paupores and Brookston are both DNR-administered public access sites with parking but no restroom listed in the public-water-access records.',
+        'The Floodwood gauge is upstream of Paupores, so it is an official same-river corridor indicator rather than a gauge inside the selected reach.',
+        'Railroad and forest context can make walkouts and rescue more complicated than the short mileage suggests.',
+      ],
+      watchFor: [
+        'Class I-II rapids and shallow rocky current, especially if the Floodwood gauge is high, rising, or above the medium band.',
+        'Fresh strainers and cold-water consequences after storms or during shoulder seasons.',
+        'Railroad trestle approaches, remote bends, and limited legal exits away from named public accesses and campsites.',
       ],
     },
   },
