@@ -58,6 +58,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Run Notes
 
+- 2026-07-13 20:40 America/Chicago / 2026-07-14 01:40 UTC: Pennsylvania three-route restoration pass; reintroduced three supported North Branch Susquehanna routes beyond the live repo baseline at run start.
+  - Rebuilt the live-tree baseline from `src/data/rivers.ts` at run start and treated the current `520`-route repo state, not prior automation commits or stale support surfaces, as the requirement for this pass.
+  - Restored `susquehanna-river-sayre-wysox-township-park`, `susquehanna-river-ulster-bridge-terrytown`, and `susquehanna-river-hornbrook-terrytown` after confirming those slugs still had trip-detail and image-audit support but were absent from the live route objects.
+  - Qualification package: PFBC Section 1 still publishes exact public access coordinates and official river-mile spacing for Sayre PFBC, Ulster Bridge, Larnard Hornbrook Park, Wysox Township Park, and Terrytown PFBC; the 2021 North Branch brochure still carries Towanda stage guidance of runnable around `-0.5 ft`, safe-base planning around `2 ft`, and a conservative novice ceiling around `5 ft`; and same-day direct USGS Water Services returned `1960 cfs / 0.55 ft` at Towanda (`01531500`) at `2026-07-13 20:45 EDT`.
+  - Camping and safety/logistics notes were already present in `src/data/river-trip-details.ts`, so this pass restored the missing route objects against the existing route-detail package instead of inventing new downstream support. `sayre-wysox` and `ulster-bridge-terrytown` remain `on_route_campsite` because the corridor still has source-backed legal camping support, while `hornbrook-terrytown` remains `on_route_campsite` because Hornbrook County Park and Riverside Acres still anchor legal overnight options without implying undeveloped-bank camping.
+  - No gallery image was added. Existing bounded no-image audit rows remained valid for all three restored slugs.
+
 - 2026-07-06 08:45 America/Chicago / 2026-07-06 13:45 UTC: Pennsylvania three-route implementation pass; reintroduced three missing upper North Branch Susquehanna routes beyond the live repo baseline.
   - Rebuilt the live-tree baseline from `src/data/rivers.ts` at run start and treated the current repo state, not earlier automation commits or regenerated inbox totals, as the requirement for this pass.
   - Implemented `susquehanna-river-hornbrook-towanda`, `susquehanna-river-towanda-terrytown`, and `susquehanna-river-wysox-township-park-terrytown` from the PFBC North Branch Section 1 guide family after confirming those slugs were absent from the live route objects and trip-detail map.
