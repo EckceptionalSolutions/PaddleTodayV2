@@ -47654,6 +47654,382 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'susquehanna-river-test-track-indian-head',
+    slug: 'susquehanna-river-test-track-indian-head',
+    name: 'Susquehanna River',
+    reach: 'North Branch: Test Track Park to Indian Head Campground',
+    aliases: [
+      'North Branch Susquehanna - Test Track to Indian Head',
+      'Susquehanna River - Test Track Park to Indian Head Campground',
+      'North Branch Section 4 full upper campground day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      'Longer North Branch Susquehanna day from Test Track Park to Indian Head Campground. The official Section 4 guide publishes both access coordinates, uses the Bloomsburg gauge for same-day planning, and keeps the exposed Berwick ledge warning visible when the gauge is below 2 ft.',
+    statusText:
+      'Use the Susquehanna River at Bloomsburg stage gauge. The official section guide says the river can be paddled as low as 1 ft, about 1 to 4 ft is the calmer planning window, 4 to 5 ft moves faster, and novice paddlers should stay off if Bloomsburg rises above 6 ft.',
+    latitude: 41.0075,
+    longitude: -76.365278,
+    gaugeSource: {
+      id: 'usgs-01538700',
+      provider: 'usgs',
+      siteId: '01538700',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Susquehanna River at Bloomsburg, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['private_banks'],
+      safetyNotes: [
+        'PFBC warns that about one-half mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
+        'This longer open-water corridor can feel slower and more exposed than the map suggests once wind, thunderstorms, or broad-river current stack up.',
+        'Indian Head is the intended finish. Respect campground rules and do not improvise on private banks or side landings near the lower miles.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1,
+      idealMax: 4,
+      tooLow: 1,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 4 stage guidance',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'PFBC says this broad North Branch corridor often stays paddleable through lower-water periods, but headwind, thunderstorms, and floating wood still change the same-day feel quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is an easier mainstem Susquehanna route when Bloomsburg sits in the conservative band, but the 12-mile length, low-water ledge, and campground-finish discipline make it more than a casual short float.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania restore: the PFBC North Branch Section 4 guide publishes exact coordinates for Test Track Park and Indian Head Campground, defines the corridor with official river miles, and uses the direct Bloomsburg stage gauge for same-day planning. USGS Water Services returned same-day July 14, 2026 values of 4,250 cfs and 1.65 ft for direct USGS 01538700 during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Test Track Park to Indian Head Campground, about 12 mi',
+        note: 'The PFBC North Branch Section 4 guide places Test Track Park at river mile 158 and Indian Head Campground at river mile 146.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'The PFBC Section 4 access table publishes Test Track Park at 41 02 24 / -76 15 40 and Indian Head Campground at 40 58 30 / -76 28 10.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01538700 at Bloomsburg',
+        note: 'USGS Water Services returned same-day July 14, 2026 values of 4,250 cfs and 1.65 ft for Susquehanna River at Bloomsburg, PA.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01538700&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Official stage guidance',
+        value: 'Bloomsburg 1 / 1-4 / 4-5 / 6 ft novice ceiling',
+        note: 'The PFBC guide says the river can be paddled as low as 1 ft at Bloomsburg, 2 to 4 ft moves faster, and novice paddlers should stay off when Bloomsburg rises above 6 ft.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Campground endpoint',
+        value: 'Indian Head Campground access',
+        note: 'The PFBC Section 4 access table lists Indian Head Campground as a primitive-to-surfaced ramp with route directions and marks it on river right at mile 146.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC North Branch Susquehanna Section 4',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01538700 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01538700 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01538700&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+      {
+        label: 'Indian Head Campground access context',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'susquehanna-river-danville-montgomery-shikellamy-north',
+    slug: 'susquehanna-river-danville-montgomery-shikellamy-north',
+    name: 'Susquehanna River',
+    reach: 'North Branch: Montgomery Park to Shikellamy State Park North',
+    aliases: [
+      'North Branch Susquehanna - Montgomery Park to Shikellamy North',
+      'Susquehanna River - Danville Montgomery Park to Shikellamy State Park North',
+      'North Branch Section 14 favorite day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      'Lower Section 14 Susquehanna day from Montgomery Park in Danville to Shikellamy State Park North. The current 2021 North Branch guide lists this public pair as a favorite 11.2-mile day trip and uses the Danville gauge for same-day planning, while the finish still demands explicit Lake Augusta and Fabridam take-out discipline.',
+    statusText:
+      'Use the Susquehanna River at Danville gauge as the official Section 14 planning reference. The current guide lists about 2 ft as the lower limit, around 4 ft as the better paddling level, and about 7 ft as the novice ceiling.',
+    latitude: 40.91986,
+    longitude: -76.704663,
+    gaugeSource: {
+      id: 'usgs-01540500',
+      provider: 'usgs',
+      siteId: '01540500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Susquehanna River at Danville, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam'],
+      safetyNotes: [
+        'The current guide says Lake Augusta begins in the lower part of this route, where wind and powerboat wakes can matter more than current alone.',
+        'Shikellamy State Park North is the intended finish. Do not drift beyond the state-park access zone toward Sunbury Fabridam downstream.',
+        'Treat the final state-park approach as a committed public take-out rather than a reason to improvise on private banks or islands late in the run.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2,
+      idealMax: 4,
+      tooLow: 2,
+      tooHigh: 7,
+      thresholdSource: {
+        label: '2021 North Branch Susquehanna guide Danville stage guidance',
+        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The lower Danville-to-Sunbury corridor usually stays accessible through much of the warm season, but Lake Augusta wind, thunderstorms, and faster post-rain current still change the route character quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This remains a broad-audience mainstem Susquehanna route in the conservative band, but the 11-mile distance, pooled lower miles, and precise take-out discipline make it more serious than a casual float.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania restore: the current 2021 North Branch guide lists Montgomery Park to Shikellamy State Park North as a favorite 11.2-mile public day trip, publishes the exact endpoint coordinates in the access table, and writes Section 14 thresholds around the Danville gauge. USGS Water Services returned same-day July 14, 2026 values of 4,090 cfs and 3.10 ft at Danville, with upstream Bloomsburg corroboration at 4,250 cfs and 1.65 ft.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Montgomery Park to Shikellamy North, about 11.2 mi',
+        note: 'The current 2021 North Branch guide lists Danville Montgomery Park Municipal Access at river mile 136.4 to Shikellamy State Park North Access at river mile 125.2 as a favorite day trip.',
+        sourceUrl:
+          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'Guide access-table coordinates',
+        note: 'The same guide publishes Montgomery Park Municipal Access at 40.959161, -76.619640 and Shikellamy State Park North Access at 40.880559, -76.789685.',
+        sourceUrl:
+          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+      },
+      {
+        label: 'Official section gauge proxy',
+        value: 'USGS 01540500 at Danville',
+        note: 'The current guide uses Danville for Section 14 planning, and USGS Water Services returned same-day July 14, 2026 values of 4,090 cfs and 3.10 ft there.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01540500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Official stage guidance',
+        value: 'Danville 2 / 4 / 7 ft',
+        note: 'The current guide lists a 2 ft lower limit, 4 ft good paddling level, and 7 ft upper novice ceiling at Danville for Sections 13 and 14.',
+        sourceUrl:
+          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+      },
+      {
+        label: 'Lower-corridor caution',
+        value: 'Lake Augusta plus Fabridam take-out discipline',
+        note: 'The current guide notes Lake Augusta in the lower corridor and marks Sunbury Fabridam downstream of the Shikellamy access zone, making the planned state-park take-out important.',
+        sourceUrl:
+          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: '2021 North Branch Susquehanna guide',
+        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'North Branch Susquehanna River Water Trail',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/where-to-boat/water-trails/north-branch-susquehanna-river',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01540500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01538700 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01540500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01540500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'DCNR Shikellamy State Park',
+        url: 'https://www.dcnr.pa.gov/StateParks/FindAPark/ShikellamyStatePark/Pages/default.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'susquehanna-river-riverside-borough-shikellamy-north',
+    slug: 'susquehanna-river-riverside-borough-shikellamy-north',
+    name: 'Susquehanna River',
+    reach: 'North Branch: Riverside Borough to Shikellamy State Park North',
+    aliases: [
+      'North Branch Susquehanna - Riverside to Shikellamy North',
+      'Susquehanna River - Riverside Borough Access to Shikellamy State Park North',
+      'North Branch Riverside-to-Shikellamy day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      'Moderate lower North Branch Susquehanna day from Riverside Borough Access to Shikellamy State Park North. Susquehanna Greenway publishes this exact 10.2-mile public route with route-specific hazard notes, and the Danville gauge gives it an official same-section water-level check.',
+    statusText:
+      'Use the Susquehanna River at Danville gauge as the route page recommends. Susquehanna Greenway says this trip should read between about 2 and 7 ft there, with the main low-water issues coming from island banks and stones in the lower miles.',
+    latitude: 40.921474,
+    longitude: -76.711564,
+    gaugeSource: {
+      id: 'usgs-01540500',
+      provider: 'usgs',
+      siteId: '01540500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Susquehanna River at Danville, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam'],
+      safetyNotes: [
+        'Susquehanna Greenway warns about island banks, ledges, and stones in low water, especially as you approach the lower islands and Packers Island.',
+        'Lake Augusta adds motorized boat traffic and wind exposure before the finish. Stay alert near the Shikellamy North take-out, especially around the final bridge approach.',
+        'Finish at Shikellamy State Park North. Do not continue downstream toward Sunbury Fabridam if you miss the planned access.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 2,
+      thresholdSource: {
+        label: 'Susquehanna Greenway Riverside to Shikellamy Danville water-level guidance',
+        url: 'https://susquehannagreenway.org/water-trails/riverside-to-shikellamy-state-park/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This lower route is broad and often paddleable through much of the warm season, but low water exposes ledges and stones while Lake Augusta wind and motorized traffic make the finish feel bigger than the map suggests.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Susquehanna Greenway marks this route moderate. The mileage is reasonable, but the island-and-stone decisions in low water, the pooled lower miles, and the busy state-park finish keep it above the easy bucket.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania restore: Susquehanna Greenway publishes this exact Riverside-to-Shikellamy route with named public endpoints, mileage, low-water hazards, and a route-specific Danville water-level recommendation. The current 2021 North Branch guide publishes the exact Riverside Borough and Shikellamy North coordinates in its access table. USGS Water Services returned same-day July 14, 2026 values of 4,090 cfs and 3.10 ft at Danville.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Riverside Borough to Shikellamy North, about 10.2 mi',
+        note: 'Susquehanna Greenway publishes this exact route at 10.2 miles from Riverside Municipal Access at river mile 135.3 to Shikellamy State Park North Access at river mile 125.1.',
+        sourceUrl:
+          'https://susquehannagreenway.org/water-trails/riverside-to-shikellamy-state-park/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'Guide access-table coordinates',
+        note: 'The current 2021 North Branch guide publishes Riverside Borough Access at 40.962389, -76.633444 and Shikellamy State Park North Access at 40.880559, -76.789685.',
+        sourceUrl:
+          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+      },
+      {
+        label: 'Official section gauge proxy',
+        value: 'USGS 01540500 at Danville',
+        note: 'Susquehanna Greenway recommends this route when the Danville gauge reads between 2 and 7 ft, and USGS Water Services returned same-day July 14, 2026 values of 4,090 cfs and 3.10 ft there.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01540500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route-specific hazards',
+        value: 'Island banks and stones in low water',
+        note: 'Susquehanna Greenway says ledges, island banks, and stones become the key low-water issues as you approach the lower islands, Packers Island, and the Shikellamy finish.',
+        sourceUrl:
+          'https://susquehannagreenway.org/water-trails/riverside-to-shikellamy-state-park/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Susquehanna Greenway Riverside to Shikellamy State Park route',
+        url: 'https://susquehannagreenway.org/water-trails/riverside-to-shikellamy-state-park/',
+        provider: 'local',
+      },
+      {
+        label: '2021 North Branch Susquehanna guide',
+        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01540500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01540500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01540500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'DCNR Shikellamy State Park',
+        url: 'https://www.dcnr.pa.gov/StateParks/FindAPark/ShikellamyStatePark/Pages/default.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'sugar-creek-deers-mill-cox-ford',
     slug: 'sugar-creek-deers-mill-cox-ford',
     name: 'Sugar Creek',
