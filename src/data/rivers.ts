@@ -6943,8 +6943,8 @@ export const rivers: River[] = [
       },
       {
         label: 'Camping support',
-        value: 'Watercraft campsites on route',
-        note: 'DNR Map 2 places multiple watercraft campsites between Paupores and Brookston and describes them as first-come sites with basic amenities.',
+        value: 'Watercraft campsites at 61.4, 58.6, 57.3, and 55.7',
+        note: 'DNR Map 2 places primitive watercraft campsites at river miles 61.4, 58.6, 57.3, and 55.7 between Paupores and Brookston and describes watercraft campsites as first-come sites with basic amenities.',
         sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/stlouis2.pdf',
       },
     ],
@@ -52408,9 +52408,9 @@ export const rivers: River[] = [
       },
       {
         label: 'Route character',
-        value: 'Remote forest and Class II rapids',
-        note: 'DNR says this narrow northern stretch has wooded banks, a Class II rapid set halfway through, portage options, wildlife, and several public campsites.',
-        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/cloquet-river/segments-maps.html',
+        value: 'Remote forest, Class II rapids, and Bear Lake Road campsite',
+        note: 'DNR Map 2 shows Class II Camp G Rapids at river mile 65.6, a watercraft campsite at river mile 61.7, and the Bear Lake Road carry-in access plus watercraft campsite at river mile 61.5.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/cloquet2.pdf',
       },
     ],
     sourceLinks: [
@@ -52743,9 +52743,9 @@ export const rivers: River[] = [
       },
       {
         label: 'Route character and camping',
-        value: 'Huntersville State Forest watercraft campsites',
-        note: 'DNR says the route passes through Huntersville State Forest and has several watercraft campsites that can lengthen the trip into a multi-day plan.',
-        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/crow-wing-river/segments-maps.html',
+        value: 'Big Bend and Huntersville #4 campsite options',
+        note: 'DNR Map 1 places Big Bend watercraft campsites at river mile 80.5 and a watercraft campsite at Huntersville #4 / State Forest Campground near river mile 77.6-77.7 before Mary Brown.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
       },
     ],
     sourceLinks: [
@@ -52861,9 +52861,9 @@ export const rivers: River[] = [
       },
       {
         label: 'Safety caveats',
-        value: 'Fluctuating levels, flooding, snags, two-state rules',
-        note: 'DNR warns that this segment has a dam, widely fluctuating levels, possible flooding, unsuitable low water, common snags, and multi-jurisdiction regulations.',
-        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/red-river/segments-maps.html',
+        value: 'Upstream Drayton dam, fluctuating levels, flooding, snags, two-state rules',
+        note: 'DNR Map 6 places Drayton Dam at river mile 204.2, upstream of Golden Grain at river mile 180.2; the selected Golden Grain-to-Hilltop reach still carries the broader Red River cautions for widely fluctuating levels, flooding, low water, snags, and multi-jurisdiction rules.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/redriver6.pdf',
       },
     ],
     sourceLinks: [
@@ -52986,9 +52986,9 @@ export const rivers: River[] = [
       },
       {
         label: 'Route character and stops',
-        value: 'Beaver Islands, bluffs, public launches and campsites',
-        note: 'DNR says the route starts in narrow Beaver Island channels, widens into a mostly undeveloped bluff landscape, and has public boat launches and campsites for picnic or stretch breaks.',
-        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+        value: "Beaver Islands, Putnam's Pasture, Boy Scout Point",
+        note: "DNR says the route starts in narrow Beaver Island channels and Map 8 names Putnam's Pasture at river mile 922.8 and Boy Scout Point at river mile 916.6 as no-fee watercraft campsites before Clearwater.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi8.pdf',
       },
     ],
     sourceLinks: [
@@ -53340,6 +53340,354 @@ export const rivers: River[] = [
       {
         label: 'MN DNR Red River Map 2 PDF',
         url: 'https://files.dnr.state.mn.us/maps/canoe_routes/redriver2.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'des-moines-river-mayflower-christianna',
+    slug: 'des-moines-river-mayflower-christianna',
+    name: 'Des Moines River',
+    reach: 'Mayflower Park to Christianna Bridge',
+    state: 'Minnesota',
+    region: 'Southwest Minnesota',
+    summary:
+      'Official MN DNR Des Moines River day trip below Windom, with public Mayflower and Christianna/Chris access records, a downstream DNR interpreted gauge at Jackson, and clear dam, snag, low-water, and flood caveats.',
+    statusText:
+      'Use the Jackson DNR gauge as the lower-corridor check: 200 to 900 cfs is the official medium band. Below 75 cfs is scrapable, and above 1,800 cfs is very high.',
+    latitude: 43.8576801,
+    longitude: -95.1079771,
+    gaugeSource: {
+      id: 'mn-dnr-259',
+      provider: 'mn_dnr',
+      siteId: '259',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'West Fork Des Moines River at Jackson, River St',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=51107001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=51107001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 900,
+      tooLow: 75,
+      tooHigh: 1800,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for West Fork Des Moines River at Jackson',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'DNR says Des Moines River flow usually peaks in early to mid-April and is usually enough for canoeing, but heavy rains can flood the river and make it flow quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR frames this as a beginner-friendly normal-level route, but the river has snags, several Class I rapids, dams elsewhere on the trail, and fast flood response after heavy rain.',
+      confidenceNotes:
+        'Confidence is good: MN DNR recommends Mayflower Park to Christianna Bridge as the 7-mile day trip, public-water-access GIS resolves Mayflower and the Christianna/Chris access at matching river miles, and the Jackson DNR gauge is the official interpreted downstream gauge for this same water trail. The gauge is downstream of the selected reach, so the route stays conservative and asks for a visual launch check.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'Check the Jackson gauge and the landing visually. The selected route is upstream of the gauge, so local rain, snags, and shallow riffles can differ from the downstream reading.',
+        'DNR warns that heavy rains can make the river flood and flow quickly, and that dams, snags, and Class I rapids are part of the broader Des Moines water trail.',
+        'Use only named public accesses and the watercraft campsite. Avoid stopping on private banks or extending into downstream dam reaches without a fresh plan.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '7 river miles',
+        note: 'MN DNR recommends Mayflower Park carry-in access at river mile 36.1 to Christianna Bridge trailer access at river mile 29.1 as the Des Moines River day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/des-moines-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS02772 and WAS01445',
+        note: 'Minnesota public-water-access GIS resolves Mayflower Park and the Des Moines River Chris access at river mile 29.1, matching the DNR Christianna Bridge take-out mile.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '75 / 200-900 / 1,800 cfs',
+        note: 'MN DNR interprets the Jackson gauge as Scrapable below 75 cfs, Low from 75 to 200, Medium from 200 to 900, High from 900 to 1,800, and Very High above 1,800.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '310 cfs at 2026-07-14 08:00',
+        note: 'The current MN DNR feed placed Jackson in the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Route character and camping',
+        value: 'Farm fields, wooded shoreline, watercraft campsite',
+        note: 'DNR says the route starts below Windom, passes open farm fields and wooded shoreline, and has a watercraft campsite for a stretch break.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/des-moines-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Des Moines River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/des-moines-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Des Moines River map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/desmoines.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'zumbro-river-zumbro-falls-hammond',
+    slug: 'zumbro-river-zumbro-falls-hammond',
+    name: 'Zumbro River',
+    reach: 'Zumbro Falls to Hammond',
+    state: 'Minnesota',
+    region: 'Southeast Minnesota',
+    summary:
+      'Official MN DNR main-stem Zumbro day trip from Zumbro Falls to Hammond, using the direct Zumbro Falls DNR gauge and public-access GIS records for both endpoints.',
+    statusText:
+      'Use the Zumbro Falls DNR gauge: 7.0 to 9.0 ft is the official medium band. Below 5.2 ft is scrapable, and above 10.5 ft is very high.',
+    latitude: 44.2797769,
+    longitude: -92.4234328,
+    gaugeSource: {
+      id: 'mn-dnr-267',
+      provider: 'mn_dnr',
+      siteId: '267',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'direct',
+      siteName: 'Zumbro River at Zumbro Falls, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=41031002',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=41031002&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 7,
+      idealMax: 9,
+      tooLow: 5.2,
+      tooHigh: 10.5,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Zumbro River at Zumbro Falls',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The Zumbro can rise dramatically after rainstorms. Spring and post-rain periods can create lively current, while low summer water can expose riffles and wood.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'DNR says the Zumbro has lively current and easy riffles on this reach. The current, snags, logs, flash-flood behavior, and nearby highway corridor make it more than a passive float.',
+      confidenceNotes:
+        'Confidence is high: MN DNR recommends Zumbro Falls to Hammond as the 7-mile Map 2 day trip, the direct Zumbro Falls gauge is at the put-in, and public-water-access GIS resolves both Zumbro Falls and Hammond with matching river miles.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'dam', 'private_banks'],
+      safetyNotes: [
+        'Avoid rain-swollen or rapidly rising water. DNR warns the Zumbro can rise dramatically and dangerously after storms.',
+        'Expect lively current, easy riffles, logs, snags, and strainers; scout blocked bends and do not assume the highway corridor means easy rescue.',
+        'Use the Hammond take-out and do not extend into lower-river sections without checking the next access and campground plan.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '7 river miles',
+        note: 'MN DNR recommends Zumbro Falls at river mile 46 to Hammond at river mile 39 as the Map 2 day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/zumbro-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS02916 and WAS00255',
+        note: 'Minnesota public-water-access GIS resolves Zumbro Falls and Hammond public access sites with route river miles, parking, restroom records, and coordinates.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '5.2 / 7.0-9.0 / 10.5 ft',
+        note: 'MN DNR interprets the Zumbro Falls gauge as Scrapable below 5.2 ft, Low from 5.2 to 7.0, Medium from 7.0 to 9.0, High from 9.0 to 10.5, and Very High above 10.5.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '5.94 ft at 2026-07-14 08:30',
+        note: 'The current MN DNR feed placed Zumbro Falls in the official low band during this run, so shallow riffles and exposed wood remain likely.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Safety caveats',
+        value: 'Lively current, logs, dams, flash floods',
+        note: 'DNR warns that the Zumbro has lively current even at moderate levels, plus logs, dams, snags, and flash-flood risk after rain.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/zumbro-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Zumbro River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/zumbro-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Zumbro River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/zumbro2.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'red-river-lincoln-drive-lafave',
+    slug: 'red-river-lincoln-drive-lafave',
+    name: 'Red River of the North',
+    reach: 'Lincoln Drive Park to LaFave Park',
+    state: 'Minnesota',
+    region: 'Red River Valley',
+    summary:
+      'Short official MN DNR Grand Forks and East Grand Forks Red River day trip from Lincoln Drive Park to LaFave Park, using the direct Grand Forks DNR gauge at the route finish.',
+    statusText:
+      'Use the Grand Forks DNR gauge: 881 to 12,000 cfs is the official medium band. Below 320 cfs is scrapable, and above 16,200 cfs is very high.',
+    latitude: 47.8996,
+    longitude: -97.0401,
+    gaugeSource: {
+      id: 'mn-dnr-185',
+      provider: 'mn_dnr',
+      siteId: '185',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'direct',
+      siteName: 'Red River of the North at Grand Forks, ND',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=61046001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=61046001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 881,
+      idealMax: 12000,
+      tooLow: 320,
+      tooHigh: 16200,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Red River at Grand Forks',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The Red can flood in spring, summer, and fall, while low water may not be suitable for boating. Check local Greenway and park notices along with the DNR gauge.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR describes the reach as a quick, slow-moving urban trip, but muddy banks, snags, bridge approaches, two-state rules, and Riverside Dam downstream require caution.',
+      confidenceNotes:
+        'Confidence is good: MN DNR recommends Lincoln Drive Park to LaFave Park as the exact 2-mile Map 4 day trip, the Grand Forks gauge is at the route finish, LaFave resolves in Minnesota public-water-access GIS, and Grand Forks Park District plus Visit Grand Forks confirm the Lincoln Park boat ramp. The put-in coordinate is a practical ramp locator from the mapped park approach and should be confirmed against signs on arrival.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'Take out at LaFave Park and do not continue toward Riverside Dam/Rapids without a separate downstream hazard plan. DNR Map 4 places the dam/rapids downstream of this route.',
+        'Avoid flood, high, or rapidly rising water. DNR warns Red River levels fluctuate widely, flooding can occur, low water may not suit boating, and snags are common.',
+        'Expect bridge approaches, muddy banks, city park traffic, anglers, and different Minnesota/North Dakota regulations on opposite banks.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '2 river miles',
+        note: 'MN DNR recommends Lincoln Drive Park Landing at river mile 304.1 to LaFave Park trailer access at river mile 302.1 as the Map 4 day trip.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/redriver4.pdf',
+      },
+      {
+        label: 'Access records',
+        value: 'Lincoln Drive Park ramp; LaFave WAS00545',
+        note: 'DNR Map 4 lists Lincoln Drive Park Landing as a trailer access with restrooms and LaFave Park as a trailer access with parking and dock; Minnesota public-water-access GIS resolves LaFave Park at river mile 301.9.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '320 / 881-12,000 / 16,200 cfs',
+        note: 'MN DNR interprets the Grand Forks gauge as Scrapable below 320 cfs, Low from 320 to 881, Medium from 881 to 12,000, High from 12,000 to 16,200, and Very High above 16,200.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '2,540 cfs at 2026-07-14 07:45',
+        note: 'The current MN DNR feed placed Grand Forks in the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Safety caveats',
+        value: 'Muddy banks, snags, flooding, downstream dam',
+        note: 'DNR Map 4 warns about fluctuating levels, flooding, unsuitable low water, snags, private banks, two-state regulations, and Riverside Dam/Rapids below the selected take-out.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/redriver4.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Red River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/red-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Red River Map 4 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/redriver4.pdf',
+      },
+      {
+        label: 'Grand Forks Park District Lincoln Drive Park',
+        url: 'https://www.gfparks.org/parks-facilities/parks/lincoln-drive/',
+      },
+      {
+        label: 'Visit Grand Forks Red River boat access',
+        url: 'https://www.visitgrandforks.com/directory/red-river-boat-access/',
       },
       {
         label: 'MN DNR river levels',

@@ -1,18 +1,25 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 09:35 America/Chicago.
+Last summarized: 2026-07-14 10:11 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 76.
-- Top represented rivers: Mississippi River 9, Little Fork River 8, Big Fork River 5, Crow Wing River 4, Minnesota River 4, Root River 4, North Fork Crow River 3, Red River of the North 3, Snake River 3, Zumbro River 3.
-- Ledger candidates: 85 total; 59 `added`, 14 `threshold_weak`, 8 `no_live_gauge`, 2 `duplicate_corridor`, 1 `research_later`, 1 `rejected`.
+- Live routes: 79.
+- Top represented rivers: Mississippi River 9, Little Fork River 8, Big Fork River 5, Crow Wing River 4, Minnesota River 4, Red River of the North 4, Root River 4, Zumbro River 4, North Fork Crow River 3, Snake River 3.
+- Ledger candidates: 85 total; 62 `added`, 11 `threshold_weak`, 8 `no_live_gauge`, 2 `duplicate_corridor`, 1 `research_later`, 1 `rejected`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-14 10:11 America/Chicago: added `des-moines-river-mayflower-christianna`, `zumbro-river-zumbro-falls-hammond`, and `red-river-lincoln-drive-lafave`.
+- Baseline at run start was 76 live Minnesota routes; patched route data now imports 79 Minnesota routes with no missing trip-detail records found during the count check.
+- Stayed in Minnesota and promoted three official DNR recommended routes with live interpreted DNR level support: Des Moines Mayflower Park to Christianna Bridge `7` miles, Zumbro Falls to Hammond `7` miles, and Red River Lincoln Drive Park to LaFave Park `2` miles.
+- Minnesota public-water-access GIS resolves Mayflower Park `WAS02772`, Christianna/Chris `WAS01445`, Zumbro Falls `WAS02916`, Hammond `WAS00255`, and LaFave `WAS00545`; DNR Map 4 names Lincoln Drive Park Landing at river mile `304.1`, while Grand Forks Park District and Visit Grand Forks confirm the Lincoln Park boat ramp.
+- Current MN DNR river-level feed exposed interpreted ladders for Des Moines Jackson site `259` (`75 / 200-900 / 1800 cfs`), Zumbro Falls site `267` (`5.2 / 7.0-9.0 / 10.5 ft`), and Red River Grand Forks site `185` (`320 / 881-12000 / 16200 cfs`). Zumbro and Red River ship with direct gauges; Des Moines ships with an explicit downstream same-water-trail proxy caveat.
+- No route-gallery images were added. Bounded Commons/general searches found a broad Des Moines River in Minnesota Commons category and broad Grand Forks/Red River context, but no clearly rights-clean exact-route image was selected for the three slugs.
 
 - 2026-07-14 09:35 America/Chicago: added `kettle-river-musclewood-1`, `watonwan-river-county-road-20-garden-city`, and `red-river-north-dam-mb-johnson`.
 - Baseline at run start was 73 live Minnesota routes; patched route data now imports 76 Minnesota routes with no missing trip-detail records found during the count check.

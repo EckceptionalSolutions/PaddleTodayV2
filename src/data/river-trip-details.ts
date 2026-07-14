@@ -3396,7 +3396,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Follow posted DNR public-water-access and watercraft-campsite rules at Paupores, Brookston, and any river camps.',
       camping:
-        'MN DNR Map 2 shows multiple primitive watercraft campsites between Paupores and Brookston. Treat them as first-come basic sites and carry out trash.',
+        'MN DNR Map 2 shows primitive watercraft campsites at river miles 61.4, 58.6, 57.3, and 55.7 between Paupores and Brookston. Treat them as first-come basic sites and carry out trash.',
       campingClassification: 'on_route_campsite',
       summary:
         'Launch at Paupores and take out at Brookston for MN DNR\'s 7.9-mile middle St. Louis day trip. The Floodwood gauge provides official interpreted bands, but the route remains skill-filtered because of Class I-II rapids and high-water consequences.',
@@ -19996,7 +19996,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Use DNR public accesses, follow Minnesota boating/PFD rules, and follow posted state-forest or water-trail rules at campsites and portages.',
       camping:
-        'DNR says Map 2 has several primitive first-come watercraft campsites on DNR-managed property. Treat them as rustic stops with no drinking water and use only designated sites rather than private banks.',
+        'DNR Map 2 places a watercraft campsite at Bear Lake Road and another upstream at river mile 61.7, plus downstream sites at Marion Lake, Cloquet River (S), Rosalyn Kelly, and Dirty Nose. Treat them as rustic first-come sites with no drinking water and use only designated sites rather than private banks.',
       campingClassification: 'on_route_campsite',
       summary:
         'Launch at Indian Lake and take out at Severson Landing / Bear Lake Road for MN DNR\'s recommended upper-Cloquet day. This is the more remote Class I-III upper stretch, using the Brimson gauge just upstream of the put-in as the direct level check.',
@@ -20101,7 +20101,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Use the DNR and county public accesses, follow Minnesota boating/PFD rules, and follow posted Huntersville State Forest or campsite rules.',
       camping:
-        'DNR says several watercraft campsites along this reach can support a longer trip, and Huntersville State Forest Landing has a primitive campground nearby. Treat camping as first-come or separately confirmed, not guaranteed.',
+        'DNR Map 1 shows Big Bend watercraft campsites at river mile 80.5 and a watercraft campsite at Huntersville #4 / State Forest Campground near river mile 77.6-77.7 before Mary Brown. Treat camping as first-come or separately confirmed, not guaranteed.',
       campingClassification: 'on_route_campsite',
       summary:
         'Launch at Huntersville North and take out at Mary Brown for MN DNR\'s 7.3-mile upper Crow Wing day trip through Huntersville State Forest. Use the downstream Nimrod gauge as the official corridor check and make a visual low-water call at launch.',
@@ -20116,6 +20116,53 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Cold water, limited quick exits, private banks, and the temptation to extend downstream without a longer-route plan.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'huntersville-north',
+        name: 'Huntersville (N) Public Water Access Site',
+        latitude: 46.7783954,
+        longitude: -94.8929814,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream carry-in at DNR river mile 82.6.',
+      },
+      {
+        id: 'huntersville-2',
+        name: 'Huntersville #2 Public Water Access Site',
+        latitude: 46.7640704,
+        longitude: -94.9046053,
+        mileFromStart: 1.5,
+        segmentKind: 'creek',
+        note: 'Shorter put-in or early exit option at DNR river mile 81.1.',
+      },
+      {
+        id: 'caseys-landing-3',
+        name: "Casey's Landing #3 Public Water Access Site",
+        latitude: 46.7439746,
+        longitude: -94.9230238,
+        mileFromStart: 3.9,
+        segmentKind: 'creek',
+        note: 'Intermediate access at DNR river mile 78.7.',
+      },
+      {
+        id: 'state-forest-campground-4',
+        name: 'State Forest Campground #4 Public Water Access Site',
+        latitude: 46.7385092,
+        longitude: -94.9283228,
+        mileFromStart: 4.9,
+        segmentKind: 'creek',
+        note: 'Intermediate access and campground-area stop at DNR river mile 77.7.',
+      },
+      {
+        id: 'mary-brown-5',
+        name: 'Mary Brown #5 Public Water Access Site',
+        latitude: 46.7175822,
+        longitude: -94.9289851,
+        mileFromStart: 7.3,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 75.3.',
+      },
+    ],
   },
   'red-river-golden-grain-hilltop': {
     putIn: {
@@ -20143,6 +20190,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       accessCaveats: [
         'Golden Grain and Hilltop both resolve in the Minnesota public-water-access GIS with matching river-mile records and coordinates.',
         'The Drayton gauge is upstream in the same Map 6 corridor, so use it as a conservative corridor check and still inspect landings visually.',
+        'DNR Map 6 places Drayton Dam at river mile 204.2, upstream of Golden Grain at river mile 180.2; keep the route to the selected Golden Grain-to-Hilltop reach unless planning a separate upstream trip.',
         'The Red River touches two states and crosses into Canada downstream. Regulations vary, and private banks are not substitute access points.',
       ],
       watchFor: [
@@ -20171,7 +20219,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD requirements, and respect city, DNR, camping, and fishing rules at public stops.',
       camping:
-        'DNR says this reach has public launches and campsites that can work as picnic or rest stops, but the selected route is best treated as a day trip unless a specific legal campsite is confirmed before launch.',
+        'DNR Map 8 names Putnam\'s Pasture at river mile 922.8 and Boy Scout Point at river mile 916.6 as no-fee watercraft campsites. Treat the route as a day trip unless a specific legal campsite is confirmed before launch.',
       campingClassification: 'on_route_campsite',
       summary:
         'Launch at Beaver Island Trail Access and take out at Clearwater for MN DNR\'s 12.1-mile St. Cloud-area Mississippi day trip. The direct St. Cloud DNR gauge gives an official same-corridor level model, with extra attention needed for island channels, low-water riffles, and faster high water.',
@@ -20186,6 +20234,35 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Wind, motorboats, anglers, cold water, private banks, and missing the Clearwater take-out after a long open-water finish.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'beaver-island',
+        name: 'Beaver Island Public Water Access Site',
+        latitude: 45.5441689,
+        longitude: -94.1488508,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default St. Cloud put-in at DNR river mile 925.8.',
+      },
+      {
+        id: 'river-bluffs-regional-park',
+        name: 'River Bluffs Regional Park Public Water Access Site',
+        latitude: 45.5046067,
+        longitude: -94.1435174,
+        mileFromStart: 3,
+        segmentKind: 'creek',
+        note: "GIS-backed public access at DNR river mile 922.8, the same mile as the map's Putnam's Pasture campsite label.",
+      },
+      {
+        id: 'clearwater',
+        name: 'Clearwater Public Water Access Site',
+        latitude: 45.4194636,
+        longitude: -94.0423392,
+        mileFromStart: 12.1,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 913.7.',
+      },
+    ],
   },
   'kettle-river-musclewood-1': {
     putIn: {
@@ -20376,6 +20453,171 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 3.1,
         segmentKind: 'creek',
         note: 'Default take-out at DNR river mile 452.1.',
+      },
+    ],
+  },
+  'des-moines-river-mayflower-christianna': {
+    putIn: {
+      name: 'Mayflower Park Public Water Access Site',
+      latitude: 43.8576801,
+      longitude: -95.1079771,
+    },
+    takeOut: {
+      name: 'Christianna Bridge / Chris Public Water Access Site',
+      latitude: 43.7928244,
+      longitude: -95.0919226,
+    },
+    logistics: {
+      distanceLabel: '7 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr depending on level, snags, and wind',
+      shuttle:
+        'Stage the Christianna Bridge / Chris access take-out first, then drive upstream to Mayflower Park below Windom. Confirm the downstream landing name and bridge access on arrival because the GIS record abbreviates Christianna as Chris.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted park, watercraft-campsite, and private-bank rules.',
+      camping:
+        'DNR says a watercraft campsite lies along the Mayflower-to-Christianna day trip. Treat it as a rustic stretch or emergency stop, not a guaranteed overnight plan, unless campsite status and rules are confirmed before launch.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Mayflower Park and take out at Christianna Bridge for MN DNR\'s 7-mile Des Moines River day trip. Use the downstream Jackson gauge conservatively and make a visual call for shallow riffles, snags, and post-rain speed.',
+      accessCaveats: [
+        'Mayflower Park resolves in Minnesota public-water-access GIS at DNR river mile 36.1.',
+        'The take-out resolves in Minnesota public-water-access GIS as Des Moines River, Chris Public Water Access Site at river mile 29.1, matching DNR\'s Christianna Bridge take-out mile.',
+        'The Jackson gauge is downstream of the selected reach, so it is a same-water-trail proxy rather than a put-in gauge.',
+      ],
+      watchFor: [
+        'Snags, fallen trees, muddy banks, and low-water scraping below the official medium band.',
+        'Heavy-rain flooding and faster current; DNR warns the broader Des Moines trail has dams and several Class I rapids.',
+        'Private banks, farm-field wind exposure, and the need to stop at the planned Christianna Bridge access.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mayflower-park',
+        name: 'Mayflower Park Public Water Access Site',
+        latitude: 43.8576801,
+        longitude: -95.1079771,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 36.1.',
+      },
+      {
+        id: 'christianna-bridge',
+        name: 'Christianna Bridge / Chris Public Water Access Site',
+        latitude: 43.7928244,
+        longitude: -95.0919226,
+        mileFromStart: 7,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 29.1; GIS abbreviates the access as Chris.',
+      },
+    ],
+  },
+  'zumbro-river-zumbro-falls-hammond': {
+    putIn: {
+      name: 'Zumbro Falls Public Water Access Site',
+      latitude: 44.2797769,
+      longitude: -92.4234328,
+    },
+    takeOut: {
+      name: 'Hammond Public Water Access Site',
+      latitude: 44.2228331,
+      longitude: -92.3721663,
+    },
+    logistics: {
+      distanceLabel: '7 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr depending on level, riffles, wood, and wind',
+      shuttle:
+        'Set the Hammond take-out first, then drive upstream to Zumbro Falls. The highway follows the corridor, but still leave time to inspect the take-out and avoid launching into a storm-rise window.',
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR public accesses, follow Minnesota boating/PFD rules, and respect private shoreland.',
+      camping:
+        'Treat this as a day trip. DNR lists Kruger and Zumbro Bottoms campground options farther downstream on Map 2, but they are not part of the selected Zumbro-Falls-to-Hammond route.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Zumbro Falls and take out at Hammond for MN DNR\'s 7-mile main-stem Zumbro day trip. The direct Zumbro Falls gauge is the scoring source; avoid storm rises and expect lively current even at moderate levels.',
+      accessCaveats: [
+        'Zumbro Falls and Hammond both resolve in Minnesota public-water-access GIS with DNR river miles, coordinates, parking, and restroom records.',
+        'The Zumbro Falls gauge is at the route start, making it the primary level check for this selected reach.',
+        'Hammond Village Park is nearby, but the app route uses the DNR Hammond access at river mile 39.1 as the take-out.',
+      ],
+      watchFor: [
+        'Lively current, easy riffles, snags, logs, and fresh strainers.',
+        'Flash-flood behavior after rainstorms; do not treat a storm rise as a beginner-friendly flow bump.',
+        'Private banks, bridge approaches, and the temptation to extend downstream without a separate lower-Zumbro plan.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'zumbro-falls',
+        name: 'Zumbro Falls Public Water Access Site',
+        latitude: 44.2797769,
+        longitude: -92.4234328,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in near the direct Zumbro Falls gauge and DNR river mile 46.1.',
+      },
+      {
+        id: 'hammond',
+        name: 'Hammond Public Water Access Site',
+        latitude: 44.2228331,
+        longitude: -92.3721663,
+        mileFromStart: 7,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 39.1.',
+      },
+    ],
+  },
+  'red-river-lincoln-drive-lafave': {
+    putIn: {
+      name: 'Lincoln Drive Park Landing',
+      latitude: 47.8996,
+      longitude: -97.0401,
+    },
+    takeOut: {
+      name: 'LaFave Park Public Water Access Site',
+      latitude: 47.9250218,
+      longitude: -97.024566,
+    },
+    logistics: {
+      distanceLabel: '2 mi',
+      estimatedPaddleTime: 'About 45 min to 1.5 hr depending on level, wind, and city-park traffic',
+      shuttle:
+        'Stage the LaFave Park take-out in East Grand Forks, then drive to Lincoln Drive Park in Grand Forks. Confirm the signed Lincoln Park boat ramp from Belmont Road and 13th Avenue South before launching.',
+      permits:
+        'No route-specific paddling permit is known. The Red River borders Minnesota and North Dakota, so check current boating, fishing, access, and PFD rules for both states before the trip.',
+      camping:
+        'Treat this as a short day trip. Red River State Recreation Area has reservable camping just downstream and no direct river access, but the selected Lincoln-to-LaFave route has no on-route campsite.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Lincoln Drive Park and take out at LaFave Park for MN DNR\'s 2-mile Grand Forks / East Grand Forks Red River day trip. The direct Grand Forks gauge is at the route finish; stop before the downstream Riverside Dam/Rapids corridor.',
+      accessCaveats: [
+        'DNR Map 4 lists Lincoln Drive Park Landing as the put-in and LaFave Park as the take-out for this exact route.',
+        'Grand Forks Park District and Visit Grand Forks confirm a Lincoln Park boat ramp to the Red River; confirm the exact signed ramp and parking on arrival.',
+        'LaFave Park resolves in Minnesota public-water-access GIS with river mile 301.9, coordinates, parking, and boat-launch records.',
+      ],
+      watchFor: [
+        'Muddy banks, snags, bridge approaches, anglers, and changing city-park traffic.',
+        'Flooding, rapidly changing levels, and low water that DNR says may not be suitable for boating.',
+        'Riverside Dam/Rapids downstream of the route, plus different Minnesota and North Dakota rules on opposite banks.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lincoln-drive-park',
+        name: 'Lincoln Drive Park Landing',
+        latitude: 47.8996,
+        longitude: -97.0401,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'DNR Map 4 put-in at river mile 304.1; verify the signed Lincoln Park ramp from Belmont Road and 13th Avenue South on arrival.',
+      },
+      {
+        id: 'lafave-park',
+        name: 'LaFave Park Public Water Access Site',
+        latitude: 47.9250218,
+        longitude: -97.024566,
+        mileFromStart: 2,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 302.1; Minnesota public-water-access GIS resolves LaFave at river mile 301.9.',
       },
     ],
   },
