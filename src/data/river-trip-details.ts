@@ -2995,6 +2995,107 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   
   
   
+  'crow-wing-river-mary-brown-cottingham': {
+    putIn: {
+      name: 'Mary Brown Rest Area #5 carry-in access',
+      latitude: 46.71758222409383,
+      longitude: -94.92898508221442,
+    },
+    takeOut: {
+      name: 'Cottingham County Park #11 carry-in access',
+      latitude: 46.505529851247346,
+      longitude: -94.80738952007682,
+    },
+    logistics: {
+      distanceLabel: '25.8 mi',
+      estimatedPaddleTime: 'About 8 hr 30 min to 11 hr',
+      shuttle:
+        "Long Wadena County shuttle from Mary Brown to Cottingham. Stage the Cottingham take-out first because it is the busiest landing in this chain and the full route is long enough that finish logistics and daylight matter.",
+      permits:
+        "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted public-access, county-campground, day-use, and parking rules at the named landings.",
+      camping:
+        "This is the strongest Crow Wing route in this pass for a legal split trip. Anderson's Crossing, Little White Dog, and Knob Hill all provide documented county campground support before the Cottingham finish.",
+      campingClassification: 'on_route_campsite',
+      summary:
+        "Launch at Mary Brown and finish at Cottingham for the full upper-to-lower Crow Wing county-chain continuation. The route stays gauge-consistent, but the Nimrod-area rapids, low-water pace, and busy downstream finish make it a deliberate all-day plan.",
+      accessCaveats: [
+        'Mary Brown is a remote carry-in access with few frills, so inspect the launch and parking setup before leaving a vehicle.',
+        "Anderson's Crossing is the natural early split point, and Stigman's Mound, Little White Dog, and Knob Hill remain the clearest later bailout or overnight options.",
+        'Cottingham is a county park with heavier summer use for swimming and tubing, so expect a busier and less secluded take-out than the upstream landings.',
+      ],
+      watchFor: [
+        "Walkin's Rapids, Burrows Rapids, and Westra Rapids on the upper half of the route.",
+        'Fresh wood, sweepers, and stronger current after storms.',
+        'Long low-water dragging plus tubing and swimmer traffic near Knob Hill and Cottingham on summer weekends.',
+      ],
+    },
+
+    accessPoints: [
+      {
+        id: 'mary-brown-rest-area',
+        name: 'Mary Brown Rest Area #5 carry-in access',
+        latitude: 46.71758222409383,
+        longitude: -94.92898508221442,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Full upstream start for the longest Mary Brown continuation.',
+      },
+      {
+        id: 'andersons-crossing',
+        name: "Anderson's Crossing #6 carry-in access",
+        latitude: 46.69942260942251,
+        longitude: -94.88188569131617,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Primary early campground, bailout, and logical first split point.',
+      },
+      {
+        id: 'stigmans-mound',
+        name: "Stigman's Mound #7 carry-in access",
+        latitude: 46.64045859179894,
+        longitude: -94.87970389700178,
+        mileFromStart: 9.6,
+        segmentKind: 'creek',
+        note: 'Lower-corridor checkpoint after the main rapids-bearing stretch.',
+      },
+      {
+        id: 'frames-landing',
+        name: "Frame's Landing public water access",
+        latitude: 46.629663080692076,
+        longitude: -94.86925421200144,
+        mileFromStart: 10.9,
+        segmentKind: 'creek',
+        note: 'Early lower-corridor campground access before the county-park chain widens out.',
+      },
+      {
+        id: 'little-white-dog',
+        name: 'Little White Dog County Park #9 carry-in access',
+        latitude: 46.586984884675736,
+        longitude: -94.82261571200662,
+        mileFromStart: 16,
+        segmentKind: 'creek',
+        note: 'County campground midpoint and the cleanest lower-corridor overnight split.',
+      },
+      {
+        id: 'knob-hill',
+        name: 'Knob Hill Landing #10 carry-in access',
+        latitude: 46.533855996511825,
+        longitude: -94.81849257299048,
+        mileFromStart: 22.3,
+        segmentKind: 'creek',
+        note: 'Busy downstream campground and tubing access before the final miles.',
+      },
+      {
+        id: 'cottingham-county-park',
+        name: 'Cottingham County Park #11 carry-in access',
+        latitude: 46.505529851247346,
+        longitude: -94.80738952007682,
+        mileFromStart: 25.8,
+        segmentKind: 'creek',
+        note: 'Default downstream finish for the full Mary Brown corridor route.',
+      },
+    ],
+  },
   'crow-wing-river-mary-brown-frames-landing': {
     putIn: {
       name: 'Mary Brown Rest Area #5 carry-in access',
@@ -16522,6 +16623,84 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'green-river-dennison-ferry-brownsville-city-park': {
+    putIn: {
+      id: 'dennison-ferry',
+      name: 'Dennison Ferry',
+      latitude: 37.2174,
+      longitude: -86.0493,
+    },
+    takeOut: {
+      id: 'brownsville-city-park',
+      name: 'Brownsville City Park',
+      latitude: 37.1964,
+      longitude: -86.2757,
+    },
+    logistics: {
+      distanceLabel: 'About 23.6 mi',
+      estimatedPaddleTime:
+        'About 8 hr to 11 hr as a single push, longer with ferry delays, gravel-bar breaks, scouting, or a slower group pace',
+      shuttle:
+        'Stage the take-out at Brownsville City Park, then drive back to Dennison Ferry Day Use Area. Build in real road time, verify current ferry and road status before leaving vehicles, and start early enough that the Brownsville finish does not happen at dusk.',
+      permits:
+        'No permit is required for a same-day paddle, but this route is inside Mammoth Cave National Park for most of the day and follows NPS boating rules. If you intend to break it into an overnight, use only legal campsites and carry the required riverside camping permit.',
+      camping:
+        'This is the longest Mammoth Cave Green route currently added in this pass. NPS says lower-water gravel bars and low riverbanks can support paddler camping with a valid riverside permit, and Houchins Ferry Campground is the cleanest legal midpoint stop if the group splits the route.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        "Launch at Dennison Ferry and continue all the way to Brownsville City Park for a very long lower Green River day. The direct Mammoth Cave gauge still anchors the route, but the current July 14 reading sits above the broad beginner-friendly band and the downstream Brownsville rapid keeps the finish consequential.",
+      accessCaveats: [
+        'Dennison Ferry is day-use only with a carry-down launch. Do not plan to camp or leave gear spread across the access.',
+        'The route passes the Green River Ferry crossing and then Houchins Ferry Campground before the final Brownsville leg. Those are the clearest legal checkpoints if the group does not want to commit to the full finish.',
+        'Brownsville City Park is the intended public take-out. NPS says private land begins after the park boundary, so do not improvise a longer continuation without fresh access research.',
+        'Cell service can be limited in the park and ferry, road, or river conditions can change without notice. Set the plan before launching.',
+      ],
+      watchFor: [
+        'Current levels near or above 15 ft, when this long route becomes meaningfully more consequential for casual paddlers, and launch closures at or above 20 ft.',
+        'Swift current, submerged trees, logjams, gravel-bar shifts, drifting debris, and muddy or slick access surfaces.',
+        'Ferry traffic at Green River Ferry, fatigue over a full-day commitment, exposed sun, and fewer practical bailout options than the shorter Mammoth Cave segments.',
+        'The class 2 rapid left by former Lock and Dam 6 shortly before Brownsville Boat Ramp. Scout or portage conservatively if the group is uncertain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'dennison-ferry',
+        name: 'Dennison Ferry',
+        latitude: 37.2174,
+        longitude: -86.0493,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default full-corridor put-in.',
+      },
+      {
+        id: 'green-river-ferry',
+        name: 'Green River Ferry',
+        latitude: 37.1795,
+        longitude: -86.1123,
+        mileFromStart: 7.6,
+        segmentKind: 'creek',
+        note: 'Mid-corridor access and ferry crossing; follow NPS ferry-contact guidance.',
+      },
+      {
+        id: 'houchins-ferry',
+        name: 'Houchins Ferry',
+        latitude: 37.2024,
+        longitude: -86.2376,
+        mileFromStart: 20,
+        segmentKind: 'creek',
+        note: 'Best legal midpoint campground and bailout before the final Brownsville leg.',
+      },
+      {
+        id: 'brownsville-city-park',
+        name: 'Brownsville City Park',
+        latitude: 37.1964,
+        longitude: -86.2757,
+        mileFromStart: 23.6,
+        segmentKind: 'creek',
+        note: 'Default downstream finish at the public Brownsville ramp.',
+      },
+    ],
+  },
   'green-river-dennison-ferry-houchins-ferry': {
     putIn: {
       id: 'dennison-ferry',
@@ -16630,6 +16809,75 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Heat, limited rescue access, and slower emergency response times in the park.',
       ],
     },
+  },
+  'green-river-green-river-ferry-brownsville-city-park': {
+    putIn: {
+      id: 'green-river-ferry',
+      name: 'Green River Ferry',
+      latitude: 37.1795,
+      longitude: -86.1123,
+    },
+    takeOut: {
+      id: 'brownsville-city-park',
+      name: 'Brownsville City Park',
+      latitude: 37.1964,
+      longitude: -86.2757,
+    },
+    logistics: {
+      distanceLabel: 'About 16.0 mi',
+      estimatedPaddleTime:
+        'About 5.5 hr to 8 hr, longer with ferry delays at the start, gravel-bar breaks, or slower groups',
+      shuttle:
+        'Stage the take-out at Brownsville City Park, then drive back to Green River Ferry. Build in extra shuttle time for park roads and verify current ferry and road status before leaving vehicles.',
+      permits:
+        'No permit is required for a same-day paddle, but this route is inside Mammoth Cave National Park for most of the day and follows NPS boating rules. If you intend to camp on gravel bars or low banks en route, NPS requires a valid riverside camping permit.',
+      camping:
+        'This route still keeps the lower-park overnight flexibility of the Green River Ferry to Houchins segment. NPS says lower-water gravel bars and low riverbanks can support paddler camping with a valid riverside permit, and Houchins Ferry Campground remains the cleanest legal midpoint overnight support.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        "Launch below Green River Ferry and continue downstream to Brownsville City Park for the full lower-park Green continuation. The direct Mammoth Cave gauge anchors the route, but the current July 14 stage sits above the broad beginner-friendly band and the Brownsville finish raises the consequence beyond a casual flatwater day.",
+      accessCaveats: [
+        'Launch and load on the downstream side of Green River Ferry so you do not interfere with ferry operations.',
+        'Houchins Ferry is the clearest legal midpoint stop and campground support if the group does not want the full Brownsville finish in one push.',
+        'Brownsville City Park is the intended public take-out. NPS says private land begins after the park boundary, so do not improvise extra stops or a longer continuation without fresh access research.',
+        'This stretch is less traveled than the popular Green River Ferry day float, so groups should be more self-sufficient about shuttle, weather, and emergency planning.',
+      ],
+      watchFor: [
+        'Ferry traffic at the launch, plus submerged trees, logjams, gravel-bar shifts, back channels, and drifting debris throughout the run.',
+        'Higher water above about 15 ft, when the route becomes more consequential, and launch closures at or above 20 ft.',
+        'The class 2 rapid left by former Lock and Dam 6 shortly before Brownsville Boat Ramp.',
+        'Cold springs, exposed sun, limited cell service, and the temptation to relax too early because the finish is still moving water.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'green-river-ferry',
+        name: 'Green River Ferry',
+        latitude: 37.1795,
+        longitude: -86.1123,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default lower-park put-in below the ferry crossing.',
+      },
+      {
+        id: 'houchins-ferry',
+        name: 'Houchins Ferry',
+        latitude: 37.2024,
+        longitude: -86.2376,
+        mileFromStart: 12.4,
+        segmentKind: 'creek',
+        note: 'Primary midpoint campground, bailout, and the former shorter continuation finish.',
+      },
+      {
+        id: 'brownsville-city-park',
+        name: 'Brownsville City Park',
+        latitude: 37.1964,
+        longitude: -86.2757,
+        mileFromStart: 16,
+        segmentKind: 'creek',
+        note: 'Default full lower-corridor take-out at the public Brownsville ramp.',
+      },
+    ],
   },
   'green-river-green-river-ferry-houchins': {
     putIn: {

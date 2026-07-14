@@ -609,6 +609,139 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: "green-river-green-river-ferry-brownsville-city-park",
+    slug: "green-river-green-river-ferry-brownsville-city-park",
+    name: "Green River",
+    reach: "Green River Ferry to Brownsville City Park",
+    aliases: [
+      "Green River - Green River Ferry to Brownsville City Park",
+      "Mammoth Cave Green River Ferry to Brownsville",
+      "NPS Green River Ferry to Brownsville via Houchin Ferry",
+    ],
+    state: "Kentucky",
+    region: "Mammoth Cave / Edmonson County",
+    summary:
+      "Full lower Mammoth Cave Green River continuation from Green River Ferry to Brownsville City Park. NPS still publishes the two downstream route cards, KDFWR still supports the public endpoints, and the direct Mammoth Cave gauge still provides a conservative park-stage model.",
+    statusText:
+      "Use the Green River at Mammoth Cave gauge. NPS treats roughly 9 to 15 ft as the broad beginner-friendly park window, 15 to 20 ft as more consequential experienced water, and prohibits launching in the park at or above 20 ft.",
+    latitude: 37.1795,
+    longitude: -86.1123,
+    gaugeSource: {
+      id: "usgs-03309000",
+      provider: "usgs",
+      siteId: "03309000",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Green River at Mammoth Cave, KY",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03309000/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 9,
+      idealMax: 15,
+      tooLow: 9,
+      tooHigh: 20,
+      thresholdSource: {
+        label: "Mammoth Cave NPS Green River skill-level stage guidance",
+        url: "https://www.nps.gov/maca/planyourvisit/river-safety-and-regulations.htm",
+        provider: "nps",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "high",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "This longer lower-park continuation is most practical in the normal warm-season paddling window. NPS still warns that Green River can rise quickly after rain and that channels, gravel bars, and wood change over time.",
+      difficulty: "moderate",
+      difficultyNotes:
+        "This is a real lower-Green day, not a casual ferry shuttle. The route combines the quieter Green River Ferry-to-Houchins stretch with the swift final miles toward Brownsville and the former lock-and-dam rapid near the finish.",
+      confidenceNotes:
+        "Confidence is high for a conservative continuation add: NPS still publishes Green River Ferry to Houchin Ferry as 12.4 miles and Houchin Ferry to Brownsville as 3.6 miles, KDFWR still supports Green River Ferry, Houchins Ferry, and Brownsville City Park as public access anchors, and same-day USGS Water Services returned 3460 cfs and 15.39 ft for Green River at Mammoth Cave on July 14, 2026. That stage sits just above the park's broad beginner-friendly 9 to 15-foot band but below the hard 20-foot launch closure, so the route should ship with explicit above-band caution.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route shape",
+        value: "Green River Ferry to Brownsville, about 16.0 mi",
+        note: "NPS publishes Green River Ferry to Houchin Ferry as 12.4 miles and Houchin Ferry to Brownsville as 3.6 miles, supporting a combined lower-park continuation of about 16.0 miles.",
+        sourceUrl: "https://www.nps.gov/thingstodo/green-river-ferry-to-houchin-ferry.htm",
+      },
+      {
+        label: "Official stage model",
+        value: "9-15 ft broad audience, >=20 ft closed",
+        note: "NPS says beginner Green River conditions in the park are about 9 to 15 ft and launching in the park is prohibited at or above 20 ft. Paddle Today uses that as a conservative public-facing stage model.",
+        sourceUrl: "https://www.nps.gov/maca/planyourvisit/river-safety-and-regulations.htm",
+      },
+      {
+        label: "Public access chain",
+        value: "Green River Ferry, Houchins Ferry, Brownsville City Park",
+        note: "KDFWR still documents Green River Ferry, Houchins Ferry, and Brownsville City Park as public downstream access anchors for the same Mammoth Cave corridor.",
+        sourceUrl:
+          "https://fw.ky.gov/Fish/Pages/Green-River-Ferry-%28Mammoth-Cave-National-Park%29.aspx",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03309000 at 3460 cfs / 15.39 ft",
+        note: "USGS Water Services returned same-day July 14, 2026 values of 3460 cfs and 15.39 ft for Green River at Mammoth Cave, just above the park's broad 9 to 15-foot comfort band but below the 20-foot launch closure.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03309000&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Camping and hazard context",
+        value: "Permit camping upstream, rapid and private-land caution downstream",
+        note: "NPS says the Green River Ferry to Houchin stretch can support gravel-bar or low-bank camping with a valid riverside permit, while the Brownsville card warns of swift current and private land after the park boundary and the boating page notes the former Lock and Dam 6 rapid near the finish.",
+        sourceUrl: "https://www.nps.gov/thingstodo/houchin-ferry-to-brownsville.htm",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "NPS Green River Ferry to Houchin Ferry",
+        url: "https://www.nps.gov/thingstodo/green-river-ferry-to-houchin-ferry.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS Houchin Ferry to Brownsville",
+        url: "https://www.nps.gov/thingstodo/houchin-ferry-to-brownsville.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS River Safety and Regulations",
+        url: "https://www.nps.gov/maca/planyourvisit/river-safety-and-regulations.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS Canoeing, Kayaking and Boating",
+        url: "https://www.nps.gov/maca/planyourvisit/canoeing-kayaking-and-boating.htm",
+        provider: "nps",
+      },
+      {
+        label: "KDFWR Green River Ferry",
+        url: "https://fw.ky.gov/Fish/Pages/Green-River-Ferry-%28Mammoth-Cave-National-Park%29.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Houchins Ferry access detail",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=156",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Brownsville City Park access detail",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=153",
+        provider: "local",
+      },
+      {
+        label: "USGS 03309000 Green River at Mammoth Cave",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03309000/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03309000 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03309000&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
     id: "green-river-green-river-ferry-houchins",
     slug: "green-river-green-river-ferry-houchins",
     name: "Green River",
@@ -10369,6 +10502,154 @@ export const rivers: River[] = [
       {
         label: 'American Whitewater Lower Kettle gauge info',
         url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=4091',
+      },
+    ],
+  },
+  {
+    id: 'crow-wing-river-mary-brown-cottingham',
+    slug: 'crow-wing-river-mary-brown-cottingham',
+    name: 'Crow Wing River',
+    reach: 'Mary Brown to Cottingham County Park',
+    state: 'Minnesota',
+    region: 'Wadena Area',
+    summary:
+      "Full Mary Brown continuation through Nimrod and the lower county-park chain to Cottingham. It keeps the same official Nimrod gauge model while linking the upper rapids-bearing corridor to the busiest campground finish in the Wadena chain.",
+    statusText:
+      'The Nimrod gauge is best from 400 to 800 cfs. Below 300 cfs gets too thin for a clean day, and above 1,100 cfs is too high for a general recommendation.',
+    latitude: 46.7175822,
+    longitude: -94.9289851,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        "This route combines the quieter Mary Brown miles, the Walkin's / Burrows / Westra rapids cluster near Nimrod, and then the full lower county-campground and tubing corridor to Cottingham, so treat it as a genuine full-day or split-trip commitment.",
+        "Anderson's Crossing, Stigman's Mound, Little White Dog, and Knob Hill are the clearest bailout or overnight options before the Cottingham finish.",
+        'Fresh wood after storms, low-water dragging, and heavier warm-weather traffic near the downstream county parks can all make this longer route feel bigger than the map alone suggests.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-55',
+      provider: 'mn_dnr',
+      siteId: '55',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Crow Wing River at Nimrod, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=12085001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12085001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05244000',
+        provider: 'usgs',
+        siteId: '05244000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Crow Wing River at Nimrod, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 800,
+      tooLow: 300,
+      tooHigh: 1100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. This long continuation can still work in summer, but low water slows the full day down and rising water makes both the Nimrod rapids cluster and the lower crowded landings more consequential.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        "A long but still approachable Crow Wing route with named rapids in the upper half and a busier campground / tubing finish in the lower half. It is not technical whitewater, but it does demand stamina and planning discipline.",
+      confidenceNotes:
+        "Confidence is good because Crow Wing Maps 1 and 2 together place Mary Brown through Cottingham on one official access chain, the Nimrod DNR gauge sits inside the route with a full official ladder, the Minnesota public-water-access feature service resolves the endpoints, and Wadena County still documents Anderson's Crossing, Little White Dog, Knob Hill, and Cottingham campground support.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct same-corridor gauge',
+        value: 'Nimrod gauge 284 cfs',
+        note: 'The official MN DNR river-level dataset reported 284 cfs at 2026-07-14 12:00 PM for Crow Wing River at Nimrod, confirming the current same-river gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '300 / 400-800 / 1,100 cfs',
+        note: 'MN DNR interprets Nimrod as Scrapable below 300 cfs, Low from 300 to 400, Medium from 400 to 800, High from 800 to 1,100, and Very High above 1,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: 'Mary Brown 75.3 to Cottingham 49.5',
+        note: 'Crow Wing Maps 1 and 2 place Mary Brown at river mile 75.3 and Cottingham County Park at 49.5, supporting a 25.8-mile full continuation that bridges the upstream Mary Brown corridor to the lower county-park chain.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Mary Brown WAS02558 and Cottingham WAS01543',
+        note: 'Minnesota public-water-access records resolve Mary Brown and Cottingham County Park as official Crow Wing accesses with corridor-matching endpoint support.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: "Anderson's, Little White Dog, Knob Hill, and Cottingham support",
+        note: "Wadena County still documents Anderson's Crossing, Little White Dog, Knob Hill, and Cottingham as campground or county-park properties, so this route has multiple legal split or bailout options without implying informal shoreline camping.",
+        sourceUrl: 'https://www.co.wadena.mn.us/220/Cottingham-Park-Campground',
+      },
+      {
+        label: 'Rapids support',
+        value: "Walkin's, Burrows, and Westra Rapids",
+        note: "Crow Wing Map 1 marks the named rapids on the Nimrod half of this longer route before the calmer but busier downstream county-park corridor.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: "Wadena County Anderson's Crossing Campground",
+        url: 'https://www.co.wadena.mn.us/218/Andersons-Crossing-Campground',
+      },
+      {
+        label: 'Wadena County Cottingham Park Campground',
+        url: 'https://www.co.wadena.mn.us/220/Cottingham-Park-Campground',
+      },
+      {
+        label: 'Wadena County Knob Hill Campground',
+        url: 'https://www.co.wadena.mn.us/224/Knob-Hill-Campground',
+      },
+      {
+        label: 'Wadena County Little White Dog Campground',
+        url: 'https://www.co.wadena.mn.us/223/Little-White-Dog-Campground',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
       },
     ],
   },
@@ -51050,6 +51331,138 @@ export const rivers: River[] = [
           ],
   },
             {
+    id: "green-river-dennison-ferry-brownsville-city-park",
+    slug: "green-river-dennison-ferry-brownsville-city-park",
+    name: "Green River",
+    reach: "Dennison Ferry to Brownsville City Park",
+    aliases: [
+      "Green River - Dennison Ferry to Brownsville City Park",
+      "Mammoth Cave Green River full lower continuation",
+      "Dennison Ferry to Brownsville via Green River Ferry and Houchin Ferry",
+    ],
+    state: "Kentucky",
+    region: "Mammoth Cave / Edmonson County",
+    summary:
+      "Very long Mammoth Cave Green River continuation from Dennison Ferry to Brownsville City Park. NPS still publishes the full downstream access chain as three route cards, KDFWR still supports the public endpoints, and the direct Mammoth Cave gauge still anchors the stage model.",
+    statusText:
+      "Use the Green River at Mammoth Cave gauge. NPS treats roughly 9 to 15 ft as the broad beginner-friendly park window, 15 to 20 ft as more consequential experienced water, and prohibits launching in the park at or above 20 ft.",
+    latitude: 37.2174,
+    longitude: -86.0493,
+    gaugeSource: {
+      id: "usgs-03309000",
+      provider: "usgs",
+      siteId: "03309000",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Green River at Mammoth Cave, KY",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03309000/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 9,
+      idealMax: 15,
+      tooLow: 9,
+      tooHigh: 20,
+      thresholdSource: {
+        label: "Mammoth Cave NPS Green River skill-level stage guidance",
+        url: "https://www.nps.gov/maca/planyourvisit/river-safety-and-regulations.htm",
+        provider: "nps",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "high",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "This is a warm-season big-day or overnight-capable park route. NPS still warns that Green River can rise quickly after rain and that current, channels, gravel bars, and wood can all change between launch and finish.",
+      difficulty: "hard",
+      difficultyNotes:
+        "The river remains mostly flatwater in character, but the 23.6-mile commitment, ferry logistics, limited bailout convenience, and more consequential lower-Brownsville finish make this a hard planning route rather than a casual float.",
+      confidenceNotes:
+        "Confidence is high for a conservative long-route add: NPS still publishes Dennison Ferry to Green River Ferry as 7.6 miles, Green River Ferry to Houchin Ferry as 12.4 miles, and Houchin Ferry to Brownsville as 3.6 miles, KDFWR still supports the public access anchors at Dennison, Houchins, and Brownsville, and same-day USGS Water Services returned 3460 cfs and 15.39 ft for Green River at Mammoth Cave on July 14, 2026. That stage sits just above the broad 9 to 15-foot comfort band but below the 20-foot closure, so the route should ship with explicit experienced-water caution.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route shape",
+        value: "Dennison Ferry to Brownsville, about 23.6 mi",
+        note: "NPS publishes Dennison Ferry to Green River Ferry as 7.6 miles, Green River Ferry to Houchin Ferry as 12.4 miles, and Houchin Ferry to Brownsville as 3.6 miles, supporting a combined continuation of about 23.6 miles.",
+        sourceUrl: "https://www.nps.gov/thingstodo/dennison-ferry-to-green-river-ferry.htm",
+      },
+      {
+        label: "Official stage model",
+        value: "9-15 ft broad audience, >=20 ft closed",
+        note: "NPS says beginner Green River conditions in the park are about 9 to 15 ft and launching in the park is prohibited at or above 20 ft. Paddle Today uses that as a conservative public-facing stage model.",
+        sourceUrl: "https://www.nps.gov/maca/planyourvisit/river-safety-and-regulations.htm",
+      },
+      {
+        label: "Public access chain",
+        value: "Dennison Ferry, Green River Ferry, Houchins Ferry, Brownsville City Park",
+        note: "NPS and KDFWR together still support the full public access chain through the lower Mammoth Cave corridor, including the ferry midpoint and the final Brownsville take-out.",
+        sourceUrl: "https://www.nps.gov/thingstodo/houchin-ferry-to-brownsville.htm",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03309000 at 3460 cfs / 15.39 ft",
+        note: "USGS Water Services returned same-day July 14, 2026 values of 3460 cfs and 15.39 ft for Green River at Mammoth Cave, just above the park's broad beginner-friendly band but still below the hard launch closure.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03309000&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Camping and finish context",
+        value: "Permit camping or Houchins support; Brownsville rapid near finish",
+        note: "NPS says the Green River Ferry to Houchin stretch can support gravel-bar or low-bank camping with a valid riverside permit, Houchins Ferry Campground offers a clean legal midpoint stop, and the Brownsville finish still carries the former Lock and Dam 6 rapid context plus private-land caution past the park boundary.",
+        sourceUrl: "https://www.nps.gov/maca/planyourvisit/houchinferrycg.htm",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "NPS Dennison Ferry to Green River Ferry",
+        url: "https://www.nps.gov/thingstodo/dennison-ferry-to-green-river-ferry.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS Green River Ferry to Houchin Ferry",
+        url: "https://www.nps.gov/thingstodo/green-river-ferry-to-houchin-ferry.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS Houchin Ferry to Brownsville",
+        url: "https://www.nps.gov/thingstodo/houchin-ferry-to-brownsville.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS River Safety and Regulations",
+        url: "https://www.nps.gov/maca/planyourvisit/river-safety-and-regulations.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS Houchin Ferry Campground",
+        url: "https://www.nps.gov/maca/planyourvisit/houchinferrycg.htm",
+        provider: "nps",
+      },
+      {
+        label: "KDFWR Dennison Ferry",
+        url: "https://fw.ky.gov/Fish/Pages/Dennison-Ferry-.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Brownsville City Park access detail",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=153",
+        provider: "local",
+      },
+      {
+        label: "USGS 03309000 Green River at Mammoth Cave",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03309000/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03309000 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03309000&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
     id: "green-river-dennison-ferry-houchins-ferry",
     slug: "green-river-dennison-ferry-houchins-ferry",
     name: "Green River",

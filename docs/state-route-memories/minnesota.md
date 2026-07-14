@@ -1,11 +1,11 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 09:40 America/Chicago.
+Last summarized: 2026-07-14 14:59 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 82.
-- Top represented rivers: Sauk River 17, Little Fork River 9, Minnesota River 7, Big Fork River 5, Crow Wing River 5, Mississippi River 4.
+- Live routes: 83.
+- Top represented rivers: Sauk River 17, Little Fork River 9, Minnesota River 7, Crow Wing River 6, Big Fork River 5, Mississippi River 4.
 - Ledger candidates: 781 total; 412 `added`, 109 `threshold_weak`, 86 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
@@ -13,6 +13,13 @@ Last summarized: 2026-07-14 09:40 America/Chicago.
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing now has a small restored county-chain layer on top of the June canonical core, while Little Fork continues to reward restore-first checks where support docs still prove live source quality.
 
 ## Latest Run
+
+- 2026-07-14 14:59 America/Chicago: added `crow-wing-river-mary-brown-cottingham`.
+- Started from the live `556`-route repo baseline at run start, rejected several tempting Kentucky, Indiana, and Minnesota restore-looking candidates after `git log -S` or state-memory checks showed deliberate consolidation history, and stayed with the additive Crow Wing county-chain because the current tree still had one clean no-history continuation supported by exact official mileposts and current direct gauge data.
+- Current MN DNR site `55` (`Crow Wing River at Nimrod, MN`) showed `284 cfs` at `2026-07-14 12:00 PM`, still just under the official `300 / 400-800 / 1100 cfs` ladder already used across the live Crow Wing family.
+- Crow Wing support stayed additive rather than redundant: Maps 1 and 2 still place Mary Brown at `75.3` and Cottingham at `49.5`, supporting a full `25.8` mile public continuation with legal split points at Anderson's Crossing, Little White Dog, and Knob Hill rather than reopening already-collapsed short permutations.
+- Camping posture stayed route-specific. `crow-wing-river-mary-brown-cottingham` ships as `on_route_campsite` because Wadena County still documents Anderson's Crossing, Little White Dog, Knob Hill, and Cottingham as real county campground or park support rather than informal shoreland stops.
+- No new route-gallery image was added. `docs/river-image-source-audit.csv` records the bounded no-image outcome after the 2026-07-14 MN DNR / Wadena County / Commons / same-river USGS review.
 
 - 2026-07-14 09:40 America/Chicago: added `minnesota-river-henderson-station-thompson-ferry`, `minnesota-river-belle-plaine-thompson-ferry`, and `minnesota-river-belle-plaine-carver`.
 - Started from the live `547`-route repo baseline at run start and stayed in Minnesota after bounded Missouri, Kentucky, and Nebraska rechecks failed to produce three more implementation-grade adds that beat the existing lower Minnesota official-source stack.

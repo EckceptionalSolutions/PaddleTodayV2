@@ -1,6 +1,14 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-14 09:05 America/Chicago / 2026-07-14 14:05 UTC.
+Last summarized: 2026-07-14 14:59 America/Chicago / 2026-07-14 19:59 UTC.
+
+## 2026-07-14 Mammoth Cave Green long-continuation pass
+
+- Reused the live repo state as the only valid baseline and added two new Mammoth Cave Green River continuation slugs that were absent from the current tree at run start: `green-river-dennison-ferry-brownsville-city-park` and `green-river-green-river-ferry-brownsville-city-park`.
+- NPS still publishes the three downstream Mammoth Cave route cards as Dennison Ferry -> Green River Ferry `7.6` miles, Green River Ferry -> Houchin Ferry `12.4` miles, and Houchin Ferry -> Brownsville `3.6` miles, which support the new combined public continuations at about `23.6` and `16.0` miles.
+- Current KDFWR / NPS access pages still support the source-backed public endpoints and checkpoints at Dennison Ferry, Green River Ferry, Houchins Ferry (`asid=156`), and Brownsville City Park (`asid=153`). Same-day direct USGS Water Services returned `3460 cfs / 15.39 ft` at `2026-07-14 14:00 CDT` for Green River at Mammoth Cave (`03309000`), still below the NPS `20 ft` launch closure but just above the park's broad `9-15 ft` comfort band, so both slugs ship with explicit above-band experienced-water caution.
+- Camping stays route-specific: `green-river-green-river-ferry-brownsville-city-park` keeps `sandbar_or_gravel_bar` because the Green River Ferry -> Houchins leg still carries NPS permit camping support plus the Houchins campground midpoint, and `green-river-dennison-ferry-brownsville-city-park` also uses `sandbar_or_gravel_bar` because it can legitimately split at Houchins or a permitted riverside camp instead of overstating Brownsville as overnight support.
+- Bounded image review stayed negative for both new slugs. `docs/river-image-source-audit.csv` now records the no-gallery outcome for the new Mammoth Cave continuations, so no new route-gallery asset was added.
 
 ## 2026-07-14 Levisa and Kinniconick split pass
 
