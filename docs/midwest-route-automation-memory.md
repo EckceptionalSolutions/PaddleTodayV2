@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-14 17:43 America/Chicago / 2026-07-14 22:43 UTC: Minnesota/Wisconsin unpushed route audit and consolidation pass.
+  - Audited the 21 Minnesota/Wisconsin route slugs added in the unpushed `origin/main..HEAD` range for cross-file wiring, image rows, and overlap/consolidation risk.
+  - Cross-file check passed for route object, trip-detail object, ledger row, and image-audit row coverage. None of the scoped slugs has local route-gallery or mobile-photo wiring; image-audit rows record bounded no-gallery outcomes.
+  - Fixed the clear duplicate: `zumbro-river-green-bridge-zumbro-falls` duplicated existing `zumbro-river-falls`. Kept canonical `zumbro-river-falls`, folded in the stronger MN DNR site `267` threshold model, public-water-access GIS endpoints, access points, and updated caveats, then removed the duplicate slug. Minnesota now imports 117 live routes.
+  - Remaining overlap findings are review candidates, not automatic removals: `cannon-river-riverside-miesville` is a shorter public-access alternative to older `cannon-river-welch`; the Lower Wisconsin Boscobel/Woodman/Millville/Bridgeport splits overlap older longer planner routes and should be considered for a deliberate access-points consolidation pass before push.
+
 - 2026-07-14 17:14 America/Chicago / 2026-07-14 22:14 UTC: Minnesota three-route implementation pass (`minnesota-route-additions-2`).
   - Added three Minnesota slugs beyond the 115-route Minnesota baseline at run start: `pomme-de-terre-river-highway-12-appleton`, `long-prairie-river-reynolds-browerville`, and `north-fork-crow-river-forest-city-kingston`.
   - Qualification path: current MN DNR recommended-one-way route materials document Highway 12-to-Appleton `10.3` miles, Reynolds Township-to-Browerville `20.6` miles, and Forest City-to-Kingston `12.0` miles; Minnesota public-water-access GIS resolves all six endpoints with named access records, river miles, administrator context, and source-backed coordinates.

@@ -9206,100 +9206,6 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: 'zumbro-river-falls',
-    slug: 'zumbro-river-falls',
-    name: 'Zumbro River',
-    reach: 'Green Bridge to Zumbro Falls',
-    state: 'Minnesota',
-    region: 'Southeast Minnesota',
-    summary:
-      'Classic Driftless-style paddle with a moderate target band. Flashy rainfall response means rising water can turn this from fun to pushy quickly.',
-    statusText:
-      'Best in the 7 to 9 ft sweet spot. It can still work below that, but quality and margin drop quickly, and post-rain spikes matter more than the raw number.',
-    latitude: 44.2335481,
-    longitude: -92.4820266,
-    gaugeSource: {
-      id: 'usgs-05374000',
-      provider: 'usgs',
-      siteId: '05374000',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Zumbro River at Zumbro Falls, MN',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 7,
-      idealMax: 9,
-      tooLow: 5.5,
-      tooHigh: 11.5,
-      thresholdSource: {
-        label: 'MilesPaddled Zumbro River I numeric range notes',
-        url: 'https://milespaddled.com/zumbro-river-i/',
-      },
-      thresholdSourceStrength: 'mixed',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9],
-      seasonNotes: 'Most reliable from spring into early fall, but heavy rain matters more than the calendar here.',
-      difficulty: 'moderate',
-      difficultyNotes: 'Moderate when levels are normal. Flash flooding and fresh strainers can quickly change the day.',
-      confidenceNotes:
-        'The numeric bands remain partly guidebook and community-derived. Official DNR materials support the same segment choice and confirm that this reach stays lively even at moderate levels and can flash flood after rain.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Preferred band',
-        value: '7 to 9 ft',
-        note: 'Operational sweet spot from the same-segment MilesPaddled report, which also treats 5.5 ft as the lowest recommended level and 12 ft as high by DNR map reference.',
-        sourceUrl: 'https://milespaddled.com/zumbro-river-i/',
-      },
-      {
-        label: 'Lowest recommended',
-        value: '5.5 ft',
-        note: 'The same segment was paddled and described as the lowest recommended level at 5.5 ft on November 4, 2023.',
-        sourceUrl: 'https://milespaddled.com/zumbro-river-i/',
-      },
-      {
-        label: 'Flashiness',
-        value: 'High rainfall response',
-        note: 'Heavy rain should lower confidence even if the latest reading looks acceptable.',
-      },
-      {
-        label: 'DNR route context',
-        value: 'Recommended day trip with lively current',
-        note: 'MN DNR recommends Green Bridge to Zumbro Falls and warns that the river stays lively even at moderate levels and can flash flood after storms.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/zumbro1.pdf',
-      },
-      {
-        label: 'Difficulty',
-        value: 'Moderate',
-        note: 'Moderate only when wood and flood risk are under control.',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'MN DNR Zumbro River segments and maps',
-        url: 'https://www.dnr.state.mn.us/watertrails/zumbroriver/segments-maps.html',
-      },
-      {
-        label: 'MN DNR Zumbro River overview',
-        url: 'https://www.dnr.state.mn.us/watertrails/zumbroriver/index.html',
-      },
-      {
-        label: 'MN DNR Zumbro map 1 PDF',
-        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/zumbro1.pdf',
-      },
-      {
-        label: 'USGS 05374000 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/05374000/',
-      },
-      {
-        label: 'MilesPaddled Zumbro River I',
-        url: 'https://milespaddled.com/zumbro-river-i/',
-      },
-    ],
-  },
-  {
     id: 'iowa-river-sturgis-ferry-hills-access',
     slug: 'iowa-river-sturgis-ferry-hills-access',
     name: 'Iowa River',
@@ -70682,8 +70588,8 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: 'zumbro-river-green-bridge-zumbro-falls',
-    slug: 'zumbro-river-green-bridge-zumbro-falls',
+    id: 'zumbro-river-falls',
+    slug: 'zumbro-river-falls',
     name: 'Zumbro River',
     reach: 'Green Bridge to Zumbro Falls',
     state: 'Minnesota',
@@ -70726,7 +70632,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'The DNR recommended trip runs through a deep valley with lively current, frequent easy rapids, rocky bluffs, snags, logs, dams elsewhere on the trail, and flash-flood exposure.',
       confidenceNotes:
-        'Confidence is high: MN DNR recommends Green Bridge to Zumbro Falls as the 9.7-mile Map 1 day trip, Minnesota public-water-access GIS resolves both endpoints, and the Zumbro Falls gauge is at the route finish with official interpretation bands.',
+        'Confidence is high: MN DNR recommends Green Bridge to Zumbro Falls as the 9.7-mile Map 1 day trip, Minnesota public-water-access GIS resolves both endpoints, and the Zumbro Falls gauge is at the route finish with official interpretation bands. This canonical slug preserves the existing public route URL while absorbing the stronger DNR/GIS evidence from the duplicate Green-Bridge-to-Zumbro-Falls add.',
     },
     safetyProfile: {
       riskLevel: 'caution',

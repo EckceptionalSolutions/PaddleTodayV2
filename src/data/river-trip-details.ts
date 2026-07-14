@@ -4298,39 +4298,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'zumbro-river-falls': {
-    putIn: {
-      name: 'Green Bridge (Zumbro River)',
-      latitude: 44.2335481,
-      longitude: -92.4820266,
-    },
-    takeOut: {
-      name: 'Zumbro Falls access',
-      latitude: 44.2833001,
-      longitude: -92.4221257,
-    },
-    logistics: {
-      distanceLabel: '9.7 mi',
-      estimatedPaddleTime: 'About 3 hr 15 min to 4 hr 30 min',
-      shuttle:
-        'Two-car shuttle works best. If you use a paid shuttle, confirm pickup and parking rules locally.',
-      permits:
-        'No general paddling permit indicated. Follow posted access and parking rules.',
-      camping:
-        'Treat this as a day trip unless you have explicit campsite confirmation or landowner permission.',
-      summary:
-        'Use Green Bridge as the put-in and Zumbro Falls as the take-out. Plan a two-car shuttle and verify access or parking rules locally before you commit.',
-      accessCaveats: [
-        'Green Bridge is a simple carry-in access, so confirm where to park before staging vehicles.',
-        'Take-out details at Zumbro Falls are best confirmed on the ground before you leave a car.',
-      ],
-      watchFor: [
-        'Flash flooding after heavy rain can turn this lively reach into a no-go quickly.',
-        'Logs, sweepers, and fresh strainers after storms.',
-        'Cold-water risk in shoulder seasons.',
-      ],
-    },
-  },
   'iowa-river-sturgis-ferry-hills-access': {
     putIn: {
       name: 'Sturgis Ferry Park boat ramp (Iowa City)',
@@ -25706,7 +25673,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-  'zumbro-river-green-bridge-zumbro-falls': {
+  'zumbro-river-falls': {
     putIn: {
       name: 'Zumbro River, Green Bridge Public Water Access Site',
       latitude: 44.233409,

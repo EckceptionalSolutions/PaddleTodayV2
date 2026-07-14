@@ -1,11 +1,11 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 17:14 America/Chicago.
+Last summarized: 2026-07-14 17:43 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 118.
-- Top represented rivers: Sauk River 17, Mississippi River 14, Little Fork River 9, Crow Wing River 6, Minnesota River 6, Big Fork River 5, Zumbro River 5, Cannon River 4, North Fork Crow River 4, Red River of the North 4, Root River 4, St. Louis River 4.
+- Live routes: 117.
+- Top represented rivers: Sauk River 17, Mississippi River 14, Little Fork River 9, Crow Wing River 6, Minnesota River 6, Big Fork River 5, Cannon River 4, North Fork Crow River 4, Red River of the North 4, Root River 4, St. Louis River 4, Zumbro River 4.
 - Ledger candidates: 811 total; 457 `added`, 77 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 54 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
@@ -13,6 +13,11 @@ Last summarized: 2026-07-14 17:14 America/Chicago.
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-14 17:43 America/Chicago route-audit follow-up: consolidated duplicate `zumbro-river-green-bridge-zumbro-falls` into the existing canonical `zumbro-river-falls` slug.
+- The duplicate carried stronger current MN DNR and public-water-access GIS evidence than the older route object, so the canonical slug now uses DNR site `267`, official `5.2 / 7.0-9.0 / 10.5 ft` bands, GIS-backed Green Bridge / Zumbro Falls coordinates, access points, and updated safety caveats while preserving the old public URL.
+- Current imported Minnesota route count is now 117, not 118. The audit also confirmed the remaining 2026-07-14 Minnesota additions have route objects, trip-detail blocks, ledger rows, and image-audit rows; no local route-gallery assets were selected.
+- Lower Wisconsin overlap findings were noted separately as a Wisconsin consolidation candidate; no Minnesota routes besides the exact Zumbro duplicate were removed in this audit.
 
 - 2026-07-14 17:14 America/Chicago: added `pomme-de-terre-river-highway-12-appleton`, `long-prairie-river-reynolds-browerville`, and `north-fork-crow-river-forest-city-kingston`.
 - Baseline at run start was 115 live Minnesota routes; patched route data now imports 118 Minnesota routes with no missing trip-detail records.
