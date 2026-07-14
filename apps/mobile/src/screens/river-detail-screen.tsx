@@ -78,7 +78,6 @@ import { colors, radius, spacing } from '../theme/tokens';
 
 const DETAIL_SECTIONS = ['Today', 'Access', 'Reports', 'More'] as const;
 const ANDROID_NAV_CONTROL_MIN_INSET = 96;
-const SECTION_TAB_BAR_HEIGHT = 58;
 
 type DetailSection = (typeof DETAIL_SECTIONS)[number];
 
@@ -112,6 +111,9 @@ export default function RiverDetailScreen() {
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const scrollRef = useRef<ScrollView | null>(null);
   const sectionTabsYRef = useRef(0);
+  const sectionTabsHeightRef = useRef(0);
+  const sectionContentYRef = useRef(0);
+  const pendingSectionScrollRef = useRef<DetailSection | null>(null);
   const conditionsYRef = useRef(0);
   const [alertStatus, setAlertStatus] = useState('');
   const [pendingThreshold, setPendingThreshold] = useState<RiverAlertThreshold | null>(null);
@@ -175,6 +177,19 @@ export default function RiverDetailScreen() {
       score: detail.score,
     });
   }, [detailSlug]);
+
+  useEffect(() => {
+    if (pendingSectionScrollRef.current !== activeSection) {
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      scrollToSectionTop();
+      pendingSectionScrollRef.current = null;
+    }, 0);
+
+    return () => clearTimeout(timeout);
+  }, [activeSection]);
 
   if (!slug) {
     return (
@@ -342,9 +357,19 @@ export default function RiverDetailScreen() {
     });
   }
 
+  function scrollToSectionTop() {
+    const sectionTop = sectionContentYRef.current || sectionTabsYRef.current;
+    const stickyOffset = sectionTabsHeightRef.current + spacing.sm;
+    scrollToY(Math.max(sectionTop - stickyOffset, 0));
+  }
+
   function showSection(section: DetailSection) {
+    pendingSectionScrollRef.current = section;
     setActiveSection(section);
-    scrollToY(sectionTabsYRef.current);
+    if (section === activeSection) {
+      scrollToSectionTop();
+      pendingSectionScrollRef.current = null;
+    }
   }
 
   function showConditions() {
@@ -440,10 +465,13 @@ export default function RiverDetailScreen() {
       <ScrollView
         ref={scrollRef}
         style={styles.screen}
+        keyboardShouldPersistTaps="handled"
+        removeClippedSubviews={false}
         contentContainerStyle={[
           styles.content,
-          { paddingBottom: spacing.xl + bottomContentInset + SECTION_TAB_BAR_HEIGHT },
+          { paddingBottom: spacing.xl + bottomContentInset },
         ]}
+        stickyHeaderIndices={[2]}
         refreshControl={
           <RefreshControl
             tintColor={colors.accent}
@@ -527,14 +555,23 @@ export default function RiverDetailScreen() {
         </View>
 
         <View
-          style={styles.sectionTabsAnchor}
+          collapsable={false}
+          renderToHardwareTextureAndroid
+          style={styles.sectionTabsSticky}
           onLayout={(event) => {
             sectionTabsYRef.current = event.nativeEvent.layout.y;
+            sectionTabsHeightRef.current = event.nativeEvent.layout.height;
           }}
-        />
+        >
+          <DetailSectionTabs activeSection={activeSection} onSelect={showSection} />
+        </View>
 
         {activeSection === 'Today' ? (
-          <>
+          <View
+            onLayout={(event) => {
+              sectionContentYRef.current = event.nativeEvent.layout.y;
+            }}
+          >
             <RouteBasicsCard detail={detail} />
 
             <View
@@ -576,11 +613,15 @@ export default function RiverDetailScreen() {
             </View>
 
             <AboutRouteCard detail={detail} />
-          </>
+          </View>
         ) : null}
 
         {activeSection === 'Reports' ? (
-          <>
+          <View
+            onLayout={(event) => {
+              sectionContentYRef.current = event.nativeEvent.layout.y;
+            }}
+          >
             <SectionCard
               title="Community reports"
               subtitle={
@@ -648,11 +689,15 @@ export default function RiverDetailScreen() {
                 <Text style={styles.reportCtaButtonText}>Report</Text>
               </Pressable>
             </View>
-          </>
+          </View>
         ) : null}
 
         {activeSection === 'More' ? (
-          <>
+          <View
+            onLayout={(event) => {
+              sectionContentYRef.current = event.nativeEvent.layout.y;
+            }}
+          >
             {detail.river.riverId && siblingRouteCount > 1 ? (
               <SectionCard
                 title="More routes on this river"
@@ -709,11 +754,15 @@ export default function RiverDetailScreen() {
             >
               <HistoryBars days={history?.days ?? []} />
             </SectionCard>
-          </>
+          </View>
         ) : null}
 
         {activeSection === 'Access' ? (
-          <>
+          <View
+            onLayout={(event) => {
+              sectionContentYRef.current = event.nativeEvent.layout.y;
+            }}
+          >
             <SectionCard
               title="Access & logistics"
               subtitle="Access, shuttle, and route basics."
@@ -787,23 +836,9 @@ export default function RiverDetailScreen() {
               </Pressable>
               {alertStatus ? <Text style={styles.alertStatus}>{alertStatus}</Text> : null}
             </SectionCard>
-          </>
+          </View>
         ) : null}
       </ScrollView>
-
-      <View
-        pointerEvents="box-none"
-        style={[
-          styles.fixedSectionTabsWrap,
-          {
-            bottom: Platform.OS === 'android'
-              ? Math.max(insets.bottom, spacing.sm, bottomContentInset - SECTION_TAB_BAR_HEIGHT)
-              : insets.bottom + spacing.sm,
-          },
-        ]}
-      >
-        <DetailSectionTabs activeSection={activeSection} onSelect={showSection} />
-      </View>
 
       <RouteReportSheet
         visible={reportSheetVisible}
@@ -1699,6 +1734,9 @@ function DetailSectionTabs({
           <Pressable
             key={section}
             style={[styles.sectionTab, selected ? styles.sectionTabSelected : null]}
+            hitSlop={4}
+            pressRetentionOffset={8}
+            android_ripple={{ color: selected ? 'rgba(255,255,255,0.16)' : colors.canvasMuted, borderless: false }}
             accessibilityRole="button"
             accessibilityLabel={`Show ${section} section`}
             accessibilityState={{ selected }}
@@ -2948,15 +2986,12 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     fontWeight: '800',
   },
-  sectionTabsAnchor: {
-    height: 1,
-  },
-  fixedSectionTabsWrap: {
-    position: 'absolute',
-    left: spacing.md,
-    right: spacing.md,
-    zIndex: 40,
+  sectionTabsSticky: {
+    backgroundColor: colors.canvas,
+    paddingVertical: spacing.xs,
+    zIndex: 30,
     elevation: 16,
+    overflow: 'visible',
   },
   sectionTabs: {
     flexDirection: 'row',
