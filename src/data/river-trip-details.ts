@@ -6810,6 +6810,112 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'wisconsin-river-boscobel-woodman': {
+    putIn: {
+      name: 'Boscobel Landing / Floyd Von Haden Boat Landing',
+      latitude: 43.1492722,
+      longitude: -90.715253,
+    },
+    takeOut: {
+      name: 'Woodman Landing / Woodman Lake access',
+      latitude: 43.07699,
+      longitude: -90.84597,
+    },
+    logistics: {
+      distanceLabel: '9.5 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 4.5 hr, longer with sandbar stops',
+      shuttle:
+        'Use a two-car Lower Wisconsin shuttle between Boscobel and Woodman. This is a shorter split inside the broader Boscobel-to-Bridgeport corridor, so confirm the intended Woodman vehicle spot before launching.',
+      permits:
+        'No route-specific day paddling permit is known. Follow Lower Wisconsin State Riverway rules, posted landing rules, PFD requirements, and current camping/trash guidance.',
+      camping:
+        'Sandbar camping may be possible at suitable low to moderate flows, but this split is normally a day route. Do not camp on high-water sandbars, private banks, or unstable cutbanks.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Put in at Boscobel and take out at Woodman. The route is a manageable lower-river day with wooded islands, bluff scenery, quieter traffic than upstream reaches, and a direct Muscoda gauge.',
+      accessCaveats: [
+        'Wisconsin DNR lists Boscobel Landings and Woodman Lake among major Lower Wisconsin State Riverway public access points.',
+        'This route overlaps the longer Boscobel-to-Bridgeport corridor but stops at Woodman to keep mileage and shuttle timing realistic for a shorter day.',
+      ],
+      watchFor: [
+        'Shifting channels around wooded islands and sloughs.',
+        'Strainers along outside bends and narrow cuts, especially as higher water opens side channels.',
+        'Fast hidden current and sudden drop-offs near sandbar edges.',
+        'High water above the normal band that reduces sandbars and makes camping a poor plan.',
+      ],
+    },
+  },
+  'wisconsin-river-woodman-millville': {
+    putIn: {
+      name: 'Woodman Landing / Woodman Lake access',
+      latitude: 43.07699,
+      longitude: -90.84597,
+    },
+    takeOut: {
+      name: 'Millville Boat Landing',
+      latitude: 43.03505,
+      longitude: -90.96091,
+    },
+    logistics: {
+      distanceLabel: '7.7 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, longer with sandbar stops',
+      shuttle:
+        'Use a short rural shuttle between Woodman and Millville. The put-in starts from the Green River / Woodman access area, so stage the vehicle where posted access and parking rules allow.',
+      permits:
+        'No route-specific day paddling permit is known. Follow Lower Wisconsin State Riverway rules, posted landing rules, PFD requirements, and current camping/trash guidance.',
+      camping:
+        'Sandbar camping may be possible at suitable low to moderate flows, but the route is short enough to plan as a day trip. Avoid overnight plans when sandbars are covered or shrinking.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch at Woodman, enter the Wisconsin near the Green River mouth, and take out at Millville. Expect a quieter lower-river day with Newton and Harris island channel choices, sandbars, bluffs, and wildlife.',
+      accessCaveats: [
+        'Wisconsin DNR lists Woodman Lake and Millville Landing among major Lower Wisconsin State Riverway public access points.',
+        'Wisconsin River Trips describes Millville Landing as maintained and easy, but same-day water level and landing condition still matter.',
+      ],
+      watchFor: [
+        'Island splits around Newton Island, Harris Island, and smaller side channels.',
+        'Wind on broad bends, especially if the afternoon forecast builds.',
+        'Strainers, sandbar drop-offs, and fast current where side channels rejoin the main river.',
+        'Remote-feeling lower-river exposure despite the shorter mileage.',
+      ],
+    },
+  },
+  'wisconsin-river-millville-bridgeport': {
+    putIn: {
+      name: 'Millville Boat Landing',
+      latitude: 43.03505,
+      longitude: -90.96091,
+    },
+    takeOut: {
+      name: 'Bridgeport North Landing / Weniger Island north channel',
+      latitude: 43.0239,
+      longitude: -91.0877,
+    },
+    logistics: {
+      distanceLabel: '6.1 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with sandbar stops or wind',
+      shuttle:
+        'Use the short Millville-to-Bridgeport shuttle. Wisconsin River Trips notes this can be one of the easier Lower Wisconsin bike shuttles, but a vehicle shuttle is still simpler for most groups.',
+      permits:
+        'No route-specific day paddling permit is known. Follow Lower Wisconsin State Riverway rules, posted landing rules, and current boating/PFD guidance.',
+      camping:
+        'Sandbar camping is possible on the Lower Wisconsin at suitable flows, but this short route is best treated as a day trip. Do not plan on camping when water is high, rising, or leaving only small unstable bars.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Put in at Millville and finish at Bridgeport North Landing. This second-to-last Lower Wisconsin leg has huge islands, bluffs, sandbars, and a cleaner finish than continuing into the Mississippi confluence.',
+      accessCaveats: [
+        'Wisconsin DNR lists Millville Landing and Bedford Slough / Bridgeport among major Lower Wisconsin State Riverway public access points.',
+        'Bridgeport access is on Weniger Island with north- and south-channel options; identify the intended take-out channel before launching.',
+        'Do not miss the Bridgeport off-ramp channel. Backpaddling around Weniger Island can be difficult in brisk current.',
+      ],
+      watchFor: [
+        'Strainers along shorelines where current is fast and deep.',
+        'Lower Wisconsin undertows and sudden sandbar drop-offs, especially if anyone swims.',
+        'Wind, broad-water exposure, and fewer usable sandbars as flows rise.',
+        'Channel-selection mistakes around Weniger Island near the take-out.',
+      ],
+    },
+  },
   'wisconsin-river-millville-wyalusing-beach': {
     putIn: {
       name: 'Millville Boat Landing',
@@ -26108,6 +26214,171 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 6.4,
         segmentKind: 'creek',
         note: 'Nearby public access at DNR river mile 19.1; use only if it fits the day plan or conditions require an earlier public exit.',
+      },
+    ],
+  },
+  'pomme-de-terre-river-highway-12-appleton': {
+    putIn: {
+      name: 'Pomme De Terre River, #1, Hwy 12 Public Water Access Site',
+      latitude: 45.283686,
+      longitude: -95.9793669,
+    },
+    takeOut: {
+      name: 'Pomme de Terre River, Appleton Public Water Access Site',
+      latitude: 45.203145,
+      longitude: -96.0209066,
+    },
+    logistics: {
+      distanceLabel: '10.3 mi',
+      estimatedPaddleTime: 'About 3 hr 30 min to 5 hr, longer if the upper miles are shallow',
+      shuttle:
+        'Stage the Appleton take-out first, then drive back to the Highway 12 / Pomme de Terre #1 carry-in. This is the longer official upstream version of the existing Larson-to-Appleton route, so leave more daylight than the shorter lower split requires.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public water accesses, follow Minnesota boating/PFD rules, and obey posted city or DNR access rules at Appleton and Highway 12.',
+      camping:
+        'Treat this as a day route. No on-route watercraft campsite is documented for the Highway 12-to-Appleton trip; use separate nearby campground or lodging plans only if independently confirmed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Highway 12 / Pomme de Terre #1 access and take out at Appleton for the official 10.3-mile DNR day trip. The Appleton gauge has a direct official ladder, but low water can still make the upper leg slow.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Highway 12 at river mile 19.1 as WAS02176 and Appleton at river mile 8.8 as WAS00050.',
+        'This route includes the existing Larson-to-Appleton lower reach after the upstream extension; choose the shorter route if water, wind, or daylight are marginal.',
+        'Appleton has a constructed rapids feature and city access context near the finish. Scout the finish and do not continue downstream casually.',
+      ],
+      watchFor: [
+        'Dragging, shallow channel picking, and exposed riffles when the Appleton gauge falls below the DNR medium band.',
+        'Strainers, outside-bend wood, and storm debris on a smaller prairie river with private banks.',
+        'Pushier current and less margin near the rapids feature when the gauge moves above the high band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-12-pomme-de-terre-1',
+        name: 'Pomme De Terre River, #1, Hwy 12 Public Water Access Site',
+        latitude: 45.283686,
+        longitude: -95.9793669,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 19.1; resolves as WAS02176 with DNR administration.',
+      },
+      {
+        id: 'appleton-pomme-de-terre',
+        name: 'Pomme de Terre River, Appleton Public Water Access Site',
+        latitude: 45.203145,
+        longitude: -96.0209066,
+        mileFromStart: 10.3,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 8.8; resolves as WAS00050 with City of Appleton administration.',
+      },
+    ],
+  },
+  'long-prairie-river-reynolds-browerville': {
+    putIn: {
+      name: 'Long Prairie River, Reynolds Township Public Water Access Site',
+      latitude: 45.9916364,
+      longitude: -94.9449021,
+    },
+    takeOut: {
+      name: 'Long Prairie River, Browerville Public Water Access Site',
+      latitude: 46.0764071,
+      longitude: -94.8584952,
+    },
+    logistics: {
+      distanceLabel: '20.6 mi',
+      estimatedPaddleTime: 'About 7 hr to 9 hr, longer with low water or wood',
+      shuttle:
+        'Set the Browerville take-out first, then drive back to Reynolds Township. Treat this as a full-day commitment, not a casual extension of the shorter Long Prairie-to-Browerville route.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and check posted township or city access rules before leaving vehicles.',
+      camping:
+        'No on-route watercraft campsite is documented for the Reynolds-to-Browerville day trip. Plan it as a long day paddle unless a separate legal camping or lodging plan is confirmed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Reynolds Township and take out at Browerville for the official 20.6-mile Long Prairie River day. The Long Prairie DNR gauge is direct for the corridor, but distance and low-water drag make this a conservative pick.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Reynolds Township at river mile 53.4 as WAS02344 and Browerville at river mile 35.2 as WAS01260.',
+        'The DNR recommended mileage uses Reynolds Township to Browerville; the public-access river-mile fields differ slightly from the route-list mileposts, so navigate by named access and coordinates.',
+        'Public exits are limited between the endpoints. Do not rely on private banks for bailout, rest stops, or overnight use.',
+      ],
+      watchFor: [
+        'A long 20-mile day where fatigue, daylight, and shuttle timing matter as much as the gauge reading.',
+        'Low-water scraping, tight bends, snags, and occasional obstructions that can slow the upstream half before Long Prairie.',
+        'Faster, pushier bends and debris if the gauge rises above the official high band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'reynolds-township',
+        name: 'Long Prairie River, Reynolds Township Public Water Access Site',
+        latitude: 45.9916364,
+        longitude: -94.9449021,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in near the official DNR Reynolds Township route start; resolves as WAS02344 at river mile 53.4 with Todd County administration.',
+      },
+      {
+        id: 'browerville-long-prairie',
+        name: 'Long Prairie River, Browerville Public Water Access Site',
+        latitude: 46.0764071,
+        longitude: -94.8584952,
+        mileFromStart: 20.6,
+        segmentKind: 'creek',
+        note: 'Default take-out near the official DNR Browerville finish; resolves as WAS01260 at river mile 35.2 with City of Browerville administration.',
+      },
+    ],
+  },
+  'north-fork-crow-river-forest-city-kingston': {
+    putIn: {
+      name: 'North Fork Crow River, Forest City Public Water Access Site',
+      latitude: 45.2095748,
+      longitude: -94.4657051,
+    },
+    takeOut: {
+      name: 'North Fork Crow River, Kingston Public Water Access Site',
+      latitude: 45.1950363,
+      longitude: -94.3272284,
+    },
+    logistics: {
+      distanceLabel: '12.0 mi',
+      estimatedPaddleTime: 'About 4 hr to 5.5 hr, longer with shallow water or wood scouting',
+      shuttle:
+        'Stage the Kingston take-out first, then drive back to Forest City. This is an upper North Fork Crow day; inspect the put-in, take-out, and first visible bends before committing.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted DNR, county, and local access rules.',
+      camping:
+        'Treat this as a day route. DNR does not document an on-route watercraft campsite for Forest City to Kingston; nearby park or campground plans should be handled separately.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Forest City and take out at Kingston for the official 12-mile North Fork Crow day below the current upstream Manannah-to-Highway-22 tree alert. Use the Cokato DNR gauge as a downstream corridor proxy and make a same-day wood check.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Forest City at river mile 106.2 as WAS02367 and Kingston at river mile 94.2 as WAS00687.',
+        'The selected route starts downstream of the active DNR tree alert reach between Mannannah and Highway 22. Do not extend upstream until that alert is cleared.',
+        'The Cokato gauge is downstream of Kingston, so it is a same-corridor proxy rather than an exact on-site gauge. Pair it with visual checks at Forest City and Kingston.',
+      ],
+      watchFor: [
+        'Underwater branches, overhanging trees, strainers, and possible fences on a narrow upper-river corridor.',
+        'Shallow gravel, small rapids, and scraping when the Cokato gauge falls below the medium band.',
+        'Fresh wood, faster current, and fewer recovery options after rain or above the official high band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'forest-city-north-fork-crow',
+        name: 'North Fork Crow River, Forest City Public Water Access Site',
+        latitude: 45.2095748,
+        longitude: -94.4657051,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 106.2; resolves as WAS02367 with DNR administration.',
+      },
+      {
+        id: 'kingston-north-fork-crow',
+        name: 'North Fork Crow River, Kingston Public Water Access Site',
+        latitude: 45.1950363,
+        longitude: -94.3272284,
+        mileFromStart: 12,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 94.2; resolves as WAS00687 with Meeker County administration.',
       },
     ],
   },

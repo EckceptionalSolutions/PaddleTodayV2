@@ -16913,6 +16913,291 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'wisconsin-river-boscobel-woodman',
+    slug: 'wisconsin-river-boscobel-woodman',
+    name: 'Wisconsin River',
+    reach: 'Boscobel Landing to Woodman Landing',
+    state: 'Wisconsin',
+    region: 'Lower Wisconsin Riverway',
+    summary:
+      'Shorter lower-river split from Boscobel to Woodman with wooded islands, bluff views, and sandbar stops. It uses the direct Muscoda gauge and the Lower Wisconsin level ladder, while keeping the day shorter than the broader Boscobel-to-Bridgeport route.',
+    statusText:
+      'Use the Muscoda gauge. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.',
+    latitude: 43.1492722,
+    longitude: -90.715253,
+    gaugeSource: {
+      id: 'usgs-05407000',
+      provider: 'usgs',
+      siteId: '05407000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wisconsin River at Muscoda, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4000,
+      idealMax: 10000,
+      tooLow: 2500,
+      tooHigh: 20000,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide LWSR4 Muscoda-gauge suggested river levels',
+        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the normal season. Check upstream rain, wind, and possible river surges before committing, especially if a sandbar stop or overnight plan is possible.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Flatwater with no rapids, but broad-channel wind, side slough choices, strainers, and deceptively strong sandbar-edge current still require conservative Lower Wisconsin judgment.',
+      confidenceNotes:
+        'Confidence is good for a Lower Wisconsin split add: Wisconsin River Trips documents Boscobel Landing to Woodman Landing as a 9.5-mile route and ties its observed trip level to the Muscoda gauge; Wisconsin DNR lists Boscobel Landings and Woodman Lake as major Lower Wisconsin access points; and Wisconsin Trail Guide LWSR4 publishes the Muscoda-gauge river-level ladder for this lower-river corridor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route report',
+        value: '9.5 miles, 3.5 hours',
+        note: 'Wisconsin River Trips documents Boscobel Landing to Woodman Landing as a lower Wisconsin route with sandbars, narrowing channel, bluff scenery, and a 6,000 cfs observed Muscoda-gauge trip level.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/boscobel-to-woodman',
+      },
+      {
+        label: 'Public access',
+        value: 'Boscobel and Woodman Lake',
+        note: 'Wisconsin DNR lists Boscobel Landings and Woodman Lake among major public access points on the Lower Wisconsin State Riverway.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+      },
+      {
+        label: 'Published level bands',
+        value: '4,000 to 10,000 cfs normal',
+        note: 'Wisconsin Trail Guide LWSR4 uses the Muscoda gauge and lists 4,000-10,000 cfs as normal summer conditions, 17,000-20,000 cfs as high day-trip-only water, and above 20,000 cfs as not recommended.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
+      },
+      {
+        label: 'Current gauge check',
+        value: '6,610 cfs at 2026-07-14 16:00 CDT',
+        note: 'USGS Water Services returned same-day discharge and stage for the direct Muscoda gauge during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05407000&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Boscobel to Woodman',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/boscobel-to-woodman',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin DNR Lower Wisconsin boating and canoeing',
+        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide LWSR4',
+        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 05407000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'wisconsin-river-woodman-millville',
+    slug: 'wisconsin-river-woodman-millville',
+    name: 'Wisconsin River',
+    reach: 'Woodman Landing to Millville Boat Landing',
+    state: 'Wisconsin',
+    region: 'Lower Wisconsin Riverway',
+    summary:
+      'Quiet lower-river day from Woodman down to Millville, using the Green River mouth as a distinctive launch and ending at a maintained Lower Wisconsin landing. It is a compact alternative to the broader Boscobel-to-Bridgeport corridor.',
+    statusText:
+      'Use the Muscoda gauge. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.',
+    latitude: 43.07699,
+    longitude: -90.84597,
+    gaugeSource: {
+      id: 'usgs-05407000',
+      provider: 'usgs',
+      siteId: '05407000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wisconsin River at Muscoda, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4000,
+      idealMax: 10000,
+      tooLow: 2500,
+      tooHigh: 20000,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide LWSR4 Muscoda-gauge suggested river levels',
+        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the normal paddling season. The route is short enough for a day trip, but sandbar plans still depend on current flows and upstream rain.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'No rapids are expected. Treat island splits, wind, strainers, sandbar-edge current, and the Green River mouth as the main operational hazards.',
+      confidenceNotes:
+        'Confidence is good for a Lower Wisconsin split add: Wisconsin River Trips documents Woodman Landing to Millville Landing as a 7.7-mile route with a Muscoda-gauge observed level; Wisconsin DNR lists Woodman Lake and Millville Landing as major public access points; and Wisconsin Trail Guide LWSR4 supplies the same lower-river Muscoda gauge ladder used by adjacent app routes.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route report',
+        value: '7.7 miles, 3.5 hours',
+        note: 'Wisconsin River Trips documents Woodman Landing to Millville Landing, notes the Green River mouth start, Newton and Harris island channels, sandbars, bluffs, and a maintained Millville take-out.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/woodman',
+      },
+      {
+        label: 'Public access',
+        value: 'Woodman Lake and Millville Landing',
+        note: 'Wisconsin DNR lists Woodman Lake and Millville Landing among major Lower Wisconsin State Riverway public access points.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+      },
+      {
+        label: 'Published level bands',
+        value: '4,000 to 10,000 cfs normal',
+        note: 'Wisconsin Trail Guide LWSR4 ties this lower-river corridor to the Muscoda gauge and warns against early-spring or especially high-water paddling.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
+      },
+      {
+        label: 'Current gauge check',
+        value: '6,610 cfs at 2026-07-14 16:00 CDT',
+        note: 'USGS Water Services returned same-day discharge and stage for the direct Muscoda gauge during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05407000&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Woodman',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/woodman',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin DNR Lower Wisconsin boating and canoeing',
+        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide LWSR4',
+        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 05407000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'wisconsin-river-millville-bridgeport',
+    slug: 'wisconsin-river-millville-bridgeport',
+    name: 'Wisconsin River',
+    reach: 'Millville Boat Landing to Bridgeport North Landing',
+    state: 'Wisconsin',
+    region: 'Lower Wisconsin Riverway',
+    summary:
+      'Second-to-last Lower Wisconsin day from Millville to the Bridgeport north-channel landing, with huge islands, bluff views, sandbars, and an easier shuttle than the Mississippi confluence finish.',
+    statusText:
+      'Use the Muscoda gauge. Treat 3,001 to 7,500 cfs as the best practical window, 2,000 cfs as the low/scrape floor, and 20,000 cfs as too high for a broad recommendation. Above about 12,500 cfs, expect fewer sandbars and pushier, dirtier water.',
+    latitude: 43.03505,
+    longitude: -90.96091,
+    gaugeSource: {
+      id: 'usgs-05407000',
+      provider: 'usgs',
+      siteId: '05407000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wisconsin River at Muscoda, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3001,
+      idealMax: 7500,
+      tooLow: 2000,
+      tooHigh: 20000,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Millville Muscoda-gauge depth guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/millville',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the normal window. Check wind and upstream rain; the route is short, but missed channels around Weniger Island or rising water can make Bridgeport logistics harder.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'No rapids are expected, but the north-channel take-out requires staying ahead of the correct off-ramp, and Lower Wisconsin strainers, undertows, sandbar drop-offs, and wind remain serious hazards.',
+      confidenceNotes:
+        'Confidence is good for a Lower Wisconsin split add: Wisconsin River Trips documents Millville Boat Landing to Bridgeport North Landing with route distance, access notes, hazards, and a Muscoda-gauge flow ladder; Wisconsin DNR lists Millville Landing plus Bedford Slough and Bridgeport as major public access points; and the direct Muscoda gauge returned same-day data during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route report',
+        value: '6.1 miles, 2-3 hours',
+        note: 'Wisconsin River Trips documents Millville Boat Landing to Bridgeport North Landing as a shorter lower-river route with huge islands, bluff scenery, sandbars, and a 7,100 cfs observed Muscoda-gauge trip level.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/millville',
+      },
+      {
+        label: 'Published level bands',
+        value: '3,001 to 7,500 cfs practical window',
+        note: 'Wisconsin River Trips lists 3,001-5,000 cfs as very ideal, 5,001-7,500 cfs as common and ok, 15,001-20,000 cfs as very high and pushy, and 20,001+ cfs as probably too high for safe paddling.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/millville',
+      },
+      {
+        label: 'Public access',
+        value: 'Millville and Bridgeport',
+        note: 'Wisconsin DNR lists Millville Landing and Bedford Slough / Bridgeport among major Lower Wisconsin public access points.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+      },
+      {
+        label: 'Current gauge check',
+        value: '6,610 cfs at 2026-07-14 16:00 CDT',
+        note: 'USGS Water Services returned same-day discharge and stage for the direct Muscoda gauge during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05407000&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Millville',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/millville',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin DNR Lower Wisconsin boating and canoeing',
+        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide LWSR4',
+        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 05407000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'wisconsin-river-millville-wyalusing-beach',
     slug: 'wisconsin-river-millville-wyalusing-beach',
     name: 'Wisconsin River',
@@ -71415,6 +71700,332 @@ export const rivers: River[] = [
       {
         label: 'MN DNR Cannon River Map 2 PDF',
         url: 'https://files.dnr.state.mn.us/maps/canoe_routes/cannon2.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'pomme-de-terre-river-highway-12-appleton',
+    slug: 'pomme-de-terre-river-highway-12-appleton',
+    name: 'Pomme de Terre River',
+    reach: 'Highway 12 Access to Appleton',
+    state: 'Minnesota',
+    region: 'West Central Minnesota',
+    summary:
+      'Official upper Appleton day that extends the existing Larson-to-Appleton route to the upstream Highway 12 access. It is gentle at normal levels, but shallow water, wood, and the Appleton rapids still deserve a real same-day check.',
+    statusText:
+      'Use the official Appleton DNR ladder: best from 4.5 to 6 ft, too shallow below 3.5 ft, and a very high-water call above 7.5 ft.',
+    latitude: 45.243416,
+    longitude: -96.000137,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        'Low water can make the upstream Highway 12 miles slow and draggy before the shorter Larson-to-Appleton reach starts.',
+        'Expect wood, strainers, and outside-bend debris after storms on this small west-central river.',
+        'Appleton has a constructed rapids feature before the finish; scout and use the signed public access rather than continuing casually.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-168',
+      provider: 'mn_dnr',
+      siteId: '168',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Pomme De Terre River at Appleton, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=23007001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=23007001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4.5,
+      idealMax: 6,
+      tooLow: 3.5,
+      tooHigh: 7.5,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Pomme de Terre River at Appleton',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the practical season. The route can still work in summer when the Appleton gauge stays in the medium band, but low water quickly turns the upper leg into a scraping day.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route is beginner-oriented at normal levels, but it is 10.3 miles with possible low-water dragging, strainers, and the Appleton rapids feature near the finish.',
+      confidenceNotes:
+        'Confidence is high: MN DNR lists the exact Highway 12 Access to Appleton recommended trip, both endpoints resolve in Minnesota public-water-access GIS with river miles and coordinates, and the Appleton DNR gauge is direct with official interpretation bands.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '10.3 mi, river mile 19.1 to 8.8',
+        note: 'The MN DNR recommended-one-ways list identifies Pomme de Terre #1 / US Highway 12 Carry-in Access to Appleton Carry-in Access as a 10.3-mile day trip.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'DNR bands',
+        value: '3.5 / 4.5-6.0 / 7.5 ft',
+        note: 'MN DNR interprets the Appleton gauge as Low from 3.5 to 4.5 ft, Medium from 4.5 to 6.0, High from 6.0 to 7.5, and Very High above 7.5.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '5.31 ft at 2026-07-14 14:00',
+        note: 'The current MN DNR feed placed Appleton inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Access confidence',
+        value: 'WAS02176 to WAS00050',
+        note: 'Minnesota public-water-access GIS resolves Highway 12 at river mile 19.1 and Appleton at river mile 8.8 with named access records and coordinates.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Distinctness',
+        value: 'Adds upstream leg',
+        note: 'The existing PaddleToday route starts at Larson Landing; this route preserves the official upstream Highway 12-to-Appleton day rather than duplicating only the lower six-mile subset.',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR recommended one-way water-trail trips',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Pomme de Terre River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/pommedeterre/segments-maps.html',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'long-prairie-river-reynolds-browerville',
+    slug: 'long-prairie-river-reynolds-browerville',
+    name: 'Long Prairie River',
+    reach: 'Reynolds Township to Browerville',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Longer official Long Prairie day that starts upstream of the existing city-to-Browerville route. The route is approachable only when the Long Prairie gauge supports it; low water, wood, and the 20-mile commitment can make it a hard day.',
+    statusText:
+      'Use the official Long Prairie DNR ladder: best from 200 to 500 cfs, too shallow below 53 cfs, and very high above 650 cfs.',
+    latitude: 46.034022,
+    longitude: -94.901699,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks', 'remote'],
+      safetyNotes: [
+        'This is a 20.6-mile route; late starts, low water, or headwind can turn it into an after-dark problem.',
+        'DNR route context notes shallow or impassable water in dry periods and obstructions such as culverts and low bridges elsewhere on the corridor.',
+        'Use named public accesses and do not assume private banks are legal bailout or camping stops.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-89',
+      provider: 'mn_dnr',
+      siteId: '89',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Long Prairie River at Long Prairie, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=14051001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=14051001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 500,
+      tooLow: 53,
+      tooHigh: 650,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Long Prairie River at Long Prairie',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Spring and early summer are the best windows. Later summer can still work after rain, but below the official medium band the upper miles may become too shallow or slow for a 20-mile day.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The current is generally manageable, but the distance, tight bends, low-water drag risk, and limited public exits make this more committing than the shorter Long Prairie-to-Browerville route.',
+      confidenceNotes:
+        'Confidence is high for the route and threshold package: MN DNR lists Reynolds Township to Browerville as an official 20.6-mile recommended trip, both public accesses resolve in GIS, and the Long Prairie DNR gauge has official interpretation bands.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '20.6 mi, river mile 54.8 to 34.2',
+        note: 'The MN DNR recommended-one-ways list identifies Reynolds Township Carry-in Access to Browerville Carry-in Access as a 20.6-mile Long Prairie River trip.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'DNR bands',
+        value: '53 / 200-500 / 650 cfs',
+        note: 'MN DNR interprets the Long Prairie gauge as Low from 53 to 200 cfs, Medium from 200 to 500, High from 500 to 650, and Very High above 650.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '281 cfs at 2026-07-14 15:15',
+        note: 'The current MN DNR feed placed Long Prairie inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Access confidence',
+        value: 'WAS02344 to WAS01260',
+        note: 'Minnesota public-water-access GIS resolves Reynolds Township at river mile 53.4 and Browerville at river mile 35.2 with named public access records and coordinates.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Distinctness',
+        value: 'Adds upstream Reynolds leg',
+        note: 'The existing PaddleToday route starts in Long Prairie; this implementation preserves the longer official Reynolds-to-Browerville day instead of duplicating the shorter downstream subset.',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR recommended one-way water-trail trips',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Long Prairie River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/longprairieriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'north-fork-crow-river-forest-city-kingston',
+    slug: 'north-fork-crow-river-forest-city-kingston',
+    name: 'North Fork Crow River',
+    reach: 'Forest City to Kingston',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Official upper North Fork Crow day below the current Manannah-area tree alert and upstream of the existing Wright County routes. The route is short enough for a day but still obstruction-prone, shallow at low water, and dependent on same-day wood checks.',
+    statusText:
+      'Use the official Cokato DNR ladder as a downstream corridor proxy: best from 300 to 600 cfs, too shallow below 241 cfs, and too high above 800 cfs.',
+    latitude: 45.202306,
+    longitude: -94.396467,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks', 'fast_rise'],
+      safetyNotes: [
+        'DNR describes the upper North Fork Crow as shallow and obstruction-prone, with overhanging trees, underwater branches, and occasional unlawful fences.',
+        'The active DNR tree alert is upstream between Mannannah and Highway 22; do not extend this trip upstream until the obstruction status changes.',
+        'Small rapids and low-water gravel can be more consequential than the mileage suggests when the Cokato gauge is below the medium band.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-308',
+      provider: 'mn_dnr',
+      siteId: '308',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'North Fork Crow River nr Cokato, CSAH4',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=18083001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=18083001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 300,
+      idealMax: 600,
+      tooLow: 241,
+      tooHigh: 800,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for North Fork Crow River near Cokato',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is realistic when the Cokato corridor gauge is in the workable bands. In dry summer weather, expect scraping, portage-like shallows, and slower travel.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is not a whitewater route, but it is a narrow upper-river segment where wood, shallow water, small rapids, and limited public exits require active boat control.',
+      confidenceNotes:
+        'Confidence is good with an explicit proxy caveat: MN DNR lists the exact Forest City-to-Kingston recommended trip, both endpoints resolve in Minnesota public-water-access GIS, and the downstream Cokato gauge is already used for nearby North Fork Crow corridor decisions with official DNR bands.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '12.0 mi, river mile 106.2 to 94.2',
+        note: 'The MN DNR recommended-one-ways list identifies Forest City Trailer Access to Finnish Memorial County Park and Kingston Trailer Access as a 12-mile North Fork Crow trip.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'DNR bands',
+        value: '241 / 300-600 / 800 cfs',
+        note: 'MN DNR interprets the Cokato gauge as Scrapable below 241 cfs, Low from 241 to 300, Medium from 300 to 600, High from 600 to 800, and Very High above 800.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '535 cfs at 2026-07-14 15:45',
+        note: 'The current MN DNR feed placed Cokato inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Access confidence',
+        value: 'WAS02367 to WAS00687',
+        note: 'Minnesota public-water-access GIS resolves Forest City at river mile 106.2 and Kingston at river mile 94.2 with named public access records and coordinates.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Safety scope',
+        value: 'Below active upstream tree alert',
+        note: 'The DNR alert for a large tree is upstream between Mannannah and Highway 22, while this route starts downstream at Forest City and should not be extended into that alert reach.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/crowrivernorthfork/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR recommended one-way water-trail trips',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR North Fork Crow segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowrivernorthfork/segments-maps.html',
+      },
+      {
+        label: 'MN DNR North Fork Crow Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/northforkcrow1.pdf',
       },
       {
         label: 'MN DNR river levels',
