@@ -2931,7 +2931,7 @@ body.site-search-open {
   gap: 0.72rem;
   padding: 0.92rem;
   overflow: hidden;
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
 .river-card:hover {
@@ -13732,17 +13732,40 @@ body.site-search-open {
 }
 
 .river-card--map-active {
-  border-color: rgba(30, 115, 151, 0.28);
+  border-color: rgba(37, 99, 235, 0.34);
   box-shadow:
-    0 0 0 1px rgba(30, 115, 151, 0.08),
+    0 0 0 1px rgba(37, 99, 235, 0.12),
     0 24px 50px rgba(35, 45, 56, 0.14);
   transform: translateY(-2px);
 }
 
-.river-card--map-jump {
-  border-color: rgba(30, 115, 151, 0.34);
+.river-grid--explore-list .river-card--map-active {
+  border-color: rgba(37, 99, 235, 0.72);
+  background:
+    linear-gradient(90deg, rgba(37, 99, 235, 0.13), rgba(37, 99, 235, 0.04) 42%, rgba(255, 255, 255, 0.78)),
+    var(--panel);
   box-shadow:
-    0 0 0 2px rgba(30, 115, 151, 0.18),
+    0 0 0 3px rgba(37, 99, 235, 0.18),
+    0 26px 54px rgba(24, 47, 85, 0.2);
+}
+
+.river-grid--explore-list .river-card--map-active::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0.34rem;
+  background: #2563eb;
+  box-shadow: 0 0 18px rgba(37, 99, 235, 0.36);
+}
+
+.river-grid--explore-list .river-card--map-active .river-card__title {
+  color: #163f8f;
+}
+
+.river-card--map-jump {
+  border-color: rgba(37, 99, 235, 0.52);
+  box-shadow:
+    0 0 0 2px rgba(37, 99, 235, 0.2),
     0 30px 58px rgba(35, 45, 56, 0.18);
   animation: river-card-map-jump 1.4s ease;
 }
@@ -13751,21 +13774,21 @@ body.site-search-open {
   0% {
     transform: translateY(0);
     box-shadow:
-      0 0 0 0 rgba(30, 115, 151, 0),
+      0 0 0 0 rgba(37, 99, 235, 0),
       0 24px 50px rgba(35, 45, 56, 0.14);
   }
 
   30% {
     transform: translateY(-3px);
     box-shadow:
-      0 0 0 4px rgba(30, 115, 151, 0.16),
+      0 0 0 4px rgba(37, 99, 235, 0.2),
       0 32px 60px rgba(35, 45, 56, 0.2);
   }
 
   100% {
     transform: translateY(-2px);
     box-shadow:
-      0 0 0 2px rgba(30, 115, 151, 0.18),
+      0 0 0 2px rgba(37, 99, 235, 0.2),
       0 30px 58px rgba(35, 45, 56, 0.18);
   }
 }

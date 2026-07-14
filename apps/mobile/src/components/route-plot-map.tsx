@@ -54,13 +54,19 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 }, ref) {
   const backgroundSpan = finiteSpanCoordinates(backgroundSpanCoordinates);
   const bounds = getBounds(points, userLocation, backgroundSpan);
-  const visiblePoints = points.filter(isFinitePoint);
+  const visiblePoints = useMemo(() => points.filter(isFinitePoint), [points]);
   const nativeMarkerPoints = useMemo(
     () => [...visiblePoints].sort(compareMapPointIds),
     [visiblePoints]
   );
-  const selectedPoint = visiblePoints.find((point) => point.id === selectedId) ?? visiblePoints[0] ?? null;
-  const selectedSpan = selectedId && selectedPoint ? routeSpanCoordinates(selectedPoint) : [];
+  const selectedPoint = useMemo(
+    () => visiblePoints.find((point) => point.id === selectedId) ?? visiblePoints[0] ?? null,
+    [selectedId, visiblePoints]
+  );
+  const selectedSpan = useMemo(
+    () => (selectedId && selectedPoint ? routeSpanCoordinates(selectedPoint) : []),
+    [selectedId, selectedPoint]
+  );
   const nativeMaps = getNativeMaps();
   const mapRef = useRef<NativeMapView | null>(null);
   const previousSelectedIdRef = useRef<string | null | undefined>(selectedId);
@@ -71,7 +77,6 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude)
   );
   const nativeUserLocation = hasUserLocation ? userLocation : null;
-  const nativeMapKey = `${markerMode}:${hasUserLocation ? 'user' : 'nouser'}:${pointSignature}`;
   const [regionDelta, setRegionDelta] = useState({
     latitudeDelta: initialRegion.latitudeDelta,
     longitudeDelta: initialRegion.longitudeDelta,
@@ -102,7 +107,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
     const coordinates = [
       ...backgroundSpan,
-      ...visiblePoints.flatMap((point) => routeSpanCoordinates(point)),
+      ...visiblePoints.map((point) => ({ latitude: point.latitude, longitude: point.longitude })),
     ];
 
     if (userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude)) {
@@ -207,7 +212,6 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     return (
       <View style={[styles.shell, fullBleed ? styles.fullBleedShell : null]}>
         <MapView
-          key={nativeMapKey}
           ref={mapRef}
           style={[styles.nativeMap, { height }]}
           initialRegion={initialRegion}
@@ -271,7 +275,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
               return (
                 <Marker
-                  key={`${point.id}-${selected ? 'selected' : 'idle'}-${pinColor}`}
+                  key={point.id}
                   coordinate={{ latitude: point.latitude, longitude: point.longitude }}
                   onPress={() => onSelectPoint?.(point)}
                   zIndex={selected ? 10 : 1}

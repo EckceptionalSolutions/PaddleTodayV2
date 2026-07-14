@@ -368,7 +368,6 @@ function FullScreenExploreMap({
   const userOutOfRange = Boolean(userLocation && results.length === 0 && activeFilterCount === 0);
   const selectedRouteCount = selectedRiver ? routeGroupMetaForRoute(selectedRiver, routeCounts).routeCount : 0;
   const searchResultSignature = points.map((point) => point.id).join('|');
-  const mapResultKey = searchResultSignature || 'empty';
   const intentBanner = requestedIntent
     ? {
         title: labelForExploreIntent(requestedIntent),
@@ -413,7 +412,6 @@ function FullScreenExploreMap({
     <View style={styles.fullMapScreen}>
       {results.length > 0 ? (
         <RoutePlotMap
-          key={mapResultKey}
           ref={mapRef}
           points={points}
           selectedId={selectedSlug}

@@ -78,6 +78,7 @@ import { colors, radius, spacing } from '../theme/tokens';
 
 const DETAIL_SECTIONS = ['Today', 'Access', 'Reports', 'More'] as const;
 const ANDROID_NAV_CONTROL_MIN_INSET = 96;
+const SECTION_TAB_BAR_HEIGHT = 58;
 
 type DetailSection = (typeof DETAIL_SECTIONS)[number];
 
@@ -112,7 +113,7 @@ export default function RiverDetailScreen() {
   const scrollRef = useRef<ScrollView | null>(null);
   const sectionTabsYRef = useRef(0);
   const conditionsYRef = useRef(0);
-  const [alertStatus, setAlertStatus] = useState('Choose Good or Strong phone notifications for this route.');
+  const [alertStatus, setAlertStatus] = useState('');
   const [pendingThreshold, setPendingThreshold] = useState<RiverAlertThreshold | null>(null);
   const [reportName, setReportName] = useState('');
   const [reportEmail, setReportEmail] = useState(storedEmail);
@@ -441,9 +442,8 @@ export default function RiverDetailScreen() {
         style={styles.screen}
         contentContainerStyle={[
           styles.content,
-          { paddingBottom: spacing.xl + bottomContentInset },
+          { paddingBottom: spacing.xl + bottomContentInset + SECTION_TAB_BAR_HEIGHT },
         ]}
-        stickyHeaderIndices={[2]}
         refreshControl={
           <RefreshControl
             tintColor={colors.accent}
@@ -527,29 +527,11 @@ export default function RiverDetailScreen() {
         </View>
 
         <View
-          style={styles.sectionTabsSticky}
+          style={styles.sectionTabsAnchor}
           onLayout={(event) => {
             sectionTabsYRef.current = event.nativeEvent.layout.y;
           }}
-        >
-          <View style={styles.sectionTabs}>
-            {DETAIL_SECTIONS.map((section) => {
-              const selected = activeSection === section;
-              return (
-                <Pressable
-                  key={section}
-                  style={[styles.sectionTab, selected ? styles.sectionTabSelected : null]}
-                  accessibilityRole="button"
-                  accessibilityLabel={`Show ${section} section`}
-                  accessibilityState={{ selected }}
-                  onPress={() => showSection(section)}
-                >
-                  <Text style={[styles.sectionTabText, selected ? styles.sectionTabTextSelected : null]}>{section}</Text>
-                </Pressable>
-              );
-            })}
-          </View>
-        </View>
+        />
 
         {activeSection === 'Today' ? (
           <>
@@ -800,15 +782,28 @@ export default function RiverDetailScreen() {
                 </View>
                 <View style={styles.alertCtaCopy}>
                   <Text style={styles.alertCtaTitle}>Alert me at Good or Strong</Text>
-                  <Text style={styles.alertCtaText}>Choose phone notifications for this route.</Text>
                 </View>
                 <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={22} />
               </Pressable>
-              <Text style={styles.alertStatus}>{alertStatus}</Text>
+              {alertStatus ? <Text style={styles.alertStatus}>{alertStatus}</Text> : null}
             </SectionCard>
           </>
         ) : null}
       </ScrollView>
+
+      <View
+        pointerEvents="box-none"
+        style={[
+          styles.fixedSectionTabsWrap,
+          {
+            bottom: Platform.OS === 'android'
+              ? Math.max(insets.bottom, spacing.sm, bottomContentInset - SECTION_TAB_BAR_HEIGHT)
+              : insets.bottom + spacing.sm,
+          },
+        ]}
+      >
+        <DetailSectionTabs activeSection={activeSection} onSelect={showSection} />
+      </View>
 
       <RouteReportSheet
         visible={reportSheetVisible}
@@ -843,6 +838,7 @@ export default function RiverDetailScreen() {
         routeName={detail.river.name}
         routeReach={detail.river.reach}
         status={alertStatus}
+        bottomInset={bottomContentInset}
         pendingThreshold={pendingThreshold}
         mutationPending={createAlertMutation.isPending}
         onClose={() => setAlertSheetVisible(false)}
@@ -1688,11 +1684,40 @@ function HeroIconButton({
   );
 }
 
+function DetailSectionTabs({
+  activeSection,
+  onSelect,
+}: {
+  activeSection: DetailSection;
+  onSelect: (section: DetailSection) => void;
+}) {
+  return (
+    <View style={styles.sectionTabs}>
+      {DETAIL_SECTIONS.map((section) => {
+        const selected = activeSection === section;
+        return (
+          <Pressable
+            key={section}
+            style={[styles.sectionTab, selected ? styles.sectionTabSelected : null]}
+            accessibilityRole="button"
+            accessibilityLabel={`Show ${section} section`}
+            accessibilityState={{ selected }}
+            onPress={() => onSelect(section)}
+          >
+            <Text style={[styles.sectionTabText, selected ? styles.sectionTabTextSelected : null]}>{section}</Text>
+          </Pressable>
+        );
+      })}
+    </View>
+  );
+}
+
 function AlertSetupSheet({
   visible,
   routeName,
   routeReach,
   status,
+  bottomInset,
   pendingThreshold,
   mutationPending,
   onClose,
@@ -1702,6 +1727,7 @@ function AlertSetupSheet({
   routeName: string;
   routeReach: string;
   status: string;
+  bottomInset: number;
   pendingThreshold: RiverAlertThreshold | null;
   mutationPending: boolean;
   onClose: () => void;
@@ -1710,7 +1736,7 @@ function AlertSetupSheet({
   return (
     <Modal animationType="slide" transparent visible={visible} onRequestClose={onClose}>
       <View style={styles.alertSheetScrim}>
-        <View style={styles.alertSheet}>
+        <View style={[styles.alertSheet, { paddingBottom: spacing.md + bottomInset }]}>
           <View style={styles.alertSheetHandle} />
           <View style={styles.alertSheetHeader}>
             <View style={styles.alertSheetTitleWrap}>
@@ -1745,28 +1771,13 @@ function AlertSetupSheet({
                 );
               })}
             </View>
-            <Text style={styles.alertHelper}>
-              {nativeAlertHelperText()}
-            </Text>
           </View>
 
-          <Text style={styles.alertStatus}>{status}</Text>
+          {status ? <Text style={styles.alertStatus}>{status}</Text> : null}
         </View>
       </View>
     </Modal>
   );
-}
-
-function nativeAlertHelperText() {
-  if (Platform.OS === 'android') {
-    return 'Phone alerts open this route when tapped. Android requires a development or preview build, not Expo Go.';
-  }
-
-  if (Platform.OS === 'ios') {
-    return 'Phone alerts open this route when tapped. iOS will ask for notification permission the first time you enable one.';
-  }
-
-  return 'Phone alerts open this route when tapped. Push notifications require a preview or production build.';
 }
 
 function ChecklistRow({ item }: { item: DecisionChecklistItem }) {
@@ -2937,11 +2948,15 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     fontWeight: '800',
   },
-  sectionTabsSticky: {
-    backgroundColor: colors.canvas,
-    paddingVertical: spacing.xs,
-    zIndex: 20,
-    elevation: 8,
+  sectionTabsAnchor: {
+    height: 1,
+  },
+  fixedSectionTabsWrap: {
+    position: 'absolute',
+    left: spacing.md,
+    right: spacing.md,
+    zIndex: 40,
+    elevation: 16,
   },
   sectionTabs: {
     flexDirection: 'row',
@@ -2951,6 +2966,11 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     padding: 3,
     gap: 3,
+    shadowColor: '#0F172A',
+    shadowOpacity: 0.14,
+    shadowRadius: 18,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 12,
   },
   sectionTab: {
     flex: 1,
@@ -3790,6 +3810,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(10, 24, 29, 0.34)',
   },
   alertSheet: {
+    maxHeight: '88%',
     backgroundColor: colors.surfaceStrong,
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
