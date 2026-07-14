@@ -2,6 +2,14 @@
 
 Last summarized: 2026-07-14 09:05 America/Chicago / 2026-07-14 14:05 UTC.
 
+## 2026-07-14 Levisa and Kinniconick split pass
+
+- Reused the live repo state as the only valid baseline and restored or added three Kentucky slugs that were absent from the current tree at run start: `levisa-fork-jubilee-island-creek`, `kinniconick-creek-mcdowells-creek-mill-pond-creek`, and `kinniconick-creek-mill-pond-creek-garrison`.
+- Current KDFWR Levisa Fork guidance plus the detailed map still support Jubilee Christian Church Ramp -> Island Creek Ramp at `3.8` miles with the official Pikeville gauge band of `800-1400 cfs / 7.4-8.5 ft`, while current KDFWR Kinniconick guidance still documents McDowells Creek Park Access -> Mill Pond Creek Access `1.6` miles and Mill Pond Creek Access -> Garrison Ramp `2.7` miles and still says Tygarts Creek should be used in lieu of Kinniconick because it closely mimics creek levels there.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Jubilee Christian Church Canoe Access (`asid=1013`), Island Creek Canoe Access (`asid=1012`), McDowells Creek Park Access (`asid=1129`), Mill Pond Creek Access (`asid=1128`), and Garrison Ramp (`asid=318`). Same-day direct USGS Water Services returned `615 cfs / 7.42 ft` at `2026-07-14 13:30-14:00 EDT` for Levisa Fork at Pikeville (`03209500`) and `128 cfs / 3.27 ft` at `2026-07-14 13:45 EDT` for Tygarts Creek near Greenup (`03217000`), so the Levisa restore ships with low-water caution while both Kinniconick splits ship inside the official proxy good band.
+- Camping stays conservative by route: `levisa-fork-jubilee-island-creek`, `kinniconick-creek-mcdowells-creek-mill-pond-creek`, and `kinniconick-creek-mill-pond-creek-garrison` all stay `none` because the reviewed KDFWR access pages still document day-use launches rather than overnight support.
+- Reused the approved Levisa Fork Commons corridor image for `levisa-fork-jubilee-island-creek`, and bounded image review stayed negative for both new Kinniconick splits, so `docs/river-image-source-audit.csv` records no-gallery outcomes for those two slugs.
+
 ## 2026-07-14 Mammoth Cave Green restoration and continuation pass
 
 - Reused the live repo state as the only valid baseline and restored or added three Mammoth Cave Green River slugs that were absent from the current tree at run start: `green-river-dennison-green-river-ferry`, `green-river-green-river-ferry-houchins`, and `green-river-houchins-ferry-brownsville-city-park`.

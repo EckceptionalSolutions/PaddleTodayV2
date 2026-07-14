@@ -40214,6 +40214,139 @@ export const rivers: River[] = [
 
 
   {
+    id: 'levisa-fork-jubilee-island-creek',
+    slug: 'levisa-fork-jubilee-island-creek',
+    name: 'Levisa Fork',
+    reach: 'Jubilee Christian Church Ramp to Island Creek Ramp',
+    aliases: [
+      'Levisa Fork - Jubilee to Island Creek',
+      'Hatfield-McCoy River Trail upper float',
+      'KDFWR Levisa Fork Blue Water Trail',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Short Pikeville half-day float from Jubilee Christian Church Ramp to Island Creek Ramp. KDFWR documents the public access pair, 3.8-mile Blue Water Trail split, and official Pikeville gauge bands, while the education page frames this upper Hatfield-McCoy River Trail reach as family-friendly moving water.',
+    statusText:
+      'Use the Levisa Fork at Pikeville gauge. KDFWR rates 800 to 1,400 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Below that is low; above that is high and swift current or woody debris can make the river inappropriate for casual paddling.',
+    latitude: 37.4445,
+    longitude: -82.5057,
+    gaugeSource: {
+      id: 'usgs-03209500',
+      provider: 'usgs',
+      siteId: '03209500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Levisa Fork at Pikeville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 800,
+      idealMax: 1400,
+      tooLow: 800,
+      tooHigh: 1400,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Levisa Fork at Pikeville',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'KDFWR says the Levisa Fork near Pikeville benefits from Russell Fork inflow and Fishtrap Lake releases, which support more dependable summer flow than many eastern Kentucky streams. Storms and release changes can still raise current and move fresh wood into the channel.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR describes the Levisa Fork as gentle riffles and flowing shoals that are suitable for families and beginners at normal levels. This remains moving water rather than flatwater, especially when the river approaches or exceeds the high band.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky restore: KDFWR still publishes the official Pikeville gauge bands on the Fish page, provides exact access coordinates for Jubilee Christian Church Ramp and Island Creek Ramp on the access-detail pages, and the Blue Water Trail map plus education article identify Jubilee-to-Island Creek as a 3.8-mile half-day float. Current USGS Water Services returned same-day discharge and stage of 615 cfs at 2026-07-14 13:30 EDT and 7.42 ft at 2026-07-14 14:00 EDT, which keeps the route below the official good discharge band but right at the stage floor for a low-water caution framing.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '800-1,400 cfs / 7.4-8.5 ft',
+        note: 'KDFWR rates Levisa Fork at Pikeville as Low below 800 cfs or 7.4 ft, Good from 800 to 1,400 cfs or 7.4 to 8.5 ft, and High above 1,400 cfs or 8.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Jubilee Christian Church Ramp to Island Creek Ramp, 3.8 miles',
+        note: 'The KDFWR Blue Water Trail map lists Jubilee Christian Church Ramp to Island Creek Ramp as a 3.8-mile ramp-to-ramp split, and the Levisa Fork education page describes it as a leisurely half-day float.',
+        sourceUrl: 'https://fw.ky.gov/Education/Documents/bluewatertraillevisafork.pdf',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Jubilee Christian Church Canoe Access, 37.4445, -82.5057',
+        note: 'KDFWR identifies Jubilee Christian Church Canoe Access as a carry-down site with paved parking nearby and notes that paddlers should ask permission before using the church lot.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1013',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Island Creek Canoe Access, 37.4646, -82.5284',
+        note: 'KDFWR identifies Island Creek Canoe Access as a carry-down site behind the South Mayo Trail commercial corridor with unpaved parking and no amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1012',
+      },
+      {
+        label: 'Route character',
+        value: 'Gentle riffles, deep pools, flowing shoals',
+        note: 'The Levisa Fork education page says the first float from Jubilee Christian Church to Island Creek moves through an intimate gorge with gentle riffles, deep pools, and flowing shoals, making it suitable for families and beginners at normal levels.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Levisa-Fork.aspx',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03209500 at 615 cfs / 7.42 ft',
+        note: 'USGS Water Services returned same-day values of 615 cfs at 2026-07-14 13:30 EDT and 7.42 ft at 2026-07-14 14:00 EDT for Levisa Fork at Pikeville during this run, below the official good discharge band but just above the official stage floor.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping posture',
+        value: 'No public camping documented at either endpoint',
+        note: 'Current KDFWR access-detail pages list Camping as None for both Jubilee Christian Church Canoe Access and Island Creek Canoe Access.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1013',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Levisa Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Levisa Fork education page',
+        url: 'https://fw.ky.gov/Education/Pages/Levisa-Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Levisa Fork detailed map',
+        url: 'https://fw.ky.gov/Education/Documents/bluewatertraillevisafork.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Jubilee Christian Church Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1013',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Island Creek Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1012',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03209500 Levisa Fork at Pikeville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03209500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'levisa-fork-island-creek-cedar-creek',
     slug: 'levisa-fork-island-creek-cedar-creek',
     name: 'Levisa Fork',
@@ -66085,6 +66218,260 @@ export const rivers: River[] = [
       {
         label: 'USGS 03217000 legacy current page',
         url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03217000',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kinniconick-creek-mcdowells-creek-mill-pond-creek',
+    slug: 'kinniconick-creek-mcdowells-creek-mill-pond-creek',
+    name: 'Kinniconick Creek',
+    reach: 'McDowells Creek Park Access to Mill Pond Creek Access',
+    aliases: [
+      'Kinniconick Creek - McDowells Creek to Mill Pond Creek',
+      'Kinniconick Creek middle split',
+      'KDFWR Kinniconick Creek access chain',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Short middle Kinniconick Creek split from McDowells Creek Park Access to Mill Pond Creek Access. KDFWR documents the exact 1.6-mile route segment and applies the same official Tygarts Creek proxy ladder to Kinniconick Creek.',
+    statusText:
+      'Use the Tygarts Creek near Greenup gauge as the official Kinniconick proxy. KDFWR rates Kinniconick low below 2.5 ft or 50 cfs, good from 2.5 to 3.5 ft or 50 to 130 cfs, and high above that.',
+    latitude: 38.5746,
+    longitude: -83.1896,
+    gaugeSource: {
+      id: 'usgs-03217000',
+      provider: 'usgs',
+      siteId: '03217000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Tygarts Creek near Greenup, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/03217000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'This is the shortest Kinniconick split now in the tree, but KDFWR still requires the same Tygarts Creek proxy because Kinniconick has no current direct stream gage.',
+        'Short mileage does not remove creek hazards such as fresh wood, muddy landings, and quick rain response outside the official good band.',
+        'McDowells Creek and Mill Pond are the intended public endpoints; do not treat nearby banks as general stopping or parking ground.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.5,
+      idealMax: 3.5,
+      tooLow: 2.5,
+      tooHigh: 3.5,
+      thresholdSource: {
+        label: 'KDFWR Kinniconick Creek proxy gauge guidance',
+        url: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical window. This short middle split is easiest to fit into a half day when the proxy gauge is steady, but even light rain can change the feel of a small Kentucky creek quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is an easier public Kinniconick segment than the longer chained options, but it still involves moving current, shoals, wood, muddy ramps, and private-bank discipline.',
+      confidenceNotes:
+        'Confidence is good for a conservative Kentucky add: current KDFWR guidance still lists McDowells Creek Park Access to Mill Pond Creek Access at 1.6 miles, explicitly says no current stream gage exists on Kinniconick Creek, and directs paddlers to use Tygarts Creek because it closely mimics creek levels there. Current KDFWR access-detail pages still provide source-backed coordinates and public-use notes for McDowells Creek and Mill Pond Creek, and current USGS Water Services returned same-day proxy values of 128 cfs and 3.27 ft at 2026-07-14 13:45 EDT, both inside the official good band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official proxy level band',
+        value: '2.5-3.5 ft or 50-130 cfs good',
+        note: 'KDFWR says no current stream gage is available for Kinniconick Creek and that Tygarts Creek should be used in lieu of Kinniconick because it closely mimics levels there. The same page rates Kinniconick low below 2.5 ft or 50 cfs, good from 2.5 to 3.5 ft or 50 to 130 cfs, and high above that.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'McDowells Creek Park Access to Mill Pond Creek Access, 1.6 miles',
+        note: 'KDFWR lists McDowells Creek Park Access to Mill Pond Creek Access as a 1.6-mile public route segment on the Kinniconick mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'McDowells Creek Park Access, 38.5746, -83.1896',
+        note: 'KDFWR access detail identifies McDowells Creek Park Access as a public ramp with no listed camping support.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1129',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Mill Pond Creek Access, 38.5882, -83.1919',
+        note: 'KDFWR access detail identifies Mill Pond Creek Access as a public ramp with no listed camping support.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1128',
+      },
+      {
+        label: 'Live proxy-gauge support',
+        value: 'USGS 03217000 at 128 cfs / 3.27 ft',
+        note: 'Current USGS Water Services returned same-day values at 2026-07-14 13:45 EDT for Tygarts Creek near Greenup, and both discharge and stage sit inside KDFWRs published Kinniconick good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03217000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping posture',
+        value: 'No public camping documented at either endpoint',
+        note: 'Current KDFWR access-detail pages list Camping as None for both McDowells Creek Park Access and Mill Pond Creek Access.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1128',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Kinniconick Creek',
+        url: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR McDowells Creek Park Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1129',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Mill Pond Creek Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1128',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03217000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03217000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03217000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03217000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kinniconick-creek-mill-pond-creek-garrison',
+    slug: 'kinniconick-creek-mill-pond-creek-garrison',
+    name: 'Kinniconick Creek',
+    reach: 'Mill Pond Creek Access to Garrison Ramp',
+    aliases: [
+      'Kinniconick Creek - Mill Pond Creek to Garrison',
+      'Kinniconick Creek lower split',
+      'KDFWR Kinniconick Creek access chain',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Short lower Kinniconick Creek split from Mill Pond Creek Access to Garrison Ramp. KDFWR documents the exact 2.7-mile downstream public segment and applies the same official Tygarts Creek proxy ladder to the corridor.',
+    statusText:
+      'Use the Tygarts Creek near Greenup gauge as the official Kinniconick proxy. KDFWR rates Kinniconick low below 2.5 ft or 50 cfs, good from 2.5 to 3.5 ft or 50 to 130 cfs, and high above that.',
+    latitude: 38.5882,
+    longitude: -83.1919,
+    gaugeSource: {
+      id: 'usgs-03217000',
+      provider: 'usgs',
+      siteId: '03217000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Tygarts Creek near Greenup, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/03217000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'This short lower route still uses the same official proxy gauge because KDFWR says Kinniconick has no current direct stream gage.',
+        'Fresh wood, muddy landings, and shoals still matter here even though the mileage is easier than the longer public combinations.',
+        'Garrison is the intended public finish; do not drift below town looking for alternate informal exits.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.5,
+      idealMax: 3.5,
+      tooLow: 2.5,
+      tooHigh: 3.5,
+      thresholdSource: {
+        label: 'KDFWR Kinniconick Creek proxy gauge guidance',
+        url: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical window. This lower split is easier to squeeze into a short day than the long chained routes, but a small rain rise can still make the creek feel faster and woodier in a hurry.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This lower Kinniconick split is short and approachable compared with the longer public chains, but it still involves moving water, shoals, wood, muddy ramps, and private-bank limits.',
+      confidenceNotes:
+        'Confidence is good for a conservative Kentucky add: current KDFWR guidance still lists Mill Pond Creek Access to Garrison Ramp at 2.7 miles, explicitly says no current stream gage exists on Kinniconick Creek, and directs paddlers to use Tygarts Creek because it closely mimics creek levels there. Current KDFWR access-detail pages still provide source-backed coordinates and public-use notes for Mill Pond Creek and Garrison, and current USGS Water Services returned same-day proxy values of 128 cfs and 3.27 ft at 2026-07-14 13:45 EDT, both inside the official good band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official proxy level band',
+        value: '2.5-3.5 ft or 50-130 cfs good',
+        note: 'KDFWR says no current stream gage is available for Kinniconick Creek and that Tygarts Creek should be used in lieu of Kinniconick because it closely mimics levels there. The same page rates Kinniconick low below 2.5 ft or 50 cfs, good from 2.5 to 3.5 ft or 50 to 130 cfs, and high above that.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Mill Pond Creek Access to Garrison Ramp, 2.7 miles',
+        note: 'KDFWR lists Mill Pond Creek Access to Garrison Ramp as a 2.7-mile public route segment on the Kinniconick mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Mill Pond Creek Access, 38.5882, -83.1919',
+        note: 'KDFWR access detail identifies Mill Pond Creek Access as a public ramp with no listed camping support.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1128',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Garrison Ramp, 38.6083, -83.1637',
+        note: 'KDFWR access detail identifies Garrison Ramp as a public ramp with no listed camping support.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=318',
+      },
+      {
+        label: 'Live proxy-gauge support',
+        value: 'USGS 03217000 at 128 cfs / 3.27 ft',
+        note: 'Current USGS Water Services returned same-day values at 2026-07-14 13:45 EDT for Tygarts Creek near Greenup, and both discharge and stage sit inside KDFWRs published Kinniconick good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03217000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping posture',
+        value: 'No public camping documented at either endpoint',
+        note: 'Current KDFWR access-detail pages list Camping as None for both Mill Pond Creek Access and Garrison Ramp.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=318',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Kinniconick Creek',
+        url: 'https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Mill Pond Creek Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1128',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Garrison Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=318',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03217000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03217000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03217000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03217000&parameterCd=00060,00065&siteStatus=all',
         provider: 'usgs',
       },
     ],

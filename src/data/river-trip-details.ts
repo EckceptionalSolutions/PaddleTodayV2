@@ -12962,6 +12962,48 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   },
 
 
+  'levisa-fork-jubilee-island-creek': {
+    putIn: {
+      id: 'jubilee-christian-church-ramp',
+      name: 'Jubilee Christian Church Ramp',
+      latitude: 37.4445,
+      longitude: -82.5057,
+    },
+    takeOut: {
+      id: 'island-creek-ramp',
+      name: 'Island Creek Ramp',
+      latitude: 37.4646,
+      longitude: -82.5284,
+    },
+    logistics: {
+      distanceLabel: 'About 3.8 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3 hr, longer with low water, family stops, or fishing',
+      shuttle:
+        'Stage the take-out at Island Creek Ramp behind the South Mayo Trail corridor, then drive back to Jubilee Christian Church Ramp south of Pikeville. Walk the Island Creek landing first so the right-bank take-out is obvious from the water.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any local parking or loading instructions.',
+      camping:
+        'Treat this as an urban day float. KDFWR lists no camping at Jubilee Christian Church Ramp or Island Creek Ramp, and no legal overnight plan was verified for this Pikeville corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Jubilee Christian Church Ramp and take out 3.8 miles downstream at Island Creek Ramp for the upper Hatfield-McCoy River Trail float. KDFWR gives a good Pikeville gauge band of 800 to 1,400 cfs, or 7.4 to 8.5 ft.',
+      accessCaveats: [
+        'KDFWR says parking near Jubilee is limited and that paddlers should ask permission before using the church paved lot.',
+        'Island Creek is a carry-down access behind the South Mayo Trail commercial corridor with unpaved parking and no amenities.',
+        'The current Pikeville gauge reading was below the official good discharge band during this run, though the stage was just above the official 7.4 ft floor. Expect slower current, shallower shoals, and more route-finding around exposed gravel or mussel-shell areas until levels rise further.',
+        'Stay with the named public accesses and do not assume commercial lots or private banks along the corridor are general river-user parking or stopping points.',
+      ],
+      watchFor: [
+        'Low water below 800 cfs or 7.4 ft, when shoals get shallower and dragging becomes more likely.',
+        'High water above 1,400 cfs or 8.5 ft, when KDFWR moves the route out of the good band and swift current plus woody debris become much less forgiving.',
+        'Mussel shells on the river bottom, woody debris, bridge-area current, and fishing traffic in the Pikeville corridor.',
+        'Urban corridor hazards and private banks outside the documented ramps.',
+      ],
+    },
+  },
+
+
   'levisa-fork-island-creek-cedar-creek': {
     putIn: {
       id: 'island-creek-ramp',
@@ -23115,6 +23157,124 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 28.8,
         segmentKind: 'creek',
         note: 'Default take-out for the longest Kinniconick chain in this pass.',
+      },
+    ],
+  },
+  'kinniconick-creek-mcdowells-creek-mill-pond-creek': {
+    putIn: {
+      id: 'mcdowells-creek-park-access',
+      name: 'McDowells Creek Park Access',
+      latitude: 38.5746,
+      longitude: -83.1896,
+    },
+    takeOut: {
+      id: 'mill-pond-creek-access',
+      name: 'Mill Pond Creek Access',
+      latitude: 38.5882,
+      longitude: -83.1919,
+    },
+    logistics: {
+      distanceLabel: 'About 1.6 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2 hr, longer with low-water scraping, fishing, or wood scouting',
+      shuttle:
+        'Stage the downstream vehicle at Mill Pond Creek Access, then drive back to McDowells Creek Park Access. The shuttle is short, but the creek still deserves a quick wood and gauge check before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day county park or roadside parking limits.',
+      camping:
+        'Treat this as a day route. KDFWR lists camping as None at McDowells Creek Park Access and Mill Pond Creek Access, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at McDowells Creek Park Access and take out about 1.6 miles downstream at Mill Pond Creek Access for the shortest current Kinniconick Creek split. KDFWR says to use the Tygarts Creek gauge as the Kinniconick proxy, with a good band of 2.5 to 3.5 ft or 50 to 130 cfs.',
+      accessCaveats: [
+        'McDowells Creek and Mill Pond are both public KDFWR accesses, but neither is documented as a campground or service-heavy overnight facility.',
+        'This is a short route, not a stillwater park loop. Wood, shoals, and muddy banks can still turn a quick float into a boat-handling exercise when the creek is low or rising.',
+        'The current proxy gauge sat inside the official good band during this run, so the route ships as runnable rather than scrape-framed.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 2.5 ft or 50 cfs, when shallow riffles, rock bars, and dragging become more likely even on a short route.',
+        'High water above 3.5 ft or 130 cfs, when rain-driven rises, wood, and muddy landings make the creek less forgiving.',
+        'Wood, strainers, private banks outside the access sites, and complacency from the short mileage.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mcdowells-creek-park-access',
+        name: 'McDowells Creek Park Access',
+        latitude: 38.5746,
+        longitude: -83.1896,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the middle Kinniconick split.',
+      },
+      {
+        id: 'mill-pond-creek-access',
+        name: 'Mill Pond Creek Access',
+        latitude: 38.5882,
+        longitude: -83.1919,
+        mileFromStart: 1.6,
+        segmentKind: 'creek',
+        note: 'Default take-out for the shortest current Kinniconick split.',
+      },
+    ],
+  },
+  'kinniconick-creek-mill-pond-creek-garrison': {
+    putIn: {
+      id: 'mill-pond-creek-access',
+      name: 'Mill Pond Creek Access',
+      latitude: 38.5882,
+      longitude: -83.1919,
+    },
+    takeOut: {
+      id: 'garrison-ramp',
+      name: 'Garrison Ramp',
+      latitude: 38.6083,
+      longitude: -83.1637,
+    },
+    logistics: {
+      distanceLabel: 'About 2.7 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2.5 hr, longer with low-water scraping, fishing, or wood scouting',
+      shuttle:
+        'Stage the downstream vehicle at Garrison Ramp, then drive back to Mill Pond Creek Access. The shuttle is short, but the route still deserves a fresh look for wood, mud, and gauge trend before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day county park or roadside parking limits.',
+      camping:
+        'Treat this as a day route. KDFWR lists camping as None at Mill Pond Creek Access and Garrison Ramp, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Mill Pond Creek Access and take out about 2.7 miles downstream at Garrison Ramp for a short lower Kinniconick Creek float. KDFWR says to use the Tygarts Creek gauge as the Kinniconick proxy, with a good band of 2.5 to 3.5 ft or 50 to 130 cfs.',
+      accessCaveats: [
+        'Mill Pond and Garrison are both public KDFWR accesses, but neither is documented as a campground or service-heavy overnight facility.',
+        'The current proxy gauge sat inside the official good band during this run, so the route ships as runnable rather than scrape-framed.',
+        'Garrison is the intended public finish. Land at the named ramp rather than drifting past town in search of a more informal exit.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 2.5 ft or 50 cfs, when shallow riffles, rock bars, and dragging become more likely even on a short route.',
+        'High water above 3.5 ft or 130 cfs, when rain-driven rises, wood, and muddy landings make the creek less forgiving.',
+        'Wood, strainers, private banks outside the access sites, and take-out discipline at Garrison.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mill-pond-creek-access',
+        name: 'Mill Pond Creek Access',
+        latitude: 38.5882,
+        longitude: -83.1919,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the short lower Kinniconick split.',
+      },
+      {
+        id: 'garrison-ramp',
+        name: 'Garrison Ramp',
+        latitude: 38.6083,
+        longitude: -83.1637,
+        mileFromStart: 2.7,
+        segmentKind: 'creek',
+        note: 'Default take-out for the lower Kinniconick split.',
       },
     ],
   },
