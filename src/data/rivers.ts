@@ -52329,5 +52329,323 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'cloquet-river-indian-lake-bear-lake-road',
+    slug: 'cloquet-river-indian-lake-bear-lake-road',
+    name: 'Cloquet River',
+    reach: 'Indian Lake Access to Bear Lake Road',
+    state: 'Minnesota',
+    region: 'Duluth Area',
+    summary:
+      'Remote upper-Cloquet day from the Indian Lake access to Severson Landing / Bear Lake Road. The route now has a direct Brimson DNR gauge, official Map 2 route support, and public-water-access records at both endpoints.',
+    statusText:
+      'Use the Brimson / CSAH 44 gauge. DNR bands put the best medium window at 1,487 to 1,489.5 ft; below 1,485 ft is scrapable and above 1,491 ft is very high.',
+    latitude: 47.2713978,
+    longitude: -91.8507597,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'mn-dnr-288',
+      provider: 'mn_dnr',
+      siteId: '288',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'direct',
+      siteName: 'Cloquet River nr Brimson, CSAH44',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=04012001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=04012001&var1=232&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'strainers', 'remote', 'cold_water'],
+      safetyNotes: [
+        'DNR Map 2 calls out Class I-III rapids. Scout larger drops and use portages for Class II rapids and above unless the group has appropriate whitewater skill.',
+        'The upper Cloquet rises quickly after heavy rain and may take several days to settle. Treat rising water as a reason to reassess, even when the gauge is within interpreted bands.',
+        'This is a remote forested route with limited quick exits, cold shoulder-season water, fresh storm wood, and primitive landings.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1487,
+      idealMax: 1489.5,
+      tooLow: 1485,
+      tooHigh: 1491,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Cloquet River near Brimson',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'DNR says medium to heavy stream flow is best, spring runoff is usually highest, summer flows often fall, and heavy rain can quickly raise the upper river for three to seven days.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The 10.3-mile mileage, remote setting, Class II rapid set, possible Class III water, and portage/scouting decisions make this an advanced moving-water route rather than a casual scenic float.',
+      confidenceNotes:
+        'Confidence is high after the current DNR feed check: DNR recommends Indian Lake to Bear Lake Road as the Map 2 day trip, the Brimson gauge sits just upstream of the put-in at river mile 73.4 with official interpreted bands, and the public-water-access GIS resolves Indian Lake and Severson Landing / Bear Lake Road with matching river miles and coordinates.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '1,485 / 1,487-1,489.5 / 1,491 ft',
+        note: 'MN DNR interprets the Brimson gauge as Scrapable below 1,485 ft, Low from 1,485 to 1,487, Medium from 1,487 to 1,489.5, High from 1,489.5 to 1,491, and Very High above 1,491.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended trip',
+        value: '10.3 river miles',
+        note: 'MN DNR recommends Indian Lake Access to Bear Lake Road on Map 2, with Indian Lake at river mile 71.8 and the take-out at river mile 61.5.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/cloquet-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS01629 and WAS01633',
+        note: 'Minnesota public-water-access GIS resolves Indian Lake Public Water Access Site at river mile 71.8 and Cloquet River, Severson Landing / Bear Lake Road at river mile 61.5.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Route character',
+        value: 'Remote forest and Class II rapids',
+        note: 'DNR says this narrow northern stretch has wooded banks, a Class II rapid set halfway through, portage options, wildlife, and several public campsites.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/cloquet-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Cloquet River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/cloquet-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Cloquet River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/cloquet2.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'mississippi-river-itasca-coffee-pot-landing',
+    slug: 'mississippi-river-itasca-coffee-pot-landing',
+    name: 'Mississippi River',
+    reach: 'Lake Itasca to Coffee Pot Landing',
+    state: 'Minnesota',
+    region: 'Headwaters',
+    summary:
+      'Classic Mississippi headwaters route from Itasca State Park to Coffee Pot Landing. This official DNR day has a direct in-reach DNR gauge near Vern, public access records, and narrow wetland-river hazards that need a real same-day level check.',
+    statusText:
+      'Use the Vern / CSAH 37 DNR gauge. The medium band is 84.2 to 85 ft; below 84.2 ft is scrapable and above 87 ft is very high.',
+    latitude: 47.2337901,
+    longitude: -95.1983589,
+    gaugeSource: {
+      id: 'mn-dnr-305',
+      provider: 'mn_dnr',
+      siteId: '305',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'direct',
+      siteName: 'Mississippi River nr Vern, CSAH37',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=07052003',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=07052003&var1=232&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'low_head_dam', 'remote', 'cold_water'],
+      safetyNotes: [
+        'DNR says low water can require lifting over beaver dams, while high water may force carries around road culverts. Do not treat the headwaters as consequence-free because the channel is narrow.',
+        'Between Vekin\'s Dam and County Road 2, DNR identifies Class I rapids that can challenge new paddlers.',
+        'Dense wetland vegetation can obscure the main channel. Stay oriented to the downstream flow and avoid forcing side channels.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 84.2,
+      idealMax: 85,
+      tooLow: 84.2,
+      tooHigh: 87,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River near Vern',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and early summer usually give the cleanest water, but the headwaters can become obstructed by beaver dams at lower levels and more consequential around culverts during high water.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The route is not technical whitewater, but 15.4 miles of narrow channel, vegetation, beaver dams, culvert decisions, and Class I rapids make it more involved than a short park float.',
+      confidenceNotes:
+        'Confidence is high: MN DNR recommends the exact Lake Itasca to Coffee Pot Landing route, the Vern gauge sits inside the selected reach at river mile 1333.2 and has official interpreted bands, and the public-water-access GIS resolves both the Lake Itasca/headwaters access and Coffee Pot Landing with matching river miles.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '84.2 / 84.2-85 / 87 ft',
+        note: 'MN DNR interprets the Vern gauge as Scrapable below 84.2 ft, Medium from 84.2 to 85, High from 85 to 87, and Very High above 87. The Low band is effectively zero-width at 84.2 in the current feed.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended trip',
+        value: '15.4 river miles',
+        note: 'MN DNR recommends Lake Itasca to Coffee Pot Landing, starting at the Mississippi headwaters at river mile 1341.6 and ending at Coffee Pot Landing at river mile 1326.2.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'Lake Itasca WAS02379 and Coffee Pot WAS00730',
+        note: 'Minnesota public-water-access GIS resolves Lake Itasca Public Water Access Site at river mile 1341.6 and Coffee Pot Landing #2 at river mile 1326.2.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Route hazards',
+        value: 'Beaver dams, culverts, vegetation, Class I rapids',
+        note: 'DNR says paddlers may need to lift over beaver dams at low water or around culverts during high water, and that the Vekin\'s Dam to County Road 2 reach has Class I rapids.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Mississippi River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi1.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'mississippi-river-highway-6-trommald',
+    slug: 'mississippi-river-highway-6-trommald',
+    name: 'Mississippi River',
+    reach: 'Highway 6 to Trommald',
+    state: 'Minnesota',
+    region: 'Brainerd Lakes Area',
+    summary:
+      'Wide central-Mississippi day from the Highway 6 access to Trommald, upstream of the Brainerd dam corridor. DNR recommends the route as easy water, and the Brainerd DNR gauge gives it an official downstream corridor check.',
+    statusText:
+      'Use the Brainerd DNR gauge as a downstream corridor proxy: 1,800 to 7,000 cfs is the official medium band, below 908 cfs is scrapable, and above 10,000 cfs is very high.',
+    latitude: 46.5435051,
+    longitude: -93.9564174,
+    gaugeSource: {
+      id: 'mn-dnr-121',
+      provider: 'mn_dnr',
+      siteId: '121',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Mississippi River at Brainerd, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=10082002',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=10082002&var1=262&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'dam', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'The selected route ends at Trommald before the Brainerd dam and French Rapids corridor. Do not drift downstream into Brainerd unless the group has a separate dam-portage plan.',
+        'DNR says this reach has no rapids, but the current can become quite strong after rain and the river is wide enough for wind and motorboat wake to matter.',
+        'The Pine River enters midway through the route, so the downstream Brainerd gauge should be treated as a corridor check rather than a perfect put-in reading.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1800,
+      idealMax: 7000,
+      tooLow: 908,
+      tooHigh: 10000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River at Brainerd',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'DNR frames this as broad easy water, but the current can strengthen after rain and Brainerd-area dam operations make a current gauge and conservative take-out discipline important.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR says the trip has no rapids and typically takes about four hours, but wind, wakes, rain-swollen current, and the downstream dam corridor keep the route out of the carefree category.',
+      confidenceNotes:
+        'Confidence is good and explicitly proxy-caveated: DNR recommends Highway 6 to Trommald as an 11.7-mile day trip, Minnesota public-water-access GIS resolves both endpoints with exact river miles, and the Brainerd DNR gauge is the nearest official interpreted mainstem gauge downstream of the route. The Pine River joins midway and the gauge is below the selected take-out, so same-day visual checks at Highway 6 and Trommald still matter.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '908 / 1,800-7,000 / 10,000 cfs',
+        note: 'MN DNR interprets the Brainerd gauge as Scrapable below 908 cfs, Low from 908 to 1,800, Medium from 1,800 to 7,000, High from 7,000 to 10,000, and Very High above 10,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended trip',
+        value: '11.7 river miles',
+        note: 'MN DNR recommends Highway 6 to Trommald on Map 5, with Highway 6 at river mile 1030 and Trommald at river mile 1018.3.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS00999 and WAS02294',
+        note: 'Minnesota public-water-access GIS resolves Mississippi River, Hwy 6 Public Water Access Site and Mississippi River, Trommald Public Water Access Site with matching route river miles.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Route character',
+        value: 'Wide easy river, Pine River confluence',
+        note: 'DNR says this route winds through hardwood forest, intersects the Pine River midway, has no rapids, and can have strong current after rain.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Mississippi River Map 5 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi5.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
 ];
 

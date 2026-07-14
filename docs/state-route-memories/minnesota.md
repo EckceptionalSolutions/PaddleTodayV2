@@ -1,18 +1,25 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-13 19:36 America/Chicago.
+Last summarized: 2026-07-13 20:10 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 67.
-- Top represented rivers: Little Fork River 8, Mississippi River 6, Big Fork River 5, Minnesota River 4, Root River 4, North Fork Crow River 3, Snake River 3, Zumbro River 3.
-- Ledger candidates: 78 total; 50 `added`, 16 `threshold_weak`, 8 `no_live_gauge`, 2 `duplicate_corridor`, 1 `research_later`, 1 `rejected`.
+- Live routes: 70.
+- Top represented rivers: Little Fork River 8, Mississippi River 8, Big Fork River 5, Minnesota River 4, Root River 4, Cloquet River 2, North Fork Crow River 3, Snake River 3, Zumbro River 3.
+- Ledger candidates: 81 total; 53 `added`, 16 `threshold_weak`, 8 `no_live_gauge`, 2 `duplicate_corridor`, 1 `research_later`, 1 `rejected`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-13 20:10 America/Chicago: added `cloquet-river-indian-lake-bear-lake-road`, `mississippi-river-itasca-coffee-pot-landing`, and `mississippi-river-highway-6-trommald`.
+- Baseline at run start was 67 live Minnesota routes; patched route data now imports 70 Minnesota routes with no missing trip-detail records found during the count check.
+- Stayed in Minnesota and promoted three official DNR routes because the current MN DNR river-level feed exposes interpreted gauge ladders that earlier blocker notes had not used: Cloquet Brimson site `288` at `1485 / 1487-1489.5 / 1491 ft`, Mississippi Vern site `305` at `84.2 / 84.2-85 / 87 ft`, and Mississippi Brainerd site `121` at `908 / 1800-7000 / 10000 cfs`.
+- Minnesota public-water-access GIS resolves all six endpoints: Indian Lake `WAS01629`, Severson Landing / Bear Lake Road `WAS01633`, Lake Itasca `WAS02379`, Coffee Pot Landing `WAS00730`, Highway 6 `WAS00999`, and Trommald `WAS02294`.
+- `cloquet-river-indian-lake-bear-lake-road` ships as an advanced/whitewater upper-Cloquet route with Class I-III rapids, portage/scouting, remote-exposure, and on-route primitive campsite caveats; `mississippi-river-itasca-coffee-pot-landing` ships as a long headwaters day with beaver-dam, culvert, dense-vegetation, and Class I rapid caveats; `mississippi-river-highway-6-trommald` ships as a broad easy Mississippi day with the Brainerd gauge documented as a downstream proxy because the Pine River joins midway and the gauge is below the Trommald finish.
+- No route-gallery images were added; `docs/river-image-source-audit.csv` records bounded no-image outcomes for all three slugs.
 
 - 2026-07-13 19:36 America/Chicago: added `mississippi-river-royalton-stearns-county-park`, `vermilion-river-twomile-eightmile`, and `red-river-highway-25-halstad`.
 - Baseline at run start was 64 live Minnesota routes; patched route data now imports 67 Minnesota routes with no missing trip-detail entries found during the count check.

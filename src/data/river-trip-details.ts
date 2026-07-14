@@ -19977,5 +19977,110 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'cloquet-river-indian-lake-bear-lake-road': {
+    putIn: {
+      name: 'Indian Lake Public Water Access Site',
+      latitude: 47.2713978,
+      longitude: -91.8507597,
+    },
+    takeOut: {
+      name: 'Cloquet River, Severson Landing / Bear Lake Road Public Water Access Site',
+      latitude: 47.2079219,
+      longitude: -91.9398991,
+    },
+    logistics: {
+      distanceLabel: '10.3 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with scouting, low water, or portages',
+      shuttle:
+        'Stage the take-out at Severson Landing / Bear Lake Road before driving to Indian Lake. Both endpoints are remote St. Louis County accesses, so confirm road conditions, parking, daylight, and cell-coverage assumptions before launch.',
+      permits:
+        'No route-specific paddling permit is known. Use DNR public accesses, follow Minnesota boating/PFD rules, and follow posted state-forest or water-trail rules at campsites and portages.',
+      camping:
+        'DNR says Map 2 has several primitive first-come watercraft campsites on DNR-managed property. Treat them as rustic stops with no drinking water and use only designated sites rather than private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Indian Lake and take out at Severson Landing / Bear Lake Road for MN DNR\'s recommended upper-Cloquet day. This is the more remote Class I-III upper stretch, using the Brimson gauge just upstream of the put-in as the direct level check.',
+      accessCaveats: [
+        'Indian Lake and Bear Lake Road are DNR-administered public access sites with matching water-trail river miles in the current GIS record.',
+        'The Brimson / CSAH 44 gauge is upstream of the put-in and direct to this upper corridor, but visual confirmation at Indian Lake still matters because individual rapids, wood, and portage usability can change.',
+        'The route is not a beginner float. DNR says portages are available for Class II rapids and above and should be used by beginners.',
+      ],
+      watchFor: [
+        'Class II rapid set around the middle of the route, possible Class III water, and mandatory scouting decisions. Use portages when uncertain.',
+        'Low stages below the DNR medium band, when rapids become rocky and dragging or boat damage become more likely.',
+        'High or rising water after heavy rain, fresh strainers, cold water, remote exposure, and limited quick exits.',
+      ],
+    },
+  },
+  'mississippi-river-itasca-coffee-pot-landing': {
+    putIn: {
+      name: 'Lake Itasca Public Water Access Site / Mississippi Headwaters',
+      latitude: 47.2337901,
+      longitude: -95.1983589,
+    },
+    takeOut: {
+      name: 'Mississippi River, Coffee Pot Landing #2 Public Water Access Site',
+      latitude: 47.3492223,
+      longitude: -95.1830624,
+    },
+    logistics: {
+      distanceLabel: '15.4 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr, longer with beaver dams, culvert carries, or headwind',
+      shuttle:
+        'Stage the take-out at Coffee Pot Landing north of Itasca State Park, then drive back to the Lake Itasca/headwaters access. This is a long narrow-river day, so start early and keep a daylight margin for obstruction delays.',
+      permits:
+        'No route-specific paddling permit is known. Follow Itasca State Park vehicle/access rules, DNR public-access rules, Minnesota boating/PFD requirements, and any posted state-park or state-forest rules.',
+      camping:
+        'Treat the selected route as a long day trip. Itasca State Park and nearby public lands can support separate base-camp planning, but DNR does not frame this exact recommended day trip around an on-route campsite.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at the Mississippi headwaters area in Itasca State Park and paddle to Coffee Pot Landing. The route uses the direct Vern gauge inside the reach and keeps the official DNR beaver-dam, culvert, vegetation, and Class I rapid cautions prominent.',
+      accessCaveats: [
+        'The GIS access record for Lake Itasca matches the DNR route river mile, but paddlers should follow Itasca State Park signs and any current launch/rental instructions at the headwaters area.',
+        'Coffee Pot Landing is a DNR public access on the south bank of the Mississippi at the DNR-recommended take-out mile.',
+        'The Vern gauge is inside the selected route, but this narrow headwaters corridor can still require visual judgment around beaver dams, culverts, and vegetation.',
+      ],
+      watchFor: [
+        'Beaver dams in low water and road-culvert carries in high water.',
+        'Dense wetland vegetation that can make the main downstream channel hard to read.',
+        'Class I rapids between Vekin\'s Dam and County Road 2, log jams, cold water, mosquitoes, and a longer-than-expected pace.',
+      ],
+    },
+  },
+  'mississippi-river-highway-6-trommald': {
+    putIn: {
+      name: 'Mississippi River, Hwy 6 Public Water Access Site',
+      latitude: 46.5435051,
+      longitude: -93.9564174,
+    },
+    takeOut: {
+      name: 'Mississippi River, Trommald Public Water Access Site',
+      latitude: 46.5149237,
+      longitude: -94.0696772,
+    },
+    logistics: {
+      distanceLabel: '11.7 mi',
+      estimatedPaddleTime: 'About 4 hr to 5.5 hr, longer with wind, fishing stops, or strong current',
+      shuttle:
+        'Stage the take-out at Trommald, then drive back to the Highway 6 access north of Crosby. Inspect both ramps before leaving the shuttle vehicle because broad-river wind, high-water cleanup, and launch crowding can change same-day usability.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR public accesses, follow Minnesota boating/PFD requirements, and respect posted parking, fishing, and access rules.',
+      camping:
+        'Treat this as a day route. DNR points to Crow Wing State Park camping farther downstream, but that is below the selected Trommald take-out and should be planned as a separate base-camp option.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Highway 6 and take out at Trommald for MN DNR\'s recommended broad Mississippi day above Brainerd. Use the Brainerd DNR gauge as the official downstream corridor proxy, with explicit caution that the Pine River joins midway and the route ends upstream of the dam corridor.',
+      accessCaveats: [
+        'Both Highway 6 and Trommald are DNR-administered public accesses with matching river miles in the current public-water-access GIS record.',
+        'The Brainerd gauge is downstream of the take-out and below the Pine River confluence, so it is a conservative corridor proxy rather than an exact put-in reading.',
+        'Finish at Trommald for this route. Do not drift toward Brainerd, French Rapids, or the dam/portage corridor without a separate plan.',
+      ],
+      watchFor: [
+        'Stronger current after rain, especially with Pine River inflow.',
+        'Motorboats and fishing traffic on the wide river.',
+        'Wind, floating wood, cold water, private banks, and downstream dam-corridor complacency after an easy first half.',
+      ],
+    },
+  },
 };
 
