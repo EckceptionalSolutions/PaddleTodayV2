@@ -15551,6 +15551,301 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'cannon-river-wilderness-northfield',
+    slug: 'cannon-river-wilderness-northfield',
+    name: 'Cannon River',
+    reach: 'Cannon River Wilderness Area to Riverside City Park, Northfield',
+    state: 'Minnesota',
+    region: 'Southern Minnesota',
+    summary:
+      'Shorter upper-Cannon recommended section through the wooded Cannon River Wilderness corridor into Northfield, with a direct DNR gauge at the take-out.',
+    statusText:
+      'Use the Northfield gauge. The official medium band is 202 to 2,730 cfs; below 88 cfs is too shallow, and above 3,710 cfs is very high for this wooded reach.',
+    latitude: 44.3699667,
+    longitude: -93.2313333,
+    gaugeSource: {
+      id: 'mn-dnr-16',
+      provider: 'mn_dnr',
+      siteId: '16',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cannon River at Northfield, 2nd St West',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=39069002',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=39069002&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 202,
+      idealMax: 2730,
+      tooLow: 88,
+      tooHigh: 3710,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Cannon River at Northfield',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall can work, but the upper Cannon gets shallow in dry stretches and can rise quickly after heavy rain. Use the Northfield gauge with a same-day visual check at the Wilderness Area launch.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a recommended, mostly gentle Cannon reach, but shallow rocky spots, fresh wood, and blind bends still matter in the wooded park corridor.',
+      confidenceNotes:
+        'Confidence is high: MN DNR lists Cannon River Wilderness Area to Riverside City Park as an 8.5-mile recommended paddling section, Rice County documents a canoe launch and primitive campsites at the Wilderness Area, the Northfield take-out resolves in the Minnesota public-water-access GIS, and the DNR Northfield gauge sits at the route finish with official interpretation bands.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '88 / 202-2,730 / 3,710 cfs',
+        note: 'MN DNR interprets the Northfield gauge as Scrapable below 88 cfs, Low from 88 to 202, Medium from 202 to 2,730, High from 2,730 to 3,710, and Very High above 3,710.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended section',
+        value: '8.5 river miles',
+        note: 'MN DNR lists Cannon River Wilderness Area carry-in access at river mile 50.6 to Riverside City Park in Northfield at river mile 42.1 as a recommended one-way paddling section.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Put-in support',
+        value: 'Rice County canoe launch',
+        note: 'Rice County says Cannon River Wilderness Area has a canoe launch, portable toilets in season, a picnic area, and four primitive campsites; the south entrance coordinate is the practical launch-side anchor.',
+        sourceUrl: 'https://www.ricecountymn.gov/facilities/facility/details/Cannon-River-Wilderness-Area-4',
+      },
+      {
+        label: 'Take-out access',
+        value: 'DNR access ID WAS01379',
+        note: 'Minnesota public-water-access GIS resolves Riverside City Park / Highway 3 in Northfield at river mile 42.1, matching the DNR recommended-section endpoint and the Northfield gauge corridor.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Cannon cautions',
+        value: 'Shallow dry periods, dams, wood',
+        note: 'DNR says the upper Cannon is usually canoeable except during very dry periods and reminds paddlers to know dam locations; use this short section, not a downstream extension, unless separately planned.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR recommended one-way sections',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Cannon River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html',
+      },
+      {
+        label: 'Rice County Cannon River Wilderness Area',
+        url: 'https://www.ricecountymn.gov/facilities/facility/details/Cannon-River-Wilderness-Area-4',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'cottonwood-river-highway-4-highway-15',
+    slug: 'cottonwood-river-highway-4-highway-15',
+    name: 'Cottonwood River',
+    reach: 'Highway 4 Access to Highway 15 Access',
+    state: 'Minnesota',
+    region: 'Southern Minnesota',
+    summary:
+      'Long official Cottonwood River recommended section from the Sleepy Eye-area Highway 4 access into New Ulm, with public landings and a direct DNR gauge near the finish.',
+    statusText:
+      'Use the New Ulm gauge. The official medium band is 250 to 870 cfs; below 150 cfs is too low, and above 2,190 cfs is very high for this long wooded valley route.',
+    latitude: 44.2352134,
+    longitude: -94.7256361,
+    gaugeSource: {
+      id: 'mn-dnr-39',
+      provider: 'mn_dnr',
+      siteId: '39',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cottonwood River nr New Ulm, MN68',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=29001001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=29001001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 250,
+      idealMax: 870,
+      tooLow: 150,
+      tooHigh: 2190,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Cottonwood River near New Ulm',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and post-rain windows are most reliable. The Cottonwood has no major rapids, but long distance, agricultural runoff, snags, and muddy landings make same-day level and weather checks important.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The river is not technically hard, but this is about a 30-mile section with limited public exits, so treat it as a long day or conservative overnight-style plan.',
+      confidenceNotes:
+        'Confidence is good: MN DNR lists Highway 4 to Highway 15 as a 30-mile recommended paddling section, the public-water-access GIS resolves the launch, mid-route options, and finish, and the New Ulm DNR gauge is inside the lower route with official interpretation bands. The main caution is trip commitment rather than source quality.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '150 / 250-870 / 2,190 cfs',
+        note: 'MN DNR interprets the New Ulm gauge as Scrapable below 150 cfs, Low from 150 to 250, Medium from 250 to 870, High from 870 to 2,190, and Very High above 2,190.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended section',
+        value: '30.0 river miles',
+        note: 'MN DNR lists State Highway 4 carry-in access at river mile 31.6 to Highway 15 carry-in access at river mile 1.6 as a recommended one-way section.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Route character',
+        value: 'Beginner river, long commitment',
+        note: 'DNR says the Cottonwood canoeable portion has no major rapids and is good for beginning paddlers, while the lower valley near Flandrau and New Ulm has steep wooded slopes.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/cottonwood-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS02675 and WAS01419',
+        note: 'Minnesota public-water-access GIS resolves the Highway 4 put-in, Cottonwood Street / Highway 15 finish, and useful intermediate public exits at County Road 10, County Road 11, Flandrau State Park, and Cottonwood Street.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping context',
+        value: 'Flandrau State Park near lower route',
+        note: 'DNR highlights Flandrau State Park near river mile 6 with camping, toilets, drinking water, hiking, and a sand-bottomed pool; treat camping as a separate park plan, not an informal riverbank option.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/cottonwood-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR recommended one-way sections',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Cottonwood River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/cottonwood-river/segments-maps.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'minnesota-river-le-sueur-henderson',
+    slug: 'minnesota-river-le-sueur-henderson',
+    name: 'Minnesota River',
+    reach: 'Le Sueur Access to Henderson Access',
+    state: 'Minnesota',
+    region: 'Minnesota River Valley',
+    summary:
+      'Short lower-Minnesota recommended section from Le Sueur to Henderson, using the direct Henderson DNR gauge and a fully public trailer-access pair.',
+    statusText:
+      'Use the Henderson gauge. The official medium band is 710 to 725 ft; below 675 ft is too low, and above 728 ft is very high for a general recommendation.',
+    latitude: 44.4632749,
+    longitude: -93.9176049,
+    gaugeSource: {
+      id: 'mn-dnr-94',
+      provider: 'mn_dnr',
+      siteId: '94',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Minnesota River at Henderson, MN19',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=33032001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=33032001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 710,
+      idealMax: 725,
+      tooLow: 675,
+      tooHigh: 728,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Minnesota River at Henderson',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the practical season. The lower Minnesota has enough volume to stay boatable, but flood debris, mud, wind, and sandbar exposure still define the day.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR frames this as one of the easy stretches in Map 5. It is still a big-river shuttle where wind, muddy banks, and private shoreland matter more than rapids.',
+      confidenceNotes:
+        'Confidence is high: MN DNR lists Le Sueur to Henderson as a 7.1-mile recommended section, both endpoints resolve in the Minnesota public-water-access GIS with matching river miles, and the Henderson DNR gauge is at the take-out with official interpretation bands.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '675 / 710-725 / 728 ft',
+        note: 'MN DNR interprets the Henderson gauge as Scrapable below 675 ft, Low from 675 to 710, Medium from 710 to 725, High from 725 to 728, and Very High above 728.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended section',
+        value: '7.1 river miles',
+        note: 'MN DNR lists Le Sueur trailer access at river mile 74.2 to Henderson trailer access at river mile 67.1 as a recommended one-way paddling section.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Segment context',
+        value: 'Easy lower-valley stretch',
+        note: 'The DNR Minnesota River Map 5 text says there are easy stretches on this section, including Le Sueur to Henderson past the Rush River outlet.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS02350 and WAS00793',
+        note: 'Minnesota public-water-access GIS resolves the Le Sueur launch at river mile 74.2 and the Henderson take-out at river mile 67.0, matching the DNR recommended-section corridor.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Safety posture',
+        value: 'Big-river wind, mud, private banks',
+        note: 'Use named public accesses only, watch for flood debris and muddy landings, and avoid treating sandbars or private banks as guaranteed legal stops.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR recommended one-way sections',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Minnesota River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
     id: 'wisconsin-river-muscoda-blue-river',
     slug: 'wisconsin-river-muscoda-blue-river',
     name: 'Wisconsin River',

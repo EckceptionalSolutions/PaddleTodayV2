@@ -1,18 +1,25 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 11:45 America/Chicago.
+Last summarized: 2026-07-14 12:11 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 82.
-- Top represented rivers: Mississippi River 9, Little Fork River 8, Big Fork River 5, Crow Wing River 4, Minnesota River 4, Red River of the North 4, Root River 4, Zumbro River 4, Rum River 3, Snake River 3.
-- Ledger candidates: 87 total; 65 `added`, 11 `threshold_weak`, 7 `no_live_gauge`, 2 `duplicate_corridor`, 1 `research_later`, 1 `rejected`.
+- Live routes: 103.
+- Top represented rivers: Sauk River 17, Little Fork River 9, Mississippi River 9, Crow Wing River 6, Big Fork River 5, Minnesota River 5, Red River of the North 4, Root River 4, Zumbro River 4, Cannon River 3.
+- Ledger candidates: 88 total; 68 `added`, 10 `threshold_weak`, 6 `no_live_gauge`, 2 `duplicate_corridor`, 1 `research_later`, 1 `rejected`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-14 12:11 America/Chicago: added `cannon-river-wilderness-northfield`, `cottonwood-river-highway-4-highway-15`, and `minnesota-river-le-sueur-henderson`.
+- Baseline at run start was 100 live Minnesota routes; patched route data now imports 103 Minnesota routes with no missing trip-detail records.
+- Stayed in Minnesota and promoted three DNR recommended one-way sections with direct interpreted DNR gauge support: Cannon River Wilderness Area to Riverside City Park `8.5` miles, Cottonwood Highway 4 to Highway 15 `30.0` miles, and Minnesota River Le Sueur to Henderson `7.1` miles.
+- Minnesota public-water-access GIS resolves Cannon Riverside City Park `WAS01379`, Cottonwood Highway 4 `WAS02675`, Cottonwood Highway 15 / Cottonwood Street `WAS01419`, Minnesota River Le Sueur `WAS02350`, and Henderson `WAS00793`; Rice County documents the Cannon River Wilderness Area canoe launch, seasonal facilities, and four primitive campsites.
+- Current MN DNR river-level feed exposed interpreted ladders for Cannon Northfield site `16` (`88 / 202-2730 / 3710 cfs`), Cottonwood New Ulm site `39` (`150 / 250-870 / 2190 cfs`), and Minnesota River Henderson site `94` (`675 / 710-725 / 728 ft`). All three routes ship with direct DNR gauge models.
+- No route-gallery images were added. Bounded DNR / county / Commons / USGS image review found no clearly rights-clean exact Cannon or Minnesota River route image; Cottonwood has a Commons lower-route/Flandrau lead but no local gallery asset was wired in this run.
 
 - 2026-07-14 11:45 America/Chicago: added `rum-river-wayside-milaca`, `st-louis-river-county-road-4-95`, and `cedar-river-riverwood-state-line`.
 - Baseline at run start was 79 live Minnesota routes; patched route data now imports 82 Minnesota routes with no missing trip-detail records found during the count check.

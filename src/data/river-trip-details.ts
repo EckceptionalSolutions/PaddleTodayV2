@@ -6315,6 +6315,111 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'cannon-river-wilderness-northfield': {
+    putIn: {
+      name: 'Cannon River Wilderness Area canoe launch',
+      latitude: 44.3699667,
+      longitude: -93.2313333,
+    },
+    takeOut: {
+      name: 'Riverside City Park / Highway 3 public water access',
+      latitude: 44.4531293,
+      longitude: -93.1647835,
+    },
+    logistics: {
+      distanceLabel: '8.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr',
+      shuttle:
+        'Stage the take-out at Riverside City Park in Northfield, then drive back to the Cannon River Wilderness Area launch. This is a short enough shuttle for a simple two-car plan, but inspect the carry paths and parking before leaving a vehicle.',
+      permits:
+        'No special paddling permit is known. Use the named public launch and take-out, follow Rice County and Northfield parking rules, and check Minnesota boating/PFD requirements.',
+      camping:
+        'Cannon River Wilderness Area has four primitive campsites, but this route works best as a day trip. Treat any overnight as a separate county-park plan rather than assuming riverbank camping is legal downstream.',
+      summary:
+        'Launch at the Cannon River Wilderness Area and take out at Riverside City Park in Northfield for the DNR-recommended 8.5-mile upper-Cannon section. The Northfield DNR gauge is at the finish and gives the cleanest same-day level call.',
+      accessCaveats: [
+        'The Cannon River Wilderness Area launch is a county-park carry-in, not a full-service outfitter landing. Confirm open hours, parking, and seasonal portable-toilet status before staging.',
+        'Riverside City Park / Highway 3 is the intended Northfield public-water-access take-out at the gauge corridor; do not drift past town without a separate downstream plan and dam review.',
+        'The upper Cannon is usually canoeable except during very dry periods, so make a visual call at the put-in even when the Northfield gauge is inside the official medium band.',
+      ],
+      watchFor: [
+        'Scraping and short carries as flow drops toward the official low and scrapable bands.',
+        'Fresh wood, tight bends, blind-corner strainers, and fast rises after storms in the wooded park corridor.',
+        'Dam awareness around Northfield and any downstream extension; this route ends at Riverside City Park.',
+        'Private banks between public access points; use only legal stops unless you have explicit permission.',
+      ],
+    },
+  },
+  'cottonwood-river-highway-4-highway-15': {
+    putIn: {
+      name: 'Highway 4 public water access',
+      latitude: 44.2352134,
+      longitude: -94.7256361,
+    },
+    takeOut: {
+      name: 'Highway 15 / Cottonwood Street Bridge public water access',
+      latitude: 44.2826599,
+      longitude: -94.4360667,
+    },
+    logistics: {
+      distanceLabel: '30.0 mi',
+      estimatedPaddleTime: 'About 10 hr to 14 hr; consider splitting the trip',
+      shuttle:
+        'This is a long lower-Cottonwood shuttle from the Sleepy Eye-area Highway 4 access to New Ulm. Stage the Highway 15 / Cottonwood Street finish first, identify intermediate exits, then drive back to Highway 4.',
+      permits:
+        'No special paddling permit is known. Use public accesses, follow posted DNR, city, county, and state-park rules, and check Minnesota boating/PFD requirements.',
+      camping:
+        'Treat this as a long day unless you separately reserve or stage around Flandrau State Park near the lower route. Do not assume private riverbanks or agricultural edges are legal overnight stops.',
+      summary:
+        'Launch at Highway 4 and finish at the Highway 15 / Cottonwood Street bridge access in New Ulm for the DNR-recommended 30-mile Cottonwood section. The New Ulm DNR gauge is in the lower route and has official interpreted flow bands.',
+      accessCaveats: [
+        'Highway 4 and Highway 15 are public-water-access records, but the route length makes bailout planning essential.',
+        'Useful public intermediate exits include County Road 10, County Road 11, Flandrau State Park, and Cottonwood Street / New Ulm access points; confirm which stops match your group before launching.',
+        'Flandrau State Park camping and facilities are a separate park plan, not a guarantee of casual riverbank camping.',
+      ],
+      watchFor: [
+        'Long-distance fatigue, late finish risk, and limited public exits if the current is soft.',
+        'Snags, strainers, muddy banks, undercut corners, agricultural runoff, and flood debris after rises.',
+        'Low-water dragging below the official medium band and pushy, debris-rich current as the gauge moves into high or very high.',
+        'Private land along much of the corridor; stay with public landings and confirmed legal stops.',
+      ],
+    },
+  },
+  'minnesota-river-le-sueur-henderson': {
+    putIn: {
+      name: 'Minnesota River Le Sueur public water access',
+      latitude: 44.4632749,
+      longitude: -93.9176049,
+    },
+    takeOut: {
+      name: 'Henderson public water access',
+      latitude: 44.5299631,
+      longitude: -93.9019182,
+    },
+    logistics: {
+      distanceLabel: '7.1 mi',
+      estimatedPaddleTime: 'About 2 hr 15 min to 3 hr 30 min',
+      shuttle:
+        'Stage the take-out at Henderson, then drive back to the Le Sueur public access. Keep the shuttle simple and inspect both ramps for mud, flood cleanup, parking limits, and river approach before launching.',
+      permits:
+        'No special paddling permit is known. Use the named public accesses, follow posted city/DNR rules, and check Minnesota boating/PFD requirements.',
+      camping:
+        'Treat this as a day trip. No on-route campsite was selected for the card, and sandbars or banks should not be treated as guaranteed legal overnight options.',
+      summary:
+        'Launch at Le Sueur and take out at Henderson for the DNR-recommended 7.1-mile lower-Minnesota section past the Rush River outlet. The Henderson DNR gauge sits at the finish and provides the route level model.',
+      accessCaveats: [
+        'Both endpoints are public-water-access records, but mud, high-water cleanup, and changing ramp edges can control usability on the lower Minnesota River.',
+        'This is a big-river valley route. Do not count on private banks, sandbars, or informal landings for legal stops.',
+        'Wind can slow the short mileage more than expected, especially on open bends and wider water near Henderson.',
+      ],
+      watchFor: [
+        'Flood debris, floating wood, muddy landings, and soft banks after high water.',
+        'Shallow bars and exposed mud as the Henderson gauge falls into the low or scrapable bands.',
+        'The Rush River outlet and other confluence seams, especially after rain.',
+        'Private shoreland and agricultural edges; use the named public accesses for entry and exit.',
+      ],
+    },
+  },
   'wisconsin-river-muscoda-blue-river': {
     putIn: {
       name: 'Riverside Park / Muscoda west-side landing',
