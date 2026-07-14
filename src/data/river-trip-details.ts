@@ -2080,6 +2080,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'wolf-river-pearson-lily': {
+    putIn: {
+      name: 'Pearson County T Landing',
+      latitude: 45.36483,
+      longitude: -89.01867,
+    },
+    takeOut: {
+      name: 'Lily Highway 52 Landing',
+      latitude: 45.30791,
+      longitude: -88.858,
+    },
+    logistics: {
+      distanceLabel: '12.8 mi',
+      estimatedPaddleTime: 'About 5 hr to 6 hr',
+      shuttle:
+        'Use a two-car shuttle between the County T landing at Pearson and the Highway 52 landing at Lily. Identify the Lily take-out before launching because the current can be fast under the Highway 52 bridge at higher flows.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted landing rules in the Upper Wolf corridor and do not use private banks, roads, or informal pull-offs as casual staging areas.',
+      camping:
+        'No on-route camping is documented for this WTG day segment. Treat it as a long day paddle and arrange nearby campground or lodging separately.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Pearson County T Landing and paddle the upper Wolf to the Lily Highway 52 landing. The route starts with quiet marsh-and-forest water, then runs Wendigo Rapids, Strauss Rapids, Overton Rapids, and bouldery riffles before the Lily bridge.',
+      accessCaveats: [
+        'Wisconsin Trail Guide describes Pearson as a hand-carry access with roadside parking about 100 yards east of the County T bridge.',
+        'Highway 52 at Lily has parking, trailer turnaround, and a short path to the water, but the landing is just downstream of the bridge on river right.',
+        'The Langlade gauge is 14.7 miles downstream, so check local visual conditions and recent rainfall instead of treating the gauge as exact at Pearson.',
+      ],
+      watchFor: [
+        'Wendigo Rapids can be nearly unnavigable at low flow and may require scouting or portage from the County A bridge area.',
+        'Strauss and Overton rapids, boulder gardens, strainers, overhanging trees, and cold water.',
+        'Pushier waves and faster current above about 1100 cfs on the Langlade gauge; novice paddlers should avoid unusually high water.',
+      ],
+    },
+  },
   'wolf-river-lily-hollister': {
     putIn: {
       name: 'Hwy 52 access (Lily)',
@@ -7692,6 +7727,76 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Pushier current and covered sandbars above about 500 cfs on the La Crosse gauge.',
         'Minor Class I current around I-90 and changing wood after storms or spring runoff.',
         'Campground traffic, bike-trail traffic, and limited take-out amenities.',
+      ],
+    },
+  },
+  'black-river-cormican-irving': {
+    putIn: {
+      name: 'Bruce Cormican Canoe Landing',
+      latitude: 44.28787,
+      longitude: -90.85102,
+    },
+    takeOut: {
+      name: 'David Hansen Memorial Landing at Irving',
+      latitude: 44.18761,
+      longitude: -90.89892,
+    },
+    logistics: {
+      distanceLabel: '12.1 mi',
+      estimatedPaddleTime: 'About 5 hr',
+      shuttle:
+        'Use a two-car shuttle from the Bruce Cormican landing in Black River Falls to Hansen Landing at Irving. Perry Creek and Mason landings can shorten the day, but this route keeps the full WTG BK2 public chain.',
+      permits:
+        'No route-specific paddling permit is known for a day trip. If using the Black River State Forest canoe campsite, confirm current state-forest special-camp permit rules and availability before relying on it.',
+      camping:
+        'Black River State Forest maintains a primitive canoe/kayak campsite below Hawk Island with two first-come tent sites, picnic tables, fire rings, and a shared toilet; plan it as an on-route option only after confirming current DNR permit and water-level guidance.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Put in at Bruce Cormican Canoe Landing below Black River Falls and take out at David Hansen Memorial Landing at Irving. This is a quietwater state-forest route with Hawk Island riffles, sandy creeks, a primitive canoe campsite, and sandstone-bluff scenery.',
+      accessCaveats: [
+        'Cormican is a hand-carry landing with paved parking near Black River Falls; confirm the landing and downstream dam/current situation before staging.',
+        'Perry Creek and Mason landings are intermediate options, but they change the route length and campsite plan.',
+        'Hansen Landing is a semi-developed hand-carry access below Trout Run. Use the named landing rather than private banks near Irving.',
+      ],
+      watchFor: [
+        'Class I riffles and shallow channels around Hawk Island, especially if the gauge is near the 200 cfs floor.',
+        'Strainers, deadfall, sandy drop-offs near scenic bluffs, and shallow tributary mouths.',
+        'High or rising water that covers beaches, speeds the current, and makes the canoe campsite or sandbar stops unsafe.',
+      ],
+    },
+  },
+  'black-river-irving-melrose': {
+    putIn: {
+      name: 'David Hansen Memorial Landing at Irving',
+      latitude: 44.17384,
+      longitude: -90.91371,
+    },
+    takeOut: {
+      name: 'DNR Canoe Landing at Melrose',
+      latitude: 44.10879,
+      longitude: -90.99627,
+    },
+    logistics: {
+      distanceLabel: '11.8 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr',
+      shuttle:
+        'Use a two-car shuttle from Hansen Landing at Irving to the DNR Canoe Landing at Melrose. Linde Landing is a mid-route access, but this app route keeps the full Irving-to-Melrose segment.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted DNR, county, and local landing rules, and do not use private campground landings unless you are a guest with permission.',
+      camping:
+        'Wisconsin Trail Guide says beach camping is available on this reach when water levels are medium or lower, but limit any stop to one night, check weather and water-level forecasts first, and avoid private banks or high-water sandbars.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch at David Hansen Memorial Landing at Irving and finish at the DNR Canoe Landing at Melrose. This is a slow, scenic lower-Black route with sandy beaches, island forks, deadfall-prone bends, Linde Landing, and conifer-covered rock bluffs.',
+      accessCaveats: [
+        'Hansen Landing is the planned public start; Lost Falls Campground downstream is private and should not be treated as a public access.',
+        'The Melrose take-out is a developed DNR landing immediately downstream of the Highway 71 bridge with a ramp, turnaround, parking, and pit toilet.',
+        'Sandbar or beach camping depends on water level and weather. Do not camp where rising water, private ownership, or posted rules make the stop unsafe or illegal.',
+      ],
+      watchFor: [
+        'Shallow sandy forks around the two large wooded islands when the gauge is near the low end.',
+        'Deadfall and strainers in alternate channels, private lawns near Roaring Creek, and slippery footing if wading to side creeks.',
+        'High or rising water that covers beaches, reduces camping options, and makes rescue or private-bank exits harder.',
       ],
     },
   },

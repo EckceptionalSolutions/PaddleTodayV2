@@ -2997,6 +2997,112 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'wolf-river-pearson-lily',
+    slug: 'wolf-river-pearson-lily',
+    name: 'Wolf River',
+    reach: 'Pearson County T Landing to Lily Highway 52 Landing',
+    state: 'Wisconsin',
+    region: 'Northwoods Wisconsin',
+    summary:
+      'Upper Wolf River day from Pearson to Lily, with a long forest-and-marsh lead-in, Wendigo Rapids, Strauss Rapids, Overton Rapids, and WTG route-specific Langlade-gauge flow guidance.',
+    statusText:
+      'Use the Wolf River at Langlade gauge as a downstream proxy. Treat 500 to 1100 cfs as the best broad window, 250 to 500 cfs as low runnable with possible Wendigo portage, 1100 to 1800 cfs as high and pushy for novices, and above 1800 cfs as too high for a general recommendation.',
+    latitude: 45.36483,
+    longitude: -89.01867,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04074950',
+      provider: 'usgs',
+      siteId: '04074950',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Wolf River at Langlade, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04074950/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 500,
+      idealMax: 1100,
+      tooLow: 250,
+      tooHigh: 1800,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Wolf River Pearson-to-Lily suggested river levels',
+        url: 'https://wisconsintrailguide.com/paddle/wolf-river-pearson.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Wisconsin Trail Guide says the spring-fed upper Wolf usually stays navigable through spring, summer, and fall, but dry spells can make the route too low for an enjoyable paddle and sustained rain can raise levels quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'WTG labels the route novice with Class II as the hardest rapid, but Wendigo Rapids, a 12.8-mile day, cold water, strainers, and a downstream proxy gauge make this a guarded moving-water route rather than a casual float.',
+      confidenceNotes:
+        'Confidence is good for a WTG-backed Wisconsin add: Wisconsin Trail Guide documents the exact Pearson County T-to-Lily Highway 52 route, route mileage, endpoint WGS84 coordinates, public landing descriptions, named rapids, and a complete Langlade-gauge ladder. The main caveat is that the USGS gauge is 14.7 miles downstream from the segment, so the app treats it as a proxy and keeps high-water messaging conservative.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific bands',
+        value: '250 / 500-1100 / 1800 cfs',
+        note: 'Wisconsin Trail Guide says below 250 cfs is not recommended, 250-500 cfs is low runnable with a possible Wendigo portage, 500-700 cfs is good, 700-1100 cfs is excellent, 1100-1800 cfs is high runnable for novices, and above 1800 cfs should be avoided by novice paddlers.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/wolf-river-pearson.html',
+      },
+      {
+        label: 'Proxy gauge',
+        value: 'USGS 04074950',
+        note: 'Wisconsin Trail Guide ties the route to the Wolf River at Langlade gauge and says the gauge is 14.7 miles downstream, useful as a general height estimate rather than exact local water.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/wolf-river-pearson.html',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.36483, -89.01867 to 45.30791, -88.85800',
+        note: 'The WTG W1 guide publishes NAD83 / WGS84 coordinates for Pearson County T Landing and Highway 52 Landing at Lily.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-wolf1.pdf',
+      },
+      {
+        label: 'Route character',
+        value: '12.8 miles; Class II',
+        note: 'Wisconsin Trail Guide lists this as a 12.8-mile route with Class II at Wendigo Rapids plus Class I Strauss and Overton rapids.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/wolf-river-pearson.html',
+      },
+      {
+        label: 'Public access context',
+        value: 'Upper Wolf River Fishery Area corridor',
+        note: 'Wisconsin DNR says the Upper Wolf River Fishery Area has many access points and boat landings within and near the fishery properties.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/Lands/FisheriesAreas/2740upperwolfriver.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Wolf River Pearson to Lily',
+        url: 'https://wisconsintrailguide.com/paddle/wolf-river-pearson.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Wolf W1 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-wolf1.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 04074950 Wolf River at Langlade',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04074950/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin DNR Upper Wolf River Fishery Area',
+        url: 'https://dnr.wisconsin.gov/topic/Lands/FisheriesAreas/2740upperwolfriver.html',
+        provider: 'local',
+      },
+      {
+        label: 'National Rivers Project Wolf River Pearson to Lily',
+        url: 'https://www.nationalriversproject.com/wi/wolf-river-pearson-to-lily',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'wolf-river-lily-hollister',
     slug: 'wolf-river-lily-hollister',
     name: 'Wolf River',
@@ -18508,6 +18614,228 @@ export const rivers: River[] = [
       {
         label: 'Travel Wisconsin La Crosse River',
         url: 'https://www.travelwisconsin.com/canoeing%2C-kayaking-sup/la-crosse-river-200166',
+      },
+    ],
+  },
+  {
+    id: 'black-river-cormican-irving',
+    slug: 'black-river-cormican-irving',
+    name: 'Black River',
+    reach: 'Bruce Cormican Landing to David Hansen Landing at Irving',
+    state: 'Wisconsin',
+    region: 'Southwest Wisconsin',
+    summary:
+      'Quiet upper-lower Black River state-forest day below Black River Falls, with Cormican-to-Irving public landings, Hawk Island riffles, a DNR canoe campsite, sandstone bluffs, and WTG gauge bounds from the Black River Falls USGS gauge.',
+    statusText:
+      'Use the Black River at Black River Falls gauge. Wisconsin Trail Guide gives 200 cfs as the minimum and 3000 cfs as the maximum for this reach; below 200 cfs expect scraping and dragging, while high or rising water covers beaches and raises wood, current, and campsite risk.',
+    latitude: 44.28787,
+    longitude: -90.85102,
+    gaugeSource: {
+      id: 'usgs-053813595',
+      provider: 'usgs',
+      siteId: '053813595',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Black River DS ST Hwy 54 at Black River Falls, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-053813595/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 3000,
+      tooLow: 200,
+      tooHigh: 3000,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Black River BK2 gauge bounds',
+        url: 'https://wisconsintrailguide.com/paddle/black-river-cormican.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'WTG says the Black is usually navigable from spring through fall, but low late-summer and fall water can make sections scrappy. Confirm current conditions with Black River State Forest or an outfitter before committing.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Easy quietwater overall with one Class I riffle set around Hawk Island. The 12.1-mile length, shallow forks, strainers, private-bank limits, and overnight/campsite decisions make it a planned day rather than a casual park float.',
+      confidenceNotes:
+        'Confidence is good for a conservative WTG-backed add: Wisconsin Trail Guide documents the exact Black River Falls-to-Irving route, public landing descriptions, route mileage, endpoint WGS84 coordinates, a DNR canoe campsite, and a 200-3000 cfs Black River Falls gauge model. The app does not claim a narrower ideal window because the strongest route-specific source publishes only minimum and maximum bounds.',
+    },
+    evidenceNotes: [
+      {
+        label: 'WTG bounds',
+        value: '200 to 3000 cfs',
+        note: 'Wisconsin Trail Guide lists Black River Falls as the gauge location and gives a 200 cfs suggested minimum and 3000 cfs suggested maximum for BK2.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/black-river-cormican.html',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 053813595',
+        note: 'USGS operates the Black River downstream of State Highway 54 at Black River Falls gauge immediately upstream of the Cormican-to-Irving corridor.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-053813595/',
+      },
+      {
+        label: 'Route shape',
+        value: '12.1 miles; Class I',
+        note: 'The WTG BK2 page and PDF list Bruce Cormican Landing to David Hansen Landing at Irving as 12.1 miles, about five hours, with Class I as the hardest rapid.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-black2.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '44.28787, -90.85102 to 44.18761, -90.89892',
+        note: 'The WTG BK2 guide publishes NAD83 / WGS84 coordinates for Bruce Cormican Landing and Hansen Landing at Irving.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-black2.pdf',
+      },
+      {
+        label: 'On-route campsite',
+        value: 'Black River State Forest canoe campsite',
+        note: 'WTG says Black River State Forest maintains a primitive canoe/kayak campsite below Hawk Island with two first-come tent sites, picnic tables, fire rings, and a shared toilet.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/black-river-cormican.html',
+      },
+      {
+        label: 'Manager context',
+        value: 'State forest canoeing and kayaking',
+        note: 'Wisconsin DNR says Black River State Forest offers canoeing and kayaking opportunities and publishes map resources for general canoeing information.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/StateForests/blackriver/recreation/water',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Black River BK2',
+        url: 'https://wisconsintrailguide.com/paddle/black-river-cormican.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Black BK2 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-black2.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 053813595 Black River at Black River Falls',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-053813595/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin DNR Black River State Forest water recreation',
+        url: 'https://dnr.wisconsin.gov/topic/StateForests/blackriver/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin DNR Black River State Forest maps',
+        url: 'https://dnr.wisconsin.gov/topic/StateForests/blackriver/maps',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'black-river-irving-melrose',
+    slug: 'black-river-irving-melrose',
+    name: 'Black River',
+    reach: 'David Hansen Landing at Irving to DNR Canoe Landing at Melrose',
+    state: 'Wisconsin',
+    region: 'Southwest Wisconsin',
+    summary:
+      'Scenic lower-Black River connector from Irving to Melrose, with sandy beaches, big quietwater bends, Linde Landing, conifer bluffs, and WTG gauge bounds from the Black River Falls USGS gauge.',
+    statusText:
+      'Use the Black River at Black River Falls gauge as an upstream same-river proxy. Wisconsin Trail Guide gives 200 cfs as the minimum and 3000 cfs as the maximum; below 200 cfs the island channels get shallow, while high or rising water reduces sandbars and increases wood and private-bank exposure.',
+    latitude: 44.17384,
+    longitude: -90.91371,
+    gaugeSource: {
+      id: 'usgs-053813595',
+      provider: 'usgs',
+      siteId: '053813595',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Black River DS ST Hwy 54 at Black River Falls, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-053813595/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 3000,
+      tooLow: 200,
+      tooHigh: 3000,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Black River BK3 gauge bounds',
+        url: 'https://wisconsintrailguide.com/paddle/black-river-hansen.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'WTG says water levels are usually adequate from spring through fall, but low water can make the forks around the two large islands shallow enough that paddlers may have to push over sandy shallows.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Easy quietwater with riffles and very low gradient. The route still deserves planning for 11.8 miles, sandy shallows, island-channel decisions, deadfall, private banks, and headwind or storm exposure.',
+      confidenceNotes:
+        'Confidence is good for a conservative WTG-backed add: Wisconsin Trail Guide documents the exact Irving-to-Melrose route, route mileage, public landing descriptions, WGS84 endpoint coordinates, and a route-specific Black River Falls gauge model. The gauge is upstream rather than inside this reach, so the route copy calls it a proxy and avoids stronger claims than WTG supports.',
+    },
+    evidenceNotes: [
+      {
+        label: 'WTG bounds',
+        value: '200 to 3000 cfs',
+        note: 'Wisconsin Trail Guide lists the Black River Falls gauge with a 200 cfs suggested minimum and 3000 cfs suggested maximum for the Irving-to-Melrose reach.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/black-river-hansen.html',
+      },
+      {
+        label: 'Proxy gauge',
+        value: 'USGS 053813595',
+        note: 'USGS operates the Black River downstream of State Highway 54 at Black River Falls gauge upstream of the Irving-to-Melrose reach; WTG ties BK3 to that gauge.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-053813595/',
+      },
+      {
+        label: 'Route shape',
+        value: '11.8 miles; riffles',
+        note: 'The WTG BK3 page lists David Hansen Landing at Irving to DNR Canoe Landing at Melrose as 11.8 miles with riffles and about five hours of paddle time.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/black-river-hansen.html',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '44.17384, -90.91371 to 44.10879, -90.99627',
+        note: 'The WTG BK3 guide publishes NAD83 / WGS84 coordinates for Hansen Landing at Irving and DNR Landing at Melrose.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-black3.pdf',
+      },
+      {
+        label: 'Sandbar camping',
+        value: 'Sandbars and beaches when water is medium or lower',
+        note: 'Wisconsin Trail Guide says overnight camping on beaches is fun and free on this reach, but paddlers should limit stays to one night and check weather and river-level forecasts before camping.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/black-river-hansen.html',
+      },
+      {
+        label: 'Hazards',
+        value: 'Shallow island forks and deadfall',
+        note: 'WTG warns the main channel can get shallow around the two large island forks and that deadfall may require portaging in alternate channels.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-black3.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Black River BK3',
+        url: 'https://wisconsintrailguide.com/paddle/black-river-hansen.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Black BK3 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-black3.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 053813595 Black River at Black River Falls',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-053813595/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin DNR Black River State Forest water recreation',
+        url: 'https://dnr.wisconsin.gov/topic/StateForests/blackriver/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin DNR Black River State Forest maps',
+        url: 'https://dnr.wisconsin.gov/topic/StateForests/blackriver/maps',
+        provider: 'local',
       },
     ],
   },
