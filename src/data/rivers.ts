@@ -40214,6 +40214,128 @@ export const rivers: River[] = [
 
 
   {
+    id: 'levisa-fork-island-creek-cedar-creek',
+    slug: 'levisa-fork-island-creek-cedar-creek',
+    name: 'Levisa Fork',
+    reach: 'Island Creek Ramp to Cedar Creek Canoe Access',
+    aliases: [
+      'Levisa Fork - Island Creek to Cedar Creek',
+      'Hatfield-McCoy River Trail - Island Creek to Cedar Creek',
+      'Pikeville Levisa continuation float',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Very short Pikeville Levisa Fork float from Island Creek Ramp to Cedar Creek Canoe Access. Current KDFWR Levisa Fork materials still support the Island Creek-to-Cedar access pair with official Pikeville gauge bands tied to direct USGS data.',
+    statusText:
+      'Use the Levisa Fork at Pikeville gauge. KDFWR rates 800 to 1,400 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Below that is low and likely shallow; above that is high and faster around wood, bridge current, and busy urban banks.',
+    latitude: 37.4646,
+    longitude: -82.5284,
+    gaugeSource: {
+      id: 'usgs-03209500',
+      provider: 'usgs',
+      siteId: '03209500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Levisa Fork at Pikeville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 800,
+      idealMax: 1400,
+      tooLow: 800,
+      tooHigh: 1400,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Levisa Fork at Pikeville',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'KDFWR treats the Pikeville gauge as the planning reference for this corridor. Spring through fall is practical, but low summer water can expose shoals while rain, releases, and tributary inflow can raise current quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR describes this Pikeville corridor as a warmwater public-access float, but it is still moving water with shoals, bridge current, wood, and urban corridor distractions. Treat it as easy only when the Pikeville gauge is stable in range.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky restore: current KDFWR Levisa Fork materials still support the Island Creek Ramp to Cedar Creek Canoe Access corridor, provide exact endpoint coordinates and public-access descriptions, and tie the reach to direct USGS gauge 03209500 with official Pikeville Low/Good/High bands. USGS Water Services returned same-day discharge and stage during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '800-1400 cfs / 7.4-8.5 ft',
+        note: 'KDFWR rates Levisa Fork at Pikeville as Low below 800 cfs or 7.4 ft, Good from 800 to 1400 cfs or 7.4 to 8.5 ft, and High above 1400 cfs or 8.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+      },
+      {
+        label: 'Official route chain',
+        value: 'Island Creek Ramp to Cedar Creek Canoe Access, about 1.5 miles',
+        note: 'The current KDFWR Levisa Fork map and access chain still place Island Creek just upstream of Cedar Creek, supporting the short public Pikeville continuation.',
+        sourceUrl: 'https://fw.ky.gov/Education/Documents/bluewatertraillevisafork.pdf',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Island Creek Ramp, 37.4646, -82.5284',
+        note: 'KDFWR identifies Island Creek Ramp as a free carry-down access behind the South Mayo Trail corridor with unpaved parking and no amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1012',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Cedar Creek Canoe Access, 37.4802, -82.5446',
+        note: 'KDFWR identifies Cedar Creek Canoe Access as a free carry-down access under the KY 1384 bridge with unpaved parking and no amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1011',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03209500',
+        note: 'USGS Water Services returned same-day values of 628 cfs at 2026-07-14 10:30 EDT and 7.46 ft at 2026-07-14 11:00 EDT for Levisa Fork at Pikeville, still below the official good discharge band but just inside the official stage band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route character',
+        value: 'Urban warmwater corridor with shoals',
+        note: 'KDFWR frames the Pikeville Levisa Fork as a public-access paddling and fishing corridor where gauge timing, shoals, and urban-side access behavior matter.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Levisa Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Levisa Fork detailed map',
+        url: 'https://fw.ky.gov/Education/Documents/bluewatertraillevisafork.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Island Creek Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1012',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cedar Creek Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1011',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03209500 Levisa Fork at Pikeville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03209500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'levisa-fork-cedar-creek-thompson-road',
     slug: 'levisa-fork-cedar-creek-thompson-road',
     name: 'Levisa Fork',
@@ -40336,6 +40458,265 @@ export const rivers: River[] = [
   },
 
 
+  {
+    id: 'levisa-fork-jubilee-cedar-creek',
+    slug: 'levisa-fork-jubilee-cedar-creek',
+    name: 'Levisa Fork',
+    reach: 'Jubilee Christian Church Ramp to Cedar Creek Canoe Access',
+    aliases: [
+      'Levisa Fork - Jubilee to Cedar Creek',
+      'Hatfield-McCoy River Trail - Jubilee to Cedar Creek',
+      'Pikeville upper-to-cut-through float',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Moderate Pikeville Levisa Fork float from Jubilee Christian Church Ramp to Cedar Creek Canoe Access. KDFWR still lists this public 5.5-mile access pair directly, with official Pikeville gauge bands and source-backed endpoint coordinates at both ramps.',
+    statusText:
+      'Use the Levisa Fork at Pikeville gauge. KDFWR rates 800 to 1,400 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Below that is low and slower with more exposed shoals; above that is high and faster around wood, bridges, and urban banks.',
+    latitude: 37.4445,
+    longitude: -82.5057,
+    gaugeSource: {
+      id: 'usgs-03209500',
+      provider: 'usgs',
+      siteId: '03209500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Levisa Fork at Pikeville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 800,
+      idealMax: 1400,
+      tooLow: 800,
+      tooHigh: 1400,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Levisa Fork at Pikeville',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'KDFWR says the Levisa Fork through Pikeville benefits from Russell Fork inflow and Fishtrap Lake releases, which can help summer flow but also change current after rain or release shifts.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR frames the Pikeville Levisa Fork as a family-friendly moving-water corridor with gentle riffles, shoals, and deep pools at normal levels. The longer Jubilee-to-Cedar combination still deserves moving-water judgment around wood and bridge current.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky restore: KDFWR still publishes the direct Jubilee-to-Cedar 5.5-mile route, official Pikeville Low/Good/High bands, and current public-access descriptions for both endpoints. USGS Water Services returned same-day discharge and stage during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '800-1,400 cfs / 7.4-8.5 ft',
+        note: 'KDFWR rates Levisa Fork at Pikeville as Low below 800 cfs or 7.4 ft, Good from 800 to 1,400 cfs or 7.4 to 8.5 ft, and High above 1,400 cfs or 8.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Jubilee Christian Church Ramp to Cedar Creek Ramp, 5.5 miles',
+        note: 'The current KDFWR Levisa Fork mileage table lists Jubilee Christian Church Ramp to Cedar Creek Ramp directly as a 5.5-mile public route.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Jubilee Christian Church Canoe Access, 37.4445, -82.5057',
+        note: 'KDFWR identifies Jubilee Christian Church Canoe Access as a free carry-down site with limited parking and notes that paddlers should ask permission before using the church paved lot.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1013',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Cedar Creek Canoe Access, 37.4802, -82.5446',
+        note: 'KDFWR identifies Cedar Creek Canoe Access as a free carry-down site under the KY 1384 bridge with unpaved parking and no amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1011',
+      },
+      {
+        label: 'Route character',
+        value: 'Gentle riffles, deep pools, flowing shoals',
+        note: 'The KDFWR Levisa Fork education page describes the Pikeville corridor as an intimate gorge with gentle riffles, deep pools, and flowing shoals that can be extended downstream toward Cedar Creek.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Levisa-Fork.aspx',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03209500',
+        note: 'USGS Water Services returned 628 cfs at 2026-07-14 10:30 EDT and 7.46 ft at 2026-07-14 11:00 EDT for Levisa Fork at Pikeville, still below the official good discharge band but just inside the official stage band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Levisa Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Levisa Fork education page',
+        url: 'https://fw.ky.gov/Education/Pages/Levisa-Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Levisa Fork detailed map',
+        url: 'https://fw.ky.gov/Education/Documents/bluewatertraillevisafork.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Jubilee Christian Church Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1013',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cedar Creek Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1011',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03209500 Levisa Fork at Pikeville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03209500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'levisa-fork-island-creek-thompson-road',
+    slug: 'levisa-fork-island-creek-thompson-road',
+    name: 'Levisa Fork',
+    reach: 'Island Creek Ramp to Thompson Road Ramp',
+    aliases: [
+      'Levisa Fork - Island Creek to Thompson Road',
+      'Hatfield-McCoy River Trail - Island Creek to Thompson Road',
+      'Pikeville Cut-Through extended float',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Short-to-moderate Pikeville Levisa Fork float from Island Creek Ramp to Thompson Road Ramp. Current KDFWR Levisa Fork materials still support the Island Creek-to-Cedar and Cedar-to-Thompson access chain on the same direct Pikeville gauge.',
+    statusText:
+      'Use the Levisa Fork at Pikeville gauge. KDFWR rates 800 to 1,400 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Below that expect slower shoals and more dragging; above that expect faster current around wood, bridges, and busy urban banks.',
+    latitude: 37.4646,
+    longitude: -82.5284,
+    gaugeSource: {
+      id: 'usgs-03209500',
+      provider: 'usgs',
+      siteId: '03209500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Levisa Fork at Pikeville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 800,
+      idealMax: 1400,
+      tooLow: 800,
+      tooHigh: 1400,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Levisa Fork at Pikeville',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The Pikeville gauge remains the planning reference through this Hatfield-McCoy River Trail corridor. Fishtrap Lake releases, Russell Fork inflow, and storms can change current faster than the easy mileage suggests.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR and Pikeville route materials frame this corridor as beginner-friendly at normal levels, but the longer Island-to-Thompson combination still includes bridge current, woody debris, and a more committed urban finish.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky restore: current KDFWR Levisa Fork materials still support the Island Creek-to-Cedar segment and the Cedar-to-Thompson segment, exact endpoint coordinates, and the official Pikeville gauge ladder. USGS Water Services returned same-day discharge and stage during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '800-1,400 cfs / 7.4-8.5 ft',
+        note: 'KDFWR rates Levisa Fork at Pikeville as Low below 800 cfs or 7.4 ft, Good from 800 to 1,400 cfs or 7.4 to 8.5 ft, and High above 1,400 cfs or 8.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+      },
+      {
+        label: 'Official route chain',
+        value: 'Island Creek Ramp to Cedar Creek Ramp about 1.5 miles plus Cedar Creek Ramp to Thompson Road Ramp 3.0 miles',
+        note: 'Current KDFWR Levisa Fork materials still support both linked public segments, supporting an about 4.5-mile Island Creek to Thompson Road continuation on the same river and gauge.',
+        sourceUrl: 'https://fw.ky.gov/Education/Documents/bluewatertraillevisafork.pdf',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Island Creek Ramp, 37.4646, -82.5284',
+        note: 'KDFWR identifies Island Creek Ramp as a free carry-down access behind the South Mayo Trail corridor with unpaved parking and no amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1012',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Thompson Road Canoe Access, 37.5096, -82.5435',
+        note: 'KDFWR identifies Thompson Road Canoe Access as a free single-lane ramp with year-round 24-hour availability and published coordinates.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1010',
+      },
+      {
+        label: 'Route character',
+        value: 'Pikeville Cut-Through public float',
+        note: 'The KDFWR education page says paddlers can extend past Cedar Creek to the lower Thompson Road take-out after passing through the Pikeville Cut-Through section.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Levisa-Fork.aspx',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03209500',
+        note: 'USGS Water Services returned 628 cfs at 2026-07-14 10:30 EDT and 7.46 ft at 2026-07-14 11:00 EDT for Levisa Fork at Pikeville, still below the official good discharge band but just inside the official stage band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Levisa Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Levisa Fork education page',
+        url: 'https://fw.ky.gov/Education/Pages/Levisa-Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Levisa Fork detailed map',
+        url: 'https://fw.ky.gov/Education/Documents/bluewatertraillevisafork.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Island Creek Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1012',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cedar Creek Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1011',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Thompson Road Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1010',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03209500 Levisa Fork at Pikeville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03209500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
   {
     id: 'levisa-fork-jubilee-thompson-road',
     slug: 'levisa-fork-jubilee-thompson-road',

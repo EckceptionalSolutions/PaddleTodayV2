@@ -10,6 +10,14 @@ Last summarized: 2026-07-14 09:05 America/Chicago / 2026-07-14 14:05 UTC.
 - Camping stays route-specific: `green-river-dennison-green-river-ferry` uses `endpoint_campground` because Mammoth Cave Campground supports the Green River Ferry finish, `green-river-green-river-ferry-houchins` uses `sandbar_or_gravel_bar` because NPS still allows riverside camping by permit plus Houchins campground support, and `green-river-houchins-ferry-brownsville-city-park` uses `endpoint_campground` because Houchins supports the launch but Brownsville remains a day-use finish.
 - Bounded image review stayed negative for all three slugs. `docs/river-image-source-audit.csv` now records the no-gallery outcome for each route, so no new route-gallery asset was added in this pass.
 
+## 2026-07-14 Levisa Fork Pikeville restoration pass
+
+- Reused the live repo state as the only valid baseline and restored three Levisa Fork slugs that were absent from the current tree at run start: `levisa-fork-jubilee-cedar-creek`, `levisa-fork-island-creek-thompson-road`, and `levisa-fork-island-creek-cedar-creek`.
+- Current KDFWR Levisa Fork guidance still publishes Jubilee Christian Church Ramp -> Cedar Creek Ramp `5.5` miles and Cedar Creek Ramp -> Thompson Road Ramp `3.0` miles, while the current official detailed map still preserves Island Creek Ramp in the same Pikeville access chain, supporting the restored public route mileages of about `5.5`, `4.5`, and `1.5`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Jubilee Christian Church Canoe Access (`asid=1013`), Island Creek Ramp (`asid=1012`), Cedar Creek Canoe Access (`asid=1011`), and Thompson Road Canoe Access (`asid=1010`). Same-day direct USGS Water Services returned `628 cfs / 7.46 ft` at `2026-07-14 10:30-11:00 EDT` for Levisa Fork at Pikeville (`03209500`), below the official `800-1400 cfs / 7.4-8.5 ft` good discharge band but just inside the official stage floor, so all three restored slugs ship with explicit low-water / scrape-prone caution rather than comfort framing.
+- Camping stays conservative at `none` for all three because KDFWR still documents the Pikeville access chain as day-use public launches rather than overnight sites.
+- Reused the approved Levisa Fork Commons corridor image for all three slugs and restored the matching image-audit rows.
+
 ## 2026-07-13 South Fork continuation restoration pass
 
 - Reused the live repo state as the only valid baseline and restored three South Fork Kentucky River slugs that were absent from the current tree at run start: `south-fork-kentucky-river-oneida-kay-wood`, `south-fork-kentucky-river-rocky-branch-fish-creek`, and `south-fork-kentucky-river-cedar-valley-fish-creek`.

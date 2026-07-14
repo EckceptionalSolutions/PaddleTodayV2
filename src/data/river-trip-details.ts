@@ -12962,6 +12962,47 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   },
 
 
+  'levisa-fork-island-creek-cedar-creek': {
+    putIn: {
+      id: 'island-creek-ramp',
+      name: 'Island Creek Ramp',
+      latitude: 37.4646,
+      longitude: -82.5284,
+    },
+    takeOut: {
+      id: 'cedar-creek-canoe-access',
+      name: 'Cedar Creek Canoe Access',
+      latitude: 37.4802,
+      longitude: -82.5446,
+    },
+    logistics: {
+      distanceLabel: 'About 1.5 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with low water, family stops, or fishing',
+      shuttle:
+        'Stage the take-out at Cedar Creek Canoe Access under the KY 1384 bridge, then drive back to Island Creek Ramp behind the South Mayo Trail corridor. Walk the Cedar Creek landing first so the bridge-side take-out is obvious from the water.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any local parking or loading instructions.',
+      camping:
+        'Treat this as an urban day float. KDFWR lists no camping at Island Creek Ramp or Cedar Creek Canoe Access, and no legal overnight plan was verified for this Pikeville corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Island Creek Ramp and take out about 1.5 miles downstream at Cedar Creek Canoe Access for a very short Pikeville Levisa Fork float. KDFWR gives a good Pikeville gauge band of 800 to 1,400 cfs, or 7.4 to 8.5 ft.',
+      accessCaveats: [
+        'Island Creek is a carry-down access behind the South Mayo Trail commercial corridor with unpaved parking and no amenities.',
+        'Cedar Creek is a carry-down access under the KY 1384 bridge with unpaved parking and no amenities.',
+        'The current Pikeville gauge reading was below the official good discharge band during this run, though the stage just touched the official 7.4 ft floor. Expect slower current, shallower shoals, and more route-finding around exposed gravel or mussel-shell areas until levels rise further.',
+        'Stay with the named public accesses and do not assume commercial lots or private banks along the corridor are general river-user parking or stopping points.',
+      ],
+      watchFor: [
+        'Low water below 800 cfs or 7.4 ft, when shoals get shallower and dragging becomes more likely.',
+        'High water above 1,400 cfs or 8.5 ft, when KDFWR moves the route out of the good band and swift current plus woody debris become much less forgiving.',
+        'Mussel shells on the river bottom, woody debris, bridge-area current, and fishing traffic in the Pikeville corridor.',
+        'Urban corridor hazards and private banks outside the documented ramps.',
+      ],
+    },
+  },
+
+
   'levisa-fork-cedar-creek-thompson-road': {
     putIn: {
       id: 'cedar-creek-canoe-access',
@@ -12998,6 +13039,88 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'High water above 1,400 cfs or 8.5 ft, when KDFWR moves the Pikeville reach out of the good band and swift current can make wood and landings dangerous.',
         'Fishtrap Lake release changes and Russell Fork inflow upstream; do not treat a stable-looking ramp as a substitute for checking the gauge trend.',
         'Private banks and urban corridor hazards; keep the trip to the named access points unless there is an emergency.',
+      ],
+    },
+  },
+
+
+  'levisa-fork-jubilee-cedar-creek': {
+    putIn: {
+      id: 'jubilee-christian-church-ramp',
+      name: 'Jubilee Christian Church Ramp',
+      latitude: 37.4445,
+      longitude: -82.5057,
+    },
+    takeOut: {
+      id: 'cedar-creek-canoe-access',
+      name: 'Cedar Creek Canoe Access',
+      latitude: 37.4802,
+      longitude: -82.5446,
+    },
+    logistics: {
+      distanceLabel: 'About 5.5 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, family stops, or fishing',
+      shuttle:
+        'Stage the take-out at Cedar Creek Canoe Access under the KY 1384 bridge, then drive back to Jubilee Christian Church Ramp south of Pikeville. Walk the Cedar Creek landing first so the bridge-side take-out is obvious from the water.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect local parking or loading instructions at both ramps.',
+      camping:
+        'Treat this as an urban day float. KDFWR lists no camping at Jubilee Christian Church Ramp or Cedar Creek Canoe Access, and no legal overnight plan was verified for this Pikeville corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Jubilee Christian Church Ramp and take out 5.5 miles downstream at Cedar Creek Canoe Access for the longer upper Pikeville Levisa Fork float. KDFWR gives a good Pikeville gauge band of 800 to 1,400 cfs, or 7.4 to 8.5 ft.',
+      accessCaveats: [
+        'KDFWR says parking near Jubilee is limited and that paddlers should ask permission before using the church paved lot.',
+        'Cedar Creek is a carry-down access under the KY 1384 bridge with unpaved parking and no amenities.',
+        'The current Pikeville gauge reading was below the official good discharge band during this run, though the stage just touched the official 7.4 ft floor. Expect slower current, shallower shoals, and more route-finding around exposed gravel or mussel-shell areas until levels rise further.',
+        'Stay with the named public accesses and do not assume commercial lots or private banks along the corridor are general river-user parking or stopping points.',
+      ],
+      watchFor: [
+        'Low water below 800 cfs or 7.4 ft, when shoals get shallower and dragging becomes more likely.',
+        'High water above 1,400 cfs or 8.5 ft, when KDFWR moves the route out of the good band and swift current plus woody debris become much less forgiving.',
+        'Mussel shells on the river bottom, woody debris, bridge-area current, and fishing traffic in the Pikeville corridor.',
+        'Urban corridor hazards, private banks, and a slower finish through the Cut-Through approach if the river is scrape-prone.',
+      ],
+    },
+  },
+
+
+  'levisa-fork-island-creek-thompson-road': {
+    putIn: {
+      id: 'island-creek-ramp',
+      name: 'Island Creek Ramp',
+      latitude: 37.4646,
+      longitude: -82.5284,
+    },
+    takeOut: {
+      id: 'thompson-road-canoe-access',
+      name: 'Thompson Road Canoe Access',
+      latitude: 37.5096,
+      longitude: -82.5435,
+    },
+    logistics: {
+      distanceLabel: 'About 4.5 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with low water, wood, or a slower take-out',
+      shuttle:
+        'Stage the take-out at Thompson Road behind the Texas Roadhouse / nearby business area, then drive back to Island Creek Ramp behind the South Mayo Trail corridor. Inspect both accesses before launching because the lower ramp is the required finish.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect local parking or loading instructions at both ramps.',
+      camping:
+        'Treat this as an urban day float. KDFWR lists no camping at Island Creek Ramp or Thompson Road Canoe Access, and no legal overnight plan was verified for this Pikeville corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Island Creek Ramp and take out 4.5 miles downstream at Thompson Road Canoe Access for the longer Pikeville Cut-Through continuation. KDFWR keeps the same good Pikeville gauge band of 800 to 1,400 cfs, or 7.4 to 8.5 ft.',
+      accessCaveats: [
+        'Island Creek is a carry-down access behind the South Mayo Trail commercial corridor with unpaved parking and no amenities.',
+        'Thompson Road is a KDFWR single-lane ramp with year-round availability, but nearby banks are private or thickly vegetated; land at the signed access rather than spreading onto nearby banks.',
+        'The current Pikeville gauge reading was below the official good discharge band during this run, though the stage just touched the official 7.4 ft floor. Expect slower current, shallower shoals, and more route-finding around exposed gravel or mussel-shell areas until levels rise further.',
+        'KDFWR limits bank and wade fishing at these sites because surrounding land is private, steep, rocky, or heavily vegetated. Stay with the documented public ramps.',
+      ],
+      watchFor: [
+        'Low water below 800 cfs or 7.4 ft, when shoals get shallower and dragging becomes more likely.',
+        'High water above 1,400 cfs or 8.5 ft, when KDFWR moves the route out of the good band and swift current plus woody debris become much less forgiving.',
+        'Mussel shells on the river bottom, woody debris, bridge-area current, and fishing traffic in the Pikeville corridor.',
+        'Urban corridor hazards, private banks, and complacency near the busy Thompson Road finish after a longer easy-looking float.',
       ],
     },
   },
