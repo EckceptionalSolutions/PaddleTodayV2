@@ -9001,6 +9001,42 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'current-river-waymeyer-cataract': {
+    putIn: {
+      name: 'Waymeyer Access',
+      latitude: 37.054302,
+      longitude: -91.055459,
+    },
+    takeOut: {
+      name: 'Cataract Landing',
+      latitude: 36.8964418,
+      longitude: -90.9073471,
+    },
+    logistics: {
+      distanceLabel: 'About 19.6 mi',
+      estimatedPaddleTime: 'About 8.5 hr to 10 hr, longer with low water, stops, wind, crowds, or motorboat traffic',
+      shuttle:
+        'Stage the take-out at Cataract before driving back north to Waymeyer. This is a long lower-river shuttle, so verify roads, parking, daylight, and the signed landing before launching.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules at both accesses, Missouri boating laws, no-glass/no-polystyrene rules, and any posted NPS closure or access notices.',
+      camping:
+        'Plan this as a very long day or an intentionally staged overnight. The clearest formal camping support on the corridor is at Big Spring, not at the Cataract finish, and private-bank camping should not be assumed.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Waymeyer and finish at Cataract for a long lower Current River continuation. Use the direct Van Buren gauge as a conservative low-water check and expect the same busier, more motorized lower-river character as the adjacent split sections.',
+      accessCaveats: [
+        'NPS has described Waymeyer as a non-commercial floater access while warning about erosion and limited safe unloading room on summer weekends. Follow current NPS signs and avoid blocking the access.',
+        'Big Spring is an on-route landmark and campground, not the finish. Keep downstream mileage, daylight, and shuttle timing in mind before leaving Waymeyer.',
+        'The Cataract coordinate is a topo-derived landing point already used in this lower-Current family, not an official NPS GIS table. Follow the signed landing, parking, and turnaround layout on arrival.',
+      ],
+      watchFor: [
+        'Shallow shoals, scraping, and slower travel when the Van Buren gauge is near or below the 700 cfs conservative floor.',
+        'Motorboat wakes, summer crowds, tubes, slick landings, swimmers, fishing lines, and wind on the lower-river pools.',
+        'High or rising water, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.',
+        'Private banks, limited cell service, and confusion between Big Spring midpoint facilities and the downstream Cataract finish.',
+      ],
+    },
+  },
   'current-river-waymeyer-big-spring': {
     putIn: {
       name: 'Waymeyer Access',
@@ -14760,6 +14796,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'yellow-breeches-creek-lower-allen-community-park-liberty-forge': {
+    putIn: {
+      name: 'Lower Allen Community Park launch',
+      latitude: 40.172373,
+      longitude: -76.913787,
+    },
+    takeOut: {
+      name: 'Liberty Forge bridge access',
+      latitude: 40.177495,
+      longitude: -76.924172,
+    },
+    logistics: {
+      distanceLabel: 'About 0.8 mi',
+      estimatedPaddleTime:
+        'About 20 min to 45 min depending on depth, wood, and how quickly you clear the bridge-side finish',
+      shuttle:
+        'Stage the take-out at Liberty Forge before driving back to Lower Allen Community Park. Inspect the bridge-access pull-off first because parking is limited and same-day resort activity can affect the simplest finish.',
+      permits:
+        'No route-specific paddling permit is known for this park-to-bridge connector. Follow current township, boating, and PFD rules, and obey any posted public-access instructions at Liberty Forge.',
+      camping:
+        'Lower Allen Community Park offers camping by reservation at the put-in. Treat that as endpoint campground support only and not as permission to camp elsewhere on the creek corridor.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Lower Allen Community Park and take out at the public Liberty Forge bridge access for a short Yellow Breeches connector. Use the Camp Hill gauge as the county-endorsed same-creek proxy and keep the day conservative when the creek is below the recommended floor.',
+      accessCaveats: [
+        'Cumberland County still publishes both endpoints as official Yellow Breeches access points with exact coordinates on the county story map.',
+        'The county story map says the public may access the creek for boating at the Old Forge Road bridge at Liberty Forge and should follow posted access rules; it also asks paddlers to limit parking to individuals and small groups only.',
+        'The county recommends boating when the Camp Hill gauge reads about 1.4 to 2.0 feet. This route was reviewed when the proxy gauge was 1.12 feet at 2026-07-14 00:45 EDT, so expect scrape-prone shallows and possible dragging.',
+        'The current county advisory flags a full blockage above B7 farther downstream, so do not assume a safe continuation beyond the intended take-out.',
+      ],
+      watchFor: [
+        'Scraping, shallow bends, and slower travel when the Camp Hill gauge is near or below 1.4 ft.',
+        'Fresh wood, small strainers, slippery banks, and bridge-area current at the Liberty Forge finish.',
+        'Fast rises and more debris after thunderstorms on a creek that can change quickly despite its short mileage.',
+        'Private banks and limited legal bailout choices away from the named public launches.',
+      ],
+    },
+  },
   'yellow-breeches-creek-mccormick-park-liberty-forge': {
     putIn: {
       name: 'McCormick Park launch',
@@ -16634,6 +16708,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Low water below about 175 cfs or 7.4 ft, when rock bars, riffles, and dragging become likely.',
         'High water above about 514 cfs or 8.5 ft, when the narrow creek gets pushier and bridge landings are less forgiving.',
         'Strainers, fresh wood after storms, shallow riffles, and slick footing at both bridge accesses.',
+        'Private banks and limited roadside parking if someone wants an unscheduled stop.',
+      ],
+    },
+  },
+  'goose-creek-jacks-dump-hollow': {
+    putIn: {
+      id: 'jacks-bowling-branch-bridge-access',
+      name: 'Jacks / Bowling Branch Bridge Access',
+      latitude: 37.2052,
+      longitude: -83.7372,
+    },
+    takeOut: {
+      id: 'dump-hollow-ramp',
+      name: 'Dump Hollow Ramp',
+      latitude: 37.2127,
+      longitude: -83.704,
+    },
+    logistics: {
+      distanceLabel: 'About 3.0 mi',
+      estimatedPaddleTime:
+        'About 1 hr 15 min to 2 hr 30 min, longer with low-water scraping, wood scouting, or a cautious ford-side finish',
+      shuttle:
+        'Stage the take-out at Dump Hollow, then drive back upstream to the Jacks / Bowling Branch bridge access. Both accesses are small roadside carry-down sites, so park compactly and fully off the road edge.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed roadside accesses, follow Kentucky boating and PFD rules, and avoid treating private creek banks as public stopovers.',
+      camping:
+        'Treat this as a short day float. KDFWR does not document public camping at either bridge access.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Jacks / Bowling Branch and take out at Dump Hollow for a short Goose Creek connector that stays below the Rawlings / Stinson low-head-dam warning. Use the Manchester gauge and expect marginal low-water scraping whenever flows sit below KDFWR\'s 175 to 514 cfs good band.',
+      accessCaveats: [
+        'Both endpoints are simple carry-down bridge or ford-side accesses with limited unpaved parking and no amenities.',
+        'This split starts below the Rawlings / Stinson access so it avoids the upstream low-head-dam warning attached to that Manchester ramp.',
+        'The route was reviewed when the direct Manchester gauge was 191 cfs and 7.32 ft at 2026-07-14 00:45 EDT, which is just above the KDFWR good-flow floor and still vulnerable to scrape-prone shallow bars.',
+        'Dump Hollow is a ford-side access. Inspect the landing and vehicle approach before launching because mud, washouts, or local traffic can change the easiest finish.',
+      ],
+      watchFor: [
+        'Low water below about 175 cfs or 7.4 ft, when rock bars, riffles, and dragging become likely.',
+        'High water above about 514 cfs or 8.5 ft, when the narrow creek gets pushier and bridge landings are less forgiving.',
+        'Strainers, fresh wood after storms, shallow riffles, and slick footing at both accesses.',
         'Private banks and limited roadside parking if someone wants an unscheduled stop.',
       ],
     },

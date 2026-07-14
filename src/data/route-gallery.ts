@@ -1266,6 +1266,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'NPS asset: public domain',
     },
   ],
+  'current-river-waymeyer-cataract': [
+    {
+      id: 'ozark-riverways-canoeing-nps',
+      src: '/gallery/current-river-waymeyer-van-buren/ozark-riverways-canoeing.jpg',
+      alt: 'Visitors paddle canoes through a wooded Ozark National Scenic Riverways corridor.',
+      caption: 'Canoeing in Ozark National Scenic Riverways',
+      credit: 'Cecil W. Stoughton/NPS History Collection via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
   'current-river-van-buren-gooseneck': [
     {
       id: 'ozark-riverways-canoeing-nps',

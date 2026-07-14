@@ -28356,6 +28356,145 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'current-river-waymeyer-cataract',
+    slug: 'current-river-waymeyer-cataract',
+    name: 'Current River',
+    reach: 'Waymeyer Access to Cataract Landing',
+    aliases: [
+      'Lower Current River - Waymeyer to Cataract',
+      'Current River - Waymeyer to Cataract',
+      'Current River - Waymeyer to Cataract Landing',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Long lower Current River day from Waymeyer to Cataract. Current NPS mileage and float-time guidance support the section, and the direct Van Buren gauge gives a conservative low-water check.',
+    statusText:
+      'Use the Current River at Van Buren gauge. Around 700 cfs is the conservative low-water floor for this lower-Current cluster; below that, expect shallow shoals, slower travel, and more dragging over a long day. No ideal range or high cutoff is claimed.',
+    latitude: 37.054302,
+    longitude: -91.055459,
+    gaugeSource: {
+      id: 'usgs-07067000',
+      provider: 'usgs',
+      siteId: '07067000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Current River at Van Buren, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 700,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Van Buren gauge rating and lower-Current trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS lists the Lower Current season as year-round, but this longer spring-fed reach can still get scrape-prone at low summer water and can close or become debris-heavy in flood conditions. Check NPS closure notices before leaving vehicles.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'NPS lower-Current guidance supports this combined Waymeyer-to-Cataract route as approachable moving water at normal levels, but the 19.6-mile shape, motorboat traffic, private-bank issues, slick landings, and stronger current after rain make it a more committed day than the short split sections.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only add: current NPS float-times guidance lists Waymeyer to Raftyard at 1.7 miles / 0.5 hour, Raftyard to Van Buren at 4.8 miles / 2 hours, Van Buren to Big Spring at 4.3 miles / 2 hours, and Big Spring to Cataract at 8.8 miles / 4 hours, which together define an about 19.6-mile public lower-Current route from Waymeyer to Cataract. NPS also separately identifies Waymeyer as a lower-river access, lists Cataract as the downstream public landing, and keeps the lower Current on designated public access use. Same-day USGS Water Services returned 1,020 cfs and 2.92 ft at 2026-07-13 23:30 CDT for direct gauge 07067000 at Van Buren. Paddle Today keeps the same conservative 700 cfs minimum-only floor already used on the adjacent lower-Current routes because the numeric support is still community-calibrated rather than an official manager band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'NPS route shape',
+        value: 'Waymeyer to Cataract, about 19.6 mi',
+        note: 'Current NPS float-times guidance lists Waymeyer to Raftyard at 1.7 miles, Raftyard to Van Buren at 4.8 miles, Van Buren to Big Spring at 4.3 miles, and Big Spring to Cataract at 8.8 miles, which combine into an about 19.6-mile public lower Current route.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'NPS timing support',
+        value: 'About 8.5 to 9 hr total',
+        note: 'NPS lower-Current guidance lists Waymeyer to Van Buren at about 3 hours, Van Buren to Big Spring at about 2 hours, and Big Spring to Cataract at about 4 hours, supporting a long committed lower-river day.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm',
+      },
+      {
+        label: 'Public endpoints',
+        value: 'Waymeyer and Cataract Landing',
+        note: 'NPS says Waymeyer remains a non-commercial floater access, and current float-times guidance plus the park brochure keep Cataract as a named downstream public landing on the lower Current.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 07067000 at 1,020 cfs / 2.92 ft',
+        note: 'Same-day USGS Water Services returned 1,020 cfs and 2.92 ft at 2026-07-13 23:30 CDT for Current River at Van Buren, the direct same-river gauge already used on the adjacent lower Current routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '700 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Van Buren gauge Good beginning around 700 cfs and provides route-family lower Current trip evidence. Paddle Today keeps only the conservative 700 cfs floor and does not infer an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+      },
+      {
+        label: 'Camping context',
+        value: 'Big Spring campground on the corridor',
+        note: 'The NPS park brochure lists Big Spring with campground, picnic, ranger-station, and river-access context, so this longer route still has a formal campground stop on the corridor even though the finish is farther downstream.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '37.054302, -91.055459 to 36.8964418, -90.9073471',
+        note: 'Waymeyer uses the existing published paddling-access coordinate and Cataract uses the existing topo-derived public landing point already accepted for the adjacent lower Current route family.',
+        sourceUrl: 'https://www.anyplaceamerica.com/directory/mo/carter-county-29035/locales/cataract-landing-741377/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Ozark float times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle the Lower Current River',
+        url: 'https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark Superintendent Compendium',
+        url: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Waymeyer access update',
+        url: 'https://home.nps.gov/ozar/learn/news/update-on-river-access-areas-at-waymeyer-chilton-boat-launch-and-pin-oak.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Current River Van Buren gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07067000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Paddling.com Waymeyer Access',
+        url: 'https://paddling.com/paddle/locations/waymeyer-access',
+        provider: 'local',
+      },
+      {
+        label: 'AnyPlaceAmerica Cataract Landing',
+        url: 'https://www.anyplaceamerica.com/directory/mo/carter-county-29035/locales/cataract-landing-741377/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'current-river-van-buren-gooseneck',
     slug: 'current-river-van-buren-gooseneck',
     name: 'Current River',
@@ -50768,6 +50907,123 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: "goose-creek-jacks-dump-hollow",
+    slug: "goose-creek-jacks-dump-hollow",
+    name: "Goose Creek",
+    reach: "Jacks / Bowling Branch Bridge Access to Dump Hollow Ford",
+    aliases: [
+      "Goose Creek - Jacks to Dump Hollow",
+      "Goose Creek short lower-Manchester connector",
+      "Goose Creek - Bowling Branch to Dump Hollow",
+    ],
+    state: "Kentucky",
+    region: "Eastern Kentucky",
+    summary:
+      "Short lower-Manchester Goose Creek connector from Jacks / Bowling Branch Bridge Access to Dump Hollow Ford. KDFWR's access-mileage table supports this 3.0-mile public route by combining the exact Jacks-to-Tobacco and Tobacco-to-Dump segments against the direct Manchester gauge.",
+    statusText:
+      "Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. The gauge was 191 cfs and 7.32 ft at 2026-07-14 00:45 EDT, so flow is barely in-band while stage is still slightly low; treat this as a marginal low-water day.",
+    latitude: 37.2052,
+    longitude: -83.7372,
+    gaugeSource: {
+      id: "usgs-03281100",
+      provider: "usgs",
+      siteId: "03281100",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Goose Creek at Manchester, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 175,
+      idealMax: 514,
+      tooLow: 175,
+      tooHigh: 514,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Goose Creek at Manchester",
+        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "high",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "Goose Creek is a flashy small eastern-Kentucky stream. The short length makes this connector tempting, but same-day rain and wood matter more than calendar season.",
+      difficulty: "easy",
+      difficultyNotes:
+        "At normal levels this is a straightforward bridge-to-ford creek float, but it is still narrow, shallow, and sensitive to low water, wood, and quick rises.",
+      confidenceNotes:
+        "Confidence is high for a conservative split add: KDFWR documents the Jacks/Bowling Branch to Tobacco Road segment at 2.2 miles and Tobacco Road to Dump Hollow at 0.8 miles, which combine cleanly into a 3.0-mile downstream route below the Rawlings / Stinson low-head-dam warning. KDFWR also publishes official Manchester cfs and stage bands and source-backed endpoint coordinates. Same-day USGS Water Services returned 191 cfs and 7.32 ft at 2026-07-14 00:45 EDT for USGS 03281100, so the creek is just barely inside the discharge band while still a touch low on stage.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route chain",
+        value: "Jacks/Bowling Branch Bridge Access to Dump Hollow Ford, about 3.0 mi",
+        note: "KDFWR lists Jacks/Bowling Branch Bridge Access to Tobacco Road Bridge Ramp as 2.2 miles and Tobacco Road Bridge Ramp to Dump Hollow Ford as 0.8 miles, supporting a combined public route of about 3.0 miles.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "175-514 cfs / 7.4-8.5 ft good",
+        note: "KDFWR rates Goose Creek at Manchester as Low below 175 cfs or 7.4 ft, Good from 175 to 514 cfs or 7.4 to 8.5 ft, and High above 514 cfs or 8.5 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Jacks/Bowling Branch Bridge Access, 37.2052, -83.7372",
+        note: "KDFWR identifies Jacks/Bowling Branch as a year-round carry-down access with unpaved parking and no amenities.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1195",
+      },
+      {
+        label: "Take-out access",
+        value: "Dump Hollow Ford, 37.2127, -83.7040",
+        note: "KDFWR identifies Dump Hollow Ford Road as a year-round carry-down access with unpaved parking and no amenities, while warning it can be difficult or dangerous at high water.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03281100 at 191 cfs / 7.32 ft",
+        note: "USGS Water Services returned same-day Goose Creek at Manchester values at 00:45 EDT on July 14, 2026. The discharge is barely inside KDFWR's good band while stage is still slightly below it, so the route should stay cautious and low-end today.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Short shallow creek connector below the upstream dam warning",
+        note: "KDFWR's Goose Creek page describes a relatively shallow stream with riffles, pools, and rock bars. Starting at Jacks keeps this route below the Rawlings / Stinson low-head-dam warning attached to the upstream Manchester ramp.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Goose Creek",
+        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Jacks/Bowling Branch Bridge Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1195",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Dump Hollow Ford Road",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197",
+        provider: "local",
+      },
+      {
+        label: "USGS 03281100 Goose Creek at Manchester",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03281100 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
     id: "goose-creek-tobacco-road-dump-hollow",
     slug: "goose-creek-tobacco-road-dump-hollow",
     name: "Goose Creek",
@@ -55093,6 +55349,126 @@ export const rivers: River[] = [
         label: 'Official same-creek proxy gauge',
         value: 'USGS 01571500 at Camp Hill',
         note: 'USGS Water Services returned same-day 2026-07-10 values of 175 cfs and 1.38 ft for Yellow Breeches Creek near Camp Hill at 08:13 EDT.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01571500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Official level guidance',
+        value: 'Recommended 1.4 to 2.0 ft; action stage 6 ft; flood stage 7 ft',
+        note: 'Cumberland County says the Camp Hill gauge should read between 1.4 and 2.0 feet for boating, with action stage at 6 feet and flood stage at 7 feet.',
+        sourceUrl: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Cumberland County Water Trails',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      {
+        label: 'Yellow Breeches story map',
+        url: 'https://gis.ccpa.net/storymaps/yellowbreeches/',
+        provider: 'local',
+      },
+      {
+        label: 'PFBC Water Trail Guides and Maps',
+        url: 'https://pfbc.pa.gov/WaterTrail.htm',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01571500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-01571500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01571500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01571500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'yellow-breeches-creek-lower-allen-community-park-liberty-forge',
+    slug: 'yellow-breeches-creek-lower-allen-community-park-liberty-forge',
+    name: 'Yellow Breeches Creek',
+    reach: 'Lower Allen Community Park to Liberty Forge',
+    aliases: [
+      'Yellow Breeches Creek - Lower Allen Community Park to Liberty Forge',
+      'Yellow Breeches Creek - Lower Allen to Old Forge Road',
+      'Yellow Breeches Creek short Lower Allen bridge-access connector',
+    ],
+    state: 'Pennsylvania',
+    region: 'South Central Pennsylvania',
+    summary:
+      'Very short Yellow Breeches connector from the campground-supported Lower Allen launch to the public Liberty Forge bridge access. Cumberland County still documents the access pair, the bridge-side public-use terms at Liberty Forge, and the same Camp Hill gauge guidance used for the whole trail.',
+    statusText:
+      'Use the Yellow Breeches Creek near Camp Hill gauge as an official same-creek proxy. Cumberland County recommends boating at about 1.4 to 2.0 ft there; the gauge was 1.12 ft at 2026-07-14 00:45 EDT, so expect a scrape-prone low-water connector rather than a broad green-light.',
+    latitude: 40.172373,
+    longitude: -76.913787,
+    gaugeSource: {
+      id: 'usgs-01571500',
+      provider: 'usgs',
+      siteId: '01571500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Yellow Breeches Creek near Camp Hill, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01571500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Cumberland County classifies Yellow Breeches as Class I-II moving water and says flow conditions can change rapidly.',
+        'Liberty Forge is a public boating access only at the Old Forge Road bridge area; follow posted access rules and do not treat the golf-resort grounds as an unrestricted take-out zone.',
+        'The county currently warns of a full blockage near B7 farther downstream, so keep this route as a self-contained Lower Allen connector rather than assuming a safe continuation.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1.4,
+      idealMax: 2.0,
+      tooLow: 1.4,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'Cumberland County Yellow Breeches Camp Hill gauge guidance',
+        url: 'https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Short warm-season floats are the natural fit, but this creek can rise fast after storms and still get annoyingly shallow when the Camp Hill proxy slips below the county recommendation.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route is very short and normally easy, but low water, fresh wood, and the bridge-side public finish can still make it feel less casual than the mileage suggests.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Lower Allen Community Park and Liberty Forge as named public Yellow Breeches access points, and the county story map still gives exact endpoint coordinates for the short Lower-Allen-to-Liberty bridge-access leg that defines this route. The story map also still says the public may access the creek for boating at the bridge at Old Forge Road while following posted rules. Paddle Today carries the leg as about 0.8 miles so the mapped route stays longer than the straight-line endpoint geometry. The county still recommends boating at 1.4 to 2.0 ft on the Camp Hill gauge, and same-day USGS Water Services returned 120 cfs and 1.12 ft at 2026-07-14 00:45 EDT for USGS 01571500.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Lower Allen Community Park to Liberty Forge, about 0.8 mi',
+        note: 'Cumberland County still publishes the Lower Allen Community Park and Liberty Forge endpoints on the story map, and the mapped bridge-access leg is carried here as about 0.8 miles so the route remains consistent with the published endpoint geometry.',
+        sourceUrl: 'https://gis.ccpa.net/storymaps/yellowbreeches/',
+      },
+      {
+        label: 'Public endpoint coordinates',
+        value: '40.172373, -76.913787 to 40.177495, -76.924172',
+        note: 'Cumberland County still publishes Lower Allen Community Park and Liberty Forge as official Yellow Breeches access points with those coordinates.',
+        sourceUrl: 'https://gis.ccpa.net/storymaps/yellowbreeches/',
+      },
+      {
+        label: 'Public-use access terms',
+        value: 'Bridge-side boating access at Liberty Forge',
+        note: 'The county story map says the public may access the creek for boating at the bridge at Old Forge Road, with parking at the miniature-golf area and posted access rules controlling use.',
+        sourceUrl: 'https://gis.ccpa.net/storymaps/yellowbreeches/',
+      },
+      {
+        label: 'Official same-creek proxy gauge',
+        value: 'USGS 01571500 at Camp Hill',
+        note: 'USGS Water Services returned same-day 2026-07-14 values of 120 cfs and 1.12 ft for Yellow Breeches Creek near Camp Hill at 00:45 EDT.',
         sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01571500&parameterCd=00060,00065&siteStatus=all',
       },
       {
