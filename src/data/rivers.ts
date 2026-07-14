@@ -37298,7 +37298,7 @@ export const rivers: River[] = [
       },
     ],
   },
-              {
+  {
     id: 'russell-creek-hatcher-todd-ford-milltown',
     slug: 'russell-creek-hatcher-todd-ford-milltown',
     name: 'Russell Creek',
@@ -37390,6 +37390,329 @@ export const rivers: River[] = [
       {
         label: 'KDFWR Russell Creek access records',
         url: 'https://app.fw.ky.gov/fisheries/waterbodydetail.aspx?wid=499',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03307000 Russell Creek near Columbia',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03307000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03307000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03307000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'russell-creek-milltown-russell-creek-road',
+    slug: 'russell-creek-milltown-russell-creek-road',
+    name: 'Russell Creek',
+    reach: 'Milltown Road Bridge Access to Russell Creek Road Access',
+    aliases: [
+      'Russell Creek - Milltown to Russell Creek Road',
+      'KDFWR Russell Creek middle segment',
+      'Russell Creek - Milltown to slab crossing',
+    ],
+    state: 'Kentucky',
+    region: 'South-Central Kentucky',
+    summary:
+      'Longer Russell Creek day from Milltown Road Bridge to the Russell Creek Road slab crossing. KDFWR documents this 13.2-mile public segment, official Columbia gauge bands, and endpoint coordinates.',
+    statusText:
+      'Use the Russell Creek near Columbia gauge. KDFWR rates 100 to 350 cfs, or 3.5 to 4.5 ft, as good for boating and fishing. Below that, expect shallow riffles, dragging, and a slower day; above that, this narrow creek gets pushier around wood, bends, and the slab take-out.',
+    latitude: 37.1237,
+    longitude: -85.4049,
+    gaugeSource: {
+      id: 'usgs-03307000',
+      provider: 'usgs',
+      siteId: '03307000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Russell Creek near Columbia, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03307000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 100,
+      idealMax: 350,
+      tooLow: 100,
+      tooHigh: 350,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Russell Creek near Columbia',
+        url: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Russell Creek is rain-responsive and gets scrapy outside wet periods. Spring and wetter fall windows are the safest bets; summer can work after rain, but shallow riffles and gravel bars show up quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a longer version of the same narrow, remote Russell Creek character KDFWR describes upstream. The 13.2-mile length, limited amenities, private-adjacent banks, wood, and slab-crossing take-out make it a committed moving-water day rather than an easy float.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: KDFWR lists Milltown Access to Russell Creek Road Access as a 13.2-mile Russell Creek segment, publishes coordinates and access details for both endpoints, links the river to USGS 03307000, and gives official Low/Good/High cfs and stage bands for the Columbia gauge. USGS Water Services showed same-day July 14, 2026 discharge and gage-height observations during this run. Current review flow was below the good band, but that affects today\'s score rather than route readiness.',
+    },
+    evidenceNotes: [
+      {
+        label: 'KDFWR bands',
+        value: '100-350 cfs / 3.5-4.5 ft good',
+        note: 'KDFWR rates Russell Creek near Columbia as Low below 100 cfs or 3.5 ft, Good from 100 to 350 cfs or 3.5 to 4.5 ft, and High above 350 cfs or 4.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+      },
+      {
+        label: 'Public route shape',
+        value: 'Milltown to Russell Creek Road, 13.2 mi',
+        note: 'KDFWR lists Milltown Access to Russell Creek Road Access as a 13.2-mile Russell Creek public-access segment.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+      },
+      {
+        label: 'Access character',
+        value: 'Carry-down bridge access to slab crossing',
+        note: 'KDFWR says Milltown has limited parking and no amenities, while Russell Creek Road has a gravel-bar/slab crossing take-out with parking pull-offs and no other amenities.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 03307000 at 73.4 cfs / 2.48 ft',
+        note: 'USGS Water Services returned same-day discharge and gage height at 15:30 CDT on July 14, 2026 for Russell Creek near Columbia. That value is below KDFWR\'s good band, so the route should score low today.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03307000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '37.1237, -85.4049 to 37.1701, -85.4354',
+        note: 'KDFWR access-detail records provide coordinates for Milltown Road Bridge Access and Russell Creek Road Access.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/waterbodydetail.aspx?wid=499',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Russell Creek',
+        url: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Russell Creek access records',
+        url: 'https://app.fw.ky.gov/fisheries/waterbodydetail.aspx?wid=499',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03307000 Russell Creek near Columbia',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03307000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03307000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03307000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'russell-creek-hatcher-todd-ford-russell-creek-road',
+    slug: 'russell-creek-hatcher-todd-ford-russell-creek-road',
+    name: 'Russell Creek',
+    reach: 'Hatcher Road / Todd Ford Road Access to Russell Creek Road Access',
+    aliases: [
+      'Russell Creek - Hatcher Road to Russell Creek Road',
+      'Russell Creek - Todd Ford to Russell Creek Road',
+      'Russell Creek - upper to lower public access chain',
+    ],
+    state: 'Kentucky',
+    region: 'South-Central Kentucky',
+    summary:
+      'Big Russell Creek commitment from the Hatcher Road / Todd Ford ford access to the Russell Creek Road slab crossing. KDFWR supports the public access chain and gauge bands, and the combined official mileage reaches about 21 miles.',
+    statusText:
+      'Use the Russell Creek near Columbia gauge. KDFWR rates 100 to 350 cfs, or 3.5 to 4.5 ft, as good for boating and fishing. Below that, this long narrow-creek day turns into repeated scraping and delay; above that, current and wood stack consequences quickly on a 21-mile commitment.',
+    latitude: 37.1242,
+    longitude: -85.3395,
+    gaugeSource: {
+      id: 'usgs-03307000',
+      provider: 'usgs',
+      siteId: '03307000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Russell Creek near Columbia, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03307000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 100,
+      idealMax: 350,
+      tooLow: 100,
+      tooHigh: 350,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Russell Creek near Columbia',
+        url: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Russell Creek is best after dependable rain windows. Spring and wetter fall periods give the best odds of enough depth for a 21-mile day; summer lows expose riffles and bars fast, making this route much harder than the mileage alone suggests.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The creek itself is not technical whitewater, but KDFWR describes it as narrow and remote with access points far apart. Combining the first two official public segments into a 21-mile run creates a dawn-to-dusk commitment with long stretches of riffle/run current, low-water dragging risk, wood, limited legal stops, and few bailout conveniences.',
+      confidenceNotes:
+        'Confidence is good for a guarded Kentucky add: KDFWR publishes the Hatcher Road / Todd Ford Road to Milltown segment at 7.8 miles and Milltown to Russell Creek Road at 13.2 miles, for about 21 miles across a continuous public-access chain on the same creek. KDFWR also publishes endpoint coordinates, access details, and official Low/Good/High cfs and stage bands tied to USGS 03307000, and USGS Water Services returned same-day July 14, 2026 values during this run. The route is product-ready but should present as a long, expert-judgment daylight commitment, not a casual float.',
+    },
+    evidenceNotes: [
+      {
+        label: 'KDFWR bands',
+        value: '100-350 cfs / 3.5-4.5 ft good',
+        note: 'KDFWR rates Russell Creek near Columbia as Low below 100 cfs or 3.5 ft, Good from 100 to 350 cfs or 3.5 to 4.5 ft, and High above 350 cfs or 4.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+      },
+      {
+        label: 'Public route shape',
+        value: 'Hatcher Road / Todd Ford to Russell Creek Road, about 21 mi',
+        note: 'KDFWR lists Hatcher Road / Todd Ford Road Access to Milltown Access at 7.8 miles and Milltown Access to Russell Creek Road Access at 13.2 miles, which combine into about 21 miles on the same public creek corridor.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+      },
+      {
+        label: 'Access character',
+        value: 'Ford put-in, bridge midpoint, slab-crossing take-out',
+        note: 'KDFWR says Hatcher/Todd Ford should not be blocked, Milltown has limited parking and private-adjacent banks, and Russell Creek Road uses gravel pull-offs and a slab crossing with no other amenities.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 03307000 at 73.4 cfs / 2.48 ft',
+        note: 'USGS Water Services returned same-day discharge and gage height at 15:30 CDT on July 14, 2026 for Russell Creek near Columbia. That value is below KDFWR\'s good band, so the route should score low today.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03307000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '37.1242, -85.3395 to 37.1701, -85.4354',
+        note: 'KDFWR access-detail records provide coordinates for Hatcher Road / Todd Ford Road Access and Russell Creek Road Access.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/waterbodydetail.aspx?wid=499',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Russell Creek',
+        url: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Russell Creek access records',
+        url: 'https://app.fw.ky.gov/fisheries/waterbodydetail.aspx?wid=499',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03307000 Russell Creek near Columbia',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03307000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03307000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03307000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'russell-creek-russell-creek-road-green-river-russell-creek-vpa',
+    slug: 'russell-creek-russell-creek-road-green-river-russell-creek-vpa',
+    name: 'Russell Creek',
+    reach: 'Russell Creek Road Access to Green River-Russell Creek VPA',
+    aliases: [
+      'Russell Creek - Russell Creek Road to Green River mouth',
+      'Russell Creek - slab crossing to VPA',
+      'KDFWR Russell Creek lower segment',
+    ],
+    state: 'Kentucky',
+    region: 'South-Central Kentucky',
+    summary:
+      'Lower Russell Creek from the Russell Creek Road slab crossing to the Green River-Russell Creek VPA at the mouth. KDFWR documents the 12.6-mile lower public segment and the Columbia gauge bands; the VPA detail adds daylight-only and no-camping rules.',
+    statusText:
+      'Use the Russell Creek near Columbia gauge. KDFWR rates 100 to 350 cfs, or 3.5 to 4.5 ft, as good for boating and fishing. Below that, expect shallow riffles and gravel bars; above that, current and wood get pushier, and the VPA take-out remains a low-amenity bank access.',
+    latitude: 37.1701,
+    longitude: -85.4354,
+    gaugeSource: {
+      id: 'usgs-03307000',
+      provider: 'usgs',
+      siteId: '03307000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Russell Creek near Columbia, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03307000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 100,
+      idealMax: 350,
+      tooLow: 100,
+      tooHigh: 350,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Russell Creek near Columbia',
+        url: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Russell Creek responds quickly to rain, and this lower segment still wants water. Spring and wetter fall periods are most reliable; in summer, low water can expose bars and slow the day dramatically before the gauge fully fails.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This lower reach stays on the same narrow, remote creek character, but the 12.6-mile length and VPA take-out mean the route still demands planning. Wood, limited amenities, private-adjacent banks, and a low-amenity mouth access make it more committing than a short local float.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: KDFWR lists Russell Creek Road Access to Green River-Russell Creek VPA as a 12.6-mile Russell Creek segment, publishes the official Low/Good/High cfs and stage bands tied to USGS 03307000, and provides access details and coordinates for Russell Creek Road. The Green River-Russell Creek VPA detail page confirms the mouth take-out coordinates and daylight-only, no-camping VPA rules. USGS Water Services returned same-day July 14, 2026 values during this run. Current review flow was below the good band, but that affects today\'s score rather than route readiness.',
+    },
+    evidenceNotes: [
+      {
+        label: 'KDFWR bands',
+        value: '100-350 cfs / 3.5-4.5 ft good',
+        note: 'KDFWR rates Russell Creek near Columbia as Low below 100 cfs or 3.5 ft, Good from 100 to 350 cfs or 3.5 to 4.5 ft, and High above 350 cfs or 4.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+      },
+      {
+        label: 'Public route shape',
+        value: 'Russell Creek Road to Green River-Russell Creek VPA, 12.6 mi',
+        note: 'KDFWR lists Russell Creek Road Access to Green River-Russell Creek VPA as a 12.6-mile Russell Creek public-access segment.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+      },
+      {
+        label: 'Access character',
+        value: 'Slab-crossing put-in to daylight-only VPA bank access',
+        note: 'KDFWR says Russell Creek Road has parking pull-offs and a large gravel bar, while the Green River-Russell Creek VPA is a walk-in VPA site at the mouth with limited parking, no amenities, no camping, and daylight-hours-only rules.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=995',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 03307000 at 73.4 cfs / 2.48 ft',
+        note: 'USGS Water Services returned same-day discharge and gage height at 15:30 CDT on July 14, 2026 for Russell Creek near Columbia. That value is below KDFWR\'s good band, so the route should score low today.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03307000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '37.1701, -85.4354 to 37.2283, -85.5096',
+        note: 'KDFWR access-detail records provide coordinates for Russell Creek Road Access and the Green River-Russell Creek VPA mouth access.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=995',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Russell Creek',
+        url: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Russell Creek access records',
+        url: 'https://app.fw.ky.gov/fisheries/waterbodydetail.aspx?wid=499',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Green River-Russell Creek VPA detail',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=995',
         provider: 'local',
       },
       {

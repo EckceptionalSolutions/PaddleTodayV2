@@ -12163,6 +12163,126 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'russell-creek-milltown-russell-creek-road': {
+    putIn: {
+      id: 'milltown-road-bridge',
+      name: 'Milltown Road Bridge Access',
+      latitude: 37.1237,
+      longitude: -85.4049,
+    },
+    takeOut: {
+      id: 'russell-creek-road',
+      name: 'Russell Creek Road Access',
+      latitude: 37.1701,
+      longitude: -85.4354,
+    },
+    logistics: {
+      distanceLabel: 'About 13.2 mi',
+      estimatedPaddleTime:
+        'Long daylight day, often 5 hr to 8 hr depending on level, wood, and scraping',
+      shuttle:
+        'Stage the take-out at Russell Creek Road Access, then drive back to Milltown Road Bridge Access. Both are rural, no-amenity accesses; confirm the slab-crossing take-out and leave a daylight margin before committing to the shuttle.',
+      permits:
+        'No route-specific private paddling permit is known. Use only the KDFWR-listed public access areas, follow Kentucky boating and PFD rules, obey posted signs, and respect private property around both access points.',
+      camping:
+        'Treat this as a daylight day trip. KDFWR lists no camping at either access, and no legal on-route overnight support was verified for this segment.',
+      summary:
+        'Launch at Milltown Road Bridge Access and take out at Russell Creek Road Access for the 13.2-mile middle Russell Creek segment. Use the Columbia USGS gauge and expect a much slower day below the KDFWR good band.',
+      accessCaveats: [
+        'Milltown Road Bridge Access has limited parking, no amenities, and private-adjacent banks; use only the immediate public access area.',
+        'Russell Creek Road Access uses gravel pull-offs and a large gravel bar above the slab crossing. The take-out is simple but still rural and low-amenity.',
+        'This longer middle segment leaves few easy bailout conveniences, so inspect the shuttle and weather before launching.',
+        'Low water can add repeated dragging long before the route becomes truly unrunnable.',
+      ],
+      watchFor: [
+        'Shallow riffles, rock bars, and dragging below about 100 cfs.',
+        'Wood, strainers, blind corners, and floating debris after rain.',
+        'High or rising water above KDFWR\'s good band, which can make a narrow creek pushier and reduce landing options.',
+        'Private banks and limited legal stops; stay with ordinary navigation and documented public accesses.',
+        'Long daylight commitment, weak services, and the need to line up the slab-crossing take-out cleanly at the end of the day.',
+      ],
+    },
+  },
+  'russell-creek-hatcher-todd-ford-russell-creek-road': {
+    putIn: {
+      id: 'hatcher-todd-ford',
+      name: 'Hatcher Road / Todd Ford Road Access',
+      latitude: 37.1242,
+      longitude: -85.3395,
+    },
+    takeOut: {
+      id: 'russell-creek-road',
+      name: 'Russell Creek Road Access',
+      latitude: 37.1701,
+      longitude: -85.4354,
+    },
+    logistics: {
+      distanceLabel: 'About 21 mi',
+      estimatedPaddleTime:
+        'Very long dawn-to-dusk creek day, often 8 hr to 11 hr depending on level, wood, and dragging',
+      shuttle:
+        'Stage the take-out at Russell Creek Road Access, then drive back to Hatcher Road / Todd Ford Road Access. This is a long rural shuttle and a big on-water commitment; confirm weather, water, daylight, and vehicle placement before launching.',
+      permits:
+        'No route-specific private paddling permit is known. Use only the KDFWR-listed public access areas, follow Kentucky boating and PFD rules, obey posted signs, and respect private property around all access points.',
+      camping:
+        'Treat this as a serious daylight-only challenge run. KDFWR lists no camping at the public accesses, and no legal on-route overnight plan was verified for this 21-mile creek chain.',
+      summary:
+        'Launch at Hatcher Road / Todd Ford Road and stay on Russell Creek all the way to Russell Creek Road Access for about 21 miles. This combines the first two KDFWR public segments and needs solid water, an early start, and conservative decision-making.',
+      accessCaveats: [
+        'Hatcher Road / Todd Ford Road is a ford access with limited parking that can depend on water level and bank condition. Do not block the ford.',
+        'The route passes the Milltown public access mid-corridor, but otherwise legal public exits are limited and private banks dominate much of the creek.',
+        'Russell Creek Road Access uses pull-offs and a slab crossing with no amenities. Inspect the take-out before the shuttle.',
+        'The length means low water, wood, thunderstorms, or a late start can turn this into an uncomfortably long day.',
+      ],
+      watchFor: [
+        'Shallow riffles, rock bars, ford approaches, and repeated dragging below about 100 cfs.',
+        'Wood, strainers, blind corners, and debris piles that matter more on a long narrow-creek commitment.',
+        'High or rising water above KDFWR\'s good band, which raises consequences on a route with limited exits and many miles still ahead.',
+        'Private banks, fatigue, heat, hydration issues, and weak cell coverage in a rural corridor.',
+        'No amenities, limited parking, and the need to preserve enough daylight to reach the slab-crossing take-out safely.',
+      ],
+    },
+  },
+  'russell-creek-russell-creek-road-green-river-russell-creek-vpa': {
+    putIn: {
+      id: 'russell-creek-road',
+      name: 'Russell Creek Road Access',
+      latitude: 37.1701,
+      longitude: -85.4354,
+    },
+    takeOut: {
+      id: 'green-river-russell-creek-vpa',
+      name: 'Green River-Russell Creek VPA',
+      latitude: 37.2283,
+      longitude: -85.5096,
+    },
+    logistics: {
+      distanceLabel: 'About 12.6 mi',
+      estimatedPaddleTime:
+        'Long daylight day, often 5 hr to 8 hr depending on level, wood, and mouth-current conditions',
+      shuttle:
+        'Stage the take-out at the Green River-Russell Creek VPA gate, then drive back to Russell Creek Road Access. The mouth take-out is a low-amenity walk-in VPA site with limited parking, so inspect the landing and parking plan before launching.',
+      permits:
+        'No route-specific private paddling permit is known. Use only the KDFWR-listed public access areas, follow Kentucky boating and PFD rules, obey posted VPA regulations, and respect private property around the corridor.',
+      camping:
+        'Treat this as a daylight day trip. The Green River-Russell Creek VPA is private property enrolled in KDFWR\'s VPA program with daylight-hours-only access and no camping.',
+      summary:
+        'Launch at Russell Creek Road Access and take out at the Green River-Russell Creek VPA at the mouth for the 12.6-mile lower Russell Creek segment. Use the Columbia USGS gauge and respect the VPA daylight-only, no-camping rules at the take-out.',
+      accessCaveats: [
+        'Russell Creek Road Access uses gravel pull-offs and a large gravel bar above the slab crossing; there are no other amenities.',
+        'Green River-Russell Creek VPA is private property under KDFWR\'s Voluntary Public Access Program. Park at the gate, walk in, and follow the posted daylight-hours-only rules.',
+        'The VPA detail explicitly prohibits camping, fires, alcohol, swimming, ATV use, and other off-purpose use.',
+        'This lower segment still has few services and limited legal stopping points away from the named public accesses.',
+      ],
+      watchFor: [
+        'Shallow riffles, gravel bars, and scraping below about 100 cfs.',
+        'Wood, strainers, blind corners, and debris near the lower bends and the mouth approach.',
+        'High or rising water above KDFWR\'s good band, especially where the lower creek pushes through bends with fewer easy exits.',
+        'Private banks, VPA rules, and the need to finish before dark because the mouth access is daylight-hours-only.',
+        'Limited parking, no amenities, and the possibility of Green River backwater or mouth turbulence affecting the take-out zone.',
+      ],
+    },
+  },
   'tygarts-creek-olive-hill-carter-caves': {
     putIn: {
       id: 'olive-hill-carrydown',
