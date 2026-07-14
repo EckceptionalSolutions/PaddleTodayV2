@@ -70409,4 +70409,357 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'mississippi-river-county-road-12-dam-county-road-25',
+    slug: 'mississippi-river-county-road-12-dam-county-road-25',
+    name: 'Mississippi River',
+    reach: 'County Road 12 Dam to County Road 25',
+    state: 'Minnesota',
+    region: 'Mississippi Headwaters',
+    summary:
+      'Short official MN DNR Mississippi River headwaters one-way below the County Road 12 Dam, with carry-in public access records, an at-route DNR interpreted gauge, and explicit dam, portage, wood, and low-water caveats.',
+    statusText:
+      'Use the Stump Lake / County Road 12 DNR gauge: 2.8 to 3.6 ft is the official medium band. Below 1.8 ft is scrapable, and above 5.0 ft is very high.',
+    latitude: 47.4837193,
+    longitude: -94.7283419,
+    gaugeSource: {
+      id: 'mn-dnr-341',
+      provider: 'mn_dnr',
+      siteId: '341',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'direct',
+      siteName: 'Stump Lake nr Bemidji, CSAH12',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=07115001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=07115001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.8,
+      idealMax: 3.6,
+      tooLow: 1.8,
+      tooHigh: 5,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Stump Lake near Bemidji / County Road 12',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The upper Mississippi headwaters can be shallow, woody, and dam-influenced in dry periods, then push faster through tight bends and obstructions after rain.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'DNR lists this as a short recommended one-way, but the route begins below a dam/portage area and still requires headwaters wood, beaver activity, low-water scraping, and private-bank awareness.',
+      confidenceNotes:
+        'Confidence is good: MN DNR recommends County Road 12 Dam to County Road 25 as a 3.8-mile Map 1 one-way, public-water-access GIS resolves both carry-in endpoints, and the Stump Lake / County Road 12 interpreted gauge sits at the start of the route. Confirm the signed post-portage launch below the dam before putting on.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Start only below the County Road 12 Dam/portage area. Do not paddle into dam works, outlet structures, or private bank shortcuts.',
+        'Expect tight headwaters bends, wood, beaver obstructions, shallow riffles, and possible lift-overs when the gauge is near the low or scrapable bands.',
+        'Because the route is short, scout the take-out first and keep a conservative no-go threshold for high, cold, or debris-filled water.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '3.8 river miles',
+        note: 'MN DNR recommends County Road 12 Dam Carry-in Access at river mile 1277.7 to County Road 25 Carry-in Access at river mile 1273.9 as a Mississippi River Map 1 one-way.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Public access records',
+        value: 'Co Rd 12 and Co Rd 25 access GUIDs',
+        note: 'Minnesota public-water-access GIS resolves the County Road 12 and County Road 25 Mississippi River carry-in access sites with DNR administrator records, directions, and coordinates.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '1.8 / 2.8-3.6 / 5.0 ft',
+        note: 'MN DNR interprets the Stump Lake / County Road 12 gauge as Scrapable below 1.8 ft, Low from 1.8 to 2.8, Medium from 2.8 to 3.6, High from 3.6 to 5.0, and Very High above 5.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '2.96 ft at 2026-07-14 13:30',
+        note: 'The current MN DNR feed placed Stump Lake / County Road 12 in the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map safety context',
+        value: 'Dam portage and campsite context',
+        note: 'MN DNR Mississippi Map 1 marks the County Road 12 Dam/portage context and nearby headwaters campsite/access features, so the route ships with a below-dam launch caveat.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR recommended one-way routes',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Mississippi River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi1.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'mississippi-river-schoolcraft-sylvan',
+    slug: 'mississippi-river-schoolcraft-sylvan',
+    name: 'Mississippi River',
+    reach: 'Schoolcraft State Park to Sylvan Municipal Park',
+    state: 'Minnesota',
+    region: 'Mississippi Headwaters',
+    summary:
+      'Long official MN DNR Mississippi River headwaters day from Schoolcraft State Park to Sylvan Municipal Park, backed by public access GIS, the nearby Days High Landing interpreted gauge, and conservative remote-corridor caveats.',
+    statusText:
+      'Use the Days High Landing DNR gauge: 1,273.8 to 1,274.5 ft is the official medium band. Below 1,272.9 ft is scrapable, and above 1,275 ft is very high.',
+    latitude: 47.225074,
+    longitude: -93.8021304,
+    gaugeSource: {
+      id: 'mn-dnr-116',
+      provider: 'mn_dnr',
+      siteId: '116',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'direct',
+      siteName: 'Mississippi River at Days High Landing nr Deer River, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=07008001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=07008001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1273.8,
+      idealMax: 1274.5,
+      tooLow: 1272.9,
+      tooHigh: 1275,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River at Days High Landing',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This forested headwaters reach can be bony and slow in low water, but high water increases current, debris, cold-water exposure, and rescue spacing.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The distance makes this a full-day moving-water trip. Plan for long shuttle time, limited exits, headwaters wood, shallow riffles, and fatigue before committing to the full Schoolcraft-to-Sylvan run.',
+      confidenceNotes:
+        'Confidence is good: MN DNR recommends Schoolcraft State Park to Sylvan Municipal Park as an 18.7-mile one-way, public-water-access GIS resolves Schoolcraft, #10, and Sylvan sites, and the Days High Landing interpreted gauge is the official same-corridor gauge just upstream of the route. Use visual checks because the gauge is not at the take-out.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'remote', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Treat this as a long, remote headwaters day with limited road crossings and long rescue spacing between public access points.',
+        'Expect wood, sweepers, low-water riffles, shallow bars, cold water outside summer, and stronger current or debris after rain.',
+        'Use #10 Access as an intermediate bailout only if it has been scouted and is reachable from the day plan; do not count on informal bank exits.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '18.7 river miles',
+        note: 'MN DNR recommends Schoolcraft State Park Trailer Access at river mile 1198.8 to Sylvan Municipal Park Trailer Access at river mile 1180.1 as a Mississippi River one-way.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Public access records',
+        value: 'Schoolcraft, #10, and Sylvan access records',
+        note: 'Minnesota public-water-access GIS resolves the Schoolcraft State Park put-in, intermediate #10 access, and Sylvan Bay/Sylvan Municipal Park take-out with coordinates and public access records.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '1,272.9 / 1,273.8-1,274.5 / 1,275 ft',
+        note: 'MN DNR interprets the Days High Landing gauge as Scrapable below 1,272.9 ft, Low from 1,272.9 to 1,273.8, Medium from 1,273.8 to 1,274.5, High from 1,274.5 to 1,275, and Very High above 1,275.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '1,273.57 ft at 2026-07-14 13:30',
+        note: 'The current MN DNR feed placed Days High Landing in the official low band during this run, below the medium target.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Camping and route support',
+        value: 'Endpoint campground and intermediate access',
+        note: 'DNR Mississippi materials identify Schoolcraft State Park camping/support and the #10 access inside this corridor, but the selected route remains a long day trip unless a separate overnight plan is confirmed.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR recommended one-way routes',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Mississippi River Map 3 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi3.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'mississippi-river-sandy-lake-wolds-ferry',
+    slug: 'mississippi-river-sandy-lake-wolds-ferry',
+    name: 'Mississippi River',
+    reach: "Sandy Lake Recreation Area to Wold's Ferry Crossing",
+    state: 'Minnesota',
+    region: 'Mississippi Headwaters',
+    summary:
+      "Official MN DNR Mississippi River one-way from Sandy Lake Recreation Area to Wold's Ferry Crossing, with public access GIS endpoints, a downstream Aitkin interpreted gauge proxy, and Sandy Lake Dam / low-riffle caveats.",
+    statusText:
+      'Use the Aitkin DNR gauge as a downstream same-map proxy: 1,500 to 6,000 cfs is the official medium band. Below 712 cfs is scrapable, and above 8,000 cfs is very high.',
+    latitude: 46.7884039,
+    longitude: -93.3187037,
+    gaugeSource: {
+      id: 'mn-dnr-120',
+      provider: 'mn_dnr',
+      siteId: '120',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'Mississippi River at Aitkin, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=10015001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=10015001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 6000,
+      tooLow: 712.3,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River at Aitkin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.2,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This route starts from the Sandy Lake Recreation Area, crosses a short Sandy River lead-in, and then follows a riffle-prone Mississippi reach that can be scrapey in low water and pushy after rain or dam changes.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        "DNR describes the route as an easy section with riffles at low water, but the Sandy Lake Dam setting, launch-to-river lead-in, wind, low-water riffles, and proxy gauge relationship justify caution.",
+      confidenceNotes:
+        "Confidence is good: MN DNR recommends Sandy Lake Recreation Area to Wold's Ferry Crossing as a 9.5-mile one-way, public-water-access GIS resolves both endpoints, and the Aitkin interpreted gauge is the official downstream same-map gauge. Because the gauge is downstream and the route starts near Sandy Lake Dam, verify local releases, wind, and riffles at launch.",
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'remote', 'cold_water'],
+      safetyNotes: [
+        'Confirm Sandy Lake Dam, USACE recreation-area, fee, and launch conditions before starting; do not paddle into dam infrastructure or restricted water.',
+        'DNR notes about one mile from launch to the Mississippi and riffles at low water, so expect shallow scraping, rocks, and changing current before committing downstream.',
+        "Use Wold's Ferry as the planned finish. Services are limited between accesses, and wind, cold water, wood, and post-rain debris can turn a short route into a difficult recovery.",
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '9.5 river miles',
+        note: "MN DNR recommends Sandy Lake Recreation Area to Wold's Ferry Crossing as a 9.5-mile Mississippi River one-way and notes the route starts about one mile from the Mississippi.",
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'Big Sandy Lake North and Wold\'s Ferry',
+        note: "Minnesota public-water-access GIS resolves the Big Sandy Lake North / Sandy Lake Recreation Area launch and Wold's Ferry Crossing Mississippi River access with administrator records, directions, and coordinates.",
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '712 / 1,500-6,000 / 8,000 cfs',
+        note: 'MN DNR interprets the Aitkin gauge as Scrapable below 712.3 cfs, Low from 712.3 to 1,500, Medium from 1,500 to 6,000, High from 6,000 to 8,000, and Very High above 8,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '1,820 cfs at 2026-07-14 13:30',
+        note: 'The current MN DNR feed placed Aitkin in the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Camping and route character',
+        value: 'Sandy Lake camping and Scott\'s Rapid campsite context',
+        note: "DNR identifies Sandy Lake Recreation Area camping support, Scott's Rapid Campsite, and an easy route with low-water riffles; campsite use remains conditional and first-come.",
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR recommended one-way routes',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Mississippi River Map 4 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi4.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
 ];

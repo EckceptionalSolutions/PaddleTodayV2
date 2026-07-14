@@ -25660,5 +25660,179 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'mississippi-river-county-road-12-dam-county-road-25': {
+    putIn: {
+      name: 'Mississippi River, Co Rd 12 Public Water Access Site',
+      latitude: 47.4837193,
+      longitude: -94.7283419,
+    },
+    takeOut: {
+      name: 'Mississippi River, Co Rd 25 Public Water Access Site',
+      latitude: 47.4469663,
+      longitude: -94.7176399,
+    },
+    logistics: {
+      distanceLabel: '3.8 mi',
+      estimatedPaddleTime: 'About 1.25 hr to 2.25 hr depending on low-water scraping, wood, and portage/launch time',
+      shuttle:
+        'Stage a vehicle at the County Road 25 carry-in first, then drive back to County Road 12 / Power Dam Road. Confirm the signed post-dam launch and the County Road 25 take-out before putting on.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR public carry-in accesses, follow Minnesota boating/PFD rules, and obey dam, portage, and private-bank signs.',
+      camping:
+        'This works best as a short day route. DNR Map 1 shows nearby headwaters watercraft campsite context, but campsite use should be treated as first-come and separately confirmed rather than assumed for a required overnight.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch below the County Road 12 Dam and take out at County Road 25 for a 3.8-mile DNR recommended headwaters one-way. The Stump Lake / County Road 12 gauge is at the start and was in the medium band during this run.',
+      accessCaveats: [
+        'County Road 12 and County Road 25 both resolve in Minnesota public-water-access GIS with DNR Division of Parks and Trails access records and coordinates.',
+        'The put-in is tied to the County Road 12 Dam/portage area. Launch below the dam only, and do not improvise around dam infrastructure or private banks.',
+        'Because the route is short and headwaters-scale, pair the gauge with a visual check for wood, beaver obstructions, culverts, and shallow riffles.',
+      ],
+      watchFor: [
+        'Dam and portage context at the start, plus tight bends, wood, strainers, beaver activity, and low-water scraping.',
+        'Quickly changing headwaters levels after rain or dam changes, especially above the official high band.',
+        'Limited public exit options between the two carry-in sites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-road-12-dam',
+        name: 'Mississippi River, Co Rd 12 Public Water Access Site',
+        latitude: 47.4837193,
+        longitude: -94.7283419,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 1277.7; start below the County Road 12 Dam/portage area after a visual check.',
+      },
+      {
+        id: 'county-road-25',
+        name: 'Mississippi River, Co Rd 25 Public Water Access Site',
+        latitude: 47.4469663,
+        longitude: -94.7176399,
+        mileFromStart: 3.8,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 1273.9; resolves in the public-water-access GIS with carry-in access context.',
+      },
+    ],
+  },
+  'mississippi-river-schoolcraft-sylvan': {
+    putIn: {
+      name: 'Mississippi River, Schoolcraft SPK Public Water Access Site',
+      latitude: 47.225074,
+      longitude: -93.8021304,
+    },
+    takeOut: {
+      name: 'Mississippi River, Sylvan Bay Public Water Access Site',
+      latitude: 47.2305044,
+      longitude: -93.5477331,
+    },
+    logistics: {
+      distanceLabel: '18.7 mi',
+      estimatedPaddleTime: 'About 6 hr to 9 hr for a prepared group, longer with low water, wind, wood, or bailout stops',
+      shuttle:
+        'Stage Sylvan Municipal Park/Sylvan Bay first, then drive back to Schoolcraft State Park. Check #10 Access as an intermediate bailout only if it is part of the day plan.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR public access sites, follow Minnesota boating/PFD rules, and confirm Schoolcraft State Park fees or overnight rules if camping there.',
+      camping:
+        'Schoolcraft State Park can support a basecamp or endpoint overnight plan before launch. The selected Schoolcraft-to-Sylvan route should still be treated as a long day trip unless a separate legal overnight stop is confirmed.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Schoolcraft State Park and finish at Sylvan Municipal Park for an 18.7-mile DNR recommended Mississippi headwaters route. The Days High Landing gauge is the official same-corridor check and was below the medium band during this run.',
+      accessCaveats: [
+        'Schoolcraft State Park, #10 Access, and Sylvan Bay/Sylvan Municipal Park all resolve in Minnesota public-water-access GIS with coordinates and public access records.',
+        'The Days High Landing gauge is just upstream of the route corridor and should be treated as the official level check, not a replacement for visual inspection at Schoolcraft and Sylvan.',
+        'This is a long route with limited exits; make a conservative turnaround or #10 bailout decision before committing to the full day.',
+      ],
+      watchFor: [
+        'Low-water scraping, shallow bars, riffles, sweepers, fresh strainers, and cold water outside summer.',
+        'Remote rescue spacing, fatigue, wind on wider bends, and stronger current or debris after rain.',
+        'Private banks and limited informal exits between signed public access points.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'schoolcraft-state-park',
+        name: 'Mississippi River, Schoolcraft SPK Public Water Access Site',
+        latitude: 47.225074,
+        longitude: -93.8021304,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 1198.8 with Schoolcraft State Park support nearby.',
+      },
+      {
+        id: 'number-10-access',
+        name: 'Mississippi River, #10 Public Water Access Site',
+        latitude: 47.2253901,
+        longitude: -93.7611191,
+        mileFromStart: 4.1,
+        segmentKind: 'creek',
+        note: 'Intermediate public access from the DNR recommended list; scout only if using it as a bailout.',
+      },
+      {
+        id: 'sylvan-municipal-park',
+        name: 'Mississippi River, Sylvan Bay Public Water Access Site',
+        latitude: 47.2305044,
+        longitude: -93.5477331,
+        mileFromStart: 18.7,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 1180.1 in Grand Rapids/Sylvan Municipal Park context.',
+      },
+    ],
+  },
+  'mississippi-river-sandy-lake-wolds-ferry': {
+    putIn: {
+      name: 'Big Sandy Lake (N) Public Water Access Site',
+      latitude: 46.7884039,
+      longitude: -93.3187037,
+    },
+    takeOut: {
+      name: "Mississippi River, Wolds Ferry Crossing Public Water Access Site",
+      latitude: 46.7467308,
+      longitude: -93.3973426,
+    },
+    logistics: {
+      distanceLabel: '9.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr depending on wind, Sandy River lead-in current, low-water riffles, and scouting',
+      shuttle:
+        "Stage Wold's Ferry Crossing first, then drive back to Sandy Lake Recreation Area / Big Sandy Lake North. Confirm USACE recreation-area, fee, launch, and dam notices before unloading.",
+      permits:
+        'No route-specific paddling permit is known. Use the public access sites, follow Minnesota boating/PFD rules, and obey USACE recreation-area, fee, dam, and campsite rules.',
+      camping:
+        "Sandy Lake Recreation Area camping can support a basecamp plan, and DNR notes Scott's Rapid Campsite on the route if unoccupied. Treat any campsite stop as first-come and confirm current rules before relying on it.",
+      campingClassification: 'on_route_campsite',
+      summary:
+        "Launch from Sandy Lake Recreation Area / Big Sandy Lake North, paddle about a mile to the Mississippi, and finish at Wold's Ferry Crossing for DNR's 9.5-mile recommended route. Use Aitkin as a downstream proxy gauge and verify local dam and riffle conditions.",
+      accessCaveats: [
+        "Big Sandy Lake North/Sandy Lake Recreation Area and Wold's Ferry Crossing resolve in Minnesota public-water-access GIS with administrator records, directions, and coordinates.",
+        'The Aitkin gauge is downstream on the same DNR Mississippi map section, so pair the official bands with a visual launch check near Sandy Lake Dam and the Sandy River lead-in.',
+        "Do not extend past Wold's Ferry without a separate downstream plan and a fresh check on wind, riffles, and take-out spacing.",
+      ],
+      watchFor: [
+        'Sandy Lake Dam context, launch fees/rules, one-mile lead-in from launch to the Mississippi, and wind or wake near the recreation area.',
+        'Low-water riffles, shallow rocks, strainers, and fresh wood; DNR describes this as easy but riffly at low water.',
+        'Remote spacing between public accesses and variable current after rain or dam changes.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'sandy-lake-recreation-area',
+        name: 'Big Sandy Lake (N) Public Water Access Site',
+        latitude: 46.7884039,
+        longitude: -93.3187037,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for Sandy Lake Recreation Area; DNR notes about one mile from the launch to the Mississippi.',
+      },
+      {
+        id: 'wolds-ferry-crossing',
+        name: "Mississippi River, Wolds Ferry Crossing Public Water Access Site",
+        latitude: 46.7467308,
+        longitude: -93.3973426,
+        mileFromStart: 9.5,
+        segmentKind: 'creek',
+        note: "Default take-out at Wold's Ferry Crossing, about 5 miles east of Palisade on County Road 10.",
+      },
+    ],
+  },
 };
 

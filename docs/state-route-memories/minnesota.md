@@ -1,18 +1,26 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 14:05 America/Chicago.
+Last summarized: 2026-07-14 15:16 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 109.
-- Top represented rivers: Sauk River 17, Mississippi River 10, Little Fork River 9, Minnesota River 6, Crow Wing River 6, Big Fork River 5, Zumbro River 5, Root River 4, Red River of the North 4, Cannon River 3.
-- Ledger candidates: 796 total; 442 `added`, 77 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 54 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
+- Live routes: 112.
+- Top represented rivers: Sauk River 17, Mississippi River 13, Little Fork River 9, Minnesota River 6, Crow Wing River 6, Big Fork River 5, Zumbro River 5, Root River 4, Red River of the North 4, Cannon River 3.
+- Ledger candidates: 799 total; 445 `added`, 77 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 54 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-14 15:16 America/Chicago: added `mississippi-river-county-road-12-dam-county-road-25`, `mississippi-river-schoolcraft-sylvan`, and `mississippi-river-sandy-lake-wolds-ferry`.
+- Baseline at run start was 109 live Minnesota routes; patched route data now imports 112 Minnesota routes with no missing trip-detail records.
+- Stayed in Minnesota and promoted three absent official DNR Mississippi River headwaters routes: County Road 12 Dam to County Road 25 `3.8` miles, Schoolcraft State Park to Sylvan Municipal Park `18.7` miles, and Sandy Lake Recreation Area to Wold's Ferry Crossing `9.5` miles.
+- Minnesota public-water-access GIS resolves County Road 12, County Road 25, Schoolcraft State Park, #10, Sylvan Bay / Sylvan Municipal Park, Big Sandy Lake North / Sandy Lake Recreation Area, and Wold's Ferry Crossing with source-backed coordinates and public access context.
+- Current MN DNR river-level feed exposed interpreted ladders for Stump Lake / County Road 12 site `341` (`1.8 / 2.8-3.6 / 5.0 ft`), Days High Landing site `116` (`1272.9 / 1273.8-1274.5 / 1275 ft`), and Aitkin site `120` (`712.3 / 1500-6000 / 8000 cfs`). County Road 12 ships with a direct at-route gauge, Schoolcraft-to-Sylvan with an upstream same-corridor gauge, and Sandy-Lake-to-Wold's-Ferry with a downstream same-map proxy plus Sandy Lake Dam checks.
+- No route-gallery images were added. Bounded DNR / Commons / USACE / same-river image review did not produce clearly rights-clean exact-route assets for the three slugs.
+- Blue Earth Rapidan lead was rejected for this run because current DNR map/search context flags the failed Rapidan Dam area as unsafe and requiring clearance from recirculating current below the dam.
 
 - 2026-07-14 14:05 America/Chicago: added `zumbro-river-green-bridge-zumbro-falls`, `minnesota-river-kinney-skalbekken`, and `mississippi-river-coon-rapids-riverfront`.
 - Baseline at run start was 106 live Minnesota routes; patched route data now imports 109 Minnesota routes with no missing trip-detail records.
