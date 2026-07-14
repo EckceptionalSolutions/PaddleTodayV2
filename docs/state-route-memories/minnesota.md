@@ -1,18 +1,26 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 16:15 America/Chicago.
+Last summarized: 2026-07-14 17:14 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 115.
-- Top represented rivers: Sauk River 17, Mississippi River 14, Little Fork River 9, Minnesota River 6, Crow Wing River 6, Big Fork River 5, Cannon River 4, Zumbro River 5, Root River 4, Red River of the North 4, St. Louis River 4.
-- Ledger candidates: 805 total; 451 `added`, 77 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 54 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
+- Live routes: 118.
+- Top represented rivers: Sauk River 17, Mississippi River 14, Little Fork River 9, Crow Wing River 6, Minnesota River 6, Big Fork River 5, Zumbro River 5, Cannon River 4, North Fork Crow River 4, Red River of the North 4, Root River 4, St. Louis River 4.
+- Ledger candidates: 811 total; 457 `added`, 77 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 54 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-14 17:14 America/Chicago: added `pomme-de-terre-river-highway-12-appleton`, `long-prairie-river-reynolds-browerville`, and `north-fork-crow-river-forest-city-kingston`.
+- Baseline at run start was 115 live Minnesota routes; patched route data now imports 118 Minnesota routes with no missing trip-detail records.
+- Stayed in Minnesota and promoted three official DNR route gaps that are distinct from existing shorter or downstream routes: Pomme de Terre Highway 12-to-Appleton `10.3` miles, Long Prairie Reynolds Township-to-Browerville `20.6` miles, and North Fork Crow Forest City-to-Kingston `12.0` miles.
+- Minnesota public-water-access GIS resolves Highway 12 `WAS02176`, Appleton `WAS00050`, Reynolds Township `WAS02344`, Browerville `WAS01260`, Forest City `WAS02367`, and Kingston `WAS00687` with source-backed coordinates and public access context.
+- Current MN DNR river-level feed exposed interpreted ladders for Pomme de Terre Appleton site `168` (`3.5 / 4.5-6.0 / 7.5 ft`), Long Prairie site `89` (`53 / 200-500 / 650 cfs`), and North Fork Crow Cokato site `308` (`241 / 300-600 / 800 cfs`). Pomme de Terre and Long Prairie ship as direct gauge models; Forest City-to-Kingston ships with a downstream same-corridor proxy and explicit visual-check caveat.
+- No route-gallery images were added. Bounded DNR / Commons / city-county / same-river image review did not produce clearly rights-clean exact-route assets for local reuse.
+- Reviewed but did not add Snake Silver Star-to-Lower Falls because the exact upper Snake DNR gauge timestamp was stale, Cannon Two Rivers-to-Dundas because it is already covered by the Faribault-to-Dundas route, Mississippi Fort Ripley-to-Fletcher Creek because Fletcher Creek did not resolve in public-water-access GIS, and Red River Kidder-to-Brushvale because endpoints were not source-backed enough for this run.
 
 - 2026-07-14 16:15 America/Chicago: added `mississippi-river-cass-lake-winnibigoshish`, `st-louis-river-fond-du-lac-oldenburg`, and `cannon-river-riverside-miesville`.
 - Baseline at run start was 112 live Minnesota routes; patched route data now imports 115 Minnesota routes with no missing trip-detail records.
