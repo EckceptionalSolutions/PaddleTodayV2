@@ -68361,6 +68361,420 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'upper-cumberland-river-williamsburg-longbottom',
+    slug: 'upper-cumberland-river-williamsburg-longbottom',
+    name: 'Upper Cumberland River',
+    reach: 'Williamsburg Ramp to Long Bottom Access',
+    aliases: [
+      'Upper Cumberland River - Williamsburg to Long Bottom',
+      'Cumberland River - Williamsburg Ramp to Long Bottom Access',
+      'Upper Cumberland River gorge continuation',
+    ],
+    state: 'Kentucky',
+    region: 'Daniel Boone Country',
+    routeType: 'whitewater',
+    summary:
+      'Longer Williamsburg-start Upper Cumberland continuation that finishes at Long Bottom Access above Cumberland Falls. The route uses the same direct Williamsburg gauge as the shorter town-to-Redbird card, but the Long Bottom gorge finish makes the stricter upstream Cumberland Falls flow band the better overall scoring model.',
+    statusText:
+      'Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best for the upstream gorge, lower water can mean dragging, and flows up to 2,000 cfs are challenging for skilled paddlers only.',
+    latitude: 36.7452,
+    longitude: -84.158,
+    gaugeSource: {
+      id: 'usgs-03404000',
+      provider: 'usgs',
+      siteId: '03404000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cumberland River at Williamsburg, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'fast_rise', 'private_banks', 'remote'],
+      safetyNotes: [
+        'This route adds the remote gorge miles below Redbird, so it is not just a longer version of the easier Williamsburg float.',
+        'KDFWR says the final road approach to Long Bottom is extremely rugged and best suited to high-clearance four-wheel-drive vehicles.',
+        'The current same-day gauge on this run is above the official 2,000 cfs skilled-paddler ceiling, so treat present conditions as too high rather than merely sporty.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 500,
+      idealMax: 1100,
+      tooLow: 500,
+      tooHigh: 2000,
+      thresholdSource: {
+        label: 'KDFWR Cumberland River recommended Williamsburg flow band',
+        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This longer Williamsburg-start gorge route is most defensible when the official Williamsburg gauge is in or near the upstream Cumberland Falls band. Dry spells expose shoals, while storms can quickly turn the Long Bottom finish into a much more committed day.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The route begins with the easier Williamsburg miles, but the downstream half adds gorge shoals, remote character, and a rough carry-down finish that make it a moving-water commitment rather than a casual day float.',
+      confidenceNotes:
+        'Confidence is good for a guarded add: KDFWR lists Williamsburg Ramp to Redbird Ramp as 11.5 miles on the Upper Cumberland page, and the current Cumberland River route map adds Redbird to Long Bottom at 9.0 miles, supporting this 20.5-mile public continuation. KDFWR access-detail pages provide source-backed coordinates for Williamsburg and Long Bottom, and USGS Water Services returned 3,150 cfs and 6.86 ft at 2026-07-14 17:00 EDT for the direct Williamsburg gauge, which keeps the live path fresh while clearly showing a too-high day relative to the official gorge band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segments',
+        value: 'Williamsburg to Redbird 11.5 mi plus Redbird to Long Bottom 9.0 mi',
+        note: 'KDFWR lists Williamsburg Ramp to Redbird Ramp on the Upper Cumberland page, and the current Cumberland River route map publishes Redbird to Long Bottom as 9.0 miles.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '500-1100 cfs best; up to 2000 cfs challenging',
+        note: 'KDFWR says the upstream Cumberland Falls corridor is best from 500 to 1,100 cfs, with higher water up to 2,000 cfs for skilled paddlers only.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Williamsburg Ramp, 36.7452, -84.1580',
+        note: 'KDFWR access detail confirms the public concrete Williamsburg launch beside the Main Street Bridge.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=664',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Long Bottom Access, 36.7772, -84.3455',
+        note: 'KDFWR access detail confirms Long Bottom as a public carry-down access and the route page warns the final road approach is extremely rugged.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=665',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03404000 at 3150 cfs / 6.86 ft',
+        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-07-14 17:00 EDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'Primitive float-camping banks downstream of Bee Shoals',
+        note: 'KDFWR says float campers use the banks downstream of Bee Shoals on this corridor.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Upper Cumberland River',
+        url: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cumberland River',
+        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cumberland River detailed map',
+        url: 'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Williamsburg Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=664',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Long Bottom Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=665',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03404000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03404000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'upper-cumberland-river-williamsburg-thunderstruck',
+    slug: 'upper-cumberland-river-williamsburg-thunderstruck',
+    name: 'Upper Cumberland River',
+    reach: 'Williamsburg Ramp to Thunderstruck Ramp',
+    aliases: [
+      'Upper Cumberland River - Williamsburg to Thunderstruck',
+      'Cumberland River - Williamsburg Ramp to Thunderstruck Ramp',
+      'Upper Cumberland River full first gorge section',
+    ],
+    state: 'Kentucky',
+    region: 'Daniel Boone Country',
+    routeType: 'whitewater',
+    summary:
+      'Williamsburg-start continuation that runs through Redbird and the first full upstream Cumberland Falls float to Thunderstruck Ramp. The direct gauge remains the same Williamsburg station, but this full gorge section should be scored on the stricter KDFWR upstream Cumberland Falls band rather than the easier town-only segment.',
+    statusText:
+      'Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best for the upstream gorge, lower water can mean dragging, and flows up to 2,000 cfs are challenging for skilled paddlers only.',
+    latitude: 36.7452,
+    longitude: -84.158,
+    gaugeSource: {
+      id: 'usgs-03404000',
+      provider: 'usgs',
+      siteId: '03404000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cumberland River at Williamsburg, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'fast_rise', 'private_banks', 'remote'],
+      safetyNotes: [
+        'This route keeps the easier Williamsburg launch but finishes in the same remote mild-whitewater gorge used by the Redbird to Thunderstruck run.',
+        'KDFWR says Long Bottom and Mouth of Indian Creek are not dependable normal exits because those roads are extremely rough.',
+        'The current same-day gauge on this run is above the official 2,000 cfs skilled-paddler ceiling, so present conditions are well outside the band used for a normal recommendation.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 500,
+      idealMax: 1100,
+      tooLow: 500,
+      tooHigh: 2000,
+      thresholdSource: {
+        label: 'KDFWR Cumberland River recommended Williamsburg flow band',
+        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This longer Williamsburg-start gorge route is best when the Williamsburg gauge is inside the KDFWR upstream-of-the-falls band. Dry spells expose more shoals, while storms can turn the Redbird-to-Thunderstruck half into a much firmer-water day quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The upper town miles are straightforward, but the gorge half adds shoals, mild whitewater, remoteness, and limited bailout comfort that make this a serious moving-water route.',
+      confidenceNotes:
+        'Confidence is good for a guarded add: KDFWR lists Williamsburg Ramp to Redbird Ramp as 11.5 miles on the Upper Cumberland page, and the current Cumberland River route page still supports Redbird to Thunderstruck at about 11 miles. KDFWR access-detail pages provide source-backed coordinates for Williamsburg and Thunderstruck, and USGS Water Services returned 3,150 cfs and 6.86 ft at 2026-07-14 17:00 EDT for the direct Williamsburg gauge, which keeps the live path fresh while clearly showing a too-high day relative to the official gorge band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segments',
+        value: 'Williamsburg to Redbird 11.5 mi plus Redbird to Thunderstruck about 11 mi',
+        note: 'KDFWR lists Williamsburg Ramp to Redbird Ramp on the Upper Cumberland page, and the current Cumberland River route page and map support Redbird to Thunderstruck as the first official upstream Cumberland Falls float.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '500-1100 cfs best; up to 2000 cfs challenging',
+        note: 'KDFWR says the upstream Cumberland Falls corridor is best from 500 to 1,100 cfs, with higher water up to 2,000 cfs for skilled paddlers only.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Williamsburg Ramp, 36.7452, -84.1580',
+        note: 'KDFWR access detail confirms the public concrete Williamsburg launch beside the Main Street Bridge.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=664',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Thunderstruck Ramp, 36.8077, -84.3546',
+        note: 'KDFWR access detail confirms Thunderstruck as a public ramp with unpaved parking.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03404000 at 3150 cfs / 6.86 ft',
+        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-07-14 17:00 EDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'Primitive float-camping banks downstream of Bee Shoals',
+        note: 'KDFWR says float campers use the banks downstream of Bee Shoals on this route.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Upper Cumberland River',
+        url: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cumberland River',
+        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cumberland River detailed map',
+        url: 'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Williamsburg Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=664',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Thunderstruck Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03404000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03404000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'upper-cumberland-river-williamsburg-cumberland-falls',
+    slug: 'upper-cumberland-river-williamsburg-cumberland-falls',
+    name: 'Upper Cumberland River',
+    reach: 'Williamsburg Ramp to Cumberland Falls Carrydown',
+    aliases: [
+      'Upper Cumberland River - Williamsburg to Cumberland Falls',
+      'Cumberland River - Williamsburg Ramp to Cumberland Falls Carrydown',
+      'Upper Cumberland River full gorge planner',
+    ],
+    state: 'Kentucky',
+    region: 'Daniel Boone Country',
+    routeType: 'whitewater',
+    summary:
+      'Full Williamsburg-start Upper Cumberland planner route to Cumberland Falls Carrydown. It combines the easier town launch, the remote Redbird and Thunderstruck gorge sections, and the mandatory take-out above the falls under one direct Williamsburg gauge and one clearly advanced safety story.',
+    statusText:
+      'Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best for the upstream gorge, lower water can mean dragging, and flows up to 2,000 cfs are challenging for skilled paddlers only. Missing the right-bank take-out above Cumberland Falls is not acceptable.',
+    latitude: 36.7452,
+    longitude: -84.158,
+    gaugeSource: {
+      id: 'usgs-03404000',
+      provider: 'usgs',
+      siteId: '03404000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cumberland River at Williamsburg, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'mandatory_takeout', 'fast_rise', 'private_banks', 'remote'],
+      safetyNotes: [
+        'This route combines the full Redbird and Thunderstruck gorge sections and ends at the mandatory right-bank take-out above Cumberland Falls.',
+        'KDFWR says paddlers must work right before the KY 90 bridge and take out at the falls parking/carrydown area because missing the finish leads toward the 68-foot falls.',
+        'The current same-day gauge on this run is above the official 2,000 cfs skilled-paddler ceiling, so present conditions are too high for a normal recommendation.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 500,
+      idealMax: 1100,
+      tooLow: 500,
+      tooHigh: 2000,
+      thresholdSource: {
+        label: 'KDFWR Cumberland River recommended Williamsburg flow band',
+        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This full Williamsburg-start gorge route is most defensible when the Williamsburg gauge is in or near the upstream Cumberland Falls band and weather is stable. Rain can quickly raise the difficulty and make the final mandatory take-out far less forgiving.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The route combines a long moving-water day, remote gorge shoals, mild whitewater, the downstream rapid sequence, and a mandatory take-out above Cumberland Falls.',
+      confidenceNotes:
+        'Confidence is good for a guarded add: KDFWR lists Williamsburg Ramp to Redbird Ramp as 11.5 miles on the Upper Cumberland page, and the current Cumberland River route map publishes Redbird to Long Bottom at 9.0 miles, Long Bottom to Thunderstruck at 2.5 miles, and Thunderstruck to Cumberland Falls at 5.1 miles, supporting this 28.1-mile public continuation. KDFWR access-detail pages provide source-backed coordinates for Williamsburg and Cumberland Falls, and USGS Water Services returned 3,150 cfs and 6.86 ft at 2026-07-14 17:00 EDT for the direct Williamsburg gauge, which keeps the live path fresh while clearly showing a too-high day relative to the official gorge band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segments',
+        value: 'Williamsburg to Redbird 11.5 mi plus Redbird to Cumberland Falls 16.6 mi',
+        note: 'KDFWR lists Williamsburg Ramp to Redbird Ramp on the Upper Cumberland page, and the current Cumberland River route map supports Redbird to Cumberland Falls as 16.6 miles by chaining the named public accesses.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+      },
+      {
+        label: 'Mandatory take-out warning',
+        value: 'Work right and take out below the KY 90 bridge',
+        note: 'KDFWR says paddlers must work to the right and take out at the public falls parking/carrydown area because the current otherwise leads toward Cumberland Falls.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Williamsburg Ramp, 36.7452, -84.1580',
+        note: 'KDFWR access detail confirms the public concrete Williamsburg launch beside the Main Street Bridge.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=664',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Cumberland Falls Carrydown, 36.8421, -84.3435',
+        note: 'KDFWR access detail confirms Cumberland Falls as a public carrydown with paved parking, seasonal camping, and year-round lodging at the state resort park.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=987',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03404000 at 3150 cfs / 6.86 ft',
+        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-07-14 17:00 EDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'Primitive Bee Shoals float-camping plus Cumberland Falls campground/lodging',
+        note: 'KDFWR says float campers use the banks downstream of Bee Shoals on this corridor, and the Cumberland Falls access detail lists seasonal camping and year-round lodging at the state resort park.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=987',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Upper Cumberland River',
+        url: 'https://fw.ky.gov/Fish/Pages/Upper_Cumberland.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cumberland River',
+        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cumberland River detailed map',
+        url: 'https://fw.ky.gov/Education/Documents/bluewatertrailcumberlandriver-1.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Williamsburg Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=664',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cumberland Falls Carrydown',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=987',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03404000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03404000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'barren-river-martinsville-potter-combs',
     slug: 'barren-river-martinsville-potter-combs',
     name: 'Barren River',

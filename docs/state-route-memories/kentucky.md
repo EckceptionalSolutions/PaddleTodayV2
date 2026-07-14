@@ -2,6 +2,14 @@
 
 Last summarized: 2026-07-14 14:59 America/Chicago / 2026-07-14 19:59 UTC.
 
+## 2026-07-14 Upper Cumberland gorge continuation pass
+
+- Reused the live repo state as the only valid baseline and added three new Kentucky slugs that were absent from the current tree at run start: `upper-cumberland-river-williamsburg-longbottom`, `upper-cumberland-river-williamsburg-thunderstruck`, and `upper-cumberland-river-williamsburg-cumberland-falls`.
+- Current KDFWR Upper Cumberland guidance still documents Williamsburg Ramp -> Redbird Ramp at `11.5` miles, and the current Cumberland River route page plus route map still document Redbird -> Long Bottom `9.0`, Long Bottom -> Thunderstruck `2.5`, and Thunderstruck -> Cumberland Falls `5.1`, which support the new Williamsburg-start public continuations at about `20.5`, `22.5`, and `28.1` miles.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Williamsburg Ramp (`asid=664`), Long Bottom Access (`asid=665`), Thunderstruck Ramp (`asid=893`), and Cumberland Falls Carrydown (`asid=987`). Same-day direct USGS Water Services returned `3150 cfs / 6.86 ft` at `2026-07-14 17:00 EDT` for Cumberland River at Williamsburg (`03404000`), well above the official `500-1100 cfs` preferred upstream-gorge band and above the published `2000 cfs` skilled-paddler ceiling, so all three slugs ship with explicit too-high / not-recommended-today framing rather than ordinary high-water caution.
+- Camping stays route-specific: `upper-cumberland-river-williamsburg-longbottom` and `upper-cumberland-river-williamsburg-thunderstruck` use `on_route_campsite` because KDFWR still says float campers use the banks downstream of Bee Shoals, and `upper-cumberland-river-williamsburg-cumberland-falls` also stays `on_route_campsite` because that primitive corridor support combines with Cumberland Falls State Resort Park camping and lodging at the mandatory take-out.
+- Bounded image review stayed negative for all three slugs. `docs/river-image-source-audit.csv` now records the no-gallery outcome for each route, so no new route-gallery asset was added in this pass.
+
 ## 2026-07-14 Mammoth Cave Green long-continuation pass
 
 - Reused the live repo state as the only valid baseline and added two new Mammoth Cave Green River continuation slugs that were absent from the current tree at run start: `green-river-dennison-ferry-brownsville-city-park` and `green-river-green-river-ferry-brownsville-city-park`.

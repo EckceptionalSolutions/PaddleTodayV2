@@ -24057,6 +24057,120 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'upper-cumberland-river-williamsburg-longbottom': {
+    putIn: {
+      id: 'williamsburg-ramp',
+      name: 'Williamsburg Ramp',
+      latitude: 36.7452,
+      longitude: -84.158,
+    },
+    takeOut: {
+      id: 'long-bottom-access',
+      name: 'Long Bottom Access',
+      latitude: 36.7772,
+      longitude: -84.3455,
+    },
+    logistics: {
+      distanceLabel: 'About 20.5 mi',
+      estimatedPaddleTime:
+        'About 6.5 hr to 9 hr, longer with fishing, low-water scraping, or a careful Long Bottom shuttle',
+      shuttle:
+        'Stage the Long Bottom vehicle first, then drive back into Williamsburg for the launch beside the Main Street Bridge. Scout the final Forest Service Road 536 approach before committing because KDFWR says the last stretch down to Long Bottom is extremely rugged.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public access points, follow Kentucky boating and PFD rules, and keep emergency plans realistic for a remote gorge float.',
+      camping:
+        'KDFWR says float campers use the banks downstream of Bee Shoals on this corridor. Treat that as primitive on-route overnight context rather than developed campground support, and avoid private banks outside the commonly used river corridor.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch in Williamsburg and continue past Redbird to Long Bottom for a longer Upper Cumberland gorge day. Use the direct Williamsburg gauge, but score the route against the stricter upstream Cumberland Falls band because the Long Bottom finish sits in the same rougher gorge corridor.',
+      accessCaveats: [
+        'Williamsburg is the easy public launch; Long Bottom is a legitimate public access but the road and carry are much rougher than a normal paved take-out.',
+        'The route is remote enough that daylight, weather, and self-rescue capacity matter more than on a town-edge river.',
+        'Same-day USGS flow on this run was above the official 2,000 cfs skilled-paddler ceiling, so treat current conditions as too high rather than just sporty.',
+      ],
+      watchFor: [
+        'Summer Shoals, Bee Shoals, Crow Shoals, and fresh wood after rain.',
+        'Muddy footing, rough carry-down logistics, and very rugged road access at Long Bottom.',
+        'Private banks and sparse bailout options away from the named public endpoints.',
+      ],
+    },
+  },
+  'upper-cumberland-river-williamsburg-thunderstruck': {
+    putIn: {
+      id: 'williamsburg-ramp',
+      name: 'Williamsburg Ramp',
+      latitude: 36.7452,
+      longitude: -84.158,
+    },
+    takeOut: {
+      id: 'thunderstruck-ramp',
+      name: 'Thunderstruck Ramp',
+      latitude: 36.8077,
+      longitude: -84.3546,
+    },
+    logistics: {
+      distanceLabel: 'About 22.5 mi',
+      estimatedPaddleTime:
+        'About 7 hr to 9.5 hr, longer with scouting, fishing, or low-water scraping through the gorge half',
+      shuttle:
+        'Stage the Thunderstruck take-out first, then drive back into Williamsburg to launch beside the Main Street Bridge. Do not count on Long Bottom or Mouth of Indian Creek as routine shuttle points because KDFWR describes those roads as extremely rough.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public ramps, follow Kentucky boating and PFD rules, and keep emergency plans realistic for a remote gorge float.',
+      camping:
+        'KDFWR says float campers use the banks downstream of Bee Shoals on this route. Treat that as primitive on-route overnight context rather than developed campground support, and avoid private banks outside the commonly used river corridor.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch in Williamsburg and finish at Thunderstruck for a full first-gorge Upper Cumberland continuation. The gauge is still the direct Williamsburg station, but once the route drops below Redbird it should be judged by the tougher upstream Cumberland Falls flow band.',
+      accessCaveats: [
+        'Williamsburg and Thunderstruck are the clean public endpoints. Long Bottom and Mouth of Indian Creek are route-context accesses only and are not dependable normal shuttle points.',
+        'The float is remote enough that daylight, weather, and group self-rescue capacity matter more than on a town-edge run.',
+        'Same-day USGS flow on this run was above the official 2,000 cfs skilled-paddler ceiling, so current conditions are outside the normal recommendation band.',
+      ],
+      watchFor: [
+        'Summer Shoals, Bee Shoals, Crow Shoals, and Thunderstruck Shoals.',
+        'Fresh wood, limited bailout options, and fast rises after rain.',
+        'Private banks and rough gorge exits away from the named ramps.',
+      ],
+    },
+  },
+  'upper-cumberland-river-williamsburg-cumberland-falls': {
+    putIn: {
+      id: 'williamsburg-ramp',
+      name: 'Williamsburg Ramp',
+      latitude: 36.7452,
+      longitude: -84.158,
+    },
+    takeOut: {
+      id: 'cumberland-falls-carrydown',
+      name: 'Cumberland Falls Carrydown',
+      latitude: 36.8421,
+      longitude: -84.3435,
+    },
+    logistics: {
+      distanceLabel: 'About 28.1 mi',
+      estimatedPaddleTime:
+        'About 9 hr to 12 hr, longer with scouting, stronger water, or careful setup for the mandatory carrydown above the falls',
+      shuttle:
+        'Stage the Cumberland Falls vehicle first, then drive back into Williamsburg for the launch beside the Main Street Bridge. Inspect the falls-side carrydown before launching because the mandatory right-bank take-out above the falls is the core safety gate for the full route.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and do not launch if your group is not prepared for a mandatory take-out above Cumberland Falls.',
+      camping:
+        'KDFWR says float campers use the banks downstream of Bee Shoals on this corridor, and Cumberland Falls State Resort Park adds seasonal campground space and year-round lodging at the take-out. Treat that as managed corridor support rather than permission to camp on undeveloped private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch in Williamsburg and continue all the way to Cumberland Falls Carrydown for the full Upper Cumberland gorge planner. The route begins with an easier town launch but finishes as an advanced above-the-falls whitewater day with a mandatory take-out.',
+      accessCaveats: [
+        'Williamsburg is the clean upstream public launch. Long Bottom is a legitimate mid-route access, but KDFWR says the final road approach is extremely rugged and not a normal easy bailout.',
+        'KDFWR says to work to the right side of the river before the KY 90 bridge and take out at the public falls parking/carrydown area. Missing that move is a stand-down failure, not a recoverable inconvenience.',
+        'Same-day USGS flow on this run was above the official 2,000 cfs skilled-paddler ceiling, so treat current conditions as too high even before any extra rain arrives.',
+      ],
+      watchFor: [
+        'Summer Shoals, Bee Shoals, Crow Shoals, Thunderstruck Shoals, Pitch Rapids, Slick Shoals gorge current, and the drop sequence below Blue Bend.',
+        'The mandatory take-out above Cumberland Falls.',
+        'Fresh wood, rain-driven rises, private gorge banks, sparse mid-route exits, and fatigue over a long whitewater corridor.',
+      ],
+    },
+  },
   'barren-river-martinsville-potter-combs': {
     putIn: {
       id: 'martinsville-ford-claypool-ramp',
