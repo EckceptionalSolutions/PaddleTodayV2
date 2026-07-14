@@ -1,18 +1,25 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 12:11 America/Chicago.
+Last summarized: 2026-07-14 13:08 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 103.
+- Live routes: 106.
 - Top represented rivers: Sauk River 17, Little Fork River 9, Mississippi River 9, Crow Wing River 6, Big Fork River 5, Minnesota River 5, Red River of the North 4, Root River 4, Zumbro River 4, Cannon River 3.
-- Ledger candidates: 88 total; 68 `added`, 10 `threshold_weak`, 6 `no_live_gauge`, 2 `duplicate_corridor`, 1 `research_later`, 1 `rejected`.
+- Ledger candidates: 91 total; 71 `added`, 10 `threshold_weak`, 6 `no_live_gauge`, 2 `duplicate_corridor`, 1 `research_later`, 1 `rejected`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-14 13:08 America/Chicago: added `cedar-river-ramsey-austin-mill-pond`, `st-louis-river-forbes-zim`, and `straight-river-medford-kroghs-landing`.
+- Baseline at run start was 103 live Minnesota routes; patched route data now imports 106 Minnesota routes with no missing trip-detail records.
+- Stayed in Minnesota and promoted three MN DNR recommended one-way sections with official interpreted DNR gauge support: Cedar River Ramsey Mill Pond to Austin Mill Pond `3.7` miles, St. Louis River Forbes to Zim `12.9` miles, and Straight River Medford to Krogh's Landing `7.0` miles.
+- Minnesota public-water-access GIS resolves all six endpoints: Ramsey Mill Pond `WAS01376`, Austin Mill Pond `WAS01390`, Forbes `WAS00614`, Zim `WAS00613`, Medford `WAS02042`, and Krogh's Landing `WAS00186`.
+- Current MN DNR river-level feed exposed interpreted ladders for Cedar Lansing site `287` (`8.9 / 15.2-429.5 / 513.4 cfs`), St. Louis Forbes site `244` (`3.0 / 3.7-7.6 / 8.0 ft`), and Straight River Faribault site `247` (`182 / 220-1370 / 1640 cfs`). Cedar ships with an upstream near-direct gauge and dam-stop caveats; St. Louis and Straight ship as `whitewater`/advanced due to Class I-II/Class II, dam/portage, fast-current, low-water, and rescue-exposure concerns.
+- No route-gallery images were added. Bounded DNR / Commons / same-river image review did not produce clearly rights-clean exact-route assets for the three slugs.
 
 - 2026-07-14 12:11 America/Chicago: added `cannon-river-wilderness-northfield`, `cottonwood-river-highway-4-highway-15`, and `minnesota-river-le-sueur-henderson`.
 - Baseline at run start was 100 live Minnesota routes; patched route data now imports 103 Minnesota routes with no missing trip-detail records.

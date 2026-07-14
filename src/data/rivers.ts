@@ -69729,4 +69729,343 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'cedar-river-ramsey-austin-mill-pond',
+    slug: 'cedar-river-ramsey-austin-mill-pond',
+    name: 'Cedar River',
+    reach: 'Ramsey Mill Pond to Austin Mill Pond',
+    state: 'Minnesota',
+    region: 'Southern Minnesota',
+    summary:
+      'Compact DNR recommended Cedar River run into Austin, using two mapped public accesses and the interpreted Lansing gauge just upstream. It is short, but dams and urban snags make the take-out plan matter.',
+    statusText:
+      'Use the Lansing DNR gauge: 15.2 to 429.5 cfs is the official medium band, below 8.9 cfs is scrapable, and above 513.4 cfs is very high.',
+    latitude: 43.7064812,
+    longitude: -92.9595181,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'mandatory_takeout', 'strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'DNR warns that the Cedar has dams; this route stops at Austin Mill Pond and should not be extended downstream without a separate dam-aware plan.',
+        'Floodwater, overhanging trees, and fresh snags can change the otherwise beginner-friendly character quickly.',
+        'Use the named public accesses and do not improvise on private banks in the Austin corridor.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-287',
+      provider: 'mn_dnr',
+      siteId: '287',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cedar River nr Lansing, CR2',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=48023001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=48023001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 15.2,
+      idealMax: 429.5,
+      tooLow: 8.9,
+      tooHigh: 513.4,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Cedar River near Lansing',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'DNR says the Cedar is usually sufficient for summer canoeing, but spring and rain events can push it into flood conditions. Use the same-day gauge and visual checks at both mill-pond accesses.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route is short and DNR says the Cedar has moderate flow with no major rapids, but dams, fast rises, overhanging trees, and the urban Austin finish make it more than a blind park float.',
+      confidenceNotes:
+        'Confidence is high: the statewide DNR recommended-paddling sheet lists Ramsey Mill Pond to Austin Mill Pond as a 3.7-mile one-way, public-water-access GIS resolves both endpoints with river miles and coordinates, and the Lansing DNR gauge sits just upstream with official interpretation bands.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official recommended section',
+        value: '3.7 river miles',
+        note: 'MN DNR lists Ramsey Mill Pond to Austin Mill Pond as a recommended Cedar River one-way from river mile 21.2 to 17.5.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS01376 and WAS01390',
+        note: 'Minnesota public-water-access GIS resolves Ramsey Mill Pond at river mile 21.2 and Austin Mill Pond at river mile 17.5, both as public water access sites.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '8.9 / 15.2-429.5 / 513.4 cfs',
+        note: 'MN DNR interprets the Lansing gauge as Scrapable below 8.9 cfs, Low from 8.9 to 15.2, Medium from 15.2 to 429.5, High from 429.5 to 513.4, and Very High above 513.4.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '102 cfs at 2026-07-14 11:30',
+        note: 'The current MN DNR feed placed Lansing inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Safety context',
+        value: 'Dams, floods, snags',
+        note: 'DNR says the Cedar has moderate flow and no major rapids, but specifically warns paddlers to know dam locations and watch for flooding, snags, and overhanging trees.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/cedar-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR recommended paddling sections',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Cedar River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/cedar-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Cedar River map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/cedar.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'st-louis-river-forbes-zim',
+    slug: 'st-louis-river-forbes-zim',
+    name: 'St. Louis River',
+    reach: 'Forbes to Zim',
+    state: 'Minnesota',
+    region: 'Duluth Area',
+    summary:
+      'Upper St. Louis DNR recommended section between two public carry-in accesses, with the interpreted Forbes gauge upstream on the same corridor. Expect shallow sand, rock, wood, and a stricter dam-aware safety posture than a normal flatwater day.',
+    statusText:
+      'Use the Forbes DNR gauge conservatively: 3.7 to 7.6 ft is the official medium band. Below 3.0 ft is scrapable, and above 8.0 ft is very high.',
+    latitude: 47.3621657,
+    longitude: -92.6007601,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'dam', 'mandatory_takeout', 'strainers', 'fast_rise', 'remote', 'cold_water'],
+      safetyNotes: [
+        'The Forbes gauge page flags Class I-II rapids and a dam at Forbes; confirm the public access, portage context, and downstream route before launching.',
+        'This upper St. Louis corridor can be shallow and scrape-prone at low water, then consequential when rain pushes the gauge high or rising.',
+        'Treat wood, cold water, limited services, and slow rescue access as first-order planning constraints.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-244',
+      provider: 'mn_dnr',
+      siteId: '244',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'proxy',
+      siteName: 'St. Louis River nr Forbes, US53',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=03115001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=03115001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3.7,
+      idealMax: 7.6,
+      tooLow: 3,
+      tooHigh: 8,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for St. Louis River near Forbes',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'DNR says upper St. Louis flow usually peaks in late April and falls through summer. Do not substitute calendar judgment for the same-day Forbes gauge and a visual launch check.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'DNR identifies Class I-II and dam/portage context around Forbes. Even though this is a DNR recommended section, it belongs in the advanced/whitewater lane until local conditions are verified.',
+      confidenceNotes:
+        'Confidence is good but conservative: the DNR recommended-paddling sheet lists Forbes to Zim as a 12.9-mile one-way, public-water-access GIS resolves both endpoints, and the official Forbes gauge has interpreted bands. The gauge is upstream of the put-in rather than inside the full selected reach, so the route copy requires a visual check and highlights the dam/rapids caveat.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official recommended section',
+        value: '12.9 river miles',
+        note: 'MN DNR lists Forbes carry-in access to Zim carry-in access as a St. Louis River recommended one-way from river mile 125.9 to 113.0.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS00614 and WAS00613',
+        note: 'Minnesota public-water-access GIS resolves Forbes and Zim as St. Louis River public access sites with river miles and coordinates.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '3.0 / 3.7-7.6 / 8.0 ft',
+        note: 'MN DNR interprets the Forbes gauge as Scrapable below 3.0 ft, Low from 3.0 to 3.7, Medium from 3.7 to 7.6, High from 7.6 to 8.0, and Very High above 8.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '3.02 ft at 2026-07-14 11:45',
+        note: 'The current MN DNR feed placed Forbes barely above the scrapable floor during this run, so the route should be treated as low and scrape-prone.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Upper-river hazards',
+        value: 'Class I-II, dam, shallow sand',
+        note: 'DNR says upper St. Louis paddlers should expect Class I-II rapids, boulder beds, shallow sandy sections, and dam/portage awareness near the Forbes corridor.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/st-louis-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR recommended paddling sections',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR St. Louis River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/st-louis-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR St. Louis River map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/stlouis1.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'straight-river-medford-kroghs-landing',
+    slug: 'straight-river-medford-kroghs-landing',
+    name: 'Straight River',
+    reach: "Medford to Krogh's Landing",
+    state: 'Minnesota',
+    region: 'Southern Minnesota',
+    summary:
+      "Narrow, fast Straight River day from Medford to Krogh's Landing, backed by DNR's recommended-paddling sheet and the interpreted Faribault gauge just downstream. This is not a beginner route because DNR flags Class II at Clinton Falls.",
+    statusText:
+      'Use the Faribault DNR gauge: 220 to 1,370 cfs is the official medium band. Below 182 cfs is scrapable, and above 1,640 cfs is very high.',
+    latitude: 44.1775975,
+    longitude: -93.2490711,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'mandatory_takeout', 'strainers', 'fast_rise', 'cold_water', 'private_banks'],
+      safetyNotes: [
+        'DNR identifies this Straight River corridor as narrow and fast and specifically notes Class II rapids at Clinton Falls.',
+        "Krogh's Landing is the selected take-out. Do not drift into the Faribault/Cannon confluence corridor without a separate downstream plan.",
+        'Fresh wood, cold water, private banks, and sharp rises after rain can turn the short mileage into a serious rescue problem.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-247',
+      provider: 'mn_dnr',
+      siteId: '247',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Straight River nr Faribault, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=39101001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=39101001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 220,
+      idealMax: 1370,
+      tooLow: 182,
+      tooHigh: 1640,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Straight River near Faribault',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Use spring and post-rain windows cautiously. The Straight is narrow and fast, so rising water and cold shoulder-season conditions matter more than a simple in-band reading.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'DNR says the Straight is narrow and fast, requires maneuvering around light rapids and snags, is not for beginners, and includes Class II rapids at Clinton Falls.',
+      confidenceNotes:
+        "Confidence is high for route evidence and gauge fit: the DNR recommended-paddling sheet lists Medford to Krogh's Landing as a 7-mile one-way, public-water-access GIS resolves both endpoints, and the Faribault gauge is just downstream with official interpreted bands. The conservative posture is due to skill and hazard exposure, not weak sourcing.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official recommended section',
+        value: '7.0 river miles',
+        note: "MN DNR lists Medford City Park to Krogh's Landing as a recommended Straight River one-way from river mile 17.1 to 10.1.",
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS02042 and WAS00186',
+        note: "Minnesota public-water-access GIS resolves Medford and Krogh's Landing as Straight River public access sites with river miles and coordinates.",
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '182 / 220-1,370 / 1,640 cfs',
+        note: 'MN DNR interprets the Faribault gauge as Scrapable below 182 cfs, Low from 182 to 220, Medium from 220 to 1,370, High from 1,370 to 1,640, and Very High above 1,640.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '522 cfs at 2026-07-14 11:15',
+        note: 'The current MN DNR feed placed the Straight River near Faribault in the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Skill and hazard context',
+        value: 'Not for beginners; Class II',
+        note: 'The DNR gauge feed flags the Straight as narrow and fast, with light rapids, snags, and Class II rapids at Clinton Falls.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR recommended paddling sections',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Cannon River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Cannon and Straight River map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/cannon.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
 ];

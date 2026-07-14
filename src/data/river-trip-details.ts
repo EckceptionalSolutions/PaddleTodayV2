@@ -25330,5 +25330,170 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'cedar-river-ramsey-austin-mill-pond': {
+    putIn: {
+      name: 'Cedar River, Ramsey Mill Pond Public Water Access Site',
+      latitude: 43.7064812,
+      longitude: -92.9595181,
+    },
+    takeOut: {
+      name: 'Austin Mill Pond Public Water Access Site',
+      latitude: 43.6740392,
+      longitude: -92.9732796,
+    },
+    logistics: {
+      distanceLabel: '3.7 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer with low water, wood, or careful dam scouting',
+      shuttle:
+        'Stage the Austin Mill Pond take-out first, then drive north to Ramsey Mill Pond on County Road 16. Confirm both mill-pond access points, parking, and the downstream stop plan before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public water access sites, follow Minnesota boating/PFD rules, and obey posted dam, park, and private-bank signs.',
+      camping:
+        'Treat this as a short day trip. DNR highlights nearby Ramsey Mill Pond WMA and Austin-area shore attractions, but it does not document an on-route campsite for the Ramsey-to-Austin run.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Ramsey Mill Pond and take out at Austin Mill Pond for DNR\'s compact 3.7-mile upper Cedar River one-way. The Lansing gauge is just upstream, and the route should stop cleanly at Austin rather than drifting into downstream dam context.',
+      accessCaveats: [
+        'Both endpoints resolve in Minnesota public-water-access GIS with DNR river miles, coordinates, parking, and trailer-launch records.',
+        'The Lansing gauge is upstream of the put-in on the same upper Cedar corridor; pair it with a visual check for floodwater, snags, and the Austin finish.',
+        'Austin Mill Pond is the required route finish. Do not continue downstream without a separate dam-aware Cedar River plan.',
+      ],
+      watchFor: [
+        'Dams elsewhere on the Cedar water trail; know the Austin-area stop before launching.',
+        'Snags, overhanging trees, private banks, and fast rises after rain.',
+        'Low-water scraping below the official low band and floodwater above the high band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'ramsey-mill-pond',
+        name: 'Cedar River, Ramsey Mill Pond Public Water Access Site',
+        latitude: 43.7064812,
+        longitude: -92.9595181,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 21.2; resolves as WAS01376.',
+      },
+      {
+        id: 'austin-mill-pond',
+        name: 'Austin Mill Pond Public Water Access Site',
+        latitude: 43.6740392,
+        longitude: -92.9732796,
+        mileFromStart: 3.7,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 17.5; stop here unless a separate downstream dam plan has been made.',
+      },
+    ],
+  },
+  'st-louis-river-forbes-zim': {
+    putIn: {
+      name: 'St. Louis River, Forbes Public Water Access Site',
+      latitude: 47.3621657,
+      longitude: -92.6007601,
+    },
+    takeOut: {
+      name: 'St. Louis River, Zim Public Water Access Site',
+      latitude: 47.3059388,
+      longitude: -92.6595318,
+    },
+    logistics: {
+      distanceLabel: '12.9 mi',
+      estimatedPaddleTime: 'About 5 hr to 8 hr depending on low-water scraping, scouting, wood, and breaks',
+      shuttle:
+        'Stage Zim first, then drive back to Forbes. Confirm the Forbes dam/portage and access layout on arrival because the DNR gauge page flags dam context at Forbes and the route should not begin with an improvised line.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR public accesses, follow Minnesota boating/PFD rules, and check Superior National Forest or local rules before treating nearby public land as an overnight option.',
+      camping:
+        'Nearby Superior National Forest and regional camping can support a basecamp plan, but DNR does not document a designated on-route campsite for the Forbes-to-Zim day. Treat overnight use as a separate land-management check.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Forbes and take out at Zim for a 12.9-mile DNR recommended upper-St. Louis section. The Forbes gauge gives official bands, but current conditions were just above the scrapable floor and the route belongs to prepared moving-water paddlers.',
+      accessCaveats: [
+        'Forbes and Zim both resolve in Minnesota public-water-access GIS as carry-in St. Louis River public access sites with DNR river miles and coordinates.',
+        'The Forbes gauge is upstream of the put-in and should be treated as an official upper-corridor proxy, not a substitute for a launch-side visual check.',
+        'Confirm dam and portage context at Forbes before launching; do not improvise around dam infrastructure.',
+      ],
+      watchFor: [
+        'Class I-II rapids, boulder beds, shallow sandy sections, and low-water scraping.',
+        'Dam/portage context near Forbes, plus cold water, strainers, fresh wood, and rising water after rain.',
+        'Remote exposure, limited services, private banks, and long-day fatigue.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'forbes',
+        name: 'St. Louis River, Forbes Public Water Access Site',
+        latitude: 47.3621657,
+        longitude: -92.6007601,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 125.9; confirm dam/portage and launch layout before unloading.',
+      },
+      {
+        id: 'zim',
+        name: 'St. Louis River, Zim Public Water Access Site',
+        latitude: 47.3059388,
+        longitude: -92.6595318,
+        mileFromStart: 12.9,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 113.0; resolves as WAS00613.',
+      },
+    ],
+  },
+  'straight-river-medford-kroghs-landing': {
+    putIn: {
+      name: 'Straight River, Medford Public Water Access Site',
+      latitude: 44.1775975,
+      longitude: -93.2490711,
+    },
+    takeOut: {
+      name: "Straight River, Krogh's Landing Public Water Access Site",
+      latitude: 44.2427413,
+      longitude: -93.2401518,
+    },
+    logistics: {
+      distanceLabel: '7 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr for a prepared moving-water group',
+      shuttle:
+        "Stage Krogh's Landing first, then drive back to the Medford access. Inspect the take-out before launch because this is the selected stop above the Faribault/Cannon confluence corridor.",
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR public accesses, follow Minnesota boating/PFD rules, and respect private banks and posted access rules.',
+      camping:
+        'Treat this as a day trip. No on-route campsite is documented for the Medford-to-Kroghs run; nearby lodging or campgrounds should be planned separately.',
+      campingClassification: 'none',
+      summary:
+        "Launch at Medford and take out at Krogh's Landing for DNR's 7-mile Straight River one-way. The Faribault gauge is just downstream and in the medium band, but DNR flags this river as narrow, fast, snaggy, and not for beginners.",
+      accessCaveats: [
+        'Medford and Kroghs Landing both resolve in Minnesota public-water-access GIS with DNR river miles, coordinates, and public-access records.',
+        'The Faribault gauge is below the take-out, close enough for the selected reach but still worth pairing with a visual check at Medford and Kroghs.',
+        "Do not drift past Krogh's Landing into the Faribault/Cannon corridor without a separate downstream plan.",
+      ],
+      watchFor: [
+        'Class II rapids at Clinton Falls, light rapids, narrow fast current, snags, and fresh strainers.',
+        'Rapid rises after rain, cold water, limited recovery eddies, and private banks.',
+        'High water above the official high band and low water near the scrapable floor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'medford',
+        name: 'Straight River, Medford Public Water Access Site',
+        latitude: 44.1775975,
+        longitude: -93.2490711,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 17.2; the recommended-paddling sheet rounds this to 17.1.',
+      },
+      {
+        id: 'kroghs-landing',
+        name: "Straight River, Krogh's Landing Public Water Access Site",
+        latitude: 44.2427413,
+        longitude: -93.2401518,
+        mileFromStart: 7,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 10.1 before the lower Faribault/Cannon continuation.',
+      },
+    ],
+  },
 };
 
