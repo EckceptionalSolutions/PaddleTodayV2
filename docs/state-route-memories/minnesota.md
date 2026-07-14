@@ -1,18 +1,25 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-03 19:16 America/Chicago.
+Last summarized: 2026-07-14 03:55 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 75.
-- Top represented rivers: Big Fork River 18, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4, Crow Wing River 3.
-- Ledger candidates: 73 total; 39 `added`, 19 `threshold_weak`, 10 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`, 1 `rejected`.
+- Live routes: 79.
+- Top represented rivers: Sauk River 17, Little Fork River 9, Big Fork River 5, Crow Wing River 5, Root River 4, Minnesota River 4.
+- Ledger candidates: 781 total; 412 `added`, 109 `threshold_weak`, 86 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
 
-Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
+Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing now has a small restored county-chain layer on top of the June canonical core, while Little Fork continues to reward restore-first checks where support docs still prove live source quality.
 
 ## Latest Run
+
+- 2026-07-14 03:55 America/Chicago: added `little-fork-river-samuelson-silverdale`, `crow-wing-river-mary-brown-frames-landing`, and `crow-wing-river-stigmans-mound-little-white-dog`.
+- Started from the live `538`-route repo baseline at run start, rejected several tempting restore candidates after `git log -S` showed deliberate consolidation removals, and stayed in Minnesota because the current tree still had one clean Little Fork restore plus two Crow Wing additions with exact MN DNR/Wadena County/public-access support.
+- Current MN DNR site `295` (`Little Fork River nr Silverdale, MN65`) showed `72.8 cfs` at `2026-07-14 01:00 AM`, still below the official `400 / 500-1300.5 / 2835 cfs` ladder but valid as the direct same-corridor live gauge for `little-fork-river-samuelson-silverdale`. Current MN DNR site `55` (`Crow Wing River at Nimrod, MN`) showed `279 cfs` at `2026-07-14 01:00 AM`, just under the official `300 / 400-800 / 1100 cfs` ladder used across the Crow Wing additions.
+- Little Fork support stayed straightforward: DNR Map 1 and the public-water-access feature service still place Samuelson at river mile `104.0` and Silverdale at `99.9`, and Samuelson County Park still provides the tent-site campground support that makes the short restore worth shipping as an `endpoint_campground` route.
+- Crow Wing support stayed additive rather than redundant: Maps 1 and 2 still support `mary-brown-frames-landing` as a `10.9` mile bridge between the Mary Brown / Anderson's / Nimrod corridor and the lower county-campground chain, while Map 2 still supports `stigmans-mound-little-white-dog` as a `6.4` mile county-park half-day with a legitimate Little White Dog campground finish.
+- No new route-gallery image was added. `docs/river-image-source-audit.csv` records bounded no-image outcomes for all three slugs after the 2026-07-14 MN DNR / Wadena County / Commons / same-river USGS review.
 
 - 2026-07-13 21:25 America/Chicago: added `sauk-river-st-martin-frogtown`, `sauk-river-eagle-knights-of-columbus`, and `sauk-river-eagle-heims-mill`.
 - Stayed in Minnesota because the Sauk family still had three unused official access-to-access planners under the route-audit ceiling with the same direct St. Martin gauge, current DNR interpretation bands, and current local-government endpoint support.

@@ -1532,6 +1532,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'little-fork-river-samuelson-silverdale': {
+    putIn: {
+      name: 'Samuelson Park Public Water Access Site',
+      latitude: 47.9485284,
+      longitude: -93.0992707,
+    },
+    takeOut: {
+      name: 'Silverdale Public Water Access Site',
+      latitude: 47.9768919,
+      longitude: -93.1445789,
+    },
+    logistics: {
+      distanceLabel: '4.1 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr depending on level, wood, and scouting',
+      shuttle:
+        'Use a short two-car shuttle from Samuelson Park to Silverdale and still check both accesses before launching. The miles are modest, but this is not a casual roadside float when wood or low-water rapids complicate progress.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access and county-park rules at Samuelson and Silverdale.',
+      camping:
+        'Samuelson Park gives this route real endpoint-campground support at the put-in. DNR Map 1 says the park has a carry-in access, picnic table, toilet, drinking water, and tent sites.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Samuelson Park and finish at Silverdale for the shortest official Little Fork Map 1 continuation currently in the app. The mileage is approachable, but the route still carries the same rapid-and-wood story as the longer Highway 73 starts.',
+      accessCaveats: [
+        'Samuelson Park is the developed endpoint with campground services; Silverdale is a simpler public access finish.',
+        'Use only the named public accesses rather than improvised roadside stops or private banks along the wooded corridor.',
+        'Short mileage does not remove the need to scout wood or read the ledges carefully when the channel is high or obstructed.',
+      ],
+      watchFor: [
+        'Class I to II rapids, rocky riffles, and wood hazards on a narrow remote northern channel.',
+        'Scraping and slower-than-expected progress when the Silverdale gauge is below the 400 cfs floor.',
+        'Cold water, brushy banks, and limited quick exits between the named public accesses.',
+      ],
+    },
+  },
   'little-fork-river-devereaux-lofgren-park': {
     putIn: {
       name: 'Devereaux Public Water Access Site',
@@ -2960,6 +2995,80 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   
   
   
+  'crow-wing-river-mary-brown-frames-landing': {
+    putIn: {
+      name: 'Mary Brown Rest Area #5 carry-in access',
+      latitude: 46.71758222409383,
+      longitude: -94.92898508221442,
+    },
+    takeOut: {
+      name: "Frame's Landing public water access",
+      latitude: 46.629663080692076,
+      longitude: -94.86925421200144,
+    },
+    logistics: {
+      distanceLabel: '10.9 mi',
+      estimatedPaddleTime: 'About 4 hr to 5.5 hr',
+      shuttle:
+        "Moderate Wadena County shuttle from Mary Brown to Frame's Landing. Stage the Frame's take-out first so the county-campground landing and parking setup are clear before committing to the longer upstream miles.",
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted public-access, county-campground, and parking rules at the named landings.',
+      camping:
+        "This route has both a real midpoint bailout at Anderson's Crossing and a campground finish at Frame's Landing, so it works as an endpoint-campground paddle without implying informal shoreline camping.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Mary Brown and finish at Frame's Landing for a longer Crow Wing continuation that carries the Nimrod-area rapids and then settles into the calmer county-campground corridor below Stigman's Mound.",
+      accessCaveats: [
+        'Mary Brown is a remote carry-in access with few frills, so inspect the launch and parking setup before leaving a vehicle.',
+        "Anderson's Crossing is the natural midpoint bailout and only clearly documented intermediate overnight stop if the group does not want the full Frame's finish.",
+        "Frame's Landing is county-managed campground access rather than a polished city-park ramp, so identify the landing and any fee or parking expectations before launching.",
+      ],
+      watchFor: [
+        "Walkin's Rapids, Burrows Rapids, and Westra Rapids on the Nimrod half of the route.",
+        'Fresh wood, sweepers, and stronger current after storms.',
+        "Exposed sandbars and slower travel on the downstream half when the Nimrod gauge is near or below 300 cfs.",
+      ],
+    },
+
+    accessPoints: [
+      {
+        id: 'mary-brown-rest-area',
+        name: 'Mary Brown Rest Area #5 carry-in access',
+        latitude: 46.71758222409383,
+        longitude: -94.92898508221442,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Full upstream start for the Mary Brown to Frame's continuation.",
+      },
+      {
+        id: 'andersons-crossing',
+        name: "Anderson's Crossing #6 carry-in access",
+        latitude: 46.69942260942251,
+        longitude: -94.88188569131617,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Primary midpoint campground, bailout, and logical split point.',
+      },
+      {
+        id: 'stigmans-mound',
+        name: "Stigman's Mound #7 carry-in access",
+        latitude: 46.64045859179894,
+        longitude: -94.87970389700178,
+        mileFromStart: 9.6,
+        segmentKind: 'creek',
+        note: 'Lower-corridor checkpoint after the main rapids-bearing stretch.',
+      },
+      {
+        id: 'frames-landing',
+        name: "Frame's Landing public water access",
+        latitude: 46.629663080692076,
+        longitude: -94.86925421200144,
+        mileFromStart: 10.9,
+        segmentKind: 'creek',
+        note: 'Campground-supported downstream finish before the busier county chain.',
+      },
+    ],
+  },
   'crow-wing-river-mary-brown-stigmans-mound': {
     putIn: {
       name: 'Mary Brown Rest Area #5 carry-in access',
@@ -3112,7 +3221,72 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-  
+  'crow-wing-river-stigmans-mound-little-white-dog': {
+    putIn: {
+      name: "Stigman's Mound #7 carry-in access",
+      latitude: 46.64045859179894,
+      longitude: -94.87970389700178,
+    },
+    takeOut: {
+      name: 'Little White Dog County Park #9 carry-in access',
+      latitude: 46.586984884675736,
+      longitude: -94.82261571200662,
+    },
+    logistics: {
+      distanceLabel: '6.4 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr 15 min',
+      shuttle:
+        "Short Wadena County car shuttle from Stigman's Mound to Little White Dog. Stage the Little White Dog take-out first because it is the cleaner campground finish and easiest place to sort parking before a half-day paddle.",
+      permits:
+        "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county campground, day-use, and parking rules at Stigman's Mound and Little White Dog.",
+      camping:
+        "Little White Dog is a real endpoint campground with documented county support, while Stigman's Mound is better treated as a launch access and day-use park.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Stigman's Mound and finish at Little White Dog for the shortest cleanly supported Crow Wing county-chain route now in the app. The route is approachable, but it is still a moving sandy river rather than a no-thinking float.",
+      accessCaveats: [
+        "Wadena County says Stigman's Mound amenities are reached after landing across the river and walking over the bridge, so have the launch and parking plan clear before leaving a vehicle.",
+        'Little White Dog is the cleaner campground finish and best overnight base if you want to stage the shuttle around a short paddle.',
+        'Private shoreland dominates outside the designated county landings and campsites.',
+      ],
+      watchFor: [
+        'Exposed sandbars and slower travel when the Nimrod gauge is near or below 300 cfs.',
+        'Fresh wood, sweepers, and stronger current after storms.',
+        'Blind bends and summer recreation traffic as you approach Little White Dog.',
+      ],
+    },
+
+    accessPoints: [
+      {
+        id: 'stigmans-mound',
+        name: "Stigman's Mound #7 carry-in access",
+        latitude: 46.64045859179894,
+        longitude: -94.87970389700178,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Upstream start just below the main Nimrod-area rapids cluster.',
+      },
+      {
+        id: 'frames-landing',
+        name: "Frame's Landing public water access",
+        latitude: 46.629663080692076,
+        longitude: -94.86925421200144,
+        mileFromStart: 1.3,
+        segmentKind: 'creek',
+        note: 'Early bailout and county-campground access on the lower corridor.',
+      },
+      {
+        id: 'little-white-dog',
+        name: 'Little White Dog County Park #9 carry-in access',
+        latitude: 46.586984884675736,
+        longitude: -94.82261571200662,
+        mileFromStart: 6.4,
+        segmentKind: 'creek',
+        note: 'Campground-supported downstream finish for the shortest lower-corridor route.',
+      },
+    ],
+  },
+
   'crow-wing-river-stigmans-mound-cottingham': {
     putIn: {
       name: "Stigman's Mound #7 carry-in access",

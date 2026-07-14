@@ -1453,6 +1453,113 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'little-fork-river-samuelson-silverdale',
+    slug: 'little-fork-river-samuelson-silverdale',
+    name: 'Little Fork River',
+    reach: 'Samuelson Park to Silverdale',
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'Short official Little Fork continuation from Samuelson Park to Silverdale. It keeps the same MN DNR gauge ladder as the longer Map 1 routes, but trims the commitment down to a compact rapid-and-wood corridor with a campground-supported put-in.',
+    statusText:
+      'The Silverdale / MN 65 gauge is best from 500 to 1,300.5 cfs. Below 400 cfs, expect scraping; above 2,835 cfs, the current becomes too pushy for a general recommendation.',
+    latitude: 47.9485284,
+    longitude: -93.0992707,
+    gaugeSource: {
+      id: 'mn-dnr-295',
+      provider: 'mn_dnr',
+      siteId: '295',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Little Fork River nr Silverdale, MN65',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=76090001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=76090001&var1=262&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'strainers', 'remote', 'cold_water'],
+      safetyNotes: [
+        'MN DNR still marks this lower Map 1 corridor with Class I to II rapids, so short mileage does not remove the need to scout wood or read-and-run ledges conservatively.',
+        'The run is shorter than the Highway 73 starts, but it is still a remote northern channel with cold water, brushy banks, and few easy unplanned exits between the named public accesses.',
+        'Fresh wood and undercut outside bends remain part of the normal risk story after storms or high water.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 500,
+      idealMax: 1300.5,
+      tooLow: 400,
+      tooHigh: 2835,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Little Fork River near Silverdale / MN 65',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The Little Fork usually peaks in late April and falls through summer. This short lower-Map-1 split stays workable longest after rain, but higher water quickly shortens recovery windows in the rapids and wood.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a shorter but still serious northern route. The mileage is approachable, yet repeated rapids, wood hazards, and remote rescue posture keep it above a casual easy float.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: DNR Map 1 places Samuelson Park and Silverdale on the same official corridor, the Silverdale DNR gauge carries a full official ladder on this reach, and the public-water-access feature service resolves both named endpoints with matching river miles.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct live gauge',
+        value: 'Silverdale gauge 72.8 cfs',
+        note: 'The official MN DNR river-level dataset reported 72.8 cfs at 2026-07-14 01:00 AM for Little Fork River near Silverdale / MN 65, confirming the current same-river gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '400 / 500-1,300.5 / 2,835 cfs',
+        note: 'MN DNR interprets site 295 as Scrapable below 400 cfs, Low from 400 to 500, Medium from 500 to 1,300.5, High from 1,300.5 to 2,835, and Very High above 2,835.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: 'Samuelson RM 104.0 to Silverdale RM 99.9',
+        note: 'DNR Map 1 and the public-water-access layer place Samuelson Park at river mile 104.0 and Silverdale at river mile 99.9, supporting a 4.1-mile official continuation.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Samuelson WAS00502 and Silverdale WAS00501',
+        note: 'Minnesota public-water-access data resolves both named accesses with coordinates and matching water-trail river miles on the Little Fork corridor.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: 'Samuelson County Park tent sites',
+        note: 'DNR Map 1 says Samuelson County Park has a carry-in access, picnic table, toilet, drinking water, and tent sites, giving this short split real endpoint campground support at the put-in.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Little Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/littleforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Little Fork River map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
     id: 'red-lake-river-smiley-bridge-centennial-park',
     slug: 'red-lake-river-smiley-bridge-centennial-park',
     name: 'Red Lake River',
@@ -9638,6 +9745,146 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'crow-wing-river-mary-brown-frames-landing',
+    slug: 'crow-wing-river-mary-brown-frames-landing',
+    name: 'Crow Wing River',
+    reach: "Mary Brown to Frame's Landing",
+    state: 'Minnesota',
+    region: 'Wadena Area',
+    summary:
+      "Longer Crow Wing continuation from Mary Brown through Nimrod to the campground finish at Frame's Landing. It keeps the same official Nimrod gauge model while combining the upstream rapids-bearing corridor with a cleaner county-campground take-out before the busier lower chain.",
+    statusText:
+      'The Nimrod gauge is best from 400 to 800 cfs. Below 300 cfs gets too thin for a clean day, and above 1,100 cfs is too high for a general recommendation.',
+    latitude: 46.7175822,
+    longitude: -94.9289851,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        "This route covers the quieter Mary Brown miles, the Walkin's / Burrows / Westra rapids cluster near Nimrod, and then a gentler sandy run down to Frame's Landing, so treat it as a full moving-water day rather than a simple campground shuttle.",
+        "Anderson's Crossing is the natural midpoint stop and Frame's Landing is the cleaner campground finish, but storms can still add fresh wood and stronger current across the whole corridor.",
+        "Private shoreland dominates outside the named public accesses and county properties, and Frame's is still a simple county landing rather than a polished city-park ramp.",
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-55',
+      provider: 'mn_dnr',
+      siteId: '55',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Crow Wing River at Nimrod, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=12085001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12085001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05244000',
+        provider: 'usgs',
+        siteId: '05244000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Crow Wing River at Nimrod, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 800,
+      tooLow: 300,
+      tooHigh: 1100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. This route is often summer-viable, but low water slows the full day down and rising water makes the Nimrod-area rapids and wood more consequential.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        "A long but approachable Crow Wing day with gentle upper miles, a small rapids cluster near Nimrod, and a calmer lower finish into Frame's Landing.",
+      confidenceNotes:
+        "Confidence is good because Crow Wing Maps 1 and 2 together place Mary Brown through Frame's Landing on one official access chain, the Nimrod DNR gauge sits inside the route with a full official ladder, the feature service resolves both shipped endpoints, and Wadena County confirms campground support at Anderson's Crossing and Frame's Landing.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct same-corridor gauge',
+        value: 'Nimrod gauge 279 cfs',
+        note: 'The official MN DNR river-level dataset reported 279 cfs at 2026-07-14 01:00 AM for Crow Wing River at Nimrod, confirming the current same-river gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '300 / 400-800 / 1,100 cfs',
+        note: 'MN DNR interprets Nimrod as Scrapable below 300 cfs, Low from 300 to 400, Medium from 400 to 800, High from 800 to 1,100, and Very High above 1,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: "Mary Brown 75.3 to Frame's 64.4",
+        note: "Crow Wing Maps 1 and 2 place Mary Brown at river mile 75.3 and Frame's Landing at 64.4, supporting a 10.9-mile continuation that bridges the Map 1 and lower county-campground corridor.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: "Mary Brown WAS02558 and Frame's WAS01538",
+        note: "Minnesota public-water-access records resolve Mary Brown and Frame's Landing as official Crow Wing accesses with matching corridor mile support.",
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: "Anderson's midpoint and Frame's endpoint campground",
+        note: "Wadena County still documents Anderson's Crossing and Frame's Landing as campground properties, so this route has both a real midpoint bailout and a campground finish without implying informal shoreline camping.",
+        sourceUrl: 'https://www.co.wadena.mn.us/221/Frames-Landing-Campground',
+      },
+      {
+        label: 'Rapids support',
+        value: "Walkin's, Burrows, and Westra Rapids",
+        note: "Crow Wing Map 1 marks the named rapids on the Nimrod half of this route before the calmer downstream miles into Frame's Landing.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: "Wadena County Anderson's Crossing Campground",
+        url: 'https://www.co.wadena.mn.us/218/Andersons-Crossing-Campground',
+      },
+      {
+        label: "Wadena County Frame's Landing Campground",
+        url: 'https://www.co.wadena.mn.us/221/Frames-Landing-Campground',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
     id: 'crow-wing-river-mary-brown-stigmans-mound',
     slug: 'crow-wing-river-mary-brown-stigmans-mound',
     name: 'Crow Wing River',
@@ -9914,6 +10161,136 @@ export const rivers: River[] = [
       {
         label: 'Wadena County Cottingham Park Campground',
         url: 'https://www.co.wadena.mn.us/220/Cottingham-Park-Campground',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'crow-wing-river-stigmans-mound-little-white-dog',
+    slug: 'crow-wing-river-stigmans-mound-little-white-dog',
+    name: 'Crow Wing River',
+    reach: "Stigman's Mound to Little White Dog",
+    state: 'Minnesota',
+    region: 'Wadena Area',
+    summary:
+      "Shorter upper-middle Crow Wing day from Nimrod to the Little White Dog county campground. It keeps the same official Nimrod gauge ladder as the longer lower-corridor routes but trims the commitment to an approachable half-day county-park shuttle.",
+    statusText:
+      'The Nimrod gauge is best from 400 to 800 cfs. Below 300 cfs gets too thin for a clean day, and above 1,100 cfs is too high for a general recommendation.',
+    latitude: 46.6404586,
+    longitude: -94.8797039,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        "This route starts just below the main Nimrod-area rapids cluster, but it is still a moving sandy river where fresh wood, blind bends, and low-water dragging matter more than the short mileage suggests.",
+        'Little White Dog is the cleaner county-campground finish and best overnight anchor, while Stigman\'s itself is better treated as a launch access and day-use park.',
+        'Private shoreland dominates between the named county accesses, and summer recreation traffic increases closer to the Little White Dog finish.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-55',
+      provider: 'mn_dnr',
+      siteId: '55',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Crow Wing River at Nimrod, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=12085001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12085001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05244000',
+        provider: 'usgs',
+        siteId: '05244000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Crow Wing River at Nimrod, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 800,
+      tooLow: 300,
+      tooHigh: 1100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. This short route often stays runnable through summer, but low water still exposes sandbars quickly and rising water can hide fresh wood on the bends.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'A beginner-friendly Crow Wing half day with gentle current and a simple gauge story, but still a real moving-water route with wood hazards and blind bends.',
+      confidenceNotes:
+        "Confidence is good because Crow Wing Map 2 names Stigman's Mound through Little White Dog as one official corridor, the Nimrod DNR gauge sits right at the upstream end with a full official ladder, the feature service resolves both county-managed endpoints, and Wadena County still supports Little White Dog as a campground finish.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct same-corridor gauge',
+        value: 'Nimrod gauge 279 cfs',
+        note: 'The official MN DNR river-level dataset reported 279 cfs at 2026-07-14 01:00 AM for Crow Wing River at Nimrod, confirming the current same-river gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '300 / 400-800 / 1,100 cfs',
+        note: 'MN DNR interprets Nimrod as Scrapable below 300 cfs, Low from 300 to 400, Medium from 400 to 800, High from 800 to 1,100, and Very High above 1,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: "Stigman's 65.7 to Little White Dog 59.3",
+        note: "Crow Wing Map 2 places Stigman's Mound at river mile 65.7 and Little White Dog at 59.3, making this a 6.4-mile lower-corridor continuation.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: "Stigman's WAS02557 and Little White Dog WAS01527",
+        note: "Minnesota public-water-access records resolve Stigman's Mound and Little White Dog as official Crow Wing county-park accesses on the same lower corridor.",
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: 'Little White Dog county campground',
+        note: 'Crow Wing Map 2 and Wadena County both still document primitive campsites, water, and camping fees at Little White Dog, giving this short route a legitimate endpoint-campground finish.',
+        sourceUrl: 'https://www.co.wadena.mn.us/223/Little-White-Dog-Campground',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: "Wadena County Stigman's Mound Park",
+        url: 'https://www.co.wadena.mn.us/226/Stigmans-Mound-Park',
+      },
+      {
+        label: 'Wadena County Little White Dog Campground',
+        url: 'https://www.co.wadena.mn.us/223/Little-White-Dog-Campground',
       },
       {
         label: 'Minnesota public water access feature service',
