@@ -16205,6 +16205,120 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'buck-creek-rainey-road-bent-road': {
+    putIn: {
+      id: 'rainey-road-fishing-access',
+      name: 'Rainey Road Fishing Access',
+      latitude: 37.1792,
+      longitude: -84.4564,
+    },
+    takeOut: {
+      id: 'bent-road-fishing-access',
+      name: 'Bent Road Fishing Access',
+      latitude: 37.1038,
+      longitude: -84.435,
+    },
+    logistics: {
+      distanceLabel: 'About 11.7 mi',
+      estimatedPaddleTime:
+        'About 4.5 hr to 7 hr, longer with low-water dragging, scout pauses, or a careful carry-out at Bent Road',
+      shuttle:
+        'Leave the downstream vehicle at Bent Road, then drive back to Rainey Road. This is a real point-to-point Buck Creek day, and the steep Bent carry-out is worth scouting before you commit the full chain.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and stay off private banks throughout the corridor.',
+      camping:
+        'Treat this as a day route. KDFWR lists no public camping or overnight support at Rainey Road, the Stab bridge, or Bent Road.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Rainey Road and continue to Bent Road for the full upper-plus-middle Buck Creek chain. Use the Shopville gauge and expect a slower day whenever the creek stays below the same-gauge 100 cfs / 2.0 ft local floor.',
+      accessCaveats: [
+        'Rainey Road is a simple carry-down start with unpaved parking and no amenities.',
+        'The Stab / KY-1675 bridge is the only clean public midpoint stop before the Bent section. Do not assume extra legal staging room beyond the marked access footprint.',
+        'Bent Road is the intended finish, but KDFWR says the carry-out is steep and rocky enough that many paddlers leave vehicles at the top and walk boats up.',
+      ],
+      watchFor: [
+        'Low water near or below about 100 cfs, when shallow shoals can turn the route into a long scrape-and-walk day.',
+        'Higher post-rain current that can push boats toward cliff bases and strainers through the Bent.',
+        'Fresh wood, fatigue late in the run, and a strenuous finish carry at Bent Road.',
+      ],
+    },
+  },
+  'buck-creek-stab-road-poplarville-road': {
+    putIn: {
+      id: 'ky-1675-fishing-access',
+      name: 'KY-1675 Fishing Access',
+      latitude: 37.1516,
+      longitude: -84.4392,
+    },
+    takeOut: {
+      id: 'poplarville-road-fishing-access',
+      name: 'Poplarville Road Fishing Access',
+      latitude: 37.0469,
+      longitude: -84.4314,
+    },
+    logistics: {
+      distanceLabel: 'About 13.5 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 8 hr, longer with low-water dragging, scouting at drops, or a careful full-day pace',
+      shuttle:
+        'Stage the take-out at Poplarville Road first, then drive back to the KY-1675 / Stab bridge. This is a full middle-to-lower Buck Creek commitment, not a short after-work run.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and avoid stopping on private banks through the gorge.',
+      camping:
+        'Treat this as a day route. KDFWR lists no public camping or overnight support at the Stab bridge, Bent Road, or Poplarville Road.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Stab / KY-1675 bridge and finish at Poplarville Road for the full middle-and-lower Buck Creek gorge chain. Use the Shopville gauge and expect more scraping whenever the creek stays below the same-gauge 100 cfs / 2.0 ft floor.',
+      accessCaveats: [
+        'The KY-1675 bridge access is a basic carry-down with no dock, restroom, or developed staging pad.',
+        'Bent Road is the only clean public midpoint bailout, but KDFWR says the carry-out is steep and rocky enough that it should not be treated as effortless.',
+        'Poplarville is the recommended easier finish. Do not assume the steeper Dykes Bridge access upstream is the normal take-out just because it appears in older descriptions.',
+      ],
+      watchFor: [
+        'Low water near or below about 100 cfs, when rocky runs and lower drops become a long scrape-heavy day.',
+        'Higher-water current through the Bent, plus the lower-route drops and the island line where KDFWR recommends staying left.',
+        'Fresh strainers, fatigue over the long day, and limited public stop options away from the named accesses.',
+      ],
+    },
+  },
+  'buck-creek-rainey-road-poplarville-road': {
+    putIn: {
+      id: 'rainey-road-fishing-access',
+      name: 'Rainey Road Fishing Access',
+      latitude: 37.1792,
+      longitude: -84.4564,
+    },
+    takeOut: {
+      id: 'poplarville-road-fishing-access',
+      name: 'Poplarville Road Fishing Access',
+      latitude: 37.0469,
+      longitude: -84.4314,
+    },
+    logistics: {
+      distanceLabel: 'About 17.7 mi',
+      estimatedPaddleTime:
+        'About 6.5 hr to 9.5 hr, longer with low-water dragging, scouting at drops, or a conservative all-day pace',
+      shuttle:
+        'Leave the downstream vehicle at Poplarville Road, then drive back to Rainey Road. This is the full public Buck Creek chain, so check weather, daylight, and the easier Poplarville finish before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and stay off private banks throughout the corridor.',
+      camping:
+        'Treat this as a long day route. KDFWR lists no public camping or overnight support at Rainey Road, the Stab bridge, Bent Road, or Poplarville Road.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Rainey Road and finish at Poplarville Road for the full Buck Creek public chain. Use the Shopville gauge and expect a long scrape-prone day whenever the creek stays below the same-gauge 100 cfs / 2.0 ft floor.',
+      accessCaveats: [
+        'Rainey Road is a basic carry-down start with no developed amenities.',
+        'Stab and Bent are the only clean public midpoint exits, and Bent itself can be a steep rocky carry-out rather than a casual bailout.',
+        'Poplarville is the intended easier public finish. Keep vehicles tight in the small roadside lot and clear of local traffic.',
+      ],
+      watchFor: [
+        'Low water near or below about 100 cfs, when the full chain becomes a very long scrape-and-walk day.',
+        'Higher post-rain current through the Bent, plus the lower-route drops and left-island line choice closer to Poplarville.',
+        'Fresh wood, cumulative fatigue, and private-bank limits over a full-day creek commitment.',
+      ],
+    },
+  },
   'upper-salt-river-dry-branch-road-salt-river-ramp-3': {
     putIn: {
       id: 'dry-branch-road-access',

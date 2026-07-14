@@ -196,6 +196,14 @@ Last summarized: 2026-07-13 10:18 America/Chicago / 2026-07-13 15:18 UTC.
 - Camping stays conservative at `none` for all three because KDFWR still documents only simple day-use launch sites with no public overnight support on this chain.
 - Reused the approved South Fork Commons corridor image for all three slugs, and `docs/river-image-source-audit.csv` now records the same-river reuse.
 
+## 2026-07-13 Buck Creek chained continuation pass
+
+- Reused the live repo state as the only valid baseline and added three Buck Creek slugs that were absent from the current tree at run start: `buck-creek-rainey-road-bent-road`, `buck-creek-stab-road-poplarville-road`, and `buck-creek-rainey-road-poplarville-road`.
+- Current KDFWR Buck Creek guidance plus the current detailed map still document the official route pieces of Rainey Road -> KY-1675 / Stab `4.2`, KY-1675 / Stab -> Bent Road `7.5`, and Bent Road -> Poplarville Road `6.0`, which support the three new public chained route mileages of `11.7`, `13.5`, and `17.7` directly without inferred endpoint geometry.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Rainey Road Fishing Access, KY-1675 Fishing Access, Bent Road Fishing Access, and Poplarville Road Fishing Access. Same-day direct USGS Water Services returned `556 cfs / 3.49 ft` at `2026-07-13 19:30 EDT` for Buck Creek near Shopville (`03407500`), which keeps the live path current and comfortably above the same-gauge local Buck Creek paddling floor.
+- Threshold posture stays intentionally conservative for all three adds: KDFWR still supplies route shape and hazard context but not a numeric runnable band, so the routes use a `minimum-only` model off repeated same-gauge Buck Creek Outfitters guidance that about `100 cfs / 2.0 ft` is the minimum for a fun float.
+- Camping stays conservative at `none` for all three because KDFWR lists no camping or overnight support at these access points and the reviewed Buck Creek route package is still a day-float corridor.
+
 ## 2026-07-09 Buck Creek implementation pass
 
 - Reused the live repo state as the only valid baseline and added three Buck Creek slugs that were absent from the current tree at run start: `buck-creek-rainey-road-stab-road`, `buck-creek-stab-road-bent-road`, and `buck-creek-bent-road-poplarville-road`.
