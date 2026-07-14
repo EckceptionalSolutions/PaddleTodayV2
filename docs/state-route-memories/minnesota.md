@@ -1,18 +1,25 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 10:11 America/Chicago.
+Last summarized: 2026-07-14 11:45 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 79.
-- Top represented rivers: Mississippi River 9, Little Fork River 8, Big Fork River 5, Crow Wing River 4, Minnesota River 4, Red River of the North 4, Root River 4, Zumbro River 4, North Fork Crow River 3, Snake River 3.
-- Ledger candidates: 85 total; 62 `added`, 11 `threshold_weak`, 8 `no_live_gauge`, 2 `duplicate_corridor`, 1 `research_later`, 1 `rejected`.
+- Live routes: 82.
+- Top represented rivers: Mississippi River 9, Little Fork River 8, Big Fork River 5, Crow Wing River 4, Minnesota River 4, Red River of the North 4, Root River 4, Zumbro River 4, Rum River 3, Snake River 3.
+- Ledger candidates: 87 total; 65 `added`, 11 `threshold_weak`, 7 `no_live_gauge`, 2 `duplicate_corridor`, 1 `research_later`, 1 `rejected`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-14 11:45 America/Chicago: added `rum-river-wayside-milaca`, `st-louis-river-county-road-4-95`, and `cedar-river-riverwood-state-line`.
+- Baseline at run start was 79 live Minnesota routes; patched route data now imports 82 Minnesota routes with no missing trip-detail records found during the count check.
+- Stayed in Minnesota and promoted three official DNR recommended routes with live interpreted DNR level support: Rum River Wayside Landing to Milaca `16.2` miles, St. Louis River County Road 4 to County Road 95 `7.3` miles, and Cedar River Riverwood Landing to State Line Road `11.8` miles.
+- Minnesota public-water-access GIS resolves Rum Wayside Landing `WAS00462`, Milaca Dam Site `WAS00461` / Riverview Park `WAS02114`, St. Louis County Road 95 `WAS02152`, and Cedar Riverwood Landing `WAS02650`; DNR names the St. Louis County Road 4 bridge as an undeveloped carry-in and the Cedar State Line Road take-out as a no-parking carry-in.
+- Current MN DNR river-level feed exposed interpreted ladders for Rum Onamia site `207` (`10.0 / 10.5-11.5 / 12.5 ft`), St. Louis Forbes site `244` (`3.0 / 3.7-7.6 / 8.0 ft`), and Cedar Austin site `286` (`50 / 117-1290 / 1670 cfs`). Cedar ships with a near-put-in direct gauge; Rum and St. Louis ship with explicit same-map/corridor proxy caveats and visual launch checks.
+- No route-gallery images were added. Bounded Commons/general searches did not produce clearly rights-clean exact-route images suitable for immediate local reuse for the three slugs.
 
 - 2026-07-14 10:11 America/Chicago: added `des-moines-river-mayflower-christianna`, `zumbro-river-zumbro-falls-hammond`, and `red-river-lincoln-drive-lafave`.
 - Baseline at run start was 76 live Minnesota routes; patched route data now imports 79 Minnesota routes with no missing trip-detail records found during the count check.

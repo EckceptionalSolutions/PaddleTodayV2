@@ -306,6 +306,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private banks along the Kaw; do not plan on using them for rest, camping, or bailout access.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'ogden-access-ramp',
+        name: 'Ogden Access Ramp',
+        latitude: 39.10503,
+        longitude: -96.69633,
+        mileFromStart: 9.2,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the upper Kansas River public access sequence.',
+      },
+    ],
   },
   'kansas-river-junction-city-st-george': {
     putIn: {
@@ -346,6 +357,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private banks along the Kaw; do not plan on using them for rest, camping, or bailout access.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'ogden-access-ramp',
+        name: 'Ogden Access Ramp',
+        latitude: 39.10503,
+        longitude: -96.69633,
+        mileFromStart: 9.2,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the upper Kansas River public access sequence.',
+      },
+      {
+        id: 'manhattan-fairmont-access',
+        name: 'Manhattan K-177 / Fairmont Access Ramp',
+        latitude: 39.17428,
+        longitude: -96.55318,
+        mileFromStart: 23,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the upper Kansas River public access sequence.',
+      },
+    ],
   },
   'kansas-river-ogden-manhattan': {
     putIn: {
@@ -422,6 +453,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private banks along the Kaw; do not plan on using them for rest, camping, or bailout access.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'manhattan-fairmont-access',
+        name: 'Manhattan K-177 / Fairmont Access Ramp',
+        latitude: 39.17428,
+        longitude: -96.55318,
+        mileFromStart: 14,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the upper Kansas River public access sequence.',
+      },
+    ],
   },
   'kansas-river-ogden-wamego': {
     putIn: {
@@ -462,6 +504,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private banks along the Kaw; do not plan on using them for rest, camping, or bailout access.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'manhattan-fairmont-access',
+        name: 'Manhattan K-177 / Fairmont Access Ramp',
+        latitude: 39.17428,
+        longitude: -96.55318,
+        mileFromStart: 14,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the upper Kansas River public access sequence.',
+      },
+      {
+        id: 'st-george-boggs-landing',
+        name: 'St. George / Boggs Landing Access Ramp',
+        latitude: 39.18726,
+        longitude: -96.42202,
+        mileFromStart: 26,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the upper Kansas River public access sequence.',
+      },
+    ],
   },
   'kansas-river-manhattan-belvue': {
     putIn: {
@@ -4007,6 +4069,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Faster current and fewer margins when levels rise.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'cattle-creek-road-daley-bridge',
+        name: 'Cattle Creek Road / Daley Bridge canoe access area',
+        latitude: 43.4149,
+        longitude: -91.95874,
+        mileFromStart: 6.8,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Kendallville-to-Bluffton public access sequence.',
+      },
+      {
+        id: 'chimney-rock-road-access',
+        name: 'Chimney Rock Road bridge / Chimney Rock Park access',
+        latitude: 43.42156,
+        longitude: -91.93467,
+        mileFromStart: 8.3,
+        segmentKind: 'creek',
+        note: 'Public access and route checkpoint before the Bluffton palisades corridor.',
+      },
+    ],
   },
   'upper-iowa-river-cattle-creek-bluffton': {
     putIn: {
@@ -4041,6 +4123,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Minor Class I riffles, strainers after storms, cold-water exposure outside midsummer, and private-bank boundaries along the corridor.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'chimney-rock-road-access',
+        name: 'Chimney Rock Road bridge / Chimney Rock Park access',
+        latitude: 43.42156,
+        longitude: -91.93467,
+        mileFromStart: 1.5,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Cattle Creek-to-Bluffton corridor.',
+      },
+    ],
   },
   'upper-iowa-river-chimney-rock-malanaphy': {
     putIn: {
@@ -4075,6 +4168,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Strainers after storms, faster pushy current on rising water, cold spring water, and private-bank boundaries along the corridor.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'bluffton-fir-stand-access',
+        name: 'Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp',
+        latitude: 43.3996,
+        longitude: -91.8884,
+        mileFromStart: 4.1,
+        segmentKind: 'creek',
+        note: 'Public midpoint access in the Chimney Rock-to-Malanaphy corridor.',
+      },
+    ],
   },
   'upper-iowa-river-malanaphy-trout-run': {
     putIn: {
@@ -5723,6 +5827,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'High-water undercurrents and reduced sandbar camping when the Muscoda gauge rises above the normal range.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'blue-river-landing',
+        name: 'Blue River Landing',
+        latitude: 43.2067548,
+        longitude: -90.5663182,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Documented intermediate Lower Wisconsin public access in the Muscoda-to-Woodman corridor.',
+      },
+      {
+        id: 'boscobel-landing',
+        name: 'Boscobel Landing / Floyd Von Haden Boat Landing',
+        latitude: 43.1492722,
+        longitude: -90.715253,
+        mileFromStart: 18,
+        segmentKind: 'creek',
+        note: 'Documented intermediate Lower Wisconsin public access before the Woodman finish.',
+      },
+    ],
   },
   'wisconsin-river-boscobel-bridgeport': {
     putIn: {
@@ -7648,6 +7772,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private banks and private campground accesses that should not be treated as normal public take-outs.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'd61-whitewater-creek-access',
+        name: 'D61 Access / Whitewater Creek bridge access',
+        latitude: 42.27778,
+        longitude: -90.9371,
+        mileFromStart: 7.8,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access between the Cascade opener and the D61-to-Ozark wilderness corridor.',
+      },
+    ],
   },
   'north-fork-maquoketa-river-d61-caven': {
     putIn: {
@@ -7682,6 +7817,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private banks, steep gravel-road approaches, and narrow roadside maneuvering at the undeveloped bridge accesses.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'ozark-bridge-21st-ave',
+        name: 'Ozark Bridge / 21st Ave access area',
+        latitude: 42.19,
+        longitude: -90.87,
+        mileFromStart: 12.1,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access between the D61-to-Ozark and Ozark-to-Caven route reports.',
+      },
+    ],
   },
   'north-fork-maquoketa-river-cascade-caven': {
     putIn: {
@@ -7716,6 +7862,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private banks and private campground accesses that should not be treated as public stops or fallback take-outs.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'd61-whitewater-creek-access',
+        name: 'D61 Access / Whitewater Creek bridge access',
+        latitude: 42.27778,
+        longitude: -90.9371,
+        mileFromStart: 7.8,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access at the end of the Cascade-to-D61 component route.',
+      },
+      {
+        id: 'ozark-bridge-21st-ave',
+        name: 'Ozark Bridge / 21st Ave access area',
+        latitude: 42.19,
+        longitude: -90.87,
+        mileFromStart: 19.9,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access before the Ozark-to-Caven finish.',
+      },
+    ],
   },
   'boone-river-riverside-albright': {
     putIn: {
@@ -7958,6 +8124,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Cold spring-fed water, limited cell service, long rural shuttle friction, and private land away from public accesses or lawful gravel-bar stops.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'blue-spring-river-access',
+        name: 'Blue Spring River Access',
+        latitude: 37.054497,
+        longitude: -91.638198,
+        mileFromStart: 2.6,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+    ],
   },
   'jacks-fork-river-highway-17-blue-spring': {
     putIn: {
@@ -8028,6 +8205,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Rapid rises after thunderstorms, cold spring-fed water, limited cell service, and longer-than-expected shuttle friction on rural gravel roads.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'blue-spring-river-access',
+        name: 'Blue Spring River Access',
+        latitude: 37.054497,
+        longitude: -91.638198,
+        mileFromStart: 2.6,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+      {
+        id: 'rymers-access',
+        name: 'Rymers Access',
+        latitude: 37.061386,
+        longitude: -91.559117,
+        mileFromStart: 9.4,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+    ],
   },
   'jacks-fork-river-blue-spring-rymers': {
     putIn: {
@@ -8098,6 +8295,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Rapid rises after thunderstorms, cold spring-fed water, limited cell service, and long rural shuttle friction.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'rymers-access',
+        name: 'Rymers Access',
+        latitude: 37.061386,
+        longitude: -91.559117,
+        mileFromStart: 6.6,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+    ],
   },
   'jacks-fork-river-rymers-bay-creek': {
     putIn: {
@@ -8168,6 +8376,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Rapid rises after thunderstorms, cold spring-fed water, limited cell service, and crowding or parking friction once you reach Alley Spring.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'bay-creek-river-access',
+        name: 'Bay Creek River Access / Backcountry Campground',
+        latitude: 37.1231,
+        longitude: -91.5018,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+    ],
   },
   'jacks-fork-river-highway-17-alley-spring': {
     putIn: {
@@ -8206,6 +8425,35 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fatigue, daylight management, and the temptation to press on after missing the best water window. Treat a below-floor reading as a reason to shorten the day, not to force the full route.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'blue-spring-river-access',
+        name: 'Blue Spring River Access',
+        latitude: 37.054497,
+        longitude: -91.638198,
+        mileFromStart: 2.6,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+      {
+        id: 'rymers-access',
+        name: 'Rymers Access',
+        latitude: 37.061386,
+        longitude: -91.559117,
+        mileFromStart: 9.4,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+      {
+        id: 'bay-creek-river-access',
+        name: 'Bay Creek River Access / Backcountry Campground',
+        latitude: 37.1231,
+        longitude: -91.5018,
+        mileFromStart: 18.2,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+    ],
   },
   'jacks-fork-river-blue-spring-alley-spring': {
     putIn: {
@@ -8244,6 +8492,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fatigue, daylight management, and the temptation to continue when the upper corridor is obviously too shallow. Treat a below-floor reading as a reason to shorten the day.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'rymers-access',
+        name: 'Rymers Access',
+        latitude: 37.061386,
+        longitude: -91.559117,
+        mileFromStart: 6.6,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+      {
+        id: 'bay-creek-river-access',
+        name: 'Bay Creek River Access / Backcountry Campground',
+        latitude: 37.1231,
+        longitude: -91.5018,
+        mileFromStart: 15.6,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+    ],
   },
   'jacks-fork-river-alley-spring-chilton': {
     putIn: {
@@ -9447,6 +9715,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private banks near Eminence and long-day fatigue if you start the route in marginal water or too late in the day.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'alley-spring-river-access',
+        name: 'Alley Spring River Access',
+        latitude: 37.1484,
+        longitude: -91.4499,
+        mileFromStart: 5.8,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+    ],
   },
   'jacks-fork-river-highway-17-chilton': {
     putIn: {
@@ -9485,6 +9764,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fatigue, daylight management, and the temptation to press on after the upper corridor is obviously too shallow. Treat a below-floor reading as a signal to shorten the objective.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'blue-spring-river-access',
+        name: 'Blue Spring River Access',
+        latitude: 37.054497,
+        longitude: -91.638198,
+        mileFromStart: 2.6,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+      {
+        id: 'rymers-access',
+        name: 'Rymers Access',
+        latitude: 37.061386,
+        longitude: -91.559117,
+        mileFromStart: 9.4,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+      {
+        id: 'bay-creek-river-access',
+        name: 'Bay Creek River Access / Backcountry Campground',
+        latitude: 37.1231,
+        longitude: -91.5018,
+        mileFromStart: 18.2,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+      {
+        id: 'alley-spring-river-access',
+        name: 'Alley Spring River Access',
+        latitude: 37.1484,
+        longitude: -91.4499,
+        mileFromStart: 24,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+    ],
   },
   'jacks-fork-river-blue-spring-chilton': {
     putIn: {
@@ -9523,6 +9840,35 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fatigue, daylight management, and the temptation to continue when the upper corridor is obviously too shallow. Treat a below-floor reading as a reason to shorten the day.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'rymers-access',
+        name: 'Rymers Access',
+        latitude: 37.061386,
+        longitude: -91.559117,
+        mileFromStart: 6.6,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+      {
+        id: 'bay-creek-river-access',
+        name: 'Bay Creek River Access / Backcountry Campground',
+        latitude: 37.1231,
+        longitude: -91.5018,
+        mileFromStart: 15.6,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+      {
+        id: 'alley-spring-river-access',
+        name: 'Alley Spring River Access',
+        latitude: 37.1484,
+        longitude: -91.4499,
+        mileFromStart: 21.4,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+    ],
   },
   'jacks-fork-river-rymers-chilton': {
     putIn: {
@@ -9560,6 +9906,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Long-day fatigue and the temptation to keep going in marginal water just because the lower finish is closer to town.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'bay-creek-river-access',
+        name: 'Bay Creek River Access / Backcountry Campground',
+        latitude: 37.1231,
+        longitude: -91.5018,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+      {
+        id: 'alley-spring-river-access',
+        name: 'Alley Spring River Access',
+        latitude: 37.1484,
+        longitude: -91.4499,
+        mileFromStart: 14.8,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Jacks Fork public access sequence.',
+      },
+    ],
   },
   'gasconade-river-rollins-ferry-pointers-creek': {
     putIn: {
@@ -10691,7 +11057,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Water-quality and runoff concerns after storms in the Floyds Fork watershed.',
       ],
     },
-  },
+    accessPoints: [
+      {
+        id: 'cane-run-canoe-access',
+        name: 'Cane Run Canoe Access',
+        latitude: 38.1519,
+        longitude: -85.5026,
+        mileFromStart: 4.2,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+    ]},
   'floyds-fork-north-beckley-creekside': {
     putIn: {
       id: 'north-beckley-canoe-access',
@@ -10808,7 +11184,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Water-quality and runoff concerns after storms in the Floyds Fork watershed.',
       ],
     },
-  },
+    accessPoints: [
+      {
+        id: 'fisherville-canoe-access',
+        name: 'Fisherville Canoe Access',
+        latitude: 38.1887,
+        longitude: -85.4779,
+        mileFromStart: 4.3,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+    ]},
   'floyds-fork-creekside-seaton-valley': {
     putIn: {
       id: 'creekside-canoe-access',
@@ -10847,7 +11233,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Water-quality and runoff concerns after storms in the Floyds Fork watershed.',
       ],
     },
-  },
+    accessPoints: [
+      {
+        id: 'fisherville-canoe-access',
+        name: 'Fisherville Canoe Access',
+        latitude: 38.1887,
+        longitude: -85.4779,
+        mileFromStart: 4.3,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'cane-run-canoe-access',
+        name: 'Cane Run Canoe Access',
+        latitude: 38.1519,
+        longitude: -85.5026,
+        mileFromStart: 8.5,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+    ]},
   'floyds-fork-creekside-broad-run-valley': {
     putIn: {
       id: 'creekside-canoe-access',
@@ -10886,7 +11291,35 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Water-quality and runoff concerns after storms in the Floyds Fork watershed.',
       ],
     },
-  },
+    accessPoints: [
+      {
+        id: 'fisherville-canoe-access',
+        name: 'Fisherville Canoe Access',
+        latitude: 38.1887,
+        longitude: -85.4779,
+        mileFromStart: 4.3,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'cane-run-canoe-access',
+        name: 'Cane Run Canoe Access',
+        latitude: 38.1519,
+        longitude: -85.5026,
+        mileFromStart: 8.5,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'seaton-valley-paddling-access',
+        name: 'Seaton Valley Paddling Access',
+        latitude: 38.1323,
+        longitude: -85.5191,
+        mileFromStart: 11.6,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+    ]},
   'floyds-fork-cane-run-seaton-valley': {
     putIn: {
       id: 'cane-run-canoe-access',
@@ -10964,7 +11397,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
       ],
     },
-  },
+    accessPoints: [
+      {
+        id: 'seaton-valley-paddling-access',
+        name: 'Seaton Valley Paddling Access',
+        latitude: 38.1323,
+        longitude: -85.5191,
+        mileFromStart: 3.1,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+    ]},
   'floyds-fork-north-beckley-cane-run': {
     putIn: {
       id: 'north-beckley-canoe-access',
@@ -11003,7 +11446,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
       ],
     },
-  },
+    accessPoints: [
+      {
+        id: 'creekside-canoe-access',
+        name: 'Creekside Canoe Access',
+        latitude: 38.2158,
+        longitude: -85.4778,
+        mileFromStart: 2.1,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'fisherville-canoe-access',
+        name: 'Fisherville Canoe Access',
+        latitude: 38.1887,
+        longitude: -85.4779,
+        mileFromStart: 6.4,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+    ]},
   'floyds-fork-north-beckley-seaton-valley': {
     putIn: {
       id: 'north-beckley-canoe-access',
@@ -11042,7 +11504,35 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
       ],
     },
-  },
+    accessPoints: [
+      {
+        id: 'creekside-canoe-access',
+        name: 'Creekside Canoe Access',
+        latitude: 38.2158,
+        longitude: -85.4778,
+        mileFromStart: 2.1,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'fisherville-canoe-access',
+        name: 'Fisherville Canoe Access',
+        latitude: 38.1887,
+        longitude: -85.4779,
+        mileFromStart: 6.4,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'cane-run-canoe-access',
+        name: 'Cane Run Canoe Access',
+        latitude: 38.1519,
+        longitude: -85.5026,
+        mileFromStart: 10.7,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+    ]},
   'floyds-fork-seaton-valley-broad-run-valley': {
     putIn: {
       id: 'seaton-valley-paddling-access',
@@ -11120,7 +11610,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
       ],
     },
-  },
+    accessPoints: [
+      {
+        id: 'broad-run-valley-paddling-access',
+        name: 'Broad Run Valley Paddling Access',
+        latitude: 38.1039,
+        longitude: -85.5455,
+        mileFromStart: 3.5,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+    ]},
   'floyds-fork-broad-run-valley-cliffside': {
     putIn: {
       id: 'broad-run-valley-paddling-access',
@@ -11198,7 +11698,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
       ],
     },
-  },
+    accessPoints: [
+      {
+        id: 'creekside-canoe-access',
+        name: 'Creekside Canoe Access',
+        latitude: 38.2158,
+        longitude: -85.4778,
+        mileFromStart: 2.1,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+    ]},
   'floyds-fork-north-beckley-broad-run-valley': {
     putIn: {
       id: 'north-beckley-canoe-access',
@@ -11237,7 +11747,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
       ],
     },
-  },
+    accessPoints: [
+      {
+        id: 'creekside-canoe-access',
+        name: 'Creekside Canoe Access',
+        latitude: 38.2158,
+        longitude: -85.4778,
+        mileFromStart: 2.1,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'fisherville-canoe-access',
+        name: 'Fisherville Canoe Access',
+        latitude: 38.1887,
+        longitude: -85.4779,
+        mileFromStart: 6.4,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'cane-run-canoe-access',
+        name: 'Cane Run Canoe Access',
+        latitude: 38.1519,
+        longitude: -85.5026,
+        mileFromStart: 10.7,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'seaton-valley-paddling-access',
+        name: 'Seaton Valley Paddling Access',
+        latitude: 38.1323,
+        longitude: -85.5191,
+        mileFromStart: 13.8,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+    ]},
   'floyds-fork-fisherville-broad-run-valley': {
     putIn: {
       id: 'fisherville-canoe-access',
@@ -11276,7 +11823,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Water-quality and runoff concerns after storms in the Floyds Fork watershed.',
       ],
     },
-  },
+    accessPoints: [
+      {
+        id: 'cane-run-canoe-access',
+        name: 'Cane Run Canoe Access',
+        latitude: 38.1519,
+        longitude: -85.5026,
+        mileFromStart: 4.2,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'seaton-valley-paddling-access',
+        name: 'Seaton Valley Paddling Access',
+        latitude: 38.1323,
+        longitude: -85.5191,
+        mileFromStart: 7.3,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+    ]},
   'floyds-fork-fisherville-cliffside': {
     putIn: {
       id: 'fisherville-canoe-access',
@@ -11315,7 +11881,35 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Water-quality and runoff concerns after storms in the Floyds Fork watershed.',
       ],
     },
-  },
+    accessPoints: [
+      {
+        id: 'cane-run-canoe-access',
+        name: 'Cane Run Canoe Access',
+        latitude: 38.1519,
+        longitude: -85.5026,
+        mileFromStart: 4.2,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'seaton-valley-paddling-access',
+        name: 'Seaton Valley Paddling Access',
+        latitude: 38.1323,
+        longitude: -85.5191,
+        mileFromStart: 7.3,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'broad-run-valley-paddling-access',
+        name: 'Broad Run Valley Paddling Access',
+        latitude: 38.1039,
+        longitude: -85.5455,
+        mileFromStart: 10.8,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+    ]},
   'floyds-fork-creekside-cliffside': {
     putIn: {
       id: 'creekside-canoe-access',
@@ -11354,7 +11948,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Water-quality and runoff concerns after storms in the Floyds Fork watershed.',
       ],
     },
-  },
+    accessPoints: [
+      {
+        id: 'fisherville-canoe-access',
+        name: 'Fisherville Canoe Access',
+        latitude: 38.1887,
+        longitude: -85.4779,
+        mileFromStart: 4.3,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'cane-run-canoe-access',
+        name: 'Cane Run Canoe Access',
+        latitude: 38.1519,
+        longitude: -85.5026,
+        mileFromStart: 8.5,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'seaton-valley-paddling-access',
+        name: 'Seaton Valley Paddling Access',
+        latitude: 38.1323,
+        longitude: -85.5191,
+        mileFromStart: 11.6,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'broad-run-valley-paddling-access',
+        name: 'Broad Run Valley Paddling Access',
+        latitude: 38.1039,
+        longitude: -85.5455,
+        mileFromStart: 15.1,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+    ]},
   'floyds-fork-cane-run-cliffside': {
     putIn: {
       id: 'cane-run-canoe-access',
@@ -11393,7 +12024,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
       ],
     },
-  },
+    accessPoints: [
+      {
+        id: 'seaton-valley-paddling-access',
+        name: 'Seaton Valley Paddling Access',
+        latitude: 38.1323,
+        longitude: -85.5191,
+        mileFromStart: 3.1,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'broad-run-valley-paddling-access',
+        name: 'Broad Run Valley Paddling Access',
+        latitude: 38.1039,
+        longitude: -85.5455,
+        mileFromStart: 6.6,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+    ]},
   'floyds-fork-north-beckley-cliffside': {
     putIn: {
       id: 'north-beckley-canoe-access',
@@ -11432,7 +12082,53 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fatigue, weather shifts, and water-quality/runoff concerns on a full-park corridor with few convenient early exits once you commit.',
       ],
     },
-  },
+    accessPoints: [
+      {
+        id: 'creekside-canoe-access',
+        name: 'Creekside Canoe Access',
+        latitude: 38.2158,
+        longitude: -85.4778,
+        mileFromStart: 2.1,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'fisherville-canoe-access',
+        name: 'Fisherville Canoe Access',
+        latitude: 38.1887,
+        longitude: -85.4779,
+        mileFromStart: 6.4,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'cane-run-canoe-access',
+        name: 'Cane Run Canoe Access',
+        latitude: 38.1519,
+        longitude: -85.5026,
+        mileFromStart: 10.7,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'seaton-valley-paddling-access',
+        name: 'Seaton Valley Paddling Access',
+        latitude: 38.1323,
+        longitude: -85.5191,
+        mileFromStart: 13.8,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+      {
+        id: 'broad-run-valley-paddling-access',
+        name: 'Broad Run Valley Paddling Access',
+        latitude: 38.1039,
+        longitude: -85.5455,
+        mileFromStart: 17.2,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the Floyds Fork Parklands public access sequence.',
+      },
+    ]},
   'slate-creek-lions-club-old-slate-furnace': {
     putIn: {
       id: 'lions-club-park',
@@ -18232,6 +18928,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private shorelines away from the named public accesses and the chance of drifting past the Mifflintown finish if you relax late in the run.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'lewistown-narrows-pfbc-ramp',
+        name: 'Lewistown Narrows PFBC ramp',
+        latitude: 40.603889,
+        longitude: -77.487778,
+        mileFromStart: 6,
+        segmentKind: 'creek',
+        note: 'Documented intermediate PFBC access within the Victory Park-to-Mifflintown corridor.',
+      },
+    ],
   },
 'juniata-river-lewistown-narrows-newport': {
     putIn: {
@@ -19567,6 +20274,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fatigue, daylight management, and a muddy finish at Artemus.',
       ],
     },
+    accessPoints: [
+      {
+        id: '4-mile-ramp',
+        name: '4 Mile Ramp',
+        latitude: 36.793,
+        longitude: -83.7534,
+        mileFromStart: 13.8,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the official Varilla-to-Artemus public access chain.',
+      },
+    ],
   },
   'upper-cumberland-river-varilla-barbourville': {
     putIn: {
@@ -19605,6 +20323,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fatigue, daylight management, and faster approach speed into Barbourville on higher-water days.',
       ],
     },
+    accessPoints: [
+      {
+        id: '4-mile-ramp',
+        name: '4 Mile Ramp',
+        latitude: 36.793,
+        longitude: -83.7534,
+        mileFromStart: 13.8,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the official Varilla-to-Barbourville public access chain.',
+      },
+      {
+        id: 'artemus-rock-access',
+        name: 'Artemus Rock Access',
+        latitude: 36.824,
+        longitude: -83.844,
+        mileFromStart: 23.6,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access before the Barbourville finish.',
+      },
+    ],
   },
   'upper-cumberland-river-artemus-barbourville': {
     putIn: {
@@ -19681,6 +20419,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fatigue on the longer day and approach speed into Barbourville at higher water.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'artemus-rock-access',
+        name: 'Artemus Rock Access',
+        latitude: 36.824,
+        longitude: -83.844,
+        mileFromStart: 9.8,
+        segmentKind: 'creek',
+        note: 'Documented intermediate access in the official 4-Mile-to-Barbourville public access chain.',
+      },
+    ],
   },
   'upper-cumberland-river-williamsburg-redbird': {
     putIn: {
@@ -20618,6 +21367,171 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 2,
         segmentKind: 'creek',
         note: 'Default take-out at DNR river mile 302.1; Minnesota public-water-access GIS resolves LaFave at river mile 301.9.',
+      },
+    ],
+  },
+  'rum-river-wayside-milaca': {
+    putIn: {
+      name: 'Wayside Landing Public Water Access Site',
+      latitude: 45.9257911,
+      longitude: -93.6645845,
+    },
+    takeOut: {
+      name: 'Milaca city park / Milaca Dam Site public access',
+      latitude: 45.7544397,
+      longitude: -93.6601802,
+    },
+    logistics: {
+      distanceLabel: '16.2 mi',
+      estimatedPaddleTime: 'Full day; about 5 hr to 8 hr depending on level, wading, wood, and breaks',
+      shuttle:
+        'Set the Milaca take-out first, then drive upstream to Wayside Landing on Highway 169. Confirm which signed Milaca public access best matches your take-out plan before launching because the city has multiple public river access records near the DNR mile.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and respect portage, dam, park, and private-bank signs.',
+      camping:
+        'Treat this as a long day trip. DNR highlights Mille Lacs Kathio State Park upstream of the route and broader county/regional camping farther down the Rum, but it does not document an on-route campsite for Wayside-to-Milaca.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Wayside Landing and take out at Milaca for MN DNR\'s 16.2-mile upper-Rum day trip. Use the upstream Onamia gauge conservatively, and plan for shallow rocks, possible wading, and the Old Whitney Log Dam site.',
+      accessCaveats: [
+        'Wayside Landing resolves in Minnesota public-water-access GIS at DNR river mile 128.7.',
+        'DNR names Milaca city park at river mile 112.5 as the take-out; public-water-access GIS resolves Milaca Dam Site and Riverview Park access records near the city corridor.',
+        'The Onamia gauge is upstream of the put-in on the same DNR Map 1 segment, so make a visual low-water check before committing to the full day.',
+      ],
+      watchFor: [
+        'Shallow rocky sections, wading, low-water scraping, and exposed boulders below the medium band.',
+        'Old Whitney Log Dam site, other dam/weir/portage context, snags, fallen trees, and private banks.',
+        'Long-day fatigue; do not launch late or without daylight margin for slow shallow water.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'wayside-landing',
+        name: 'Wayside Landing Public Water Access Site',
+        latitude: 45.9257911,
+        longitude: -93.6645845,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 128.7.',
+      },
+      {
+        id: 'milaca-dam-site',
+        name: 'Milaca Dam Site Public Water Access Site',
+        latitude: 45.7544397,
+        longitude: -93.6601802,
+        mileFromStart: 16.2,
+        segmentKind: 'creek',
+        note: 'Milaca public access near the DNR city-park take-out corridor; confirm the signed take-out on arrival.',
+      },
+    ],
+  },
+  'st-louis-river-county-road-4-95': {
+    putIn: {
+      name: 'County Road 4 bridge undeveloped carry-in',
+      latitude: 47.4215,
+      longitude: -92.285,
+    },
+    takeOut: {
+      name: 'County Road 95 Public Water Access Site',
+      latitude: 47.4009308,
+      longitude: -92.3775989,
+    },
+    logistics: {
+      distanceLabel: '7.3 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr depending on low-water scraping, scouting, and wood',
+      shuttle:
+        'Stage the County Road 95 take-out first, then drive upstream to the County Road 4 bridge. DNR says the put-in is undeveloped and requires carrying in on the downstream side of the bridge, so confirm parking and signage before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR access/carry-in locations, follow Minnesota boating/PFD rules, and check Superior National Forest rules before treating nearby forest land as an overnight option.',
+      camping:
+        'Nearby dispersed-camping context exists in Superior National Forest, but DNR does not document a designated on-route campsite for this 7.3-mile day trip. Treat camping as a separate forest-plan decision, not part of the normal route.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch from the undeveloped County Road 4 bridge carry-in and take out at County Road 95 for MN DNR\'s upper St. Louis day trip. Use the downstream Forbes gauge conservatively and treat this as advanced moving water at low or rising levels.',
+      accessCaveats: [
+        'County Road 4 is a DNR-named undeveloped bridge carry-in rather than a formal public-water-access GIS point.',
+        'County Road 95 resolves in Minnesota public-water-access GIS as WAS02152 at DNR river mile 144.5.',
+        'The Forbes gauge is downstream of the selected reach, so it is an official upper-corridor proxy rather than an exact route gauge.',
+      ],
+      watchFor: [
+        'Class I-II and boulder-bed context on the upper St. Louis, shallow sandy sections, and low-water scraping.',
+        'Cold water, strainers, remote exposure, limited services, and a need to scout questionable drops or blocked bends.',
+        'Dam and portage context below Highway 53 if you miss the plan or extend downstream without a separate route.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-road-4-bridge',
+        name: 'County Road 4 bridge undeveloped carry-in',
+        latitude: 47.4215,
+        longitude: -92.285,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'DNR-named put-in at river mile 151.9; carry in on the downstream side of the bridge and confirm parking/signage on arrival.',
+      },
+      {
+        id: 'county-road-95',
+        name: 'County Road 95 Public Water Access Site',
+        latitude: 47.4009308,
+        longitude: -92.3775989,
+        mileFromStart: 7.3,
+        segmentKind: 'creek',
+        note: 'Default take-out; public-water-access GIS resolves WAS02152 at river mile 144.5.',
+      },
+    ],
+  },
+  'cedar-river-riverwood-state-line': {
+    putIn: {
+      name: 'Riverwood Landing Public Water Access Site',
+      latitude: 43.615972,
+      longitude: -92.9782676,
+    },
+    takeOut: {
+      name: 'State Line Road carry-in access',
+      latitude: 43.4994,
+      longitude: -92.9182,
+    },
+    logistics: {
+      distanceLabel: '11.8 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr depending on flow, snags, and shuttle logistics',
+      shuttle:
+        'Plan the State Line Road take-out first. DNR explicitly says the take-out has no parking lot, so arrange a legal pickup/staging plan before driving upstream to Riverwood Landing.',
+      permits:
+        'No route-specific paddling permit is known. Use Riverwood Landing and the DNR-named State Line Road carry-in, follow Minnesota boating/PFD rules, and avoid private banks.',
+      camping:
+        'Treat this as a day trip. DNR highlights nearby WMA, trail, and nature-center context, but it does not document an on-route or endpoint campsite for the Riverwood-to-State-Line route.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Riverwood Landing and take out at State Line Road for MN DNR\'s 11.8-mile Cedar River day trip. The Austin gauge is just upstream of the route; the main practical issue is the no-parking take-out.',
+      accessCaveats: [
+        'Riverwood Landing resolves in Minnesota public-water-access GIS at DNR river mile 11.8.',
+        'State Line Road is a DNR-named carry-in access at river mile 0, but DNR says it has no parking lot.',
+        'The Austin gauge is just upstream of the selected route and should be paired with a visual check for flood water, snags, and take-out feasibility.',
+      ],
+      watchFor: [
+        'Dams elsewhere on the Cedar water trail; know their locations and do not extend without a downstream plan.',
+        'Snags, overhanging trees, private banks, and floodwater after heavy rain.',
+        'Take-out logistics: no parking lot at State Line Road can make the route unsuitable if legal staging is not arranged first.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'riverwood-landing',
+        name: 'Riverwood Landing Public Water Access Site',
+        latitude: 43.615972,
+        longitude: -92.9782676,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 11.8; resolves as WAS02650.',
+      },
+      {
+        id: 'state-line-road',
+        name: 'State Line Road carry-in access',
+        latitude: 43.4994,
+        longitude: -92.9182,
+        mileFromStart: 11.8,
+        segmentKind: 'creek',
+        note: 'DNR-named take-out at river mile 0; no parking lot, so confirm legal pickup logistics before launch.',
       },
     ],
   },

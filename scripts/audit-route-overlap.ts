@@ -44,6 +44,23 @@ interface Finding {
   detail: string;
 }
 
+interface ReviewSet {
+  group: string;
+  findings: number;
+  routes: number;
+  maxSeverity: number;
+  byType: Record<string, number>;
+  category: ReviewCategory;
+  action: string;
+}
+
+type ReviewCategory =
+  | 'probable_duplicate'
+  | 'localized_crossing_review'
+  | 'route_family_geometry'
+  | 'route_family_overlap'
+  | 'likely_adjacent_chain';
+
 const root = process.cwd();
 const outputDir = path.join(root, 'tmp');
 const csvPath = path.join(outputDir, 'route-overlap-audit.csv');
@@ -115,17 +132,20 @@ function enrichedRoute(route: River): River {
 }
 
 function routePoints(route: River): { points: Point[]; source: AuditRoute['source'] } | null {
-  const sortedAccessPoints = route.accessPoints
+  const putIn = pointFromAccess(route.putIn);
+  const takeOut = pointFromAccess(route.takeOut);
+  const sortedIntermediatePoints = route.accessPoints
     ?.map((point) => ({ point, coordinate: pointFromAccess(point) }))
     .filter((entry): entry is { point: NonNullable<typeof route.accessPoints>[number]; coordinate: Point } => entry.coordinate !== null)
     .sort((left, right) => left.point.mileFromStart - right.point.mileFromStart)
     .map((entry) => entry.coordinate);
 
-  if (sortedAccessPoints && sortedAccessPoints.length >= 2) {
-    return { points: dedupeConsecutivePoints(sortedAccessPoints), source: 'accessPoints' };
+  const fullAccessChain = [putIn, ...(sortedIntermediatePoints ?? []), takeOut].filter((point): point is Point => point !== null);
+  if (sortedIntermediatePoints && sortedIntermediatePoints.length > 0 && fullAccessChain.length >= 2) {
+    return { points: dedupeConsecutivePoints(fullAccessChain), source: 'accessPoints' };
   }
 
-  const endpoints = [pointFromAccess(route.putIn), pointFromAccess(route.takeOut)].filter((point): point is Point => point !== null);
+  const endpoints = [putIn, takeOut].filter((point): point is Point => point !== null);
   if (endpoints.length >= 2) {
     return { points: dedupeConsecutivePoints(endpoints), source: 'putInTakeOut' };
   }
@@ -372,6 +392,45 @@ function groupKey(finding: Finding) {
   return `${finding.a.state} ${finding.a.name}`;
 }
 
+function classifyReviewSet(set: Omit<ReviewSet, 'category' | 'action'>): Pick<ReviewSet, 'category' | 'action'> {
+  const duplicateCount = set.byType.duplicate_or_reversed ?? 0;
+  const crossingCount = set.byType.crossing_segments ?? 0;
+  const containedCount = set.byType.contained_connector ?? 0;
+
+  if (duplicateCount > 0) {
+    return {
+      category: 'probable_duplicate',
+      action: 'Source-review first; likely merge, hide, or remove one route option.',
+    };
+  }
+
+  if (crossingCount > 0 && set.routes <= 4) {
+    return {
+      category: 'localized_crossing_review',
+      action: 'Review endpoint order/source evidence; this is the strongest cleanup candidate class.',
+    };
+  }
+
+  if (crossingCount > 0) {
+    return {
+      category: 'route_family_geometry',
+      action: 'Large route-option family; prefer route-chain modeling or polylines before deleting data.',
+    };
+  }
+
+  if (containedCount > 0) {
+    return {
+      category: 'route_family_overlap',
+      action: 'Full-route plus subroute options; usually model/visibility cleanup, not deletion.',
+    };
+  }
+
+  return {
+    category: 'likely_adjacent_chain',
+    action: 'Likely expected adjacent-route/shared-access geometry; keep for low-priority review.',
+  };
+}
+
 async function writeReports(routes: AuditRoute[], findings: Finding[]) {
   await mkdir(outputDir, { recursive: true });
 
@@ -421,7 +480,7 @@ async function writeReports(routes: AuditRoute[], findings: Finding[]) {
     result[key].push(finding);
     return result;
   }, {});
-  const reviewSets = Object.entries(grouped)
+  const reviewSets: ReviewSet[] = Object.entries(grouped)
     .map(([group, groupFindings]) => {
       const routesInGroup = new Set<string>();
       const byType = groupFindings.reduce<Record<string, number>>((result, finding) => {
@@ -430,20 +489,26 @@ async function writeReports(routes: AuditRoute[], findings: Finding[]) {
         routesInGroup.add(finding.b.slug);
         return result;
       }, {});
-      return {
+      const base = {
         group,
         findings: groupFindings.length,
         routes: routesInGroup.size,
         maxSeverity: Math.max(...groupFindings.map((finding) => finding.severity)),
         byType,
       };
+      return { ...base, ...classifyReviewSet(base) };
     })
     .sort((left, right) => right.maxSeverity - left.maxSeverity || right.findings - left.findings || left.group.localeCompare(right.group));
+  const reviewSetCounts = reviewSets.reduce<Record<ReviewCategory, number>>((result, set) => {
+    result[set.category] = (result[set.category] ?? 0) + 1;
+    return result;
+  }, {} as Record<ReviewCategory, number>);
+  const cleanupCandidates = reviewSets.filter((set) => ['probable_duplicate', 'localized_crossing_review'].includes(set.category));
 
   const lines = [
     '# Route Overlap Audit',
     '',
-    'This report flags suspicious route-span geometry in PaddleTodayV2. It uses ordered `accessPoints` when available, otherwise put-in/take-out coordinates.',
+    'This report flags suspicious route-span geometry in PaddleTodayV2. It uses full route chains: put-in, ordered intermediate `accessPoints`, then take-out.',
     '',
     `- Routes with drawable spans: ${routes.length}`,
     `- Total findings: ${sorted.length}`,
@@ -455,10 +520,25 @@ async function writeReports(routes: AuditRoute[], findings: Finding[]) {
       .sort(([left], [right]) => left.localeCompare(right))
       .map(([type, count]) => `- ${type}: ${count}`),
     '',
+    '## Actionability Counts',
+    '',
+    ...Object.entries(reviewSetCounts)
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([category, count]) => `- ${category}: ${count}`),
+    '',
+    '## Strongest Cleanup Candidates',
+    '',
+    '| Route set | Category | High-priority findings | Routes involved | Action |',
+    '| --- | --- | ---: | ---: | --- |',
+    ...cleanupCandidates.map((set) => `| ${set.group} | ${set.category} | ${set.findings} | ${set.routes} | ${set.action} |`),
+    cleanupCandidates.length === 0
+      ? '| None | - | 0 | 0 | No probable duplicates or localized crossings after full-chain modeling. |'
+      : '',
+    '',
     '## Review Set Summary',
     '',
-    '| Route set | High-priority findings | Routes involved | Main signals |',
-    '| --- | ---: | ---: | --- |',
+    '| Route set | Category | High-priority findings | Routes involved | Main signals |',
+    '| --- | --- | ---: | ---: | --- |',
     ...reviewSets
       .slice(0, 40)
       .map((set) => {
@@ -466,7 +546,7 @@ async function writeReports(routes: AuditRoute[], findings: Finding[]) {
           .sort(([left], [right]) => left.localeCompare(right))
           .map(([type, count]) => `${type}: ${count}`)
           .join('; ');
-        return `| ${set.group} | ${set.findings} | ${set.routes} | ${signals} |`;
+        return `| ${set.group} | ${set.category} | ${set.findings} | ${set.routes} | ${signals} |`;
       }),
     reviewSets.length > 40 ? `| Additional sets omitted from summary | ${reviewSets.slice(40).reduce((total, set) => total + set.findings, 0)} | - | See detailed section below |` : '',
     '',

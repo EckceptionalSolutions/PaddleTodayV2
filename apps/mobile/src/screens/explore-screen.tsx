@@ -602,8 +602,15 @@ function routeSpanCoordinatesForRiver(river: RiverSummaryApiItem): MapCoordinate
     .filter(hasMappedAccessCoordinate)
     .sort((left, right) => left.point.mileFromStart - right.point.mileFromStart);
 
-  if (accessPoints && accessPoints.length >= 2) {
-    return accessPoints.map((entry) => entry.coordinate);
+  if (accessPoints && accessPoints.length > 0) {
+    const routeChain = [
+      accessCoordinate(river.river.putIn),
+      ...accessPoints.map((entry) => entry.coordinate),
+      accessCoordinate(river.river.takeOut),
+    ].filter(isMapCoordinate);
+    if (routeChain.length >= 2) {
+      return routeChain;
+    }
   }
 
   const endpoints = [accessCoordinate(river.river.putIn), accessCoordinate(river.river.takeOut)].filter(isMapCoordinate);

@@ -53703,5 +53703,345 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'rum-river-wayside-milaca',
+    slug: 'rum-river-wayside-milaca',
+    name: 'Rum River',
+    reach: 'Wayside Landing to Milaca',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Long official MN DNR upper-Rum day trip from Wayside Landing to Milaca, with public-access GIS records, an upstream Onamia DNR interpreted gauge, and explicit shallow-rocky and Old Whitney Log Dam cautions.',
+    statusText:
+      'Use the Onamia DNR gauge conservatively: 10.5 to 11.5 ft is the official medium band. Below 10.0 ft is scrapable, and above 12.5 ft is very high.',
+    latitude: 45.9257911,
+    longitude: -93.6645845,
+    gaugeSource: {
+      id: 'mn-dnr-207',
+      provider: 'mn_dnr',
+      siteId: '207',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'proxy',
+      siteName: 'Rum River at Onamia, CR25',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=21018002',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=21018002&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 10.5,
+      idealMax: 11.5,
+      tooLow: 10,
+      tooHigh: 12.5,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Rum River at Onamia',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The upper Rum is shallow, rocky, and tied to upstream lake and weir conditions. Spring and post-rain periods help depth, while low summer water can mean wading and scraping.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'DNR frames this as a full-day paddle with shallow, rocky portions and the Old Whitney Log Dam site. The distance, low-water exposure, and dam/weir context make it more than a casual float.',
+      confidenceNotes:
+        'Confidence is good: MN DNR recommends Wayside Landing to Milaca as the 16.2-mile Map 1 day trip, public-water-access GIS resolves Wayside Landing and Milaca-area public accesses, and the Onamia gauge is the official interpreted upper-Rum site on the same map segment. The gauge is upstream of the put-in, so the route stays conservative and asks for a visual launch check.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Check the Onamia gauge and scout the put-in. The gauge is upstream of Wayside Landing, so local shallows, rocks, and tributary effects can differ from the reading.',
+        'DNR says this segment is narrow, rocky, shallow, and may require wading; use caution near the Old Whitney Log Dam site.',
+        'Know dam, weir, and portage locations, and use the planned Milaca public take-out rather than drifting toward dam-adjacent water.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '16.2 river miles',
+        note: 'MN DNR recommends Wayside Landing carry-in access at river mile 128.7 to Milaca city park at river mile 112.5 as the Map 1 day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/rum-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS00462 and Milaca public accesses',
+        note: 'Minnesota public-water-access GIS resolves Wayside Landing at river mile 128.7 and Milaca Dam Site/Riverview Park public access records near the DNR take-out mile.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '10.0 / 10.5-11.5 / 12.5 ft',
+        note: 'MN DNR interprets the Onamia gauge as Scrapable below 10.0 ft, Low from 10.0 to 10.5, Medium from 10.5 to 11.5, High from 11.5 to 12.5, and Very High above 12.5.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '10.75 ft at 2026-07-14 09:45',
+        note: 'The current MN DNR feed placed Onamia in the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Safety caveats',
+        value: 'Shallow rocks, wading, Old Whitney Log Dam',
+        note: 'DNR says the segment is narrow, rocky, and shallow, warns paddlers may need to wade, and calls for caution approaching the Old Whitney Log Dam site.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/rum-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Rum River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/rum-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Rum River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/rum1.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'st-louis-river-county-road-4-95',
+    slug: 'st-louis-river-county-road-4-95',
+    name: 'St. Louis River',
+    reach: 'County Road 4 to County Road 95',
+    state: 'Minnesota',
+    region: 'Northeast Minnesota',
+    summary:
+      'Upper St. Louis River MN DNR day trip from the undeveloped County Road 4 bridge carry-in to County Road 95, with an interpreted downstream Forbes gauge and explicit Class I-II, shallow-sand, remote, and dam caveats.',
+    statusText:
+      'Use the Forbes DNR gauge conservatively: 3.7 to 7.6 ft is the official medium band. Below 3.0 ft is scrapable, and above 8.0 ft is very high.',
+    latitude: 47.4215,
+    longitude: -92.285,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'mn-dnr-244',
+      provider: 'mn_dnr',
+      siteId: '244',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'proxy',
+      siteName: 'St. Louis River nr Forbes, US53',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=03115001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=03115001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3.7,
+      idealMax: 7.6,
+      tooLow: 3,
+      tooHigh: 8,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for St. Louis River near Forbes',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'DNR says upper St. Louis flow usually peaks in late April and falls through summer. Medium-to-low water can make rocky upper reaches impassable, while rain can quickly sharpen current and boulder-bed hazards.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'This is an undeveloped upper-river carry-in with Class I-II/boulder-bed context on the surrounding segment, shallow sandy sections, limited services, and a downstream dam corridor. It belongs in advanced/whitewater discovery rather than casual flatwater browsing.',
+      confidenceNotes:
+        'Confidence is good for a conservative advanced route: MN DNR recommends the exact County Road 4 to County Road 95 day trip, the County Road 95 take-out resolves in public-water-access GIS, and the Forbes DNR gauge is the nearest official interpreted downstream upper-St. Louis gauge. The County Road 4 bridge put-in is undeveloped and does not resolve as a formal access record, so the route copy requires a visual/signage check before launch.',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'dam', 'strainers', 'remote', 'cold_water'],
+      safetyNotes: [
+        'Treat the County Road 4 put-in as an undeveloped carry-in on the downstream side of the bridge; do not launch unless the access, parking, and water level are acceptable on arrival.',
+        'DNR warns the upper St. Louis has Class I-II rapids, boulder beds, shallow sandy sections, and a dam below Highway 53 with portage considerations.',
+        'The Forbes gauge is downstream of the take-out. Use it as an official upper-corridor proxy and back it up with a visual check for low-water scraping, strainers, and rising water.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '7.3 river miles',
+        note: 'MN DNR recommends County Road 4 bridge at river mile 151.9 to County Road 95 carry-in access at river mile 144.6 as the Map 1 day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/st-louis-river/segments-maps.html',
+      },
+      {
+        label: 'Access records',
+        value: 'County Road 95 WAS02152',
+        note: 'Minnesota public-water-access GIS resolves County Road 95 at river mile 144.5 with DNR administration and coordinates. DNR names the County Road 4 bridge as an undeveloped carry-in on the downstream side of the bridge.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '3.0 / 3.7-7.6 / 8.0 ft',
+        note: 'MN DNR interprets the Forbes gauge as Scrapable below 3.0 ft, Low from 3.0 to 3.7, Medium from 3.7 to 7.6, High from 7.6 to 8.0, and Very High above 8.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '3.02 ft at 2026-07-14 09:45',
+        note: 'The current MN DNR feed placed Forbes barely above the scrapable floor during this run, so the route should be treated as low and scrape-prone.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Safety caveats',
+        value: 'Class I-II, boulder beds, dam below Highway 53',
+        note: 'DNR warns that this upper river has Class I-II rapids, boulder beds that can damage watercraft, shallow sandy sections on the selected route, and a dam below Highway 53.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/st-louis-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR St. Louis River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/st-louis-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR St. Louis River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/stlouis1.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'cedar-river-riverwood-state-line',
+    slug: 'cedar-river-riverwood-state-line',
+    name: 'Cedar River',
+    reach: 'Riverwood Landing to State Line Road',
+    state: 'Minnesota',
+    region: 'Southeast Minnesota',
+    summary:
+      'Official MN DNR Cedar River day trip below Austin, using the near-put-in Austin DNR interpreted gauge, a DNR public Riverwood Landing access, and a no-parking State Line Road carry-in caveat.',
+    statusText:
+      'Use the Austin DNR gauge: 117 to 1,290 cfs is the official medium band. Below 50 cfs is scrapable, and above 1,670 cfs is very high.',
+    latitude: 43.615972,
+    longitude: -92.9782676,
+    gaugeSource: {
+      id: 'mn-dnr-286',
+      provider: 'mn_dnr',
+      siteId: '286',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'direct',
+      siteName: 'Cedar River nr Austin, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=48020001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=48020001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 117,
+      idealMax: 1290,
+      tooLow: 50,
+      tooHigh: 1670,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Cedar River near Austin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'DNR says the Cedar is highest in spring, occasionally floods, and usually has enough water through summer. Low late-season water can expose snags and shallows, while flood-stage water is not a beginner condition.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR describes moderate flow and no major rapids, making it beginner-friendly at normal levels. The no-parking take-out, dams elsewhere on the trail, snags, and overhanging trees keep it in caution territory.',
+      confidenceNotes:
+        'Confidence is good: MN DNR recommends Riverwood Landing to State Line Road as the 11.8-mile Cedar day trip, public-water-access GIS resolves Riverwood Landing at the put-in mile, and the Austin DNR gauge sits just upstream of the route with official interpretation bands. The State Line Road take-out is DNR-named but has no parking lot, so shuttle logistics must be checked before launch.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Confirm the State Line Road take-out logistics before launching. DNR says the take-out has no parking lot, so a normal two-car shuttle may need a legal off-site parking plan.',
+        'DNR warns about dams on the Cedar water trail, plus occasional snags and overhanging trees that can tip paddlers.',
+        'Avoid flood conditions and do not treat the beginner-friendly normal-flow language as a high-water endorsement.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '11.8 river miles',
+        note: 'MN DNR recommends Riverwood Landing carry-in access at river mile 11.8 to State Line Road carry-in access at river mile 0 as the Cedar River day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/cedar-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'Riverwood Landing WAS02650',
+        note: 'Minnesota public-water-access GIS resolves Riverwood Landing at river mile 11.8. DNR names State Line Road as the take-out and explicitly warns that it has no parking lot.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '50 / 117-1,290 / 1,670 cfs',
+        note: 'MN DNR interprets the Austin gauge as Scrapable below 50 cfs, Low from 50 to 117, Medium from 117 to 1,290, High from 1,290 to 1,670, and Very High above 1,670.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '456 cfs at 2026-07-14 09:00',
+        note: 'The current MN DNR feed placed Austin in the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Safety caveats',
+        value: 'Dams, snags, no-parking take-out',
+        note: 'DNR says the Cedar has no major rapids and moderate flow, but warns about dams, snags, overhanging trees, flooding, and the lack of parking at State Line Road.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/cedar-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Cedar River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/cedar-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Cedar River map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/cedar.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
 ];
 
