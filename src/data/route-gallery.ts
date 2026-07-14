@@ -294,6 +294,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
+  'sauk-river-st-martin-frogtown': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
   'sauk-river-frogtown-rockville': [
     {
       id: 'sauk-river-sartell-commons',
@@ -375,6 +385,26 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     },
   ],
   'sauk-river-st-martin-eagle-park': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-eagle-knights-of-columbus': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-eagle-heims-mill': [
     {
       id: 'sauk-river-sartell-commons',
       src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',

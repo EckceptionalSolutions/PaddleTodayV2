@@ -5217,6 +5217,240 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'sauk-river-eagle-knights-of-columbus',
+    slug: 'sauk-river-eagle-knights-of-columbus',
+    name: 'Sauk River',
+    reach: 'Eagle Park to Knights of Columbus Park',
+    state: 'Minnesota',
+    region: 'St. Cloud Area',
+    summary:
+      'Medium-length lower Sauk day that starts with the cleaner Rockville city landing and finishes before the Heims rapid section. It is the simpler St. Cloud-area full-day card when you want more mileage than Eagle-to-Miller without the confluence runout.',
+    statusText:
+      'Treat 15 to 17 ft at St. Martin as the cleanest broad-audience range. Below 14 ft this stretch gets weedier and slower, while above 20 ft the extra current and longer mileage deserve a more cautious read.',
+    latitude: 45.4754595,
+    longitude: -94.3502588,
+    gaugeSource: {
+      id: 'mn-dnr-328',
+      provider: 'mn_dnr',
+      siteId: '328',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Sauk River nr St. Martin, CR12',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=16051001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=16051001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05270500',
+        provider: 'usgs',
+        siteId: '05270500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Sauk River near St. Cloud, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 15,
+      idealMax: 17,
+      tooLow: 14,
+      tooHigh: 20,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Sauk River near St. Martin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. Low summer water and vegetation can turn this from a pleasant day into a slow grind before the route fully quits.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is still broad-audience lower-Sauk water at sane levels, but the full-day mileage, wood, and cold-water exposure make it more committing than the short Miller or Knights shuttles.',
+      confidenceNotes:
+        'Confidence is high because MN DNR names the lower-Sauk access ladder, Rockville documents Eagle Park river access, and St. Cloud documents Knights of Columbus Park on the Sauk River.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Current level',
+        value: '15.26 ft at 7:00 PM',
+        note: 'The official MN DNR St. Martin gauge reported 15.26 ft on July 13, 2026, which sits in the Medium interpretation band.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '14 / 15 / 17 / 20 ft',
+        note: 'MN DNR interprets the St. Martin gauge as Scrapable below 14 ft, Low from 14 to 15, Medium from 15 to 17, High from 17 to 20, and Very High above 20.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Route shape',
+        value: '11.7 river miles',
+        note: 'MN DNR Map 2 places Eagle Park at river mile 16.2 and Knights of Columbus Park at river mile 4.5.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Access support',
+        value: 'Official city endpoints',
+        note: 'Rockville says Eagle Park is used to launch and land hundreds of canoes and kayaks each year, and St. Cloud places Knights of Columbus Park on the Sauk River.',
+        sourceUrl: 'https://www.rockvillecity.org/eaglepark',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River overview',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/sauk-river/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/sauk-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Sauk River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'City of Rockville Eagle Park',
+        url: 'https://www.rockvillecity.org/eaglepark',
+      },
+      {
+        label: 'St. Cloud Knights of Columbus Park',
+        url: 'https://www.ci.stcloud.mn.us/facilities/facility/details/Knights-of-Columbus-30',
+      },
+      {
+        label: 'USGS 05270500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05270500/',
+      },
+    ],
+  },
+  {
+    id: 'sauk-river-eagle-heims-mill',
+    slug: 'sauk-river-eagle-heims-mill',
+    name: 'Sauk River',
+    reach: 'Eagle Park to Heims Mill',
+    state: 'Minnesota',
+    region: 'St. Cloud Area',
+    summary:
+      'Full lower-Sauk finish from Rockville into the Mississippi confluence corridor. It keeps the clean Eagle Park start but adds the final Class I-II section, so it is the stronger choice when you want the whole lower river in one card.',
+    statusText:
+      'Treat 15 to 17 ft at St. Martin as the best all-around range. Below 14 ft the mouth rapids get bony or partly impassable, while above 20 ft the current and late-route consequence rise together.',
+    latitude: 45.4754595,
+    longitude: -94.3502588,
+    gaugeSource: {
+      id: 'mn-dnr-328',
+      provider: 'mn_dnr',
+      siteId: '328',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Sauk River nr St. Martin, CR12',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=16051001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=16051001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05270500',
+        provider: 'usgs',
+        siteId: '05270500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Sauk River near St. Cloud, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 15,
+      idealMax: 17,
+      tooLow: 14,
+      tooHigh: 20,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Sauk River near St. Martin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. The easy upper miles stay workable longer, but the final rapid section can become bony before the broader corridor fully shuts down.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Most of the route is easy lower-Sauk water, but the final 2.5 miles carry DNR-noted boulder-filled Class I-II rapids that make the full Eagle-to-Heims finish more serious than a standard day float.',
+      confidenceNotes:
+        'Confidence is good because MN DNR names both endpoints and warns about the final rapid section, while Rockville and Stearns County both document the public access points.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Current level',
+        value: '15.26 ft at 7:00 PM',
+        note: 'The official MN DNR St. Martin gauge reported 15.26 ft on July 13, 2026, which sits in the Medium interpretation band.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '14 / 15 / 17 / 20 ft',
+        note: 'MN DNR interprets the St. Martin gauge as Scrapable below 14 ft, Low from 14 to 15, Medium from 15 to 17, High from 17 to 20, and Very High above 20.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Route shape',
+        value: '16.2 river miles',
+        note: 'MN DNR Map 2 places Eagle Park at river mile 16.2 and Heims Mill at river mile 0.0.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Rapid finish',
+        value: 'Class I-II in final 2.5 mi',
+        note: 'MN DNR warns the final 2.5 miles are boulder-filled Class I-II rapids that may not be passable at low water.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Access support',
+        value: 'Official city and county endpoints',
+        note: 'Rockville says Eagle Park is used to launch and land hundreds of canoes and kayaks each year, and Stearns County says Heims Mill provides carry-in access to the Sauk and Mississippi rivers.',
+        sourceUrl: 'https://www.stearnscountymn.gov/heims-mill-canoe-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River overview',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/sauk-river/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/sauk-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Sauk River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'City of Rockville Eagle Park',
+        url: 'https://www.rockvillecity.org/eaglepark',
+      },
+      {
+        label: 'Stearns County Heims Mill Canoe Access',
+        url: 'https://www.stearnscountymn.gov/heims-mill-canoe-access',
+      },
+      {
+        label: 'USGS 05270500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05270500/',
+      },
+    ],
+  },
+  {
     id: 'sauk-river-spring-hill-st-martin',
     slug: 'sauk-river-spring-hill-st-martin',
     name: 'Sauk River',
@@ -5317,6 +5551,130 @@ export const rivers: River[] = [
       {
         label: 'Stearns County St. Martin Canoe Access',
         url: 'https://www.stearnscountymn.gov/398/St-Martin-Canoe-Access',
+      },
+      {
+        label: 'USGS 05270500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05270500/',
+      },
+    ],
+  },
+  {
+    id: 'sauk-river-st-martin-frogtown',
+    slug: 'sauk-river-st-martin-frogtown',
+    name: 'Sauk River',
+    reach: 'St. Martin Canoe Access to Frogtown Park',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Longer central-Sauk continuation that reaches all the way into Cold Spring without extending into the St. Cloud finish. It is the best same-gauge option when you want a full-day moving-water route but not the 30-plus-mile Eagle commitment.',
+    statusText:
+      'Treat 15 to 17 ft at St. Martin as the best broad-audience range. Below 14 ft this long route gets scrape-prone and weedy, while above 20 ft the mileage and faster current turn it into a more serious outing.',
+    latitude: 45.520241,
+    longitude: -94.67885,
+    gaugeSource: {
+      id: 'mn-dnr-328',
+      provider: 'mn_dnr',
+      siteId: '328',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Sauk River nr St. Martin, CR12',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=16051001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=16051001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05270500',
+        provider: 'usgs',
+        siteId: '05270500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Sauk River near St. Cloud, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 15,
+      idealMax: 17,
+      tooLow: 14,
+      tooHigh: 20,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Sauk River near St. Martin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. Low summer flow and vegetation matter more here because the route is long enough that merely slow water can still turn the day into a grind.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The river character stays mostly easy, but 25.3 miles of moving water, wood management, and weather exposure push this well beyond a casual beginner float.',
+      confidenceNotes:
+        'Confidence is good because MN DNR names both endpoints on the official water-trail map, the St. Martin gauge sits directly at the put-in, and Cold Spring documents the Frogtown canoe landing. The main uncertainty is same-day stamina and wood, not the route identity.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Current level',
+        value: '15.26 ft at 7:00 PM',
+        note: 'The official MN DNR St. Martin gauge reported 15.26 ft on July 13, 2026, which sits in the Medium interpretation band.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '14 / 15 / 17 / 20 ft',
+        note: 'MN DNR interprets the St. Martin gauge as Scrapable below 14 ft, Low from 14 to 15, Medium from 15 to 17, High from 17 to 20, and Very High above 20.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Route shape',
+        value: '25.3 river miles',
+        note: 'MN DNR Map 2 places St. Martin at river mile 47.1 and Frogtown Park at river mile 21.8.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Camping support',
+        value: 'Mid-route watercraft campsite',
+        note: 'Rockville County Park sits along this corridor and Stearns County documents a watercraft campsite there, which gives this route a defensible overnight split or bailout.',
+        sourceUrl: 'https://www.stearnscountymn.gov/397/Rockville-County-Park',
+      },
+      {
+        label: 'Access support',
+        value: 'Official county and city endpoints',
+        note: 'Stearns County says St. Martin Canoe Access is a one-acre Sauk access site, and Cold Spring says Frogtown Park has canoe landing access to the Sauk River.',
+        sourceUrl: 'https://coldspringmn.gov/index.asp?SEC=70D61018-342B-4C4E-93F2-C0546E96A196',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River overview',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/sauk-river/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/sauk-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Sauk River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Stearns County St. Martin Canoe Access',
+        url: 'https://www.stearnscountymn.gov/st-martin-canoe-access',
+      },
+      {
+        label: 'Cold Spring Frogtown Park',
+        url: 'https://coldspringmn.gov/index.asp?SEC=70D61018-342B-4C4E-93F2-C0546E96A196',
+      },
+      {
+        label: 'Stearns County Rockville County Park',
+        url: 'https://www.stearnscountymn.gov/397/Rockville-County-Park',
       },
       {
         label: 'USGS 05270500 monitoring location',

@@ -14,6 +14,13 @@ Minnesota still has the strongest official-source foundation and a broad existin
 
 ## Latest Run
 
+- 2026-07-13 21:25 America/Chicago: added `sauk-river-st-martin-frogtown`, `sauk-river-eagle-knights-of-columbus`, and `sauk-river-eagle-heims-mill`.
+- Stayed in Minnesota because the Sauk family still had three unused official access-to-access planners under the route-audit ceiling with the same direct St. Martin gauge, current DNR interpretation bands, and current local-government endpoint support.
+- Current MN DNR site `328` (`Sauk River nr St. Martin, CR12`) showed `15.26 ft` at `2026-07-13 7:00 PM`, still inside the official Medium band, and same-day USGS `05270500` near St. Cloud showed about `410 cfs / 2.40 ft` at `2026-07-13 9:00 PM CDT`.
+- DNR Map 2 still places St. Martin at river mile `47.1`, Frogtown at `21.8`, Eagle Park at `16.2`, Knights of Columbus Park at `4.5`, and Heims Mill at `0.0`. Cold Spring still says Frogtown has a canoe landing on the Sauk, Rockville still says Eagle Park is used to launch and land canoes and kayaks, St. Cloud still places Knights of Columbus Park on the Sauk River, and Stearns County still says Heims Mill provides carry-in access to the Sauk and Mississippi rivers.
+- Camping posture stayed conservative. `sauk-river-st-martin-frogtown` keeps Rockville County Park as the real on-route watercraft-campsite split or bailout, while `sauk-river-eagle-knights-of-columbus` and `sauk-river-eagle-heims-mill` remain day-trip cards unless paddlers intentionally stage separately from Rockville County Park.
+- Reused the existing Sauk Commons family asset for all three new slugs and recorded matching image-audit rows.
+
 - 2026-07-13 18:20 America/Chicago: added `sauk-river-frogtown-knights-of-columbus`, `sauk-river-rockville-knights-of-columbus`, and `sauk-river-miller-landing-heims-mill`.
 - Stayed in Minnesota because the lower Sauk family still had three unused official access-to-access planners with the same direct St. Martin gauge, current DNR interpretation bands, and clean city/county endpoint support, which remained stronger than reopening a weaker new-state search late in the run.
 - Current MN DNR site `328` (`Sauk River nr St. Martin, CR12`) still showed `15.34 ft` at `2026-07-13 10:00 AM`; official bands remain Scrapable below `14 ft`, Low `14-15 ft`, Medium `15-17 ft`, High `17-20 ft`, and Very High above `20 ft`. Same-day USGS `05270500` near St. Cloud remained live at about `2.41 ft / 413 cfs` through the late-afternoon recheck.
