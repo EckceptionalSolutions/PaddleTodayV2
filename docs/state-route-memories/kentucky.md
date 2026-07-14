@@ -1,6 +1,14 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-07-13 10:18 America/Chicago / 2026-07-13 15:18 UTC.
+Last summarized: 2026-07-14 09:05 America/Chicago / 2026-07-14 14:05 UTC.
+
+## 2026-07-14 Mammoth Cave Green restoration and continuation pass
+
+- Reused the live repo state as the only valid baseline and restored or added three Mammoth Cave Green River slugs that were absent from the current tree at run start: `green-river-dennison-green-river-ferry`, `green-river-green-river-ferry-houchins`, and `green-river-houchins-ferry-brownsville-city-park`.
+- Current KDFWR Pool 6 Green River guidance still documents the exact public route pieces of Dennison Ferry -> Green River Ferry `7.5` and Green River Ferry -> Houchins Ferry `12.3`, while NPS still publishes the matching `7.6`, `12.4`, and `3.6` mile Mammoth Cave route cards for Dennison -> Green River Ferry, Green River Ferry -> Houchin Ferry, and Houchin Ferry -> Brownsville.
+- Current KDFWR access-detail and park pages still support the source-backed coordinates and public-use notes for Dennison Ferry, Green River Ferry, Houchins Ferry (`asid=156`), Brownsville City Park (`asid=153`), and the Lock and Dam 6 carrydown (`asid=1166`). Same-day direct USGS Water Services returned `3950 cfs / 16.15 ft` at `2026-07-14 08:00 CDT` for Green River at Mammoth Cave (`03309000`), below the NPS `20 ft` launch closure but above the park's broad beginner-friendly `9-15 ft` band, so all three slugs ship with explicit above-band fast-water caution.
+- Camping stays route-specific: `green-river-dennison-green-river-ferry` uses `endpoint_campground` because Mammoth Cave Campground supports the Green River Ferry finish, `green-river-green-river-ferry-houchins` uses `sandbar_or_gravel_bar` because NPS still allows riverside camping by permit plus Houchins campground support, and `green-river-houchins-ferry-brownsville-city-park` uses `endpoint_campground` because Houchins supports the launch but Brownsville remains a day-use finish.
+- Bounded image review stayed negative for all three slugs. `docs/river-image-source-audit.csv` now records the no-gallery outcome for each route, so no new route-gallery asset was added in this pass.
 
 ## 2026-07-13 South Fork continuation restoration pass
 
