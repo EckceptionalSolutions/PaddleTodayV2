@@ -20187,5 +20187,197 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'kettle-river-musclewood-1': {
+    putIn: {
+      name: 'Musclewood Lake Public Water Access Site',
+      latitude: 46.3612199,
+      longitude: -92.8437237,
+    },
+    takeOut: {
+      name: 'Kettle River, #1 Public Water Access Site',
+      latitude: 46.1802972,
+      longitude: -92.832115,
+    },
+    logistics: {
+      distanceLabel: '16.5 mi',
+      estimatedPaddleTime: 'About 6 hr to 8.5 hr depending on level, scouting, wind, and campsite stops',
+      shuttle:
+        'Stage the take-out at #1 / Highway 23 before driving to Musclewood. This is a long river day, so leave daylight for low-water scraping, scouting, and any campsite or bailout checks.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted DNR public-water-access, state-park, and watercraft-campsite rules. Nonresident or long watercraft registration rules may apply.',
+      camping:
+        'DNR Map 1 shows Beaver Pond watercraft campsites near river mile 39.4, Rustler Bend campsites near river mile 33.5, and Bridgeview campsite near river mile 30.4 before the #1 take-out. Treat them as rustic, first-come options and do not camp on private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Musclewood and take out at #1 / Highway 23 for MN DNR\'s 16.5-mile Kettle day trip. Use the direct Willow River / Long Lake Road gauge and treat the run as a whitewater-filtered full-day route, especially outside the DNR medium band.',
+      accessCaveats: [
+        'Musclewood and #1 both resolve in Minnesota public-water-access GIS with DNR route river miles, coordinates, and small parking counts.',
+        'The Willow River / Long Lake Road gauge sits within the route at river mile 40.3, so it is the primary same-route level check.',
+        'Do not continue into Banning Rapids without a separate plan, scouting, and skill match; DNR Map 1 calls #2 the last exit before the Banning sequence.',
+      ],
+      watchFor: [
+        'Class I-II rapids between river miles 33.5 and 32, plus shallow boulder beds and scrapeable sections below the DNR medium band.',
+        'Rapid rises after rain, fresh strainers, cold water, sandbars, tiny islands, and private banks.',
+        'Fatigue late in a 16.5-mile day and missing the #1 take-out above the harder downstream park reach.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'musclewood',
+        name: 'Musclewood Lake Public Water Access Site',
+        latitude: 46.3612199,
+        longitude: -92.8437237,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 46.3.',
+      },
+      {
+        id: 'long-lake-road-gauge',
+        name: 'Long Lake Road gauge corridor',
+        latitude: 46.306303,
+        longitude: -92.861851,
+        mileFromStart: 6,
+        segmentKind: 'creek',
+        note: 'Direct DNR level site near river mile 40.3.',
+      },
+      {
+        id: 'bridgeview-campsite',
+        name: 'Bridgeview watercraft campsite',
+        latitude: 46.186,
+        longitude: -92.834,
+        mileFromStart: 15.9,
+        segmentKind: 'creek',
+        note: 'DNR Map 1 campsite near river mile 30.4 before #1; no parking at the campsite.',
+      },
+      {
+        id: 'kettle-1',
+        name: 'Kettle River #1 / Highway 23 Public Water Access Site',
+        latitude: 46.1802972,
+        longitude: -92.832115,
+        mileFromStart: 16.5,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 29.8.',
+      },
+    ],
+  },
+  'watonwan-river-county-road-20-garden-city': {
+    putIn: {
+      name: 'Watonwan River, County Road 20 Public Water Access Site',
+      latitude: 44.0252735,
+      longitude: -94.2290481,
+    },
+    takeOut: {
+      name: 'Watonwan River, Garden City Public Water Access Site',
+      latitude: 44.0461054,
+      longitude: -94.157931,
+    },
+    logistics: {
+      distanceLabel: '9.2 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr depending on level, wind, wood, and low-water dragging',
+      shuttle:
+        'Set the Garden City take-out first, then drive upstream to the County Road 20 bridge access. Confirm both landings on arrival because low water, mud, and fairgrounds activity can change the carry.',
+      permits:
+        'No route-specific paddling permit is known. Use the named Blue Earth County public accesses, follow Minnesota boating/PFD rules, and respect fairgrounds, park, and private-bank limits.',
+      camping:
+        'Treat the selected route as a day trip. DNR Map 1 labels the Blue Earth County Fair campground downstream of Garden City, but the app route stops at Garden City and should not be extended into the lower warning zone just to camp.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at County Road 20 and take out at Garden City for MN DNR\'s Watonwan recommended day trip. The direct Garden City gauge sits inside the reach; take out before the downstream Rapidan Dam failure warning area.',
+      accessCaveats: [
+        'County Road 20 and Garden City both resolve in Minnesota public-water-access GIS with coordinates and parking records.',
+        'The Garden City gauge is within the selected route corridor, near DNR river mile 8.2 on the current map.',
+        'Do not continue downstream past the Garden City plan without a separate current-safety review; DNR warns of dangerous conditions farther down because of the Rapidan Dam failure area.',
+      ],
+      watchFor: [
+        'Low-flow scraping and dragging below the DNR medium band.',
+        'Snags, fallen trees, muddy banks, and quick rises after heavy rain.',
+        'Private banks, fairgrounds traffic near Garden City, and the need to stop before the lower hazard zone.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-road-20',
+        name: 'County Road 20 Public Water Access Site',
+        latitude: 44.0252735,
+        longitude: -94.2290481,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 13.5.',
+      },
+      {
+        id: 'garden-city-gauge',
+        name: 'Garden City DNR gauge / County Road 13 corridor',
+        latitude: 44.03543,
+        longitude: -94.18906,
+        mileFromStart: 5.3,
+        segmentKind: 'creek',
+        note: 'Direct DNR level site near river mile 8.2.',
+      },
+      {
+        id: 'garden-city',
+        name: 'Garden City Public Water Access Site',
+        latitude: 44.0461054,
+        longitude: -94.157931,
+        mileFromStart: 9.2,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 4.3.',
+      },
+    ],
+  },
+  'red-river-north-dam-mb-johnson': {
+    putIn: {
+      name: 'North Dam Carry-in Access',
+      latitude: 46.8948,
+      longitude: -96.7872,
+    },
+    takeOut: {
+      name: 'Red River, MB Johnson Park Public Water Access Site',
+      latitude: 46.9139236,
+      longitude: -96.7576816,
+    },
+    logistics: {
+      distanceLabel: '3.1 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr depending on level, wind, and dam-portage logistics',
+      shuttle:
+        'Stage the take-out at M.B. Johnson Park, then drive to the North Dam carry-in/re-entry. Confirm current construction, parking, and portage signs before launching.',
+      permits:
+        'No route-specific paddling permit is known. The Red River borders Minnesota and North Dakota, so check current boating, fishing, access, and PFD rules for both states before the trip.',
+      camping:
+        'Treat this as a short day trip. DNR Map 2 lists camping at other parks in the broader Fargo-Moorhead corridor, but the selected North-Dam-to-M.B.-Johnson reach has no documented on-route watercraft campsite.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch just north of Fargo North Dam and take out at M.B. Johnson Park for MN DNR\'s short Map 2 Red River day trip. Use the direct Fargo gauge and keep dam, flood, low-water, snag, and muddy-bank caveats front and center.',
+      accessCaveats: [
+        'M.B. Johnson Park resolves in Minnesota public-water-access GIS with river mile 452.1 and parking/restroom records.',
+        'North Dam is a DNR-named carry-in/re-entry at river mile 455.2 rather than a Minnesota GIS water-access record; use posted signs to identify the correct launch side.',
+        'The Fargo gauge is upstream in the same urban corridor and gives the official DNR interpretation bands used for this route.',
+      ],
+      watchFor: [
+        'Constructed rock-rapids / dam structures, portage signs, and bridge approaches at the start.',
+        'Flooding, rapidly changing levels, snags, muddy banks, and low water that may not be suitable for boating.',
+        'Two-state regulations, anglers, city-park traffic, and private-bank limits on a short urban border reach.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'north-dam',
+        name: 'North Dam Carry-in Access',
+        latitude: 46.8948,
+        longitude: -96.7872,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'DNR-named put-in and re-entry near river mile 455.2; verify exact signed carry-in on arrival.',
+      },
+      {
+        id: 'mb-johnson',
+        name: 'M.B. Johnson Park Public Water Access Site',
+        latitude: 46.9139236,
+        longitude: -96.7576816,
+        mileFromStart: 3.1,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 452.1.',
+      },
+    ],
+  },
 };
 

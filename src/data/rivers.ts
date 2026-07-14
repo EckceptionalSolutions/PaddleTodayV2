@@ -53018,5 +53018,342 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'kettle-river-musclewood-1',
+    slug: 'kettle-river-musclewood-1',
+    name: 'Kettle River',
+    reach: 'Musclewood to #1 Trailer Access',
+    state: 'Minnesota',
+    region: 'East Central Minnesota',
+    summary:
+      'Official MN DNR upper Kettle day from Musclewood to Highway 23 / #1. It is a long, scenic whitewater-river reach with Class I-II features, watercraft campsites, and a direct DNR gauge in the middle of the route.',
+    statusText:
+      'Use the Willow River / Long Lake Road gauge: 80 to 82 ft is the official medium band. Below 78 ft is scrapable, and above 84 ft is very high.',
+    latitude: 46.3612199,
+    longitude: -92.8437237,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'mn-dnr-293',
+      provider: 'mn_dnr',
+      siteId: '293',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'direct',
+      siteName: 'Kettle River nr Willow River, Long Lake Rd',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=35051002',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=35051002&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 80,
+      idealMax: 82,
+      tooLow: 78,
+      tooHigh: 84,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Kettle River near Willow River',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The Kettle depends on runoff and responds dramatically to rain. Spring and post-rain windows are most reliable; low summer water can make rapids scrapeable.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'DNR calls the Kettle one of the Midwest\'s best whitewater rivers. This reach has a full-day 16.5-mile commitment, Class I-II rapids, sharp boulders at lower water, and fast changes after rain.',
+      confidenceNotes:
+        'Confidence is high for route shape, public access, and thresholds: MN DNR recommends Musclewood to #1, public-water-access GIS resolves both endpoints, the Willow River / Long Lake Road gauge sits inside the selected route, and DNR explicitly says most rapids are runnable when this gauge or the County Road 12 gauge reads Medium or above. The route stays whitewater-filtered because the broader Kettle has Class I-IV hazard context.',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'fast_rise', 'strainers', 'remote', 'cold_water'],
+      safetyNotes: [
+        'Scout and portage as needed. DNR notes Class I-II rapids in the selected reach and Class II-IV hazards immediately downstream in Banning State Park.',
+        'Do not drift past #1 without a separate Banning Rapids plan; #2 is the last exit before the harder Banning sequence.',
+        'The Kettle rises quickly after rain. Treat rising water, fresh wood, cold water, and undercut or boulder-bed current as advanced-trip factors.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '16.5 river miles',
+        note: 'MN DNR recommends Musclewood carry-in access at river mile 46.3 to #1 / Highway 23 trailer access at river mile 29.8 as the Map 1 day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/kettle-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS00898 and WAS00904',
+        note: 'Minnesota public-water-access GIS resolves Musclewood Lake and Kettle River #1 with route river miles, coordinates, and public-access parking records.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '78 / 80-82 / 84 ft',
+        note: 'MN DNR interprets the Willow River / Long Lake Road gauge as Scrapable below 78 ft, Low from 78 to 80, Medium from 80 to 82, High from 82 to 84, and Very High above 84.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '77.67 ft at 2026-07-14 07:45',
+        note: 'The current MN DNR feed placed the Willow River / Long Lake Road gauge just below the low band during this run, reinforcing the low-water caveat.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Route character and camping',
+        value: 'Small rapids, sandbars, islands, watercraft campsites',
+        note: 'DNR says the route is a full day with small rapids, wooded banks, tiny islands, sandbars, and Class I-II rapids between river miles 33.5 and 32. Map 1 also shows Beaver Pond, Rustler Bend, and Bridgeview watercraft campsite options.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/kettle1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Kettle River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/kettle-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Kettle River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/kettle1.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'watonwan-river-county-road-20-garden-city',
+    slug: 'watonwan-river-county-road-20-garden-city',
+    name: 'Watonwan River',
+    reach: 'County Road 20 to Garden City',
+    state: 'Minnesota',
+    region: 'Southern Minnesota',
+    summary:
+      'Official MN DNR Watonwan day trip into Garden City, with public Blue Earth County accesses, a direct DNR gauge inside the selected reach, and a mandatory stop before the lower Rapidan Dam failure warning zone.',
+    statusText:
+      'Use the Garden City DNR gauge: 3.5 to 4.5 ft is the official medium band. Below 2.0 ft is scrapable, and above 5.2 ft is very high.',
+    latitude: 44.0252735,
+    longitude: -94.2290481,
+    gaugeSource: {
+      id: 'mn-dnr-254',
+      provider: 'mn_dnr',
+      siteId: '254',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'direct',
+      siteName: 'Watonwan River nr Garden City, CSAH13',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=31051001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=31051001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3.5,
+      idealMax: 4.5,
+      tooLow: 2,
+      tooHigh: 5.2,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Watonwan River near Garden City',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'DNR describes the Watonwan as usually calm but able to flow quickly at times. Expect low-flow scrape risk in dry periods and fast, debris-prone water after major rain.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR frames the recommended Garden City trip as a lazy, low-flow, easy paddle with no major rapids, but snags, low water, and the hard downstream stop before the Rapidan failure zone keep it at caution level.',
+      confidenceNotes:
+        'Confidence is high for this selected reach: the current DNR map recommends County Road 20 to Garden City as the day trip, the Garden City gauge sits within the reach, and public-water-access GIS resolves both endpoints. The route deliberately starts at County Road 20 rather than the older CR32 lead because CR20-to-Garden-City is the clearer DNR-recommended day trip.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'Take out at Garden City. DNR warns that the lower corridor toward the Blue Earth confluence has dangerous paddling conditions from the Rapidan Dam failure area.',
+        'The Watonwan is often low and can become scrapeable below the DNR low band. Avoid dragging through private banks or shallow braided edges.',
+        'Watch for snags, fresh trees, muddy banks, and faster post-rain current even though DNR lists no major rapids on the route.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '9.2 river miles',
+        note: 'MN DNR recommends the County Road 20 to Garden City Access day trip on the Watonwan River, with County Road 20 at river mile 13.5 and Garden City at river mile 4.3 on the current map.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/blueearth.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS00213 and WAS02055',
+        note: 'Minnesota public-water-access GIS resolves Watonwan River County Road 20 and Garden City as public access sites with coordinates and parking records.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '2 / 3.5-4.5 / 5.2 ft',
+        note: 'MN DNR interprets the Garden City gauge as Scrapable below 2 ft, Low from 2 to 3.5, Medium from 3.5 to 4.5, High from 4.5 to 5.2, and Very High above 5.2.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '2.3 ft at 2026-07-14 07:30',
+        note: 'The current MN DNR feed placed Garden City in the official low band during this run, so same-day users should expect shallow conditions.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Safety caveats',
+        value: 'Snags, low water, downstream Rapidan failure zone',
+        note: 'DNR says the Watonwan has no major rapids but can have occasional snags, may be scrapeable at low water, and has dangerous paddling conditions below Garden City because of the Rapidan Dam failure area.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/blueearth.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Blue Earth and Watonwan River map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/blueearth.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'red-river-north-dam-mb-johnson',
+    slug: 'red-river-north-dam-mb-johnson',
+    name: 'Red River of the North',
+    reach: 'Fargo North Dam to M.B. Johnson Park',
+    state: 'Minnesota',
+    region: 'Red River Valley',
+    summary:
+      'Short official MN DNR Fargo-Moorhead Red River trip from the North Dam carry-in to M.B. Johnson Park. It uses the direct Fargo gauge and keeps dam, portage, low-water, flood, and two-state-rule caveats visible.',
+    statusText:
+      'Use the Fargo DNR gauge: 425 to 1,110 cfs is the official medium band. Below 364 cfs is scrapable, and above 3,240 cfs is very high.',
+    latitude: 46.8948,
+    longitude: -96.7872,
+    gaugeSource: {
+      id: 'mn-dnr-184',
+      provider: 'mn_dnr',
+      siteId: '184',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'direct',
+      siteName: 'Red River of the North at Fargo, ND',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=57028001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=57028001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 425,
+      idealMax: 1110,
+      tooLow: 364,
+      tooHigh: 3240,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Red River at Fargo',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The Red can flood in spring, summer, and fall, and low water may not be suitable for boating. Use the direct Fargo gauge together with local flood, mud, and landing conditions.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR describes this as a short, easy-to-navigate city reach, but the North Dam launch, fluctuating water, snags, muddy banks, and border-river rules require explicit caution.',
+      confidenceNotes:
+        'Confidence is good: MN DNR recommends North Dam to M.B. Johnson Park as the Map 2 day trip, the Fargo interpreted gauge is in the same urban reach upstream of the route, and Minnesota public-water-access GIS resolves M.B. Johnson Park. The North Dam put-in is DNR-named and river-mile-specific rather than a Minnesota GIS access record, so the route copy tells users to confirm the exact re-entry on arrival.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'Launch just north of North Dam from the marked carry-in/re-entry; do not paddle over or around constructed rock-rapids structures without reading current signs and portage guidance.',
+        'Avoid flood, high, or rapidly rising water. DNR warns Red River levels fluctuate widely and low water may not be suitable for boating.',
+        'Expect snags, muddy banks, bridge approaches, anglers, and two-state regulations through Fargo-Moorhead.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '3.1 river miles',
+        note: 'MN DNR recommends Fargo North Dam at river mile 455.2 to M.B. Johnson Park at river mile 452.1 as the Map 2 day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/red-river/segments-maps.html',
+      },
+      {
+        label: 'Access records',
+        value: 'DNR-named North Dam; M.B. Johnson WAS02269',
+        note: 'DNR Map 2 names the North Dam carry-in / re-entry and Minnesota public-water-access GIS resolves M.B. Johnson Park with coordinates and river mile 452.1.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '364 / 425-1,110 / 3,240 cfs',
+        note: 'MN DNR interprets the Fargo gauge as Scrapable below 364 cfs, Low from 364 to 425, Medium from 425 to 1,110, High from 1,110 to 3,240, and Very High above 3,240.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '745 cfs at 2026-07-14 07:15',
+        note: 'The current MN DNR feed placed Fargo in the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Safety caveats',
+        value: 'Dam, flood, low-water, snag, and two-state rules',
+        note: 'DNR Map 2 identifies North Dam as constructed rock rapids with portage/re-entry guidance and warns that the Red has dams, fluctuating levels, flooding, low-water unsuitability, snags, and two-state regulations.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/redriver2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Red River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/red-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Red River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/redriver2.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
 ];
 

@@ -1,18 +1,25 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 08:12 America/Chicago.
+Last summarized: 2026-07-14 09:35 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 73.
-- Top represented rivers: Mississippi River 9, Little Fork River 8, Big Fork River 5, Crow Wing River 4, Minnesota River 4, Root River 4, North Fork Crow River 3, Snake River 3, Zumbro River 3.
-- Ledger candidates: 84 total; 56 `added`, 16 `threshold_weak`, 8 `no_live_gauge`, 2 `duplicate_corridor`, 1 `research_later`, 1 `rejected`.
+- Live routes: 76.
+- Top represented rivers: Mississippi River 9, Little Fork River 8, Big Fork River 5, Crow Wing River 4, Minnesota River 4, Root River 4, North Fork Crow River 3, Red River of the North 3, Snake River 3, Zumbro River 3.
+- Ledger candidates: 85 total; 59 `added`, 14 `threshold_weak`, 8 `no_live_gauge`, 2 `duplicate_corridor`, 1 `research_later`, 1 `rejected`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-14 09:35 America/Chicago: added `kettle-river-musclewood-1`, `watonwan-river-county-road-20-garden-city`, and `red-river-north-dam-mb-johnson`.
+- Baseline at run start was 73 live Minnesota routes; patched route data now imports 76 Minnesota routes with no missing trip-detail records found during the count check.
+- Stayed in Minnesota and promoted three official DNR routes with direct or same-reach interpreted DNR gauge support: Kettle Musclewood to #1 / Highway 23 `16.5` miles, Watonwan County Road 20 to Garden City `9.2` miles, and Red River Fargo North Dam to M.B. Johnson Park `3.1` miles.
+- Minnesota public-water-access GIS resolves Kettle Musclewood `WAS00898`, Kettle River #1 `WAS00904`, Watonwan County Road 20 `WAS00213`, Watonwan Garden City `WAS02055`, and Red River M.B. Johnson `WAS02269`; DNR Red River Map 2 names the North Dam carry-in/re-entry at river mile `455.2`.
+- Current MN DNR river-level feed exposed interpreted ladders for Kettle Willow River site `293` (`78 / 80-82 / 84 ft`), Watonwan Garden City site `254` (`2 / 3.5-4.5 / 5.2 ft`), and Red River Fargo site `184` (`364 / 425-1110 / 3240 cfs`). Kettle and Watonwan ship with direct in-route gauges; Red River uses the direct Fargo urban-reach gauge.
+- No route-gallery images were added. A rights-clean Commons Watonwan/Garden City image was identified, but Wikimedia returned 429 responses during bounded download attempts, so `docs/river-image-source-audit.csv` records no local gallery asset plus the download blocker; Kettle and Red River record bounded no-image outcomes.
 
 - 2026-07-14 08:12 America/Chicago: added `crow-wing-river-huntersville-mary-brown`, `red-river-golden-grain-hilltop`, and `mississippi-river-beaver-island-clearwater`.
 - Baseline at run start was 70 live Minnesota routes; patched route data now imports 73 Minnesota routes with no missing trip-detail records found during the count check.
