@@ -45910,6 +45910,122 @@ export const rivers: River[] = [
     ]
   },
   {
+    id: 'susquehanna-river-ulster-bridge-wysox-township-park',
+    slug: 'susquehanna-river-ulster-bridge-wysox-township-park',
+    name: 'Susquehanna River',
+    reach: 'North Branch: Ulster Bridge to Wysox Township Park',
+    aliases: [
+      'North Branch Susquehanna - Ulster Bridge to Wysox Township Park',
+      'Susquehanna River - Ulster Bridge access to Wysox Township Park',
+      'North Branch Section 1 Towanda upper approach day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      'Eleven-mile upper North Branch day from Ulster Bridge to Wysox Township Park. The official PFBC guide family publishes both access coordinates, lists this route as a favorite day trip, and ties the whole corridor directly to the Towanda gauge for conservative same-day planning.',
+    statusText:
+      'Use the Susquehanna River at Towanda gauge. PFBC says about 2 ft at Towanda is the safe-base planning level, the river can still be paddled as low as about -0.5 ft, and novice paddlers should stay off when Towanda is over about 5 ft.',
+    latitude: 41.811667,
+    longitude: -76.4475,
+    gaugeSource: {
+      id: 'usgs-01531500',
+      provider: 'usgs',
+      siteId: '01531500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Susquehanna River at Towanda, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        'PFBC flags fast riffles at mile 277, fast riffles with a strainer in the mile-274 area, fast riffles under bridge arches at mile 272, and more quick water at miles 270, 269, and 268 inside this route.',
+        'The Towanda bridge corridor accelerates current toward structure, especially when the river is above the calmest planning band or when wind stacks against the flow.',
+        'Stay with the planned Wysox Township Park finish and do not substitute informal banks, islands, or bridge shoulders for the named public accesses.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2,
+      idealMax: 4,
+      tooLow: -0.5,
+      tooHigh: 5,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 1 Towanda stage guidance',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'PFBC says the North Branch in this corridor often stays paddleable in lower summer water, but the wide channel still reacts quickly to thunderstorms, wood, and headwind.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This remains broad-audience river mileage in the conservative band, but the bridge-current line near Towanda, the strainer-prone riffle zone, and the 11.3-mile length keep it above a casual float.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch guide family publishes exact coordinates for Ulster Bridge and Wysox Township Park, labels the route as an 11.3-mile favorite trip, and flags the main caution miles that need to stay in product copy. The threshold model is direct and official because PFBC writes the low-water and novice-high-water guidance around Towanda itself. USGS Water Services returned same-day July 14, 2026 values of 1,940 cfs and 0.54 ft at 2026-07-14 01:45 EDT for direct USGS 01531500 during this restore pass.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Ulster Bridge to Wysox Township Park, 11.3 mi',
+        note: 'The 2021 North Branch Susquehanna guide lists Ulster Bridge Municipal Access 278.8 to Wysox Township Park Municipal Access 267.5 as a favorite day trip.',
+        sourceUrl:
+          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'The PFBC Section 1 access table publishes Ulster Bridge at 41 51 09 / -76 29 50 and Wysox Township Park at 41 46 15 / -76 23 52.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01531500 at Towanda',
+        note: 'USGS Water Services returned same-day July 14, 2026 values of 1,940 cfs and 0.54 ft for Susquehanna River at Towanda, PA.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
+      },
+      {
+        label: 'Official stage guidance',
+        value: 'Towanda -0.5 ft low runnable, 2 ft safe base, 5 ft novice ceiling',
+        note: 'PFBC says the river can be paddled with Towanda as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda is over 5 ft.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+      },
+      {
+        label: 'Primary cautions',
+        value: 'Fast riffles near miles 277, 274, 272, 270, 269, and 268',
+        note: 'The PFBC Section 1 caution list flags the upper quick-water sequence and the Towanda bridge approach that remain the decisive same-day hazards on this route.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC North Branch Susquehanna Section 1',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+        provider: 'local',
+      },
+      {
+        label: '2021 North Branch Susquehanna guide',
+        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01531500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     "id": "susquehanna-river-ulster-bridge-terrytown",
     "slug": "susquehanna-river-ulster-bridge-terrytown",
     "name": "Susquehanna River",
@@ -46385,6 +46501,121 @@ export const rivers: River[] = [
         "provider": "local"
       }
     ]
+  },
+  {
+    id: 'susquehanna-river-hornbrook-towanda',
+    slug: 'susquehanna-river-hornbrook-towanda',
+    name: 'Susquehanna River',
+    reach: 'North Branch: Larnard Hornbrook Park to Towanda Riverfront Park',
+    aliases: [
+      'North Branch Susquehanna - Hornbrook to Towanda',
+      'Susquehanna River - Hornbrook Park to Towanda Riverfront',
+      'North Branch Section 1 short Bradford County day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      'Short Bradford County North Branch day from Larnard Hornbrook Park to Towanda Riverfront Park. The official PFBC Section 1 guide publishes both access coordinates, flags the mile-274 strainer area and the fast riffles before Towanda, and ties the route directly to the Towanda gauge.',
+    statusText:
+      'Use the Susquehanna River at Towanda gauge. PFBC says about 2 ft there is the safe-base planning level, the river can still be paddled as low as about -0.5 ft, and novice paddlers should stay off when Towanda is over about 5 ft.',
+    latitude: 41.789028,
+    longitude: -76.462361,
+    gaugeSource: {
+      id: 'usgs-01531500',
+      provider: 'usgs',
+      siteId: '01531500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Susquehanna River at Towanda, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        'PFBC flags fast riffles with a strainer near mile 274, then more fast riffles before the bridge at mile 270 inside this short route.',
+        'Low water can expose sharper riffle lines, while headwind or thunderstorms can make this feel less casual than the short mileage suggests.',
+        'Towanda Riverfront Park is the intended finish. Do not improvise on private banks or drift past the public landing into town traffic and bridge current.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2,
+      idealMax: 4,
+      tooLow: -0.5,
+      tooHigh: 5,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 1 Towanda stage guidance',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'PFBC says this upper North Branch corridor usually stays paddleable through warm-season low water, but wide-channel wind, thunderstorms, and floating wood still change the same-day feel quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a shorter big-river day in the conservative band, but the strainer-prone riffle zone and the Towanda bridge/current finish still require active same-day judgment.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 1 guide publishes exact coordinates for Larnard Hornbrook Park and Towanda Riverfront Park, defines the corridor with official river miles, and flags the main caution points inside it. The threshold model is direct and official because PFBC writes this low-water and novice-high-water guidance around Towanda itself. USGS Water Services returned same-day July 14, 2026 values of 1,940 cfs and 0.54 ft at 2026-07-14 01:45 EDT for direct USGS 01531500 during this restore pass.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Larnard Hornbrook Park to Towanda Riverfront Park, about 5 mi',
+        note: 'The PFBC North Branch Section 1 guide places Larnard Hornbrook Park at river mile 275 and Towanda Riverfront Park at river mile 270.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'The PFBC Section 1 access table publishes Larnard Hornbrook Park at 41 48 34 / -76 29 10 and Towanda Riverfront Park at 41 46 07 / -76 26 19.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01531500 at Towanda',
+        note: 'USGS Water Services returned same-day July 14, 2026 values of 1,940 cfs and 0.54 ft for Susquehanna River at Towanda, PA.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
+      },
+      {
+        label: 'Official stage guidance',
+        value: 'Towanda -0.5 ft low runnable, 2 ft safe base, 5 ft novice ceiling',
+        note: 'PFBC says the river can be paddled with Towanda as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda is over 5 ft.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+      },
+      {
+        label: 'Primary cautions',
+        value: 'Mile-274 strainer area and fast riffles before Towanda bridge',
+        note: 'The PFBC Section 1 caution list flags fast riffles with a strainer in the mile-274 area and fast riffles before the bridge at mile 270 inside this route.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC North Branch Susquehanna Section 1',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+        provider: 'local',
+      },
+      {
+        label: '2021 North Branch Susquehanna guide',
+        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01531500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
   },
   {
     "id": "susquehanna-river-towanda-laceyville",
@@ -46920,6 +47151,130 @@ export const rivers: River[] = [
         "provider": "local"
       }
     ]
+  },
+  {
+    id: 'susquehanna-river-pfbc-bloomsburg-montgomery-park',
+    slug: 'susquehanna-river-pfbc-bloomsburg-montgomery-park',
+    name: 'Susquehanna River',
+    reach: 'North Branch: PFBC Bloomsburg to Montgomery Park',
+    aliases: [
+      'North Branch Susquehanna - Bloomsburg to Montgomery Park',
+      'Susquehanna River - PFBC Bloomsburg to Montgomery Park Municipal Access',
+      'North Branch Bloomsburg-to-Danville favorite day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      'Lower North Branch Susquehanna day from the PFBC Bloomsburg ramp to Montgomery Park in Danville. Susquehanna Greenway publishes this public 12.5-mile route directly, and the direct Bloomsburg gauge keeps the corridor in the broad-audience big-river bucket when levels stay below the novice ceiling.',
+    statusText:
+      'Use the Susquehanna River at Bloomsburg stage gauge. Susquehanna Greenway says this route works between about 1 and 6 ft at Bloomsburg and about 2 to 7 ft at Danville, while the official Section 4 guide keeps the calmer planning window around 1 to 4 ft with novice no-go water above about 6 ft.',
+    latitude: 40.977921,
+    longitude: -76.526211,
+    gaugeSource: {
+      id: 'usgs-01538700',
+      provider: 'usgs',
+      siteId: '01538700',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Susquehanna River at Bloomsburg, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['private_banks'],
+      safetyNotes: [
+        'Susquehanna Greenway says islands on this reach are privately owned and should not be used as casual stopping points.',
+        'This is a broad open lower mainstem day where wind, thunderstorms, and floating wood can matter more than the nominal easy rating.',
+        'Stay with the Montgomery Park finish and do not improvise on side channels, private islands, or informal banks if the current or wind slows the day down.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1,
+      idealMax: 4,
+      tooLow: 1,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 4 stage guidance',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Susquehanna Greenway and PFBC both frame this lower corridor as broadly runnable through much of the warm season, but broad-river wind, thunderstorms, and flooded treelines still change the same-day feel quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is an easier mainstem Susquehanna route in the conservative band, but the 12.5-mile length, private-island context, and open-water exposure make it more committed than a short park float.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: Susquehanna Greenway publishes this exact PFBC-Bloomsburg-to-Montgomery-Park route as a 12.5-mile public trip, the current 2021 North Branch guide publishes the same endpoint coordinates in its access table, and the direct Bloomsburg gauge remains healthy for same-day planning. USGS Water Services returned same-day July 14, 2026 values of 4,320 cfs and 1.68 ft at Bloomsburg, with Greenway and guide guidance still keeping this inside the easy planning band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'PFBC Bloomsburg to Montgomery Park, about 12.5 mi',
+        note: 'Susquehanna Greenway publishes this route as a 12.5-mile Bloomsburg-to-Danville trip from PFBC Bloomsburg Access at river mile 148.8 to Montgomery Park Municipal Access at river mile 136.4.',
+        sourceUrl:
+          'https://susquehannagreenway.org/water-trails/pfbc-bloomsburg-to-danville-montgomery-park/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'Guide access-table coordinates',
+        note: 'The current 2021 North Branch guide publishes PFBC Bloomsburg at 40.996681, -76.432782 and Montgomery Park Municipal Access at 40.959161, -76.619640.',
+        sourceUrl:
+          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01538700 at Bloomsburg',
+        note: 'USGS Water Services returned same-day July 14, 2026 values of 4,320 cfs and 1.68 ft for Susquehanna River at Bloomsburg, PA.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+      },
+      {
+        label: 'Official stage guidance',
+        value: 'Bloomsburg 1 / 1-4 / 6 ft novice ceiling',
+        note: 'Susquehanna Greenway recommends this route between 1 and 6 ft at Bloomsburg and 2 and 7 ft at Danville, while PFBC Section 4 says novice paddlers should stay off above about 6 ft at Bloomsburg.',
+        sourceUrl:
+          'https://susquehannagreenway.org/water-trails/pfbc-bloomsburg-to-danville-montgomery-park/',
+      },
+      {
+        label: 'Corridor support',
+        value: 'Indian Head Campground and private-island warning',
+        note: 'Susquehanna Greenway says Indian Head Campground sits along the route and warns that the islands on this stretch are privately owned and should not be used as casual stopping points.',
+        sourceUrl:
+          'https://susquehannagreenway.org/water-trails/pfbc-bloomsburg-to-danville-montgomery-park/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Susquehanna Greenway Bloomsburg to Danville Montgomery Park route',
+        url: 'https://susquehannagreenway.org/water-trails/pfbc-bloomsburg-to-danville-montgomery-park/',
+        provider: 'local',
+      },
+      {
+        label: 'PFBC North Branch Susquehanna Section 4',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      {
+        label: '2021 North Branch Susquehanna guide',
+        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01538700 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
   },
   {
     id: 'sugar-creek-deers-mill-cox-ford',
