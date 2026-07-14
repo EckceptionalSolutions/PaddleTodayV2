@@ -304,6 +304,156 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
+  'sauk-river-st-martin-frogtown': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-frogtown-rockville': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-frogtown-eagle-park': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-frogtown-miller-landing': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-frogtown-knights-of-columbus': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-rockville-miller-landing': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-rockville-knights-of-columbus': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-rockville-heims-mill': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-pineview-heims-mill': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-st-martin-eagle-park': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-eagle-knights-of-columbus': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-eagle-heims-mill': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-miller-landing-knights-of-columbus': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-miller-landing-heims-mill': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-knights-of-columbus-heims-mill': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
   'cottonwood-river-juenemann-springfield': [
     {
       id: 'cottonwood-river-flandrau-commons',
@@ -886,6 +1036,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
   ],
+  'current-river-cedar-grove-pulltite': [
+    {
+      id: 'current-river-welch-spring-commons',
+      src: '/gallery/current-river-cedar-grove-pulltite/current-river-welch-spring.jpg',
+      alt: 'The clear Current River flows below wooded Ozark hills with gravel bars and shoals along the long Upper Current corridor.',
+      caption: 'Upper Current River corridor near Welch Spring',
+      credit: 'Kbh3rd via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'current-river-akers-ferry-round-spring': [
+    {
+      id: 'current-river-welch-spring-commons',
+      src: '/gallery/current-river-akers-ferry-round-spring/current-river-welch-spring.jpg',
+      alt: 'The clear Current River flows below wooded Ozark hills with gravel bars along the Upper Current corridor.',
+      caption: 'Upper Current River corridor near Welch Spring',
+      credit: 'Kbh3rd via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'current-river-cedar-grove-round-spring': [
+    {
+      id: 'current-river-welch-spring-commons',
+      src: '/gallery/current-river-cedar-grove-round-spring/current-river-welch-spring.jpg',
+      alt: 'The clear Current River flows below wooded Ozark hills along a long Ozark National Scenic Riverways continuation.',
+      caption: 'Current River corridor near Welch Spring',
+      credit: 'Kbh3rd via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
   'jacks-fork-river-alley-spring-chilton': [
     {
       id: 'jacks-fork-upper-commons',
@@ -1046,7 +1226,77 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'NPS asset: public domain',
     },
   ],
+  'current-river-big-spring-cataract': [
+    {
+      id: 'ozark-riverways-canoeing-nps',
+      src: '/gallery/current-river-big-spring-gooseneck/ozark-riverways-canoeing.jpg',
+      alt: 'Visitors paddle canoes through a wooded Ozark National Scenic Riverways corridor.',
+      caption: 'Canoeing in Ozark National Scenic Riverways',
+      credit: 'Cecil W. Stoughton/NPS History Collection via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'current-river-van-buren-cataract': [
+    {
+      id: 'ozark-riverways-canoeing-nps',
+      src: '/gallery/current-river-van-buren-big-spring/ozark-riverways-canoeing.jpg',
+      alt: 'Visitors paddle canoes through a wooded Ozark National Scenic Riverways corridor.',
+      caption: 'Canoeing in Ozark National Scenic Riverways',
+      credit: 'Cecil W. Stoughton/NPS History Collection via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
   'current-river-big-spring-gooseneck': [
+    {
+      id: 'ozark-riverways-canoeing-nps',
+      src: '/gallery/current-river-big-spring-gooseneck/ozark-riverways-canoeing.jpg',
+      alt: 'Visitors paddle canoes through a wooded Ozark National Scenic Riverways corridor.',
+      caption: 'Canoeing in Ozark National Scenic Riverways',
+      credit: 'Cecil W. Stoughton/NPS History Collection via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'current-river-cataract-gooseneck': [
+    {
+      id: 'ozark-riverways-canoeing-nps',
+      src: '/gallery/current-river-big-spring-gooseneck/ozark-riverways-canoeing.jpg',
+      alt: 'Visitors paddle canoes through a wooded Ozark National Scenic Riverways corridor.',
+      caption: 'Canoeing in Ozark National Scenic Riverways',
+      credit: 'Cecil W. Stoughton/NPS History Collection via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'current-river-waymeyer-big-spring': [
+    {
+      id: 'ozark-riverways-canoeing-nps',
+      src: '/gallery/current-river-waymeyer-van-buren/ozark-riverways-canoeing.jpg',
+      alt: 'Visitors paddle canoes through a wooded Ozark National Scenic Riverways corridor.',
+      caption: 'Canoeing in Ozark National Scenic Riverways',
+      credit: 'Cecil W. Stoughton/NPS History Collection via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'current-river-waymeyer-cataract': [
+    {
+      id: 'ozark-riverways-canoeing-nps',
+      src: '/gallery/current-river-waymeyer-van-buren/ozark-riverways-canoeing.jpg',
+      alt: 'Visitors paddle canoes through a wooded Ozark National Scenic Riverways corridor.',
+      caption: 'Canoeing in Ozark National Scenic Riverways',
+      credit: 'Cecil W. Stoughton/NPS History Collection via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'current-river-van-buren-gooseneck': [
+    {
+      id: 'ozark-riverways-canoeing-nps',
+      src: '/gallery/current-river-van-buren-big-spring/ozark-riverways-canoeing.jpg',
+      alt: 'Visitors paddle canoes through a wooded Ozark National Scenic Riverways corridor.',
+      caption: 'Canoeing in Ozark National Scenic Riverways',
+      credit: 'Cecil W. Stoughton/NPS History Collection via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'current-river-waymeyer-gooseneck': [
     {
       id: 'ozark-riverways-canoeing-nps',
       src: '/gallery/current-river-big-spring-gooseneck/ozark-riverways-canoeing.jpg',
@@ -1060,6 +1310,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     {
       id: 'eleven-point-river-missouri-commons',
       src: '/gallery/eleven-point-river-greer-crossing-turner-mill/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-greer-crossing-whitten': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-greer-crossing-whitten/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-greer-crossing-riverton': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-greer-crossing-riverton/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-greer-crossing-narrows': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-greer-crossing-narrows/eleven-point-river-missouri.jpg',
       alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
       caption: 'Eleven Point River in Missouri',
       credit: 'Charlie Llewellin via Wikimedia Commons',
@@ -1180,6 +1460,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     {
       id: 'eleven-point-river-missouri-commons',
       src: '/gallery/eleven-point-river-riverton-narrows/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-turner-mill-south-riverton': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-turner-mill-south-riverton/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-turner-mill-south-narrows': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-turner-mill-south-narrows/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-whitten-narrows': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-whitten-narrows/eleven-point-river-missouri.jpg',
       alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
       caption: 'Eleven Point River in Missouri',
       credit: 'Charlie Llewellin via Wikimedia Commons',
@@ -1656,7 +1966,57 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
-'south-fork-kentucky-river-oneida-fish-creek': [
+  'south-fork-kentucky-river-oneida-fish-creek': [
+    {
+      id: 'south-fork-kentucky-river-bronner-bend-commons',
+      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
+      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
+      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
+      credit: 'Ernest Danglade via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'south-fork-kentucky-river-rocky-branch-bishop-bend': [
+    {
+      id: 'south-fork-kentucky-river-bronner-bend-commons',
+      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
+      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
+      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
+      credit: 'Ernest Danglade via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'south-fork-kentucky-river-bishop-bend-hacker-branch': [
+    {
+      id: 'south-fork-kentucky-river-bronner-bend-commons',
+      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
+      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
+      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
+      credit: 'Ernest Danglade via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'south-fork-kentucky-river-cedar-valley-bishop-bend': [
+    {
+      id: 'south-fork-kentucky-river-bronner-bend-commons',
+      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
+      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
+      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
+      credit: 'Ernest Danglade via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'south-fork-kentucky-river-hacker-branch-upper-wolf-creek': [
+    {
+      id: 'south-fork-kentucky-river-bronner-bend-commons',
+      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
+      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
+      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
+      credit: 'Ernest Danglade via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'south-fork-kentucky-river-upper-wolf-creek-kay-wood': [
     {
       id: 'south-fork-kentucky-river-bronner-bend-commons',
       src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
@@ -1757,6 +2117,26 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     },
   ],
   'tradewater-river-bellville-montezuma': [
+    {
+      id: 'tradewater-river-commons',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
+      caption: 'Tradewater River near Dawson Springs',
+      credit: 'Jomegat via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'tradewater-river-bellville-fishtrap': [
+    {
+      id: 'tradewater-river-commons',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
+      caption: 'Tradewater River near Dawson Springs',
+      credit: 'Jomegat via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'tradewater-river-bellville-vfw-bridge': [
     {
       id: 'tradewater-river-commons',
       src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
@@ -1914,10 +2294,80 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
+  'eleven-point-river-cane-bluff-turner-mill': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-cane-bluff-turner-mill/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-cane-bluff-whitten': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-cane-bluff-whitten/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-cane-bluff-riverton': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-cane-bluff-riverton/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-cane-bluff-narrows': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-cane-bluff-narrows/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
   'eleven-point-river-thomasville-cane-bluff': [
     {
       id: 'eleven-point-river-missouri-commons',
       src: '/gallery/eleven-point-river-thomasville-cane-bluff/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-thomasville-greer-crossing': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-thomasville-greer-crossing/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-thomasville-turner-mill-south': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-thomasville-turner-mill-south/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-thomasville-whitten': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-thomasville-whitten/eleven-point-river-missouri.jpg',
       alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
       caption: 'Eleven Point River in Missouri',
       credit: 'Charlie Llewellin via Wikimedia Commons',
