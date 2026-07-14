@@ -52647,5 +52647,376 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'crow-wing-river-huntersville-mary-brown',
+    slug: 'crow-wing-river-huntersville-mary-brown',
+    name: 'Crow Wing River',
+    reach: 'Huntersville North to Mary Brown',
+    state: 'Minnesota',
+    region: 'Wadena Area',
+    summary:
+      'Official MN DNR upper Crow Wing day through Huntersville State Forest from the Huntersville North carry-in to Mary Brown. It adds the missing upstream recommended route above the existing Mary Brown and downstream Crow Wing planners.',
+    statusText:
+      'Use the Nimrod DNR gauge as the downstream corridor check: 400 to 800 cfs is the official medium band, below 300 cfs is scrapable, and above 1,100 cfs is very high.',
+    latitude: 46.7783954,
+    longitude: -94.8929814,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'This upper Crow Wing reach is gentle by character, but marshy vegetation, downed wood, and low-water drag can still turn a short mileage day into slow work.',
+        'DNR notes dams and rapids on the broader Crow Wing trail. Stay within the Huntersville-to-Mary-Brown route unless you have a separate downstream plan.',
+        'Use the named public accesses and designated watercraft campsites. Do not assume private banks or informal clearings are legal stops.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-55',
+      provider: 'mn_dnr',
+      siteId: '55',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'Crow Wing River at Nimrod, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=12085001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12085001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05244000',
+        provider: 'usgs',
+        siteId: '05244000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Crow Wing River at Nimrod, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 800,
+      tooLow: 300,
+      tooHigh: 1100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'DNR says the Crow Wing is nearly always deep enough for canoeing, but low marshy upper miles can become slow when levels drop and vegetation thickens. Spring and rain-refreshed summer or fall days are cleaner.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR describes this recommended trip as forested and wildlife-rich rather than rapid-focused. The caution posture comes from rural access, wood, low-water vegetation, and the downstream proxy gauge.',
+      confidenceNotes:
+        'Confidence is good: MN DNR recommends Huntersville North to Mary Brown as the Map 1 day trip, public-water-access GIS resolves both endpoints with matching river miles and coordinates, and the Nimrod DNR gauge provides the official interpreted ladder already used for the downstream Crow Wing family. The gauge is downstream of the selected finish, so the route keeps a same-day visual-check caveat.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '7.3 river miles',
+        note: 'MN DNR recommends Huntersville North carry-in access at river mile 82.6 to Mary Brown Rest Area carry-in access at river mile 75.3.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/crow-wing-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS01525 and WAS02558',
+        note: 'Minnesota public-water-access GIS resolves Crow Wing River, Huntersville (N) and Crow Wing River, Mary Brown #5 as public accesses with matching river miles and coordinates.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '300 / 400-800 / 1,100 cfs',
+        note: 'MN DNR interprets the Nimrod gauge as Scrapable below 300 cfs, Low from 300 to 400, Medium from 400 to 800, High from 800 to 1,100, and Very High above 1,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '284 cfs at 2026-07-14 06:00',
+        note: 'The current MN DNR feed reported the Nimrod gauge below the broad medium band during this run, supporting low-water caveats rather than a strong-day recommendation.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Route character and camping',
+        value: 'Huntersville State Forest watercraft campsites',
+        note: 'DNR says the route passes through Huntersville State Forest and has several watercraft campsites that can lengthen the trip into a multi-day plan.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/crow-wing-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Crow Wing River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/crow-wing-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Huntersville State Forest Landing campground',
+        url: 'https://www.dnr.state.mn.us/state_forests/forest.html?id=sft00025#cmp00028',
+      },
+    ],
+  },
+  {
+    id: 'red-river-golden-grain-hilltop',
+    slug: 'red-river-golden-grain-hilltop',
+    name: 'Red River of the North',
+    reach: 'Golden Grain to Hilltop',
+    state: 'Minnesota',
+    region: 'Red River Valley',
+    summary:
+      'Official MN DNR far-northern Red River day trip from Golden Grain to Hilltop. It adds a second border-river reach well upstream of the existing Halstad route, with both endpoints resolved in the public-access GIS.',
+    statusText:
+      'Use the Drayton DNR gauge: 10 to 14 ft is the official medium band. Below 6 ft is scrapable, and above 18 ft is very high.',
+    latitude: 48.7878739,
+    longitude: -97.1570258,
+    gaugeSource: {
+      id: 'mn-dnr-191',
+      provider: 'mn_dnr',
+      siteId: '191',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'proxy',
+      siteName: 'Red River of the North at Drayton, ND',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=69030001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=69030001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 10,
+      idealMax: 14,
+      tooLow: 6,
+      tooHigh: 18,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Red River of the North at Drayton',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The Red River can flood in spring, summer, and fall, and low water may be unsuitable for boating. Use the Drayton gauge, local rain, forecast, and muddy landing conditions together.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR frames this as slow meanders through farmland and wooded banks. The route remains caution-level because the Red is a border river with snags, steep muddy banks, wide bends, and large level swings.',
+      confidenceNotes:
+        'Confidence is good: MN DNR recommends Golden Grain to Hilltop as the Map 6 day trip, public-water-access GIS resolves both trailer accesses with river miles and coordinates, and the Drayton interpreted gauge is in the same Map 6 corridor upstream of the route. The route copy keeps the proxy direction explicit.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'Do not launch during flood or rising-water conditions; DNR warns that levels fluctuate widely and flooding may occur in spring, summer, and fall.',
+        'Low water may not be suitable for boating, and steep muddy banks can make access awkward even when the mileage looks easy.',
+        'The river touches Minnesota and North Dakota and eventually Canada. Check applicable boating, fishing, and access rules before the trip.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '9 river miles',
+        note: 'MN DNR recommends Golden Grain trailer access at river mile 180.2 to Hilltop trailer access at river mile 171.2 as the Map 6 day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/red-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS00531 and WAS03009',
+        note: 'Minnesota public-water-access GIS resolves Golden Grain and Hilltop as Red River public access sites with matching river-mile records and coordinates.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '6 / 10-14 / 18 ft',
+        note: 'MN DNR interprets the Drayton gauge as Scrapable below 6 ft, Low from 6 to 10, Medium from 10 to 14, High from 14 to 18, and Very High above 18.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '13.01 ft at 2026-07-14 06:45',
+        note: 'The current MN DNR feed placed Drayton in the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Safety caveats',
+        value: 'Fluctuating levels, flooding, snags, two-state rules',
+        note: 'DNR warns that this segment has a dam, widely fluctuating levels, possible flooding, unsuitable low water, common snags, and multi-jurisdiction regulations.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/red-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Red River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/red-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Red River Map 6 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/redriver6.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'mississippi-river-beaver-island-clearwater',
+    slug: 'mississippi-river-beaver-island-clearwater',
+    name: 'Mississippi River',
+    reach: 'Beaver Island Trail Access to Clearwater',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Official MN DNR St. Cloud-area Mississippi day trip from Beaver Island to Clearwater. It uses the direct St. Cloud DNR gauge, starts among the Beaver Islands, and finishes before the Clearwater bridge access.',
+    statusText:
+      'Use the St. Cloud DNR gauge: 3,000 to 9,000 cfs is the official medium band. Below 2,000 cfs is scrapable, and above 12,000 cfs is very high.',
+    latitude: 45.5441689,
+    longitude: -94.1488508,
+    gaugeSource: {
+      id: 'mn-dnr-129',
+      provider: 'mn_dnr',
+      siteId: '129',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'direct',
+      siteName: 'Mississippi River at St. Cloud, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=73006001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=73006001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05270700',
+        provider: 'usgs',
+        siteId: '05270700',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Mississippi River at St. Cloud, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3000,
+      idealMax: 9000,
+      tooLow: 2000,
+      tooHigh: 12000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River at St. Cloud',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the practical window. Low stages expose riffles and island channels, while high water increases current speed through the Beaver Islands and below St. Cloud.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR calls this an easy recommended route, but the route is 12.1 miles, starts through narrow island channels, and can have riffles at low water or fast current at high water.',
+      confidenceNotes:
+        'Confidence is high: MN DNR recommends Beaver Island Trail Access to Clearwater as a 12.1-mile day trip, the St. Cloud interpreted gauge is at the put-in corridor, and Minnesota public-water-access GIS resolves both endpoints with matching river miles and coordinates.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Pick channels carefully through the Beaver Islands at the start; some islands and shorelines are private or have shallow side channels.',
+        'Expect riffles in low water and noticeably faster current when the St. Cloud gauge is in the high band.',
+        'Use named public launches and campsites only. Do not assume public access on private islands, banks, or informal pullouts.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '12.1 river miles',
+        note: 'MN DNR recommends Beaver Island Trail Access at river mile 925.8 to Clearwater at river mile 913.7 as a St. Cloud-area Mississippi day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS01281 and WAS01309',
+        note: 'Minnesota public-water-access GIS resolves Mississippi River, Beaver Island and Mississippi River, Clearwater with matching river-mile records and coordinates.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '2,000 / 3,000-9,000 / 12,000 cfs',
+        note: 'MN DNR interprets the St. Cloud gauge as Scrapable below 2,000 cfs, Low from 2,000 to 3,000, Medium from 3,000 to 9,000, High from 9,000 to 12,000, and Very High above 12,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '5,460 cfs at 2026-07-14 05:45',
+        note: 'The current MN DNR feed placed St. Cloud in the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Route character and stops',
+        value: 'Beaver Islands, bluffs, public launches and campsites',
+        note: 'DNR says the route starts in narrow Beaver Island channels, widens into a mostly undeveloped bluff landscape, and has public boat launches and campsites for picnic or stretch breaks.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Mississippi River Map 8 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi8.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'USGS Mississippi River at St. Cloud',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05270700/',
+      },
+    ],
+  },
 ];
 

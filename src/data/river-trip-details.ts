@@ -20082,5 +20082,110 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'crow-wing-river-huntersville-mary-brown': {
+    putIn: {
+      name: 'Crow Wing River, Huntersville (N) Public Water Access Site',
+      latitude: 46.7783954,
+      longitude: -94.8929814,
+    },
+    takeOut: {
+      name: 'Crow Wing River, Mary Brown #5 Public Water Access Site',
+      latitude: 46.7175822,
+      longitude: -94.9289851,
+    },
+    logistics: {
+      distanceLabel: '7.3 mi',
+      estimatedPaddleTime: 'About 2 hr 30 min to 4 hr, longer with low water, vegetation, or fishing stops',
+      shuttle:
+        'Stage the take-out at Mary Brown first, then drive to Huntersville North. This is a rural forest-road shuttle, so confirm parking, road condition, and cell-service assumptions before leaving the take-out vehicle.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR and county public accesses, follow Minnesota boating/PFD rules, and follow posted Huntersville State Forest or campsite rules.',
+      camping:
+        'DNR says several watercraft campsites along this reach can support a longer trip, and Huntersville State Forest Landing has a primitive campground nearby. Treat camping as first-come or separately confirmed, not guaranteed.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Huntersville North and take out at Mary Brown for MN DNR\'s 7.3-mile upper Crow Wing day trip through Huntersville State Forest. Use the downstream Nimrod gauge as the official corridor check and make a visual low-water call at launch.',
+      accessCaveats: [
+        'Huntersville North and Mary Brown both resolve in the Minnesota public-water-access GIS with matching river miles and coordinates.',
+        'The Nimrod gauge is downstream of Mary Brown, so it is an official same-river corridor check rather than an exact put-in reading.',
+        'Stay within named accesses and designated campsites; much of the corridor has private shoreland or sensitive forest/wetland edges.',
+      ],
+      watchFor: [
+        'Low water below the DNR medium band, when marsh vegetation, sand, and shallow sections can slow the day.',
+        'Fresh strainers and sweepers after storms.',
+        'Cold water, limited quick exits, private banks, and the temptation to extend downstream without a longer-route plan.',
+      ],
+    },
+  },
+  'red-river-golden-grain-hilltop': {
+    putIn: {
+      name: 'Red River, Golden Grain Public Water Access Site',
+      latitude: 48.7878739,
+      longitude: -97.1570258,
+    },
+    takeOut: {
+      name: 'Red River, Hilltop Public Water Access Site',
+      latitude: 48.8427795,
+      longitude: -97.1738549,
+    },
+    logistics: {
+      distanceLabel: '9 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr depending on level, wind, and muddy landings',
+      shuttle:
+        'Stage the take-out at Hilltop before driving back to Golden Grain. Check both trailer accesses because Red River mud, flood cleanup, and rural road conditions can change the carry and parking setup.',
+      permits:
+        'No route-specific paddling permit is known. The Red River borders Minnesota and North Dakota, so check current boating, fishing, access, and PFD rules for both states before the trip.',
+      camping:
+        'Treat this as a day trip. DNR notes parks with camping and picnicking options not far from the North Dakota shoreline, but this selected route does not include a documented on-route watercraft campsite.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Golden Grain and take out at Hilltop for MN DNR\'s 9-mile Map 6 Red River day trip. Use the Drayton gauge as the official same-corridor proxy and let flood, low-water, mud, and snag conditions drive the go/no-go call.',
+      accessCaveats: [
+        'Golden Grain and Hilltop both resolve in the Minnesota public-water-access GIS with matching river-mile records and coordinates.',
+        'The Drayton gauge is upstream in the same Map 6 corridor, so use it as a conservative corridor check and still inspect landings visually.',
+        'The Red River touches two states and crosses into Canada downstream. Regulations vary, and private banks are not substitute access points.',
+      ],
+      watchFor: [
+        'Flooding or rising water during spring, summer, or fall.',
+        'Low water that may not be suitable for boating and can leave steep, muddy, awkward landings.',
+        'Snags, floating wood, wind on broad bends, anglers, and jurisdiction changes along the border river.',
+      ],
+    },
+  },
+  'mississippi-river-beaver-island-clearwater': {
+    putIn: {
+      name: 'Mississippi River, Beaver Island Public Water Access Site',
+      latitude: 45.5441689,
+      longitude: -94.1488508,
+    },
+    takeOut: {
+      name: 'Mississippi River, Clearwater Public Water Access Site',
+      latitude: 45.4194636,
+      longitude: -94.0423392,
+    },
+    logistics: {
+      distanceLabel: '12.1 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr depending on current, wind, and stops',
+      shuttle:
+        'Stage the take-out at Clearwater, then drive upstream to Beaver Island Park in St. Cloud. Inspect both ramps before launch because island-channel levels, wind, and park use can change the day.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD requirements, and respect city, DNR, camping, and fishing rules at public stops.',
+      camping:
+        'DNR says this reach has public launches and campsites that can work as picnic or rest stops, but the selected route is best treated as a day trip unless a specific legal campsite is confirmed before launch.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Beaver Island Trail Access and take out at Clearwater for MN DNR\'s 12.1-mile St. Cloud-area Mississippi day trip. The direct St. Cloud DNR gauge gives an official same-corridor level model, with extra attention needed for island channels, low-water riffles, and faster high water.',
+      accessCaveats: [
+        'Beaver Island and Clearwater both resolve in the Minnesota public-water-access GIS with matching route river miles and coordinates.',
+        'The route starts in narrow Beaver Island channels. Identify the intended main route before relaxing into the broader downstream river.',
+        'Use only named public launches, campsites, or clearly legal public stops; some islands and shorelines are private.',
+      ],
+      watchFor: [
+        'Low-water riffles, shallow island channels, and slower progress below the DNR medium band.',
+        'Fast current, floating wood, and reduced recovery windows when the St. Cloud gauge is high or rising.',
+        'Wind, motorboats, anglers, cold water, private banks, and missing the Clearwater take-out after a long open-water finish.',
+      ],
+    },
+  },
 };
 
