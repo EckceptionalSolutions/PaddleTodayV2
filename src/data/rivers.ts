@@ -45512,6 +45512,127 @@ export const rivers: River[] = [
     ]
   },
   {
+    "id": "susquehanna-river-hornbrook-wysox-township-park",
+    "slug": "susquehanna-river-hornbrook-wysox-township-park",
+    "name": "Susquehanna River",
+    "reach": "North Branch: Larnard Hornbrook Park to Wysox Township Park",
+    "aliases": [
+      "North Branch Susquehanna - Hornbrook to Wysox Township Park",
+      "Susquehanna River - Hornbrook Park to Wysox Township Park",
+      "North Branch Section 1 Towanda approach public-access day trip"
+    ],
+    "state": "Pennsylvania",
+    "region": "North Branch Susquehanna",
+    "summary": "Eight-mile Bradford County North Branch day from Larnard Hornbrook Park to Wysox Township Park. The official PFBC Section 1 guide publishes both access coordinates, maps the Towanda bridge-corridor caution sequence, and uses the Towanda gauge directly for the same-day decision.",
+    "statusText": "Use the Susquehanna River at Towanda gauge. PFBC says about 2 ft there is the safe-base planning level, the river can still be paddled as low as about -0.5 ft, and novice paddlers should stay off when Towanda is over about 5 ft.",
+    "latitude": 41.809444,
+    "longitude": -76.486111,
+    "gaugeSource": {
+      "id": "usgs-01531500",
+      "provider": "usgs",
+      "siteId": "01531500",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Susquehanna River at Towanda, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/01531500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "PFBC flags a strainer-prone fast-water zone near mile 274, current under bridge arches at mile 272, and more quick water at miles 270, 269, and 268 inside this route.",
+        "Bridge current, headwind, and fresh wood can make this shorter segment feel more committed than the raw mileage suggests.",
+        "Stay with the planned Wysox Township Park finish and do not substitute islands, bars, or private shoreline pull-offs for the named public landing."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 2,
+      "idealMax": 4,
+      "tooLow": -0.5,
+      "tooHigh": 5,
+      "thresholdSource": {
+        "label": "PFBC North Branch Susquehanna Section 1 Towanda stage guidance",
+        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "PFBC says this North Branch corridor often stays paddleable through lower summer water, but storm wood, wind, and bridge current still matter before you commit.",
+      "difficulty": "easy",
+      "difficultyNotes": "This is a broad-audience day in the conservative band, but the Towanda bridge corridor and the quick-water sequence keep it above a casual drift.",
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 1 guide publishes exact coordinates for Larnard Hornbrook Park and Wysox Township Park, defines the corridor with official river miles, and flags the exact caution sequence that matters between them. The threshold model is direct and official because PFBC writes the low-water and novice-high-water guidance around Towanda itself. USGS Water Services returned same-day July 13, 2026 values of 1,960 cfs and 0.55 ft at 2026-07-13 22:45 EDT for direct USGS 01531500 during this restore pass."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route segment",
+        "value": "Larnard Hornbrook Park to Wysox Township Park, about 8 mi",
+        "note": "The PFBC North Branch Section 1 guide places Larnard Hornbrook Park at river mile 275 and Wysox Township Park at river mile 267.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
+      },
+      {
+        "label": "Endpoint coordinates",
+        "value": "PFBC access-site coordinates",
+        "note": "The PFBC Section 1 access table publishes Larnard Hornbrook Park at 41 48 34 / -76 29 10 and Wysox Township Park at 41 46 15 / -76 23 52.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
+      },
+      {
+        "label": "Direct gauge",
+        "value": "USGS 01531500 at Towanda",
+        "note": "USGS Water Services returned same-day July 13, 2026 values of 1,960 cfs and 0.55 ft at 2026-07-13 22:45 EDT for Susquehanna River at Towanda, PA.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/01531500/"
+      },
+      {
+        "label": "Official stage guidance",
+        "value": "Towanda -0.5 ft low runnable, 2 ft safe base, 5 ft novice ceiling",
+        "note": "PFBC says the river can be paddled with Towanda as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda is over 5 ft.",
+        "sourceUrl": "https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf"
+      },
+      {
+        "label": "Primary cautions",
+        "value": "Fast water near miles 274, 272, 270, 269, and 268",
+        "note": "The PFBC Section 1 caution list flags the mile-274 strainer area, the bridge-arch current near mile 272, and the quick-water sequence approaching and just below Towanda inside this route.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "PFBC North Branch Susquehanna Section 1",
+        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "2021 North Branch Susquehanna guide",
+        "url": "https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 01531500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/01531500/",
+        "provider": "usgs"
+      },
+      {
+        "label": "PFBC launch permit vs boat registration",
+        "url": "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        "provider": "local"
+      }
+    ]
+  },
+  {
     "id": "susquehanna-river-ulster-bridge-terrytown",
     "slug": "susquehanna-river-ulster-bridge-terrytown",
     "name": "Susquehanna River",
@@ -45727,6 +45848,241 @@ export const rivers: River[] = [
         "label": "Primary cautions",
         "value": "Fast water near miles 274, 272, 270, 269, 268, 267, 261, and 258",
         "note": "The PFBC Section 1 caution list flags the strainer-prone upper riffle, the Towanda bridge sequence, and the lower Section 1 fast-water stretches that remain relevant all the way to Terrytown.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "PFBC North Branch Susquehanna Section 1",
+        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "2021 North Branch Susquehanna guide",
+        "url": "https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 01531500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/01531500/",
+        "provider": "usgs"
+      },
+      {
+        "label": "PFBC launch permit vs boat registration",
+        "url": "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        "provider": "local"
+      }
+    ]
+  },
+  {
+    "id": "susquehanna-river-towanda-terrytown",
+    "slug": "susquehanna-river-towanda-terrytown",
+    "name": "Susquehanna River",
+    "reach": "North Branch: Towanda Riverfront Park to Terrytown PFBC",
+    "aliases": [
+      "North Branch Susquehanna - Towanda to Terrytown",
+      "Susquehanna River - Towanda Riverfront to Terrytown PFBC",
+      "North Branch Section 1 mid-Bradford County day trip"
+    ],
+    "state": "Pennsylvania",
+    "region": "North Branch Susquehanna",
+    "summary": "Sixteen-mile North Branch Susquehanna day from Towanda Riverfront Park to the Terrytown PFBC ramp. The official PFBC Section 1 guide publishes both access coordinates, marks the quick riffle miles in this reach, and gives direct Towanda stage guidance for low-water, planning-band, and novice high-water calls.",
+    "statusText": "Use the Susquehanna River at Towanda gauge. PFBC uses about 2 ft as the safe-base planning level, says the river can still be paddled as low as about -0.5 ft, and says novice paddlers should stay off when Towanda is over about 5 ft.",
+    "latitude": 41.741389,
+    "longitude": -76.360139,
+    "gaugeSource": {
+      "id": "usgs-01531500",
+      "provider": "usgs",
+      "siteId": "01531500",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Susquehanna River at Towanda, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/01531500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "PFBC flags fast riffles before the bridge at mile 270, then more fast current at miles 269 and 268 inside this route.",
+        "Low-water funneling can create wave trains in the narrowed lower riverbed, while headwind or thunderstorms can make the broad corridor feel much longer than the raw mileage.",
+        "Stay with the planned Terrytown PFBC finish and do not assume broad gravel bars or private shoreline pull-offs are acceptable substitutes."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 2,
+      "idealMax": 4,
+      "tooLow": -0.5,
+      "tooHigh": 5,
+      "thresholdSource": {
+        "label": "PFBC North Branch Susquehanna Section 1 Towanda stage guidance",
+        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "PFBC says the North Branch in this corridor often remains paddleable in summer low-water periods, but the channel speeds up after rain and wide-open wind can dominate the day.",
+      "difficulty": "easy",
+      "difficultyNotes": "The route stays in the broad-audience day-trip bucket when Towanda is in the conservative band, but the 16-mile length, quick riffle miles, and changing wind/current are still real trip-planning factors.",
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: PFBC Section 1 publishes exact coordinates for Towanda Riverfront Park and Terrytown PFBC, lists the route as a clean 16-mile official access pair, and identifies the caution miles that matter for same-day scouting. The threshold model is direct and official because PFBC writes the base-level and novice ceiling around Towanda itself. USGS Water Services returned same-day July 13, 2026 values of 1,960 cfs and 0.55 ft at 2026-07-13 22:45 EDT for direct USGS 01531500 during this restore pass."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route segment",
+        "value": "Towanda Riverfront Park to Terrytown PFBC, about 16 mi",
+        "note": "The PFBC North Branch Section 1 guide places Towanda Riverfront Park at river mile 270 and Terrytown PFBC at river mile 254.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
+      },
+      {
+        "label": "Endpoint coordinates",
+        "value": "PFBC access-site coordinates",
+        "note": "The PFBC Section 1 access table publishes Towanda Riverfront Park at 41 46 07 / -76 26 19 and Terrytown PFBC at 41 42 51 / -76 16 54.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
+      },
+      {
+        "label": "Direct gauge",
+        "value": "USGS 01531500 at Towanda",
+        "note": "USGS Water Services returned same-day July 13, 2026 values of 1,960 cfs and 0.55 ft at 2026-07-13 22:45 EDT for Susquehanna River at Towanda, PA.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/01531500/"
+      },
+      {
+        "label": "Official stage guidance",
+        "value": "Towanda -0.5 ft low runnable, 2 ft safe base, 5 ft novice ceiling",
+        "note": "PFBC says the river can be paddled with Towanda as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda is over 5 ft.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
+      },
+      {
+        "label": "Primary cautions",
+        "value": "Fast riffles around miles 270, 269, and 268",
+        "note": "The PFBC Section 1 caution list flags fast riffles before the bridge at mile 270, then more fast current at miles 269 and 268 inside this route.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "PFBC North Branch Susquehanna Section 1",
+        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 01531500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/01531500/",
+        "provider": "usgs"
+      },
+      {
+        "label": "PFBC launch permit vs boat registration",
+        "url": "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        "provider": "local"
+      }
+    ]
+  },
+  {
+    "id": "susquehanna-river-wysox-township-park-terrytown",
+    "slug": "susquehanna-river-wysox-township-park-terrytown",
+    "name": "Susquehanna River",
+    "reach": "North Branch: Wysox Township Park to Terrytown PFBC",
+    "aliases": [
+      "North Branch Susquehanna - Wysox Township Park to Terrytown",
+      "Susquehanna River - Wysox Township Park to Terrytown PFBC",
+      "North Branch Section 1 lower Bradford County public-access day trip"
+    ],
+    "state": "Pennsylvania",
+    "region": "North Branch Susquehanna",
+    "summary": "Fourteen-mile North Branch day from Wysox Township Park to the Terrytown PFBC ramp. The official PFBC guide family publishes both access coordinates, provides enough river-mile and caution support to define the segment cleanly, and uses the Towanda gauge directly for conservative same-day planning.",
+    "statusText": "Use the Susquehanna River at Towanda gauge. PFBC uses about 2 ft as the safe-base planning level, says the river can still be paddled as low as about -0.5 ft, and says novice paddlers should stay off when Towanda is over about 5 ft.",
+    "latitude": 41.7425,
+    "longitude": -76.339723,
+    "gaugeSource": {
+      "id": "usgs-01531500",
+      "provider": "usgs",
+      "siteId": "01531500",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Susquehanna River at Towanda, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/01531500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "PFBC flags a long fast-riffle section at mile 267 plus more fast riffles at miles 261 and 258 inside this route.",
+        "This lower Section 1 corridor looks wide and forgiving, but headwind, thunderstorms, floating wood, and shallow wave trains can still make it feel longer and faster than expected.",
+        "Stay with the planned Terrytown PFBC finish and do not assume broad bars, islands, or private-bank pull-offs are legitimate take-out substitutes."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 2,
+      "idealMax": 4,
+      "tooLow": -0.5,
+      "tooHigh": 5,
+      "thresholdSource": {
+        "label": "PFBC North Branch Susquehanna Section 1 Towanda stage guidance",
+        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "PFBC says the North Branch in this section can stay paddleable through warmer low-water periods, but open-river wind and post-rain current still change the trip quickly.",
+      "difficulty": "easy",
+      "difficultyNotes": "The route stays in the broad-audience day-trip bucket when Towanda is in the conservative band, but the 13.6-mile length, fast-riffle miles, and wide-channel weather exposure still require real same-day judgment.",
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: PFBC and the 2021 North Branch guide publish exact coordinates for Wysox Township Park and Terrytown PFBC, and the official river-mile table cleanly defines this 13.6-mile public-access pair while the caution list flags the downstream riffle miles that matter here. The threshold model is direct and official because PFBC writes the low-water and novice-high-water guidance on the Towanda gauge itself. USGS Water Services returned same-day July 13, 2026 values of 1,960 cfs and 0.55 ft at 2026-07-13 22:45 EDT for direct USGS 01531500 during this restore pass."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route segment",
+        "value": "Wysox Township Park to Terrytown PFBC, about 13.6 mi",
+        "note": "The official North Branch access tables place Wysox Township Park at river mile 267.5 and Terrytown PFBC at river mile 253.9, which defines this public access-to-access segment.",
+        "sourceUrl": "https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf"
+      },
+      {
+        "label": "Endpoint coordinates",
+        "value": "PFBC access-site coordinates",
+        "note": "The PFBC Section 1 access table publishes Wysox Township Park at 41 46 15 / -76 23 52 and Terrytown PFBC at 41 42 51 / -76 16 54.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
+      },
+      {
+        "label": "Direct gauge",
+        "value": "USGS 01531500 at Towanda",
+        "note": "USGS Water Services returned same-day July 13, 2026 values of 1,960 cfs and 0.55 ft at 2026-07-13 22:45 EDT for Susquehanna River at Towanda, PA.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/01531500/"
+      },
+      {
+        "label": "Official stage guidance",
+        "value": "Towanda -0.5 ft low runnable, 2 ft safe base, 5 ft novice ceiling",
+        "note": "PFBC says the river can be paddled with Towanda as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda is over 5 ft.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
+      },
+      {
+        "label": "Primary cautions",
+        "value": "Fast riffles near miles 267, 261, and 258",
+        "note": "The PFBC Section 1 caution list flags a long fast-riffle section at mile 267 plus more fast riffles at miles 261 and 258 inside this route.",
         "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
       }
     ],
