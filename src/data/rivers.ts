@@ -71090,4 +71090,340 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'mississippi-river-cass-lake-winnibigoshish',
+    slug: 'mississippi-river-cass-lake-winnibigoshish',
+    name: 'Mississippi River',
+    reach: 'Knutson Dam Recreation Area to West Winnie Campground',
+    state: 'Minnesota',
+    region: 'Mississippi Headwaters',
+    summary:
+      'Official DNR headwaters route from the Knutson Dam / Bimijiwan access on Cass Lake to the west Lake Winnibigoshish access, with public USFS endpoints, campground support, and a same-water-trail DNR gauge upstream.',
+    statusText:
+      'Use the Bemidji / CSAH 11 DNR gauge as an upstream headwaters proxy: the official medium band is 63.4 to 167.6 cfs. Below 37 cfs is scrapable, and above 440.4 cfs is very high.',
+    latitude: 47.4497986,
+    longitude: -94.4829743,
+    gaugeSource: {
+      id: 'mn-dnr-304',
+      provider: 'mn_dnr',
+      siteId: '304',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'Mississippi River nr Bemidji, CSAH11',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=07062001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=07062001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 63.4,
+      idealMax: 167.6,
+      tooLow: 37,
+      tooHigh: 440.4,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River near Bemidji',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.4,
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'This headwaters route moves through a lake-influenced reach between Cass Lake and Lake Winnibigoshish. Use the official upstream gauge with a same-day wind, dam, and lake-crossing check at both USFS accesses.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'DNR maps this as a headwaters Mississippi day with public accesses and campground support, but the route includes broad water, Mississippi Meadows, lake-edge wind exposure, dam context, and remote spacing between exits.',
+      confidenceNotes:
+        'Confidence is good: MN DNR recommends Cass Lake to Lake Winnibigoshish as an 11.8-mile route, the DNR map places Knutson Dam / Bimijiwan and West Winnie at the route endpoints, public-water-access GIS resolves both USFS access sites, and the Bemidji DNR gauge provides official same-water-trail interpretation bands. The gauge is upstream and lake/dam-influenced, so the app requires a visual access and wind check rather than treating the number as exact at Lake Winnie.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'remote', 'cold_water'],
+      safetyNotes: [
+        'Start from the signed public access and keep clear of Knutson Dam / Bimijiwan Dam structures, restricted water, and any posted portage or operating instructions.',
+        'Wind and wake on Cass Lake, Mississippi Meadows, and Lake Winnibigoshish can overpower a simple mileage plan; avoid committing to the lake-edge finish in building weather.',
+        'Services and legal exits are sparse between the USFS endpoints. Carry cold-water gear outside midsummer and treat wood, shallow channels, and remote rescue spacing as real hazards.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '11.8 river miles',
+        note: 'MN DNR lists Cass Lake to Lake Winnibigoshish as an 11.8-mile Mississippi River route and Map 2 places the Knutson Dam / Bimijiwan start and West Winnie finish on that corridor.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'Knutson Dam and Lake Winnibigoshish (W)',
+        note: 'Minnesota public-water-access GIS resolves the Mississippi River Knutson Dam site and Lake Winnibigoshish west access as U.S. Forest Service public access records with coordinates and river-mile fields.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '37 / 63.4-167.6 / 440.4 cfs',
+        note: 'MN DNR interprets the Bemidji / CSAH 11 gauge as Scrapable below 37 cfs, Low from 37 to 63.4, Medium from 63.4 to 167.6, High from 167.6 to 440.4, and Very High above 440.4.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '110 cfs at 2026-07-14 14:00',
+        note: 'The current MN DNR feed placed the Bemidji gauge in the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Camping support',
+        value: 'USFS endpoint campgrounds',
+        note: 'Chippewa National Forest and Recreation.gov / Explore Minnesota materials identify campground support around Knutson Dam / Bimijiwan and West Winnie, making this route endpoint-campground capable rather than an informal shoreline overnight.',
+        sourceUrl: 'https://www.recreation.gov/camping/campgrounds/233533',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Mississippi River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi2.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Recreation.gov Winnie Dam Campground',
+        url: 'https://www.recreation.gov/camping/campgrounds/233533',
+      },
+    ],
+  },
+  {
+    id: 'st-louis-river-fond-du-lac-oldenburg',
+    slug: 'st-louis-river-fond-du-lac-oldenburg',
+    name: 'St. Louis River',
+    reach: 'Fond du Lac Reservoir to Oldenburg Falls',
+    state: 'Minnesota',
+    region: 'Duluth Area',
+    summary:
+      'Jay Cooke State Park reservoir out-and-back from Fond du Lac Reservoir toward Oldenburg Falls, using the Scanlon interpreted DNR gauge and explicit dam, hydro, and turnaround caveats.',
+    statusText:
+      'Use the Scanlon DNR gauge as the same-corridor check: the official medium band is 1,000 to 3,000 cfs. Below 700 cfs is scrapable, and above 5,000 cfs is very high.',
+    latitude: 46.6681224,
+    longitude: -92.3078118,
+    gaugeSource: {
+      id: 'mn-dnr-239',
+      provider: 'mn_dnr',
+      siteId: '239',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'St. Louis River at Scanlon, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=03174001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=03174001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1000,
+      idealMax: 3000,
+      tooLow: 700,
+      tooHigh: 5000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for St. Louis River at Scanlon',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'DNR frames this lower St. Louis route as a flat-water trip, but reservoir levels, hydro operations, and wind can matter more than normal river current. Use the Scanlon gauge with Jay Cooke / Thomson dam notices and a visual launch check.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The paddling surface is flat water, but the route is adjacent to dam, hydro, and waterfall hazards. The safest plan is a disciplined out-and-back that turns around well before water movement or dam infrastructure becomes uncertain.',
+      confidenceNotes:
+        'Confidence is good: MN DNR identifies Fond du Lac Reservoir to Oldenburg Falls as a 6- to 7-mile round trip, the public-water-access GIS resolves the Fond du Lac Reservoir access with coordinates, Jay Cooke State Park provides official campground context, and the Scanlon gauge has official interpretation bands for the same lower St. Louis corridor. The gauge is upstream of the reservoir and hydro setting, so the implementation keeps a conservative proxy caveat.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'dam_release', 'cold_water'],
+      safetyNotes: [
+        'Stay a safe distance from Thomson Dam, hydro facilities, Oldenburg Falls, and any posted restricted water; this route is an out-and-back, not a downstream continuation.',
+        'DNR notes that water flow can determine how close paddlers can safely get to Oldenburg Falls. Turn around early when current, boil lines, wind, or signage create uncertainty.',
+        'Cold water, reservoir wind, and limited emergency exits can make a short flat-water route serious. Check Jay Cooke and utility notices before launching.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '6 to 7 river miles round trip',
+        note: 'MN DNR lists Fond du Lac Reservoir to Oldenburg Falls as a lower St. Louis flat-water out-and-back from Grand Portage parking in Jay Cooke State Park.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/st-louis-river/segments-maps.html',
+      },
+      {
+        label: 'Public access record',
+        value: 'Fond du Lac Reservoir WAS00074',
+        note: 'Minnesota public-water-access GIS resolves the St. Louis River Fond du Lac Reservoir public access site with DNR Parks and Trails administration and coordinates.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '700 / 1,000-3,000 / 5,000 cfs',
+        note: 'MN DNR interprets the Scanlon gauge as Scrapable below 700 cfs, Low from 700 to 1,000, Medium from 1,000 to 3,000, High from 3,000 to 5,000, and Very High above 5,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '1,130 cfs at 2026-07-14 14:30',
+        note: 'The current MN DNR feed placed Scanlon inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Camping support',
+        value: 'Jay Cooke State Park campground nearby',
+        note: 'MN DNR Jay Cooke State Park materials support nearby campground planning, but this reservoir route should still be treated as a day out-and-back from the public access.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state_parks/park.html?id=spk00187',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR St. Louis River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/st-louis-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR St. Louis River Map 3 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/stlouis3.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'MN DNR Jay Cooke State Park',
+        url: 'https://www.dnr.state.mn.us/state_parks/park.html?id=spk00187',
+      },
+    ],
+  },
+  {
+    id: 'cannon-river-riverside-miesville',
+    slug: 'cannon-river-riverside-miesville',
+    name: 'Cannon River',
+    reach: 'Riverside City Park to Miesville Ravine County Park',
+    state: 'Minnesota',
+    region: 'Southern Minnesota',
+    summary:
+      'Official shorter lower-Cannon day from Riverside City Park to Miesville Ravine, avoiding the less developed Welch parking/access issue while keeping a direct downstream interpreted DNR gauge.',
+    statusText:
+      'Use the Welch DNR gauge just downstream of the route: the official medium band is 300 to 1,540 cfs. Below 231 cfs is scrapable, and above 3,000 cfs is very high.',
+    latitude: 44.5119132,
+    longitude: -92.9068155,
+    gaugeSource: {
+      id: 'mn-dnr-13',
+      provider: 'mn_dnr',
+      siteId: '13',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'Cannon River at Welch, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=39004002',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=39004002&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 300,
+      idealMax: 1540,
+      tooLow: 231,
+      tooHigh: 3000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Cannon River at Welch',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is practical when the Welch gauge and a Riverside visual check agree. Dry stretches create shallow bars, while storm water adds swift current, wood, and snag risk.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR describes this as a gently winding 2- to 3-hour route past fields and forest. It is still moving water with light rapids, snags, and private banks, so use the shorter Miesville take-out as the planned finish.',
+      confidenceNotes:
+        'Confidence is high: MN DNR recommends Riverside Park to Miesville as a 6.9-mile Cannon River route, public-water-access GIS resolves Riverside Park and Miesville Ravine County Park with coordinates, and the Welch DNR gauge is directly downstream on the same Cannon map section with official interpretation bands. This is intentionally distinct from the longer Riverside-to-Welch card because Miesville is the official shorter public access pair and avoids the Welch developed-access/parking caveat.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'Use Miesville Ravine County Park as the planned take-out. Continuing to Welch changes the access plan and carries parking / developed-public-access caveats.',
+        'Expect light rapids, snags, shallow bars, and fresh wood after storms even when the Welch gauge is inside the medium band.',
+        'Banks are a mix of public access points and private land. Use the named public accesses or Sunset Trail as an emergency/bailout option if conditions deteriorate.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '6.9 river miles',
+        note: 'MN DNR lists Riverside Park to Miesville as a recommended Cannon River section from river mile 25.5 to 18.5 and describes it as a 2- to 3-hour paddle.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'Riverside Park and Miesville Ravine',
+        note: 'Minnesota public-water-access GIS resolves Riverside Park and Miesville Ravine County Park as Cannon River public access sites, with Sunset Trail as a nearby downstream public access option.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '231 / 300-1,540 / 3,000 cfs',
+        note: 'MN DNR interprets the Welch gauge as Scrapable below 231 cfs, Low from 231 to 300, Medium from 300 to 1,540, High from 1,540 to 3,000, and Very High above 3,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '1,040 cfs at 2026-07-14 14:00',
+        note: 'The current MN DNR feed placed Welch inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Access distinction',
+        value: 'Shorter official route before Welch',
+        note: 'DNR separately notes that the longer paddle to Welch lacks a developed public access and has a parking premium; this implementation stops at the cleaner Miesville Ravine public access pair.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Cannon River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Cannon River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/cannon2.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
 ];

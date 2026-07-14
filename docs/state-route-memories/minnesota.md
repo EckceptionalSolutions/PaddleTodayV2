@@ -1,18 +1,26 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 15:16 America/Chicago.
+Last summarized: 2026-07-14 16:15 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 112.
-- Top represented rivers: Sauk River 17, Mississippi River 13, Little Fork River 9, Minnesota River 6, Crow Wing River 6, Big Fork River 5, Zumbro River 5, Root River 4, Red River of the North 4, Cannon River 3.
-- Ledger candidates: 799 total; 445 `added`, 77 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 54 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
+- Live routes: 115.
+- Top represented rivers: Sauk River 17, Mississippi River 14, Little Fork River 9, Minnesota River 6, Crow Wing River 6, Big Fork River 5, Cannon River 4, Zumbro River 5, Root River 4, Red River of the North 4, St. Louis River 4.
+- Ledger candidates: 805 total; 451 `added`, 77 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 54 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-14 16:15 America/Chicago: added `mississippi-river-cass-lake-winnibigoshish`, `st-louis-river-fond-du-lac-oldenburg`, and `cannon-river-riverside-miesville`.
+- Baseline at run start was 112 live Minnesota routes; patched route data now imports 115 Minnesota routes with no missing trip-detail records.
+- Stayed in Minnesota and promoted three absent official DNR route gaps: Cass Lake / Knutson Dam to Lake Winnibigoshish / West Winnie `11.8` miles, Fond du Lac Reservoir to Oldenburg Falls `6-7` miles round trip, and Riverside Park to Miesville `6.9` miles.
+- Minnesota public-water-access GIS resolves Knutson Dam `WAS02961`, Lake Winnibigoshish west `WAS00969`, Fond du Lac Reservoir `WAS00074`, Riverside Park `WAS01692`, Miesville Ravine `WAS01694`, and Sunset Trail `WAS01111` with source-backed public access context.
+- Current MN DNR river-level feed exposed interpreted ladders for Mississippi Bemidji site `304` (`37 / 63.4-167.6 / 440.4 cfs`), St. Louis Scanlon site `239` (`700 / 1000-3000 / 5000 cfs`), and Cannon Welch site `13` (`231 / 300-1540 / 3000 cfs`). Cass Lake-to-Winnie ships with an upstream same-water-trail proxy and lake/dam/wind caveats; Fond du Lac-to-Oldenburg ships with a lower-St. Louis hydro/reservoir proxy caveat; Riverside-to-Miesville ships with the downstream Welch gauge plus a Riverside visual check.
+- No route-gallery images were added. Bounded DNR / Commons / USFS / Recreation.gov / state-park / county / same-river image review did not produce clearly rights-clean exact-route assets for local reuse.
+- Reviewed but did not add Snake Silver Star-to-Lower Falls because the DNR level timestamp was stale, Red River Kidder-to-Brushvale and Mississippi Fort Ripley-to-Fletcher Creek because endpoint coordinates were not source-backed enough in this run, and Sauk Centre Dam-to-Mill Pond because a current 2026 DNR construction alert affects the exact corridor.
 
 - 2026-07-14 15:16 America/Chicago: added `mississippi-river-county-road-12-dam-county-road-25`, `mississippi-river-schoolcraft-sylvan`, and `mississippi-river-sandy-lake-wolds-ferry`.
 - Baseline at run start was 109 live Minnesota routes; patched route data now imports 112 Minnesota routes with no missing trip-detail records.

@@ -25939,5 +25939,177 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'mississippi-river-cass-lake-winnibigoshish': {
+    putIn: {
+      name: 'Mississippi River, Knutson Dam Public Water Access Site',
+      latitude: 47.4497986,
+      longitude: -94.4829743,
+    },
+    takeOut: {
+      name: 'Lake Winnibigoshish (W) Public Water Access Site',
+      latitude: 47.427419,
+      longitude: -94.3153374,
+    },
+    logistics: {
+      distanceLabel: '11.8 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with wind on the lakes or slow water through Mississippi Meadows',
+      shuttle:
+        'Stage the West Winnie / Lake Winnibigoshish west access first, then drive back to Knutson Dam / Bimijiwan. Confirm USFS access, campground, fee, dam, and parking rules before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Use the USFS public access sites, follow Minnesota boating/PFD rules, and obey Chippewa National Forest, dam, campground, and tribal/private land boundaries.',
+      camping:
+        'Endpoint campground support is available around Knutson Dam / Bimijiwan and West Winnie / Winnie Dam, but treat any overnight as a reserved or separately confirmed campground plan rather than informal shoreline camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at the Knutson Dam / Bimijiwan public access and finish at the west Lake Winnibigoshish access for the DNR Map 2 Cass Lake-to-Winnie route. Use the upstream Bemidji DNR gauge with wind, lake, dam, and local-level checks.',
+      accessCaveats: [
+        'Both endpoints resolve in Minnesota public-water-access GIS as U.S. Forest Service public access records with coordinates and river-mile context.',
+        'The Bemidji / CSAH 11 gauge is upstream on the same headwaters water trail, not an exact Lake Winnie reading. Pair the official bands with a visual check at the put-in, Mississippi Meadows, and the lake-edge finish.',
+        'Do not improvise around Knutson Dam / Bimijiwan structures, shore restrictions, or campground boundaries. Use signed access and portage instructions.',
+      ],
+      watchFor: [
+        'Dam infrastructure, shallow headwaters channels, wood, strainers, and low-water scraping near the river transitions.',
+        'Wind, wake, and cold-water exposure on Cass Lake and Lake Winnibigoshish; turn back or wait out building weather.',
+        'Remote rescue spacing, limited mid-route exits, and private/tribal/USFS land boundaries between the public endpoints.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'knutson-dam-bimijiwan',
+        name: 'Mississippi River, Knutson Dam Public Water Access Site',
+        latitude: 47.4497986,
+        longitude: -94.4829743,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default put-in at DNR river mile 1258.1/1258.2; resolves as WAS02961 with U.S. Forest Service administration.',
+      },
+      {
+        id: 'lake-winnibigoshish-west',
+        name: 'Lake Winnibigoshish (W) Public Water Access Site',
+        latitude: 47.427419,
+        longitude: -94.3153374,
+        mileFromStart: 11.8,
+        segmentKind: 'lake',
+        note: 'Default take-out near West Winnie at DNR river mile 1246.4; resolves as WAS00969 with U.S. Forest Service administration.',
+      },
+    ],
+  },
+  'st-louis-river-fond-du-lac-oldenburg': {
+    putIn: {
+      name: 'St. Louis River, Fond du Lac Reservoir Public Water Access Site',
+      latitude: 46.6681224,
+      longitude: -92.3078118,
+    },
+    takeOut: {
+      name: 'St. Louis River, Fond du Lac Reservoir Public Water Access Site',
+      latitude: 46.6681224,
+      longitude: -92.3078118,
+    },
+    logistics: {
+      distanceLabel: '6-7 mi round trip',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, depending on wind, reservoir level, and how early conditions force the turnaround',
+      shuttle:
+        'No car shuttle is required for the normal out-and-back. Launch from the Fond du Lac Reservoir / Grand Portage parking area, paddle toward Oldenburg Falls only as conditions allow, and return to the same public access.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, Jay Cooke State Park rules, posted dam/hydro restrictions, and any utility or park notices before launching.',
+      camping:
+        'Jay Cooke State Park can support a nearby campground or basecamp plan, but this route itself is a day out-and-back with no assumed on-water camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Fond du Lac Reservoir and paddle the DNR lower St. Louis flat-water out-and-back toward Oldenburg Falls. Use Scanlon as the official same-corridor gauge, then make the real safety call from wind, dam, hydro, and waterfall conditions.',
+      accessCaveats: [
+        'The Fond du Lac Reservoir public access resolves in Minnesota public-water-access GIS with DNR Parks and Trails administration and coordinates.',
+        'This route returns to the same access. Do not turn it into a downstream run through the dam, hydro, or gorge corridor without a separate whitewater and access plan.',
+        'The Scanlon gauge is upstream of the reservoir/hydro setting, so pair the official bands with Jay Cooke / utility notices and visual conditions at launch.',
+      ],
+      watchFor: [
+        'Thomson Dam, hydro-station operations, posted restricted water, dam-release changes, and waterfall hydraulics near Oldenburg Falls.',
+        'Wind on the reservoir, cold water, low-water mud or shallow margins, and current changes near constrictions.',
+        'Limited alternate exits. Turn around well before boils, strong current, or signage make the return uncertain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'fond-du-lac-reservoir',
+        name: 'St. Louis River, Fond du Lac Reservoir Public Water Access Site',
+        latitude: 46.6681224,
+        longitude: -92.3078118,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default launch and return point for the Jay Cooke / Grand Portage flat-water out-and-back; resolves as WAS00074.',
+      },
+      {
+        id: 'oldenburg-falls-turnaround',
+        name: 'Oldenburg Falls turnaround zone',
+        mileFromStart: 3.25,
+        segmentKind: 'transition',
+        note: 'Approximate upstream turnaround area from DNR route text; keep a safe distance from falls, dam, hydro, and restricted-water hazards rather than treating this as a landing.',
+      },
+    ],
+  },
+  'cannon-river-riverside-miesville': {
+    putIn: {
+      name: 'Cannon River, Riverside Park Public Water Access Site',
+      latitude: 44.5119132,
+      longitude: -92.9068155,
+    },
+    takeOut: {
+      name: 'Cannon River, Miesville Ravine Co Park Public Water Access Site',
+      latitude: 44.5430566,
+      longitude: -92.8008416,
+    },
+    logistics: {
+      distanceLabel: '6.9 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with low water, wood, or a stop at Sunset Trail',
+      shuttle:
+        'Stage Miesville Ravine County Park first, then drive back to Riverside Park in Cannon Falls. Confirm the carry-in, parking, and park hours at both public access sites before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the city/county public accesses, follow Minnesota boating/PFD rules, and obey Dakota County and Cannon Falls parking or day-use rules.',
+      camping:
+        'Treat this as a day route. DNR does not document on-route camping for the Riverside-to-Miesville section, and private banks should not be used for overnight stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Riverside Park and take out at Miesville Ravine County Park for the official 6.9-mile lower-Cannon day. The Welch DNR gauge is just downstream, but the shorter public-access pair avoids the Welch parking/access caveat.',
+      accessCaveats: [
+        'Riverside Park and Miesville Ravine County Park both resolve in Minnesota public-water-access GIS with coordinates, public access names, and river-mile context.',
+        'Sunset Trail is a nearby public access below Miesville that can help with a contingency plan, but the intended route ends at Miesville Ravine.',
+        'The Welch gauge is downstream of the take-out, so pair the official bands with a visual check for shallow bars, snags, and current at Riverside before committing.',
+      ],
+      watchFor: [
+        'Light rapids, snags, overhanging trees, low-water dragging, and fresh wood on bends after storms.',
+        'Fast rises and pushier current above the official high band or after heavy rain.',
+        'Private banks between public access points and the access/parking limitations DNR notes for the longer Welch extension.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'riverside-park-cannon-falls',
+        name: 'Cannon River, Riverside Park Public Water Access Site',
+        latitude: 44.5119132,
+        longitude: -92.9068155,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 25.5; resolves as WAS01692 with City of Cannon Falls administration.',
+      },
+      {
+        id: 'miesville-ravine',
+        name: 'Cannon River, Miesville Ravine Co Park Public Water Access Site',
+        latitude: 44.5430566,
+        longitude: -92.8008416,
+        mileFromStart: 6.9,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 18.5; resolves as WAS01694 with Dakota County administration.',
+      },
+      {
+        id: 'sunset-trail',
+        name: 'Cannon River, Sunset Trail Public Water Access Site',
+        latitude: 44.5348587,
+        longitude: -92.8102358,
+        mileFromStart: 6.4,
+        segmentKind: 'creek',
+        note: 'Nearby public access at DNR river mile 19.1; use only if it fits the day plan or conditions require an earlier public exit.',
+      },
+    ],
+  },
 };
 
