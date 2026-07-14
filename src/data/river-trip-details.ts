@@ -9527,6 +9527,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'eleven-point-river-greer-crossing-narrows': {
+    putIn: {
+      name: 'Greer Crossing Recreation Area',
+      latitude: 36.79356389,
+      longitude: -91.32854167,
+    },
+    takeOut: {
+      name: 'Highway 142 River Access / The Narrows',
+      latitude: 36.550194,
+      longitude: -91.191532,
+    },
+    logistics: {
+      distanceLabel: 'About 27.7 mi by combined Forest Service mileage notes',
+      estimatedPaddleTime: 'About 10 hr to 15 hr depending on level, stops, wind, and whether you split the route overnight',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Greer Crossing and Highway 142. The Narrows is the last Forest Service access in the scenic-river corridor, so inspect the finish before launching and do not plan on drifting past it without a separate downstream plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, campground and day-use restrictions, no-glass/no-polystyrene river rules, Missouri boating rules, and posted parking signs.',
+      camping:
+        'Greer Crossing has campground facilities and the corridor includes designated float camps between Whitten, Riverton, and the lower river, so this route can support a legal overnight split. Highway 142 itself is day-use only and private banks should not be assumed for camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Greer Crossing and take out at Highway 142 / The Narrows for a long lower Eleven Point continuation to the last scenic-river access. Use the Bardley gauge as a conservative low-water check and keep extra margin for distance, weather, and take-out discipline.',
+      accessCaveats: [
+        'Greer Crossing and Highway 142 are official Forest Service river accesses with published coordinates, but road, parking, campground, and site rules can change after storms.',
+        'Highway 142 / The Narrows is the last access on the southern end of the Eleven Point National Scenic River Area. Missing it pushes the trip toward Arkansas and materially changes the route plan.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'A full-day or overnight commitment, slow shoals when the Bardley gauge is near the 300 cfs floor, and fatigue if the route is forced into one push.',
+        'Mary Decker Shoal early, then cold spring-fed water, fresh wood, blind bends, Halls Bay, and rapid rises after rain.',
+        'Motorized users under the 25 hp limit, limited developed exits below Riverton, and the need to stage a clear finish plan at Highway 142 before launching.',
+      ],
+    },
+  },
   'eleven-point-river-turner-mill-south-whitten': {
     putIn: {
       name: 'Turner Mill South River Access',
@@ -17699,6 +17734,64 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'south-fork-kentucky-river-cedar-valley-bishop-bend': {
+    putIn: {
+      id: 'cedar-valley-road-access',
+      name: 'Cedar Valley Road Access',
+      latitude: 37.3363,
+      longitude: -83.656,
+    },
+    takeOut: {
+      id: 'bishop-bend-school-road-access',
+      name: 'Bishop Bend School Road Access',
+      latitude: 37.3377,
+      longitude: -83.6882,
+    },
+    logistics: {
+      distanceLabel: 'About 4.7 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Bishop Bend School Road Access, then drive back to Cedar Valley Road Access. Both landings are simple carry-down sites, so inspect parking, mud, and footing before leaving the shuttle.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Cedar Valley or Bishop Bend, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Cedar Valley Road Access and take out about 4.7 miles downstream at Bishop Bend School Road Access for a short middle South Fork Kentucky River split. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Cedar Valley is a gravel-and-dirt canoe and kayak access with limited parking and no amenities.',
+        'Bishop Bend is a gravel-and-dirt carry-down with only a small dirt parking area and no amenities.',
+        'The current Booneville gauge reading was just above the official good band during this run, so expect slightly quicker current and muddier access edges than a clean mid-band day.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and the short split becomes less forgiving at bends and landings.',
+        'Wood, strainers, mud banks, occasional riffles, and private banks outside the access sites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cedar-valley-road-access',
+        name: 'Cedar Valley Road Access',
+        latitude: 37.3363,
+        longitude: -83.656,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this short middle South Fork split.',
+      },
+      {
+        id: 'bishop-bend-school-road-access',
+        name: 'Bishop Bend School Road Access',
+        latitude: 37.3377,
+        longitude: -83.6882,
+        mileFromStart: 4.7,
+        segmentKind: 'creek',
+        note: 'Default take-out for this route.',
+      },
+    ],
+  },
   'south-fork-kentucky-river-oneida-upper-wolf-creek': {
     putIn: {
       id: 'oneida-ramp',
@@ -18190,6 +18283,64 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         latitude: 37.4594,
         longitude: -83.6509,
         mileFromStart: 11.8,
+        segmentKind: 'creek',
+        note: 'Default take-out for this route.',
+      },
+    ],
+  },
+  'south-fork-kentucky-river-upper-wolf-creek-kay-wood': {
+    putIn: {
+      id: 'upper-wolf-creek-ramp',
+      name: 'Upper Wolf Creek Ramp',
+      latitude: 37.3964,
+      longitude: -83.6767,
+    },
+    takeOut: {
+      id: 'kay-wood-road-access',
+      name: 'Kay Wood Road Access',
+      latitude: 37.4594,
+      longitude: -83.6509,
+    },
+    logistics: {
+      distanceLabel: 'About 5.6 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Kay Wood Road Access, then drive back to Upper Wolf Creek Ramp. Upper Wolf Creek is the more developed paved-ramp put-in, while Kay Wood is a simpler carry-down finish.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Upper Wolf Creek or Kay Wood, and banks outside the named access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Upper Wolf Creek Ramp and take out about 5.6 miles downstream at Kay Wood Road Access for a short lower South Fork Kentucky River split. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Upper Wolf Creek is a free single-lane paved ramp with unpaved parking and year-round 24-hour availability.',
+        'Kay Wood is a carry-down-only access with roadside-style unpaved parking and no amenities.',
+        'The current Booneville gauge reading was just above the official good band during this run, so expect slightly quicker current and muddier landings than a clean mid-band day.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and the lower carry-down finish becomes less forgiving.',
+        'Wood, strainers, mud banks, occasional riffles, and private banks outside the access sites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'upper-wolf-creek-ramp',
+        name: 'Upper Wolf Creek Ramp',
+        latitude: 37.3964,
+        longitude: -83.6767,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this short lower-ramp split.',
+      },
+      {
+        id: 'kay-wood-road-access',
+        name: 'Kay Wood Road Access',
+        latitude: 37.4594,
+        longitude: -83.6509,
+        mileFromStart: 5.6,
         segmentKind: 'creek',
         note: 'Default take-out for this route.',
       },

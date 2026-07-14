@@ -29740,6 +29740,144 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'eleven-point-river-greer-crossing-narrows',
+    slug: 'eleven-point-river-greer-crossing-narrows',
+    name: 'Eleven Point River',
+    reach: 'Greer Crossing Recreation Area to Highway 142 River Access',
+    aliases: [
+      'Eleven Point River - Greer to Narrows',
+      'Lower Eleven Point - Greer Crossing to Highway 142',
+      'Eleven Point River - Greer Spring to The Narrows',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Long lower Eleven Point continuation from Greer Crossing to the Highway 142 / Narrows access, linking the Forest Service 19-mile Greer-to-Riverton day with the last developed access farther downstream.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge as a conservative low-water check. Around 300 cfs remains the floor, but this is a long 27-plus-mile cold-water continuation, so low water, wind, fatigue, or wood can turn it into an overnight-capable commitment. No exact high-water cutoff is claimed.',
+    latitude: 36.79356389,
+    longitude: -91.32854167,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['cold_water', 'fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'This route adds the full lower corridor below Greer Spring, so distance, fatigue, and take-out discipline matter more than on the shorter split routes.',
+        'The run includes Mary Decker Shoal, fresh wood after rain, blind bends, Halls Bay, and the widening lower valley below Riverton before the last scenic-river access.',
+        'Treat this as an overnight-capable continuation rather than a casual day. Highway 142 / The Narrows is the last scenic-river access above Arkansas, so missing it materially changes the route.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and adjacent Greer-to-Narrows trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Greer Spring more than doubles the river volume just above the put-in, and the lower Eleven Point is often more dependable than the upper river, but the Forest Service still warns that the corridor can rise rapidly after storms. Use the app as a conservative low-water check and plan extra margin for distance.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is mostly Class I spring-fed Ozark water, but the 27-mile-plus continuation adds commitment. Expect shoals, cold water, wind exposure, wood, Halls Bay, and limited developed exits below Riverton.',
+      confidenceNotes:
+        'Confidence is good for a conservative long Eleven Point add: the Forest Service explicitly lists Greer to Riverton as a 19-mile float, the Highway 142 page says The Narrows is 8.7 miles downriver of Riverton, Greer Crossing and Highway 142 still show Site Open with published coordinates and access details, same-day USGS 07071500 returned 473 cfs and 2.58 ft at 2026-07-13 22:30 CDT, and current Rivers.MOHERP Bardley rows still support the familiar 300 cfs minimum-only floor through exact adjacent lower-Eleven routes. The app keeps the threshold model conservative because the numeric support remains community-calibrated rather than a manager-published paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Greer to Highway 142, about 27.7 miles',
+        note: 'The Forest Service Greer Crossing page lists Greer to Riverton as a 19-mile float, and the Highway 142 page says The Narrows is 8.7 miles downriver of Riverton, supporting a combined Greer-to-Highway-142 continuation of about 27.7 miles.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/highway-142-river-access',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Greer Crossing Recreation Area',
+        note: 'The current Forest Service Greer Crossing page marks the site open with a campground, boat launch, parking, and coordinates 36.79356389, -91.32854167.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Highway 142 River Access / The Narrows',
+        note: 'The current Forest Service Highway 142 page marks the access open and developed, with a single-lane concrete boat ramp, paved parking, vault toilet, day-use rules, and coordinates 36.550194, -91.191532.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/highway-142-river-access',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07071500 at 473 cfs / 2.58 ft',
+        note: 'Same-day USGS Water Services returned 473 cfs and 2.58 ft at 2026-07-13 22:30 CDT for Eleven Point River near Bardley, the direct same-river gauge already used by adjacent lower Eleven Point routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Bardley gauge Good beginning at 300 cfs, and the exact adjacent lower-Eleven routes support keeping that same conservative floor for this longer combined route. The app does not infer an ideal range or upper cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Cold-water continuation to last scenic-river access',
+        note: 'Forest Service pages say Greer to Riverton is an excellent easy overnighter and identify Highway 142 / The Narrows as the last access on the southern end of the Eleven Point National Scenic River Area.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Greer Crossing Recreation Area',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Riverton East River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-east-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Highway 142 River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/highway-142-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/groups/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'eleven-point-river-turner-mill-south-whitten',
     slug: 'eleven-point-river-turner-mill-south-whitten',
     name: 'Eleven Point River',
@@ -52676,6 +52814,128 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'south-fork-kentucky-river-cedar-valley-bishop-bend',
+    slug: 'south-fork-kentucky-river-cedar-valley-bishop-bend',
+    name: 'South Fork Kentucky River',
+    reach: 'Cedar Valley Road Access to Bishop Bend School Road Access',
+    aliases: [
+      'South Fork Kentucky River - Cedar Valley to Bishop Bend',
+      'South Fork Kentucky River short middle split',
+      'KDFWR South Fork Kentucky River access chain',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Short middle South Fork Kentucky River split from Cedar Valley Road Access to Bishop Bend School Road Access. Current KDFWR guidance still supports this exact public float, and the Booneville gauge sat just above the official good band during this run.',
+    statusText:
+      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Same-day USGS values during this run were 918 cfs and 6.02 ft, just above the official good band, so expect slightly faster current and muddier landings than a clean mid-band day.',
+    latitude: 37.3363,
+    longitude: -83.656,
+    gaugeSource: {
+      id: 'usgs-03281500',
+      provider: 'usgs',
+      siteId: '03281500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Kentucky River at Booneville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 900,
+      tooLow: 350,
+      tooHigh: 900,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This short middle split works best from spring through fall when the Booneville gauge trend is stable. Lower summer flows expose more shoals and dragging, while rain can quickly muddy the simple carry-down landings.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR describes the South Fork as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles. This shorter split is approachable for competent moving-water paddlers, but the route is less forgiving when the gauge edges above the official good band.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: current KDFWR guidance still documents Cedar Valley Road Access to Bishop Bend School Road Access as a 4.7-mile site-to-site float. KDFWR still publishes exact public endpoint coordinates and official Booneville low/good/high bands tied to direct USGS gauge 03281500, and USGS Water Services returned same-day July 13, 2026 discharge and stage during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '350-900 cfs / 4.8-6.0 ft',
+        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Exact public route segment',
+        value: 'Cedar Valley Road Access to Bishop Bend School Road Access, 4.7 miles',
+        note: 'KDFWR lists Cedar Valley Road Access to Bishop Bend School Road Access as a 4.7-mile site-to-site float on the South Fork public access chain.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Cedar Valley Road Access, 37.3363, -83.6560',
+        note: 'KDFWR identifies Cedar Valley Road Access as a gravel-and-dirt canoe and kayak access with limited parking and no camping.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1125',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Bishop Bend School Road Access, 37.3377, -83.6882',
+        note: 'KDFWR identifies Bishop Bend School Road Access as a carry-down-only access with a small dirt parking area and no camping.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1123',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03281500 at 918 cfs / 6.02 ft',
+        note: 'USGS Water Services returned same-day values of 918 cfs and 6.02 ft at 2026-07-13 23:30 EDT for South Fork Kentucky River at Booneville during this run, just above the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route character',
+        value: 'Broad river, rock bars, occasional riffles',
+        note: 'KDFWR describes the South Fork Kentucky River as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR South Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR South Fork Kentucky River access guide',
+        url: 'https://fw.ky.gov/Fish/Documents/South%20Fork%20of%20Kentucky%20River.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cedar Valley Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1125',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Bishop Bend School Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1123',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03281500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'south-fork-kentucky-river-oneida-upper-wolf-creek',
     slug: 'south-fork-kentucky-river-oneida-upper-wolf-creek',
     name: 'South Fork Kentucky River',
@@ -53510,6 +53770,128 @@ export const rivers: River[] = [
       {
         label: 'KDFWR Bishop Bend School Road Access',
         url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1123',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Kay Wood Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03281500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'south-fork-kentucky-river-upper-wolf-creek-kay-wood',
+    slug: 'south-fork-kentucky-river-upper-wolf-creek-kay-wood',
+    name: 'South Fork Kentucky River',
+    reach: 'Upper Wolf Creek Ramp to Kay Wood Road Access',
+    aliases: [
+      'South Fork Kentucky River - Upper Wolf Creek to Kay Wood',
+      'South Fork Kentucky River lower-ramp split',
+      'KDFWR South Fork Kentucky River access chain',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Lower South Fork Kentucky River split from Upper Wolf Creek Ramp to Kay Wood Road Access. Current KDFWR guidance still supports this exact public float, and the Booneville gauge sat just above the official good band during this run.',
+    statusText:
+      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Same-day USGS values during this run were 918 cfs and 6.02 ft, just above the official good band, so expect slightly faster current and muddier landings than a clean mid-band day.',
+    latitude: 37.3964,
+    longitude: -83.6767,
+    gaugeSource: {
+      id: 'usgs-03281500',
+      provider: 'usgs',
+      siteId: '03281500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Kentucky River at Booneville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 900,
+      tooLow: 350,
+      tooHigh: 900,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This lower-ramp split is most useful from spring through fall when the Booneville gauge trend is stable. Lower water exposes more scrape-prone bars, while rain can quickly muddy the lower carry-down finish and speed up the current.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR describes the South Fork as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles. This route is short and approachable, but the lower carry-down take-out is less forgiving when the gauge edges above the official good band.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: current KDFWR guidance still documents Upper Wolf Creek Ramp to Kay Wood Road Access as a 5.6-mile site-to-site float. KDFWR still publishes exact public endpoint coordinates and official Booneville low/good/high bands tied to direct USGS gauge 03281500, and USGS Water Services returned same-day July 13, 2026 discharge and stage during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '350-900 cfs / 4.8-6.0 ft',
+        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Exact public route segment',
+        value: 'Upper Wolf Creek Ramp to Kay Wood Road Access, 5.6 miles',
+        note: 'KDFWR lists Upper Wolf Creek Ramp to Kay Wood Road Access as a 5.6-mile site-to-site float on the South Fork public access chain.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Upper Wolf Creek Ramp, 37.3964, -83.6767',
+        note: 'KDFWR identifies Upper Wolf Creek Ramp as a single-lane paved ramp with year-round 24-hour availability and no camping.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1073',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Kay Wood Road Access, 37.4594, -83.6509',
+        note: 'KDFWR identifies Kay Wood Road Access as a carry-down-only access with unpaved parking and no camping.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03281500 at 918 cfs / 6.02 ft',
+        note: 'USGS Water Services returned same-day values of 918 cfs and 6.02 ft at 2026-07-13 23:30 EDT for South Fork Kentucky River at Booneville during this run, just above the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route character',
+        value: 'Broad river, rock bars, occasional riffles',
+        note: 'KDFWR describes the South Fork Kentucky River as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR South Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR South Fork Kentucky River access guide',
+        url: 'https://fw.ky.gov/Fish/Documents/South%20Fork%20of%20Kentucky%20River.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Upper Wolf Creek Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1073',
         provider: 'local',
       },
       {
