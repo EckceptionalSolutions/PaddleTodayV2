@@ -1,5 +1,12 @@
 # Midwest Route Automation Memory
 
+- 2026-07-13 19:36 America/Chicago / 2026-07-14 00:36 UTC: Minnesota three-route implementation pass (`minnesota-route-additions-2`).
+  - Added three Minnesota slugs beyond the 64-route Minnesota baseline at run start: `mississippi-river-royalton-stearns-county-park`, `vermilion-river-twomile-eightmile`, and `red-river-highway-25-halstad`.
+  - Qualification path: current MN DNR state-water-trail pages document Royalton Sportsman's Club to Stearns County Park `11.4` miles, Twomile Creek to Eightmile Creek `7` miles, and County Road 25 to Halstad `11.2` miles; Minnesota public-water-access GIS resolves all six public endpoints with coordinates and access IDs; and the current MN DNR river-level feed exposes official interpreted bands for Mississippi Royalton site `149`, Vermilion Buyck site `342`, and Red River Halstad site `186`.
+  - Implemented conservative gauge models: Royalton uses the direct Royalton gauge with `ideal 3000-9000 cfs`, `tooLow 2000`, `tooHigh 12000`; Vermilion uses the downstream Buyck proxy with `ideal 200-1300 cfs`, `tooLow 70`, `tooHigh 1600`; Red River uses the direct Halstad corridor gauge with `ideal 12-18 ft`, `tooLow 6`, `tooHigh 25`.
+  - Added camping and safety/logistics notes: Royalton has Seven Islands campsite support but keeps private-island and low-water riffle caveats; Vermilion is the quiet no-rapids reach only with a mandatory Eightmile Creek exit before downstream whitewater; Red River is a slow border-river day with flooding, mud, snags, and two-state rule caveats.
+  - No route-gallery assets were added; bounded image-audit rows record no clearly rights-clean exact-route image for all three slugs.
+
 - 2026-07-13 13:40 America/Chicago / 2026-07-13 18:40 UTC: Minnesota three-route implementation pass (`minnesota-route-additions-2`).
   - Added three Minnesota slugs beyond the 61-route Minnesota baseline at run start: `otter-tail-river-phelps-mill-west-red-river-lake`, `st-louis-river-paupores-brookston`, and `mississippi-river-steamboat-blackberry-bridge`.
   - Qualification path: current MN DNR state-water-trail pages document Phelps Mill to West Red River Lake `11.8` miles, Paupores to Brookston `7.9` miles, and Steamboat Landing to Blackberry Bridge `8` miles; Minnesota public-water-access GIS resolves all six public endpoints with coordinates and access IDs; and the current MN DNR river-level feed exposes official interpreted bands for Otter Tail Elizabeth site `159`, St. Louis Floodwood site `338`, and Mississippi Grand Rapids site `124`.

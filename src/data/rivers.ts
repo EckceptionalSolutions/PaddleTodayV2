@@ -51972,5 +51972,362 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'mississippi-river-royalton-stearns-county-park',
+    slug: 'mississippi-river-royalton-stearns-county-park',
+    name: 'Mississippi River',
+    reach: "Royalton Sportsman's Club to Stearns County Park",
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Official MN DNR central-Mississippi day trip from the Royalton Sportsman\'s Club access to Mississippi River County Park. The route has a direct interpreted DNR gauge at Royalton, public access records at both ends, and a campsite/picnic option, but low-water riffles, private islands, and downstream dams still need attention.',
+    statusText:
+      'Use the Royalton DNR gauge: 3,000 to 9,000 cfs is the official medium band. Below 2,000 cfs is scrapable, and above 12,000 cfs is very high.',
+    latitude: 45.8297201,
+    longitude: -94.3506845,
+    gaugeSource: {
+      id: 'mn-dnr-149',
+      provider: 'mn_dnr',
+      siteId: '149',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'direct',
+      siteName: 'Mississippi River nr Royalton, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=15001002',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=15001002&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05267000',
+        provider: 'usgs',
+        siteId: '05267000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Mississippi River near Royalton, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3000,
+      idealMax: 9000,
+      tooLow: 2000,
+      tooHigh: 12000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River near Royalton',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the usual window. The route stays on a broad mainstem corridor, so wind, low-water riffles, and recent rain should be checked along with the gauge.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR frames this as a recommended day trip through islands, woods, and farmland. It is not whitewater, but 11.4 miles, rocky low-water riffles, and private-island navigation make it more than a blind float.',
+      confidenceNotes:
+        'Confidence is high: MN DNR recommends the exact Royalton Sportsman\'s Club to Stearns County Park trip, the Royalton DNR gauge sits at the put-in river mile with official interpretation bands, and Minnesota public-water-access GIS resolves both endpoints. The app still calls out Little Falls and Blanchard dams as outside-route hazards in the broader corridor.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Stay within the selected downstream day route; DNR notes dams at Little Falls and Blanchard in the broader Royalton corridor.',
+        'Low water exposes rocky riffles and can slow island-channel decisions.',
+        'Some islands and shorelines are private. Use the named accesses, Seven Islands Campsite if available, and legal public stops only.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '11.4 river miles',
+        note: 'MN DNR recommends Royalton Sportsman\'s Club at river mile 953.6 to Stearns County Park at river mile 942.2 as the Map 7 day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS00463 and WAS01283',
+        note: 'Minnesota public-water-access GIS resolves Royalton Sportsman\'s Club and Mississippi River County Park / Stearns County Park with matching river-mile records and trailer access.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '2,000 / 3,000-9,000 / 12,000 cfs',
+        note: 'MN DNR interprets the Royalton gauge as Scrapable below 2,000 cfs, Low from 2,000 to 3,000, Medium from 3,000 to 9,000, High from 9,000 to 12,000, and Very High above 12,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Route character',
+        value: 'Islands, wooded shoreline, farmland',
+        note: 'DNR says this route passes numerous islands, wooded shorelines, farmland, Michaelson Farm Wildlife Management Area, and rocky riffles during low water.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'Camping and rest stop',
+        value: 'Seven Islands Campsite if unoccupied',
+        note: 'DNR identifies Seven Islands Campsite as a possible overnight or picnic stop on the route and also notes a private campground halfway through the trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Mississippi River Map 7 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi7.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'USGS 05267000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/05267000/',
+      },
+    ],
+  },
+  {
+    id: 'vermilion-river-twomile-eightmile',
+    slug: 'vermilion-river-twomile-eightmile',
+    name: 'Vermilion River',
+    reach: 'Twomile Creek to Eightmile Creek',
+    state: 'Minnesota',
+    region: 'Northeastern Minnesota',
+    summary:
+      'Official MN DNR Vermilion River day trip through a wide, quiet Chain of Lakes stretch with carry-in accesses at Twomile and Eightmile creeks. The broader river is advanced and rapid-heavy, but this selected reach avoids rapids when paddlers exit at Eightmile Creek.',
+    statusText:
+      'Use the Buyck DNR gauge conservatively: 200 to 1,300 cfs is the official medium band. Below 70 cfs is scrapable, and above 1,600 cfs is very high.',
+    latitude: 47.9885552,
+    longitude: -92.4675615,
+    gaugeSource: {
+      id: 'mn-dnr-342',
+      provider: 'mn_dnr',
+      siteId: '342',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'Vermilion River at Buyck, CSAH 24',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=73017001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=73017001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 1300,
+      tooLow: 70,
+      tooHigh: 1600,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Vermilion River at Buyck',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'low',
+      windSensitivity: 1.2,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'DNR says the Vermilion rises and falls slowly because much of its flow comes from Lake Vermilion, and it is usually canoeable well into autumn. Wind and remoteness can still matter on the quiet wide-water sections.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'DNR describes this exact reach as wide, easy, and without rapids, but the approach and exit require creek paddling, remote judgment, and a firm stop before Table Rock Falls and downstream rapid country.',
+      confidenceNotes:
+        'Confidence is good: MN DNR recommends the exact Twomile Creek to Eightmile Creek trip, public-water-access GIS resolves both carry-in endpoints, and the Buyck interpreted gauge is a downstream same-river indicator with official bands. The proxy is conservative because the gauge is below the route rather than inside the exact reach.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'mandatory_takeout', 'remote', 'strainers', 'cold_water'],
+      safetyNotes: [
+        'Take out by paddling up Eightmile Creek. Do not continue downstream toward Table Rock Falls unless you have a separate expert whitewater plan.',
+        'The wider quiet reach can be wind-affected and remote; carry navigation, daylight, and self-rescue margin.',
+        'The broader Vermilion includes a dam and Class I-VI rapids with long portages. This route is only the no-rapids Twomile-to-Eightmile day section.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '7 river miles',
+        note: 'MN DNR recommends Twomile Creek access at river mile 37.8 to Eightmile Creek access at river mile 32 as a wide, easy stretch with no rapids.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/vermilion-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS02075 and WAS00377',
+        note: 'Minnesota public-water-access GIS resolves Two Mile Creek and Vermilion River, 8 Mile Creek as DNR-administered carry-in access sites.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '70 / 200-1,300 / 1,600 cfs',
+        note: 'MN DNR interprets the Buyck gauge as Scrapable below 70 cfs, Low from 70 to 200, Medium from 200 to 1,300, High from 1,300 to 1,600, and Very High above 1,600.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Route shape',
+        value: 'Twomile Creek, six Vermilion miles, then Eightmile Creek',
+        note: 'DNR instructs paddlers to start by paddling down Twomile Creek, continue about six miles on the Vermilion River, then paddle up Eightmile Creek on river left to the take-out.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/vermilion-river/segments-maps.html',
+      },
+      {
+        label: 'Hazard boundary',
+        value: 'Rapids outside the selected reach',
+        note: 'DNR warns that the Vermilion has a dam, Class I-VI rapids, and long portages; the route copy therefore treats Eightmile Creek as a mandatory take-out for non-whitewater users.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/vermilion-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Vermilion River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/vermilion-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Vermilion River map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/vermilion.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'red-river-highway-25-halstad',
+    slug: 'red-river-highway-25-halstad',
+    name: 'Red River of the North',
+    reach: 'County Road 25 to Halstad',
+    state: 'Minnesota',
+    region: 'Red River Valley',
+    summary:
+      'Official MN DNR Red River day trip from the County Road 25 / Hendrum access to Halstad Landing. It is a slow meandering border-river route with direct interpreted DNR gauge support at Halstad, but low water, muddy landings, snags, floods, and cross-state rules still matter.',
+    statusText:
+      'Use the Halstad DNR gauge: 12 to 18 ft is the official medium band. Below 6 ft is scrapable, and above 25 ft is very high.',
+    latitude: 47.2669747,
+    longitude: -96.8338196,
+    gaugeSource: {
+      id: 'mn-dnr-186',
+      provider: 'mn_dnr',
+      siteId: '186',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'direct',
+      siteName: 'Red River of the North at Halstad, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=59002001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=59002001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 12,
+      idealMax: 18,
+      tooLow: 6,
+      tooHigh: 25,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Red River of the North at Halstad',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring, summer, and fall can all flood on the Red River. Use the gauge, forecast, and local landing conditions together because muddy banks and snags can make a nominally easy level awkward.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The current is usually slow and meandering, but the 11.2-mile distance, muddy banks, possible snags, flood-prone water, and border-river rules justify a caution posture.',
+      confidenceNotes:
+        'Confidence is high: MN DNR recommends the exact County Road 25 to Halstad trip, Minnesota public-water-access GIS resolves the Hendrum/County Road 25 and Halstad landings, and the Halstad interpreted gauge is at the take-out corridor with official bands.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'Do not launch during flood or rising-water conditions; DNR warns the Red can flood during spring, summer, and fall.',
+        'Low water may be unsuitable for boating, and steep muddy banks can make landings harder than the mileage suggests.',
+        'The river touches Minnesota and North Dakota. Check applicable boating, fishing, and access rules before the trip.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '11.2 river miles',
+        note: 'MN DNR recommends County Road 25 trailer access at river mile 392.7 to Halstad trailer access at river mile 381.5 as the Map 3 day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/red-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS00548 and WAS00536',
+        note: 'Minnesota public-water-access GIS resolves the County Road 25 route start as Red River, Hendrum Public Water Access Site and the finish as Red River, Halstad Landing.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '6 / 12-18 / 25 ft',
+        note: 'MN DNR interprets the Halstad gauge as Scrapable below 6 ft, Low from 6 to 12, Medium from 12 to 18, High from 18 to 25, and Very High above 25.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Route character',
+        value: 'Slow wooded bends and farm fields',
+        note: 'DNR says this route follows slow twists and turns around wooded shoreline with farms and fields beyond and passes the Wild Rice River about halfway through the trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/red-river/segments-maps.html',
+      },
+      {
+        label: 'Safety caveats',
+        value: 'Fluctuating levels, flooding, snags, two-state rules',
+        note: 'DNR warns that Red River levels fluctuate widely, low water may be unsuitable, snags are common, flooding can occur, and the river touches two states with different regulations.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/red-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Red River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/red-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Red River Map 3 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/redriver3.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
 ];
 

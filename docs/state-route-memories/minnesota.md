@@ -1,18 +1,25 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-13 13:40 America/Chicago.
+Last summarized: 2026-07-13 19:36 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 64.
-- Top represented rivers: Little Fork River 8, Big Fork River 5, Mississippi River 5, Minnesota River 4, Root River 4, North Fork Crow River 3, Snake River 3, Zumbro River 3.
-- Ledger candidates: 78 total; 47 `added`, 18 `threshold_weak`, 8 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`, 1 `rejected`.
+- Live routes: 67.
+- Top represented rivers: Little Fork River 8, Mississippi River 6, Big Fork River 5, Minnesota River 4, Root River 4, North Fork Crow River 3, Snake River 3, Zumbro River 3.
+- Ledger candidates: 78 total; 50 `added`, 16 `threshold_weak`, 8 `no_live_gauge`, 2 `duplicate_corridor`, 1 `research_later`, 1 `rejected`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-13 19:36 America/Chicago: added `mississippi-river-royalton-stearns-county-park`, `vermilion-river-twomile-eightmile`, and `red-river-highway-25-halstad`.
+- Baseline at run start was 64 live Minnesota routes; patched route data now imports 67 Minnesota routes with no missing trip-detail entries found during the count check.
+- Stayed in Minnesota and promoted three previously blocked official DNR day trips because the current MN DNR river-level feed exposes official interpreted gauge ladders: Mississippi Royalton site `149` at `2000 / 3000-9000 / 12000 cfs`, Vermilion Buyck site `342` at `70 / 200-1300 / 1600 cfs`, and Red River Halstad site `186` at `6 / 12-18 / 25 ft`.
+- Minnesota public-water-access GIS resolves all six endpoints: Royalton Sportsman's Club `WAS00463`, Mississippi River County Park / Stearns County Park `WAS01283`, Two Mile Creek `WAS02075`, Vermilion River 8 Mile Creek `WAS00377`, Hendrum / County Road 25 `WAS00548`, and Halstad `WAS00536`.
+- `mississippi-river-royalton-stearns-county-park` ships as an easy central-Mississippi day with Seven Islands campsite support, low-water riffle caveats, private-island cautions, and broader-corridor dam warnings; `vermilion-river-twomile-eightmile` ships as the quiet no-rapids Vermilion reach with mandatory Eightmile Creek exit caveats before downstream whitewater; `red-river-highway-25-halstad` ships as a slow border-river day with flooding, low-water mud, snags, and two-state regulation caveats.
+- No route-gallery images were added; `docs/river-image-source-audit.csv` records bounded no-image outcomes for all three slugs.
 
 - 2026-07-13 13:40 America/Chicago: added `otter-tail-river-phelps-mill-west-red-river-lake`, `st-louis-river-paupores-brookston`, and `mississippi-river-steamboat-blackberry-bridge`.
 - Baseline at run start was 61 live Minnesota routes; patched route data now imports 64 Minnesota routes with no missing trip-detail entries found during the baseline check.

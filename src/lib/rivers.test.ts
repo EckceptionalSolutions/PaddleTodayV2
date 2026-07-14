@@ -62,6 +62,7 @@ describe('getAllRiverScores', () => {
     ]);
     expect(vermilionGroups.map((group) => group.riverId).sort()).toEqual([
       'vermilion-river-illinois',
+      'vermilion-river-minnesota',
       'vermilion-river-ohio',
     ]);
     expect(stCroixGroup?.routeCount).toBe(3);

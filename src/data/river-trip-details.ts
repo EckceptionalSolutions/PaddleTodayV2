@@ -19872,5 +19872,110 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'mississippi-river-royalton-stearns-county-park': {
+    putIn: {
+      name: "Mississippi River, Royalton Sportsman's Club Public Water Access Site",
+      latitude: 45.8297201,
+      longitude: -94.3506845,
+    },
+    takeOut: {
+      name: 'Mississippi River County Park / Stearns County Park Public Water Access Site',
+      latitude: 45.7265772,
+      longitude: -94.2228602,
+    },
+    logistics: {
+      distanceLabel: '11.4 mi',
+      estimatedPaddleTime: 'About 3 hr 45 min to 5 hr 30 min depending on level, wind, and stops',
+      shuttle:
+        'Stage the take-out at Mississippi River County Park / Stearns County Park first, then drive upstream to the Royalton Sportsman\'s Club access. The put-in is club-administered and may require a fee.',
+      permits:
+        'No route-specific paddling permit is known. Follow Royalton Sportsman\'s Club access rules, Stearns County park rules, Minnesota boating requirements, and any posted fee or parking instructions.',
+      camping:
+        'DNR identifies Seven Islands Campsite as a possible overnight or picnic stop if unoccupied, and notes a private campground halfway through the route. Treat camping as first-come or separately arranged rather than guaranteed.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at the Royalton Sportsman\'s Club and take out at Mississippi River County Park for MN DNR\'s 11.4-mile central-Mississippi day trip. The Royalton gauge is direct and officially interpreted, but the route still needs a same-day low-water and private-bank check.',
+      accessCaveats: [
+        'Royalton Sportsman\'s Club is a public-water-access record administered by the club; confirm fee and parking conditions before staging.',
+        'Mississippi River County Park / Stearns County Park is a Stearns County public access with restroom support in the DNR GIS record.',
+        'This route is downstream of the Little Falls and Blanchard dam corridor, but DNR still flags those broader-corridor dams. Do not extend into dam approaches without a separate plan.',
+      ],
+      watchFor: [
+        'Rocky riffles and channel picking when the Royalton gauge is in the low band.',
+        'Private islands and shorelines; use only legal public stops or the DNR-noted campsite when available.',
+        'Wind on open bends, floating wood after storms, anglers, and changing island channels.',
+      ],
+    },
+  },
+  'vermilion-river-twomile-eightmile': {
+    putIn: {
+      name: 'Two Mile Creek Public Water Access Site',
+      latitude: 47.9885552,
+      longitude: -92.4675615,
+    },
+    takeOut: {
+      name: 'Vermilion River, 8 Mile Creek Public Water Access Site',
+      latitude: 48.0546146,
+      longitude: -92.4809237,
+    },
+    logistics: {
+      distanceLabel: '7 mi',
+      estimatedPaddleTime: 'About 2 hr 30 min to 4 hr depending on wind, creek current, and level',
+      shuttle:
+        'Stage the take-out at the Eightmile Creek carry-in before driving to Twomile Creek. Both endpoints are remote DNR carry-in accesses, so confirm the road approach, parking space, and daylight before launch.',
+      permits:
+        'No route-specific paddling permit is known. Follow DNR public-access rules, Kabetogama State Forest rules, Superior National Forest rules where applicable, and Minnesota boating/PFD requirements.',
+      camping:
+        'DNR notes camping opportunities in Kabetogama State Forest and Superior National Forest, but this selected day route should not assume an on-route campsite unless a legal site is independently confirmed.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch from Twomile Creek, paddle downstream to the Vermilion River, continue through the wide quiet Chain of Lakes reach, and take out by paddling up Eightmile Creek. Exit here; the broader Vermilion has major rapids and long portages outside this route.',
+      accessCaveats: [
+        'Two Mile Creek and 8 Mile Creek are DNR-administered carry-in sites, not full trailer ramps.',
+        'The Buyck gauge is downstream of the selected reach, so use it as a conservative corridor check and still make a visual call at the creeks.',
+        'The take-out requires identifying Eightmile Creek on river left and paddling upstream to the access.',
+      ],
+      watchFor: [
+        'Missing the Eightmile Creek exit and drifting toward Table Rock Falls and downstream whitewater.',
+        'Wind and slow progress on wider quiet water.',
+        'Remote cold-water exposure, fresh wood, boggy landings, and limited quick exits.',
+      ],
+    },
+  },
+  'red-river-highway-25-halstad': {
+    putIn: {
+      name: 'Red River, Hendrum / County Road 25 Public Water Access Site',
+      latitude: 47.2669747,
+      longitude: -96.8338196,
+    },
+    takeOut: {
+      name: 'Red River, Halstad Landing Public Water Access Site',
+      latitude: 47.3532666,
+      longitude: -96.8401799,
+    },
+    logistics: {
+      distanceLabel: '11.2 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6.5 hr depending on level, wind, and muddy landings',
+      shuttle:
+        'Stage the take-out at Halstad Landing, then drive upstream to the County Road 25 / Hendrum access. Expect a rural shuttle and check both ramps because mud or high-water cleanup can change usability.',
+      permits:
+        'No route-specific paddling permit is known. The Red River borders Minnesota and North Dakota, so check current boating, fishing, access, and PFD rules for both states before the trip.',
+      camping:
+        'Treat this as a day trip. DNR does not document an on-route watercraft campsite for this reach; use separate legal campgrounds or parks only after checking current rules.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the County Road 25 / Hendrum access and take out at Halstad for MN DNR\'s 11.2-mile Red River day trip. The Halstad gauge is direct and officially interpreted, but flooding, low water, mud, and snags drive the same-day decision.',
+      accessCaveats: [
+        'The DNR route page calls the put-in County Road 25 trailer access; the public-water-access GIS record names the same river mile as Red River, Hendrum Public Water Access Site.',
+        'Halstad Landing is city-administered with trailer access and no restroom in the DNR GIS record.',
+        'Steep muddy banks and two-state regulations can complicate unplanned stops, even on a slow-current day.',
+      ],
+      watchFor: [
+        'Flooding or rising water during spring, summer, or fall.',
+        'Low water that may not be suitable for boating and can leave muddy, awkward landings.',
+        'Snags, floating wood, broad bends, wind, anglers, and private banks along the border river.',
+      ],
+    },
+  },
 };
 
