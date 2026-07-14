@@ -7358,6 +7358,367 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'minnesota-river-henderson-station-thompson-ferry',
+    slug: 'minnesota-river-henderson-station-thompson-ferry',
+    name: 'Minnesota River',
+    reach: 'Henderson Station to Thompson Ferry',
+    state: 'Minnesota',
+    region: 'Lower Minnesota Valley',
+    summary:
+      'Full lower Minnesota River continuation from Henderson Station to Thompson Ferry, combining the upstream Henderson corridor with the official Jordan-gauge section north of Jordan. It is straightforward at normal levels, but the mileage and exposure make it a serious day.',
+    statusText:
+      'The Jordan gauge is best from 9.0 to 12.0 ft. Below 4.0 ft, expect a slower, draggy day; above 16.0 ft is too high for a general recommendation.',
+    latitude: 44.5244176,
+    longitude: -93.8862799,
+    gaugeSource: {
+      id: 'mn-dnr-112',
+      provider: 'mn_dnr',
+      siteId: '112',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Minnesota River near Jordan, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=33145001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=33145001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05330000',
+        provider: 'usgs',
+        siteId: '05330000',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'proxy',
+        siteName: 'Minnesota River near Jordan, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 9,
+      idealMax: 12,
+      tooLow: 4,
+      tooHigh: 16,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Minnesota River near Jordan',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.2,
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the practical window. This is a long open lower-river day, so wind, pace, and landing conditions matter almost as much as the gauge.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The water is usually nontechnical, but nearly 28 miles on the lower Minnesota River is a high-commitment day with broad bends, wind exposure, and muddy landings.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: MN DNR Map 6 places Henderson Station at river mile 68.1 and Thompson Ferry at river mile 40.2, both endpoints resolve in the Minnesota public-water-access layer, and the Jordan gauge has official DNR interpretation bands for the downstream half of the route.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '4.0 / 9.0-12.0 / 16.0 ft',
+        note: 'MN DNR interprets the Jordan gauge as Scrapable below 4.0 ft, Low from 4.0 to 9.0, Medium from 9.0 to 12.0, High from 12.0 to 16.0, and Very High above 16.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current live gauge',
+        value: 'Jordan at 10.42 ft',
+        note: 'The current MN DNR river-level sites feed showed Minnesota River near Jordan at 10.42 ft at 7:45 AM on July 14, 2026, squarely inside the official medium band.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Official route shape',
+        value: '27.9 river miles',
+        note: 'MN DNR Map 6 lists Henderson Station carry-in access at river mile 68.1 and Thompson Ferry access at river mile 40.2, supporting a 27.9-mile lower Minnesota continuation.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota6.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Henderson Station and Thompson Ferry named in DNR access data',
+        note: 'Minnesota public-water-access data identifies Henderson Station Public Water Access and Thompson Ferry Public Water Access as official lower Minnesota launch sites.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Put-in support',
+        value: 'County river-access park at Henderson Station',
+        note: 'Le Sueur County confirms Henderson Station River Access & Park has parking along the gravel entrance road and a walk-in launch point for canoes and kayaks into the Minnesota River.',
+        sourceUrl: 'https://www.lesueurcounty.gov/Facilities/Facility/Details/Henderson-Station-River-Access-Park-6',
+      },
+      {
+        label: 'Primary cautions',
+        value: 'Long day, wind, private shoreland',
+        note: 'MN DNR Map 6 tells paddlers to expect 2 to 3 river miles per hour, respect private shoreland, and not underestimate wind, waves, or obstacles on this lower corridor.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota6.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Minnesota River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/minnesotariver/index.html',
+      },
+      {
+        label: 'MN DNR Minnesota River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/minnesotariver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Minnesota River map 6 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota6.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Le Sueur County Henderson Station River Access & Park',
+        url: 'https://www.lesueurcounty.gov/Facilities/Facility/Details/Henderson-Station-River-Access-Park-6',
+      },
+      {
+        label: 'USGS 05330000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05330000/',
+      },
+    ],
+  },
+  {
+    id: 'minnesota-river-belle-plaine-thompson-ferry',
+    slug: 'minnesota-river-belle-plaine-thompson-ferry',
+    name: 'Minnesota River',
+    reach: 'Belle Plaine to Thompson Ferry',
+    state: 'Minnesota',
+    region: 'Lower Minnesota Valley',
+    summary:
+      'Compact lower Minnesota River continuation from Belle Plaine to Thompson Ferry. It keeps the same official Jordan-gauge ladder as the neighboring lower-corridor routes while trimming the commitment down to a half-day to moderate full-day shuttle.',
+    statusText:
+      'The Jordan gauge is best from 9.0 to 12.0 ft. Below 4.0 ft, expect a slower, draggy day; above 16.0 ft is too high for a general recommendation.',
+    latitude: 44.6340972,
+    longitude: -93.7653127,
+    gaugeSource: {
+      id: 'mn-dnr-112',
+      provider: 'mn_dnr',
+      siteId: '112',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Minnesota River near Jordan, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=33145001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=33145001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05330000',
+        provider: 'usgs',
+        siteId: '05330000',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'proxy',
+        siteName: 'Minnesota River near Jordan, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 9,
+      idealMax: 12,
+      tooLow: 4,
+      tooHigh: 16,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Minnesota River near Jordan',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the practical window. Even on a shorter route, lower-river wind and mud still matter more than the mileage alone suggests.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The water is usually straightforward, but this is still a broad lower-river route where headwinds, soft banks, and slow current can stretch the day.',
+      confidenceNotes:
+        'Confidence is good: MN DNR Map 6 places Belle Plaine at river mile 50.7 and Thompson Ferry at river mile 40.2, both endpoints resolve in the Minnesota public-water-access layer, and the same Jordan gauge model already supports adjacent live lower Minnesota routes.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '4.0 / 9.0-12.0 / 16.0 ft',
+        note: 'MN DNR interprets the Jordan gauge as Scrapable below 4.0 ft, Low from 4.0 to 9.0, Medium from 9.0 to 12.0, High from 12.0 to 16.0, and Very High above 16.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current live gauge',
+        value: 'Jordan at 10.42 ft',
+        note: 'The current MN DNR river-level sites feed showed Minnesota River near Jordan at 10.42 ft at 7:45 AM on July 14, 2026, inside the official medium band.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Official route shape',
+        value: '10.5 river miles',
+        note: 'MN DNR Map 6 lists Belle Plaine trailer access at river mile 50.7 and Thompson Ferry access at river mile 40.2, supporting a 10.5-mile lower Minnesota day trip.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota6.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Belle Plaine and Thompson Ferry named in DNR access data',
+        note: 'Minnesota public-water-access data identifies Belle Plaine Public Water Access and Thompson Ferry Public Water Access as official lower Minnesota landings.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Primary cautions',
+        value: 'Wind, private shoreland, muddy landings',
+        note: 'MN DNR Map 6 tells paddlers to expect 2 to 3 river miles per hour, respect private shoreland, and not underestimate wind, waves, or obstacles.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota6.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Minnesota River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/minnesotariver/index.html',
+      },
+      {
+        label: 'MN DNR Minnesota River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/minnesotariver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Minnesota River map 6 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota6.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'USGS 05330000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05330000/',
+      },
+    ],
+  },
+  {
+    id: 'minnesota-river-belle-plaine-carver',
+    slug: 'minnesota-river-belle-plaine-carver',
+    name: 'Minnesota River',
+    reach: 'Belle Plaine to Carver Riverfront Park',
+    state: 'Minnesota',
+    region: 'Lower Minnesota Valley',
+    summary:
+      'Lower Minnesota continuation from Belle Plaine to Carver Riverfront Park. This extends the official Thompson Ferry to Carver day downstream into a still-manageable but more committed metro-edge big-river shuttle.',
+    statusText:
+      'The Jordan gauge is best from 9.0 to 12.0 ft. Below 4.0 ft, expect a slower, draggy day; above 16.0 ft is too high for a general lower-river recommendation.',
+    latitude: 44.6340972,
+    longitude: -93.7653127,
+    gaugeSource: {
+      id: 'mn-dnr-112',
+      provider: 'mn_dnr',
+      siteId: '112',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Minnesota River near Jordan, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=33145001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=33145001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05330000',
+        provider: 'usgs',
+        siteId: '05330000',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'proxy',
+        siteName: 'Minnesota River near Jordan, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 9,
+      idealMax: 12,
+      tooLow: 4,
+      tooHigh: 16,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Minnesota River near Jordan',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.15,
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the practical window. This is still exposed lower-river paddling where wind, soft banks, and flood debris can matter as much as current speed.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route is usually nontechnical, but 18.6 miles on the lower Minnesota River is still a meaningful day because of open bends, wind exposure, and muddy landings.',
+      confidenceNotes:
+        'Confidence is high for a conservative add: MN DNR Map 6 places Belle Plaine at river mile 50.7 and Carver at river mile 32.1, both endpoints resolve in the Minnesota public-water-access layer, and the Jordan gauge has official DNR interpretation bands for the downstream half of the route.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '4.0 / 9.0-12.0 / 16.0 ft',
+        note: 'MN DNR interprets the Jordan gauge as Scrapable below 4.0 ft, Low from 4.0 to 9.0, Medium from 9.0 to 12.0, High from 12.0 to 16.0, and Very High above 16.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current live gauge',
+        value: 'Jordan at 10.42 ft',
+        note: 'The current MN DNR river-level sites feed showed Minnesota River near Jordan at 10.42 ft at 7:45 AM on July 14, 2026, inside the official medium band.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Official route shape',
+        value: '18.6 river miles',
+        note: 'MN DNR Map 6 lists Belle Plaine trailer access at river mile 50.7 and Carver Riverfront Park at river mile 32.1, supporting an 18.6-mile lower Minnesota continuation.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota6.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Belle Plaine and Carver named in DNR access data',
+        note: 'Minnesota public-water-access data identifies Belle Plaine Public Water Access and Carver Public Water Access as official lower Minnesota landings.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Primary cautions',
+        value: 'Wind, mud, private shoreland',
+        note: 'MN DNR Map 6 tells paddlers to expect 2 to 3 river miles per hour, respect private shoreland, and not underestimate wind, waves, or obstacles on this lower corridor.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota6.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Minnesota River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/minnesotariver/index.html',
+      },
+      {
+        label: 'MN DNR Minnesota River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/minnesotariver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Minnesota River map 6 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota6.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'USGS 05330000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05330000/',
+      },
+    ],
+  },
+  {
     id: 'minnesota-river-thompson-ferry-carver',
     slug: 'minnesota-river-thompson-ferry-carver',
     name: 'Minnesota River',

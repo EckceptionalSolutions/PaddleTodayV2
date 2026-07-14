@@ -656,6 +656,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'USFWS asset: public domain',
     },
   ],
+  'minnesota-river-henderson-station-thompson-ferry': [
+    {
+      id: 'minnesota-river-valley-refuge',
+      src: '/gallery/minnesota-river-henderson-belle-plaine/minnesota-valley-refuge.jpg',
+      alt: 'Brown marsh grasses and calm water fill a broad river-edge wetland below a wooded bluff.',
+      caption: 'Lower Minnesota River valley wetland scene',
+      credit: 'Debbie Koenigs/USFWS',
+      takenLabel: 'USFWS asset: public domain',
+    },
+  ],
+  'minnesota-river-belle-plaine-thompson-ferry': [
+    {
+      id: 'minnesota-river-valley-refuge',
+      src: '/gallery/minnesota-river-henderson-belle-plaine/minnesota-valley-refuge.jpg',
+      alt: 'Brown marsh grasses and calm water fill a broad river-edge wetland below a wooded bluff.',
+      caption: 'Lower Minnesota River valley wetland scene',
+      credit: 'Debbie Koenigs/USFWS',
+      takenLabel: 'USFWS asset: public domain',
+    },
+  ],
+  'minnesota-river-belle-plaine-carver': [
+    {
+      id: 'minnesota-river-valley-refuge',
+      src: '/gallery/minnesota-river-henderson-belle-plaine/minnesota-valley-refuge.jpg',
+      alt: 'Brown marsh grasses and calm water fill a broad river-edge wetland below a wooded bluff.',
+      caption: 'Lower Minnesota River valley wetland scene',
+      credit: 'Debbie Koenigs/USFWS',
+      takenLabel: 'USFWS asset: public domain',
+    },
+  ],
   'kickapoo-river-ontario-rockton': [
     {
       id: 'kickapoo-river-valley-commons',

@@ -3540,6 +3540,107 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'minnesota-river-henderson-station-thompson-ferry': {
+    putIn: {
+      name: 'Henderson Station public water access',
+      latitude: 44.5244176,
+      longitude: -93.8862799,
+    },
+    takeOut: {
+      name: 'Thompson Ferry trailer access',
+      latitude: 44.692386,
+      longitude: -93.641157,
+    },
+    logistics: {
+      distanceLabel: '27.9 mi',
+      estimatedPaddleTime: 'About 9 hr to 12 hr',
+      shuttle:
+        'Long two-car shuttle. Stage the Thompson Ferry take-out before launching because this is a full lower-Minnesota commitment day even in favorable wind.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access and parking rules at Henderson Station and Thompson Ferry.',
+      camping:
+        'Treat this as a long day trip unless you separately confirm a legal overnight plan. Much of the shoreland is private, and the DNR map tells paddlers to stop only at designated sites.',
+      summary:
+        'Launch at Henderson Station and finish at Thompson Ferry for a full lower Minnesota continuation. The official Jordan ladder is useful, but this route is really about pace, weather, and big-river judgment.',
+      accessCaveats: [
+        'Henderson Station is a carry-in with a walk from the gate to the river, not a drive-to-ramp launch.',
+        'Thompson Ferry is an official trailer access, but same-day parking, mud, and flood debris should still be checked before committing to the long shuttle.',
+        'There are few attractive public exits in the middle of this corridor, so treat the route as a genuine commitment once you launch.',
+      ],
+      watchFor: [
+        'Headwinds and wave exposure on broad lower-river bends.',
+        'A slower-than-expected pace on a nearly 28-mile day if the Jordan gauge slips toward the low band.',
+        'Floating debris, overhanging trees, and muddy or sandy banks at landings and breaks.',
+      ],
+    },
+  },
+  'minnesota-river-belle-plaine-thompson-ferry': {
+    putIn: {
+      name: 'Belle Plaine public water access',
+      latitude: 44.6340972,
+      longitude: -93.7653127,
+    },
+    takeOut: {
+      name: 'Thompson Ferry trailer access',
+      latitude: 44.692386,
+      longitude: -93.641157,
+    },
+    logistics: {
+      distanceLabel: '10.5 mi',
+      estimatedPaddleTime: 'About 3 hr 30 min to 5 hr 30 min',
+      shuttle:
+        'Moderate lower Minnesota River car shuttle between Belle Plaine and Thompson Ferry. Stage the take-out first so wind or slower current does not complicate pickup.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access and parking rules at Belle Plaine and Thompson Ferry.',
+      camping:
+        'No on-route camping is assumed for this lower-river segment. Treat it as a day trip.',
+      summary:
+        'Put in at Belle Plaine and finish at Thompson Ferry for a shorter lower Minnesota continuation. It uses the same official Jordan ladder as the adjacent downstream route.',
+      accessCaveats: [
+        'Belle Plaine is a proper trailer access at County Road 25, but same-day ramp and parking conditions should still be checked before launch.',
+        'Thompson Ferry is an official public-water-access site near the Jordan gauge, but riverbank mud and flood debris can still vary after high water.',
+      ],
+      watchFor: [
+        'Wind and wave exposure on open bends.',
+        'Muddy landings and changing sandbars after high water.',
+        'Private shoreland; stop only at public landings or clearly legal sites.',
+      ],
+    },
+  },
+  'minnesota-river-belle-plaine-carver': {
+    putIn: {
+      name: 'Belle Plaine public water access',
+      latitude: 44.6340972,
+      longitude: -93.7653127,
+    },
+    takeOut: {
+      name: 'Carver Riverfront Park / Minnesota River public water access',
+      latitude: 44.766777,
+      longitude: -93.616717,
+    },
+    logistics: {
+      distanceLabel: '18.6 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr 30 min',
+      shuttle:
+        'Longer lower Minnesota River car shuttle from Belle Plaine to Carver. Stage the take-out in town before launching so wind or a slower pace does not complicate the finish.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access, city park, and parking rules at Belle Plaine and Carver.',
+      camping:
+        'No on-route camping is assumed for this lower-river segment. Treat it as a day trip unless you intentionally stage a separate overnight nearby.',
+      summary:
+        'Put in at Belle Plaine and take out at Carver Riverfront Park for a longer lower Minnesota continuation. It extends the official Thompson-Ferry-to-Carver day while keeping the same Jordan gauge ladder.',
+      accessCaveats: [
+        'Belle Plaine is a proper trailer access, but same-day ramp and parking conditions should still be checked before launch.',
+        'Carver is an official Minnesota River public-water-access site on the riverfront; use the named access and posted parking rules rather than assuming every nearby riverfront space is a landing.',
+        'The lower Minnesota River is broad and exposed enough that wind can matter even when the current itself feels easy.',
+      ],
+      watchFor: [
+        'Wind and wave exposure on open bends.',
+        'Flood debris, muddy landings, and changing sandbars after high water.',
+        'Private shoreland; stop only at public landings or clearly legal sites.',
+      ],
+    },
+  },
   'minnesota-river-thompson-ferry-carver': {
     putIn: {
       name: 'Thompson Ferry trailer access',

@@ -1,11 +1,11 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 03:55 America/Chicago.
+Last summarized: 2026-07-14 09:40 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 79.
-- Top represented rivers: Sauk River 17, Little Fork River 9, Big Fork River 5, Crow Wing River 5, Root River 4, Minnesota River 4.
+- Live routes: 82.
+- Top represented rivers: Sauk River 17, Little Fork River 9, Minnesota River 7, Big Fork River 5, Crow Wing River 5, Mississippi River 4.
 - Ledger candidates: 781 total; 412 `added`, 109 `threshold_weak`, 86 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
@@ -13,6 +13,13 @@ Last summarized: 2026-07-14 03:55 America/Chicago.
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing now has a small restored county-chain layer on top of the June canonical core, while Little Fork continues to reward restore-first checks where support docs still prove live source quality.
 
 ## Latest Run
+
+- 2026-07-14 09:40 America/Chicago: added `minnesota-river-henderson-station-thompson-ferry`, `minnesota-river-belle-plaine-thompson-ferry`, and `minnesota-river-belle-plaine-carver`.
+- Started from the live `547`-route repo baseline at run start and stayed in Minnesota after bounded Missouri, Kentucky, and Nebraska rechecks failed to produce three more implementation-grade adds that beat the existing lower Minnesota official-source stack.
+- Current MN DNR site `112` (`Minnesota River near Jordan, MN`) showed `10.42 ft` at `2026-07-14 07:45 AM`, squarely inside the official Jordan Medium band (`9.0-12.0 ft`) already used on adjacent lower Minnesota routes.
+- Current DNR Map 6 support stayed clean: Henderson Station `68.1`, Belle Plaine `50.7`, Thompson Ferry `40.2`, and Carver `32.1`, which support the three new public continuations at `27.9`, `10.5`, and `18.6` river miles while keeping exact named public endpoints.
+- Camping posture stayed conservative. All three new lower-Minnesota slugs ship as day-trip cards because the mapped corridor still emphasizes private shoreland and designated stopping points rather than route-tied overnight sites.
+- Reused the approved lower Minnesota USFWS corridor image for all three new slugs and recorded matching image-audit rows.
 
 - 2026-07-14 03:55 America/Chicago: added `little-fork-river-samuelson-silverdale`, `crow-wing-river-mary-brown-frames-landing`, and `crow-wing-river-stigmans-mound-little-white-dog`.
 - Started from the live `538`-route repo baseline at run start, rejected several tempting restore candidates after `git log -S` showed deliberate consolidation removals, and stayed in Minnesota because the current tree still had one clean Little Fork restore plus two Crow Wing additions with exact MN DNR/Wadena County/public-access support.
