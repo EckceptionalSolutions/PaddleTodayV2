@@ -14098,6 +14098,116 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'peshtigo-river-big-joe-ccc-bridge',
+    slug: 'peshtigo-river-big-joe-ccc-bridge',
+    name: 'Peshtigo River',
+    reach: 'Big Joe Landing to CCC Bridge',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Remote upper-Peshtigo forest day from Big Joe Landing to CCC Bridge, with rustic national-forest access, Class I Camp 8 Rapids, swampy side channels, and a downstream Wabeno gauge threshold.',
+    statusText:
+      'Use the Wabeno / County C gauge as a lower-river proxy. Wisconsin Trail Guide lists 4.2 ft as the minimum and 6.0 ft as the suggested maximum; below that expect scraping, while higher water raises wood and bridge-clearance risk.',
+    latitude: 45.66574,
+    longitude: -88.65203,
+    gaugeSource: {
+      id: 'usgs-04067958',
+      provider: 'usgs',
+      siteId: '04067958',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Peshtigo River Near Wabeno, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04067958/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'remote'],
+      safetyNotes: [
+        'The Wabeno gauge is far downstream, so pair it with recent rainfall, trend, and a visual check at Big Joe before committing.',
+        'Camp 8 Rapids can be bony at low water, and the private footbridge near the end of the rapid may need a river-left portage at higher flows.',
+        'The Camp 3 Lake swamp section has islands, sloughs, deadfall, and limited road access; keep the group in the main channel.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4.2,
+      idealMax: 6,
+      tooLow: 4.2,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Peshtigo P1 Big Joe Landing suggested river levels',
+        url: 'https://wisconsintrailguide.com/2024/paddle/peshtigo-river-big-joe-landing.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Wisconsin Trail Guide says this upper reach is usually more navigable than downstream Peshtigo sections at low water, but local outfitter checks still matter because the gauge is downstream and the route depends on forest-runoff conditions.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly easy remote current with one Class I rapid, but the five-hour commitment, slough navigation, low bridge, strainers, and limited exits make this more than a casual beginner float.',
+      confidenceNotes:
+        'Confidence is good for a guarded Wisconsin Trail Guide add: WTG documents the exact Big Joe-to-CCC P1 route, named public forest access points, WGS84 coordinates, route mileage, camping context, and a numeric Wabeno gauge minimum/maximum. Confidence is capped because USGS 04067958 is about 35 miles downstream and therefore a proxy for this upper forest reach.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route guide',
+        value: '8.9 miles; Class I',
+        note: 'Wisconsin Trail Guide documents Peshtigo P1 from Big Joe Landing to CCC Bridge as an 8.9-mile upper-river trip with Class I Camp 8 Rapids and a 4-5 hour paddle time.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/peshtigo-river-big-joe-landing.html',
+      },
+      {
+        label: 'Gauge model',
+        value: '4.2 to 6.0 ft at Wabeno',
+        note: 'Wisconsin Trail Guide lists 4.2 ft at the County C / Wabeno USGS gauge as the minimum suggested flow and 6.0 ft as the suggested maximum for this P1 route.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/peshtigo-river-big-joe-landing.html',
+      },
+      {
+        label: 'Current gauge check',
+        value: '4.00 ft / 241 cfs at 5:00 PM CDT',
+        note: 'USGS Water Services returned product-fetchable same-day values for Peshtigo River Near Wabeno on July 14, 2026; the current stage was below the P1 minimum, which validates the live gauge path without marking today as a good paddling day.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04067958&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.66574, -88.65203 to 45.61093, -88.59291',
+        note: 'The Wisconsin Trail Guide P1 PDF publishes NAD83 / WGS84 points for Big Joe Landing and CCC Bridge Landing.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo1.pdf',
+      },
+      {
+        label: 'Access and camping',
+        value: 'National Forest canoe landing; rustic campsites',
+        note: 'WTG describes Big Joe as a national forest canoe landing with three rustic campsites, parking, pit toilets, and a hand-carry path, while CCC Bridge has hand-carry access, parking, and trailer turnaround.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Peshtigo P1 page',
+        url: 'https://wisconsintrailguide.com/2024/paddle/peshtigo-river-big-joe-landing.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Peshtigo P1 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo1.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 04067958 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04067958/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Chequamegon-Nicolet National Forest',
+        url: 'https://www.fs.usda.gov/cnnf',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'peshtigo-river-ccc-burnt-bridge',
     slug: 'peshtigo-river-ccc-burnt-bridge',
     name: 'Peshtigo River',
@@ -14205,6 +14315,123 @@ export const rivers: River[] = [
       {
         label: 'Chequamegon-Nicolet National Forest',
         url: 'https://www.fs.usda.gov/cnnf',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'peshtigo-river-burnt-bridge-goodman-park',
+    slug: 'peshtigo-river-burnt-bridge-goodman-park',
+    name: 'Peshtigo River',
+    reach: 'Burnt Bridge Landing to Goodman Park Landing',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Long upper-Peshtigo whitewater day from Burnt Bridge to Goodman Park, linking Michigan Rapids, Upper Dells, Dells Rapids, Mac Tackie, Taylor Falls, and a mandatory take-out above Strong Falls.',
+    statusText:
+      'Use the Wabeno / County C gauge as a downstream indicator. Below 4.5 ft is not recommended; 5.0 to 6.0 ft is the best rapid-running window; 6.5 to 7.5 ft is high water, and above 7.5 ft is unusually high.',
+    latitude: 45.56226,
+    longitude: -88.49554,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04067958',
+      provider: 'usgs',
+      siteId: '04067958',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Peshtigo River Near Wabeno, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04067958/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'mandatory_takeout', 'strainers', 'remote'],
+      safetyNotes: [
+        'Goodman Park Landing is above Strong Falls. Land on river left before the footbridge; missing the exit puts paddlers into Class IV falls.',
+        'Michigan Rapids, Dells Rapids, Taylor Falls, and other constricted rapids need scouting and portage judgment, especially as the Wabeno gauge rises.',
+        'The Wabeno gauge is about 14 miles downstream from this segment, so treat it as a strong route-specific indicator rather than exact local water.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 5,
+      idealMax: 6,
+      tooLow: 4.5,
+      tooHigh: 7.5,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Peshtigo P3 Burnt Bridge suggested river levels',
+        url: 'https://wisconsintrailguide.com/2024/paddle/peshtigo-river-burnt-bridge.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Wisconsin Trail Guide says this segment is best in spring and early summer, and after sustained rainfall from mid-summer through fall. High water makes the rapids faster and raises strainer/deadfall consequence.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'WTG rates the route Class III with Class IV exposure at Strong Falls. Even though portages and shorter access options exist, the full Burnt-to-Goodman route belongs behind the whitewater route filter.',
+      confidenceNotes:
+        'Confidence is high for an advanced Wisconsin Trail Guide add: WTG documents the exact Burnt Bridge-to-Goodman Park P3 route, public/camping access points, WGS84 coordinates, route mileage, a full Wabeno gauge-height ladder, and explicit mandatory take-out language above Strong Falls. The app uses conservative whitewater messaging because the take-out consequence is high.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route guide',
+        value: '12.5 miles; Class III (IV)',
+        note: 'Wisconsin Trail Guide documents Peshtigo P3 from Burnt Bridge to Goodman Park as 12.5 miles with Michigan Rapids, Dells Rapids, Taylor Falls, and Strong Falls context.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo3.pdf',
+      },
+      {
+        label: 'Gauge bands',
+        value: '4.5 / 5.0-6.0 / 7.5 ft',
+        note: 'WTG lists below 4.5 ft as not recommended, 5.0-6.0 ft as medium runnable and excellent in the rapids, 6.5-7.5 ft as high runnable, and above 7.5 ft as unusually high.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo3.pdf',
+      },
+      {
+        label: 'Current gauge check',
+        value: '4.00 ft / 241 cfs at 5:00 PM CDT',
+        note: 'USGS Water Services returned same-day values for Peshtigo River Near Wabeno on July 14, 2026; the current stage was below the P3 minimum, validating the live path while keeping today below recommendation.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04067958&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.56226, -88.49554 to 45.51889, -88.34136',
+        note: 'The WTG P3 PDF publishes NAD83 / WGS84 points for Burnt Bridge Landing and Goodman Park Landing.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo3.pdf',
+      },
+      {
+        label: 'Mandatory take-out',
+        value: 'Land above Strong Falls',
+        note: 'WTG says Goodman Park Landing is on river left above Strong Falls, instructs paddlers to land before the footbridge, and describes Strong Falls as Class IV.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo3.pdf',
+      },
+      {
+        label: 'Camping support',
+        value: 'Burnt Bridge rustic sites; Goodman Park campground',
+        note: 'WTG identifies canoe/kayak camping at Burnt Bridge and a Marinette County campground at Goodman Park, making endpoint-basecamp logistics defensible.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo3.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Peshtigo P3 page',
+        url: 'https://wisconsintrailguide.com/2024/paddle/peshtigo-river-burnt-bridge.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Peshtigo P3 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo3.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 04067958 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04067958/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Marinette County Goodman Park',
+        url: 'https://www.marinettecounty.com/parks/camping/goodman-park/',
         provider: 'local',
       },
     ],
@@ -19586,6 +19813,123 @@ export const rivers: River[] = [
         label: 'USGS 04066500 legacy current conditions',
         url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04066500',
         provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'popple-river-fr-2398-morgan-lake',
+    slug: 'popple-river-fr-2398-morgan-lake',
+    name: 'Popple River',
+    reach: 'Forest Road 2398 Bridge to Morgan Lake Road Bridge',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Remote Pine-Popple Wild Rivers approach run above Morgan Lake Road, with 11 miles of marsh, Class I-II boulder gardens, Burnt Dam Rapids, and a direct in-segment USGS gauge at FR 2159.',
+    statusText:
+      'Use the Popple River near Fence gauge at FR 2159. Below 150 cfs is not recommended; 250 to 500 cfs is the best broad window; 500 to 800 cfs is high, pushy water for stronger paddlers, and 800+ cfs is too high.',
+    latitude: 45.7663,
+    longitude: -88.60577,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04063700',
+      provider: 'usgs',
+      siteId: '04063700',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Popple River Near Fence, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04063700/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'strainers', 'remote'],
+      safetyNotes: [
+        'Burnt Dam Rapids and the FR 2159-area rapids can become pushy above 400-500 cfs and bony below the minimum.',
+        'The route crosses remote marsh and forest with sloughs, wooded islands, deadfall, and limited exits; carry navigation and do not split the group.',
+        'The current USGS gauge sits inside the route at FR 2159, but visual checks still matter because strainers and low branches change after storms.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 250,
+      idealMax: 500,
+      tooLow: 150,
+      tooHigh: 800,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Popple River PO1 suggested river levels',
+        url: 'https://wisconsintrailguide.com/2024/paddle/popple-river-fr-2398-bridge.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 9, 10],
+      seasonNotes:
+        'Wisconsin Trail Guide describes the Popple as a freestone river that is best in spring, early summer, and after sustained rainfall later in the season. Summer dry spells can leave this reach too low despite its in-route gauge.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'WTG calls PO1 novice Class II at normal levels, but the 11-mile length, Burnt Dam Rapids, pushier flows above 400 cfs, strainers, and remote access make it a guarded moving-water route.',
+      confidenceNotes:
+        'Confidence is high for a Wisconsin Trail Guide add: WTG documents the exact FR 2398-to-Morgan Lake PO1 route, public bridge access descriptions, WGS84 coordinates, Class I-II hazards, a direct in-segment USGS 04063700 gauge, and a full cfs ladder. The route ships as whitewater/caution because high water and deadfall can quickly raise consequence.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route guide',
+        value: '11.0 miles; Class II',
+        note: 'Wisconsin Trail Guide documents Popple PO1 from Forest Road 2398 Bridge to Morgan Lake Road Bridge as an 11-mile route with Class II as the hardest whitewater and 5-6 hours of paddle time.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/popple-river-fr-2398-bridge.html',
+      },
+      {
+        label: 'Gauge bands',
+        value: '150 / 250-500 / 800 cfs',
+        note: 'WTG lists below 150 cfs as not recommended, 250-500 cfs as medium runnable, 500-800 cfs as high runnable for intermediate and advanced paddlers, and above 800 cfs as not recommended.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-popple1.pdf',
+      },
+      {
+        label: 'Current gauge check',
+        value: '36.0 cfs / 1.99 ft at 5:45 PM CDT',
+        note: 'USGS Water Services returned same-day values for Popple River Near Fence on July 14, 2026; current flow was below the WTG minimum, validating the live path while marking the route too low today.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04063700&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.76630, -88.60577 to 45.76343, -88.46304',
+        note: 'The WTG PO1 PDF publishes NAD83 / WGS84 points for Forest Road 2398 Bridge Landing and Morgan Lake Road Landing.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-popple1.pdf',
+      },
+      {
+        label: 'Direct gauge fit',
+        value: 'USGS 04063700 inside PO1',
+        note: 'WTG says the referenced gauge is located in this segment and should provide an accurate indication of current conditions in the reach.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/popple-river-fr-2398-bridge.html',
+      },
+      {
+        label: 'Official corridor context',
+        value: 'Pine-Popple Wild Rivers',
+        note: 'Wisconsin DNR says the Pine and Popple Wild Rivers are rugged, undeveloped, remote, and access-limited, which matches the route safety posture.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/pinepopple/management',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Popple PO1 page',
+        url: 'https://wisconsintrailguide.com/2024/paddle/popple-river-fr-2398-bridge.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Popple PO1 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-popple1.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 04063700 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04063700/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin DNR Pine-Popple Wild Rivers management',
+        url: 'https://dnr.wisconsin.gov/topic/lands/pinepopple/management',
+        provider: 'local',
       },
     ],
   },

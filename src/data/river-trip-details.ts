@@ -5910,6 +5910,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'peshtigo-river-big-joe-ccc-bridge': {
+    putIn: {
+      name: 'Big Joe Landing',
+      latitude: 45.66574,
+      longitude: -88.65203,
+    },
+    takeOut: {
+      name: 'CCC Bridge Landing / Forest Road 2131',
+      latitude: 45.61093,
+      longitude: -88.59291,
+    },
+    logistics: {
+      distanceLabel: '8.9 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr',
+      shuttle:
+        'Use a remote Chequamegon-Nicolet National Forest shuttle between Big Joe Landing on Kalata Road and CCC Bridge on Forest Road 2131 / Peshtigo River Road. Expect gravel-road driving, limited cell service, and sparse bailout options.',
+      permits:
+        'No route-specific paddling permit is known. Big Joe is a fee-area national-forest canoe landing; follow posted forest rules for parking, day use, camping, and fires.',
+      camping:
+        'Big Joe Landing has three rustic campsites at the put-in, each with a firepit and picnic table, plus a pit toilet. Treat that as endpoint/basecamp support rather than assumed camping anywhere along the river.',
+      summary:
+        'Launch at Big Joe Landing and take out at CCC Bridge for the upper P1 Peshtigo route. This is a remote forest-and-swamp paddle with Class I Camp 8 Rapids, slough navigation, and enough wood potential to require a same-day gauge and visual check.',
+      accessCaveats: [
+        'Big Joe is a hand-carry landing reached by a footpath with railroad-tie steps; it has parking, trailer turnaround, pit toilets, and a posted fee-area context.',
+        'CCC Bridge Landing is on river right upstream of the bridge with hand-carry access, parking, and trailer turnaround.',
+        'The Wabeno / County C gauge is about 35 miles downstream. Treat it as a proxy and verify local conditions at Big Joe before launching.',
+      ],
+      watchFor: [
+        'Camp 8 Rapids, which can be bony at low levels and wavier at medium or high water.',
+        'A private footbridge near Camp 8 Rapids; Wisconsin Trail Guide says high flows may require a river-left portage.',
+        'Swampy side channels, islands, oxbows, sloughs, deadfall, strainers, cold water, and remote rescue exposure.',
+      ],
+    },
+  },
   'peshtigo-river-ccc-burnt-bridge': {
     putIn: {
       name: 'CCC Bridge / Forest Road 2131 access',
@@ -5942,6 +5976,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Scrapier rocks below 5.0 ft and pushier, less novice-friendly rapids above 6.5 ft on the Wabeno gauge.',
         'Strainers, deadfall, possible near-river-wide wood, cold water, and long stretches with limited road access.',
         'The Wabeno gauge is about 26 miles downstream, so pair the gauge with recent rainfall, trend, and visual checks at the put-in.',
+      ],
+    },
+  },
+  'peshtigo-river-burnt-bridge-goodman-park': {
+    putIn: {
+      name: 'Burnt Bridge Landing / Forest Road 2134',
+      latitude: 45.56226,
+      longitude: -88.49554,
+    },
+    takeOut: {
+      name: 'Goodman Park Landing above Strong Falls',
+      latitude: 45.51889,
+      longitude: -88.34136,
+    },
+    logistics: {
+      distanceLabel: '12.5 mi',
+      estimatedPaddleTime: 'About 5 hr to 6 hr, plus scouting and portage time',
+      shuttle:
+        'Use a remote upper-Peshtigo shuttle between Burnt Bridge on Michigan Creek Road / Forest Road 2134 and Goodman Park. The full route is long and technical enough that shorter Benson Lake Road accesses may be the better plan for some groups.',
+      permits:
+        'No route-specific paddling permit is known. Follow Chequamegon-Nicolet National Forest, Marinette County park, and posted landing rules; Goodman Park may require a vehicle or day-use fee.',
+      camping:
+        'Burnt Bridge has rustic canoe/kayak campsites and Goodman Park has a reservable Marinette County campground. That supports endpoint camping, but do not assume private-bank or informal river camping elsewhere.',
+      summary:
+        'Launch at Burnt Bridge and take out at Goodman Park above Strong Falls. This is the P3 Peshtigo whitewater route with Michigan Rapids, Upper Dells, Dells Rapids, Mac Tackie, Taylor Falls, and a mandatory exit before Class IV Strong Falls.',
+      accessCaveats: [
+        'Goodman Park Landing is on river left above Strong Falls. Land before the footbridge; the falls begin just below the take-out area.',
+        'If your group is not intentionally running advanced whitewater, use the Goodman take-out or portage route instead of continuing over Strong Falls.',
+        'The Wabeno gauge is about 14 miles downstream, so pair it with recent rain, trend, and visual/scouting decisions at the rapids.',
+      ],
+      watchFor: [
+        'Michigan Rapids, Dells Rapids, Mac Tackie Rapids, Taylor Falls, and other Class II-III pitches that change quickly with water level.',
+        'The high-consequence Strong Falls take-out; missing it sends paddlers into Class IV ledges.',
+        'Strainers, deadfall, bony low-water ledges, powerful high-water waves, cold water, long mileage, and remote road access.',
       ],
     },
   },
@@ -8045,6 +8113,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private land along the falls scout and portage area. Wisconsin Trail Guide says to stay along the riverbank.',
         'Bony rocks and pin potential below the 3.5 ft practical falls window, and pushy waves that may overpower intermediates above 4.6 ft.',
         'Cold water, deadfall, limited quick exits, and the transition into the Menominee River confluence near the take-out.',
+      ],
+    },
+  },
+  'popple-river-fr-2398-morgan-lake': {
+    putIn: {
+      name: 'Forest Road 2398 Bridge Landing',
+      latitude: 45.7663,
+      longitude: -88.60577,
+    },
+    takeOut: {
+      name: 'Morgan Lake Road Bridge Landing',
+      latitude: 45.76343,
+      longitude: -88.46304,
+    },
+    logistics: {
+      distanceLabel: '11 mi',
+      estimatedPaddleTime: 'About 5 hr to 6 hr',
+      shuttle:
+        'Use a remote Pine-Popple Wild Rivers shuttle between Forest Road 2398 and Morgan Lake Road / Forest Service Road 2159. Download maps before driving; road and cell coverage are limited.',
+      permits:
+        'No route-specific paddling permit is known. Use the bridge landings, respect Pine-Popple Wild Rivers rules, and avoid private banks, homes, and informal footbridge areas.',
+      camping:
+        'Treat this as a long remote day route. Wisconsin Trail Guide notes a rustic campsite near the FR 2159 access, but no on-route overnight itinerary is assumed for the normal FR 2398-to-Morgan Lake run.',
+      summary:
+        'Launch at Forest Road 2398 and take out at Morgan Lake Road. This upper Popple route runs through marsh, forest, First Rapids, Burnt Dam Rapids, FR 2159, and several Class II boulder-garden sections before the lower whitewater route begins.',
+      accessCaveats: [
+        'FR 2398 is a hand-carry bridge access with roadside parking, not a developed livery ramp.',
+        'Morgan Lake Road has hand-carry bridge access, roadside and grass-area parking, and trailer turnaround; take out here before entering the more technical lower Popple route.',
+        'The USGS 04063700 gauge is inside this route near FR 2159, but deadfall and low branches can still make same-day scouting necessary.',
+      ],
+      watchFor: [
+        'First Rapids, Burnt Dam Rapids, FR 2159-area ledges, and later Class II boulder gardens.',
+        'Scraping and slow travel below 150 cfs, with better but more technical water in the 250-500 cfs band.',
+        'Pushy current above 500 cfs, plus strainers, deadfall, tight tree canopies, cold water, remote rescue exposure, and limited exits.',
       ],
     },
   },
