@@ -70068,4 +70068,345 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'zumbro-river-green-bridge-zumbro-falls',
+    slug: 'zumbro-river-green-bridge-zumbro-falls',
+    name: 'Zumbro River',
+    reach: 'Green Bridge to Zumbro Falls',
+    state: 'Minnesota',
+    region: 'Southeast Minnesota',
+    summary:
+      'Official MN DNR upper-mainstem Zumbro day trip from Green Bridge to Zumbro Falls, with public access records for both endpoints and the direct Zumbro Falls interpreted gauge at the take-out.',
+    statusText:
+      'Use the Zumbro Falls DNR gauge: 7.0 to 9.0 ft is the official medium band. Below 5.2 ft is scrapable, and above 10.5 ft is very high.',
+    latitude: 44.233409,
+    longitude: -92.4824913,
+    gaugeSource: {
+      id: 'mn-dnr-267',
+      provider: 'mn_dnr',
+      siteId: '267',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'direct',
+      siteName: 'Zumbro River at Zumbro Falls, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=41031002',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=41031002&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 7,
+      idealMax: 9,
+      tooLow: 5.2,
+      tooHigh: 10.5,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Zumbro River at Zumbro Falls',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'DNR warns that Zumbro levels can rise dramatically and dangerously after rainstorms, especially below the Rochester power dam. Low summer water can expose riffles, rocks, and wood.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The DNR recommended trip runs through a deep valley with lively current, frequent easy rapids, rocky bluffs, snags, logs, dams elsewhere on the trail, and flash-flood exposure.',
+      confidenceNotes:
+        'Confidence is high: MN DNR recommends Green Bridge to Zumbro Falls as the 9.7-mile Map 1 day trip, Minnesota public-water-access GIS resolves both endpoints, and the Zumbro Falls gauge is at the route finish with official interpretation bands.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'dam', 'private_banks'],
+      safetyNotes: [
+        'Avoid rain-swollen or rapidly rising water. DNR specifically warns that Zumbro levels may rise dramatically and dangerously after rainstorms.',
+        'Expect lively current, frequent easy rapids, logs, snags, strainers, and a narrow valley that can make recovery slower than the road map suggests.',
+        'Take out at Zumbro Falls unless you have a separate downstream plan; the lower route has additional dams, flash-flood, and private-bank considerations.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '9.7 river miles',
+        note: 'MN DNR recommends Green Bridge at river mile 55.8 to Zumbro Falls at river mile 46.1 as the Map 1 day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/zumbro-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS00059 and WAS02916',
+        note: 'Minnesota public-water-access GIS resolves Green Bridge and Zumbro Falls with route river miles, public access records, and coordinates.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '5.2 / 7.0-9.0 / 10.5 ft',
+        note: 'MN DNR interprets the Zumbro Falls gauge as Scrapable below 5.2 ft, Low from 5.2 to 7.0, Medium from 7.0 to 9.0, High from 9.0 to 10.5, and Very High above 10.5.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '5.93 ft at 2026-07-14 12:30',
+        note: 'The current MN DNR feed placed Zumbro Falls in the official low band during this run, so shallow riffles and exposed wood remain likely.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Route character',
+        value: 'Deep valley, easy rapids, flash-flood caveat',
+        note: 'DNR describes a deep valley with rocky bluffs, lively current, frequent easy rapids, and river-level danger after rainstorms.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/zumbro-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Zumbro River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/zumbro-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Zumbro River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/zumbro1.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'minnesota-river-kinney-skalbekken',
+    slug: 'minnesota-river-kinney-skalbekken',
+    name: 'Minnesota River',
+    reach: 'Kinney Access to Skalbekken County Park',
+    state: 'Minnesota',
+    region: 'Upper Minnesota River Valley',
+    summary:
+      'Official MN DNR Minnesota River day trip from Kinney Access to Skalbekken County Park, using source-backed public accesses, the downstream Morton DNR interpreted gauge, and conservative big-river caveats.',
+    statusText:
+      'Use the Morton DNR gauge as the lower-corridor check: 1,330 to 3,750 cfs is the official medium band. Below 307 cfs is scrapable, and above 10,900 cfs is very high.',
+    latitude: 44.7741284,
+    longitude: -95.5312559,
+    gaugeSource: {
+      id: 'mn-dnr-107',
+      provider: 'mn_dnr',
+      siteId: '107',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'Minnesota River at Morton, MN19',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=28012001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=28012001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1330,
+      idealMax: 3750,
+      tooLow: 307,
+      tooHigh: 10900,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Minnesota River at Morton',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The upper Minnesota can be low and shallow in dry periods and can carry strong current, flood debris, and muddy banks after rain or reservoir releases.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'DNR frames this as a recommended day trip, but it sits in a rocky bluff corridor near Minnesota Falls/Vicksburg hazard context with big-river current, remote banks, and limited exits.',
+      confidenceNotes:
+        'Confidence is good: MN DNR recommends Kinney Access to Skalbekken County Park as the 9.2-mile Map 3 day trip, public-water-access GIS resolves both endpoints, and the Morton gauge is the official interpreted downstream same-map gauge. The gauge is not at the route, so the route stays conservative and asks for a visual launch check.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'strainers', 'fast_rise', 'private_banks', 'remote'],
+      safetyNotes: [
+        'Treat the Morton gauge as a downstream same-map proxy, then inspect Kinney and Skalbekken for local rain, debris, mud, and exit conditions before launching.',
+        'DNR notes challenging Class II-IV Minnesota Falls rapids and Class I rapids elsewhere in this map section; do not extend into unfamiliar rapid or ledge reaches without a separate plan.',
+        'Expect muddy banks, snags, flood debris, wind exposure, long rescue spacing, and mostly private shoreline away from public parks and access points.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '9.2 river miles',
+        note: 'MN DNR recommends Kinney Access at river mile 233.8 to Skalbekken County Park at river mile 224.6 as the Map 3 day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS00694 and WAS00685',
+        note: 'Minnesota public-water-access GIS resolves Kinney and Skalbekken access sites with route river miles, coordinates, parking, ramp, and restroom records where available.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '307 / 1,330-3,750 / 10,900 cfs',
+        note: 'MN DNR interprets the Morton gauge as Scrapable below 307 cfs, Low from 307 to 1,330, Medium from 1,330 to 3,750, High from 3,750 to 10,900, and Very High above 10,900.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '2,120 cfs at 2026-07-14 12:00',
+        note: 'The current MN DNR feed placed Morton in the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Camping and hazards',
+        value: 'Skalbekken rustic camping; rapids and ledges nearby',
+        note: 'DNR lists rustic camping at Skalbekken County Park and describes challenging rapids, rock ledges, bluffs, and forested banks in the Map 3 corridor.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Minnesota River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Minnesota River Map 3 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota3.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'mississippi-river-coon-rapids-riverfront',
+    slug: 'mississippi-river-coon-rapids-riverfront',
+    name: 'Mississippi River',
+    reach: 'Coon Rapids Dam Regional Park to Riverfront Regional Park',
+    state: 'Minnesota',
+    region: 'Twin Cities Metro',
+    summary:
+      'Official MN DNR Mississippi River urban day trip below Coon Rapids Dam, with Anoka County public access records, the Hwy 610 interpreted gauge inside the reach, and explicit swift-current, dam, and water-quality caveats.',
+    statusText:
+      'Use the Hwy 610 DNR gauge: 8,670 to 28,300 cfs is the official medium band. Below 3,060 cfs is scrapable, and above 33,000 cfs is very high.',
+    latitude: 45.1470228,
+    longitude: -93.3107231,
+    gaugeSource: {
+      id: 'mn-dnr-302',
+      provider: 'mn_dnr',
+      siteId: '302',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'direct',
+      siteName: 'Mississippi River at Hwy 610 in Brooklyn Park, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=20065001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=20065001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 8670,
+      idealMax: 28300,
+      tooLow: 3060,
+      tooHigh: 33000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River at Hwy 610',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.2,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This urban Mississippi reach can carry swift current below Coon Rapids Dam, shallow island channels at low water, and stronger wind or motorboat wake exposure on wider water.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'DNR describes scenic islands below the dam but says the river is wide and swift and requires extra care. Treat it as a metro moving-water route, not a passive float.',
+      confidenceNotes:
+        'Confidence is good: MN DNR recommends Coon Rapids Dam Regional Park to Riverfront Regional Park as the 6.1-mile Map 9 day trip, Anoka County public-water-access records resolve both endpoints, and the Hwy 610 DNR gauge sits inside the selected reach. The public-water-access river-mile record for Coon Rapids Dam differs from DNR route mileage, so the launch side must be confirmed on arrival.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'urban_water_quality'],
+      safetyNotes: [
+        'Launch only below Coon Rapids Dam from the signed public access; never cross directly above the dam or treat the pool above the dam as part of this route.',
+        'DNR says this stretch is wide with swift current. Expect island channels, shallow bars at low water, motorboat wake, bridge current, wind exposure, and cold-water risk outside summer.',
+        'The lower metro Mississippi has water-quality and fish-consumption caveats. Do not drink untreated river water, and follow current Minnesota Department of Health fish advisories.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '6.1 river miles',
+        note: 'MN DNR recommends Coon Rapids Dam Regional Park at river mile 866.4 to Riverfront Regional Park at river mile 860.3 as the Map 9 day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS02630 and WAS01210',
+        note: 'Minnesota public-water-access GIS resolves Anoka County Coon Rapids Dam and Riverfront Regional Park public access sites with coordinates and access records; the Coon Rapids river-mile field differs from the DNR route text, so confirm the signed below-dam launch.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '3,060 / 8,670-28,300 / 33,000 cfs',
+        note: 'MN DNR interprets the Hwy 610 gauge as Scrapable below 3,060 cfs, Low from 3,060 to 8,670, Medium from 8,670 to 28,300, High from 28,300 to 33,000, and Very High above 33,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '8,420 cfs at 2026-07-14 12:00',
+        note: 'The current MN DNR feed placed Hwy 610 just below the official medium band during this run, so shallow island channels and exposed bars remain possible.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Safety caveats',
+        value: 'Dam, swift current, water quality',
+        note: 'DNR warns this urban Mississippi section has swift current, dam context, barge/motorboat safety considerations downstream, undrinkable water, and fish advisory concerns.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Mississippi River Map 9 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi9.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
 ];

@@ -1,18 +1,25 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 13:08 America/Chicago.
+Last summarized: 2026-07-14 14:05 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 106.
-- Top represented rivers: Sauk River 17, Little Fork River 9, Mississippi River 9, Crow Wing River 6, Big Fork River 5, Minnesota River 5, Red River of the North 4, Root River 4, Zumbro River 4, Cannon River 3.
-- Ledger candidates: 91 total; 71 `added`, 10 `threshold_weak`, 6 `no_live_gauge`, 2 `duplicate_corridor`, 1 `research_later`, 1 `rejected`.
+- Live routes: 109.
+- Top represented rivers: Sauk River 17, Mississippi River 10, Little Fork River 9, Minnesota River 6, Crow Wing River 6, Big Fork River 5, Zumbro River 5, Root River 4, Red River of the North 4, Cannon River 3.
+- Ledger candidates: 796 total; 442 `added`, 77 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 54 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-14 14:05 America/Chicago: added `zumbro-river-green-bridge-zumbro-falls`, `minnesota-river-kinney-skalbekken`, and `mississippi-river-coon-rapids-riverfront`.
+- Baseline at run start was 106 live Minnesota routes; patched route data now imports 109 Minnesota routes with no missing trip-detail records.
+- Stayed in Minnesota and promoted three absent official DNR water-trail routes: Zumbro Green Bridge to Zumbro Falls `9.7` miles, Minnesota River Kinney Access to Skalbekken County Park `9.2` miles, and Mississippi Coon Rapids Dam Regional Park to Riverfront Regional Park `6.1` miles.
+- Minnesota public-water-access GIS resolves Green Bridge `WAS00059`, Zumbro Falls `WAS02916`, Kinney `WAS00694`, Skalbekken `WAS00685`, Coon Rapids Dam `WAS02630`, and Riverfront Regional Park `WAS01210`. The Coon Rapids Dam route keeps an explicit caveat because the GIS river-mile field differs from DNR Map 9 route mileage; confirm the signed below-dam launch.
+- Current MN DNR river-level feed exposed interpreted ladders for Zumbro Falls site `267` (`5.2 / 7.0-9.0 / 10.5 ft`), Minnesota River Morton site `107` (`307 / 1330-3750 / 10900 cfs`), and Mississippi Hwy 610 site `302` (`3060 / 8670-28300 / 33000 cfs`). Zumbro and Mississippi ship with direct/inside-reach gauge models; Minnesota Kinney-to-Skalbekken ships with a downstream same-map proxy caveat.
+- No route-gallery images were added. Bounded DNR / Commons / county / Anoka County / same-river image review did not produce clearly rights-clean exact-route assets for the three slugs.
 
 - 2026-07-14 13:08 America/Chicago: added `cedar-river-ramsey-austin-mill-pond`, `st-louis-river-forbes-zim`, and `straight-river-medford-kroghs-landing`.
 - Baseline at run start was 103 live Minnesota routes; patched route data now imports 106 Minnesota routes with no missing trip-detail records.

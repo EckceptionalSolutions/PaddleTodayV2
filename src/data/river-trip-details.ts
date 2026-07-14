@@ -25495,5 +25495,170 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'zumbro-river-green-bridge-zumbro-falls': {
+    putIn: {
+      name: 'Zumbro River, Green Bridge Public Water Access Site',
+      latitude: 44.233409,
+      longitude: -92.4824913,
+    },
+    takeOut: {
+      name: 'Zumbro River, Zumbro Falls Public Water Access Site',
+      latitude: 44.2797769,
+      longitude: -92.4234328,
+    },
+    logistics: {
+      distanceLabel: '9.7 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr depending on low-water riffles, wood, scouting, and breaks',
+      shuttle:
+        'Stage Zumbro Falls first, then drive back upstream to Green Bridge. Inspect both ramps and confirm that the Zumbro Falls take-out is usable before committing to the deep-valley run.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public water access sites, follow Minnesota boating/PFD rules, and obey posted access, park, and private-bank signs.',
+      camping:
+        'Treat this as a day route. DNR highlights camping farther downstream at Kruger and Zumbro Bottoms, but no on-route campsite is documented for the Green-Bridge-to-Zumbro-Falls section.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Green Bridge and take out at Zumbro Falls for the 9.7-mile DNR Map 1 day trip. The Zumbro Falls gauge is at the finish and should be paired with a storm-history check because the Zumbro can rise quickly.',
+      accessCaveats: [
+        'Green Bridge and Zumbro Falls both resolve in Minnesota public-water-access GIS with DNR river miles, coordinates, parking, and ramp records.',
+        'The Zumbro Falls gauge is at the take-out and directly represents the lower end of the selected reach; inspect the put-in for local rain, wood, and low-water scraping.',
+        'Do not extend past Zumbro Falls without checking the next access and downstream hazard plan.',
+      ],
+      watchFor: [
+        'Lively current, frequent easy rapids, rocky bluffs, snags, logs, and strainers.',
+        'Flash-flood behavior after rainstorms and quick rises below the Rochester power dam corridor.',
+        'Private banks and limited recovery options in the narrow valley.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'green-bridge',
+        name: 'Zumbro River, Green Bridge Public Water Access Site',
+        latitude: 44.233409,
+        longitude: -92.4824913,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 55.8; resolves as WAS00059.',
+      },
+      {
+        id: 'zumbro-falls',
+        name: 'Zumbro River, Zumbro Falls Public Water Access Site',
+        latitude: 44.2797769,
+        longitude: -92.4234328,
+        mileFromStart: 9.7,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 46.1; resolves as WAS02916 and sits beside the selected DNR gauge.',
+      },
+    ],
+  },
+  'minnesota-river-kinney-skalbekken': {
+    putIn: {
+      name: 'Minnesota River, Kinney Public Water Access Site',
+      latitude: 44.7741284,
+      longitude: -95.5312559,
+    },
+    takeOut: {
+      name: 'Minnesota River, Skalbekken Public Water Access Site',
+      latitude: 44.7317349,
+      longitude: -95.4194534,
+    },
+    logistics: {
+      distanceLabel: '9.2 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr depending on wind, current, mud, and scouting stops',
+      shuttle:
+        'Stage Skalbekken County Park first, then drive back to Kinney Access. Confirm the county-park ramp, restroom, and rustic camping status before relying on Skalbekken as the finish or overnight base.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and respect private banks and posted county-park rules.',
+      camping:
+        'Skalbekken County Park provides the supported overnight option at the route finish. Treat camping as an endpoint-campground/basecamp plan, not informal shoreline camping along the route.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Kinney and finish at Skalbekken County Park for DNR\'s 9.2-mile Map 3 day trip. The Morton gauge is a downstream same-map proxy, so visual access checks matter before launching.',
+      accessCaveats: [
+        'Kinney and Skalbekken both resolve in Minnesota public-water-access GIS with DNR river miles, coordinates, parking, and ramp records.',
+        'The Morton gauge is downstream of the selected route on the same DNR map section; use it as the official corridor check, not as a substitute for local visual conditions.',
+        'Skalbekken is the clean finish. Do not extend into lower Map 3 ledge or rapid context without a separate route plan.',
+      ],
+      watchFor: [
+        'Big-river current, wind exposure, muddy banks, flood debris, snags, and private shoreline.',
+        'Class II-IV Minnesota Falls context and other Class I rapid/ledge features in the broader Map 3 section.',
+        'Remote rescue spacing and limited exits between public access points.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'kinney',
+        name: 'Minnesota River, Kinney Public Water Access Site',
+        latitude: 44.7741284,
+        longitude: -95.5312559,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 233.7/233.8; resolves as WAS00694.',
+      },
+      {
+        id: 'skalbekken',
+        name: 'Minnesota River, Skalbekken Public Water Access Site',
+        latitude: 44.7317349,
+        longitude: -95.4194534,
+        mileFromStart: 9.2,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 224.4/224.6; resolves as WAS00685 with county-park camping context.',
+      },
+    ],
+  },
+  'mississippi-river-coon-rapids-riverfront': {
+    putIn: {
+      name: 'Mississippi River, Coon Rapids Dam Public Water Access Site',
+      latitude: 45.1470228,
+      longitude: -93.3107231,
+    },
+    takeOut: {
+      name: 'Mississippi River, Anoka County Riverfront Regional Park Public Water Access Site',
+      latitude: 45.0676607,
+      longitude: -93.2810499,
+    },
+    logistics: {
+      distanceLabel: '6.1 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with wind, low-water island routing, or wake management',
+      shuttle:
+        'Stage Riverfront Regional Park first, then drive back to the signed below-dam Coon Rapids Dam access. Confirm the launch is below the dam before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Use the Anoka County public accesses, follow Minnesota boating/PFD rules, and obey dam, park, and water-quality advisories.',
+      camping:
+        'Treat this as a metro day route. DNR does not document on-route camping for the Coon Rapids Dam-to-Riverfront run, and nearby park use should follow posted day-use rules.',
+      campingClassification: 'none',
+      summary:
+        'Launch below Coon Rapids Dam and take out at Riverfront Regional Park for the 6.1-mile DNR Map 9 urban Mississippi route. The Hwy 610 gauge sits inside the reach, but the launch must be confirmed below the dam.',
+      accessCaveats: [
+        'Both endpoints resolve in Minnesota public-water-access GIS with Anoka County public access records and coordinates.',
+        'The DNR route text lists Coon Rapids Dam Regional Park at river mile 866.4, while the public-water-access record reports a downstream Coon Rapids Dam access mile. Confirm the signed below-dam launch on arrival.',
+        'The Hwy 610 gauge is inside the reach and should be paired with a visual check for wind, wake, island-channel depth, and dam notices.',
+      ],
+      watchFor: [
+        'Coon Rapids Dam above the launch, swift current, bridge effects, island channels, shallow bars, strainers, and motorboat wake.',
+        'Wind on the wider river and stronger current or debris after rain.',
+        'Metro Mississippi water-quality and fish-consumption advisories; do not drink untreated river water.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'coon-rapids-dam',
+        name: 'Mississippi River, Coon Rapids Dam Public Water Access Site',
+        latitude: 45.1470228,
+        longitude: -93.3107231,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from the signed below-dam Anoka County access; resolves as WAS02630, with a river-mile mismatch to confirm on arrival.',
+      },
+      {
+        id: 'riverfront-regional-park',
+        name: 'Mississippi River, Anoka County Riverfront Regional Park Public Water Access Site',
+        latitude: 45.0676607,
+        longitude: -93.2810499,
+        mileFromStart: 6.1,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 860.3; resolves as WAS01210.',
+      },
+    ],
+  },
 };
 
