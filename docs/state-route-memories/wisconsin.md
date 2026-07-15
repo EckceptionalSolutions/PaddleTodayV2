@@ -4,8 +4,8 @@ Last summarized: 2026-07-14.
 
 ## Current Inventory
 
-- Live routes: 77.
-- Top represented rivers: Wisconsin River 13, Peshtigo River 5, Wolf River 5, Chippewa River 4, Bois Brule River 4, Milwaukee River 4, Baraboo River 3, Brule River 3, Sugar River 3.
+- Live routes: 74.
+- Top represented rivers: Wisconsin River 11, Peshtigo River 5, Wolf River 4, Chippewa River 4, Bois Brule River 4, Black River 3, Brule River 3, Milwaukee River 3, Sugar River 3.
 - Ledger candidates: 71 total; 62 added, 4 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
@@ -17,7 +17,7 @@ Wisconsin remains mature and heavily implemented. The 2026-07-14 18:10 America/C
 - 2026-07-14 19:32 America/Chicago: folded the unpushed Lower Wisconsin split slugs `wisconsin-river-boscobel-woodman`, `wisconsin-river-woodman-millville`, and `wisconsin-river-millville-bridgeport` into canonical `wisconsin-river-boscobel-bridgeport`.
 - The canonical Boscobel-to-Bridgeport corridor now carries Woodman and Millville as alternate access-planner points, plus Wisconsin River Trips support for the adjacent splits and the existing Muscoda gauge ladder.
 - Current imported Wisconsin route count is 74. Wisconsin River live cards are now 12, not 15, because the split routes are represented inside the access planner instead of as separate route cards.
-- 2026-07-14 19:17 America/Chicago: added `brule-river-campground-highway-139`, `brule-river-forest-road-2150-flowage`, and `wisconsin-river-pine-island-portage` beyond the 74-route canonical Wisconsin baseline.
+- 2026-07-14 19:17 America/Chicago: added `brule-river-campground-highway-139`, `brule-river-forest-road-2150-flowage`, and `wisconsin-river-pine-island-portage`. The same commit also consolidated overlapping Lower Wisconsin split cards, so the final committed Wisconsin count remains 74.
 - The two new Brule routes complete the WTG B1/B2/B3 border-river chain around existing `brule-river-highway-139-fr-2150`; B1 and B3 use USGS `04060993` with WTG's 220 cfs / 3.5 ft minimum and explicit remote/strainer/primitive-camping or no-camping caveats.
 - The new Pine Island-to-Portage route uses Wisconsin River Trips Pine Island and Portage pages, Wisconsin DNR Pine Island Wildlife Area access and no-camping rules, and USGS `05404000` at Wisconsin Dells with WRT's 4,000-6,000 cfs average-summer band and 13,000+ cfs unsuitable caveat.
 - Reviewed but did not add the Granite Heights / Wisconsin River Forest Landing-to-Brokaw idea because USGS `05400650` at Merrill returned only stale 1987 data in Water Services during this run.
