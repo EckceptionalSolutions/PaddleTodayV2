@@ -1,5 +1,10 @@
 # Midwest Route Automation Memory
 
+- 2026-07-15 16:40 America/Chicago / 2026-07-15 21:40 UTC: Minnesota route consolidation pass after unpushed-route review.
+  - Removed `cottonwood-river-highway-4-county-road-11` and `cottonwood-river-county-road-11-highway-15` from live route data because they subdivided the already-live `cottonwood-river-highway-4-highway-15` route with the same official DNR source family. Both ledger records are now `duplicate_corridor`; image-audit rows were removed.
+  - Retained `cottonwood-river-springfield-highway-4` because it fills the upstream gap from Springfield to Highway 4. Retained `straight-river-morehouse-kohlmeier-lake`, `redwood-river-redwood-lake-loop`, and `shell-rock-river-myre-big-island-loop` because they are official MN DNR recommended round trips, not duplicate splits of a fuller live card.
+  - Post-consolidation route-count check should show 156 Minnesota routes, with the two lower Cottonwood split slugs absent from both route data and trip details.
+
 - 2026-07-15 16:16 America/Chicago / 2026-07-15 21:16 UTC: Minnesota three-route implementation pass (`minnesota-route-additions-2`).
   - Added three Minnesota slugs beyond the 155-route Minnesota baseline at run start: `cottonwood-river-springfield-highway-4`, `cottonwood-river-highway-4-county-road-11`, and `cottonwood-river-county-road-11-highway-15`, bringing Minnesota to 158 live routes.
   - Qualification path: MN DNR Cottonwood River page and Minnesota / Cottonwood Map 4 document the Springfield, Highway 4, County Road 11, Flandrau / New Ulm, and Highway 15 access sequence; Minnesota public-water-access GIS resolves all four selected endpoints with coordinates and river-mile records; and the current MN DNR river-level feed exposes same-day Cottonwood readings.

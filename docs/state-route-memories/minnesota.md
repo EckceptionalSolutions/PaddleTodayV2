@@ -1,18 +1,22 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 16:16 America/Chicago.
+Last summarized: 2026-07-15 16:40 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 158 after the 2026-07-15 16:16 three-route addition pass.
-- Top represented rivers: Mississippi River 26, Minnesota River 12, Sauk River 7, Rum River 7, North Fork Crow River 6, Root River 6, Big Fork River 5, Cannon River 5, Cottonwood River 5, Crow Wing River 5, Red Lake River 5, Red River of the North 5, Zumbro River 5, Little Fork River 4, Otter Tail River 4, Snake River 4, St. Croix River 4, St. Louis River 4, Straight River 4, Cedar River 3, Cloquet River 3, Des Moines River 3, Long Prairie River 3, Pine River 3, Blue Earth River 2, Redwood River 2, Shell Rock River 2.
-- Ledger candidates: 953 total; 572 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 25 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
+- Live routes: 156 after the 2026-07-15 16:40 Cottonwood consolidation pass.
+- Top represented rivers: Mississippi River 26, Minnesota River 12, Sauk River 7, Rum River 7, North Fork Crow River 6, Root River 6, Big Fork River 5, Cannon River 5, Crow Wing River 5, Red Lake River 5, Red River of the North 5, Zumbro River 5, Little Fork River 4, Otter Tail River 4, Snake River 4, St. Croix River 4, St. Louis River 4, Straight River 4, Cedar River 3, Cloquet River 3, Cottonwood River 3, Des Moines River 3, Long Prairie River 3, Pine River 3, Blue Earth River 2, Redwood River 2, Shell Rock River 2.
+- Ledger candidates: 953 total; 570 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 16:40 America/Chicago: consolidated marginal Cottonwood split routes after unpushed Minnesota route review.
+- Removed `cottonwood-river-highway-4-county-road-11` and `cottonwood-river-county-road-11-highway-15` from live route data and trip details because they are practical subsections of the already-live `cottonwood-river-highway-4-highway-15` card, using the same official lower-Cottonwood source family. Marked both ledger candidates `duplicate_corridor` and removed their image-audit rows.
+- Retained `cottonwood-river-springfield-highway-4` because it fills a non-overlapping upstream-to-middle Cottonwood gap between existing cards. Retained `straight-river-morehouse-kohlmeier-lake`, `redwood-river-redwood-lake-loop`, and `shell-rock-river-myre-big-island-loop` because they are official MN DNR recommended round trips rather than duplicate splits of an existing fuller route card.
 
 - 2026-07-15 16:16 America/Chicago: added `cottonwood-river-springfield-highway-4`, `cottonwood-river-highway-4-county-road-11`, and `cottonwood-river-county-road-11-highway-15`.
 - Baseline at run start was 155 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Validated route data imports 158 Minnesota routes and all three new slugs have trip-detail records.
