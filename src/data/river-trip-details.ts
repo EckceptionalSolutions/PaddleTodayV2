@@ -3703,6 +3703,71 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+
+  'crow-wing-river-little-white-dog-cottingham': {
+    putIn: {
+      name: 'Little White Dog County Park #9 carry-in access',
+      latitude: 46.586984884675736,
+      longitude: -94.82261571200662,
+    },
+    takeOut: {
+      name: 'Cottingham County Park #11 carry-in access',
+      latitude: 46.505529851247346,
+      longitude: -94.80738952007682,
+    },
+    logistics: {
+      distanceLabel: '9.8 mi',
+      estimatedPaddleTime: 'About 3 hr 15 min to 5 hr, longer when the Nimrod gauge is below the low band',
+      shuttle:
+        'Stage the Cottingham take-out first, then drive back to Little White Dog. This is a short Wadena County shuttle, but both endpoints are county campground / park settings where parking, fees, and busy summer use should be checked before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules and all posted Wadena County campground, day-use, parking, and fee rules at Little White Dog, Knob Hill, and Cottingham.',
+      camping:
+        'Little White Dog, Knob Hill, and Cottingham provide documented county-park campground context along the selected route, but overnight use should be planned under current Wadena County rules rather than assumed from the river.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Little White Dog and finish at Cottingham for the current MN DNR Map 2 lower Crow Wing recommended day trip. Use Nimrod as the official upstream same-corridor gauge and make a visual low-water check before committing.',
+      accessCaveats: [
+        'Little White Dog and Cottingham both resolve in the Minnesota public-water-access GIS with river-mile records and county-park administration.',
+        'Knob Hill is the main midpoint county access and campground; use it as the planned bailout or overnight break if the route is moving slowly.',
+        'Private shoreland dominates outside the designated county accesses and campsites, and summer tubing or swimming traffic can make Knob Hill and Cottingham busy.',
+      ],
+      watchFor: [
+        'Low-water scraping and exposed sandbars when Nimrod is near or below 300 cfs.',
+        'Fresh wood, blind bends, sweepers, and faster current after storms.',
+        'Crowded campground/tubing landings, cold water, private banks, and delayed take-out loading at Cottingham.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'little-white-dog',
+        name: 'Little White Dog County Park #9 carry-in access',
+        latitude: 46.586984884675736,
+        longitude: -94.82261571200662,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 59.3 and the upstream county-campground anchor for this route.',
+      },
+      {
+        id: 'knob-hill',
+        name: 'Knob Hill Landing #10 carry-in access',
+        latitude: 46.533855996511825,
+        longitude: -94.81849257299048,
+        mileFromStart: 6.1,
+        segmentKind: 'creek',
+        note: 'Mid-route campground, tubing access, and bailout before the final Cottingham miles.',
+      },
+      {
+        id: 'cottingham-county-park',
+        name: 'Cottingham County Park #11 carry-in access',
+        latitude: 46.505529851247346,
+        longitude: -94.80738952007682,
+        mileFromStart: 9.8,
+        segmentKind: 'creek',
+        note: 'Default DNR-recommended take-out and downstream county-park campground at river mile 49.5.',
+      },
+    ],
+  },
   
   
   'cottonwood-river-juenemann-springfield': {
@@ -5437,6 +5502,89 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Turbid water, limited scenery on some open-bank miles, and cold-water exposure outside summer.',
       ],
     },
+  },
+  'sugar-river-attica-albany': {
+    putIn: {
+      name: 'County Road C / Attica Highway C Access',
+      latitude: 42.77021,
+      longitude: -89.47913,
+    },
+    takeOut: {
+      name: 'Albany Madison Street public boat launch',
+      latitude: 42.71007,
+      longitude: -89.43966,
+    },
+    logistics: {
+      distanceLabel: '9 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr',
+      shuttle:
+        'Use a rural car shuttle between Attica and Albany. A bike shuttle can use parts of the Sugar River State Trail, but confirm road crossings and trail logistics before counting on it.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted access rules at the Attica bridge area, Albany park or launch rules, and Wisconsin boating/PFD requirements.',
+      camping:
+        'No on-route camping is assumed. Sweet Minihaha Campground and other private lodging nearby are separate arrangements, not public river-camping rights.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at the County Road C access in Attica and finish at the Albany public boat launch off Madison Street. The route is a mellow middle-Sugar day with clear sandy water at adequate flows, then a more public-land feel through the Albany Wildlife Area approach.',
+      accessCaveats: [
+        'The Attica launch is a bridge-area pull-off and designated access rather than a full-service ramp; confirm parking and shoulder conditions before unloading.',
+        'The Albany finish is supported by village riverfront boat-launch context, but park events, tubing activity, or local signage can affect staging.',
+        'Stay with the main Sugar River channel near the Albany Wildlife Area; tributary mouths and side channels can contain deadfall and confusing low-water routes.',
+      ],
+      watchFor: [
+        'Very shallow, frustrating paddling below the 60 cfs Verona-gauge floor.',
+        'Deadfall and strainers on bends or near tributary mouths, especially after storms.',
+        'Side-channel confusion in the final Albany Wildlife Area miles.',
+        'Private banks, cold water outside summer, and limited formal exits between the named accesses.',
+      ],
+    },
+  },
+  'sugar-river-brodhead-avon': {
+    putIn: {
+      name: 'Decatur Park / Brodhead lower-river access',
+      latitude: 42.64446,
+      longitude: -89.40896,
+    },
+    takeOut: {
+      name: 'Avon Bottoms Landing / Sugar River Park area',
+      latitude: 42.5426,
+      longitude: -89.34146,
+    },
+    logistics: {
+      distanceLabel: '14.5 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6.5 hr',
+      shuttle:
+        'Plan a long lower-Sugar car shuttle from Brodhead to the Avon Bottoms / Sugar River Park area. Clarence Bridge Park can split the route if daylight, weather, or water level makes the full run too much.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Brodhead, Pearl Island, Rock County park, state trail, and boating/PFD rules, and respect any posted dam-portage signage.',
+      camping:
+        'Miles Paddled notes Clarence Bridge Park can support a mid-route camping split, but treat camping as a separate current-rule check. Do not assume private banks or Avon Bottoms shorelines are open camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Put in below the Brodhead / Decatur Dam context and paddle the lower Sugar River through the Pearl Island and Avon Bottoms corridor to the Avon-area take-out. This is a long, mostly flatwater day where dam awareness, channel choice, and water level matter more than technical difficulty.',
+      accessCaveats: [
+        'Do not launch above Decatur Dam without a clear portage and take-out plan; use the lower-river access context and stay well away from head gates or spillway current.',
+        'The City of Brodhead map shows several canoe/kayak access points and a portage around Decatur Dam, but the exact lower-river launch should be confirmed on arrival.',
+        'Avon Bottoms / Sugar River Park is a rustic public-access finish. Scout the take-out before launching because backwater channels and vegetation can make the exit less obvious from upstream.',
+      ],
+      watchFor: [
+        'Decatur Dam, head gates, portage routes, and misleading current near the start.',
+        'High-water push near 1,000 cfs on the Brodhead gauge, when the exact route was reported as very high and pushy.',
+        'Low-water sand, broad backwaters, side channels, and possible wrong turns in the Avon Bottoms corridor.',
+        'Long mileage, heat, storms, private banks, and limited bailout options after Clarence Bridge.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'clarence-bridge-park',
+        name: 'Clarence Bridge Park',
+        latitude: 42.5961,
+        longitude: -89.3817,
+        mileFromStart: 8.5,
+        segmentKind: 'creek',
+        note: 'Mid-route split and camping context from Miles Paddled; verify current park and camping rules before using it as an overnight stop.',
+      },
+    ],
   },
 
   'black-hawk-creek-ranchero-hope-martin': {
@@ -8712,6 +8860,71 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'High water, sticky holes, strainers, deadfall, spring ice shelves, cold water, and limited road exits in the Wild River corridor.',
       ],
     },
+  },
+  'popple-river-highway-101-white-ash': {
+    putIn: {
+      name: 'Highway 101 Wayside / Popple River Park Landing',
+      latitude: 45.80005,
+      longitude: -88.39733,
+    },
+    takeOut: {
+      name: 'White Ash Road Landing / Pine River confluence access',
+      latitude: 45.83957,
+      longitude: -88.3389,
+    },
+    logistics: {
+      distanceLabel: 'About 6.3 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, plus scouting and portage time',
+      shuttle:
+        'Use a remote Florence County shuttle from Highway 101 to the White Ash Road landing. Download maps before leaving pavement; WTG notes White Ash Road can be rough and sometimes shallowly flooded before the landing.',
+      permits:
+        'No route-specific paddling permit is known. Use the named Pine-Popple Wild Rivers access points, respect portage signs and private land boundaries, and follow Wisconsin boating/PFD rules.',
+      camping:
+        'No on-route campsite is assumed for this split. The broader PO2 route has a rustic campsite upstream near Nine Day Rapids, but that is above the Highway 101 put-in and should not be treated as part of this downstream day route.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at the Highway 101 wayside below the existing lower-Popple route and continue through the downstream PO2 whitewater to White Ash Road on the Pine River below the confluence. Expect continuous boulder gardens, Washburn Falls, Jennings Falls, and remote Wild River consequences.',
+      accessCaveats: [
+        'Highway 101 / Popple River Park is a hand-carry wayside access with no toilets or water; keep staging compact and do not block the wayside.',
+        'White Ash Road landing is on the Pine River about 30 yards below the Popple confluence. Identify the confluence and the river-right landing before committing to the final miles.',
+        'Rough road access, limited cell service, and remote rescue exposure make this a serious shuttle even though the mileage is short.',
+      ],
+      watchFor: [
+        'Almost continuous Class I-II boulder gardens immediately below the wayside.',
+        'Washburn Falls and Jennings Falls, both Class III features that should be scouted or portaged when the line is uncertain.',
+        'Strainers and deadfall in constricted high-water sections, especially above 600 cfs.',
+        'Low-water scraping below 150-250 cfs, sticky holes at higher levels, cold water, and limited exits before White Ash Road.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lamon-tangue-creek',
+        name: 'Lamon Tangue Creek confluence',
+        latitude: 45.80466,
+        longitude: -88.37362,
+        mileFromStart: 1.7,
+        segmentKind: 'creek',
+        note: 'WTG landmark before Washburn Falls; not an access point, but useful for route awareness.',
+      },
+      {
+        id: 'washburn-falls',
+        name: 'Washburn Falls',
+        latitude: 45.81138,
+        longitude: -88.36517,
+        mileFromStart: 2.4,
+        segmentKind: 'creek',
+        note: 'Class III falls; scout or portage on river right according to Wisconsin Trail Guide.',
+      },
+      {
+        id: 'jennings-falls',
+        name: "Jennings Falls / Popple Rapids",
+        latitude: 45.83693,
+        longitude: -88.36399,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Class III ledges shortly before the Pine River confluence; scout or portage on river right.',
+      },
+    ],
   },
   'pine-river-highway-55-stevens-lake': {
     putIn: {
@@ -27511,6 +27724,134 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 25.6,
         segmentKind: 'creek',
         note: 'Default take-out at DNR river mile 970.2; resolves as WAS01278 with park support.',
+      },
+    ],
+  },
+  'mississippi-river-kiwanis-crow-wing-state-park': {
+    putIn: {
+      name: 'Mississippi River, Kiwanis Park Public Water Access Site',
+      latitude: 46.346546055567686,
+      longitude: -94.20722309254398,
+    },
+    takeOut: {
+      name: 'Mississippi River, Crow Wing State Park Public Water Access Site',
+      latitude: 46.26826999422346,
+      longitude: -94.34310794944992,
+    },
+    logistics: {
+      distanceLabel: '10.7 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr depending on wind, stops, and current',
+      shuttle:
+        'Stage the Crow Wing State Park take-out first, then drive back to Kiwanis Park in Brainerd. Confirm current state-park entry, parking, and river-access rules before leaving a vehicle.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, City of Brainerd park rules, DNR public-access rules, and Crow Wing State Park entry, parking, and camping rules.',
+      camping:
+        'Crow Wing State Park can support endpoint base-camping when separately reserved or allowed under current park rules. Do not assume informal riverbank camping between Kiwanis and the state park.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Kiwanis Park and take out at Crow Wing State Park for the Mississippi Headwaters Board / DNR-linked Brainerd day route. Use the Brainerd DNR gauge as the official near-upstream corridor check.',
+      accessCaveats: [
+        'Kiwanis Park resolves in Minnesota public-water-access GIS as a Brainerd city access at river mile 1001.1.',
+        'Use the Crow Wing State Park Mississippi River access as the planned finish; the nearby non-state-park Crow Wing access is a different public-water-access record and should not replace the state-park plan without checking signs.',
+        'The Brainerd gauge is upstream of the put-in, so pair the official bands with visual checks for wind, landing condition, and post-rain debris.',
+      ],
+      watchFor: [
+        'Wind and motorboat wake on broad Mississippi bends.',
+        'Faster current, floating debris, cold water, and harder landings after rain or rising water.',
+        'Private banks, state-park rules, and extending downstream without a separate longer-route plan.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'kiwanis-park',
+        name: 'Mississippi River, Kiwanis Park Public Water Access Site',
+        latitude: 46.346546055567686,
+        longitude: -94.20722309254398,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default city put-in at public-water-access river mile 1001.1.',
+      },
+      {
+        id: 'riverview-park',
+        name: 'Mississippi River, Riverview Park Public Water Access Site',
+        latitude: 46.31728499086304,
+        longitude: -94.26059800785527,
+        mileFromStart: 4.1,
+        segmentKind: 'creek',
+        note: 'Practical Brainerd-area intermediate access if the day starts slower than expected.',
+      },
+      {
+        id: 'crow-wing-public-access',
+        name: 'Mississippi River, Crow Wing Public Water Access Site',
+        latitude: 46.2792155,
+        longitude: -94.3322834,
+        mileFromStart: 8.8,
+        segmentKind: 'creek',
+        note: 'Nearby downstream access record before the state-park finish; use signs and current rules to avoid confusing access points.',
+      },
+      {
+        id: 'crow-wing-state-park',
+        name: 'Mississippi River, Crow Wing State Park Public Water Access Site',
+        latitude: 46.26826999422346,
+        longitude: -94.34310794944992,
+        mileFromStart: 10.7,
+        segmentKind: 'creek',
+        note: 'MHB/DNR-linked downstream finish at Crow Wing State Park; confirm state-park parking and access rules.',
+      },
+    ],
+  },
+  'mississippi-river-belle-prairie-lebourget': {
+    putIn: {
+      name: 'Mississippi River, Belle Prairie County Park Public Water Access Site',
+      latitude: 46.035350295693355,
+      longitude: -94.34355231155428,
+    },
+    takeOut: {
+      name: 'Mississippi River, LeBourget Park Public Water Access Site',
+      latitude: 45.97986855571649,
+      longitude: -94.36601791115869,
+    },
+    logistics: {
+      distanceLabel: '5.0 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr depending on wind, level, and city take-out traffic',
+      shuttle:
+        'Stage LeBourget Park first, then drive back to Belle Prairie County Park. Keep the take-out visible and non-negotiable because the Little Falls dam corridor begins just downstream.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, Morrison County park rules, City of Little Falls park rules, and all posted public-water-access restrictions.',
+      camping:
+        'Treat this as a short day route. Belle Prairie and nearby Charles Lindbergh State Park can support separate base-camp planning, but no on-route campsite is assumed between the selected endpoints.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Belle Prairie County Park and take out at LeBourget Park for the short MHB / DNR-linked Little Falls approach. The route is simple only if the LeBourget take-out is made before the dam corridor.',
+      accessCaveats: [
+        'Belle Prairie and LeBourget both resolve in Minnesota public-water-access GIS with river-mile records and coordinates.',
+        'LeBourget is the required finish for this card. Do not continue toward Little Falls Dam unless you have a separate current dam/portage plan.',
+        'The Brainerd gauge is an upstream same-corridor proxy; make a local visual check at Belle Prairie and confirm the LeBourget landing is usable before launch.',
+      ],
+      watchFor: [
+        'Mandatory take-out discipline at LeBourget before the Little Falls dam corridor.',
+        'City bridge current seams, boat wake, wind, cold water, and post-rain debris.',
+        'Private banks and limited legal stopping options outside the named public parks.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'belle-prairie-county-park',
+        name: 'Mississippi River, Belle Prairie County Park Public Water Access Site',
+        latitude: 46.035350295693355,
+        longitude: -94.34355231155428,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at Morrison County public-water-access river mile 970.2.',
+      },
+      {
+        id: 'lebouget-park',
+        name: 'Mississippi River, LeBourget Park Public Water Access Site',
+        latitude: 45.97986855571649,
+        longitude: -94.36601791115869,
+        mileFromStart: 5.0,
+        segmentKind: 'creek',
+        note: 'Mandatory Little Falls city take-out before the downstream dam corridor; resolves as a public-water-access site at river mile 965.6.',
       },
     ],
   },

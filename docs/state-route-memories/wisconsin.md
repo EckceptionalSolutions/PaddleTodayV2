@@ -4,16 +4,24 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 101.
-- Top represented rivers: Wisconsin River 13, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Baraboo River 3, Sugar River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3.
+- Live routes: 104.
+- Top represented rivers: Wisconsin River 13, Sugar River 5, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Popple River 3, Baraboo River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3.
 - Ledger candidates: 96 total; 86 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three lower Eau Claire / Great Pinery routes beyond the 98-route baseline: `eau-claire-river-dells-park-clubhouse`, `eau-claire-river-clubhouse-ross`, and `eau-claire-river-ross-drott`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 101-route baseline: `popple-river-highway-101-white-ash`, `sugar-river-attica-albany`, and `sugar-river-brodhead-avon`.
 
 ## Latest Audit
 
+- 2026-07-15 America/Chicago: added `popple-river-highway-101-white-ash`, `sugar-river-attica-albany`, and `sugar-river-brodhead-avon`, bringing the live Wisconsin route count to 104.
+- The Popple route fills the downstream half of Wisconsin Trail Guide PO2 below the already-live Morgan-Lake-to-Highway-101 route. WTG publishes Highway 101 / Popple River Park and White Ash Road coordinates, Class II-III hazard notes for Washburn Falls and Jennings Falls, and an explicit statement that upstream USGS `04063700` should indicate conditions for this reach.
+- The Sugar routes add the lower public access chain from Attica to Albany and Brodhead to Avon. Miles Paddled documents the exact Attica-to-Albany alternate trip with coordinates and a 60 cfs Verona floor; Brodhead-to-Avon uses Miles Paddled's exact route geometry, Brodhead gauge correlation, City of Brodhead Pearl Island / Decatur Dam access context, and Rock County Sugar River Park / Avon-area launch context.
+- Live gauge verification: USGS Water Services returned Popple `04063700` at `34.8 cfs / 1.97 ft` at 2026-07-15 04:45 CDT, Sugar Verona `05435950` at `31.6 cfs / 2.96 ft` at 2026-07-15 04:00 CDT, and Sugar Brodhead `05436500` at `259 cfs / 1.00 ft` at 2026-07-15 04:00 CDT. All three ship as current low-water or below-floor warnings, not good-day recommendations.
+- Threshold posture: Popple uses WTG PO2 two-sided bands (`tooLow 150`, `ideal 250-600`, `tooHigh 1000`) with proxy-gauge caveats. Attica-to-Albany uses a minimum-only 60 cfs Verona floor. Brodhead-to-Avon uses a conservative minimum-only 280 cfs Brodhead floor from lower-Sugar same-gauge evidence and records the 1,010 cfs exact-route high-water caution without inventing a formal upper cutoff.
+- Safety/logistics added: Popple rough-road access, remote rescue, Class III scouting/portages, strainers, cold water, and no on-route campsite assumption below Highway 101. Sugar caveats cover Decatur Dam and head gates, side-channel confusion, private banks, low-water sand, high-water push, tubing/event traffic, and separate camping checks for Clarence Bridge / nearby private campgrounds.
+- Bounded image review found route-adjacent Sugar and broad Popple imagery but no clearly rights-clean exact-route paddling asset selected for local reuse; three no-image rows were added to the image audit.
+- Prompt leads were reconciled again: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica are already implemented; Black Earth Creek Cross Plains-to-Salmo Pond remains blocked by unresolved obstruction evidence; upper Chippewa / Wolf / WTG families remain heavily represented; Willow was rejected because USGS `05341752` returned stale/discontinued data; Tomorrow River was deferred due current blockage evidence; and lower Eau Galle / Apple options stayed out because access or threshold support was weaker.
 - 2026-07-15 America/Chicago: added `eau-claire-river-dells-park-clubhouse`, `eau-claire-river-clubhouse-ross`, and `eau-claire-river-ross-drott`, bringing the live Wisconsin route count to 101.
 - The three routes fill the Marathon County / Weston Eau Claire River chain below the already-live `eau-claire-river-bear-lake-county-n` card. The first is a below-Dells whitewater-light route from Miles Paddled's Eau Claire II report; the second and third are lower Great Pinery / Weston water-trail cards from Clubhouse Road to Ross Avenue and Ross Avenue to Drott Street Landing.
 - Source packet: Miles Paddled Eau Claire II and III route reports with GPS endpoints and route-specific observed levels, Wisconsin Trail Guide Eau Claire cfs ladder, Wisconsin River Trips Eau Claire River - Weston access-chain report, Great Pinery Lower Eau Claire River Trail mileage/landing/portage details, Village of Weston Ross-gauge stage guidance, and direct USGS `05397500` Water Services.

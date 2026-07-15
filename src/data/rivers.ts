@@ -11565,6 +11565,137 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'crow-wing-river-little-white-dog-cottingham',
+    slug: 'crow-wing-river-little-white-dog-cottingham',
+    name: 'Crow Wing River',
+    reach: 'Little White Dog to Cottingham County Park',
+    state: 'Minnesota',
+    region: 'Wadena Area',
+    summary:
+      'Official MN DNR lower Crow Wing day from Little White Dog to Cottingham County Park. It fills the shorter downstream county-park gap below Nimrod with named Wadena County campground accesses and the same interpreted Nimrod gauge ladder as the surrounding Crow Wing routes.',
+    statusText:
+      'Use the Nimrod DNR gauge as an upstream same-corridor proxy: 400 to 800 cfs is the official medium band, below 300 cfs is scrapable, and above 1,100 cfs is very high.',
+    latitude: 46.5869849,
+    longitude: -94.8226157,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'This reach is below the main Nimrod rapid cluster, but the twisting sand-bed river still collects fresh wood and can become slow, shallow, and draggy when the Nimrod gauge falls below the official low band.',
+        'Little White Dog, Knob Hill, and Cottingham are the public county-park anchors. Do not assume private banks or informal clearings are legal stops.',
+        'Cottingham and Knob Hill draw summer tubing, swimming, and campground traffic, so expect busier landings and keep the take-out plan conservative.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-55',
+      provider: 'mn_dnr',
+      siteId: '55',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'Crow Wing River at Nimrod, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=12085001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12085001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05244000',
+        provider: 'usgs',
+        siteId: '05244000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Crow Wing River at Nimrod, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 800,
+      tooLow: 300,
+      tooHigh: 1100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the normal window. This lower county-park chain often stays paddleable, but low-water sandbars, weekend use, and post-storm wood are the controlling details.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'A short, mostly gentle Crow Wing day with clean public endpoints; caution comes from low-water scraping, wood, private banks, and busy campground/tubing traffic near the finish.',
+      confidenceNotes:
+        'Confidence is good: MN DNR currently recommends Little White Dog to Cottingham as the Map 2 day trip, the public-water-access feature service resolves both endpoints plus Knob Hill with river miles and coordinates, Wadena County documents campground support, and the Nimrod DNR gauge is the official interpreted same-corridor gauge just upstream of the selected reach.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Current gauge check',
+        value: '284 cfs at 2026-07-15 02:00',
+        note: 'The current MN DNR feed placed Nimrod below the official low band during this run, so the card ships with a low/scrapable warning rather than a good-day assumption.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '300 / 400-800 / 1,100 cfs',
+        note: 'MN DNR interprets Nimrod as Scrapable below 300 cfs, Low from 300 to 400, Medium from 400 to 800, High from 800 to 1,100, and Very High above 1,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended trip',
+        value: '9.8 river miles',
+        note: 'MN DNR recommends Little White Dog to Cottingham on Crow Wing Map 2, with Little White Dog at river mile 59.3 and Cottingham at river mile 49.5.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS01527 and WAS01325',
+        note: 'Minnesota public-water-access GIS resolves Little White Dog and Cottingham County Park as Crow Wing public water access sites with source-backed coordinates and river-mile records.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: 'Little White Dog, Knob Hill, and Cottingham',
+        note: 'Wadena County and the DNR map document county campground support along the selected lower Crow Wing chain, giving this route practical midpoint or endpoint overnight options when current rules and fees are confirmed.',
+        sourceUrl: 'https://www.co.wadena.mn.us/220/Cottingham-Park-Campground',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Crow Wing River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Wadena County Little White Dog Campground',
+        url: 'https://www.co.wadena.mn.us/223/Little-White-Dog-Campground',
+      },
+      {
+        label: 'Wadena County Cottingham Park Campground',
+        url: 'https://www.co.wadena.mn.us/220/Cottingham-Park-Campground',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
     id: 'whitewater-river-elba-highway-74',
     slug: 'whitewater-river-elba-highway-74',
     name: 'Whitewater River',
@@ -12769,6 +12900,222 @@ export const rivers: River[] = [
       {
         label: 'Lower Sugar River Watershed Association',
         url: 'https://lsrwa.org/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'sugar-river-attica-albany',
+    slug: 'sugar-river-attica-albany',
+    name: 'Sugar River',
+    reach: 'Attica Highway C Access to Albany Madison Street Launch',
+    state: 'Wisconsin',
+    region: 'South-Central Wisconsin',
+    summary:
+      'Middle Sugar River continuation from the Attica Highway C access to Albany, using the same Verona-gauge low-water floor as the adjacent Sugar reaches and finishing at a village boat launch on the river.',
+    statusText:
+      'Use the Sugar River near Verona gauge as the conservative low-water check. Miles Paddled recommends at least 60 cfs there; below 50 cfs this reach becomes extremely shallow and frustrating.',
+    latitude: 42.77021,
+    longitude: -89.47913,
+    gaugeSource: {
+      id: 'usgs-05435950',
+      provider: 'usgs',
+      siteId: '05435950',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Sugar River near Verona, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05435950/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 60,
+      thresholdSource: {
+        label: 'MilesPaddled Sugar River V Attica-to-Albany alternate trip minimum',
+        url: 'https://milespaddled.com/sugar-river-v/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall can work when the Verona gauge is above the shallow bands. Summer drought makes the sandy shallows slow, while rain can add push and fresh wood without creating a published upper cutoff.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly gentle current and clear sandy bends, but the nine-mile length, side-channel confusion near Albany Wildlife Area, and deadfall in tributary mouths make this more than a lazy tubing drift.',
+      confidenceNotes:
+        'Confidence is acceptable for a scoped community-source add: Miles Paddled documents the exact Attica-to-Albany alternate route with endpoint coordinates and a Verona-gauge minimum; the Village of Albany confirms Legion Park / the riverfront park has a boat launch; and Wisconsin DNR confirms Albany Wildlife Area public land along the lower approach. The main caveat is threshold quality: the route has a defensible low-water floor but no published upper band, so high or rising water should be treated conservatively.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published low-water floor',
+        value: '60 cfs at Verona',
+        note: 'Miles Paddled says anything below 50 cfs on the Verona gauge will be extremely shallow and frustrating and recommends a 60 cfs minimum for the Attica-to-Albany trip.',
+        sourceUrl: 'https://milespaddled.com/sugar-river-v/',
+      },
+      {
+        label: 'Current gauge check',
+        value: '31.6 cfs / 2.96 ft at 4:00 AM CDT',
+        note: 'USGS Water Services returned same-day values for Sugar River near Verona on July 15, 2026; the current flow was below the published low-water floor.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05435950&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route shape',
+        value: '9 miles',
+        note: 'Miles Paddled documents County Road C in Attica to the Albany public boat launch as a 9-mile shorter alternate trip.',
+        sourceUrl: 'https://milespaddled.com/sugar-river-v/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.77021, -89.47913 to 42.71007, -89.43966',
+        note: 'Miles Paddled publishes GPS points for the Attica County Road C put-in and the public boat launch off Madison Street in Albany.',
+        sourceUrl: 'https://milespaddled.com/sugar-river-v/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Albany riverfront boat launch',
+        note: 'The Village of Albany says Legion Park on the river shore offers a boat launch and is useful for canoers to rest with a picnic lunch.',
+        sourceUrl: 'https://www.albanywi.org/community-attractions/',
+      },
+      {
+        label: 'Public land context',
+        value: 'Albany Wildlife Area lower approach',
+        note: 'Wisconsin DNR confirms Albany Wildlife Area includes state-owned land and Sugar River frontage near the route finish.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/Lands/WildlifeAreas/albany',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MilesPaddled Sugar River V',
+        url: 'https://milespaddled.com/sugar-river-v/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'USGS 05435950 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05435950/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Village of Albany community attractions',
+        url: 'https://www.albanywi.org/community-attractions/',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin DNR Albany Wildlife Area',
+        url: 'https://dnr.wisconsin.gov/topic/Lands/WildlifeAreas/albany',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'sugar-river-brodhead-avon',
+    slug: 'sugar-river-brodhead-avon',
+    name: 'Sugar River',
+    reach: 'Decatur Park / Brodhead to Avon Bottoms Landing',
+    state: 'Wisconsin',
+    region: 'South-Central Wisconsin',
+    summary:
+      'Long lower-Sugar day from Brodhead into Avon Bottoms, with a direct Brodhead gauge near the put-in, Pearl Island access context, a mid-route Clarence Bridge split, and a remote public-land finish.',
+    statusText:
+      'Use the Sugar River near Brodhead gauge. Treat roughly 280 cfs as the conservative lower-river floor from nearby lower-Sugar trip evidence; around 1,000 cfs is high and pushy, not a casual recommendation.',
+    latitude: 42.64446,
+    longitude: -89.40896,
+    gaugeSource: {
+      id: 'usgs-05436500',
+      provider: 'usgs',
+      siteId: '05436500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Sugar River near Brodhead, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05436500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 280,
+      thresholdSource: {
+        label: 'MilesPaddled lower Sugar River Brodhead-gauge trip evidence',
+        url: 'https://milespaddled.com/sugar-river-vii/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is practical when the lower Sugar has enough water. Low summer water exposes sand and slows the day; high water around or above the 1,000 cfs route report is pushy and should be left to experienced groups.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Flatwater and gentle current, but 14.5 miles, Decatur Dam proximity, backwater channels, broad wetland navigation, and limited exits make this a full-day lower-river trip.',
+      confidenceNotes:
+        'Confidence is acceptable but intentionally conservative: Miles Paddled documents the exact Brodhead-to-Avon route and says the Brodhead gauge sits about 4.25 miles downstream from the put-in and correlates perfectly; the City of Brodhead documents Pearl Island / head gates canoe-kayak access and the dam portage context; and Rock County documents Sugar River Park as an unimproved canoe launch near the Avon finish. The threshold model uses a lower-river floor from nearby same-gauge evidence, because the exact Brodhead-to-Avon report is clearer about high water than low water.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific gauge fit',
+        value: 'Brodhead gauge 4.25 miles below put-in',
+        note: 'Miles Paddled says the Sugar River near Brodhead gauge at Ten Eyck Road is about 4.25 miles downstream from the put-in and correlates perfectly with the Brodhead-to-Avon route.',
+        sourceUrl: 'https://milespaddled.com/sugar-river-vii/',
+      },
+      {
+        label: 'Current gauge check',
+        value: '259 cfs / 1.00 ft at 4:00 AM CDT',
+        note: 'USGS Water Services returned same-day values for Sugar River near Brodhead on July 15, 2026; the current flow was slightly below the conservative lower-river floor used by this card.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05436500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'High-water caution',
+        value: '1,010 cfs was very high and pushy',
+        note: 'Miles Paddled ran the exact route at 1,010 cfs and described it as very high and pushy, with the river cresting near flood stage the next day.',
+        sourceUrl: 'https://milespaddled.com/sugar-river-vii/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.64446, -89.40896 to 42.54260, -89.34146',
+        note: 'Miles Paddled publishes GPS points for Decatur Park in Brodhead and Avon Bottoms Landing.',
+        sourceUrl: 'https://milespaddled.com/sugar-river-vii/',
+      },
+      {
+        label: 'Brodhead access context',
+        value: 'Pearl Island canoe/kayak access and dam portage',
+        note: 'The City of Brodhead Pearl Island map identifies several canoe/kayak access points and a portage around Decatur Dam.',
+        sourceUrl: 'https://cms2.revize.com/revize/brodheadwi/Z_Pearl%20Island%20Map.pdf',
+      },
+      {
+        label: 'Downstream public access',
+        value: 'Sugar River Park canoe launch',
+        note: 'Rock County describes Sugar River Park as a 7-acre park on the Sugar River with an unimproved boat ramp for launching canoes near the Avon-area finish.',
+        sourceUrl: 'https://www.co.rock.wi.us/Home/Components/FacilityDirectory/FacilityDirectory/50/178',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MilesPaddled Sugar River VII',
+        url: 'https://milespaddled.com/sugar-river-vii/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'MilesPaddled Sugar River VIII',
+        url: 'https://milespaddled.com/sugar-river-viii/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'USGS 05436500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05436500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'City of Brodhead Pearl Island',
+        url: 'https://www.cityofbrodheadwi.gov/community/pearl_island.php',
+        provider: 'local',
+      },
+      {
+        label: 'Pearl Island map PDF',
+        url: 'https://cms2.revize.com/revize/brodheadwi/Z_Pearl%20Island%20Map.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Rock County Sugar River Park',
+        url: 'https://www.co.rock.wi.us/Home/Components/FacilityDirectory/FacilityDirectory/50/178',
         provider: 'local',
       },
     ],
@@ -20910,6 +21257,124 @@ export const rivers: River[] = [
         label: 'Miles Paddled Popple River',
         url: 'https://milespaddled.com/popple-river/',
         provider: 'miles_paddled',
+      },
+    ],
+  },
+  {
+    id: 'popple-river-highway-101-white-ash',
+    slug: 'popple-river-highway-101-white-ash',
+    name: 'Popple River',
+    reach: 'Highway 101 Wayside to Pine River Confluence / White Ash Road',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Remote lower-Popple whitewater continuation below Highway 101, carrying paddlers through 1.7 miles of boulder gardens, Washburn Falls, Jennings Falls, and the Pine River confluence to rough White Ash Road access.',
+    statusText:
+      'Use the Popple River near Fence gauge as a proxy from the upstream Morgan Lake Road corridor. Below 150 cfs paddling is not recommended; 250 to 600 cfs is the practical intermediate-to-advanced target, and 1,000+ cfs is too hazardous.',
+    latitude: 45.80005,
+    longitude: -88.39733,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04063700',
+      provider: 'usgs',
+      siteId: '04063700',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Popple River Near Fence, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04063700/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 250,
+      idealMax: 600,
+      tooLow: 150,
+      tooHigh: 1000,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Popple River PO2 suggested river levels',
+        url: 'https://wisconsintrailguide.com/2024/paddle/popple-river-morgan-lake-road.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 9, 10],
+      seasonNotes:
+        'Best during spring, early summer, or after sustained rain. Wisconsin Trail Guide describes this as a freestone river where summer and fall levels often drop below the runnable floor.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'Class II-III whitewater with continuous boulder gardens, Washburn Falls, Jennings Falls, portage decisions, rough-road access, cold water, and limited rescue options. This is for intermediate and advanced whitewater paddlers only.',
+      confidenceNotes:
+        'Confidence is strong for the route geometry and threshold relationship: Wisconsin Trail Guide documents PO2 from Morgan Lake Road to the Pine River confluence, publishes the Highway 101 / Popple River Park and White Ash Road coordinates, and explicitly says the upstream FR 2159 / USGS 04063700 gauge should indicate conditions in this reach. The app treats Highway 101 to White Ash as the downstream split to avoid duplicating the existing Morgan Lake-to-Highway-101 route.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route split',
+        value: 'About 6.3 miles from Highway 101 to White Ash Road',
+        note: 'WTG PO2 maps Popple River Park Landing at mile 6.3 and White Ash Road Landing at mile 0.0, allowing a clean downstream split below the existing Morgan Lake-to-Highway-101 route.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-popple2.pdf',
+      },
+      {
+        label: 'Gauge bands',
+        value: '150 / 250-600 / 1000 cfs',
+        note: 'Wisconsin Trail Guide says below 150 cfs is not recommended, 250-600 cfs is the low-to-medium / medium enjoyable range, 600-1000 cfs is high runnable for intermediate and advanced paddlers, and above 1,000 cfs is not recommended.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/popple-river-morgan-lake-road.html',
+      },
+      {
+        label: 'Current gauge check',
+        value: '34.8 cfs / 1.97 ft at 4:45 AM CDT',
+        note: 'USGS Water Services returned same-day values for Popple River near Fence on July 15, 2026; the current flow was far below the WTG runnable floor.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04063700&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.80005, -88.39733 to 45.83957, -88.33890',
+        note: 'The WTG PO2 PDF publishes NAD83 / WGS84 points for Popple River Park Landing and White Ash Road Landing.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-popple2.pdf',
+      },
+      {
+        label: 'Access details',
+        value: 'Wayside hand carry to rough White Ash Road hand carry',
+        note: 'WTG describes Popple River Park Landing as a wayside hand-carry access with parking and picnic facilities, and White Ash Road as a rough-road hand-carry access on the Pine River about 30 yards below the confluence.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-popple2.pdf',
+      },
+      {
+        label: 'Hazards',
+        value: 'Washburn Falls, Jennings Falls, strainers',
+        note: 'WTG calls out Washburn Falls and Jennings Falls as Class III features requiring scouting or portaging, with strainers and deadfall especially hazardous in constricted high-water sections.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-popple2.pdf',
+      },
+      {
+        label: 'Official corridor context',
+        value: 'Pine-Popple Wild Rivers',
+        note: 'Wisconsin DNR says the Pine and Popple Wild Rivers offer challenges ranging up to expert-level Popple whitewater and emphasizes water levels, PFDs, scouting, and portages around waterfalls and rapids.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/pinepopple/recreation/water',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Popple River PO2 page',
+        url: 'https://wisconsintrailguide.com/2024/paddle/popple-river-morgan-lake-road.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Popple River PO2 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-popple2.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 04063700 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04063700/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin DNR Pine-Popple canoeing and kayaking',
+        url: 'https://dnr.wisconsin.gov/topic/lands/pinepopple/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin DNR Pine-Popple management',
+        url: 'https://dnr.wisconsin.gov/topic/lands/pinepopple/management',
+        provider: 'local',
       },
     ],
   },
@@ -74111,6 +74576,240 @@ export const rivers: River[] = [
       {
         label: 'MN DNR Mississippi River Map 3 PDF',
         url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi3.pdf',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'mississippi-river-kiwanis-crow-wing-state-park',
+    slug: 'mississippi-river-kiwanis-crow-wing-state-park',
+    name: 'Mississippi River',
+    reach: 'Kiwanis Park to Crow Wing State Park',
+    state: 'Minnesota',
+    region: 'Brainerd Lakes Area',
+    summary:
+      'Mississippi Headwaters Board / DNR-linked Brainerd day from Kiwanis Park to Crow Wing State Park. It fills the short, high-use public-access gap between the existing Brainerd-area cards and the longer downstream Overlook-to-Belle-Prairie planner.',
+    statusText:
+      'Use the Brainerd DNR gauge as a near-upstream corridor proxy: 1,800 to 7,000 cfs is the official medium band. Below 908 cfs is scrapable, and above 10,000 cfs is very high.',
+    latitude: 46.3465461,
+    longitude: -94.2072231,
+    gaugeSource: {
+      id: 'mn-dnr-121',
+      provider: 'mn_dnr',
+      siteId: '121',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'Mississippi River at Brainerd, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=18024003',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=18024003&var1=262&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'This is broad mainstem Mississippi water. Wind, boat wake, cold water, and faster current after rain can matter more than the moderate mileage suggests.',
+        'Use the Crow Wing State Park landing as the finish for this route. Extending downstream changes the commitment, campsite plan, and Camp Ripley / public-bank assumptions.',
+        'The Brainerd gauge is just upstream of the put-in, so pair the official bands with a same-day visual check at Kiwanis Park and the state-park landing.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1800,
+      idealMax: 7000,
+      tooLow: 908,
+      tooHigh: 10000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River at Brainerd',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.2,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Open-water season is best. Low water can expose bars and slow the day, while high or rising water adds faster current, debris, and harder landings at city and state-park accesses.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'A practical Brainerd-area mainstem day with public endpoints, but wide-river wind, boat traffic, and the state-park finish keep it in the caution category.',
+      confidenceNotes:
+        'Confidence is good: DNR Map 6 points paddlers to the Mississippi Headwaters Board Kiwanis-to-Crow-Wing-State-Park trip, MHB documents the route as about 10.7 miles, public-water-access GIS resolves Kiwanis Park and the Crow Wing State Park Mississippi access with coordinates and river miles, and the Brainerd DNR gauge provides the official interpreted near-upstream level model.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Current gauge check',
+        value: '2,420 cfs at 2026-07-15 02:30',
+        note: 'The current MN DNR feed placed Brainerd inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '908 / 1,800-7,000 / 10,000 cfs',
+        note: 'MN DNR interprets the Brainerd gauge as Scrapable below 908 cfs, Low from 908 to 1,800, Medium from 1,800 to 7,000, High from 7,000 to 10,000, and Very High above 10,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Route support',
+        value: '10.7 miles / 3 to 3.5 hours',
+        note: 'The Mississippi Headwaters Board Kiwanis route map describes Kiwanis Park to Crow Wing State Park as approximately 10.7 miles and about 3 to 3.5 hours of paddling.',
+        sourceUrl: 'https://www.mississippiheadwaters.org/rivermaps/kiwanis.pdf',
+      },
+      {
+        label: 'DNR map context',
+        value: 'Map 6 additional day trip',
+        note: 'MN DNR Mississippi Map 6 points paddlers to the Mississippi Headwaters Board Kiwanis Park to Crow Wing State Park Landing day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS01003 and WAS00990',
+        note: 'Minnesota public-water-access GIS resolves Kiwanis Park and the Mississippi River Crow Wing State Park access with public endpoint coordinates and river-mile records.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Mississippi Headwaters Board Kiwanis route map',
+        url: 'https://www.mississippiheadwaters.org/rivermaps/kiwanis.pdf',
+      },
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Mississippi River Map 6 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi6.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'mississippi-river-belle-prairie-lebourget',
+    slug: 'mississippi-river-belle-prairie-lebourget',
+    name: 'Mississippi River',
+    reach: 'Belle Prairie County Park to LeBourget Park',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Short Mississippi Headwaters Board / DNR-linked Little Falls approach from Belle Prairie County Park to LeBourget Park. It extends the existing Overlook-to-Belle-Prairie card by one clean public segment and makes the pre-dam city take-out explicit.',
+    statusText:
+      'Use the Brainerd DNR gauge as an upstream same-corridor proxy above the Little Falls dam corridor: 1,800 to 7,000 cfs is the official medium band, below 908 cfs is scrapable, and above 10,000 cfs is very high.',
+    latitude: 46.0353503,
+    longitude: -94.3435523,
+    gaugeSource: {
+      id: 'mn-dnr-121',
+      provider: 'mn_dnr',
+      siteId: '121',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'Mississippi River at Brainerd, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=18024003',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=18024003&var1=262&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'LeBourget Park is the mandatory finish for this route. Do not drift downstream toward the Little Falls Dam corridor without a separate dam/portage plan.',
+        'City bridges, current seams, boat traffic, wind, and high-water debris can all compress decision time near Little Falls.',
+        'The Brainerd gauge is an upstream same-corridor proxy above the dam corridor, so verify local level, take-out visibility, and landing conditions at Belle Prairie and LeBourget before launching.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1800,
+      idealMax: 7000,
+      tooLow: 908,
+      tooHigh: 10000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River at Brainerd',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This short reach is practical in the open-water season when Brainerd is in range and local Little Falls take-out conditions are clear. Avoid high or rising water because the dam corridor is immediately below the selected finish.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'A short mainstem route by mileage, but the required city take-out before Little Falls Dam, broad-river wind, and proxy gauge relationship justify a cautious card.',
+      confidenceNotes:
+        'Confidence is good for a short route: DNR Map 6 points paddlers to the Mississippi Headwaters Board Belle-Prairie-to-LeBourget trip, MHB documents a 5-mile route, public-water-access GIS resolves both endpoints with coordinates and river miles, and the Brainerd DNR gauge is the official interpreted upstream corridor gauge used by adjacent Mississippi cards. The route keeps a strong no-continuation caveat because the Little Falls Dam corridor starts just downstream.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Current gauge check',
+        value: '2,420 cfs at 2026-07-15 02:30',
+        note: 'The current MN DNR feed placed Brainerd inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '908 / 1,800-7,000 / 10,000 cfs',
+        note: 'MN DNR interprets the Brainerd gauge as Scrapable below 908 cfs, Low from 908 to 1,800, Medium from 1,800 to 7,000, High from 7,000 to 10,000, and Very High above 10,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Route support',
+        value: '5 miles / 1.5 hours',
+        note: 'The Mississippi Headwaters Board Belle Prairie route map describes Belle Prairie Park to LeBourget Park as a 5-mile route with an estimated 1.5-hour paddle time.',
+        sourceUrl: 'https://www.mississippiheadwaters.org/rivermaps/belleprairie_map.pdf',
+      },
+      {
+        label: 'DNR map context',
+        value: 'Map 6 additional day trip',
+        note: 'MN DNR Mississippi Map 6 points paddlers to the Mississippi Headwaters Board Belle Prairie Park to LeBourget Park day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS01278 and WAS01262',
+        note: 'Minnesota public-water-access GIS resolves Belle Prairie County Park and LeBourget Park with public endpoint coordinates and river-mile records.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Mississippi Headwaters Board Belle Prairie route map',
+        url: 'https://www.mississippiheadwaters.org/rivermaps/belleprairie_map.pdf',
+      },
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Mississippi River Map 6 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi6.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
       },
       {
         label: 'MN DNR river-level site data',
