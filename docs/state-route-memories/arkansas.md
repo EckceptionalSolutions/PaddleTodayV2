@@ -4,8 +4,21 @@ Last summarized: 2026-07-14 21:15 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 35.
+- Live routes: 38.
 - Ledger candidates: older implemented-route records plus blocked Arkansas holds remain in `docs/route-candidate-ledger.json`; this run did not recount them.
+
+## 2026-07-15 Bayou DeView restoration pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had thirty-five live route objects and matching trip-detail entries before this pass, so the Bayou DeView follow-up still had to create three genuinely new slugs beyond that baseline.
+- Restored `bayou-deview-hickson-lake-apple-lake`, `bayou-deview-rock-island-road-bank-of-brinkley`, and `bayou-deview-benson-creek-apple-lake` from the AGFC Bayou DeView Water Trail access chain after confirming those slugs were absent from the live route objects and trip-detail map at run start.
+- Qualification package:
+  - AGFC still publishes the named public access chain and segment mileages that support the three restored combinations: Hickson Lake-to-Rock Island `2.9` miles, Rock Island-to-Apple Lake `1.5` miles, Apple Lake-to-Bank of Brinkley `4.3` miles, and the longer Benson Creek continuations built from the same official access ladder.
+  - AGFC still says the Bayou DeView gauge height needs to be around `14 ft` or higher to paddle the trail and that the Dagmar Road gate closes at `17 ft`, so all three routes keep the same conservative two-sided stage model with `tooLow: 14`, `idealMin: 14`, `idealMax: 16.9`, and `tooHigh: 17`.
+  - Same-day direct USGS Water Services returned `14.10 ft` at `2026-07-15 12:00 CDT` for direct gauge `07077730`, barely above the AGFC floor and therefore appropriate for explicit low-end caution rather than comfort language.
+- Camping and safety posture:
+  - `bayou-deview-hickson-lake-apple-lake`, `bayou-deview-rock-island-road-bank-of-brinkley`, and `bayou-deview-benson-creek-apple-lake` all keep `nearby_basecamp` camping classification because Dagmar WMA primitive sites remain real nearby support, but none of the restored pairs need to imply an overnight split as part of the default route plan.
+  - All three restored routes keep the same Bayou DeView caution set around indistinct channels, route-finding, floating wood, private-bank limits, Apple Lake seasonal closure, and high-water danger as the gauge approaches the `17 ft` closure line.
+- No gallery image was added. Bounded Commons, AGFC page imagery, Sheffield Nelson Dagmar WMA context, and same-river USGS media review still did not produce a clearly rights-clean exact-route paddling asset for local reuse, so the image audit records bounded no-image outcomes for the restored slugs.
 
 ## Added Routes
 
