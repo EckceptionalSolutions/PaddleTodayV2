@@ -72908,4 +72908,351 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'minnesota-river-priens-war-memorial',
+    slug: 'minnesota-river-priens-war-memorial',
+    name: 'Minnesota River',
+    reach: "Prien's Landing to War Memorial Park",
+    state: 'Minnesota',
+    region: 'Upper Minnesota River Valley',
+    summary:
+      "Official MN DNR one-way from Prien's Landing to Granite Falls War Memorial Park, using the direct Montevideo interpreted gauge, source-backed public endpoints, and Granite Falls dam, wind, mud, debris, and private-bank caveats.",
+    statusText:
+      'Use the Montevideo DNR gauge: 5 to 9 ft is the official medium band. Below 3 ft is scrapable, and above 14 ft is very high.',
+    latitude: 44.9296663,
+    longitude: -95.7267761,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'private_banks', 'fast_rise'],
+      safetyNotes: [
+        'Take out at War Memorial Park and do not continue into Granite Falls dam or portage decisions without a separate plan.',
+        'Stay with public accesses and legal stops. Private banks, muddy field edges, and informal sandbars should not be assumed available.',
+        'High water can add fast current, debris, and difficult landings; low water can expose shoals and muddy drags.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-99',
+      provider: 'mn_dnr',
+      siteId: '99',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Minnesota River at Montevideo',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=25063001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=25063001&var1=6&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 5,
+      idealMax: 9,
+      tooLow: 3,
+      tooHigh: 14,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Minnesota River at Montevideo',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is realistic. Summer lows can expose shoals and muddy bars; rain events add fast current, debris, and harder landings.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        "DNR lists this as 18.7 miles. The mileage, big-river wind, dam-aware take-out, private banks, and limited exits make it a long intermediate day rather than a casual float.",
+      confidenceNotes:
+        "Confidence is good: MN DNR recommended one-way materials name Prien's Landing to War Memorial Park as an 18.7-mile route, public-water-access GIS resolves both endpoints, and the Montevideo gauge has official interpretation bands at the route start.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '18.7 mi, river mile 257.6 to 238.9',
+        note: "The MN DNR recommended-one-ways sheet identifies Prien's Landing Trailer Access to War Memorial Park Trailer Access as an 18.7-mile Minnesota River route.",
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS01053 to WAS00692',
+        note: "Minnesota public-water-access GIS resolves Prien's Landing and War Memorial City Park with coordinates, administrator fields, directions, and water-trail river miles.",
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '3 / 5-9 / 14 ft',
+        note: 'MN DNR interprets the Montevideo gauge as Scrapable below 3 ft, Low from 3 to 5, Medium from 5 to 9, High from 9 to 14, and Very High above 14.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '5.91 ft at 2026-07-14 18:00',
+        note: 'The current MN DNR feed placed Montevideo inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Camping and hazards',
+        value: 'Nearby basecamp only; Granite Falls dam awareness',
+        note: 'The route ships with nearby-basecamp posture and an explicit War Memorial take-out because no legal on-route watercraft campsite was confirmed for this segment.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR recommended one-way water-trail trips',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Minnesota River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'minnesota-river-morton-highway-4',
+    slug: 'minnesota-river-morton-highway-4',
+    name: 'Minnesota River',
+    reach: 'Morton Access to Highway 4',
+    state: 'Minnesota',
+    region: 'Upper Minnesota River Valley',
+    summary:
+      'Official MN DNR Map 4 one-way from Morton Access to the Highway 4 access, using a direct Morton interpreted gauge, source-backed public endpoints, and big-river caveats for mud, debris, wind, private banks, and long exits.',
+    statusText:
+      'Use the Morton DNR gauge: 1,330 to 3,750 cfs is the official medium band. Below 307 cfs is scrapable, and above 10,900 cfs is very high.',
+    latitude: 44.5427019,
+    longitude: -95.002258,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks', 'remote', 'fast_rise'],
+      safetyNotes: [
+        'This is a long 26.3-mile official one-way with limited public exits; plan daylight, shuttle, and bailout choices before launching.',
+        'Use Morton and Highway 4 as the defensible public endpoints. Do not assume private banks, sandbars, or field roads are legal stops.',
+        'High water can add fast current, debris, and muddy exits. Low water can expose shoals and force dragging around bars and shallows.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-107',
+      provider: 'mn_dnr',
+      siteId: '107',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Minnesota River at Morton, MN19',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=28012001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=28012001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1330,
+      idealMax: 3750,
+      tooLow: 307,
+      tooHigh: 10900,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Minnesota River at Morton',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is realistic for prepared groups. Summer lows can expose shoals and muddy bars, while rain events add fast current, debris, and harder landings.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The official distance is 26.3 miles, with big-river exposure, limited exits, private banks, and a long shuttle, so this is a long-day route for efficient groups.',
+      confidenceNotes:
+        'Confidence is good: MN DNR recommended one-way materials name Morton to Highway 4 as a 26.3-mile route, public-water-access GIS resolves both endpoints, and the Morton gauge is direct at the route start with official interpretation bands.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '26.3 mi, river mile 189.9 to 163.6',
+        note: 'The MN DNR recommended-one-ways sheet identifies Morton Trailer Access to Highway 4 Trailer Access as a 26.3-mile Minnesota River route.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS00670 to WAS00644',
+        note: 'Minnesota public-water-access GIS resolves Morton Access and Minnesota River Highway 4 with coordinates, administrator fields, directions, and water-trail river miles.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '307 / 1,330-3,750 / 10,900 cfs',
+        note: 'MN DNR interprets the Morton gauge as Scrapable below 307 cfs, Low from 307 to 1,330, Medium from 1,330 to 3,750, High from 3,750 to 10,900, and Very High above 10,900.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '2,100 cfs at 2026-07-14 18:00',
+        note: 'The current MN DNR feed placed Morton inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Camping and hazards',
+        value: 'No on-route campsite assumed; long public-access day route',
+        note: 'The route ships as a long day route because no legal on-route campsite was confirmed between Morton and Highway 4 during this run. Use nearby campgrounds or parks separately from the paddle plan.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR recommended one-way water-trail trips',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Minnesota River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Minnesota River Map 4 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'cannon-river-byllesby-highway-61',
+    slug: 'cannon-river-byllesby-highway-61',
+    name: 'Cannon River',
+    reach: 'Lake Byllesby Dam to Highway 61',
+    state: 'Minnesota',
+    region: 'Southeastern Minnesota',
+    summary:
+      'Official MN DNR Cannon River one-way from the Lake Byllesby Dam access area to Highway 61, using the direct Welch interpreted gauge, public access endpoints, and clear dam, rapid, snag, and private-bank caveats.',
+    statusText:
+      'Use the Welch DNR gauge: 300 to 1,540 cfs is the official medium band. Below 231 cfs is scrapable, and above 3,000 cfs is very high.',
+    latitude: 44.5092447,
+    longitude: -92.9424047,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'private_banks', 'fast_rise'],
+      safetyNotes: [
+        'Launch only from the public access below or adjacent to the Lake Byllesby Dam area; stay out of restricted dam water and respect posted portage or closure signs.',
+        'DNR Cannon materials warn about light rapids and snags. Scout wood and low bridges, especially after storms or high water.',
+        'The lower Cannon has private banks and busy recreation pressure. Use public access points and do not assume informal stops are legal.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-13',
+      provider: 'mn_dnr',
+      siteId: '13',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cannon River at Welch, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=39004002',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=39004002&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 300,
+      idealMax: 1540,
+      tooLow: 231,
+      tooHigh: 3000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Cannon River at Welch',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is practical for prepared groups. Summer lows can expose gravel and snags, while rain can quickly push the Cannon into a debris-heavy high-water trip.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The 20.8-mile official distance, dam-adjacent start, light rapids, snags, busy lower-river corridor, and private-bank constraints make this a full-day intermediate trip.',
+      confidenceNotes:
+        'Confidence is good: MN DNR recommended one-way materials name Lake Byllesby Dam to Highway 61 as a 20.8-mile Cannon River route, public-water-access GIS resolves both endpoints, and the Welch gauge is direct on the route with official interpretation bands.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '20.8 mi, river mile 27.6 to 6.8',
+        note: 'The MN DNR recommended-one-ways sheet identifies Lake Byllesby Dam Carry-in Access to Highway 61 Carry-in Access as a 20.8-mile Cannon River route.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS02800 to WAS01112',
+        note: 'Minnesota public-water-access GIS resolves Lake Byllesby East and Cannon River Highway 61 with coordinates, administrator fields, directions, and water-trail river miles.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '231 / 300-1,540 / 3,000 cfs',
+        note: 'MN DNR interprets the Welch gauge as Scrapable below 231 cfs, Low from 231 to 300, Medium from 300 to 1,540, High from 1,540 to 3,000, and Very High above 3,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '1,010 cfs at 2026-07-14 18:00',
+        note: 'The current MN DNR feed placed Welch inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Camping and route character',
+        value: 'No on-route campsite assumed; dam and snag awareness required',
+        note: 'This route ships as a long day route because no legal on-route campsite was confirmed between Lake Byllesby and Highway 61 during this run. DNR Cannon materials flag dams, light rapids, and snags as planning concerns.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR recommended one-way water-trail trips',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Cannon River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Cannon River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/cannon2.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
 ];

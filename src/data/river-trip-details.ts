@@ -26922,4 +26922,169 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'minnesota-river-priens-war-memorial': {
+    putIn: {
+      name: "Minnesota River, Prien's Landing Public Water Access Site",
+      latitude: 44.9296663,
+      longitude: -95.7267761,
+    },
+    takeOut: {
+      name: 'Minnesota River, War Memorial City Park Public Water Access Site',
+      latitude: 44.8015931,
+      longitude: -95.5391512,
+    },
+    logistics: {
+      distanceLabel: '18.7 mi',
+      estimatedPaddleTime: '5.5 to 8 hours depending on wind, flow, and stops',
+      shuttle:
+        "Stage War Memorial Park first, then drive back to Prien's Landing. Confirm the take-out before launch because Granite Falls dam context starts downstream of the planned finish.",
+      permits:
+        'No route-specific paddling permit is known. Use public accesses, follow Minnesota boating/PFD rules, and obey city park, county, DNR, dam, and posted access rules.',
+      camping:
+        'No legal on-route watercraft campsite was confirmed for this segment during this run. Use Montevideo, Granite Falls, or nearby public/private campgrounds as separate basecamp logistics.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Launch at Prien's Landing and finish at War Memorial Park for DNR's 18.7-mile recommended one-way. Use the Montevideo gauge as the direct condition check and stop at War Memorial unless a separate downstream dam/portage plan is in place.",
+      accessCaveats: [
+        "Prien's Landing resolves as WAS01053 and War Memorial City Park resolves as WAS00692 in Minnesota public-water-access GIS.",
+        'Take out at War Memorial Park. Do not drift into Granite Falls dam, portage, or town-water decisions without a separate plan.',
+        'Expect muddy banks, wind on open bends, private banks, and limited public exits between endpoints.',
+      ],
+      watchFor: [
+        'Granite Falls dam awareness below the planned take-out, fast rises, debris, strainers, and muddy exits.',
+        'Long mileage for a day route and wind exposure on open bends.',
+        'Low-water dragging if the Montevideo gauge falls below the official medium band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'priens-landing',
+        name: "Minnesota River, Prien's Landing Public Water Access Site",
+        latitude: 44.9296663,
+        longitude: -95.7267761,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in; resolves as WAS01053 at GIS river mile 257.3.",
+      },
+      {
+        id: 'war-memorial-city-park',
+        name: 'Minnesota River, War Memorial City Park Public Water Access Site',
+        latitude: 44.8015931,
+        longitude: -95.5391512,
+        mileFromStart: 18.7,
+        segmentKind: 'creek',
+        note: 'Default take-out near Granite Falls; resolves as WAS00692 at GIS river mile 238.6.',
+      },
+    ],
+  },
+  'minnesota-river-morton-highway-4': {
+    putIn: {
+      name: 'Minnesota River, Morton Access Public Water Access Site',
+      latitude: 44.5427019,
+      longitude: -95.002258,
+    },
+    takeOut: {
+      name: 'Minnesota River, Highway 4 Public Water Access Site',
+      latitude: 44.4340345,
+      longitude: -94.7166648,
+    },
+    logistics: {
+      distanceLabel: '26.3 mi',
+      estimatedPaddleTime: '8 to 11 hours for efficient groups in favorable water',
+      shuttle:
+        'Stage Highway 4 first, then drive back to Morton Access. Confirm daylight, wind, and bailout choices before launching because public exits are limited across the 26.3-mile reach.',
+      permits:
+        'No route-specific paddling permit is known. Use public accesses, follow Minnesota boating/PFD rules, and obey county park, city park, and posted dam or portage rules.',
+      camping:
+        'No legal on-route watercraft campsite was confirmed between Morton and Highway 4 during this run. Treat this as a long day route or arrange separate nearby lodging or camping off the river.',
+      campingClassification: 'none',
+      summary:
+        "Launch at Morton Access and finish at the Highway 4 access for DNR's 26.3-mile Map 4 corridor. Use the Morton gauge as the direct condition check and plan conservatively for big-river wind, mud, and limited public exits.",
+      accessCaveats: [
+        'Morton Access resolves as WAS00670 and Highway 4 resolves as WAS00644 in Minnesota public-water-access GIS.',
+        'This is a long official one-way with limited public exits. Do not rely on private banks, farm lanes, or informal bars for bailout or camping.',
+        'Inspect landings for mud, debris, and wind exposure before committing, especially when the river is rising or above the official medium band.',
+      ],
+      watchFor: [
+        'Long mileage, fatigue, wind on open bends, muddy banks, strainers, floating debris, and private-bank constraints.',
+        'Fast rises and stronger current above the official medium band. Low water can expose shoals and force dragging.',
+        'Long shuttle timing and limited rescue spacing; shorten or postpone if daylight, weather, or water level is marginal.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'morton-access',
+        name: 'Minnesota River, Morton Access Public Water Access Site',
+        latitude: 44.5427019,
+        longitude: -95.002258,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in near US 71; resolves as WAS00670 at GIS river mile 189.7.',
+      },
+      {
+        id: 'highway-4',
+        name: 'Minnesota River, Highway 4 Public Water Access Site',
+        latitude: 44.4340345,
+        longitude: -94.7166648,
+        mileFromStart: 26.3,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00644 at GIS river mile 163.3.',
+      },
+    ],
+  },
+  'cannon-river-byllesby-highway-61': {
+    putIn: {
+      name: 'Cannon River, Lake Byllesby East Public Water Access Site',
+      latitude: 44.5092447,
+      longitude: -92.9424047,
+    },
+    takeOut: {
+      name: 'Cannon River, Highway 61 Public Water Access Site',
+      latitude: 44.5811188,
+      longitude: -92.6553127,
+    },
+    logistics: {
+      distanceLabel: '20.8 mi',
+      estimatedPaddleTime: '6 to 8.5 hours depending on water, wind, and stops',
+      shuttle:
+        'Stage Highway 61 first, then drive back to the Lake Byllesby East access. Confirm the dam-area launch, parking rules, and any posted restrictions before committing to the full lower reach.',
+      permits:
+        'No route-specific paddling permit is known. Use public accesses, follow Minnesota boating/PFD rules, and obey DNR, county, campground, and posted access rules.',
+      camping:
+        'No legal on-route watercraft campsite was confirmed between Lake Byllesby and Highway 61 during this run. Plan this as a day route and use separate nearby camping only if independently reserved or confirmed.',
+      campingClassification: 'none',
+      summary:
+        "Launch near Lake Byllesby Dam and finish at Highway 61 for DNR's 20.8-mile Cannon River route. Use the Welch gauge as the direct condition check and build the trip around dam awareness, wood, light rapids, and public-only stops.",
+      accessCaveats: [
+        'Lake Byllesby East resolves as WAS02800 near river mile 27.9 and Cannon River Highway 61 resolves as WAS01112 at river mile 6.8 in Minnesota public-water-access GIS.',
+        'Launch only from the public access and stay clear of restricted dam water or posted closure areas.',
+        'Private banks dominate parts of the lower Cannon. Use public accesses and do not assume informal stops are legal.',
+      ],
+      watchFor: [
+        'Lake Byllesby Dam context, light rapids, low bridges, snags, fresh wood, and busy recreation traffic near Cannon Falls and Welch.',
+        'Low-water scraping and high-water debris or pushy current outside the official medium band.',
+        'Private-bank constraints and no assumed camping between the endpoints.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lake-byllesby-east',
+        name: 'Cannon River, Lake Byllesby East Public Water Access Site',
+        latitude: 44.5092447,
+        longitude: -92.9424047,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in in the Lake Byllesby Dam area; resolves as WAS02800 at GIS river mile 27.9.',
+      },
+      {
+        id: 'highway-61',
+        name: 'Cannon River, Highway 61 Public Water Access Site',
+        latitude: 44.5811188,
+        longitude: -92.6553127,
+        mileFromStart: 20.8,
+        segmentKind: 'creek',
+        note: 'Default take-out at Highway 61; resolves as WAS01112 at GIS river mile 6.8.',
+      },
+    ],
+  },
 };

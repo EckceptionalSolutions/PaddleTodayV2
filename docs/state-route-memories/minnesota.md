@@ -1,11 +1,11 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 19:48 America/Chicago.
+Last summarized: 2026-07-14 20:05 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 119.
-- Top represented rivers: Sauk River 17, Mississippi River 14, Little Fork River 9, Minnesota River 7, Crow Wing River 6, Big Fork River 5, North Fork Crow River 4, Red River of the North 4, Root River 4, St. Louis River 4, Zumbro River 4, Cannon River 3.
+- Live routes: 122.
+- Top represented rivers: Sauk River 17, Mississippi River 13, Little Fork River 9, Minnesota River 7, Crow Wing River 6, Big Fork River 5, Cannon River 4, North Fork Crow River 4, Red River of the North 4, Root River 4, St. Louis River 4, Zumbro River 4.
 - Ledger candidates: 817 total; 463 `added`, 77 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 54 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
@@ -13,6 +13,15 @@ Last summarized: 2026-07-14 19:48 America/Chicago.
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-14 20:05 America/Chicago: added `minnesota-river-priens-war-memorial`, `minnesota-river-morton-highway-4`, and `cannon-river-byllesby-highway-61`.
+- Baseline at run start was 119 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 122 Minnesota routes.
+- Stayed in Minnesota and promoted three official DNR recommended one-way routes still absent from live inventory: Prien's Landing-to-War Memorial Park `18.7` miles, Morton-to-Highway 4 `26.3` miles, and Lake Byllesby Dam-to-Highway 61 `20.8` miles.
+- Minnesota public-water-access GIS resolves all six primary endpoints with source-backed coordinates and river-mile records: Prien's Landing `WAS01053`, War Memorial City Park `WAS00692`, Morton Access `WAS00670`, Highway 4 `WAS00644`, Lake Byllesby East `WAS02800`, and Cannon River Highway 61 `WAS01112`.
+- Current MN DNR river-level feed exposed interpreted ladders for Minnesota River Montevideo site `99` (`3 / 5-9 / 14 ft`), Minnesota River Morton site `107` (`307 / 1330-3750 / 10900 cfs`), and Cannon River Welch site `13` (`231 / 300-1540 / 3000 cfs`). The feed placed all three gauges inside official medium bands during this run.
+- Camping posture: Prien-to-War Memorial is `nearby_basecamp`, Morton-to-Highway-4 is `none` because no legal on-route campsite was confirmed, and Byllesby-to-Highway-61 is `none` because the lower Cannon route is treated as a long day route with dam, snag, and private-bank caveats.
+- No route-gallery images were added. Bounded DNR / Commons / local-government / same-river image review did not produce clearly rights-clean exact-route assets for local reuse.
+- Reviewed but did not add War Memorial Park-to-Morton or Wold's Ferry Crossing-to-Aitkin because `routes:audit` flagged their 49.0-mile and 40.3-mile distances as outside the day-route contract, Blue Earth County Road 90-to-Sibley because the Rapidan Dam failure / recirculating-current warning remains a safety blocker, Red Lake Neptune/Centennial because the Thief River Falls gauge remains stale in the current feed, and shorter Mississippi/Cedar/Kettle follow-ons that would duplicate already-live route cards.
 
 - 2026-07-14 19:48 America/Chicago route-audit follow-up: folded `cannon-river-riverside-miesville` into canonical `cannon-river-welch`.
 - The canonical Cannon route now carries the official MN DNR Welch bands, Riverside / Miesville / Sunset / Welch access-planner points, and the existing Cannon route-gallery/mobile image wiring; Miesville remains represented as the official shorter public take-out rather than a separate live route card.
