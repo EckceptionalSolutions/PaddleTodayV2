@@ -73255,4 +73255,710 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'mississippi-river-coffee-pot-bear-den',
+    slug: 'mississippi-river-coffee-pot-bear-den',
+    name: 'Mississippi River',
+    reach: 'Coffee Pot Landing to Bear Den',
+    state: 'Minnesota',
+    region: 'Mississippi Headwaters',
+    summary:
+      'Upper Mississippi headwaters continuation from Coffee Pot Landing to Bear Den. It fills the public-access gap below the Itasca-to-Coffee-Pot route, with DNR map/GIS endpoint support and the Vern interpreted gauge as the upstream same-corridor check.',
+    statusText:
+      'Use the Vern / CSAH 37 DNR gauge as an upstream corridor check: 84.2 to 85 ft is the official medium band. Below 84.2 ft is scrapable, and above 87 ft is very high.',
+    latitude: 47.3492223,
+    longitude: -95.1830624,
+    gaugeSource: {
+      id: 'mn-dnr-305',
+      provider: 'mn_dnr',
+      siteId: '305',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'proxy',
+      siteName: 'Mississippi River nr Vern, CSAH37',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=07052003',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=07052003&var1=232&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'remote', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'This is still narrow headwaters water, so expect vegetation, beaver activity, wood, and slower progress when levels sit near the floor.',
+        'The Vern gauge is upstream of Coffee Pot Landing. Pair the official bands with a visual check at the put-in and avoid over-reading the number after local rain or obstruction changes.',
+        'Use only the named public accesses or clearly posted public landings. Do not assume private banks are legal rest stops.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 84.2,
+      idealMax: 85,
+      tooLow: 84.2,
+      tooHigh: 87,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River near Vern',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through early fall is the practical season. Low water exposes shallow headwaters obstructions, while high or rising water can make wood, culverts, and narrow bends less forgiving.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The route is a manageable 14.8-mile public-access continuation, but the headwaters setting, remote spacing, wood, and proxy gauge relationship make it more committed than a short park float.',
+      confidenceNotes:
+        'Confidence is good with an explicit proxy caveat: Minnesota public-water-access GIS resolves Coffee Pot Landing and Bear Den with matching river miles, DNR Mississippi Map 1 covers the access chain, and the Vern DNR gauge has fresh official interpreted bands upstream of the route. The gauge is not inside the selected reach, so local visual checks remain required.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official DNR bands',
+        value: '84.2 / 84.2-85 / 87 ft',
+        note: 'MN DNR interprets the Vern gauge as Scrapable below 84.2 ft, Medium from 84.2 to 85, High from 85 to 87, and Very High above 87. The Low band is effectively zero-width at 84.2 in the current feed.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '85.05 ft at 2026-07-14 19:00',
+        note: 'The current MN DNR feed placed Vern just above the official medium band during this run, so route copy warns that high-band current may feel pushier than a clean medium day.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Public access records',
+        value: 'Coffee Pot WAS00730 to Bear Den WAS02254',
+        note: 'Minnesota public-water-access GIS resolves Coffee Pot Landing at river mile 1326.2 and Bear Den at river mile 1311.4 with DNR administration and coordinates.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Route shape',
+        value: '14.8 river miles',
+        note: 'The DNR map river-mile chain from Coffee Pot Landing to Bear Den defines a 14.8-mile public-access continuation below the existing Itasca-to-Coffee-Pot route.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Mississippi River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi1.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'mississippi-river-bear-den-iron-bridge',
+    slug: 'mississippi-river-bear-den-iron-bridge',
+    name: 'Mississippi River',
+    reach: 'Bear Den to Iron Bridge',
+    state: 'Minnesota',
+    region: 'Mississippi Headwaters',
+    summary:
+      'Headwaters Mississippi day from Bear Den to Iron Bridge, using the direct Wilton / CSAH 7 interpreted gauge at the take-out and DNR/GIS public access records for both endpoints.',
+    statusText:
+      'Use the Wilton / CSAH 7 DNR gauge at Iron Bridge: 40 to 42.5 ft is the official medium band. Below 39.1 ft is scrapable, and above 45 ft is very high.',
+    latitude: 47.423479,
+    longitude: -95.103604,
+    gaugeSource: {
+      id: 'mn-dnr-155',
+      provider: 'mn_dnr',
+      siteId: '155',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'direct',
+      siteName: 'Mississippi River nr Wilton, CSAH7',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=07062002',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=07062002&var1=232&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'remote', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Scout the Iron Bridge take-out before launching because the gauge and bridge corridor are the required finish for this route.',
+        'Expect tight headwaters bends, wood, shallow bars, and slower progress when the Wilton gauge falls toward the low band.',
+        'Avoid informal bank exits. The route relies on named DNR public accesses and the surrounding shoreline should be treated as private unless posted otherwise.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 40,
+      idealMax: 42.5,
+      tooLow: 39.1,
+      tooHigh: 45,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River near Wilton',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through early fall is the best window. Low stages can expose shallow headwaters riffles and drag, while high stages add faster current, cold-water exposure, and wood risk.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This 10.8-mile headwaters day has a direct take-out gauge and clean public accesses, but remote spacing, wood, and private-bank limits keep it in the caution tier.',
+      confidenceNotes:
+        'Confidence is high for a conservative add: Bear Den and Iron Bridge resolve in Minnesota public-water-access GIS with DNR administration and river miles, DNR Mississippi Map 1 covers the access chain, and the Wilton gauge sits at the Iron Bridge take-out with official interpreted bands and a fresh current reading.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official DNR bands',
+        value: '39.1 / 40-42.5 / 45 ft',
+        note: 'MN DNR interprets the Wilton gauge as Scrapable below 39.1 ft, Low from 39.1 to 40, Medium from 40 to 42.5, High from 42.5 to 45, and Very High above 45.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '41.51 ft at 2026-07-14 19:30',
+        note: 'The current MN DNR feed placed Wilton inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Public access records',
+        value: 'Bear Den WAS02254 to Iron Bridge WAS00519',
+        note: 'Minnesota public-water-access GIS resolves Bear Den at river mile 1311.4 and Iron Bridge at river mile 1300.6 with DNR administration and coordinates.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Route shape',
+        value: '10.8 river miles',
+        note: 'The DNR map river-mile chain from Bear Den to Iron Bridge defines a 10.8-mile public-access headwaters route.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Mississippi River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi1.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'otter-tail-river-riverside-phelps-mill',
+    slug: 'otter-tail-river-riverside-phelps-mill',
+    name: 'Otter Tail River',
+    reach: 'Highway 72 / Riverside to Phelps Mill',
+    state: 'Minnesota',
+    region: 'West Central Minnesota',
+    summary:
+      'Otter Tail connector from the Highway 72 / Riverside public access to Phelps Mill County Park, filling the public-access gap between the upstream Wannigan/Riverside route and the existing Phelps-to-West-Red route.',
+    statusText:
+      'Use the Battle Lake / County Road 72 DNR gauge near the put-in: 1,320.5 to 1,321 ft is the official medium band. Below 1,320 ft is scrapable, and above 1,322 ft is very high.',
+    latitude: 46.3586651,
+    longitude: -95.73372,
+    gaugeSource: {
+      id: 'mn-dnr-344',
+      provider: 'mn_dnr',
+      siteId: '344',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'direct',
+      siteName: 'Otter Tail River nr Battle Lake, CR72',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=56052001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=56052001&var1=232&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'DNR warns that Otter Tail River dams, bridges, culverts, and obstructions can create fast current and low-headroom traps. Scout constrictions before committing.',
+        'Finish at the public Phelps Mill access and stay clear of mill, dam, or restricted infrastructure near the park.',
+        'Low water can require dragging or main-channel picking, while high water makes bridge approaches, wood, and muddy exits less forgiving.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1320.5,
+      idealMax: 1321,
+      tooLow: 1320,
+      tooHigh: 1322,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Otter Tail River near Battle Lake',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the practical season. Summer lows can expose rocks, shallows, and obstruction checks, while rain can quickly make bridges and wood less forgiving.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The mileage is reasonable at 8.2 miles, but the Otter Tail requires dam, bridge, culvert, and obstruction awareness. Phelps Mill is a deliberate public take-out, not a place to drift past casually.',
+      confidenceNotes:
+        'Confidence is good: Minnesota public-water-access GIS resolves Highway 72 / Riverside and Phelps Mill with river miles and coordinates, DNR Otter Tail Map 1 covers the access chain, and the Battle Lake DNR gauge sits near the put-in with official interpreted bands and a fresh medium-band reading. Park construction affects camping/reservation assumptions, so the route ships as a day trip.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official DNR bands',
+        value: '1,320 / 1,320.5-1,321 / 1,322 ft',
+        note: 'MN DNR interprets the Battle Lake / County Road 72 gauge as Scrapable below 1,320 ft, Low from 1,320 to 1,320.5, Medium from 1,320.5 to 1,321, High from 1,321 to 1,322, and Very High above 1,322.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '1,320.64 ft at 2026-07-14 19:15',
+        note: 'The current MN DNR feed placed Battle Lake inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Public access records',
+        value: 'Highway 72 WAS02520 to Phelps Mill WAS00559',
+        note: 'Minnesota public-water-access GIS resolves the Highway 72 / Riverside access at river mile 92.8 and Phelps Mill at river mile 84.6.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Route shape',
+        value: '8.2 river miles',
+        note: 'The DNR map river-mile chain from Highway 72 / Riverside to Phelps Mill defines an 8.2-mile connector between already-live upstream and downstream Otter Tail routes.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/ottertail1.pdf',
+      },
+      {
+        label: 'Phelps Mill construction/camping context',
+        value: 'Day-use route; no 2026 camping filter',
+        note: 'Otter Tail County says Phelps Mill Park is open daily in season, but reservations are unavailable after July 12, 2026 because of planned construction. The route does not claim endpoint camping.',
+        sourceUrl: 'https://ottertailcounty.gov/location/phelps-mill/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Otter Tail River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/otter-tail-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Otter Tail River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/ottertail1.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Otter Tail County Phelps Mill Park',
+        url: 'https://ottertailcounty.gov/location/phelps-mill/',
+      },
+    ],
+  },
+  {
+    id: 'lemonweir-river-lemonweir-mills-two-rivers',
+    slug: 'lemonweir-river-lemonweir-mills-two-rivers',
+    name: 'Lemonweir River',
+    reach: 'Lemonweir Mills Boat Launch to Two Rivers Boat Launch',
+    aliases: ['Lemonweir to Cliff House Road', 'Lemonweir Mills to Two Rivers'],
+    state: 'Wisconsin',
+    region: 'Central Wisconsin',
+    summary:
+      'Long, winding Lemonweir day route from the Juneau County Lemonweir Mills launch to the Two Rivers launch near the Wisconsin River, with sandbars, backwater navigation, and a New Lisbon-gauge low-water floor.',
+    statusText:
+      'Use the Lemonweir River at New Lisbon gauge as the direct same-river check. Treat 170 cfs as the conservative low-water floor; 200 to 300 cfs is the published practical target, but no trusted upper cutoff is assigned in the app.',
+    latitude: 43.78723,
+    longitude: -90.0168,
+    gaugeSource: {
+      id: 'usgs-05403500',
+      provider: 'usgs',
+      siteId: '05403500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Lemonweir River at New Lisbon, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05403500/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['strainers', 'private_banks', 'remote', 'cold_water'],
+      safetyNotes: [
+        'This is a long 15-mile day with limited convenient exits; start early and keep a real navigation plan for the lower sloughs.',
+        'Expect wood, blind bends, shallow riffles near the floor, and confusing backwater channels near the Two Rivers take-out.',
+        'Scout the old mill-dam remnant pond and do not assume every sandbar or bank is legal for camping.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 170,
+      thresholdSource: {
+        label: 'Miles Paddled Lemonweir River New Lisbon gauge guidance',
+        url: 'https://milespaddled.com/lemonweir-river/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and early summer are the safest bets for flow. Summer can work after rain, but low water lengthens the day and makes sandbars, shallow riffles, and lower-river navigation more tedious.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The water is mostly easy, but the 15.25-mile length, old mill remnant, wood, private banks, and maze-like lower backwaters make this a committed intermediate day instead of a beginner float.',
+      confidenceNotes:
+        'Confidence is good for a guarded Central Wisconsin add: Miles Paddled documents the exact Lemonweir Mills-to-Two Rivers route, endpoint GPS points, 15.25-mile distance, New Lisbon-gauge minimum, and 200-to-300 cfs ideal band; Juneau County separately documents both public launches; Wisconsin River Trips corroborates the Lemonweir Mills and Two Rivers access context; and USGS 05403500 is a direct Lemonweir River live gauge. The app keeps the model minimum-only because no source gave a defensible high-water cutoff for this exact long reach.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published route report',
+        value: 'Lemonweir Mills to Two Rivers; 15.25 mi',
+        note: 'Miles Paddled documents the route from 19th Avenue / Lemonweir Mills Canoe Launch to the Two Rivers Boat Launch near Cliff House Road and lists it at 15.25 miles.',
+        sourceUrl: 'https://milespaddled.com/lemonweir-river/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '43.78723, -90.0168 to 43.76149, -89.85258',
+        note: 'Miles Paddled publishes GPS points for the Lemonweir Mills put-in and Two Rivers take-out.',
+        sourceUrl: 'https://milespaddled.com/lemonweir-river/',
+      },
+      {
+        label: 'Official put-in',
+        value: 'Juneau County Lemonweir Mills Boat Launch',
+        note: 'Juneau County lists Lemonweir Mills as a year-round no-fee launch for small boats, kayaks, and canoes.',
+        sourceUrl:
+          'https://www.co.juneau.wi.gov/departments/land%2C_forestry%2C___parks/launches/lemonweir_mills.php',
+      },
+      {
+        label: 'Official take-out',
+        value: 'Juneau County Two Rivers Boat Launch',
+        note: 'Juneau County lists Two Rivers as a year-round no-fee launch with small-craft access and pit toilets.',
+        sourceUrl:
+          'https://www.co.juneau.wi.gov/departments/land%2C_forestry%2C___parks/launches/two_rivers.php',
+      },
+      {
+        label: 'Gauge and low floor',
+        value: '170 cfs minimum; 200 to 300 cfs practical target',
+        note: 'Miles Paddled ties this route to the New Lisbon gauge and gives 170 cfs as the recommended minimum with 200 to 300 cfs as the ideal practical range.',
+        sourceUrl: 'https://milespaddled.com/lemonweir-river/',
+      },
+      {
+        label: 'Live gauge',
+        value: 'USGS 05403500 Lemonweir River at New Lisbon',
+        note: 'USGS operates the direct Lemonweir River gauge. Water Services returned 357 cfs / 4.45 ft at 2026-07-14 20:00 CDT during this run.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05403500/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Miles Paddled Lemonweir River',
+        url: 'https://milespaddled.com/lemonweir-river/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Juneau County Lemonweir Mills Boat Launch',
+        url: 'https://www.co.juneau.wi.gov/departments/land%2C_forestry%2C___parks/launches/lemonweir_mills.php',
+        provider: 'local',
+      },
+      {
+        label: 'Juneau County Two Rivers Boat Launch',
+        url: 'https://www.co.juneau.wi.gov/departments/land%2C_forestry%2C___parks/launches/two_rivers.php',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin River Trips Lemonweir Mills access',
+        url: 'https://www.wisconsinrivertrips.com/segments/lemonweir-river/19th-ave',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin River Trips Lemonweir mouth access',
+        url: 'https://www.wisconsinrivertrips.com/segments/lemonweir-river/hwy-hh',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05403500 Lemonweir River at New Lisbon',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05403500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'wisconsin-river-pine-bluff-brokaw',
+    slug: 'wisconsin-river-pine-bluff-brokaw',
+    name: 'Wisconsin River',
+    reach: 'Pine Bluff Road Access to Brokaw Boat Landing',
+    aliases: ['Wisconsin River - Granite Heights', 'Pine Bluff Road to Brokaw'],
+    state: 'Wisconsin',
+    region: 'North Central Wisconsin',
+    summary:
+      'Granite Heights Wisconsin River reach from the Marathon County Forest Pine Bluff access to Brokaw, with scattered riffles, Trappe Rapids, a Merrill-gauge ladder, and a mandatory stop before the former Brokaw dam area.',
+    statusText:
+      'Use the Wisconsin River at Merrill gauge. Treat 1251 to 2000 cfs as the route-specific target, below 1250 cfs as low, and 5001+ cfs as too high for most groups; do not paddle past the Brokaw take-out toward the former dam debris.',
+    latitude: 45.0584,
+    longitude: -89.6436,
+    gaugeSource: {
+      id: 'usgs-05395000',
+      provider: 'usgs',
+      siteId: '05395000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wisconsin River at Merrill, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05395000/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'dam', 'cold_water', 'remote'],
+      safetyNotes: [
+        'Scout Trappe Rapids and choose the easier island channel unless the group is comfortable with shallow Class II boulder gardens.',
+        'Take out at Brokaw Boat Landing; the removed Brokaw dam area downstream has exposed rebar/drop hazards and is not part of this route.',
+        'Cold water, wind on wider pools, and sparse exits make this a committed northwoods day even when the gauge is in range.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1251,
+      idealMax: 2000,
+      tooLow: 1250,
+      tooHigh: 5001,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Granite Heights Merrill-gauge ladder',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/granite-heights',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall works when Merrill is above the low band. High water can wash out rapids but increases push, cold-water consequences, and downstream dam-area exposure.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Most of the reach is easy-moving Wisconsin River water, but Trappe Rapids, shallow boulder gardens, cold water, and the absolute need to stop at Brokaw make this a moderate route.',
+      confidenceNotes:
+        'Confidence is good after correcting the prior stale-gauge blocker: Wisconsin River Trips documents the exact Granite Heights route, the Pine Bluff and Brokaw public endpoints, Trappe Rapids options, and a full Merrill-gauge ladder; Marathon County / Wisconsin River Forest pages corroborate Pine Bluff Road access; the Brokaw Mill / WVIC trail map corroborates Brokaw and downstream dam-area hazards; and USGS 05395000 returned current live discharge and stage during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published route report',
+        value: 'Pine Bluff Road to Brokaw; Granite Heights',
+        note: 'Wisconsin River Trips documents the Granite Heights route from the Pine Bluff Road public forest access to Brokaw Boat Landing.',
+        sourceUrl:
+          'https://www.wisconsinrivertrips.com/segments/wisconsin-river/granite-heights',
+      },
+      {
+        label: 'Official put-in context',
+        value: 'Pine Bluff Road access in Wisconsin River Forest Unit',
+        note: 'Marathon County / Wisconsin River Forest access materials identify the Pine Bluff Road landing as a canoe and small-boat access used for downstream floats toward Brokaw and Wausau.',
+        sourceUrl:
+          'https://www.marathoncounty.gov/Home/Components/FacilityDirectory/FacilityDirectory/146/',
+      },
+      {
+        label: 'Route ladder',
+        value: '1251 to 2000 cfs target; 5001+ too high',
+        note: 'Wisconsin River Trips ties the route to the Merrill gauge, marks under 1250 cfs as low, 1251 to 2000 cfs as average/good target, and 5001+ cfs as maybe too high.',
+        sourceUrl:
+          'https://www.wisconsinrivertrips.com/segments/wisconsin-river/granite-heights',
+      },
+      {
+        label: 'Rapid and dam-area hazards',
+        value: 'Trappe Rapids and Brokaw dam debris',
+        note: 'Wisconsin River Trips describes Trappe Rapids as the main rapid feature and warns that the removed Brokaw dam area downstream of the landing has exposed rebar and a drop hazard.',
+        sourceUrl:
+          'https://www.wisconsinrivertrips.com/segments/wisconsin-river/granite-heights',
+      },
+      {
+        label: 'Trail-map corroboration',
+        value: 'WVIC Wisconsin River Centennial Trail Map 7',
+        note: 'The WVIC trail map marks Pine Bluff Road and Brokaw/Gilbert-area access context and notes that no known campgrounds are on this stretch.',
+        sourceUrl: 'https://www.wvic.com/maps/map-7/Merrill-Dam-to-Gilbert-Park.html',
+      },
+      {
+        label: 'Live gauge',
+        value: 'USGS 05395000 Wisconsin River at Merrill',
+        note: 'USGS operates the direct Wisconsin River at Merrill gauge. Water Services returned 1470 cfs / 4.42 ft at 2026-07-14 20:00 CDT during this run.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05395000/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Granite Heights',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/granite-heights',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Marathon County Wisconsin River Forest Unit',
+        url: 'https://www.marathoncounty.gov/Home/Components/FacilityDirectory/FacilityDirectory/146/',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin River Centennial Trail Map 7',
+        url: 'https://www.wvic.com/maps/map-7/Merrill-Dam-to-Gilbert-Park.html',
+        provider: 'local',
+      },
+      {
+        label: 'Wausau and Marathon County Parks Foundation Brokaw Mill',
+        url: 'https://wmcpf.org/l18-brokaw-mill/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05395000 Wisconsin River at Merrill',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05395000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'milwaukee-river-goeden-newburg',
+    slug: 'milwaukee-river-goeden-newburg',
+    name: 'Milwaukee River',
+    reach: 'Goeden County Park to Newburg Municipal Lot',
+    aliases: ['County M to Newburg', 'Goeden County Park to Main Street Bridge'],
+    state: 'Wisconsin',
+    region: 'Southeast Wisconsin',
+    summary:
+      "Short upper-Milwaukee connector from Washington County's Goeden County Park kayak access to the Newburg public access, filling the gap between the West Bend and Newburg route families with a Cedarburg-gauge ladder.",
+    statusText:
+      'Use the Milwaukee River near Cedarburg gauge. Treat 351 to 600 cfs as the best practical band, 251 to 350 cfs as low/scrapey, 250 cfs and lower as too low for most groups, and 1001+ cfs as too high for most groups.',
+    latitude: 43.4492,
+    longitude: -88.0763,
+    gaugeSource: {
+      id: 'usgs-04086600',
+      provider: 'usgs',
+      siteId: '04086600',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Milwaukee River near Cedarburg, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04086600/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'This reach gets very shallow below the published ladder; at low flow expect scraping, boulder gardens, and short wades.',
+        'Stay alert for strainers below bridges and after storms, especially where the channel bends through private banks.',
+        'Confirm Newburg landing signage before launch and do not continue into downstream routes unless the group has planned the longer day.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 351,
+      idealMax: 600,
+      tooLow: 250,
+      tooHigh: 1001,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Milwaukee River - West Bend gauge guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/west-bend',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Best after spring or rain-supported flows when Cedarburg is clearly above the scrape band. Summer lows can turn the route into a walk-and-drag; high water makes wood and bridge constrictions more consequential.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Short mileage and park access keep the route easier than the West Bend urban run, but shallow boulder gardens, strainers, and cold water still require active judgment.',
+      confidenceNotes:
+        'Confidence is good for a narrow connector add: Washington County documents the improved public kayak access at Goeden County Park; Wisconsin River Trips identifies County M/Goeden to Main Street Bridge in Newburg as a good 3.4-mile prospect and publishes the same Cedarburg-gauge ladder used by the adjacent live West Bend route; Miles Paddled corroborates the Goeden and Newburg access chain; and USGS 04086600 is the direct Milwaukee River gauge used by the route family. The app explicitly warns when the live gauge is below the practical band rather than implying current suitability.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official put-in',
+        value: 'Goeden County Park kayak access',
+        note: 'Washington County documents the improved Goeden County Park kayak launch and shoreline access on the Milwaukee River at 6490 County Road M.',
+        sourceUrl:
+          'https://www.washcowisco.gov/news/goeden_county_park_new_kayak_access',
+      },
+      {
+        label: 'Published segment prospect',
+        value: 'County M to Main Street Bridge; 3.4 mi',
+        note: 'Wisconsin River Trips identifies the County M / Goeden to Main Street Bridge in Newburg connector as a good prospect with shallow boulder gardens.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/west-bend',
+      },
+      {
+        label: 'Newburg access support',
+        value: 'Public access below Main Street Bridge',
+        note: 'Wisconsin River Trips describes the public Newburg access just downstream/east of the Main Street Bridge as part of the Fireman Park area.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/newburg',
+      },
+      {
+        label: 'Gauge ladder',
+        value: '351 to 600 cfs target; 1001+ too high',
+        note: 'Wisconsin River Trips publishes the Cedarburg ladder used by the upper Milwaukee route family: 0 to 250 cfs too shallow, 351 to 600 cfs target, and 1001+ cfs probably too high.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/west-bend',
+      },
+      {
+        label: 'Access-chain corroboration',
+        value: 'Goeden and Newburg municipal access',
+        note: 'Miles Paddled describes the County M / Goeden access and the Newburg municipal take-out while documenting the broader West Bend-to-Newburg corridor.',
+        sourceUrl: 'https://milespaddled.com/milwaukee-river-vii/',
+      },
+      {
+        label: 'Live gauge',
+        value: 'USGS 04086600 Milwaukee River near Cedarburg',
+        note: 'USGS operates the direct Milwaukee River gauge near Cedarburg. Water Services returned 206 cfs / 5.76 ft at 2026-07-14 20:00 CDT during this run, below the route target and inside the low-water warning context.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04086600/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Washington County Goeden kayak access',
+        url: 'https://www.washcowisco.gov/news/goeden_county_park_new_kayak_access',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin River Trips Milwaukee River - West Bend',
+        url: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/west-bend',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin River Trips Milwaukee River - Newburg',
+        url: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/newburg',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Miles Paddled Milwaukee River VII',
+        url: 'https://milespaddled.com/milwaukee-river-vii/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'USGS 04086600 Milwaukee River near Cedarburg',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04086600/',
+        provider: 'usgs',
+      },
+    ],
+  },
 ];

@@ -27087,4 +27087,367 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'mississippi-river-coffee-pot-bear-den': {
+    putIn: {
+      name: 'Mississippi River, Coffee Pot Landing #2 Public Water Access Site',
+      latitude: 47.3492223,
+      longitude: -95.1830624,
+    },
+    takeOut: {
+      name: 'Mississippi River, Bear Den Public Water Access Site',
+      latitude: 47.423479,
+      longitude: -95.103604,
+    },
+    logistics: {
+      distanceLabel: '14.8 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, wood, or headwind',
+      shuttle:
+        'Stage Bear Den first, then drive back to Coffee Pot Landing. Keep daylight margin because narrow headwaters miles, wood, and vegetation can slow the day.',
+      permits:
+        'No route-specific paddling permit is known. Use DNR public accesses, follow Minnesota boating/PFD rules, and obey posted state-forest, access, and parking rules.',
+      camping:
+        'Treat this as a day route with separate nearby-basecamp planning. No on-route campsite was confirmed between Coffee Pot and Bear Den during this run; use only posted public campsites or established nearby campgrounds if extending the trip.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Coffee Pot Landing and take out at Bear Den for a headwaters Mississippi continuation below Itasca. Use the upstream Vern DNR gauge as a corridor check, then make a visual call at Coffee Pot before committing.',
+      accessCaveats: [
+        'Coffee Pot Landing resolves as WAS00730 at river mile 1326.2 and Bear Den resolves as WAS02254 at river mile 1311.4 in Minnesota public-water-access GIS.',
+        'The Vern gauge is upstream of the selected route, so it is a same-corridor proxy rather than an exact in-route sensor.',
+        'Private banks and informal clearings should not be treated as legal stops unless posted public.',
+      ],
+      watchFor: [
+        'Narrow headwaters bends, vegetation, beaver activity, fresh wood, shallow bars, and cold water.',
+        'High-band current when the Vern gauge rises above the official medium band.',
+        'Longer-than-expected pace if low water forces dragging or channel picking.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'coffee-pot-landing',
+        name: 'Mississippi River, Coffee Pot Landing #2 Public Water Access Site',
+        latitude: 47.3492223,
+        longitude: -95.1830624,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 1326.2; resolves as WAS00730 with DNR administration.',
+      },
+      {
+        id: 'bear-den',
+        name: 'Mississippi River, Bear Den Public Water Access Site',
+        latitude: 47.423479,
+        longitude: -95.103604,
+        mileFromStart: 14.8,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 1311.4; resolves as WAS02254 with DNR administration.',
+      },
+    ],
+  },
+  'mississippi-river-bear-den-iron-bridge': {
+    putIn: {
+      name: 'Mississippi River, Bear Den Public Water Access Site',
+      latitude: 47.423479,
+      longitude: -95.103604,
+    },
+    takeOut: {
+      name: 'Mississippi River, Iron Bridge Public Water Access Site',
+      latitude: 47.43548,
+      longitude: -94.9994115,
+    },
+    logistics: {
+      distanceLabel: '10.8 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with low water, wood, or fishing stops',
+      shuttle:
+        'Stage Iron Bridge first because it is the gauge-area finish, then drive back to Bear Den. Confirm parking and the bridge take-out line before unloading at the put-in.',
+      permits:
+        'No route-specific paddling permit is known. Use DNR public accesses, follow Minnesota boating/PFD rules, and obey posted access and parking rules.',
+      camping:
+        'Treat this as a day route. No legal on-route campsite was confirmed between Bear Den and Iron Bridge during this run; nearby public campgrounds should be planned separately.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Bear Den and finish at Iron Bridge for a compact headwaters Mississippi day with the direct Wilton / CSAH 7 DNR gauge at the take-out.',
+      accessCaveats: [
+        'Bear Den resolves as WAS02254 at river mile 1311.4 and Iron Bridge resolves as WAS00519 at river mile 1300.6 in Minnesota public-water-access GIS.',
+        'The Wilton gauge is at the take-out corridor, so it is the cleanest same-day level check for this route.',
+        'Use the named public accesses only; private banks are not assumed legal for stops or bailout.',
+      ],
+      watchFor: [
+        'Headwaters wood, shallow riffles, cold water, and slower bends when the Wilton gauge falls toward the low band.',
+        'Muddy exits, debris, and pushier current above the official medium band.',
+        'Missing the Iron Bridge finish and drifting into a longer downstream commitment.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'bear-den',
+        name: 'Mississippi River, Bear Den Public Water Access Site',
+        latitude: 47.423479,
+        longitude: -95.103604,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 1311.4; resolves as WAS02254.',
+      },
+      {
+        id: 'iron-bridge',
+        name: 'Mississippi River, Iron Bridge Public Water Access Site',
+        latitude: 47.43548,
+        longitude: -94.9994115,
+        mileFromStart: 10.8,
+        segmentKind: 'creek',
+        note: 'Default take-out and gauge corridor at DNR river mile 1300.6; resolves as WAS00519.',
+      },
+    ],
+  },
+  'otter-tail-river-riverside-phelps-mill': {
+    putIn: {
+      name: 'Otter Tail River, Highway 72 / Riverside Public Water Access Site',
+      latitude: 46.3586651,
+      longitude: -95.73372,
+    },
+    takeOut: {
+      name: 'Otter Tail River, Phelps Mill Public Water Access Site',
+      latitude: 46.3821667,
+      longitude: -95.8210176,
+    },
+    logistics: {
+      distanceLabel: '8.2 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low water or obstruction scouting',
+      shuttle:
+        'Stage Phelps Mill first, then drive back to Highway 72 / Riverside. Check the Phelps Mill finish and any park construction signs before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey DNR, county park, and posted construction or parking rules.',
+      camping:
+        'Treat this as a day route for PaddleToday filters. Otter Tail County lists Phelps Mill Park as open daily in season, but reservations are unavailable after July 12, 2026 because of planned construction, so the route does not claim endpoint camping.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Highway 72 / Riverside and take out at Phelps Mill for the missing public-access connector above the existing Phelps-to-West-Red route. Use the nearby Battle Lake DNR gauge and scout bridges, culverts, wood, and the Phelps finish.',
+      accessCaveats: [
+        'Highway 72 / Riverside resolves as WAS02520 at river mile 92.8 and Phelps Mill resolves as WAS00559 at river mile 84.6 in Minnesota public-water-access GIS.',
+        'The Battle Lake gauge sits near the upstream end of the selected route and is the direct DNR condition check.',
+        'Finish at Phelps Mill and stay clear of mill, dam, utility, or construction areas. Do not continue downstream without a separate route plan.',
+      ],
+      watchFor: [
+        'Dams, bridges, culverts, low-headroom obstructions, strainers, and private banks on the broader Otter Tail corridor.',
+        'Low-water dragging or main-channel picking below the official medium band.',
+        'High-water debris, muddy approaches, park construction logistics, and the dam/mill context at the take-out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hwy-72-riverside',
+        name: 'Otter Tail River, Highway 72 / Riverside Public Water Access Site',
+        latitude: 46.3586651,
+        longitude: -95.73372,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 92.8; resolves as WAS02520 with DNR administration.',
+      },
+      {
+        id: 'phelps-mill',
+        name: 'Otter Tail River, Phelps Mill Public Water Access Site',
+        latitude: 46.3821667,
+        longitude: -95.8210176,
+        mileFromStart: 8.2,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 84.6; resolves as WAS00559 with Otter Tail County administration.',
+      },
+    ],
+  },
+  'lemonweir-river-lemonweir-mills-two-rivers': {
+    putIn: {
+      id: 'lemonweir-mills',
+      name: 'Lemonweir Mills Boat Launch',
+      latitude: 43.78723,
+      longitude: -90.0168,
+    },
+    takeOut: {
+      id: 'two-rivers',
+      name: 'Two Rivers Boat Launch',
+      latitude: 43.76149,
+      longitude: -89.85258,
+    },
+    logistics: {
+      distanceLabel: '15.25 mi',
+      estimatedPaddleTime: 'About 5 hr to 6.5 hr on the water',
+      shuttle:
+        'Use a two-car Juneau County shuttle between the 19th Avenue / Lemonweir Mills launch and the Two Rivers launch near Cliff House Road. Stage the take-out first so the final backwater maze and landing are familiar before the long paddle.',
+      permits:
+        'No route-specific paddling permit is known. Juneau County describes both launches as no-fee public launches; still follow posted hours, parking, and launch rules.',
+      camping:
+        'No confirmed legal on-route campsite is documented for this route. Treat it as a long day trip unless you separately verify a legal sandbar or private-land overnight plan.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Lemonweir Mills and paddle the meandering Lemonweir to the Two Rivers launch near the Wisconsin River. The route is scenic and mostly gentle, but the long mileage, old mill remnant, wood, and confusing lower sloughs make planning matter.',
+      accessCaveats: [
+        'Lemonweir Mills is a simple public launch without a dock; inspect water level and footing before loading.',
+        'The Two Rivers take-out has better public-launch support, but the lower river can split into confusing sloughs and backwaters before the landing.',
+        'The New Lisbon gauge is direct for the river but still needs a visual check at the launch because local sandbars and wood can change quickly.',
+      ],
+      watchFor: [
+        'Old mill-dam remnants and ponded water near the start.',
+        'Snags, strainers, blind bends, shallow riffles, and long low-water sandbars.',
+        'Navigation mistakes in the lower backwaters, private banks, late-day fatigue, wind near wider water, and cold water outside summer.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lemonweir-mills',
+        name: 'Lemonweir Mills Boat Launch',
+        latitude: 43.78723,
+        longitude: -90.0168,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Juneau County no-fee launch for kayaks, canoes, and small boats at 19th Avenue.',
+      },
+      {
+        id: 'highway-hh',
+        name: 'Highway HH / Lemonweir bridge area',
+        latitude: 43.7742,
+        longitude: -89.9189,
+        mileFromStart: 7.4,
+        segmentKind: 'creek',
+        note: 'Useful bridge landmark from Wisconsin River Trips and Miles Paddled; confirm any exit legality before treating it as a bailout.',
+      },
+      {
+        id: 'two-rivers',
+        name: 'Two Rivers Boat Launch',
+        latitude: 43.76149,
+        longitude: -89.85258,
+        mileFromStart: 15.25,
+        segmentKind: 'creek',
+        note: 'Juneau County no-fee take-out near the Lemonweir / Wisconsin River backwater area.',
+      },
+    ],
+  },
+  'wisconsin-river-pine-bluff-brokaw': {
+    putIn: {
+      id: 'pine-bluff-road',
+      name: 'Pine Bluff Road Access',
+      latitude: 45.0584,
+      longitude: -89.6436,
+    },
+    takeOut: {
+      id: 'brokaw-boat-landing',
+      name: 'Brokaw Boat Landing',
+      latitude: 45.0269,
+      longitude: -89.6548,
+    },
+    logistics: {
+      distanceLabel: 'About 6.5 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr',
+      shuttle:
+        'Use a short two-car shuttle between the Pine Bluff Road access in the Wisconsin River Forest Unit and Brokaw Boat Landing. Stage the Brokaw take-out first because continuing downstream enters the former dam hazard area.',
+      permits:
+        'No route-specific paddling permit is known. Follow Marathon County forest access, parking, and launch rules at Pine Bluff Road and local landing rules at Brokaw.',
+      camping:
+        'No known on-route campground is documented on this Pine Bluff-to-Brokaw stretch. Treat it as a day trip or use a separately reserved nearby campground.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Put in at Pine Bluff Road and paddle the Granite Heights reach to Brokaw. The route mixes quiet Wisconsin River scenery with shallow boulder gardens, Trappe Rapids, and a firm take-out requirement before the removed Brokaw dam area.',
+      accessCaveats: [
+        'Pine Bluff Road is an unimproved county-forest access; check road, parking, and landing conditions before committing.',
+        'Brokaw Boat Landing is the endpoint. Do not drift past it toward exposed rebar and drop hazards in the former Brokaw dam area.',
+        'The Merrill gauge is direct and route-specific, but rapids can feel very different at the low and high ends of the published ladder.',
+      ],
+      watchFor: [
+        'Trappe Rapids and shallow boulder gardens, with easier and harder island-channel choices depending on flow.',
+        'Cold water, wind on wider pools, sparse exits, and changing wood after storms.',
+        'The mandatory Brokaw take-out, downstream dam-removal debris, and no assumed on-route camping.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'pine-bluff-road',
+        name: 'Pine Bluff Road Access',
+        latitude: 45.0584,
+        longitude: -89.6436,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Unimproved Marathon County / Wisconsin River Forest access used for downstream floats toward Brokaw and Wausau.',
+      },
+      {
+        id: 'trappe-rapids',
+        name: 'Trappe Rapids',
+        latitude: 45.0437,
+        longitude: -89.6485,
+        mileFromStart: 3.4,
+        segmentKind: 'creek',
+        note: 'Main boulder-garden feature on the route; scout or choose the easier channel if water or skill level is uncertain.',
+      },
+      {
+        id: 'brokaw-boat-landing',
+        name: 'Brokaw Boat Landing',
+        latitude: 45.0269,
+        longitude: -89.6548,
+        mileFromStart: 6.5,
+        segmentKind: 'creek',
+        note: 'Required take-out above the former Brokaw dam area and downstream debris hazards.',
+      },
+    ],
+  },
+  'milwaukee-river-goeden-newburg': {
+    putIn: {
+      id: 'goeden-county-park',
+      name: 'Goeden County Park kayak access',
+      latitude: 43.4492,
+      longitude: -88.0763,
+    },
+    takeOut: {
+      id: 'newburg-municipal-lot',
+      name: 'Newburg municipal lot / Main Street Bridge access',
+      latitude: 43.43427,
+      longitude: -88.04782,
+    },
+    logistics: {
+      distanceLabel: '3.4 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr',
+      shuttle:
+        'Use a short two-car shuttle from Goeden County Park on County Road M to the Newburg municipal lot / Main Street Bridge access. It can be paired with longer Milwaukee River routes only when flow, daylight, and take-out logistics are already solved.',
+      permits:
+        'No route-specific paddling permit is known. Follow Washington County park rules at Goeden County Park and posted municipal parking or park rules in Newburg.',
+      camping:
+        'No on-route camping is documented for this short connector. Treat it as a day route.',
+      campingClassification: 'none',
+      summary:
+        'Launch from the improved Goeden County Park kayak access and paddle the short upper-Milwaukee connector to Newburg. This fills the gap between West Bend and Newburg route cards, but it is still flow-sensitive and shallow at low water.',
+      accessCaveats: [
+        'Goeden County Park has an improved kayak access, but check county park hours, parking, and shoreline conditions before unloading.',
+        'The Newburg endpoint uses the municipal / Main Street Bridge access area; scout the landing before launch so you do not continue unintentionally into the next route.',
+        'At the live 2026-07-14 check, Cedarburg was below the practical target, so this route should display as too low unless conditions rise.',
+      ],
+      watchFor: [
+        'Shallow boulder gardens and scraping when Cedarburg is below the published route-family range.',
+        'Fresh strainers below bridges and on outside bends after storms.',
+        'Private banks, cold water, and pushier bridge approaches if the river rises quickly.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'goeden-county-park',
+        name: 'Goeden County Park kayak access',
+        latitude: 43.4492,
+        longitude: -88.0763,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Washington County improved kayak access on the Milwaukee River at Goeden County Park.',
+      },
+      {
+        id: 'county-m-boulder-gardens',
+        name: 'County M to Newburg boulder-garden reach',
+        latitude: 43.4439,
+        longitude: -88.0636,
+        mileFromStart: 1.4,
+        segmentKind: 'creek',
+        note: 'Wisconsin River Trips describes shallow boulder gardens through this short connector; expect scraping near the low band.',
+      },
+      {
+        id: 'newburg-municipal-lot',
+        name: 'Newburg municipal lot / Main Street Bridge access',
+        latitude: 43.43427,
+        longitude: -88.04782,
+        mileFromStart: 3.4,
+        segmentKind: 'creek',
+        note: 'Public Newburg access area used by the Milwaukee River route family.',
+      },
+    ],
+  },
 };

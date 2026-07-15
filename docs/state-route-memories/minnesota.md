@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 20:05 America/Chicago.
+Last summarized: 2026-07-14 21:09 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 122.
-- Top represented rivers: Sauk River 17, Mississippi River 13, Little Fork River 9, Minnesota River 7, Crow Wing River 6, Big Fork River 5, Cannon River 4, North Fork Crow River 4, Red River of the North 4, Root River 4, St. Louis River 4, Zumbro River 4.
-- Ledger candidates: 817 total; 463 `added`, 77 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 54 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
+- Live routes: 125.
+- Top represented rivers: Sauk River 17, Mississippi River 16, Little Fork River 9, Minnesota River 9, Crow Wing River 6, Big Fork River 5, Otter Tail River 4, Cannon River 4, Root River 4, North Fork Crow River 4, St. Louis River 4, Zumbro River 4.
+- Ledger candidates: 829 total; 472 `added`, 80 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 54 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-14 21:09 America/Chicago: added `mississippi-river-coffee-pot-bear-den`, `mississippi-river-bear-den-iron-bridge`, and `otter-tail-river-riverside-phelps-mill`.
+- Baseline at run start was 122 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 125 Minnesota routes.
+- Stayed in Minnesota and promoted two upper Mississippi headwaters access-chain gaps plus one Otter Tail connector still absent from live inventory: Coffee Pot Landing-to-Bear Den `14.8` miles, Bear Den-to-Iron Bridge `10.8` miles, and Highway 72 / Riverside-to-Phelps Mill `8.2` miles.
+- Minnesota public-water-access GIS resolves all six primary endpoints with source-backed coordinates and river-mile records: Coffee Pot Landing `WAS00730`, Bear Den `WAS02254`, Iron Bridge `WAS00519`, Otter Tail Highway 72 / Riverside `WAS02520`, and Phelps Mill `WAS00559`.
+- Current MN DNR river-level feed exposed interpreted ladders for Mississippi Vern site `305` (`84.2 / 84.2-85 / 87 ft`), Mississippi Wilton site `155` (`39.1 / 40-42.5 / 45 ft`), and Otter Tail Battle Lake site `344` (`1320 / 1320.5-1321 / 1322 ft`). Coffee-Pot-to-Bear-Den ships with an upstream same-corridor proxy caveat; Bear-Den-to-Iron-Bridge and Riverside-to-Phelps-Mill use direct or near-put-in DNR gauges.
+- Camping posture: both Mississippi additions are `nearby_basecamp` day routes with no confirmed on-route campsite between the selected endpoints; Riverside-to-Phelps-Mill is `none` because Phelps Mill Park reservations are unavailable after July 12, 2026 due to planned construction.
+- No route-gallery images were added. Bounded DNR / Commons / county / same-river image review did not produce clearly rights-clean exact-route assets for local reuse.
+- Reviewed but did not add Sauk Centre Dam-to-Mill Pond because the June 26, 2026 DNR alert puts bridge construction in the exact corridor for nine weeks, Fort Ripley-to-Fletcher Creek because Fletcher Creek still did not resolve as a public-water-access endpoint, Red River Kidder-to-Brushvale because Kidder/Brushvale remain outside the Minnesota access layer and the threshold tie is still weak, and Snake Silver Star-to-Lower Falls because the upper Snake gauge was still stale and Lower Falls did not resolve in GIS.
 
 - 2026-07-14 20:05 America/Chicago: added `minnesota-river-priens-war-memorial`, `minnesota-river-morton-highway-4`, and `cannon-river-byllesby-highway-61`.
 - Baseline at run start was 119 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 122 Minnesota routes.
