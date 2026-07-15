@@ -6,10 +6,12 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useCreateRiverRequestMutation } from '../api/queries';
 import { SectionCard } from '../components/section-card';
 import { isValidEmailAddress } from '../lib/alerts';
+import { androidBottomInset } from '../lib/safe-area';
 import { colors, radius, spacing } from '../theme/tokens';
 
 export default function RequestRouteScreen() {
   const insets = useSafeAreaInsets();
+  const bottomContentInset = androidBottomInset(insets.bottom);
   const createRequestMutation = useCreateRiverRequestMutation();
   const [riverName, setRiverName] = useState('');
   const [area, setArea] = useState('');
@@ -75,7 +77,7 @@ export default function RequestRouteScreen() {
           styles.content,
           {
             paddingTop: spacing.lg + insets.top,
-            paddingBottom: spacing.xl + insets.bottom,
+            paddingBottom: spacing.xl + bottomContentInset,
           },
         ]}
       >

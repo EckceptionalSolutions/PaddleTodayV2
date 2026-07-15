@@ -14,6 +14,7 @@ import {
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { androidBottomInset } from '../lib/safe-area';
 import { colors, radius, spacing } from '../theme/tokens';
 
 export interface SelectedReportPhoto {
@@ -82,6 +83,7 @@ export function RouteReportSheet({
 }: RouteReportSheetProps) {
   const photoLimitReached = photos.length >= maxPhotos;
   const insets = useSafeAreaInsets();
+  const bottomSheetInset = androidBottomInset(insets.bottom);
   const scrollRef = useRef<ScrollView | null>(null);
   const formOffset = useRef(0);
   const inputOffsets = useRef<Record<string, number>>({});
@@ -95,7 +97,7 @@ export function RouteReportSheet({
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
           keyboardVerticalOffset={Platform.OS === 'ios' ? 88 : 0}
         >
-        <View style={[styles.reportSheet, { paddingBottom: spacing.md + insets.bottom }]}>
+        <View style={[styles.reportSheet, { paddingBottom: spacing.md + bottomSheetInset }]}>
           <View style={styles.sheetHandle} />
           <View style={styles.sheetHeader}>
             <View style={styles.sheetTitleCopy}>

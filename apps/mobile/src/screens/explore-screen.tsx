@@ -28,6 +28,7 @@ import {
 import { RoutePlotMap, type RoutePlotMapHandle, type RoutePlotPoint } from '../components/route-plot-map';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { resolveApiBaseUrl } from '../lib/api-base-url';
+import { androidBottomInset } from '../lib/safe-area';
 import { distanceMiles, distancePenalty, formatTravelTime } from '../lib/location';
 import {
   descriptionForExploreIntent,
@@ -113,6 +114,7 @@ export default function ExploreScreen() {
   );
   const selectedRiver = selectedSlug ? results.find((river) => river.river.slug === selectedSlug) ?? null : null;
   const activeFilterCount = countActiveFilters(filters);
+  const bottomContentInset = androidBottomInset(insets.bottom);
 
   useEffect(() => {
     void hydrateExplorePreferences();
@@ -251,7 +253,7 @@ export default function ExploreScreen() {
         selectedRiver={selectedRiver}
         selectedSlug={selectedSlug}
         status={status}
-        bottomInset={insets.bottom}
+        bottomInset={bottomContentInset}
         topInset={insets.top}
         userLocation={location}
         routeCounts={routeCounts}
@@ -360,7 +362,7 @@ function FullScreenExploreMap({
   onUseLocation: () => void;
   isSaved: (slug: string) => boolean;
 }) {
-  const [sheetSnap, setSheetSnap] = useState<MapSheetSnap>('peek');
+  const [sheetSnap, setSheetSnap] = useState<MapSheetSnap>('half');
   const mapRef = useRef<RoutePlotMapHandle | null>(null);
   const points = useExploreMapPoints(results, routeCounts);
   const requesting = status === 'requesting';
@@ -417,7 +419,7 @@ function FullScreenExploreMap({
           selectedId={selectedSlug}
           userLocation={userLocation}
           onSelectPoint={(point) => {
-            setSheetSnap('peek');
+            setSheetSnap('half');
             onSelectSlug(point.id);
           }}
           height={mapHeight}
@@ -548,7 +550,7 @@ function FullScreenExploreMap({
           routeCount={selectedRouteCount}
           isSaved={isSaved}
           onClose={() => {
-            setSheetSnap('peek');
+            setSheetSnap('half');
             onSelectSlug(null);
           }}
           onOpenRoute={() => {

@@ -12,6 +12,7 @@ import { useStoredLocation } from '../hooks/use-stored-location';
 import { resolveApiBaseUrl } from '../lib/api-base-url';
 import { normalizeApiText } from '../lib/format';
 import { distanceMiles, distancePenalty, estimateTravelMinutes, formatTravelTime, type StoredLocation } from '../lib/location';
+import { androidBottomInset } from '../lib/safe-area';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -42,6 +43,7 @@ const WEEKEND_DISTANCE_STORAGE_KEY = 'paddletoday:weekend-distance-limit:v1';
 export default function WeekendScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const bottomContentInset = androidBottomInset(insets.bottom);
   const weekendQuery = useWeekendSummaryQuery();
   const { location, status, requestLocation, clearLocation } = useStoredLocation();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
@@ -110,7 +112,13 @@ export default function WeekendScreen() {
   return (
     <ScrollView
       style={styles.screen}
-      contentContainerStyle={[styles.content, { paddingTop: spacing.md + insets.top }]}
+      contentContainerStyle={[
+        styles.content,
+        {
+          paddingTop: spacing.md + insets.top,
+          paddingBottom: spacing.xl + bottomContentInset,
+        },
+      ]}
       refreshControl={
         <RefreshControl
           tintColor={colors.accent}

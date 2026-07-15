@@ -72,6 +72,7 @@ import {
   normalizeReportPhotoAsset,
   ROUTE_REPORT_MAX_PHOTOS,
 } from '../lib/report-photos';
+import { androidBottomInset } from '../lib/safe-area';
 import { useAlertPreferences } from '../providers/alert-preferences-provider';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -98,9 +99,7 @@ export default function RiverDetailScreen() {
   const params = useLocalSearchParams<{ slug?: string | string[] }>();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const bottomContentInset = Platform.OS === 'android'
-    ? Math.max(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET)
-    : insets.bottom;
+  const bottomContentInset = androidBottomInset(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET);
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug ?? '';
   const detailQuery = useRiverDetailQuery(slug);
   const historyQuery = useRiverHistoryQuery(slug, 7);

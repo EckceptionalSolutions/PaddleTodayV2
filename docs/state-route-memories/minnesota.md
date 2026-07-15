@@ -1,18 +1,28 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 10:11 America/Chicago.
+Last summarized: 2026-07-15 11:10 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 140 after the 2026-07-15 10:11 three-route addition pass.
-- Top represented rivers: Mississippi River 24, Minnesota River 12, Sauk River 7, Rum River 6, Big Fork River 5, Root River 5, Zumbro River 5, Red River of the North 5, Cannon River 5, Crow Wing River 5, Little Fork River 4, Red Lake River 4, Otter Tail River 4, St. Croix River 4, North Fork Crow River 4, St. Louis River 4, Cedar River 3, Snake River 3, Des Moines River 3, Straight River 3, Chippewa River 3, Pine River 3.
-- Ledger candidates: 918 total; 536 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 25 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
+- Live routes: 143 after the 2026-07-15 11:10 three-route addition pass.
+- Top represented rivers: Mississippi River 26, Minnesota River 12, Sauk River 7, Rum River 6, Big Fork River 5, Root River 5, Zumbro River 5, Red River of the North 5, Cannon River 5, Crow Wing River 5, Little Fork River 4, Red Lake River 4, Otter Tail River 4, St. Croix River 4, North Fork Crow River 4, St. Louis River 4, Cedar River 3, Snake River 3, Des Moines River 3, Straight River 3, Chippewa River 3, Pine River 3.
+- Ledger candidates: 924 total; 542 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 25 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 11:10 America/Chicago: added `blue-earth-river-amboy-dodd-ford`, `mississippi-river-hazen-mooers-backwater`, and `mississippi-river-spring-lake-backwater`.
+- Baseline at run start was 140 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 143 Minnesota routes and all three new slugs have trip-detail records. The total route count is 667 because the worktree also contains concurrent Wisconsin route additions outside this Minnesota run.
+- Stayed in Minnesota and promoted three DNR-recommended round-trip gaps after most one-way prompt leads reconciled as already live, represented by canonical access-planner cards, or blocked. Blue Earth Amboy-to-Dodd-Ford adds an upper-river out-and-back away from the lower Rapidan Dam hazard corridor; Hazen P. Mooers adds the official Baldwin/Mooers Lake Mississippi backwater paddle; and Spring Lake adds the official Spring Lake Park Reserve backwater paddle.
+- Current MN DNR river-level feed exposed interpreted ladders for Blue Earth Winnebago site `283` (`21.5 / 22-26 / 29 ft`) and Mississippi St. Paul site `133` (`2,000 / 6,000-30,000 / 40,000 cfs`). During the run, Blue Earth was medium at `23.9 ft`, and Mississippi St. Paul was medium at `15,600 cfs`.
+- Minnesota public-water-access GIS resolves Amboy `WAS03079` at `43.8759053, -94.1878990` and Spring Lake Park `WAS02200` at `44.7590379, -92.9380185`. Hazen P. Mooers is supported by Cottage Grove park/rental materials and the city/PDF address geocode, with explicit signage-verification caveats.
+- Camping posture: all three new cards are `none`; they are day-use round trips and do not assume on-route, informal, or backwater camping.
+- Safety posture: Blue Earth carries turn-around, fast-rise, wood/strainer, cold-water, private-bank, and no-private-take-out caveats. Hazen carries strict stay-in-backwater instructions, no Grey Cloud Channel / main-channel continuation, barge-wake/current, urban-water-quality, submerged-wood, and Lock-and-Dam-2 influence caveats. Spring Lake carries stump-field, submerged-log, wind, main-channel, water-quality, and lower-Pool-2 dam-influence caveats.
+- No route-gallery images were added. Bounded DNR / public-access / city / NPS / Wikimedia Commons / same-route review found useful context images but no clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed but did not add North Fork Crow Manannah-to-Highway-22 because active tree-alert context still affects that reach; lower Blue Earth County-Road-90-to-Sibley because the Rapidan Dam hazard context remains unsuitable for a new general card; Long Prairie Lake Carlos/Miltona because endpoint proof remains weaker than accepted routes; Fond-du-Lac-to-Oldenburg because no route-operable live gauge cleared; or prompt leads already live / represented including Kettle Musclewood, Vermilion Twomile-to-Eightmile, Red River Canning/Highway-25-to-Halstad, Sauk Richmond-to-Horseshoe, and the broader upper-Rum 320th-to-Milaca planner.
 
 - 2026-07-15 10:11 America/Chicago: added `chippewa-river-lagoon-priens`, `pine-river-norway-pine-river-one`, and `minnesota-river-belle-plaine-thompson-ferry`.
 - Baseline at run start was 137 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 140 Minnesota routes and all three new slugs have trip-detail records.

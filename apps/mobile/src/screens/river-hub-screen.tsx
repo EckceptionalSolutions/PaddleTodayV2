@@ -3,14 +3,16 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, FlatList, ImageBackground, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverGroupQuery } from '../api/queries';
 import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { SectionCard } from '../components/section-card';
 import { StatusPill } from '../components/status-pill';
-import { formatRelativeTime, normalizeApiText, verdictForRating } from '../lib/format';
+import { normalizeApiText, verdictForRating } from '../lib/format';
 import { photoForRiver } from '../lib/route-photos';
 import { routePreviewFactLine } from '../lib/route-facts';
+import { androidBottomInset } from '../lib/safe-area';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, shadow, spacing } from '../theme/tokens';
 
@@ -22,6 +24,7 @@ type HubAccessPoint = NonNullable<RiverDetailApiResult['river']['accessPoints']>
 export default function RiverHubScreen() {
   const params = useLocalSearchParams<{ riverId?: string | string[] }>();
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const [expandedRoutes, setExpandedRoutes] = useState<Set<string>>(() => new Set());
   const [selectedRouteSlug, setSelectedRouteSlug] = useState<string | null>(null);
   const [sortMode, setSortMode] = useState<SortMode>('Best');
@@ -83,6 +86,7 @@ export default function RiverHubScreen() {
 
   const summary = routeStatusSummary(allRoutes);
   const planningStats = routePlanningStats(allRoutes);
+  const bottomContentInset = androidBottomInset(insets.bottom);
 
   function toggleExpandedRoute(slug: string) {
     setExpandedRoutes((current) => {
@@ -136,7 +140,7 @@ export default function RiverHubScreen() {
         keyExtractor={(route) => route.river.slug}
         renderItem={renderRoute}
         style={styles.screen}
-        contentContainerStyle={styles.content}
+        contentContainerStyle={[styles.content, { paddingBottom: spacing.xl + bottomContentInset }]}
         initialNumToRender={8}
         maxToRenderPerBatch={6}
         windowSize={7}
@@ -159,13 +163,27 @@ export default function RiverHubScreen() {
             <View style={styles.hero}>
               <Text style={styles.kicker}>{result.group.stateSummary}</Text>
               <Text style={styles.title}>{result.group.name} Routes</Text>
-              <Text style={styles.subtitle}>{hubStatusLine(summary)}</Text>
+              <Text style={styles.subtitle}>{hubStatusLine(summary, result.group.routeCount)}</Text>
               <View style={styles.heroMeta}>
                 <MetricPill label="Routes" value={String(result.group.routeCount)} />
-                <MetricPill label="Updated" value={compactUpdatedLabel(groupQuery.data?.generatedAt)} />
                 <MetricPill label="Paddleable" value={String(summary.paddleable)} />
                 <MetricPill label="Skip" value={String(summary.skip)} />
               </View>
+            </View>
+
+            <View style={styles.mapSection}>
+              <SectionCard title="Route map" subtitle="Tap a score to jump to that stretch.">
+                <View style={styles.mapFrame}>
+                  <RoutePlotMap
+                    points={routePoints}
+                    selectedId={selectedRouteSlug}
+                    height={220}
+                    fitToAllOnReady
+                    fullBleed
+                    onSelectPoint={(point) => selectRouteFromMap(point.id)}
+                  />
+                </View>
+              </SectionCard>
             </View>
 
             <View style={styles.listIntro}>
@@ -186,29 +204,13 @@ export default function RiverHubScreen() {
                 ))}
               </View>
               <View style={styles.planningGrid}>
+                <PlanningStat label="Best score" value={planningStats.bestScoreLabel} />
                 <PlanningStat label="Shortest" value={planningStats.shortestLabel} />
                 <PlanningStat label="Easiest" value={planningStats.easyCountLabel} />
-                <PlanningStat label="Best confidence" value={planningStats.bestConfidenceLabel} />
-                <PlanningStat label="Source mix" value={planningStats.sourceMixLabel} />
+                <PlanningStat label="Paddleable" value={planningStats.paddleableLabel} />
               </View>
             </View>
           </>
-        }
-        ListFooterComponent={
-          <View style={styles.footerSection}>
-            <SectionCard title="Route score map" subtitle="Approximate put-ins by today's score.">
-              <View style={styles.mapFrame}>
-                <RoutePlotMap
-                  points={routePoints}
-                  selectedId={selectedRouteSlug}
-                  height={158}
-                  showFooter={false}
-                  fullBleed
-                  onSelectPoint={(point) => selectRouteFromMap(point.id)}
-                />
-              </View>
-            </SectionCard>
-          </View>
         }
       />
     </>
@@ -418,8 +420,8 @@ function routeStatusSummary(routes: RiverDetailApiResult[]) {
   );
 }
 
-function hubStatusLine(summary: { paddleable: number; skip: number }) {
-  const paddleable = `${summary.paddleable} paddleable today`;
+function hubStatusLine(summary: { paddleable: number; skip: number }, total: number) {
+  const paddleable = `${summary.paddleable} of ${total} paddleable today`;
   const skips = `${summary.skip} skip${summary.skip === 1 ? '' : 's'}`;
   return [paddleable, skips].join(' - ');
 }
@@ -466,16 +468,14 @@ function difficultyRank(route: RiverDetailApiResult) {
 function routePlanningStats(routes: RiverDetailApiResult[]) {
   const shortest = [...routes].sort((left, right) => comparableDistance(left) - comparableDistance(right))[0];
   const easyCount = routes.filter((route) => route.river.profile.difficulty === 'easy').length;
-  const bestConfidence = [...routes].sort((left, right) => right.confidence.score - left.confidence.score)[0];
-  const officialishCount = routes.filter((route) =>
-    route.river.profile.thresholdSourceStrength === 'official' || route.river.profile.thresholdSourceStrength === 'mixed'
-  ).length;
+  const bestScore = [...routes].sort(compareBestRoute)[0]?.score;
+  const summary = routeStatusSummary(routes);
 
   return {
+    bestScoreLabel: typeof bestScore === 'number' ? String(bestScore) : 'Unknown',
     shortestLabel: shortest?.river.distanceLabel || 'Unknown',
     easyCountLabel: `${easyCount} easy`,
-    bestConfidenceLabel: bestConfidence ? bestConfidence.confidence.label : 'Unknown',
-    sourceMixLabel: `${officialishCount}/${routes.length} official/mixed`,
+    paddleableLabel: `${summary.paddleable}/${routes.length}`,
   };
 }
 
@@ -492,10 +492,6 @@ function sourceStrengthLabel(route: RiverDetailApiResult) {
   if (strength === 'mixed') return 'Mixed sources';
   if (strength === 'derived') return 'Derived thresholds';
   return 'Community thresholds';
-}
-
-function compactUpdatedLabel(value: string | undefined) {
-  return formatRelativeTime(value).replace(/^Updated\s+/i, '');
 }
 
 function routeMetaLine(route: RiverDetailApiResult) {
@@ -585,8 +581,8 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     borderWidth: 1,
     borderColor: colors.border,
-    padding: spacing.md,
-    gap: spacing.sm,
+    padding: spacing.lg,
+    gap: 10,
     ...shadow,
   },
   kicker: {
@@ -598,8 +594,8 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.text,
-    fontSize: 27,
-    lineHeight: 32,
+    fontSize: 26,
+    lineHeight: 31,
     fontWeight: '900',
   },
   subtitle: {
@@ -609,14 +605,15 @@ const styles = StyleSheet.create({
   },
   heroMeta: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexWrap: 'nowrap',
     gap: spacing.sm,
   },
   metricPill: {
+    flex: 1,
     backgroundColor: colors.canvasMuted,
-    borderRadius: radius.pill,
-    paddingHorizontal: 11,
-    paddingVertical: 7,
+    borderRadius: radius.md,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 9,
     gap: 2,
   },
   metricPillLabel: {
@@ -628,11 +625,13 @@ const styles = StyleSheet.create({
   },
   metricPillValue: {
     color: colors.text,
-    fontSize: 13,
+    fontSize: 16,
     fontWeight: '900',
   },
+  mapSection: {
+    ...shadow,
+  },
   mapFrame: {
-    height: 160,
     overflow: 'hidden',
     borderRadius: radius.md,
     borderWidth: 1,
@@ -717,9 +716,6 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontSize: 13,
     fontWeight: '900',
-  },
-  footerSection: {
-    marginTop: spacing.md,
   },
   routeCard: {
     backgroundColor: colors.surface,

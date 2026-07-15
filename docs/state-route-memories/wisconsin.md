@@ -4,16 +4,23 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 118.
-- Top represented rivers: Wisconsin River 16, Sugar River 5, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Rock River 4, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Fox River 3, Popple River 3, Baraboo River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3.
-- Ledger candidates: 105 total; 95 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
+- Live routes: 121.
+- Top represented rivers: Wisconsin River 16, Sugar River 5, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Baraboo River 5, Rock River 4, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Fox River 3, Popple River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3, Kickapoo River 3.
+- Ledger candidates: 108 total; 98 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 115-route baseline: `rock-river-kanow-county-p`, `rock-river-county-p-willow-street`, and `big-eau-pleine-river-march-rapids-big-rapids`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 118-route baseline: `kickapoo-river-readstown-soldiers-grove`, `baraboo-river-rock-springs-north-freedom`, and `baraboo-river-north-freedom-giese`.
 
 ## Latest Audit
 
+- 2026-07-15 America/Chicago: added `kickapoo-river-readstown-soldiers-grove`, `baraboo-river-rock-springs-north-freedom`, and `baraboo-river-north-freedom-giese`, bringing the live Wisconsin route count from the run-start baseline of 118 to 121.
+- The Kickapoo route adds the lower Readstown-to-Soldiers-Grove day segment below existing upper-Kickapoo Reserve coverage. Wisconsin River Trips documents the exact route, mileage, public endpoint pair, Steuben-gauge stage ladder, and high-water warnings; Kickapoo Valley Reserve and Wisconsin DNR corroborate fast-rise, logjam, snag, cold-water, no-riverbank-camping, and low-head-dam safety context. USGS Water Services returned Kickapoo River at Steuben `05410490` at `636 cfs / 7.16 ft` at 2026-07-15 10:45 CDT, inside WRT's high / maybe-too-high band.
+- The two Baraboo routes fill the Rock Springs-to-North-Freedom and North-Freedom-to-Giese public access chain upstream of existing lower Baraboo cards. Wisconsin River Trips documents both exact route pages and Reedsburg-gauge bands; Sauk County / City of Baraboo water-trail mapping corroborates Rock Springs and North Freedom access, and Town of Baraboo materials corroborate Giese Park river access. USGS Water Services returned Baraboo River at Reedsburg `054041665` at `185 cfs / 5.39 ft` at 2026-07-15 10:00 CDT, inside the selected `151-250 cfs` target band.
+- Threshold posture: Kickapoo uses WRT's Steuben-stage bands with a downstream proxy caveat (`6.6-6.7 ft` average, `7.1-7.4 ft` high/maybe too high, `7.5+ ft` likely too high). Both Baraboo cards use WRT's Reedsburg-flow bands with upstream proxy caveats (`151-250 cfs` target, `551+ cfs` too muddy/pushy).
+- Safety/logistics added: Readstown-to-Soldiers-Grove is a no-camping day route with fast-rise, logjam, snag, cold-water, private-bank, and limited-rescue caveats. Rock-Springs-to-North-Freedom and North-Freedom-to-Giese are no-camping day routes with public-access-only, private-bank, logjam/strainer, muddy-bank, high-water, cold-water, and proxy-gauge caveats.
+- Bounded image review found route/context imagery leads but no clearly rights-clean exact-route paddling asset selected for the three new cards; no-image rows were added to the image audit.
+- Reviewed prompt and memory leads before selection: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica were reconciled as already implemented, Black Earth Creek Cross Plains-to-Salmo Pond remains blocked by unresolved obstruction evidence, and broader upper Chippewa / Wolf / Wisconsin Trail Guide families remain heavily represented or weaker than the accepted public-access chains.
 - 2026-07-15 America/Chicago: added `rock-river-kanow-county-p`, `rock-river-county-p-willow-street`, and `big-eau-pleine-river-march-rapids-big-rapids`, bringing the live Wisconsin route count from the run-start baseline of 115 to 118.
 - The two Rock River routes extend the upper Rock public-access chain from Kanow Park through County Road P / Pipersville to Willow Street Landing. Rock River Water Trail Section C access and description PDFs document the public access sequence, mileage context, and route shape; Wisconsin River Trips corroborates the Kanow/Ixonia route family, practical public-access notes, and Watertown-gauge ladder. USGS Water Services returned Rock River at Watertown `05425500` at `162 cfs / 1.35 ft` at 2026-07-15 09:05 CDT, below the selected target but above the low-water floor.
 - The Big Eau Pleine route adds the March Rapids Park-to-Big Rapids Park whitewater day run. Wisconsin River Trips documents the exact route family, March Rapids/Big Rapids park endpoints, rapids, dam-stop posture, and Stratford-gauge ladder; Town of Eau Pleine and Marathon County corroborate park/access context. USGS Water Services returned Big Eau Pleine River at Stratford `05399500` at `12.3 cfs / 2.35 ft` at 2026-07-15 09:05 CDT, far below the selected low-water floor.

@@ -29,6 +29,7 @@ import { formatTravelTime } from '../lib/location';
 import { type ExploreIntentId } from '../lib/explore-intents';
 import { photoForRiver } from '../lib/route-photos';
 import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
+import { androidBottomInset } from '../lib/safe-area';
 import { isRecord, parseJson } from '../lib/storage';
 import { routeDecisionLine, routePreviewFactItems, routePreviewFactLine } from '../lib/route-facts';
 import {
@@ -75,6 +76,7 @@ const stateAbbreviations: Record<string, string> = {
 export default function HomeScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const bottomContentInset = androidBottomInset(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET);
   const summaryQuery = useRiverSummaryQuery();
   const { location, status, requestLocation } = useStoredLocation();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
@@ -166,7 +168,7 @@ export default function HomeScreen() {
         styles.listContent,
         {
           paddingTop: spacing.md + Math.max(insets.top, 0),
-          paddingBottom: spacing.xl + TAB_BAR_SAFE_SPACE + Math.max(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET),
+          paddingBottom: spacing.xl + TAB_BAR_SAFE_SPACE + bottomContentInset,
         },
       ]}
       keyboardDismissMode="on-drag"
@@ -256,7 +258,7 @@ export default function HomeScreen() {
         routeCounts={routeCounts}
         states={supportedStates}
         topInset={Math.max(insets.top, 0)}
-        bottomInset={Math.max(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET)}
+        bottomInset={bottomContentInset}
         onChange={setRouteQuery}
         onClose={() => {
           setSearchOpen(false);

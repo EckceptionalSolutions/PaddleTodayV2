@@ -1,11 +1,12 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Tabs } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { androidBottomInset } from '../../src/lib/safe-area';
 import { colors } from '../../src/theme/tokens';
 
 export default function TabLayout() {
   const insets = useSafeAreaInsets();
-  const bottomInset = Math.max(insets.bottom, 12);
+  const bottomInset = androidBottomInset(insets.bottom, 12);
 
   return (
     <Tabs

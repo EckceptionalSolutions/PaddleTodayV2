@@ -5571,6 +5571,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'kickapoo-river-readstown-soldiers-grove': {
+    putIn: {
+      name: 'Readstown Tourist Park canoe landing',
+      latitude: 43.447,
+      longitude: -90.7625,
+    },
+    takeOut: {
+      name: 'Soldiers Grove Canoe Access',
+      latitude: 43.3949,
+      longitude: -90.7752,
+    },
+    logistics: {
+      distanceLabel: '7.1 mi',
+      estimatedPaddleTime: 'About 2 hr 30 min to 3 hr 45 min',
+      shuttle:
+        'Use a two-car shuttle between Readstown Tourist Park and the Soldiers Grove canoe access. Confirm posted village parking rules before leaving vehicles.',
+      permits:
+        'No route-specific day paddling permit is known. Follow village access rules, Wisconsin boating requirements, and any posted Kickapoo River advisories.',
+      camping:
+        'Treat this as a day trip. KVR safety guidance warns that riverbank camping is not allowed and that camping on the Kickapoo corridor must use designated or otherwise confirmed legal sites.',
+      summary:
+        'Launch from Readstown Tourist Park and finish at Soldiers Grove Canoe Access for a lower Kickapoo day with broad valley scenery and steady current. The Steuben gauge is downstream, so pair the reading with the trend and recent rain.',
+      accessCaveats: [
+        'The route depends on public village accesses rather than informal roadside banks.',
+        'The Steuben gauge is a lower-river proxy, not a gauge at the put-in.',
+        'Private banks line much of the valley; keep stops to public land or emergency use.',
+      ],
+      watchFor: [
+        'Fast rises after storms and high, pushy water above the normal stage bands.',
+        'Snags, strainers, and possible logjams that may require scouting or portage.',
+        'Cold-water exposure outside midsummer and limited rescue access between towns.',
+      ],
+    },
+  },
   'kickapoo-river-rockton-la-farge': {
     putIn: {
       name: 'Kickapoo River Landing 12 (Rockton)',
@@ -6789,6 +6823,74 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Shallow side channels below normal summer water.',
         'Fewer sandbars and faster push above the normal range.',
         'Wind exposure, powerboats, and confusing island channels.',
+      ],
+    },
+  },
+  'baraboo-river-rock-springs-north-freedom': {
+    putIn: {
+      name: 'Rock Springs Landing / Firemen\'s Park',
+      latitude: 43.4772,
+      longitude: -89.9162,
+    },
+    takeOut: {
+      name: 'North Freedom Park landing',
+      latitude: 43.4599,
+      longitude: -89.8635,
+    },
+    logistics: {
+      distanceLabel: '5.4 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr',
+      shuttle:
+        'Use a short two-car shuttle between the Rock Springs landing south of the Highway 136 bridge and North Freedom Park. Confirm same-day parking and landing signage at both public access points.',
+      permits:
+        'No route-specific day paddling permit is known. Follow Sauk County, village, and Wisconsin boating rules at the public landings.',
+      camping:
+        'Treat this as a day trip. No legal on-route campsite was confirmed for this exact reach, and private banks should not be used for routine stops.',
+      summary:
+        'Launch at Rock Springs Landing and take out at North Freedom Park for a middle Baraboo River water-trail segment. The Reedsburg gauge is the best published planning proxy, so avoid fast rises and high muddy water.',
+      accessCaveats: [
+        'Sauk County mapping identifies the Rock Springs and North Freedom public landings, but riverbank access between them is mostly private.',
+        'Wisconsin River Trips notes that the nearby Rock Springs gauge lacks the same historical recreational ladder, so this entry uses the Reedsburg gauge as a proxy.',
+        'Minor logjams may require portage; do not assume every blocked channel has a public bank.',
+      ],
+      watchFor: [
+        'Low bridges, strainers, and newly shifted wood.',
+        'Muddy banks and difficult exits during high water.',
+        'Fast rises and opaque water after rain.',
+      ],
+    },
+  },
+  'baraboo-river-north-freedom-giese': {
+    putIn: {
+      name: 'North Freedom Park landing',
+      latitude: 43.4599,
+      longitude: -89.8635,
+    },
+    takeOut: {
+      name: 'Giese Park Baraboo River access',
+      latitude: 43.46802,
+      longitude: -89.81102,
+    },
+    logistics: {
+      distanceLabel: '5.5 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr',
+      shuttle:
+        'Stage between North Freedom Park and Giese Park near Hatchery Road and Rock Hill Road. Giese Park is a day-use town park with river access and basic facilities, so verify posted hours before leaving a vehicle.',
+      permits:
+        'No route-specific day paddling permit is known. Follow town park rules, Sauk County access guidance, and Wisconsin boating requirements.',
+      camping:
+        'No on-route camping is documented. Giese Park should be treated as a day-use take-out, not an overnight stop.',
+      summary:
+        'Launch at North Freedom Park and finish at Giese Park for an easier lower-middle Baraboo day. Normal Reedsburg-gauge flow is the target, while high water raises strainer and exit risk.',
+      accessCaveats: [
+        'Both endpoints are public park accesses, but most intervening banks are private.',
+        'The Reedsburg gauge is a published planning proxy for the route, not a gauge at the take-out.',
+        'Town park hours and portable restroom availability can change seasonally.',
+      ],
+      watchFor: [
+        'High-water strainers and stronger current near bends.',
+        'Muddy, steep banks if an unplanned exit becomes necessary.',
+        'Cold water and limited bailout options outside the park accesses.',
       ],
     },
   },
@@ -31031,6 +31133,165 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 6.4,
         segmentKind: 'creek',
         note: 'Default take-out; resolves as WAS02043 and DNR Map 1 places County Road 45 at Straight River mile 20.8.',
+      },
+    ],
+  },
+  'blue-earth-river-amboy-dodd-ford': {
+    putIn: {
+      name: 'Blue Earth River, Amboy Public Water Access Site',
+      latitude: 43.8759053,
+      longitude: -94.187899,
+    },
+    takeOut: {
+      name: 'Blue Earth River, Amboy Public Water Access Site',
+      latitude: 43.8759053,
+      longitude: -94.187899,
+    },
+    logistics: {
+      distanceLabel: 'About 3 mi out-and-back, user-controlled from river mile 60.2',
+      estimatedPaddleTime: 'About 1 hr to 3 hr depending on how far upriver you go and return current',
+      shuttle:
+        'No vehicle shuttle is needed. Launch and return at Amboy, and set a conservative turn-around time before pushing toward the Dodd Ford Historic Bridge.',
+      permits:
+        'No route-specific paddling permit is known. Use the Amboy public access, follow Minnesota boating/PFD rules, and obey posted Blue Earth County access rules.',
+      camping:
+        'No on-route camping is assumed for this short round trip. Use nearby town lodging or campgrounds only as separate base-camp plans.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Amboy public water access and paddle a controlled out-and-back toward Dodd Ford. The Winnebago DNR gauge is the same-river level check, but the actual turn-around should depend on current, wood, weather, and daylight.',
+      accessCaveats: [
+        'Amboy resolves in Minnesota public-water-access GIS as WAS03079 at Blue Earth River mile 60.2.',
+        'DNR lists Dodd Ford as the round-trip destination, not a second public take-out; do not plan a private-bank exit there.',
+        'This upper-Blue-Earth card deliberately avoids the lower Rapidan Dam and County Road 90 hazard corridor.',
+      ],
+      watchFor: [
+        'Wood, muddy banks, shallow bars, and slower upstream progress near the low band.',
+        'Faster current and floating debris after major rainfall.',
+        'Private banks outside the public access and cold-water exposure in spring or fall.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'amboy-public-water-access',
+        name: 'Blue Earth River, Amboy Public Water Access Site',
+        latitude: 43.8759053,
+        longitude: -94.187899,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Launch and return point; resolves as WAS03079 at DNR river mile 60.2.',
+      },
+      {
+        id: 'dodd-ford-turnaround',
+        name: 'Dodd Ford Historic Bridge turn-around area',
+        mileFromStart: 1.5,
+        segmentKind: 'creek',
+        note: 'DNR-recommended destination cue for the out-and-back; use as a planning landmark rather than a public take-out.',
+      },
+    ],
+  },
+  'mississippi-river-hazen-mooers-backwater': {
+    putIn: {
+      name: 'Hazen P. Mooers Park kayak/canoe launch',
+      latitude: 44.7954864,
+      longitude: -92.9775574,
+    },
+    takeOut: {
+      name: 'Hazen P. Mooers Park kayak/canoe launch',
+      latitude: 44.7954864,
+      longitude: -92.9775574,
+    },
+    logistics: {
+      distanceLabel: 'About 2 mi backwater loop, user-controlled from Mississippi river mile 825.0',
+      estimatedPaddleTime: 'About 45 min to 2 hr on protected water; turn back sooner with wind or low water',
+      shuttle:
+        'No vehicle shuttle is needed. Launch and return at Hazen P. Mooers Park, and keep the route inside Baldwin and Mooers Lake backwaters.',
+      permits:
+        'No route-specific paddling permit is known. Follow Cottage Grove park and rental rules, Minnesota boating/PFD rules, and all posted access restrictions.',
+      camping:
+        'No camping is part of this city-park backwater route. Treat it as a day-use paddle only.',
+      campingClassification: 'none',
+      summary:
+        'Paddle the protected Mississippi backwaters from Hazen P. Mooers Park into Baldwin and Mooers lakes. The St. Paul DNR gauge is the pool-level signal, but wind, weeds, and main-channel avoidance drive the same-day call.',
+      accessCaveats: [
+        'Cottage Grove lists Hazen P. Mooers Park with kayak rental, kayak/canoe launch, and parking.',
+        'City rental rules tell paddlers not to paddle outside Mooers Lake, outside Baldwin Lake, or through the Grey Cloud Channel bridge.',
+        'The coordinate is geocoded from the city/PDF address and should be paired with posted park signage at the launch.',
+      ],
+      watchFor: [
+        'Main-channel Mississippi current, barge wake, and Lock and Dam 2 influence outside the protected backwater plan.',
+        'Shallow weeds, submerged wood, confusing channels, and wind on exposed lake sections.',
+        'Urban water-quality concerns and cold-water exposure outside midsummer.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hazen-mooers-launch',
+        name: 'Hazen P. Mooers Park kayak/canoe launch',
+        latitude: 44.7954864,
+        longitude: -92.9775574,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Launch and return point for the DNR-listed Baldwin and Mooers Lake backwater paddle.',
+      },
+      {
+        id: 'baldwin-mooers-backwaters',
+        name: 'Baldwin and Mooers Lake backwaters',
+        mileFromStart: 0.6,
+        segmentKind: 'lake',
+        note: 'Stay within the recommended backwater area; do not continue through the bridge or into the main Mississippi channel.',
+      },
+    ],
+  },
+  'mississippi-river-spring-lake-backwater': {
+    putIn: {
+      name: 'Spring Lake, Park Public Water Access Site',
+      latitude: 44.7590379,
+      longitude: -92.9380185,
+    },
+    takeOut: {
+      name: 'Spring Lake, Park Public Water Access Site',
+      latitude: 44.7590379,
+      longitude: -92.9380185,
+    },
+    logistics: {
+      distanceLabel: 'About 3 mi backwater loop, user-controlled from Mississippi river mile 820.4',
+      estimatedPaddleTime: 'About 1 hr to 3 hr depending on wind, route choice, and stump fields',
+      shuttle:
+        'No vehicle shuttle is needed. Launch and return at the Spring Lake public access, keeping the plan inside the backwater lake unless you have a separate big-river route plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow DNR public-access rules, Dakota County park rules, Minnesota boating/PFD rules, and any posted seasonal restrictions.',
+      camping:
+        'No on-route camping is assumed for this backwater route. Use Dakota County or nearby area facilities only as separate base-camp plans.',
+      campingClassification: 'none',
+      summary:
+        'Explore Spring Lake from the DNR public access as a controlled backwater paddle. Use the St. Paul DNR gauge for Pool 2 level context and turn back early if wind, stumps, or shallow water make the route inefficient.',
+      accessCaveats: [
+        'Spring Lake, Park Public Water Access Site resolves in Minnesota public-water-access GIS as WAS02200 at Mississippi river mile 820.4.',
+        'DNR Map 10 identifies Spring Lake as a backwater paddle and warns that it is stump-choked with submerged logs.',
+        'This is not a casual invitation to continue down the main Mississippi toward Lock and Dam 2.',
+      ],
+      watchFor: [
+        'Stump fields, submerged logs, weeds, and confusing backwater edges.',
+        'Open-water wind and boat wake near the Mississippi connection.',
+        'Water-quality concerns, cold water, and level changes controlled by the lower Pool 2 dam system.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'spring-lake-park-access',
+        name: 'Spring Lake, Park Public Water Access Site',
+        latitude: 44.7590379,
+        longitude: -92.9380185,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Launch and return point; resolves as WAS02200 at Mississippi river mile 820.4.',
+      },
+      {
+        id: 'spring-lake-backwater',
+        name: 'Spring Lake backwater',
+        mileFromStart: 1,
+        segmentKind: 'lake',
+        note: 'DNR Map 10 describes this as a stump-choked backwater lake connected to the Mississippi River.',
       },
     ],
   },

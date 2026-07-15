@@ -41,6 +41,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   showFooter?: boolean;
   fullBleed?: boolean;
   markerMode?: 'score' | 'pin';
+  fitToAllOnReady?: boolean;
 }>(function RoutePlotMap({
   points,
   selectedId,
@@ -51,6 +52,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   showFooter = true,
   fullBleed = false,
   markerMode = 'score',
+  fitToAllOnReady = false,
 }, ref) {
   const backgroundSpan = finiteSpanCoordinates(backgroundSpanCoordinates);
   const bounds = getBounds(points, userLocation, backgroundSpan);
@@ -72,7 +74,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   const previousSelectedIdRef = useRef<string | null | undefined>(selectedId);
   const previousPointSignatureRef = useRef<string | null>(null);
   const initialRegion = regionFromBounds(bounds);
-  const pointSignature = nativeMarkerPoints.map((point) => point.id).join('|');
+  const pointSignature = nativeMarkerPoints.map(mapPointSignature).join('|');
   const hasUserLocation = Boolean(
     userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude)
   );
@@ -92,7 +94,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     if (selectedSpan.length >= 2) {
       mapRef.current?.fitToCoordinates?.(selectedSpan, {
         animated: true,
-        edgePadding: { top: 96, right: 72, bottom: showFooter ? 150 : 120, left: 72 },
+        edgePadding: mapEdgePadding(height, showFooter, 'selected'),
       });
       return;
     }
@@ -107,7 +109,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
     const coordinates = [
       ...backgroundSpan,
-      ...visiblePoints.map((point) => ({ latitude: point.latitude, longitude: point.longitude })),
+      ...visiblePoints.flatMap((point) => routeSpanCoordinates(point)),
     ];
 
     if (userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude)) {
@@ -116,7 +118,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
     mapRef.current?.fitToCoordinates?.(coordinates, {
       animated: true,
-      edgePadding: { top: 88, right: 64, bottom: showFooter ? 140 : 250, left: 64 },
+      edgePadding: mapEdgePadding(height, showFooter, 'all'),
     });
   }
 
@@ -159,11 +161,11 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
     mapRef.current?.fitToCoordinates?.(coordinates, {
       animated: true,
-      edgePadding: { top: 108, right: 74, bottom: showFooter ? 150 : 270, left: 74 },
+      edgePadding: mapEdgePadding(height, showFooter, 'user'),
     });
   }
 
-  useImperativeHandle(ref, () => ({ focusSelected, focusAll, focusUserArea }), [selectedPoint, nativeMaps, visiblePoints, userLocation, showFooter]);
+  useImperativeHandle(ref, () => ({ focusSelected, focusAll, focusUserArea }), [height, selectedPoint, nativeMaps, visiblePoints, userLocation, showFooter]);
 
   useEffect(() => {
     const previousSelectedId = previousSelectedIdRef.current;
@@ -203,6 +205,15 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     const timeout = setTimeout(() => setTrackMarkerViews(false), 450);
     return () => clearTimeout(timeout);
   }, [nativeMaps, pointSignature, selectedId, showScoreMarkers]);
+
+  useEffect(() => {
+    if (!fitToAllOnReady || !nativeMaps || visiblePoints.length === 0) {
+      return;
+    }
+
+    const timeout = setTimeout(() => focusAll(), 120);
+    return () => clearTimeout(timeout);
+  }, [fitToAllOnReady, height, nativeMaps, pointSignature, showFooter]);
 
   if (nativeMaps && visiblePoints.length > 0) {
     const MapView = nativeMaps.default;
@@ -480,6 +491,14 @@ function compareMapPointIds(left: RoutePlotPoint, right: RoutePlotPoint) {
   return left.id.localeCompare(right.id);
 }
 
+function mapPointSignature(point: RoutePlotPoint) {
+  const spanSignature = finiteSpanCoordinates(point.spanCoordinates)
+    .map((coordinate) => `${coordinate.latitude.toFixed(4)},${coordinate.longitude.toFixed(4)}`)
+    .join(';');
+
+  return `${point.id}:${point.latitude.toFixed(4)},${point.longitude.toFixed(4)}:${spanSignature}`;
+}
+
 function getBounds(
   points: RoutePlotPoint[],
   userLocation?: { latitude: number; longitude: number } | null,
@@ -566,6 +585,26 @@ function regionAroundPoint(point: RoutePlotPoint) {
     longitude: point.longitude,
     latitudeDelta: 0.35,
     longitudeDelta: 0.35,
+  };
+}
+
+function mapEdgePadding(height: number, showFooter: boolean, mode: 'selected' | 'all' | 'user') {
+  const compact = height <= 230;
+
+  if (compact) {
+    return {
+      top: mode === 'user' ? 40 : 32,
+      right: 34,
+      bottom: showFooter ? 92 : 32,
+      left: 34,
+    };
+  }
+
+  return {
+    top: mode === 'user' ? 108 : mode === 'selected' ? 96 : 88,
+    right: mode === 'user' ? 74 : mode === 'selected' ? 72 : 64,
+    bottom: showFooter ? (mode === 'all' ? 140 : 150) : 64,
+    left: mode === 'user' ? 74 : mode === 'selected' ? 72 : 64,
   };
 }
 

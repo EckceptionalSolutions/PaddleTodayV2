@@ -8,13 +8,13 @@ Audit and metadata backfill of the current Wisconsin route inventory after the J
 
 The Wisconsin data is not failing the route-quality audit: gauges, threshold models, source links, and trip details are present. The risk is product shape. Several new route families are now represented as many adjacent same-gauge cards where a single route card with `accessPoints` would be easier to understand, closer to the Rice Creek pattern, and less noisy in Explore.
 
-The highest-priority consolidation target is the Lower Wisconsin around Muscoda and Boscobel. `wisconsin-river-muscoda-woodman` overlaps a corridor now already represented by `wisconsin-river-muscoda-blue-river`, `wisconsin-river-blue-river-boscobel`, and the consolidated `wisconsin-river-boscobel-bridgeport` card, which already carries Woodman as an alternate access point.
+The highest-priority consolidation target was the Lower Wisconsin around Muscoda and Boscobel. `wisconsin-river-muscoda-woodman` overlapped a corridor already represented by `wisconsin-river-muscoda-blue-river`, `wisconsin-river-blue-river-boscobel`, and the consolidated `wisconsin-river-boscobel-bridgeport` card, which carries Woodman as an alternate access point. That standalone slug has now been retired from the live route inventory.
 
 ## Consolidation Recommendations
 
 ### Strong Candidates
 
-- `wisconsin-river-muscoda-woodman`: remove as a standalone card or fold into the existing Lower Wisconsin access-planner chain. This is the clearest redundancy because the same practical corridor is already split into Muscoda-to-Blue-River, Blue-River-to-Boscobel, and Boscobel-to-Bridgeport with Woodman inside the access planner.
+- Completed: `wisconsin-river-muscoda-woodman` was removed as a standalone card. The same practical corridor remains covered by Muscoda-to-Blue-River, Blue-River-to-Boscobel, and Boscobel-to-Bridgeport with Woodman inside the access planner.
 - `turtle-creek-east-creek-road-highway-140` + `turtle-creek-highway-140-sweet-allyn`: combine into an East-Creek-to-Sweet-Allyn card with Highway 140 as an intermediate access point. Same river, same gauge, direct adjacent endpoint, and short total distance.
 - `fox-river-princeton-locks-city-landing` + `fox-river-princeton-white-river-locks`: combine into a Princeton-Lock-to-White-River-Lock card with Princeton Jefferson Street / Hiestand Park as the alternate access. Keep `fox-river-swan-lake-portage` separate because it is a different upstream/lake-marsh route shape and uses a weaker proxy posture.
 - `platte-river-airport-platte-road` + `platte-river-platte-road-big-platte` + `platte-river-big-platte-banfield-bridge`: combine into an Airport-to-Banfield card with Platte Road and Big Platte Road as access planner points. The three cards share gauge, source family, route character, and access pattern.
@@ -67,7 +67,7 @@ An automated text scan flagged 17 Wisconsin cards with whitewater-like source la
 
 ## Recommended Order
 
-1. Consolidate `wisconsin-river-muscoda-woodman` first; it is the clearest overlapping route-card redundancy.
+1. Done: consolidate `wisconsin-river-muscoda-woodman` by retiring the standalone slug.
 2. Consolidate Turtle Creek, Platte River, lower Eau Claire, and Princeton Fox into access-planner cards.
 3. Backfill `accessPoints`, `campingClassification`, and `safetyProfile` for high-count Wisconsin families before adding more Wisconsin routes.
 4. Add the 10 missing image-audit rows or explicitly record no-image outcomes.

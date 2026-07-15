@@ -10,6 +10,7 @@ import { appDiagnosticRows } from '../lib/app-diagnostics';
 import { resolveApiBaseUrl, resolveApiUrl } from '../lib/api-base-url';
 import { captureAppException, observabilityStatus, trackAppEvent } from '../lib/observability';
 import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
+import { androidBottomInset } from '../lib/safe-area';
 import { colors, radius, spacing } from '../theme/tokens';
 
 type DiagnosticState = 'idle' | 'checking' | 'ok' | 'error';
@@ -17,6 +18,7 @@ type DiagnosticState = 'idle' | 'checking' | 'ok' | 'error';
 export default function SupportScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const bottomContentInset = androidBottomInset(insets.bottom);
   const summaryQuery = useRiverSummaryQuery();
   const [diagnosticState, setDiagnosticState] = useState<DiagnosticState>('idle');
   const [diagnosticText, setDiagnosticText] = useState('Ready to check the route feed.');
@@ -87,7 +89,16 @@ export default function SupportScreen() {
   }
 
   return (
-    <ScrollView style={styles.screen} contentContainerStyle={[styles.content, { paddingTop: spacing.md + insets.top }]}>
+    <ScrollView
+      style={styles.screen}
+      contentContainerStyle={[
+        styles.content,
+        {
+          paddingTop: spacing.md + insets.top,
+          paddingBottom: spacing.xl + bottomContentInset,
+        },
+      ]}
+    >
       <View style={styles.hero}>
         <Text style={styles.kicker}>More</Text>
         <Text style={styles.title}>Safety, support, and app checks</Text>

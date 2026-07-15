@@ -2,6 +2,7 @@ import { Stack } from 'expo-router';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { SectionCard } from '../components/section-card';
+import { androidBottomInset } from '../lib/safe-area';
 import { colors, spacing } from '../theme/tokens';
 
 type LegalScreenKind = 'privacy' | 'terms';
@@ -102,6 +103,7 @@ export function TermsScreen() {
 function LegalScreen({ kind }: { kind: LegalScreenKind }) {
   const copy = legalCopy[kind];
   const insets = useSafeAreaInsets();
+  const bottomContentInset = androidBottomInset(insets.bottom);
 
   return (
     <>
@@ -112,7 +114,7 @@ function LegalScreen({ kind }: { kind: LegalScreenKind }) {
           styles.content,
           {
             paddingTop: spacing.lg + insets.top,
-            paddingBottom: spacing.xl + insets.bottom,
+            paddingBottom: spacing.xl + bottomContentInset,
           },
         ]}
       >
