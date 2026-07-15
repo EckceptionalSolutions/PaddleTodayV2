@@ -1402,40 +1402,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'little-fork-river-dentaybow-fiedler': {
-    putIn: {
-      name: 'Dentaybow Public Water Access Site',
-      latitude: 48.2140198,
-      longitude: -93.4818504,
-    },
-    takeOut: {
-      name: 'Fiedler Public Water Access Site',
-      latitude: 48.2920545,
-      longitude: -93.4416055,
-    },
-    logistics: {
-      distanceLabel: '13.1 mi',
-      estimatedPaddleTime: 'Full day, roughly 5 hr to 7 hr depending on level and scouting',
-      shuttle:
-        'Plan a remote Koochiching County shuttle between the Dentaybow and Fiedler accesses north of Littlefork. Cell coverage, backup riders, and a realistic turnaround plan matter more here than on in-town routes.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted public-water-access rules and any county or state-forest restrictions in the corridor.',
-      camping:
-        'This is one of the cleaner northern camping routes in Minnesota: the DNR map notes dispersed state-forest camping opportunities along the corridor, and Lofgren Park farther downstream on the same map sheet is a city campground if you want to turn the area into a weekend basecamp.',
-      summary:
-        'Launch at Dentaybow and take out at Fiedler for MN DNR\'s 13.1-mile Little Fork day trip. Expect a remote wooded river with riffles, light rapids, and a direct gauge at the MN 65 bridge upstream of the put-in.',
-      accessCaveats: [
-        'Both endpoints are official public-water-access sites, but neither is a town park with built-in services.',
-        'The gauge is at the MN 65 bridge upstream of the put-in, so check the reading before driving farther into the route corridor.',
-        'State-forest camping exists in the broader corridor, but do not assume every pull-off is legal or practical for overnight use.',
-      ],
-      watchFor: [
-        'Class I to II rapids, rocky riffles, and scout-first drops that get more consequential when the river pushes into the high band.',
-        'Cold water, sweepers, and remote shoreline with long stretches between easy exits.',
-        'Scraping or boat damage risk when flows fall toward the 350 cfs scrapable floor.',
-      ],
-    },
-  },
   'little-fork-river-dentaybow-devereaux': {
     putIn: {
       name: 'Dentaybow Public Water Access Site',
@@ -1456,6 +1422,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'No route-specific paddling permit is known. Follow posted public-water-access rules and any county or state-forest restrictions in the corridor.',
       camping:
         'Treat this as a committed day trip. The DNR map notes state-forest camping opportunities on the broader map sheet, but it does not name a designated campsite between Dentaybow and Devereaux, so this route should not be sold as a camping-filter yes.',
+      campingClassification: 'none',
       summary:
         'Launch at Dentaybow and take out at Devereaux for a longer continuation on Little Fork Map 2. This combines the upper wooded rapids with a much longer remote commitment before the lower Flat Rock corridor.',
       accessCaveats: [
@@ -1481,74 +1448,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-  'little-fork-river-fiedler-devereaux': {
-    putIn: {
-      name: 'Fiedler Public Water Access Site',
-      latitude: 48.2920545,
-      longitude: -93.4416055,
-    },
-    takeOut: {
-      name: 'Devereaux Public Water Access Site',
-      latitude: 48.331078,
-      longitude: -93.4851298,
-    },
-    logistics: {
-      distanceLabel: '7.7 mi',
-      estimatedPaddleTime: 'About 3 hr to 4.5 hr depending on level and wood',
-      shuttle:
-        'Use a short but still rural shuttle between the Fiedler and Devereaux accesses north of Littlefork. Check road conditions and leave extra time because both endpoints are quiet forest-edge landings, not town parks.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted public-water-access rules and any state-forest or county restrictions in the corridor.',
-      camping:
-        'Treat this as a remote day trip. The DNR map says state forests on this sheet can allow camping in the broader corridor, but it does not name a designated campsite between Fiedler and Devereaux, so this route should not be treated as a camping-filter yes.',
-      summary:
-        'Launch at Fiedler and take out at Devereaux for a shorter lower-Little-Fork split above Flat Rock Rapids. This is a quieter wooded day than the full run into Littlefork, but it still needs normal northern-river judgment.',
-      accessCaveats: [
-        'Both endpoints are official public-water-access sites, but neither is a staffed park or campground finish.',
-        'This split stays above Flat Rock Rapids, which makes it cleaner than the lower route, but it is still remote enough that a missed shuttle or bad weather will feel expensive.',
-        'Much of the shoreland on this map sheet is private property; stop only at designated sites or legal public-land camping areas.',
-      ],
-      watchFor: [
-        'Storm wood, sweepers, and brushy banks on a narrow wooded river with limited quick exits.',
-        'Scraping and slow travel when the Littlefork gauge falls toward the 400 cfs scrapable floor.',
-        'Cold water and changing current after rain even though this shortened split avoids the named downstream rapids.',
-      ],
-    },
-  },
-  'little-fork-river-highway-73-samuelson': {
-    putIn: {
-      name: 'Highway 73 bridge carry-in access',
-      latitude: 47.858288,
-      longitude: -92.870024,
-    },
-    takeOut: {
-      name: 'Samuelson Park Public Water Access Site',
-      latitude: 47.9485284,
-      longitude: -93.0992707,
-    },
-    logistics: {
-      distanceLabel: '22.8 mi',
-      estimatedPaddleTime: 'Very long day, roughly 7 hr to 9 hr depending on level and scouting',
-      shuttle:
-        'Stage the take-out at Samuelson Park before driving to the Highway 73 bridge. This is a long rural shuttle with limited services at the put-in, so handle daylight and backup-driver planning conservatively.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted public-water-access, county-park, and bridge-area parking rules.',
-      camping:
-        'Samuelson Park makes this a legitimate endpoint-campground route. DNR Map 1 says the park has a carry-in access, picnic table, toilet, drinking water, and tent sites.',
-      summary:
-        'Launch at the Highway 73 bridge and finish at Samuelson Park for a long Little Fork continuation below the Linden Grove gauge. Expect repeated rapids, remote wooded miles, and a county-park finish with real services.',
-      accessCaveats: [
-        'The Highway 73 bridge access is a bridge/gauge-area carry-in rather than a developed park.',
-        'Samuelson Park is the intended finish. Do not casually continue toward Silverdale unless you have planned the extra mileage and checked the lower access story.',
-        'Most of the route remains remote despite the campground finish, so missed-shuttle or weather problems still feel expensive.',
-      ],
-      watchFor: [
-        'Class I to II rapids, rock riffles, and scout-first drops with brushy or undeveloped portage options.',
-        'Scraping and stalled progress when the Silverdale gauge falls toward the 400 cfs floor.',
-        'Cold water, wood hazards, and fatigue over a long northern day with few easy exits before Samuelson.',
-      ],
-    },
-  },
   'little-fork-river-highway-73-silverdale': {
     putIn: {
       name: 'Highway 73 bridge carry-in access',
@@ -1569,6 +1468,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'No route-specific paddling permit is known. Follow posted public-water-access, bridge-area parking, and county-park rules along the corridor.',
       camping:
         'This route has real on-route camping support rather than a campground take-out. DNR Map 1 says Samuelson Park has drinking water and tent sites, which makes it the clearest legal overnight or bailout support before the Silverdale finish.',
+      campingClassification: 'on_route_campsite',
       summary:
         'Launch at the Highway 73 bridge and continue past Samuelson to finish at Silverdale for one of the longest official Little Fork corridor options currently in the app. This is a remote northern run with repeated rapids and a useful named bailout at Samuelson Park.',
       accessCaveats: [
@@ -1594,75 +1494,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-  'little-fork-river-samuelson-silverdale': {
-    putIn: {
-      name: 'Samuelson Park Public Water Access Site',
-      latitude: 47.9485284,
-      longitude: -93.0992707,
-    },
-    takeOut: {
-      name: 'Silverdale Public Water Access Site',
-      latitude: 47.9768919,
-      longitude: -93.1445789,
-    },
-    logistics: {
-      distanceLabel: '4.1 mi',
-      estimatedPaddleTime: 'About 2 hr to 3.5 hr depending on level, wood, and scouting',
-      shuttle:
-        'Use a short two-car shuttle from Samuelson Park to Silverdale and still check both accesses before launching. The miles are modest, but this is not a casual roadside float when wood or low-water rapids complicate progress.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted public-water-access and county-park rules at Samuelson and Silverdale.',
-      camping:
-        'Samuelson Park gives this route real endpoint-campground support at the put-in. DNR Map 1 says the park has a carry-in access, picnic table, toilet, drinking water, and tent sites.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Samuelson Park and finish at Silverdale for the shortest official Little Fork Map 1 continuation currently in the app. The mileage is approachable, but the route still carries the same rapid-and-wood story as the longer Highway 73 starts.',
-      accessCaveats: [
-        'Samuelson Park is the developed endpoint with campground services; Silverdale is a simpler public access finish.',
-        'Use only the named public accesses rather than improvised roadside stops or private banks along the wooded corridor.',
-        'Short mileage does not remove the need to scout wood or read the ledges carefully when the channel is high or obstructed.',
-      ],
-      watchFor: [
-        'Class I to II rapids, rocky riffles, and wood hazards on a narrow remote northern channel.',
-        'Scraping and slower-than-expected progress when the Silverdale gauge is below the 400 cfs floor.',
-        'Cold water, brushy banks, and limited quick exits between the named public accesses.',
-      ],
-    },
-  },
-  'little-fork-river-devereaux-lofgren-park': {
-    putIn: {
-      name: 'Devereaux Public Water Access Site',
-      latitude: 48.331078,
-      longitude: -93.4851298,
-    },
-    takeOut: {
-      name: 'Lofgren Park Public Water Access Site',
-      latitude: 48.4002431,
-      longitude: -93.564833,
-    },
-    logistics: {
-      distanceLabel: '16.1 mi',
-      estimatedPaddleTime: 'Long day, roughly 6 hr to 8 hr depending on level and scouting',
-      shuttle:
-        'Stage the take-out at Lofgren Park in Littlefork before driving to Devereaux. The finish is easier to manage because it has campground services, but the put-in remains a remote access with limited backup options.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted public-water-access rules, city campground rules at Lofgren Park, and any state-forest restrictions in the upstream corridor.',
-      camping:
-        'Lofgren Park is a real endpoint-campground finish. The DNR map says it has a city campground, trailer access, toilets, drinking water, picnic shelter, and a camping fee, so this route can honestly finish into a legal overnight base.',
-      summary:
-        'Launch at Devereaux and finish at Lofgren Park for a longer lower-Little-Fork route into town. This route combines remote wooded miles with Flat Rock Rapids and the rapids around Highway 217 near the finish.',
-      accessCaveats: [
-        'The route starts remote and finishes in a city park, so treat the shuttle like two different worlds rather than assume town support exists upstream.',
-        'Lofgren Park is the intended finish. Do not continue toward the Rainy River unless you have separately checked the remaining lower-river access story.',
-        'Riverbed camping next to private property is not permitted on this map sheet, even if a gravel stop looks tempting late in the day.',
-      ],
-      watchFor: [
-        'Flat Rock Rapids at river mile 29.8, marked as Class II with no developed portage on the DNR map.',
-        'Rapids above and below Highway 217 near Littlefork, where high water shortens recovery windows.',
-        'Scraping, stalled progress, and more boat-banging than expected when the Littlefork gauge is below the 400 cfs floor.',
-      ],
-    },
-  },
   'little-fork-river-fiedler-lofgren-park': {
     putIn: {
       name: 'Fiedler Public Water Access Site',
@@ -1683,6 +1514,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'No route-specific paddling permit is known. Follow posted public-water-access rules and Littlefork city campground rules at the take-out.',
       camping:
         'Lofgren Park makes this a clean endpoint-campground route. The finish has campground support, but the route itself should still be planned as a long single-day paddle unless you have separately verified legal public-land camping in the corridor.',
+      campingClassification: 'endpoint_campground',
       summary:
         'Launch at Fiedler and finish at Lofgren Park for the full downstream continuation on Little Fork Map 2. This combines the quieter upper half with the Flat Rock and Highway 217 rapids on the way into Littlefork.',
       accessCaveats: [
@@ -2743,106 +2575,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-  'sauk-river-eagle-miller-landing': {
-    putIn: {
-      name: 'Eagle Park carry-in access',
-      latitude: 45.4754595,
-      longitude: -94.3502588,
-    },
-    takeOut: {
-      name: 'Miller Landing carry-in access',
-      latitude: 45.5517091,
-      longitude: -94.2647146,
-    },
-    logistics: {
-      distanceLabel: '8.6 mi',
-      estimatedPaddleTime: 'About 2 hr 45 min to 4 hr',
-      shuttle:
-        'Standard self-shuttle works best. Miller Landing has posted county-park hours, so confirm you can leave and retrieve vehicles inside that window.',
-      permits:
-        'No special paddling permit is known for this Minnesota DNR day trip. Follow posted local rules at Eagle Park and Miller Landing.',
-      camping:
-        'Treat this as a day trip unless you separately confirm legal overnight options away from the landing parks.',
-      summary:
-        'Use Eagle Park in Rockville as the put-in and Miller Landing in Waite Park as the take-out. This is a clean lower-Sauk shuttle when the gauge is not stuck in the late-summer low band.',
-      accessCaveats: [
-        'Miller Landing is a managed county park with posted hours and local rules that still deserve a same-day check.',
-        'Low water and summer vegetation can make an easy route feel much longer and less fun than the score alone suggests.',
-      ],
-      watchFor: [
-        'Shallow stretches and thick vegetation when the gauge slides toward 14 ft.',
-        'Storm debris and strainers after recent rain.',
-        'Cold-water risk outside midsummer, even on an otherwise easy route.',
-      ],
-    },
-  },
-  'sauk-river-eagle-knights-of-columbus': {
-    putIn: {
-      name: 'Eagle Park carry-in access',
-      latitude: 45.4754595,
-      longitude: -94.3502588,
-    },
-    takeOut: {
-      name: 'Knights of Columbus Park carry-in access',
-      latitude: 45.5670560130672,
-      longitude: -94.2286380074072,
-    },
-    logistics: {
-      distanceLabel: '11.7 mi',
-      estimatedPaddleTime: 'About 3 hr 45 min to 5 hr 30 min',
-      shuttle:
-        'Standard Rockville-to-St. Cloud self-shuttle. Leave the take-out vehicle at Knights of Columbus Park so the longer drive happens before the paddle, not after it.',
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted city and county access rules.',
-      camping:
-        'Treat this as a day trip. Rockville County Park is nearby staging support, but this exact Eagle-to-Knights route does not need an overnight plan.',
-      summary:
-        'Launch at Eagle Park in Rockville and finish at Knights of Columbus Park in St. Cloud. This is the medium lower-Sauk card for paddlers who want a fuller day than Eagle-to-Miller without adding the Heims rapid finish.',
-      accessCaveats: [
-        'Eagle Park is a popular local launch and fishing area, so scout the exact landing and parking flow before leaving vehicles.',
-        'Knights of Columbus Park is a defined city endpoint, but it is still worth identifying the exact carry-out path before launching if you have not used it before.',
-      ],
-      watchFor: [
-        'Vegetation and slower current when the St. Martin gauge slides toward 14 ft.',
-        'Fresh wood and strainers after storms in this tree-lined lower corridor.',
-        'Longer-day fatigue and changing weather on an otherwise easy river.',
-      ],
-    },
-  },
-  'sauk-river-eagle-heims-mill': {
-    putIn: {
-      name: 'Eagle Park carry-in access',
-      latitude: 45.4754595,
-      longitude: -94.3502588,
-    },
-    takeOut: {
-      name: 'Heims Mill Canoe Access',
-      latitude: 45.5936215,
-      longitude: -94.1813947,
-    },
-    logistics: {
-      distanceLabel: '16.2 mi',
-      estimatedPaddleTime: 'About 5 hr to 7 hr',
-      shuttle:
-        'Full Rockville-to-Heims self-shuttle. Put the take-out vehicle at Heims before you launch because the Mississippi-confluence finish is not where you want to improvise tired logistics.',
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted city and county access rules at both ends.',
-      camping:
-        'Treat this as a day trip unless you intentionally stage from Rockville County Park. Heims Mill is a carry-in access with amenities, not a campground.',
-      summary:
-        'Use Eagle Park as the put-in and Heims Mill as the take-out for the full lower-Sauk finish into the Mississippi corridor. This is the one-card choice when you want the easy middle miles plus the final Class I-II section.',
-      accessCaveats: [
-        'Eagle Park is a popular local launch and fishing area, so scout the exact landing and parking flow before leaving vehicles.',
-        'Heims Mill is a defined county carry-in with restroom and picnic amenities, but it is still a simple riverside access rather than a broad launch ramp.',
-        'Because the route is long and the technical section comes late, it is worth scouting the take-out before you launch.',
-      ],
-      watchFor: [
-        'Boulder-filled Class I-II rapids in the final 2.5 miles, especially if the river is low.',
-        'Shallow rock dodging or partial walk-downs if the St. Martin gauge falls toward or below 14 ft.',
-        'Wood, fatigue, and cold-water consequences near the Mississippi confluence.',
-      ],
-    },
-  },
   'sauk-river-frogtown-rockville': {
     putIn: {
       name: 'Frogtown Park canoe landing',
@@ -2863,6 +2595,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted city-park and county-park rules.',
       camping:
         'Rockville County Park has a watercraft campsite, but treat this route as a day trip unless you separately confirm current county camping rules and fees.',
+      campingClassification: 'endpoint_campground',
       summary:
         'Use Frogtown Park in Cold Spring as the put-in and Rockville County Park as the take-out. This is the short lower-Sauk option when you want a quick trip without committing to Miller Landing or the St. Cloud finish.',
       accessCaveats: [
@@ -2875,39 +2608,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Cold-water exposure outside midsummer, even on this shorter easy segment.',
       ],
     },
-  },
-  'sauk-river-frogtown-eagle-park': {
-    putIn: {
-      name: 'Frogtown Park canoe landing',
-      latitude: 45.45775,
-      longitude: -94.421,
-    },
-    takeOut: {
-      name: 'Eagle Park carry-in access',
-      latitude: 45.4754595,
-      longitude: -94.3502588,
-    },
-    logistics: {
-      distanceLabel: '5.6 mi',
-      estimatedPaddleTime: 'About 2 hr to 3 hr 15 min',
-      shuttle:
-        'Short Cold Spring to Rockville self-shuttle. Eagle Park is a straightforward lower-Sauk finish when you want to keep the day simple and avoid the Miller or St. Cloud retrievals.',
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted city-park rules at Frogtown and Eagle Park.',
-      camping:
-        'Treat this as a day trip. Eagle Park is a launch/landing park, and any Rockville County Park camping nearby should be treated as separate staging rather than route-included overnight support.',
-      summary:
-        'Launch at Frogtown Park in Cold Spring and take out at Eagle Park in Rockville. This is the short lower-Sauk extension that gives you more mileage than the Frogtown-to-Rockville split without committing to the full Miller day.',
-      accessCaveats: [
-        'Frogtown Park launches just below the Cold Spring dam area, so make sure you are using the signed downstream canoe landing rather than any upstream water near the obstruction.',
-        'Eagle Park is a popular local landing and fishing spot, so it is worth scouting the exact carry-out and parking flow before you launch.',
-      ],
-      watchFor: [
-        'Fresh wood and strainers after storms.',
-        'Scrapier water and thicker vegetation when the St. Martin gauge falls toward 14 ft.',
-        'Cold-water exposure outside midsummer, even on this shorter easy segment.',
-      ],
-    },
+    accessPoints: [
+      {
+        id: 'frogtown',
+        name: 'Frogtown Park canoe landing',
+        latitude: 45.45775,
+        longitude: -94.421,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below the Cold Spring dam area.',
+      },
+      {
+        id: 'rockville-county-park',
+        name: 'Rockville County Park carry-in access',
+        latitude: 45.4755294,
+        longitude: -94.3507888,
+        mileFromStart: 5,
+        segmentKind: 'creek',
+        note: 'Default take-out and campground-supported endpoint.',
+      }
+    ],
   },
   'sauk-river-frogtown-miller-landing': {
     putIn: {
@@ -2929,6 +2649,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted city, county-park, and landing rules.',
       camping:
         'Rockville County Park sits mid-route with a watercraft campsite if you want a bailout or staged split, but treat this as a day route unless you separately confirm current county camping rules and fees.',
+      campingClassification: 'on_route_campsite',
       summary:
         'Use Frogtown Park as the put-in and Miller Landing as the take-out for the full lower-Sauk day. This is the route to pick when you want DNR’s recommended Eagle-to-Miller float plus the extra five miles that DNR says you can add from Frogtown.',
       accessCaveats: [
@@ -2942,106 +2663,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Longer-day fatigue on a route that stays easy in character but still covers over 14 river miles.',
       ],
     },
-  },
-  'sauk-river-frogtown-knights-of-columbus': {
-    putIn: {
-      name: 'Frogtown Park canoe landing',
-      latitude: 45.45775,
-      longitude: -94.421,
-    },
-    takeOut: {
-      name: 'Knights of Columbus Park carry-in access',
-      latitude: 45.5670560130672,
-      longitude: -94.2286380074072,
-    },
-    logistics: {
-      distanceLabel: '17.3 mi',
-      estimatedPaddleTime: 'About 5 hr 15 min to 7 hr 15 min',
-      shuttle:
-        'Full lower-Sauk self-shuttle from Cold Spring to St. Cloud. Leave the take-out vehicle at Knights of Columbus Park so the longest drive happens before the long paddling day, not after it.',
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted city, county-park, and access rules along the corridor.',
-      camping:
-        'Rockville County Park sits mid-route with a watercraft campsite and is the cleanest bailout or intentional split. Otherwise treat this as a long day and do not assume informal shoreline camping is legal.',
-      summary:
-        'Launch at Frogtown Park in Cold Spring and finish at Knights of Columbus Park in St. Cloud for the full easy lower-Sauk day that still stops before the Heims rapid finish.',
-      accessCaveats: [
-        'Frogtown Park is the downstream-of-dam start, so do not improvise a put-in above the Cold Spring obstruction.',
-        'Knights of Columbus Park is a defined city endpoint with parking and restrooms, but it is still worth scouting the exact carry-out before you launch if you have not used it before.',
-        'Rockville County Park remains the cleanest mid-route bailout or deliberate overnight split because it is the documented watercraft-campsite stop on this corridor.',
-      ],
-      watchFor: [
-        'Vegetation and shallow stretches when the St. Martin gauge slides toward 14 ft.',
-        'Downed trees or fresh strainers after storms.',
-        'Longer-day fatigue and weather exposure on a route that stays easy in character but covers over 17 river miles.',
-      ],
-    },
-  },
-  'sauk-river-rockville-miller-landing': {
-    putIn: {
-      name: 'Rockville County Park carry-in access',
-      latitude: 45.4755294,
-      longitude: -94.3507888,
-    },
-    takeOut: {
-      name: 'Miller Landing carry-in access',
-      latitude: 45.5504544,
-      longitude: -94.2641031,
-    },
-    logistics: {
-      distanceLabel: '9.2 mi',
-      estimatedPaddleTime: 'About 3 hr to 4 hr 30 min',
-      shuttle:
-        'Standard Stearns County self-shuttle between Rockville County Park and Miller Landing. Confirm county-park hours before leaving vehicles overnight or late into the day.',
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county-park and landing rules.',
-      camping:
-        'Rockville County Park has a watercraft campsite and is the cleaner overnight hook if you want to stage this route, but treat the paddle itself as a day trip unless you separately confirm current camping rules and fees.',
-      summary:
-        'Put in at Rockville County Park and take out at Miller Landing. This is the straightforward full lower-Sauk day when the river is in the DNR medium band and you want more mileage than the Frogtown split.',
-      accessCaveats: [
-        'Rockville County Park has drinking water and a watercraft campsite, but local rules still win over any stale online assumptions.',
-        'Miller Landing is a managed county access with posted hours rather than an always-open informal pull-off.',
-      ],
-      watchFor: [
-        'Vegetation and shallow stretches when the St. Martin gauge slides toward 14 ft.',
-        'Downed trees or fresh strainers after summer storms.',
-        'Fatigue creep on a route that stays mostly easy but still covers a full lower-Sauk day.',
-      ],
-    },
-  },
-  'sauk-river-rockville-knights-of-columbus': {
-    putIn: {
-      name: 'Rockville County Park carry-in access',
-      latitude: 45.4755294,
-      longitude: -94.3507888,
-    },
-    takeOut: {
-      name: 'Knights of Columbus Park carry-in access',
-      latitude: 45.5670560130672,
-      longitude: -94.2286380074072,
-    },
-    logistics: {
-      distanceLabel: '12.3 mi',
-      estimatedPaddleTime: 'About 4 hr to 5 hr 45 min',
-      shuttle:
-        'Standard Stearns County to St. Cloud self-shuttle between Rockville County Park and Knights of Columbus Park. Confirm local park hours before leaving vehicles late into the day.',
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county-park and city-park rules.',
-      camping:
-        'Rockville County Park has the clean campsite-and-drinking-water staging story, so this can work as an endpoint-campground start. The paddle itself still reads best as a day trip unless you intentionally stage it from Rockville.',
-      summary:
-        'Put in at Rockville County Park and take out at Knights of Columbus Park for a medium lower-Sauk day that keeps the campsite-backed put-in but exits before the Heims rapid finish.',
-      accessCaveats: [
-        'Rockville County Park has posted hours, drinking water, and a watercraft campsite, but local rules still override any stale assumptions when you arrive.',
-        'Knights of Columbus Park is a popular St. Cloud park, so it is smarter to identify the exact carry-out and parking flow before launching than to treat it as a generic stop.',
-      ],
-      watchFor: [
-        'Vegetation and shallow stretches when the St. Martin gauge slides toward 14 ft.',
-        'Storm debris and strainers after recent rain.',
-        'Fatigue creep on a route that stays mostly easy but still covers a solid lower-Sauk day.',
-      ],
-    },
+    accessPoints: [
+      {
+        id: 'frogtown',
+        name: 'Frogtown Park canoe landing',
+        latitude: 45.45775,
+        longitude: -94.421,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below the Cold Spring dam area.',
+      },
+      {
+        id: 'rockville-county-park',
+        name: 'Rockville County Park carry-in access',
+        latitude: 45.4755294,
+        longitude: -94.3507888,
+        mileFromStart: 5,
+        segmentKind: 'creek',
+        note: 'Mid-route campground, bailout, and shorter-day take-out.',
+      },
+      {
+        id: 'eagle-park',
+        name: 'Eagle Park carry-in access',
+        latitude: 45.4754595,
+        longitude: -94.3502588,
+        mileFromStart: 5.6,
+        segmentKind: 'creek',
+        note: 'Rockville-area access formerly exposed as a separate short route card.',
+      },
+      {
+        id: 'miller-landing',
+        name: 'Miller Landing carry-in access',
+        latitude: 45.5504544,
+        longitude: -94.2641031,
+        mileFromStart: 14.2,
+        segmentKind: 'creek',
+        note: 'Default lower-Sauk finish before the St. Cloud rapid section.',
+      }
+    ],
   },
   'sauk-river-rockville-heims-mill': {
     putIn: {
@@ -3063,6 +2722,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county-park and city/county access rules at both ends.',
       camping:
         'Rockville County Park has the cleaner campsite-and-drinking-water staging story, but this still works best as a long day unless you deliberately plan a county-approved overnight split.',
+      campingClassification: 'endpoint_campground',
       summary:
         'Launch at Rockville County Park and finish at Heims Mill for the longest lower-Sauk day route that still fits the product’s normal day-trip ceiling. This is the one-card choice when you want the full lower corridor plus the DNR-noted Class I-II mouth section.',
       accessCaveats: [
@@ -3076,6 +2736,53 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fatigue, wood, and cold-water consequences near the Mississippi confluence finish.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'rockville-county-park',
+        name: 'Rockville County Park carry-in access',
+        latitude: 45.4755294,
+        longitude: -94.3507888,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in and campground-supported staging point.',
+      },
+      {
+        id: 'miller-landing',
+        name: 'Miller Landing carry-in access',
+        latitude: 45.5504544,
+        longitude: -94.2641031,
+        mileFromStart: 9.2,
+        segmentKind: 'creek',
+        note: 'Lower-Sauk bailout before the final St. Cloud approaches.',
+      },
+      {
+        id: 'pineview-park',
+        name: 'Pineview Park carry-in access',
+        latitude: 45.5600406,
+        longitude: -94.2446825,
+        mileFromStart: 10.6,
+        segmentKind: 'creek',
+        note: 'Shorter rapid-finish put-in and the upstream end of the compact Heims card.',
+      },
+      {
+        id: 'knights-of-columbus',
+        name: 'Knights of Columbus Park carry-in access',
+        latitude: 45.5670560130672,
+        longitude: -94.2286380074072,
+        mileFromStart: 12.3,
+        segmentKind: 'creek',
+        note: 'Urban bailout before the final Class I-II mouth section.',
+      },
+      {
+        id: 'heims-mill',
+        name: 'Heims Mill Canoe Access',
+        latitude: 45.5936215,
+        longitude: -94.1813947,
+        mileFromStart: 16.8,
+        segmentKind: 'creek',
+        note: 'Default take-out at the Mississippi-confluence finish.',
+      }
+    ],
   },
   'sauk-river-pineview-heims-mill': {
     putIn: {
@@ -3097,6 +2804,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county and city access rules.',
       camping:
         'Treat this as a day trip. Heims Mill is a carry-in county access with picnic amenities, not a campground.',
+      campingClassification: 'none',
       summary:
         'Use Pineview Park as the put-in and Heims Mill as the take-out for the St. Cloud finish of the Sauk. This is the lower family member that adds the final Class I-II rapid section before the Mississippi.',
       accessCaveats: [
@@ -3109,6 +2817,35 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Wood, tight lines, and cold-water consequences near the Mississippi confluence.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'pineview-park',
+        name: 'Pineview Park carry-in access',
+        latitude: 45.5600406,
+        longitude: -94.2446825,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the compact St. Cloud rapid-finish route.',
+      },
+      {
+        id: 'knights-of-columbus',
+        name: 'Knights of Columbus Park carry-in access',
+        latitude: 45.5670560130672,
+        longitude: -94.2286380074072,
+        mileFromStart: 1.7,
+        segmentKind: 'creek',
+        note: 'Shorter alternate start or bailout before the final boulder section.',
+      },
+      {
+        id: 'heims-mill',
+        name: 'Heims Mill Canoe Access',
+        latitude: 45.5936215,
+        longitude: -94.1813947,
+        mileFromStart: 6.2,
+        segmentKind: 'creek',
+        note: 'Default take-out at the Sauk-Mississippi confluence access.',
+      }
+    ],
   },
   'sauk-river-spring-hill-st-martin': {
     putIn: {
@@ -3143,40 +2880,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'sauk-river-st-martin-frogtown': {
-    putIn: {
-      name: 'St. Martin Public Water Access / County Road 12',
-      latitude: 45.520241,
-      longitude: -94.67885,
-    },
-    takeOut: {
-      name: 'Frogtown Park canoe landing',
-      latitude: 45.45775,
-      longitude: -94.421,
-    },
-    logistics: {
-      distanceLabel: '25.3 mi',
-      estimatedPaddleTime: 'About 8 hr to 10 hr 30 min, or split overnight',
-      shuttle:
-        'Use a standard vehicle shuttle between St. Martin and Cold Spring. Because this is a long corridor, most groups should inspect both ends before launching rather than assuming a quick in-town shuttle.',
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county and city access rules at St. Martin, Frogtown, and intermediate parks.',
-      camping:
-        'Rockville County Park sits mid-route and has a watercraft campsite, making this a defensible overnight split or bailout. Otherwise treat it as a long day and do not assume informal shoreline camping is legal.',
-      summary:
-        'Launch at St. Martin Canoe Access and finish at Frogtown Park for a full central-Sauk day into Cold Spring. This is the long family member to choose when the St. Martin gauge is solid and you want more commitment than the short lower routes without extending to Eagle or St. Cloud.',
-      accessCaveats: [
-        'St. Martin is a simple county carry-in rather than a full-service landing, so settle your staging and parking plan before unloading boats.',
-        'Frogtown is below the Cold Spring dam area, so make sure you are taking out at the signed park canoe landing rather than drifting into upstream obstruction confusion.',
-        'Rockville County Park is the cleanest intentional overnight split because it is the documented watercraft-campsite stop on this corridor.',
-      ],
-      watchFor: [
-        'Long-mileage fatigue and weather exposure on a route that is easy in character but not short.',
-        'Shallow riffles, slow vegetation-choked miles, and extra drag if the St. Martin gauge trends toward 14 ft.',
-        'Fresh wood, strainers, and cold-water consequences far from your planned take-out.',
-      ],
-    },
-  },
   'sauk-river-st-martin-eagle-park': {
     putIn: {
       name: 'St. Martin Public Water Access / County Road 12',
@@ -3197,6 +2900,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county and city access rules at St. Martin, intermediate parks, and Eagle Park.',
       camping:
         'Rockville County Park sits mid-route and has a watercraft campsite, making this a defensible overnight split. Otherwise treat it as a very long day and do not assume informal shoreline camping is legal.',
+      campingClassification: 'on_route_campsite',
       summary:
         'Launch at St. Martin Canoe Access and finish at Eagle Park for the central Sauk corridor. This is the long family member to choose when the St. Martin gauge is solid and you want more commitment than the short lower routes.',
       accessCaveats: [
@@ -3210,108 +2914,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fresh wood, strainers, and cold-water consequences far from your planned take-out.',
       ],
     },
-  },
-  'sauk-river-miller-landing-knights-of-columbus': {
-    putIn: {
-      name: 'Miller Landing carry-in access',
-      latitude: 45.5504544,
-      longitude: -94.2641031,
-    },
-    takeOut: {
-      name: 'Knights of Columbus Park carry-in access',
-      latitude: 45.5670560130672,
-      longitude: -94.2286380074072,
-    },
-    logistics: {
-      distanceLabel: '3.1 mi',
-      estimatedPaddleTime: 'About 1 hr 15 min to 2 hr',
-      shuttle:
-        'Short lower-Sauk self-shuttle between Miller Landing and Knights of Columbus Park. This is one of the easier St. Cloud-area setups when you want a quick route and simple retrieval.',
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted local rules at Miller Landing and Knights of Columbus Park.',
-      camping:
-        'Treat this as a day trip. Both endpoints are managed access parks rather than overnight river camps.',
-      summary:
-        'Use Miller Landing as the put-in and Knights of Columbus Park as the take-out for a short urban lower-Sauk paddle that ends before the Heims rapid finish.',
-      accessCaveats: [
-        'Miller Landing is a managed county access with posted hours, so do not assume unlimited late retrieval.',
-        'Knights of Columbus Park is a city park with parking and restrooms, but it is still smarter to scout the exact carry-out before launching if you have not used it before.',
-        'Because the route is short, wind, weeds, or a head-scratching take-out can distort the day more than the mileage suggests.',
-      ],
-      watchFor: [
-        'Vegetation and slower current when the St. Martin gauge slides toward 14 ft.',
-        'Fresh wood or strainers after storms in this tree-lined lower corridor.',
-        'Cold-water exposure outside midsummer, even on a short easy shuttle.',
-      ],
-    },
-  },
-  'sauk-river-miller-landing-heims-mill': {
-    putIn: {
-      name: 'Miller Landing carry-in access',
-      latitude: 45.5504544,
-      longitude: -94.2641031,
-    },
-    takeOut: {
-      name: 'Heims Mill Canoe Access',
-      latitude: 45.5936215,
-      longitude: -94.1813947,
-    },
-    logistics: {
-      distanceLabel: '7.6 mi',
-      estimatedPaddleTime: 'About 2 hr 30 min to 4 hr',
-      shuttle:
-        'Lower-Sauk self-shuttle from Waite Park to Heims Mill. Keep the take-out vehicle at Heims because the confluence finish is not where you want to improvise tired logistics after the rapid section.',
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county access rules at Miller Landing and Heims Mill.',
-      camping:
-        'Treat this as a day trip. Miller Landing and Heims Mill are managed access parks rather than overnight river camps.',
-      summary:
-        'Use Miller Landing as the put-in and Heims Mill as the take-out for the full Waite Park-to-confluence lower-Sauk finish that includes the DNR-noted Class I-II section near the mouth.',
-      accessCaveats: [
-        'Miller Landing is a managed county access with posted hours, so do not assume unlimited late retrieval if the day runs long.',
-        'Heims Mill is a simple carry-in county access with restroom and picnic amenities, not a broad ramp or a place to sort out a casual shuttle plan.',
-        'Do not let the moderate mileage hide the fact that the lower 2.5 miles are the technical part of the Sauk family.',
-      ],
-      watchFor: [
-        'Boulder-filled Class I-II rapids in the final 2.5 miles, especially if the gauge trends low.',
-        'Shallow rock dodging or partial walk-downs if the St. Martin gauge falls toward or below 14 ft.',
-        'Wood, tight lines, and cold-water consequences near the Mississippi confluence.',
-      ],
-    },
-  },
-  'sauk-river-knights-of-columbus-heims-mill': {
-    putIn: {
-      name: 'Knights of Columbus Park carry-in access',
-      latitude: 45.5670560130672,
-      longitude: -94.2286380074072,
-    },
-    takeOut: {
-      name: 'Heims Mill Canoe Access',
-      latitude: 45.5936215,
-      longitude: -94.1813947,
-    },
-    logistics: {
-      distanceLabel: '4.5 mi',
-      estimatedPaddleTime: 'About 1 hr 45 min to 2 hr 45 min',
-      shuttle:
-        'Short St. Cloud-area self-shuttle between Knights of Columbus Park and Heims Mill. Keep the take-out vehicle at Heims because the confluence finish is not where you want to improvise when tired.',
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted city and county access rules.',
-      camping:
-        'Treat this as a day trip. Heims Mill has picnic and restroom amenities but is not a campground.',
-      summary:
-        'Put in at Knights of Columbus Park and finish at Heims Mill for the short lower-Sauk route that includes the DNR-noted Class I-II finish into the Mississippi corridor.',
-      accessCaveats: [
-        'Knights of Columbus Park is a defined city park endpoint, but you should still identify the carry-out path before launching because it is easy to think of it as a generic park stop rather than a specific river exit.',
-        'Heims Mill is a simple carry-in county access with amenities, not a broad paved ramp or a place to loiter while sorting out a shuttle plan.',
-        'Do not let the short mileage hide the fact that the lower 2.5 miles are the technical part of the Sauk family.',
-      ],
-      watchFor: [
-        'Boulder-filled Class I-II rapids in the final 2.5 miles, especially if the gauge trends low.',
-        'Shallow rock dodging or partial walk-downs if the St. Martin gauge falls toward or below 14 ft.',
-        'Wood, tight lines, and cold-water consequences near the Mississippi confluence.',
-      ],
-    },
+    accessPoints: [
+      {
+        id: 'st-martin',
+        name: 'St. Martin Public Water Access / County Road 12',
+        latitude: 45.520241,
+        longitude: -94.67885,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream start at the DNR gauge and County Road 12 access.',
+      },
+      {
+        id: 'frogtown',
+        name: 'Frogtown Park canoe landing',
+        latitude: 45.45775,
+        longitude: -94.421,
+        mileFromStart: 25.3,
+        segmentKind: 'creek',
+        note: 'Cold Spring access below the dam and logical route-shortening point.',
+      },
+      {
+        id: 'rockville-county-park',
+        name: 'Rockville County Park carry-in access',
+        latitude: 45.4755294,
+        longitude: -94.3507888,
+        mileFromStart: 30.3,
+        segmentKind: 'creek',
+        note: 'Campground-supported public access and bailout near the Eagle Park finish.',
+      },
+      {
+        id: 'eagle-park',
+        name: 'Eagle Park carry-in access',
+        latitude: 45.4754595,
+        longitude: -94.3502588,
+        mileFromStart: 30.9,
+        segmentKind: 'creek',
+        note: 'Default downstream finish for the retained long central-Sauk card.',
+      }
+    ],
   },
   'snake-river-canary-cross-lake': {
     putIn: {
@@ -3379,10 +3019,10 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  
-  
-  
-  
+
+
+
+
   'crow-wing-river-mary-brown-frames-landing': {
     putIn: {
       name: 'Mary Brown Rest Area #5 carry-in access',
@@ -3457,75 +3097,10 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-  'crow-wing-river-mary-brown-stigmans-mound': {
-    putIn: {
-      name: 'Mary Brown Rest Area #5 carry-in access',
-      latitude: 46.71758222409383,
-      longitude: -94.92898508221442,
-    },
-    takeOut: {
-      name: "Stigman's Mound #7 carry-in access",
-      latitude: 46.64045859179894,
-      longitude: -94.87970389700178,
-    },
-    logistics: {
-      distanceLabel: '9.6 mi',
-      estimatedPaddleTime: 'About 3 hr 30 min to 5 hr',
-      shuttle:
-        "Moderate Wadena County shuttle from Mary Brown to Nimrod. Stage the Stigman's take-out first so the bridge-side landing and parking expectations are familiar before you launch.",
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted public-access, county-campground, and park rules at the named landings.',
-      camping:
-        "This longer route passes Anderson's Crossing campground about midway, so it is the cleanest on-route overnight option in this Map 1 corridor if you confirm county rules, fees, and seasonal availability before planning a split trip.",
-      campingClassification: 'on_route_campsite',
-      summary:
-        "Launch at Mary Brown and finish at Stigman's Mound for the full lower-Map-1 Crow Wing continuation into Nimrod. It stays level-friendly by using the same official DNR gauge as the lower corridor, but the downstream rapids cluster means you should not treat it like a mindless campground float.",
-      accessCaveats: [
-        'Mary Brown is a remote carry-in access with few frills, so inspect the launch and parking setup before leaving a vehicle.',
-        "Anderson's Crossing is the natural midpoint stop and only clearly documented overnight support on this route.",
-        "Wadena County says Stigman's Mound park amenities are reached after landing across the river and walking over the bridge, so have the finish identified before the last mile.",
-      ],
-      watchFor: [
-        "Walkin's Rapids, Burrows Rapids, and Westra Rapids on the downstream half of the route.",
-        'Fresh wood, sweepers, and stronger current after storms.',
-        'Exposed sandbars and slower travel when the Nimrod gauge is near or below 300 cfs.',
-      ],
-    },
 
-    accessPoints: [
-      {
-        id: 'mary-brown-rest-area',
-        name: 'Mary Brown Rest Area #5 carry-in access',
-        latitude: 46.71758222409383,
-        longitude: -94.92898508221442,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Full upstream start for the canonical Map 1 corridor route.',
-      },
-      {
-        id: 'andersons-crossing',
-        name: "Anderson's Crossing #6 carry-in access",
-        latitude: 46.69942260942251,
-        longitude: -94.88188569131617,
-        mileFromStart: 4.5,
-        segmentKind: 'creek',
-        note: 'Primary midpoint campground, bailout, and the former short-split take-out.',
-      },
-      {
-        id: 'stigmans-mound',
-        name: "Stigman's Mound #7 carry-in access",
-        latitude: 46.64045859179894,
-        longitude: -94.87970389700178,
-        mileFromStart: 9.6,
-        segmentKind: 'creek',
-        note: 'Canonical downstream finish for the full Map 1 route.',
-      },
-    ],
-  },
-  
-  
-  
-  
+
+
+
   'crow-wing-river-andersons-crossing-cottingham': {
     putIn: {
       name: "Anderson's Crossing #6 carry-in access",
@@ -3609,222 +3184,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-  'crow-wing-river-stigmans-mound-little-white-dog': {
-    putIn: {
-      name: "Stigman's Mound #7 carry-in access",
-      latitude: 46.64045859179894,
-      longitude: -94.87970389700178,
-    },
-    takeOut: {
-      name: 'Little White Dog County Park #9 carry-in access',
-      latitude: 46.586984884675736,
-      longitude: -94.82261571200662,
-    },
-    logistics: {
-      distanceLabel: '6.4 mi',
-      estimatedPaddleTime: 'About 2 hr to 3 hr 15 min',
-      shuttle:
-        "Short Wadena County car shuttle from Stigman's Mound to Little White Dog. Stage the Little White Dog take-out first because it is the cleaner campground finish and easiest place to sort parking before a half-day paddle.",
-      permits:
-        "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county campground, day-use, and parking rules at Stigman's Mound and Little White Dog.",
-      camping:
-        "Little White Dog is a real endpoint campground with documented county support, while Stigman's Mound is better treated as a launch access and day-use park.",
-      campingClassification: 'endpoint_campground',
-      summary:
-        "Launch at Stigman's Mound and finish at Little White Dog for the shortest cleanly supported Crow Wing county-chain route now in the app. The route is approachable, but it is still a moving sandy river rather than a no-thinking float.",
-      accessCaveats: [
-        "Wadena County says Stigman's Mound amenities are reached after landing across the river and walking over the bridge, so have the launch and parking plan clear before leaving a vehicle.",
-        'Little White Dog is the cleaner campground finish and best overnight base if you want to stage the shuttle around a short paddle.',
-        'Private shoreland dominates outside the designated county landings and campsites.',
-      ],
-      watchFor: [
-        'Exposed sandbars and slower travel when the Nimrod gauge is near or below 300 cfs.',
-        'Fresh wood, sweepers, and stronger current after storms.',
-        'Blind bends and summer recreation traffic as you approach Little White Dog.',
-      ],
-    },
 
-    accessPoints: [
-      {
-        id: 'stigmans-mound',
-        name: "Stigman's Mound #7 carry-in access",
-        latitude: 46.64045859179894,
-        longitude: -94.87970389700178,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Upstream start just below the main Nimrod-area rapids cluster.',
-      },
-      {
-        id: 'frames-landing',
-        name: "Frame's Landing public water access",
-        latitude: 46.629663080692076,
-        longitude: -94.86925421200144,
-        mileFromStart: 1.3,
-        segmentKind: 'creek',
-        note: 'Early bailout and county-campground access on the lower corridor.',
-      },
-      {
-        id: 'little-white-dog',
-        name: 'Little White Dog County Park #9 carry-in access',
-        latitude: 46.586984884675736,
-        longitude: -94.82261571200662,
-        mileFromStart: 6.4,
-        segmentKind: 'creek',
-        note: 'Campground-supported downstream finish for the shortest lower-corridor route.',
-      },
-    ],
-  },
 
-  'crow-wing-river-stigmans-mound-cottingham': {
-    putIn: {
-      name: "Stigman's Mound #7 carry-in access",
-      latitude: 46.64045859179894,
-      longitude: -94.87970389700178,
-    },
-    takeOut: {
-      name: 'Cottingham County Park #11 carry-in access',
-      latitude: 46.505529851247346,
-      longitude: -94.80738952007682,
-    },
-    logistics: {
-      distanceLabel: '16.2 mi',
-      estimatedPaddleTime: 'About 5 hr 30 min to 7 hr 30 min',
-      shuttle:
-        "Longer Wadena County shuttle from Nimrod to Cottingham. Stage the Cottingham take-out first because it is the busiest landing in this chain and the full route takes enough time that finish logistics matter.",
-      permits:
-        "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county campground, day-use, and parking rules at the named access sites.",
-      camping:
-        'Little White Dog and Knob Hill are clean midpoint campground options before the Cottingham finish, so this route has documented on-route overnight support if you confirm current county rules, fees, and seasonal availability before splitting the trip.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        "Launch at Stigman's Mound and finish at Cottingham for the full Nimrod-downstream county-park chain. The river is straightforward in character, but the mileage, low-water pace, and busier final miles make it a deliberate day.",
-      accessCaveats: [
-        "Wadena County says Stigman's Mound amenities are reached after landing across the river and walking over the bridge, so have the launch and parking plan clear before leaving a vehicle.",
-        'Little White Dog and Knob Hill are the clearest midpoint bailout or overnight options if the group does not want to commit to the full Cottingham finish.',
-        'Cottingham is a county park with heavier summer use for swimming and tubing, so expect a busier and less secluded take-out than the upstream landings.',
-      ],
-      watchFor: [
-        'Long low-water dragging and slower pacing when the Nimrod gauge is near or below 300 cfs.',
-        'Fresh wood, strainers, and stronger current after storms.',
-        'Tubing, swimmers, and crowded take-out conditions near Knob Hill and Cottingham on summer weekends.',
-      ],
-    },
-
-    accessPoints: [
-      {
-        id: 'stigmans-mound',
-        name: "Stigman's Mound #7 carry-in access",
-        latitude: 46.64045859179894,
-        longitude: -94.87970389700178,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Canonical start for the lower Crow Wing county-park chain.',
-      },
-      {
-        id: 'frames-landing',
-        name: "Frame's Landing public water access",
-        latitude: 46.629663080692076,
-        longitude: -94.86925421200144,
-        mileFromStart: 1.1,
-        segmentKind: 'creek',
-        note: 'Short lower-chain public access and former split put-in.',
-      },
-      {
-        id: 'little-white-dog',
-        name: 'Little White Dog County Park #9 carry-in access',
-        latitude: 46.586984884675736,
-        longitude: -94.82261571200662,
-        mileFromStart: 6.2,
-        segmentKind: 'creek',
-        note: 'County campground midpoint and easiest lower-chain bailout.',
-      },
-      {
-        id: 'knob-hill',
-        name: 'Knob Hill Landing #10 carry-in access',
-        latitude: 46.533855996511825,
-        longitude: -94.81849257299048,
-        mileFromStart: 12.7,
-        segmentKind: 'creek',
-        note: 'Downstream campground/tubing access before the final stretch.',
-      },
-      {
-        id: 'cottingham-county-park',
-        name: 'Cottingham County Park #11 carry-in access',
-        latitude: 46.505529851247346,
-        longitude: -94.80738952007682,
-        mileFromStart: 16.2,
-        segmentKind: 'creek',
-        note: 'Canonical downstream finish for the full lower-chain route.',
-      },
-    ],
-  },
-
-  'crow-wing-river-little-white-dog-cottingham': {
-    putIn: {
-      name: 'Little White Dog County Park #9 carry-in access',
-      latitude: 46.586984884675736,
-      longitude: -94.82261571200662,
-    },
-    takeOut: {
-      name: 'Cottingham County Park #11 carry-in access',
-      latitude: 46.505529851247346,
-      longitude: -94.80738952007682,
-    },
-    logistics: {
-      distanceLabel: '9.8 mi',
-      estimatedPaddleTime: 'About 3 hr 15 min to 5 hr, longer when the Nimrod gauge is below the low band',
-      shuttle:
-        'Stage the Cottingham take-out first, then drive back to Little White Dog. This is a short Wadena County shuttle, but both endpoints are county campground / park settings where parking, fees, and busy summer use should be checked before unloading.',
-      permits:
-        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules and all posted Wadena County campground, day-use, parking, and fee rules at Little White Dog, Knob Hill, and Cottingham.',
-      camping:
-        'Little White Dog, Knob Hill, and Cottingham provide documented county-park campground context along the selected route, but overnight use should be planned under current Wadena County rules rather than assumed from the river.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Little White Dog and finish at Cottingham for the current MN DNR Map 2 lower Crow Wing recommended day trip. Use Nimrod as the official upstream same-corridor gauge and make a visual low-water check before committing.',
-      accessCaveats: [
-        'Little White Dog and Cottingham both resolve in the Minnesota public-water-access GIS with river-mile records and county-park administration.',
-        'Knob Hill is the main midpoint county access and campground; use it as the planned bailout or overnight break if the route is moving slowly.',
-        'Private shoreland dominates outside the designated county accesses and campsites, and summer tubing or swimming traffic can make Knob Hill and Cottingham busy.',
-      ],
-      watchFor: [
-        'Low-water scraping and exposed sandbars when Nimrod is near or below 300 cfs.',
-        'Fresh wood, blind bends, sweepers, and faster current after storms.',
-        'Crowded campground/tubing landings, cold water, private banks, and delayed take-out loading at Cottingham.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'little-white-dog',
-        name: 'Little White Dog County Park #9 carry-in access',
-        latitude: 46.586984884675736,
-        longitude: -94.82261571200662,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Default put-in at DNR river mile 59.3 and the upstream county-campground anchor for this route.',
-      },
-      {
-        id: 'knob-hill',
-        name: 'Knob Hill Landing #10 carry-in access',
-        latitude: 46.533855996511825,
-        longitude: -94.81849257299048,
-        mileFromStart: 6.1,
-        segmentKind: 'creek',
-        note: 'Mid-route campground, tubing access, and bailout before the final Cottingham miles.',
-      },
-      {
-        id: 'cottingham-county-park',
-        name: 'Cottingham County Park #11 carry-in access',
-        latitude: 46.505529851247346,
-        longitude: -94.80738952007682,
-        mileFromStart: 9.8,
-        segmentKind: 'creek',
-        note: 'Default DNR-recommended take-out and downstream county-park campground at river mile 49.5.',
-      },
-    ],
-  },
-  
-  
   'cottonwood-river-juenemann-springfield': {
     putIn: {
       name: 'Juenemann Landing / County Road 2 public water access',
@@ -5083,9 +4444,9 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  
-  
-  
+
+
+
   'whitewater-river-elba-highway-74': {
     putIn: {
       name: 'Elba / Highway 26 and Center Street access',
@@ -20095,10 +19456,10 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-  
-  
-  
-  
+
+
+
+
   'juniata-river-granville-mifflin': {
     "putIn": {
       "id": "granville-pfbc-ramp",
@@ -25189,7 +24550,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-  
+
   'south-llano-river-cupgrass-state-park': {
     putIn: {
       name: 'TPWD Cupgrass Access',
@@ -25439,11 +24800,11 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
 
 
 
-  
-  
-  
-  
-  
+
+
+
+
+
   'cumberland-river-redbird-thunderstruck': {
     putIn: {
       id: 'redbird-ramp',
@@ -26440,41 +25801,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Low water below about 350 cfs, when shoals, broad pools, and wind can turn the day into a grind.',
         'High water above about 700 cfs, when bridge current, bends, and landings become less forgiving across a long day.',
         'Upstream wind, fresh wood after rain, and fatigue on the pooled Thomas Landing finish.',
-      ],
-    },
-  },
-  'mississippi-river-royalton-stearns-county-park': {
-    putIn: {
-      name: "Mississippi River, Royalton Sportsman's Club Public Water Access Site",
-      latitude: 45.8297201,
-      longitude: -94.3506845,
-    },
-    takeOut: {
-      name: 'Mississippi River County Park / Stearns County Park Public Water Access Site',
-      latitude: 45.7265772,
-      longitude: -94.2228602,
-    },
-    logistics: {
-      distanceLabel: '11.4 mi',
-      estimatedPaddleTime: 'About 3 hr 45 min to 5 hr 30 min depending on level, wind, and stops',
-      shuttle:
-        'Stage the take-out at Mississippi River County Park / Stearns County Park first, then drive upstream to the Royalton Sportsman\'s Club access. The put-in is club-administered and may require a fee.',
-      permits:
-        'No route-specific paddling permit is known. Follow Royalton Sportsman\'s Club access rules, Stearns County park rules, Minnesota boating requirements, and any posted fee or parking instructions.',
-      camping:
-        'DNR identifies Seven Islands Campsite as a possible overnight or picnic stop if unoccupied, and notes a private campground halfway through the route. Treat camping as first-come or separately arranged rather than guaranteed.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at the Royalton Sportsman\'s Club and take out at Mississippi River County Park for MN DNR\'s 11.4-mile central-Mississippi day trip. The Royalton gauge is direct and officially interpreted, but the route still needs a same-day low-water and private-bank check.',
-      accessCaveats: [
-        'Royalton Sportsman\'s Club is a public-water-access record administered by the club; confirm fee and parking conditions before staging.',
-        'Mississippi River County Park / Stearns County Park is a Stearns County public access with restroom support in the DNR GIS record.',
-        'This route is downstream of the Little Falls and Blanchard dam corridor, but DNR still flags those broader-corridor dams. Do not extend into dam approaches without a separate plan.',
-      ],
-      watchFor: [
-        'Rocky riffles and channel picking when the Royalton gauge is in the low band.',
-        'Private islands and shorelines; use only legal public stops or the DNR-noted campsite when available.',
-        'Wind on open bends, floating wood after storms, anglers, and changing island channels.',
       ],
     },
   },
@@ -30779,3 +30105,1788 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 };
+
+type WisconsinTripDetailsBackfill = {
+  campingClassification?: NonNullable<RiverTripDetails['logistics']['campingClassification']>;
+  accessPoints?: NonNullable<RiverTripDetails['accessPoints']>;
+};
+
+const wisconsinTripDetailsBackfill: Record<string, WisconsinTripDetailsBackfill> = {
+  "wolf-river-pearson-lily": {
+    "accessPoints": [
+      {
+        "id": "pearson-county-t-landing",
+        "name": "Pearson County T Landing",
+        "latitude": 45.36483,
+        "longitude": -89.01867,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "lily-highway-52-landing",
+        "name": "Lily Highway 52 Landing",
+        "latitude": 45.30791,
+        "longitude": -88.858,
+        "mileFromStart": 12.8,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "wolf-river-lily-hollister": {
+    "campingClassification": "nearby_basecamp",
+    "accessPoints": [
+      {
+        "id": "hwy-52-access-lily",
+        "name": "Hwy 52 access (Lily)",
+        "latitude": 45.30768,
+        "longitude": -88.85806,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "west-hollister-road-carry-in",
+        "name": "West Hollister Road carry-in",
+        "latitude": 45.24736,
+        "longitude": -88.80559,
+        "mileFromStart": 6.5,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "wolf-river-hollister-highway-64": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "west-hollister-road-landing",
+        "name": "West Hollister Road Landing",
+        "latitude": 45.248,
+        "longitude": -88.8062,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "highway-64-dnr-landing-langlade-bridge",
+        "name": "Highway 64 DNR Landing / Langlade bridge",
+        "latitude": 45.1901,
+        "longitude": -88.7333,
+        "mileFromStart": 8.3,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "wolf-river-langlade-markton": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "highway-64-dnr-landing-langlade",
+        "name": "Highway 64 DNR Landing, Langlade",
+        "latitude": 45.18977,
+        "longitude": -88.73369,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "markton-county-m-landing",
+        "name": "Markton County M Landing",
+        "latitude": 45.12576,
+        "longitude": -88.66297,
+        "mileFromStart": 9.5,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "wolf-river-markton-big-smokey-falls": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "markton-county-m-dnr-landing",
+        "name": "Markton County M DNR Landing",
+        "latitude": 45.12518,
+        "longitude": -88.66322,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "big-smokey-falls-landing",
+        "name": "Big Smokey Falls Landing",
+        "latitude": 45.01644,
+        "longitude": -88.63758,
+        "mileFromStart": 12.7,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "chippewa-river-county-a-highway-8": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "imalone-county-a-bridge-access",
+        "name": "Imalone / County A Bridge access",
+        "latitude": 45.552358,
+        "longitude": -91.228388,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "highway-8-canoe-landing",
+        "name": "Highway 8 Canoe Landing",
+        "latitude": 45.452909,
+        "longitude": -91.256361,
+        "mileFromStart": 9,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "chippewa-river-county-d-imalone": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "county-d-bridge-landing",
+        "name": "County D Bridge landing",
+        "latitude": 45.671121,
+        "longitude": -91.18108,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "imalone-county-a-bridge-access",
+        "name": "Imalone / County A Bridge access",
+        "latitude": 45.552358,
+        "longitude": -91.228388,
+        "mileFromStart": 10.7,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "chippewa-river-county-d-highway-8": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "county-d-bridge-landing",
+        "name": "County D Bridge landing",
+        "latitude": 45.671121,
+        "longitude": -91.18108,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "highway-8-canoe-landing",
+        "name": "Highway 8 Canoe Landing",
+        "latitude": 45.452909,
+        "longitude": -91.256361,
+        "mileFromStart": 19.7,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "chippewa-river-highway-8-flambeau-river": {
+    "campingClassification": "unknown",
+    "accessPoints": [
+      {
+        "id": "highway-8-canoe-landing",
+        "name": "Highway 8 Canoe Landing",
+        "latitude": 45.452909,
+        "longitude": -91.256361,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "highway-e-flater-s-resort-take-out",
+        "name": "Highway E / Flater's Resort take-out",
+        "latitude": 45.297997,
+        "longitude": -91.237,
+        "mileFromStart": 18.6,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "red-cedar-river-menomonie-dunnville": {
+    "campingClassification": "none",
+    "accessPoints": [
+      {
+        "id": "riverside-park-canoe-launch-menomonie",
+        "name": "Riverside Park Canoe Launch (Menomonie)",
+        "latitude": 44.87257917,
+        "longitude": -91.94084048,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "dunnville-bottoms-boat-landing-county-road-y",
+        "name": "Dunnville Bottoms Boat Landing (County Road Y)",
+        "latitude": 44.71636558,
+        "longitude": -91.89691839,
+        "mileFromStart": 14.75,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "namekagon-river-hayward-stinnett": {
+    "accessPoints": [
+      {
+        "id": "hayward-landing",
+        "name": "Hayward Landing",
+        "latitude": 46.0035,
+        "longitude": -91.48906,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "stinnett-landing",
+        "name": "Stinnett Landing",
+        "latitude": 45.98378,
+        "longitude": -91.58901,
+        "mileFromStart": 8.4,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "namekagon-river-stinnett-springbrook": {
+    "accessPoints": [
+      {
+        "id": "stinnett-landing",
+        "name": "Stinnett Landing",
+        "latitude": 45.98378,
+        "longitude": -91.58901,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "springbrook-landing",
+        "name": "Springbrook Landing",
+        "latitude": 45.95392,
+        "longitude": -91.68622,
+        "mileFromStart": 7.8,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "namekagon-river-springbrook-big-bend": {
+    "accessPoints": [
+      {
+        "id": "springbrook-landing",
+        "name": "Springbrook Landing",
+        "latitude": 45.9539,
+        "longitude": -91.68636,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "big-bend-landing",
+        "name": "Big Bend Landing",
+        "latitude": 45.93224,
+        "longitude": -91.75011,
+        "mileFromStart": 4.9,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "namekagon-river-big-bend-trego": {
+    "campingClassification": "endpoint_campground",
+    "accessPoints": [
+      {
+        "id": "big-bend-landing",
+        "name": "Big Bend Landing",
+        "latitude": 45.9320719,
+        "longitude": -91.7516647,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "trego-town-park-landing",
+        "name": "Trego Town Park Landing",
+        "latitude": 45.9106187,
+        "longitude": -91.8238907,
+        "mileFromStart": 7.7,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "st-croix-river-fox-highway-70": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "fox-landing",
+        "name": "Fox Landing",
+        "latitude": 45.89030603,
+        "longitude": -92.71283975,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "highway-70-boat-launch",
+        "name": "Highway 70 boat launch",
+        "latitude": 45.77399682,
+        "longitude": -92.77959116,
+        "mileFromStart": 9.75,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "baraboo-river-haskins-glenville": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "haskins-park-ada-kayak-launch",
+        "name": "Haskins Park ADA kayak launch",
+        "latitude": 43.46997,
+        "longitude": -89.76158,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "glenville-landing-highway-113-boat-landing",
+        "name": "Glenville Landing / Highway 113 boat landing",
+        "latitude": 43.45853,
+        "longitude": -89.71399,
+        "mileFromStart": 4.5,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "baraboo-river-glenville-luebke": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "glenville-landing-highway-113",
+        "name": "Glenville Landing / Highway 113",
+        "latitude": 43.45828,
+        "longitude": -89.71452,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "luebke-landing-county-road-w",
+        "name": "Luebke Landing / County Road W",
+        "latitude": 43.46578,
+        "longitude": -89.65695,
+        "mileFromStart": 5.1,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "sugar-river-belleville-county-x": {
+    "campingClassification": "none",
+    "accessPoints": [
+      {
+        "id": "belleville-community-park-sugar-river",
+        "name": "Belleville Community Park (Sugar River)",
+        "latitude": 42.86083,
+        "longitude": -89.53419,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "county-road-x-bridge-access-sugar-river",
+        "name": "County Road X bridge access (Sugar River)",
+        "latitude": 42.79994,
+        "longitude": -89.48646,
+        "mileFromStart": 10.25,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "sugar-river-county-road-x-county-road-ee": {
+    "campingClassification": "none",
+    "accessPoints": [
+      {
+        "id": "county-road-x-bridge-access-sugar-river",
+        "name": "County Road X bridge access (Sugar River)",
+        "latitude": 42.79994,
+        "longitude": -89.48646,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "county-road-ee-bridge-access-sugar-river",
+        "name": "County Road EE bridge access (Sugar River)",
+        "latitude": 42.73374,
+        "longitude": -89.44287,
+        "mileFromStart": 11.5,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "sugar-river-highway-x-attica": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "highway-x-public-access",
+        "name": "Highway X public access",
+        "latitude": 42.754137,
+        "longitude": -89.429329,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "attica-highway-c-access",
+        "name": "Attica Highway C Access",
+        "latitude": 42.733903,
+        "longitude": -89.406695,
+        "mileFromStart": 5.4,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "sugar-river-attica-albany": {
+    "accessPoints": [
+      {
+        "id": "county-road-c-attica-highway-c-access",
+        "name": "County Road C / Attica Highway C Access",
+        "latitude": 42.77021,
+        "longitude": -89.47913,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "albany-madison-street-public-boat-launch",
+        "name": "Albany Madison Street public boat launch",
+        "latitude": 42.71007,
+        "longitude": -89.43966,
+        "mileFromStart": 9,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "badfish-creek-old-stage-casey": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "old-stage-road-canoe-kayak-landing",
+        "name": "Old Stage Road canoe/kayak landing",
+        "latitude": 42.8569,
+        "longitude": -89.2756,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "north-casey-road-take-out",
+        "name": "North Casey Road take-out",
+        "latitude": 42.8287,
+        "longitude": -89.1849,
+        "mileFromStart": 6.75,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "beaver-dam-river-cotton-mill-county-j": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "cotton-mill-park",
+        "name": "Cotton Mill Park",
+        "latitude": 43.45456,
+        "longitude": -88.84298,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "county-road-j-landing",
+        "name": "County Road J landing",
+        "latitude": 43.39397,
+        "longitude": -88.86828,
+        "mileFromStart": 5.5,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "bark-river-highway-164-to-merton-millpond": {
+    "campingClassification": "unknown",
+    "accessPoints": [
+      {
+        "id": "highway-164-culvert-crossing",
+        "name": "Highway 164 culvert crossing",
+        "latitude": 43.17969,
+        "longitude": -88.26254,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "merton-millpond-boat-launch",
+        "name": "Merton Millpond boat launch",
+        "latitude": 43.14871,
+        "longitude": -88.30684,
+        "mileFromStart": 4,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "bark-river-princes-point-burnt-village-park": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "prince-s-point-wildlife-area-county-d-boat-landi",
+        "name": "Prince's Point Wildlife Area / County D boat landing",
+        "latitude": 42.8941667,
+        "longitude": -88.7010972,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "burnt-village-park-county-highway-n-launch",
+        "name": "Burnt Village Park / County Highway N launch",
+        "latitude": 42.9147222,
+        "longitude": -88.7792528,
+        "mileFromStart": 7.4,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "pecatonica-river-black-bridge-wells": {
+    "campingClassification": "overnight_capable",
+    "accessPoints": [
+      {
+        "id": "black-bridge-landing",
+        "name": "Black Bridge Landing",
+        "latitude": 42.68601091,
+        "longitude": -90.12030611,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "wells-landing-walnut-road",
+        "name": "Wells Landing / Walnut Road",
+        "latitude": 42.6424164,
+        "longitude": -90.03988431,
+        "mileFromStart": 12.3,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "kickapoo-river-ontario-rockton": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "village-of-ontario-public-canoe-landing",
+        "name": "Village of Ontario Public Canoe Landing",
+        "latitude": 43.72300847,
+        "longitude": -90.58704745,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "kickapoo-river-landing-12-rockton",
+        "name": "Kickapoo River Landing 12 (Rockton)",
+        "latitude": 43.6370798,
+        "longitude": -90.60288277,
+        "mileFromStart": 12.5,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "kickapoo-river-rockton-la-farge": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "kickapoo-river-landing-12-rockton",
+        "name": "Kickapoo River Landing 12 (Rockton)",
+        "latitude": 43.6371,
+        "longitude": -90.60292,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "landing-20-la-farge-canoe-landing",
+        "name": "Landing 20 / La Farge Canoe Landing",
+        "latitude": 43.57481,
+        "longitude": -90.6437,
+        "mileFromStart": 10,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "milwaukee-river-west-bend-quaas-creek": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "washington-street-dam-launch-south-of-hwy-33",
+        "name": "Washington Street Dam launch (south of Hwy 33)",
+        "latitude": 43.42833,
+        "longitude": -88.18399,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "quaas-creek-park-canoe-kayak-launch",
+        "name": "Quaas Creek Park canoe/kayak launch",
+        "latitude": 43.41636,
+        "longitude": -88.14629,
+        "mileFromStart": 3.9,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "milwaukee-river-newburg-fredonia": {
+    "campingClassification": "none",
+    "accessPoints": [
+      {
+        "id": "fireman-s-park-newburg",
+        "name": "Fireman's Park (Newburg)",
+        "latitude": 43.43373,
+        "longitude": -88.04926,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "waubedonia-park-fredonia",
+        "name": "Waubedonia Park (Fredonia)",
+        "latitude": 43.46838,
+        "longitude": -87.97313,
+        "mileFromStart": 11,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "milwaukee-river-lime-kiln-village-park": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "lime-kiln-park-canoe-ramp",
+        "name": "Lime Kiln Park canoe ramp",
+        "latitude": 43.30534,
+        "longitude": -87.95358,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "village-park-boat-launch-thiensville",
+        "name": "Village Park boat launch (Thiensville)",
+        "latitude": 43.23164,
+        "longitude": -87.97648,
+        "mileFromStart": 8.75,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "milwaukee-river-waubedonia-veterans": {
+    "campingClassification": "none",
+    "accessPoints": [
+      {
+        "id": "waubedonia-park-fredonia",
+        "name": "Waubedonia Park (Fredonia)",
+        "latitude": 43.46838,
+        "longitude": -87.97317,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "veterans-memorial-park-grafton",
+        "name": "Veterans Memorial Park (Grafton)",
+        "latitude": 43.32211,
+        "longitude": -87.94948,
+        "mileFromStart": 13.25,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "peshtigo-river-big-joe-ccc-bridge": {
+    "campingClassification": "endpoint_campground",
+    "accessPoints": [
+      {
+        "id": "big-joe-landing",
+        "name": "Big Joe Landing",
+        "latitude": 45.66574,
+        "longitude": -88.65203,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "ccc-bridge-landing-forest-road-2131",
+        "name": "CCC Bridge Landing / Forest Road 2131",
+        "latitude": 45.61093,
+        "longitude": -88.59291,
+        "mileFromStart": 8.9,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "peshtigo-river-ccc-burnt-bridge": {
+    "campingClassification": "endpoint_campground",
+    "accessPoints": [
+      {
+        "id": "ccc-bridge-forest-road-2131-access",
+        "name": "CCC Bridge / Forest Road 2131 access",
+        "latitude": 45.61092,
+        "longitude": -88.59312,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "burnt-bridge-landing-forest-road-2134",
+        "name": "Burnt Bridge Landing / Forest Road 2134",
+        "latitude": 45.56208,
+        "longitude": -88.4953,
+        "mileFromStart": 9.2,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "peshtigo-river-burnt-bridge-goodman-park": {
+    "campingClassification": "endpoint_campground",
+    "accessPoints": [
+      {
+        "id": "burnt-bridge-landing-forest-road-2134",
+        "name": "Burnt Bridge Landing / Forest Road 2134",
+        "latitude": 45.56226,
+        "longitude": -88.49554,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "goodman-park-landing-above-strong-falls",
+        "name": "Goodman Park Landing above Strong Falls",
+        "latitude": 45.51889,
+        "longitude": -88.34136,
+        "mileFromStart": 12.5,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "peshtigo-river-goodman-park-farm-dam": {
+    "campingClassification": "nearby_basecamp",
+    "accessPoints": [
+      {
+        "id": "goodman-park-access",
+        "name": "Goodman Park Access",
+        "latitude": 45.51799,
+        "longitude": -88.33935,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "farm-dam-public-landing",
+        "name": "Farm Dam Public Landing",
+        "latitude": 45.41351,
+        "longitude": -88.34615,
+        "mileFromStart": 9.8,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "peshtigo-river-roaring-rapids": {
+    "campingClassification": "sandbar_or_gravel_bar",
+    "accessPoints": [
+      {
+        "id": "farm-dam-public-landing",
+        "name": "Farm Dam Public Landing",
+        "latitude": 45.41351,
+        "longitude": -88.34615,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "wps-landing-12",
+        "name": "WPS Landing #12",
+        "latitude": 45.38092,
+        "longitude": -88.30101,
+        "mileFromStart": 5.2,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "eau-claire-river-bear-lake-county-n": {
+    "campingClassification": "overnight_capable",
+    "accessPoints": [
+      {
+        "id": "bear-lake-road-bridge-landing",
+        "name": "Bear Lake Road Bridge Landing",
+        "latitude": 45.0586,
+        "longitude": -89.27024,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "county-n-bridge-landing",
+        "name": "County N Bridge Landing",
+        "latitude": 44.94419,
+        "longitude": -89.41916,
+        "mileFromStart": 13.9,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "bois-brule-river-stones-winneboujou": {
+    "campingClassification": "nearby_basecamp",
+    "accessPoints": [
+      {
+        "id": "stone-s-bridge-landing",
+        "name": "Stone's Bridge Landing",
+        "latitude": 46.43415,
+        "longitude": -91.67486,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "winneboujou-landing",
+        "name": "Winneboujou Landing",
+        "latitude": 46.5133,
+        "longitude": -91.6022,
+        "mileFromStart": 9.3,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "bois-brule-river-bois-brule-pine-tree": {
+    "campingClassification": "endpoint_campground",
+    "accessPoints": [
+      {
+        "id": "bois-brule-landing-bois-brule-campground-canoe-l",
+        "name": "Bois Brule Landing / Bois Brule Campground canoe landing",
+        "latitude": 46.54042,
+        "longitude": -91.59408,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "pine-tree-landing",
+        "name": "Pine Tree Landing",
+        "latitude": 46.61545,
+        "longitude": -91.58264,
+        "mileFromStart": 10.3,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "bois-brule-river-pine-tree-highway-13": {
+    "campingClassification": "endpoint_campground",
+    "accessPoints": [
+      {
+        "id": "pine-tree-landing",
+        "name": "Pine Tree Landing",
+        "latitude": 46.61545,
+        "longitude": -91.58264,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "highway-13-canoe-landing",
+        "name": "Highway 13 Canoe Landing",
+        "latitude": 46.67776,
+        "longitude": -91.59553,
+        "mileFromStart": 8.4,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "bois-brule-river-highway-13-mouth": {
+    "campingClassification": "nearby_basecamp",
+    "accessPoints": [
+      {
+        "id": "highway-13-canoe-landing",
+        "name": "Highway 13 Canoe Landing",
+        "latitude": 46.67795948,
+        "longitude": -91.59535953,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "bois-brule-river-mouth-access",
+        "name": "Bois Brule River -- Mouth Access",
+        "latitude": 46.74768874,
+        "longitude": -91.61055237,
+        "mileFromStart": 8.2,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "menomonee-river-hoyt-park-bluemound": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "hoyt-park-tosa-pool-river-access",
+        "name": "Hoyt Park / TOSA Pool river access",
+        "latitude": 43.05436,
+        "longitude": -88.02431,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "bluemound-road-wisconsin-avenue-menomonee-river-",
+        "name": "Bluemound Road / Wisconsin Avenue Menomonee River access",
+        "latitude": 43.03572,
+        "longitude": -87.96231,
+        "mileFromStart": 4.1,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "kinnickinnic-river-glen-park-state-park": {
+    "campingClassification": "none",
+    "accessPoints": [
+      {
+        "id": "glen-park-river-falls",
+        "name": "Glen Park (River Falls)",
+        "latitude": 44.85075,
+        "longitude": -92.63882,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "st-croix-river-beach-concrete-take-out-at-kinnic",
+        "name": "St. Croix River beach / concrete take-out at Kinnickinnic State Park",
+        "latitude": 44.83254,
+        "longitude": -92.76374,
+        "mileFromStart": 10,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "wisconsin-river-muscoda-blue-river": {
+    "campingClassification": "sandbar_or_gravel_bar",
+    "accessPoints": [
+      {
+        "id": "riverside-park-muscoda-west-side-landing",
+        "name": "Riverside Park / Muscoda west-side landing",
+        "latitude": 43.1962605,
+        "longitude": -90.4357156,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "blue-river-landing",
+        "name": "Blue River Landing",
+        "latitude": 43.2067548,
+        "longitude": -90.5663182,
+        "mileFromStart": 8,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "wisconsin-river-blue-river-boscobel": {
+    "campingClassification": "sandbar_or_gravel_bar",
+    "accessPoints": [
+      {
+        "id": "blue-river-landing",
+        "name": "Blue River Landing",
+        "latitude": 43.2067548,
+        "longitude": -90.5663182,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "boscobel-landing-floyd-von-haden-boat-landing",
+        "name": "Boscobel Landing / Floyd Von Haden Boat Landing",
+        "latitude": 43.1492722,
+        "longitude": -90.715253,
+        "mileFromStart": 10,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "wisconsin-river-gotham-muscoda-west": {
+    "campingClassification": "sandbar_or_gravel_bar",
+    "accessPoints": [
+      {
+        "id": "gotham-buena-vista-boat-landing",
+        "name": "Gotham / Buena Vista Boat Landing",
+        "latitude": 43.20903,
+        "longitude": -90.30424,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "muscoda-landing-west",
+        "name": "Muscoda Landing West",
+        "latitude": 43.198,
+        "longitude": -90.44576,
+        "mileFromStart": 7.9,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "wisconsin-river-portage-dekorra": {
+    "campingClassification": "sandbar_or_gravel_bar",
+    "accessPoints": [
+      {
+        "id": "highway-33-bridge-carry-in-portage",
+        "name": "Highway 33 bridge carry-in (Portage)",
+        "latitude": 43.535,
+        "longitude": -89.464,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "dekorra-park-landing",
+        "name": "Dekorra Park landing",
+        "latitude": 43.457484,
+        "longitude": -89.46762,
+        "mileFromStart": 7.8,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "baraboo-river-wayside-kalepp": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "wayside-park-baraboo-river-400-state-trail",
+        "name": "Wayside Park (Baraboo River / 400 State Trail)",
+        "latitude": 43.6462,
+        "longitude": -90.2223,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "kalepp-road-400-state-trail-baraboo-river-access",
+        "name": "Kalepp Road / 400 State Trail Baraboo River access",
+        "latitude": 43.6206,
+        "longitude": -90.1531,
+        "mileFromStart": 4.6,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "wisconsin-river-sauk-city-arena": {
+    "campingClassification": "sandbar_or_gravel_bar",
+    "accessPoints": [
+      {
+        "id": "sauk-canoe-access",
+        "name": "Sauk Canoe Access",
+        "latitude": 43.2566,
+        "longitude": -89.742,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "arena-landing",
+        "name": "Arena Landing",
+        "latitude": 43.1867782,
+        "longitude": -89.9016376,
+        "mileFromStart": 11,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "wisconsin-river-arena-spring-green": {
+    "campingClassification": "sandbar_or_gravel_bar",
+    "accessPoints": [
+      {
+        "id": "arena-landing",
+        "name": "Arena Landing",
+        "latitude": 43.1867782,
+        "longitude": -89.9016376,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "peck-s-landing-spring-green-highway-23-landing",
+        "name": "Peck’s Landing / Spring Green Highway 23 landing",
+        "latitude": 43.1462917,
+        "longitude": -90.0602028,
+        "mileFromStart": 10,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "wisconsin-river-spring-green-muscoda": {
+    "campingClassification": "sandbar_or_gravel_bar",
+    "accessPoints": [
+      {
+        "id": "peck-s-landing-spring-green-highway-23-landing",
+        "name": "Peck’s Landing / Spring Green Highway 23 landing",
+        "latitude": 43.1462917,
+        "longitude": -90.0602028,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "riverside-park-muscoda-west-side-landing",
+        "name": "Riverside Park / Muscoda west-side landing",
+        "latitude": 43.1962605,
+        "longitude": -90.4357156,
+        "mileFromStart": 22,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "wisconsin-river-muscoda-woodman": {
+    "campingClassification": "sandbar_or_gravel_bar"
+  },
+  "wisconsin-river-boscobel-bridgeport": {
+    "campingClassification": "sandbar_or_gravel_bar"
+  },
+  "wisconsin-river-millville-wyalusing-beach": {
+    "campingClassification": "sandbar_or_gravel_bar",
+    "accessPoints": [
+      {
+        "id": "millville-boat-landing",
+        "name": "Millville Boat Landing",
+        "latitude": 43.03505,
+        "longitude": -90.96091,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "wyalusing-beach-wyalusing-boat-landing",
+        "name": "Wyalusing Beach / Wyalusing Boat Landing",
+        "latitude": 42.94815,
+        "longitude": -91.14397,
+        "mileFromStart": 10.8,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "wisconsin-river-dekorra-camp-rest": {
+    "campingClassification": "sandbar_or_gravel_bar",
+    "accessPoints": [
+      {
+        "id": "dekorra-park-main-street-access",
+        "name": "Dekorra Park / Main Street access",
+        "latitude": 43.3868,
+        "longitude": -89.5142,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "camp-rest-park",
+        "name": "Camp Rest Park",
+        "latitude": 43.4158187,
+        "longitude": -89.5287319,
+        "mileFromStart": 5.1,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "la-crosse-river-veterans-holiday-heights": {
+    "campingClassification": "endpoint_campground",
+    "accessPoints": [
+      {
+        "id": "veterans-memorial-campground-canoe-landing",
+        "name": "Veterans Memorial Campground canoe landing",
+        "latitude": 43.891232,
+        "longitude": -91.116408,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "holiday-heights-park-holiday-heights-landing",
+        "name": "Holiday Heights Park / Holiday Heights Landing",
+        "latitude": 43.86201,
+        "longitude": -91.20178,
+        "mileFromStart": 8.6,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "black-river-cormican-irving": {
+    "accessPoints": [
+      {
+        "id": "bruce-cormican-canoe-landing",
+        "name": "Bruce Cormican Canoe Landing",
+        "latitude": 44.28787,
+        "longitude": -90.85102,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "david-hansen-memorial-landing-at-irving",
+        "name": "David Hansen Memorial Landing at Irving",
+        "latitude": 44.18761,
+        "longitude": -90.89892,
+        "mileFromStart": 12.1,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "black-river-irving-melrose": {
+    "accessPoints": [
+      {
+        "id": "david-hansen-memorial-landing-at-irving",
+        "name": "David Hansen Memorial Landing at Irving",
+        "latitude": 44.17384,
+        "longitude": -90.91371,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "dnr-canoe-landing-at-melrose",
+        "name": "DNR Canoe Landing at Melrose",
+        "latitude": 44.10879,
+        "longitude": -90.99627,
+        "mileFromStart": 11.8,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "black-river-melrose-north-bend": {
+    "campingClassification": "sandbar_or_gravel_bar",
+    "accessPoints": [
+      {
+        "id": "melrose-public-landing",
+        "name": "Melrose Public Landing",
+        "latitude": 44.1261,
+        "longitude": -91.0045,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "north-bend-landing",
+        "name": "North Bend Landing",
+        "latitude": 44.08951,
+        "longitude": -91.11544,
+        "mileFromStart": 10.1,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "waupaca-river-county-q-brainards-bridge": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "county-highway-q-cobbtown-road-canoe-launch",
+        "name": "County Highway Q / Cobbtown Road canoe launch",
+        "latitude": 44.37413,
+        "longitude": -89.18548,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "brainard-s-bridge-park",
+        "name": "Brainard's Bridge Park",
+        "latitude": 44.36546,
+        "longitude": -89.09842,
+        "mileFromStart": 7.8,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "brule-river-highway-139-fr-2150": {
+    "campingClassification": "overnight_capable",
+    "accessPoints": [
+      {
+        "id": "highway-139-189-bridge-landing",
+        "name": "Highway 139/189 Bridge Landing",
+        "latitude": 45.98767,
+        "longitude": -88.65238,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "forest-road-2150-landing",
+        "name": "Forest Road 2150 Landing",
+        "latitude": 45.99013,
+        "longitude": -88.45013,
+        "mileFromStart": 16.2,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "pike-river-amberg-yellow-bridge": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "amberg-highway-141-landing",
+        "name": "Amberg Highway 141 Landing",
+        "latitude": 45.49576,
+        "longitude": -87.98712,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "yellow-bridge-landing",
+        "name": "Yellow Bridge Landing",
+        "latitude": 45.47494,
+        "longitude": -87.87593,
+        "mileFromStart": 9.4,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "pike-river-yellow-bridge-grogan-road": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "yellow-bridge-landing",
+        "name": "Yellow Bridge Landing",
+        "latitude": 45.47494,
+        "longitude": -87.87593,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "grogan-road-landing",
+        "name": "Grogan Road Landing",
+        "latitude": 45.44202,
+        "longitude": -87.85582,
+        "mileFromStart": 4.8,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "popple-river-fr-2398-morgan-lake": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "forest-road-2398-bridge-landing",
+        "name": "Forest Road 2398 Bridge Landing",
+        "latitude": 45.7663,
+        "longitude": -88.60577,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "morgan-lake-road-bridge-landing",
+        "name": "Morgan Lake Road Bridge Landing",
+        "latitude": 45.76343,
+        "longitude": -88.46304,
+        "mileFromStart": 11,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "popple-river-morgan-lake-highway-101": {
+    "campingClassification": "nearby_basecamp",
+    "accessPoints": [
+      {
+        "id": "morgan-lake-road-forest-service-road-2159-bridge",
+        "name": "Morgan Lake Road / Forest Service Road 2159 bridge access",
+        "latitude": 45.763611,
+        "longitude": -88.463611,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "highway-101-wayside-popple-river-bridge-access",
+        "name": "Highway 101 Wayside / Popple River bridge access",
+        "latitude": 45.79995,
+        "longitude": -88.39662,
+        "mileFromStart": 5.4,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "pine-river-highway-55-stevens-lake": {
+    "accessPoints": [
+      {
+        "id": "highway-55-bridge-roadside-access",
+        "name": "Highway 55 Bridge roadside access",
+        "latitude": 45.908667,
+        "longitude": -88.821369,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "stevens-lake-road-bridge-roadside-access",
+        "name": "Stevens Lake Road Bridge roadside access",
+        "latitude": 45.874019,
+        "longitude": -88.685862,
+        "mileFromStart": 12.8,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "pine-river-stevens-lake-chipmunk-rapids": {
+    "accessPoints": [
+      {
+        "id": "stevens-lake-road-bridge-roadside-access",
+        "name": "Stevens Lake Road Bridge roadside access",
+        "latitude": 45.874019,
+        "longitude": -88.685862,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "chipmunk-rapids-campground-access",
+        "name": "Chipmunk Rapids Campground access",
+        "latitude": 45.893229,
+        "longitude": -88.557708,
+        "mileFromStart": 9.9,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "pine-river-chipmunk-rapids-bull-falls": {
+    "accessPoints": [
+      {
+        "id": "chipmunk-rapids-campground-access",
+        "name": "Chipmunk Rapids Campground access",
+        "latitude": 45.893229,
+        "longitude": -88.557708,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "bull-falls-access-corridor",
+        "name": "Bull Falls access corridor",
+        "latitude": 45.898176,
+        "longitude": -88.408957,
+        "mileFromStart": 10.4,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "pine-river-county-n-wepco-5": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "county-n-bridge-landing",
+        "name": "County N Bridge Landing",
+        "latitude": 45.83711,
+        "longitude": -88.22522,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "wepco-landing-5",
+        "name": "WEPCO Landing #5",
+        "latitude": 45.83949,
+        "longitude": -88.1408,
+        "mileFromStart": 9.3,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "menominee-river-piers-gorge": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "niagara-mill-street-landing",
+        "name": "Niagara Mill Street Landing",
+        "latitude": 45.77032,
+        "longitude": -87.98863,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "piers-gorge-road-landing",
+        "name": "Piers Gorge Road Landing",
+        "latitude": 45.75834,
+        "longitude": -87.93907,
+        "mileFromStart": 2.9,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "red-river-weed-dam-zeimers-falls": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "weed-dam-powerhouse-landing",
+        "name": "Weed Dam Powerhouse Landing",
+        "latitude": 44.84168,
+        "longitude": -88.76063,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "zeimer-s-falls-landing",
+        "name": "Zeimer's Falls Landing",
+        "latitude": 44.84287,
+        "longitude": -88.72289,
+        "mileFromStart": 2.2,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "jump-river-wayside-park-sheldon": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "wayside-park-highway-73-jump-river-access",
+        "name": "Wayside Park / Highway 73 Jump River Access",
+        "latitude": 45.354054,
+        "longitude": -90.788597,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "haley-park-sheldon-access",
+        "name": "Haley Park / Sheldon Access",
+        "latitude": 45.307764,
+        "longitude": -90.955985,
+        "mileFromStart": 11.1,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "red-cedar-river-tom-prince-russian-slough": {
+    "campingClassification": "sandbar_or_gravel_bar",
+    "accessPoints": [
+      {
+        "id": "tom-prince-memorial-park-landing",
+        "name": "Tom Prince Memorial Park Landing",
+        "latitude": 45.0026972,
+        "longitude": -91.729812,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "russian-slough-county-park",
+        "name": "Russian Slough County Park",
+        "latitude": 44.9933827,
+        "longitude": -91.8095487,
+        "mileFromStart": 7.7,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "big-eau-pleine-river-cherokee-march-rapids": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "cherokee-park",
+        "name": "Cherokee Park",
+        "latitude": 44.9046882,
+        "longitude": -90.2226348,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "march-rapids-park",
+        "name": "March Rapids Park",
+        "latitude": 44.8507988,
+        "longitude": -90.1498549,
+        "mileFromStart": 9.2,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "turtle-creek-east-creek-road-highway-140": {
+    "campingClassification": "on_route_campsite",
+    "accessPoints": [
+      {
+        "id": "east-creek-road-public-pull-off",
+        "name": "East Creek Road public pull-off",
+        "latitude": 42.6113321,
+        "longitude": -88.7804249,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "highway-140-turtle-creek-access",
+        "name": "Highway 140 Turtle Creek access",
+        "latitude": 42.5965016,
+        "longitude": -88.8637665,
+        "mileFromStart": 6.8,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "prairie-river-haymeadow-prairie-road": {
+    "accessPoints": [
+      {
+        "id": "haymeadow-creek-old-highway-17-access",
+        "name": "Haymeadow Creek / Old Highway 17 access",
+        "latitude": 45.264999,
+        "longitude": -89.546997,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "prairie-road-prairie-dells-take-out",
+        "name": "Prairie Road / Prairie Dells take-out",
+        "latitude": 45.254002,
+        "longitude": -89.589996,
+        "mileFromStart": 2.7,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "turtle-creek-highway-140-sweet-allyn": {
+    "accessPoints": [
+      {
+        "id": "highway-140-turtle-creek-access",
+        "name": "Highway 140 Turtle Creek access",
+        "latitude": 42.5965016,
+        "longitude": -88.8637665,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "sweet-allyn-park",
+        "name": "Sweet-Allyn Park",
+        "latitude": 42.57336,
+        "longitude": -88.939652,
+        "mileFromStart": 5.2,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "yahara-river-highway-n-highway-59": {
+    "accessPoints": [
+      {
+        "id": "dunkirk-highway-n-bridge-access",
+        "name": "Dunkirk / Highway N bridge access",
+        "latitude": 42.883,
+        "longitude": -89.1998,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for this route."
+      },
+      {
+        "id": "highway-59-yahara-river-gauge-bridge",
+        "name": "Highway 59 / Yahara River gauge bridge",
+        "latitude": 42.8264,
+        "longitude": -89.1719,
+        "mileFromStart": 6.9,
+        "segmentKind": "creek",
+        "note": "Default take-out for this route."
+      }
+    ]
+  },
+  "flambeau-river-highway-w-hervas": {
+    "campingClassification": "overnight_capable"
+  },
+  "flambeau-river-hervas-beaver-dam": {
+    "campingClassification": "overnight_capable"
+  }
+};
+
+for (const [slug, backfill] of Object.entries(wisconsinTripDetailsBackfill)) {
+  const tripDetails = riverTripDetails[slug];
+  if (!tripDetails) continue;
+  if (backfill.campingClassification && !tripDetails.logistics.campingClassification) tripDetails.logistics.campingClassification = backfill.campingClassification;
+  if (backfill.accessPoints && !tripDetails.accessPoints?.length) tripDetails.accessPoints = backfill.accessPoints;
+}

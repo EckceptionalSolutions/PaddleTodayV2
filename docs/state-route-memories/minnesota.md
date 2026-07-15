@@ -1,18 +1,23 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 07:09 America/Chicago.
+Last summarized: 2026-07-15 07:55 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 152.
-- Top represented rivers: Mississippi River 25, Sauk River 18, Minnesota River 11, Little Fork River 9, Crow Wing River 8, Big Fork River 5, Red River of the North 5, Root River 5, Rum River 5, Zumbro River 5, Cannon River 4, North Fork Crow River 4, Otter Tail River 4, Red Lake River 4, St. Croix River 4, St. Louis River 4, Des Moines River 3.
-- Ledger candidates: 880 total; 520 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
+- Live routes: 131 after the 2026-07-15 redundancy consolidation.
+- Top represented rivers: Mississippi River 24, Minnesota River 11, Sauk River 7, Big Fork River 5, Root River 5, Rum River 5, Zumbro River 5, Red River of the North 5, Little Fork River 4, Red Lake River 4, Otter Tail River 4, Cannon River 4, St. Croix River 4, North Fork Crow River 4, St. Louis River 4, Crow Wing River 4, Snake River 3, Des Moines River 3.
+- Ledger candidates: 900 total; 519 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 24 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 07:55 America/Chicago: audited Minnesota redundancy after the hourly automation more than doubled the state inventory and consolidated 21 live duplicate/subset cards into canonical access-planner routes.
+- Removed 11 Sauk access permutations, 5 Little Fork subset routes, 4 Crow Wing subset routes, and the Mississippi Royalton-to-Stearns card because their useful access choices are now represented by retained canonical routes with access-point arrays.
+- Retained and enriched the canonical cards: `sauk-river-st-martin-eagle-park`, `sauk-river-frogtown-rockville`, `sauk-river-frogtown-miller-landing`, `sauk-river-rockville-heims-mill`, `sauk-river-pineview-heims-mill`, `crow-wing-river-andersons-crossing-cottingham`, `crow-wing-river-mary-brown-frames-landing`, `little-fork-river-dentaybow-devereaux`, `little-fork-river-fiedler-lofgren-park`, `little-fork-river-highway-73-silverdale`, and `mississippi-river-royalton-sartell`.
+- Backfilled route/detail access points, Sauk safety profiles, Sauk and Little Fork camping classifications, and image-audit rows for current Minnesota routes. Future Minnesota additions should not reintroduce the removed cards unless a source-backed route cannot be represented by the canonical access planner.
 
 - 2026-07-15 07:09 America/Chicago: added `red-river-kidder-brushvale`, `des-moines-river-christianna-petersburg`, and `red-lake-river-crookston-fisher`.
 - Baseline at run start was 149 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 152 Minnesota routes and all three new slugs have trip-detail records.
