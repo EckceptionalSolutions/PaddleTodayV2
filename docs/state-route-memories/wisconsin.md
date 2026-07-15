@@ -4,15 +4,25 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 127.
-- Top represented rivers: Wisconsin River 15, Big Rib River 3, East Branch Pecatonica River 3, Sugar River 5, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Baraboo River 5, Rock River 4, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Fox River 3, Popple River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3, Kickapoo River 3.
-- Ledger candidates: 114 Wisconsin candidates tracked; 104 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
+- Live routes: 130.
+- Top represented rivers: Wisconsin River 15, Sugar River 5, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Baraboo River 5, Rock River 4, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Kickapoo River 4, Big Rib River 3, East Branch Pecatonica River 3, Fox River 3, Popple River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3.
+- Ledger candidates: 117 Wisconsin candidates tracked; 107 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 124-route baseline: `east-branch-pecatonica-hollandale-horseshoe`, `east-branch-pecatonica-highway-78-river-road`, and `east-branch-pecatonica-river-road-argyle`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 127-route baseline: `kickapoo-river-highway-b-highway-s`, `embarrass-river-old-mill-range-line`, and `badfish-creek-north-casey-highway-59`.
 
 ## Latest Audit
+
+- 2026-07-15 America/Chicago: added `kickapoo-river-highway-b-highway-s`, `embarrass-river-old-mill-range-line`, and `badfish-creek-north-casey-highway-59`, bringing the live Wisconsin route count from the run-start baseline of 127 to 130.
+- The Kickapoo route fills the lower Gays Mills card below the existing Readstown / upper-KVR coverage. Wisconsin River Trips documents Highway B-to-Highway S, the public landing pair, 8.6-mile route, Gays Mills low-head-dam portage, strainers/high-water hazards, and Steuben-stage guidance; Crawford County corroborates Highway B and Highway S as Lower Kickapoo canoe landings.
+- The Embarrass route introduces a new Pella-area river family. WRT documents Old Mill Park-to-East-Range-Line, access notes, Clam Rapids, no-logjam report, and Embarrass gauge bands; Shawano County corroborates nearby Hayman Falls County Park campground/base-camp context.
+- The Badfish route fills the distinct final leg below the already-live Old-Stage-to-North-Casey route. WRT documents North Casey Road-to-Highway 59, Highway 59's official-but-poor access, recent cleared-logjam context, Yahara mouth, and Cooksville gauge bands.
+- Live gauge verification: USGS Water Services returned Kickapoo at Steuben `05410490` at `633 cfs / 7.15 ft` at 2026-07-15 13:45 CDT, Embarrass near Embarrass `04078500` at `238 cfs / 3.09 ft` at 2026-07-15 13:00 CDT, and Badfish near Cooksville `05430150` at `115 cfs / 5.48 ft` at 2026-07-15 13:00 CDT. Kickapoo currently ships in WRT high-water territory; Embarrass and Badfish are inside their selected useful bands.
+- Threshold posture: Kickapoo uses WRT's Steuben-stage ladder (`6.6-6.7 ft` average, `7.1-7.4 ft` high, `7.5+ ft` maybe too high). Embarrass uses WRT's Embarrass-gauge ladder (`101-350 cfs` useful, `351-500 cfs` high, `1000+ cfs` perhaps too high). Badfish uses WRT's Cooksville-gauge ladder (`51-150 cfs` useful, `201-300 cfs` very high/experienced-only, `301+ cfs` not enjoyable).
+- Safety/logistics added: Kickapoo carries mandatory Gays Mills low-head-dam portage, high-water/strainer/private-bank/cold-water/no-camping caveats. Embarrass is `whitewater` with Clam Rapids scout/portage, dam-below-start, bridge-access, boulder/wood/private-bank, and nearby-basecamp caveats. Badfish carries rough Highway 59 access, Yahara mouth, fast current, wood, wastewater-effluent, private-bank, and no-camping caveats.
+- Bounded image review found WRT / Miles Paddled / county / Commons / same-route search results and context imagery, but no clearly rights-clean exact-route paddling/gallery asset selected for the three new cards; no-image rows were added to the image audit.
+- Reviewed prompt and memory leads again: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica are already live; Black Earth Creek Cross Plains-to-Salmo Pond remains blocked by unresolved obstruction evidence; Oconto North Branch remains held for calculated-flow/local-flow support and wood/chute clearance; Peshtigo O-to-CCC remains blocked by current post-storm/ice-storm obstruction reports; Waupaca / Tomorrow / Yellow River / Little Wolf blockers remain unchanged.
 
 - 2026-07-15 America/Chicago: added `east-branch-pecatonica-hollandale-horseshoe`, `east-branch-pecatonica-highway-78-river-road`, and `east-branch-pecatonica-river-road-argyle`, bringing the live Wisconsin route count from the run-start baseline of 124 to 127.
 - The three East Branch Pecatonica routes introduce a new Driftless tributary family that was absent from the live Wisconsin inventory. Hollandale-to-Horseshoe uses WRT and Miles Paddled exact-route support plus Hollandale local canoeing context; Highway-78-to-River-Road uses WRT exact-route support and the direct USGS gauge at the put-in; River-Road-to-Argyle uses WRT exact-route support plus Village of Argyle access guidance for Thunder Bridge / River Road and Argyle.

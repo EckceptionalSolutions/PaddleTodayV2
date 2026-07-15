@@ -31796,6 +31796,189 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'kickapoo-river-highway-b-highway-s': {
+    putIn: {
+      name: 'County Highway B Canoe Landing',
+      latitude: 43.35219,
+      longitude: -90.8408,
+    },
+    takeOut: {
+      name: 'County Highway S Canoe Landing',
+      latitude: 43.27417,
+      longitude: -90.84119,
+    },
+    logistics: {
+      distanceLabel: 'About 8.6 mi',
+      estimatedPaddleTime: 'About 3 hr 30 min to 5 hr, including the Gays Mills dam portage',
+      shuttle:
+        'Stage the Highway S take-out first, then drive or bike-shuttle north to Highway B. Inspect the Gays Mills dam portage before launching if anyone in the group is unfamiliar with the corridor.',
+      permits:
+        'No route-specific paddling permit is known. Use the public county canoe landings, follow Wisconsin boating/PFD rules, and respect posted local landing rules.',
+      camping:
+        'No on-route camping is documented for this day route. Treat Gays Mills lodging, campgrounds, or private camping as separate base-camp planning.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the public Highway B canoe landing and take out at the public Highway S landing for the Gays Mills lower-Kickapoo day. The route is scenic and straightforward at normal stage, but the low-head dam portage, fast current, strainers, and muddy landings make it a caution route rather than a casual drift.',
+      accessCaveats: [
+        'WRT identifies Highway B and Highway S as public canoe landings, but both can be muddy and should be inspected before unloading.',
+        'The Gays Mills low-head dam is mandatory to portage. Take out above the dam by the portage path and do not run the dam.',
+        'The Steuben gauge is downstream of the route. Local storms, tributaries, or muddy banks can make the route behave differently than the gauge suggests.',
+      ],
+      watchFor: [
+        'Fast current and submerged logs in strainers, especially at 7.1 ft and higher on the Steuben gauge.',
+        'High-water flooding, muddy banks, cold water, and private or cattle-trampled banks away from public access.',
+        'Missing the dam portage in Gays Mills or drifting too close to the low-head dam.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-highway-b-canoe-landing',
+        name: 'County Highway B Canoe Landing',
+        latitude: 43.35219,
+        longitude: -90.8408,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; WRT identifies a public canoe landing downstream/south of the Highway B bridge.',
+      },
+      {
+        id: 'gays-mills-dam-portage',
+        name: 'Gays Mills dam portage path',
+        latitude: 43.31535,
+        longitude: -90.8407,
+        mileFromStart: 4.0,
+        segmentKind: 'creek',
+        note: 'Mandatory low-head-dam portage; scout from shore and never run the dam.',
+      },
+      {
+        id: 'county-highway-s-canoe-landing',
+        name: 'County Highway S Canoe Landing',
+        latitude: 43.27417,
+        longitude: -90.84119,
+        mileFromStart: 8.6,
+        segmentKind: 'creek',
+        note: 'Default take-out; WRT identifies a public canoe landing east/upstream of the Highway S bridge.',
+      },
+    ],
+  },
+  'embarrass-river-old-mill-range-line': {
+    putIn: {
+      name: 'Old Mill Park / Pella public island',
+      latitude: 44.74081,
+      longitude: -88.80276,
+    },
+    takeOut: {
+      name: 'East Range Line Road bridge access',
+      latitude: 44.72455,
+      longitude: -88.73652,
+    },
+    logistics: {
+      distanceLabel: 'About 6.9 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, longer if scouting Clam Rapids',
+      shuttle:
+        'Stage the East Range Line Road bridge take-out first, then drive back to Old Mill Park in Pella. The bike shuttle is reasonable by local-road standards but should be checked for shoulder comfort.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Old Mill Park rules, do not block the public island, and verify legal parking at East Range Line Road before launching.',
+      camping:
+        'No on-route camping is documented. Hayman Falls County Park upstream offers campground/base-camp context, but this route should be treated as a day paddle.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch below the Pella dam at Old Mill Park and take out at East Range Line Road for a bouldery Embarrass River day. Clam Rapids is the key decision point: scout, portage, or skip the run if flow or group skill is wrong.',
+      accessCaveats: [
+        'Old Mill Park is the clean public start below the dam; do not add an upstream dam run or millpond segment without a separate plan.',
+        'East Range Line Road is a bridge access with a faint trail and limited roadside staging. Inspect parking, slope, and traffic before leaving a vehicle.',
+        'The Embarrass gauge is downstream from Pella. A good gauge reading does not remove the need to scout Clam Rapids and fresh wood.',
+      ],
+      watchFor: [
+        'Clam Rapids, a Class II feature that can become rougher at high levels and should be scouted or portaged by cautious groups.',
+        'Boulder gardens, shallow wading below 100 cfs, cold water, and a few downed trees.',
+        'Private banks and limited bailout options between Old Mill Park and East Range Line Road.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'old-mill-park-pella',
+        name: 'Old Mill Park / Pella public island',
+        latitude: 44.74081,
+        longitude: -88.80276,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below the Pella dam; WRT describes parking on the public island and launching by access trails.',
+      },
+      {
+        id: 'clam-rapids',
+        name: 'Clam Rapids scout / portage zone',
+        latitude: 44.7277,
+        longitude: -88.7765,
+        mileFromStart: 2.8,
+        segmentKind: 'creek',
+        note: 'Class II rapid; scout or portage along the west bank if conditions or group skill warrant.',
+      },
+      {
+        id: 'east-range-line-road-bridge',
+        name: 'East Range Line Road bridge access',
+        latitude: 44.72455,
+        longitude: -88.73652,
+        mileFromStart: 6.9,
+        segmentKind: 'creek',
+        note: 'Default take-out; WRT describes parking northwest of the bridge and a faint trail to the river.',
+      },
+    ],
+  },
+  'badfish-creek-north-casey-highway-59': {
+    putIn: {
+      name: 'North Casey Road access',
+      latitude: 42.8287,
+      longitude: -89.1849,
+    },
+    takeOut: {
+      name: 'Highway 59 / Yahara River access',
+      latitude: 42.82632,
+      longitude: -89.1722,
+    },
+    logistics: {
+      distanceLabel: 'About 3.1 mi',
+      estimatedPaddleTime: 'About 1 hr to 1 hr 45 min',
+      shuttle:
+        'Use a short shuttle between North Casey Road and Highway 59. Inspect Highway 59 first because WRT describes the official access as steep, rutted, and unsuitable for some vehicles.',
+      permits:
+        'No route-specific paddling permit is known. Use only the bridge/public accesses, follow Wisconsin boating/PFD rules, and avoid blocking road shoulders.',
+      camping:
+        'No on-route camping is documented. Treat this as a short day route.',
+      campingClassification: 'none',
+      summary:
+        'Use North Casey Road as the put-in for the short final Badfish Creek leg and take out at Highway 59 just below the confluence with the Yahara River. This route is useful when the upstream Badfish card is too long, but the rough Highway 59 access and water-quality context keep it in caution territory.',
+      accessCaveats: [
+        'North Casey is a popular access with steps and is already used by the upstream Badfish card; verify shoulder parking and bank condition before launching.',
+        'Highway 59 is official but rough, steep, rutted, and sometimes easier to stage from the shoulder than the access drive.',
+        'The final yards include the Badfish mouth and Yahara River. Wind, wide water, or debris can change the take-out feel.',
+      ],
+      watchFor: [
+        'Fast clear current, riffles, and downed-tree ducking near the Yahara.',
+        'Pushier and dirtier water above 200 cfs on the Cooksville gauge; 301+ cfs is outside the normal recommendation.',
+        'Wastewater-effluent context, cold water, private banks, wild parsnip, and limited bailout points.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'north-casey-road-take-out',
+        name: 'North Casey Road access',
+        latitude: 42.8287,
+        longitude: -89.1849,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this final-leg card and shared with the upstream Badfish route take-out.',
+      },
+      {
+        id: 'highway-59-yahara-river-access',
+        name: 'Highway 59 / Yahara River access',
+        latitude: 42.82632,
+        longitude: -89.1722,
+        mileFromStart: 3.1,
+        segmentKind: 'creek',
+        note: 'Default take-out just downstream of the Badfish mouth; WRT calls it official but poor, steep, and rutted.',
+      },
+    ],
+  },
   'long-prairie-river-browerville-wma': {
     putIn: {
       name: 'Long Prairie River, Browerville Public Water Access Site',
