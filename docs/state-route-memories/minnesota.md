@@ -554,3 +554,10 @@ Minnesota still has the strongest official-source foundation and a broad existin
 - Prefer Minnesota DNR interpreted river-level gauges and state water trail maps.
 - Add routes only where they materially improve coverage: new corridor, missing public-water-trail segment, or a distinct high-use access pair.
 - Avoid duplicating dense corridors unless evidence and user value are clearly stronger than existing routes.
+
+- 2026-07-15 17:12 America/Chicago: added `mississippi-river-jacobson-verdon`, `mississippi-river-verdon-lee-ferry`, and `mississippi-river-lee-ferry-bigsandy`.
+- Baseline at run start was 156 live Minnesota routes from `src/data/rivers.ts`; the selected slugs fill the official DNR Mississippi Map 4 gap above the already-live `mississippi-river-sandy-lake-wolds-ferry` and below the already-live `mississippi-river-county-line-jacobson`.
+- Qualification path: MN DNR Mississippi Map 4 documents Jacobson Campground, Verdon, Lee Ferry, Big Sandy River confluence, Big Sandy / Sandy Lake Recreation Area access, watercraft campsites, snags, downed trees, and Sandy River/dam context; Minnesota public-water-access GIS resolves Jacobson `WAS02564`, Verdon `WAS02955`, Lee Ferry `WAS00896`, and Big Sandy Lake North `WAS02734` with coordinates and river miles.
+- The corridor uses MN DNR site `120` at Aitkin as a downstream same-map proxy. The feed returned `1,590 cfs` at `2026-07-15 14:30`, inside the official medium band; all three cards keep explicit downstream-proxy and local-visual-check caveats.
+- No route-gallery image was added. Image audit rows record bounded DNR / MHB / Aitkin County / Commons / same-route searches with no clearly rights-clean exact-route paddling asset selected.
+- Reviewed but did not add Aitkin City Park-to-County-Campground because endpoint coordinate/access authority was weaker than the selected DNR/PWA chain; prompt leads such as Otter Tail Phelps/West Lost and multiple Red/Des-Moines/Cloquet/St.-Louis/Mississippi corridors were already represented or weaker on duplication/gauge fit.

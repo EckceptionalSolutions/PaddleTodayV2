@@ -1075,6 +1075,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Do not continue into Big Falls or Little American Falls sections without separate whitewater and portage planning.',
       ],
     },
+    accessPoints: [
+      {
+        id: "highway-6-south-state-hwy-6-bridge-carry-in-access",
+        name: "Highway 6 South / State Hwy 6 Bridge carry-in access",
+        latitude: 47.953023,
+        longitude: -93.754988,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "bill-counter-landing-highway-6-north-carry-in-access",
+        name: "Bill Counter Landing / Highway 6 North carry-in access",
+        latitude: 48.034694214683626,
+        longitude: -93.74155634703675,
+        mileFromStart: 15.7,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'big-fork-river-johnson-big-falls-east': {
     putIn: {
@@ -1401,6 +1421,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Downed trees, sweepers, cold water, and limited quick exits on a long northern route.',
       ],
     },
+    accessPoints: [
+      {
+        id: "veterans-park-carry-in-access-cook",
+        name: "Veterans Park carry-in access, Cook",
+        latitude: 47.854286,
+        longitude: -92.688289,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "highway-73-bridge-carry-in-access",
+        name: "Highway 73 bridge carry-in access",
+        latitude: 47.858288,
+        longitude: -92.870024,
+        mileFromStart: 15.2,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'little-fork-river-dentaybow-devereaux': {
     putIn: {
@@ -1573,6 +1613,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Wind exposure on open farmland bends and low grassy banks.',
       ],
     },
+    accessPoints: [
+      {
+        id: "smiley-bridge-public-water-access",
+        name: "Smiley Bridge public water access",
+        latitude: 48.077331,
+        longitude: -96.034388,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "centennial-park-highway-1-trailer-access",
+        name: "Centennial Park / Highway 1 trailer access",
+        latitude: 48.124,
+        longitude: -96.168056,
+        mileFromStart: 12.3,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'red-lake-river-sportsmans-huot': {
     putIn: {
@@ -1607,6 +1667,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Downstream dam awareness if anyone in the group wants to paddle past Huot Park.',
       ],
     },
+    accessPoints: [
+      {
+        id: "sportsman-s-park-trailer-access",
+        name: "Sportsman's Park trailer access",
+        latitude: 47.8939989,
+        longitude: -96.2820976,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "huot-park-trailer-access",
+        name: "Huot Park trailer access",
+        latitude: 47.8610626,
+        longitude: -96.4249999,
+        mileFromStart: 13.5,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'chippewa-river-lentz-watson-lions-park': {
     putIn: {
@@ -1641,6 +1721,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Wind exposure across open grassland bends and limited shade on hot afternoons.',
       ],
     },
+    accessPoints: [
+      {
+        id: "lentz-landing-public-water-access-site",
+        name: "Lentz Landing Public Water Access Site",
+        latitude: 45.107814,
+        longitude: -95.7987081,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "watson-lions-park-watson-sag-dam-public-water-access-site",
+        name: "Watson Lions Park / Watson Sag Dam Public Water Access Site",
+        latitude: 45.0234918,
+        longitude: -95.7902702,
+        mileFromStart: 8.4,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'chippewa-river-lagoon-priens': {
     putIn: {
@@ -1730,6 +1830,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'A low utility pipe just past the take-out, plus the broader Otter Tail hazards of culverts, bridge obstructions, and possible dams under bridges.',
       ],
     },
+    accessPoints: [
+      {
+        id: "wannigan-road-carry-in-access",
+        name: "Wannigan Road carry-in access",
+        latitude: 46.7847573,
+        longitude: -95.6962111,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "riverside-park-carry-in-access",
+        name: "Riverside Park carry-in access",
+        latitude: 46.7256798,
+        longitude: -95.696997,
+        mileFromStart: 8.4,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'otter-tail-river-phelps-mill-west-red-river-lake': {
     putIn: {
@@ -1765,6 +1885,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Culverts, bridge constrictions, dams, snags, and low-headroom obstructions that should be inspected before committing.',
       ],
     },
+    accessPoints: [
+      {
+        id: "otter-tail-river-phelps-mill-public-water-access-site",
+        name: "Otter Tail River, Phelps Mill Public Water Access Site",
+        latitude: 46.3821667,
+        longitude: -95.8210176,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "west-red-river-lake-public-water-access-site",
+        name: "West Red River Lake Public Water Access Site",
+        latitude: 46.3886343,
+        longitude: -95.9911976,
+        mileFromStart: 11.8,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'cannon-river-welch': {
     putIn: {
@@ -1870,6 +2010,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Cold-water risk outside midsummer.',
       ],
     },
+    accessPoints: [
+      {
+        id: "krogh-s-landing",
+        name: "Krogh's Landing",
+        latitude: 44.24285,
+        longitude: -93.24006,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "two-rivers-landing-park-faribault",
+        name: "Two Rivers Landing/Park (Faribault)",
+        latitude: 44.31065,
+        longitude: -93.27092,
+        mileFromStart: 10,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
 
   'root-river-lanesboro-peterson': {
@@ -1904,6 +2064,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Cold-water exposure outside midsummer, even on an easy-current day.',
       ],
     },
+    accessPoints: [
+      {
+        id: "highway-16-lanesboro-access",
+        name: "Highway 16 / Lanesboro access",
+        latitude: 43.7368,
+        longitude: -91.9468,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "highway-16-peterson-access",
+        name: "Highway 16 / Peterson access",
+        latitude: 43.78648,
+        longitude: -91.82735,
+        mileFromStart: 13.5,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'root-river-rushford-houston': {
     putIn: {
@@ -1938,6 +2118,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Long-mileage fatigue and cold-water exposure outside midsummer.',
       ],
     },
+    accessPoints: [
+      {
+        id: "rushford-carry-in-access-historic-depot-area",
+        name: "Rushford carry-in access (Historic Depot area)",
+        latitude: 43.78358,
+        longitude: -91.83403,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "houston-carry-in-access-houston-nature-center-area",
+        name: "Houston carry-in access (Houston Nature Center area)",
+        latitude: 43.7645,
+        longitude: -91.57037,
+        mileFromStart: 15.1,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'root-river-houston-mound-prairie': {
     putIn: {
@@ -1995,6 +2195,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'root-river-chatfield-parsley': {
+    putIn: {
+      name: 'Root River, Chatfield Public Water Access Site',
+      latitude: 43.8397589,
+      longitude: -92.1971217,
+    },
+    takeOut: {
+      name: 'Root River, Parsley Bridge Public Water Access Site',
+      latitude: 43.8153394,
+      longitude: -92.1388569,
+    },
+    logistics: {
+      distanceLabel: '8.0 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr 30 min',
+      shuttle:
+        'Plan a short two-car shuttle between the DNR Chatfield access and Parsley Bridge. Stage the Parsley take-out first so the bridge landing, parking, and river edge are clear before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR public accesses, follow Minnesota boating/PFD rules, and obey posted bridge-access and parking rules.',
+      camping:
+        'No on-route camping is assumed for this short upper-Root card. DNR-mapped Pilot Mound campsites are downstream on the adjacent Parsley-to-Moen route, not part of this default plan.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Chatfield and take out at Parsley Bridge for the upper access-pair immediately above the existing Parsley-to-Moen route. This is a quieter Root River day where the downstream Pilot Mound gauge is useful, but a same-day look at the smaller upper channel still matters.',
+      accessCaveats: [
+        'Both endpoints are DNR-administered public water accesses, but they are small bridge-access sites rather than staffed parks.',
+        'The Pilot Mound gauge is downstream near the next segment; use it as official same-corridor guidance, then visually verify depth and wood at Chatfield.',
+        'Do not drift past Parsley unless you planned the longer Parsley-to-Moen card and its campsite/commitment profile.',
+      ],
+      watchFor: [
+        'Shallow riffles and gravel bars when the Pilot Mound gauge is below the medium band.',
+        'Fresh strainers or sweepers on blind bends after storms.',
+        'Cold water, limited intermediate exits, and rural rescue exposure compared with the lower trail-town reaches.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'root-river-chatfield-public-water-access-site',
+        name: 'Root River, Chatfield Public Water Access Site',
+        latitude: 43.8397589,
+        longitude: -92.1971217,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 86.4; resolves in Minnesota public-water-access GIS as WAS00269.',
+      },
+      {
+        id: 'root-river-parsley-bridge-public-water-access-site',
+        name: 'Root River, Parsley Bridge Public Water Access Site',
+        latitude: 43.8153394,
+        longitude: -92.1388569,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 78.4; resolves in Minnesota public-water-access GIS as WAS00268.',
+      },
+    ],
+  },
   'root-river-parsley-moens': {
     putIn: {
       name: 'Parsley Bridge carry-in access',
@@ -2028,6 +2283,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Longer shuttle friction and cold-water exposure outside midsummer.',
       ],
     },
+    accessPoints: [
+      {
+        id: "parsley-bridge-carry-in-access",
+        name: "Parsley Bridge carry-in access",
+        latitude: 43.81641,
+        longitude: -92.13924,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "moen-s-bridge-carry-in-access",
+        name: "Moen's Bridge carry-in access",
+        latitude: 43.78218,
+        longitude: -92.03188,
+        mileFromStart: 13.25,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'root-river-moens-whalan': {
     putIn: {
@@ -2062,6 +2337,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Long-mileage fatigue on a route that stays easy but not short.',
       ],
     },
+    accessPoints: [
+      {
+        id: "moen-s-bridge-carry-in-access",
+        name: "Moen's Bridge carry-in access",
+        latitude: 43.782576,
+        longitude: -92.0317899,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "whalan-carry-in-access",
+        name: "Whalan carry-in access",
+        latitude: 43.7558,
+        longitude: -91.9179,
+        mileFromStart: 15.8,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'wolf-river-pearson-lily': {
     putIn: {
@@ -2472,6 +2767,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Motorboats, anglers, and wake exposure on the broader lower-river stretches.',
       ],
     },
+    accessPoints: [
+      {
+        id: "minnesota-interstate-state-park-landing",
+        name: "Minnesota Interstate State Park landing",
+        latitude: 45.401,
+        longitude: -92.651,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "osceola-landing",
+        name: "Osceola Landing",
+        latitude: 45.31996700000001,
+        longitude: -92.71514719999999,
+        mileFromStart: 6.6,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'st-croix-river-osceola-william-obrien': {
     putIn: {
@@ -2507,6 +2822,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         "A changed or limited take-out setup at William O'Brien after low water, sediment movement, or maintenance.",
       ],
     },
+    accessPoints: [
+      {
+        id: "osceola-landing",
+        name: "Osceola Landing",
+        latitude: 45.31996700000001,
+        longitude: -92.71514719999999,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "william-o-brien-state-park-landing",
+        name: "William O'Brien State Park landing",
+        latitude: 45.2181259,
+        longitude: -92.7806336,
+        mileFromStart: 8.8,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'rum-river-martins-north-county-park': {
     putIn: {
@@ -2540,6 +2875,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Cold-water exposure outside midsummer, even on a mellow current day.',
       ],
     },
+    accessPoints: [
+      {
+        id: "martin-s-landing-trailer-access",
+        name: "Martin's Landing trailer access",
+        latitude: 45.488325,
+        longitude: -93.266746,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "rum-river-north-county-park-access",
+        name: "Rum River North County Park access",
+        latitude: 45.394587,
+        longitude: -93.353557,
+        mileFromStart: 10.9,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'rum-river-onamia-wayside': {
     putIn: {
@@ -2629,6 +2984,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Long-day fatigue on a route that looks mellow on paper but still covers nearly 16 river miles.',
       ],
     },
+    accessPoints: [
+      {
+        id: "walbo-carry-in-access",
+        name: "Walbo carry-in access",
+        latitude: 45.579123,
+        longitude: -93.322856,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "cambridge-west-park-carry-in-access",
+        name: "Cambridge West Park carry-in access",
+        latitude: 45.572343,
+        longitude: -93.235711,
+        mileFromStart: 15.8,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'rum-river-cambridge-west-martins': {
     putIn: {
@@ -2989,6 +3364,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Cold-water exposure in spring and fall.',
       ],
     },
+    accessPoints: [
+      {
+        id: "spring-hill-county-park-carry-in-access",
+        name: "Spring Hill County Park carry-in access",
+        latitude: 45.529026,
+        longitude: -94.776531,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "st-martin-public-water-access-county-road-12",
+        name: "St. Martin Public Water Access / County Road 12",
+        latitude: 45.520241,
+        longitude: -94.67885,
+        mileFromStart: 9.1,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'sauk-river-st-martin-eagle-park': {
     putIn: {
@@ -3095,6 +3490,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fresh wood or strainers after storms, especially on bends and in faster current.',
       ],
     },
+    accessPoints: [
+      {
+        id: "snake-river-1-canary-road-public-water-access",
+        name: "Snake River #1 / Canary Road public water access",
+        latitude: 45.7959352,
+        longitude: -93.0796766,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "snake-river-cross-lake-public-water-access-pine-city",
+        name: "Snake River / Cross Lake public water access (Pine City)",
+        latitude: 45.8405577,
+        longitude: -92.9418935,
+        mileFromStart: 10.2,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'snake-river-county-road-9-snake-bit': {
     putIn: {
@@ -3128,6 +3543,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Wind and wave exposure as you approach the St. Croix confluence.',
       ],
     },
+    accessPoints: [
+      {
+        id: "county-road-9-bridge-carry-in-access",
+        name: "County Road 9 bridge carry-in access",
+        latitude: 45.8395826,
+        longitude: -92.9363969,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "snake-bit-access-near-st-croix-snake-river-public-water-access",
+        name: "Snake Bit Access (near St. Croix/Snake River public water access)",
+        latitude: 45.8230834,
+        longitude: -92.7645675,
+        mileFromStart: 11.7,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
 
 
@@ -3329,6 +3764,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private shoreland; stop only at public accesses or clearly legal sites.',
       ],
     },
+    accessPoints: [
+      {
+        id: "juenemann-landing-county-road-2-public-water-access",
+        name: "Juenemann Landing / County Road 2 public water access",
+        latitude: 44.2034723,
+        longitude: -95.0485134,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "springfield-public-water-access-riverside-park-canoe-landing",
+        name: "Springfield Public Water Access / Riverside Park canoe landing",
+        latitude: 44.2377827,
+        longitude: -94.9740406,
+        mileFromStart: 6.4,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'pine-river-rock-dam-harvey-drake': {
     putIn: {
@@ -3363,6 +3818,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Long-route fatigue and cold-water exposure outside midsummer.',
       ],
     },
+    accessPoints: [
+      {
+        id: "pine-river-rock-dam-public-water-access",
+        name: "Pine River Rock Dam public water access",
+        latitude: 46.635762,
+        longitude: -94.092075,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "harvey-drake-public-water-access",
+        name: "Harvey Drake Public Water Access",
+        latitude: 46.57168,
+        longitude: -94.02806,
+        mileFromStart: 14.4,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'minnesota-river-judson-land-of-memories': {
     putIn: {
@@ -3396,6 +3871,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Floating debris, muddy banks, and busier landing activity near the Mankato finish.',
       ],
     },
+    accessPoints: [
+      {
+        id: "judson-public-water-access",
+        name: "Judson public water access",
+        latitude: 44.2010236,
+        longitude: -94.1947673,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "land-of-memories-park-public-water-access",
+        name: "Land of Memories Park public water access",
+        latitude: 44.1624934,
+        longitude: -94.0414558,
+        mileFromStart: 11.1,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'minnesota-river-franklin-mack-lake': {
     putIn: {
@@ -3430,6 +3925,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private shoreland; stop only at public accesses or clearly legal sites.',
       ],
     },
+    accessPoints: [
+      {
+        id: "franklin-trailer-access-city-boat-landing",
+        name: "Franklin trailer access / city boat landing",
+        latitude: 44.5177553,
+        longitude: -94.8845377,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "mack-lake-park-boat-landing",
+        name: "Mack Lake Park boat landing",
+        latitude: 44.4585896,
+        longitude: -94.7930696,
+        mileFromStart: 10.1,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'minnesota-river-henderson-belle-plaine': {
     putIn: {
@@ -3463,6 +3978,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Floating debris, overhanging trees, and muddy or sandy banks at landings and breaks.',
       ],
     },
+    accessPoints: [
+      {
+        id: "henderson-station-public-water-access",
+        name: "Henderson Station public water access",
+        latitude: 44.5244176,
+        longitude: -93.8862799,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "belle-plaine-public-water-access",
+        name: "Belle Plaine public water access",
+        latitude: 44.6340972,
+        longitude: -93.7653127,
+        mileFromStart: 17.4,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'minnesota-river-belle-plaine-thompson-ferry': {
     putIn: {
@@ -3552,6 +4087,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private shoreland; stop only at public landings or clearly legal sites.',
       ],
     },
+    accessPoints: [
+      {
+        id: "thompson-ferry-trailer-access",
+        name: "Thompson Ferry trailer access",
+        latitude: 44.692386,
+        longitude: -93.641157,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "carver-riverfront-park-minnesota-river-public-water-access",
+        name: "Carver Riverfront Park / Minnesota River public water access",
+        latitude: 44.766777,
+        longitude: -93.616717,
+        mileFromStart: 8.1,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'mississippi-river-norin-babcock': {
     putIn: {
@@ -3588,6 +4143,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Do not commit to the full MR 20 distance unless the group has time, daylight, and a take-out plan for Peninsula Point.',
       ],
     },
+    accessPoints: [
+      {
+        id: "mississippi-river-norin-landing-public-water-access-site",
+        name: "Mississippi River, Norin Landing Public Water Access Site",
+        latitude: 45.3042771,
+        longitude: -93.683881,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "mississippi-river-babcock-public-water-access-site",
+        name: "Mississippi River, Babcock Public Water Access Site",
+        latitude: 45.2897452,
+        longitude: -93.5580094,
+        mileFromStart: 7.6,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'mississippi-river-babcock-peninsula-point': {
     putIn: {
@@ -3624,6 +4199,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'High or rising water above the DNR medium band, which can make strainers, eddies, and ferry angles less forgiving.',
       ],
     },
+    accessPoints: [
+      {
+        id: "mississippi-river-babcock-public-water-access-site",
+        name: "Mississippi River, Babcock Public Water Access Site",
+        latitude: 45.2897452,
+        longitude: -93.5580094,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "peninsula-point-park-rum-mississippi-river-access",
+        name: "Peninsula Point Park / Rum-Mississippi River access",
+        latitude: 45.1924006,
+        longitude: -93.3902433,
+        mileFromStart: 12,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'mississippi-river-steamboat-blackberry-bridge': {
     putIn: {
@@ -3659,6 +4254,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Floating debris, fresh wood, and private banks along the farmland and wooded corridor.',
       ],
     },
+    accessPoints: [
+      {
+        id: "mississippi-river-steamboat-landing-public-water-access-site",
+        name: "Mississippi River, Steamboat Landing Public Water Access Site",
+        latitude: 47.2325351,
+        longitude: -93.522906,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "mississippi-river-blackberry-bridge-public-water-access-site",
+        name: "Mississippi River, Blackberry Bridge Public Water Access Site",
+        latitude: 47.1736507,
+        longitude: -93.4186453,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'mississippi-river-east-river-flats-hidden-falls': {
     putIn: {
@@ -3695,6 +4310,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Wind, floating debris, and muddy landings after recent weather.',
       ],
     },
+    accessPoints: [
+      {
+        id: "east-river-flats-park",
+        name: "East River Flats Park",
+        latitude: 44.9703514,
+        longitude: -93.2350599,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "hidden-falls-regional-park-boat-launch",
+        name: "Hidden Falls Regional Park boat launch",
+        latitude: 44.9040285,
+        longitude: -93.1907475,
+        mileFromStart: 5,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'mississippi-river-hidden-falls-harriet-island': {
     putIn: {
@@ -3729,6 +4364,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Urban debris, bridge piers, wind exposure, and limited casual landing options between official access points.',
       ],
     },
+    accessPoints: [
+      {
+        id: "hidden-falls-regional-park-mississippi-river-boat-ramp",
+        name: "Hidden Falls Regional Park Mississippi River boat ramp",
+        latitude: 44.904029,
+        longitude: -93.190748,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "kelley-s-landing-harriet-island",
+        name: "Kelley's Landing / Harriet Island",
+        latitude: 44.935466,
+        longitude: -93.100314,
+        mileFromStart: 6.5,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'snake-river-county-road-3-mora': {
     putIn: {
@@ -3762,6 +4417,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fatigue and weather exposure over a 15-mile day if the pace slows.',
       ],
     },
+    accessPoints: [
+      {
+        id: "county-road-3-public-water-access",
+        name: "County Road 3 Public Water Access",
+        latitude: 46.0238677,
+        longitude: -93.2319185,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "canoe-park-mora-public-water-access",
+        name: "Canoe Park / Mora Public Water Access",
+        latitude: 45.8820387,
+        longitude: -93.3097238,
+        mileFromStart: 15,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'north-fork-crow-river-betty-mason-wildlife': {
     putIn: {
@@ -3796,6 +4471,81 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Low-water scraping below the Cokato medium band and faster current above it.',
       ],
     },
+    accessPoints: [
+      {
+        id: "betty-t-mason-county-park-carry-in-access",
+        name: "Betty T. Mason County Park carry-in access",
+        latitude: 45.189062,
+        longitude: -94.1900403,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "wildlife-county-park-carry-in-access",
+        name: "Wildlife County Park carry-in access",
+        latitude: 45.1402417,
+        longitude: -94.1752588,
+        mileFromStart: 10.2,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
+  },
+  'north-fork-crow-river-wildlife-albrights': {
+    putIn: {
+      name: 'Wildlife County Park carry-in access',
+      latitude: 45.1380365,
+      longitude: -94.176126,
+    },
+    takeOut: {
+      name: "Albright's Mill County Park public water access",
+      latitude: 45.1268083,
+      longitude: -94.1116757,
+    },
+    logistics: {
+      distanceLabel: '6.2 mi',
+      estimatedPaddleTime: 'About 2 hr 30 min to 4 hr',
+      shuttle:
+        "Stage Albright's Mill first, then drive back to Wildlife County Park. This route also works as the next-day continuation from the reservable Wildlife canoe campsite when that campsite is booked separately.",
+      permits:
+        'No route-specific paddling permit is known. Wildlife County Park canoe camping requires a separate reservation and fee if used.',
+      camping:
+        'Endpoint camping is available only through the reservable Wildlife County Park backcountry canoe campsite. Do not assume informal bank camping or unreserved overnight use.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Wildlife County Park and take out at Albright's Mill for the short continuation below the DNR Betty Mason-to-Wildlife day. It is a useful standalone card when the upper river is in shape and the group wants a shorter Wright County shuttle.",
+      accessCaveats: [
+        'Wildlife County Park is a real Wright County access and campground, but park and camping rules still apply.',
+        "Albright's Mill is a small Wright County public-water-access site; inspect the take-out before launching.",
+        'The Rockford gauge is downstream of this route, so use it with a same-day visual check for depth and obstructions.',
+      ],
+      watchFor: [
+        'Sweepers, strainers, and tight-bend wood after storms.',
+        'Shallow gravel and slow dragging when the Rockford gauge is below the medium band.',
+        'Private banks, limited bailout options, and cold-water exposure outside midsummer.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'wildlife-county-park-carry-in-access',
+        name: 'Wildlife County Park carry-in access',
+        latitude: 45.1380365,
+        longitude: -94.176126,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 68.9; resolves in Minnesota public-water-access GIS as WAS01954.',
+      },
+      {
+        id: 'albrights-mill-county-park-public-water-access',
+        name: "Albright's Mill County Park public water access",
+        latitude: 45.1268083,
+        longitude: -94.1116757,
+        mileFromStart: 6.2,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 62.7; resolves in Minnesota public-water-access GIS as WAS01743.',
+      },
+    ],
   },
   'north-fork-crow-river-rockford-riverside': {
     putIn: {
@@ -3830,6 +4580,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Changing landing mud and bank conditions at both accesses after rain.',
       ],
     },
+    accessPoints: [
+      {
+        id: "rockford-boat-launch-rockford-public-water-access",
+        name: "Rockford Boat Launch / Rockford public water access",
+        latitude: 45.0927624,
+        longitude: -93.7294189,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "riverside-county-park-riverside-park-public-water-access",
+        name: "Riverside County Park / Riverside Park public water access",
+        latitude: 45.1650523,
+        longitude: -93.6400414,
+        mileFromStart: 8.5,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'north-fork-crow-river-riverside-dayton': {
     putIn: {
@@ -3863,6 +4633,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fatigue, cold-water exposure, and wind on a 15-mile day even if the gauge looks okay.',
       ],
     },
+    accessPoints: [
+      {
+        id: "riverside-county-park-carry-in-access",
+        name: "Riverside County Park carry-in access",
+        latitude: 45.1644165,
+        longitude: -93.6413049,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "mississippi-crow-rivers-trailer-access",
+        name: "Mississippi/Crow rivers trailer access",
+        latitude: 45.2453021,
+        longitude: -93.5212957,
+        mileFromStart: 15.3,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'south-fork-crow-river-rick-johnson-lake-rebecca': {
     putIn: {
@@ -3897,6 +4687,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private shoreland; stop only at public landings or clearly legal sites.',
       ],
     },
+    accessPoints: [
+      {
+        id: "south-fork-crow-river-boat-landing-rick-johnson-park-trailer-access",
+        name: "South Fork Crow River boat landing / Rick Johnson Park trailer access",
+        latitude: 44.965047,
+        longitude: -93.845448,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "lake-rebecca-park-reserve-crow-river-carry-in-access",
+        name: "Lake Rebecca Park Reserve Crow River carry-in access",
+        latitude: 45.079117,
+        longitude: -93.754431,
+        mileFromStart: 14.3,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'minnehaha-creek-grays-bay-longfellow-lagoon': {
     putIn: {
@@ -4109,6 +4919,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fresh wood, cold water, and fast current changes after storms or release shifts.',
       ],
     },
+    accessPoints: [
+      {
+        id: "island-lake-dam-carry-in-access",
+        name: "Island Lake Dam carry-in access",
+        latitude: 46.9912948,
+        longitude: -92.225418,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "bachelor-road-trailer-access",
+        name: "Bachelor Road trailer access",
+        latitude: 46.9521455,
+        longitude: -92.3270784,
+        mileFromStart: 8.1,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'st-louis-river-paupores-brookston': {
     putIn: {
@@ -4144,6 +4974,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Railroad trestle approaches, remote bends, and limited legal exits away from named public accesses and campsites.',
       ],
     },
+    accessPoints: [
+      {
+        id: "st-louis-river-paupores-public-water-access-site",
+        name: "St. Louis River, Paupores Public Water Access Site",
+        latitude: 46.8741117,
+        longitude: -92.7652286,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "st-louis-river-brookston-public-water-access-site",
+        name: "St. Louis River, Brookston Public Water Access Site",
+        latitude: 46.8693332,
+        longitude: -92.6040058,
+        mileFromStart: 7.9,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'iowa-river-sturgis-ferry-hills-access': {
     putIn: {
@@ -4608,6 +5458,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Cold-water risk in shoulder seasons.',
       ],
     },
+    accessPoints: [
+      {
+        id: "5-trailer-access-kettle-river-state-water-trail-map-2",
+        name: "#5 trailer access (Kettle River State Water Trail - Map 2)",
+        latitude: 46.0107725,
+        longitude: -92.8407339,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "6-trailer-access-kettle-river-state-water-trail-map-2",
+        name: "#6 trailer access (Kettle River State Water Trail - Map 2)",
+        latitude: 45.9451305,
+        longitude: -92.7769513,
+        mileFromStart: 7.2,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
 
 
@@ -4644,6 +5514,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Scraping and extra dragging when the gauge drops below the medium band.',
       ],
     },
+    accessPoints: [
+      {
+        id: "elba-highway-26-and-center-street-access",
+        name: "Elba / Highway 26 and Center Street access",
+        latitude: 44.09185,
+        longitude: -92.01381,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "highway-74-roadside-take-out-near-whitewater-wma",
+        name: "Highway 74 roadside take-out near Whitewater WMA",
+        latitude: 44.14973,
+        longitude: -92.00558,
+        mileFromStart: 10.4,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'south-fork-zumbro-lake-zumbro': {
     putIn: {
@@ -4675,6 +5565,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Wind exposure on Lake Zumbro near the finish.',
       ],
     },
+    accessPoints: [
+      {
+        id: "90th-street-nw-footbridge-access",
+        name: "90th Street NW footbridge access",
+        latitude: 44.12967,
+        longitude: -92.46227,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "lake-zumbro-county-park-canoe-kayak-launch",
+        name: "Lake Zumbro County Park canoe/kayak launch",
+        latitude: 44.17933,
+        longitude: -92.46266,
+        mileFromStart: 5,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'upper-iowa-river-kendallville-bluffton': {
     putIn: {
@@ -4884,6 +5794,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Cold-water exposure and limited bailout options compared with the upper Zumbro reaches.',
       ],
     },
+    accessPoints: [
+      {
+        id: "theilman-access-off-hwy-4",
+        name: "Theilman Access (off Hwy 4)",
+        latitude: 44.28675,
+        longitude: -92.1867,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "kruger-access-off-hwy-81",
+        name: "Kruger Access (off Hwy 81)",
+        latitude: 44.33728,
+        longitude: -92.07724,
+        mileFromStart: 10.75,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'zumbro-river-kruger-west-newton': {
     putIn: {
@@ -4917,6 +5847,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Cold water and quick level changes in spring or after heavy rain.',
       ],
     },
+    accessPoints: [
+      {
+        id: "kruger-access-off-hwy-81",
+        name: "Kruger Access (off Hwy 81)",
+        latitude: 44.3372,
+        longitude: -92.07725,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "west-newton-public-boat-launch",
+        name: "West Newton Public Boat Launch",
+        latitude: 44.28408,
+        longitude: -91.92677,
+        mileFromStart: 12,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'baraboo-river-glenville-luebke': {
     putIn: {
@@ -5604,6 +6554,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Cold-water exposure outside midsummer and limited rescue access between towns.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'readstown-tourist-park-canoe-landing',
+        name: 'Readstown Tourist Park canoe landing',
+        latitude: 43.447,
+        longitude: -90.7625,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this route.',
+      },
+      {
+        id: 'soldiers-grove-canoe-access',
+        name: 'Soldiers Grove Canoe Access',
+        latitude: 43.3949,
+        longitude: -90.7752,
+        mileFromStart: 7.1,
+        segmentKind: 'creek',
+        note: 'Default take-out for this route.',
+      },
+    ],
   },
   'kickapoo-river-rockton-la-farge': {
     putIn: {
@@ -5706,6 +6676,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Longer-mileage fatigue on hot or windy days.',
       ],
     },
+    accessPoints: [
+      {
+        id: "two-rivers-park-canoe-landing",
+        name: "Two Rivers Park canoe landing",
+        latitude: 44.31067,
+        longitude: -93.27087,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "highway-1-canoe-landing-dundas",
+        name: "Highway 1 Canoe Landing (Dundas)",
+        latitude: 44.43033,
+        longitude: -93.20531,
+        mileFromStart: 13.75,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'milwaukee-river-west-bend-quaas-creek': {
     putIn: {
@@ -6489,6 +7479,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Wind exposure on the more open lower-river bends approaching Appleton.',
       ],
     },
+    accessPoints: [
+      {
+        id: "larson-landing-public-water-access",
+        name: "Larson Landing public water access",
+        latitude: 45.239322,
+        longitude: -95.98509,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "appleton-public-water-access",
+        name: "Appleton public water access",
+        latitude: 45.203137,
+        longitude: -96.020898,
+        mileFromStart: 6,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'long-prairie-river-long-prairie-browerville': {
     putIn: {
@@ -6522,6 +7532,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'A longer full-day pace than the shorter beginner routes in the app, especially if the current is soft.',
       ],
     },
+    accessPoints: [
+      {
+        id: "long-prairie-public-water-access",
+        name: "Long Prairie public water access",
+        latitude: 45.975537,
+        longitude: -94.865877,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "browerville-public-water-access",
+        name: "Browerville public water access",
+        latitude: 46.076399,
+        longitude: -94.858487,
+        mileFromStart: 13.3,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'cannon-river-wilderness-northfield': {
     putIn: {
@@ -6557,6 +7587,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private banks between public access points; use only legal stops unless you have explicit permission.',
       ],
     },
+    accessPoints: [
+      {
+        id: "cannon-river-wilderness-area-canoe-launch",
+        name: "Cannon River Wilderness Area canoe launch",
+        latitude: 44.3699667,
+        longitude: -93.2313333,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "riverside-city-park-highway-3-public-water-access",
+        name: "Riverside City Park / Highway 3 public water access",
+        latitude: 44.4531293,
+        longitude: -93.1647835,
+        mileFromStart: 8.5,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'cottonwood-river-highway-4-highway-15': {
     putIn: {
@@ -6592,6 +7642,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private land along much of the corridor; stay with public landings and confirmed legal stops.',
       ],
     },
+    accessPoints: [
+      {
+        id: "highway-4-public-water-access",
+        name: "Highway 4 public water access",
+        latitude: 44.2352134,
+        longitude: -94.7256361,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "highway-15-cottonwood-street-bridge-public-water-access",
+        name: "Highway 15 / Cottonwood Street Bridge public water access",
+        latitude: 44.2826599,
+        longitude: -94.4360667,
+        mileFromStart: 30,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'minnesota-river-le-sueur-henderson': {
     putIn: {
@@ -6627,6 +7697,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private shoreland and agricultural edges; use the named public accesses for entry and exit.',
       ],
     },
+    accessPoints: [
+      {
+        id: "minnesota-river-le-sueur-public-water-access",
+        name: "Minnesota River Le Sueur public water access",
+        latitude: 44.4632749,
+        longitude: -93.9176049,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "henderson-public-water-access",
+        name: "Henderson public water access",
+        latitude: 44.5299631,
+        longitude: -93.9019182,
+        mileFromStart: 7.1,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'wisconsin-river-muscoda-blue-river': {
     putIn: {
@@ -6859,6 +7949,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fast rises and opaque water after rain.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'rock-springs-landing-firemens-park',
+        name: 'Rock Springs Landing / Firemen\'s Park',
+        latitude: 43.4772,
+        longitude: -89.9162,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this route.',
+      },
+      {
+        id: 'north-freedom-park-landing',
+        name: 'North Freedom Park landing',
+        latitude: 43.4599,
+        longitude: -89.8635,
+        mileFromStart: 5.4,
+        segmentKind: 'creek',
+        note: 'Default take-out for this route.',
+      },
+    ],
   },
   'baraboo-river-north-freedom-giese': {
     putIn: {
@@ -6893,6 +8003,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Cold water and limited bailout options outside the park accesses.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'north-freedom-park-landing',
+        name: 'North Freedom Park landing',
+        latitude: 43.4599,
+        longitude: -89.8635,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this route.',
+      },
+      {
+        id: 'giese-park-baraboo-river-access',
+        name: 'Giese Park Baraboo River access',
+        latitude: 43.46802,
+        longitude: -89.81102,
+        mileFromStart: 5.5,
+        segmentKind: 'creek',
+        note: 'Default take-out for this route.',
+      },
+    ],
   },
   'baraboo-river-wayside-kalepp': {
     putIn: {
@@ -26595,6 +27725,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Remote cold-water exposure, fresh wood, boggy landings, and limited quick exits.',
       ],
     },
+    accessPoints: [
+      {
+        id: "two-mile-creek-public-water-access-site",
+        name: "Two Mile Creek Public Water Access Site",
+        latitude: 47.9885552,
+        longitude: -92.4675615,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "vermilion-river-8-mile-creek-public-water-access-site",
+        name: "Vermilion River, 8 Mile Creek Public Water Access Site",
+        latitude: 48.0546146,
+        longitude: -92.4809237,
+        mileFromStart: 7,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'red-river-highway-25-halstad': {
     putIn: {
@@ -26630,6 +27780,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Snags, floating wood, broad bends, wind, anglers, and private banks along the border river.',
       ],
     },
+    accessPoints: [
+      {
+        id: "red-river-hendrum-county-road-25-public-water-access-site",
+        name: "Red River, Hendrum / County Road 25 Public Water Access Site",
+        latitude: 47.2669747,
+        longitude: -96.8338196,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "red-river-halstad-landing-public-water-access-site",
+        name: "Red River, Halstad Landing Public Water Access Site",
+        latitude: 47.3532666,
+        longitude: -96.8401799,
+        mileFromStart: 11.2,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'cloquet-river-indian-lake-bear-lake-road': {
     putIn: {
@@ -26665,6 +27835,81 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'High or rising water after heavy rain, fresh strainers, cold water, remote exposure, and limited quick exits.',
       ],
     },
+    accessPoints: [
+      {
+        id: "indian-lake-public-water-access-site",
+        name: "Indian Lake Public Water Access Site",
+        latitude: 47.2713978,
+        longitude: -91.8507597,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "cloquet-river-severson-landing-bear-lake-road-public-water-access-site",
+        name: "Cloquet River, Severson Landing / Bear Lake Road Public Water Access Site",
+        latitude: 47.2079219,
+        longitude: -91.9398991,
+        mileFromStart: 10.3,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
+  },
+  'cloquet-river-bear-lake-cloquet-south': {
+    putIn: {
+      name: 'Cloquet River, Severson Landing / Bear Lake Road Public Water Access Site',
+      latitude: 47.2079219,
+      longitude: -91.9398991,
+    },
+    takeOut: {
+      name: 'Cloquet River (S) Public Water Access Site',
+      latitude: 47.1170878,
+      longitude: -92.0256839,
+    },
+    logistics: {
+      distanceLabel: '13.2 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with scouting, low water, or portages',
+      shuttle:
+        'Stage the Cloquet River South take-out first, then drive back to Bear Lake Road. Both ends are remote, so confirm road conditions, daylight, and communication assumptions before launch.',
+      permits:
+        'No route-specific paddling permit is known. Use DNR public accesses, follow Minnesota boating/PFD rules, and follow posted state-forest or water-trail rules at campsites and portages.',
+      camping:
+        'DNR Map 2 shows watercraft campsites in this continuation corridor, including Marion Lake and Cloquet River South. Treat them as rustic first-come sites with no drinking water; do not use private banks as campsites.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Severson Landing / Bear Lake Road and take out at Cloquet River South for a remote upper-Cloquet continuation below the already-live Indian-Lake-to-Bear-Lake route. Current Brimson levels are low but above the scrape floor, so visual checks and portage decisions matter.',
+      accessCaveats: [
+        'Bear Lake Road and Cloquet River South both resolve in the Minnesota public-water-access GIS with DNR/Forestry administration and water-trail river miles.',
+        'The Brimson gauge is upstream of the put-in and should be treated as a conservative corridor gauge, not a substitute for checking rapids and wood at the launch.',
+        'This is an advanced moving-water route; beginners should not treat the downstream continuation as a casual scenic float.',
+      ],
+      watchFor: [
+        'Class I-II rapids, possible higher-water features, and portage/scouting decisions.',
+        'Rocky low-water scraping while the Brimson gauge is in the official low band.',
+        'High or rising water after rain, fresh strainers, cold water, remote exposure, and limited quick exits.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cloquet-river-severson-landing-bear-lake-road-public-water-access-site',
+        name: 'Cloquet River, Severson Landing / Bear Lake Road Public Water Access Site',
+        latitude: 47.2079219,
+        longitude: -91.9398991,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 61.5; resolves in Minnesota public-water-access GIS as WAS01633.',
+      },
+      {
+        id: 'cloquet-river-s-public-water-access-site',
+        name: 'Cloquet River (S) Public Water Access Site',
+        latitude: 47.1170878,
+        longitude: -92.0256839,
+        mileFromStart: 13.2,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 48.3; resolves in Minnesota public-water-access GIS as WAS01632.',
+      },
+    ],
   },
   'mississippi-river-itasca-coffee-pot-landing': {
     putIn: {
@@ -26700,6 +27945,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Class I rapids between Vekin\'s Dam and County Road 2, log jams, cold water, mosquitoes, and a longer-than-expected pace.',
       ],
     },
+    accessPoints: [
+      {
+        id: "lake-itasca-public-water-access-site-mississippi-headwaters",
+        name: "Lake Itasca Public Water Access Site / Mississippi Headwaters",
+        latitude: 47.2337901,
+        longitude: -95.1983589,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "mississippi-river-coffee-pot-landing-2-public-water-access-site",
+        name: "Mississippi River, Coffee Pot Landing #2 Public Water Access Site",
+        latitude: 47.3492223,
+        longitude: -95.1830624,
+        mileFromStart: 15.4,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'mississippi-river-highway-6-trommald': {
     putIn: {
@@ -26735,6 +28000,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Wind, floating wood, cold water, private banks, and downstream dam-corridor complacency after an easy first half.',
       ],
     },
+    accessPoints: [
+      {
+        id: "mississippi-river-hwy-6-public-water-access-site",
+        name: "Mississippi River, Hwy 6 Public Water Access Site",
+        latitude: 46.5435051,
+        longitude: -93.9564174,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "mississippi-river-trommald-public-water-access-site",
+        name: "Mississippi River, Trommald Public Water Access Site",
+        latitude: 46.5149237,
+        longitude: -94.0696772,
+        mileFromStart: 11.7,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'crow-wing-river-first-crow-wing-huntersville': {
     putIn: {
@@ -26908,6 +28193,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Snags, floating wood, wind on broad bends, anglers, and jurisdiction changes along the border river.',
       ],
     },
+    accessPoints: [
+      {
+        id: "red-river-golden-grain-public-water-access-site",
+        name: "Red River, Golden Grain Public Water Access Site",
+        latitude: 48.7878739,
+        longitude: -97.1570258,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Default put-in for this route.",
+      },
+      {
+        id: "red-river-hilltop-public-water-access-site",
+        name: "Red River, Hilltop Public Water Access Site",
+        latitude: 48.8427795,
+        longitude: -97.1738549,
+        mileFromStart: 9,
+        segmentKind: 'creek',
+        note: "Default take-out for this route.",
+      }
+    ],
   },
   'mississippi-river-beaver-island-clearwater': {
     putIn: {
@@ -28429,6 +29734,207 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 5.0,
         segmentKind: 'creek',
         note: 'Mandatory Little Falls city take-out before the downstream dam corridor; resolves as a public-water-access site at river mile 965.6.',
+      },
+    ],
+  },
+  'mississippi-river-jacobson-verdon': {
+    putIn: {
+      name: 'Mississippi River, Jacobson Campground Public Water Access Site',
+      latitude: 47.023658722,
+      longitude: -93.276260457,
+    },
+    takeOut: {
+      name: 'Mississippi River, Verdon Landing Public Water Access Site',
+      latitude: 46.901999722,
+      longitude: -93.360806544,
+    },
+    logistics: {
+      distanceLabel: 'About 17.9 mi',
+      estimatedPaddleTime: 'About 6 hr to 9 hr, or a planned overnight, depending on current, wood, and stops',
+      shuttle:
+        'Stage Verdon Landing first, then drive back to Jacobson Campground. Confirm both Aitkin County landings, restroom/camping rules, and road access before committing because exits are limited.',
+      permits:
+        'No route-specific paddling permit is known. Use only public accesses, mapped watercraft campsites, or clearly public land; follow Minnesota boating/PFD rules and all DNR/Aitkin County water-trail rules.',
+      camping:
+        'Jacobson Campground, Ms. Keto Watercraft Campsite, and Verdon Watercraft Campsite give this reach overnight planning options, but campsite availability and rules must be checked for the trip date.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Jacobson Campground and take out at Verdon Landing for the upper Map 4 connector below the existing County-Line-to-Jacobson route. Use the Aitkin DNR gauge as a downstream proxy and verify local wood and depth before launching.',
+      accessCaveats: [
+        'Jacobson Campground resolves as WAS02564 at river mile 1140.6, and Verdon Landing resolves as WAS02955 at river mile 1122.7 in Minnesota public-water-access GIS.',
+        'The Aitkin gauge is far downstream on the same DNR Map 4 corridor; do not treat it as an at-put-in gauge.',
+        'This is a long day or overnight route. Do not depend on private floodplain banks for scouting, breaks, or camping.',
+      ],
+      watchFor: [
+        'Snags, downed trees, shallow bars, oxbow confusion, and limited bailouts in a low-gradient floodplain corridor.',
+        'Cold water, storms, rising water, and post-rain debris that may not match the downstream Aitkin gauge immediately.',
+        'Campsite availability, legal stopping points, and long-shuttle timing between Jacobson and Verdon.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'jacobson-campground-access',
+        name: 'Mississippi River, Jacobson Campground Public Water Access Site',
+        latitude: 47.023658722,
+        longitude: -93.276260457,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at public-water-access GIS river mile 1140.6; resolves as WAS02564 with Aitkin County administration and campground context.',
+      },
+      {
+        id: 'ms-keto-watercraft-campsite',
+        name: 'Ms. Keto Watercraft Campsite',
+        latitude: 46.904,
+        longitude: -93.352,
+        mileFromStart: 17.5,
+        segmentKind: 'creek',
+        note: 'DNR Map 4 river-only campsite near river mile 1121.7; coordinates are approximate map context, not a landing replacement for Verdon.',
+      },
+      {
+        id: 'verdon-landing',
+        name: 'Mississippi River, Verdon Landing Public Water Access Site',
+        latitude: 46.901999722,
+        longitude: -93.360806544,
+        mileFromStart: 17.9,
+        segmentKind: 'creek',
+        note: 'Default take-out at public-water-access GIS river mile 1122.7; resolves as WAS02955 and DNR Map 4 also marks Verdon as a watercraft campsite.',
+      },
+    ],
+  },
+  'mississippi-river-verdon-lee-ferry': {
+    putIn: {
+      name: 'Mississippi River, Verdon Landing Public Water Access Site',
+      latitude: 46.901999722,
+      longitude: -93.360806544,
+    },
+    takeOut: {
+      name: 'Mississippi River, Lee Ferry Public Water Access Site',
+      latitude: 46.825948661,
+      longitude: -93.354489424,
+    },
+    logistics: {
+      distanceLabel: 'About 11.7 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr depending on current, wood, wind, and stops',
+      shuttle:
+        'Stage Lee Ferry first, then drive back to Verdon Landing. Inspect both carry-in landings before unloading because mud, current, and wood can change usable approach angles.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, use the mapped public accesses, and obey posted DNR and Aitkin County water-trail rules.',
+      camping:
+        'Verdon is mapped as a watercraft campsite and DNR Map 4 shows Libby Township Watercraft Campsite downstream of Lee Ferry. Treat overnight use as a separate planned campsite decision.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Verdon Landing and take out at Lee Ferry for a distinct upper-Aitkin Map 4 day segment. Use the Aitkin DNR gauge as a downstream proxy, then make a local call on wood, bars, and landing conditions.',
+      accessCaveats: [
+        'Verdon Landing resolves as WAS02955 at river mile 1122.7, and Lee Ferry resolves as WAS00896 at river mile 1111.0 in Minnesota public-water-access GIS.',
+        'Both endpoints are carry-in style Mississippi River access records; verify parking, mud, current, and take-out visibility before starting.',
+        'The Aitkin gauge is downstream of the route and should be paired with a same-day visual check.',
+      ],
+      watchFor: [
+        'Floodplain snags, downed trees, shallow inside bars, and limited public exits between Verdon and Lee Ferry.',
+        'Libby Brook confluence current or debris and faster water after storms.',
+        'Private banks, cold water, bugs, and remote shuttle logistics.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'verdon-landing',
+        name: 'Mississippi River, Verdon Landing Public Water Access Site',
+        latitude: 46.901999722,
+        longitude: -93.360806544,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at public-water-access GIS river mile 1122.7; resolves as WAS02955.',
+      },
+      {
+        id: 'libby-brook-confluence',
+        name: 'Libby Brook confluence',
+        latitude: 46.847,
+        longitude: -93.355,
+        mileFromStart: 9.5,
+        segmentKind: 'creek',
+        note: 'DNR Map 4 river-mile context near 1113.2; use only as an on-water landmark, not as a public access.',
+      },
+      {
+        id: 'lee-ferry-access',
+        name: 'Mississippi River, Lee Ferry Public Water Access Site',
+        latitude: 46.825948661,
+        longitude: -93.354489424,
+        mileFromStart: 11.7,
+        segmentKind: 'creek',
+        note: 'Default take-out at public-water-access GIS river mile 1111.0; resolves as WAS00896.',
+      },
+    ],
+  },
+  'mississippi-river-lee-ferry-bigsandy': {
+    putIn: {
+      name: 'Mississippi River, Lee Ferry Public Water Access Site',
+      latitude: 46.825948661,
+      longitude: -93.354489424,
+    },
+    takeOut: {
+      name: 'Big Sandy Lake (N) Public Water Access Site',
+      latitude: 46.788403882,
+      longitude: -93.318703672,
+    },
+    logistics: {
+      distanceLabel: 'About 6.2 mi including the Sandy River access paddle',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr depending on current, wind, and the Sandy River approach',
+      shuttle:
+        'Stage Big Sandy Lake North / Sandy Lake Recreation Area first, then drive to Lee Ferry. Confirm USACE recreation-area, fee, launch, camping, and dam notices before counting on the take-out.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, use the public access sites, and obey DNR water-trail plus USACE Sandy Lake Recreation Area rules.',
+      camping:
+        'DNR Map 4 identifies Libby Township Watercraft Campsite on this reach. Sandy Lake Recreation Area can support a separate base-camp plan only if current USACE rules and availability fit the trip.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Lee Ferry and finish by paddling up the Big Sandy River to Big Sandy Lake North / Sandy Lake Recreation Area. The route is short but still needs Sandy River, dam-area, wind, and downstream-proxy gauge checks.',
+      accessCaveats: [
+        'Lee Ferry resolves as WAS00896 at river mile 1111.0, and Big Sandy Lake North resolves as WAS02734 at river mile 1105.3 in Minnesota public-water-access GIS.',
+        'DNR Map 4 says Sandy Lake Recreation Area access is reached by paddling up the Big Sandy River from the Mississippi; confirm that finish before launching.',
+        'The Aitkin gauge is downstream of this reach. Make local checks for depth, wood, wind, and dam-area restrictions near Big Sandy.',
+      ],
+      watchFor: [
+        'Sandy River approach current, wind on Big Sandy Lake, dam-area restrictions, and launch fee or recreation-area rules.',
+        'Libby Township campsite availability, shallow riffles, sweepers, and cold water.',
+        'Do not continue into the existing Big Sandy-to-Wold’s route without a separate plan, daylight, and a fresh level/wind check.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lee-ferry-access',
+        name: 'Mississippi River, Lee Ferry Public Water Access Site',
+        latitude: 46.825948661,
+        longitude: -93.354489424,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at public-water-access GIS river mile 1111.0; resolves as WAS00896.',
+      },
+      {
+        id: 'libby-township-watercraft-campsite',
+        name: 'Libby Township Watercraft Campsite',
+        latitude: 46.812,
+        longitude: -93.349,
+        mileFromStart: 1.5,
+        segmentKind: 'creek',
+        note: 'DNR Map 4 watercraft campsite near river mile 1109.5; coordinates are approximate map context and should not replace campsite rule checks.',
+      },
+      {
+        id: 'big-sandy-river-confluence',
+        name: 'Big Sandy River confluence',
+        latitude: 46.789,
+        longitude: -93.330,
+        mileFromStart: 5.5,
+        segmentKind: 'creek',
+        note: 'DNR Map 4 marks the confluence at river mile 1105.5 and notes Sandy Lake Recreation Area access by a short upstream paddle on the Big Sandy River.',
+      },
+      {
+        id: 'sandy-lake-recreation-area',
+        name: 'Big Sandy Lake (N) Public Water Access Site',
+        latitude: 46.788403882,
+        longitude: -93.318703672,
+        mileFromStart: 6.2,
+        segmentKind: 'creek',
+        note: 'Default take-out at Big Sandy Lake North / Sandy Lake Recreation Area; resolves as WAS02734 and is administered by the U.S. Army Corps of Engineers.',
       },
     ],
   },
