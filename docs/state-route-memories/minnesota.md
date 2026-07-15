@@ -1,11 +1,11 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 02:12 America/Chicago.
+Last summarized: 2026-07-15 03:20 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 137.
-- Top represented rivers: Mississippi River 20, Sauk River 17, Minnesota River 10, Little Fork River 9, Crow Wing River 7, Big Fork River 5, Root River 5, Otter Tail River 4, Cannon River 4, St. Croix River 4, Rum River 4, North Fork Crow River 4, St. Louis River 4, Zumbro River 4, Red River of the North 4, Snake River 3.
+- Live routes: 140.
+- Top represented rivers: Mississippi River 20, Sauk River 18, Minnesota River 10, Little Fork River 9, Crow Wing River 7, Big Fork River 5, Root River 5, Zumbro River 5, Otter Tail River 4, Cannon River 4, St. Croix River 4, Rum River 4, North Fork Crow River 4, St. Louis River 4, Red River of the North 4, Snake River 3.
 - Ledger candidates: 854 total; 493 `added`, 83 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
@@ -13,6 +13,15 @@ Last summarized: 2026-07-15 02:12 America/Chicago.
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 03:20 America/Chicago: added `zumbro-river-hammond-theilman`, `red-lake-river-huot-crookston`, and `sauk-river-oak-township-spring-hill`.
+- Baseline at run start was 137 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 140 Minnesota routes and all three new slugs have trip-detail records.
+- Stayed in Minnesota and promoted three distinct gaps after reconciling prior automation work: Hammond-to-Theilman fills the middle-Zumbro gap below the existing Zumbro-Falls-to-Hammond route; Huot-to-Crookston extends Red Lake coverage below the existing Sportsman's-to-Huot card; and Oak-Township-to-Spring-Hill fills the official upper-Sauk section above the existing Spring-Hill-to-St.-Martin card.
+- Minnesota public-water-access GIS resolves Zumbro Hammond `WAS00253`, Zumbro Theilman `WAS02185`, Red Lake Huot Park `WAS02137`, Red Lake Crookston `WAS03055`, and Sauk Spring Hill `WAS00338`; Oak Township County Park is anchored by DNR recommended-one-way / Map 1 materials plus Stearns County park and ArcGIS named-park support rather than the DNR public-water-access layer.
+- Current MN DNR river-level feed exposed interpreted ladders for Zumbro Falls site `267` (`5.2 / 7-9 / 10.5 ft`), Red Lake Crookston site `172` (`3 / 5-8 / 12 ft`), and Sauk St. Martin site `328` (`14 / 15-17 / 20 ft`). During the run, Zumbro and Red Lake were low and Sauk was medium.
+- Camping posture: Hammond-to-Theilman is `on_route_campsite` for DNR Map 2 watercraft sites, Huot-to-Crookston is `none` because no selected on-route campsite was confirmed, and Oak-Township-to-Spring-Hill is `endpoint_campground` under county-park rule verification.
+- No route-gallery images were added. Bounded DNR / Commons / Miles Paddled / watershed / Stearns County / same-route image review did not produce clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed but did not add `cloquet-river-island-lake-bachelor-road` because it was already present in the run-start baseline, Blue Earth County-Road-90-to-Sibley because the current Rapidan Dam failure context still weakens the lower hazard/gauge package, St. Croix Sand-Creek-to-Highway-70 because prior memory says the existing Wisconsin Fox-to-Highway-70 card covers the corridor, and North Fork Crow Manannah-to-Highway-22 because the active DNR tree alert affects that exact reach.
 
 - 2026-07-15 02:12 America/Chicago: added `pine-river-cross-lake-rock-dam`, `rum-river-riverview-county-road-4`, and `south-fork-crow-river-otter-lake-masonic`.
 - Baseline at run start was 134 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 137 Minnesota routes and all three new slugs have trip-detail records.

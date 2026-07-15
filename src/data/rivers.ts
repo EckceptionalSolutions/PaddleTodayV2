@@ -77411,5 +77411,316 @@ export const rivers: River[] = [
       },
     ],
   },
-
+  {
+    id: 'zumbro-river-hammond-theilman',
+    slug: 'zumbro-river-hammond-theilman',
+    name: 'Zumbro River',
+    reach: 'Hammond Village Park to Theilman',
+    state: 'Minnesota',
+    region: 'Southeast Minnesota',
+    summary:
+      'Middle-Zumbro continuation below Hammond, using the same official Zumbro Falls DNR gauge bands as the adjacent upstream and downstream Zumbro cards while adding a distinct public access gap with on-route watercraft campsites.',
+    statusText:
+      'Use the Zumbro Falls DNR ladder: 7 to 9 ft is the official medium band. Below 5.2 ft is scrapable, and above 10.5 ft is very high for this snag- and flash-flood-prone valley.',
+    latitude: 44.2212366,
+    longitude: -92.3690609,
+    gaugeSource: {
+      id: 'mn-dnr-267',
+      provider: 'mn_dnr',
+      siteId: '267',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'proxy',
+      siteName: 'Zumbro River at Zumbro Falls, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=41031002',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=41031002&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 7,
+      idealMax: 9,
+      tooLow: 5.2,
+      tooHigh: 10.5,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Zumbro River at Zumbro Falls',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall works when the Zumbro Falls gauge is out of the scrapable band. The valley can flash after storms, so recent rain, falling trends, and visible wood matter as much as the current reading.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'DNR Map 2 marks Hammond Rapids as Class I and warns that the Zumbro has lively current, logs, dams, and flash-flood exposure. Treat the mileage, wood, and campsite stops as a full moving-water day.',
+      confidenceNotes:
+        'Confidence is high for route identity and thresholds: DNR Map 2 names Hammond Village Park and Theilman access, GIS resolves both endpoints with river-mile records and coordinates, and the Zumbro Falls DNR gauge is the established same-corridor official gauge. It remains a proxy because the gauge is upstream of Hammond.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Do not launch if the Zumbro Falls gauge is high, rising, or above the official high band; DNR warns this valley can flash quickly.',
+        'Expect logs, sweepers, shallow gravel, Hammond Rapids, and private banks between public accesses.',
+        'Use only signed public accesses and designated DNR watercraft campsites; do not assume informal bank camping is legal.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Map route',
+        value: 'Hammond RM 38.2 to Theilman RM 23.0',
+        note: 'DNR Map 2 names Hammond Village Park, Hammond Rapids, Theilman, and watercraft campsites in the selected corridor.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/zumbro2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS00253 to WAS02185',
+        note: 'Minnesota public-water-access GIS resolves Hammond Village Park and Theilman with coordinates, administrators, and Zumbro River mile records.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'DNR bands',
+        value: '5.2 / 7-9 / 10.5 ft',
+        note: 'MN DNR interprets Zumbro Falls as Scrapable below 5.2 ft, Low 5.2-7, Medium 7-9, High 9-10.5, and Very High above 10.5.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '6.28 ft at 2026-07-15 01:30 AM',
+        note: 'The current MN DNR feed placed Zumbro Falls in the official low band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Zumbro River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/zumbro-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Zumbro River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/zumbro2.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'red-lake-river-huot-crookston',
+    slug: 'red-lake-river-huot-crookston',
+    name: 'Red Lake River',
+    reach: 'Huot Park to Crookston',
+    state: 'Minnesota',
+    region: 'Northwest Minnesota',
+    summary:
+      'Lower Red Lake water-trail section from Huot Park into Crookston, adding the mapped boulder-field and city-landing corridor below the existing Sportsman-to-Huot route with a direct Crookston DNR gauge.',
+    statusText:
+      'Use the Crookston DNR gauge: 5 to 8 ft is the official medium band. Below 3 ft is scrapable, and above 12 ft is very high around rapids, dams, and city bridges.',
+    latitude: 47.8610626,
+    longitude: -96.4249999,
+    gaugeSource: {
+      id: 'mn-dnr-172',
+      provider: 'mn_dnr',
+      siteId: '172',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'direct',
+      siteName: 'Red Lake River at Crookston, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=63057001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=63057001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 5,
+      idealMax: 8,
+      tooLow: 3,
+      tooHigh: 12,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Red Lake River at Crookston',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall can work, but the route is long and the lower river has boulder-field rapids. Low summer water can make rapids scrape-heavy; high water raises dam, bridge, and rescue exposure.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'DNR Map 2 shows a long section with Class I-II rapids, several dams, boulder fields, and a 110-foot drop over 17 miles below St. Hilaire toward Crookston. Treat this as a full-day skilled route, not a casual float.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: DNR Map 2 documents Huot Park, Crookston, rapids, dams, and lower-river hazards; GIS resolves Huot Park and Crookston public accesses; and the Crookston DNR gauge is at the lower route corridor with official bands. The app keeps strong long-day and dam caveats because this is not a DNR short recommended one-way.',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['dam', 'strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Know the Crookston dam and city-landing sequence before launching; DNR notes dams at Red Lake River miles 62.8, 53.6, and 0.2 in this river system.',
+        'Scout Class I-II rapids and boulder fields. Low water can make rock gardens scrape-heavy, while high water can make them pushy and harder to stop above hazards.',
+        'Plan this as a long daylight commitment with limited bailout options between named public accesses.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Map route',
+        value: 'Huot Park RM 79.5 to Crookston RM 59.1',
+        note: 'DNR Map 2 names Huot Park, Gentilly, Crookston, boulder-field rapids, and dams in the lower Red Lake corridor.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/redlake2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS02137 and WAS03055',
+        note: 'Minnesota public-water-access GIS resolves Huot Park and Crookston with coordinates and administrator records; DNR Map 2 supplies the Crookston river-mile context.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'DNR bands',
+        value: '3 / 5-8 / 12 ft',
+        note: 'MN DNR interprets Crookston as Scrapable below 3 ft, Low 3-5, Medium 5-8, High 8-12, and Very High above 12.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '4.43 ft at 2026-07-15 01:00 AM',
+        note: 'The current MN DNR feed placed Crookston in the official low band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Red Lake River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/red-lake-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Red Lake River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/redlake2.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'sauk-river-oak-township-spring-hill',
+    slug: 'sauk-river-oak-township-spring-hill',
+    name: 'Sauk River',
+    reach: 'Oak Township County Park to Spring Hill County Park',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Upper Sauk Map 1 continuation from Oak Township County Park to Spring Hill, adding the official upstream park-to-park section above the existing Spring-Hill-to-St.-Martin card.',
+    statusText:
+      'Use the St. Martin DNR ladder as the downstream corridor check: 15 to 17 ft is the official medium band. Below 14 ft gets scrapable; above 20 ft is very high.',
+    latitude: 45.60927,
+    longitude: -94.75344,
+    gaugeSource: {
+      id: 'mn-dnr-328',
+      provider: 'mn_dnr',
+      siteId: '328',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'proxy',
+      siteName: 'Sauk River nr St. Martin, CR12',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=16051001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=16051001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 15,
+      idealMax: 17,
+      tooLow: 14,
+      tooHigh: 20,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Sauk River near St. Martin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is practical when the St. Martin gauge is not scrape-low. This upper reach can still be slower or woodier than the downstream gauge implies, so inspect the park launches before committing.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'DNR Map 1 presents this as an approachable upper Sauk route, but the mileage, wood, low-water vegetation, private banks, and simple county-park landings make it more committing than the shorter Spring-Hill-to-St.-Martin card.',
+      confidenceNotes:
+        'Confidence is good with a coordinate caveat: DNR Map 1 and the recommended-one-ways list identify Oak Township County Park to Spring Hill County Park as the route; Stearns County confirms Oak Township County Park has a quarter mile of Sauk River frontage; Spring Hill resolves in public-water-access GIS; and the St. Martin DNR gauge provides the official downstream Sauk ladder. Oak coordinates come from the named Stearns County park point rather than the DNR public-water-access layer.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Inspect Oak Township and Spring Hill access conditions before launching; Oak is a county park access rather than a DNR GIS water-access record in this run.',
+        'Expect wood, shallow riffles, weeds, and private banks on the upper Sauk, especially below the official medium band.',
+        'Use only county park facilities and designated watercraft campsites; do not assume informal bank stops are public.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: 'Oak Township County Park to Spring Hill County Park, 10.9 mi',
+        note: 'MN DNR recommended-one-ways list identifies this as an official Sauk River section, and DNR Map 1 places the route on the upper Sauk.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Access support',
+        value: 'Oak Township park and Spring Hill WAS00338',
+        note: 'Stearns County identifies Oak Township County Park on the Sauk River; Minnesota public-water-access GIS resolves Spring Hill / Sping Hill at river mile 56.1.',
+        sourceUrl: 'https://www.stearnscountymn.gov/oak-township-county-park',
+      },
+      {
+        label: 'DNR bands',
+        value: '14 / 15-17 / 20 ft',
+        note: 'MN DNR interprets the St. Martin gauge as Scrapable below 14 ft, Low from 14 to 15, Medium from 15 to 17, High from 17 to 20, and Very High above 20.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '15.10 ft at 2026-07-15 01:00 AM',
+        note: 'The current MN DNR feed placed St. Martin in the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR recommended one-way water-trail trips',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Sauk River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk1.pdf',
+      },
+      {
+        label: 'Stearns County Oak Township County Park',
+        url: 'https://www.stearnscountymn.gov/oak-township-county-park',
+      },
+      {
+        label: 'Stearns County Spring Hill County Park',
+        url: 'https://www.stearnscountymn.gov/spring-hill-county-park',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+    ],
+  },
 ];
