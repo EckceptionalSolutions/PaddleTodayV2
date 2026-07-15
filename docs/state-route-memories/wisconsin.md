@@ -4,16 +4,23 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 83.
-- Top represented rivers: Wisconsin River 12, Peshtigo River 5, Pine River 4, Milwaukee River 4, Wolf River 4, Chippewa River 4, Bois Brule River 4, Black River 3, Brule River 3, Grant River 3.
-- Ledger candidates: 80 total; 71 added, 4 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
+- Live routes: 86.
+- Top represented rivers: Wisconsin River 13, Wolf River 5, Milwaukee River 5, Peshtigo River 5, Chippewa River 4, Bois Brule River 4, Pine River 4, Baraboo River 3, Sugar River 3, Black River 3, Brule River 3, Grant River 3.
+- Ledger candidates: 81 total; 71 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-14/15 America/Chicago run added three upper Pine River Florence County Wild River reaches beyond the 80-route baseline: `pine-river-highway-55-stevens-lake`, `pine-river-stevens-lake-chipmunk-rapids`, and `pine-river-chipmunk-rapids-bull-falls`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-14/15 America/Chicago run added two South Fork Jump whitewater reaches plus the upper St. Croix Gordon Dam-to-Riverside National Scenic Riverway section beyond the 83-route baseline: `jump-south-fork-county-line-little-falls`, `jump-south-fork-little-falls-big-falls`, and `st-croix-river-gordon-dam-riverside`.
 
 ## Latest Audit
 
+- 2026-07-14/15 America/Chicago: added `jump-south-fork-county-line-little-falls`, `jump-south-fork-little-falls-big-falls`, and `st-croix-river-gordon-dam-riverside`, bringing the live Wisconsin route count to 86.
+- The two South Fork Jump routes use American Whitewater exact-reach geometry, feature coordinates, whitewater ratings, and USGS `05362000` discharge bands: 525-3525 cfs for County Line Road-to-Little Falls and 600-2500 cfs for Little Falls-to-Big Falls. USGS Water Services returned 87.7 cfs / 3.18 ft at 2026-07-14 21:00 CDT, below both AW runnable floors, so both ship as live low-water warnings when current conditions match.
+- South Fork Jump implementation adds roadside-access, low-water bony ledge, Little Falls/Big Falls scouting, Class III+ / waterfall, portage, cold-water, poison-ivy, strainer, rural rescue, and Price County Big Falls endpoint-campground caveats. Price County, Travel Wisconsin, and Wisconsin DNR context support the Big Falls / Jump River public recreation story.
+- The St. Croix route uses NPS Gordon Dam-to-Riverside Section Map 4, NPS camping rules, American Whitewater St. Croix A geometry and USGS `05333500` 1000-3000 cfs band. USGS Water Services returned 733 cfs / 0.69 ft at 2026-07-14 22:00 CDT, below the AW floor.
+- St. Croix implementation adds NPS designated-campsite/rules, formal landing chain, low-water wading, Scout Chute / Scott Rapids / Copper Mine Sluice Dam / Bear Trap / Fish Trap rapid hazards, private/restricted-bank, cold-water, full-campsite, and remote-rescue caveats. It is represented as Wisconsin because the NPS Map 4 section is upstream of the border-river maps and is framed in Douglas/Burnett/Washburn county context.
+- Bounded image review found no clearly rights-clean exact-route paddling image for any of the three routes; rows were added to the image audit instead of adding local route-gallery assets.
+- Reviewed but did not add Oconto North Branch Bagley Rapids despite strong public campground context because American Whitewater's useful 150-1000 cfs band depends on a calculated local flow the app cannot query directly against a USGS adapter, and recent AW trip reports still describe wood/chute/portage issues that need fresh clearance before implementation.
 - 2026-07-14/15 America/Chicago: added `pine-river-highway-55-stevens-lake`, `pine-river-stevens-lake-chipmunk-rapids`, and `pine-river-chipmunk-rapids-bull-falls`, bringing the live Wisconsin route count to 83.
 - The three routes are distinct upper Pine River Wild River reaches above the existing `pine-river-county-n-wepco-5` lower route. American Whitewater documents Pine A/B/C with exact reach geometry, mileages, class ratings, access descriptions, and route-specific stage bands on USGS `04064500`; USGS Water Services returned 202 cfs / 1.99 ft at 2026-07-14 21:00 CDT; and Wisconsin DNR corroborates Pine-Popple Wild Rivers public paddling/recreation context.
 - Thresholds use AW's gage-height bands without inventing narrower ideals: Pine A ships with 3.3 ft low-runnable, 5.3 ft medium, 7.3 ft high, and 10 ft top-of-high; Pine B and Pine C ship with 2 / 4 / 7 / 10 ft bands. Pine A keeps the AW caveat that the downstream County N gauge should be supplemented by a Highway 55 visual rock check.

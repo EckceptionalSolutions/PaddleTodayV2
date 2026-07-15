@@ -74280,4 +74280,346 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'jump-south-fork-county-line-little-falls',
+    slug: 'jump-south-fork-county-line-little-falls',
+    name: 'South Fork Jump River',
+    reach: 'County Line Road Picnic Area to Little Falls',
+    aliases: ['South Fork Jump A', 'County Line Road to Little Falls'],
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Upper South Fork Jump whitewater day from County Line Road to Little Falls, with flatwater breaks, boulder-bed riffles, and a direct Sheldon gauge band from American Whitewater. Treat it as a guarded novice-to-intermediate whitewater run, not a low-water float.',
+    statusText:
+      'Use the Jump River at Sheldon gauge. American Whitewater starts this reach at 525 cfs and carries the runnable band to 3525 cfs; below the floor expect bony ledges, and higher water makes Little Falls much less forgiving.',
+    latitude: 45.3787,
+    longitude: -90.5338,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-05362000',
+      provider: 'usgs',
+      siteId: '05362000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jump River at Sheldon, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05362000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'strainers', 'cold_water', 'remote'],
+      safetyNotes: [
+        'Scout Little Falls before deciding whether to finish above it or run through the lower landing.',
+        'At low flows, expect technical boulder dodging and boat pin risk; at higher flows, holes at Little Falls become more consequential for less experienced paddlers.',
+        'The corridor is rural and wooded, so plan a real shuttle and expect limited quick exits between bridges.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 525,
+      idealMax: 3525,
+      tooLow: 525,
+      tooHigh: 3525,
+      thresholdSource: {
+        label: 'American Whitewater South Fork Jump A gauge correlation',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/10832/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 9, 10],
+      seasonNotes:
+        "Spring and storm-supported windows are the realistic seasons. The same-day live check during this run was far below AW's floor, so the route should often display as too low in summer.",
+      difficulty: 'moderate',
+      difficultyNotes:
+        'American Whitewater rates the reach I-II, but the run still requires whitewater judgment because low-water rock gardens and the Little Falls decision point can punish casual paddlers.',
+      confidenceNotes:
+        'Confidence is good for a guarded add: American Whitewater documents the exact County Line Road Picnic Area-to-Little Falls reach, publishes route geometry, feature coordinates, and a numeric USGS 05362000 discharge band; USGS confirms live direct data at Sheldon; and Price County / DNR sources corroborate the public South Fork Jump corridor near Big Falls. The main limitation is that access is roadside and practical conditions depend heavily on same-day visual checks.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific reach',
+        value: '5.7 miles; Class I-II',
+        note: 'American Whitewater documents South Fork Jump A from County Line Road Picnic Area to Little Falls, with Rocky Rips and Midway Rips as mapped route features.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/10832/main',
+      },
+      {
+        label: 'Gauge bands',
+        value: '525 to 3525 cfs',
+        note: 'American Whitewater ties the route to USGS 05362000 at Sheldon and publishes a low-runnable to high-runnable discharge band for this exact reach.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/10832/flow',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.3787, -90.5338 to 45.399899, -90.603897',
+        note: 'American Whitewater maps the put-in and Little Falls access coordinates for the route.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/10832/map',
+      },
+      {
+        label: 'Live gauge',
+        value: 'USGS 05362000 Jump River at Sheldon',
+        note: 'USGS Water Services returned 87.7 cfs / 3.18 ft at 2026-07-14 21:00 CDT during this run, well below AW runnable guidance.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05362000/',
+      },
+      {
+        label: 'Corridor context',
+        value: 'South Fork Jump River public recreation corridor',
+        note: 'Wisconsin DNR describes Jump River Woods along the frequently scoured Jump River floodplain, and Price County confirms Big Falls County Park lies on the South Fork Jump corridor downstream.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/statenaturalareas/JumpRiverWoods',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater South Fork Jump A',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/10832/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 05362000 Jump River at Sheldon',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05362000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Price County Big Falls County Campground and Park',
+        url: 'https://www.co.price.wi.us/Facilities/Facility/Details/Big-Falls-County-Campground-Park-3',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin DNR Jump River Woods',
+        url: 'https://dnr.wisconsin.gov/topic/statenaturalareas/JumpRiverWoods',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'jump-south-fork-little-falls-big-falls',
+    slug: 'jump-south-fork-little-falls-big-falls',
+    name: 'South Fork Jump River',
+    reach: 'Little Falls to Big Falls County Park',
+    aliases: ['South Fork Jump B', 'Little Falls to Big Falls'],
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Short, technical South Fork Jump whitewater link from Little Falls to Big Falls County Park. It is only 2.7 miles, but the route is defined by park-and-play drops, Big Falls scouting, poison ivy on shore, and a direct Sheldon gauge band.',
+    statusText:
+      'Use the Jump River at Sheldon gauge. American Whitewater starts the reach at 600 cfs and carries it to 2500 cfs; below the floor expect bony technical drops, and above the normal range holes and rescue exposure become serious.',
+    latitude: 45.4,
+    longitude: -90.603,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-05362000',
+      provider: 'usgs',
+      siteId: '05362000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jump River at Sheldon, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05362000/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'mandatory_takeout', 'strainers', 'cold_water'],
+      safetyNotes: [
+        'Scout Little Falls and Big Falls before committing; Big Falls is mapped by AW as a Class III+ hazard, portage, and playspot.',
+        'Use this as a whitewater day or park-and-play plan, not a beginner float. Rescue setup, helmets, and cold-water gear matter.',
+        'Poison ivy is common on shore near both falls; portage and scouting should stay controlled and deliberate.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 600,
+      idealMax: 2500,
+      tooLow: 600,
+      tooHigh: 2500,
+      thresholdSource: {
+        label: 'American Whitewater South Fork Jump B gauge correlation',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2296/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 9, 10],
+      seasonNotes:
+        'Spring and rain windows are the practical seasons. The route is commonly too low outside runoff, and rising water quickly changes the drops from bony to powerful.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'American Whitewater rates the reach II-III(IV), with Little Falls, Big Falls, and a runout rapid. The short mileage does not reduce the need for whitewater skill and scouting.',
+      confidenceNotes:
+        'Confidence is high for route evidence and guarded for public-user fit: American Whitewater documents the exact Little Falls-to-Big Falls reach, feature coordinates, park-and-play options, route-specific USGS 05362000 band, and hazards; Price County documents Big Falls County Park and campground on the South Fork Jump. The app keeps strong caveats because this is a technical whitewater route, not a general rec-paddle segment.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific reach',
+        value: '2.7 miles; Class II-III(IV)',
+        note: 'American Whitewater documents South Fork Jump B from Little Falls to Big Falls with Little Falls, CTH N, Big Falls, and runout rapids as mapped features.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2296/main',
+      },
+      {
+        label: 'Gauge bands',
+        value: '600 to 2500 cfs',
+        note: 'American Whitewater ties the route to USGS 05362000 at Sheldon and publishes a route-specific low-to-high runnable discharge band.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2296/flow',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.4000, -90.6030 to 45.4030, -90.6380',
+        note: 'American Whitewater maps Little Falls and Big Falls as access/hazard points for the reach.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2296/map',
+      },
+      {
+        label: 'Official park and camping',
+        value: 'Big Falls County Park and Campground',
+        note: 'Price County places Big Falls County Park on the South Fork Jump River and lists a six-unit rustic campground, parking, picnic area, shelter, water, vault toilets, and hiking along the falls area.',
+        sourceUrl: 'https://www.co.price.wi.us/Facilities/Facility/Details/Big-Falls-County-Campground-Park-3',
+      },
+      {
+        label: 'Live gauge',
+        value: 'USGS 05362000 Jump River at Sheldon',
+        note: 'USGS Water Services returned 87.7 cfs / 3.18 ft at 2026-07-14 21:00 CDT during this run, well below AW runnable guidance.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05362000/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater South Fork Jump B',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2296/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'Price County Big Falls County Campground and Park',
+        url: 'https://www.co.price.wi.us/Facilities/Facility/Details/Big-Falls-County-Campground-Park-3',
+        provider: 'local',
+      },
+      {
+        label: 'Travel Wisconsin Big Falls County Park Campground',
+        url: 'https://www.travelwisconsin.com/stay/campgrounds-rv-parks/big-falls-county-park-campground',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05362000 Jump River at Sheldon',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05362000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'st-croix-river-gordon-dam-riverside',
+    slug: 'st-croix-river-gordon-dam-riverside',
+    name: 'St. Croix River',
+    reach: 'Gordon Dam Landing to Riverside Landing',
+    aliases: ['Upper St. Croix Map 4', 'Gordon Dam to Riverside'],
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Long upper St. Croix National Scenic Riverway trip from Gordon Dam to Riverside Landing, with formal landings, designated campsites, easy Class I-II rapids, and a direct Danbury gauge band. It is best treated as an overnight-capable wilderness river plan.',
+    statusText:
+      'Use the St. Croix River near Danbury gauge. American Whitewater starts the runnable band at 1000 cfs and carries it to 3000 cfs; below the floor, expect low-water wading and exposed rapids.',
+    latitude: 46.2536,
+    longitude: -91.92809,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-05333500',
+      provider: 'usgs',
+      siteId: '05333500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'St. Croix River near Danbury, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05333500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'strainers', 'remote', 'cold_water', 'private_banks'],
+      safetyNotes: [
+        'Scout or give wide margin to named rapids including Scout Chute, Scott Rapids, Copper Mine Sluice Dam, Bear Trap, Eagle Drop, Big Fish Trap, and Little Fish Trap.',
+        'Copper Mine Sluice Dam has old-timber hazard context; treat it as a mandatory caution feature, not a casual riffle.',
+        'Designated campsites and landings can fill on summer weekends; do not create informal camps on restricted or private shore.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1000,
+      idealMax: 3000,
+      tooLow: 1000,
+      tooHigh: 3000,
+      thresholdSource: {
+        label: 'American Whitewater St. Croix Gordon Dam gauge correlation',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2314/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall works when Danbury is above the AW floor. Summer lows can expose rocks and require wading at rapids; storm water can increase push and rescue commitment on a long remote route.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'American Whitewater rates the reach I-II. The paddling is often approachable, but 23.4 miles, multiple rapids, low-water wading, campsite logistics, and limited rescue access make it more than an easy short float.',
+      confidenceNotes:
+        'Confidence is high: NPS publishes the Gordon Dam-to-Riverside section map with road access, campsite locations, restrooms, and river rules; American Whitewater documents the exact 23.4-mile reach and a numeric direct USGS 05333500 gauge band; and USGS confirms current live readings at Danbury. The route is assigned to Wisconsin because the NPS map places this upper segment above the Minnesota-border section and includes Douglas, Burnett, and Washburn County context.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official section map',
+        value: 'Gordon Dam to Riverside Landing',
+        note: 'NPS publishes the current St. Croix River Map 4 section for the Gordon Dam-to-Riverside reach, with landings, campsites, restrooms, and river rules.',
+        sourceUrl:
+          'https://www.nps.gov/sacn/planyourvisit/upload/Section-4_St-Croix_Gordon-Dam-to-Riverside-Landing_2024_508.pdf',
+      },
+      {
+        label: 'Route-specific reach',
+        value: '23.4 miles; Class I-II',
+        note: 'American Whitewater documents St. Croix A from Gordon Dam to Riverside Landing with mapped landings, campgrounds, and rapid features.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2314/main',
+      },
+      {
+        label: 'Gauge bands',
+        value: '1000 to 3000 cfs',
+        note: 'American Whitewater ties the route to USGS 05333500 St. Croix River near Danbury and publishes a low-to-high runnable discharge band.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2314/flow',
+      },
+      {
+        label: 'Camping rules',
+        value: 'Designated primitive shoreline campsites',
+        note: 'NPS says primitive shoreline campsites along the St. Croix and Namekagon are first-come, first-served and that camping rules and permit requirements vary by river section.',
+        sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/camping.htm',
+      },
+      {
+        label: 'Live gauge',
+        value: 'USGS 05333500 St. Croix River near Danbury',
+        note: 'USGS Water Services returned 733 cfs / 0.69 ft at 2026-07-14 22:00 CDT during this run, below AW runnable guidance.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05333500/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS St. Croix River Map 4 PDF',
+        url: 'https://www.nps.gov/sacn/planyourvisit/upload/Section-4_St-Croix_Gordon-Dam-to-Riverside-Landing_2024_508.pdf',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS St. Croix maps',
+        url: 'https://www.nps.gov/sacn/planyourvisit/maps.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS St. Croix camping',
+        url: 'https://www.nps.gov/sacn/planyourvisit/camping.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'American Whitewater St. Croix A',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2314/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 05333500 St. Croix River near Danbury',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05333500/',
+        provider: 'usgs',
+      },
+    ],
+  },
 ];

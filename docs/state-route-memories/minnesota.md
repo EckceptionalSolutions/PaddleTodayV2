@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 21:09 America/Chicago.
+Last summarized: 2026-07-14 23:10 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 125.
-- Top represented rivers: Sauk River 17, Mississippi River 16, Little Fork River 9, Minnesota River 9, Crow Wing River 6, Big Fork River 5, Otter Tail River 4, Cannon River 4, Root River 4, North Fork Crow River 4, St. Louis River 4, Zumbro River 4.
-- Ledger candidates: 829 total; 472 `added`, 80 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 54 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
+- Live routes: 128.
+- Top represented rivers: Sauk River 17, Mississippi River 16, Little Fork River 9, Minnesota River 10, Crow Wing River 7, Big Fork River 5, St. Croix River 3, Otter Tail River 4, Cannon River 4, Root River 4, North Fork Crow River 4, St. Louis River 4, Zumbro River 4.
+- Ledger candidates: 839 total; 478 `added`, 83 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-14 23:10 America/Chicago: added `crow-wing-river-lake-placid-crow-wing-state-park`, `minnesota-river-judson-riverside-st-peter`, and `st-croix-river-william-obrien-boomsite`.
+- Baseline at run start was 125 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 128 Minnesota routes and all three new slugs have trip-detail records.
+- Stayed in Minnesota and promoted one distinct lower Crow Wing segment plus two official DNR longer planners that extend shorter existing cards without replacing them: Lake Placid Reservoir Landing #3-to-Crow Wing State Park `11.8` miles, Judson-to-Riverside Park Millpond / St. Peter `27.4` miles, and William O'Brien State Park-to-Boomsite `11.2` miles.
+- Minnesota public-water-access GIS resolves all six endpoint records with source-backed coordinates: Crow Wing Lake Placid Reservoir #3 `WAS01657`, Mississippi River Crow Wing State Park `WAS00990`, Minnesota River Judson `WAS02412`, Minnesota River Riverside Park / St. Peter `WAS01017`, St. Croix William O'Brien SPK `WAS00278`, and St. Croix Boomsite `WAS02194`.
+- Current MN DNR river-level feed exposed interpreted ladders for Crow Wing Sylvan Dam site `58` (`400 / 800-3000 / 5000 cfs`), Minnesota River Judson site `95` (`5 / 10-15 / 22 ft`), and St. Croix Falls site `236` (`2000 / 3000-8000 / 11000 cfs`).
+- Camping posture: Lake-Placid-to-Crow-Wing-State-Park is `endpoint_campground` because Crow Wing State Park supports endpoint base-camping; Judson-to-St.-Peter and William-O'Brien-to-Boomsite are `nearby_basecamp` long day routes rather than on-route camping filters.
+- No route-gallery images were added. Bounded DNR / Commons / state-park / NPS / same-river review did not produce clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed but did not add Long Prairie Lake Carlos-to-Miltona because the take-out resolved less cleanly than the selected endpoints, Pine Cross-Lake-to-Harvey-Drake and Cedar Dreisner-to-State-Line because they mostly duplicate already-live lower-route cards, and other lower St. Croix alternatives because William-O'Brien-to-Boomsite had the cleanest Minnesota endpoint package.
 
 - 2026-07-14 21:09 America/Chicago: added `mississippi-river-coffee-pot-bear-den`, `mississippi-river-bear-den-iron-bridge`, and `otter-tail-river-riverside-phelps-mill`.
 - Baseline at run start was 122 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 125 Minnesota routes.
