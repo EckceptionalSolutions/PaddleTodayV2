@@ -28607,6 +28607,255 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'st-croix-river-riverside-thayers': {
+    putIn: {
+      name: 'Riverside Landing',
+      latitude: 46.0765000581741,
+      longitude: -92.2455899715424,
+    },
+    takeOut: {
+      name: "Thayer's Landing",
+      latitude: 46.0123699903488,
+      longitude: -92.4438199996948,
+    },
+    logistics: {
+      distanceLabel: '13.4 mi',
+      estimatedPaddleTime: 'About 5.5 hr to 7 hr, longer with low water, headwind, or campsite stops',
+      shuttle:
+        "Stage the take-out at Thayer's Landing on the Wisconsin side of the Highway 77 / 48 bridge, then return to Riverside Landing. Mark the take-out before launching because the bridge comes after a long island-and-slough section.",
+      permits:
+        'No day-use paddling permit is known. Follow St. Croix National Scenic Riverway rules, posted landing rules, and current NPS alerts for campsites, fires, glass, waste, and closures.',
+      camping:
+        'Riverside has camping context, and the Riverway corridor has designated primitive campsite support. Plan legal NPS campsite use before launching; do not assume private banks or landings are overnight sites.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        "Launch at Riverside Landing and finish at Thayer's Landing for the Wisconsin-bank SC3 St. Croix run. The trip has a direct Danbury gauge screen, State Line Rapids, island channels, and a clear public landing pair.",
+      accessCaveats: [
+        'Wisconsin Trail Guide gives WGS84 coordinates for both landings, but current NPS or posted landing rules still control parking, camping, and launch surfaces.',
+        'The Danbury gauge sits at the route head and was below the official scrapable floor during this run; use the app score as a screen and make a same-day visual check.',
+        'Yellow Landing is reservation-managed and may require a fee, so do not treat it as an automatic free bailout.',
+      ],
+      watchFor: [
+        'State Line Rapids around Ginger Island, usually Class I but up to Class II in higher water.',
+        'Low-water scraping and exposed rock ledges when Danbury is below the 1,250 cfs floor.',
+        'Island channels, strainers, cold water, private/restricted banks, and limited rescue access.',
+        'The diagonal rock ledge above the Highway 77 / 48 bridge at the take-out; stay left as WTG recommends.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'riverside-landing',
+        name: 'Riverside Landing',
+        latitude: 46.0765000581741,
+        longitude: -92.2455899715424,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'WTG SC3 put-in at river mile 131.7 with ramp, parking, picnic area, rustic toilets, and camping context.',
+      },
+      {
+        id: 'state-line-rapids',
+        name: 'State Line Rapids / Ginger Island',
+        latitude: 46.0743900537491,
+        longitude: -92.2885400056839,
+        mileFromStart: 2.2,
+        segmentKind: 'transition',
+        note: 'Class I-II rapid and the point where the Wisconsin-Minnesota state-line corridor begins after the fork converges.',
+      },
+      {
+        id: 'yellow-landing',
+        name: 'Yellow River Landing',
+        latitude: 46.0131299495697,
+        longitude: -92.355919957161,
+        mileFromStart: 8.4,
+        segmentKind: 'transition',
+        note: 'Intermediate left-bank landing near Danbury; WTG notes reservation management and a small use fee.',
+      },
+      {
+        id: 'lower-tamarack-landing',
+        name: 'Lower Tamarack Landing',
+        latitude: 46.0261600017548,
+        longitude: -92.4222300052643,
+        mileFromStart: 11.7,
+        segmentKind: 'transition',
+        note: 'River-right rustic canoe landing below the Lower Tamarack confluence; useful only with current legal-access confirmation.',
+      },
+      {
+        id: 'thayers-landing',
+        name: "Thayer's Landing",
+        latitude: 46.0123699903488,
+        longitude: -92.4438199996948,
+        mileFromStart: 13.4,
+        segmentKind: 'creek',
+        note: 'WTG SC3 take-out on the Wisconsin side just downstream of the Highway 77 / 48 bridge.',
+      },
+    ],
+  },
+  'st-croix-river-thayers-norway-point': {
+    putIn: {
+      name: "Thayer's Landing",
+      latitude: 46.0123699903488,
+      longitude: -92.4438199996948,
+    },
+    takeOut: {
+      name: 'Norway Point Landing',
+      latitude: 45.9240200519562,
+      longitude: -92.6399600505829,
+    },
+    logistics: {
+      distanceLabel: '14.3 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr, longer with low-water scraping, headwind, or campsite stops',
+      shuttle:
+        "Stage the take-out at Norway Point Landing on County F, then return to Thayer's Landing. This is a longer border-river shuttle; carry the NPS map and identify the state-park landings before launch.",
+      permits:
+        'No day-use paddling permit is known, but St. Croix State Park, Riverway campsites, and posted access rules can add vehicle, fee, and overnight requirements.',
+      camping:
+        'WTG identifies Little Yellow Banks, St. Croix State Park, Sand Creek, and Norway Point camping or campground context. Treat overnight use as a planned Riverway/state-park itinerary with designated sites only.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        "Use Thayer's Landing to Norway Point for the full Wisconsin-bank SC4 through-trip. It overlaps the already implemented Little Yellow Banks-to-Sand Creek state-park subset, but this card covers the longer public landing pair and keeps the shorter subset as an alternate plan.",
+      accessCaveats: [
+        "The Danbury gauge is upstream of the selected route. Use it as an official same-river screen, then inspect Thayer's, Little Yellow, Sand Creek, and Norway Point for current water and access conditions.",
+        'The existing Little Yellow Banks-to-Sand Creek card already handles the shorter Minnesota state-park route; choose that shorter option if a 14.3-mile day is too much.',
+        'Fees, state-park vehicle rules, campsite rules, and water availability can vary by landing and season.',
+      ],
+      watchFor: [
+        'Long riffly mileage with island channels, sloughs, and limited casual bailout options.',
+        'Low-water scraping and channel-picking below the 1,250 cfs Danbury floor.',
+        'Private/restricted banks, designated-campsite-only rules, cold water, and strainers after storms.',
+        'Norway Point take-out awareness; continuing past Norway enters the harder SC5 rapid corridor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'thayers-landing',
+        name: "Thayer's Landing",
+        latitude: 46.0123699903488,
+        longitude: -92.4438199996948,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'WTG SC4 put-in on the Wisconsin side of the Highway 77 / 48 bridge.',
+      },
+      {
+        id: 'little-yellow-banks',
+        name: 'Little Yellow Banks Landing',
+        latitude: 45.975319981575,
+        longitude: -92.5411800146103,
+        mileFromStart: 7.1,
+        segmentKind: 'transition',
+        note: 'Intermediate landing with group-campsite context; also the put-in for the existing shorter Little Yellow Banks-to-Sand Creek card.',
+      },
+      {
+        id: 'st-croix-state-park-main',
+        name: 'St. Croix State Park main canoe landing',
+        latitude: 45.9499399662018,
+        longitude: -92.5681400299072,
+        mileFromStart: 9.8,
+        segmentKind: 'transition',
+        note: 'WTG notes campground, cabins, picnic, water, and park-headquarters context; follow state-park rules and fees.',
+      },
+      {
+        id: 'sand-creek-landing',
+        name: 'Sand Creek Landing',
+        latitude: 45.9329299926758,
+        longitude: -92.6403000354767,
+        mileFromStart: 13.6,
+        segmentKind: 'transition',
+        note: 'State-park landing near Little Sand Creek; already part of the shorter implemented Little Yellow Banks-to-Sand Creek route.',
+      },
+      {
+        id: 'norway-point-landing',
+        name: 'Norway Point Landing',
+        latitude: 45.9240200519562,
+        longitude: -92.6399600505829,
+        mileFromStart: 14.3,
+        segmentKind: 'creek',
+        note: 'WTG SC4 take-out on County F with developed landing, picnic area, and group-campsite context.',
+      },
+    ],
+  },
+  'st-croix-river-norway-point-fox': {
+    putIn: {
+      name: 'Norway Point Landing',
+      latitude: 45.9240200519562,
+      longitude: -92.6399600505829,
+    },
+    takeOut: {
+      name: 'Fox Landing',
+      latitude: 45.8905500173569,
+      longitude: -92.7132300138474,
+    },
+    logistics: {
+      distanceLabel: 'About 4.7 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with scouting, low-water walking, or wrong-channel recovery',
+      shuttle:
+        'Stage the take-out at Fox Landing before launching at Norway Point. This is a short shuttle, but the river decision comes quickly at Head of the Rapids; discuss left-fork vs. Kettle Slough before putting on.',
+      permits:
+        'No day-use paddling permit is known. Follow National Scenic Riverway boating rules, posted landing rules, and any St. Croix State Park rules if using Minnesota-side facilities or bailouts.',
+      camping:
+        'Norway Point and nearby Riverway sites provide camping context, but this selected split is best treated as a day route ending at Fox Landing. Use only designated Riverway campsites for any overnight.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Norway Point and take the left-fork main channel to Fox Landing for the upper SC5 rapid split above the existing Fox-to-Highway-70 route. The short mileage hides real channel-choice and rapid judgment.',
+      accessCaveats: [
+        'WTG publishes a local Norway Point gauge note, but the app live model uses the upstream Danbury DNR gauge. Check both the app and the local gauge/landing visual.',
+        'This route assumes the safer left fork through Big Beef Rapids. The Kettle River Slough right fork is a different, harder choice and can approach Class III in high water.',
+        'Fox Landing is the planned take-out. Missing it carries you into a separate downstream route with more rapids and a different shuttle.',
+      ],
+      watchFor: [
+        'Pike Rapids, the Head of the Rapids channel decision, and Big Beef Rapids.',
+        'Low-water scraping or walking when the river is below the local/official floor.',
+        'High-water waves and push around boulder gardens, islands, ledges, and bends.',
+        'Cold water, strainers, private/restricted banks, and limited rescue exposure despite the short distance.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'norway-point-landing',
+        name: 'Norway Point Landing',
+        latitude: 45.9240200519562,
+        longitude: -92.6399600505829,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'WTG SC5 put-in with developed landing, picnic area, and group-campsite context.',
+      },
+      {
+        id: 'nelsons-landing',
+        name: 'Nelsons Landing',
+        latitude: 45.9056199789047,
+        longitude: -92.677099943161,
+        mileFromStart: 2.6,
+        segmentKind: 'transition',
+        note: 'Intermediate left-bank landing below a narrow island; WTG notes ramp, parking, water, pit toilet, picnic area, and campsite.',
+      },
+      {
+        id: 'head-of-the-rapids',
+        name: 'Head of the Rapids',
+        latitude: 45.9011600017548,
+        longitude: -92.689610004425,
+        mileFromStart: 3.1,
+        segmentKind: 'transition',
+        note: 'Channel decision point. This route takes the left-fork main channel; the right-fork Kettle Slough is harder and not the default plan.',
+      },
+      {
+        id: 'big-beef-rapids',
+        name: 'Big Beef Rapids',
+        latitude: 45.8905500173569,
+        longitude: -92.7132300138474,
+        mileFromStart: 4.7,
+        segmentKind: 'transition',
+        note: 'WTG describes Class I-II boulder gardens on the left-fork main channel above Fox Landing.',
+      },
+      {
+        id: 'fox-landing',
+        name: 'Fox Landing',
+        latitude: 45.8905500173569,
+        longitude: -92.7132300138474,
+        mileFromStart: 4.7,
+        segmentKind: 'creek',
+        note: 'Selected take-out for this short split and put-in for the existing Fox-to-Highway-70 route.',
+      },
+    ],
+  },
   'crow-wing-river-lake-placid-crow-wing-state-park': {
     putIn: {
       name: 'Lake Placid Reservoir Landing #3 public water access',
@@ -28905,7 +29154,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-
   'rum-river-riverview-county-road-4': {
     putIn: {
       name: 'Rum River, Riverview Park Public Water Access Site / Milaca',
@@ -28962,7 +29210,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-
   'south-fork-crow-river-otter-lake-masonic': {
     putIn: {
       name: 'South Fork Crow River, Otter Lake West Public Water Access Site',
@@ -29019,5 +29266,187 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-
+  'zumbro-river-hammond-theilman': {
+    putIn: {
+      name: 'Zumbro River, Hammond Village Park Public Water Access Site',
+      latitude: 44.2212366,
+      longitude: -92.3690609,
+    },
+    takeOut: {
+      name: 'Zumbro River, Theilman Public Water Access Site',
+      latitude: 44.2867032,
+      longitude: -92.1868526,
+    },
+    logistics: {
+      distanceLabel: 'About 15.2 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, wood, or campsite stops',
+      shuttle:
+        'Stage the Theilman take-out first, then drive back to Hammond Village Park. This is a long middle-Zumbro day with few convenient public exits, so mark the intermediate campsites and Theilman access before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules and posted DNR, city, and watercraft-campsite rules.',
+      camping:
+        'DNR Map 2 identifies watercraft campsites between Hammond and Theilman, including Silver Spring Creek and a site upstream of Theilman. Use only signed/designated sites and confirm availability before relying on an overnight split.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Hammond Village Park and take out at Theilman for a middle-Zumbro continuation below the existing Zumbro-Falls-to-Hammond card and above the existing Theilman-to-Kruger card.',
+      accessCaveats: [
+        'Hammond Village Park and Theilman both resolve in Minnesota public-water-access GIS with Zumbro River mile records and coordinates.',
+        'The Zumbro Falls gauge is upstream of Hammond. Use its official bands as corridor guidance, then inspect Hammond, Theilman, and any planned campsite stops for same-day wood and depth.',
+        'The route is long enough that headwind, low water, or wood scouting can turn it into an all-day commitment.',
+      ],
+      watchFor: [
+        'Hammond Rapids, shallow gravel, logs, sweepers, and narrow bends that change after floods.',
+        'Flash-flood conditions after storms; avoid launching on a rising or high Zumbro Falls gauge.',
+        'Private banks and limited bailouts outside named public accesses and designated watercraft campsites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hammond-village-park',
+        name: 'Zumbro River, Hammond Village Park Public Water Access Site',
+        latitude: 44.2212366,
+        longitude: -92.3690609,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00253 at Zumbro River mile 38.2 with City of Hammond administration.',
+      },
+      {
+        id: 'silver-spring-creek-campsite',
+        name: 'Silver Spring Creek watercraft campsite',
+        latitude: 44.235,
+        longitude: -92.331,
+        mileFromStart: 1.7,
+        segmentKind: 'creek',
+        note: 'DNR Map 2 marks a watercraft campsite near river mile 36.5; coordinates are approximate map-planning aids, not a substitute for signed-site confirmation.',
+      },
+      {
+        id: 'theilman',
+        name: 'Zumbro River, Theilman Public Water Access Site',
+        latitude: 44.2867032,
+        longitude: -92.1868526,
+        mileFromStart: 15.2,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02185 at Zumbro River mile 23.0 with DNR administration.',
+      },
+    ],
+  },
+  'red-lake-river-huot-crookston': {
+    putIn: {
+      name: 'Red Lake River, Huot Park Public Water Access Site',
+      latitude: 47.8610626,
+      longitude: -96.4249999,
+    },
+    takeOut: {
+      name: 'Red Lake River, Crookston Public Water Access Site',
+      latitude: 47.7598975,
+      longitude: -96.5671255,
+    },
+    logistics: {
+      distanceLabel: 'About 20.4 mi',
+      estimatedPaddleTime: 'About 7 hr to 10 hr, longer with low water, rapid scouting, or headwind',
+      shuttle:
+        'Stage the Crookston take-out first, then drive back to Huot Park. This is a long lower-river commitment; mark Gentilly, city bridges, and Crookston landing options before launch.',
+      permits:
+        'No route-specific paddling permit is known. Follow Red Lake County, Crookston, MNDOT, DNR public-access, and Minnesota boating/PFD rules.',
+      camping:
+        'Treat this as a long day route. No on-route watercraft campsite was confirmed for the selected Huot-to-Crookston segment in this run, and private-bank camping should not be assumed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Huot Park and take out in Crookston for the lower Red Lake corridor below the existing Sportsman-to-Huot card. Use the Crookston DNR gauge and plan for rapids, boulder fields, dams, and a full daylight day.',
+      accessCaveats: [
+        'Huot Park resolves in Minnesota public-water-access GIS at Red Lake River mile 79.5; Crookston resolves as a public access record, while DNR Map 2 supplies the Crookston river-mile context.',
+        'The Crookston gauge is at the lower corridor and is the best official live check, but same-day rapid and dam scouting still control go/no-go decisions.',
+        'Crookston has multiple city landing options; this card uses the DNR/MNDOT public-access record and keeps city-landing details as a same-day logistics check.',
+      ],
+      watchFor: [
+        'Class I-II rapids, boulder fields, and swift shallow current below St. Hilaire toward Crookston.',
+        'Dams, city bridge current, and hydraulic hazards near Crookston; know the take-out sequence before committing downstream.',
+        'Low-water scraping, high-water push, fresh wood, cold water, and long intervals without practical rescue or legal exits.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'huot-park',
+        name: 'Red Lake River, Huot Park Public Water Access Site',
+        latitude: 47.8610626,
+        longitude: -96.4249999,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02137 at Red Lake River mile 79.5 with Red Lake County administration.',
+      },
+      {
+        id: 'gentilly',
+        name: 'Gentilly carry-in access / bridge corridor',
+        latitude: 47.772,
+        longitude: -96.446,
+        mileFromStart: 12,
+        segmentKind: 'creek',
+        note: 'DNR Map 2 marks Gentilly carry-in near river mile 67.5; use as a map-check and emergency-planning reference, not as a guaranteed staffed access.',
+      },
+      {
+        id: 'crookston',
+        name: 'Red Lake River, Crookston Public Water Access Site',
+        latitude: 47.7598975,
+        longitude: -96.5671255,
+        mileFromStart: 20.4,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS03055 with MNDOT administration, while DNR Map 2 identifies the Crookston carry-in/access context near river mile 59.1.',
+      },
+    ],
+  },
+  'sauk-river-oak-township-spring-hill': {
+    putIn: {
+      name: 'Oak Township County Park canoe access',
+      latitude: 45.60927,
+      longitude: -94.75344,
+    },
+    takeOut: {
+      name: 'Sauk River, Spring Hill County Park Public Water Access Site',
+      latitude: 45.5298667,
+      longitude: -94.7756528,
+    },
+    logistics: {
+      distanceLabel: 'About 10.9 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with shallow water, vegetation, or wood',
+      shuttle:
+        'Use a rural Stearns County shuttle between Oak Township County Park and Spring Hill County Park. Confirm county park parking, gate, and campsite rules before leaving a vehicle.',
+      permits:
+        'No route-specific paddling permit is known. Follow Stearns County park rules, Minnesota boating/PFD rules, and posted DNR water-trail guidance.',
+      camping:
+        'Oak Township County Park and Spring Hill County Park provide the best supported camping/overnight context for this section. Confirm current Stearns County reservations, fees, and site rules before planning an overnight.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch from Oak Township County Park and take out at Spring Hill County Park for the official upper-Sauk section above the existing Spring-Hill-to-St.-Martin card.',
+      accessCaveats: [
+        'Oak Township is a named Stearns County park on the Sauk River and appears on DNR route materials, but it did not resolve as a DNR public-water-access GIS record in this run; saved coordinates use the named park point.',
+        'Spring Hill resolves in Minnesota public-water-access GIS as WAS00338, listed as Sping Hill, at Sauk River mile 56.1.',
+        'The St. Martin DNR gauge is downstream of the take-out, so use it as an official corridor check and make visual calls at both county parks.',
+      ],
+      watchFor: [
+        'Shallow riffles, weeds, fallen trees, and sweepers that can make the upper Sauk slower than its mileage suggests.',
+        'Private banks between county parks; stop only at public landings or confirmed public park property.',
+        'Cold water, spring debris, and faster current when the St. Martin gauge is above the medium band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'oak-township-county-park',
+        name: 'Oak Township County Park canoe access',
+        latitude: 45.60927,
+        longitude: -94.75344,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from Stearns County park and ArcGIS named-park geocoder support; not a DNR public-water-access GIS record in this run.',
+      },
+      {
+        id: 'spring-hill-county-park',
+        name: 'Sauk River, Spring Hill County Park Public Water Access Site',
+        latitude: 45.5298667,
+        longitude: -94.7756528,
+        mileFromStart: 10.9,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00338 at Sauk River mile 56.1 with Stearns County administration.',
+      },
+    ],
+  },
 };

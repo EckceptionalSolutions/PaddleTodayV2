@@ -76296,6 +76296,368 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'st-croix-river-riverside-thayers',
+    slug: 'st-croix-river-riverside-thayers',
+    name: 'St. Croix River',
+    reach: "Riverside Landing to Thayer's Landing",
+    aliases: ['St. Croix SC3', 'Riverside to Thayers Landing'],
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      "Wisconsin-bank National Scenic Riverway day from Riverside Landing to Thayer's Landing, with State Line Rapids, island channels, formal landings, and designated-campsite context.",
+    statusText:
+      'Use the Danbury DNR gauge as the live screen. The official medium band is 1,500 to 2,200 cfs; below 1,250 cfs is scrapable and should be treated as a low-water warning.',
+    latitude: 46.0765000581741,
+    longitude: -92.2455899715424,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'mn-dnr-212',
+      provider: 'mn_dnr',
+      siteId: '212',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'direct',
+      siteName: 'St. Croix River nr Danbury, WI',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=34042001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=34042001&var1=262&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'strainers', 'remote', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        "State Line Rapids are usually Class I but can reach Class II in higher water; scout from shore if the line is not obvious.",
+        'The St. Croix becomes the Minnesota-Wisconsin border on this route. Use named Riverway landings and legal campsites instead of assuming private or restricted banks are available.',
+        'Low water exposes rock ledges and boulder gardens; high or rising water adds push through islands, bends, and bridge approaches.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 2200,
+      tooLow: 1250,
+      tooHigh: 6000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for St. Croix River near Danbury',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.2,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the practical window. The Danbury gauge sits at the head of this route, but same-day landing and rapid checks still matter when the river is low, rising, or cold.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        "WTG rates the 13.4-mile Riverside-to-Thayer's trip Class I-II. The route is approachable at normal water, but the mileage, state-line rapids, islands, cold water, and limited bailouts make it more than a casual beginner float.",
+      confidenceNotes:
+        "Confidence is high: Wisconsin Trail Guide publishes the exact SC3 route, WGS84 endpoint coordinates, State Line Rapids context, landings, and a minimum suggested Norway Point gauge note; NPS Map 5 covers Riverside-to-Sand-Creek official Riverway context; and the Danbury DNR gauge has official interpreted bands at the head of the route. The route is assigned to Wisconsin because the named put-in and take-out are Wisconsin-bank landings.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Route geometry',
+        value: "13.4 miles / Riverside to Thayer's",
+        note: "Wisconsin Trail Guide SC3 documents Riverside Landing to Thayer's Landing with WGS84 endpoint coordinates, route mileage, and a six-hour estimate.",
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/st-croix-river-riverside-landing.html',
+      },
+      {
+        label: 'Official map context',
+        value: 'NPS Map 5 Riverway corridor',
+        note: 'NPS publishes the Riverside Landing-to-Sand Creek Landing section map that includes this route corridor, landings, campsites, river rules, and current-condition guidance.',
+        sourceUrl:
+          'https://www.nps.gov/sacn/planyourvisit/upload/Section-5_St-Croix_Riverside-Landing-to-Sand-Creek-Landing_2024_508.pdf',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '1,250 / 1,500-2,200 / 6,000 cfs',
+        note: 'MN DNR interprets Danbury as Scrapable below 1,250 cfs, Low from 1,250 to 1,500, Medium from 1,500 to 2,200, High from 2,200 to 6,000, and Very High above 6,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '730 cfs at 2026-07-15 01:00 CDT',
+        note: 'The DNR river-level feed returned 730 cfs at Danbury during this run, below the official scrapable floor; USGS Water Services also returned 726 cfs / 0.69 ft at 02:00 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05333500/',
+      },
+      {
+        label: 'Camping and access',
+        value: 'Designated Riverway campsites only',
+        note: 'WTG and NPS materials show campsite support in the corridor, but overnight use must follow current St. Croix National Scenic Riverway campsite rules and closures.',
+        sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/camping.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide St. Croix SC3',
+        url: 'https://wisconsintrailguide.com/paddle/st-croix-river-riverside-landing.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide SC3 guide PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-stcroix3.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'NPS St. Croix Map 5 PDF',
+        url: 'https://www.nps.gov/sacn/planyourvisit/upload/Section-5_St-Croix_Riverside-Landing-to-Sand-Creek-Landing_2024_508.pdf',
+        provider: 'nps',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+        provider: 'mn_dnr',
+      },
+      {
+        label: 'USGS 05333500 St. Croix River near Danbury',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05333500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'st-croix-river-thayers-norway-point',
+    slug: 'st-croix-river-thayers-norway-point',
+    name: 'St. Croix River',
+    reach: "Thayer's Landing to Norway Point Landing",
+    aliases: ['St. Croix SC4', 'Thayers to Norway Point'],
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      "Wisconsin-bank through-trip from Thayer's Landing to Norway Point Landing, using the official Riverway map corridor plus WTG SC4 landings, campsites, and state-park access notes.",
+    statusText:
+      'Use the Danbury DNR gauge as an upstream Riverway screen. Medium is 1,500 to 2,200 cfs, below 1,250 cfs is scrapable, and local launch visuals still decide low-water days.',
+    latitude: 46.0123699903488,
+    longitude: -92.4438199996948,
+    gaugeSource: {
+      id: 'mn-dnr-212',
+      provider: 'mn_dnr',
+      siteId: '212',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'St. Croix River nr Danbury, WI',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=34042001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=34042001&var1=262&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'remote', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'This route includes island channels, sloughs, state-park landings, and designated Riverway campsite rules; do not improvise shoreline stops on restricted or private banks.',
+        'Low water can mean scraping and slower channel-picking between the island chains, while high water increases push into wood, banks, and landing approaches.',
+        'The selected card is the Wisconsin-bank WTG through-trip; the existing Little Yellow Banks-to-Sand Creek card already covers the shorter Minnesota state-park subset.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 2200,
+      tooLow: 1250,
+      tooHigh: 6000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for St. Croix River near Danbury',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.25,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the main window. This broader border-river reach can work in summer, but low water, headwind, full campsites, and same-day St. Croix State Park rules still control the trip.',
+      difficulty: 'easy',
+      difficultyNotes:
+        "WTG rates the 14.3-mile Thayer's-to-Norway trip as riffles rather than a whitewater reach, but the long day, island choices, campsite rules, and upstream proxy gauge require real trip planning.",
+      confidenceNotes:
+        "Confidence is good with a clear duplicate note: WTG publishes the exact SC4 through-trip, WGS84 coordinates, landing notes, and campsite/state-park context; NPS Maps 5 and 6 cover the same Riverway corridor; and Danbury DNR has official interpreted bands upstream. The route is not a replacement for the existing Little Yellow Banks-to-Sand Creek card; it is the longer Wisconsin-bank public landing pair.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Route geometry',
+        value: "14.3 miles / Thayer's to Norway Point",
+        note: "Wisconsin Trail Guide SC4 documents Thayer's Landing to Norway Point Landing with WGS84 endpoint coordinates, route mileage, and a seven-hour estimate.",
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/st-croix-river-thayers-landing.html',
+      },
+      {
+        label: 'Official map context',
+        value: 'NPS Maps 5 and 6',
+        note: 'NPS Riverway maps cover the Thayer-to-Norway corridor across the Riverside-to-Sand-Creek and Sand-Creek-to-Highway-70 sections.',
+        sourceUrl:
+          'https://www.nps.gov/sacn/planyourvisit/upload/Section-5_St-Croix_Riverside-Landing-to-Sand-Creek-Landing_2024_508.pdf',
+      },
+      {
+        label: 'Access and camping chain',
+        value: 'Little Yellow, St. Croix State Park, Sand Creek, Norway Point',
+        note: 'WTG SC4 identifies Little Yellow Banks, St. Croix State Park landing/campground, Sand Creek Landing, and Norway Point Landing with camping, water, and landing notes.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-stcroix4.pdf',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '1,250 / 1,500-2,200 / 6,000 cfs',
+        note: 'MN DNR interprets Danbury as Scrapable below 1,250 cfs, Low from 1,250 to 1,500, Medium from 1,500 to 2,200, High from 2,200 to 6,000, and Very High above 6,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '730 cfs at 2026-07-15 01:00 CDT',
+        note: 'The Danbury DNR feed was below the official scrapable floor during this run, so this card ships as a current low-water warning rather than a green-day recommendation.',
+        sourceUrl: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide St. Croix SC4',
+        url: 'https://wisconsintrailguide.com/paddle/st-croix-river-thayers-landing.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide SC4 guide PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-stcroix4.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'NPS St. Croix Map 5 PDF',
+        url: 'https://www.nps.gov/sacn/planyourvisit/upload/Section-5_St-Croix_Riverside-Landing-to-Sand-Creek-Landing_2024_508.pdf',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS St. Croix Map 6 PDF',
+        url: 'https://www.nps.gov/sacn/planyourvisit/upload/Section-6_St-Croix_Sand-Creek-Landing-to-Highway-70_2024_508.pdf',
+        provider: 'nps',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+        provider: 'mn_dnr',
+      },
+    ],
+  },
+  {
+    id: 'st-croix-river-norway-point-fox',
+    slug: 'st-croix-river-norway-point-fox',
+    name: 'St. Croix River',
+    reach: 'Norway Point Landing to Fox Landing',
+    aliases: ['St. Croix SC5 upper split', 'Norway Point to Fox'],
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Short but consequential Wisconsin-bank St. Croix split through Pike Rapids, the Head of the Rapids decision point, and Big Beef Rapids, ending before the existing Fox-to-Highway-70 card.',
+    statusText:
+      'Use Danbury DNR as the live upstream screen and inspect the Norway Point gauge/landing. Medium is 1,500 to 2,200 cfs at Danbury; below 1,250 cfs is scrapable, and WTG warns low local levels can make the rapids too shallow.',
+    latitude: 45.9240200519562,
+    longitude: -92.6399600505829,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'mn-dnr-212',
+      provider: 'mn_dnr',
+      siteId: '212',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'St. Croix River nr Danbury, WI',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=34042001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=34042001&var1=262&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'strainers', 'remote', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Commit to the left-fork main channel for this route unless the group intentionally plans the harder Kettle River Slough; WTG says the right fork can approach Class III in high water.',
+        'Pike Rapids and Big Beef Rapids are level-dependent boulder gardens. Low water can force scraping or walking, and high water can create large waves and stronger push.',
+        'Take out at Fox Landing for this split. Continuing downstream enters the separate Fox-to-Highway-70 route with more rapids, broad-channel wind, and additional shuttle exposure.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 2200,
+      tooLow: 1250,
+      tooHigh: 6000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for St. Croix River near Danbury',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.15,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the practical window. This short split deserves more caution than the mileage suggests because the Head of the Rapids fork, boulder gardens, local Norway Point gauge, and Kettle Slough choice all change with water level.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'WTG rates the full Norway-to-Highway-70 route Class II+ and describes Pike Rapids, Big Beef Rapids, and the optional Kettle River Slough. This app split ends at Fox Landing and defaults to the safer left fork, but it still needs whitewater judgment.',
+      confidenceNotes:
+        'Confidence is good for an upper SC5 split: WTG publishes Norway Point, Fox Landing, rapid names, WGS84 coordinates, local Norway Point gauge cautions, and channel-choice guidance; NPS Map 6 covers the official Riverway corridor; and Danbury DNR provides an official upstream live condition model. The app keeps an explicit proxy/local-visual caveat because the WTG minimum note is for the local Norway Point gauge, not the live Danbury feed.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route geometry',
+        value: 'About 4.7 river miles / Norway Point to Fox',
+        note: 'WTG SC5 places Norway Point at river mile 104.0 and Fox Landing at river mile 99.3, with GPX coordinates for both public landings.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/st-croix-river-norway-point.html',
+      },
+      {
+        label: 'Rapid package',
+        value: 'Pike Rapids, Head of the Rapids, Big Beef Rapids',
+        note: 'WTG describes Pike Rapids as Class I, the Head of the Rapids channel decision, and Big Beef Rapids as Class I-II on the left-fork main channel.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-stcroix5.pdf',
+      },
+      {
+        label: 'Kettle Slough caveat',
+        value: 'Optional right fork can approach Class III',
+        note: 'WTG says the Kettle River Slough right fork is more difficult, low water can be too shallow, medium local Norway Point levels are better, and high water can make some rapids approach Class III.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-stcroix5.pdf',
+      },
+      {
+        label: 'Official map context',
+        value: 'NPS Map 6 Riverway corridor',
+        note: 'NPS publishes the Sand Creek-to-Highway-70 section map with Norway Point, rapids, landings, campsites, and Riverway rules for the selected corridor.',
+        sourceUrl:
+          'https://www.nps.gov/sacn/planyourvisit/upload/Section-6_St-Croix_Sand-Creek-Landing-to-Highway-70_2024_508.pdf',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '1,250 / 1,500-2,200 / 6,000 cfs',
+        note: 'MN DNR interprets Danbury as Scrapable below 1,250 cfs, Low from 1,250 to 1,500, Medium from 1,500 to 2,200, High from 2,200 to 6,000, and Very High above 6,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide St. Croix SC5',
+        url: 'https://wisconsintrailguide.com/paddle/st-croix-river-norway-point.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide SC5 guide PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-stcroix5.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'NPS St. Croix Map 6 PDF',
+        url: 'https://www.nps.gov/sacn/planyourvisit/upload/Section-6_St-Croix_Sand-Creek-Landing-to-Highway-70_2024_508.pdf',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Saint Croix boating rules',
+        url: 'https://www.nps.gov/sacn/planyourvisit/boating.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+        provider: 'mn_dnr',
+      },
+    ],
+  },
+  {
     id: 'crow-wing-river-lake-placid-crow-wing-state-park',
     slug: 'crow-wing-river-lake-placid-crow-wing-state-park',
     name: 'Crow Wing River',
@@ -76822,7 +77184,6 @@ export const rivers: River[] = [
       },
     ],
   },
-
   {
     id: 'rum-river-riverview-county-road-4',
     slug: 'rum-river-riverview-county-road-4',
@@ -76936,7 +77297,6 @@ export const rivers: River[] = [
       },
     ],
   },
-
   {
     id: 'south-fork-crow-river-otter-lake-masonic',
     slug: 'south-fork-crow-river-otter-lake-masonic',

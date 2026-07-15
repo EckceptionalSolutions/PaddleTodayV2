@@ -4,16 +4,23 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 95.
-- Top represented rivers: Wisconsin River 13, Wolf River 5, Milwaukee River 5, Peshtigo River 5, Chippewa River 4, Bois Brule River 4, Pine River 4, Namekagon River 4, Baraboo River 3, Sugar River 3, Black River 3, Brule River 3, Grant River 3, Platte River 3, South Fork Flambeau River 3.
-- Ledger candidates: 90 total; 80 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
+- Live routes: 98.
+- Top represented rivers: Wisconsin River 13, Milwaukee River 5, Peshtigo River 5, St. Croix River 5, Wolf River 5, Bois Brule River 4, Chippewa River 4, Namekagon River 4, Pine River 4, Baraboo River 3, Sugar River 3, Black River 3, Brule River 3, Grant River 3, Platte River 3, South Fork Flambeau River 3.
+- Ledger candidates: 93 total; 83 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three South Fork Flambeau whitewater routes beyond the 92-route baseline: `flambeau-south-fork-simon-road-county-f`, `flambeau-south-fork-county-f-county-w`, and `flambeau-south-fork-county-w-skinner-creek`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three St. Croix Riverway routes beyond the 95-route baseline: `st-croix-river-riverside-thayers`, `st-croix-river-thayers-norway-point`, and `st-croix-river-norway-point-fox`.
 
 ## Latest Audit
 
+- 2026-07-15 America/Chicago: added `st-croix-river-riverside-thayers`, `st-croix-river-thayers-norway-point`, and `st-croix-river-norway-point-fox`, bringing the live Wisconsin route count to 98.
+- The three routes fill Wisconsin-bank St. Croix National Scenic Riverway gaps around already implemented cards. `st-croix-river-gordon-dam-riverside`, `st-croix-river-little-yellow-banks-sand-creek`, and `st-croix-river-fox-highway-70` were reconciled as already added before selection; the new cards use Riverside-to-Thayers SC3, Thayers-to-Norway SC4, and the upper Norway-to-Fox SC5 rapid split rather than counting those existing routes again.
+- Wisconsin Trail Guide documents SC3/SC4/SC5 with WGS84 coordinates, mileages, access names, campsite/state-park context, State Line Rapids, Pike Rapids, Big Beef Rapids, the Head of the Rapids channel decision, Kettle River Slough caveats, and local Norway Point gauge notes. NPS Section Maps 5 and 6 add official Riverway map, camping, landing, and rules context.
+- Threshold posture uses the official MN DNR Danbury site `212` interpreted bands: scrapable below 1,250 cfs, low 1,250-1,500 cfs, medium 1,500-2,200 cfs, high 2,200-6,000 cfs, and very high above 6,000 cfs. The route copy keeps proxy/local-visual caveats for the downstream SC4/SC5 routes and the Norway Point staff-gauge warning for SC5. During the run, DNR returned 730 cfs at 2026-07-15 01:00 CDT and USGS Water Services returned 726 cfs / 0.69 ft at 02:00 CDT, so the new cards ship as live low-water warnings.
+- Safety/logistics added: Riverway designated-campsite rules, private/restricted-bank limits, state-park/fee caveats, low-water scraping, high/rising-water push, cold water, strainers, island-channel decisions, bridge/take-out awareness, State Line Rapids, Big Beef Rapids, Kettle Slough avoidance unless intentionally planned, and no casual continuation past Fox into the existing downstream route.
+- Bounded image review found no clearly rights-clean exact-route paddling image for the three new St. Croix routes; rows were added to the image audit instead of adding local route-gallery assets.
+- Reviewed but did not add broader St. Croix duplicates: the existing Little Yellow Banks-to-Sand Creek card remains the shorter Minnesota state-park subset, and the existing Fox-to-Highway-70 card remains the downstream SC5/SC6 continuation. Black Earth Creek Cross Plains-to-Salmo Pond and Oconto North Branch Bagley Rapids blockers remain unchanged.
 - 2026-07-15 America/Chicago: added `flambeau-south-fork-simon-road-county-f`, `flambeau-south-fork-county-f-county-w`, and `flambeau-south-fork-county-w-skinner-creek`, bringing the live Wisconsin route count to 95.
 - The three routes fill the South Fork Flambeau route family above the existing North Fork / main-Flambeau cards. American Whitewater documents exact C/D/E South Fork reaches, endpoint coordinates, rapid names, and numeric runnable bands tied to USGS `05359500` South Fork Flambeau near Phillips; Wisconsin DNR corroborates the South Fork state-forest whitewater corridor and named rapids; Wisconsin Trail Guide corroborates the South Fork route family, seasonal volatility, access names, Little Falls / Slough Gundy hazard context, and the no-South-Fork-canoe-camps posture.
 - Live gauge verification: USGS Water Services returned South Fork Flambeau River near Phillips (`05359500`) `227 cfs / 5.06 ft` at 2026-07-15 01:45 CDT. Simon-Road-to-County-F ships below its AW 500-4000 cfs band, and the two downstream routes ship just below their AW 250-1200 cfs bands.
