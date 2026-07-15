@@ -38986,6 +38986,329 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'fox-river-swan-lake-portage',
+    slug: 'fox-river-swan-lake-portage',
+    name: 'Fox River',
+    reach: 'Swan Lake Public Boat Ramp to Fox River Landing / Highway 33',
+    aliases: [
+      'Upper Fox - Swan Lake to Portage',
+      'Fox River - Swan Lake to Highway 33',
+      'Swan Lake to Fox River Landing',
+    ],
+    state: 'Wisconsin',
+    region: 'South-Central Wisconsin',
+    summary:
+      'Short Upper Fox marsh-and-lake paddle from the Swan Lake public ramp through Swan Lake Wildlife Area to the Highway 33 Fox River Landing in Portage.',
+    statusText:
+      'Use the Fox River at Princeton gauge as a conservative Upper Fox trend check. Wisconsin River Trips says 0-600 cfs is typical summer depth, 601-1000 cfs is plenty good, and 3001+ cfs may be too high and dirty for this open marsh route.',
+    latitude: 43.5448,
+    longitude: -89.3739,
+    gaugeSource: {
+      id: 'usgs-04073365',
+      provider: 'usgs',
+      siteId: '04073365',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Fox River at Princeton, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04073365/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 0,
+      idealMax: 1500,
+      tooLow: 0,
+      tooHigh: 3001,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Swan Lake-to-Portage Princeton-gauge ladder',
+        url: 'https://www.wisconsinrivertrips.com/segments/fox-river/swan-lake-to-portage',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'low',
+      windSensitivity: 1.4,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall can work, but the route is exposed. WRT calls 0-600 cfs typical summer depth, 601-1000 cfs plenty good, 1001-1500 cfs high but still good, 2001-3000 cfs very high but viable, and 3001+ cfs maybe too high and dirty.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Beginner flatwater if wind and boat traffic are calm. The practical challenges are open Swan Lake exposure, possible shallow marsh lines, powerboats near the ramp, and finding the channel into the Fox.',
+      confidenceNotes:
+        'Confidence is acceptable for a guarded Upper Fox add. Wisconsin River Trips documents the exact Swan Lake-to-Portage route, route length, public-ramp endpoints, wind threshold, and Princeton-gauge ladder. Wisconsin DNR confirms Swan Lake has a public boat landing, the Fox River flows through Swan Lake Wildlife Area, and boating/canoeing/kayaking are supported there. The gauge is a downstream proxy because the more local Pardeeville gauge was unavailable in the route source, so the card emphasizes trend, wind, and same-day visual checks.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific gauge ladder',
+        value: '0-1500 cfs practical; 3001+ cfs maybe too high',
+        note: 'Wisconsin River Trips provides a Princeton-gauge ladder for Swan Lake to Portage and explicitly notes the local Pardeeville gauge was disabled, making Princeton an imperfect but usable proxy.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/fox-river/swan-lake-to-portage',
+      },
+      {
+        label: 'Current gauge check',
+        value: '680 cfs / 4.52 ft at 5:00 AM CDT',
+        note: 'USGS Water Services returned same-day values for Fox River at Princeton on July 15, 2026; current flow was inside the WRT 601-1000 cfs plenty-good band.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04073365&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route shape',
+        value: '5.8 mi',
+        note: 'Wisconsin River Trips describes Swan Lake to Highway 33 as a 5.8-mile pleasant marsh paddle with 1-2 miles of lake paddling.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/fox-river/swan-lake-to-portage',
+      },
+      {
+        label: 'Public launch context',
+        value: 'Swan Lake public boat landing and Fox River Landing',
+        note: 'Wisconsin DNR identifies Swan Lake public boat access, and Portage Parks lists Fox River Landing at 1825 State Highway 33 with an accessible kayak launch installed in 2024.',
+        sourceUrl: 'https://apps.dnr.wi.gov/lakes/lakepages/LakeDetail.aspx?wbic=179800',
+      },
+      {
+        label: 'Public-land context',
+        value: 'Swan Lake Wildlife Area',
+        note: 'Wisconsin DNR says the Fox River flows through Swan Lake Wildlife Area and lists canoeing and kayaking as recreation opportunities.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/Lands/WildlifeAreas/swanlake',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Fox River Swan Lake to Portage',
+        url: 'https://www.wisconsinrivertrips.com/segments/fox-river/swan-lake-to-portage',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 04073365 Fox River at Princeton',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04073365/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin DNR Swan Lake',
+        url: 'https://apps.dnr.wi.gov/lakes/lakepages/LakeDetail.aspx?wbic=179800',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin DNR Swan Lake Wildlife Area',
+        url: 'https://dnr.wisconsin.gov/topic/Lands/WildlifeAreas/swanlake',
+        provider: 'local',
+      },
+      {
+        label: 'Portage Parks Fox River Landing',
+        url: 'https://portage.recdesk.com/Community/Facility/Detail?facilityId=52',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'fox-river-princeton-locks-city-landing',
+    slug: 'fox-river-princeton-locks-city-landing',
+    name: 'Fox River',
+    reach: 'Princeton Lock and Dam to Princeton Jefferson Street / Hiestand Park Landing',
+    aliases: [
+      'Upper Fox - Princeton Locks to Princeton',
+      'Fox River - Wick Landing to Hiestand Park',
+      'Fox River - Princeton Locks',
+    ],
+    state: 'Wisconsin',
+    region: 'South-Central Wisconsin',
+    summary:
+      'Short Upper Fox history route from the DNR Princeton Lock and Dam site into Princeton, with a mandatory below-dam launch and a public city landing finish.',
+    statusText:
+      'Use the Fox River at Princeton gauge. Wisconsin River Trips calls roughly 350 cfs a low annual level, 820 cfs relatively low, and suggests avoiding 1000 cfs and up for this open, slow route.',
+    latitude: 43.82682,
+    longitude: -89.15854,
+    gaugeSource: {
+      id: 'usgs-04073365',
+      provider: 'usgs',
+      siteId: '04073365',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Fox River at Princeton, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04073365/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 999,
+      tooLow: 350,
+      tooHigh: 1000,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Princeton Locks route guidance',
+        url: 'https://www.wisconsinrivertrips.com/segments/fox-river/princeton-locks',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'low',
+      windSensitivity: 1.3,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This is generally a late spring through fall flatwater route, but spring highs can make it less pleasant. WRT says the river rarely gets too low, but high water makes it ugly and recommends waiting until below about 1000 cfs.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Easy flatwater after the launch, but the Princeton low-head dam and electric fish barrier at the put-in demand a below-dam launch or portage. Wind is often a bigger factor than current.',
+      confidenceNotes:
+        'Confidence is strong for a short, cautious route. Wisconsin River Trips documents the exact Princeton Locks-to-city trip, public ramp endpoints, 3.58-mile distance, hazard notes, and Princeton-gauge thresholds. Wisconsin DNR confirms the Princeton Lock Road site has two no-fee boat launches, parking, and a portable restroom in season, while Princeton local sources confirm a city kayak launch at Hiestand Park / Mechanic Street. The main risk is not access but dam discipline: paddlers must stay below or around the dam and fish barrier.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific thresholds',
+        value: '350 cfs low; avoid 1000+ cfs',
+        note: 'Wisconsin River Trips says 350 cfs might be the annual low and suggests not running this Princeton Locks route at 1000 cfs and up.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/fox-river/princeton-locks',
+      },
+      {
+        label: 'Current gauge check',
+        value: '680 cfs / 4.52 ft at 5:00 AM CDT',
+        note: 'USGS Water Services returned same-day values for Fox River at Princeton on July 15, 2026; current flow was below the WRT high-water caution.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04073365&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Public DNR put-in',
+        value: 'Princeton Lock Road site',
+        note: 'Wisconsin DNR says Princeton Lock and Dam is part of Upper Fox River Public Access and has two no-fee boat launches, large parking areas, and an ADA pathway to the pier.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/Lands/FisheriesAreas/2700princeton',
+      },
+      {
+        label: 'City landing',
+        value: 'Jefferson Street / Hiestand Park',
+        note: 'Wisconsin River Trips identifies the Jefferson Street boat ramp as a public landing with parking and no fees; Princeton tourism and city pages identify Hiestand Park / Mechanic Street as a kayak-launch access on the Fox.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/fox-river/princeton-locks',
+      },
+      {
+        label: 'Dam hazard',
+        value: 'Low-head dam and fish barrier',
+        note: 'Wisconsin River Trips warns of a dangerous low-head dam and electric fish barrier at the put-in and says to portage or launch below it.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/fox-river/princeton-locks',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Fox River Princeton Locks',
+        url: 'https://www.wisconsinrivertrips.com/segments/fox-river/princeton-locks',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin DNR Princeton Lock and Dam',
+        url: 'https://dnr.wisconsin.gov/topic/Lands/FisheriesAreas/2700princeton',
+        provider: 'local',
+      },
+      {
+        label: 'City of Princeton Fox River paddling',
+        url: 'https://www.cityofprincetonwi.com/?SEC=F11B550A-B808-473A-AA87-8145A5C4B32E',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04073365 Fox River at Princeton',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04073365/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'fox-river-princeton-white-river-locks',
+    slug: 'fox-river-princeton-white-river-locks',
+    name: 'Fox River',
+    reach: 'Princeton Jefferson Street / Hiestand Park Landing to White River Lock and Dam',
+    aliases: [
+      'Upper Fox - Princeton to White River Locks',
+      'Fox River - City of Princeton to White River Locks',
+      'Princeton to White River Lock Road',
+    ],
+    state: 'Wisconsin',
+    region: 'South-Central Wisconsin',
+    summary:
+      'Easy six-mile Upper Fox paddle from Princeton to the DNR White River Lock and Dam access, with a broad channel, historic lock corridor, and a clear high-water caution.',
+    statusText:
+      'Use the Fox River at Princeton gauge. Wisconsin River Trips calls 550 cfs average, 800-1000 cfs higher water, and around 2000 cfs the likely yearly maximum; above 1000 cfs should be treated as high for casual paddling.',
+    latitude: 43.8502,
+    longitude: -89.1245,
+    gaugeSource: {
+      id: 'usgs-04073365',
+      provider: 'usgs',
+      siteId: '04073365',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Fox River at Princeton, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04073365/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 1000,
+      tooLow: 400,
+      tooHigh: 2000,
+      thresholdSource: {
+        label: 'Wisconsin River Trips White River Locks route guidance',
+        url: 'https://www.wisconsinrivertrips.com/segments/fox-river/white-river-locks',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'low',
+      windSensitivity: 1.3,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is typical. WRT says the Fox is not very volatile here, rarely falls below 400 cfs, and remains navigable because the channel is dredged, but 800-1000 cfs is higher water and 2000 cfs is near the high end for a year.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Broad, slow, beginner-friendly flatwater if wind is manageable. The main challenges are exposure, repetitive marsh channel, motorboat or fishing use at launches, and keeping the take-out on the correct Lock Road side.',
+      confidenceNotes:
+        'Confidence is strong for a low-consequence flatwater add. Wisconsin River Trips documents the exact Princeton-to-White-River-Locks route, distance, endpoint names, and Princeton-gauge observations. Wisconsin DNR confirms White River Lock and Dam is an Upper Fox River Public Access property with a no-fee boat launch, parking, ADA path, and no camping/open-fire rules. Princeton local sources confirm a city kayak launch at Hiestand Park / Mechanic Street. Thresholds remain broad because the route is flat and dredged, so the card treats 1000+ cfs as a caution and 2000 cfs as too high for general recommendation.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific thresholds',
+        value: '550 cfs average; 800-1000 cfs high; 2000 cfs high end',
+        note: 'Wisconsin River Trips paddled at 550 cfs, calls that average, says 800-1000 cfs is higher water, and says the yearly maximum is probably around 2000 cfs.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/fox-river/white-river-locks',
+      },
+      {
+        label: 'Current gauge check',
+        value: '680 cfs / 4.52 ft at 5:00 AM CDT',
+        note: 'USGS Water Services returned same-day values for Fox River at Princeton on July 15, 2026; current flow was above the reported average but below the higher-water caution.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04073365&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route shape',
+        value: '6.0 mi',
+        note: 'Wisconsin River Trips documents Princeton / Jefferson Street Landing to White River Locks as a 6.0-mile route with negligible gradient.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/fox-river/white-river-locks',
+      },
+      {
+        label: 'Official take-out',
+        value: 'White River Lock and Dam',
+        note: 'Wisconsin DNR says White River Lock and Dam has new parking areas, a no-fee boat launch, ADA path, and fishing pier; the former low-head dam was removed.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/Lands/FisheriesAreas/2700whiteriver',
+      },
+      {
+        label: 'Camping rule',
+        value: 'No camping on Upper Fox PA parcels',
+        note: 'Wisconsin DNR states Upper Fox River Public Access properties are walk-in only with no motorized vehicles, open fires, or camping.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/Lands/FisheriesAreas/2700whiteriver',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Fox River White River Locks',
+        url: 'https://www.wisconsinrivertrips.com/segments/fox-river/white-river-locks',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin DNR White River Lock and Dam',
+        url: 'https://dnr.wisconsin.gov/topic/Lands/FisheriesAreas/2700whiteriver',
+        provider: 'local',
+      },
+      {
+        label: 'City of Princeton Fox River paddling',
+        url: 'https://www.cityofprincetonwi.com/?SEC=F11B550A-B808-473A-AA87-8145A5C4B32E',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04073365 Fox River at Princeton',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04073365/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'grant-river-short-cut-county-u',
     slug: 'grant-river-short-cut-county-u',
     name: 'Grant River',

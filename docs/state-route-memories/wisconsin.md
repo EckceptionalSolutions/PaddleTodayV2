@@ -4,16 +4,23 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 104.
-- Top represented rivers: Wisconsin River 13, Sugar River 5, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Popple River 3, Baraboo River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3.
-- Ledger candidates: 96 total; 86 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
+- Live routes: 107.
+- Top represented rivers: Wisconsin River 13, Sugar River 5, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Fox River 3, Popple River 3, Baraboo River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3.
+- Ledger candidates: 99 total; 89 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 101-route baseline: `popple-river-highway-101-white-ash`, `sugar-river-attica-albany`, and `sugar-river-brodhead-avon`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three Upper Fox River routes beyond the 104-route baseline: `fox-river-swan-lake-portage`, `fox-river-princeton-locks-city-landing`, and `fox-river-princeton-white-river-locks`.
 
 ## Latest Audit
 
+- 2026-07-15 America/Chicago: added `fox-river-swan-lake-portage`, `fox-river-princeton-locks-city-landing`, and `fox-river-princeton-white-river-locks`, bringing the live Wisconsin route count to 107.
+- The three routes introduce Wisconsin Upper Fox coverage that was absent from the live Wisconsin inventory. Wisconsin River Trips documents Swan-Lake-to-Portage, Princeton-Locks-to-Princeton, and Princeton-to-White-River-Locks with named public endpoints, mileage, wind/dam hazards, and Princeton-gauge level guidance. Wisconsin DNR corroborates Swan Lake public access, Swan Lake Wildlife Area, Upper Fox River Public Access, Princeton Lock and Dam, and White River Lock and Dam rules/access; Portage Parks corroborates Highway 33 Fox River Landing.
+- Live gauge verification: USGS Water Services returned Fox River at Princeton `04073365` at `680 cfs / 4.52 ft` at 2026-07-15 05:00 CDT. Swan-Lake-to-Portage ships inside the WRT `601-1000 cfs` plenty-good band but with explicit proxy-gauge and wind caveats; Princeton-Locks-to-City ships below the WRT 1000 cfs avoid threshold; Princeton-to-White-River-Locks ships above the 550 cfs observed average but below the 800-1000 cfs higher-water caution.
+- Threshold posture: Swan-Lake-to-Portage uses WRT's broad two-sided Princeton-gauge ladder (`0-1500 cfs` practical, `3001+ cfs` maybe too high/dirty) with a proxy caveat because WRT says the disabled local Pardeeville gauge would be more representative. Princeton-Locks-to-City uses `350-999 cfs` with `1000 cfs` as the avoid threshold. Princeton-to-White-River-Locks uses `400-1000 cfs` with `2000 cfs` as the high-end cutoff from WRT's route report.
+- Safety/logistics added: Swan Lake open-water wind/wake, busy ramp, channel-finding, shallow marsh lines, and no on-route camping; Princeton Locks mandatory below-dam launch/portage, low-head dam and electric fish-barrier, wind, and no-camping Upper Fox property rules; White River Locks broad-channel wind, lock/dam-structure awareness, fishing traffic, no-camping/open-fire DNR rules, and no casual downstream continuation.
+- Bounded image review found no clearly rights-clean exact-route paddling asset for the three Fox cards; three no-image rows were added to the image audit.
+- Reviewed but did not add Flambeau FN1/FN2/FN3 splits because direct route-specific gauge support was weaker and nearby North Fork cards are already represented, Yellow River Hwy F/Necedah because current Wisconsin River Trips updates warn of many logjams, and Portage-to-Governor-Bend because the stronger public-gauge package still depends on the disabled Pardeeville-stage context rather than the product-live USGS Princeton gauge.
 - 2026-07-15 America/Chicago: added `popple-river-highway-101-white-ash`, `sugar-river-attica-albany`, and `sugar-river-brodhead-avon`, bringing the live Wisconsin route count to 104.
 - The Popple route fills the downstream half of Wisconsin Trail Guide PO2 below the already-live Morgan-Lake-to-Highway-101 route. WTG publishes Highway 101 / Popple River Park and White Ash Road coordinates, Class II-III hazard notes for Washburn Falls and Jennings Falls, and an explicit statement that upstream USGS `04063700` should indicate conditions for this reach.
 - The Sugar routes add the lower public access chain from Attica to Albany and Brodhead to Avon. Miles Paddled documents the exact Attica-to-Albany alternate trip with coordinates and a 60 cfs Verona floor; Brodhead-to-Avon uses Miles Paddled's exact route geometry, Brodhead gauge correlation, City of Brodhead Pearl Island / Decatur Dam access context, and Rock County Sugar River Park / Avon-area launch context.

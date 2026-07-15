@@ -13281,6 +13281,198 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'fox-river-swan-lake-portage': {
+    putIn: {
+      id: 'swan-lake-public-boat-ramp',
+      name: 'Swan Lake Public Boat Ramp / South Shore Drive',
+      latitude: 43.5448,
+      longitude: -89.3739,
+    },
+    takeOut: {
+      id: 'fox-river-landing-highway-33',
+      name: 'Fox River Landing / Highway 33 Wayside',
+      latitude: 43.55448,
+      longitude: -89.4346,
+    },
+    logistics: {
+      distanceLabel: '5.8 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr',
+      shuttle:
+        'Use a short Portage-area car shuttle between the Swan Lake public boat landing off South Shore Drive and Fox River Landing at 1825 State Highway 33. Stage the take-out first if events or summer traffic may fill the Highway 33 lot.',
+      permits:
+        'No route-specific paddling permit is known. Follow Swan Lake boat-landing signs, invasive-species rules, local lake ordinances, and Portage park hours at Fox River Landing.',
+      camping:
+        'No on-route camping is documented. Treat this as a day paddle and use separately reserved nearby camping or lodging if needed.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch from the Swan Lake public ramp, cross the lake cautiously, find the Fox River outlet, and follow the marsh channel through Swan Lake Wildlife Area to the Highway 33 Fox River Landing in Portage.',
+      accessCaveats: [
+        'The Swan Lake ramp can be busy with powerboats; WRT recommends paddlers launch from the adjacent shore when the ramp is active.',
+        'The Princeton gauge is a downstream proxy because the local Pardeeville gauge was unavailable in the route source. Pair the gauge with a same-day visual check and wind forecast.',
+        'Fox River Landing has a formal city/park access and an accessible kayak launch, but park hours, events, or maintenance can affect staging.',
+      ],
+      watchFor: [
+        'Open-water wind and boat wake on Swan Lake, especially with headwinds above about 8 mph.',
+        'Very high, dirty water above the WRT 3001 cfs caution on the Princeton gauge.',
+        'Shallow marsh lines, weeds, private shoreline near Swan Lake, and channel-finding confusion at the lake outlet.',
+        'Cold water outside summer, limited shade in the marsh, and thunderstorms on the open lake.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'swan-lake-public-boat-ramp',
+        name: 'Swan Lake Public Boat Ramp / South Shore Drive',
+        latitude: 43.5448,
+        longitude: -89.3739,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Public lake ramp used as the route start; launch clear of motorboat traffic when the main ramp is active.',
+      },
+      {
+        id: 'swan-lake-outlet',
+        name: 'Fox River outlet from Swan Lake',
+        latitude: 43.5486,
+        longitude: -89.3933,
+        mileFromStart: 2,
+        segmentKind: 'creek',
+        note: 'Channel-finding transition from Swan Lake into the marshy Upper Fox corridor.',
+      },
+      {
+        id: 'fox-river-landing-highway-33',
+        name: 'Fox River Landing / Highway 33 Wayside',
+        latitude: 43.55448,
+        longitude: -89.4346,
+        mileFromStart: 5.8,
+        segmentKind: 'creek',
+        note: 'Formal Portage Parks take-out at 1825 State Highway 33 with an accessible kayak launch.',
+      },
+    ],
+  },
+  'fox-river-princeton-locks-city-landing': {
+    putIn: {
+      id: 'princeton-lock-road',
+      name: 'Princeton Lock and Dam / Lock Road below-dam launch',
+      latitude: 43.82682,
+      longitude: -89.15854,
+    },
+    takeOut: {
+      id: 'princeton-hiestand-park',
+      name: 'Princeton Jefferson Street / Hiestand Park Landing',
+      latitude: 43.8502,
+      longitude: -89.1245,
+    },
+    logistics: {
+      distanceLabel: '3.58 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2 hr',
+      shuttle:
+        'Use the short town shuttle between the DNR Lock Road site southwest of Princeton and the city landing near Jefferson Street / Hiestand Park. The bike shuttle is short but uses busy Highway 23 corridors.',
+      permits:
+        'No route-specific paddling permit is known. Follow DNR Upper Fox River Public Access rules, city landing signs, and Wisconsin boating/PFD requirements.',
+      camping:
+        'No on-route camping. Wisconsin DNR states Upper Fox River Public Access properties have no camping or open fires, so use separately reserved nearby camping or lodging.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch below the Princeton Lock and Dam / fish-barrier complex and paddle the short Upper Fox reach into Princeton. This is a compact historic-waterway route where dam awareness matters more than paddling difficulty.',
+      accessCaveats: [
+        'Do not launch above the Princeton low-head dam unless you have a clear portage plan. Use the below-dam launch or portage around the dam and electric fish barrier.',
+        'The Lock Road site has public ramps and parking, but fishing activity and seasonal restroom setup can affect staging space.',
+        'The city landing is public in the WRT route report and local Princeton paddling pages, but verify current parking, event, and launch signage on arrival.',
+      ],
+      watchFor: [
+        'The Princeton low-head dam and electric fish barrier at the put-in.',
+        'Open, slow water where wind can matter more than current.',
+        'High water above about 1000 cfs on the Princeton gauge, when WRT suggests avoiding the route.',
+        'Private banks, cold water, fishing traffic, and no legal camping on the DNR Upper Fox parcels.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'princeton-lock-road',
+        name: 'Princeton Lock and Dam / Lock Road below-dam launch',
+        latitude: 43.82682,
+        longitude: -89.15854,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'DNR Upper Fox Public Access put-in; launch below the dam and fish barrier.',
+      },
+      {
+        id: 'princeton-hiestand-park',
+        name: 'Princeton Jefferson Street / Hiestand Park Landing',
+        latitude: 43.8502,
+        longitude: -89.1245,
+        mileFromStart: 3.58,
+        segmentKind: 'creek',
+        note: 'Public city landing / kayak launch area in Princeton near the WRT Jefferson Street take-out.',
+      },
+    ],
+  },
+  'fox-river-princeton-white-river-locks': {
+    putIn: {
+      id: 'princeton-hiestand-park',
+      name: 'Princeton Jefferson Street / Hiestand Park Landing',
+      latitude: 43.8502,
+      longitude: -89.1245,
+    },
+    takeOut: {
+      id: 'white-river-lock-road',
+      name: 'White River Lock and Dam / Lock Road',
+      latitude: 43.899,
+      longitude: -89.0854,
+    },
+    logistics: {
+      distanceLabel: '6 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 3.5 hr',
+      shuttle:
+        'Use a simple 5-mile-area car shuttle between Princeton and the DNR White River Lock and Dam site on Lock Road. The route is broad and slow, so build in time for wind or casual stops.',
+      permits:
+        'No route-specific paddling permit is known. Follow city launch rules, DNR Upper Fox River Public Access rules, and Wisconsin boating/PFD requirements.',
+      camping:
+        'No camping is allowed on the DNR Upper Fox River Public Access parcels. Use separately reserved nearby camping or lodging rather than assuming lock-property camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Put in at Princeton and paddle the broad Upper Fox channel north to the White River Lock and Dam access. This is an easy flatwater link with strong access support but limited current and an exposed marsh feel.',
+      accessCaveats: [
+        'The Princeton launch can be affected by downtown events, fishing use, or local parking rules; check signs before leaving a vehicle.',
+        'White River Lock and Dam has two landing areas around the former lock/dam setting. Identify the take-out side before launching.',
+        'DNR Upper Fox River Public Access rules prohibit camping and open fires on these parcels.',
+      ],
+      watchFor: [
+        'Broad, slow, exposed water where wind can create the main difficulty.',
+        'Higher water above 800-1000 cfs on the Princeton gauge and a general no-go posture near the 2000 cfs high end recorded by WRT.',
+        'Fishing boats, old lock/dam structures, dredged-channel edges, private banks, cold water, and limited bailouts between landings.',
+        'Do not assume downstream continuation toward Berlin; this card ends at White River Lock and Dam.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'princeton-hiestand-park',
+        name: 'Princeton Jefferson Street / Hiestand Park Landing',
+        latitude: 43.8502,
+        longitude: -89.1245,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Public city launch / kayak landing used as the upstream endpoint.',
+      },
+      {
+        id: 'old-st-marie',
+        name: 'Old St. Marie Road area',
+        latitude: 43.8724,
+        longitude: -89.1151,
+        mileFromStart: 1.9,
+        segmentKind: 'creek',
+        note: 'Intermediate access context from the WRT overview; verify current signs if using it to shorten the trip.',
+      },
+      {
+        id: 'white-river-lock-road',
+        name: 'White River Lock and Dam / Lock Road',
+        latitude: 43.899,
+        longitude: -89.0854,
+        mileFromStart: 6,
+        segmentKind: 'creek',
+        note: 'DNR Upper Fox Public Access take-out with no-fee boat launch, parking, and ADA path.',
+      },
+    ],
+  },
   'grant-river-short-cut-county-u': {
     putIn: {
       id: 'short-cut-road',
