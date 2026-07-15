@@ -1,22 +1,27 @@
 # Wisconsin Route Memory
 
-Last summarized: 2026-07-14.
+Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 74.
-- Top represented rivers: Wisconsin River 11, Peshtigo River 5, Wolf River 4, Chippewa River 4, Bois Brule River 4, Black River 3, Brule River 3, Milwaukee River 3, Sugar River 3.
-- Ledger candidates: 71 total; 62 added, 4 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
+- Live routes: 77.
+- Top represented rivers: Wisconsin River 11, Peshtigo River 5, Wolf River 4, Chippewa River 4, Bois Brule River 4, Black River 3, Brule River 3, Grant River 3, Milwaukee River 3, Sugar River 3.
+- Ledger candidates: 74 total; 65 added, 4 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The 2026-07-14 18:10 America/Chicago run added three upper-northeast Wisconsin routes beyond the 71-route baseline: `peshtigo-river-big-joe-ccc-bridge`, `peshtigo-river-burnt-bridge-goodman-park`, and `popple-river-fr-2398-morgan-lake`.
+Wisconsin remains mature and heavily implemented. The 2026-07-14/15 America/Chicago run added three Grant River routes beyond the 74-route baseline: `grant-river-short-cut-county-u`, `grant-river-county-u-chaffie-hollow`, and `grant-river-chaffie-hollow-potosi-point`.
 
 ## Latest Audit
 
+- 2026-07-14/15 America/Chicago: added `grant-river-short-cut-county-u`, `grant-river-county-u-chaffie-hollow`, and `grant-river-chaffie-hollow-potosi-point`, bringing the live Wisconsin route count to 77.
+- The Grant routes use Miles Paddled route-specific endpoint coordinates, distances, class/gradient notes, and Burton-gauge guidance; Travel Wisconsin and Grant County tourism corroborate Grant River public paddling context; USACE/Recreation.gov support the Potosi Point / Grant River Recreation Area endpoint campground and boat-ramp context.
+- Live gauge check during the run returned USGS `05413500` Grant River at Burton at 267 cfs / 6.00 ft on 2026-07-14 19:00 CDT. Short Cut-to-County-U and County-U-to-Chaffie use minimum-only 175 cfs floors; Chaffie-to-Potosi uses the route-specific 260 cfs recommended level as a conservative floor. No upper cutoffs were invented.
+- Safety/logistics added: private/outfitter landing ambiguity, same-day signage checks, low-water scraping, deadfall/logjam history, strainers, cattle/farm banks, overgrown access, long flat lower-river commitment, Mississippi River backwater/confluence exposure, wind/wake, cold water, and nearby/endpoint campground caveats.
+- No route-gallery assets were added. Bounded Commons / Travel Wisconsin / Grant County / Miles Paddled / Wisconsin River Trips / USACE / Recreation.gov / same-route review found no clearly rights-clean exact-route paddling image selected for local reuse.
 - 2026-07-14 19:32 America/Chicago: folded the unpushed Lower Wisconsin split slugs `wisconsin-river-boscobel-woodman`, `wisconsin-river-woodman-millville`, and `wisconsin-river-millville-bridgeport` into canonical `wisconsin-river-boscobel-bridgeport`.
 - The canonical Boscobel-to-Bridgeport corridor now carries Woodman and Millville as alternate access-planner points, plus Wisconsin River Trips support for the adjacent splits and the existing Muscoda gauge ladder.
-- Current imported Wisconsin route count is 74. Wisconsin River live cards are now 12, not 15, because the split routes are represented inside the access planner instead of as separate route cards.
+- Current imported Wisconsin route count is 77. Wisconsin River live cards are now 12, not 15, because the split routes are represented inside the access planner instead of as separate route cards.
 - 2026-07-14 19:17 America/Chicago: added `brule-river-campground-highway-139`, `brule-river-forest-road-2150-flowage`, and `wisconsin-river-pine-island-portage`. The same commit also consolidated overlapping Lower Wisconsin split cards, so the final committed Wisconsin count remains 74.
 - The two new Brule routes complete the WTG B1/B2/B3 border-river chain around existing `brule-river-highway-139-fr-2150`; B1 and B3 use USGS `04060993` with WTG's 220 cfs / 3.5 ft minimum and explicit remote/strainer/primitive-camping or no-camping caveats.
 - The new Pine Island-to-Portage route uses Wisconsin River Trips Pine Island and Portage pages, Wisconsin DNR Pine Island Wildlife Area access and no-camping rules, and USGS `05404000` at Wisconsin Dells with WRT's 4,000-6,000 cfs average-summer band and 13,000+ cfs unsuitable caveat.
@@ -24,7 +29,7 @@ Wisconsin remains mature and heavily implemented. The 2026-07-14 18:10 America/C
 
 ## Main Blockers
 
-- Remaining work is still mostly blocked or research-later rather than a broad shortage of known routes.
+- Remaining work is still mostly blocked or research-later rather than a broad shortage of known routes. The Grant River family is now represented by three route cards and should not be re-added as adjacent duplicate cards without stronger official access segmentation.
 - The easiest remaining wins are now even narrower and more likely to be duplicate corridors, stale access records, or weak threshold models.
 
 ## Current Guidance

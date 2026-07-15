@@ -12445,6 +12445,183 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'grant-river-short-cut-county-u': {
+    putIn: {
+      id: 'short-cut-road',
+      name: 'Short Cut Road Access',
+      latitude: 42.81228,
+      longitude: -90.83308,
+    },
+    takeOut: {
+      id: 'county-u-blackjack',
+      name: 'County Road U / Blackjack Road bridge access',
+      latitude: 42.76189,
+      longitude: -90.86411,
+    },
+    logistics: {
+      distanceLabel: '11.25 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 5 hr on the water, plus time for wood checks or a portage',
+      shuttle:
+        'Use a two-car rural Grant County shuttle between Short Cut Road west of Lancaster and the County Road U / Blackjack Road bridge south of Beetown. Stage the take-out first so the stair/rock exit and parking situation are clear.',
+      permits:
+        'No route-specific paddling permit is known. Confirm current landing signs, bridge parking, and any local outfitter or landowner rules before leaving vehicles.',
+      camping:
+        'No legal on-route camping is documented. Use a separately reserved nearby campground such as Nelson Dewey State Park or Grant River Recreation Area instead of assuming private riverbank camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Short Cut Road and paddle the upper popular Grant corridor to County Road U / Blackjack Road. This is a scenic Driftless day with riffles, rock walls, private banks, and a documented deadfall history near the lower end.',
+      accessCaveats: [
+        'Short Cut Road is described as a public access point but can look overgrown or private later in the season; follow current signs and do not cross private land if access has changed.',
+        'The County U / Blackjack Road take-out has improved stair/rock access in the Miles Paddled report, but historic outfitter/private-access ambiguity means same-day signage controls.',
+        'The Burton gauge is downstream and imperfect for this upstream reach, so pair the number with a visual check for scrape risk and wood.',
+      ],
+      watchFor: [
+        'Riffles, shallow ledges, low-water scraping, and tighter bends along rock walls.',
+        'A large deadfall/logjam history about 1.5 miles above County U; expect new wood after storms and be ready for an awkward portage.',
+        'Private banks, cattle or farm-field edges, muddy/steep exits, cold water in shoulder seasons, and limited clean bailout options.',
+        'Higher or rising water can turn strainers and outside bends into the main hazard even though the route is only Class I.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'short-cut-road',
+        name: 'Short Cut Road Access',
+        latitude: 42.81228,
+        longitude: -90.83308,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Put-in west of Lancaster just below the Highway 81 / Short Cut Road area.',
+      },
+      {
+        id: 'county-u-blackjack',
+        name: 'County Road U / Blackjack Road bridge access',
+        latitude: 42.76189,
+        longitude: -90.86411,
+        mileFromStart: 11.25,
+        segmentKind: 'creek',
+        note: 'Take-out south of Beetown; inspect the stair/rock exit and parking before launch.',
+      },
+    ],
+  },
+  'grant-river-county-u-chaffie-hollow': {
+    putIn: {
+      id: 'county-u-blackjack',
+      name: 'County Road U / Blackjack Road bridge access',
+      latitude: 42.76185,
+      longitude: -90.86411,
+    },
+    takeOut: {
+      id: 'chaffie-hollow-road',
+      name: 'Chaffie Hollow Road landing',
+      latitude: 42.72231,
+      longitude: -90.8479,
+    },
+    logistics: {
+      distanceLabel: '8.75 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4 hr depending on level, stops, and access logistics',
+      shuttle:
+        'Use a short but hilly two-car shuttle between the County U / Blackjack Road bridge and Chaffie Hollow Road. Keep vehicles clear of turnarounds, trailers, and any local outfitter traffic.',
+      permits:
+        'No route-specific paddling permit is known. Both landings have historic private/outfitter-maintained context in the route source, so follow current signs and local permission requirements.',
+      camping:
+        'No on-route camping is documented. Treat this as a day trip and use nearby reserved campgrounds, such as Nelson Dewey State Park or Grant River Recreation Area, if making it a weekend.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at County U / Blackjack Road and finish at Chaffie Hollow Road for the most concentrated lower Grant scenery: riffles, Class I drops, bluffs, a seep, and rock walls.',
+      accessCaveats: [
+        'Miles Paddled reports that the landings have private or outfitter-maintained history even where no signs were present; do not block shuttle access and obey current signage.',
+        'Chaffie Hollow can be an informal field/bridge-area landing. Identify the exit before launching, especially during tubing season or after high water.',
+        'The Burton gauge is downstream from this reach and useful because the route source uses it, but same-day scraping and wood can still differ from the number.',
+      ],
+      watchFor: [
+        'Riffles and light Class I waves immediately below the put-in and again near Camel Ridge / the seep area.',
+        'Strainers, cattle banks, low-water scraping, muddy banks, and private shoreline through the agricultural bends.',
+        'Tubers and local outfitter traffic in season, especially near the lower Chaffie Hollow area.',
+        'Higher flows can make the narrow bends, wood, and landing approach harder even without large rapids.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-u-blackjack',
+        name: 'County Road U / Blackjack Road bridge access',
+        latitude: 42.76185,
+        longitude: -90.86411,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Put-in below the County U bridge just off Blackjack Road.',
+      },
+      {
+        id: 'chaffie-hollow-road',
+        name: 'Chaffie Hollow Road landing',
+        latitude: 42.72231,
+        longitude: -90.8479,
+        mileFromStart: 8.75,
+        segmentKind: 'creek',
+        note: 'Take-out upstream of the Chaffie Hollow Road bridge; confirm current access and parking.',
+      },
+    ],
+  },
+  'grant-river-chaffie-hollow-potosi-point': {
+    putIn: {
+      id: 'chaffie-hollow-road',
+      name: 'Chaffie Hollow Road landing',
+      latitude: 42.7218,
+      longitude: -90.84717,
+    },
+    takeOut: {
+      id: 'potosi-point',
+      name: 'Potosi Point Recreational Area / Grant River Recreation Area',
+      latitude: 42.65894,
+      longitude: -90.73325,
+    },
+    logistics: {
+      distanceLabel: '14.5 mi',
+      estimatedPaddleTime:
+        'Long day, about 4.5 hr to 6 hr depending on wind, backwater, and stops',
+      shuttle:
+        'Use a vehicle shuttle from Potosi Point / Grant River Recreation Area back to Chaffie Hollow Road. The road shuttle is long enough that bikes are not a good default.',
+      permits:
+        'No route-specific paddling permit is known. Follow current Corps / Recreation.gov rules at Grant River Recreation Area, campground parking rules, and any posted Chaffie Hollow access restrictions.',
+      camping:
+        'Grant River Recreation Area at the take-out has Corps-managed camping and a boat ramp. Reserve campground space separately; do not assume informal riverbank camping along the lower Grant or Mississippi backwater.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Chaffie Hollow Road and paddle the lower Grant to its Mississippi River mouth, then finish at Potosi Point / Grant River Recreation Area. This is a long, quiet, flatter day with a big-river finish.',
+      accessCaveats: [
+        'Chaffie Hollow has local/private-access ambiguity in Grant River sources; verify current landing and parking rules before leaving a vehicle.',
+        'Potosi Point / Grant River Recreation Area is an official Corps recreation site with a boat ramp and campground, but campground reservations and day-use rules can change by season.',
+        'The Burton gauge is in the lower Grant corridor and route-specific, but lower-river wind, Mississippi River stage, and backwater can matter as much as discharge.',
+      ],
+      watchFor: [
+        'Long flat reaches, weak current, low-clearance railroad and bridge features, wood, and possible farm debris.',
+        'Backwater effect before the Mississippi mouth and wind/current/wake exposure on the short Mississippi River finish.',
+        'Private banks, limited intermediate exits, cold water in shoulder seasons, and fatigue on a 14.5-mile day.',
+        'Do not miss the Potosi Point take-out; continuing on the Mississippi turns this into a very different big-river trip.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'chaffie-hollow-road',
+        name: 'Chaffie Hollow Road landing',
+        latitude: 42.7218,
+        longitude: -90.84717,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Put-in on Chaffie Hollow Road; confirm current access and parking.',
+      },
+      {
+        id: 'potosi-point',
+        name: 'Potosi Point Recreational Area / Grant River Recreation Area',
+        latitude: 42.65894,
+        longitude: -90.73325,
+        mileFromStart: 14.5,
+        segmentKind: 'transition',
+        note: 'Take-out at the Corps recreation area after the Grant River enters Mississippi River backwater.',
+      },
+    ],
+  },
   'pine-river-edgetts-lincoln': {
     putIn: {
       id: 'edgetts',

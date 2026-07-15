@@ -37061,6 +37061,352 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'grant-river-short-cut-county-u',
+    slug: 'grant-river-short-cut-county-u',
+    name: 'Grant River',
+    reach: 'Short Cut Road Access to County Road U / Blackjack Road Bridge',
+    aliases: [
+      'Grant River I',
+      'Short Cut Road to County Road U',
+      'Short Cut Road to Blackjack Road',
+    ],
+    state: 'Wisconsin',
+    region: 'Southwest Wisconsin',
+    summary:
+      'Upper popular Grant River day through Driftless riffles, rock walls, farm bends, and the County U / Blackjack Road access, with a Burton-gauge low-water floor and explicit wood/private-bank caveats.',
+    statusText:
+      'Use the Grant River at Burton gauge as a cautious same-river check. Treat 175 cfs as the conservative scrape floor; below that expect dragging, and do not infer a high-water ceiling from the app.',
+    latitude: 42.81228,
+    longitude: -90.83308,
+    gaugeSource: {
+      id: 'usgs-05413500',
+      provider: 'usgs',
+      siteId: '05413500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Grant River at Burton, WI',
+      detailUrl:
+        'https://waterdata.usgs.gov/monitoring-location/USGS-05413500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 175,
+      thresholdSource: {
+        label: 'Miles Paddled Grant River I Burton-gauge minimum note',
+        url: 'https://milespaddled.com/grant-river-i/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring and fall give the clearest bluff views and fewer overgrown access issues. Summer can work, but low water brings scraping and more hidden wood; fresh rain can make narrow bends muddy and pushy.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Miles Paddled rates the route intermediate with riffles and Class I. The 11.25-mile length, private banks, deadfall history, shallow riffles, and limited clean exits make it more than a novice float.',
+      confidenceNotes:
+        'Confidence is good for a guarded Grant River add: Miles Paddled documents the exact Short Cut Road-to-County U route, endpoint GPS points, 11.25-mile distance, Class I/riffle character, and a Burton-gauge low-water recommendation; Travel Wisconsin corroborates the Grant River as a Class I paddling river with multiple county access points; Grant County tourism identifies the Grant as one of the county paddling rivers; and USGS 05413500 is a live same-river gauge near Burton. The app keeps the gauge as a proxy and minimum-only because the source warns that Burton does not perfectly predict upstream water and no trusted upper cutoff was found.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published route report',
+        value: 'Short Cut Road to County Road U; 11.25 mi',
+        note: 'Miles Paddled documents Grant River I from Short Cut Road west of Lancaster to the County Road U bridge south of Beetown and lists the route at 11.25 miles.',
+        sourceUrl: 'https://milespaddled.com/grant-river-i/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.81228, -90.83308 to 42.76189, -90.86411',
+        note: 'Miles Paddled publishes GPS points for the Short Cut Road put-in and the County Road U / Blackjack Road take-out.',
+        sourceUrl: 'https://milespaddled.com/grant-river-i/',
+      },
+      {
+        label: 'Gauge and low floor',
+        value: '175 cfs minimum; Burton gauge caveat',
+        note: 'Miles Paddled records 200 cfs at Burton as a bare-minimum level, says it previously recommended 175 cfs, and warns the Burton gauge is imperfect for this upstream reach.',
+        sourceUrl: 'https://milespaddled.com/grant-river-i/',
+      },
+      {
+        label: 'Wood hazard history',
+        value: 'Large deadfall pile near the lower end',
+        note: 'The 2021 report documented a major deadfall obstruction about 1.5 miles above County U; later comments report it passable at higher water, so the route ships with a fresh-wood and possible-portage caveat.',
+        sourceUrl: 'https://milespaddled.com/grant-river-i/',
+      },
+      {
+        label: 'Official corridor context',
+        value: 'Class I Grant County paddling river',
+        note: 'Travel Wisconsin describes the Grant as a Southwest Wisconsin river with frequent Class I rapids, rocky ledges, high bluffs, minimal portaging, and multiple access points.',
+        sourceUrl:
+          'https://www.travelwisconsin.com/outdoors/on-the-water/grant-river',
+      },
+      {
+        label: 'Live gauge',
+        value: 'USGS 05413500 Grant River at Burton',
+        note: 'USGS operates the Grant River at Burton monitoring location downstream of the selected reach. Water Services returned current discharge and stage during the 2026-07-14/15 run.',
+        sourceUrl:
+          'https://waterdata.usgs.gov/monitoring-location/USGS-05413500/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Miles Paddled Grant River I',
+        url: 'https://milespaddled.com/grant-river-i/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Wisconsin River Trips Grant River overview',
+        url: 'https://www.wisconsinrivertrips.com/segments/grant-river',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Travel Wisconsin Grant River',
+        url: 'https://www.travelwisconsin.com/outdoors/on-the-water/grant-river',
+        provider: 'local',
+      },
+      {
+        label: 'Grant County boating and tubing',
+        url: 'https://grantcounty.org/tourism/outdoor-activities/canoe-and-boat-rental/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05413500 Grant River at Burton',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05413500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'grant-river-county-u-chaffie-hollow',
+    slug: 'grant-river-county-u-chaffie-hollow',
+    name: 'Grant River',
+    reach: 'County Road U / Blackjack Road Bridge to Chaffie Hollow Road',
+    aliases: [
+      'Grant River II',
+      'County Road U to Chaffie Hollow Road',
+      'Blackjack Road to Chaffie Hollow Road',
+    ],
+    state: 'Wisconsin',
+    region: 'Southwest Wisconsin',
+    summary:
+      'Signature lower-Grant day from the County U / Blackjack Road access to Chaffie Hollow, with lively riffles, Class I drops, rock outcrops, a seep, and a route-specific 175 cfs Burton-gauge floor.',
+    statusText:
+      'Use the Grant River at Burton gauge. Miles Paddled recommends 175 cfs as the minimum for this reach; below that expect scraping, and rising water can make strainers, cattle banks, and tight bends more consequential.',
+    latitude: 42.76185,
+    longitude: -90.86411,
+    gaugeSource: {
+      id: 'usgs-05413500',
+      provider: 'usgs',
+      siteId: '05413500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Grant River at Burton, WI',
+      detailUrl:
+        'https://waterdata.usgs.gov/monitoring-location/USGS-05413500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 175,
+      thresholdSource: {
+        label: 'Miles Paddled Grant River II 175 cfs minimum',
+        url: 'https://milespaddled.com/grant-river-ii/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Early spring, fall, and moderate summer levels are the best windows. This section holds water better than many nearby small streams, but low flows still scrape and higher flows reduce eddy time around wood, riffles, and cattle-bank bends.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly riffles and Class I, but the 8.75-mile route has tight current, rock walls, possible cattle-bank strainers, private or outfitter-maintained landings, and a remote-feeling lower half.',
+      confidenceNotes:
+        'Confidence is strong for a community-source Wisconsin add: Miles Paddled documents the exact County U-to-Chaffie Hollow route, GPS endpoints, 8.75-mile distance, Class I/riffle character, and a 175 cfs minimum at the Burton gauge; Wisconsin River Trips corroborates the same lower-Grant pieces, including Highway U-to-Camel Ridge and Camel Ridge-to-Chaffie Hollow; Travel Wisconsin and Grant County tourism corroborate the Grant River as a recognized paddling corridor; and USGS 05413500 provides live same-river data. The app stays minimum-only because the exact source gives a floor and one good observed level, not a trusted upper cutoff.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published route report',
+        value: 'County Road U to Chaffie Hollow; 8.75 mi',
+        note: 'Miles Paddled documents Grant River II from the County Road U bridge just off Blackjack Road to Chaffie Hollow Road and lists it at 8.75 miles.',
+        sourceUrl: 'https://milespaddled.com/grant-river-ii/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.76185, -90.86411 to 42.72231, -90.84790',
+        note: 'Miles Paddled publishes GPS points for the County U / Blackjack Road put-in and the Chaffie Hollow Road take-out.',
+        sourceUrl: 'https://milespaddled.com/grant-river-ii/',
+      },
+      {
+        label: 'Threshold support',
+        value: '175 cfs minimum at Burton',
+        note: 'Miles Paddled records 177 cfs / 5.37 ft at Burton as very recommendable and recommends 175 cfs as the minimum because much lower water causes scraping.',
+        sourceUrl: 'https://milespaddled.com/grant-river-ii/',
+      },
+      {
+        label: 'Route character',
+        value: 'Riffles, Class I, 6 ft/mi gradient',
+        note: 'Miles Paddled lists the route as riffles plus Class I, with about 6 feet per mile of gradient and several scenic rock/outcrop features.',
+        sourceUrl: 'https://milespaddled.com/grant-river-ii/',
+      },
+      {
+        label: 'Access caveat',
+        value: 'Private/outfitter-maintained landings possible',
+        note: 'Miles Paddled notes historical private-outfitter context at the landings and recommends parking considerately and not blocking shuttle access.',
+        sourceUrl: 'https://milespaddled.com/grant-river-ii/',
+      },
+      {
+        label: 'Segment corroboration',
+        value: 'Highway U to Chaffie Hollow pieces',
+        note: 'Wisconsin River Trips describes Highway U-to-Camel Ridge as a good stretch and Camel Ridge-to-Chaffie Hollow as a scenic section with current, outcrops, and a dripping-rock feature.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/grant-river',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Miles Paddled Grant River II',
+        url: 'https://milespaddled.com/grant-river-ii/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Wisconsin River Trips Grant River overview',
+        url: 'https://www.wisconsinrivertrips.com/segments/grant-river',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Travel Wisconsin Grant River',
+        url: 'https://www.travelwisconsin.com/outdoors/on-the-water/grant-river',
+        provider: 'local',
+      },
+      {
+        label: 'Grant County boating and tubing',
+        url: 'https://grantcounty.org/tourism/outdoor-activities/canoe-and-boat-rental/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05413500 Grant River at Burton',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05413500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'grant-river-chaffie-hollow-potosi-point',
+    slug: 'grant-river-chaffie-hollow-potosi-point',
+    name: 'Grant River',
+    reach: 'Chaffie Hollow Road to Potosi Point Recreational Area',
+    aliases: [
+      'Grant River III',
+      'Chaffie Hollow Road to Potosi Point',
+      'Lower Grant River to Mississippi River',
+    ],
+    state: 'Wisconsin',
+    region: 'Southwest Wisconsin',
+    summary:
+      'Long lower Grant River day from Chaffie Hollow to Potosi Point, linking quiet Driftless valley water to the Mississippi confluence and an official Corps campground/boat-ramp endpoint.',
+    statusText:
+      'Use the Grant River at Burton gauge. Treat 260 cfs as the conservative recommended floor for this lower reach; lower water may be slow or scrapey, and wind/current at the Mississippi mouth can dominate the finish.',
+    latitude: 42.7218,
+    longitude: -90.84717,
+    gaugeSource: {
+      id: 'usgs-05413500',
+      provider: 'usgs',
+      siteId: '05413500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Grant River at Burton, WI',
+      detailUrl:
+        'https://waterdata.usgs.gov/monitoring-location/USGS-05413500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 260,
+      thresholdSource: {
+        label: 'Miles Paddled Grant River III recommended Burton level',
+        url: 'https://milespaddled.com/grant-river-iii/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This lower section is usually more reliable but much flatter than the upstream Grant. Moderate water helps the 14.5-mile day move, while high or rising water, wind, and Mississippi River backwater can make the final miles and take-out approach more demanding.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Miles Paddled labels the paddling beginner flatwater, but the 14.5-mile distance, low-gradient lower river, railroad/low-clearance features, possible wood, and exposed Mississippi confluence finish make it a moderate planning day in the app.',
+      confidenceNotes:
+        'Confidence is good for a guarded lower-Grant add: Miles Paddled documents the exact Chaffie Hollow-to-Potosi Point route, endpoint GPS points, 14.5-mile distance, Burton-gauge observation, and recommended level; the gauge is in the lower-route corridor near Burton; the U.S. Army Corps of Engineers confirms Grant River Recreation Area facilities including campground and boat ramp at the lower endpoint; Travel Wisconsin corroborates the Grant as a Class I access-rich paddling river; and Grant County tourism lists the Grant as a county boating/canoeing river. The app uses the 260 cfs observed recommended level as a conservative minimum-only floor because no source provided a trusted high-water cutoff.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published route report',
+        value: 'Chaffie Hollow to Potosi Point; 14.5 mi',
+        note: 'Miles Paddled documents Grant River III from Chaffie Hollow Road to Potosi Point Recreational Area and lists it at 14.5 miles.',
+        sourceUrl: 'https://milespaddled.com/grant-river-iii/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.72180, -90.84717 to 42.65894, -90.73325',
+        note: 'Miles Paddled publishes GPS points for the Chaffie Hollow put-in and Potosi Point Recreational Area take-out.',
+        sourceUrl: 'https://milespaddled.com/grant-river-iii/',
+      },
+      {
+        label: 'Recommended level',
+        value: '260 cfs / 6.28 ft at Burton',
+        note: 'Miles Paddled recorded 260 cfs / 6.28 ft at Burton and recommends that level, while noting water levels on the lower route are usually reliable.',
+        sourceUrl: 'https://milespaddled.com/grant-river-iii/',
+      },
+      {
+        label: 'Mississippi confluence',
+        value: 'Backwater and big-river finish',
+        note: 'Miles Paddled notes the current disappears in the lower river, the route enters Mississippi backwater before the mouth, and the final take-out is reached from the big river at Potosi Point.',
+        sourceUrl: 'https://milespaddled.com/grant-river-iii/',
+      },
+      {
+        label: 'Endpoint facilities',
+        value: 'Grant River Recreation Area campground and boat ramp',
+        note: 'The U.S. Army Corps of Engineers says Grant River Recreation Area includes tent camping, RV sites, a picnic shelter, boat ramp, and Mississippi River views.',
+        sourceUrl:
+          'https://www.mvr.usace.army.mil/mississippiriver/recreation/grant-river-recreation-area/',
+      },
+      {
+        label: 'Live gauge',
+        value: 'USGS 05413500 Grant River at Burton',
+        note: 'USGS operates the Grant River at Burton monitoring location within the lower Grant corridor. Water Services returned current discharge and stage during the 2026-07-14/15 run.',
+        sourceUrl:
+          'https://waterdata.usgs.gov/monitoring-location/USGS-05413500/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Miles Paddled Grant River III',
+        url: 'https://milespaddled.com/grant-river-iii/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'USACE Grant River Recreation Area',
+        url: 'https://www.mvr.usace.army.mil/mississippiriver/recreation/grant-river-recreation-area/',
+        provider: 'local',
+      },
+      {
+        label: 'Recreation.gov Grant River campground',
+        url: 'https://www.recreation.gov/camping/campgrounds/233503',
+        provider: 'local',
+      },
+      {
+        label: 'Travel Wisconsin Grant River',
+        url: 'https://www.travelwisconsin.com/outdoors/on-the-water/grant-river',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05413500 Grant River at Burton',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05413500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'pine-river-edgetts-lincoln',
     slug: 'pine-river-edgetts-lincoln',
     name: 'Pine River',
