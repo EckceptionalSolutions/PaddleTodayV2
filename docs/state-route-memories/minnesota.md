@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 03:20 America/Chicago.
+Last summarized: 2026-07-15 04:13 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 140.
-- Top represented rivers: Mississippi River 20, Sauk River 18, Minnesota River 10, Little Fork River 9, Crow Wing River 7, Big Fork River 5, Root River 5, Zumbro River 5, Otter Tail River 4, Cannon River 4, St. Croix River 4, Rum River 4, North Fork Crow River 4, St. Louis River 4, Red River of the North 4, Snake River 3.
-- Ledger candidates: 854 total; 493 `added`, 83 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
+- Live routes: 143.
+- Top represented rivers: Mississippi River 23, Sauk River 18, Minnesota River 10, Little Fork River 9, Crow Wing River 7, Big Fork River 5, Root River 5, Zumbro River 5, Cannon River 4, North Fork Crow River 4, Otter Tail River 4, Red River of the North 4, Rum River 4, St. Croix River 4, St. Louis River 4, Red Lake River 3.
+- Ledger candidates: 868 total; 508 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 04:13 America/Chicago: added `mississippi-river-palisade-waldeck`, `mississippi-river-waldeck-kimball`, and `mississippi-river-kimball-aitkin-campground`.
+- Baseline at run start was 140 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 143 Minnesota routes and all three new slugs have trip-detail records.
+- Stayed in Minnesota and promoted three distinct Mississippi Map 4 / Aitkin County gaps after reconciling prompt leads already represented in the baseline. Palisade-to-Waldeck and Waldeck-to-Kimball use the Aitkin DNR interpreted gauge as a downstream same-map proxy; Kimball-to-Aitkin Campground uses it as the near take-out gauge.
+- Minnesota public-water-access GIS resolves Palisade `WAS01038`, Hwy 169 / Waldeck `WAS02311`, Kimball `WAS01037`, and Aitkin `WAS01042`; Aitkin County documents the endpoint campground and Mississippi boat access.
+- Current MN DNR river-level feed exposed interpreted bands for Aitkin site `120`: scrapable below `712.3 cfs`, low `712.3-1500 cfs`, medium `1500-6000 cfs`, high `6000-8000 cfs`, and very high above `8000 cfs`. During the run, Aitkin was medium at `1700 cfs`.
+- Camping posture: Palisade-to-Waldeck is `on_route_campsite` only under rule-checked MHB/Aitkin route-map planning, Waldeck-to-Kimball is `none`, and Kimball-to-Aitkin Campground is `endpoint_campground`.
+- No route-gallery images were added. Bounded DNR / MHB / Aitkin County / Commons / same-route image review did not produce clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed but did not add Redwood River because the DNR map PDF was unavailable and the corridor still had dam/lake/shuttle ambiguity. Many prompt targets were already in the 140-route baseline, including Chippewa Lentz-to-Watson, Des Moines Mayflower-to-Christianna, Kettle Musclewood, Minnesota River Kinney-to-Skalbekken, Crow Wing Huntersville, St. Louis County Road 4/95 / Fond du Lac / Paupores, Mississippi Itasca/Coffee-Pot, Cass/Winnibigoshish, Vermilion Twomile-to-Eightmile, and Watonwan CR32-to-Garden City.
 
 - 2026-07-15 03:20 America/Chicago: added `zumbro-river-hammond-theilman`, `red-lake-river-huot-crookston`, and `sauk-river-oak-township-spring-hill`.
 - Baseline at run start was 137 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 140 Minnesota routes and all three new slugs have trip-detail records.
