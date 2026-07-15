@@ -6815,61 +6815,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
-  'wisconsin-river-muscoda-woodman': {
-    putIn: {
-      name: 'Muscoda Landing West',
-      latitude: 43.198,
-      longitude: -90.44576,
-    },
-    takeOut: {
-      name: 'Woodman Landing',
-      latitude: 43.07699,
-      longitude: -90.84597,
-    },
-    logistics: {
-      distanceLabel: '24.5 mi',
-      estimatedPaddleTime: 'Full day or multi-day trip; about 8 hr to 12+ hr depending on stops and wind',
-      shuttle:
-        'Plan a long two-car Lower Wisconsin shuttle from Muscoda to Woodman. Intermediate landings at Port Andrew, Blue River, and Boscobel can shorten the day if weather, daylight, or group pace changes.',
-      permits:
-        'No route-specific day paddling permit is known. Follow Lower Wisconsin State Riverway rules, posted landing rules, boating safety requirements, and current camping/trash guidance.',
-      camping:
-        'Sandbar camping can work at low to moderate flows, but Wisconsin Trail Guide warns that sandbars shrink or disappear as flows rise. Do not plan an overnight when the Muscoda gauge is in the high-water bands.',
-      summary:
-        'Launch at Muscoda Landing West and paddle the LWSR3 corridor past island braids, Blue River, Boscobel, and wooded lower-river bluffs before taking out up the Big Green River at Woodman Landing.',
-      accessCaveats: [
-        'Wisconsin Trail Guide lists Muscoda Landing West as a developed ramp with trailer turnaround and parking, reached from West River Road west of Highway 80.',
-        'Woodman Landing is a short distance up the Big Green River / Little Green River confluence area from the Wisconsin River; do not miss the turn near Highway 133.',
-        'The route is intentionally scored as one long route even though Port Andrew, Blue River, and Boscobel are viable bailout or shorter-route landings.',
-      ],
-      watchFor: [
-        'Long-distance fatigue, storms, heat, broad-river wind, and limited quick exits late in the route.',
-        'Side-channel strainers around Columbe Island, Allen Island, Gillis Island, and other wooded island forks.',
-        'Steep sandbar drop-offs and strong current, especially in the lee of islands and sandbars.',
-        'High-water undercurrents and reduced sandbar camping when the Muscoda gauge rises above the normal range.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'blue-river-landing',
-        name: 'Blue River Landing',
-        latitude: 43.2067548,
-        longitude: -90.5663182,
-        mileFromStart: 8,
-        segmentKind: 'creek',
-        note: 'Documented intermediate Lower Wisconsin public access in the Muscoda-to-Woodman corridor.',
-      },
-      {
-        id: 'boscobel-landing',
-        name: 'Boscobel Landing / Floyd Von Haden Boat Landing',
-        latitude: 43.1492722,
-        longitude: -90.715253,
-        mileFromStart: 18,
-        segmentKind: 'creek',
-        note: 'Documented intermediate Lower Wisconsin public access before the Woodman finish.',
-      },
-    ],
-  },
   'wisconsin-river-boscobel-bridgeport': {
     putIn: {
       name: 'Boscobel Landing / Floyd Von Haden Boat Landing',
@@ -8575,6 +8520,114 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'jump-river-haley-holcombe-flowage': {
+    putIn: {
+      name: 'Haley Park / Sheldon Access',
+      latitude: 45.3072714,
+      longitude: -90.9575841,
+    },
+    takeOut: {
+      name: 'Holcombe Flowage / Highway D Landing',
+      latitude: 45.28152,
+      longitude: -91.10982,
+    },
+    logistics: {
+      distanceLabel: 'About 9.3 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr, longer at low summer water',
+      shuttle:
+        'Run a rural shuttle from Haley Park in Sheldon to the Holcombe Flowage / Highway D landing corridor before launching. Identify the exact flowage take-out from land because the lower river opens into broader water and access choices are easier to miss from a boat.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public park and flowage access areas, follow posted Rusk County and local rules, and avoid informal private-bank stops.',
+      camping:
+        'Treat this as a day trip. No on-route campsite is assumed for the Sheldon-to-Holcombe run; nearby Lake Holcombe or Rusk County lodging and camping are separate base-camp plans.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Haley Park in Sheldon and paddle the lower Jump River toward Lake Holcombe / Highway D. The route extends the existing Wayside-to-Sheldon card with more shallow rapids, wooded bends, and a flowage finish that can be slow or windy.',
+      accessCaveats: [
+        'Rusk County lists Haley Park as the Sheldon put-in for the route toward Lake Holcombe.',
+        'Confirm the planned Holcombe Flowage / Highway D landing before launch; Rusk County lists multiple nearby flowage access coordinates and the broad-water finish can make the wrong landing costly.',
+        'The Sheldon USGS gauge is direct for this lower Jump corridor, but low summer water can still require a visual call at the put-in.',
+      ],
+      watchFor: [
+        'Shallow riffles, scraping, and possible wading below about 100 cfs on the Sheldon gauge.',
+        'Several rapids and boulder gardens on the route; scout unfamiliar features and avoid high or rising water if the group lacks moving-water skill.',
+        'Strainers, fresh wood, cold water, and private banks through the wooded lower river.',
+        'Wind, boat wake, and slower travel on the Holcombe Flowage approach near the take-out.',
+      ],
+    },
+  },
+  'rock-river-harnischfeger-kaul': {
+    putIn: {
+      name: 'Harnischfeger Park Canoe Launch',
+      latitude: 43.2102,
+      longitude: -88.5427,
+    },
+    takeOut: {
+      name: 'Kaul Park / County CW Landing',
+      latitude: 43.1814,
+      longitude: -88.5617,
+    },
+    logistics: {
+      distanceLabel: '5.0 mi',
+      estimatedPaddleTime: 'About 2 hr, longer with headwind or low water',
+      shuttle:
+        'Stage the take-out at Kaul Park / County CW, then drive back to Dodge County Harnischfeger Park. Keep the trip to this short public-park reach unless the group has separately planned the downstream Kanow continuation.',
+      permits:
+        'No route-specific paddling permit is known. Follow Dodge County and local park rules, parking requirements, and posted launch hours or fees before unloading boats.',
+      camping:
+        'Harnischfeger Park has campground context at the put-in, but this five-mile reach should be treated as a day paddle. Do not assume legal overnight stops along the riverbanks.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Harnischfeger Park and paddle the upper Rock River to Kaul Park / County CW. This is a quiet touring reach with slow current, public park access, and a Watertown-gauge ladder that needs a downstream-gauge caveat.',
+      accessCaveats: [
+        'Harnischfeger Park is the official county-park access; confirm current park hours, parking, campground, and launch rules before arrival.',
+        'Kaul Park / County CW is the planned take-out for this card. Continuing downstream changes the route into the separate Kaul-to-Kanow day.',
+        'The Watertown gauge is on the same river but downstream of several dams, so check water level and landing usability at both endpoints.',
+      ],
+      watchFor: [
+        'Wind on open bends, which can matter more than the slow current.',
+        'Low-water shallows or muddy launch conditions near the bottom of the WRT ladder.',
+        'Fresh strainers or floating wood after storms, even though the route report found no logjams.',
+        'Private banks between public access points; use the named parks rather than informal stops.',
+      ],
+    },
+  },
+  'rock-river-kaul-kanow': {
+    putIn: {
+      name: 'Kaul Park / County CW Landing',
+      latitude: 43.1814,
+      longitude: -88.5617,
+    },
+    takeOut: {
+      name: 'Kanow County Park Canoe Launch',
+      latitude: 43.1424,
+      longitude: -88.5656,
+    },
+    logistics: {
+      distanceLabel: '5.9 mi',
+      estimatedPaddleTime: 'About 3 hr, longer with headwind or low water',
+      shuttle:
+        'Stage the take-out at Kanow Park, then drive back to Kaul Park / County CW. Confirm Kanow Park access and gate conditions before launch so the shuttle does not depend on a closed or unavailable park entry.',
+      permits:
+        'No route-specific paddling permit is known. Use the public park landings, follow Jefferson County and local park rules, and confirm any parking, gate-hour, or launch-fee requirements before launch.',
+      camping:
+        'No on-route camping is documented for the Kaul-to-Kanow segment. Treat this as a day route and keep any overnight plan separate from the river corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Kaul Park / County CW and paddle the upper Rock River to Kanow Park. This is a distinct downstream continuation of the Harnischfeger card, with slow current, public access, and the same downstream Watertown-gauge caveat.',
+      accessCaveats: [
+        'Kaul Park / County CW is both the upstream route take-out and this route put-in; identify the correct landing and parking area before shuttling.',
+        'Kanow Park is the planned take-out. Check park access, hours, and parking from land before committing to the float.',
+        'The Watertown gauge is downstream and dam-influenced, so use it as a route-family signal and still inspect local water level at Kaul and Kanow.',
+      ],
+      watchFor: [
+        'Wind on the broad, slow Rock River channel.',
+        'Muddy or shallow edges during low water near the bottom of the WRT ladder.',
+        'Fresh wood or strainers after storms even though the published route report found no logjams.',
+        'Private banks and farm or residential shoreline; stay with public launches and legal stops.',
+      ],
+    },
+  },
   'red-river-weed-dam-zeimers-falls': {
     putIn: {
       name: 'Weed Dam Powerhouse Landing',
@@ -9727,6 +9780,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Broad Great Pinery flow guidance rather than a segment-specific ladder; make a visual check before committing.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'camp-new-wood-county-park-landing',
+        name: 'Camp New Wood County Park landing',
+        latitude: 45.287797,
+        longitude: -89.792781,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the Great Pinery segment.',
+      },
+      {
+        id: 'alexander-dam-portage-take-out',
+        name: 'Alexander Dam portage take-out',
+        latitude: 45.188514,
+        longitude: -89.754247,
+        mileFromStart: 8.6,
+        segmentKind: 'creek',
+        note: 'Required take-out above Alexander Dam infrastructure.',
+      },
+    ],
   },
   'wisconsin-river-alexander-riverside': {
     putIn: {
@@ -9763,6 +9836,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Changing dam-release behavior that may not be fully captured by the Merrill gauge at trip time.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'alexander-dam-portage-put-in',
+        name: 'Alexander Dam portage put-in',
+        latitude: 45.18683,
+        longitude: -89.752708,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below Alexander Dam.',
+      },
+      {
+        id: 'riverside-park-landing',
+        name: 'Riverside Park Landing',
+        latitude: 45.175744,
+        longitude: -89.675105,
+        mileFromStart: 5.4,
+        segmentKind: 'creek',
+        note: 'Default take-out after the Merrill Dam portage segment.',
+      },
+    ],
   },
   'wisconsin-river-oak-island-rothschild': {
     putIn: {
@@ -9799,6 +9892,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Broad Great Pinery flow guidance rather than a route-specific Lake Wausau threshold ladder.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'oak-island-park-landing',
+        name: 'Oak Island Park Landing',
+        latitude: 44.953182,
+        longitude: -89.629095,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default Lake Wausau put-in for the Great Pinery segment.',
+      },
+      {
+        id: 'rothschild-dam-portage-take-out',
+        name: 'Rothschild Dam portage take-out',
+        latitude: 44.89441,
+        longitude: -89.626397,
+        mileFromStart: 8.3,
+        segmentKind: 'lake',
+        note: 'Mandatory take-out above Rothschild Dam infrastructure.',
+      },
+    ],
   },
   'jacks-fork-river-buck-hollow-rymers': {
     putIn: {
@@ -31767,9 +31880,6 @@ const wisconsinTripDetailsBackfill: Record<string, WisconsinTripDetailsBackfill>
         "note": "Default take-out for this route."
       }
     ]
-  },
-  "wisconsin-river-muscoda-woodman": {
-    "campingClassification": "sandbar_or_gravel_bar"
   },
   "wisconsin-river-boscobel-bridgeport": {
     "campingClassification": "sandbar_or_gravel_bar"

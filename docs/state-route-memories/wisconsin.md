@@ -4,16 +4,24 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 113.
+- Live routes: 115.
 - Top represented rivers: Wisconsin River 16, Sugar River 5, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Fox River 3, Popple River 3, Baraboo River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3.
 - Ledger candidates: 102 total; 92 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 110-route baseline: `wisconsin-river-camp-new-wood-alexander`, `wisconsin-river-alexander-riverside`, and `wisconsin-river-oak-island-rothschild`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 112-route baseline: `jump-river-haley-holcombe-flowage`, `rock-river-harnischfeger-kaul`, and `rock-river-kaul-kanow`.
 
 ## Latest Audit
 
+- 2026-07-15 America/Chicago: added `jump-river-haley-holcombe-flowage`, `rock-river-harnischfeger-kaul`, and `rock-river-kaul-kanow`, bringing the live Wisconsin route count from the run-start baseline of 112 to 115.
+- The Jump route uses Rusk County's Sheldon-to-Lake-Holcombe route/access page plus Wisconsin River Trips' lower Jump River gauge ladder and direct USGS `05362000` at Sheldon. USGS Water Services returned `84.3 cfs / 3.16 ft` at 2026-07-15 08:00 CDT, below the selected low-water floor, so the card ships as a low-water warning.
+- The two Rock River routes add the Harnischfeger-to-Kaul and Kaul-to-Kanow upper Rock public-access chain. Wisconsin River Trips documents both route segments, mileage, public access notes, no-dam/no-logjam route reports, wind caveats, and a Watertown-gauge ladder; Dodge County and Jefferson County/local park materials corroborate public launch context. USGS Water Services returned Rock River at Watertown `05425500` at `226 cfs / 1.56 ft` at 2026-07-15 08:00 CDT, inside the selected `201-400 cfs` target band.
+- Threshold posture is guarded but defensible: Jump uses WRT's direct Sheldon-gauge `201-300 cfs` average window with `100 cfs` low floor and `1001+ cfs` high cutoff; both Rock cards use WRT's route-family Watertown-gauge `201-400 cfs` target, `100 cfs` low floor, and `801+ cfs` maybe-too-high cutoff with a downstream-of-dams representativeness caveat.
+- Safety/logistics added: Jump carries low-water scraping/wading, several rapids, strainers, cold water, private banks, and Holcombe Flowage wind/wake/take-out identification caveats. Harnischfeger-to-Kaul carries endpoint-campground context at Harnischfeger, wind, private-bank, low-water, and downstream-gauge caveats. Kaul-to-Kanow carries no-camping day-route posture, Kanow Park gate/access checks, wind, private-bank, low-water, and downstream-gauge caveats.
+- Bounded image review found route/context imagery leads but no clearly rights-clean exact-route paddling asset selected for the three new cards; no-image rows were added to the image audit.
+- Reviewed but did not add Waupaca River upstream/Buchholz-Stedman-County-Q variants because the direct Waupaca River near Waupaca gauge `04081000` is discontinued/stale for current-data use. Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica remain already implemented, and Black Earth Creek Cross Plains-to-Salmo Pond remains blocked by unresolved obstruction evidence.
+- 2026-07-15 America/Chicago: consolidated the Lower Wisconsin redundancy by retiring standalone `wisconsin-river-muscoda-woodman`. The corridor remains covered by `wisconsin-river-muscoda-blue-river`, `wisconsin-river-blue-river-boscobel`, and `wisconsin-river-boscobel-bridgeport`; Woodman stays available as an alternate access-planner point on the downstream Boscobel-to-Bridgeport card. Do not re-add Muscoda-to-Woodman as a separate live route unless the product deliberately returns to overlapping long Lower Wisconsin cards.
 - 2026-07-15 America/Chicago: added `wisconsin-river-camp-new-wood-alexander`, `wisconsin-river-alexander-riverside`, and `wisconsin-river-oak-island-rothschild`, bringing the live Wisconsin route count to 113.
 - The three routes add official Great Pinery Heritage Waterway coverage for central Wisconsin River segments that were absent from the live Wisconsin inventory. Camp New Wood-to-Alexander and Alexander-to-Riverside use Great Pinery segment pages plus direct USGS `05395000` at Merrill; Oak Island-to-Rothschild uses the Great Pinery Lake Wausau segment plus direct USGS `05398000` at Rothschild.
 - Live gauge verification: USGS Water Services returned Merrill `05395000` at `1550 cfs / 4.49 ft` and Rothschild `05398000` at `1650 cfs / 12.83 ft` at 2026-07-15 07:00 CDT. These readings are below Great Pinery's broad `3000-10000 cfs` typical-summer guidance, so the cards ship as low-water/shallow cautions rather than strong-day calls.

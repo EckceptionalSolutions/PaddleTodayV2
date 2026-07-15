@@ -8261,6 +8261,7 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
 ## 2026-07-02 consolidation note
 
 - Redundant unpushed route permutations from the July 2 route-add wave were consolidated into canonical multi-access route records. If an earlier note in this file now repeats a canonical slug, treat that as evidence that the former point-to-point variant was folded into the live access-planner route rather than kept as a separate route.
+- 2026-07-15 America/Chicago: the standalone Lower Wisconsin `wisconsin-river-muscoda-woodman` card was retired as a duplicate corridor. Keep the corridor represented by `wisconsin-river-muscoda-blue-river`, `wisconsin-river-blue-river-boscobel`, and `wisconsin-river-boscobel-bridgeport`, with Woodman retained as an access-planner point on the downstream Boscobel-to-Bridgeport card.
 
 ## 2026-07-03 17:54 America/Chicago / 2026-07-03 22:54 UTC Kentucky implementation pass
 
