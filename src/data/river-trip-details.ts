@@ -32510,6 +32510,171 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'crawfish-river-columbus-astico': {
+    putIn: {
+      name: 'Columbus / Udey Dam access',
+      latitude: 43.33718,
+      longitude: -89.01019,
+    },
+    takeOut: {
+      name: 'Astico County Park Crawfish River access',
+      latitude: 43.32613,
+      longitude: -88.94934,
+    },
+    logistics: {
+      distanceLabel: 'About 8.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low water, wood, or park stops',
+      shuttle:
+        'Stage Astico County Park first, then drive back to the Columbus / Udey Dam access. Confirm current Dodge County park hours, fees, landing rules, and campground traffic before leaving the take-out vehicle.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, current Columbus access rules, and Dodge County Astico Park regulations.',
+      camping:
+        'Astico County Park has campground context at the take-out, so this is endpoint-basecamp capable. No on-route river camping is documented or assumed between Columbus and Astico.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch below Udey Dam in Columbus and take out at Astico County Park for the upper Crawfish card. WRT and Miles Paddled document the route, while Paddle Today uses the downstream Milford gauge conservatively with same-day bridge and wood checks.',
+      accessCaveats: [
+        'The Columbus / Udey access is a small urban-river launch area rather than a staffed paddling center; verify parking, mud, and bank footing before unloading.',
+        'Astico County Park is the intended take-out. Do not drift casually below the park into the Danville dam or millpond corridor without a separate dam-aware route plan.',
+        'The Milford gauge is downstream. If recent local rain, drought, or bridge visuals disagree with the score, trust the visual check.',
+      ],
+      watchFor: [
+        'Downed trees, sweepers, and occasional portage potential after storms.',
+        'Low-water dragging below the selected floor, higher-water push above the broad WRT high bands, and cold shoulder-season water.',
+        'Private banks, park rules at Astico, and a clean stop before the lower dam-influenced reaches.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'columbus-udey-dam-access',
+        name: 'Columbus / Udey Dam access',
+        latitude: 43.33718,
+        longitude: -89.01019,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below Udey Dam; verify parking and bank footing.',
+      },
+      {
+        id: 'astico-county-park-crawfish',
+        name: 'Astico County Park Crawfish River access',
+        latitude: 43.32613,
+        longitude: -88.94934,
+        mileFromStart: 8.5,
+        segmentKind: 'creek',
+        note: 'Default take-out and endpoint campground/basecamp context.',
+      },
+    ],
+  },
+  'crawfish-river-county-i-county-g': {
+    putIn: {
+      name: 'County Road I Crawfish River access',
+      latitude: 43.25623,
+      longitude: -88.93943,
+    },
+    takeOut: {
+      name: 'County Road G / Hubbleton Crawfish River access',
+      latitude: 43.2343,
+      longitude: -88.88654,
+    },
+    logistics: {
+      distanceLabel: 'About 6.75 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 3.5 hr, depending on wind, current, and stops',
+      shuttle:
+        'Stage County Road G / Hubbleton first, then return to County Road I. Both ends are simple rural public-access style sites, so inspect parking, shoulder safety, mud, and signage before committing.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules and any posted Glacial Heritage, wildlife-area, road-shoulder, or county access restrictions.',
+      camping:
+        'No on-route camping is documented for this middle Crawfish reach. Treat the Glacial Heritage route as a day paddle and use separate campground or lodging plans if needed.',
+      campingClassification: 'none',
+      summary:
+        'Use County Road I to County Road G for the quiet middle Crawfish / Glacial Heritage card. The route has exact Miles Paddled access support and a downstream Milford gauge floor, but Paddle Today withholds an invented ideal range because exact threshold support remains mixed.',
+      accessCaveats: [
+        'County Road I and County Road G are simple access points. Same-day signage, parking, mud, and traffic conditions decide whether the launch and landing are practical.',
+        'The route moves through wildlife-area and farm-country edges where private-bank and habitat boundaries matter. Keep stops to public accesses or true emergencies.',
+        'Use the Milford gauge as a floor and trend check only; local storms, wind, or wood can make middle-reach conditions differ from the downstream gauge.',
+      ],
+      watchFor: [
+        'Downed trees, sweepers, and bridge approach debris after storms.',
+        'Open sun and wind across lowland bends, plus shallow dragging if the river falls below the conservative floor.',
+        'Private banks, rural road traffic, muddy landings, and limited legal bailout options.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-road-i-crawfish-access',
+        name: 'County Road I Crawfish River access',
+        latitude: 43.25623,
+        longitude: -88.93943,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the middle Glacial Heritage Crawfish route.',
+      },
+      {
+        id: 'county-road-g-hubbleton-access',
+        name: 'County Road G / Hubbleton Crawfish River access',
+        latitude: 43.2343,
+        longitude: -88.88654,
+        mileFromStart: 6.75,
+        segmentKind: 'creek',
+        note: 'Default take-out; verify bridge-area parking and signage before launch.',
+      },
+    ],
+  },
+  'crawfish-river-aztalan-riverfront': {
+    putIn: {
+      name: 'Aztalan State Park Crawfish River access',
+      latitude: 43.06306,
+      longitude: -88.86,
+    },
+    takeOut: {
+      name: 'Jefferson Riverfront Park Crawfish River landing',
+      latitude: 43.00167,
+      longitude: -88.81472,
+    },
+    logistics: {
+      distanceLabel: 'About 7.4 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, depending on route choice around islands and water level',
+      shuttle:
+        'Stage Jefferson Riverfront Park first, then launch from Aztalan State Park. Confirm state-park vehicle admission, current landing condition, and Jefferson park access before leaving vehicles.',
+      permits:
+        'No route-specific paddling permit is known beyond normal Wisconsin boating/PFD rules, Aztalan State Park admission or rules, and Jefferson park regulations.',
+      camping:
+        'No on-route camping is documented. Treat Aztalan-to-Jefferson as a day route; any state-park, county, or private campground plan is separate base-camp planning.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Aztalan State Park and take out at Jefferson Riverfront Park for the lower Crawfish / Goat Island card. This is the cleanest gauge fit in the new Crawfish family because the Milford gauge sits in the lower route corridor and WRT publishes route-specific bands.',
+      accessCaveats: [
+        'Follow current Aztalan State Park entrance, parking, and river-access rules rather than assuming every informal river edge is launchable.',
+        'Use Riverfront Park as the intended take-out and avoid a casual continuation into Jefferson dam, urban, or Rock River confluence hazards.',
+        'Even with a close gauge, island channels, wood, and local rain can change exact lines around Goat Island.',
+      ],
+      watchFor: [
+        'Side channels and island-route choices around Goat Island.',
+        'Fresh wood, shallow riffles at lower levels, pushier current after rain, and cold shoulder-season water.',
+        'Private banks, urban Jefferson obstacles, and missing the take-out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'aztalan-state-park-crawfish-access',
+        name: 'Aztalan State Park Crawfish River access',
+        latitude: 43.06306,
+        longitude: -88.86,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at Aztalan State Park; follow current state-park rules.',
+      },
+      {
+        id: 'jefferson-riverfront-park-crawfish',
+        name: 'Jefferson Riverfront Park Crawfish River landing',
+        latitude: 43.00167,
+        longitude: -88.81472,
+        mileFromStart: 7.4,
+        segmentKind: 'creek',
+        note: 'Default take-out before any separate urban dam or Rock River continuation.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {

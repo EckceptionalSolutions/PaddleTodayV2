@@ -4,15 +4,23 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 133.
-- Top represented rivers: Wisconsin River 15, Baraboo River 5, Milwaukee River 5, Peshtigo River 5, St. Croix River 5, Sugar River 5, Wolf River 5, Bois Brule River 4, Chippewa River 4, Eau Claire River 4, Kickapoo River 4, Namekagon River 4, Pine River 4, Rock River 4, Big Rib River 3, Black River 3, Brule River 3, East Branch Pecatonica River 3, Fox River 3, Grant River 3, Mecan River 3, Platte River 3, Popple River 3, South Fork Flambeau River 3.
+- Live routes: 136.
+- Top represented rivers: Wisconsin River 15, Baraboo River 5, Milwaukee River 5, Peshtigo River 5, St. Croix River 5, Sugar River 5, Wolf River 5, Bois Brule River 4, Chippewa River 4, Eau Claire River 4, Kickapoo River 4, Namekagon River 4, Pine River 4, Rock River 4, Big Rib River 3, Black River 3, Brule River 3, Crawfish River 3, East Branch Pecatonica River 3, Fox River 3, Grant River 3, Mecan River 3, Platte River 3, Popple River 3, South Fork Flambeau River 3.
 - Ledger candidates: 129 Wisconsin candidates tracked; 119 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 130-route baseline: `mecan-river-dakota-dixie`, `mecan-river-dixie-highway-22`, and `mecan-river-highway-22-germania`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 133-route baseline: `crawfish-river-columbus-astico`, `crawfish-river-county-i-county-g`, and `crawfish-river-aztalan-riverfront`.
 
 ## Latest Audit
+
+- 2026-07-15 America/Chicago: added `crawfish-river-columbus-astico`, `crawfish-river-county-i-county-g`, and `crawfish-river-aztalan-riverfront`, bringing the live Wisconsin route count from the run-start baseline of 133 to 136.
+- The three routes introduce the Crawfish River as a new live Wisconsin family rather than expanding an already-saturated corridor. Wisconsin River Trips documents Columbus-to-Astico and Aztalan-to-Jefferson / Goat Island with route-specific Milford-gauge level guidance; Miles Paddled documents all three access pairs and coordinates; Wisconsin DNR / Glacial Heritage / Aztalan, Dodge County, and Jefferson sources support the public-corridor and endpoint context.
+- Live gauge verification: USGS Water Services returned Crawfish River at Milford `05426000` at `219 cfs / 2.27 ft` at 2026-07-15 15:00 CDT. Columbus-to-Astico and County-I-to-County-G use the Milford gauge as a downstream same-river proxy; Aztalan-to-Riverfront uses it as the cleanest lower-route gauge fit.
+- Threshold posture: Columbus-to-Astico uses WRT's Milford-gauge bands with `61-400 cfs` as the selected useful window, `60 cfs` as exceptionally low, and `1401+ cfs` as too high. County-I-to-County-G resolves the old access/threshold blocker only to minimum-only status: it uses a conservative `60 cfs` floor from same-river Crawfish guidance and Miles Paddled exact-route context, with no invented ideal or high cutoff. Aztalan-to-Riverfront uses WRT's Goat Island bands with `121-250 cfs` as target, `61-120 cfs` as low but doable, and `1401+ cfs` as too high.
+- Safety/logistics added: Columbus-to-Astico has endpoint-campground/basecamp context at Astico County Park and warnings for the downstream Danville dam corridor, wood, private banks, and proxy-gauge checks. County-I-to-County-G is no-camping with rural bridge/access, private-bank, wood, wind/sun, and minimum-only threshold caveats. Aztalan-to-Riverfront is no-camping with Goat Island channel-choice, wood, urban Jefferson no-continuation/dam, private-bank, and state/city park-rule caveats.
+- Bounded image review found WRT / Miles Paddled / DNR / county-city / Commons / same-route leads but no clearly rights-clean exact Crawfish paddling/gallery asset selected for local reuse; no-image rows were added to the image audit.
+- Reviewed prompt and memory leads again: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica remain already live; Black Earth Creek Cross Plains-to-Salmo Pond remains blocked by unresolved obstruction evidence; Oconto North Branch remains held; Peshtigo O-to-CCC remains blocked by current obstruction reports; Waupaca / Tomorrow / Yellow River / Little Wolf blockers remain unchanged.
 
 - 2026-07-15 America/Chicago: added `mecan-river-dakota-dixie`, `mecan-river-dixie-highway-22`, and `mecan-river-highway-22-germania`, bringing the live Wisconsin route count from the run-start baseline of 130 to 133.
 - The three routes introduce the Mecan River as a new live Wisconsin family. Wisconsin River Trips documents the exact Dakota-to-Dixie, Dixie-to-Highway-22, and Highway-22-to-Germania route pages with named endpoint pairs, mileage, access notes, bridge/marsh/barrier/dam caveats, and a Chaffee Creek stage ladder. Wisconsin DNR corroborates the Mecan River Fishery Area, canoeing, numerous parking areas, and Chaffee Creek as a direct Mecan tributary.
