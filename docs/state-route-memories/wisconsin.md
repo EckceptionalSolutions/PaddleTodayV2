@@ -4,15 +4,23 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 130.
-- Top represented rivers: Wisconsin River 15, Sugar River 5, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Baraboo River 5, Rock River 4, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Kickapoo River 4, Big Rib River 3, East Branch Pecatonica River 3, Fox River 3, Popple River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3.
-- Ledger candidates: 117 Wisconsin candidates tracked; 107 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
+- Live routes: 133.
+- Top represented rivers: Wisconsin River 15, Baraboo River 5, Milwaukee River 5, Peshtigo River 5, St. Croix River 5, Sugar River 5, Wolf River 5, Bois Brule River 4, Chippewa River 4, Eau Claire River 4, Kickapoo River 4, Namekagon River 4, Pine River 4, Rock River 4, Big Rib River 3, Black River 3, Brule River 3, East Branch Pecatonica River 3, Fox River 3, Grant River 3, Mecan River 3, Platte River 3, Popple River 3, South Fork Flambeau River 3.
+- Ledger candidates: 129 Wisconsin candidates tracked; 119 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 127-route baseline: `kickapoo-river-highway-b-highway-s`, `embarrass-river-old-mill-range-line`, and `badfish-creek-north-casey-highway-59`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 130-route baseline: `mecan-river-dakota-dixie`, `mecan-river-dixie-highway-22`, and `mecan-river-highway-22-germania`.
 
 ## Latest Audit
+
+- 2026-07-15 America/Chicago: added `mecan-river-dakota-dixie`, `mecan-river-dixie-highway-22`, and `mecan-river-highway-22-germania`, bringing the live Wisconsin route count from the run-start baseline of 130 to 133.
+- The three routes introduce the Mecan River as a new live Wisconsin family. Wisconsin River Trips documents the exact Dakota-to-Dixie, Dixie-to-Highway-22, and Highway-22-to-Germania route pages with named endpoint pairs, mileage, access notes, bridge/marsh/barrier/dam caveats, and a Chaffee Creek stage ladder. Wisconsin DNR corroborates the Mecan River Fishery Area, canoeing, numerous parking areas, and Chaffee Creek as a direct Mecan tributary.
+- Live gauge verification: USGS Water Services returned Chaffee Creek at I-39 near Coloma `04073240` at `11.9 cfs / 3.63 ft` at 2026-07-15 14:00 CDT. All three Mecan cards currently sit inside WRT's selected average/good proxy band.
+- Threshold posture: all three use WRT's Chaffee Creek proxy stage ladder with mixed-source confidence (`3.59-3.60 ft` low but navigable, `3.61-3.68 ft` useful/good-to-above-average, `3.69-3.72 ft` high but navigable, and `3.73+ ft` high/not ideal). The app does not invent an independent Mecan ideal range or marsh upper cutoff; same-day bridge, marsh, barrier, and dam checks override marginal scores.
+- Safety/logistics added: Dakota-to-Dixie carries low-branch, low-private-bridge, wood, cold-water, private-bank, no-camping, and proxy-gauge caveats. Dixie-to-Highway-22 carries fast-current, bridge-access, wood, cold-water, private-bank, no-camping, and proxy-gauge caveats. Highway-22-to-Germania carries marsh navigation, wind, low bridge, electric fish barrier, optional Duck Creek early take-out, mandatory Germania Marsh Dam stop, soft-bottom/wading, cold-water, private-bank, no-camping, and same-day access-check caveats.
+- Bounded image review found Wisconsin River Trips route imagery, Wisconsin DNR Mecan context, Commons/same-route search leads, and USGS Chaffee gauge context, but no clearly rights-clean exact-route paddling/gallery asset selected for the three new cards; no-image rows were added to the image audit.
+- Reviewed prompt and memory leads again: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica are already live; Black Earth Creek Cross Plains-to-Salmo Pond remains blocked by unresolved obstruction evidence; Oconto North Branch remains held for calculated-flow/local-flow support and wood/chute clearance; Peshtigo O-to-CCC remains blocked by current obstruction reports; Waupaca / Tomorrow / Yellow River / Little Wolf blockers remain unchanged. Mecan 11th-to-Dakota was held because its source proxy was weaker than the three accepted Chaffee-backed Mecan cards.
 
 - 2026-07-15 America/Chicago: added `kickapoo-river-highway-b-highway-s`, `embarrass-river-old-mill-range-line`, and `badfish-creek-north-casey-highway-59`, bringing the live Wisconsin route count from the run-start baseline of 127 to 130.
 - The Kickapoo route fills the lower Gays Mills card below the existing Readstown / upper-KVR coverage. Wisconsin River Trips documents Highway B-to-Highway S, the public landing pair, 8.6-mile route, Gays Mills low-head-dam portage, strainers/high-water hazards, and Steuben-stage guidance; Crawford County corroborates Highway B and Highway S as Lower Kickapoo canoe landings.

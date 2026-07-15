@@ -31796,6 +31796,180 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'mecan-river-dakota-dixie': {
+    putIn: {
+      name: 'Dakota / Highway Y-JJ bridge access',
+      latitude: 43.9886026,
+      longitude: -89.3584275,
+    },
+    takeOut: {
+      name: 'Dixie Avenue bridge access',
+      latitude: 43.9522342,
+      longitude: -89.325844,
+    },
+    logistics: {
+      distanceLabel: 'About 5.4 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer if branches or bridge obstructions require short carries',
+      shuttle:
+        'Stage Dixie Avenue first, then drive back to the Dakota / Highway Y-JJ bridge. Check both bridge approaches before unloading because the route depends on small public carry-in style access rather than a staffed launch.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, use only legal bridge/public access space, and avoid blocking road shoulders or private driveways.',
+      camping:
+        'No on-route camping is documented for this upper Mecan day route. Treat any Waushara County or private campground plan as separate base-camp planning away from the river corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Dakota / Highway Y-JJ bridge and take out at Dixie Avenue for a clear spring-fed upper Mecan route. The app uses Chaffee Creek at I-39 as a rough tributary proxy because WRT ties this exact route family to that gauge, but same-day bridge visuals still control.',
+      accessCaveats: [
+        'WRT describes the Dakota bridge as public and scenic and Dixie Avenue as a nice carry-in landing, but both are small access points where shoulder, mud, and bank conditions matter.',
+        'The Chaffee Creek gauge is a rough analog, not a direct Mecan gauge. If the bridge visual check disagrees with the score, trust the visual check.',
+        'Stay off private banks except in emergencies. The route is short enough to avoid casual trespass stops.',
+      ],
+      watchFor: [
+        'Low branches, fresh wood, and low private bridges that may require a short portage or careful duck-under.',
+        'Cold spring-fed water, especially in shoulder seasons.',
+        'Local storms, drought, or vegetation changes that can make the Chaffee proxy misleading for the exact route.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'dakota-highway-y-jj-bridge',
+        name: 'Dakota / Highway Y-JJ bridge access',
+        latitude: 43.9886026,
+        longitude: -89.3584275,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; WRT describes this as a public and scenic bridge access.',
+      },
+      {
+        id: 'dixie-avenue-mecan-access',
+        name: 'Dixie Avenue bridge access',
+        latitude: 43.9522342,
+        longitude: -89.325844,
+        mileFromStart: 5.4,
+        segmentKind: 'creek',
+        note: 'Default take-out for the upper Dakota card.',
+      },
+    ],
+  },
+  'mecan-river-dixie-highway-22': {
+    putIn: {
+      name: 'Dixie Avenue bridge access',
+      latitude: 43.9521817,
+      longitude: -89.3258795,
+    },
+    takeOut: {
+      name: 'Highway 22 Mecan River access',
+      latitude: 43.915876,
+      longitude: -89.3122539,
+    },
+    logistics: {
+      distanceLabel: 'About 4.5 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, depending on current, branches, and stops',
+      shuttle:
+        'Stage the Highway 22 take-out first, then drive back to Dixie Avenue. Inspect the Highway 22 access from land because parking and bank footing are the main practical constraints.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, use legal public access space, and respect posted bridge-area parking limits.',
+      camping:
+        'No on-route camping is documented. Treat this as a short day route with separate base-camp planning if needed.',
+      campingClassification: 'none',
+      summary:
+        'Use Dixie Avenue to Highway 22 for the middle Mecan card. WRT reports no rapids and consistently fast current, while the app scores the route from the Chaffee Creek proxy with explicit same-day visual-check caveats.',
+      accessCaveats: [
+        'Dixie Avenue is the same public carry-in used as the upstream route take-out; stage courteously and keep the bridge area clear.',
+        'Highway 22 has public access northeast of the bridge, but footing, mud, shoulder parking, and vegetation should be checked before leaving a shuttle vehicle.',
+        'The Chaffee Creek proxy can miss exact Mecan conditions. Same-day water visibility, bridge clearance, and local storm history should override a marginal score.',
+      ],
+      watchFor: [
+        'Fast current pushing into low branches, bridge edges, and any fresh downed tree.',
+        'Cold water, especially in spring and fall.',
+        'Private banks between the bridge accesses; avoid unplanned stops unless safety requires them.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'dixie-avenue-mecan-access',
+        name: 'Dixie Avenue bridge access',
+        latitude: 43.9521817,
+        longitude: -89.3258795,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; WRT describes this as a great put-in with public parking.',
+      },
+      {
+        id: 'highway-22-mecan-access',
+        name: 'Highway 22 Mecan River access',
+        latitude: 43.915876,
+        longitude: -89.3122539,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Default take-out northeast of the bridge.',
+      },
+    ],
+  },
+  'mecan-river-highway-22-germania': {
+    putIn: {
+      name: 'Highway 22 Mecan River access',
+      latitude: 43.9161263,
+      longitude: -89.3126352,
+    },
+    takeOut: {
+      name: 'Germania Marsh Dam access',
+      latitude: 43.8917924,
+      longitude: -89.2522052,
+    },
+    logistics: {
+      distanceLabel: 'About 5.8 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with wind, marsh navigation, or a barrier portage',
+      shuttle:
+        'Stage Germania Marsh Dam first and confirm that the ramp/gate/access setup is usable that day. Consider marking the Duck Creek / fish barrier alternate take-out before launching from Highway 22.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, obey fish-barrier and dam signs, and use only public access areas for staging.',
+      camping:
+        'No on-route camping is documented. The marsh-and-dam route should be treated as a day paddle with a firm take-out plan before the dam.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Highway 22 and paddle downstream through the Germania Marsh corridor to the dam access. This route is short on paper but carries more logistics than the upstream Mecan cards because of marsh navigation, wind exposure, fish-barrier signs, and the mandatory dam stop.',
+      accessCaveats: [
+        'The Highway 22 launch is public but small; inspect parking, footing, and bridge clearance before committing.',
+        'WRT notes an electric fish barrier warning and an alternate take-out near Duck Creek about 1.1 miles above the dam. Treat that as a real decision point if signs or conditions warrant stopping early.',
+        'The Germania Marsh Dam take-out must be confirmed before launch, including seasonal gate or ramp access. Do not drift into the dam corridor.',
+      ],
+      watchFor: [
+        'Open-marsh wind, confusing channels, low bridge clearance, and the need for GPS or a reliable map.',
+        'Electric fish barrier signage, overgrown portage/access paths, and quicksand or soft-bottom wading risk.',
+        'Cold water, private banks, storms, and any mismatch between Chaffee proxy levels and visible Mecan conditions.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-22-mecan-access',
+        name: 'Highway 22 Mecan River access',
+        latitude: 43.9161263,
+        longitude: -89.3126352,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in on the north side of the bridge.',
+      },
+      {
+        id: 'duck-creek-fish-barrier',
+        name: 'Duck Creek / fish barrier alternate take-out',
+        latitude: 43.8948365,
+        longitude: -89.2593652,
+        mileFromStart: 4.7,
+        segmentKind: 'creek',
+        note: 'Optional early take-out if barrier signs, wind, or marsh conditions make the dam continuation unwise.',
+      },
+      {
+        id: 'germania-marsh-dam-access',
+        name: 'Germania Marsh Dam access',
+        latitude: 43.8917924,
+        longitude: -89.2522052,
+        mileFromStart: 5.8,
+        segmentKind: 'creek',
+        note: 'Default take-out before the dam; confirm same-day access before launching.',
+      },
+    ],
+  },
   'kickapoo-river-highway-b-highway-s': {
     putIn: {
       name: 'County Highway B Canoe Landing',
