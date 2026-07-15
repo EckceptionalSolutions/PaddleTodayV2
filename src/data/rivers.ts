@@ -50063,6 +50063,384 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'sheyenne-river-ylvisaker-bridge-brome-field',
+    slug: 'sheyenne-river-ylvisaker-bridge-brome-field',
+    name: 'Sheyenne River',
+    reach: 'Ylvisaker Bridge hand-launch to Brome Field hand-launch',
+    aliases: [
+      'Sheyenne River Water Trail - Ylvisaker Bridge to Brome Field',
+      'Sheyenne River - Ylvisaker Bridge to Brome Field',
+      'Sheyenne National Grassland upstream short segment',
+    ],
+    state: 'North Dakota',
+    region: 'Sheyenne National Grassland',
+    summary:
+      'Short upstream grassland Sheyenne River Water Trail split from Ylvisaker Bridge down to Brome Field. USFS names both semi-primitive access points and uses the Baldhill Dam USGS gauge as the corridor-wide condition check.',
+    statusText:
+      'Use the Sheyenne River below Baldhill Dam gauge as a corridor-wide proxy. The official water-trail guidance calls 300 to 1,000 cfs optimal, 100 to 300 cfs navigable with exposed obstacles, 1,000 to 2,000 cfs caution water, and over 2,000 cfs avoid.',
+    latitude: 46.53246,
+    longitude: -97.34256,
+    gaugeSource: {
+      id: 'usgs-05058000',
+      provider: 'usgs',
+      siteId: '05058000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Sheyenne River below Baldhill Dam, ND',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05058000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        'Expect overhanging trees, logjams, bridge-abutment hazards, and shallow bars; portage around obstructions rather than grabbing branches from the boat.',
+        'USFS marks public-land boundaries along this trail segment. Respect those markers and do not dock beyond public lands unless needed for safety.',
+        'High flows above 1,000 cfs can flood shoreline trees and logs; over 2,000 cfs is official avoid water on the Sheyenne.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 300,
+      idealMax: 1000,
+      tooLow: 100,
+      tooHigh: 2000,
+      thresholdSource: {
+        label: 'USFS Sheyenne River Water Trail river conditions',
+        url: 'https://www.fs.usda.gov/r01/dpg/recreation/trails/sheyenne-river-water-trail',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'USFS says the Sheyenne River Water Trail is primarily designed for summer use, with the practical paddling season generally May through September. Rain, dam operations, and storm debris can still change current, wood, and bank conditions quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is one of the shortest Sheyenne National Grassland options at ordinary levels, but the semi-primitive hand launches, exposed bars at low water, and shoreline wood at higher water still require a prepared same-day check.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: the current USFS water-trail page names Ylvisaker Bridge and Brome Field as designated access points, the official 2019 USFS brochure map provides the river-mile ladder and geospatial access anchors, and USGS Water Services returned same-day 05058000 discharge and gage-height values during this run. Confidence is intentionally tempered because the Baldhill Dam gauge is an official corridor-wide proxy for most of the river, not an exact on-segment gauge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Ylvisaker Bridge to Brome Field, about 3 river miles',
+        note: 'The official USFS Sheyenne River Water Trail brochure labels Ylvisaker Bridge near river mile 0 and Brome Field near river mile 3 on the Sheyenne National Grassland map.',
+        sourceUrl: 'https://www.fs.usda.gov/media/62034',
+      },
+      {
+        label: 'Official access context',
+        value: 'Semi-primitive hand-launch sites',
+        note: 'USFS says the Sheyenne National Grassland reach has four primary semi-primitive access sites designated for hand-launching canoes and kayaks, including Ylvisaker Bridge and Brome Field.',
+        sourceUrl: 'https://www.fs.usda.gov/r01/dpg/recreation/opportunities/water-activities',
+      },
+      {
+        label: 'Corridor live gauge proxy',
+        value: 'USGS 05058000 at 301 cfs / 24.81 ft',
+        note: 'USFS points Sheyenne River Water Trail users to USGS station 05058000 below Baldhill Dam and says it indicates conditions along most of the river. Water Services returned 301 cfs and 24.81 ft at 2026-07-15 15:00 CDT during implementation.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05058000/',
+      },
+      {
+        label: 'Official flow bands',
+        value: '300-1,000 cfs optimal',
+        note: 'USFS says flows of 100 cfs or below are very low, 100-300 cfs are navigable with exposed obstacles, 300-1,000 cfs are optimal, 1,000-2,000 cfs require caution, and over 2,000 cfs should be avoided.',
+        sourceUrl: 'https://www.fs.usda.gov/r01/dpg/recreation/trails/sheyenne-river-water-trail',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '46.53246, -97.34256 to 46.53087339415233, -97.31706518572886',
+        note: 'The official 2019 USFS brochure map is geospatial. Using the already-verified Brome Field anchor and the same hand-launch icon layer on that map yields a practical Ylvisaker Bridge access anchor for the selected upstream segment.',
+        sourceUrl: 'https://www.fs.usda.gov/media/62034',
+      },
+      {
+        label: 'Access and boundary rules',
+        value: 'Hand launch only, respect public-land markers',
+        note: 'The USFS brochure says these sites are for hand launch and retrieval rather than trailered watercraft, and it warns paddlers not to dock beyond the public-land markers shown along the route.',
+        sourceUrl: 'https://www.fs.usda.gov/media/62034',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'USFS Sheyenne River Water Trail',
+        url: 'https://www.fs.usda.gov/r01/dpg/recreation/trails/sheyenne-river-water-trail',
+        provider: 'local',
+      },
+      {
+        label: 'USFS Water Activities',
+        url: 'https://www.fs.usda.gov/r01/dpg/recreation/opportunities/water-activities',
+        provider: 'local',
+      },
+      {
+        label: 'USFS Sheyenne River Water Trail brochure map',
+        url: 'https://www.fs.usda.gov/media/62034',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05058000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05058000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'sheyenne-river-mirror-pool-east-river',
+    slug: 'sheyenne-river-mirror-pool-east-river',
+    name: 'Sheyenne River',
+    reach: 'Mirror Pool WMA hand-launch to East River hand-launch',
+    aliases: [
+      'Sheyenne River Water Trail - Mirror Pool to East River',
+      'Sheyenne River - Mirror Pool to East River',
+      'Sheyenne National Grassland downstream segment',
+    ],
+    state: 'North Dakota',
+    region: 'Sheyenne National Grassland',
+    summary:
+      'Longer downstream grassland Sheyenne River Water Trail split from Mirror Pool WMA to East River. USFS names both semi-primitive access points, and the Baldhill Dam gauge remains the official corridor-wide condition check.',
+    statusText:
+      'Use the Sheyenne River below Baldhill Dam gauge as a corridor-wide proxy. The official water-trail guidance calls 300 to 1,000 cfs optimal, 100 to 300 cfs navigable with exposed obstacles, 1,000 to 2,000 cfs caution water, and over 2,000 cfs avoid.',
+    latitude: 46.50498692183727,
+    longitude: -97.29118124734387,
+    gaugeSource: {
+      id: 'usgs-05058000',
+      provider: 'usgs',
+      siteId: '05058000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Sheyenne River below Baldhill Dam, ND',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05058000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        'Expect overhanging trees, logjams, occasional big rocks or shallow bars, and a longer commitment than the short Brome split.',
+        'USFS marks public-land boundaries along this trail segment. Respect those markers and do not dock beyond public lands unless needed for safety.',
+        'High flows above 1,000 cfs can flood shoreline trees and logs; over 2,000 cfs is official avoid water on the Sheyenne.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 300,
+      idealMax: 1000,
+      tooLow: 100,
+      tooHigh: 2000,
+      thresholdSource: {
+        label: 'USFS Sheyenne River Water Trail river conditions',
+        url: 'https://www.fs.usda.gov/r01/dpg/recreation/trails/sheyenne-river-water-trail',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'USFS says the Sheyenne River Water Trail is primarily designed for summer use, with the practical paddling season generally May through September. Rain, dam operations, and storm debris can still change current, wood, and bank conditions quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The river remains gentle at ordinary levels, but this downstream leg is materially longer than the Brome split and uses semi-primitive hand launches, so the day can stretch if low water, wood, or wind slow progress.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: the current USFS water-trail page names Mirror Pool and East River as designated access points, the official 2019 USFS brochure map provides the river-mile ladder and geospatial access anchors, and USGS Water Services returned same-day 05058000 discharge and gage-height values during this run. Confidence is intentionally tempered because the Baldhill Dam gauge is an official corridor-wide proxy for most of the river, not an exact on-segment gauge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Mirror Pool to East River, about 8 river miles',
+        note: 'The official USFS Sheyenne River Water Trail brochure labels Mirror Pool near river mile 8 and East River near river mile 16 on the Sheyenne National Grassland map.',
+        sourceUrl: 'https://www.fs.usda.gov/media/62034',
+      },
+      {
+        label: 'Official access context',
+        value: 'Semi-primitive hand-launch sites',
+        note: 'USFS says the Sheyenne National Grassland reach has four primary semi-primitive access sites designated for hand-launching canoes and kayaks, including Mirror Pool and East River.',
+        sourceUrl: 'https://www.fs.usda.gov/r01/dpg/recreation/opportunities/water-activities',
+      },
+      {
+        label: 'Corridor live gauge proxy',
+        value: 'USGS 05058000 at 301 cfs / 24.81 ft',
+        note: 'USFS points Sheyenne River Water Trail users to USGS station 05058000 below Baldhill Dam and says it indicates conditions along most of the river. Water Services returned 301 cfs and 24.81 ft at 2026-07-15 15:00 CDT during implementation.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05058000/',
+      },
+      {
+        label: 'Official flow bands',
+        value: '300-1,000 cfs optimal',
+        note: 'USFS says flows of 100 cfs or below are very low, 100-300 cfs are navigable with exposed obstacles, 300-1,000 cfs are optimal, 1,000-2,000 cfs require caution, and over 2,000 cfs should be avoided.',
+        sourceUrl: 'https://www.fs.usda.gov/r01/dpg/recreation/trails/sheyenne-river-water-trail',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '46.50498692183727, -97.29118124734387 to 46.50234, -97.23046',
+        note: 'The official 2019 USFS brochure map is geospatial. Using the already-verified Mirror Pool anchor and the same hand-launch icon layer on that map yields a practical East River access anchor for the selected downstream segment.',
+        sourceUrl: 'https://www.fs.usda.gov/media/62034',
+      },
+      {
+        label: 'Access amenities context',
+        value: 'East River hand launch with picnic-table context',
+        note: 'USFS says the Sheyenne National Grassland has four semi-primitive water-trail access sites reachable by motor vehicle and that East River has picnic tables and bike racks.',
+        sourceUrl: 'https://www.fs.usda.gov/r01/dpg/safety-ethics/fishing',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'USFS Sheyenne River Water Trail',
+        url: 'https://www.fs.usda.gov/r01/dpg/recreation/trails/sheyenne-river-water-trail',
+        provider: 'local',
+      },
+      {
+        label: 'USFS Water Activities',
+        url: 'https://www.fs.usda.gov/r01/dpg/recreation/opportunities/water-activities',
+        provider: 'local',
+      },
+      {
+        label: 'USFS Fishing / water-access context',
+        url: 'https://www.fs.usda.gov/r01/dpg/safety-ethics/fishing',
+        provider: 'local',
+      },
+      {
+        label: 'USFS Sheyenne River Water Trail brochure map',
+        url: 'https://www.fs.usda.gov/media/62034',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05058000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05058000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'North Dakota Game and Fish WMA listing',
+        url: 'https://gf.nd.gov/wma-listing',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'sheyenne-river-brome-field-east-river',
+    slug: 'sheyenne-river-brome-field-east-river',
+    name: 'Sheyenne River',
+    reach: 'Brome Field hand-launch to East River hand-launch',
+    aliases: [
+      'Sheyenne River Water Trail - Brome Field to East River',
+      'Sheyenne River - Brome Field to East River',
+      'Sheyenne National Grassland long continuation',
+    ],
+    state: 'North Dakota',
+    region: 'Sheyenne National Grassland',
+    summary:
+      'Longer Sheyenne National Grassland continuation from Brome Field to East River. USFS names both semi-primitive access points, and the official river-mile map shows overnight-camping context if the group wants to treat this as more than a simple day float.',
+    statusText:
+      'Use the Sheyenne River below Baldhill Dam gauge as a corridor-wide proxy. The official water-trail guidance calls 300 to 1,000 cfs optimal, 100 to 300 cfs navigable with exposed obstacles, 1,000 to 2,000 cfs caution water, and over 2,000 cfs avoid.',
+    latitude: 46.53087339415233,
+    longitude: -97.31706518572886,
+    gaugeSource: {
+      id: 'usgs-05058000',
+      provider: 'usgs',
+      siteId: '05058000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Sheyenne River below Baldhill Dam, ND',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05058000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        'Expect overhanging trees, logjams, occasional big rocks or shallow bars, and a longer all-day commitment than the shorter Grassland splits.',
+        'USFS marks public-land boundaries along this trail segment. Respect those markers and do not dock beyond public lands unless needed for safety.',
+        'High flows above 1,000 cfs can flood shoreline trees and logs; over 2,000 cfs is official avoid water on the Sheyenne.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 300,
+      idealMax: 1000,
+      tooLow: 100,
+      tooHigh: 2000,
+      thresholdSource: {
+        label: 'USFS Sheyenne River Water Trail river conditions',
+        url: 'https://www.fs.usda.gov/r01/dpg/recreation/trails/sheyenne-river-water-trail',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'USFS says the Sheyenne River Water Trail is primarily designed for summer use, with the practical paddling season generally May through September. Rain, dam operations, and storm debris can still change current, wood, and bank conditions quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The river itself stays gentle at ordinary levels, but roughly 13 miles of semi-primitive Sheyenne corridor with limited bailout certainty, wood, and sandbar decisions create a longer day that deserves more than casual flatwater expectations.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: the current USFS water-trail page names Brome Field and East River as designated access points, the official 2019 USFS brochure map provides the river-mile ladder, camping icons, and geospatial access anchors, and USGS Water Services returned same-day 05058000 discharge and gage-height values during this run. Confidence is intentionally tempered because the Baldhill Dam gauge is an official corridor-wide proxy for most of the river, not an exact on-segment gauge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Brome Field to East River, about 13 river miles',
+        note: 'The official USFS Sheyenne River Water Trail brochure labels Brome Field near river mile 3 and East River near river mile 16 on the Sheyenne National Grassland map.',
+        sourceUrl: 'https://www.fs.usda.gov/media/62034',
+      },
+      {
+        label: 'Official access context',
+        value: 'Semi-primitive hand-launch sites',
+        note: 'USFS says the Sheyenne National Grassland reach has four primary semi-primitive access sites designated for hand-launching canoes and kayaks, including Brome Field and East River.',
+        sourceUrl: 'https://www.fs.usda.gov/r01/dpg/recreation/opportunities/water-activities',
+      },
+      {
+        label: 'Corridor live gauge proxy',
+        value: 'USGS 05058000 at 301 cfs / 24.81 ft',
+        note: 'USFS points Sheyenne River Water Trail users to USGS station 05058000 below Baldhill Dam and says it indicates conditions along most of the river. Water Services returned 301 cfs and 24.81 ft at 2026-07-15 15:00 CDT during implementation.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05058000/',
+      },
+      {
+        label: 'Official flow bands',
+        value: '300-1,000 cfs optimal',
+        note: 'USFS says flows of 100 cfs or below are very low, 100-300 cfs are navigable with exposed obstacles, 300-1,000 cfs are optimal, 1,000-2,000 cfs require caution, and over 2,000 cfs should be avoided.',
+        sourceUrl: 'https://www.fs.usda.gov/r01/dpg/recreation/trails/sheyenne-river-water-trail',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '46.53087339415233, -97.31706518572886 to 46.50234, -97.23046',
+        note: 'The official 2019 USFS brochure map is geospatial. The already-verified Brome Field anchor and the East River hand-launch icon on that same map yield practical access anchors for the selected continuation.',
+        sourceUrl: 'https://www.fs.usda.gov/media/62034',
+      },
+      {
+        label: 'Camping context',
+        value: 'Official overnight-camping icons along the Grassland corridor',
+        note: 'The official USFS brochure map marks overnight-camping sites along this Brome-to-East corridor, which is why the route is documented as overnight-capable rather than a no-camping day card.',
+        sourceUrl: 'https://www.fs.usda.gov/media/62034',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'USFS Sheyenne River Water Trail',
+        url: 'https://www.fs.usda.gov/r01/dpg/recreation/trails/sheyenne-river-water-trail',
+        provider: 'local',
+      },
+      {
+        label: 'USFS Water Activities',
+        url: 'https://www.fs.usda.gov/r01/dpg/recreation/opportunities/water-activities',
+        provider: 'local',
+      },
+      {
+        label: 'USFS Fishing / water-access context',
+        url: 'https://www.fs.usda.gov/r01/dpg/safety-ethics/fishing',
+        provider: 'local',
+      },
+      {
+        label: 'USFS Sheyenne River Water Trail brochure map',
+        url: 'https://www.fs.usda.gov/media/62034',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05058000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05058000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'pembina-river-vang-riverside-park',
     slug: 'pembina-river-vang-riverside-park',
     name: 'Pembina River',

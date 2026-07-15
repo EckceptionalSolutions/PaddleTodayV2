@@ -1,16 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-14T19:58:27.933Z",
+  "generatedAt": "2026-07-15T20:51:11.459Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
     "totalLedgerCandidates": 781,
-    "currentRouteCount": 559,
-    "leadCount": 268,
+    "currentRouteCount": 592,
+    "leadCount": 269,
     "discoveryFocusStates": [
       "South Dakota",
       "Illinois",
       "Indiana",
-      "North Dakota",
       "Arkansas",
       "Kentucky",
       "Pennsylvania",
@@ -65,21 +64,6 @@
           "Indiana official water trail canoe kayak USGS gauge public access",
           "Indiana state parks canoe kayak river access USGS flow",
           "Indiana American Whitewater USGS public access route"
-        ],
-        "ledgerStrategy": "Seed 2-4 fresh candidates only when a source trail includes public endpoints, a plausible supported live gauge, and numeric threshold evidence or a credible path to it."
-      },
-      {
-        "state": "North Dakota",
-        "tier": "undercovered_supported_midwest",
-        "sourceFamilies": [
-          "North Dakota Parks and Recreation",
-          "USFS/NPS river pages",
-          "tourism water-trail managers"
-        ],
-        "searchQueries": [
-          "\"North Dakota\" official water trail canoe kayak USGS gauge public access",
-          "\"North Dakota\" state parks canoe kayak river access USGS flow",
-          "\"North Dakota\" American Whitewater USGS public access route"
         ],
         "ledgerStrategy": "Seed 2-4 fresh candidates only when a source trail includes public endpoints, a plausible supported live gauge, and numeric threshold evidence or a credible path to it."
       },
@@ -241,7 +225,7 @@
       "coordinate_cleanup": 0,
       "access_legitimacy": 0,
       "live_provider_recheck": 96,
-      "blocked_recheck": 8
+      "blocked_recheck": 9
     },
     "byStatus": {
       "implemented": 78,
@@ -1478,8 +1462,8 @@
           "takeOutCoordinates": null,
           "coordinateSource": "NPS mileage points are official, but this run did not capture source-backed public launch/take-out coordinates suitable for V2."
         },
-        "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "nd-sheyenne-river-national-grassland-ylvisaker-brome",
@@ -1517,8 +1501,8 @@
           "takeOutCoordinates": null,
           "coordinateSource": "USFS/GovInfo/Forest Service PDFs and the refreshed 2026 USFS trail page name the access sites and narrow them with intersection and WMA context, but they still do not verify exact coordinate pairs for a selected public day segment."
         },
-        "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "sd-rapid-creek-heisga-dark-canyon",
@@ -4646,74 +4630,6 @@
         "discoveryTier": "supported_midwest"
       },
       {
-        "candidateId": "nd-missouri-river-washburn-sanger-landing",
-        "lane": "threshold_discovery",
-        "priority": 100,
-        "state": "ND",
-        "river": "Missouri River",
-        "route": "Washburn public access to Sanger boat landing / Cross Ranch State Park corridor",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-06-12",
-        "reviewCount": 3,
-        "duplicateRisk": false,
-        "blocker": "2026-06-12 12:12 America/Chicago / 2026-06-12 17:12 UTC blocker refresh. North Dakota Parks and Recreation and Cross Ranch still confirm the nine-mile Washburn-to-Sanger Missouri River run and shuttle context. USGS Water Services IV for direct corridor gauge 06341000 returned current product-style stage-only data of 9.36 ft at 2026-06-12 11:15 CDT, but the 00060/00065 request returned no discharge series and no offi...",
-        "retryCondition": "Retry only if ND Parks, Cross Ranch, USACE, USGS, or a water-trail manager publishes a selected gauge and numeric stage/discharge guidance for private paddlecraft on the Washburn-to-Sanger reach, or if a product-supported direct gauge exposes both current flow/stage and route-specific paddling bands.",
-        "gauge": {
-          "quality": "stage_only_threshold_blocked",
-          "id": "06341000",
-          "provider": "USGS",
-          "notes": "Direct corridor gauge at Washburn returned current gage height only in the product-style request; no discharge series or route-specific paddling bands were accepted for PaddleTodayV2 scoring."
-        },
-        "thresholdSupport": {
-          "strength": "not_ready",
-          "notes": "Official route/access text exists, but no numeric stage or flow guidance tied to a selected gauge surfaced for private paddlecraft on the Washburn-to-Sanger reach."
-        },
-        "endpoints": {
-          "putIn": "Public access near Washburn",
-          "takeOut": "Sanger boat landing / Cross Ranch State Park area",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Not captured because threshold model failed first; do not infer big-river endpoint coordinates until a route is otherwise shippable."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
-      },
-      {
-        "candidateId": "nd-souris-river-upper-souris-nwr-canoe-trails",
-        "lane": "threshold_discovery",
-        "priority": 100,
-        "state": "ND",
-        "river": "Souris / Mouse River",
-        "route": "Upper Souris National Wildlife Refuge Beaver Lodge and Mouse River canoe trail family",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-06-12",
-        "reviewCount": 2,
-        "duplicateRisk": false,
-        "blocker": "2026-06-12 10:12 America/Chicago / 2026-06-12 15:12 UTC blocker refresh. USFWS still supports Upper Souris NWR Beaver Lodge and Mouse River canoe trails, including May 1-September 30 use windows, loop/round-trip lengths, and low-water portage caveats. Nearby Souris/Mouse USGS gauges returned current values, but no official source ties one selected refuge canoe trail to numeric live-gauge water-level bands. Keep as t...",
-        "retryCondition": "Retry only if USFWS or an official refuge/USGS source publishes a same-river current gauge and numeric canoe-trail water-level guidance for one selected refuge route.",
-        "gauge": {
-          "quality": "no_live_gauge_selected",
-          "id": null,
-          "provider": null,
-          "notes": "No selected product-supported live gauge surfaced for the specific refuge canoe trails during this pass."
-        },
-        "thresholdSupport": {
-          "strength": "not_ready",
-          "notes": "Official route/use evidence exists, but numeric water-level guidance tied to a live gauge is missing."
-        },
-        "endpoints": {
-          "putIn": "Unselected Upper Souris NWR canoe trail access",
-          "takeOut": "Loop/return route or unselected refuge take-out",
-          "coordinatesPresent": false,
-          "putInCoordinates": null,
-          "takeOutCoordinates": null,
-          "coordinateSource": "Not captured because live gauge and thresholds failed first."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
-      },
-      {
         "candidateId": "nd-souris-river-j-clark-salyer-canoe-trail",
         "lane": "threshold_discovery",
         "priority": 100,
@@ -4745,7 +4661,7 @@
           "coordinateSource": "Not captured because threshold model failed first."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "nd-little-south-pembina-99th-123rd",
@@ -4785,7 +4701,7 @@
           "coordinateSource": "American Whitewater embedded feature coordinates; official/local public access corroboration for bridge-use endpoints remains insufficient for implementation."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "nd-red-river-lincoln-drive-lafave-park",
@@ -4819,7 +4735,7 @@
           "coordinateSource": "Named public endpoints surfaced from Minnesota DNR map and Grand Forks Park District/Visit Grand Forks access pages, but exact coordinate capture was deferred because the numeric threshold gate failed first."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "sd-big-sioux-jay-heath-canoe-kayak-trail",
@@ -4966,6 +4882,40 @@
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge. Keep the candidate parked unless the gauge relationship is explicit.",
         "discoveryTier": "frontier_expansion"
+      },
+      {
+        "candidateId": "nd-souris-river-upper-souris-nwr-canoe-trails",
+        "lane": "threshold_discovery",
+        "priority": 99,
+        "state": "ND",
+        "river": "Souris / Mouse River",
+        "route": "Upper Souris National Wildlife Refuge Beaver Lodge and Mouse River canoe trail family",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-06-12",
+        "reviewCount": 2,
+        "duplicateRisk": false,
+        "blocker": "2026-06-12 10:12 America/Chicago / 2026-06-12 15:12 UTC blocker refresh. USFWS still supports Upper Souris NWR Beaver Lodge and Mouse River canoe trails, including May 1-September 30 use windows, loop/round-trip lengths, and low-water portage caveats. Nearby Souris/Mouse USGS gauges returned current values, but no official source ties one selected refuge canoe trail to numeric live-gauge water-level bands. Keep as t...",
+        "retryCondition": "Retry only if USFWS or an official refuge/USGS source publishes a same-river current gauge and numeric canoe-trail water-level guidance for one selected refuge route.",
+        "gauge": {
+          "quality": "no_live_gauge_selected",
+          "id": null,
+          "provider": null,
+          "notes": "No selected product-supported live gauge surfaced for the specific refuge canoe trails during this pass."
+        },
+        "thresholdSupport": {
+          "strength": "not_ready",
+          "notes": "Official route/use evidence exists, but numeric water-level guidance tied to a live gauge is missing."
+        },
+        "endpoints": {
+          "putIn": "Unselected Upper Souris NWR canoe trail access",
+          "takeOut": "Loop/return route or unselected refuge take-out",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Not captured because live gauge and thresholds failed first."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "mi-betsie-river-thompsonville-family",
@@ -5269,6 +5219,40 @@
           "putInCoordinates": null,
           "takeOutCoordinates": null,
           "coordinateSource": "Not captured because threshold support failed first."
+        },
+        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+        "discoveryTier": "supported_midwest"
+      },
+      {
+        "candidateId": "nd-missouri-river-washburn-sanger-landing",
+        "lane": "threshold_discovery",
+        "priority": 96,
+        "state": "ND",
+        "river": "Missouri River",
+        "route": "Washburn public access to Sanger boat landing / Cross Ranch State Park corridor",
+        "currentStatus": "threshold_weak",
+        "lastReviewed": "2026-06-12",
+        "reviewCount": 3,
+        "duplicateRisk": false,
+        "blocker": "2026-06-12 12:12 America/Chicago / 2026-06-12 17:12 UTC blocker refresh. North Dakota Parks and Recreation and Cross Ranch still confirm the nine-mile Washburn-to-Sanger Missouri River run and shuttle context. USGS Water Services IV for direct corridor gauge 06341000 returned current product-style stage-only data of 9.36 ft at 2026-06-12 11:15 CDT, but the 00060/00065 request returned no discharge series and no offi...",
+        "retryCondition": "Retry only if ND Parks, Cross Ranch, USACE, USGS, or a water-trail manager publishes a selected gauge and numeric stage/discharge guidance for private paddlecraft on the Washburn-to-Sanger reach, or if a product-supported direct gauge exposes both current flow/stage and route-specific paddling bands.",
+        "gauge": {
+          "quality": "stage_only_threshold_blocked",
+          "id": "06341000",
+          "provider": "USGS",
+          "notes": "Direct corridor gauge at Washburn returned current gage height only in the product-style request; no discharge series or route-specific paddling bands were accepted for PaddleTodayV2 scoring."
+        },
+        "thresholdSupport": {
+          "strength": "not_ready",
+          "notes": "Official route/access text exists, but no numeric stage or flow guidance tied to a selected gauge surfaced for private paddlecraft on the Washburn-to-Sanger reach."
+        },
+        "endpoints": {
+          "putIn": "Public access near Washburn",
+          "takeOut": "Sanger boat landing / Cross Ranch State Park area",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Not captured because threshold model failed first; do not infer big-river endpoint coordinates until a route is otherwise shippable."
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
         "discoveryTier": "supported_midwest"
@@ -9208,7 +9192,7 @@
           "coordinateSource": "Official NPS mileage points, the adjacent live Rough Rider-to-Medora route, and the official USGS 06336000 site file now make the Medora Bridge / gauge anchor acceptable at 46.91684167, -103.53228333. NPS structured park data and the current `thro_linked_data.json` feed also publish Cottonwood Campground at 46.949934505000044, -103.53126858899998, but that remains a campground place anchor rather than an explicit paddling landing. The current official campground map places the Little Missouri River along the campground edge and shows only loops, walk-to tent sites, and paved/unpaved paths near the river margin, so exact downstream take-out coordinates and normal private-paddler endpoint access were still not accepted without inference."
         },
         "recommendedNextStep": "Revisit only if the retry condition is satisfied or the retry date has passed with new evidence.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "nd-sheyenne-river-bjornson-riparian-site",
@@ -9248,7 +9232,7 @@
           "coordinateSource": "Valley City Tourism names the segment endpoints and river miles, and its Scenic Byway page still describes Riparian Restoration Interpretive Site as a canoe landing. Google Maps exposes a named Riparian Restoration Interpretive Site feature at 46.8571815, -97.997616, which is strong enough for the downstream accessible pull-out. Upstream remains unresolved: North Dakota Tourism's current kayak-rental-kiosk page provides a locate coordinate for Bjornson at 46.90962, -98.021632, North Dakota Tourism's current Bjornson Park Public Golf Course listing exposes a second official locate pin at 46.910023, -98.022191, Valley City Parks' current Bjornson Golf Course page gives the facility address as 3473 Woodland Park, and Valley City Parks' official RiverFest FAQ says kayaks at Bjornson must be transported to the desired launch site. Direct text extraction from the current Barnes County / NDIC grant PDF also now explicitly lists Bjornson Golf Course as Access Point #5 under Valley City Parks and Rec with launch type Hand Launch, plus a separate note that the kayak kiosk is located at Bjornson Golf Course. Those current official tourism, facility, and manager anchors tighten the Bjornson property envelope and legitimacy story, but they still do not identify the exact primitive L-240 riverbank launch point. The official Bjornson segment PDF visibly pins L-240 and L-234 on its segment map, and the current Barnes County / NDIC grant application concept plan now shows the launch layout itself, but none of those official sources publishes a numeric primitive-launch coordinate pair."
         },
         "recommendedNextStep": "Revisit only if the retry condition is satisfied or the retry date has passed with new evidence.",
-        "discoveryTier": "undercovered_supported_midwest"
+        "discoveryTier": "supported_midwest"
       },
       {
         "candidateId": "sd-spearfish-creek-city-park-evans-park",
@@ -9286,6 +9270,40 @@
             "longitude": -103.865997314453
           },
           "coordinateSource": "Current American Whitewater town-section page source exposes exact put-in and take-out point-of-interest coordinates for the City Campground / Old US 14 run. Those coordinates were captured to replace the older provisional Riverfacts pins, but the route still fails the manager-backed safety/access bar."
+        },
+        "recommendedNextStep": "Revisit only if the retry condition is satisfied or the retry date has passed with new evidence.",
+        "discoveryTier": "undercovered_supported_midwest"
+      },
+      {
+        "candidateId": "il-north-branch-chicago-river-blue-star-linne-family",
+        "lane": "blocked_recheck",
+        "priority": 35,
+        "state": "IL",
+        "river": "North Branch Chicago River",
+        "route": "Blue Star Memorial Woods to Linne Woods / suburban North Branch family",
+        "currentStatus": "blocked_until_date",
+        "lastReviewed": "2026-06-22",
+        "reviewCount": 9,
+        "duplicateRisk": false,
+        "blocker": "2026-06-22 stale-blocker audit. The threshold gap is still no longer the primary blocker. Miles Paddled's 2023 North Branch route report remains the best same-gauge community model on USGS 05536000 with a 75 cfs minimum, roughly 100 cfs median, the Chick Evans check dam washed out around 300 cfs, and low golf-course bridge headroom still passable up to about 350 cfs. A fresh USGS Water Services IV recheck returned 1...",
+        "retryCondition": "Retry only if Forest Preserves of Cook County, Openlands, Friends of the Chicago River, or another strong manager/source package confirms a second named ordinary public canoe launch or landing that can pair with Linne Woods, with coordinates or clearly mapped access, and keeps the 05536000 threshold model tied to the chosen subreach.",
+        "gauge": {
+          "quality": "direct_live_verified_threshold_supported_access_blocked",
+          "id": "05536000",
+          "provider": "USGS",
+          "notes": "USGS 05536000 at Niles is a direct route-family gauge. A fresh 2026-06-22 Water Services IV recheck returned 106 cfs / 1.63 ft at 2026-06-21 22:30 CDT, and Miles Paddled's 2023 route report plus the 2026-06-21/2026-06-22 re-reads support a conservative community envelope centered on a 75 cfs minimum, about 100 cfs median, and upper-side context near 300-350 cfs."
+        },
+        "thresholdSupport": {
+          "strength": "community_route_specific",
+          "notes": "Miles Paddled's 2023 North Branch route report ties the route family to USGS 05536000 and gives a minimum runnable floor of 75 cfs with a median around 100 cfs. The same report also adds usable upper-side route context by saying the Chick Evans check dam is washed out around 300 cfs and low golf-course bridge headroom remains passable up to about 350 cfs. That is materially stronger than the original RiverScout-only seed, but it is still community evidence rather than a manager-published Illinois scoring model."
+        },
+        "endpoints": {
+          "putIn": "Linne Woods / Blue Star Memorial Woods family",
+          "takeOut": "Linne Woods / Bunker Hill family",
+          "coordinatesPresent": false,
+          "putInCoordinates": null,
+          "takeOutCoordinates": null,
+          "coordinateSource": "Linne Woods is the only current manager-backed access anchor because Forest Preserves of Cook County explicitly lists a carry-in canoe landing there with a named Dempster entrance. Blue Star Memorial Woods and Bunker Hill still surface as preserve parking/trail locations rather than named canoe landings, and the current Friends of the Chicago River Blue Star-to-Linne event still relies on shuttled, guide-managed boats rather than ordinary self-serve Blue Star launch language, so the second endpoint remains unresolved."
         },
         "recommendedNextStep": "Revisit only if the retry condition is satisfied or the retry date has passed with new evidence.",
         "discoveryTier": "undercovered_supported_midwest"
@@ -13039,40 +13057,6 @@
       "discoveryTier": "supported_midwest"
     },
     {
-      "candidateId": "nd-missouri-river-washburn-sanger-landing",
-      "lane": "threshold_discovery",
-      "priority": 100,
-      "state": "ND",
-      "river": "Missouri River",
-      "route": "Washburn public access to Sanger boat landing / Cross Ranch State Park corridor",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-06-12",
-      "reviewCount": 3,
-      "duplicateRisk": false,
-      "blocker": "2026-06-12 12:12 America/Chicago / 2026-06-12 17:12 UTC blocker refresh. North Dakota Parks and Recreation and Cross Ranch still confirm the nine-mile Washburn-to-Sanger Missouri River run and shuttle context. USGS Water Services IV for direct corridor gauge 06341000 returned current product-style stage-only data of 9.36 ft at 2026-06-12 11:15 CDT, but the 00060/00065 request returned no discharge series and no offi...",
-      "retryCondition": "Retry only if ND Parks, Cross Ranch, USACE, USGS, or a water-trail manager publishes a selected gauge and numeric stage/discharge guidance for private paddlecraft on the Washburn-to-Sanger reach, or if a product-supported direct gauge exposes both current flow/stage and route-specific paddling bands.",
-      "gauge": {
-        "quality": "stage_only_threshold_blocked",
-        "id": "06341000",
-        "provider": "USGS",
-        "notes": "Direct corridor gauge at Washburn returned current gage height only in the product-style request; no discharge series or route-specific paddling bands were accepted for PaddleTodayV2 scoring."
-      },
-      "thresholdSupport": {
-        "strength": "not_ready",
-        "notes": "Official route/access text exists, but no numeric stage or flow guidance tied to a selected gauge surfaced for private paddlecraft on the Washburn-to-Sanger reach."
-      },
-      "endpoints": {
-        "putIn": "Public access near Washburn",
-        "takeOut": "Sanger boat landing / Cross Ranch State Park area",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because threshold model failed first; do not infer big-river endpoint coordinates until a route is otherwise shippable."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
-    },
-    {
       "candidateId": "nd-little-missouri-medora-long-x-bridge",
       "lane": "fresh_source_discovery",
       "priority": 100,
@@ -13107,42 +13091,8 @@
         "takeOutCoordinates": null,
         "coordinateSource": "NPS mileage points are official, but this run did not capture source-backed public launch/take-out coordinates suitable for V2."
       },
-      "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-      "discoveryTier": "undercovered_supported_midwest"
-    },
-    {
-      "candidateId": "nd-souris-river-upper-souris-nwr-canoe-trails",
-      "lane": "threshold_discovery",
-      "priority": 100,
-      "state": "ND",
-      "river": "Souris / Mouse River",
-      "route": "Upper Souris National Wildlife Refuge Beaver Lodge and Mouse River canoe trail family",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-06-12",
-      "reviewCount": 2,
-      "duplicateRisk": false,
-      "blocker": "2026-06-12 10:12 America/Chicago / 2026-06-12 15:12 UTC blocker refresh. USFWS still supports Upper Souris NWR Beaver Lodge and Mouse River canoe trails, including May 1-September 30 use windows, loop/round-trip lengths, and low-water portage caveats. Nearby Souris/Mouse USGS gauges returned current values, but no official source ties one selected refuge canoe trail to numeric live-gauge water-level bands. Keep as t...",
-      "retryCondition": "Retry only if USFWS or an official refuge/USGS source publishes a same-river current gauge and numeric canoe-trail water-level guidance for one selected refuge route.",
-      "gauge": {
-        "quality": "no_live_gauge_selected",
-        "id": null,
-        "provider": null,
-        "notes": "No selected product-supported live gauge surfaced for the specific refuge canoe trails during this pass."
-      },
-      "thresholdSupport": {
-        "strength": "not_ready",
-        "notes": "Official route/use evidence exists, but numeric water-level guidance tied to a live gauge is missing."
-      },
-      "endpoints": {
-        "putIn": "Unselected Upper Souris NWR canoe trail access",
-        "takeOut": "Loop/return route or unselected refuge take-out",
-        "coordinatesPresent": false,
-        "putInCoordinates": null,
-        "takeOutCoordinates": null,
-        "coordinateSource": "Not captured because live gauge and thresholds failed first."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "nd-souris-river-j-clark-salyer-canoe-trail",
@@ -13176,7 +13126,7 @@
         "coordinateSource": "Not captured because threshold model failed first."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "nd-little-south-pembina-99th-123rd",
@@ -13216,7 +13166,7 @@
         "coordinateSource": "American Whitewater embedded feature coordinates; official/local public access corroboration for bridge-use endpoints remains insufficient for implementation."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "nd-sheyenne-river-national-grassland-ylvisaker-brome",
@@ -13254,8 +13204,8 @@
         "takeOutCoordinates": null,
         "coordinateSource": "USFS/GovInfo/Forest Service PDFs and the refreshed 2026 USFS trail page name the access sites and narrow them with intersection and WMA context, but they still do not verify exact coordinate pairs for a selected public day segment."
       },
-      "recommendedNextStep": "Search the internet for a genuinely new official route, access, threshold, or gauge source family in this undercovered supported Midwest state before spending more time on stale blockers elsewhere.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "nd-red-river-lincoln-drive-lafave-park",
@@ -13289,7 +13239,7 @@
         "coordinateSource": "Named public endpoints surfaced from Minnesota DNR map and Grand Forks Park District/Visit Grand Forks access pages, but exact coordinate capture was deferred because the numeric threshold gate failed first."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "sd-big-sioux-jay-heath-canoe-kayak-trail",
@@ -13754,6 +13704,40 @@
       "discoveryTier": "supported_midwest"
     },
     {
+      "candidateId": "nd-souris-river-upper-souris-nwr-canoe-trails",
+      "lane": "threshold_discovery",
+      "priority": 99,
+      "state": "ND",
+      "river": "Souris / Mouse River",
+      "route": "Upper Souris National Wildlife Refuge Beaver Lodge and Mouse River canoe trail family",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-06-12",
+      "reviewCount": 2,
+      "duplicateRisk": false,
+      "blocker": "2026-06-12 10:12 America/Chicago / 2026-06-12 15:12 UTC blocker refresh. USFWS still supports Upper Souris NWR Beaver Lodge and Mouse River canoe trails, including May 1-September 30 use windows, loop/round-trip lengths, and low-water portage caveats. Nearby Souris/Mouse USGS gauges returned current values, but no official source ties one selected refuge canoe trail to numeric live-gauge water-level bands. Keep as t...",
+      "retryCondition": "Retry only if USFWS or an official refuge/USGS source publishes a same-river current gauge and numeric canoe-trail water-level guidance for one selected refuge route.",
+      "gauge": {
+        "quality": "no_live_gauge_selected",
+        "id": null,
+        "provider": null,
+        "notes": "No selected product-supported live gauge surfaced for the specific refuge canoe trails during this pass."
+      },
+      "thresholdSupport": {
+        "strength": "not_ready",
+        "notes": "Official route/use evidence exists, but numeric water-level guidance tied to a live gauge is missing."
+      },
+      "endpoints": {
+        "putIn": "Unselected Upper Souris NWR canoe trail access",
+        "takeOut": "Loop/return route or unselected refuge take-out",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "Not captured because live gauge and thresholds failed first."
+      },
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+      "discoveryTier": "supported_midwest"
+    },
+    {
       "candidateId": "mi-betsie-river-thompsonville-family",
       "lane": "threshold_discovery",
       "priority": 98,
@@ -14087,6 +14071,40 @@
         "putInCoordinates": null,
         "takeOutCoordinates": null,
         "coordinateSource": "Not captured because threshold support failed first."
+      },
+      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
+      "discoveryTier": "supported_midwest"
+    },
+    {
+      "candidateId": "nd-missouri-river-washburn-sanger-landing",
+      "lane": "threshold_discovery",
+      "priority": 96,
+      "state": "ND",
+      "river": "Missouri River",
+      "route": "Washburn public access to Sanger boat landing / Cross Ranch State Park corridor",
+      "currentStatus": "threshold_weak",
+      "lastReviewed": "2026-06-12",
+      "reviewCount": 3,
+      "duplicateRisk": false,
+      "blocker": "2026-06-12 12:12 America/Chicago / 2026-06-12 17:12 UTC blocker refresh. North Dakota Parks and Recreation and Cross Ranch still confirm the nine-mile Washburn-to-Sanger Missouri River run and shuttle context. USGS Water Services IV for direct corridor gauge 06341000 returned current product-style stage-only data of 9.36 ft at 2026-06-12 11:15 CDT, but the 00060/00065 request returned no discharge series and no offi...",
+      "retryCondition": "Retry only if ND Parks, Cross Ranch, USACE, USGS, or a water-trail manager publishes a selected gauge and numeric stage/discharge guidance for private paddlecraft on the Washburn-to-Sanger reach, or if a product-supported direct gauge exposes both current flow/stage and route-specific paddling bands.",
+      "gauge": {
+        "quality": "stage_only_threshold_blocked",
+        "id": "06341000",
+        "provider": "USGS",
+        "notes": "Direct corridor gauge at Washburn returned current gage height only in the product-style request; no discharge series or route-specific paddling bands were accepted for PaddleTodayV2 scoring."
+      },
+      "thresholdSupport": {
+        "strength": "not_ready",
+        "notes": "Official route/access text exists, but no numeric stage or flow guidance tied to a selected gauge surfaced for private paddlecraft on the Washburn-to-Sanger reach."
+      },
+      "endpoints": {
+        "putIn": "Public access near Washburn",
+        "takeOut": "Sanger boat landing / Cross Ranch State Park area",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "Not captured because threshold model failed first; do not infer big-river endpoint coordinates until a route is otherwise shippable."
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
       "discoveryTier": "supported_midwest"
@@ -18201,7 +18219,7 @@
         "coordinateSource": "Official NPS mileage points, the adjacent live Rough Rider-to-Medora route, and the official USGS 06336000 site file now make the Medora Bridge / gauge anchor acceptable at 46.91684167, -103.53228333. NPS structured park data and the current `thro_linked_data.json` feed also publish Cottonwood Campground at 46.949934505000044, -103.53126858899998, but that remains a campground place anchor rather than an explicit paddling landing. The current official campground map places the Little Missouri River along the campground edge and shows only loops, walk-to tent sites, and paved/unpaved paths near the river margin, so exact downstream take-out coordinates and normal private-paddler endpoint access were still not accepted without inference."
       },
       "recommendedNextStep": "Revisit only if the retry condition is satisfied or the retry date has passed with new evidence.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "nd-sheyenne-river-bjornson-riparian-site",
@@ -18241,7 +18259,7 @@
         "coordinateSource": "Valley City Tourism names the segment endpoints and river miles, and its Scenic Byway page still describes Riparian Restoration Interpretive Site as a canoe landing. Google Maps exposes a named Riparian Restoration Interpretive Site feature at 46.8571815, -97.997616, which is strong enough for the downstream accessible pull-out. Upstream remains unresolved: North Dakota Tourism's current kayak-rental-kiosk page provides a locate coordinate for Bjornson at 46.90962, -98.021632, North Dakota Tourism's current Bjornson Park Public Golf Course listing exposes a second official locate pin at 46.910023, -98.022191, Valley City Parks' current Bjornson Golf Course page gives the facility address as 3473 Woodland Park, and Valley City Parks' official RiverFest FAQ says kayaks at Bjornson must be transported to the desired launch site. Direct text extraction from the current Barnes County / NDIC grant PDF also now explicitly lists Bjornson Golf Course as Access Point #5 under Valley City Parks and Rec with launch type Hand Launch, plus a separate note that the kayak kiosk is located at Bjornson Golf Course. Those current official tourism, facility, and manager anchors tighten the Bjornson property envelope and legitimacy story, but they still do not identify the exact primitive L-240 riverbank launch point. The official Bjornson segment PDF visibly pins L-240 and L-234 on its segment map, and the current Barnes County / NDIC grant application concept plan now shows the launch layout itself, but none of those official sources publishes a numeric primitive-launch coordinate pair."
       },
       "recommendedNextStep": "Revisit only if the retry condition is satisfied or the retry date has passed with new evidence.",
-      "discoveryTier": "undercovered_supported_midwest"
+      "discoveryTier": "supported_midwest"
     },
     {
       "candidateId": "mo-st-francis-river-millstream-gardens-silver-mines",
@@ -18313,6 +18331,40 @@
           "longitude": -103.865997314453
         },
         "coordinateSource": "Current American Whitewater town-section page source exposes exact put-in and take-out point-of-interest coordinates for the City Campground / Old US 14 run. Those coordinates were captured to replace the older provisional Riverfacts pins, but the route still fails the manager-backed safety/access bar."
+      },
+      "recommendedNextStep": "Revisit only if the retry condition is satisfied or the retry date has passed with new evidence.",
+      "discoveryTier": "undercovered_supported_midwest"
+    },
+    {
+      "candidateId": "il-north-branch-chicago-river-blue-star-linne-family",
+      "lane": "blocked_recheck",
+      "priority": 35,
+      "state": "IL",
+      "river": "North Branch Chicago River",
+      "route": "Blue Star Memorial Woods to Linne Woods / suburban North Branch family",
+      "currentStatus": "blocked_until_date",
+      "lastReviewed": "2026-06-22",
+      "reviewCount": 9,
+      "duplicateRisk": false,
+      "blocker": "2026-06-22 stale-blocker audit. The threshold gap is still no longer the primary blocker. Miles Paddled's 2023 North Branch route report remains the best same-gauge community model on USGS 05536000 with a 75 cfs minimum, roughly 100 cfs median, the Chick Evans check dam washed out around 300 cfs, and low golf-course bridge headroom still passable up to about 350 cfs. A fresh USGS Water Services IV recheck returned 1...",
+      "retryCondition": "Retry only if Forest Preserves of Cook County, Openlands, Friends of the Chicago River, or another strong manager/source package confirms a second named ordinary public canoe launch or landing that can pair with Linne Woods, with coordinates or clearly mapped access, and keeps the 05536000 threshold model tied to the chosen subreach.",
+      "gauge": {
+        "quality": "direct_live_verified_threshold_supported_access_blocked",
+        "id": "05536000",
+        "provider": "USGS",
+        "notes": "USGS 05536000 at Niles is a direct route-family gauge. A fresh 2026-06-22 Water Services IV recheck returned 106 cfs / 1.63 ft at 2026-06-21 22:30 CDT, and Miles Paddled's 2023 route report plus the 2026-06-21/2026-06-22 re-reads support a conservative community envelope centered on a 75 cfs minimum, about 100 cfs median, and upper-side context near 300-350 cfs."
+      },
+      "thresholdSupport": {
+        "strength": "community_route_specific",
+        "notes": "Miles Paddled's 2023 North Branch route report ties the route family to USGS 05536000 and gives a minimum runnable floor of 75 cfs with a median around 100 cfs. The same report also adds usable upper-side route context by saying the Chick Evans check dam is washed out around 300 cfs and low golf-course bridge headroom remains passable up to about 350 cfs. That is materially stronger than the original RiverScout-only seed, but it is still community evidence rather than a manager-published Illinois scoring model."
+      },
+      "endpoints": {
+        "putIn": "Linne Woods / Blue Star Memorial Woods family",
+        "takeOut": "Linne Woods / Bunker Hill family",
+        "coordinatesPresent": false,
+        "putInCoordinates": null,
+        "takeOutCoordinates": null,
+        "coordinateSource": "Linne Woods is the only current manager-backed access anchor because Forest Preserves of Cook County explicitly lists a carry-in canoe landing there with a named Dempster entrance. Blue Star Memorial Woods and Bunker Hill still surface as preserve parking/trail locations rather than named canoe landings, and the current Friends of the Chicago River Blue Star-to-Linne event still relies on shuttled, guide-managed boats rather than ordinary self-serve Blue Star launch language, so the second endpoint remains unresolved."
       },
       "recommendedNextStep": "Revisit only if the retry condition is satisfied or the retry date has passed with new evidence.",
       "discoveryTier": "undercovered_supported_midwest"

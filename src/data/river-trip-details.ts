@@ -16185,6 +16185,133 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'sheyenne-river-ylvisaker-bridge-brome-field': {
+    putIn: {
+      id: 'ylvisaker-bridge-hand-launch',
+      name: 'Ylvisaker Bridge hand-launch',
+      latitude: 46.53246,
+      longitude: -97.34256,
+    },
+    takeOut: {
+      id: 'brome-field-hand-launch',
+      name: 'Brome Field hand-launch',
+      latitude: 46.53087339415233,
+      longitude: -97.31706518572886,
+    },
+    logistics: {
+      distanceLabel: 'About 3 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2.5 hr at ordinary flow, longer with low-water weaving, wood, or a slow group',
+      shuttle:
+        'Stage the take-out at Brome Field before driving back to Ylvisaker Bridge. Both sites are semi-primitive hand launches rather than developed ramps, so inspect the approach roads, parking pull-offs, and shoreline footing before leaving vehicles.',
+      permits:
+        'No route-specific private paddling permit is known. Use the signed public Sheyenne River Water Trail hand-launches, follow North Dakota boating and PFD rules, obey USFS rules, and skip the route when Baldhill flows are outside the official guidance or local access is closed.',
+      camping:
+        'Treat this as a short daylight grassland float. No route-specific overnight plan is needed for Ylvisaker to Brome, and current paddlers should still respect public-land markers and avoid casual stops beyond them.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Ylvisaker Bridge and take out at Brome Field for the shortest named Sheyenne National Grassland split. Use the USGS Baldhill Dam discharge gauge as a corridor-wide proxy and keep the call conservative because the official flow guidance applies to most of the river, not just this short reach.',
+      accessCaveats: [
+        'USFS names both Ylvisaker Bridge and Brome Field as designated access points on the Sheyenne River Water Trail.',
+        'The endpoint coordinates come from the hand-launch icon layer embedded in the official geospatial 2019 USFS brochure map. Treat them as practical access anchors, not survey-grade ramp coordinates.',
+        'USFS says these Sheyenne National Grassland sites are semi-primitive hand-launch areas and are not recommended for trailered watercraft.',
+        'Ylvisaker Bridge is described by USFS as the County Road 23 and Sibley Trail bridge crossing over the Sheyenne; use current road signs and shoreline conditions on arrival.',
+        'USFS marks public-land boundaries along the route and says paddlers should not dock beyond those public-land markers.',
+      ],
+      watchFor: [
+        'Flows at or below 100 cfs, when USFS says the river is very low and many sand or gravel bars may be exposed.',
+        'Flows above 1,000 cfs, when current can become fast and shoreline trees, logs, and debris become more serious hazards.',
+        'Flows above 2,000 cfs, which USFS says paddlers should avoid on the Sheyenne.',
+        'Overhanging trees, logjams, bridge abutments, big rocks, shallow bars, muddy semi-primitive banks, and occasional portages around obstructions.',
+        'Private-land boundaries, thunderstorms, wind, limited services, and assuming the corridor-wide gauge perfectly reflects every local channel feature.',
+      ],
+    },
+  },
+  'sheyenne-river-mirror-pool-east-river': {
+    putIn: {
+      id: 'mirror-pool-wma-hand-launch',
+      name: 'Mirror Pool WMA hand-launch',
+      latitude: 46.50498692183727,
+      longitude: -97.29118124734387,
+    },
+    takeOut: {
+      id: 'east-river-hand-launch',
+      name: 'East River hand-launch',
+      latitude: 46.50234,
+      longitude: -97.23046,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr at ordinary flow, longer with low-water weaving, wood, or a slow group',
+      shuttle:
+        'Stage the take-out at East River before driving back to Mirror Pool. Both sites are semi-primitive hand launches rather than developed ramps, so inspect the approach roads, parking pull-offs, and shoreline footing before leaving vehicles.',
+      permits:
+        'No route-specific private paddling permit is known. Use the signed public Sheyenne River Water Trail hand-launches, follow North Dakota boating and PFD rules, obey USFS and NDGF WMA rules, and skip the route when Baldhill flows are outside the official guidance or local access is closed.',
+      camping:
+        'Treat this as a daylight grassland float. East River has picnic-table context but not route-specific campground support, so do not assume an overnight endpoint facility.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Mirror Pool WMA and take out at East River for the longer downstream Sheyenne National Grassland split. Use the USGS Baldhill Dam discharge gauge as a corridor-wide proxy and keep the call conservative because the official flow guidance applies to most of the river, not just this reach.',
+      accessCaveats: [
+        'USFS names both Mirror Pool and East River as designated put-in or pull-out sites on the Sheyenne River Water Trail.',
+        'The endpoint coordinates come from the hand-launch icon layer embedded in the official geospatial 2019 USFS brochure map. Treat them as practical access anchors, not survey-grade ramp coordinates.',
+        'USFS says these Sheyenne National Grassland sites are semi-primitive hand-launch areas and are not recommended for trailered watercraft.',
+        'Mirror Pool is within a North Dakota Game and Fish wildlife management area. Follow current WMA signs and regulations on arrival.',
+        'USFS says East River has picnic tables and bike racks but still treats it as hand-launch-only within the grassland water-trail corridor.',
+        'USFS marks public-land boundaries along the route and says paddlers should not dock beyond those public-land markers.',
+      ],
+      watchFor: [
+        'Flows at or below 100 cfs, when USFS says the river is very low and many sand or gravel bars may be exposed.',
+        'Flows above 1,000 cfs, when current can become fast and shoreline trees, logs, and debris become more serious hazards.',
+        'Flows above 2,000 cfs, which USFS says paddlers should avoid on the Sheyenne.',
+        'Overhanging trees, logjams, big rocks, shallow bars, muddy semi-primitive banks, and occasional portages around obstructions.',
+        'Private-land boundaries, thunderstorms, wind, limited mid-route services, and assuming the corridor-wide gauge perfectly reflects every local channel feature.',
+      ],
+    },
+  },
+  'sheyenne-river-brome-field-east-river': {
+    putIn: {
+      id: 'brome-field-hand-launch',
+      name: 'Brome Field hand-launch',
+      latitude: 46.53087339415233,
+      longitude: -97.31706518572886,
+    },
+    takeOut: {
+      id: 'east-river-hand-launch',
+      name: 'East River hand-launch',
+      latitude: 46.50234,
+      longitude: -97.23046,
+    },
+    logistics: {
+      distanceLabel: 'About 13 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 7 hr at ordinary flow, longer with low-water weaving, wood, or an overnight pace',
+      shuttle:
+        'Stage the take-out at East River before driving back to Brome Field. Both sites are semi-primitive hand launches rather than developed ramps, so inspect the approach roads, parking pull-offs, and shoreline footing before leaving vehicles.',
+      permits:
+        'No route-specific private paddling permit is known. Use the signed public Sheyenne River Water Trail hand-launches, follow North Dakota boating and PFD rules, obey USFS rules, and skip the route when Baldhill flows are outside the official guidance or local access is closed.',
+      camping:
+        'The official USFS brochure map marks overnight-camping icons along this Brome-to-East corridor, so paddlers can treat the route as overnight-capable if they confirm current public-land rules and keep all stops inside legal public areas.',
+      campingClassification: 'overnight_capable',
+      summary:
+        'Launch at Brome Field and take out at East River for the longest currently documented Sheyenne National Grassland continuation. Use the USGS Baldhill Dam discharge gauge as a corridor-wide proxy and keep the call conservative because the official flow guidance applies to most of the river, not just this reach.',
+      accessCaveats: [
+        'USFS names both Brome Field and East River as designated access points on the Sheyenne River Water Trail.',
+        'The endpoint coordinates come from the hand-launch icon layer embedded in the official geospatial 2019 USFS brochure map. Treat them as practical access anchors, not survey-grade ramp coordinates.',
+        'USFS says these Sheyenne National Grassland sites are semi-primitive hand-launch areas and are not recommended for trailered watercraft.',
+        'USFS says East River has picnic tables and bike racks, but the route still relies on simple pull-offs and hand launches rather than developed ramps.',
+        'USFS marks public-land boundaries along the route and says paddlers should not dock beyond those public-land markers. That matters even more if the group treats this as an overnight.',
+      ],
+      watchFor: [
+        'Flows at or below 100 cfs, when USFS says the river is very low and many sand or gravel bars may be exposed.',
+        'Flows above 1,000 cfs, when current can become fast and shoreline trees, logs, and debris become more serious hazards.',
+        'Flows above 2,000 cfs, which USFS says paddlers should avoid on the Sheyenne.',
+        'Overhanging trees, logjams, big rocks, shallow bars, muddy semi-primitive banks, and occasional portages around obstructions.',
+        'Private-land boundaries, thunderstorms, wind, limited bailout certainty, and the extra fatigue that comes with turning a gentle corridor into a longer all-day or overnight commitment.',
+      ],
+    },
+  },
   'pembina-river-vang-riverside-park': {
     putIn: {
       id: 'vang-bridge-county-55-access',
