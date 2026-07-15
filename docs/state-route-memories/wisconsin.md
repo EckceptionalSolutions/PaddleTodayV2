@@ -4,16 +4,22 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 80.
-- Top represented rivers: Wisconsin River 12, Peshtigo River 5, Milwaukee River 4, Wolf River 4, Chippewa River 4, Bois Brule River 4, Black River 3, Brule River 3, Grant River 3, Sugar River 3.
-- Ledger candidates: 77 total; 68 added, 4 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
+- Live routes: 83.
+- Top represented rivers: Wisconsin River 12, Peshtigo River 5, Pine River 4, Milwaukee River 4, Wolf River 4, Chippewa River 4, Bois Brule River 4, Black River 3, Brule River 3, Grant River 3.
+- Ledger candidates: 80 total; 71 added, 4 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The 2026-07-14/15 America/Chicago run added three routes beyond the 77-route baseline: `lemonweir-river-lemonweir-mills-two-rivers`, `wisconsin-river-pine-bluff-brokaw`, and `milwaukee-river-goeden-newburg`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-14/15 America/Chicago run added three upper Pine River Florence County Wild River reaches beyond the 80-route baseline: `pine-river-highway-55-stevens-lake`, `pine-river-stevens-lake-chipmunk-rapids`, and `pine-river-chipmunk-rapids-bull-falls`.
 
 ## Latest Audit
 
+- 2026-07-14/15 America/Chicago: added `pine-river-highway-55-stevens-lake`, `pine-river-stevens-lake-chipmunk-rapids`, and `pine-river-chipmunk-rapids-bull-falls`, bringing the live Wisconsin route count to 83.
+- The three routes are distinct upper Pine River Wild River reaches above the existing `pine-river-county-n-wepco-5` lower route. American Whitewater documents Pine A/B/C with exact reach geometry, mileages, class ratings, access descriptions, and route-specific stage bands on USGS `04064500`; USGS Water Services returned 202 cfs / 1.99 ft at 2026-07-14 21:00 CDT; and Wisconsin DNR corroborates Pine-Popple Wild Rivers public paddling/recreation context.
+- Thresholds use AW's gage-height bands without inventing narrower ideals: Pine A ships with 3.3 ft low-runnable, 5.3 ft medium, 7.3 ft high, and 10 ft top-of-high; Pine B and Pine C ship with 2 / 4 / 7 / 10 ft bands. Pine A keeps the AW caveat that the downstream County N gauge should be supplemented by a Highway 55 visual rock check.
+- Safety/logistics added: roadside bridge access, remote Florence County shuttle, low-water scraping/pin risk, high-water whitewater consequences, strainers/deadfall, cold water, limited rescue, public-land/private-bank constraints, USFS campground/endpoint camping caveats, and signed portage/scouting notes for Snaketail Rapids, Myers Falls, and Bull Falls.
+- Bounded image review found no clearly rights-clean exact-route paddling image for any of the three new Pine routes; rows were added to the image audit instead of adding local route-gallery assets.
+- Reconciled earlier prompt leads before adding: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica are already implemented; Black Earth Creek Cross Plains-to-Salmo Pond remains blocked by unresolved obstruction evidence; the cleanest WTG Wolf/Black/Peshtigo/Popple/Brule/Pike/Grant families were already added, so this run used the AW Pine A/B/C family with direct USGS support.
 - 2026-07-14/15 America/Chicago: added `lemonweir-river-lemonweir-mills-two-rivers`, `wisconsin-river-pine-bluff-brokaw`, and `milwaukee-river-goeden-newburg`, bringing the live Wisconsin route count to 80.
 - Lemonweir uses Miles Paddled route-specific endpoint coordinates and New Lisbon gauge guidance, Juneau County public-launch pages for Lemonweir Mills and Two Rivers, Wisconsin River Trips access corroboration, and USGS `05403500` direct live data. It ships as minimum-only at 170 cfs with the 200-300 cfs practical band recorded, but no invented upper cutoff.
 - Pine Bluff-to-Brokaw corrects the prior Granite Heights stale-gauge blocker: the defensible live gauge is USGS `05395000` Wisconsin River at Merrill, not stale `05400650`. Wisconsin River Trips supplies the Granite Heights endpoint, Trappe Rapids, Brokaw former-dam hazard, and 1251-2000 cfs / 5001+ cfs ladder; Marathon County / Wisconsin River Forest, WVIC, and Brokaw Mill pages corroborate access and downstream hazard context.
@@ -27,7 +33,7 @@ Wisconsin remains mature and heavily implemented. The 2026-07-14/15 America/Chic
 - No route-gallery assets were added. Bounded Commons / Travel Wisconsin / Grant County / Miles Paddled / Wisconsin River Trips / USACE / Recreation.gov / same-route review found no clearly rights-clean exact-route paddling image selected for local reuse.
 - 2026-07-14 19:32 America/Chicago: folded the unpushed Lower Wisconsin split slugs `wisconsin-river-boscobel-woodman`, `wisconsin-river-woodman-millville`, and `wisconsin-river-millville-bridgeport` into canonical `wisconsin-river-boscobel-bridgeport`.
 - The canonical Boscobel-to-Bridgeport corridor now carries Woodman and Millville as alternate access-planner points, plus Wisconsin River Trips support for the adjacent splits and the existing Muscoda gauge ladder.
-- After the later Lemonweir / Pine Bluff / Goeden additions, current imported Wisconsin route count is 80. Wisconsin River live cards are now 12, not 15, because the Lower Wisconsin split routes are represented inside the access planner instead of as separate route cards.
+- After the later Lemonweir / Pine Bluff / Goeden and upper Pine additions, current imported Wisconsin route count is 83. Wisconsin River live cards are now 12, not 15, because the Lower Wisconsin split routes are represented inside the access planner instead of as separate route cards.
 - 2026-07-14 19:17 America/Chicago: added `brule-river-campground-highway-139`, `brule-river-forest-road-2150-flowage`, and `wisconsin-river-pine-island-portage`. The same commit also consolidated overlapping Lower Wisconsin split cards, so the final committed Wisconsin count remains 74.
 - The two new Brule routes complete the WTG B1/B2/B3 border-river chain around existing `brule-river-highway-139-fr-2150`; B1 and B3 use USGS `04060993` with WTG's 220 cfs / 3.5 ft minimum and explicit remote/strainer/primitive-camping or no-camping caveats.
 - The new Pine Island-to-Portage route uses Wisconsin River Trips Pine Island and Portage pages, Wisconsin DNR Pine Island Wildlife Area access and no-camping rules, and USGS `05404000` at Wisconsin Dells with WRT's 4,000-6,000 cfs average-summer band and 13,000+ cfs unsuitable caveat.

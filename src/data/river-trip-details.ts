@@ -8378,6 +8378,114 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'pine-river-highway-55-stevens-lake': {
+    putIn: {
+      name: 'Highway 55 Bridge roadside access',
+      latitude: 45.908667,
+      longitude: -88.821369,
+    },
+    takeOut: {
+      name: 'Stevens Lake Road Bridge roadside access',
+      latitude: 45.874019,
+      longitude: -88.685862,
+    },
+    logistics: {
+      distanceLabel: '12.8 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, plus scouting time',
+      shuttle:
+        'Plan a remote Florence County shuttle between Highway 55 and Stevens Lake Road. Download maps before the drive, confirm road/shoulder parking at both bridges, and do not count on cell service along the upper Pine corridor.',
+      permits:
+        'No route-specific paddling permit is known from the sources checked. Use the roadside bridge accesses carefully, stay within public river corridors and accepted portage paths, and follow Pine-Popple Wild Rivers and national-forest rules.',
+      camping:
+        'American Whitewater notes public USFS riparian land and common tent camping on river right at CCC Rapids, but this app does not reserve or guarantee a campsite. Confirm current Chequamegon-Nicolet National Forest rules before planning an overnight.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at the Highway 55 bridge and paddle the upper Pine River to Stevens Lake Road. The run is a remote Wild River whitewater day with long class I-II rapids, rocky shoals, forested banks, and a gauge band that starts substantially higher than the lower County N route.',
+      accessCaveats: [
+        'Highway 55 and Stevens Lake Road are roadside bridge accesses, not developed livery launches. Confirm safe shoulder parking and avoid blocking road traffic.',
+        'American Whitewater recommends a visual rock check at Highway 55 because the downstream County N gauge can make lower Pine sections look runnable while this upper reach remains too bony.',
+        'Public land dominates the corridor, but do not assume every bank is public. Keep stops, scouting, and any camp planning to confirmed public land or accepted river corridors.',
+      ],
+      watchFor: [
+        'Long class I-II rapids, rocky shoals, and scrape/pin risk below the 3.3 ft AW low-runnable threshold.',
+        'Pushier rapids, cold water, fewer recovery eddies, and limited rescue access above the normal runnable band.',
+        'Strainers, deadfall, blind bends, and changing wood after storms.',
+        'Remote shuttle exposure, limited cell coverage, and longer travel time when low water forces walking or lining.',
+      ],
+    },
+  },
+  'pine-river-stevens-lake-chipmunk-rapids': {
+    putIn: {
+      name: 'Stevens Lake Road Bridge roadside access',
+      latitude: 45.874019,
+      longitude: -88.685862,
+    },
+    takeOut: {
+      name: 'Chipmunk Rapids Campground access',
+      latitude: 45.893229,
+      longitude: -88.557708,
+    },
+    logistics: {
+      distanceLabel: '9.9 mi',
+      estimatedPaddleTime: 'About 4 hr, plus scouting time',
+      shuttle:
+        'Use a remote Florence County shuttle from Stevens Lake Road to the Chipmunk Rapids Campground access. Confirm campground and forest-road conditions before committing, especially outside the main recreation season.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Chequamegon-Nicolet National Forest and Pine-Popple Wild Rivers rules at Chipmunk Rapids, and keep launch activity at Stevens Lake Road clear of traffic.',
+      camping:
+        'Chipmunk Rapids Campground is the documented endpoint context, with American Whitewater noting a campground, artesian spring, and pit toilet. Treat camping as a separate campground plan subject to current USFS rules rather than an automatic river permit.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Stevens Lake Road and paddle the middle Pine to Chipmunk Rapids Campground. The route mixes long quiet stretches with class I-II rapids and ends at a more identifiable national-forest access than the upper bridge-only segment.',
+      accessCaveats: [
+        'Stevens Lake Road is a roadside bridge put-in with limited formal facilities. Check parking and riverbank conditions before unloading.',
+        'The Chipmunk Rapids landing is below the bridge with a path back to parking; identify the landing before running the final current into the campground area.',
+        'Campground services and road access can vary seasonally. Verify current USFS status if using the take-out as an overnight base.',
+      ],
+      watchFor: [
+        'Class I-II rapids, shallow boulder gardens, and scraping near or below the 2.0 ft low-runnable threshold.',
+        'Longer flatwater sections where wind, fatigue, and late starts can stretch the day.',
+        'Strainers, low branches, cold water, and limited road exits between bridge accesses.',
+        'Higher water that converts otherwise moderate rapids into pushier, less forgiving whitewater.',
+      ],
+    },
+  },
+  'pine-river-chipmunk-rapids-bull-falls': {
+    putIn: {
+      name: 'Chipmunk Rapids Campground access',
+      latitude: 45.893229,
+      longitude: -88.557708,
+    },
+    takeOut: {
+      name: 'Bull Falls access corridor',
+      latitude: 45.898176,
+      longitude: -88.408957,
+    },
+    logistics: {
+      distanceLabel: '10.4 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, plus scouting and portage time',
+      shuttle:
+        'Plan a remote Pine-Popple Wild Rivers shuttle from Chipmunk Rapids to the Bull Falls access area. Scout the take-out and portage paths from the road before launching because the lower route has consequential drops and limited quick exits.',
+      permits:
+        'No route-specific paddling permit is known. Use the accepted Chipmunk Rapids and Bull Falls access corridors, obey signed portages, and stay off private land around scouting or recovery routes.',
+      camping:
+        'Chipmunk Rapids Campground can support a base-camp plan at the put-in, subject to current USFS rules. No campsite is assumed along the technical 10.4-mile run itself.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Chipmunk Rapids and paddle to the Bull Falls access corridor. This is the hard Pine River addition, with Snaketail Rapids, Myers Falls, Bull Falls, signed portages, possible wood in braided channels, and advanced rescue consequences.',
+      accessCaveats: [
+        'American Whitewater describes the Chipmunk Rapids landing below the bridge with a path from parking, an artesian spring, campground, and pit toilet.',
+        'Bull Falls has mapped access options, but the conservative route ends in the Bull Falls corridor. Identify the exact take-out before launching and avoid drifting into downstream continuation by mistake.',
+        'Portage and scouting routes around Snaketail Rapids, Myers Falls, and Bull Falls may be narrow, signed, or partly constrained by public-use/private-land boundaries. Stay on accepted routes.',
+      ],
+      watchFor: [
+        'Upper Snaketail Rapids, Myers Falls, Bull Falls, and multiple class II-III ledges or channels that should be scouted or portaged when conditions or group skill are uncertain.',
+        'Tree blockages and braided channels below Myers Falls, where American Whitewater notes common obstruction issues.',
+        'Low-water pins and boat abuse near 2.0 ft, plus powerful holes and harder recovery above the medium range.',
+        'Cold water, remote rescue, limited road access, and high consequence if a paddler misses a portage landing.',
+      ],
+    },
+  },
   'pine-river-county-n-wepco-5': {
     putIn: {
       name: 'County N Bridge Landing',

@@ -20130,6 +20130,325 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'pine-river-highway-55-stevens-lake',
+    slug: 'pine-river-highway-55-stevens-lake',
+    name: 'Pine River',
+    reach: 'Highway 55 Bridge to Stevens Lake Road Bridge',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Upper Florence County Wild River day from Highway 55 to Stevens Lake Road, with long class I-II rapids, public forest banks, and a remote shuttle above the already-listed County N Pine route. American Whitewater documents the exact reach and ties it to the Pine River below Pine River Powerplant gauge.',
+    statusText:
+      'Use the Pine River below Pine River Powerplant gauge at County N. American Whitewater starts the low-runnable band at 3.3 ft and medium at 5.3 ft; below 3.3 ft expect heavy scraping, and above 7.3 ft treat the run as high-water whitewater.',
+    latitude: 45.908667,
+    longitude: -88.821369,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04064500',
+      provider: 'usgs',
+      siteId: '04064500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Pine River Below Pine River Powerplant near Florence, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04064500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3.3,
+      idealMax: 7.3,
+      tooLow: 3.3,
+      tooHigh: 10,
+      thresholdSource: {
+        label: 'American Whitewater Pine A gauge correlation',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2308/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 9, 10],
+      seasonNotes:
+        'This upper Pine reach is most dependable during spring and after sustained rain. The downstream County N gauge is dam-influenced and American Whitewater warns that a visual check at Highway 55 still matters because 250 cfs can be adequate lower down but too bony for this rocky upper section.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'American Whitewater rates the route I-II, with long rocky class I and class II rapids and remote public forest surroundings. It is not a beginner flatwater float, especially when cold water, low-water pin risk, and limited exits are present.',
+      confidenceNotes:
+        'Confidence is good for a guarded add: American Whitewater documents Pine A from Highway 55 to Stevens Lake Road, publishes geometry, public-access descriptions, camping context, and a numeric 04064500 stage ladder. USGS confirms live gage-height and discharge at 04064500, while Wisconsin DNR confirms Pine-Popple Wild Rivers public recreation context. The main caveat is that AW explicitly recommends supplementing the downstream gauge with a Highway 55 visual rock check.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific reach',
+        value: '12.8 miles; Class I-II',
+        note: 'American Whitewater documents Pine River A from Highway 55 to Stevens Lake Road with 12.8 miles, average 7 fpm gradient, and class I-II difficulty.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2308/main',
+      },
+      {
+        label: 'Gauge bands',
+        value: '3.3 / 5.3 / 7.3 / 10 ft',
+        note: 'American Whitewater ties the reach to USGS 04064500 and publishes low, medium, high, and too-high gage-height bands for the exact reach.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2308/flow',
+      },
+      {
+        label: 'Live gauge verification',
+        value: 'USGS 04064500 at County N',
+        note: 'USGS identifies 04064500 as Pine River below Pine River Powerplant near Florence, at the County Highway N bridge, with live gage-height and discharge readings.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04064500/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.908667, -88.821369 to 45.874019, -88.685862',
+        note: 'American Whitewater reach geometry starts at the Highway 55 bridge and ends at the Stevens Lake Road bridge for Pine A.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2308/map',
+      },
+      {
+        label: 'Access and camping',
+        value: 'Roadside bridges; CCC rapids camping context',
+        note: 'American Whitewater describes roadside bridge access at Highway 55 and Stevens Lake Road and notes public USFS riparian land with common tent camping on river right at CCC Rapids.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2308/main',
+      },
+      {
+        label: 'Wild River context',
+        value: 'Pine-Popple Wild Rivers',
+        note: 'Wisconsin DNR describes canoe trips, solitude, and a range of challenges on the Pine and Popple Wild Rivers.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/pinepopple/recreation/water',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater Pine River A',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2308/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'American Whitewater Pine River A flow',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2308/flow',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 04064500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04064500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin DNR Pine-Popple Wild Rivers water recreation',
+        url: 'https://dnr.wisconsin.gov/topic/lands/pinepopple/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'Miles Paddled upper Pine River context',
+        url: 'https://milespaddled.com/pine-river-v-florence-county/',
+        provider: 'miles_paddled',
+      },
+    ],
+  },
+  {
+    id: 'pine-river-stevens-lake-chipmunk-rapids',
+    slug: 'pine-river-stevens-lake-chipmunk-rapids',
+    name: 'Pine River',
+    reach: 'Stevens Lake Road Bridge to Chipmunk Rapids Campground',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Middle Pine Wild River reach from Stevens Lake Road to Chipmunk Rapids Campground, mixing long quiet stretches with class I-II rapids and a developed national-forest exit at the campground. It extends the upper Pine coverage downstream without duplicating the existing County N-to-WEPCO route.',
+    statusText:
+      'Use the Pine River below Pine River Powerplant gauge at County N. American Whitewater gives 2.0 ft as low runnable, 4.0 to 7.0 ft as the main runnable band, and 10.0 ft as the top of the published high range.',
+    latitude: 45.874019,
+    longitude: -88.685862,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04064500',
+      provider: 'usgs',
+      siteId: '04064500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Pine River Below Pine River Powerplant near Florence, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04064500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2,
+      idealMax: 7,
+      tooLow: 2,
+      tooHigh: 10,
+      thresholdSource: {
+        label: 'American Whitewater Pine B gauge correlation',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/11138/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 9, 10],
+      seasonNotes:
+        'Spring and post-rain windows are most reliable. The reach can be below recommended even when the lower County N Pine looks runnable, so same-day gage-height and a local visual check remain important.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'American Whitewater rates Stevens Lake Road to Chipmunk Rapids I-II, but the trip is remote, mostly undeveloped, and requires comfort with strainers, cold water, road-bridge access, and a campground take-out below the final rapids.',
+      confidenceNotes:
+        'Confidence is strong enough for a guarded whitewater add: American Whitewater documents the exact Pine B reach, length, class, geometry, 04064500 stage bands, public USFS riparian context, and a Chipmunk Rapids campground exit with spring and pit toilet. Wisconsin DNR corroborates the Pine-Popple Wild Rivers recreation setting, and USGS provides the live direct gauge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific reach',
+        value: '9.9 miles; Class I-II',
+        note: 'American Whitewater documents Pine River B from Stevens Lake Road to Chipmunk Rapids as a 9.9-mile class I-II reach with a mix of flatwater and rapids.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/11138/main',
+      },
+      {
+        label: 'Gauge bands',
+        value: '2 / 4 / 7 / 10 ft',
+        note: 'American Whitewater ties this reach to USGS 04064500 and publishes low, medium, high, and too-high stage bands for the exact route.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/11138/flow',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.874019, -88.685862 to 45.893229, -88.557708',
+        note: 'American Whitewater reach geometry starts at Stevens Lake Road and ends at the Chipmunk Rapids access.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/11138/map',
+      },
+      {
+        label: 'Take-out facilities',
+        value: 'Chipmunk Rapids Campground',
+        note: 'American Whitewater describes the Chipmunk Rapids access with a landing path from parking, an artesian spring, a USFS campground, and a pit toilet.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/11138/main',
+      },
+      {
+        label: 'Live gauge verification',
+        value: 'USGS 04064500',
+        note: 'USGS provides current gage-height and discharge for Pine River below Pine River Powerplant near Florence at the County N bridge.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04064500/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater Pine River B',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/11138/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'American Whitewater Pine River B flow',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/11138/flow',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 04064500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04064500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin DNR Pine-Popple Wild Rivers water recreation',
+        url: 'https://dnr.wisconsin.gov/topic/lands/pinepopple/recreation/water',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'pine-river-chipmunk-rapids-bull-falls',
+    slug: 'pine-river-chipmunk-rapids-bull-falls',
+    name: 'Pine River',
+    reach: 'Chipmunk Rapids Campground to Bull Falls',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Technical lower-upper Pine whitewater from Chipmunk Rapids to Bull Falls, with Snaketail Rapids, Myers Falls, signed portages, and limited recovery room before the take-out. This is a distinct Class II-III Wild River reach upstream of the existing County N Pine day route.',
+    statusText:
+      'Use the Pine River below Pine River Powerplant gauge at County N. American Whitewater gives 2.0 ft as low runnable, 4.0 to 7.0 ft as the main runnable band, and 10.0 ft as the top of the published high range; scout or portage the named drops.',
+    latitude: 45.893229,
+    longitude: -88.557708,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04064500',
+      provider: 'usgs',
+      siteId: '04064500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Pine River Below Pine River Powerplant near Florence, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04064500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2,
+      idealMax: 7,
+      tooLow: 2,
+      tooHigh: 10,
+      thresholdSource: {
+        label: 'American Whitewater Pine C gauge correlation',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2309/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 9, 10],
+      seasonNotes:
+        'Use spring or well-supported rain windows and recheck the gauge shortly before launch. At low water the ledges and boulder gardens get pinny; at high water the named drops, holes, and recovery eddies become a serious expert-only setting.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'American Whitewater rates Chipmunk Rapids to Bull Falls II-III. Upper Snaketail Rapids, Myers Falls, Bull Falls, tree blockages, narrow channels, and signed portage trails make this an advanced whitewater route rather than a general recreational float.',
+      confidenceNotes:
+        'Confidence is strong for a guarded whitewater add: American Whitewater documents Pine C with exact reach geometry, route-specific 04064500 stage bands, named hazard/access points, signed portages, and public-use trail context. USGS provides the live gauge, and Wisconsin DNR confirms the broader Pine-Popple Wild Rivers recreation setting. The route is intentionally framed as hard because missing the portage or take-out decisions can materially increase consequence.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific reach',
+        value: '10.4 miles; Class II-III',
+        note: 'American Whitewater documents Pine River C from Chipmunk Rapids to Bull Falls as a 10.4-mile class II-III reach with Snaketail Rapids, Myers Falls, and Bull Falls.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2309/main',
+      },
+      {
+        label: 'Gauge bands',
+        value: '2 / 4 / 7 / 10 ft',
+        note: 'American Whitewater ties Pine C to USGS 04064500 and publishes low, medium, high, and too-high stage bands for the exact reach.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2309/flow',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.893229, -88.557708 to 45.898176, -88.408957',
+        note: 'American Whitewater reach geometry starts at Chipmunk Rapids and ends at the Bull Falls take-out corridor.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2309/map',
+      },
+      {
+        label: 'Named hazards',
+        value: 'Snaketail Rapids, Myers Falls, Bull Falls',
+        note: 'American Whitewater identifies signed portage or scouting trails around Upper Snaketail Rapids, Myers Falls, and Bull Falls, with tree blockages and recovery limitations in the lower channels.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2309/main',
+      },
+      {
+        label: 'Take-out caveat',
+        value: 'Bull Falls before lower continuation',
+        note: 'American Whitewater maps Bull Falls access choices and downstream Rochon Landing and Highway 101 alternatives; this route uses Bull Falls as the conservative take-out corridor.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2309/map',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater Pine River C',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2309/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'American Whitewater Pine River C flow',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2309/flow',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 04064500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04064500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin DNR Pine-Popple Wild Rivers water recreation',
+        url: 'https://dnr.wisconsin.gov/topic/lands/pinepopple/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'Miles Paddled upper Pine River context',
+        url: 'https://milespaddled.com/pine-river-v-florence-county/',
+        provider: 'miles_paddled',
+      },
+    ],
+  },
+  {
     id: 'pine-river-county-n-wepco-5',
     slug: 'pine-river-county-n-wepco-5',
     name: 'Pine River',
