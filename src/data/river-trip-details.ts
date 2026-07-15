@@ -26451,5 +26451,169 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'otter-tail-river-friberg-hwy-210': {
+    putIn: {
+      name: 'Otter Tail River, Taplin Gorge / Friberg Dam Public Water Access Site',
+      latitude: 46.3826273,
+      longitude: -96.0206276,
+    },
+    takeOut: {
+      name: 'Otter Tail River, Hwy 210 Public Water Access Site',
+      latitude: 46.2807577,
+      longitude: -95.9809894,
+    },
+    logistics: {
+      distanceLabel: '15.5 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, wood, or obstruction scouting',
+      shuttle:
+        'Stage Highway 210 first, then drive back to the Taplin Gorge / Friberg Dam access. Confirm the dam-area launch layout and take-out parking before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted Otter Tail Power, DNR, and highway-access rules.',
+      camping:
+        'Treat this as a long day route. DNR does not document a watercraft campsite on the Friberg-to-Highway-210 run, so any overnight plan should use separately confirmed nearby campgrounds or lodging.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Taplin Gorge / Friberg Dam and take out at Highway 210 for the official 15.5-mile lower Otter Tail route. The Orwell Dam gauge is downstream of the route, so pair the official bands with visual checks at both accesses.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Taplin Gorge / Friberg Dam at river mile 71.3 as WAS00558 and Highway 210 at river mile 56.0 as WAS01465.',
+        'The Orwell Dam gauge is downstream of the selected route. Treat it as a lower-corridor proxy and do not skip local checks for low water, bridge obstructions, and wood.',
+        'The put-in is dam-adjacent. Use only the signed public access and stay clear of dam, utility, and restricted infrastructure.',
+      ],
+      watchFor: [
+        'Dam-adjacent launch logistics, bridge and culvert obstructions, strainers, and private banks.',
+        'Low-water dragging or main-channel picking when the Orwell gauge falls below the medium band.',
+        'Pushier current, debris, and fewer forgiving exits above the official high band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'taplin-gorge-friberg-dam',
+        name: 'Otter Tail River, Taplin Gorge / Friberg Dam Public Water Access Site',
+        latitude: 46.3826273,
+        longitude: -96.0206276,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 71.3; resolves as WAS00558 with Otter Tail Power administration.',
+      },
+      {
+        id: 'hwy-210-otter-tail',
+        name: 'Otter Tail River, Hwy 210 Public Water Access Site',
+        latitude: 46.2807577,
+        longitude: -95.9809894,
+        mileFromStart: 15.5,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 56.0; resolves as WAS01465 with DNR administration.',
+      },
+    ],
+  },
+  'minnesota-river-buessman-riverside': {
+    putIn: {
+      name: 'Minnesota River, Buessman Bridge / County Road 14 Public Water Access Site',
+      latitude: 44.3620467,
+      longitude: -94.4979132,
+    },
+    takeOut: {
+      name: 'Minnesota River, Riverside Park Public Water Access Site',
+      latitude: 44.3163221,
+      longitude: -94.452301,
+    },
+    logistics: {
+      distanceLabel: '5.2 mi',
+      estimatedPaddleTime: 'About 1.75 hr to 3 hr depending on wind, current, mud, and debris',
+      shuttle:
+        'Stage Riverside Park in New Ulm first, then drive back to Buessman Bridge. This is a short shuttle, but inspect the city take-out before launching because mud and high water can change the landing.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey New Ulm park and DNR access rules.',
+      camping:
+        'Treat this as a day route. No on-route campsite is documented for the Buessman-to-Riverside section; nearby New Ulm or state-park camping should be planned separately.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Buessman Bridge and take out at New Ulm Riverside Park for DNR\'s short lower-Minnesota route. The Mankato gauge is downstream, so wind, mud, and debris checks still decide the day.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Buessman Bridge at river mile 143.0 as WAS00804 and Riverside Park at river mile 138.0 as WAS00792.',
+        'The DNR route sheet lists 143.3 to 138.1 miles; use the named public accesses and coordinates because access-layer river miles differ slightly.',
+        'Do not assume private banks are legal stops. Plan the trip as public-access to public-access.',
+      ],
+      watchFor: [
+        'Wind exposure, muddy approaches, floating debris, and strainers on a broad agricultural river.',
+        'Fast rises after rain and pushier current above the official high band.',
+        'Private banks and limited legal exits between Buessman Bridge and Riverside Park.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'buessman-bridge',
+        name: 'Minnesota River, Buessman Bridge / County Road 14 Public Water Access Site',
+        latitude: 44.3620467,
+        longitude: -94.4979132,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in near DNR route mile 143.3; resolves as WAS00804 at GIS river mile 143.0.',
+      },
+      {
+        id: 'riverside-park-new-ulm',
+        name: 'Minnesota River, Riverside Park Public Water Access Site',
+        latitude: 44.3163221,
+        longitude: -94.452301,
+        mileFromStart: 5.2,
+        segmentKind: 'creek',
+        note: 'Default take-out in New Ulm; resolves as WAS00792 at GIS river mile 138.0.',
+      },
+    ],
+  },
+  'shell-rock-river-frank-hall-st-nicholas': {
+    putIn: {
+      name: 'Albert Lea Lake, Frank Hall Park Public Water Access Site',
+      latitude: 43.6428912,
+      longitude: -93.3595382,
+    },
+    takeOut: {
+      name: 'Albert Lea Lake, St. Nicholas Landing Public Water Access Site',
+      latitude: 43.6122566,
+      longitude: -93.3130901,
+    },
+    logistics: {
+      distanceLabel: '3.2 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with headwind or cautious shoreline routing',
+      shuttle:
+        'Stage St. Nicholas Landing first, then drive back to Frank Hall Park. Check wind direction and lake conditions before leaving the sheltered launch area.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey city, DNR, and lake-access parking rules.',
+      camping:
+        'Treat this as a short day paddle. Myre-Big Island State Park can support a nearby basecamp plan on the Albert Lea Lake system, but camping is not part of this point-to-point route.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Frank Hall Park and finish at St. Nicholas Landing for the official short Shell Rock / Albert Lea Lake water-trail route. The Gordonsville gauge is a downstream corridor check, but wind and open-water exposure are the main same-day controls.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Frank Hall Park as WAS01395 and St. Nicholas Landing as WAS01392 with coordinates and administrator fields.',
+        'Both access records are on Albert Lea Lake rather than a narrow river channel. Treat this as lake-influenced Shell Rock water-trail planning, not a sheltered creek float.',
+        'The Gordonsville gauge is downstream on the Shell Rock corridor and should be paired with a visual lake and weather check.',
+      ],
+      watchFor: [
+        'Wind, wake, and cold-water exposure on open lake water.',
+        'Storm-driven rises or unsafe open-water conditions even when the DNR gauge is inside the medium band.',
+        'Private shorelines and lake-access rules away from the named public landings.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'frank-hall-park',
+        name: 'Albert Lea Lake, Frank Hall Park Public Water Access Site',
+        latitude: 43.6428912,
+        longitude: -93.3595382,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default put-in at the city-administered Frank Hall Park access; resolves as WAS01395.',
+      },
+      {
+        id: 'st-nicholas-landing',
+        name: 'Albert Lea Lake, St. Nicholas Landing Public Water Access Site',
+        latitude: 43.6122566,
+        longitude: -93.3130901,
+        mileFromStart: 3.2,
+        segmentKind: 'lake',
+        note: 'Default take-out at DNR-administered St. Nicholas Landing; resolves as WAS01392.',
+      },
+    ],
+  },
 };
-

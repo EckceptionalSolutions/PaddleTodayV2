@@ -72287,4 +72287,313 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'otter-tail-river-friberg-hwy-210',
+    slug: 'otter-tail-river-friberg-hwy-210',
+    name: 'Otter Tail River',
+    reach: 'Taplin Gorge / Friberg Dam to Highway 210',
+    state: 'Minnesota',
+    region: 'West Central Minnesota',
+    summary:
+      'Official lower Otter Tail day from the Taplin Gorge / Friberg Dam access to Highway 210. It uses the downstream Orwell Dam DNR ladder and keeps dam, low-water, and obstruction caveats front and center.',
+    statusText:
+      'Use the Orwell Dam DNR gauge as the lower-corridor check: 400 to 1,000 cfs is the official medium band. Below 200 cfs is scrapable, and above 1,500 cfs is very high.',
+    latitude: 46.3826273,
+    longitude: -96.0206276,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Launch only from the signed Taplin Gorge / Friberg Dam public access and stay clear of dam or power infrastructure.',
+        'DNR warns that culverts, bridges, dams, and other obstructions on the Otter Tail can create fast current and low-headroom traps; scout constrictions before committing.',
+        'Low water can mean dragging or main-channel picking, while high water makes bridge approaches, wood, and shoreline exits less forgiving.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-158',
+      provider: 'mn_dnr',
+      siteId: '158',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Otter Tail River below Orwell Dam near Fergus Falls',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=56065001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=56065001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 1000,
+      tooLow: 200,
+      tooHigh: 1500,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Otter Tail River below Orwell Dam',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical season. The lower Otter Tail can still work in summer when the Orwell gauge is in the medium band, but low water makes bridges, rocks, and obstructions more important.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'DNR frames this as a 15.5-mile recommended trip, and the mileage plus dam-adjacent start, bridge/culvert checks, wood, and private banks make it more than a casual short float.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: the DNR recommended-one-ways sheet names the exact Taplin Gorge / Friberg Dam to Highway 210 route, Minnesota public-water-access GIS resolves both endpoints, and the lower-corridor Orwell Dam gauge has fresh interpreted DNR bands. The gauge is downstream of the route, so the app keeps an explicit corridor-proxy caveat.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '15.5 mi, river mile 71.5 to 56.0',
+        note: 'The MN DNR recommended-one-ways sheet identifies Friberg Taplin Gorge Dam Carry-in Access to Hwy 210 Carry-in Access as a 15.5-mile Otter Tail River route.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS00558 to WAS01465',
+        note: 'Minnesota public-water-access GIS resolves Taplin Gorge / Friberg Dam and Highway 210 as Otter Tail River public access sites with coordinates, administrators, and river-mile fields.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '200 / 400-1,000 / 1,500 cfs',
+        note: 'MN DNR interprets the Orwell Dam gauge as Scrapable below 200 cfs, Low from 200 to 400, Medium from 400 to 1,000, High from 1,000 to 1,500, and Very High above 1,500.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '421 cfs at 2026-07-14 17:15',
+        note: 'The current MN DNR feed placed Orwell Dam just inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR recommended one-way water-trail trips',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Otter Tail River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/otter-tail-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'minnesota-river-buessman-riverside',
+    slug: 'minnesota-river-buessman-riverside',
+    name: 'Minnesota River',
+    reach: 'Buessman Bridge to Riverside Park',
+    state: 'Minnesota',
+    region: 'Southern Minnesota',
+    summary:
+      'Short official New Ulm-area Minnesota River run from Buessman Bridge to Riverside Park. It gives PaddleToday a compact public-access route on a broad river that still needs wind, mud, debris, and private-bank caution.',
+    statusText:
+      'Use the Mankato DNR gauge as the downstream lower-Minnesota check: 4,550 to 17,900 cfs is the official medium band. Below 566.9 cfs is scrapable, and above 22,500 cfs is very high.',
+    latitude: 44.3620467,
+    longitude: -94.4979132,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks', 'fast_rise'],
+      safetyNotes: [
+        'This is a broad lower-Minnesota reach where wind, mud, debris, and bank access can matter more than the short mileage suggests.',
+        'Use the named public accesses only; private banks and farm frontage should not be treated as bailout or overnight options.',
+        'High water can cover mud edges, add floating debris, and make the city take-out less forgiving.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-96',
+      provider: 'mn_dnr',
+      siteId: '96',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Minnesota River at Mankato, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=28042001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=28042001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4550,
+      idealMax: 17900,
+      tooLow: 566.9,
+      tooHigh: 22500,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Minnesota River at Mankato',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is realistic when the lower-Minnesota gauge is in a workable band and wind is manageable. Summer lows can expose mud and slow current, while rain events add debris and fast-moving water.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route is only 5.2 miles and uses public accesses, but the Minnesota is a larger river with wind, mud, debris, and private-bank limits. It is easy only when the gauge and weather are stable.',
+      confidenceNotes:
+        'Confidence is good with a proxy caveat: the DNR recommended-one-ways sheet names Buessman Bridge to Riverside Park, public-water-access GIS resolves both endpoints, and the downstream Mankato gauge has current official DNR bands for the same lower-Minnesota corridor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '5.2 mi, river mile 143.3 to 138.1',
+        note: 'The MN DNR recommended-one-ways sheet identifies Buessman Bridge Trailer Access to Riverside Park Trailer Access as a 5.2-mile Minnesota River route.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS00804 to WAS00792',
+        note: 'Minnesota public-water-access GIS resolves Buessman Bridge and New Ulm Riverside Park with coordinates, administrators, and river-mile fields.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '566.9 / 4,550-17,900 / 22,500 cfs',
+        note: 'MN DNR interprets the Mankato gauge as Scrapable below 566.9 cfs, Low from 566.9 to 4,550, Medium from 4,550 to 17,900, High from 17,900 to 22,500, and Very High above 22,500.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '5,770 cfs at 2026-07-14 17:30',
+        note: 'The current MN DNR feed placed the Mankato gauge inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR recommended one-way water-trail trips',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Minnesota River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'shell-rock-river-frank-hall-st-nicholas',
+    slug: 'shell-rock-river-frank-hall-st-nicholas',
+    name: 'Shell Rock River',
+    reach: 'Frank Hall Park to St. Nicholas Landing',
+    state: 'Minnesota',
+    region: 'Southern Minnesota',
+    summary:
+      'Short official Shell Rock / Albert Lea Lake water-trail route between two public lake accesses. The Gordonsville DNR gauge gives a current interpreted corridor check, while wind and open-water exposure decide the day.',
+    statusText:
+      'Use the Gordonsville DNR gauge as the Shell Rock corridor check: 86.5 to 89.5 ft is the official medium band. Below 86 ft is scrapable, and above 90 ft is very high.',
+    latitude: 43.6428912,
+    longitude: -93.3595382,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'This route is short, but it crosses lake-influenced water where wind, wake, and cold water can matter more than current.',
+        'Use the named Frank Hall Park and St. Nicholas Landing accesses; do not assume every shoreline along Albert Lea Lake is public.',
+        'Storms can raise the Shell Rock corridor quickly and can also create unsafe open-water conditions even when the gauge looks acceptable.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-329',
+      provider: 'mn_dnr',
+      siteId: '329',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge elevation',
+      kind: 'proxy',
+      siteName: 'Shell Rock River nr Gordonsville, CSAH1',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=49009001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=49009001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 86.5,
+      idealMax: 89.5,
+      tooLow: 86,
+      tooHigh: 90,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Shell Rock River near Gordonsville',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.3,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the practical season. Because the selected route is lake influenced, wind, wake, and water temperature should override the gauge on marginal days.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a short lake-and-outlet style route, not a technical river run. It stays in the easy bucket only when wind, wake, and weather are benign.',
+      confidenceNotes:
+        'Confidence is good for route identity and access: the DNR recommended-one-ways sheet names Frank Hall Park to St. Nicholas Landing, and public-water-access GIS resolves both endpoints. The Gordonsville gauge is a downstream Shell Rock corridor proxy, so the implementation keeps wind and visual-check caveats.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '3.2 mi, river mile 16.8 to 13.6',
+        note: 'The MN DNR recommended-one-ways sheet identifies Albert Lea Lake / Frank Hall Park Trailer Access to St. Nicholas Landing Trailer Access as a 3.2-mile Shell Rock route.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS01395 to WAS01392',
+        note: 'Minnesota public-water-access GIS resolves Frank Hall Park and St. Nicholas Landing as Albert Lea Lake public access records with coordinates and administrator fields.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '86 / 86.5-89.5 / 90 ft',
+        note: 'MN DNR interprets the Gordonsville gauge as Scrapable below 86 ft, Low from 86 to 86.5, Medium from 86.5 to 89.5, High from 89.5 to 90, and Very High above 90.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '87.35 ft at 2026-07-14 17:00',
+        note: 'The current MN DNR feed placed the Gordonsville gauge inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR recommended one-way water-trail trips',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Shell Rock River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/shell-rock-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
 ];

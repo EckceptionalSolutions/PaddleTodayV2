@@ -1,18 +1,26 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 17:43 America/Chicago.
+Last summarized: 2026-07-14 19:12 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 117.
-- Top represented rivers: Sauk River 17, Mississippi River 14, Little Fork River 9, Crow Wing River 6, Minnesota River 6, Big Fork River 5, Cannon River 4, North Fork Crow River 4, Red River of the North 4, Root River 4, St. Louis River 4, Zumbro River 4.
-- Ledger candidates: 811 total; 457 `added`, 77 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 54 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
+- Live routes: 120.
+- Top represented rivers: Sauk River 17, Mississippi River 14, Little Fork River 9, Minnesota River 7, Crow Wing River 6, Big Fork River 5, Cannon River 4, North Fork Crow River 4, Red River of the North 4, Root River 4, St. Louis River 4, Zumbro River 4, Otter Tail River 3.
+- Ledger candidates: 817 total; 463 `added`, 77 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 54 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-14 19:12 America/Chicago: added `otter-tail-river-friberg-hwy-210`, `minnesota-river-buessman-riverside`, and `shell-rock-river-frank-hall-st-nicholas`.
+- Baseline at run start was 117 live Minnesota routes; patched route data now imports 120 Minnesota routes with no missing trip-detail records.
+- Stayed in Minnesota and promoted three official DNR recommended one-way sections that were still absent from the live inventory: Otter Tail Taplin Gorge / Friberg Dam-to-Highway 210 `15.5` miles, Minnesota River Buessman Bridge-to-Riverside Park `5.2` miles, and Shell Rock Frank Hall Park-to-St. Nicholas Landing `3.2` miles.
+- Minnesota public-water-access GIS resolves all six endpoints with source-backed coordinates and access context: Taplin Gorge / Friberg Dam `WAS00558`, Highway 210 `WAS01465`, Buessman Bridge `WAS00804`, Riverside Park `WAS00792`, Frank Hall Park `WAS01395`, and St. Nicholas Landing `WAS01392`.
+- Current MN DNR river-level feed exposed interpreted ladders for Otter Tail Orwell Dam site `158` (`200 / 400-1000 / 1500 cfs`), Minnesota River Mankato site `96` (`566.9 / 4550-17900 / 22500 cfs`), and Shell Rock Gordonsville site `329` (`86 / 86.5-89.5 / 90 ft`). All three ship with explicit proxy/visual-check caveats because the live gauges are not exact at-put-in sensors.
+- No route-gallery images were added. Bounded DNR / Commons / local-government / same-river image review did not produce clearly rights-clean exact-route assets for local reuse.
+- Reviewed but did not add Whitewater County Highway 26-to-Beaver because it duplicates the existing Whitewater Elba-to-Highway-74 corridor, Blue Earth CR90-to-Sibley because the Rapidan Dam failure and dangerous-current context made the lower hazard package unsuitable, and Long Prairie lake connector leads because endpoint proof was lake-only rather than a defensible water-trail river-mile package.
 
 - 2026-07-14 17:43 America/Chicago route-audit follow-up: consolidated duplicate `zumbro-river-green-bridge-zumbro-falls` into the existing canonical `zumbro-river-falls` slug.
 - The duplicate carried stronger current MN DNR and public-water-access GIS evidence than the older route object, so the canonical slug now uses DNR site `267`, official `5.2 / 7.0-9.0 / 10.5 ft` bands, GIS-backed Green Bridge / Zumbro Falls coordinates, access points, and updated safety caveats while preserving the old public URL.
