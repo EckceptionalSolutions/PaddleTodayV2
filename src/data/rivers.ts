@@ -31657,6 +31657,148 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'eleven-point-river-greer-crossing-riverton-west',
+    slug: 'eleven-point-river-greer-crossing-riverton-west',
+    name: 'Eleven Point River',
+    reach: 'Greer Crossing Recreation Area to Riverton West River Access',
+    aliases: [
+      'Eleven Point River - Greer to Riverton West',
+      'Eleven Point River - Greer Crossing to Riverton river right',
+      'Lower Eleven Point - Greer Spring to Riverton West',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Long lower Eleven Point day from Greer Crossing to Riverton West, using current Forest Service access pages, the direct Bardley gauge, and the official river-right finish below Halls Bay.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge as a conservative low-water check. Around 300 cfs remains the floor, but this is a long 18.6-mile cold-water route, so low water, wind, or wood can turn it into a very slow day. No exact high-water cutoff is claimed.',
+    latitude: 36.79356389,
+    longitude: -91.32854167,
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['cold_water', 'fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'This is a long lower-Eleven Point day with limited developed exits between Greer Crossing and Riverton West, so low water, fatigue, and weather shifts matter more than on the short split routes.',
+        'The route includes Mary Decker Shoal, stays in cold spring-fed water, and reaches Halls Bay near the finish, where changing levels make channel choice matter.',
+        'Use the named Forest Service accesses only. Riverton West is the official river-right day-use finish below Whitten; do not substitute private banks or informal pull-offs.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and adjacent Greer-to-Whitten plus Whitten-to-Riverton-West trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Greer Spring more than doubles the river volume just above the put-in, and the lower scenic-river corridor often remains floatable outside peak spring. Use the app as a conservative low-water check, but expect cold water, wood, and travel time to matter more than a short split section.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is mostly Class I spring-fed Ozark water, but the route is long and includes Mary Decker Shoal, multiple cold-water shoal sequences, Halls Bay near the end, wind exposure, and limited developed exits between the named accesses.',
+      confidenceNotes:
+        'Confidence is good for a conservative long Eleven Point add: current Forest Service pages list Whitten as an 11-mile float from Greer and Riverton West as 7.6 miles below Whitten, Greer Crossing and Riverton West still show Site Open with published coordinates and access details, same-day USGS 07071500 returned official Bardley values during this run, and current Rivers.MOHERP Bardley rows still support the familiar 300 cfs minimum-only floor through the exact adjacent Greer-to-Whitten and Whitten-to-Riverton-West segments. The app keeps the threshold model conservative because the numeric support remains community-calibrated rather than a manager-published paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Greer to Riverton West, about 18.6 miles',
+        note: 'The Forest Service says visitors enjoy the 11-mile float from Greer to Whitten, and the Riverton West page says that access is 7.6 miles downriver of Whitten, supporting this combined public route.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Greer Crossing Recreation Area',
+        note: 'The Forest Service lists Greer Crossing as open, with a campground, boat launch, parking, and coordinates 36.79356389, -91.32854167.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Riverton West River Access',
+        note: 'The Forest Service lists Riverton West as open and 7.6 miles downriver of Whitten, with a boat launch, picnic area, vault toilet, and coordinates 36.648594, -91.202781.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-west-river-access',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07071500 at 463 cfs / 2.56 ft',
+        note: 'A same-day Water Services IV refresh returned 463 cfs and 2.56 ft at 2026-07-15 13:30 CDT for Eleven Point River near Bardley, the direct same-river gauge already used by the existing lower Eleven Point routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Bardley gauge Good beginning at 300 cfs, and the exact adjacent Greer-to-Whitten plus Whitten-to-Riverton-West corridor evidence supports keeping that same conservative floor for this longer combined route. The app does not infer an ideal range or upper cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Long cold-water float with shoals and Halls Bay',
+        note: 'Forest Service pages say Greer to Turner passes Mary Decker Shoal, the lower corridor stays in cold White Ribbon Trout Area water, and the Whitten-to-Riverton-West section adds Halls Bay plus more shoals, motorized users, and long-distance exposure.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-west-river-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Greer Crossing Recreation Area',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Whitten River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Riverton West River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-west-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Eleven Point River prospects',
+        url: 'https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'eleven-point-river-greer-crossing-narrows',
     slug: 'eleven-point-river-greer-crossing-narrows',
     name: 'Eleven Point River',
@@ -32167,6 +32309,153 @@ export const rivers: River[] = [
       {
         label: 'Forest Service Eleven Point National Wild and Scenic River',
         url: 'https://www.fs.usda.gov/r09/marktwain/recreation/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'eleven-point-river-cane-bluff-riverton-west',
+    slug: 'eleven-point-river-cane-bluff-riverton-west',
+    name: 'Eleven Point River',
+    reach: 'Cane Bluff River Access to Riverton West River Access',
+    aliases: [
+      'Eleven Point River - Cane Bluff to Riverton West',
+      'Eleven Point River - upper to lower Riverton West',
+      'Full Eleven Point - Cane Bluff to Riverton river right',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Full-corridor Eleven Point continuation from Cane Bluff to Riverton West, using current Forest Service access pages, the direct Bardley gauge, and the official river-right finish below Halls Bay.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge as a conservative low-water estimate. Around 300 cfs remains the floor, but this 25.9-mile route starts on the smaller upper river, so low water, wind, or wood can turn it into a very long day. No exact high-water cutoff is claimed.',
+    latitude: 36.796246,
+    longitude: -91.405675,
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['cold_water', 'fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'This is a very long upper-to-lower Eleven Point continuation with limited developed exits, so low water, fatigue, weather shifts, and shuttle discipline matter more than on the shorter corridor splits.',
+        'The route starts above Greer Spring where the river is smaller and more scrape-prone, then reaches Mary Decker Shoal, cold spring-fed water, fresh wood risk, and Halls Bay near the finish.',
+        'Use the named Forest Service accesses and legal float camps only. Riverton West is the official river-right finish below Whitten; do not substitute private banks or informal pull-offs.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and adjacent Cane-Bluff-to-Greer plus lower-Eleven trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The upper Eleven Point above Greer Spring is most dependable in spring and early summer, while the lower spring-fed corridor often holds water longer. Use the app as a conservative same-river estimate, but expect the Cane Bluff half to feel shallower and slower than Bardley alone suggests.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is mostly Class I Ozark water, but the route is long and layered: smaller upper-river riffles, Mary Decker Shoal, cold lower-river shoals, wind exposure, Halls Bay, and limited developed exits make it a committed day or overnight-capable route.',
+      confidenceNotes:
+        'Confidence is good for a conservative full-corridor Eleven Point add: current Forest Service pages still show Cane Bluff, Greer Crossing, Whitten, and Riverton West open with published coordinates and access details; Cane Bluff and Greer are supported by current Forest Service river-mile notes, Whitten still says Greer to Whitten is 11 miles, Riverton West says it is 7.6 miles below Whitten, same-day USGS 07071500 returned official Bardley values during this run, and current Rivers.MOHERP Bardley rows still support the familiar 300 cfs minimum-only floor through exact adjacent Eleven Point routes. The app keeps the threshold model conservative because the numeric support remains community-calibrated rather than a manager-published paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Cane Bluff to Riverton West, about 25.9 miles',
+        note: 'Current Forest Service river-mile notes place Cane Bluff at 9.3 miles and Greer Crossing at 16.6 miles from Thomasville, supporting a 7.3-mile Cane-Bluff-to-Greer section; the Whitten page adds 11 miles from Greer to Whitten, and Riverton West is 7.6 miles below Whitten.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/cane-bluff-river-access',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Cane Bluff River Access',
+        note: 'The Forest Service lists Cane Bluff as open on river left, with a toilet, trailer parking, dispersed-camping context, and coordinates 36.796246, -91.405675.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/cane-bluff-river-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Riverton West River Access',
+        note: 'The Forest Service lists Riverton West as open and 7.6 miles downriver of Whitten, with a boat launch, picnic area, vault toilet, and coordinates 36.648594, -91.202781.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-west-river-access',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07071500 at 463 cfs / 2.56 ft',
+        note: 'A same-day Water Services IV refresh returned 463 cfs and 2.56 ft at 2026-07-15 13:30 CDT for Eleven Point River near Bardley, the direct same-river gauge already used by the existing Eleven Point routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Bardley gauge Good beginning at 300 cfs, and the exact adjacent Cane-Bluff-to-Greer plus lower-Eleven corridor evidence supports keeping that same conservative floor for this long combined route. The app does not infer an ideal range or upper cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Upper-to-lower continuation with shoals and Halls Bay',
+        note: 'Forest Service pages describe Cane Bluff as a small spring-season upper access, Greer to Turner passes Mary Decker Shoal, and the lower corridor stays cold, scenic, and susceptible to fresh wood, motorized users, and the Halls Bay channel choice near Riverton.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-west-river-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Cane Bluff River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/cane-bluff-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Greer Crossing Recreation Area',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Whitten River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Riverton West River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-west-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Eleven Point River prospects',
+        url: 'https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river',
         provider: 'local',
       },
       {
@@ -32814,6 +33103,139 @@ export const rivers: River[] = [
       {
         label: 'National Rivers Project Riverton East to Narrows',
         url: 'https://www.nationalriversproject.com/mo/eleven-point-river-riverton-east-to-narrows',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'eleven-point-river-riverton-west-narrows',
+    slug: 'eleven-point-river-riverton-west-narrows',
+    name: 'Eleven Point River',
+    reach: 'Riverton West River Access to Highway 142 River Access',
+    aliases: [
+      'Eleven Point River - Riverton West to Narrows',
+      'Eleven Point River - Riverton river right to Highway 142',
+      'Lower Eleven Point - Riverton West to The Narrows',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Lower Eleven Point day float from Riverton West to the Highway 142 / Narrows access, using current Forest Service access pages and the same conservative Bardley gauge model used by adjacent lower-river routes.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge. Around 300 cfs is the conservative low-water floor; below that, expect shallow shoals and a slower trip. No ideal range or upper cutoff is claimed, so treat high or rising water as a caution flag.',
+    latitude: 36.648594,
+    longitude: -91.202781,
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['cold_water', 'fast_rise', 'strainers'],
+      safetyNotes: [
+        'This lower-Eleven Point route is shorter than the upstream continuations, but it still has limited developed exits, cold spring-fed water, and quick level changes after rain.',
+        'Shoals, fresh wood, and blind bends remain the main on-water issues, and missing the Highway 142 take-out pushes the plan materially farther downstream.',
+        'Use the named Forest Service accesses only. Both Riverton West and Highway 142 are day-use areas; do not assume private banks or informal pull-offs are legal substitutes.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and adjacent lower-Eleven-Point trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The Forest Service lists this lower access corridor for year-round use, but late-summer shoals can still slow the route well below the spring and early-summer sweet spot. Use the app as a conservative level check and expect the trip to become slower and shallower near the 300 cfs floor.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is generally Class I spring-fed Ozark water with shoals, wood, cold water, and a full-day distance for casual groups. The route is simpler than the longer continuations, but it still deserves real river judgment.',
+      confidenceNotes:
+        'Confidence is good for a conservative adjacent Missouri add: Forest Service pages list Riverton West and Highway 142 / Narrows as open public accesses with coordinates, concrete or improved launches, parking, toilets, day-use rules, and clear route context; the Highway 142 page says The Narrows is 8.7 miles below Riverton; USGS 07071500 is the same direct lower Eleven Point gauge already used by adjacent V2 routes and exposed fresh discharge and gage-height observations during this run. The app uses minimum-only scoring because the numeric threshold source is community-calibrated and not a manager-published paddling band for this exact lower split.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Riverton West to Highway 142, about 8.7 miles',
+        note: 'The Forest Service says Highway 142 / The Narrows is 8.7 miles downriver of Riverton, and Riverton West is the official river-right Riverton access just above that final lower segment.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/highway-142-river-access',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Riverton West River Access',
+        note: 'The Forest Service lists Riverton West as open, accessible by vehicle or boat, with a river-right launch, picnic area, vault toilet, and coordinates 36.648594, -91.202781.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-west-river-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Highway 142 River Access / The Narrows',
+        note: 'The Forest Service lists Highway 142 River Access as open, developed, and day-use only, with a single-lane concrete boat ramp, paved parking, vault toilet, and coordinates 36.550194, -91.191532.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/highway-142-river-access',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07071500 at 463 cfs / 2.56 ft',
+        note: 'A same-day Water Services IV refresh returned 463 cfs and 2.56 ft at 2026-07-15 13:30 CDT for Eleven Point River near Bardley, the direct same-river gauge already used by the existing lower Eleven Point routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Bardley gauge Good beginning at 300 cfs. Adjacent lower Eleven Point V2 routes use the same conservative floor with exact lower-river trip evidence, but this route does not infer an ideal range or high cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Lower scenic-river finish to the last Missouri access',
+        note: 'Forest Service pages frame Highway 142 / The Narrows as the last river access in the scenic-river corridor and keep the lower reach in the same cold spring-fed, shoal-filled, wood-sensitive setting as adjacent Riverton and Whitten routes.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/highway-142-river-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Riverton West River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-west-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Highway 142 River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/highway-142-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Eleven Point River prospects',
+        url: 'https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river',
         provider: 'local',
       },
       {

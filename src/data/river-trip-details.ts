@@ -9760,6 +9760,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'eleven-point-river-cane-bluff-riverton-west': {
+    putIn: {
+      name: 'Cane Bluff River Access',
+      latitude: 36.796246,
+      longitude: -91.405675,
+    },
+    takeOut: {
+      name: 'Riverton West River Access',
+      latitude: 36.648594,
+      longitude: -91.202781,
+    },
+    logistics: {
+      distanceLabel: 'About 25.9 mi by combined Forest Service mileage notes',
+      estimatedPaddleTime: 'About 9 hr to 12.5 hr depending on level, stops, wind, and whether you split the route overnight',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Cane Bluff and Riverton West. Inspect the river-right Riverton West finish before launching because it is a separate day-use landing from the more common Riverton East access above Highway 160.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, no-glass/no-polystyrene river rules, float-camp rules, Missouri boating rules, and posted parking signs.',
+      camping:
+        'Cane Bluff allows dispersed camping and the Forest Service corridor includes designated float camps between Greer, Turner, Whitten, and Riverton, so this route can support a legal overnight split. Do not assume private banks or informal gravel bars are open for camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Cane Bluff and take out at Riverton West for a full-corridor Eleven Point continuation that starts on the smaller upper river and finishes at the river-right lower access below Halls Bay. Use the Bardley gauge as a conservative low-water estimate, then make a same-day visual call at the launch.',
+      accessCaveats: [
+        'Cane Bluff and Riverton West are official Forest Service river accesses with published coordinates, but rural roads, parking limits, and site rules can change after storms.',
+        'The Bardley gauge is downstream of the Cane Bluff half, so the upper miles can still feel shallower and slower than the gauge alone suggests near the 300 cfs floor.',
+        'Riverton West is the separate river-right landing below Whitten. Do not confuse it with Riverton East above Highway 160 or assume private banks between public accesses are legal substitutes.',
+      ],
+      watchFor: [
+        'Shallow riffles, scraping, and occasional short portages above Greer Spring when the Bardley gauge is near the 300 cfs floor.',
+        'Mary Decker Shoal, Halls Bay late in the route, fresh wood, blind bends, thunderstorms, and cold spring-fed water on a very long route.',
+        'Fatigue, wind on wider lower stretches, motorized users under the 25 hp limit, and limited developed bailouts if you force the whole continuation into one push.',
+      ],
+    },
+  },
   'eleven-point-river-cane-bluff-narrows': {
     putIn: {
       name: 'Cane Bluff River Access',
@@ -10064,6 +10099,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       accessCaveats: [
         'Greer Crossing and Riverton East are official Forest Service river accesses with published coordinates, but road, parking, campground, and day-use rules can change.',
         'Riverton East is the river-left take-out just above Highway 160; Riverton West is a separate day-use area on river right and is not the default finish for this route.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'A full-day commitment, slow shoals and occasional scraping when the Bardley gauge is near the 300 cfs floor, and wind or fatigue on the long middle miles.',
+        'Mary Decker Shoal early in the route, then cold spring-fed water, fresh wood, blind bends, and rapid rises after rain.',
+        'Halls Bay near the end of the route, weekend traffic, and motorized users under the 25 hp limit.',
+      ],
+    },
+  },
+  'eleven-point-river-greer-crossing-riverton-west': {
+    putIn: {
+      name: 'Greer Crossing Recreation Area',
+      latitude: 36.79356389,
+      longitude: -91.32854167,
+    },
+    takeOut: {
+      name: 'Riverton West River Access',
+      latitude: 36.648594,
+      longitude: -91.202781,
+    },
+    logistics: {
+      distanceLabel: 'About 18.6 mi by combined Forest Service mileage notes',
+      estimatedPaddleTime: 'About 7.5 hr to 10.5 hr depending on level, stops, wind, and group pace',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Greer Crossing and Riverton West. Inspect the take-out before launching because this is a long route and Riverton West is the separate river-right finish below the Highway 160 bridge corridor.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, campground and day-use restrictions, no-glass/no-polystyrene river rules, Missouri boating rules, and posted parking signs.',
+      camping:
+        'Greer Crossing has campground facilities and the corridor includes designated float camps between Whitten and Riverton, so this route can support a legal overnight split. Riverton West itself is day-use only and private banks should not be assumed for camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Greer Crossing and take out at Riverton West for a long lower Eleven Point day that keeps the classic Greer start but finishes at the river-right Riverton landing below Halls Bay. Use the Bardley gauge as a conservative low-water check and keep extra margin for distance, weather, and cold water.',
+      accessCaveats: [
+        'Greer Crossing and Riverton West are official Forest Service river accesses with published coordinates, but road, parking, campground, and day-use rules can change.',
+        'Riverton West is the river-right finish below Whitten. Riverton East is the river-left take-out above Highway 160, so confirm the intended access before staging vehicles.',
         'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
       ],
       watchFor: [
@@ -10380,6 +10450,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       watchFor: [
         'Shallow shoals and slower travel when the Bardley gauge falls near the 300 cfs floor.',
         'Snags, root wads, trees, fresh flood wood, blind bends, and cold-water swims on a full-day lower-river reach.',
+        'Rapid rises after rain, thunderstorms, limited developed bailouts, and motorized users under the 25 hp limit upstream from The Narrows.',
+      ],
+    },
+  },
+  'eleven-point-river-riverton-west-narrows': {
+    putIn: {
+      name: 'Riverton West River Access',
+      latitude: 36.648594,
+      longitude: -91.202781,
+    },
+    takeOut: {
+      name: 'Highway 142 River Access / The Narrows',
+      latitude: 36.550194,
+      longitude: -91.191532,
+    },
+    logistics: {
+      distanceLabel: 'About 8.7 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr depending on level, stops, wind, and wood',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Riverton West and Highway 142 River Access. The take-out is the last Forest Service access in the National Scenic River corridor, so inspect it before launching and do not plan on drifting past it without a separate downstream plan.',
+      permits:
+        'No route-specific private paddling permit is known. Follow Mark Twain National Forest access rules, day-use restrictions, no-glass/no-polystyrene river rules, Missouri boating rules, and posted parking signs.',
+      camping:
+        'Treat this as a day trip unless you have a separate legal camping plan. Both named accesses are day-use only, and private banks should not be assumed to be legal overnight stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Riverton West and take out at Highway 142 / The Narrows for the final lower Eleven Point day float. Use the Bardley USGS gauge as a conservative low-water check and keep extra margin for the full-day distance, cold water, shoals, and limited developed exits.',
+      accessCaveats: [
+        'Riverton West and Highway 142 are official Forest Service river accesses with published coordinates, ramps, parking, and day-use rules.',
+        'Highway 142 / Narrows is the last access on the southern end of the Eleven Point National Scenic River Area. Missing it pushes the trip toward Myrtle or Arkansas and changes the route plan.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'Shallow shoals and slower travel when the Bardley gauge falls near the 300 cfs floor.',
+        'Snags, root wads, fresh flood wood, blind bends, and cold-water swims on a full-day lower-river reach.',
         'Rapid rises after rain, thunderstorms, limited developed bailouts, and motorized users under the 25 hp limit upstream from The Narrows.',
       ],
     },
