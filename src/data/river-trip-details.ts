@@ -14423,6 +14423,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+'buffalo-river-ponca-steel-creek': {
+    putIn: {
+      id: 'ponca-access',
+      name: 'Ponca access / Buffalo River at Ponca gauge corridor',
+      latitude: 36.0225,
+      longitude: -93.354722,
+    },
+    takeOut: {
+      id: 'steel-creek-access',
+      name: 'Steel Creek campground / river access',
+      latitude: 36.040776,
+      longitude: -93.344048,
+    },
+    logistics: {
+      distanceLabel: 'About 2.5 to 2.7 mi',
+      estimatedPaddleTime: 'About 1 hr to 3 hr at moderate water, longer with low water, scouting, or wood',
+      shuttle:
+        'Stage the take-out at Steel Creek, then drive back to Ponca. NPS says the shuttle is about 10 minutes and almost entirely on paved roads, but inspect both access areas before launching because congestion, weather, and flood cleanup can still change the plan.',
+      permits:
+        'No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check current river level, weather, and park alerts before launching.',
+      camping:
+        'Steel Creek Campground is a formal NPS endpoint campground with reservations in the main season and primitive winter camping, so this short route can work well as a campground-based half day. Do not depend on unplanned private-bank stops away from legal public areas.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Ponca and take out at Steel Creek for a short upper Buffalo introduction beneath Roark Bluff. Use the direct Ponca gauge as the decision point, and skip the route when the river is very low, rising fast, or above the NPS unsafe level.',
+      accessCaveats: [
+        'Ponca is a busy upper-district access and the gauge sits in the launch corridor. Make a visual low-water and wood check before committing.',
+        'Steel Creek is a developed campground access, but the area can be crowded and flood-softened. Confirm the exact landing and vehicle parking before leaving the shuttle.',
+        'NPS says no road follows the river, access roads can still be rocky or slow in the Buffalo corridor, and GPS can be unreliable in the park.',
+        'This route uses the same conservative minimum-only Ponca threshold as the adjoining upper-Buffalo family. It is not a full ideal-range recommendation.',
+      ],
+      watchFor: [
+        'Small rapids, chutes, sharp bends, swift current, and cold-water swims on the upper Buffalo.',
+        'Fresh flood wood, strainers, sweepers, and fast rises after local rain.',
+        'Low water below about 130 cfs at Ponca, when dragging and missed lines become likely.',
+        'High water above the NPS 1,600 cfs Ponca unsafe level.',
+        'Crowds at Ponca and Steel Creek, limited cell service, and late-day weather shifts in the bluff corridor.',
+      ],
+    },
+  },
   'buffalo-river-pruitt-hasty': {
     putIn: {
       id: 'pruitt-launch',
@@ -14459,6 +14499,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Low water below about 100 cfs at Pruitt, when the Float Guide marks Pruitt very low and dragging or portage-like sections become likely.',
         'High water above the NPS 2,000 cfs Pruitt unsafe level; do not treat flood or rising water as suitable private-boater conditions.',
         'Cold-water swims, remote rescue exposure, limited/no cell service, rough-road shuttle delays, and late-day darkness.',
+      ],
+    },
+  },
+  'buffalo-river-steel-creek-kyles-landing': {
+    putIn: {
+      id: 'steel-creek-access',
+      name: 'Steel Creek campground / river access',
+      latitude: 36.040776,
+      longitude: -93.344048,
+    },
+    takeOut: {
+      id: 'kyles-landing',
+      name: "Kyle's Landing campground / river access",
+      latitude: 36.055756,
+      longitude: -93.2813,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr at moderate water, longer with low water, wood, or crowds',
+      shuttle:
+        "Stage the take-out at Kyle's Landing, then drive back to Steel Creek. NPS says the shuttle is about 40 minutes each way and recommends high clearance plus four-wheel drive for Kyle's Landing Road. Inspect both accesses before launching.",
+      permits:
+        'No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check current river level, weather, and park alerts before launching.',
+      camping:
+        "Both Steel Creek and Kyle's Landing are formal NPS campgrounds, so this route works as an upper-Buffalo campground-to-campground day. Reservations or seasonal campground rules may apply, and no-camping or no-parking signs around Kyle's Landing need to be respected.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Steel Creek and take out at Kyle's Landing for one of the classic upper Buffalo days through the Ponca Wilderness. Use the Ponca gauge as the nearest official corridor check, and skip the route when the river is very low, rising fast, or above the NPS unsafe level.",
+      accessCaveats: [
+        "Kyle's Landing Road is steep, rough, and parking-constrained. NPS warns against roadside parking and recommends high clearance with four-wheel drive.",
+        'Steel Creek is a developed access, but the launch and campground area can fill quickly during good water windows.',
+        'NPS says no road follows the river, access roads may be unpaved or rocky, and GPS can be unreliable in the park. Carry a real map and do not assume cell service.',
+        'This route uses the upstream Ponca gauge as a corridor check with minimum-only scoring. It is not a full ideal-range recommendation.',
+      ],
+      watchFor: [
+        'Tumbling rapids, long pools, swift current, sharp bends, and cold-water swims.',
+        "Wood, strainers, blind side channels, and harder lines in landmarks like Hell's Half Acre when the river rises.",
+        'Low water below about 130 cfs at Ponca, when dragging and route pace can collapse.',
+        'High water above the NPS 1,600 cfs Ponca unsafe level.',
+        'Crowded access points, rough-road shuttle delays, limited cell service, and late-day darkness on a longer upper-district float.',
       ],
     },
   },
@@ -14693,6 +14773,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Low water below about 120 cfs at St. Joe, when dragging and shortened plans become likely.',
         'High water around and above 2,000 cfs at St. Joe; MOHERP labels this potentially dangerous for young or inexperienced paddlers, and flood-stage water should be avoided for casual trips.',
         'Crowded peak-season access, tubing traffic near Tyler Bend / Grinder\'s Ferry, limited cell coverage, cold-water swims, and late-day darkness if the group lingers on gravel bars.',
+      ],
+    },
+  },
+  'buffalo-river-tyler-bend-grinders-ferry': {
+    putIn: {
+      id: 'tyler-bend-river-access',
+      name: 'Tyler Bend river access',
+      latitude: 35.986715,
+      longitude: -92.763903,
+    },
+    takeOut: {
+      id: 'grinders-ferry-access',
+      name: "Grinder's Ferry access / gravel bar",
+      latitude: 35.986017,
+      longitude: -92.743686,
+    },
+    logistics: {
+      distanceLabel: 'About 1.1 mi',
+      estimatedPaddleTime: 'About 1 hr at moderate water, longer if the group floats, swims, or hikes the shuttle',
+      shuttle:
+        "Stage the take-out at Grinder's Ferry, then drive back to Tyler Bend. NPS says the shuttle is about 10 minutes and roughly 3 miles, but confirm the exact launch and parking setup because Tyler Bend has separate upper and lower launch rules.",
+      permits:
+        'No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey posted launch and parking signs, and check current river level and weather before launching.',
+      camping:
+        "Treat this as a short day float, but Tyler Bend Campground and Grinder's Ferry primitive camping both make it easy to stage an overnight before or after the run. Grinders is a gravel-bar primitive camping area with no potable water and periodic flood-softened vehicle access.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Tyler Bend and take out at Grinder's Ferry for a short middle-Buffalo float often used for tubing. Use the direct St. Joe gauge as the decision point, and avoid the route when water is too low to carry or already pushing into unsafe flood conditions.",
+      accessCaveats: [
+        'NPS says Tyler Bend has two launches. The upper launch may be reserved for concession operations during busy hours, while the lower launch is loading/unloading only with parking up at the picnic area.',
+        "Grinder's Ferry is a primitive gravel-bar access that can flood and soften. Confirm that the vehicle approach, turnaround, and take-out path are workable before launching.",
+        'Even on this short reach, Buffalo access roads and GPS routing can be unreliable. Carry a real park map and do not assume cell service.',
+        'This route uses a community-calibrated St. Joe minimum-only threshold paired with official NPS route and safety evidence. It is not a full ideal-range recommendation.',
+      ],
+      watchFor: [
+        'Swift current, wood, strainers, and pushier water when the St. Joe gauge rises.',
+        'Low water below about 120 cfs at St. Joe, when dragging and shallow lines become likely.',
+        "Very high water approaching or above the NPS 8,000 cfs Grinder's Ferry unsafe level.",
+        'Crowded tubing traffic, swimmers, and concession traffic near Tyler Bend and the short-access middle corridor.',
+        'Soft gravel bars, hot-weather complacency, afternoon storms, and cold-water swims when rain refreshes the reach.',
       ],
     },
   },

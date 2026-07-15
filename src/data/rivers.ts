@@ -44587,6 +44587,254 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'buffalo-river-ponca-steel-creek',
+    slug: 'buffalo-river-ponca-steel-creek',
+    name: 'Buffalo River',
+    reach: 'Ponca to Steel Creek',
+    aliases: [
+      'Buffalo National River - Ponca to Steel Creek',
+      'Buffalo River - Ponca to Steel Creek Access',
+      'Upper Buffalo River - Ponca to Steel Creek',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Highlands',
+    routeType: 'whitewater',
+    summary:
+      'Short upper Buffalo National River whitewater day from Ponca to Steel Creek beneath Roark Bluff. NPS documents the exact 2.5-mile trip and the direct Ponca gauge is live, but this is still rain-dependent swift water with chutes, wood, and quick-rising conditions.',
+    statusText:
+      'Use the Buffalo River at Ponca gauge. Around 130 cfs is the conservative low-water floor for this route; below that, expect scraping, dragging, and missed lines. NPS says levels above 1,600 cfs at Ponca are unsafe.',
+    latitude: 36.0225,
+    longitude: -93.354722,
+    gaugeSource: {
+      id: 'usgs-07055660',
+      provider: 'usgs',
+      siteId: '07055660',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Buffalo River at Ponca, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055660/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 130,
+      thresholdSource: {
+        label: "American Whitewater Ponca-to-Kyle's Landing reach and same-gauge trip evidence",
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3962/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [2, 3, 4, 5, 6, 11, 12],
+      seasonNotes:
+        'NPS says the upper Buffalo usually starts first in spring and remains highly rainfall dependent. Treat this as a recent-rain and cool-season opportunity, not a dependable summer float.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'NPS calls this section challenging whitewater and describes small rapids and chutes below Ponca. It is short, but it still belongs behind the whitewater route type because current, wood, and quick rises can change the day fast.',
+      confidenceNotes:
+        'Confidence is good for a guarded Arkansas add: NPS publishes the exact Ponca-to-Steel-Creek route page, the access mileage chart, and official Steel Creek campground coordinates; direct USGS 07055660 at Ponca exposed same-day discharge and gage-height values during review; and the same Ponca gauge already supports the adjoining upper-Buffalo route family. The app keeps the same conservative minimum-only 130 cfs floor used on the existing Ponca corridor and retains NPS\'s 1,600 cfs unsafe level as a route caveat rather than a full two-sided scoring band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Ponca to Steel Creek, 2.5 to 2.7 miles',
+        note: 'NPS publishes Ponca to Steel Creek as a 2.5-mile paddling trip, and the Buffalo River mileage chart lists 2.7 miles between those access points.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-ponca-to-steel-creek.htm',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07055660',
+        note: 'Direct USGS Water Services for Buffalo River at Ponca showed same-day values of 50.2 cfs and 3.52 ft at 2026-07-14 19:30 CDT during review.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055660&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Low-water floor',
+        value: '130 cfs minimum-only',
+        note: "American Whitewater's exact Ponca-to-Kyle's Landing reach uses the same Ponca gauge and has prior same-gauge trip evidence near the 130 cfs floor. Paddle Today reuses that conservative minimum-only floor for the shorter Ponca-to-Steel split rather than inventing a new ideal range.",
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/3962/main',
+      },
+      {
+        label: 'High-water cutoff',
+        value: 'NPS unsafe above 1,600 cfs at Ponca',
+        note: 'NPS says Buffalo River levels greater than 1,600 cfs at the Ponca gauge are unsafe.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/paddling.htm',
+      },
+      {
+        label: 'Access coordinates',
+        value: 'Ponca 36.0225, -93.354722; Steel Creek 36.040776, -93.344048',
+        note: 'USGS station metadata places the Ponca gauge in the launch corridor, and NPS Camping publishes Steel Creek Campground GPS coordinates for the take-out access area.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+      },
+      {
+        label: 'Route character',
+        value: 'Upper Buffalo chutes beneath Roark Bluff',
+        note: 'NPS says this short section introduces the Upper Buffalo\'s challenging whitewater with small rapids and chutes, then follows Roark Bluff to Steel Creek.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-ponca-to-steel-creek.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Paddle Ponca to Steel Creek',
+        url: 'https://www.nps.gov/thingstodo/paddle-ponca-to-steel-creek.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo River accesses and mileage',
+        url: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo National River paddling',
+        url: 'https://www.nps.gov/buff/planyourvisit/paddling.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo camping / Steel Creek coordinates',
+        url: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'USGS 07055660 Buffalo River at Ponca',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055660/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS Water Services 07055660 latest conditions',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055660&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: "American Whitewater Ponca to Kyle's Landing",
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3962/main',
+        provider: 'american_whitewater',
+      },
+    ],
+  },
+  {
+    id: 'buffalo-river-steel-creek-kyles-landing',
+    slug: 'buffalo-river-steel-creek-kyles-landing',
+    name: 'Buffalo River',
+    reach: "Steel Creek to Kyle's Landing",
+    aliases: [
+      "Buffalo National River - Steel Creek to Kyle's Landing",
+      'Buffalo River - Steel Creek to Kyles Landing',
+      'Upper Buffalo River - Steel Creek to Kyles',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Highlands',
+    routeType: 'whitewater',
+    summary:
+      "Beloved upper Buffalo National River day from Steel Creek to Kyle's Landing through the Ponca Wilderness. NPS publishes the exact 8-mile trip and both public access points, but this remains rainfall-dependent moving water with rapids, rough-road shuttle, wood, and crowding constraints.",
+    statusText:
+      'Use the Buffalo River at Ponca gauge as the nearest upstream corridor check. Around 130 cfs is the conservative low-water floor for this upper-Buffalo family; below that, expect scraping, dragging, and missed lines. NPS says levels above 1,600 cfs at Ponca are unsafe.',
+    latitude: 36.040776,
+    longitude: -93.344048,
+    gaugeSource: {
+      id: 'usgs-07055660',
+      provider: 'usgs',
+      siteId: '07055660',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Buffalo River at Ponca, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055660/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 130,
+      thresholdSource: {
+        label: "American Whitewater Ponca-to-Kyle's Landing reach and same-gauge trip evidence",
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3962/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [2, 3, 4, 5, 6, 11, 12],
+      seasonNotes:
+        'NPS says the upper Buffalo is largely rainfall dependent and that the paddling season moves downstream in dry periods. Treat this as a recent-water upper-district trip rather than a dependable summer float.',
+      difficulty: 'hard',
+      difficultyNotes:
+        "NPS says this stretch alternates between tumbling rapids and long pools through the Ponca Wilderness, and the take-out road at Kyle's Landing is a major practical constraint. It stays behind the whitewater route type because swift current, wood, and shuttle risk matter even when the lines are friendly.",
+      confidenceNotes:
+        "Confidence is good for a guarded Arkansas add: NPS publishes the exact Steel-Creek-to-Kyle's-Landing route page, the access mileage chart, and official Steel Creek/Kyle's campground coordinates; the direct Ponca gauge remains the best upstream official corridor check for this upper reach and exposed same-day values during review; and the longer existing Ponca-to-Kyle's route already uses the same conservative 130 cfs floor. Paddle Today therefore keeps this split on a minimum-only model tied to the Ponca gauge and treats NPS's 1,600 cfs unsafe level as a route caveat rather than a full ideal band.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: "Steel Creek to Kyle's Landing, 8 to 8.0 miles",
+        note: "NPS publishes Steel Creek to Kyle's Landing as an 8-mile paddling trip, and the Buffalo River mileage chart lists 8.0 miles between those access points.",
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-steel-creek-to-kyles-landing.htm',
+      },
+      {
+        label: 'Live corridor gauge',
+        value: 'USGS 07055660 upstream at Ponca',
+        note: 'Direct USGS Water Services for Buffalo River at Ponca showed same-day values of 50.2 cfs and 3.52 ft at 2026-07-14 19:30 CDT during review. Paddle Today uses that upstream same-river gauge as the nearest official corridor check for Steel Creek.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055660&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Low-water floor',
+        value: '130 cfs minimum-only',
+        note: "The exact AW Ponca-to-Kyle's reach uses the Ponca gauge and has same-gauge low-water evidence near 130 cfs. Paddle Today reuses that conservative upper-corridor floor for the Steel-Creek-to-Kyle's split rather than inventing a separate ideal range.",
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/3962/main',
+      },
+      {
+        label: 'High-water cutoff',
+        value: 'NPS unsafe above 1,600 cfs at Ponca',
+        note: 'NPS says Buffalo River levels greater than 1,600 cfs at the Ponca gauge are unsafe.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/paddling.htm',
+      },
+      {
+        label: 'Access coordinates',
+        value: "Steel Creek 36.040776, -93.344048; Kyle's Landing 36.055756, -93.2813",
+        note: 'NPS Camping publishes official GPS coordinates for both Steel Creek Campground and Kyles Landing Campground.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+      },
+      {
+        label: 'Route character',
+        value: 'Upper Buffalo rapids, pools, and Ponca Wilderness landmarks',
+        note: "NPS says this section runs past Big Bluff, Jim's Bluff, Granny Henderson's cabin, Hemmed-In Hollow Falls, and Hell's Half Acre while alternating between rapids and long pools.",
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-steel-creek-to-kyles-landing.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "NPS Paddle Steel Creek to Kyle's Landing",
+        url: 'https://www.nps.gov/thingstodo/paddle-steel-creek-to-kyles-landing.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo River accesses and mileage',
+        url: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo National River paddling',
+        url: 'https://www.nps.gov/buff/planyourvisit/paddling.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo camping / Steel Creek and Kyles coordinates',
+        url: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'USGS 07055660 Buffalo River at Ponca',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055660/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS Water Services 07055660 latest conditions',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055660&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: "American Whitewater Ponca to Kyle's Landing",
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3962/main',
+        provider: 'american_whitewater',
+      },
+    ],
+  },
+  {
     id: 'buffalo-river-pruitt-hasty',
     slug: 'buffalo-river-pruitt-hasty',
     name: 'Buffalo River',
@@ -45460,6 +45708,130 @@ export const rivers: River[] = [
         label: 'American Whitewater Tyler Bend to Gilbert',
         url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3968/main',
         provider: 'american_whitewater',
+      },
+      {
+        label: 'Rivers.MOHERP St. Joe gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07056000&hours=0',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'buffalo-river-tyler-bend-grinders-ferry',
+    slug: 'buffalo-river-tyler-bend-grinders-ferry',
+    name: 'Buffalo River',
+    reach: "Tyler Bend to Grinder's Ferry",
+    aliases: [
+      "Buffalo National River - Tyler Bend to Grinder's Ferry",
+      "Buffalo River - Tyler Bend to Grinders Ferry",
+      'Middle Buffalo River - Tyler Bend short float',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Highlands',
+    routeType: 'whitewater',
+    summary:
+      "Short middle Buffalo National River float from Tyler Bend to Grinder's Ferry. NPS documents the exact 1.1-mile route and the direct St. Joe gauge is live, but even this mostly flat reach stays rain-sensitive Ozark moving water with swift current when levels come up.",
+    statusText:
+      'Use the Buffalo River near St. Joe gauge. Around 120 cfs is the conservative low-water floor; below that, expect dragging and shortened plans. NPS says levels above 8,000 cfs at Grinder\'s Ferry are unsafe.',
+    latitude: 35.986715,
+    longitude: -92.763903,
+    gaugeSource: {
+      id: 'usgs-07056000',
+      provider: 'usgs',
+      siteId: '07056000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Buffalo River near St. Joe, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07056000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 120,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Buffalo River St. Joe gauge bands and same-route trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07056000&hours=0',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 11],
+      seasonNotes:
+        'NPS says the middle Buffalo usually holds water longer than the upper river but still rises and falls with rainfall. This remains a same-day level-and-trend decision, not a guaranteed summer float.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        "NPS calls this a mostly flat reach often used for tubing because of the short access spacing, but it is still free-flowing Buffalo current that can change quickly with rain. The route stays in the guarded Buffalo whitewater family so rising water, wood, and poor judgment are not hidden.",
+      confidenceNotes:
+        "Confidence is good for a guarded Arkansas add: NPS publishes the exact Tyler-Bend-to-Grinder's-Ferry route page, the access mileage chart, official Tyler Bend and Grinder's Ferry coordinate anchors, and the current Buffalo paddling safety page; direct USGS 07056000 near St. Joe exposed same-day values during review; and the adjoining Tyler-Bend-to-Gilbert route already uses a conservative 120 cfs minimum-only St. Joe model. Paddle Today keeps that same floor here and treats the NPS 8,000 cfs Grinder's Ferry unsafe level as a route caveat rather than a full ideal band.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: "Tyler Bend to Grinder's Ferry, about 1.1 miles",
+        note: "NPS publishes Tyler Bend to Grinder's Ferry as a 1-mile float, and the Buffalo River mileage chart lists 1.1 miles between those access points. Paddle Today uses the 1.1-mile chart value so the route length stays consistent with the mapped access spacing.",
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddling-tyler-bend-to-grinder-s-ferry.htm',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07056000',
+        note: 'Direct USGS Water Services for Buffalo River near St. Joe showed same-day values of 184 cfs and 3.37 ft at 2026-07-14 18:45 CDT during review.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07056000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Low-water floor',
+        value: '120 cfs minimum-only',
+        note: 'Rivers.MOHERP lists the St. Joe gauge Low band beginning at 120 cfs. Paddle Today uses only that conservative floor and does not infer an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07056000&hours=0',
+      },
+      {
+        label: 'High-water cutoff',
+        value: "NPS unsafe above 8,000 cfs at Grinder's Ferry",
+        note: "NPS says Buffalo River levels greater than 8,000 cfs at the Grinder's Ferry / Highway 65 gauge are unsafe.",
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/paddling.htm',
+      },
+      {
+        label: 'Access coordinates',
+        value: "Tyler Bend 35.986715, -92.763903; Grinder's Ferry 35.986017, -92.743686",
+        note: 'NPS publishes Tyler Bend Campground and Grinders Ferry primitive camping GPS coordinates, which serve as practical launch and take-out anchors.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+      },
+      {
+        label: 'Route character',
+        value: 'Mostly flat short middle-Buffalo float',
+        note: "NPS says this reach is mostly flat, commonly used for tubing, and has a short shuttle of about 10 minutes between accesses.",
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddling-tyler-bend-to-grinder-s-ferry.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "NPS Paddling Tyler Bend to Grinder's Ferry",
+        url: 'https://www.nps.gov/thingstodo/paddling-tyler-bend-to-grinder-s-ferry.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo River accesses and mileage',
+        url: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo National River paddling',
+        url: 'https://www.nps.gov/buff/planyourvisit/paddling.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo camping / Tyler Bend and Grinders Ferry coordinates',
+        url: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'USGS 07056000 Buffalo River near St. Joe',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07056000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS Water Services 07056000 latest conditions',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07056000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
       },
       {
         label: 'Rivers.MOHERP St. Joe gauge',

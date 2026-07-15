@@ -1686,12 +1686,32 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
   ],
+  'buffalo-river-ponca-steel-creek': [
+    {
+      id: 'buffalo-river-ponca-steel-corridor-commons',
+      src: '/gallery/buffalo-river-ponca-kyles-landing/buffalo-river-ponca-low-water-bridge.jpg',
+      alt: 'The Buffalo River passes under the Ponca low-water bridge with wooded Ozark hills rising behind the upper-river corridor.',
+      caption: 'Upper Buffalo River at Ponca',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
   'buffalo-river-pruitt-hasty': [
     {
       id: 'buffalo-river-pruitt-landing-commons',
       src: '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
       alt: 'The Buffalo River flows past the Pruitt landing with wooded Ozark hills rising beyond the riverbank.',
       caption: 'Buffalo River at Pruitt Landing',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'buffalo-river-steel-creek-kyles-landing': [
+    {
+      id: 'buffalo-river-steel-kyles-corridor-commons',
+      src: '/gallery/buffalo-river-ponca-kyles-landing/buffalo-river-ponca-low-water-bridge.jpg',
+      alt: 'The upper Buffalo River flows through the Ponca corridor with forested hills and clear moving water.',
+      caption: 'Upper Buffalo River corridor near Ponca',
       credit: 'Chris Light via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
@@ -1742,6 +1762,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       src: '/gallery/buffalo-river-tyler-bend-gilbert/buffalo-river-gilbert-aerial.jpg',
       alt: 'An aerial view shows the Buffalo River winding past Gilbert with wooded hills and gravel bars nearby.',
       caption: 'Buffalo River at Gilbert',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'buffalo-river-tyler-bend-grinders-ferry': [
+    {
+      id: 'buffalo-river-tyler-grinders-corridor-nps',
+      src: '/gallery/buffalo-river-tyler-bend-gilbert/buffalo-river-gilbert-aerial.jpg',
+      alt: 'An aerial view shows the middle Buffalo River winding through gravel bars and wooded hills near the Tyler Bend and Grinders Ferry corridor.',
+      caption: 'Middle Buffalo River near Gilbert',
       credit: 'NPS via Wikimedia Commons',
       takenLabel: 'NPS asset: public domain',
     },
