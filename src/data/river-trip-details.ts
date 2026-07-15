@@ -31630,6 +31630,172 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'east-branch-pecatonica-hollandale-horseshoe': {
+    putIn: {
+      name: 'Highway 39 / Waldwick Street access, Hollandale',
+      latitude: 42.87141,
+      longitude: -89.92093,
+    },
+    takeOut: {
+      name: 'Horseshoe Bend Road access',
+      latitude: 42.83378,
+      longitude: -89.88242,
+    },
+    logistics: {
+      distanceLabel: 'About 7.5 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4.5 hr, longer with wood or low-water dragging',
+      shuttle:
+        'Stage the Horseshoe Bend Road take-out first, then drive back to the Highway 39 / Waldwick Street access in Hollandale. Inspect both bridge-style accesses before launching because footing can be steep, muddy, or overgrown.',
+      permits:
+        'No route-specific paddling permit is known. Use only public or customary bridge/landing access, follow Wisconsin boating/PFD rules, and do not block road shoulders, farm drives, or private lanes.',
+      camping:
+        'No legal on-route camping is documented for this short Driftless day route. Treat it as a daylight paddle and use separate Yellowstone Lake, Blanchardville, or county-area lodging plans if staying overnight.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Highway 39 / Waldwick Street access in Hollandale and take out at Horseshoe Bend Road for the bluffiest upper East Branch Pecatonica card. Use the downstream Blanchardville gauge plus a same-day wood and access check.',
+      accessCaveats: [
+        'Hollandale promotes Pecatonica / East Branch canoeing and Miles Paddled publishes the Highway 39 access coordinate, but the launch is still simpler than a developed park ramp.',
+        'Horseshoe Bend Road is a bridge-style take-out with steep or muddy footing. WRT notes it is popular with paddlers but not polished.',
+        'The selected take-out stops well above the Blanchardville dam corridor. Do not casually extend downstream without separately planning the dam and portage context.',
+        'The Blanchardville USGS gauge is downstream of this route, so pair the current reading with visual checks at Hollandale and McKenna / Horseshoe if levels or wood look questionable.',
+      ],
+      watchFor: [
+        'Downed trees and possible portages; Miles Paddled and WRT reader updates both document past wood issues on this upper corridor.',
+        'Low-water scraping, mud, and slow riffles below about 100 cfs at the Blanchardville gauge.',
+        'Cold water, fast rises after rain, private banks, cattle/farm edges, and bridge-area footing.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hollandale-highway-39-access',
+        name: 'Highway 39 / Waldwick Street access, Hollandale',
+        latitude: 42.87141,
+        longitude: -89.92093,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Miles Paddled publishes this GPS point and Hollandale promotes East Branch canoeing access.',
+      },
+      {
+        id: 'horseshoe-bend-road-access',
+        name: 'Horseshoe Bend Road access',
+        latitude: 42.83378,
+        longitude: -89.88242,
+        mileFromStart: 7.5,
+        segmentKind: 'creek',
+        note: 'Default take-out before the lower Blanchardville dam corridor.',
+      },
+    ],
+  },
+  'east-branch-pecatonica-highway-78-river-road': {
+    putIn: {
+      name: 'Highway 78 / Blanchardville USGS gauge access',
+      latitude: 42.78557,
+      longitude: -89.86146,
+    },
+    takeOut: {
+      name: 'River Road / Thunder Bridge landing',
+      latitude: 42.7376,
+      longitude: -89.8559,
+    },
+    logistics: {
+      distanceLabel: 'About 6.2 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 3.5 hr, longer in low water or headwind',
+      shuttle:
+        'Stage River Road / Thunder Bridge first, then launch at the Highway 78 bridge by the USGS gauge. Confirm the take-out from land because River Road is a rural access rather than a staffed park.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, stay within normal public access boundaries at the bridge sites, and avoid blocking farm approaches or narrow road shoulders.',
+      camping:
+        'No on-route camping is documented. Treat Highway 78-to-River Road as a day route; use separate campground or lodging plans away from the river corridor if needed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Highway 78 / Blanchardville gauge bridge and paddle the middle East Branch Pecatonica to River Road / Thunder Bridge. The route uses a direct put-in gauge and WRT route-family bands with private-bank and cattle-bank caveats.',
+      accessCaveats: [
+        'The Highway 78 launch is the gauge bridge access. WRT and Miles Paddled describe it as usable but muddy or tricky rather than a polished ramp.',
+        'Argyle identifies Thunder Bridge / River Road as a normal Pecatonica access, but same-day parking, grass, mud, or shoulder conditions still control the practical take-out.',
+        'Keep stops to public access points or emergencies. Much of the corridor passes farm and pasture banks.',
+      ],
+      watchFor: [
+        'Muddy bridge footing, cattle in or near the channel, fences, eroded banks, and slippery take-out paths.',
+        'Strainers or storm wood around wooded bends and bridge approaches.',
+        'High or rising water above the WRT high bands, cold shoulder-season water, and private-bank exposure.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-78-blanchardville-gauge-access',
+        name: 'Highway 78 / Blanchardville USGS gauge access',
+        latitude: 42.78557,
+        longitude: -89.86146,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the USGS gauge bridge.',
+      },
+      {
+        id: 'river-road-thunder-bridge-landing',
+        name: 'River Road / Thunder Bridge landing',
+        latitude: 42.7376,
+        longitude: -89.8559,
+        mileFromStart: 6.2,
+        segmentKind: 'creek',
+        note: 'Default take-out for this middle segment; Argyle identifies Thunder Bridge / River Road as a Pecatonica access.',
+      },
+    ],
+  },
+  'east-branch-pecatonica-river-road-argyle': {
+    putIn: {
+      name: 'River Road / Thunder Bridge landing',
+      latitude: 42.7376,
+      longitude: -89.8559,
+    },
+    takeOut: {
+      name: 'Argyle Boat Landing / Highway 81',
+      latitude: 42.70186,
+      longitude: -89.8707,
+    },
+    logistics: {
+      distanceLabel: 'About 7.2 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, depending on level, wind, and stops',
+      shuttle:
+        'Stage the Argyle boat landing take-out first, then drive north to River Road / Thunder Bridge. Mark the Argyle landing before launching so the group does not drift into the town dam context.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules and current Village of Argyle parking, landing, and park rules.',
+      camping:
+        'No on-route camping is documented for the River Road-to-Argyle day route. Treat any campground or lodging as separate base-camp planning, not a river-camping feature.',
+      campingClassification: 'none',
+      summary:
+        'Launch at River Road / Thunder Bridge and take out at the Argyle boat landing for the lower scenic East Branch Pecatonica card. WRT reports maintained landings, no logjams or rapids on the reviewed trip, and a 142 cfs run that matches the selected useful band.',
+      accessCaveats: [
+        'The Village of Argyle identifies Thunder Bridge / River Road and Argyle as normal Pecatonica access choices.',
+        'Use the signed Argyle landing and do not continue casually through the local dam corridor or downstream private-bank reaches.',
+        'The Blanchardville gauge is upstream of this route. If local rain, tributaries, wind, or muddy banks disagree with the gauge, let the visual check override the score.',
+      ],
+      watchFor: [
+        'Fresh strainers or bank wood after storms despite the clean WRT trip report.',
+        'Farm banks, golf-course-adjacent private property, eroded banks, cattle or livestock edges, and limited legal bailout options.',
+        'Cold water, fast rises, high or muddy water, and missing the Argyle take-out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'river-road-thunder-bridge-landing',
+        name: 'River Road / Thunder Bridge landing',
+        latitude: 42.7376,
+        longitude: -89.8559,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Argyle identifies Thunder Bridge / River Road as a Pecatonica access.',
+      },
+      {
+        id: 'argyle-boat-landing',
+        name: 'Argyle Boat Landing / Highway 81',
+        latitude: 42.70186,
+        longitude: -89.8707,
+        mileFromStart: 7.2,
+        segmentKind: 'creek',
+        note: 'Default take-out in the Village of Argyle; use the signed landing and avoid drifting into the dam corridor.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {

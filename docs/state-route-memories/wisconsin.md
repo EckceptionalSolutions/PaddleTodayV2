@@ -4,15 +4,23 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 124.
-- Top represented rivers: Wisconsin River 15, Big Rib River 3, Sugar River 5, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Baraboo River 5, Rock River 4, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Fox River 3, Popple River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3, Kickapoo River 3.
-- Ledger candidates: 111 total; 101 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
+- Live routes: 127.
+- Top represented rivers: Wisconsin River 15, Big Rib River 3, East Branch Pecatonica River 3, Sugar River 5, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Baraboo River 5, Rock River 4, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Fox River 3, Popple River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3, Kickapoo River 3.
+- Ledger candidates: 114 Wisconsin candidates tracked; 104 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 121-route baseline: `big-rib-river-rib-falls-marathon`, `big-rib-river-marathon-little-rib`, and `big-rib-river-little-rib-bluegill-bay`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 124-route baseline: `east-branch-pecatonica-hollandale-horseshoe`, `east-branch-pecatonica-highway-78-river-road`, and `east-branch-pecatonica-river-road-argyle`.
 
 ## Latest Audit
+
+- 2026-07-15 America/Chicago: added `east-branch-pecatonica-hollandale-horseshoe`, `east-branch-pecatonica-highway-78-river-road`, and `east-branch-pecatonica-river-road-argyle`, bringing the live Wisconsin route count from the run-start baseline of 124 to 127.
+- The three East Branch Pecatonica routes introduce a new Driftless tributary family that was absent from the live Wisconsin inventory. Hollandale-to-Horseshoe uses WRT and Miles Paddled exact-route support plus Hollandale local canoeing context; Highway-78-to-River-Road uses WRT exact-route support and the direct USGS gauge at the put-in; River-Road-to-Argyle uses WRT exact-route support plus Village of Argyle access guidance for Thunder Bridge / River Road and Argyle.
+- Live gauge verification: USGS Water Services returned East Branch Pecatonica River near Blanchardville `05433000` at `149 cfs / 4.73 ft` at 2026-07-15 12:00 CDT. All three cards use the WRT/Miles Paddled Blanchardville-gauge family and currently sit inside the defended useful band.
+- Threshold posture: WRT estimates `0-100 cfs` as low but generally paddleable, `101-200 cfs` as average / good target, `201-300 cfs` as above average but decent, `301-400 cfs` high, `401-600 cfs` very high and pushy, and `601+ cfs` maybe too high. The app uses 101-300 cfs as the useful band, 100 cfs as a low-water caution floor, and 601 cfs as the high-water caution point without inventing narrower ideals.
+- Safety/logistics added: Hollandale-to-Horseshoe carries downstream-gauge proxy, wood/strainer, muddy bridge-access, private-bank, cold-water, and no-camping day-route caveats. Highway-78-to-River-Road carries direct-gauge support, rural bridge-access, cattle/fence/private-bank, cold-water, and no-camping caveats. River-Road-to-Argyle carries upstream proxy-gauge, Argyle dam-boundary, farm/golf-course/private-bank, and no-camping caveats.
+- Bounded image review found WRT / Miles Paddled route imagery, a Commons same-river Argyle image lead, USGS gauge/HIVIS imagery, and broad Pecatonica Commons map/context leads, but no clearly rights-clean exact-route paddling/gallery asset selected for the three new cards; no-image rows were added to the image audit.
+- Reviewed prompt and memory leads again: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica are already live; Black Earth Creek Cross Plains-to-Salmo Pond remains blocked by unresolved obstruction evidence; Oconto North Branch remains held for calculated-flow/local-flow support and wood/chute clearance; Waupaca / Tomorrow / Yellow River / Little Wolf blockers remain unchanged.
 
 - 2026-07-15 America/Chicago: added `big-rib-river-rib-falls-marathon`, `big-rib-river-marathon-little-rib`, and `big-rib-river-little-rib-bluegill-bay`, bringing the live Wisconsin route count from the run-start baseline of 121 to 124.
 - The Big Rib routes introduce a new Wausau-area tributary family that was absent from the live inventory. Rib-Falls-to-Marathon uses Wisconsin River Trips' exact Rib Falls-to-Marathon route report, Marathon County Rib Falls Park context, Great Pinery's Marathon Riverside landing, and direct USGS `05396000`. The two lower-trail cards use Great Pinery's official Lower Big Rib River Water Trail landing chain, mileage, coordinates, shallow-water context, Rookery Park / Snake Bridge / Bluegill Bay landmarks, and the same Rib Falls gauge as a conservative upstream proxy.
