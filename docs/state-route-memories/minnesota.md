@@ -1,11 +1,11 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 06:12 America/Chicago.
+Last summarized: 2026-07-15 07:09 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 149.
-- Top represented rivers: Mississippi River 25, Sauk River 18, Minnesota River 11, Little Fork River 9, Crow Wing River 8, Big Fork River 5, Root River 5, Rum River 5, Zumbro River 5, Cannon River 4, North Fork Crow River 4, Otter Tail River 4, Red River of the North 4, St. Croix River 4, St. Louis River 4, Red Lake River 3.
+- Live routes: 152.
+- Top represented rivers: Mississippi River 25, Sauk River 18, Minnesota River 11, Little Fork River 9, Crow Wing River 8, Big Fork River 5, Red River of the North 5, Root River 5, Rum River 5, Zumbro River 5, Cannon River 4, North Fork Crow River 4, Otter Tail River 4, Red Lake River 4, St. Croix River 4, St. Louis River 4, Des Moines River 3.
 - Ledger candidates: 880 total; 520 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
@@ -13,6 +13,15 @@ Last summarized: 2026-07-15 06:12 America/Chicago.
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 07:09 America/Chicago: added `red-river-kidder-brushvale`, `des-moines-river-christianna-petersburg`, and `red-lake-river-crookston-fisher`.
+- Baseline at run start was 149 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 152 Minnesota routes and all three new slugs have trip-detail records.
+- Stayed in Minnesota and promoted three non-overlapping official/source-backed gaps after reconciling already-live prompt leads and prior blockers. Red River Kidder-to-Brushvale cleared because the current MN DNR feed now exposes the direct RR1 interpreted gauge at the Brushvale take-out; Des Moines Christianna-to-Petersburg fills the lower segment below the existing Mayflower-to-Christianna card with the Jackson gauge inside the route; and Red Lake Crookston-to-Fisher extends lower Red Lake coverage below the existing Huot-to-Crookston card with the Fisher gauge at the take-out.
+- Current MN DNR river-level feed exposed interpreted ladders for Red River RR1 site `318` (`3.8 / 4-9 / 9.5 ft`), Des Moines Jackson site `259` (`75 / 200-900 / 1800 cfs`), and Red Lake Fisher site `175` (`195 / 237-1960 / 2850 cfs`). During the run, all three were in the official medium band: RR1 `5.11 ft`, Jackson `281 cfs`, and Fisher `399 cfs`.
+- Camping posture: Kidder-to-Brushvale is `endpoint_campground` under DNR Map 1 / recreation-area support, Christianna-to-Petersburg is `on_route_campsite` under DNR Map 1 Kilen Woods and Belmont watercraft-campsite context, and Crookston-to-Fisher is `none` because no normal route camping is assumed on the long lower reach.
+- Safety posture: Red River carries Kidder Dam, muddy bank, snag, flood, private-bank, remote, and two-state-rule caveats; Des Moines carries Jackson dam/high-Class-I rapid, mapped wire, Class I riffle, long-day, snag, flood, and private-bank caveats; Red Lake carries Crookston dam/rapid context, long farm-country exposure, wooded bends, strainers, muddy banks, and private-bank caveats.
+- No route-gallery images were added. Bounded DNR / local-government / Commons / same-route image review did not produce clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed but did not add Whitewater County-Hwy-26-to-Beaver because it duplicates the existing `whitewater-river-elba-highway-74` card, Wold's-Ferry-to-Aitkin and full Pat's-Grove-to-Petersburg planners because the day-route audit contract rejects 40+ and 50+ mile cards, Red Lake Neptune/Centennial because the Thief River Falls gauge remains stale, or older Red River Kidder under the Georgetown blocker because the new RR1 gauge superseded that older proxy problem.
 
 - 2026-07-15 06:12 America/Chicago: added `rum-river-cambridge-west-martins`, `des-moines-river-pats-grove-mayflower`, and `minnesota-river-war-memorial-kinney`.
 - Baseline at run start was 146 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 149 Minnesota routes and all three new slugs have trip-detail records.

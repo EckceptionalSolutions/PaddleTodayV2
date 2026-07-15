@@ -30487,4 +30487,187 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'red-river-kidder-brushvale': {
+    putIn: {
+      name: 'Kidder Recreation Area trailer access',
+      latitude: 46.28765,
+      longitude: -96.59665,
+    },
+    takeOut: {
+      name: 'Brushvale Bridge Recreation Area trailer access',
+      latitude: 46.368431,
+      longitude: -96.656044,
+    },
+    logistics: {
+      distanceLabel: '10.4 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer in wind or low water',
+      shuttle:
+        'Use the short border-town shuttle between Kidder Recreation Area and Brushvale Bridge Recreation Area. Confirm both recreation-area parking areas and any campground rules before leaving vehicles.',
+      permits:
+        'No route-specific paddling permit is known. The route touches Minnesota and North Dakota, so follow applicable boating, fishing, camping, access, and PFD rules for both states.',
+      camping:
+        'Kidder Recreation Area has developed campground facilities near the put-in, and DNR Map 1 lists rustic camping at Brushvale Bridge. Treat camping as designated-site only, not riverbed or private-bank camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch below Kidder Dam and take out at Brushvale Bridge for the official DNR Map 1 Red River day trip above Fort Abercrombie.',
+      accessCaveats: [
+        'Kidder and Brushvale are uniquely named DNR map accesses, but they are not Minnesota public-water-access GIS records; use the DNR map and local recreation-area signage to confirm the exact ramps.',
+        'The RR1 DNR gauge is at the Brushvale-area take-out, so it is a direct end-of-route gauge rather than a distant Red River proxy.',
+        'Muddy banks and private shorelines limit informal stopping options.',
+      ],
+      watchFor: [
+        'Kidder Dam and shallow constructed-rock areas at the put-in.',
+        'Snags, exposed rocks, muddy banks, and low-water channel blocks.',
+        'Flooding or fast level changes after spring melt or heavy rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'kidder-recreation-area',
+        name: 'Kidder Recreation Area trailer access',
+        latitude: 46.28765,
+        longitude: -96.59665,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; DNR Map 1 identifies Kidder Recreation Area at Red River mile 555.5 with a trailer access, dock, campground, restrooms, and picnic facilities.',
+      },
+      {
+        id: 'brushvale-bridge',
+        name: 'Brushvale Bridge Recreation Area trailer access',
+        latitude: 46.368431,
+        longitude: -96.656044,
+        mileFromStart: 10.4,
+        segmentKind: 'creek',
+        note: 'Default take-out; DNR Map 1 identifies Brushvale Bridge Recreation Area at Red River mile 545.1, and MN DNR site 318 / RR1 is at the same take-out area.',
+      },
+    ],
+  },
+  'des-moines-river-christianna-petersburg': {
+    putIn: {
+      name: 'Des Moines River, Chris / Christianna Bridge Public Water Access Site',
+      latitude: 43.7928244,
+      longitude: -95.0919226,
+    },
+    takeOut: {
+      name: 'Des Moines River, Petersburg Public Water Access Site',
+      latitude: 43.5263871,
+      longitude: -94.9189653,
+    },
+    logistics: {
+      distanceLabel: 'About 26 mi',
+      estimatedPaddleTime: 'About 8.5 hr to 11 hr; split or shorten if the group is not efficient',
+      shuttle:
+        'Plan a long rural shuttle from Christianna Bridge to Petersburg. Start early and keep Ashley City Park / Jackson as emergency-planning references rather than assuming every road crossing is a public exit.',
+      permits:
+        'No route-specific paddling permit is known. Follow DNR water-trail, public-access, private-bank, state-park, and Minnesota boating/PFD rules.',
+      camping:
+        'DNR Map 1 shows Kilen Woods State Park camping and watercraft campsite context plus Belmont County Park watercraft campsite downstream. Use only designated sites and confirm state-park reservations, vehicle permits, and first-come watercraft-site status.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Continue below the existing Mayflower-to-Christianna route on the public lower Des Moines access chain to Petersburg near the Iowa line.',
+      accessCaveats: [
+        'Christianna resolves as the Des Moines River Chris Public Water Access Site, WAS01445, at river mile 29.1.',
+        'Petersburg resolves in Minnesota public-water-access GIS as WAS01443 at river mile 3.1.',
+        'The route passes the Jackson gauge and former Jackson Dam area; scout locally and portage or exit if the rapid/wire hazard story does not match the map.',
+      ],
+      watchFor: [
+        'Former Jackson Dam high Class I rapid and other small Class I riffles.',
+        'Wire across the river near river mile 6.1 that DNR says may be impassable in high water.',
+        'Snags, floodplain current, private banks, and long-day fatigue.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'christianna-chris',
+        name: 'Des Moines River, Chris / Christianna Bridge Public Water Access Site',
+        latitude: 43.7928244,
+        longitude: -95.0919226,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01445 at Des Moines River mile 29.1 with DNR administration.',
+      },
+      {
+        id: 'kilen-woods-state-park',
+        name: 'Kilen Woods State Park river corridor',
+        latitude: 43.728,
+        longitude: -95.003,
+        mileFromStart: 5.8,
+        segmentKind: 'creek',
+        note: 'DNR Map 1 places Kilen Woods State Park along river miles 25.5 to 23.3 with camping/rest-area context and a watercraft campsite near river mile 22.9.',
+      },
+      {
+        id: 'jackson-gauge',
+        name: 'Jackson River Street gauge / former dam rapid',
+        latitude: 43.619376,
+        longitude: -94.984308,
+        mileFromStart: 16.8,
+        segmentKind: 'creek',
+        note: 'MN DNR site 259 sits at river mile 12.3, where the map marks the former Jackson Dam and high Class I rapid.',
+      },
+      {
+        id: 'petersburg',
+        name: 'Des Moines River, Petersburg Public Water Access Site',
+        latitude: 43.5263871,
+        longitude: -94.9189653,
+        mileFromStart: 26,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS01443 at Des Moines River mile 3.1 with DNR administration.',
+      },
+    ],
+  },
+  'red-lake-river-crookston-fisher': {
+    putIn: {
+      name: 'Red Lake River, Crookston Public Water Access Site',
+      latitude: 47.7598975,
+      longitude: -96.5671255,
+    },
+    takeOut: {
+      name: 'Red Lake River, Fisher Landing Public Water Access Site',
+      latitude: 47.8007512,
+      longitude: -96.8090097,
+    },
+    logistics: {
+      distanceLabel: 'About 25 mi',
+      estimatedPaddleTime: 'About 8 hr to 10.5 hr depending on flow and wind',
+      shuttle:
+        'Use a long Polk County shuttle between Crookston and Fisher. This is a farm-country reach with few simple exits, so confirm take-out parking and launch below Crookston dam/rapid hazards.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, local access rules, and DNR water-trail guidance.',
+      camping:
+        'No normal route camping is assumed for this day route. Use lodging or campgrounds in the broader Crookston / East Grand Forks area as separate base-camp plans.',
+      campingClassification: 'none',
+      summary:
+        'Put in at Crookston after the city dam/rapid context and follow the lower Red Lake River to Fisher Landing, using the take-out gauge for the level call.',
+      accessCaveats: [
+        'Crookston resolves in public-water-access GIS as WAS03055; make sure the launch is below any city dam or constructed-rapid hazard you do not intend to run.',
+        'Fisher Landing resolves as WAS02138 at Red Lake River mile 27.9 and is the same location as the direct DNR Fisher gauge.',
+        'This is downstream of the Huot-to-Crookston boulder-field card; do not combine cards through city hazards without a current map and scouting plan.',
+      ],
+      watchFor: [
+        'Dams and constructed-rapid context near Crookston before the selected downstream route begins.',
+        'Wooded bends, strainers, muddy banks, and limited bailout points.',
+        'Private agricultural banks and long exposure if weather or levels change.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'crookston',
+        name: 'Red Lake River, Crookston Public Water Access Site',
+        latitude: 47.7598975,
+        longitude: -96.5671255,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS03055 with MNDOT administration.',
+      },
+      {
+        id: 'fisher-landing',
+        name: 'Red Lake River, Fisher Landing Public Water Access Site',
+        latitude: 47.8007512,
+        longitude: -96.8090097,
+        mileFromStart: 25,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02138 at Red Lake River mile 27.9 with City of Fisher administration and the direct DNR Fisher gauge.',
+      },
+    ],
+  },
 };
