@@ -1716,6 +1716,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
   ],
+  'buffalo-river-ponca-erbie': [
+    {
+      id: 'buffalo-river-ponca-erbie-corridor-commons',
+      src: '/gallery/buffalo-river-ponca-kyles-landing/buffalo-river-ponca-low-water-bridge.jpg',
+      alt: 'The Buffalo River passes under the Ponca low-water bridge with wooded Ozark hills above the broader upstream corridor toward Erbie.',
+      caption: 'Upper Buffalo River at Ponca',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
   'buffalo-river-kyles-landing-pruitt': [
     {
       id: 'buffalo-river-ozark-pruitt-trail-nps',
@@ -1756,12 +1766,32 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'NPS asset: public domain',
     },
   ],
+  'buffalo-river-steel-creek-ozark': [
+    {
+      id: 'buffalo-river-steel-ozark-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River winds through a bluff-lined Ozark corridor similar to the longer Steel Creek to Ozark continuation.',
+      caption: 'Upper Buffalo River corridor toward Ozark',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
   'buffalo-river-erbie-pruitt': [
     {
       id: 'buffalo-river-erbie-pruitt-corridor-nps',
       src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
       alt: 'The Buffalo River runs between wooded bluffs in the Erbie to Pruitt corridor.',
       caption: 'Buffalo River corridor between Erbie and Pruitt',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'buffalo-river-steel-creek-pruitt': [
+    {
+      id: 'buffalo-river-steel-pruitt-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River runs through broad bends and wooded bluffs in the longer Steel Creek to Pruitt upper-district corridor.',
+      caption: 'Upper Buffalo River corridor toward Pruitt',
       credit: 'NPS via Wikimedia Commons',
       takenLabel: 'NPS asset: public domain',
     },

@@ -14642,6 +14642,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'buffalo-river-ponca-erbie': {
+    putIn: {
+      id: 'ponca-access',
+      name: 'Ponca access / Buffalo River at Ponca gauge corridor',
+      latitude: 36.0225,
+      longitude: -93.354722,
+    },
+    takeOut: {
+      id: 'erbie-access',
+      name: 'Erbie Campground / river access',
+      latitude: 36.070346,
+      longitude: -93.211886,
+    },
+    logistics: {
+      distanceLabel: 'About 16.2 to 16.3 mi',
+      estimatedPaddleTime: 'About 7 hr to 9 hr, longer with low water, wood, scouting, or stops',
+      shuttle:
+        'Stage the take-out at Erbie, then drive back to Ponca. NPS component shuttles add up to roughly 70 minutes between Ponca, Steel Creek, Kyle\'s Landing, and Erbie, and upper-district roads can still be rough, muddy, or slow after storms. Inspect both accesses before launching.',
+      permits:
+        'No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check current river level, weather, and park alerts before launching.',
+      camping:
+        'Erbie is a formal NPS campground and the route passes Steel Creek and Kyle\'s Landing campground support upstream, so this longer upper-Buffalo day can be staged around legal campground infrastructure instead of private-bank improvisation.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Ponca and take out at Erbie for a long upper Buffalo day that links Steel Creek and Kyle\'s Landing before the Erbie finish. Use the direct Ponca USGS gauge as the low-water check, and skip the route when the river is very low, rising fast, or above the NPS unsafe level.',
+      accessCaveats: [
+        'Ponca is a busy upper-district access and the gauge sits in the launch corridor. Make a visual low-water and wood check before committing.',
+        'Erbie is a signed NPS campground access, but the road, parking, and the river-right take-out downstream from Erbie Ford can still be confusing or crowded on good-water weekends.',
+        'NPS says no road follows the river, access roads may be unpaved or rocky, and GPS can be unreliable in the park. Carry a real map and do not assume cell service.',
+        'This route uses the direct Ponca gauge with minimum-only scoring. It is not a full ideal-range recommendation.',
+      ],
+      watchFor: [
+        'Small rapids, chutes, long pools, swift current, sharp bends, and cold-water swims across a full upper-district day.',
+        'Fast rain rises, falling water after short rain windows, strainers, sweepers, fresh flood wood, and blind side channels.',
+        'Low water below about 130 cfs at Ponca, when dragging and missed lines become likely well before Erbie.',
+        'High water above the NPS 1,600 cfs Ponca unsafe level.',
+        'Long day mileage, rough-road shuttle delays, limited or no cell service, remote rescue exposure, and late-day darkness.',
+      ],
+    },
+  },
   'buffalo-river-kyles-landing-pruitt': {
     putIn: {
       id: 'kyles-landing',
@@ -14798,6 +14838,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'buffalo-river-steel-creek-ozark': {
+    putIn: {
+      id: 'steel-creek-access',
+      name: 'Steel Creek campground / river access',
+      latitude: 36.040776,
+      longitude: -93.344048,
+    },
+    takeOut: {
+      id: 'ozark-access',
+      name: 'Ozark Campground / river access',
+      latitude: 36.062132,
+      longitude: -93.159724,
+    },
+    logistics: {
+      distanceLabel: 'About 19.1 mi',
+      estimatedPaddleTime: 'About 8 hr to 10 hr, longer with low water, wood, or sightseeing stops',
+      shuttle:
+        'Stage the take-out at Ozark, then drive back to Steel Creek. NPS component shuttles add up to about 90 minutes between Steel Creek, Kyle\'s Landing, Erbie, and Ozark, and upper-district roads can still be rough, dusty, or slow after storms. Inspect both accesses before launching.',
+      permits:
+        'No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check park alerts, weather, and river level before launching.',
+      camping:
+        'Steel Creek and Ozark are both formal NPS campgrounds, so this longer continuation can be staged around legal campground infrastructure at either end instead of assuming private-bank camping on a same-day run.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Steel Creek and take out at Ozark for a long upper Buffalo continuation through Kyle\'s Landing and Erbie. Use the Pruitt USGS gauge as the nearest downstream low-water check, and skip the route when the river is rising fast, very low, or above the NPS unsafe level.',
+      accessCaveats: [
+        'Steel Creek can fill quickly during good water windows, and Ozark can attract swimmers and beach users. Confirm both landings and parking before leaving the shuttle.',
+        'This route inherits the rough-road practical constraints from Kyle\'s Landing and the longer gravel-road shuttle to Ozark.',
+        'NPS says no road follows the river, access roads may be unpaved or rocky, and GPS can be unreliable in the park. Carry a real map and do not assume cell service.',
+        'This route uses the Pruitt gauge as a downstream corridor check with minimum-only scoring. It is not a full ideal-range recommendation.',
+      ],
+      watchFor: [
+        'Swift current, sharp bends, riffles, strainers, sweepers, fresh flood wood, and cold-water swims over a long upper-district day.',
+        'Low water below about 100 cfs at Pruitt, when the Float Guide marks Pruitt very low and the longer upstream corridor can collapse into dragging and shallow braid-finding.',
+        'High water above the NPS 2,000 cfs Pruitt unsafe level; do not treat flood or rising water as suitable private-boater conditions.',
+        'Upper-district remoteness, rough-road shuttle delays, limited or no cell service, and late-day darkness.',
+      ],
+    },
+  },
   'buffalo-river-erbie-pruitt': {
     putIn: {
       id: 'erbie-access',
@@ -14834,6 +14913,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Low water below about 100 cfs at Pruitt, when the Float Guide marks Pruitt very low and dragging or rocky shallows become likely.',
         'High water above the NPS 2,000 cfs Pruitt unsafe level; do not treat flood or rising water as suitable private-boater conditions.',
         'Limited or no cell service, upper-district weather swings, and campground or Highway 7 congestion around busy weekends.',
+      ],
+    },
+  },
+  'buffalo-river-steel-creek-pruitt': {
+    putIn: {
+      id: 'steel-creek-access',
+      name: 'Steel Creek campground / river access',
+      latitude: 36.040776,
+      longitude: -93.344048,
+    },
+    takeOut: {
+      id: 'pruitt-launch',
+      name: 'Pruitt Landing / Highway 7 access',
+      latitude: 36.057666,
+      longitude: -93.135032,
+    },
+    logistics: {
+      distanceLabel: 'About 21.1 mi',
+      estimatedPaddleTime: 'About 9 hr to 11 hr, longer with low water, wood, scouting, or stops',
+      shuttle:
+        'Stage the take-out at Pruitt Landing, then drive back to Steel Creek. NPS component shuttles add up to roughly 105 minutes between Steel Creek, Kyle\'s Landing, Erbie, Ozark, and Pruitt, and upper-district roads can still be rough, muddy, or slow after storms. Inspect both accesses before launching.',
+      permits:
+        'No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check park alerts, weather, and river level before launching.',
+      camping:
+        'Steel Creek is a formal NPS campground and Pruitt is a major developed access, so this full-corridor route works best as a very committed day float anchored by legal staging rather than private-bank improvisation.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Steel Creek and take out at Pruitt for a full upper Buffalo continuation through Kyle\'s Landing, Erbie, and Ozark. Use the direct Pruitt USGS gauge as the low-water check, and skip the route when the river is rising fast, very low, or above the NPS unsafe level.',
+      accessCaveats: [
+        'Steel Creek can be crowded during good water windows, and Pruitt is a busy Highway 7 access with loading traffic and posted park operations.',
+        'This route inherits the rough-road practical constraints from Kyle\'s Landing and the long upper-district shuttle across several access roads.',
+        'NPS says no road follows the river, access roads may be unpaved or rocky, and GPS can be unreliable in the park. Carry a real map and do not assume cell service.',
+        'This route uses the direct Pruitt gauge with minimum-only scoring. It is not a full ideal-range recommendation.',
+      ],
+      watchFor: [
+        'Swift Class I-II current, shoals, wave trains, sharp bends, side channels, strainers, sweepers, and cold-water swims over a very long day.',
+        'Fast rain rises, falling water after short rain windows, fresh flood wood, and blind side channels.',
+        'Low water below about 100 cfs at Pruitt, when the Float Guide marks Pruitt very low and the full upstream corridor can turn into repeated dragging and missed lines.',
+        'High water above the NPS 2,000 cfs Pruitt unsafe level; do not treat flood or rising water as suitable private-boater conditions.',
+        'Long day mileage, limited or no cell service, remote rescue exposure, rough-road shuttle delays, and late-day darkness.',
       ],
     },
   },
