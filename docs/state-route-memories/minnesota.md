@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 13:15 America/Chicago.
+Last summarized: 2026-07-15 14:12 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 149 after the 2026-07-15 13:15 three-route addition pass.
-- Top represented rivers: Mississippi River 26, Minnesota River 12, Sauk River 7, Rum River 6, Big Fork River 5, Cannon River 5, Crow Wing River 5, Red Lake River 5, Red River of the North 5, Root River 5, Zumbro River 5, Little Fork River 4, North Fork Crow River 4, Otter Tail River 4, St. Croix River 4, St. Louis River 4, Straight River 4, Cedar River 3, Des Moines River 3, Long Prairie River 3, Pine River 3, Snake River 3, Blue Earth River 2, Redwood River 2, Shell Rock River 2.
-- Ledger candidates: 936 total; 554 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 25 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
+- Live routes: 152 after the 2026-07-15 14:12 three-route addition pass.
+- Top represented rivers: Mississippi River 26, Minnesota River 12, Sauk River 7, Rum River 7, Big Fork River 5, Cannon River 5, Crow Wing River 5, North Fork Crow River 5, Red Lake River 5, Red River of the North 5, Root River 5, Zumbro River 5, Little Fork River 4, Otter Tail River 4, Snake River 4, St. Croix River 4, St. Louis River 4, Straight River 4, Cedar River 3, Des Moines River 3, Long Prairie River 3, Pine River 3, Blue Earth River 2, Redwood River 2, Shell Rock River 2.
+- Ledger candidates: 939 total; 557 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 25 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 14:12 America/Chicago: added `north-fork-crow-river-lake-rebecca-dayton`, `rum-river-north-county-peninsula-point`, and `snake-river-mora-cross-lake`.
+- Baseline at run start was 149 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data should import 152 Minnesota routes and all three new slugs have trip-detail records.
+- Stayed in Minnesota and promoted three official DNR one-way gaps after reconciling prompt leads already live or represented. North Fork Crow Lake-Rebecca-to-Dayton adds the full lower 24.6-mile planner above the existing Riverside-to-Dayton split; Rum North-County-to-Peninsula adds the downstream half of the statewide Martin's-to-Peninsula corridor without duplicating the existing Martin's-to-North-County card; Snake Mora-to-Cross-Lake adds the full 28.4-mile planner above the existing Canary-to-Cross-Lake lower card.
+- Current MN DNR river-level feed exposed interpreted ladders for North Fork Crow Rockford site `310` (`345 / 500-1,500 / 1,750 cfs`), Rum St. Francis site `211` (`600 / 1,000-2,000 / 3,000 cfs`), and Snake Pine City site `229` (`2.3 / 3.3-5.0 / 6.3 ft`). During the run, North Fork Crow was medium at `699 cfs`, Rum was low but above floor at `900 cfs`, and Snake was medium at `4.56 ft`.
+- Camping posture: North Fork Crow is `on_route_campsite` only because Riverside County Park has a reservable primitive canoe campsite; Rum and Snake are `nearby_basecamp` / permit-dependent only. No route assumes informal private-bank camping.
+- Safety posture: North Fork Crow carries long-day, Riverside midpoint, strainer, low-water, high-water, private-bank, confluence, and daylight-margin caveats. Rum carries low-band condition, downed-tree/snag, dam/portage, private-bank, developed-corridor, Mississippi-confluence, and overnight-permit caveats. Snake carries long-day, public bailout/split, low-water, fast-rise, wood/strainer, Cross Lake wind, rural-rescue, private-bank, and no-on-route-camping caveats.
+- No route-gallery images were added. Bounded DNR / public-access / Anoka County / Wikimedia Commons / same-route image review found context leads but no clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed but did not add Big Fork upper/Dora variants because current DNR gauge support remains stale in the upper family; North Fork Crow Manannah-to-Highway-22 remains out because of the active tree-alert context; Blue Earth lower/Rapidan-dependent routes remain blocked by the current dam-failure warning; Long Prairie lake connectors still have weaker endpoint/gauge support than accepted DNR one-ways.
 
 - 2026-07-15 13:15 America/Chicago: added `long-prairie-river-browerville-wma`, `red-lake-river-st-hilaire-sportsmans`, and `blue-earth-river-blue-earth-150th-street`.
 - Baseline at run start was 146 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 149 Minnesota routes and all three new slugs have trip-detail records. Total route count is 679 because the worktree/branch also contains concurrent Wisconsin route additions.

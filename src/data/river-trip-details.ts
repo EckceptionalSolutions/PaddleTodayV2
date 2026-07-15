@@ -31970,6 +31970,189 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'north-fork-crow-river-lake-rebecca-dayton': {
+    putIn: {
+      name: 'Lake Rebecca Park Reserve Crow River carry-in access',
+      latitude: 45.079117,
+      longitude: -93.754431,
+    },
+    takeOut: {
+      name: 'Mississippi/Crow rivers trailer access',
+      latitude: 45.2453021,
+      longitude: -93.5212957,
+    },
+    logistics: {
+      distanceLabel: '24.6 mi',
+      estimatedPaddleTime: 'About 8 hr to 10 hr, longer with low water, wind, or wood delays',
+      shuttle:
+        'Long west-metro two-car shuttle from Dayton back to Lake Rebecca Park Reserve. Set the Dayton take-out first, verify the Crow River carry-in at Lake Rebecca, and leave enough daylight for a full lower-river day.',
+      permits:
+        'No route-specific paddling permit is known. Follow Three Rivers Park District rules at Lake Rebecca, Wright County park rules if stopping at Riverside, and posted Dayton public-access rules at the finish.',
+      camping:
+        'Riverside County Park has a reservable primitive canoe campsite along the corridor, but overnight use must be booked and planned separately. Do not assume private-bank or informal gravel-bar camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at the Lake Rebecca Crow River carry-in and paddle the official lower North Fork Crow route to Dayton. This combines the shorter existing Lake-Rebecca-to-Riverside and Riverside-to-Dayton pieces into one long DNR-backed planner.',
+      accessCaveats: [
+        'DNR recommended-one-way materials list Lake Rebecca Park Reserve to the Mississippi/Crow access as the 24.6-mile lower North Fork Crow route.',
+        'Riverside County Park is the practical midpoint access and campsite/bailout anchor, but park hours, camping reservations, and parking rules still need a same-day check.',
+        'The route finishes at the Crow/Mississippi confluence access near Dayton; do not continue onto the Mississippi unless that is a separate plan.',
+      ],
+      watchFor: [
+        'Low-water dragging and long-day fatigue when the Rockford gauge is below the medium band.',
+        'Fresh strainers, overhanging branches, snags, and storm debris even when the gauge is in range.',
+        'Private shoreland, limited legal stops, cold-water exposure outside summer, and confluence current near the take-out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lake-rebecca-park-reserve-crow-river-carry-in-access',
+        name: 'Lake Rebecca Park Reserve Crow River carry-in access',
+        latitude: 45.079117,
+        longitude: -93.754431,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; already used by the South Fork Crow card and supported by the DNR recommended one-way.',
+      },
+      {
+        id: 'riverside-county-park-carry-in-access',
+        name: 'Riverside County Park carry-in access',
+        latitude: 45.1644165,
+        longitude: -93.6413049,
+        mileFromStart: 9.3,
+        segmentKind: 'creek',
+        note: 'Mid-route public access, bailout, and reservable primitive canoe-campsite anchor.',
+      },
+      {
+        id: 'mississippi-crow-rivers-trailer-access',
+        name: 'Mississippi/Crow rivers trailer access',
+        latitude: 45.2453021,
+        longitude: -93.5212957,
+        mileFromStart: 24.6,
+        segmentKind: 'creek',
+        note: 'Default take-out at the Crow/Mississippi confluence near Dayton.',
+      },
+    ],
+  },
+  'rum-river-north-county-peninsula-point': {
+    putIn: {
+      name: 'Rum River North County Park access',
+      latitude: 45.394587,
+      longitude: -93.353557,
+    },
+    takeOut: {
+      name: 'Peninsula Point Park / Rum-Mississippi River access',
+      latitude: 45.1924006,
+      longitude: -93.3902433,
+    },
+    logistics: {
+      distanceLabel: 'About 23.2 mi',
+      estimatedPaddleTime: 'About 7 hr to 9 hr, longer at low water or with portage/dam checks',
+      shuttle:
+        'Long north-metro shuttle from Anoka back to Rum River North County Park. Set the Peninsula Point take-out first, then confirm park hours and parking at North County before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow Anoka County and City of Anoka park, access, parking, and boating rules. Any campsite or overnight plan must be confirmed with the relevant park manager before the trip.',
+      camping:
+        'DNR describes county and regional parks along the lower Rum, with some watercraft campsite opportunities. Treat overnight use as separate park-permit planning; this route does not assume informal bank camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Put in at Rum River North County Park and finish at Peninsula Point Park near the Rum/Mississippi confluence. This is the downstream split of the DNR Martin\'s-to-Peninsula Point corridor, added to avoid duplicating the already-live Martin\'s-to-North-County card.',
+      accessCaveats: [
+        'The selected route starts where the existing Martin\'s-to-North-County card ends, so do not use it as a duplicate full-corridor card unless you intentionally combine both splits.',
+        'The Anoka finish is a busy confluence-area landing. Confirm event, construction, and park access conditions before committing to the shuttle.',
+        'DNR Map 3 warns lower-Rum paddlers to know where portages are located; posted dam or portage signs override the app.',
+      ],
+      watchFor: [
+        'Low-water scraping and slow pace while the St. Francis gauge is below the medium band.',
+        'Downed trees, snags, and any posted dam or portage hazards on the lower Rum.',
+        'Private banks, cold-water exposure, developed-corridor traffic, and Mississippi confluence current near the finish.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rum-river-north-county-park-access',
+        name: 'Rum River North County Park access',
+        latitude: 45.394587,
+        longitude: -93.353557,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in and downstream split point from the existing Martin\'s Landing card.',
+      },
+      {
+        id: 'peninsula-point-park-rum-mississippi-river-access',
+        name: 'Peninsula Point Park / Rum-Mississippi River access',
+        latitude: 45.1924006,
+        longitude: -93.3902433,
+        mileFromStart: 23.2,
+        segmentKind: 'creek',
+        note: 'Default take-out near the Rum/Mississippi confluence in Anoka.',
+      },
+    ],
+  },
+  'snake-river-mora-cross-lake': {
+    putIn: {
+      name: 'Canoe Park / Mora Municipal Carry-in Access',
+      latitude: 45.8820387,
+      longitude: -93.3097238,
+    },
+    takeOut: {
+      name: 'Snake River / Cross Lake public water access (Pine City)',
+      latitude: 45.8405577,
+      longitude: -92.9418935,
+    },
+    logistics: {
+      distanceLabel: '28.4 mi',
+      estimatedPaddleTime: 'About 9 hr to 11 hr, or split into shorter days with a public midpoint plan',
+      shuttle:
+        'Long Mora-to-Pine-City shuttle. Treat County Road 9 and Canary Road as public split or bailout options, and do not launch the full route if daylight, water level, or group pace is marginal.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Mora, DNR public-water-access, and Pine City landing rules at all public stops.',
+      camping:
+        'No on-route camping is assumed for this planner. Nearby state-forest or Pine City-area campgrounds can support staging, but overnight stops along the river need separate legal confirmation.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Mora Canoe Park and take out at the Cross Lake / Pine City landing for the full MN DNR Mora-to-Cross-Lake Snake River one-way. The shorter Canary-to-Cross-Lake card remains the cleaner half-day option.',
+      accessCaveats: [
+        'The full recommended one-way is long enough that many groups should split it or use the shorter lower card instead.',
+        'County Road 9 and Canary Road are the sensible public bailout/split anchors; do not assume farm banks or informal roadside openings are legal exits.',
+        'Cross Lake wind and boat traffic can affect the final approach even if the river current is easy.',
+      ],
+      watchFor: [
+        'Low-water dragging when the Pine City gauge approaches the 2.3 ft scrape floor.',
+        'Fresh wood, strainers, and blocked bends after storms or rapid snowmelt.',
+        'Fast level changes, fatigue, limited rural rescue exposure, private banks, and cold water outside midsummer.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'canoe-park-mora-municipal-carry-in-access',
+        name: 'Canoe Park / Mora Municipal Carry-in Access',
+        latitude: 45.8820387,
+        longitude: -93.3097238,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the full MN DNR Mora-to-Cross-Lake one-way.',
+      },
+      {
+        id: 'snake-river-1-canary-road-public-water-access',
+        name: 'Snake River #1 / Canary Road public water access',
+        latitude: 45.7959352,
+        longitude: -93.0796766,
+        mileFromStart: 18.2,
+        segmentKind: 'creek',
+        note: 'Public split or bailout anchor before the existing lower Snake card.',
+      },
+      {
+        id: 'snake-river-cross-lake-public-water-access-pine-city',
+        name: 'Snake River / Cross Lake public water access (Pine City)',
+        latitude: 45.8405577,
+        longitude: -92.9418935,
+        mileFromStart: 28.4,
+        segmentKind: 'creek',
+        note: 'Default take-out at Cross Lake / Pine City.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {
