@@ -2,6 +2,14 @@
 
 Last summarized: 2026-07-14 14:59 America/Chicago / 2026-07-14 19:59 UTC.
 
+## 2026-07-15 Lower Barren Beech Bend segment pass
+
+- Reused the live repo state as the only valid baseline and added three new Kentucky slugs that were absent from the current tree at run start: `barren-river-state-street-beech-bend`, `barren-river-beech-bend-james-r-hines`, and `barren-river-beech-bend-lonnie-white`.
+- Current KDFWR Lower Barren River guidance still documents State Street Bridge Access -> Beech Bend Park `3.1` miles, Beech Bend Park -> James R. Hines Boat Landing Ramp `4.6` miles, and James R. Hines Boat Landing Ramp -> Lonnie White Ramp `6.7` miles, which support the new public mileages of `3.1`, `4.6`, and `11.3`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and active-use notes for State Street Bridge Access (`asid=1071`), Beech Bend Campground Ramp (`asid=627`), James R. Hines Boat Landing Ramp (`asid=625`), and Lonnie White Boat Ramp (`asid=729`). Same-day direct USGS Water Services returned `732 cfs / 5.23 ft` at `2026-07-15 17:45 CDT` for Barren River at Bowling Green (`03314500`), just above the official `350-700 cfs` good band, so all three slugs ship with explicit above-band fast-water caution rather than low-water framing.
+- Camping stays route-specific: all three new slugs use `endpoint_campground` because Beech Bend provides campground-backed overnight support, but each route keeps the explicit KDFWR rule that the Beech Bend ramp and bank access are for registered campers only rather than general public use.
+- Bounded image review stayed negative for all three slugs. `docs/river-image-source-audit.csv` now records the no-gallery outcome for each route, so no new route-gallery asset was added.
+
 ## 2026-07-15 Lower Levisa Fork continuation pass
 
 - Reused the live repo state as the only valid baseline and added three new Kentucky slugs that were absent from the current tree at run start: `levisa-fork-prestonsburg-airport`, `levisa-fork-airport-boat-ramp`, and `levisa-fork-prestonsburg-boat-ramp`.

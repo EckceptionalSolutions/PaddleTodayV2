@@ -25634,6 +25634,120 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'barren-river-state-street-beech-bend': {
+    putIn: {
+      id: 'state-street-bridge-access',
+      name: 'State Street Bridge Access',
+      latitude: 37.0017,
+      longitude: -86.4296,
+    },
+    takeOut: {
+      id: 'beech-bend-campground-ramp',
+      name: 'Beech Bend Campground Ramp',
+      latitude: 37.0192,
+      longitude: -86.3933,
+    },
+    logistics: {
+      distanceLabel: 'About 3.1 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2.5 hr, longer with higher current, scouting, or upstream wind on broad pools',
+      shuttle:
+        'Leave the downstream vehicle at Beech Bend Campground Ramp only if your group has legal campground access, then drive back to State Street Bridge Access. Do not plan this route around an informal campground landing.',
+      permits:
+        'No state paddling permit is known, but KDFWR says the Beech Bend ramp and bank access are for registered campers only. Follow campground rules, Kentucky boating and PFD rules, and the posted access signs at both ends.',
+      camping:
+        'Beech Bend offers campground-backed overnight support at the take-out, but KDFWR says the ramp is only for registered campers. Treat this as an endpoint campground option rather than a general public camping route.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at State Street Bridge Access and finish at Beech Bend Campground Ramp for the official 3.1-mile lower-Barren segment. Use the Bowling Green gauge and expect an above-band faster day whenever the river rises above 700 cfs.',
+      accessCaveats: [
+        'This route is only legitimate if you can legally use the Beech Bend campground ramp. KDFWR says it is for registered campers only.',
+        'State Street and Beech Bend are the intended endpoints. Most shoreline between them is not public stopover space.',
+        'The route is short, but high water or wind can still make the open pools feel less casual than the mileage suggests.',
+      ],
+      watchFor: [
+        'Flows above about 700 cfs, when current at the campground landing becomes less forgiving.',
+        'Private banks, bridge-area current, and fresh debris after rain.',
+        'Any last-minute campground access restrictions that would invalidate the Beech Bend take-out plan.',
+      ],
+    },
+  },
+  'barren-river-beech-bend-james-r-hines': {
+    putIn: {
+      id: 'beech-bend-campground-ramp',
+      name: 'Beech Bend Campground Ramp',
+      latitude: 37.0192,
+      longitude: -86.3933,
+    },
+    takeOut: {
+      id: 'james-r-hines-boat-landing-ramp',
+      name: 'James R. Hines Boat Landing Ramp',
+      latitude: 37.0161,
+      longitude: -86.4449,
+    },
+    logistics: {
+      distanceLabel: 'About 4.6 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 3.5 hr, longer with upstream wind, fishing stops, or higher water caution',
+      shuttle:
+        'Leave the downstream vehicle at James R. Hines Boat Landing Ramp, then return to Beech Bend Campground Ramp only if your group has legal registered-camper access there.',
+      permits:
+        'No route-specific paddling permit is known, but KDFWR says the Beech Bend ramp and bank access are for registered campers only. Follow campground rules, Kentucky boating and PFD rules, and the posted signs at both accesses.',
+      camping:
+        'Beech Bend provides campground-backed overnight support at the put-in, but only for registered campers. Treat this as an endpoint campground route rather than a general public overnight float.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Beech Bend Campground Ramp and finish at James R. Hines Boat Landing Ramp for the official 4.6-mile lower-Barren segment. Use the Bowling Green gauge and expect stronger current than the usual good band when the river rises above 700 cfs.',
+      accessCaveats: [
+        'Do not use this route unless Beech Bend campground access is legitimately arranged. KDFWR says the ramp is for registered campers only.',
+        'James R. Hines is the clean public downstream finish. Do not plan on private-bank bailout options between the ramps.',
+        'Even this shorter city-edge corridor can feel pushier at above-band flow than the mileage implies.',
+      ],
+      watchFor: [
+        'Flows above about 700 cfs, when the broad current and landing moves become less forgiving.',
+        'Private banks, fresh wood after rain, and upstream wind on slower pools.',
+        'Any same-day campground access change that would make the Beech Bend launch invalid.',
+      ],
+    },
+  },
+  'barren-river-beech-bend-lonnie-white': {
+    putIn: {
+      id: 'beech-bend-campground-ramp',
+      name: 'Beech Bend Campground Ramp',
+      latitude: 37.0192,
+      longitude: -86.3933,
+    },
+    takeOut: {
+      id: 'lonnie-white-boat-ramp',
+      name: 'Lonnie White Boat Ramp',
+      latitude: 37.0348,
+      longitude: -86.4984,
+    },
+    logistics: {
+      distanceLabel: 'About 11.3 mi',
+      estimatedPaddleTime:
+        'About 3.5 hr to 6.5 hr, longer with pooled finish drag, wind, or above-band caution stops',
+      shuttle:
+        'Stage the take-out at Lonnie White Boat Ramp / Thomas Landing, then return to Beech Bend Campground Ramp only if your group has legal registered-camper access there. Leave margin for the slower pooled finish and Thomas Landing dusk closure.',
+      permits:
+        'No route-specific paddling permit is known, but KDFWR says the Beech Bend ramp is for registered campers only. Follow campground rules, Kentucky boating and PFD rules, and use only the named public/authorized accesses.',
+      camping:
+        'Beech Bend provides campground-backed overnight support at the put-in, but only for registered campers. The route itself does not have documented public on-river camping, so keep the classification at endpoint campground.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Beech Bend Campground Ramp and finish at Lonnie White Boat Ramp for the longer downstream lower-Barren continuation. Use the Bowling Green gauge and expect a faster-than-normal day above 700 cfs plus a slower pooled Thomas Landing finish.',
+      accessCaveats: [
+        'This route only works if your Beech Bend launch is legal. KDFWR says the campground ramp is for registered campers only.',
+        'Lonnie White / Thomas Landing is the intended finish and the park closes at dusk, so leave extra margin on slower or windier days.',
+        'Most shoreline between the endpoints is private and should not be treated as a public rest-stop or bailout network.',
+      ],
+      watchFor: [
+        'Flows above about 700 cfs, when current picks up and the longer route feels more consequential.',
+        'Pooled finish water near Thomas Landing, upstream wind, and fresh debris after rain.',
+        'Any same-day campground or access change that would invalidate the Beech Bend launch plan.',
+      ],
+    },
+  },
   'barren-river-state-street-james-r-hines': {
     putIn: {
       id: 'state-street-bridge-access',

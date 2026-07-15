@@ -73095,6 +73095,387 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'barren-river-state-street-beech-bend',
+    slug: 'barren-river-state-street-beech-bend',
+    name: 'Barren River',
+    reach: 'State Street Bridge Access to Beech Bend Campground Ramp',
+    aliases: [
+      'Barren River - State Street to Beech Bend',
+      'Lower Barren River camper segment',
+      'Barren River pedestrian bridge to campground ramp',
+    ],
+    state: 'Kentucky',
+    region: 'South-Central Kentucky',
+    summary:
+      'Short lower-Barren route from State Street Bridge Access to Beech Bend Campground Ramp. KDFWR lists this exact 3.1-mile segment and ties it to the direct Bowling Green gauge, but the downstream campground ramp is only for registered campers.',
+    statusText:
+      'Use the Barren River at Bowling Green gauge. KDFWR rates 350 to 700 cfs as good, below that as low, and above that as high for boating and fishing on this downstream lower-Barren corridor.',
+    latitude: 37.0017,
+    longitude: -86.4296,
+    gaugeSource: {
+      id: 'usgs-03314500',
+      provider: 'usgs',
+      siteId: '03314500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Barren River at Bowling Green, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/03314500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'private_banks'],
+      safetyNotes: [
+        'This route only works if your group can legally use the Beech Bend campground ramp. KDFWR says the ramp and bank access are for registered campers only.',
+        'State Street sits below the pedestrian bridge in a broad city reach. Stay with the named downstream landing rather than assuming informal banks are public.',
+        'High water can quicken the otherwise easy corridor and make the campground landing less forgiving.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 700,
+      tooLow: 350,
+      tooHigh: 700,
+      thresholdSource: {
+        label: 'KDFWR recommended Bowling Green flow band',
+        url: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This short lower-Barren segment is most straightforward when the Bowling Green gauge is in or near the official good band. Low summer water can slow the shoals, while storm pulses make the broad city reach pushier than it first appears.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route is short and mostly flatwater, but it still requires a legal Beech Bend campground landing plan and basic judgment around changing current.',
+      confidenceNotes:
+        'Confidence is good for a conservative add with an explicit access restriction: KDFWR lists State Street Bridge Access to Beech Bend Park as an exact 3.1-mile lower-Barren segment, publishes the official Bowling Green low/good/high flow ladder, and the Beech Bend access-detail page still documents the campground ramp coordinates plus the registered-campers-only rule. Same-day USGS Water Services returned 732 cfs and 5.23 ft at 2026-07-15 17:45 CDT for direct gauge 03314500, which keeps the live path current while honestly putting the river just above the official good band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'State Street Bridge Access to Beech Bend Park, 3.1 mi',
+        note: 'KDFWR lists this exact site-to-site mileage on the Lower Barren River page.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '350-700 cfs good',
+        note: 'KDFWR rates the Barren River at Bowling Green gauge as Low below 350 cfs, Good from 350 to 700 cfs, and High above 700 cfs.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'State Street Bridge Access, 37.0017, -86.4296',
+        note: 'KDFWR access detail confirms a public gravel ramp below the pedestrian bridge suitable for canoes and kayaks.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1071',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Beech Bend Campground Ramp, 37.0192, -86.3933',
+        note: 'KDFWR access detail confirms the paved campground ramp coordinates and says fishing access and the ramp are for registered campers only.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=627',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03314500 at 732 cfs / 5.23 ft',
+        note: 'USGS Water Services returned same-day values for Barren River at Bowling Green, KY at 2026-07-15 17:45 CDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03314500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Access restriction',
+        value: 'Beech Bend ramp is registered-campers-only',
+        note: 'KDFWR repeats that the Beech Bend boat ramps and bank access are only available to registered campers.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Lower Barren River',
+        url: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR State Street Bridge Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1071',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Beech Bend Campground Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=627',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03314500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03314500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03314500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03314500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'barren-river-beech-bend-james-r-hines',
+    slug: 'barren-river-beech-bend-james-r-hines',
+    name: 'Barren River',
+    reach: 'Beech Bend Campground Ramp to James R. Hines Boat Landing Ramp',
+    aliases: [
+      'Barren River - Beech Bend to James R. Hines',
+      'Lower Barren River campground-to-landing segment',
+      'Barren River Beech Bend to Boat Landing Road',
+    ],
+    state: 'Kentucky',
+    region: 'South-Central Kentucky',
+    summary:
+      'Lower-Barren route from Beech Bend Campground Ramp to James R. Hines Boat Landing Ramp. KDFWR lists this exact 4.6-mile segment and ties it to the direct Bowling Green gauge, but the put-in is restricted to registered campers.',
+    statusText:
+      'Use the Barren River at Bowling Green gauge. KDFWR rates 350 to 700 cfs as good, below that as low, and above that as high for boating and fishing on this downstream lower-Barren corridor.',
+    latitude: 37.0192,
+    longitude: -86.3933,
+    gaugeSource: {
+      id: 'usgs-03314500',
+      provider: 'usgs',
+      siteId: '03314500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Barren River at Bowling Green, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/03314500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'private_banks'],
+      safetyNotes: [
+        'This route only works if you have legal Beech Bend campground access. KDFWR says the ramp and bank fishing area are for registered campers only.',
+        'The river is usually straightforward here, but broad current and private banks still make mid-route exits unreliable.',
+        'Above-band flows deserve more caution at the campground launch and downstream landing than the short mileage suggests.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 700,
+      tooLow: 350,
+      tooHigh: 700,
+      thresholdSource: {
+        label: 'KDFWR recommended Bowling Green flow band',
+        url: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This campground-start lower-Barren segment is best when the Bowling Green gauge is in or near the official good band. Higher water can speed up the broad pools, while low summer water can still slow the day around shoals.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route is short and mostly forgiving, but it assumes legal campground access at the put-in and basic moving-water judgment when the river rises.',
+      confidenceNotes:
+        'Confidence is good for a conservative add with an explicit access caveat: KDFWR lists Beech Bend Park to James R. Hines Boat Landing Ramp as an exact 4.6-mile lower-Barren segment, publishes the official Bowling Green flow ladder, and still documents both endpoint coordinates. The Beech Bend access-detail page continues to state that the ramp is for registered campers only. Same-day USGS Water Services returned 732 cfs and 5.23 ft at 2026-07-15 17:45 CDT for direct gauge 03314500, which keeps the live path current while placing the river slightly above the official good band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Beech Bend Park to James R. Hines Boat Landing Ramp, 4.6 mi',
+        note: 'KDFWR lists this exact downstream lower-Barren site-to-site mileage.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '350-700 cfs good',
+        note: 'KDFWR rates the Barren River at Bowling Green gauge as Low below 350 cfs, Good from 350 to 700 cfs, and High above 700 cfs.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Beech Bend Campground Ramp, 37.0192, -86.3933',
+        note: 'KDFWR access detail confirms the paved campground ramp coordinates and says fishing access and the ramp are for registered campers only.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=627',
+      },
+      {
+        label: 'Take-out access',
+        value: 'James R. Hines Boat Landing Ramp, 37.0161, -86.4449',
+        note: 'KDFWR access detail for Boat Landing Road Ramp confirms a public paved ramp with parking at the downstream landing.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=625',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03314500 at 732 cfs / 5.23 ft',
+        note: 'USGS Water Services returned same-day values for Barren River at Bowling Green, KY at 2026-07-15 17:45 CDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03314500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Access restriction',
+        value: 'Beech Bend ramp is registered-campers-only',
+        note: 'KDFWR says the Beech Bend ramp and bank fishing area are only available to registered campers.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=627',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Lower Barren River',
+        url: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Beech Bend Campground Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=627',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR James R. Hines / Boat Landing Road Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=625',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03314500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03314500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03314500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03314500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'barren-river-beech-bend-lonnie-white',
+    slug: 'barren-river-beech-bend-lonnie-white',
+    name: 'Barren River',
+    reach: 'Beech Bend Campground Ramp to Lonnie White Boat Ramp',
+    aliases: [
+      'Barren River - Beech Bend to Lonnie White',
+      'Lower Barren River camper continuation',
+      'Barren River campground ramp to Thomas Landing',
+    ],
+    state: 'Kentucky',
+    region: 'South-Central Kentucky',
+    summary:
+      'Longer lower-Barren route from Beech Bend Campground Ramp to Lonnie White Boat Ramp at Thomas Landing. KDFWR lists the exact Beech Bend-to-James R. Hines and James R. Hines-to-Lonnie White mileages, which combine into an 11.3-mile downstream route tied to the direct Bowling Green gauge, with the same registered-campers-only restriction at Beech Bend.',
+    statusText:
+      'Use the Barren River at Bowling Green gauge. KDFWR rates 350 to 700 cfs as good, below that as low, and above that as high for boating and fishing on this downstream lower-Barren corridor.',
+    latitude: 37.0192,
+    longitude: -86.3933,
+    gaugeSource: {
+      id: 'usgs-03314500',
+      provider: 'usgs',
+      siteId: '03314500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Barren River at Bowling Green, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/03314500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'private_banks'],
+      safetyNotes: [
+        'This route requires legal Beech Bend campground use at the put-in. KDFWR says the ramp and bank access there are for registered campers only.',
+        'The downstream Thomas Landing finish is pooled by Lock and Dam 1 influence, so the final miles can feel slower and more wind-exposed than the distance first suggests.',
+        'Most shoreline between the named ramps is private. Plan on a full point-to-point day without informal bailout assumptions.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 700,
+      tooLow: 350,
+      tooHigh: 700,
+      thresholdSource: {
+        label: 'KDFWR recommended Bowling Green flow band',
+        url: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This campground-start lower-Barren continuation is most defensible when the Bowling Green gauge is in or near the official good band. Above-band days quicken the route, while summer lows can still make the pooled finish drag.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The current is usually uncomplicated, but the 11.3-mile length, campground-access restriction, and slower pooled Thomas Landing finish make this a full planned day rather than a casual short float.',
+      confidenceNotes:
+        'Confidence is good for a conservative add with a documented access restriction: KDFWR lists Beech Bend Park to James R. Hines Boat Landing Ramp as 4.6 miles and James R. Hines Boat Landing Ramp to Lonnie White Ramp as 6.7 miles, supporting this 11.3-mile downstream route. KDFWR still documents the Beech Bend campground ramp coordinates and registered-campers-only rule, Lonnie White remains an official public ramp, and same-day USGS Water Services returned 732 cfs and 5.23 ft at 2026-07-15 17:45 CDT for direct gauge 03314500, which keeps the live path current while placing the river above the official good band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Beech Bend Park to Lonnie White Ramp, about 11.3 mi',
+        note: 'KDFWR lists Beech Bend to James R. Hines as 4.6 miles and James R. Hines to Lonnie White as 6.7 miles, which combine into this downstream route.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '350-700 cfs good',
+        note: 'KDFWR rates the Barren River at Bowling Green gauge as Low below 350 cfs, Good from 350 to 700 cfs, and High above 700 cfs.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Beech Bend Campground Ramp, 37.0192, -86.3933',
+        note: 'KDFWR access detail confirms the paved campground ramp coordinates and says fishing access and the ramp are for registered campers only.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=627',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Lonnie White Boat Ramp, 37.0348, -86.4984',
+        note: 'KDFWR access detail confirms Lonnie White / Thomas Landing as a public ramp with gravel parking and dusk-close park context.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=729',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03314500 at 732 cfs / 5.23 ft',
+        note: 'USGS Water Services returned same-day values for Barren River at Bowling Green, KY at 2026-07-15 17:45 CDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03314500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Access restriction',
+        value: 'Beech Bend ramp is registered-campers-only',
+        note: 'KDFWR says the Beech Bend ramp and bank fishing area are only available to registered campers.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=627',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Lower Barren River',
+        url: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Beech Bend Campground Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=627',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Lonnie White Boat Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=729',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03314500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03314500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03314500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03314500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'barren-river-state-street-james-r-hines',
     slug: 'barren-river-state-street-james-r-hines',
     name: 'Barren River',
