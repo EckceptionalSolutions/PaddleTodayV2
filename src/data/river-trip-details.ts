@@ -10168,6 +10168,114 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'prairie-river-haymeadow-prairie-road': {
+    putIn: {
+      name: 'Haymeadow Creek / Old Highway 17 access',
+      latitude: 45.264999,
+      longitude: -89.546997,
+    },
+    takeOut: {
+      name: 'Prairie Road / Prairie Dells take-out',
+      latitude: 45.254002,
+      longitude: -89.589996,
+    },
+    logistics: {
+      distanceLabel: '2.7 mi AW reach; up to about 3.9 mi by access choice',
+      estimatedPaddleTime: 'About 1-2 hr, longer with scouting or low water',
+      shuttle:
+        'Use a short rural shuttle between Old Highway 17 / Haymeadow Creek and Prairie Road. Scout the Prairie Road take-out and the old-dam horizon line before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Lincoln County / Prairie Dells Scenic Area rules and respect private banks outside public road and park access.',
+      camping:
+        'No on-route camping is documented for this short whitewater run. Use Merrill-area or county/basecamp options only after checking current rules.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch near Haymeadow Creek and run the narrow Prairie Dells gorge to Prairie Road. This is a short but continuous whitewater route with direct USGS / AW level support and a below-floor live reading during this run.',
+      accessCaveats: [
+        'Endpoint coordinates come from American Whitewater; verify parking and legal bank access at both road-end areas before unloading.',
+        'The gorge has steep eroding banks and few easy exits; do not rely on casual portages once committed.',
+        'Keep this as the Prairie Dells day run unless you have separate downstream access and level information.',
+      ],
+      watchFor: [
+        'Old-dam drop and horizon line near the start, with possible wood remnants and a scout from river left.',
+        'Continuous Class II water, small holes, narrow eddies, and cold spring-season water.',
+        'Low-water scraping below the 150 cfs AW floor and stronger hydraulics as the gauge rises.',
+        'Strainers, eroding banks, limited cell service, and difficult rescue access in the gorge.',
+      ],
+    },
+  },
+  'turtle-creek-highway-140-sweet-allyn': {
+    putIn: {
+      name: 'Highway 140 Turtle Creek access',
+      latitude: 42.5965016,
+      longitude: -88.8637665,
+    },
+    takeOut: {
+      name: 'Sweet-Allyn Park',
+      latitude: 42.57336,
+      longitude: -88.939652,
+    },
+    logistics: {
+      distanceLabel: 'About 5.2 mi to Sweet-Allyn Park',
+      estimatedPaddleTime: 'About 2-3 hr at normal levels',
+      shuttle:
+        'Use the Highway 140 access and Sweet-Allyn Park on Butterfly Road. This is a short lower-Turtle shuttle; scout both parking areas because access demand can vary on good water days.',
+      permits:
+        'No route-specific paddling permit is known. Follow Turtle Creek Wildlife Area rules where applicable and posted local park rules at Sweet-Allyn Park.',
+      camping:
+        'No on-route camping is documented. Treat this as a day paddle with nearby Beloit / Rock County basecamp options only if separately reserved and legal.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Highway 140 and continue downstream past Smith Road, riffles, and the historic stone railroad bridge to Sweet-Allyn Park. The route adds a distinct lower-Turtle segment below the existing East-Creek-to-Highway-140 card.',
+      accessCaveats: [
+        'Highway 140 is a named access in both the existing Turtle Creek route and AW/WRT source packet; use the established path rather than nearby private banks.',
+        'Sweet-Allyn Park is the intended take-out before the more urban Beloit continuation and its bridge hazards.',
+        'The AW full reach continues toward Shopiere; this app card intentionally stops at Sweet-Allyn Park.',
+      ],
+      watchFor: [
+        'Shallow gravel, aquatic weeds, and scraping below the 150 cfs AW floor.',
+        'Riffles and light rapids near the railroad bridge, plus possible wood after storms.',
+        'High water above the AW band making bends, low branches, and shoreline strainers more consequential.',
+        'Cold water, limited shoulders at road crossings, and private banks away from established access points.',
+      ],
+    },
+  },
+  'yahara-river-highway-n-highway-59': {
+    putIn: {
+      name: 'Dunkirk / Highway N bridge access',
+      latitude: 42.883,
+      longitude: -89.1998,
+    },
+    takeOut: {
+      name: 'Highway 59 / Yahara River gauge bridge',
+      latitude: 42.8264,
+      longitude: -89.1719,
+    },
+    logistics: {
+      distanceLabel: 'About 6.9 mi',
+      estimatedPaddleTime: 'About 3 hr, longer in low water or with scouting',
+      shuttle:
+        'Use a rural shuttle from the Highway N bridge area south of Stoughton to the Highway 59 bridge near the Fulton gauge. Scout the Highway 59 take-out before launching because parking and bank slope are bridge-area practical details, not a developed park landing.',
+      permits:
+        'No route-specific paddling permit is known. Use only lawful road-right-of-way or signed public access and respect posted private property at Stebbinsville.',
+      camping:
+        'No on-route camping is documented. Treat the reach as a day route with no private-bank stops unless you have permission.',
+      campingClassification: 'none',
+      summary:
+        'Launch below the Dunkirk / Highway N area and paddle the lower Yahara boulder gardens and riffles past Stebbinsville to the Highway 59 gauge bridge. The route avoids relying on the disputed old Stebbinsville corner as the primary take-out.',
+      accessCaveats: [
+        'Highway N coordinates are approximate from WRT route/shuttle context; confirm the lawful launch side and current road/bridge conditions on arrival.',
+        'Do not use the fenced or posted upstream Stebbinsville corner; WRT and Miles Paddled comments document private-property conflict there.',
+        'Highway 59 is a bridge/gauge access rather than a developed park ramp; confirm a safe carry path and parking before committing.',
+      ],
+      watchFor: [
+        'Class I riffles, boulder gardens, and faster bends at normal flows.',
+        'The Fulton gauge is downstream of Badfish Creek, so it may not perfectly represent the upper part of the route.',
+        'High water above 800 cfs hiding rocks, increasing push, and reducing eddies.',
+        'Strainers, eroding banks, cold water, private banks, and limited legal bailout options.',
+      ],
+    },
+  },
   'jacks-fork-river-buck-hollow-rymers': {
     putIn: {
       name: 'Buck Hollow / Highway 17 Bridge Access',

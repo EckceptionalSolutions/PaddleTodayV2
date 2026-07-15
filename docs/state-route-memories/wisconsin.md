@@ -4,16 +4,24 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 107.
+- Live routes: 110.
 - Top represented rivers: Wisconsin River 13, Sugar River 5, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Fox River 3, Popple River 3, Baraboo River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3.
 - Ledger candidates: 99 total; 89 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three Upper Fox River routes beyond the 104-route baseline: `fox-river-swan-lake-portage`, `fox-river-princeton-locks-city-landing`, and `fox-river-princeton-white-river-locks`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 107-route baseline: `prairie-river-haymeadow-prairie-road`, `turtle-creek-highway-140-sweet-allyn`, and `yahara-river-highway-n-highway-59`.
 
 ## Latest Audit
 
+- 2026-07-15 America/Chicago: added `prairie-river-haymeadow-prairie-road`, `turtle-creek-highway-140-sweet-allyn`, and `yahara-river-highway-n-highway-59`, bringing the live Wisconsin route count to 110.
+- The Prairie route fills the Prairie Dells whitewater gap with American Whitewater exact-reach geometry, endpoint coordinates, direct USGS `05394500` support, and a `150-1250 cfs` AW band. Wisconsin River Trips / Miles Paddled corroborate the Merrill / Prairie Road route family and practical low-water context, while Lincoln County supports the Prairie Dells public-recreation setting.
+- The Turtle route extends the existing Turtle Creek card downstream from Highway 140 to Sweet-Allyn Park. American Whitewater documents the Highway 140-to-Shopiere reach, Sweet-Allyn access, and direct USGS `05431486` `150-600 cfs` band; Wisconsin River Trips and Miles Paddled corroborate the Highway-140-to-Sweet-Allyn segment, riffles, historic stone bridge, and public-access chain.
+- The Yahara route adds the lower Dunkirk / Highway N-to-Highway 59 run using Wisconsin River Trips' Dunkirk route, Highway 59 access note, and direct USGS `05430175` Fulton gauge bands (`201-400 cfs` target, `801+ cfs` very high). It deliberately avoids using the disputed upstream Stebbinsville private corner as the primary take-out and ships with bridge-access scouting caveats.
+- Live gauge verification: USGS Water Services returned Prairie `05394500` at `118 cfs / 2.08 ft`, Turtle `05431486` at `66.3 cfs / 3.77 ft`, and Yahara `05430175` at `304 cfs / 4.53 ft` around 2026-07-15 06:00 CDT. Prairie and Turtle ship below their AW floors; Yahara ships inside the WRT target band.
+- Safety/logistics added: Prairie old-dam drop scouting, steep gorge walls, cold-water/whitewater swim exposure, no on-route camping; Turtle low-water weeds, riffles, stone-bridge current, Sweet-Allyn stop before the urban Beloit continuation, and no on-route camping; Yahara private-property/Stebbinsville caveats, bridge-access scouting, Badfish/Fulton proxy limitations, high-water boulder-garden hiding, and no private-bank stops.
+- Bounded image review found no clearly rights-clean exact-route paddling image selected for the three routes; three no-image rows were added to the image audit.
+- Reviewed but did not add Oconto North Branch despite fresh AW information because the useful route band still depends on AW's calculated local flow rather than an app-queryable direct USGS gauge; Yahara was accepted only with explicit access caveats. Prompt leads were reconciled again: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica are already implemented, Black Earth Creek remains blocked, and the latest Upper Fox routes are already live.
 - 2026-07-15 America/Chicago: added `fox-river-swan-lake-portage`, `fox-river-princeton-locks-city-landing`, and `fox-river-princeton-white-river-locks`, bringing the live Wisconsin route count to 107.
 - The three routes introduce Wisconsin Upper Fox coverage that was absent from the live Wisconsin inventory. Wisconsin River Trips documents Swan-Lake-to-Portage, Princeton-Locks-to-Princeton, and Princeton-to-White-River-Locks with named public endpoints, mileage, wind/dam hazards, and Princeton-gauge level guidance. Wisconsin DNR corroborates Swan Lake public access, Swan Lake Wildlife Area, Upper Fox River Public Access, Princeton Lock and Dam, and White River Lock and Dam rules/access; Portage Parks corroborates Highway 33 Fox River Landing.
 - Live gauge verification: USGS Water Services returned Fox River at Princeton `04073365` at `680 cfs / 4.52 ft` at 2026-07-15 05:00 CDT. Swan-Lake-to-Portage ships inside the WRT `601-1000 cfs` plenty-good band but with explicit proxy-gauge and wind caveats; Princeton-Locks-to-City ships below the WRT 1000 cfs avoid threshold; Princeton-to-White-River-Locks ships above the 550 cfs observed average but below the 800-1000 cfs higher-water caution.
