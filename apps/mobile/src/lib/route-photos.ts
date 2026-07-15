@@ -405,6 +405,15 @@ const routeGalleryImages: Record<string, string[]> = {
   'levisa-fork-cedar-creek-thompson-road': [
     '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
   ],
+  'levisa-fork-prestonsburg-airport': [
+    '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+  ],
+  'levisa-fork-airport-boat-ramp': [
+    '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+  ],
+  'levisa-fork-prestonsburg-boat-ramp': [
+    '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+  ],
   'elkhorn-creek-vpa-3-aw-access': [
     '/gallery/elkhorn-creek-vpa-3-aw-access/north-fork-elkhorn-creek.jpg',
   ],

@@ -42761,6 +42761,362 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'levisa-fork-prestonsburg-airport',
+    slug: 'levisa-fork-prestonsburg-airport',
+    name: 'Levisa Fork',
+    reach: 'Prestonsburg Ramp to Airport Ramp',
+    aliases: [
+      'Levisa Fork - Prestonsburg to Airport Ramp',
+      'Lower Levisa Fork - Prestonsburg to Airport',
+      'KDFWR Levisa Fork lower section one',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Broad lower-Levisa day float from Prestonsburg Ramp to Airport Ramp. KDFWR still lists the public 8.2-mile segment directly, publishes a separate Prestonsburg gauge band for this downstream corridor, and keeps both endpoints on source-backed public ramps.',
+    statusText:
+      'Use the Levisa Fork at Prestonsburg gauge. KDFWR rates 800 to 1,500 cfs, or 3.5 to 5.0 ft, as good for boating and fishing. Below that is low and slower over shoals; above that is high and the larger mainstem current gets pushier around wood, bridge piers, and outside bends.',
+    latitude: 37.6663,
+    longitude: -82.7759,
+    gaugeSource: {
+      id: 'usgs-03209800',
+      provider: 'usgs',
+      siteId: '03209800',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Levisa Fork at Prestonsburg, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209800/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 800,
+      idealMax: 1500,
+      tooLow: 800,
+      tooHigh: 1500,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Levisa Fork at Prestonsburg',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'KDFWR treats this lower Levisa corridor as a warm-season boating and fishing river with a dedicated Prestonsburg gauge ladder. Rain, upstream releases, and fresh wood can still change the river quickly despite the broader mainstem character.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'At normal levels this is a straightforward warmwater mainstem float between developed ramps, but it is still a moving river with long pools, bridge current, fishing traffic, and faster water once the Prestonsburg gauge climbs out of band.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: KDFWR still lists Prestonsburg Ramp to Airport Ramp as an 8.2-mile public segment, still publishes a dedicated Prestonsburg gauge ladder, and still provides exact endpoint coordinates on the access-detail pages. USGS Water Services returned same-day values of 793 cfs and 2.80 ft at 2026-07-15 16:45 EDT for direct gauge 03209800, which keeps the route below the official good band for an explicit low-water framing.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '800-1,500 cfs / 3.5-5.0 ft',
+        note: 'KDFWR rates Levisa Fork at Prestonsburg as Low below 800 cfs or 3.5 ft, Good from 800 to 1,500 cfs or 3.5 to 5.0 ft, and High above 1,500 cfs or 5.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Prestonsburg Ramp to Airport Ramp, 8.2 miles',
+        note: 'The current KDFWR Levisa Fork mileage table lists Prestonsburg Ramp to Airport Ramp directly as an 8.2-mile public route.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Prestonsburg Ramp, 37.6663, -82.7759',
+        note: 'KDFWR identifies Prestonsburg Ramp at River Park as a paved public single-lane ramp with year-round 24-hour boat-ramp access and no camping listed.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=175',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Airport Ramp, 37.7427, -82.7702',
+        note: 'KDFWR identifies Airport Ramp as a paved public single-lane ramp near the Paintsville-Prestonsburg-Combs Air Field with year-round 24-hour boat-ramp access and no camping listed.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1182',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03209800 at 793 cfs / 2.80 ft',
+        note: 'USGS Water Services returned same-day values of 793 cfs and 2.80 ft at 2026-07-15 16:45 EDT for Levisa Fork at Prestonsburg during this run, below the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209800&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping posture',
+        value: 'No verified route camping on this lower corridor',
+        note: 'Current KDFWR access-detail pages list Camping as None for Airport Ramp and do not document a campground-based overnight plan at Prestonsburg Ramp. Treat the route as a day float rather than implying a supported overnight.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1182',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Levisa Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Prestonsburg Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=175',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Airport Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1182',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03209800 Levisa Fork at Prestonsburg',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209800/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03209800 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209800&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'levisa-fork-airport-boat-ramp',
+    slug: 'levisa-fork-airport-boat-ramp',
+    name: 'Levisa Fork',
+    reach: 'Airport Ramp to Levisa Fork Boat Ramp',
+    aliases: [
+      'Levisa Fork - Airport to Levisa Fork Boat Ramp',
+      'Lower Levisa Fork - Airport to Paintsville',
+      'KDFWR Levisa Fork lower section two',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Lower Levisa float from Airport Ramp to Levisa Fork Boat Ramp near Paintsville. KDFWR still lists the public 8.1-mile segment directly, keeps both ramps active, and uses the same official Prestonsburg gauge ladder for this downstream reach.',
+    statusText:
+      'Use the Levisa Fork at Prestonsburg gauge. KDFWR rates 800 to 1,500 cfs, or 3.5 to 5.0 ft, as good for boating and fishing. Below that is low and slower with more exposed shoals; above that is high and the broader river can push harder around wood, banks, and bridge current.',
+    latitude: 37.7427,
+    longitude: -82.7702,
+    gaugeSource: {
+      id: 'usgs-03209800',
+      provider: 'usgs',
+      siteId: '03209800',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Levisa Fork at Prestonsburg, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209800/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 800,
+      idealMax: 1500,
+      tooLow: 800,
+      tooHigh: 1500,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Levisa Fork at Prestonsburg',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'KDFWR uses the Prestonsburg gauge for this lower Levisa chain as well. Broad pools can make low-water days feel slower, while rain and upstream releases can still push the mainstem out of comfort range quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'At normal levels this is a straightforward developed-ramp float on a larger warmwater river. The main complications are distance, low-water pacing, wood, and a more exposed lower-river feel when flows are outside the KDFWR band.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: KDFWR still lists Airport Ramp to Levisa Fork Boat Ramp as an 8.1-mile public segment, still publishes the official Prestonsburg Low/Good/High gauge ladder, and still provides exact coordinates and public-use details for both endpoints. USGS Water Services returned same-day values at the direct Prestonsburg gauge during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '800-1,500 cfs / 3.5-5.0 ft',
+        note: 'KDFWR rates Levisa Fork at Prestonsburg as Low below 800 cfs or 3.5 ft, Good from 800 to 1,500 cfs or 3.5 to 5.0 ft, and High above 1,500 cfs or 5.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Airport Ramp to Levisa Fork Boat Ramp, 8.1 miles',
+        note: 'The current KDFWR Levisa Fork mileage table lists Airport Ramp to Levisa Fork Boat Ramp directly as an 8.1-mile public route.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Airport Ramp, 37.7427, -82.7702',
+        note: 'KDFWR identifies Airport Ramp as a paved public single-lane ramp with unpaved parking, year-round 24-hour boat-ramp access, and no camping listed.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1182',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Levisa Fork Boat Ramp, 37.8141, -82.7913',
+        note: 'KDFWR identifies Levisa Fork Boat Ramp near Paintsville as a paved public single-lane ramp with year-round 24-hour access and nearby town services, but no documented campground support.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=282',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03209800 at 793 cfs / 2.80 ft',
+        note: 'USGS Water Services returned same-day values of 793 cfs and 2.80 ft at 2026-07-15 16:45 EDT for Levisa Fork at Prestonsburg during this run, below the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209800&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping posture',
+        value: 'No verified route camping on this lower corridor',
+        note: 'Current KDFWR access-detail pages list Camping as None for Airport Ramp and do not document campground support at Levisa Fork Boat Ramp. Treat this as a day float rather than a supported overnight route.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1182',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Levisa Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Airport Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1182',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Levisa Fork Boat Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=282',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03209800 Levisa Fork at Prestonsburg',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209800/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03209800 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209800&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'levisa-fork-prestonsburg-boat-ramp',
+    slug: 'levisa-fork-prestonsburg-boat-ramp',
+    name: 'Levisa Fork',
+    reach: 'Prestonsburg Ramp to Levisa Fork Boat Ramp',
+    aliases: [
+      'Levisa Fork - Prestonsburg to Levisa Fork Boat Ramp',
+      'Lower Levisa Fork - Prestonsburg to Paintsville',
+      'KDFWR Levisa Fork long lower continuation',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Longer lower-Levisa float from Prestonsburg Ramp to Levisa Fork Boat Ramp. KDFWR still supports the route by chaining the direct 8.2-mile Prestonsburg-to-Airport segment and the 8.1-mile Airport-to-Levisa Fork Boat Ramp segment under the same official Prestonsburg gauge ladder.',
+    statusText:
+      'Use the Levisa Fork at Prestonsburg gauge. KDFWR rates 800 to 1,500 cfs, or 3.5 to 5.0 ft, as good for boating and fishing. Below that this longer route can feel slow and shoaly; above that the mainstem current, wood, and fatigue make the full downstream commitment much less forgiving.',
+    latitude: 37.6663,
+    longitude: -82.7759,
+    gaugeSource: {
+      id: 'usgs-03209800',
+      provider: 'usgs',
+      siteId: '03209800',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Levisa Fork at Prestonsburg, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209800/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 800,
+      idealMax: 1500,
+      tooLow: 800,
+      tooHigh: 1500,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Levisa Fork at Prestonsburg',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'KDFWR treats the lower Levisa as a reliable warm-season mainstem float, but the full Prestonsburg-to-Paintsville combination is still best when the river is comfortably inside band and stable. Low-water days stretch out, while rain and releases can push the whole corridor out of range quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The water is not technical at normal levels, but the full 16.3-mile lower-Levisa commitment is a longer day with more cumulative wind, heat, wood, and fatigue than the shorter downstream splits. Treat it as moderate because of length and commitment, not whitewater.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: KDFWR still publishes the direct Prestonsburg-to-Airport 8.2-mile segment and Airport-to-Levisa Fork Boat Ramp 8.1-mile segment, still uses the same Prestonsburg gauge ladder for the lower corridor, and still provides exact coordinates for all three public ramps. USGS Water Services returned same-day direct values during this run, below the official good band, so the route ships with explicit low-water caution instead of comfort framing.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '800-1,500 cfs / 3.5-5.0 ft',
+        note: 'KDFWR rates Levisa Fork at Prestonsburg as Low below 800 cfs or 3.5 ft, Good from 800 to 1,500 cfs or 3.5 to 5.0 ft, and High above 1,500 cfs or 5.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+      },
+      {
+        label: 'Official route chain',
+        value: 'Prestonsburg Ramp to Airport Ramp 8.2 miles plus Airport Ramp to Levisa Fork Boat Ramp 8.1 miles',
+        note: 'Current KDFWR Levisa Fork materials still support both linked public lower-river segments, which combine into about 16.3 miles on the same river and gauge corridor.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Prestonsburg Ramp, 37.6663, -82.7759',
+        note: 'KDFWR identifies Prestonsburg Ramp at River Park as a paved public single-lane ramp with year-round 24-hour boat-ramp access and no camping listed.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=175',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Levisa Fork Boat Ramp, 37.8141, -82.7913',
+        note: 'KDFWR identifies Levisa Fork Boat Ramp near Paintsville as a paved public single-lane ramp with year-round 24-hour access and nearby town services, but no documented campground support.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=282',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03209800 at 793 cfs / 2.80 ft',
+        note: 'USGS Water Services returned same-day values of 793 cfs and 2.80 ft at 2026-07-15 16:45 EDT for Levisa Fork at Prestonsburg during this run, below the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209800&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping posture',
+        value: 'No verified route camping on this lower corridor',
+        note: 'Current KDFWR access-detail pages do not document campground support for Prestonsburg Ramp, Airport Ramp, or Levisa Fork Boat Ramp. Treat the route as a committed day float rather than implying an overnight plan.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=175',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Levisa Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Prestonsburg Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=175',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Airport Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1182',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Levisa Fork Boat Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=282',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03209800 Levisa Fork at Prestonsburg',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209800/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03209800 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209800&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'elkhorn-creek-vpa-3-aw-access',
     slug: 'elkhorn-creek-vpa-3-aw-access',
     name: 'Elkhorn Creek',

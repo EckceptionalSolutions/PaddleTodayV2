@@ -13774,6 +13774,123 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'levisa-fork-prestonsburg-airport': {
+    putIn: {
+      id: 'prestonsburg-ramp',
+      name: 'Prestonsburg Ramp',
+      latitude: 37.6663,
+      longitude: -82.7759,
+    },
+    takeOut: {
+      id: 'airport-ramp',
+      name: 'Airport Ramp',
+      latitude: 37.7427,
+      longitude: -82.7702,
+    },
+    logistics: {
+      distanceLabel: 'About 8.2 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, fishing, or upstream wind',
+      shuttle:
+        'Stage the Airport Ramp vehicle first, then drive back to Prestonsburg Ramp at River Park. Inspect both ramps before launching because lower-river mud lines, park traffic, or bridge-area changes can affect how easy the landings feel on a given day.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public ramps, follow Kentucky boating and PFD rules, and obey any posted local parking or launch restrictions at Prestonsburg and Airport.',
+      camping:
+        'Treat this as a day float. Current KDFWR access pages do not document route camping or campground support at Prestonsburg Ramp or Airport Ramp.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Prestonsburg Ramp and take out about 8.2 miles downstream at Airport Ramp for the first lower-Levisa segment. KDFWR uses the Prestonsburg gauge here and rates 800 to 1,500 cfs, or 3.5 to 5.0 ft, as the good boating band.',
+      accessCaveats: [
+        'Prestonsburg Ramp is a paved public River Park launch with year-round availability, but it sits in an active town setting. Scout parking and ramp traffic before committing to the shuttle.',
+        'Airport Ramp is the downstream public KDFWR take-out near the Paintsville-Prestonsburg-Combs Air Field. Stay with the signed ramp and parking area rather than informal banks.',
+        'The current Prestonsburg gauge reading was below the official good band during this run. Expect slower pools, shallower shoals, and more patience than the broad-river appearance suggests until levels rise.',
+        'KDFWR does not document an overnight plan at either endpoint, so do not assume camping or private-bank stopping rights along the corridor.',
+      ],
+      watchFor: [
+        'Low water below 800 cfs or 3.5 ft, when shoals and gravel bars slow progress and can force dragging.',
+        'High water above 1,500 cfs or 5.0 ft, when KDFWR moves the route out of the good band and the broader mainstem current gets much less forgiving.',
+        'Woody debris, bridge current, motorboat or fishing traffic, and long exposed pools on warm days.',
+        'Private banks and limited easy exits away from the documented public ramps.',
+      ],
+    },
+  },
+  'levisa-fork-airport-boat-ramp': {
+    putIn: {
+      id: 'airport-ramp',
+      name: 'Airport Ramp',
+      latitude: 37.7427,
+      longitude: -82.7702,
+    },
+    takeOut: {
+      id: 'levisa-fork-boat-ramp',
+      name: 'Levisa Fork Boat Ramp',
+      latitude: 37.8141,
+      longitude: -82.7913,
+    },
+    logistics: {
+      distanceLabel: 'About 8.1 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, fishing, or downstream headwinds',
+      shuttle:
+        'Stage the Levisa Fork Boat Ramp vehicle first, then drive back to Airport Ramp. Inspect both landings before launching because the lower river can expose mud, drift, or changed shoreline angles as levels move around.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public ramps, follow Kentucky boating and PFD rules, and obey any posted launch or parking restrictions at Airport Ramp and Levisa Fork Boat Ramp.',
+      camping:
+        'Treat this as a day float. Current KDFWR access pages do not document route camping, and no campground-backed overnight plan was verified for Airport Ramp or Levisa Fork Boat Ramp.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Airport Ramp and take out about 8.1 miles downstream at Levisa Fork Boat Ramp near Paintsville. KDFWR still uses the Prestonsburg gauge here and rates 800 to 1,500 cfs, or 3.5 to 5.0 ft, as the good boating band.',
+      accessCaveats: [
+        'Airport Ramp is a paved public launch with unpaved parking and no camping listed. Inspect the lot and shoreline before leaving vehicles.',
+        'Levisa Fork Boat Ramp is a paved public Paintsville-area take-out with nearby town services, but KDFWR does not document it as a campground or overnight paddle endpoint.',
+        'The current Prestonsburg gauge reading was below the official good band during this run. Expect slower current, shallower shoals, and more dragging than the wider lower-river profile might suggest.',
+        'Stay with the named public accesses and do not assume open stopping rights on private banks or side properties along the corridor.',
+      ],
+      watchFor: [
+        'Low water below 800 cfs or 3.5 ft, when broad shoals, gravel, and slow pools can stretch the day.',
+        'High water above 1,500 cfs or 5.0 ft, when KDFWR moves the route out of the good band and the larger river becomes pushier around bends, wood, and bridge structures.',
+        'Woody debris, fishing traffic, occasional motorboat wakes, and heat or wind exposure on the wider lower river.',
+        'Longer spacing between easy public exits than the developed ramps might suggest.',
+      ],
+    },
+  },
+  'levisa-fork-prestonsburg-boat-ramp': {
+    putIn: {
+      id: 'prestonsburg-ramp',
+      name: 'Prestonsburg Ramp',
+      latitude: 37.6663,
+      longitude: -82.7759,
+    },
+    takeOut: {
+      id: 'levisa-fork-boat-ramp',
+      name: 'Levisa Fork Boat Ramp',
+      latitude: 37.8141,
+      longitude: -82.7913,
+    },
+    logistics: {
+      distanceLabel: 'About 16.3 mi',
+      estimatedPaddleTime: 'About 6 hr to 9 hr, longer with low water, fishing, or warm-weather breaks',
+      shuttle:
+        'Stage the Levisa Fork Boat Ramp vehicle first, then drive back to Prestonsburg Ramp at River Park. This is the full lower-Levisa commitment, so inspect both endpoints, check the gauge trend and weather, and make sure the group is ready for a long day before leaving vehicles.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public ramps, follow Kentucky boating and PFD rules, and obey any posted local parking or launch restrictions at Prestonsburg, Airport, and Levisa Fork Boat Ramp.',
+      camping:
+        'Treat this as a committed day float. Current KDFWR access pages do not document route camping or campground support at the three linked lower-Levisa public ramps.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Prestonsburg Ramp and take out about 16.3 miles downstream at Levisa Fork Boat Ramp for the full lower-Levisa continuation. KDFWR still uses the Prestonsburg gauge and rates 800 to 1,500 cfs, or 3.5 to 5.0 ft, as the good boating band.',
+      accessCaveats: [
+        'Prestonsburg Ramp and Levisa Fork Boat Ramp are both developed public launches, but this longer route still has only one clean intermediate public ramp at Airport if the day is going slower than planned.',
+        'The current Prestonsburg gauge reading was below the official good band during this run. Expect a slower and more tiring day than the mileage alone suggests until levels rise into band.',
+        'KDFWR does not document a route-camping plan for these lower-Levisa accesses. Do not assume legal private-bank overnight stops along the corridor.',
+        'This is a full-day lower-river shuttle rather than a casual town float. Check weather, daylight, and heat exposure before committing.',
+      ],
+      watchFor: [
+        'Low water below 800 cfs or 3.5 ft, when the long route can stack up dragging, shallow shoals, and slow pool mileage.',
+        'High water above 1,500 cfs or 5.0 ft, when KDFWR moves the route out of the good band and the broader river current becomes much less forgiving over a full-day commitment.',
+        'Woody debris, bridge current, occasional motorboat or fishing traffic, and fatigue on a long warmwater mainstem day.',
+        'Private banks, limited informal exits, and complacency on the middle or lower half because the water is nontechnical.',
+      ],
+    },
+  },
   'elkhorn-creek-vpa-3-aw-access': {
     putIn: {
       id: 'elkhorn-creek-vpa-3',

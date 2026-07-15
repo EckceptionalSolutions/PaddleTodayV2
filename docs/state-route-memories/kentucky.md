@@ -2,6 +2,14 @@
 
 Last summarized: 2026-07-14 14:59 America/Chicago / 2026-07-14 19:59 UTC.
 
+## 2026-07-15 Lower Levisa Fork continuation pass
+
+- Reused the live repo state as the only valid baseline and added three new Kentucky slugs that were absent from the current tree at run start: `levisa-fork-prestonsburg-airport`, `levisa-fork-airport-boat-ramp`, and `levisa-fork-prestonsburg-boat-ramp`.
+- Current KDFWR Levisa Fork guidance still documents Prestonsburg Ramp -> Airport Ramp `8.2` miles and Airport Ramp -> Levisa Fork Boat Ramp `8.1` miles, while the current lower-Levisa access list still keeps all three endpoints active as public ramps, supporting the new public route mileages of `8.2`, `8.1`, and `16.3`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Prestonsburg Ramp (`asid=175`), Airport Ramp (`asid=1182`), and Levisa Fork Boat Ramp (`asid=282`). Same-day direct USGS Water Services returned `793 cfs / 2.80 ft` at `2026-07-15 16:45 EDT` for Levisa Fork at Prestonsburg (`03209800`), below the official `800-1500 cfs / 3.5-5.0 ft` good band, so all three lower-Levisa slugs ship with explicit low-water / slower-day caution rather than comfort framing.
+- Camping stays conservative at `none` for all three because the reviewed KDFWR access pages do not document route camping or campground-backed overnight support on the Prestonsburg-to-Paintsville chain.
+- Reused the approved Levisa Fork Commons corridor image for all three slugs and added matching image-audit rows for the new downstream family.
+
 ## 2026-07-14 Upper Cumberland gorge continuation pass
 
 - Reused the live repo state as the only valid baseline and added three new Kentucky slugs that were absent from the current tree at run start: `upper-cumberland-river-williamsburg-longbottom`, `upper-cumberland-river-williamsburg-thunderstruck`, and `upper-cumberland-river-williamsburg-cumberland-falls`.
