@@ -16,6 +16,8 @@ const appDownloadDismiss = document.querySelector('[data-app-download-dismiss]')
 const appDownloadConfigNode = document.querySelector('[data-app-download-config]');
 
 let searchIndex = [];
+let searchIndexLoaded = false;
+let searchIndexPromise = null;
 let lastFocusedElement = null;
 
 const APP_DOWNLOAD_DISMISSED_KEY = 'paddleTodayAppPromptDismissedAt';
@@ -59,19 +61,62 @@ function tokenize(value) {
     .filter(Boolean);
 }
 
-function loadSearchIndex() {
-  if (!(searchIndexNode instanceof HTMLScriptElement)) {
-    searchIndex = [];
+function parseSearchIndexPayload(payload) {
+  searchIndex = Array.isArray(payload) ? payload : [];
+  searchIndexLoaded = true;
+}
+
+async function loadSearchIndex() {
+  if (searchIndexLoaded) {
     return;
   }
 
-  try {
-    const parsed = JSON.parse(searchIndexNode.textContent || '[]');
-    searchIndex = Array.isArray(parsed) ? parsed : [];
-  } catch (error) {
-    console.error('Could not parse site search index.', error);
-    searchIndex = [];
+  if (searchIndexPromise) {
+    await searchIndexPromise;
+    return;
   }
+
+  if (!(searchIndexNode instanceof HTMLScriptElement)) {
+    searchIndex = [];
+    searchIndexLoaded = true;
+    return;
+  }
+
+  searchIndexPromise = (async () => {
+    const inlinePayload = searchIndexNode.textContent?.trim();
+    const indexUrl = searchIndexNode.dataset.siteSearchIndexSrc;
+
+    try {
+      if (inlinePayload) {
+        parseSearchIndexPayload(JSON.parse(inlinePayload));
+        return;
+      }
+
+      if (indexUrl) {
+        const response = await fetch(indexUrl, {
+          headers: {
+            accept: 'application/json',
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`Search index request failed: ${response.status}`);
+        }
+
+        parseSearchIndexPayload(await response.json());
+        return;
+      }
+
+      parseSearchIndexPayload([]);
+    } catch (error) {
+      console.error('Could not load site search index.', error);
+      parseSearchIndexPayload([]);
+    } finally {
+      searchIndexPromise = null;
+    }
+  })();
+
+  await searchIndexPromise;
 }
 
 function defaultSearchResults() {
@@ -162,7 +207,7 @@ function renderSearchResults(query = '') {
   searchResults.innerHTML = results.map(resultMarkup).join('');
 }
 
-function openSearch() {
+async function openSearch() {
   if (!(searchDialog instanceof HTMLElement)) {
     return;
   }
@@ -176,6 +221,16 @@ function openSearch() {
       searchInput.select();
     }
   }, 20);
+  if (!searchIndexLoaded && searchResults instanceof HTMLElement) {
+    searchResults.innerHTML = `
+      <div class="site-search-dialog__empty">
+        <strong>Loading routes.</strong>
+        <p class="muted">Preparing river and route search.</p>
+      </div>
+    `;
+  }
+
+  await loadSearchIndex();
   renderSearchResults(searchInput instanceof HTMLInputElement ? searchInput.value : '');
 }
 
@@ -192,12 +247,10 @@ function closeSearch() {
 }
 
 function bindSearch() {
-  loadSearchIndex();
-
   for (const button of searchOpenButtons) {
     if (!(button instanceof HTMLButtonElement)) continue;
     button.addEventListener('click', () => {
-      openSearch();
+      void openSearch();
     });
   }
 
@@ -210,7 +263,9 @@ function bindSearch() {
 
   if (searchInput instanceof HTMLInputElement) {
     searchInput.addEventListener('input', () => {
-      renderSearchResults(searchInput.value);
+      void loadSearchIndex().then(() => {
+        renderSearchResults(searchInput.value);
+      });
     });
   }
 
@@ -229,7 +284,7 @@ function bindSearch() {
 
     if (event.key === '/' && !(searchDialog instanceof HTMLElement && !searchDialog.hidden)) {
       event.preventDefault();
-      openSearch();
+      void openSearch();
     }
   });
 }
