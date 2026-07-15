@@ -2799,6 +2799,119 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'root-river-houston-mound-prairie',
+    slug: 'root-river-houston-mound-prairie',
+    name: 'Root River',
+    reach: 'Houston to Mound Prairie',
+    state: 'Minnesota',
+    region: 'Southeast Minnesota',
+    summary:
+      'Short lower-Root continuation from Houston to Mound Prairie Wildlife Management Area, using the direct Mound Prairie DNR interpreted gauge and official Map 2 access records.',
+    statusText:
+      'Use the Mound Prairie DNR gauge: 654 to 656 ft is the official medium band. Below 650 ft is scrapable, and above 658 ft is very high.',
+    latitude: 43.7645,
+    longitude: -91.57037,
+    gaugeSource: {
+      id: 'mn-dnr-200',
+      provider: 'mn_dnr',
+      siteId: '200',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'direct',
+      siteName: 'Root River nr Mound Prairie, CSAH25',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=43007002',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=43007002&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 654,
+      idealMax: 656,
+      tooLow: 650,
+      tooHigh: 658,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Root River near Mound Prairie',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The lower Root usually works best from spring into fall when the Mound Prairie gauge is not in the scrapable band. Heavy rain can quickly turn a short easy-looking reach into a debris and current check.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The mileage is short and the current is usually approachable, but low-water riffles, wood, WMA remoteness, and a gauge currently above the medium band still require a same-day decision.',
+      confidenceNotes:
+        'Confidence is high: MN DNR Map 2 names Houston and Mound Prairie as public carry-in accesses, Minnesota public-water-access GIS resolves both endpoints with coordinates, and the selected DNR gauge is at the County Road 25 bridge beside the take-out.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Pair the direct Mound Prairie gauge with a visual check at Houston because the lower Root can collect wood and debris after rain.',
+        'Stay with the mapped public carry-in accesses and legal WMA stops; do not assume private banks are available for casual exits.',
+        'Watch for shallow riffles in low water, cold shoulder-season water, and a faster push when the gauge moves into the high or very-high bands.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Map support',
+        value: 'Houston RM 18.7 to Mound Prairie RM 12.0',
+        note: 'MN DNR Root River Map 2 places Houston carry-in access at river mile 18.7 and Mound Prairie carry-in access at river mile 12.0, with the gauge at the County Road 25 bridge near the take-out.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/root2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS02188 and WAS00062',
+        note: 'Minnesota public-water-access GIS resolves Houston and Mound Prairie as Root River public access sites with river-mile records and coordinates.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '650 / 654-656 / 658 ft',
+        note: 'MN DNR interprets the Mound Prairie gauge as Scrapable below 650 ft, Low from 650 to 654, Medium from 654 to 656, High from 656 to 658, and Very High above 658.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '656.61 ft at 2026-07-14 22:45',
+        note: 'The current MN DNR feed placed Mound Prairie in the official high band during this run, so same-day users should expect pushier current than a normal easy day.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Camping posture',
+        value: 'Nearby endpoint basecamp, not route camping',
+        note: 'Houston has established trailhead/campground support, while the selected river reach should be treated as a day trip unless WMA rules and a separate overnight plan are confirmed.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/rootriver/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Root River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/rootriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Root River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/root2.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
     id: 'root-river-parsley-moens',
     slug: 'root-river-parsley-moens',
     name: 'Root River',
@@ -72496,6 +72609,134 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'mississippi-river-dayton-mississippi-gateway',
+    slug: 'mississippi-river-dayton-mississippi-gateway',
+    name: 'Mississippi River',
+    reach: 'Dayton to Mississippi Gateway Regional Park',
+    state: 'Minnesota',
+    region: 'Twin Cities Metro',
+    summary:
+      'Official MN DNR Map 9 route from the Crow/Mississippi confluence at Dayton to the Mississippi Gateway carry-in above Coon Rapids Dam, with dam-takeout and metro water-quality caveats up front.',
+    statusText:
+      'Use the Hwy 610 DNR gauge as the downstream same-map check: 8,670 to 28,300 cfs is the official medium band. Below 3,060 cfs is scrapable, and above 33,000 cfs is very high.',
+    latitude: 45.2456453,
+    longitude: -93.521084,
+    gaugeSource: {
+      id: 'mn-dnr-302',
+      provider: 'mn_dnr',
+      siteId: '302',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'Mississippi River at Hwy 610 in Brooklyn Park, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=20065001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=20065001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 8670,
+      idealMax: 28300,
+      tooLow: 3060,
+      tooHigh: 33000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River at Hwy 610',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.4,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This pool-and-island metro reach is most usable in the open-water season when wind, dam operations, and current levels allow a clean take-out before Coon Rapids Dam.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'DNR lists Dayton to Mississippi Gateway as a recommended 13.4-mile section, but the required take-out above Coon Rapids Dam, island routing, wind, wake, and water-quality context make it more than a passive float.',
+      confidenceNotes:
+        'Confidence is good with an explicit proxy caveat: MN DNR Map 9 and the statewide recommended list document the exact Dayton-to-Mississippi-Gateway section, public-water-access GIS resolves the Dayton put-in, and Three Rivers / Paddle Share context anchors the Mississippi Gateway carry-in above the dam. The Hwy 610 gauge is downstream of the dam on the same DNR map, so the route requires a visual dam-pool and take-out check.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'urban_water_quality', 'private_banks'],
+      safetyNotes: [
+        'The Mississippi Gateway carry-in is the required take-out before Coon Rapids Dam. Do not drift past the signed exit toward the dam or treat the portage as optional.',
+        'Use the downstream Hwy 610 gauge as a same-map corridor check, then verify local pool level, wind, wake, dam notices, and the exact carry-in access before launching.',
+        'Expect island channels, shallow bars at low water, floating debris after rain, motorboat wake, metro water-quality caveats, and private or park-managed banks.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '13.4 river miles',
+        note: 'The statewide DNR recommended paddling sections list Dayton trailer access to Mississippi Gateway Regional Park as a 13.4-mile Mississippi River route.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Map support',
+        value: 'Dayton RM 879.6 to Mississippi Gateway RM 866.2',
+        note: 'MN DNR Mississippi Map 9 places Dayton at river mile 879.6 and Mississippi Gateway Regional Park at river mile 866.2, explicitly marking it as the recommended take-out before Coon Rapids Dam.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi9.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Dayton WAS01718; Gateway carry-in above dam',
+        note: 'Minnesota public-water-access GIS resolves the Crow/Mississippi Dayton public access. DNR Map 9 and Three Rivers/Paddle Share materials anchor the Mississippi Gateway carry-in on the Brooklyn Park side above the dam.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '3,060 / 8,670-28,300 / 33,000 cfs',
+        note: 'MN DNR interprets the Hwy 610 gauge as Scrapable below 3,060 cfs, Low from 3,060 to 8,670, Medium from 8,670 to 28,300, High from 28,300 to 33,000, and Very High above 33,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '8,190 cfs at 2026-07-14 23:00',
+        note: 'The current MN DNR feed placed Hwy 610 in the official low band during this run, just below the medium target.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Dam and access context',
+        value: 'Gateway carry-in; Coon Rapids Dam portage',
+        note: 'DNR Map 9 says Mississippi Gateway is the recommended carry-in take-out before the dam and marks the Coon Rapids Dam portage nearby; Paddle Share notes the carry-in launch is reached from the Mississippi Gateway parking and trail network.',
+        sourceUrl: 'https://www.paddleshare.org/descriptions/nature',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR recommended paddling sections',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Mississippi River Map 9 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi9.pdf',
+      },
+      {
+        label: 'Three Rivers Mississippi Gateway Regional Park',
+        url: 'https://www.threeriversparks.org/MississippiGatewayRegionalPark',
+      },
+      {
+        label: 'Paddle Share Mississippi Gateway access note',
+        url: 'https://www.paddleshare.org/descriptions/nature',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
     id: 'mississippi-river-county-road-12-dam-county-road-25',
     slug: 'mississippi-river-county-road-12-dam-county-road-25',
     name: 'Mississippi River',
@@ -75625,6 +75866,126 @@ export const rivers: River[] = [
       {
         label: 'MN DNR slow no-wake restrictions',
         url: 'https://www.dnr.state.mn.us/safety/boatwater/nowake/index.html',
+      },
+    ],
+  },
+  {
+    id: 'st-croix-river-little-yellow-banks-sand-creek',
+    slug: 'st-croix-river-little-yellow-banks-sand-creek',
+    name: 'St. Croix River',
+    reach: 'Little Yellow Banks to Sand Creek Landing',
+    state: 'Minnesota',
+    region: 'Upper St. Croix',
+    summary:
+      'Short upper St. Croix State Park / National Scenic Riverway route from Little Yellow Banks to Sand Creek Landing, using official NPS Map 5 context, Minnesota public-access records, and the DNR Danbury interpreted gauge.',
+    statusText:
+      'Use the Danbury DNR gauge as the upstream middle-St. Croix check: 1,500 to 2,200 cfs is the official medium band. Below 1,250 cfs is scrapable, and above 6,000 cfs is very high.',
+    latitude: 45.9753904,
+    longitude: -92.541598,
+    gaugeSource: {
+      id: 'mn-dnr-212',
+      provider: 'mn_dnr',
+      siteId: '212',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'St. Croix River nr Danbury, WI',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=34042001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=34042001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 2200,
+      tooLow: 1250,
+      tooHigh: 6000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for St. Croix River near Danbury',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.2,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the practical Riverway window. Low water can require scraping or walking, while high or rising water increases wood, cold-water, and landing difficulty.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'NPS describes this part of Map 5 as easier after the upper islands, but the route remains a National Scenic Riverway reach with cold water, trees, private/restricted banks, and a proxy gauge upstream.',
+      confidenceNotes:
+        'Confidence is good with an explicit proxy caveat: Minnesota public-water-access GIS resolves Little Yellow Banks, St. Croix State Park #2, and Sand Creek Landing with river miles and coordinates; NPS Map 5 covers the exact corridor and notes St. Croix State Park/Sand Creek context; and the Danbury DNR gauge publishes official interpreted bands upstream on the same middle-St. Croix river family.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'remote', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Use the Danbury gauge as a same-corridor check, then inspect Little Yellow Banks and Sand Creek because the gauge is upstream and this short section can still collect wood or shallow bars.',
+        'NPS warns not every Riverway stretch is suitable for beginners; avoid fallen trees, respect designated campsites, and do not use restricted or private banks as casual stops.',
+        'Expect cold water outside midsummer, tubing or small-boat traffic in season, and a right-bank state-park landing that can be missed if the group is not watching the map.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official map section',
+        value: 'Little Yellow Banks RM 111.2 to Sand Creek RM 104.5',
+        note: 'Minnesota public-water-access GIS resolves Little Yellow Banks, St. Croix State Park #2, and Mouth of Sand Creek with river-mile records and coordinates inside the NPS Map 5 corridor.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'NPS route context',
+        value: 'Map 5: Riverside Landing to Sand Creek Landing',
+        note: 'NPS Map 5 covers the selected corridor, says the river becomes the Minnesota-Wisconsin border past the upper islands, identifies the St. Croix State Park main landing behind an island, and directs paddlers to check current conditions.',
+        sourceUrl:
+          'https://www.nps.gov/sacn/planyourvisit/upload/Section-5_St-Croix_Riverside-Landing-to-Sand-Creek-Landing_2024_508.pdf',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '1,250 / 1,500-2,200 / 6,000 cfs',
+        note: 'MN DNR interprets the Danbury gauge as Scrapable below 1,250 cfs, Low from 1,250 to 1,500, Medium from 1,500 to 2,200, High from 2,200 to 6,000, and Very High above 6,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '731 cfs at 2026-07-14 23:00',
+        note: 'The current MN DNR feed placed Danbury in the official scrapable band during this run, so the card should present a low-water warning rather than a good-day recommendation.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Camping rules',
+        value: 'Designated Riverway sites only',
+        note: 'NPS Map 5 says camping is allowed only at designated sites on a first-come, first-served basis, with group-size, stay-limit, campfire, and waste rules.',
+        sourceUrl:
+          'https://www.nps.gov/sacn/planyourvisit/upload/Section-5_St-Croix_Riverside-Landing-to-Sand-Creek-Landing_2024_508.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Saint Croix maps',
+        url: 'https://www.nps.gov/sacn/planyourvisit/maps.htm',
+      },
+      {
+        label: 'NPS St. Croix Map 5 PDF',
+        url: 'https://www.nps.gov/sacn/planyourvisit/upload/Section-5_St-Croix_Riverside-Landing-to-Sand-Creek-Landing_2024_508.pdf',
+      },
+      {
+        label: 'MN DNR St. Croix River State Water Trail',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/st-croix-river/index.html',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
       },
     ],
   },

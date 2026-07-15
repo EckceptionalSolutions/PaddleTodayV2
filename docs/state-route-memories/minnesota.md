@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 00:11 America/Chicago.
+Last summarized: 2026-07-15 01:11 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 131.
-- Top represented rivers: Mississippi River 19, Sauk River 17, Minnesota River 10, Little Fork River 9, Crow Wing River 7, Big Fork River 5, Otter Tail River 4, Cannon River 4, Root River 4, North Fork Crow River 4, St. Louis River 4, Zumbro River 4, Red River of the North 4.
-- Ledger candidates: 845 total; 484 `added`, 83 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
+- Live routes: 134.
+- Top represented rivers: Mississippi River 20, Sauk River 17, Minnesota River 10, Little Fork River 9, Crow Wing River 7, Big Fork River 5, Root River 5, Otter Tail River 4, Cannon River 4, St. Croix River 4, North Fork Crow River 4, St. Louis River 4, Zumbro River 4, Red River of the North 4.
+- Ledger candidates: 848 total; 487 `added`, 83 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 01:11 America/Chicago: added `root-river-houston-mound-prairie`, `mississippi-river-dayton-mississippi-gateway`, and `st-croix-river-little-yellow-banks-sand-creek`.
+- Baseline at run start was 131 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 134 Minnesota routes and all three new slugs have trip-detail records.
+- Stayed in Minnesota and promoted three gaps that were distinct from already-live corridors: lower Root Houston-to-Mound-Prairie below the existing Rushford-to-Houston card, Mississippi Dayton-to-Mississippi-Gateway above the already-live below-dam Coon-Rapids-to-Riverfront card, and upper St. Croix Little-Yellow-Banks-to-Sand-Creek above the existing Wisconsin Fox-to-Highway-70 card.
+- Minnesota public-water-access GIS resolves Houston `WAS02188`, Mound Prairie `WAS00062`, Dayton `WAS01718`, Little Yellow Banks `WAS01887`, St. Croix SPK #2 `WAS00076`, and Sand Creek `WAS01894`; Mississippi Gateway is anchored by DNR Map 9 at river mile `866.2` plus Three Rivers / Paddle Share access context for the Brooklyn Park carry-in above Coon Rapids Dam.
+- Current MN DNR river-level feed exposed interpreted ladders for Root River Mound Prairie site `200` (`650 / 654-656 / 658 ft`), Mississippi Hwy 610 site `302` (`3060 / 8670-28300 / 33000 cfs`), and St. Croix Danbury site `212` (`1250 / 1500-2200 / 6000 cfs`). Mound Prairie was high, Hwy 610 was low just below medium, and Danbury was scrapable during the run, so the new route copy surfaces current-condition warnings instead of good-day assumptions.
+- Camping posture: Houston-to-Mound-Prairie is `nearby_basecamp`, Dayton-to-Mississippi-Gateway is `none` despite upstream island campsite context because the normal route is a metro day route, and Little-Yellow-Banks-to-Sand-Creek is `on_route_campsite` only under NPS designated-site rules and planning.
+- No route-gallery images were added. Bounded DNR / NPS / Commons / local-park / same-river image review did not produce clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed but did not add Sand-Creek-to-Highway-70 because the existing Wisconsin `st-croix-river-fox-highway-70` card already covers the downstream corridor, and did not add Highway-70-to-Highway-8 because the 34.4-mile route plus dam/portage complexity was weaker than the selected day-route gaps.
 
 - 2026-07-15 00:11 America/Chicago: added `mississippi-river-county-line-jacobson`, `mississippi-river-overlook-belle-prairie`, and `mississippi-river-royalton-sartell`.
 - Baseline at run start was 128 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 131 Minnesota routes and all three new slugs have trip-detail records.

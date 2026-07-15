@@ -2052,6 +2052,62 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'root-river-houston-mound-prairie': {
+    putIn: {
+      name: 'Root River, Houston Public Water Access Site',
+      latitude: 43.7645,
+      longitude: -91.57037,
+    },
+    takeOut: {
+      name: 'Root River, Mound Prairie Public Water Access Site',
+      latitude: 43.7094539,
+      longitude: -91.4671173,
+    },
+    logistics: {
+      distanceLabel: 'About 6.7 mi',
+      estimatedPaddleTime: 'About 2.25 hr to 3.5 hr, longer with low water, wood, or a high-band current',
+      shuttle:
+        'Stage the take-out at Mound Prairie / County Road 25 first, then drive back to Houston. Inspect the Mound Prairie exit before launching because it is a WMA-side carry-in rather than a town landing.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted WMA, access, and parking rules.',
+      camping:
+        'Use Houston or other nearby established campground support as the overnight plan. Treat this selected reach as a day trip; do not assume informal WMA or private-bank camping is allowed.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Houston and finish at Mound Prairie for a short lower-Root continuation below the existing Rushford-to-Houston route. The Mound Prairie DNR gauge is direct at the take-out bridge and was in the high band during this run.',
+      accessCaveats: [
+        'Houston and Mound Prairie both resolve in Minnesota public-water-access GIS with Root River river-mile records and coordinates.',
+        'Mound Prairie is the clean finish for this card. Continuing downstream toward Hokah or the Mississippi changes the route and requires a separate access plan.',
+        'The direct gauge is near the take-out, but it does not replace a visual check for wood, debris, muddy banks, and parking conditions at both ends.',
+      ],
+      watchFor: [
+        'Fresh sweepers, strainers, or flood debris after rain.',
+        'Shallow riffles and slow progress if the Mound Prairie gauge drops toward the low or scrapable bands.',
+        'Pushier current and harder landings when the gauge is in the high or very-high bands.',
+        'Private banks and WMA rules; use public accesses and legal stops only.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'houston-access',
+        name: 'Root River, Houston Public Water Access Site',
+        latitude: 43.7645,
+        longitude: -91.57037,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 18.7; resolves as WAS02188.',
+      },
+      {
+        id: 'mound-prairie',
+        name: 'Root River, Mound Prairie Public Water Access Site',
+        latitude: 43.7094539,
+        longitude: -91.4671173,
+        mileFromStart: 6.7,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 12.0 beside the County Road 25 bridge and selected DNR gauge; resolves as WAS00062.',
+      },
+    ],
+  },
   'root-river-parsley-moens': {
     putIn: {
       name: 'Parsley Bridge carry-in access',
@@ -26605,6 +26661,71 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'mississippi-river-dayton-mississippi-gateway': {
+    putIn: {
+      name: 'Crow/Mississippi River, Dayton Public Water Access Site',
+      latitude: 45.2456453,
+      longitude: -93.521084,
+    },
+    takeOut: {
+      name: 'Mississippi Gateway Regional Park carry-in access',
+      latitude: 45.1439,
+      longitude: -93.3028,
+    },
+    logistics: {
+      distanceLabel: 'About 13.4 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6.5 hr, longer with wind, low-water island routing, or dam-pool delays',
+      shuttle:
+        'Stage the take-out at Mississippi Gateway Regional Park before launching at Dayton. Walk the paved park path to identify the carry-in launch/take-out above the dam, then drive back to Dayton.',
+      permits:
+        'No route-specific paddling permit is known. Use the public accesses, follow Minnesota boating/PFD rules, and obey all Coon Rapids Dam, Three Rivers, Anoka County, and water-trail signs.',
+      camping:
+        'Treat this as a metro day route. DNR Map 9 identifies Foster/Cloquet island campsites upstream of the selected take-out, but the normal Dayton-to-Gateway trip should not depend on informal or private-bank camping.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Dayton and take out at Mississippi Gateway Regional Park before Coon Rapids Dam. This fills the official DNR Map 9 upstream metro section above the already-live below-dam Coon-Rapids-to-Riverfront card.',
+      accessCaveats: [
+        'Dayton resolves in Minnesota public-water-access GIS with a public access ID and coordinates; Mississippi Gateway is anchored by DNR Map 9 and Three Rivers / Paddle Share access guidance.',
+        'The Mississippi Gateway carry-in is the required take-out before Coon Rapids Dam. Identify it from shore before launching and do not drift toward the dam if you are uncertain.',
+        'The Hwy 610 gauge is downstream of Coon Rapids Dam. Use it as the DNR same-map flow check, then make a visual call at Dayton and Mississippi Gateway for pool level, wind, wake, and dam conditions.',
+      ],
+      watchFor: [
+        'Mandatory take-out before Coon Rapids Dam and nearby portage/dam infrastructure.',
+        'Island channels, shallow bars, floating wood, bridge current, and changed routes when water is low.',
+        'Wind, motorboat wake, storm runoff, and metro Mississippi water-quality advisories.',
+        'Park-managed and private banks; use public accesses and legal stops only.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'dayton-access',
+        name: 'Crow/Mississippi River, Dayton Public Water Access Site',
+        latitude: 45.2456453,
+        longitude: -93.521084,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 879.6; resolves as WAS01718.',
+      },
+      {
+        id: 'mississippi-west-regional-park',
+        name: 'Mississippi River, Mississippi West Regional Park Public Water Access Site',
+        latitude: 45.2225316,
+        longitude: -93.4598469,
+        mileFromStart: 3.7,
+        segmentKind: 'transition',
+        note: 'Intermediate public access at DNR river mile 875.9; resolves as WAS02902 and can serve as a bailout.',
+      },
+      {
+        id: 'mississippi-gateway',
+        name: 'Mississippi Gateway Regional Park carry-in access',
+        latitude: 45.1439,
+        longitude: -93.3028,
+        mileFromStart: 13.4,
+        segmentKind: 'creek',
+        note: 'Required take-out at DNR river mile 866.2 before Coon Rapids Dam; anchored by DNR Map 9 and Three Rivers / Paddle Share access guidance.',
+      },
+    ],
+  },
   'mississippi-river-county-road-12-dam-county-road-25': {
     putIn: {
       name: 'Mississippi River, Co Rd 12 Public Water Access Site',
@@ -28285,6 +28406,71 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 11.2,
         segmentKind: 'transition',
         note: 'DNR public-water-access record WAS02194 at St. Croix River mile 25.6.',
+      },
+    ],
+  },
+  'st-croix-river-little-yellow-banks-sand-creek': {
+    putIn: {
+      name: 'St. Croix River, Little Yellow Banks Public Water Access Site',
+      latitude: 45.9753904,
+      longitude: -92.541598,
+    },
+    takeOut: {
+      name: 'St. Croix River, Mouth of Sand Creek Public Water Access Site',
+      latitude: 45.9331669,
+      longitude: -92.6407033,
+    },
+    logistics: {
+      distanceLabel: 'About 6.7 mi',
+      estimatedPaddleTime: 'About 2.25 hr to 3.75 hr, longer with low-water dragging, headwind, or campsite stops',
+      shuttle:
+        'Stage the take-out at Sand Creek Landing, then drive back to Little Yellow Banks. If using St. Croix State Park #2 as a backup exit, identify the landing behind the island before launch.',
+      permits:
+        'No route-specific paddling permit is known. Follow National Scenic Riverway rules, Minnesota boating/PFD rules, and posted public-access, state-park, and campsite regulations.',
+      camping:
+        'NPS Riverway camping is limited to designated first-come sites with stay, group-size, fire, waste, and food-storage rules. Treat this short route as a day trip unless campsite availability and rules are part of the plan.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Little Yellow Banks and take out at Sand Creek Landing for a short middle-St. Croix Riverway run above the existing Fox-to-Highway-70 coverage. The Danbury DNR gauge is upstream and was scrapable during this run.',
+      accessCaveats: [
+        'Little Yellow Banks, St. Croix State Park #2, and Sand Creek Landing all resolve in Minnesota public-water-access GIS with river-mile records and coordinates.',
+        'NPS Map 5 says the St. Croix State Park main landing sits behind an island on river right. Do not count on finding it casually from mid-channel without watching the map.',
+        'The Danbury gauge is upstream of the selected reach. Use it as an official same-river condition check, then inspect local landings for shallow bars, wood, and current.',
+      ],
+      watchFor: [
+        'Low-water scraping or walking when Danbury is in the scrapable band.',
+        'Fallen trees, strainers, island channels, cold water, and changing sand or gravel bars.',
+        'Riverway rules: designated campsites only, no private-bank assumptions, no glass, pack out trash, and keep right/route-find around islands as mapped.',
+        'Tubing or small-boat traffic near popular landings in summer.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'little-yellow-banks',
+        name: 'St. Croix River, Little Yellow Banks Public Water Access Site',
+        latitude: 45.9753904,
+        longitude: -92.541598,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at St. Croix river mile 111.2; resolves as WAS01887.',
+      },
+      {
+        id: 'st-croix-state-park-2',
+        name: 'St. Croix River, St. Croix SPK #2 Public Water Access Site',
+        latitude: 45.9504137,
+        longitude: -92.5683247,
+        mileFromStart: 2.7,
+        segmentKind: 'transition',
+        note: 'Intermediate state-park landing at river mile 108.5; resolves as WAS00076 and may be hidden behind an island.',
+      },
+      {
+        id: 'sand-creek-landing',
+        name: 'St. Croix River, Mouth of Sand Creek Public Water Access Site',
+        latitude: 45.9331669,
+        longitude: -92.6407033,
+        mileFromStart: 6.7,
+        segmentKind: 'creek',
+        note: 'Default take-out at St. Croix river mile 104.5; resolves as WAS01894.',
       },
     ],
   },
