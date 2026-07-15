@@ -1,18 +1,28 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 05:19 America/Chicago.
+Last summarized: 2026-07-15 06:12 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 146.
-- Top represented rivers: Mississippi River 25, Sauk River 18, Minnesota River 10, Little Fork River 9, Crow Wing River 8, Big Fork River 5, Root River 5, Zumbro River 5, Cannon River 4, North Fork Crow River 4, Otter Tail River 4, Red River of the North 4, Rum River 4, St. Croix River 4, St. Louis River 4, Red Lake River 3.
-- Ledger candidates: 871 total; 511 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
+- Live routes: 149.
+- Top represented rivers: Mississippi River 25, Sauk River 18, Minnesota River 11, Little Fork River 9, Crow Wing River 8, Big Fork River 5, Root River 5, Rum River 5, Zumbro River 5, Cannon River 4, North Fork Crow River 4, Otter Tail River 4, Red River of the North 4, St. Croix River 4, St. Louis River 4, Red Lake River 3.
+- Ledger candidates: 880 total; 520 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 06:12 America/Chicago: added `rum-river-cambridge-west-martins`, `des-moines-river-pats-grove-mayflower`, and `minnesota-river-war-memorial-kinney`.
+- Baseline at run start was 146 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 149 Minnesota routes and all three new slugs have trip-detail records.
+- Stayed in Minnesota and promoted three distinct official/source-backed gaps after reconciling prompt leads and existing V2 coverage. Rum Cambridge-West-to-Martin's fills the lower Cambridge-to-Martin's public-access gap on MN DNR Map 2; Des Moines Pat's-Grove-to-Mayflower is the DNR-recommended upper connector above the existing Mayflower-to-Christianna card; and Minnesota River War-Memorial-to-Kinney is the official long Map 3 reach with downstream Morton gauge support.
+- Minnesota public-water-access GIS resolves Rum Cambridge West and Martin's Landing, Des Moines Mayflower, and Minnesota River War Memorial / Kinney access. Pat's Grove did not resolve cleanly in the DNR PWA layer, so the route anchors that endpoint to DNR recommended-route materials, Cottonwood County park rules/context, and the onWater embedded public-access geometry.
+- Current MN DNR river-level feed exposed interpreted ladders for Rum St. Francis site `211` (`600 / 1000-2000 / 3000 cfs`), West Fork Des Moines Jackson site `259` (`75 / 200-900 / 1800 cfs`), and Minnesota River Morton site `107` (`307 / 1330-3750 / 10900 cfs`). During the run, St. Francis was low at `921 cfs`, Jackson was medium at `283 cfs`, and Morton was medium at `2030 cfs`.
+- Camping posture: Cambridge-West-to-Martin's is `none`, Pat's-Grove-to-Mayflower is `endpoint_campground` under Cottonwood County / Pat's Grove rules, and War-Memorial-to-Kinney is `none`, with no on-route camping assumed for the short War Memorial-to-Kinney segment.
+- Safety posture: Rum carries proxy-gauge, low-water scraping, wood/strainer, private-bank, cold-water, and busy-landing caveats; Des Moines carries long-mileage, Pat's Grove carry/coordinate caveat, wood, floodplain current, private-bank, and endpoint-rule caveats; War-Memorial-to-Kinney is `whitewater` / advanced with the 250-yard dam portage, Downtown Rapids, Minnesota Falls Class II-IV scout/portage requirement, Patterson Rapids, remote-rescue exposure, and private-bank caveats.
+- No route-gallery images were added. Bounded DNR / Cottonwood County / Commons / local-context / same-route image review did not produce clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed but did not add Big Fork upper because the DNR gauge was stale, Red Lake at Thief River Falls because the DNR level was stale, Snake Silver-Star-to-Lower-Falls because upper Snake gauge/access proof remained weak, Fort Ripley-to-Fletcher Creek because Fletcher Creek access was unresolved in PWA GIS, Blue Earth lower because Rapidan Dam failure context still weakens the hazard package, North Fork Crow Manannah-to-Highway-22 because the active tree alert affects that reach, or broader Red River leads because endpoint/gauge support was weaker than the accepted routes.
 
 - 2026-07-15 05:19 America/Chicago: added `crow-wing-river-little-white-dog-cottingham`, `mississippi-river-kiwanis-crow-wing-state-park`, and `mississippi-river-belle-prairie-lebourget`.
 - Baseline at run start was 143 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 146 Minnesota routes and all three new slugs have trip-detail records.

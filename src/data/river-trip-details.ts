@@ -2688,6 +2688,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'rum-river-cambridge-west-martins': {
+    putIn: {
+      name: 'Rum River, Cambridge Public Water Access Site',
+      latitude: 45.5723504,
+      longitude: -93.2357162,
+    },
+    takeOut: {
+      name: "Rum River, Martins Public Water Access Site",
+      latitude: 45.4883322,
+      longitude: -93.2667511,
+    },
+    logistics: {
+      distanceLabel: 'About 6.3 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr depending on low water, wood, and stops',
+      shuttle:
+        "Stage Martin's Landing first, then drive back to Cambridge West Park. This is the short connector below the existing Walbo-to-Cambridge route, so do not launch assuming upstream route notes cover every downstream landing condition.",
+      permits:
+        "No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted Cambridge and DNR access rules at Martin's Landing.",
+      camping:
+        "No selected on-route campsite was confirmed between Cambridge West and Martin's Landing. Treat this as a day route; use upstream or nearby camping only as separate planning.",
+      campingClassification: 'none',
+      summary:
+        "Launch at Cambridge West Park and take out at Martin's Landing for the missing lower half of the middle-Rum public-access chain. Use the downstream St. Francis gauge conservatively and make a visual check for low-water dragging and fresh wood.",
+      accessCaveats: [
+        "Cambridge and Martin's Landing both resolve in Minnesota public-water-access GIS with coordinates and public administrator records.",
+        'The St. Francis gauge is downstream of this reach, so it is a same-river proxy rather than an exact put-in gauge.',
+        'DNR Map 2 notes downed trees, snags, dams, and frequent log jams near Princeton on the broader middle Rum corridor; check current local conditions before launching.',
+      ],
+      watchFor: [
+        'Downed trees, strainers, fresh storm debris, and occasional log jams.',
+        'Low-water scraping or slow progress when St. Francis is near or below the 600 cfs scrapable floor.',
+        'Private banks and limited clean exits between the named public accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cambridge',
+        name: 'Rum River, Cambridge Public Water Access Site',
+        latitude: 45.5723504,
+        longitude: -93.2357162,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR Map 2 river mile 41.0; resolves in public-water-access GIS as the Cambridge access.',
+      },
+      {
+        id: 'martins',
+        name: "Rum River, Martins Public Water Access Site",
+        latitude: 45.4883322,
+        longitude: -93.2667511,
+        mileFromStart: 6.3,
+        segmentKind: 'creek',
+        note: "Default take-out at DNR Map 2 river mile 34.7; resolves in public-water-access GIS as Martin's Landing.",
+      },
+    ],
+  },
   'sauk-river-eagle-miller-landing': {
     putIn: {
       name: 'Eagle Park carry-in access',
@@ -27001,6 +27056,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'des-moines-river-pats-grove-mayflower': {
+    putIn: {
+      name: "Pat's Grove County Park carry-in access",
+      latitude: 43.8753315,
+      longitude: -95.2933272,
+    },
+    takeOut: {
+      name: 'Mayflower Park Public Water Access Site',
+      latitude: 43.8576801,
+      longitude: -95.1079771,
+    },
+    logistics: {
+      distanceLabel: 'About 19.2 mi',
+      estimatedPaddleTime: 'About 6.5 hr to 9 hr, longer with low water, scouting, or a campsite stop',
+      shuttle:
+        "Stage Mayflower Park below Windom first, then drive west to Pat's Grove County Park. Confirm the Heron Lake outlet launch path at Pat's Grove and do not commit if the outlet is too shallow or blocked.",
+      permits:
+        "No route-specific paddling permit is known. Use the county park and DNR public access, follow Minnesota boating/PFD rules, and obey posted Pat's Grove, Mayflower, campsite, and private-bank rules.",
+      camping:
+        "Pat's Grove is mapped as a watercraft campground and Cottonwood County lists it as primitive. Treat this as an endpoint campground or long-day staging option, not permission to camp on private banks along the route.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch from Pat's Grove on the Heron Lake outlet and take out at Mayflower Park below Windom for the upper connector above the existing Mayflower-to-Christianna route. Use the Jackson gauge as a downstream proxy and make a same-day low-water and obstruction call.",
+      accessCaveats: [
+        "Pat's Grove is not directly on the main Des Moines River; DNR places it upstream on the Heron Lake outlet and Cottonwood County describes the park at the Des Moines / Heron Lake Outlet junction.",
+        "Pat's Grove did not resolve by name in the public-water-access GIS query during this run; the coordinate is source-corroborated from an access-point page and should be checked against signed access on arrival.",
+        'Mayflower Park resolves in Minnesota public-water-access GIS at DNR river mile 36.1.',
+      ],
+      watchFor: [
+        'Snags, fallen trees, farm-field wind, shallow riffles, muddy banks, and slow progress below the official medium band.',
+        'Small rock riffles, Dynamite County Park / Island Park access decisions, and the former Windom Dam area before Mayflower.',
+        'Heavy-rain flooding and fast current. DNR warns the broader Des Moines trail has dams, snags, and several Class I rapids.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'pats-grove',
+        name: "Pat's Grove County Park carry-in access",
+        latitude: 43.8753315,
+        longitude: -95.2933272,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "DNR Map 1 places Pat's Grove at river mile 55.3 on the Heron Lake outlet; coordinate is source-corroborated outside the DNR GIS layer.",
+      },
+      {
+        id: 'mayflower-park',
+        name: 'Mayflower Park Public Water Access Site',
+        latitude: 43.8576801,
+        longitude: -95.1079771,
+        mileFromStart: 19.2,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 36.1; resolves as WAS02772.',
+      },
+    ],
+  },
   'zumbro-river-zumbro-falls-hammond': {
     putIn: {
       name: 'Zumbro Falls Public Water Access Site',
@@ -27548,6 +27658,62 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 9.2,
         segmentKind: 'creek',
         note: 'Default take-out at DNR river mile 224.4/224.6; resolves as WAS00685 with county-park camping context.',
+      },
+    ],
+  },
+  'minnesota-river-war-memorial-kinney': {
+    putIn: {
+      name: 'Minnesota River, War Memorial City Park Public Water Access Site',
+      latitude: 44.8015931,
+      longitude: -95.5391512,
+    },
+    takeOut: {
+      name: 'Minnesota River, Kinney Public Water Access Site',
+      latitude: 44.7741284,
+      longitude: -95.5312559,
+    },
+    logistics: {
+      distanceLabel: '5.1 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3 hr, plus extra time for launch scouting, low-water lines, or wood',
+      shuttle:
+        'Stage Kinney first, then drive back to War Memorial City Park in Granite Falls. Confirm both accesses before launching and keep this as a short, daylight-only moving-water plan.',
+      permits:
+        'No route-specific paddling permit is known. Use public accesses, follow Minnesota boating/PFD rules, and obey all dam, portage, city-park, WMA/AMA, and access rules.',
+      camping:
+        'No on-route camping is assumed for this short segment. Use separate legal campground or lodging plans if pairing it with other Map 3 paddles, and do not camp on private banks.',
+      campingClassification: 'none',
+      summary:
+        'Launch at War Memorial City Park and finish at Kinney for a short DNR Map 3 public-access segment above the already-live Kinney-to-Skalbekken card. The Morton gauge is a downstream same-map proxy, so use it as a trend check and inspect the local launch/rapid corridor before committing.',
+      accessCaveats: [
+        'War Memorial City Park and Kinney both resolve in Minnesota public-water-access GIS with public administrator records and coordinates.',
+        'Launch below the Granite Falls dam and town-water context. Scout the War Memorial area before committing because DNR Map 3 marks dam, portage, and Downtown Rapids hazards in the immediate corridor.',
+        'Kinney is the clean finish. Do not continue into the already-live Kinney-to-Skalbekken reach or lower Map 3 rapid context without a separate route plan.',
+      ],
+      watchFor: [
+        'Granite Falls dam/portage context upstream of the launch, Downtown Rapids context, small Class I-II rapids, ledges, and mandatory scout-or-portage decisions where conditions exceed the group.',
+        'Muddy banks, wind exposure, fast rises, floating debris, strainers, wooded bends, and mostly private shoreline away from mapped public sites.',
+        'Low-water rock exposure below the official band and pushy high-water current above the medium band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'war-memorial',
+        name: 'Minnesota River, War Memorial City Park Public Water Access Site',
+        latitude: 44.8015931,
+        longitude: -95.5391512,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 238.9; resolves in public-water-access GIS as War Memorial City Park.',
+      },
+      {
+        id: 'kinney',
+        name: 'Minnesota River, Kinney Public Water Access Site',
+        latitude: 44.7741284,
+        longitude: -95.5312559,
+        mileFromStart: 5.1,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 233.8; also the put-in for the already-live Kinney-to-Skalbekken continuation.',
       },
     ],
   },
