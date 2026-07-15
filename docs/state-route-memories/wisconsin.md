@@ -4,16 +4,23 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 115.
-- Top represented rivers: Wisconsin River 16, Sugar River 5, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Fox River 3, Popple River 3, Baraboo River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3.
-- Ledger candidates: 102 total; 92 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
+- Live routes: 118.
+- Top represented rivers: Wisconsin River 16, Sugar River 5, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Rock River 4, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Fox River 3, Popple River 3, Baraboo River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3.
+- Ledger candidates: 105 total; 95 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 112-route baseline: `jump-river-haley-holcombe-flowage`, `rock-river-harnischfeger-kaul`, and `rock-river-kaul-kanow`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 115-route baseline: `rock-river-kanow-county-p`, `rock-river-county-p-willow-street`, and `big-eau-pleine-river-march-rapids-big-rapids`.
 
 ## Latest Audit
 
+- 2026-07-15 America/Chicago: added `rock-river-kanow-county-p`, `rock-river-county-p-willow-street`, and `big-eau-pleine-river-march-rapids-big-rapids`, bringing the live Wisconsin route count from the run-start baseline of 115 to 118.
+- The two Rock River routes extend the upper Rock public-access chain from Kanow Park through County Road P / Pipersville to Willow Street Landing. Rock River Water Trail Section C access and description PDFs document the public access sequence, mileage context, and route shape; Wisconsin River Trips corroborates the Kanow/Ixonia route family, practical public-access notes, and Watertown-gauge ladder. USGS Water Services returned Rock River at Watertown `05425500` at `162 cfs / 1.35 ft` at 2026-07-15 09:05 CDT, below the selected target but above the low-water floor.
+- The Big Eau Pleine route adds the March Rapids Park-to-Big Rapids Park whitewater day run. Wisconsin River Trips documents the exact route family, March Rapids/Big Rapids park endpoints, rapids, dam-stop posture, and Stratford-gauge ladder; Town of Eau Pleine and Marathon County corroborate park/access context. USGS Water Services returned Big Eau Pleine River at Stratford `05399500` at `12.3 cfs / 2.35 ft` at 2026-07-15 09:05 CDT, far below the selected low-water floor.
+- Threshold posture: both Rock cards use WRT's upper Rock `201-400 cfs` target, `100 cfs` low floor, and `801+ cfs` high cutoff with downstream/dam-influenced representativeness caveats. Big Eau Pleine uses WRT's direct Stratford-gauge `151-250 cfs` target, `100 cfs` low floor, and `301+ cfs` high cutoff.
+- Safety/logistics added: Kanow-to-County-P and County-P-to-Willow carry private-bank, low-water, wind, bridge/access, and downstream-gauge caveats, and the Willow Street card flags the mandatory Upper Watertown Dam stop. March-Rapids-to-Big-Rapids is `whitewater` with Class I-II rapids, cold-water/current exposure, strainers, no on-route camping assumption, Big Eau Pleine Dam take-out discipline, and low-water scrape/walk warnings.
+- Bounded image review found route/context imagery leads but no clearly rights-clean exact-route paddling asset selected for the three new cards; no-image rows were added to the image audit.
+- Reviewed but did not add Yellow River Highway F / Necedah because current route reports still warn of many logjams, Waupaca/Tomorrow variants because direct gauge/current obstruction support remains stale or weak, and Black Earth Creek Cross Plains-to-Salmo Pond because unresolved obstruction evidence remains. Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica were reconciled as already implemented.
 - 2026-07-15 America/Chicago: added `jump-river-haley-holcombe-flowage`, `rock-river-harnischfeger-kaul`, and `rock-river-kaul-kanow`, bringing the live Wisconsin route count from the run-start baseline of 112 to 115.
 - The Jump route uses Rusk County's Sheldon-to-Lake-Holcombe route/access page plus Wisconsin River Trips' lower Jump River gauge ladder and direct USGS `05362000` at Sheldon. USGS Water Services returned `84.3 cfs / 3.16 ft` at 2026-07-15 08:00 CDT, below the selected low-water floor, so the card ships as a low-water warning.
 - The two Rock River routes add the Harnischfeger-to-Kaul and Kaul-to-Kanow upper Rock public-access chain. Wisconsin River Trips documents both route segments, mileage, public access notes, no-dam/no-logjam route reports, wind caveats, and a Watertown-gauge ladder; Dodge County and Jefferson County/local park materials corroborate public launch context. USGS Water Services returned Rock River at Watertown `05425500` at `226 cfs / 1.56 ft` at 2026-07-15 08:00 CDT, inside the selected `201-400 cfs` target band.

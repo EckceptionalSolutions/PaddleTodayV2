@@ -1642,6 +1642,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'chippewa-river-lagoon-priens': {
+    putIn: {
+      name: 'Montevideo Chippewa / Lagoon Park Public Water Access Site',
+      latitude: 44.950253,
+      longitude: -95.7291569,
+    },
+    takeOut: {
+      name: "Prien's Landing Public Water Access Site",
+      latitude: 44.9296663,
+      longitude: -95.7267761,
+    },
+    logistics: {
+      distanceLabel: '1.9 mi',
+      estimatedPaddleTime: 'About 45 min to 1.5 hr depending on level, wind, and confluence current',
+      shuttle:
+        "Use a short Montevideo-area shuttle from Prien's Landing back to Lagoon Park. Stage the take-out first because the finish is on the Minnesota River confluence corridor rather than a simple same-bank park loop.",
+      permits:
+        "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules and posted City of Montevideo, DNR, and Prien's Landing access rules.",
+      camping:
+        'Lagoon Park has DNR-documented fee camping and toilets, but the selected route is a short day paddle. Treat camping as an endpoint/basecamp plan under current city rules, not a guaranteed on-route campsite.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Launch at Lagoon Park and take out at Prien's Landing for the official lower-Chippewa finish below Watson. Use the Watson DNR gauge as the lower-corridor signal, then make a visual call at Lagoon Park before committing.",
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Lagoon Park / Montevideo Chippewa as WAS02654 near lower Chippewa river mile 1.2 and Prien\'s Landing as WAS01053 near Minnesota River mile 257.3.',
+        "This card uses the DNR-recommended Lagoon-to-Prien's row and does not duplicate the longer upstream Lentz-to-Watson route.",
+        'The take-out is on the Minnesota River confluence corridor. Do not assume private banks near the confluence are legal exits, rest stops, or camping options.',
+      ],
+      watchFor: [
+        'Low-water scraping and slow channel-picking when Watson is below the official medium band.',
+        'Steeper banks, faster water, wind, muddy landings, and confluence current near the Minnesota River.',
+        'Fresh wood or strainers after rain, especially around bends and bridge approaches.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lagoon-park-montevideo',
+        name: 'Montevideo Chippewa / Lagoon Park Public Water Access Site',
+        latitude: 44.950253,
+        longitude: -95.7291569,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; DNR page identifies Lagoon Park with access, fee camping, toilets, and 10 campsites.',
+      },
+      {
+        id: 'priens-landing',
+        name: "Prien's Landing Public Water Access Site",
+        latitude: 44.9296663,
+        longitude: -95.7267761,
+        mileFromStart: 1.9,
+        segmentKind: 'creek',
+        note: 'Default take-out at the Minnesota River confluence corridor; resolves in public-water-access GIS as WAS01053.',
+      },
+    ],
+  },
   'otter-tail-river-wannigan-riverside': {
     putIn: {
       name: 'Wannigan Road carry-in access',
@@ -3408,6 +3463,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Floating debris, overhanging trees, and muddy or sandy banks at landings and breaks.',
       ],
     },
+  },
+  'minnesota-river-belle-plaine-thompson-ferry': {
+    putIn: {
+      name: 'Belle Plaine Public Water Access Site',
+      latitude: 44.6341051,
+      longitude: -93.7653205,
+    },
+    takeOut: {
+      name: 'Thompson Ferry Public Water Access Site',
+      latitude: 44.6923859,
+      longitude: -93.6411571,
+    },
+    logistics: {
+      distanceLabel: 'About 10.6 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with headwind, low sandbars, or muddy landings',
+      shuttle:
+        'Stage Thompson Ferry first, then drive back to Belle Plaine. This card fills the gap between two existing lower-Minnesota routes, so keep the shuttle bounded unless you intentionally plan the downstream Thompson-to-Carver card too.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, posted DNR access rules, and Minnesota River Valley public-land restrictions.',
+      camping:
+        'Treat this as a day route. DNR Map 6 says camping should use designated campsites, and no selected on-route campsite is assumed for the Belle-Plaine-to-Thompson split.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Belle Plaine and take out at Thompson Ferry for the missing lower-Minnesota connector above the existing Thompson-to-Carver route. The Jordan gauge sits in the take-out corridor and is the direct official level check.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Belle Plaine as WAS02403 near river mile 50.4 and Thompson Ferry as WAS01222 near river mile 40.1.',
+        'DNR Map 6 labels Belle Plaine near river mile 50.7 and Thompson Ferry near river mile 40.2; use named accesses and coordinates rather than informal banks.',
+        'Sandbars and shorelines are not automatically legal campsites or bailouts. Respect private shoreland and designated-use boundaries.',
+      ],
+      watchFor: [
+        'Wind, waves, muddy banks, sandbars, and flood debris on the broad lower Minnesota River.',
+        'Fresh strainers and floating debris after high water or storms.',
+        'Private shoreland and limited public exits before Thompson Ferry; stop there unless a separate downstream route is planned.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'belle-plaine-access',
+        name: 'Belle Plaine Public Water Access Site',
+        latitude: 44.6341051,
+        longitude: -93.7653205,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; DNR Map 6 and public-water-access GIS both identify the Belle Plaine access.',
+      },
+      {
+        id: 'thompson-ferry',
+        name: 'Thompson Ferry Public Water Access Site',
+        latitude: 44.6923859,
+        longitude: -93.6411571,
+        mileFromStart: 10.6,
+        segmentKind: 'creek',
+        note: 'Default take-out beside the Jordan gauge corridor and upstream of the already-live Thompson-to-Carver route.',
+      },
+    ],
   },
   'minnesota-river-thompson-ferry-carver': {
     putIn: {
@@ -8627,6 +8737,193 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private banks and farm or residential shoreline; stay with public launches and legal stops.',
       ],
     },
+  },
+  'rock-river-kanow-county-p': {
+    putIn: {
+      name: 'Kanow County Park Canoe Launch',
+      latitude: 43.142222,
+      longitude: -88.565278,
+    },
+    takeOut: {
+      name: 'County Road P / Pipersville Carry-In',
+      latitude: 43.141944,
+      longitude: -88.645833,
+    },
+    logistics: {
+      distanceLabel: 'About 10 to 11.3 mi',
+      estimatedPaddleTime: 'About 4 hr to 5.5 hr, longer with headwind or low water',
+      shuttle:
+        'Stage the take-out at County Road P / Pipersville, then drive back to Kanow County Park. Inspect County Road P first because it is a roadside carry-in with limited parking rather than a full park landing.',
+      permits:
+        'No route-specific paddling permit is known. Use the Rock River Water Trail public access sites, follow Jefferson County and local park rules, and do not park where roadside access signs or traffic sightlines make it unsafe.',
+      camping:
+        'No on-route camping is documented for this Kanow-to-Pipersville segment. Treat it as a long day route and keep any overnight plan separate from the river corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Kanow County Park and paddle the upper Rock River past the Highway 16 Wayside and County F corridor to the County Road P / Pipersville carry-in. This is a quiet National Water Trail connector with limited developed access and a downstream-gauge caveat.',
+      accessCaveats: [
+        'Kanow County Park is the clean put-in; confirm current park hours, parking, and launch access before leaving the take-out vehicle.',
+        'County Road P is the planned take-out and is listed as a carry-in roadside site with limited parking. Inspect it before launch and do not count on developed facilities there.',
+        'County Road F can work as a bailout, but it is a roadside carry-in style access; do not assume it has comfortable parking or a formal ramp.',
+        'The Watertown gauge is downstream and dam-influenced, so use it as a route-family signal and still inspect local water level at the endpoints.',
+      ],
+      watchFor: [
+        'Headwinds on the slow, open Rock River channel.',
+        'Low-water mud and shallow edges below the WRT target band.',
+        'Fresh strainers or floating wood after storms, especially near bends and bridges.',
+        'Private banks and rural shoreline between public access points; stay with named access sites and legal roadside stops.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'kanow-county-park',
+        name: 'Kanow County Park Canoe Launch',
+        latitude: 43.142222,
+        longitude: -88.565278,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Official Rock River Water Trail carry-in access and default put-in.',
+      },
+      {
+        id: 'highway-16-wayside',
+        name: 'Highway 16 Wayside Carry-In',
+        latitude: 43.14,
+        longitude: -88.574444,
+        mileFromStart: 0.9,
+        segmentKind: 'creek',
+        note: 'Official intermediate carry-in access with parking on Rock River Water Trail Section C.',
+      },
+      {
+        id: 'county-road-f-ixonia',
+        name: 'County Road F / Ixonia Carry-In',
+        latitude: 43.143889,
+        longitude: -88.597222,
+        mileFromStart: 5.3,
+        segmentKind: 'creek',
+        note: 'Roadside carry-in documented by Wisconsin River Trips and Rock River Water Trail inventory materials; inspect parking before relying on it.',
+      },
+      {
+        id: 'county-road-p-pipersville',
+        name: 'County Road P / Pipersville Carry-In',
+        latitude: 43.141944,
+        longitude: -88.645833,
+        mileFromStart: 11.3,
+        segmentKind: 'creek',
+        note: 'Official Rock River Water Trail carry-in / roadside access and default take-out.',
+      },
+    ],
+  },
+  'rock-river-county-p-willow-street': {
+    putIn: {
+      name: 'County Road P / Pipersville Carry-In',
+      latitude: 43.141944,
+      longitude: -88.645833,
+    },
+    takeOut: {
+      name: 'Willow Street Landing / Watertown Portage Take-Out',
+      latitude: 43.183889,
+      longitude: -88.703611,
+    },
+    logistics: {
+      distanceLabel: 'About 5 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with headwind or low water',
+      shuttle:
+        'Stage the take-out at Willow Street Landing in Watertown, then drive back to the County Road P / Pipersville carry-in. Make the Willow Street landing familiar from land because it is the required exit before the Upper Watertown Dam.',
+      permits:
+        'No route-specific paddling permit is known. Use the Rock River Water Trail public access sites, obey local parking and portage signs, and keep the dam area conservative.',
+      camping:
+        'No on-route camping is documented for this short final upper-Rock connector. Treat it as a day route ending before the Watertown dam.',
+      campingClassification: 'none',
+      summary:
+        'Launch from the County Road P / Pipersville carry-in and paddle the final rural Rock River connector into Watertown. Take out at Willow Street before the Upper Watertown Dam; this route does not include the dam or downstream portage.',
+      accessCaveats: [
+        'County Road P has limited roadside-style access and parking. Inspect it before launch and avoid blocking traffic or private drives.',
+        'Willow Street Landing is the route take-out and portage landing before the Upper Watertown Dam. Do not drift past it without a separate, current dam-portage plan.',
+        'The Watertown gauge is close to the destination but still sits in a dam-influenced corridor; check the local water level and landing conditions before committing.',
+      ],
+      watchFor: [
+        'The Upper Watertown Dam approach; land early at Willow Street and keep the group together.',
+        'Wind and weak current that can stretch the short mileage.',
+        'Low-water mud, shallow banks, and bridge debris.',
+        'Private shoreline and limited bailout options between County Road P and Watertown.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-road-p-pipersville',
+        name: 'County Road P / Pipersville Carry-In',
+        latitude: 43.141944,
+        longitude: -88.645833,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Official Rock River Water Trail carry-in / roadside access with limited parking.',
+      },
+      {
+        id: 'willow-street-landing',
+        name: 'Willow Street Landing / Watertown Portage Take-Out',
+        latitude: 43.183889,
+        longitude: -88.703611,
+        mileFromStart: 5,
+        segmentKind: 'creek',
+        note: 'Official Rock River Water Trail take-out before the Upper Watertown Dam.',
+      },
+    ],
+  },
+  'big-eau-pleine-river-march-rapids-big-rapids': {
+    putIn: {
+      name: 'March Rapids Park',
+      latitude: 44.8507988,
+      longitude: -90.1498549,
+    },
+    takeOut: {
+      name: 'Big Rapids Park Kayak Launch',
+      latitude: 44.8395143,
+      longitude: -90.0992255,
+    },
+    logistics: {
+      distanceLabel: '3.6 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer with scouting, low water, or photo stops',
+      shuttle:
+        'Stage the take-out at Big Rapids Park above the small dam, then drive back to March Rapids Park. Inspect both the March Rapids launch choice and the Big Rapids take-out before launching because the river is shallow, rocky, and level-sensitive.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Town of Eau Pleine and Marathon County park rules, keep vehicles in legal parking areas, and use the public park access paths.',
+      camping:
+        'No on-route camping is documented for this short Big Eau Pleine section. Treat it as a day route; use separate Marathon County or private campground plans only after checking current rules.',
+      campingClassification: 'none',
+      summary:
+        'Launch at March Rapids Park and paddle the short Big Eau Pleine section to Big Rapids Park. Expect shallow boulder gardens, Class I-II rapids, cold water, and a mandatory take-out above the small park dam.',
+      accessCaveats: [
+        'March Rapids Park has paths above and below the rapids; scout during the shuttle and choose a launch that fits the group and water level.',
+        'Big Rapids Park is the planned take-out. Land above the small dam and do not let the route become an unplanned dam or flowage run.',
+        'The Stratford gauge is downstream but directly on the Big Eau Pleine. This river rises and falls quickly, so rely on same-day gauge and visual checks.',
+      ],
+      watchFor: [
+        'Exposed rocks, scraping, and possible walking when the Stratford gauge is far below the 100 cfs floor.',
+        'Class I-II rapids and boulder gardens that become pushy quickly above the normal route window.',
+        'Fresh strainers, low branches, cold water, and poor recovery margin in high or rising water.',
+        'The small Big Rapids Park dam and short impoundment at the take-out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'march-rapids-park',
+        name: 'March Rapids Park',
+        latitude: 44.8507988,
+        longitude: -90.1498549,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Public park put-in with paths above and below March Rapids.',
+      },
+      {
+        id: 'big-rapids-park',
+        name: 'Big Rapids Park Kayak Launch',
+        latitude: 44.8395143,
+        longitude: -90.0992255,
+        mileFromStart: 3.6,
+        segmentKind: 'creek',
+        note: 'Public county park take-out above the small dam.',
+      },
+    ],
   },
   'red-river-weed-dam-zeimers-falls': {
     putIn: {
@@ -30009,6 +30306,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 4.5,
         segmentKind: 'creek',
         note: 'Default take-out; resolves as WAS02986 at Pine River mile 15.3 above the lower Pine route.',
+      },
+    ],
+  },
+  'pine-river-norway-pine-river-one': {
+    putIn: {
+      name: 'Norway Lake South Public Water Access Site',
+      latitude: 46.730429,
+      longitude: -94.4087914,
+    },
+    takeOut: {
+      name: 'Pine River #1 Public Water Access Site',
+      latitude: 46.7231773,
+      longitude: -94.4005481,
+    },
+    logistics: {
+      distanceLabel: '0.7 mi',
+      estimatedPaddleTime: 'About 20 min to 1 hr, longer if low water, wind, or scouting slows the outing',
+      shuttle:
+        'Use a very short two-car or bike shuttle between Pine River #1 and Norway Lake South. Inspect Pine River #1 before launching so the group is committed to the planned take-out above Rock Rapids.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules and posted DNR, city, and access-site rules.',
+      camping:
+        'No on-route campsite is assumed for this short connector. Use nearby legal campgrounds or lake-area basecamps only if separately confirmed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Norway Lake South and take out at Pine River #1 for the official 0.7-mile DNR water-trail sampler. The Jenkins gauge is the official same-trail level signal, but this upstream connector still needs a visual landing and obstruction check.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Norway Lake as WAS00722 and Pine River #1 as WAS00726; DNR map river-mile labels differ slightly from the GIS fields, so use the named access sites and coordinates.',
+        'The DNR recommended-one-way list names this exact short route, while the Pine River map places constructed Rock Rapids just downstream of the take-out.',
+        'Do not continue below Pine River #1 without scouting the Class I constructed Rock Rapids and arranging a separate downstream route plan.',
+      ],
+      watchFor: [
+        'Low-water scraping or dragging if the upstream connector is shallower than the downstream Jenkins gauge suggests.',
+        'Lake wind, cold water, bridge/landing current, and fresh wood in the outlet channel.',
+        'Constructed Rock Rapids just downstream of Pine River #1, with a DNR-mapped 200-yard right-side portage.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'norway-lake-south',
+        name: 'Norway Lake South Public Water Access Site',
+        latitude: 46.730429,
+        longitude: -94.4087914,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default put-in for the official Norway Lake South-to-Pine-River-#1 recommended one-way route.',
+      },
+      {
+        id: 'pine-river-one',
+        name: 'Pine River #1 Public Water Access Site',
+        latitude: 46.7231773,
+        longitude: -94.4005481,
+        mileFromStart: 0.7,
+        segmentKind: 'creek',
+        note: 'Default take-out just upstream of the DNR-mapped constructed Rock Rapids.',
       },
     ],
   },
