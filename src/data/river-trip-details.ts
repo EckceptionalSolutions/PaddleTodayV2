@@ -31469,6 +31469,167 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'straight-river-morehouse-kohlmeier-lake': {
+    putIn: {
+      name: 'Straight River, Morehouse Public Water Access Site',
+      latitude: 44.0807482,
+      longitude: -93.2330972,
+    },
+    takeOut: {
+      name: 'Straight River, Morehouse Public Water Access Site',
+      latitude: 44.0807482,
+      longitude: -93.2330972,
+    },
+    logistics: {
+      distanceLabel: 'About 1.5 mi out-and-back or protected lake loop',
+      estimatedPaddleTime: 'About 45 min to 2 hr, depending on wind, weeds, and how much of Kohlmeier Lake you explore',
+      shuttle:
+        'No vehicle shuttle is needed. Launch and return at Morehouse Park, then use Kohlmeier Lake as a turn-around or protected lake loop only when wind and shallow-water conditions are manageable.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR public-access rules, City of Owatonna park rules, and posted lake or dam restrictions.',
+      camping:
+        'No on-route camping is assumed. Treat this as a short day paddle and use Owatonna-area lodging or campgrounds only as separate base-camp plans.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Morehouse Park and paddle a controlled round trip into Kohlmeier Lake. Use the direct Owatonna DNR gauge for river-level context, but make the final call from wind, weeds, water temperature, and the nearby dam boundary.',
+      accessCaveats: [
+        'Morehouse resolves in Minnesota public-water-access GIS as WAS00187 at Straight River mile 27.1.',
+        'Kohlmeier Lake resolves as WAS00778 with City of Owatonna administration. Use it as a public lake access or route landmark, not as a reason to trespass on private shoreline.',
+        'This route stays above the downstream Owatonna Dam. Use the separate Morehouse-to-County-Road-45 card only if you intend to manage the dam portage and advanced downstream features.',
+      ],
+      watchFor: [
+        'Shallow lake mud, aquatic vegetation, wind, wake, and cold water.',
+        'Downstream dam proximity at Morehouse Park; do not drift into the dam-portage route by accident.',
+        'Private shoreline and changing city-park access or parking conditions.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'morehouse-public-water-access',
+        name: 'Straight River, Morehouse Public Water Access Site',
+        latitude: 44.0807482,
+        longitude: -93.2330972,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Launch and return point; resolves as WAS00187 at Straight River mile 27.1.',
+      },
+      {
+        id: 'kohlmeier-lake-public-water-access',
+        name: 'Kohlmeier Lake Public Water Access Site',
+        latitude: 44.0665722,
+        longitude: -93.2440791,
+        mileFromStart: 0.75,
+        segmentKind: 'lake',
+        note: 'Public access / turn-around landmark; resolves as WAS00778 with City of Owatonna administration.',
+      },
+    ],
+  },
+  'redwood-river-redwood-lake-loop': {
+    putIn: {
+      name: 'Redwood Lake Public Water Access Site',
+      latitude: 44.5403368,
+      longitude: -95.1236338,
+    },
+    takeOut: {
+      name: 'Redwood Lake Public Water Access Site',
+      latitude: 44.5403368,
+      longitude: -95.1236338,
+    },
+    logistics: {
+      distanceLabel: 'About 1.5 mi controlled lake out-and-back',
+      estimatedPaddleTime: 'About 45 min to 2 hr, longer with wind, weeds, or shallow-water detours',
+      shuttle:
+        'No vehicle shuttle is needed. Launch and return at the Redwood Lake public access, and set a conservative turn-around before wind, boat wake, or shallow water makes the return difficult.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR public-access rules, City of Redwood Falls park rules, and posted dam or lake restrictions.',
+      camping:
+        'No on-route camping is assumed for this small-lake route. Use Redwood Falls area lodging or campgrounds only as separate base-camp plans.',
+      campingClassification: 'none',
+      summary:
+        'Explore Redwood Lake from the public access above the Highway 19 dam. Use the downstream Redwood Falls DNR gauge as a same-corridor check, but treat wind, wake, muddy shallows, and the dam boundary as the main go/no-go conditions.',
+      accessCaveats: [
+        'Redwood Lake resolves as WAS00025 at Redwood River mile 5.8 with City of Redwood Falls administration.',
+        'This is a lake round trip, not a downstream Redwood River continuation. Stay above the Highway 19 / Lake Redwood Dam unless you have a separate portage plan backed by current local conditions.',
+        'The Redwood Falls gauge is downstream of the lake and dam, so it is a conservative corridor proxy rather than an exact lake-level sensor.',
+      ],
+      watchFor: [
+        'Lake wind, powerboat wake, weeds, muddy shallows, and cold water.',
+        'The impassable Highway 19 / Lake Redwood Dam boundary downstream from the access.',
+        'Private shoreline, posted city-park rules, and water quality after storms.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'redwood-lake-public-water-access',
+        name: 'Redwood Lake Public Water Access Site',
+        latitude: 44.5403368,
+        longitude: -95.1236338,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Launch and return point; resolves as WAS00025 at Redwood River mile 5.8.',
+      },
+      {
+        id: 'redwood-lake-turnaround',
+        name: 'Redwood Lake turn-around area',
+        mileFromStart: 0.75,
+        segmentKind: 'lake',
+        note: 'DNR frames Redwood Lake as a small shallow lake round trip; choose the turn-around based on wind, weeds, and daylight.',
+      },
+    ],
+  },
+  'shell-rock-river-myre-big-island-loop': {
+    putIn: {
+      name: 'Albert Lea Lake, Myre Big Island State Park Public Water Access Site',
+      latitude: 43.6296761,
+      longitude: -93.2911563,
+    },
+    takeOut: {
+      name: 'Albert Lea Lake, Myre Big Island State Park Public Water Access Site',
+      latitude: 43.6296761,
+      longitude: -93.2911563,
+    },
+    logistics: {
+      distanceLabel: 'About 1.6 mi protected lake loop',
+      estimatedPaddleTime: 'About 45 min to 2 hr, longer with wind, shallow water, or birding stops',
+      shuttle:
+        'No vehicle shuttle is needed. Launch and return at the Myre-Big Island State Park access, keeping the route close enough to return quickly if wind or wake builds on Albert Lea Lake.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR public-access rules, Myre-Big Island State Park rules, and posted state-park or lake restrictions.',
+      camping:
+        'Do not assume route camping. Myre-Big Island State Park can support a separate permitted base-camp plan, but this lake loop is a day paddle.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at the Myre-Big Island State Park public access for a controlled Albert Lea Lake loop. Use the Gordonsville DNR gauge as Shell Rock corridor context and let the lake wind check drive the final decision.',
+      accessCaveats: [
+        'Myre Big Island State Park resolves in Minnesota public-water-access GIS as WAS01393 with DNR Parks and Trails administration.',
+        'The Gordonsville gauge is downstream on the Shell Rock corridor and does not replace a same-day wind, wake, and shallow-water check at the state-park ramp.',
+        'Use state-park and public shoreline rules. Do not land on private shoreline unless clearly posted as public access.',
+      ],
+      watchFor: [
+        'Open-lake wind, wake, shallow mud, weeds, and cold-water exposure.',
+        'Changing state-park access, parking, permits, or seasonal rules.',
+        'Storms that can make the lake unsafe even when the downstream Shell Rock gauge remains in range.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'myre-big-island-state-park-access',
+        name: 'Albert Lea Lake, Myre Big Island State Park Public Water Access Site',
+        latitude: 43.6296761,
+        longitude: -93.2911563,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Launch and return point; resolves as WAS01393 with DNR Parks and Trails administration.',
+      },
+      {
+        id: 'albert-lea-lake-loop',
+        name: 'Albert Lea Lake protected loop',
+        mileFromStart: 0.8,
+        segmentKind: 'lake',
+        note: 'DNR-recommended round-trip context from Myre-Big Island State Park; choose the actual loop size based on wind and daylight.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {

@@ -1,18 +1,28 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 11:10 America/Chicago.
+Last summarized: 2026-07-15 12:12 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 143 after the 2026-07-15 11:10 three-route addition pass.
-- Top represented rivers: Mississippi River 26, Minnesota River 12, Sauk River 7, Rum River 6, Big Fork River 5, Root River 5, Zumbro River 5, Red River of the North 5, Cannon River 5, Crow Wing River 5, Little Fork River 4, Red Lake River 4, Otter Tail River 4, St. Croix River 4, North Fork Crow River 4, St. Louis River 4, Cedar River 3, Snake River 3, Des Moines River 3, Straight River 3, Chippewa River 3, Pine River 3.
-- Ledger candidates: 924 total; 542 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 25 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
+- Live routes: 146 after the 2026-07-15 12:12 three-route addition pass.
+- Top represented rivers: Mississippi River 26, Minnesota River 12, Sauk River 7, Rum River 6, Big Fork River 5, Cannon River 5, Crow Wing River 5, Red River of the North 5, Root River 5, Zumbro River 5, Little Fork River 4, North Fork Crow River 4, Otter Tail River 4, Red Lake River 4, St. Croix River 4, St. Louis River 4, Straight River 4, Cedar River 3, Des Moines River 3, Pine River 3, Snake River 3, Redwood River 2, Shell Rock River 2.
+- Ledger candidates: 930 total; 548 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 25 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 12:12 America/Chicago: added `straight-river-morehouse-kohlmeier-lake`, `redwood-river-redwood-lake-loop`, and `shell-rock-river-myre-big-island-loop`.
+- Baseline at run start was 143 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 146 Minnesota routes and all three new slugs have trip-detail records. The total route count is 673 because the worktree also contains concurrent Wisconsin route additions outside this Minnesota run.
+- Stayed in Minnesota and promoted three DNR-recommended round-trip gaps that were absent from the run-start baseline. Straight Morehouse-to-Kohlmeier adds the official short Owatonna round trip below Morehouse Park; Redwood Lake adds the official short lake-backed Redwood River round trip without duplicating the existing Wabasso-to-Redwood-Lake downstream card; and Shell Rock Myre-Big-Island adds the official Albert Lea Lake / state-park round trip.
+- Current MN DNR river-level feed exposed interpreted ladders for Straight Owatonna site `340` (`1119.4 / 1120-1123 / 1123.5 ft`), Redwood Falls site `196` (`16 / 116-1740 / 3000 cfs`), and Shell Rock Gordonsville site `329` (`86 / 86.5-89.5 / 90 ft`). During the run, Straight was medium at `1120.67 ft`, Redwood was medium at `120 cfs`, and Shell Rock was medium at `87.21 ft`.
+- Minnesota public-water-access GIS resolves Morehouse `WAS00187` at `44.0807482, -93.2330972`, Kohlmeier Lake `WAS00778` at `44.0665722, -93.2440791`, Redwood Lake `WAS00025` at `44.5403368, -95.1236338`, and Myre Big Island SPK `WAS01393` at `43.6296761, -93.2911563`.
+- Camping posture: Straight and Redwood are `none`; Shell Rock is `nearby_basecamp` only because Myre-Big Island State Park is a separate basecamp context. No route assumes informal bank, lake, or on-route camping.
+- Safety posture: Straight carries urban-park traffic, bridge/current, wood/strainer, fast-rise, low-water, private-bank, and no-downstream-extension caveats. Redwood carries Lake Redwood Dam boundary, wind/wake, shallow/lake-level, fast-rise, urban-water, private-bank, and no-camping caveats. Shell Rock carries lake-wind, shallow-marsh, channel-identification, downstream-dam/no-extension, aquatic vegetation, state-park-rule, and nearby-basecamp-only caveats.
+- No route-gallery images were added. Bounded DNR / public-access / state-park / Wikimedia Commons / same-route review found context leads but no clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed but did not add Kettle Musclewood variants because current DNR page / older PDF route-shape evidence conflicts and existing Kettle coverage already represents the practical corridor; Vermilion Shively extensions because the DNR recommended Twomile-to-Eightmile route is already live and upstream continuation adds Class III / portage exposure; or weaker long/lake connectors where endpoint or gauge support was below the selected official round trips.
 
 - 2026-07-15 11:10 America/Chicago: added `blue-earth-river-amboy-dodd-ford`, `mississippi-river-hazen-mooers-backwater`, and `mississippi-river-spring-lake-backwater`.
 - Baseline at run start was 140 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 143 Minnesota routes and all three new slugs have trip-detail records. The total route count is 667 because the worktree also contains concurrent Wisconsin route additions outside this Minnesota run.
