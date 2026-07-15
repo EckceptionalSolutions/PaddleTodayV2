@@ -34236,6 +34236,171 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'pomme-de-terre-river-koosman-highway-12': {
+    putIn: {
+      name: 'Pomme de Terre River, Koosman Public Water Access Site',
+      latitude: 45.3399435,
+      longitude: -95.9737205,
+    },
+    takeOut: {
+      name: 'Pomme De Terre River, #1, Hwy 12 Public Water Access Site',
+      latitude: 45.283686,
+      longitude: -95.9793669,
+    },
+    logistics: {
+      distanceLabel: 'About 8.2 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low water or wood scouting',
+      shuttle:
+        'Stage the Highway 12 / Pomme de Terre #1 take-out first, then drive upstream to Koosman. This route ends where the existing Highway-12-to-Appleton card starts, so decide before launch whether you are doing the short upstream connector or a much longer combined day.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public water accesses, follow Minnesota boating/PFD rules, and obey posted DNR access and campsite rules.',
+      camping:
+        'DNR Map 1 labels the Highway 12 / Pomme de Terre #1 area as a rest area and watercraft campsite. Treat that as an endpoint-only designated site, confirm current rules before relying on it, and do not camp on private banks.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Koosman and take out at Highway 12 for the upper public-access gap above the existing Appleton route. Use the downstream Appleton gauge conservatively and make a visual call on shallow water and wood before launching.',
+      accessCaveats: [
+        'Koosman resolves in Minnesota public-water-access GIS as WAS00180 near DNR river mile 27.3.',
+        'Highway 12 / Pomme de Terre #1 resolves as WAS02176 near DNR river mile 19.1 and is also the upstream endpoint for the existing Appleton card.',
+        'The Appleton gauge is downstream of this selected route. A medium gauge reading does not override a shallow or blocked launch inspection at Koosman.',
+      ],
+      watchFor: [
+        'Shallow riffles and dragging if the Appleton gauge drops toward or below the DNR low band.',
+        'Snags, overhanging trees, outside-bend debris, and new post-rain wood.',
+        'Private banks and informal pull-outs; use the named public accesses and designated campsite/rest area only.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'koosman-pomme-de-terre',
+        name: 'Pomme de Terre River, Koosman Public Water Access Site',
+        latitude: 45.3399435,
+        longitude: -95.9737205,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00180 at DNR river mile 27.3.',
+      },
+      {
+        id: 'highway-12-pomme-de-terre-1',
+        name: 'Pomme De Terre River, #1, Hwy 12 Public Water Access Site',
+        latitude: 45.283686,
+        longitude: -95.9793669,
+        mileFromStart: 8.2,
+        segmentKind: 'creek',
+        note: 'Default take-out and DNR map rest area / watercraft campsite; resolves as WAS02176 at river mile 19.1.',
+      },
+    ],
+  },
+  'pomme-de-terre-river-appleton-pomme-de-terre-2': {
+    putIn: {
+      name: 'Pomme de Terre River, Appleton Public Water Access Site',
+      latitude: 45.203145,
+      longitude: -96.0209066,
+    },
+    takeOut: {
+      name: 'Pomme De Terre River, #2 Public Water Access Site',
+      latitude: 45.1760352,
+      longitude: -96.086525,
+    },
+    logistics: {
+      distanceLabel: 'About 8.3 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr depending on wood, level, and scouting',
+      shuttle:
+        'Stage Pomme de Terre #2 first, then drive back to Appleton. Stop at #2 unless you have separately planned Marsh Lake / Lac qui Parle wind exposure, access, and dam logistics.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public water accesses, follow Minnesota boating/PFD rules, and obey posted city, DNR, and wildlife-area rules.',
+      camping:
+        'Treat this as a day route. No on-route watercraft campsite was selected for Appleton to Pomme de Terre #2, and nearby wildlife or reservoir lands should not be treated as open camping without current permission.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Appleton and take out at Pomme de Terre #2 for the lower public-access gap before Marsh Lake. The Appleton gauge is direct, but DNR cautions this lower corridor has rapids, log jams, snags, and debris.',
+      accessCaveats: [
+        'Appleton resolves in Minnesota public-water-access GIS as WAS00050 near DNR river mile 8.8.',
+        'Pomme de Terre #2 resolves as WAS00049 near river mile 0.5 and is the planned stop before broader Marsh Lake exposure.',
+        'Do not extend downstream into Marsh Lake or toward Lac qui Parle as part of this route without a separate wind, access, and safety review.',
+      ],
+      watchFor: [
+        'Numerous rapids, log jams, snags, and debris noted by DNR for the Appleton-to-Marsh-Lake corridor.',
+        'Shallow scraping at lower levels and pushier, less forgiving wood hazards above the high band.',
+        'Private banks and limited legal stops between public accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'appleton-pomme-de-terre',
+        name: 'Pomme de Terre River, Appleton Public Water Access Site',
+        latitude: 45.203145,
+        longitude: -96.0209066,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 8.8; resolves as WAS00050.',
+      },
+      {
+        id: 'pomme-de-terre-2',
+        name: 'Pomme De Terre River, #2 Public Water Access Site',
+        latitude: 45.1760352,
+        longitude: -96.086525,
+        mileFromStart: 8.3,
+        segmentKind: 'creek',
+        note: 'Default take-out near Marsh Lake; resolves as WAS00049 at river mile 0.5.',
+      },
+    ],
+  },
+  'watonwan-river-county-road-32-county-road-20': {
+    putIn: {
+      name: 'Watonwan River, County Road 32 Public Water Access Site',
+      latitude: 44.0041578,
+      longitude: -94.2886309,
+    },
+    takeOut: {
+      name: 'Watonwan River, County Road 20 Public Water Access Site',
+      latitude: 44.0252735,
+      longitude: -94.2290481,
+    },
+    logistics: {
+      distanceLabel: 'About 5.5 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with low water or wood',
+      shuttle:
+        'Stage County Road 20 first, then drive upstream to County Road 32. The existing downstream PaddleToday route starts at County Road 20, so avoid turning this into a longer Garden City day unless gauge, daylight, and take-out conditions support it.',
+      permits:
+        'No route-specific paddling permit is known. Use the named Blue Earth County public accesses, follow Minnesota boating/PFD rules, and respect private banks and posted bridge-access rules.',
+      camping:
+        'Treat this as a short day route. DNR does not document an on-route campsite for County Road 32 to County Road 20, and the Blue Earth County Fair campground is downstream of this selected split.',
+      campingClassification: 'none',
+      summary:
+        'Launch at County Road 32 and take out at County Road 20 for the short upstream Watonwan gap above the existing Garden City route. The downstream Garden City gauge was just above the scrapable floor during this run, so low-water checks matter.',
+      accessCaveats: [
+        'County Road 32 resolves in Minnesota public-water-access GIS as WAS00214 near Watonwan river mile 35.0.',
+        'County Road 20 resolves as WAS00213 near river mile 29.5 and is also the put-in for the existing Garden City route.',
+        'The Garden City gauge is downstream of this split, so use it as a corridor proxy and inspect both bridge accesses before committing.',
+      ],
+      watchFor: [
+        'Low-water scraping, soft mud, and shallow channel picking when the Garden City gauge is near the scrapable floor.',
+        'Snags and fallen trees, which DNR says are more likely in upper Watonwan segments.',
+        'Private banks and limited bailout options between the bridge accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-road-32-watonwan',
+        name: 'Watonwan River, County Road 32 Public Water Access Site',
+        latitude: 44.0041578,
+        longitude: -94.2886309,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00214 at river mile 35.0.',
+      },
+      {
+        id: 'county-road-20-watonwan',
+        name: 'Watonwan River, County Road 20 Public Water Access Site',
+        latitude: 44.0252735,
+        longitude: -94.2290481,
+        mileFromStart: 5.5,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00213 at river mile 29.5.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {
