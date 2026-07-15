@@ -32675,6 +32675,171 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'cottonwood-river-springfield-highway-4': {
+    putIn: {
+      name: 'Cottonwood River, Springfield Public Water Access Site',
+      latitude: 44.2377827,
+      longitude: -94.9740406,
+    },
+    takeOut: {
+      name: 'Cottonwood River, Highway 4 Public Water Access Site',
+      latitude: 44.2352134,
+      longitude: -94.7256361,
+    },
+    logistics: {
+      distanceLabel: 'About 24.8 mi',
+      estimatedPaddleTime: 'About 8 hr to 11 hr, longer with low water, wood, or scouting',
+      shuttle:
+        'Stage the Highway 4 take-out first, then drive back to Springfield. This fills the access gap above the existing Highway-4-to-New-Ulm route, so do not drift past Highway 4 unless you are intentionally starting a much longer lower-Cottonwood plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR public-access rules, and any posted city, county, or township access restrictions.',
+      camping:
+        'Treat this as a long day trip. No on-route campsite was selected for this upper split, and private riverbanks or agricultural edges should not be treated as legal overnight options.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Springfield and take out at Highway 4 for the long upper-middle Cottonwood connector between the existing Juenemann-to-Springfield and lower Highway-4 route cards.',
+      accessCaveats: [
+        'Springfield and Highway 4 both resolve in Minnesota public-water-access GIS with Cottonwood River mile records and coordinates.',
+        'The Springfield gauge is upstream of the put-in and gives the best official upper-route level check; visual inspection at Springfield still overrides a marginal gauge score.',
+        'DNR identifies the primary Cottonwood water-trail maintenance focus as Highway 4 downstream, so this upstream connector needs conservative wood and access checks.',
+      ],
+      watchFor: [
+        'Long-day fatigue, daylight margin, soft current, and low-water dragging across a nearly 25-mile route.',
+        'Snags, logjams, overhanging trees, muddy banks, undercut bends, and debris after rises.',
+        'Private shoreland and agricultural edges; use public accesses and confirmed legal stops only.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'springfield-public-water-access',
+        name: 'Cottonwood River, Springfield Public Water Access Site',
+        latitude: 44.2377827,
+        longitude: -94.9740406,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01421 near Cottonwood River mile 56.4.',
+      },
+      {
+        id: 'highway-4-public-water-access',
+        name: 'Cottonwood River, Highway 4 Public Water Access Site',
+        latitude: 44.2352134,
+        longitude: -94.7256361,
+        mileFromStart: 24.8,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02675 near Cottonwood River mile 31.6.',
+      },
+    ],
+  },
+  'cottonwood-river-highway-4-county-road-11': {
+    putIn: {
+      name: 'Cottonwood River, Highway 4 Public Water Access Site',
+      latitude: 44.2352134,
+      longitude: -94.7256361,
+    },
+    takeOut: {
+      name: 'Cottonwood River, County Road 11 Public Water Access Site',
+      latitude: 44.2788449,
+      longitude: -94.592992,
+    },
+    logistics: {
+      distanceLabel: 'About 14.8 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water or wood scouting',
+      shuttle:
+        'Stage the County Road 11 take-out first, then drive back to Highway 4. This is the practical upstream half of the existing 30-mile Highway-4-to-New-Ulm route.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR public-access rules, and any posted county or township access restrictions.',
+      camping:
+        'Treat this as a day trip. No designated on-route campsite was selected for this upper lower-Cottonwood split, and private banks are not legal camping assumptions.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Highway 4 and take out at County Road 11 for a normal-day lower-Cottonwood split that avoids forcing the full 30-mile New Ulm route.',
+      accessCaveats: [
+        'Highway 4 and County Road 11 both resolve in Minnesota public-water-access GIS with Cottonwood River mile records and coordinates.',
+        'The New Ulm gauge is downstream of this split, so use it as official lower-Cottonwood corridor guidance plus a same-day depth check at Highway 4.',
+        'County Road 10 and Theden Landing are mapped intermediate exits, but this card uses County Road 11 as the planned public take-out.',
+      ],
+      watchFor: [
+        'Snags, strainers, muddy cutbanks, and fresh agricultural debris after high water.',
+        'Low-water scraping below the official medium band and faster debris-rich current in high water.',
+        'Private banks and limited services between public accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-4-public-water-access',
+        name: 'Cottonwood River, Highway 4 Public Water Access Site',
+        latitude: 44.2352134,
+        longitude: -94.7256361,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02675 near Cottonwood River mile 31.6.',
+      },
+      {
+        id: 'county-road-11-public-water-access',
+        name: 'Cottonwood River, County Road 11 Public Water Access Site',
+        latitude: 44.2788449,
+        longitude: -94.592992,
+        mileFromStart: 14.8,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS01424 near Cottonwood River mile 16.8.',
+      },
+    ],
+  },
+  'cottonwood-river-county-road-11-highway-15': {
+    putIn: {
+      name: 'Cottonwood River, County Road 11 Public Water Access Site',
+      latitude: 44.2788449,
+      longitude: -94.592992,
+    },
+    takeOut: {
+      name: 'Cottonwood River, Highway 15 Public Water Access Site',
+      latitude: 44.2826599,
+      longitude: -94.4360667,
+    },
+    logistics: {
+      distanceLabel: 'About 15.2 mi',
+      estimatedPaddleTime: 'About 5 hr to 7.5 hr, longer with low water, wind, or Flandrau stops',
+      shuttle:
+        'Stage the Highway 15 take-out first, then drive back to County Road 11. Identify the Flandrau and Cottonwood Street exits before launch if your group may shorten the day.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR public-access rules, Flandrau State Park rules, and any posted New Ulm access restrictions.',
+      camping:
+        'DNR Map 4 identifies Flandrau State Park and a lower-route watercraft campsite, but overnight use should be treated as a confirmed park or designated-site plan rather than informal bank camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at County Road 11 and take out at Highway 15 for the lower Cottonwood day through the Flandrau and New Ulm corridor.',
+      accessCaveats: [
+        'County Road 11 and Highway 15 both resolve in Minnesota public-water-access GIS with Cottonwood River mile records and coordinates.',
+        'Flandrau State Park, the watercraft campsite, and Cottonwood Street are useful mapped lower-route landmarks; confirm park, fee, and site rules before relying on them.',
+        'The New Ulm DNR gauge sits inside the lower route and is the primary official level check.',
+      ],
+      watchFor: [
+        'Snags, strainers, muddy banks, flood debris, and low-water dragging.',
+        'Faster current, poor eddy service, and debris-rich water when the New Ulm gauge moves into high or very high bands.',
+        'Private shoreland, park boundaries, and New Ulm access choices; stop only where access is public and allowed.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-road-11-public-water-access',
+        name: 'Cottonwood River, County Road 11 Public Water Access Site',
+        latitude: 44.2788449,
+        longitude: -94.592992,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01424 near Cottonwood River mile 16.8.',
+      },
+      {
+        id: 'highway-15-public-water-access',
+        name: 'Cottonwood River, Highway 15 Public Water Access Site',
+        latitude: 44.2826599,
+        longitude: -94.4360667,
+        mileFromStart: 15.2,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS01419 near Cottonwood River mile 1.6.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {

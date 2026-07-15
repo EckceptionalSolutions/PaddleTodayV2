@@ -1,18 +1,28 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 15:13 America/Chicago.
+Last summarized: 2026-07-15 16:16 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 155 after the 2026-07-15 15:13 three-route addition pass.
-- Top represented rivers: Mississippi River 26, Minnesota River 12, Sauk River 7, Rum River 7, North Fork Crow River 6, Root River 6, Big Fork River 5, Cannon River 5, Crow Wing River 5, Red Lake River 5, Red River of the North 5, Zumbro River 5, Little Fork River 4, Otter Tail River 4, Snake River 4, St. Croix River 4, St. Louis River 4, Straight River 4, Cedar River 3, Cloquet River 3, Des Moines River 3, Long Prairie River 3, Pine River 3, Blue Earth River 2, Redwood River 2, Shell Rock River 2.
-- Ledger candidates: 948 total; 566 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 25 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
+- Live routes: 158 after the 2026-07-15 16:16 three-route addition pass.
+- Top represented rivers: Mississippi River 26, Minnesota River 12, Sauk River 7, Rum River 7, North Fork Crow River 6, Root River 6, Big Fork River 5, Cannon River 5, Cottonwood River 5, Crow Wing River 5, Red Lake River 5, Red River of the North 5, Zumbro River 5, Little Fork River 4, Otter Tail River 4, Snake River 4, St. Croix River 4, St. Louis River 4, Straight River 4, Cedar River 3, Cloquet River 3, Des Moines River 3, Long Prairie River 3, Pine River 3, Blue Earth River 2, Redwood River 2, Shell Rock River 2.
+- Ledger candidates: 953 total; 572 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 25 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 16:16 America/Chicago: added `cottonwood-river-springfield-highway-4`, `cottonwood-river-highway-4-county-road-11`, and `cottonwood-river-county-road-11-highway-15`.
+- Baseline at run start was 155 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Validated route data imports 158 Minnesota routes and all three new slugs have trip-detail records.
+- Stayed in Minnesota and promoted three Cottonwood River public-access splits after reconciling most prompt leads as already live, represented, closed, or weaker. Springfield-to-Highway-4 fills the gap between the existing Juenemann-to-Springfield and Highway-4-to-New-Ulm cards. Highway-4-to-County-Road-11 and County-Road-11-to-Highway-15 turn the already-live 30-mile lower Cottonwood recommendation into practical day-route splits.
+- Current MN DNR river-level feed returned Cottonwood River near Springfield site `42` at `13.47 ft` on 2026-07-15 13:30 CDT and Cottonwood River near New Ulm site `39` at `290 cfs` on 2026-07-15 13:00 CDT. Both were inside the selected official medium bands already documented from DNR interpretation ladders (`12.5 / 13.0-17.0 / 19.0 ft` at Springfield and `150 / 250-870 / 2,190 cfs` at New Ulm).
+- Minnesota public-water-access GIS resolves Springfield `WAS01421`, Highway 4 `WAS02675`, County Road 11 `WAS01424`, and Highway 15 `WAS01419` with coordinates and Cottonwood river-mile records.
+- Camping posture: Springfield-to-Highway-4 and Highway-4-to-County-Road-11 are `none`; County-Road-11-to-Highway-15 is `on_route_campsite` only through DNR Map 4 Flandrau / designated watercraft-campsite context. No route assumes informal private-bank camping.
+- Safety posture: all three carry Cottonwood wood/strainer, low-water, high-water, muddy-bank, private-bank, and agricultural-debris caveats. Springfield-to-Highway-4 also keeps the DNR maintenance-focus caveat because primary maintenance starts near Highway 4; County-Road-11-to-Highway-15 carries Flandrau/New Ulm park-boundary and access-choice caveats.
+- No route-gallery images were added. Bounded DNR / public-access / Wikimedia Commons / MPCA / Natural Atlas / Flandrau context review found context leads but no clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed but did not add South Fork Crow Masonic-to-Lester or Lester-to-Rick-Johnson because the current DNR map flags the Biscay-to-New-Germany corridor as numerous log jams and potentially impassable. Kept existing Otter-Lake-to-Masonic and Rick-Johnson-to-Lake-Rebecca as the represented South Fork Crow cards.
 
 - 2026-07-15 15:13 America/Chicago: added `root-river-chatfield-parsley`, `north-fork-crow-river-wildlife-albrights`, and `cloquet-river-bear-lake-cloquet-south`.
 - Baseline at run start was 152 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data imports 155 Minnesota routes and all three new slugs have trip-detail records.
