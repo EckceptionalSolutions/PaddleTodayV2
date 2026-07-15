@@ -20410,6 +20410,123 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'crooked-creek-snow-kelleys-slab': {
+    putIn: {
+      id: 'snow-access',
+      name: 'Snow Access',
+      latitude: 36.24352,
+      longitude: -92.79995,
+    },
+    takeOut: {
+      id: 'kelleys-slab-access',
+      name: "Kelley's Slab Access",
+      latitude: 36.22921,
+      longitude: -92.71045,
+    },
+    logistics: {
+      distanceLabel: 'About 11.8 mi',
+      estimatedPaddleTime:
+        "About 5 hr to 7.5 hr depending on level, wood scouting, fishing stops, and whether you pause to inspect Kelley's Slab before finishing",
+      shuttle:
+        "Stage the take-out at Kelley's Slab Access, then drive back to Snow Access. Mark Oliver is the clean public split point if the full lower-middle corridor feels too long for the day's level or pace.",
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC access points, follow Arkansas boating and PFD rules, and respect posted parking signs at each access.',
+      camping:
+        'Snow Access campsites and Brooksher Crooked Creek Preserve give this reach real designated-campsite support, but private banks remain off-limits and Kelley\'s Slab should not be treated as a campsite.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        "Launch at Snow Access and take out at Kelley's Slab Access for a longer lower-middle Crooked Creek continuation. This is a rain-sensitive Ozark creek float keyed to the Kelly Crossing gauge rather than to a broad flatwater assumption.",
+      accessCaveats: [
+        "Snow, Mark Oliver, and Kelley's Slab are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than full-service park ramps.",
+        "The current Kelly Crossing gauge reading during this run was below AGFC's moderate band, so expect more scraping and slower riffles than the best Crooked Creek days.",
+        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.',
+        "Scout Kelley's Slab before committing to the final take-out when the creek is up, dirty, or unfamiliar.",
+      ],
+      watchFor: [
+        'Water below about 12 ft, when scraping and slower riffles become more likely.',
+        'Fast post-rain rises, fresh wood, strainers, muddy exits, and stronger current than the clear-water appearance suggests.',
+        "Shoals, riffles, small waves, rural self-rescue conditions, and the Kelley's Slab finish hazard AGFC flags under some conditions.",
+      ],
+    },
+  },
+  'crooked-creek-mark-oliver-yellville': {
+    putIn: {
+      id: 'mark-oliver-access',
+      name: 'Mark Oliver Access',
+      latitude: 36.24973,
+      longitude: -92.7486,
+    },
+    takeOut: {
+      id: 'yellville-access',
+      name: 'Yellville Access',
+      latitude: 36.22259,
+      longitude: -92.67944,
+    },
+    logistics: {
+      distanceLabel: 'About 10.1 mi',
+      estimatedPaddleTime:
+        "About 4.5 hr to 6.5 hr depending on level, wood scouting, and whether you pause to inspect Kelley's Slab before continuing to Yellville",
+      shuttle:
+        'Stage the take-out at Yellville City Park, then drive back to Mark Oliver Access. Kelleys Slab is the obvious public split if the lower corridor feels too long for the day or the creek looks pushier than expected.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC access points, follow Arkansas boating and PFD rules, and respect posted parking signs at each access.',
+      camping:
+        'Fred Berry Crooked Creek Nature Center can support a nearby basecamp with manager permission and a one-night limit, but no campsite is documented directly at Mark Oliver or Yellville Access.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Mark Oliver Access and take out at Yellville City Park for the final long Crooked Creek continuation into town. This is a rain-sensitive Ozark creek float keyed to the Kelly Crossing gauge rather than to a broad flatwater assumption.',
+      accessCaveats: [
+        "Mark Oliver, Kelley's Slab, and Yellville are named public AGFC Crooked Creek Water Trail accesses with simple launches rather than full-service park ramps.",
+        "The current Kelly Crossing gauge reading during this run was below AGFC's moderate band, so expect more scraping and slower riffles than the best Crooked Creek days.",
+        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.',
+        "This route passes through Kelley's Slab before the city-park finish, so do not let the Yellville take-out make the middle of the route feel more casual than it is.",
+      ],
+      watchFor: [
+        'Water below about 12 ft, when scraping and slower riffles become more likely.',
+        'Fast post-rain rises, fresh wood, strainers, muddy exits, and stronger current than the clear-water appearance suggests.',
+        "Shoals, riffles, small waves, rural self-rescue conditions, and the need to scout Kelley's Slab when the creek is up or dirty.",
+      ],
+    },
+  },
+  'crooked-creek-kelleys-slab-yellville': {
+    putIn: {
+      id: 'kelleys-slab-access',
+      name: "Kelley's Slab Access",
+      latitude: 36.22921,
+      longitude: -92.71045,
+    },
+    takeOut: {
+      id: 'yellville-access',
+      name: 'Yellville Access',
+      latitude: 36.22259,
+      longitude: -92.67944,
+    },
+    logistics: {
+      distanceLabel: '3.5 mi',
+      estimatedPaddleTime:
+        'About 1.75 hr to 3 hr depending on level, launch scouting, and how slowly the group works through the final downstream bends',
+      shuttle:
+        "Stage the take-out at Yellville City Park, then drive back to Kelley's Slab Access. Scout the Kelley launch first when water is up, dirty, or unfamiliar because the short mileage does not remove the route's main hazard cue.",
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC access points, follow Arkansas boating and PFD rules, and respect posted parking signs at each access.',
+      camping:
+        'Fred Berry Crooked Creek Nature Center can support a nearby basecamp with manager permission and a one-night limit, but no campsite is documented directly at Kelleys Slab or Yellville Access.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Launch at Kelley's Slab Access and take out at Yellville City Park for the final official Crooked Creek segment. This is still a rain-sensitive moving-water route keyed to the Kelly Crossing gauge, not a flatwater town shuttle.",
+      accessCaveats: [
+        "Kelley's Slab and Yellville are named public AGFC Crooked Creek Water Trail accesses rather than improved marina-style ramps.",
+        "The current Kelly Crossing gauge reading during this run was below AGFC's moderate band, so expect more scraping and slower riffles than the best Crooked Creek days.",
+        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.',
+        "AGFC says Kelley's Slab can be hazardous under some conditions, so scout the launch and commit only if the group is comfortable with the current level and footing.",
+      ],
+      watchFor: [
+        'Water below about 12 ft, when scraping and slower riffles become more likely.',
+        'Fast post-rain rises, fresh wood, strainers, muddy exits, and stronger current than the clear-water appearance suggests.',
+        "Shoals, riffles, small waves, rural self-rescue conditions, and the route-specific Kelley launch hazard before the easier Yellville finish.",
+      ],
+    },
+  },
 'wabash-river-linn-grove-hale-street': {
     putIn: {
       id: 'linn-grove-park',
