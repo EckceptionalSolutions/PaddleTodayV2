@@ -65,7 +65,7 @@ describe('getAllRiverScores', () => {
       'vermilion-river-minnesota',
       'vermilion-river-ohio',
     ]);
-    expect(stCroixGroup?.routeCount).toBe(5);
+    expect(stCroixGroup?.routeCount).toBe(6);
     expect(stCroixGroup?.states).toEqual(['Minnesota', 'Wisconsin']);
   });
 

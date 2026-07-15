@@ -76353,4 +76353,346 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'pine-river-cross-lake-rock-dam',
+    slug: 'pine-river-cross-lake-rock-dam',
+    name: 'Pine River',
+    reach: 'Cross Lake Recreation Area to Rock Dam',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Short upper-lower Pine River connector from the Corps-managed Cross Lake access to Rock Dam, filling the public access gap immediately above the existing Rock Dam-to-Harvey Drake route.',
+    statusText:
+      'Use the Jenkins DNR gauge as a same-trail proxy: 50 to 200 cfs is the official medium band. Below 35 cfs is scrapable; above 500 cfs is very high for this wooded, rapid-adjacent connector.',
+    latitude: 46.6685153,
+    longitude: -94.1128315,
+    gaugeSource: {
+      id: 'mn-dnr-316',
+      provider: 'mn_dnr',
+      siteId: '316',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Pine River nr Jenkins, CSAH15',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=11015001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=11015001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 50,
+      idealMax: 200,
+      tooLow: 35,
+      tooHigh: 500,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Pine River near Jenkins',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'DNR says Pine River levels usually peak in mid to late May, fall during summer, and can rise again in September and mid-October. The river is generally runnable below Cross Lake Dam through summer, but low water still exposes rocks and makes rapids scrape.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This short route starts below the Cross Lake dam area and ends at Rock Dam / constructed rock rapids. It is not long, but it requires dam awareness, rapid scouting, wood judgment, and a plan to stop before the existing downstream route begins.',
+      confidenceNotes:
+        'Confidence is good with a proxy-gauge caveat: MN DNR maps Cross Lake Recreation Area, Staircase, Gould Rapids, Anton Rapids, and Rock Dam in the exact corridor; public-water-access GIS resolves Cross Lake and Rock Dam with river-mile records and coordinates; and the Jenkins DNR gauge publishes official interpreted bands upstream on the same Pine River water trail.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['low_head_dam', 'whitewater', 'strainers', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Launch only from the public Cross Lake access below the dam context and scout Gould Rapids, Anton Rapids, and Rock Dam as water levels change.',
+        'Rock Dam is the planned take-out for this connector. Do not drift into the longer Rock Dam-to-Harvey Drake route unless that route, shuttle, and daylight are already planned.',
+        'Wind and boat traffic on nearby Whitefish Chain water can affect staging; stay near shore on broad water and keep clear of dam structures.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Access records',
+        value: 'Cross Lake WAS01002 to Rock Dam WAS02986',
+        note: 'Minnesota public-water-access GIS resolves Pine River Cross Lake at river mile 19.8 and Pine River Rock Dam at river mile 15.3 with coordinates and public administrators.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Route shape',
+        value: 'About 4.5 river miles',
+        note: 'DNR Pine River Map places Cross Lake Federal Recreation Area at river mile 19.8 and Rock Dam / constructed rock rapids at river mile 15.3, with Staircase, Gould Rapids, and Anton Rapids between them.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/pine.pdf',
+      },
+      {
+        label: 'DNR bands',
+        value: '35 / 50-200 / 500 cfs',
+        note: 'MN DNR interprets the Jenkins gauge as Scrapable below 35 cfs, Low from 35 to 50, Medium from 50 to 200, High from 200 to 500, and Very High above 500.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '47.4 cfs at 2026-07-15 12:45 AM',
+        note: 'The current MN DNR feed placed the Jenkins gauge in the official low band during this run, so the route should warn about scraping rather than present a good-day call.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Camping posture',
+        value: 'Endpoint/basecamp support only',
+        note: 'DNR describes Cross Lake Recreation Area as offering camping, boating, swimming, picnicking, fishing, and playground areas; the selected short connector does not claim on-route camping.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/pine-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Pine River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/pine-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Pine River map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/pine.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+
+  {
+    id: 'rum-river-riverview-county-road-4',
+    slug: 'rum-river-riverview-county-road-4',
+    name: 'Rum River',
+    reach: 'Riverview Park / Milaca to Mille Lacs County Road 4',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Shorter Map 2 Rum River continuation below Milaca, ending at County Road 4 before the current DNR tree-alert reach near Princeton. It extends the existing upper-Rum coverage without sending paddlers into the log-jam corridor.',
+    statusText:
+      'Use the Onamia DNR gauge as an upstream same-water-trail proxy. The official medium band is 10.5 to 11.5 ft; below 10.0 ft is scrapable and above 12.5 ft is very high.',
+    latitude: 45.7440077,
+    longitude: -93.6487421,
+    gaugeSource: {
+      id: 'mn-dnr-207',
+      provider: 'mn_dnr',
+      siteId: '207',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'proxy',
+      siteName: 'Rum River at Onamia, CR25',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=21018002',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=21018002&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 10.5,
+      idealMax: 11.5,
+      tooLow: 10,
+      tooHigh: 12.5,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Rum River at Onamia',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and post-rain windows help the upper Rum stay above scraping levels. In dry summer weather, expect shallow spots, exposed rocks, and slower travel even on this wider Map 2 continuation.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR describes Map 2 as wider, deeper, and slower with moderate flows and few rapids, but this short route still has dam-adjacent Milaca staging, wood, snags, private banks, and a mandatory stop before the current lower log-jam alert area.',
+      confidenceNotes:
+        'Confidence is good with an explicit proxy caveat: DNR Map 2 names Riverview Park and County Road 4, public-water-access GIS resolves both with river-mile records and coordinates, and the Onamia DNR gauge is the same official upper-Rum gauge already used for the adjacent Wayside-to-Milaca card. The route intentionally stops above the DNR tree-alert corridor.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'low_head_dam', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Start from Riverview Park downstream of the Milaca dam area, not from an improvised launch above dam current or restricted water.',
+        'Take out at the Mille Lacs County Road 4 access. Do not continue toward Princeton unless the current DNR tree alert and same-day obstruction situation have been cleared.',
+        'Expect wood, snags, shallow bars, and cold water. Use public accesses and designated campsites only; riverbed camping beside private land is not permitted.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Map 2 access chain',
+        value: 'Riverview Park RM 111.2 to County Road 4 RM 104.9',
+        note: 'MN DNR Rum River Map 2 names Riverview Park as a carry-in access and rest area, County Road 4 as a carry-in access and bridge, and Meadow Gem watercraft campsites between them.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/rum2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Riverview Park WAS02114 and County Road 4 WAS00460',
+        note: 'Minnesota public-water-access GIS resolves both endpoints with coordinates, administrators, and river-mile records.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'DNR bands',
+        value: '10.0 / 10.5-11.5 / 12.5 ft',
+        note: 'MN DNR interprets the Onamia gauge as Scrapable below 10.0 ft, Low from 10.0 to 10.5, Medium from 10.5 to 11.5, High from 11.5 to 12.5, and Very High above 12.5.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '10.70 ft at 2026-07-15 12:45 AM',
+        note: 'The current MN DNR feed placed Onamia in the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Alert boundary',
+        value: 'Tree alert downstream of this route',
+        note: 'The current DNR Rum River page warns of a large tree blocking the river between river miles 101 and 98, south of County Road 12; this route ends upstream at County Road 4 river mile 104.9.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/rum-river/index.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Rum River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/rum-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Rum River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/rum2.pdf',
+      },
+      {
+        label: 'MN DNR Rum River State Water Trail',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/rum-river/index.html',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+
+  {
+    id: 'south-fork-crow-river-otter-lake-masonic',
+    slug: 'south-fork-crow-river-otter-lake-masonic',
+    name: 'South Fork Crow River',
+    reach: 'Otter Lake West to Western / Masonic City Park',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Compact official South Fork Crow route through Hutchinson from the west Otter Lake access to Western / Masonic City Park, using the nearby Hutchinson DNR gauge and a clear park take-out above the dam.',
+    statusText:
+      'Use the Hutchinson DNR gauge: 31 to 35 ft is the official medium band. Below 30 ft is scrapable; above 37 ft is very high and the short urban-lake connector should be skipped.',
+    latitude: 44.8784083,
+    longitude: -94.4137194,
+    gaugeSource: {
+      id: 'mn-dnr-52',
+      provider: 'mn_dnr',
+      siteId: '52',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'proxy',
+      siteName: 'South Fork Crow River at Hutchinson, CSAH25',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=19049002',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=19049002&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 31,
+      idealMax: 35,
+      tooLow: 30,
+      tooHigh: 37,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for South Fork Crow River at Hutchinson',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is realistic when the Hutchinson gauge is not too low. Because this route crosses small city lake/current water, wind, weeds, and rain-driven debris matter as much as gauge stage.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a short beginner-friendly segment at normal levels, but it has city-park traffic, lake wind, snags, and a take-out requirement before the Western / Masonic dam and downstream portage.',
+      confidenceNotes:
+        'Confidence is high for the route identity: the DNR recommended one-way list names Otter Lake to Western / Masonic City Park, the South Fork Crow map places Otter Lake West and Western / Masonic access at the route endpoints, Minnesota public-water-access GIS resolves both Otter Lake records with river miles and coordinates, and the Hutchinson DNR gauge has official interpreted bands just downstream.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['low_head_dam', 'strainers', 'urban_water_quality', 'private_banks'],
+      safetyNotes: [
+        'Scout the Western / Masonic City Park finish before launching; the DNR map places a dam and mandatory left portage just downstream at river mile 66.7.',
+        'Do not treat this as an open-ended downstream route. Below Hutchinson, DNR notes snags and log-jam-prone reaches on the South Fork Crow.',
+        'Watch for wind on Otter Lake, park users, anglers, shallow vegetation, and floating debris after rain.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official recommended route',
+        value: 'Otter Lake to Western / Masonic City Park, 1.7 mi',
+        note: 'MN DNR recommended one-way sections list Otter Lake carry-in access in Hutchinson to Western / Masonic City Park as a 1.7-mile South Fork Crow route.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Map support',
+        value: 'Otter Lake RM 68.8 to Western / Masonic RM 67.1',
+        note: 'DNR South Fork Crow Map places Otter Lake carry-in at the south end of the lake and Western / Masonic City Park with trailer access, camping, rest area, drinking water, and restrooms.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/south_fork_crow.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Otter Lake West WAS00650 and Otter Lake East WAS00651',
+        note: 'Minnesota public-water-access GIS resolves the Hutchinson Otter Lake west/east access pair with route river miles, coordinates, and City of Hutchinson administration.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'DNR bands',
+        value: '30 / 31-35 / 37 ft',
+        note: 'MN DNR interprets the Hutchinson gauge as Scrapable below 30 ft, Low from 30 to 31, Medium from 31 to 35, High from 35 to 37, and Very High above 37.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '33.97 ft at 2026-07-15 12:45 AM',
+        note: 'The current MN DNR feed placed Hutchinson in the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR recommended one-way water-trail trips',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR South Fork Crow River map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/south_fork_crow.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+
 ];

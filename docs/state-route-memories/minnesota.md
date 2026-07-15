@@ -1,18 +1,28 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 01:11 America/Chicago.
+Last summarized: 2026-07-15 02:12 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 134.
-- Top represented rivers: Mississippi River 20, Sauk River 17, Minnesota River 10, Little Fork River 9, Crow Wing River 7, Big Fork River 5, Root River 5, Otter Tail River 4, Cannon River 4, St. Croix River 4, North Fork Crow River 4, St. Louis River 4, Zumbro River 4, Red River of the North 4.
-- Ledger candidates: 848 total; 487 `added`, 83 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
+- Live routes: 137.
+- Top represented rivers: Mississippi River 20, Sauk River 17, Minnesota River 10, Little Fork River 9, Crow Wing River 7, Big Fork River 5, Root River 5, Otter Tail River 4, Cannon River 4, St. Croix River 4, Rum River 4, North Fork Crow River 4, St. Louis River 4, Zumbro River 4, Red River of the North 4, Snake River 3.
+- Ledger candidates: 854 total; 493 `added`, 83 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 02:12 America/Chicago: added `pine-river-cross-lake-rock-dam`, `rum-river-riverview-county-road-4`, and `south-fork-crow-river-otter-lake-masonic`.
+- Baseline at run start was 134 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 137 Minnesota routes and all three new slugs have trip-detail records.
+- Stayed in Minnesota and promoted three distinct gaps that were stronger than broader or duplicated prompt leads: Cross-Lake-to-Rock-Dam above the existing lower Pine route, Milaca/Riverview-to-County-Road-4 above the active downstream Rum tree-alert corridor, and the official short Hutchinson South Fork Crow recommended one-way.
+- Minnesota public-water-access GIS resolves Pine Cross Lake `WAS01002`, Pine Staircase `WAS01032`, Pine Rock Dam `WAS02986`, Rum Riverview Park `WAS02114`, Rum County Road 4 `WAS00460`, South Fork Crow Otter Lake West `WAS00650`, and South Fork Crow Otter Lake East / Western-Masonic `WAS00651`.
+- Current MN DNR river-level feed exposed interpreted ladders for Pine River near Jenkins site `316` (`35 / 50-200 / 500 cfs`), Rum River Onamia site `207` (`10 / 10.5-11.5 / 12.5 ft`), and South Fork Crow Hutchinson site `52` (`30 / 31-35 / 37 ft`). During the run, Pine was low at `47.40 cfs`, Rum was medium at `10.70 ft`, and South Fork Crow was medium at `33.97 ft`.
+- Camping posture: Pine Cross-Lake-to-Rock-Dam is `nearby_basecamp` with Cross Lake Recreation Area support, Rum Riverview-to-County-Road-4 is `on_route_campsite` only under DNR Map 2 designated Meadow Gem campsite planning, and South Fork Crow Otter-Lake-to-Masonic is `endpoint_campground` at Western / Masonic City Park.
+- No route-gallery images were added. Bounded DNR / Commons / USACE / Hutchinson / same-route image review did not produce clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed and reconciled many prompt leads as already live, including Chippewa Lentz-to-Watson, Des Moines Mayflower-to-Christianna, Kettle Musclewood, Minnesota River Kinney-to-Skalbekken, St. Louis Paupores-to-Brookston, Vermilion Twomile-to-Eightmile, Watonwan-to-Garden-City, Mississippi Itasca/Coffee-Pot continuations, Crow Wing Huntersville, and several Otter Tail / St. Croix / Mississippi cards. Kept downstream Rum and longer South Fork Crow extensions out where current tree/log-jam or dam-portage exposure made the selected short official routes stronger.
+
 
 - 2026-07-15 01:11 America/Chicago: added `root-river-houston-mound-prairie`, `mississippi-river-dayton-mississippi-gateway`, and `st-croix-river-little-yellow-banks-sand-creek`.
 - Baseline at run start was 131 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 134 Minnesota routes and all three new slugs have trip-detail records.

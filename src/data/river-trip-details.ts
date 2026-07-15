@@ -28660,4 +28660,184 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'pine-river-cross-lake-rock-dam': {
+    putIn: {
+      name: 'Pine River, Cross Lake Public Water Access Site / Cross Lake Recreation Area',
+      latitude: 46.6685153,
+      longitude: -94.1128315,
+    },
+    takeOut: {
+      name: 'Pine River, Rock Dam Public Water Access Site',
+      latitude: 46.635762,
+      longitude: -94.0920754,
+    },
+    logistics: {
+      distanceLabel: 'About 4.5 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer with low-water dragging or rapid scouting',
+      shuttle:
+        'Stage the take-out at Rock Dam, then drive back to Cross Lake Recreation Area. Inspect the Cross Lake dam area and the Rock Dam exit before launching; this route deliberately ends at Rock Dam rather than continuing into the already-represented lower Pine card.',
+      permits:
+        'No route-specific paddling permit is known. Use posted Cross Lake Recreation Area and DNR public-access rules, carry required PFDs, and respect closures or dam-area signs.',
+      camping:
+        'Cross Lake Recreation Area provides nearby campground/basecamp support. The short route itself should be treated as a day paddle; do not assume private-bank or informal riverbank camping between Cross Lake and Rock Dam.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch below the Cross Lake dam complex and take out at Rock Dam for a short upper-Pine route that captures the Staircase, Gould, Anton, and constructed-rock rapid corridor above the existing Rock-Dam-to-Harvey-Drake coverage.',
+      accessCaveats: [
+        'Cross Lake and Rock Dam both resolve in Minnesota public-water-access GIS with Pine River mile records and coordinates.',
+        'The DNR river-level site is upstream near Jenkins at CSAH 15. Treat its interpreted Pine River bands as an official corridor condition check, then make a same-day visual call at Cross Lake and Rock Dam.',
+        'Cross Lake Recreation Area is a federal recreation area with campground and day-use rules; confirm parking, launch, fee, and dam-area restrictions before staging vehicles.',
+      ],
+      watchFor: [
+        'Cross Lake dam, Rock Dam, and short rapid/rock-garden features including Staircase, Gould, Anton, and the constructed rock rapids.',
+        'Low-water scraping or walking when the Jenkins gauge is in the scrapable or low band.',
+        'High water, cold water, wood, strainers, slippery rocks, and fast current near constrictions and dam/rapid approaches.',
+        'Private banks and limited bailout options between public accesses; scout from public land only.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cross-lake-pwa',
+        name: 'Pine River, Cross Lake Public Water Access Site',
+        latitude: 46.6685153,
+        longitude: -94.1128315,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01002 at Pine River mile 19.8 near Cross Lake Recreation Area.',
+      },
+      {
+        id: 'staircase-pwa',
+        name: 'Pine River, Staircase Public Water Access Site',
+        latitude: 46.6572627,
+        longitude: -94.1015687,
+        mileFromStart: 1.3,
+        segmentKind: 'creek',
+        note: 'Intermediate DNR public-water-access point near the Staircase rapid corridor; use only if current site conditions make it appropriate.',
+      },
+      {
+        id: 'rock-dam-pwa',
+        name: 'Pine River, Rock Dam Public Water Access Site',
+        latitude: 46.635762,
+        longitude: -94.0920754,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02986 at Pine River mile 15.3 above the lower Pine route.',
+      },
+    ],
+  },
+
+  'rum-river-riverview-county-road-4': {
+    putIn: {
+      name: 'Rum River, Riverview Park Public Water Access Site / Milaca',
+      latitude: 45.7440077,
+      longitude: -93.6487421,
+    },
+    takeOut: {
+      name: 'Rum River, Mille Lacs County Road 4 Public Water Access Site',
+      latitude: 45.7031972,
+      longitude: -93.5858556,
+    },
+    logistics: {
+      distanceLabel: 'About 6.4 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with low water, wood, or campsite stops',
+      shuttle:
+        'Stage the take-out at the County Road 4 carry-in access, then drive back to Riverview Park in Milaca. This route starts below the Milaca dam corridor and stops above the current DNR tree-blockage alert farther downstream near Princeton.',
+      permits:
+        'No route-specific paddling permit is known. Follow city, township, DNR public-access, state boating/PFD, and designated-campsite rules.',
+      camping:
+        'DNR Map 2 identifies Meadow Gem watercraft campsites in this reach. Use only signed/designated sites and treat the route as a day trip unless campsite rules, availability, and river levels are confirmed before launch.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Riverview Park in Milaca and take out at the Mille Lacs County Road 4 carry-in for a short middle-Rum continuation below the existing Wayside-to-Milaca route and upstream of the lower-river log-jam alert area.',
+      accessCaveats: [
+        'Riverview Park and County Road 4 both resolve in Minnesota public-water-access GIS with Rum River mile records and coordinates.',
+        'The Onamia County Road 25 gauge is upstream of this route. Use its official DNR bands as same-river context, then inspect the Milaca launch and County Road 4 exit for current depth, wood, and bank access.',
+        'Do not drift past County Road 4 without rechecking DNR alerts; the active 2026 DNR notice identifies a large tree blocking the river downstream between river miles 101 and 98.',
+      ],
+      watchFor: [
+        'Milaca dam and city-river constrictions upstream of the put-in; start from the public landing below your intended dam exposure.',
+        'Downed trees, log jams, sweepers, shallow riffles, and shifting sand or gravel bars.',
+        'Low-water dragging below the DNR low band and pushy current or poor eddy service above the DNR high band.',
+        'Private banks, cold water, storms, and limited mid-route road exits except mapped public sites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'riverview-park-milaca',
+        name: 'Rum River, Riverview Park Public Water Access Site',
+        latitude: 45.7440077,
+        longitude: -93.6487421,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02114 at Rum River mile 111.3.',
+      },
+      {
+        id: 'mille-lacs-county-road-4',
+        name: 'Rum River, Mille Lacs County Road 4 Public Water Access Site',
+        latitude: 45.7031972,
+        longitude: -93.5858556,
+        mileFromStart: 6.4,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00460 at Rum River mile 104.9.',
+      },
+    ],
+  },
+
+  'south-fork-crow-river-otter-lake-masonic': {
+    putIn: {
+      name: 'South Fork Crow River, Otter Lake West Public Water Access Site',
+      latitude: 44.8784083,
+      longitude: -94.4137194,
+    },
+    takeOut: {
+      name: 'South Fork Crow River, Otter Lake East / Western-Masonic City Park Public Water Access Site',
+      latitude: 44.8926863,
+      longitude: -94.389966,
+    },
+    logistics: {
+      distanceLabel: 'About 1.7 mi',
+      estimatedPaddleTime: 'About 45 min to 1.5 hr, longer with low water, wind, or city-park stops',
+      shuttle:
+        'Stage the take-out at Western / Masonic City Park, then drive back to Otter Lake West. This is a short official Hutchinson route; do not continue past the city take-out toward the downstream dam without a separate portage plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow Hutchinson city-park rules, DNR public-access rules, state boating/PFD rules, and any posted campground or fee requirements.',
+      camping:
+        'DNR Map 1 identifies camping, restrooms, drinking water, and a fee at Western / Masonic City Park. Treat camping as endpoint/basecamp support for this short route, not as permission to camp along private banks.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Otter Lake West and take out at Western / Masonic City Park for the official short Hutchinson South Fork Crow route before the downstream dam and portage.',
+      accessCaveats: [
+        'Otter Lake West and Otter Lake East / Western-Masonic both resolve in Minnesota public-water-access GIS with South Fork Crow river-mile records and coordinates.',
+        'The Hutchinson CSAH 25 DNR gauge is just downstream of the route. Use its official South Fork Crow bands as a near-route condition check and inspect the city accesses before launch.',
+        'The route is short but urban; parking, events, construction, shoreline work, and city-park rules can control practical access on the day.',
+      ],
+      watchFor: [
+        'Dam and portage downstream of Western / Masonic City Park; this route ends before that hazard.',
+        'Snags and fallen trees, especially if extending downstream where the DNR map warns of numerous log jams.',
+        'Low-water scraping below the DNR low band, pushy current above the high band, cold water, and storm runoff from the urban watershed.',
+        'Private banks and city-park boundaries; use public accesses and signed facilities only.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'otter-lake-west',
+        name: 'South Fork Crow River, Otter Lake West Public Water Access Site',
+        latitude: 44.8784083,
+        longitude: -94.4137194,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00650 at South Fork Crow river mile 68.7.',
+      },
+      {
+        id: 'western-masonic-city-park',
+        name: 'South Fork Crow River, Otter Lake East / Western-Masonic City Park Public Water Access Site',
+        latitude: 44.8926863,
+        longitude: -94.389966,
+        mileFromStart: 1.7,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00651 at South Fork Crow river mile 67.1 with DNR map camping/restroom context.',
+      },
+    ],
+  },
+
 };
