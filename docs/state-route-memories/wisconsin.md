@@ -4,15 +4,24 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 136.
-- Top represented rivers: Wisconsin River 15, Baraboo River 5, Milwaukee River 5, Peshtigo River 5, St. Croix River 5, Sugar River 5, Wolf River 5, Bois Brule River 4, Chippewa River 4, Eau Claire River 4, Kickapoo River 4, Namekagon River 4, Pine River 4, Rock River 4, Big Rib River 3, Black River 3, Brule River 3, Crawfish River 3, East Branch Pecatonica River 3, Fox River 3, Grant River 3, Mecan River 3, Platte River 3, Popple River 3, South Fork Flambeau River 3.
-- Ledger candidates: 129 Wisconsin candidates tracked; 119 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
+- Live routes: 139.
+- Top represented rivers: Wisconsin River 15, Baraboo River 5, Milwaukee River 5, Peshtigo River 5, St. Croix River 5, Sugar River 5, Wolf River 5, Bois Brule River 4, Chippewa River 4, Eau Claire River 4, Kickapoo River 4, Namekagon River 4, Pine River 4, Rock River 4, Big Rib River 3, Black River 3, Brule River 3, Crawfish River 3, East Branch Pecatonica River 3, Fox River 3, Grant River 3, La Crosse River 3, Mecan River 3, Platte River 3, Popple River 3, South Fork Flambeau River 3.
+- Ledger candidates: 132 Wisconsin candidates tracked; 122 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 133-route baseline: `crawfish-river-columbus-astico`, `crawfish-river-county-i-county-g`, and `crawfish-river-aztalan-riverfront`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 136-route baseline: `la-crosse-river-fishermans-hammer`, `la-crosse-river-highway-108-veterans`, and `trempealeau-river-whitehall-independence`.
 
 ## Latest Audit
+
+- 2026-07-15 America/Chicago: added `la-crosse-river-fishermans-hammer`, `la-crosse-river-highway-108-veterans`, and `trempealeau-river-whitehall-independence`, bringing the live Wisconsin route count from the run-start baseline of 136 to 139.
+- The two La Crosse routes fill documented access-chain gaps around the already-live Veterans-to-Holiday-Heights lower route. Fisherman's-to-Hammer uses Wisconsin River Trips exact Sparta route context, Travel Wisconsin's official Sparta canoe-landing note, Miles Paddled Sparta-gauge guidance, and direct USGS `05382325`. Highway-108-to-Veterans uses Wisconsin River Trips / Miles Paddled West Salem route context, La Crosse County campground support, and downstream USGS `05383075`.
+- The Trempealeau route introduces a new Wisconsin family with Miles Paddled Whitehall-to-Independence route support, Colonel Larson Park and Schultz / Four Seasons Park coordinates, and downstream same-river USGS `05379500` at Dodge as a conservative source-tied proxy.
+- Live gauge verification: USGS Water Services returned La Crosse at Sparta `05382325` at `178 cfs / 3.77 ft`, La Crosse near La Crosse `05383075` at `486 cfs / 3.28 ft`, and Trempealeau at Dodge `05379500` at `550 cfs / 5.98 ft`, all at 2026-07-15 17:00 CDT. Sparta and Trempealeau were above their minimum-only floors; West Salem is just above the preferred window and ships with pushier-current caution.
+- Threshold posture: Fisherman's-to-Hammer uses a minimum-only `150 cfs` Sparta floor from Miles Paddled's `150-170 cfs / about 3.5 ft` guidance and does not invent an upper cutoff. Highway-108-to-Veterans uses WRT/Miles guidance of roughly `300-450 cfs` useful on the lower La Crosse gauge, with `250 cfs` as a low-side caveat and `601+ cfs` as too high for the app. Trempealeau uses a minimum-only `390 cfs` Dodge-gauge floor from Miles Paddled and no invented ideal/high limit.
+- Safety/logistics added: Fisherman's-to-Hammer carries former-dam/ledge, 2024 logjam/portage, bridge-take-out, urban-debris, private-bank, no-camping, and same-day wood-check caveats. Highway-108-to-Veterans carries below-dam launch, class II former-dam ledge, high-water/strainer, private-bank, endpoint-campground, and take-out-identification caveats. Trempealeau carries downstream-gauge proxy, mandatory/possible log portages, strainers, shallow sand, private banks, fast rises, nearby-basecamp, and no-informal-camping caveats.
+- Bounded image review found WRT / Miles Paddled / county / DNR / Commons / same-route leads, plus an existing rights-clean lower La Crosse corridor image, but no clearly rights-clean exact-route paddling/gallery asset selected for the three new cards; no-image rows were added to the image audit.
+- Reviewed prompt and memory leads again: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica remain already live; Black Earth Creek Cross Plains-to-Salmo Pond remains blocked by unresolved obstruction evidence despite older route reports; Oconto North Branch remains held; Peshtigo O-to-CCC remains blocked by current obstruction reports; Waupaca / Tomorrow / Yellow River / Little Wolf blockers remain unchanged.
 
 - 2026-07-15 America/Chicago: added `crawfish-river-columbus-astico`, `crawfish-river-county-i-county-g`, and `crawfish-river-aztalan-riverfront`, bringing the live Wisconsin route count from the run-start baseline of 133 to 136.
 - The three routes introduce the Crawfish River as a new live Wisconsin family rather than expanding an already-saturated corridor. Wisconsin River Trips documents Columbus-to-Astico and Aztalan-to-Jefferson / Goat Island with route-specific Milford-gauge level guidance; Miles Paddled documents all three access pairs and coordinates; Wisconsin DNR / Glacial Heritage / Aztalan, Dodge County, and Jefferson sources support the public-corridor and endpoint context.

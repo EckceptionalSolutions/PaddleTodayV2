@@ -9115,6 +9115,187 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'la-crosse-river-fishermans-hammer': {
+    putIn: {
+      id: 'fishermans-park-sparta',
+      name: "Fisherman's Park / Sparta canoe landing",
+      latitude: 43.94223,
+      longitude: -90.80265,
+    },
+    takeOut: {
+      id: 'hammer-road-bridge',
+      name: 'Hammer Road Bridge take-out',
+      latitude: 43.9199,
+      longitude: -90.8718,
+    },
+    logistics: {
+      distanceLabel: 'About 5.4 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with portages, low water, or scouting',
+      shuttle:
+        "Stage the Hammer Road bridge take-out first because the parking and carry are workable but not polished. Then drive back to Fisherman's Park in Sparta and inspect the first ledgy current below the park before launching.",
+      permits:
+        'No route-specific paddling permit is known. Use the public Sparta landing and bridge access respectfully, follow Wisconsin boating/PFD rules, and obey any posted city or road-right-of-way parking limits.',
+      camping:
+        'Treat this as a no-camping day route. Do not assume private banks, sandbars, or the Hammer Road bridge corridor are legal overnight stops.',
+      campingClassification: 'none',
+      summary:
+        "Launch at Fisherman's Park in Sparta and take out at Hammer Road Bridge for the short ledgy upper La Crosse River run. Use the direct Sparta gauge as a minimum-only check and stand down when current wood reports point to mandatory portages the group cannot handle.",
+      accessCaveats: [
+        'Wisconsin River Trips reports a 2024 logjam update upstream from Amundson Park. Recheck recent wood and portage reports before committing.',
+        'Hammer Road is a bridge take-out with a carry and limited parking, not a developed park ramp. Inspect it before leaving vehicles.',
+        'Stay off private banks away from the named access points, especially if a logjam or ledge tempts an improvised exit.',
+      ],
+      watchFor: [
+        'Former-dam remnants, modest ledges, and shallow boulder lines that get scrapier below the 150 cfs floor.',
+        'Fresh sweepers, logjams, and strainers in fast outside bends.',
+        'Cold water, urban debris near Sparta, narrow bridge access, and private banks.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'fishermans-park-sparta',
+        name: "Fisherman's Park / Sparta canoe landing",
+        latitude: 43.94223,
+        longitude: -90.80265,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this route.',
+      },
+      {
+        id: 'hammer-road-bridge',
+        name: 'Hammer Road Bridge take-out',
+        latitude: 43.9199,
+        longitude: -90.8718,
+        mileFromStart: 5.4,
+        segmentKind: 'creek',
+        note: 'Default take-out for this route; inspect parking and carry before launch.',
+      },
+    ],
+  },
+  'la-crosse-river-highway-108-veterans': {
+    putIn: {
+      id: 'highway-108-county-c-west-salem',
+      name: 'Highway 108 / County C public landing below Neshonoc dam',
+      latitude: 43.91421,
+      longitude: -91.07612,
+    },
+    takeOut: {
+      id: 'veterans-memorial-campground-canoe-landing',
+      name: 'Veterans Memorial County Park canoe landing',
+      latitude: 43.89187,
+      longitude: -91.11906,
+    },
+    logistics: {
+      distanceLabel: 'About 4.2 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer if scouting the class II ledge',
+      shuttle:
+        'Stage the take-out inside Veterans Memorial County Park first, then launch below the Highway 108 / County C dam area. Identify the campground landing from land because it is easy to miss from the river.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, launch below the dam, and obey all La Crosse County campground parking and access directions.',
+      camping:
+        'Veterans Memorial County Park provides endpoint campground support, but the paddle itself is a short day route. Use normal campground reservations and rules rather than informal river camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch below the West Salem / Neshonoc dam area and take out at Veterans Memorial County Park for a compact La Crosse River moving-water route. The La Crosse gauge is currently just above the preferred window, so expect pushier current than a normal target day.',
+      accessCaveats: [
+        'Launch below the dam/outflow area. Do not drift upstream toward the dam or treat the powerhouse/tunnel outflow as part of this route.',
+        'The Veterans Memorial campground landing is marked from the water but easier to miss from land. Scout it before launching.',
+        'The former-dam ledge downstream from County M can be portaged on river left only where access is legal and practical; do not use private river-right yards.',
+      ],
+      watchFor: [
+        'Class II former-dam ledge, riffles, boulder gardens, and standing waves.',
+        'Leaning branches and strainers in fast current, especially when the La Crosse gauge rises above about 450 cfs.',
+        'Cold water, campground traffic, private banks, and the risk of overshooting the take-out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-108-county-c-west-salem',
+        name: 'Highway 108 / County C public landing below Neshonoc dam',
+        latitude: 43.91421,
+        longitude: -91.07612,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this route.',
+      },
+      {
+        id: 'county-m-former-dam-ledge',
+        name: 'County M former-dam ledge',
+        latitude: 43.9047,
+        longitude: -91.0982,
+        mileFromStart: 2,
+        segmentKind: 'creek',
+        note: 'Approximate class II ledge zone; scout or portage only where legal and practical.',
+      },
+      {
+        id: 'veterans-memorial-campground-canoe-landing',
+        name: 'Veterans Memorial County Park canoe landing',
+        latitude: 43.89187,
+        longitude: -91.11906,
+        mileFromStart: 4.2,
+        segmentKind: 'creek',
+        note: 'Default take-out and endpoint campground access.',
+      },
+    ],
+  },
+  'trempealeau-river-whitehall-independence': {
+    putIn: {
+      id: 'colonel-larson-park-canoe-landing',
+      name: 'Colonel Larson Park canoe landing',
+      latitude: 44.37277,
+      longitude: -91.32128,
+    },
+    takeOut: {
+      id: 'schultz-park-four-seasons-park',
+      name: 'Schultz Park / Four Seasons Park',
+      latitude: 44.35982,
+      longitude: -91.4165,
+    },
+    logistics: {
+      distanceLabel: 'About 8.0 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, fishing stops, or log portages',
+      shuttle:
+        'Stage the Independence take-out first, then drive back to Colonel Larson Park in Whitehall. Check the first few hundred yards below the launch if possible because Miles Paddled reports a large-tree portage shortly downstream.',
+      permits:
+        'No route-specific paddling permit is known. Use the park landings, follow Wisconsin boating/PFD rules, and obey local park parking or event restrictions.',
+      camping:
+        'Treat this as a day trip. Nearby county or state park camping can support a weekend, but no on-route river camping is documented for this Whitehall-to-Independence segment.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Colonel Larson Park and take out at Schultz / Four Seasons Park for an easy Trempealeau River day with sand-bottom current and real wood hazards. The Dodge gauge is a downstream proxy, so same-day local visual checks still matter.',
+      accessCaveats: [
+        'The Dodge gauge is downstream of the route. Use it as the route-source benchmark, then make a local visual call at Whitehall.',
+        'Miles Paddled publishes the named Schultz / Four Seasons Park take-out but its coordinate appears inconsistent with the named Independence park and 8-mile route; this app pins the take-out to the Independence Four Seasons Park / Elm Street area.',
+        'Miles Paddled reports a mandatory tree portage near the launch and a possible portage near the finish. Recent storms can change this quickly.',
+        'Do not turn inviting sandbars or private farm banks into campsite assumptions; use formal campgrounds off-route if staying overnight.',
+      ],
+      watchFor: [
+        'Sweepers and strainers in deceptively swift current.',
+        'Shallow sand and walking if the gauge drops below the selected minimum.',
+        'Cold water, fast rises after rain, rural access spacing, and private banks.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'colonel-larson-park-canoe-landing',
+        name: 'Colonel Larson Park canoe landing',
+        latitude: 44.37277,
+        longitude: -91.32128,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this route.',
+      },
+      {
+        id: 'schultz-park-four-seasons-park',
+        name: 'Schultz Park / Four Seasons Park',
+        latitude: 44.35982,
+        longitude: -91.4165,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Default take-out for this route.',
+      },
+    ],
+  },
   'la-crosse-river-veterans-holiday-heights': {
     putIn: {
       name: 'Veterans Memorial Campground canoe landing',

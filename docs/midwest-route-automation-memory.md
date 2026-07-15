@@ -1,4 +1,13 @@
-# Midwest Route Automation Memory
+#
+- 2026-07-15 17:00 America/Chicago / 2026-07-15 22:00 UTC: Wisconsin three-route implementation pass (`wisconsin-route-additions`).
+  - Added three Wisconsin slugs beyond the 136-route Wisconsin baseline at run start: `la-crosse-river-fishermans-hammer`, `la-crosse-river-highway-108-veterans`, and `trempealeau-river-whitehall-independence`, bringing Wisconsin to 139 live routes.
+  - Qualification path: Wisconsin River Trips / Miles Paddled / Travel Wisconsin support Fisherman's Park-to-Hammer Road with direct USGS `05382325` Sparta data; Wisconsin River Trips / Miles Paddled / La Crosse County support Highway-108-to-Veterans with USGS `05383075` lower La Crosse data; and Miles Paddled supports Whitehall-to-Independence with USGS `05379500` Dodge data as a downstream same-river proxy.
+  - Live gauge verification: USGS Water Services returned La Crosse at Sparta `178 cfs / 3.77 ft`, La Crosse near La Crosse `486 cfs / 3.28 ft`, and Trempealeau at Dodge `550 cfs / 5.98 ft`, all at 2026-07-15 17:00 CDT.
+  - Implemented gauge models: Fisherman's-to-Hammer uses a minimum-only `150 cfs` Sparta floor; Highway-108-to-Veterans uses a `300-450 cfs` useful window, `250 cfs` low-side caveat, and `601+ cfs` too-high cutoff; Trempealeau uses a minimum-only `390 cfs` Dodge-gauge floor.
+  - Added camping and safety/logistics notes: both La Crosse additions are guarded moving-water cards with ledge/former-dam, logjam/strainer, private-bank, and access-check caveats; the West Salem card has endpoint-campground status at Veterans Memorial County Park. Trempealeau is nearby-basecamp only with downstream-gauge proxy, mandatory/possible log portages, shallow-sand, strainer, and private-bank caveats.
+  - No route-gallery assets were added. Bounded WRT / Miles Paddled / Travel Wisconsin / La Crosse County / DNR / Commons / same-route image review found route/context imagery but no clearly rights-clean exact-route paddling asset selected for local reuse.
+  - Reviewed prompt and memory leads again: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica are already live; Black Earth Creek Cross Plains-to-Salmo Pond remains blocked; Oconto / Peshtigo / Waupaca / Tomorrow / Yellow / Little Wolf blockers remain unchanged.
+ Midwest Route Automation Memory
 
 - 2026-07-15 18:13 America/Chicago / 2026-07-15 23:13 UTC: Minnesota three-route implementation pass (`minnesota-route-additions-2`).
   - Added three Minnesota slugs beyond the 159-route Minnesota baseline at run start: `pomme-de-terre-river-koosman-highway-12`, `pomme-de-terre-river-appleton-pomme-de-terre-2`, and `watonwan-river-county-road-32-county-road-20`, bringing Minnesota to 162 live routes.
