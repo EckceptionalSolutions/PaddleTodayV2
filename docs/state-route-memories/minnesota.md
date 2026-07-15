@@ -1,18 +1,28 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 08:13 America/Chicago.
+Last summarized: 2026-07-15 09:12 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 134 after the 2026-07-15 08:13 three-route addition pass.
-- Top represented rivers: Mississippi River 24, Minnesota River 11, Sauk River 7, Big Fork River 5, Root River 5, Rum River 5, Zumbro River 5, Red River of the North 5, Cannon River 5, Little Fork River 4, Red Lake River 4, Otter Tail River 4, St. Croix River 4, North Fork Crow River 4, St. Louis River 4, Crow Wing River 4, Snake River 3, Des Moines River 3, Straight River 3.
-- Ledger candidates: 906 total; 525 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 24 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
+- Live routes: 137 after the 2026-07-15 09:12 three-route addition pass.
+- Top represented rivers: Mississippi River 24, Minnesota River 11, Sauk River 7, Rum River 6, Big Fork River 5, Root River 5, Zumbro River 5, Red River of the North 5, Cannon River 5, Crow Wing River 5, Little Fork River 4, Red Lake River 4, Otter Tail River 4, St. Croix River 4, North Fork Crow River 4, St. Louis River 4, Cedar River 3, Snake River 3, Des Moines River 3, Straight River 3.
+- Ledger candidates: 909 total; 527 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 25 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 09:12 America/Chicago: added `cedar-river-dreisner-riverwood`, `rum-river-onamia-wayside`, and `crow-wing-river-first-crow-wing-huntersville`.
+- Baseline at run start was 134 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 137 Minnesota routes and all three new slugs have trip-detail records.
+- Stayed in Minnesota and promoted three official/source-backed gaps above existing downstream cards. Cedar Dreisner-to-Riverwood fills the Austin-area upstream segment above the existing Riverwood-to-State-Line card; Rum Onamia-to-Wayside fills the upper Rum gap above Wayside-to-Milaca; Crow Wing 1st-Crow-Wing-to-Huntersville fills the upstream connector above Huntersville-to-Mary-Brown without reintroducing longer duplicate Crow Wing planners.
+- Current MN DNR river-level feed exposed interpreted ladders for Cedar Austin site `286` (`50 / 117-1290 / 1670 cfs`), Rum Onamia site `207` (`10 / 10.5-11.5 / 12.5 ft`), and Crow Wing Nimrod site `55` (`300 / 400-800 / 1100 cfs`). During the run, Cedar was medium at `362 cfs`, Rum was medium at `10.7 ft`, and Crow Wing was below the low floor at `289 cfs`, so the Crow Wing card ships with explicit low/scrapable and visual-check caveats.
+- Minnesota public-water-access GIS resolves Cedar Dreisner `WAS01377` and Riverwood `WAS02650`, Rum Onamia Lake `WAS01267` and Wayside Landing `WAS00462`, and Crow Wing 1st Crow Wing Lake `WAS02534` and Huntersville North `WAS01525`.
+- Camping posture: Cedar is `none`; Rum and Crow Wing are `nearby_basecamp` only. No on-route campsite is assumed for any of the three new day routes.
+- Safety posture: Cedar carries dam-extension, snag, fast-rise, urban-runoff, private-bank, and bridge-debris caveats; Rum carries shallow-rock, low-water, wood/strainer, lake-wind, cold-water, and private-bank caveats; Crow Wing carries downstream-proxy gauge, below-floor current condition, lake-wind, narrow-channel wood, sandy shallows, remote-rescue, limited-exit, and private-bank caveats.
+- No route-gallery images were added. Bounded DNR / public-access / Wikimedia Commons / same-route image review did not produce clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed but did not add Sauk Richmond-to-Horseshoe because the retained St.-Martin-to-Eagle-Park access-planner card already represents the useful corridor; Long Prairie Lake Carlos-to-Highway-29 because endpoint and downstream-gauge support remained weaker than accepted routes; broader Crow Wing 1st-to-Stigman and upper Big Fork planners because they would duplicate existing canonical coverage or rely on weaker proxy stories.
 
 - 2026-07-15 08:13 America/Chicago: added `redwood-river-wabasso-redwood-lake`, `cannon-river-morristown-south-alexander`, and `straight-river-morehouse-county-road-45`.
 - Baseline at run start was 131 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 134 Minnesota routes and all three new slugs have trip-detail records.

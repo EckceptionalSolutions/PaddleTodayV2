@@ -2486,6 +2486,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'rum-river-onamia-wayside': {
+    putIn: {
+      name: 'Onamia Lake Public Water Access Site',
+      latitude: 46.0692455,
+      longitude: -93.6803389,
+    },
+    takeOut: {
+      name: 'Rum River, Wayside Landing Public Water Access Site',
+      latitude: 45.9257911,
+      longitude: -93.6645845,
+    },
+    logistics: {
+      distanceLabel: 'About 14.3 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with shallow water, wood, or lake wind',
+      shuttle:
+        'Stage Wayside Landing first, then drive back to the Onamia Lake access. Treat this as a full upper-Rum day and confirm the lake-to-river exit, parking, and take-out layout before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted DNR, park, and access rules.',
+      camping:
+        'Nearby base-camping exists around Mille Lacs Kathio State Park and the lake country, but no selected on-route watercraft campsite was confirmed for the Onamia-to-Wayside segment. Treat it as a day trip.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch from the Onamia Lake public access near the DNR gauge and take out at Wayside Landing for the upper public-access gap above the existing Wayside-to-Milaca route. The Onamia gauge is the right same-day check, but visual low-water and wood checks still decide the trip.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Onamia Lake at river mile 143 as WAS01267 and Wayside Landing at river mile 128.7 as WAS00462.',
+        'The DNR recommended-one-way list starts the broader upper-Rum planner at 320th Street and continues to Milaca; this card uses the cleaner GIS-resolved Onamia-to-Wayside gap above the existing lower card.',
+        'Public exits are limited between endpoints. Do not rely on private banks for bailout, rest stops, or overnight use.',
+      ],
+      watchFor: [
+        'Low-water scraping, shallow rocks, and possible wading when the Onamia gauge is near the 10 ft scrapable floor.',
+        'Fresh wood, strainers, narrow bends, and light rapid maneuvering on the upper river.',
+        'Lake wind or cold-water exposure near the Onamia launch, plus private-bank limits downstream.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'onamia-lake',
+        name: 'Onamia Lake Public Water Access Site',
+        latitude: 46.0692455,
+        longitude: -93.6803389,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default put-in near the Onamia DNR gauge; resolves as WAS01267 at DNR river mile 143.',
+      },
+      {
+        id: 'wayside-landing',
+        name: 'Rum River, Wayside Landing Public Water Access Site',
+        latitude: 45.9257911,
+        longitude: -93.6645845,
+        mileFromStart: 14.3,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 128.7; resolves as WAS00462 and connects to the already-live Wayside-to-Milaca route downstream.',
+      },
+    ],
+  },
   'rum-river-walbo-cambridge-west': {
     putIn: {
       name: 'Walbo carry-in access',
@@ -26169,6 +26224,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'crow-wing-river-first-crow-wing-huntersville': {
+    putIn: {
+      name: 'Crow Wing River, 1st Crow Wing Lake Public Water Access Site',
+      latitude: 46.8231595,
+      longitude: -94.871236,
+    },
+    takeOut: {
+      name: 'Crow Wing River, Huntersville North Public Water Access Site',
+      latitude: 46.7783954,
+      longitude: -94.8929814,
+    },
+    logistics: {
+      distanceLabel: 'About 7.1 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, wood, or lake wind',
+      shuttle:
+        'Stage Huntersville North first, then drive back to 1st Crow Wing Lake. This is an upstream connector above the existing Huntersville-to-Mary-Brown route, so do not launch late or assume lower-route access notes cover this reach.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey DNR, county, state-forest, and posted access rules.',
+      camping:
+        'Treat this as a day route. DNR Map 1 and the public access chain show campground/basecamp options in the broader Crow Wing corridor, but no selected on-route campsite is assumed for the short 1st-Crow-Wing-to-Huntersville segment.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at 1st Crow Wing Lake and take out at Huntersville North for the upstream public-access gap above current V2 Crow Wing coverage. The Nimrod gauge is a downstream official proxy, so local wind, wood, and shallow-water checks matter before launch.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves 1st Crow Wing Lake at river mile 89.7 as WAS02534 and Huntersville North at river mile 82.6 as WAS01525.',
+        'The DNR recommended-one-way list frames the longer 1st-Crow-Wing-to-Stigman route; this card stops at Huntersville to avoid duplicating the already-live lower Crow Wing planners.',
+        'The Nimrod gauge is downstream of this route. Use it as the official same-water-trail condition check, not as a substitute for local visual conditions.',
+      ],
+      watchFor: [
+        'Lake wind and cold-water exposure at the launch, then narrow-channel wood, sweepers, sandy shallows, and private banks.',
+        'Low-water scraping when Nimrod is below or near the 300 cfs floor; the current run reading was below the official low band.',
+        'Remote rescue spacing and limited public exits before Huntersville.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'first-crow-wing-lake',
+        name: 'Crow Wing River, 1st Crow Wing Lake Public Water Access Site',
+        latitude: 46.8231595,
+        longitude: -94.871236,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default put-in at DNR river mile 89.7; resolves as WAS02534 with DNR administration.',
+      },
+      {
+        id: 'huntersville-north',
+        name: 'Crow Wing River, Huntersville (N) Public Water Access Site',
+        latitude: 46.7783954,
+        longitude: -94.8929814,
+        mileFromStart: 7.1,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 82.6; resolves as WAS01525 and sits upstream of the already-live Huntersville-to-Mary-Brown route.',
+      },
+    ],
+  },
   'crow-wing-river-huntersville-mary-brown': {
     putIn: {
       name: 'Crow Wing River, Huntersville (N) Public Water Access Site',
@@ -26870,6 +26980,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 7.3,
         segmentKind: 'creek',
         note: 'Default take-out; public-water-access GIS resolves WAS02152 at river mile 144.5.',
+      },
+    ],
+  },
+  'cedar-river-dreisner-riverwood': {
+    putIn: {
+      name: 'Cedar River, Dreisner Park Public Water Access Site',
+      latitude: 43.6628133,
+      longitude: -92.964958,
+    },
+    takeOut: {
+      name: 'Riverwood Landing Public Water Access Site',
+      latitude: 43.615972,
+      longitude: -92.9782676,
+    },
+    logistics: {
+      distanceLabel: '4.7 mi',
+      estimatedPaddleTime: 'About 1.75 hr to 3 hr depending on flow, wood, and access time',
+      shuttle:
+        'Stage Riverwood Landing first, then drive back to Dreisner Park. This is the upstream public-access gap above the existing Riverwood-to-State-Line route, so keep the downstream card separate and do not assume a legal extension past Riverwood without a longer shuttle plan.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted City of Austin and DNR access rules.',
+      camping:
+        'Treat this as a day trip. The DNR Cedar River materials point to local parks and nature-center context, but no on-route or endpoint campsite was confirmed for the short Dreisner-to-Riverwood segment.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Dreisner Park and take out at Riverwood Landing for the short upstream Austin-area Cedar River gap above the existing downstream route. The Austin DNR gauge is on the same reach, but same-day visual checks still matter after storms.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Dreisner Park at DNR river mile 16.5 as WAS01377 and Riverwood Landing at river mile 11.8 as WAS02650.',
+        'The DNR recommended-one-way list frames a longer Dreisner-to-State-Line route; this card stops at Riverwood to avoid duplicating the existing Riverwood-to-State-Line card.',
+        'Public exits are limited between endpoints. Do not use private banks for bailout, rest stops, or parking.',
+      ],
+      watchFor: [
+        'Dams elsewhere on the Cedar water trail; do not extend downstream without a separate portage and take-out plan.',
+        'Snags, overhanging trees, private banks, and fast rises after heavy rain. Avoid floodwater even when the gauge still reports an interpreted paddling band.',
+        'Urban runoff, bridge debris, and post-storm wood in the Austin corridor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'dreisner-park',
+        name: 'Cedar River, Dreisner Park Public Water Access Site',
+        latitude: 43.6628133,
+        longitude: -92.964958,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 16.5; resolves as WAS01377 with City of Austin administration.',
+      },
+      {
+        id: 'riverwood-landing',
+        name: 'Riverwood Landing Public Water Access Site',
+        latitude: 43.615972,
+        longitude: -92.9782676,
+        mileFromStart: 4.7,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 11.8; resolves as WAS02650 and connects to the already-live downstream Cedar route.',
       },
     ],
   },
