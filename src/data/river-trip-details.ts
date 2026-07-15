@@ -30212,6 +30212,198 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'redwood-river-wabasso-redwood-lake': {
+    putIn: {
+      name: 'Redwood River, Wabasso Public Water Access Site',
+      latitude: 44.5079048,
+      longitude: -95.2298076,
+    },
+    takeOut: {
+      name: 'Redwood Lake Public Water Access Site / Perks Park',
+      latitude: 44.5403368,
+      longitude: -95.1236338,
+    },
+    logistics: {
+      distanceLabel: 'About 7.6 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low water or Lake Redwood wind',
+      shuttle:
+        'Use a short Redwood County shuttle from the Redwood Lake / Perks Park take-out back to the Wabasso access. Confirm lake-level, ramp, and parking conditions before leaving vehicles.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR public-access rules, local park rules, and posted dam or lake restrictions.',
+      camping:
+        'No on-route watercraft campsite was confirmed for the selected Wabasso-to-Redwood-Lake segment. Treat this as a day route and use Redwood Falls area lodging or campgrounds as separate base-camp plans.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Wabasso public access and take out at Redwood Lake / Perks Park before the Highway 19 dam. Use the Redwood Falls DNR gauge as a conservative same-corridor check.',
+      accessCaveats: [
+        'Wabasso resolves as WAS00004 in Minnesota public-water-access GIS and DNR Map 3 places it at Redwood River mile 13.3.',
+        'Redwood Lake resolves as WAS00025 at Perks Park / Redwood Lake, matching the DNR map finish near river mile 5.7.',
+        'The Redwood Falls DNR gauge is downstream in the same river corridor rather than at Wabasso, so pair the official bands with visual checks for depth, wood, and Lake Redwood wind.',
+      ],
+      watchFor: [
+        'Mandatory take-out before the Highway 19 bridge and dam. DNR Map 3 says the dam is impassable and has no portage.',
+        'Snags, low-water scraping, muddy banks, and private shoreline on the small lower Redwood River.',
+        'Open-water wind and boat wake on Redwood Lake near the finish.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'wabasso-public-water-access',
+        name: 'Redwood River, Wabasso Public Water Access Site',
+        latitude: 44.5079048,
+        longitude: -95.2298076,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00004 and DNR Map 3 marks Wabasso at Redwood River mile 13.3.',
+      },
+      {
+        id: 'redwood-lake-perks-park',
+        name: 'Redwood Lake Public Water Access Site / Perks Park',
+        latitude: 44.5403368,
+        longitude: -95.1236338,
+        mileFromStart: 7.6,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00025 and DNR Map 3 marks Redwood Lake / Westside Park near river mile 5.7, just upstream of the impassable Highway 19 dam.',
+      },
+    ],
+  },
+  'cannon-river-morristown-south-alexander': {
+    putIn: {
+      name: 'Cannon River, Morristown Public Water Access Site',
+      latitude: 44.2263967,
+      longitude: -93.4390152,
+    },
+    takeOut: {
+      name: 'Cannon River, South Alexander Park Public Water Access Site',
+      latitude: 44.3035401,
+      longitude: -93.2798195,
+    },
+    logistics: {
+      distanceLabel: 'About 13.1 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6.5 hr, longer with lake wind, dam portage time, or low water',
+      shuttle:
+        'Stage South Alexander Park first, then return to Morristown and launch below Morristown Pond Dam. Mark Kings Mill Dam and South Alexander before starting.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR public-access rules, local park rules, and posted dam or bridge restrictions.',
+      camping:
+        'No on-route campsite was confirmed for this Morristown-to-South-Alexander day route. Use Faribault or Cannon River corridor lodging and campgrounds as separate base-camp logistics.',
+      campingClassification: 'none',
+      summary:
+        'Launch below Morristown Pond Dam and paddle the upper Cannon to South Alexander Park, stopping before Woolen Mill Dam and using the Morristown DNR gauge for the level call.',
+      accessCaveats: [
+        'Morristown resolves as WAS02656 in Minnesota public-water-access GIS and DNR Map 1 places the carry-in below Morristown Pond Dam.',
+        'South Alexander Park resolves as WAS01375 and DNR Map 1 places it at river mile 59.3, above Woolen Mill Dam.',
+        'Kings Mill Dam is a required portage on river left; Woolen Mill Dam downstream from the take-out has no developed portage.',
+      ],
+      watchFor: [
+        'Morristown Pond Dam at the launch context and Kings Mill Dam near river mile 60.7.',
+        'Cannon Lake and Wells Lake wind, boat traffic, shallow riffles, and fresh wood after storms.',
+        'Mandatory South Alexander take-out before Woolen Mill Dam and private banks outside named public access points.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'morristown-public-water-access',
+        name: 'Cannon River, Morristown Public Water Access Site',
+        latitude: 44.2263967,
+        longitude: -93.4390152,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02656 and DNR Map 1 places the below-dam carry-in near river mile 72.4.',
+      },
+      {
+        id: 'kings-mill-dam-portage',
+        name: 'Kings Mill Dam portage',
+        latitude: 44.288,
+        longitude: -93.300,
+        mileFromStart: 11.7,
+        segmentKind: 'creek',
+        note: 'DNR Map 1 marks Kings Mill Dam at river mile 60.7 with a river-left portage; coordinates are approximate map-planning aids.',
+      },
+      {
+        id: 'south-alexander-park',
+        name: 'Cannon River, South Alexander Park Public Water Access Site',
+        latitude: 44.3035401,
+        longitude: -93.2798195,
+        mileFromStart: 13.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS01375 and DNR Map 1 places South Alexander Park at river mile 59.3, above Woolen Mill Dam.',
+      },
+    ],
+  },
+  'straight-river-morehouse-county-road-45': {
+    putIn: {
+      name: 'Straight River, Morehouse Public Water Access Site',
+      latitude: 44.0807482,
+      longitude: -93.2330972,
+    },
+    takeOut: {
+      name: 'Straight River, County Road 45 Public Water Access Site',
+      latitude: 44.1484502,
+      longitude: -93.2438302,
+    },
+    logistics: {
+      distanceLabel: 'About 6.4 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, plus scouting and portage time',
+      shuttle:
+        'Stage County Road 45 first, then return to Morehouse Park. Scout the Owatonna Dam portage and Clinton Falls plan before launch.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR public-access rules, local park rules, and all posted dam or bridge restrictions.',
+      camping:
+        'No on-route camping is assumed for this short advanced day route. Use Owatonna or Faribault area lodging and campgrounds as separate base-camp plans.',
+      campingClassification: 'none',
+      summary:
+        'Run the upper Straight from Morehouse Park to County Road 45 with a direct Owatonna DNR gauge, an immediate dam portage, and Clinton Falls Class II-III scouting or portage.',
+      accessCaveats: [
+        'Morehouse Park resolves as WAS00187 in Minnesota public-water-access GIS and DNR Map 1 places it at Straight River mile 27.2.',
+        'County Road 45 resolves as WAS02043 and DNR Map 1 places it at river mile 20.8, above the existing Medford/Kroghs route.',
+        'This route starts above Owatonna Dam and quickly passes the direct DNR gauge; do not launch unless the dam-portage plan is clear.',
+      ],
+      watchFor: [
+        'Owatonna Dam portage on river right almost immediately below Morehouse Park.',
+        'Clinton Falls Class II-III area; DNR Map 1 gives a river-left 30-yard portage and this card assumes conservative scouting.',
+        'Fast water, rock gardens, wood, cold water, narrow bends, and private banks outside mapped public accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'morehouse-public-water-access',
+        name: 'Straight River, Morehouse Public Water Access Site',
+        latitude: 44.0807482,
+        longitude: -93.2330972,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00187 and DNR Map 1 places Morehouse Park at Straight River mile 27.2.',
+      },
+      {
+        id: 'owatonna-dam-portage',
+        name: 'Owatonna Dam portage',
+        latitude: 44.081,
+        longitude: -93.234,
+        mileFromStart: 0.3,
+        segmentKind: 'creek',
+        note: 'DNR Map 1 marks Owatonna Dam at river mile 26.9 with a river-right portage; coordinates are approximate map-planning aids.',
+      },
+      {
+        id: 'clinton-falls-portage',
+        name: 'Clinton Falls portage',
+        latitude: 44.128,
+        longitude: -93.246,
+        mileFromStart: 5.4,
+        segmentKind: 'creek',
+        note: 'DNR Map 1 marks Clinton Falls near river mile 21.8 as Class II-III with a 30-yard river-left portage; coordinates are approximate map-planning aids.',
+      },
+      {
+        id: 'county-road-45-public-water-access',
+        name: 'Straight River, County Road 45 Public Water Access Site',
+        latitude: 44.1484502,
+        longitude: -93.2438302,
+        mileFromStart: 6.4,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02043 and DNR Map 1 places County Road 45 at Straight River mile 20.8.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {

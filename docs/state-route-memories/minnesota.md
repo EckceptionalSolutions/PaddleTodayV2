@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 07:55 America/Chicago.
+Last summarized: 2026-07-15 08:13 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 131 after the 2026-07-15 redundancy consolidation.
-- Top represented rivers: Mississippi River 24, Minnesota River 11, Sauk River 7, Big Fork River 5, Root River 5, Rum River 5, Zumbro River 5, Red River of the North 5, Little Fork River 4, Red Lake River 4, Otter Tail River 4, Cannon River 4, St. Croix River 4, North Fork Crow River 4, St. Louis River 4, Crow Wing River 4, Snake River 3, Des Moines River 3.
-- Ledger candidates: 900 total; 519 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 24 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
+- Live routes: 134 after the 2026-07-15 08:13 three-route addition pass.
+- Top represented rivers: Mississippi River 24, Minnesota River 11, Sauk River 7, Big Fork River 5, Root River 5, Rum River 5, Zumbro River 5, Red River of the North 5, Cannon River 5, Little Fork River 4, Red Lake River 4, Otter Tail River 4, St. Croix River 4, North Fork Crow River 4, St. Louis River 4, Crow Wing River 4, Snake River 3, Des Moines River 3, Straight River 3.
+- Ledger candidates: 906 total; 525 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 24 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 08:13 America/Chicago: added `redwood-river-wabasso-redwood-lake`, `cannon-river-morristown-south-alexander`, and `straight-river-morehouse-county-road-45`.
+- Baseline at run start was 131 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 134 Minnesota routes and all three new slugs have trip-detail records.
+- Stayed in Minnesota and promoted three official/source-backed gaps after reconciling the post-consolidation inventory. Redwood Wabasso-to-Redwood-Lake clears the older map-access blocker because DNR Map 3 and public-water-access GIS now resolve the exact endpoints and mandatory Highway 19 dam stop; Cannon Morristown-to-South-Alexander fills the upper Cannon gap with a direct Morristown gauge and stops before Woolen Mill Dam; Straight Morehouse-to-County-Road-45 fills the upper Owatonna run above the existing Medford/Kroghs coverage with direct Owatonna gauge support.
+- Current MN DNR river-level feed exposed interpreted ladders for Redwood Falls site `196` (`16 / 116-1740 / 3000 cfs`), Cannon Morristown site `285` (`12.8 / 13.0-14.2 / 15.0 ft`), and Straight Owatonna site `340` (`1119.4 / 1120-1123 / 1123.5 ft`). During the run, all three were in the official medium band: Redwood `120 cfs`, Cannon `13.27 ft`, and Straight `1120.69 ft`.
+- Camping posture: all three new cards are `none` for on-route camping. Redwood and Cannon are day routes with separate nearby-basecamp/lodging assumptions only; Straight is a short advanced day route with no on-route camping assumed.
+- Safety posture: Redwood carries Lake Redwood wind/wake, snags, low-water scraping, private-bank, fast-rise, and mandatory Highway 19 dam take-out caveats; Cannon carries Morristown Pond Dam launch context, Kings Mill Dam river-left portage, lake/wind exposure, and mandatory South Alexander take-out before Woolen Mill Dam; Straight is `whitewater` / advanced with immediate Owatonna Dam portage, Clinton Falls Class II-III scout/portage, cold-water, strainer, fast-water, and private-bank caveats.
+- No route-gallery images were added. Bounded DNR / public-access / Wikimedia Commons / same-route image review did not produce clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed but did not add lower Blue Earth/Rapidan-dependent options because current dam-failure hazard context remains weak for a new general route; broader Minnesota River Land-of-Memories / Seven-Mile variants are represented by existing Judson-to-St.-Peter planner coverage; and post-consolidation prompt leads such as Chippewa Lentz-to-Watson, Des Moines Mayflower-to-Christianna, Kettle Musclewood, Watonwan CR32-to-Garden-City, St. Louis segments, Mississippi Itasca/Coffee-Pot, Cass/Winnibigoshish, and Vermilion Twomile-to-Eightmile were reconciled as already live or better represented by existing cards.
 
 - 2026-07-15 07:55 America/Chicago: audited Minnesota redundancy after the hourly automation more than doubled the state inventory and consolidated 21 live duplicate/subset cards into canonical access-planner routes.
 - Removed 11 Sauk access permutations, 5 Little Fork subset routes, 4 Crow Wing subset routes, and the Mississippi Royalton-to-Stearns card because their useful access choices are now represented by retained canonical routes with access-point arrays.
