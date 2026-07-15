@@ -6317,6 +6317,180 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'eau-claire-river-dells-park-clubhouse': {
+    putIn: {
+      name: 'Dells of the Eau Claire Park below-Dells carry',
+      latitude: 45.00481,
+      longitude: -89.3381,
+    },
+    takeOut: {
+      name: 'Club House Road Landing / Edwin\'s Park',
+      latitude: 44.906091,
+      longitude: -89.45826,
+    },
+    logistics: {
+      distanceLabel: '10.0 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with scouting, portage, or low-water walking',
+      shuttle:
+        'Use a two-car shuttle between Dells of the Eau Claire Park and the Club House Road / Edwin\'s Park access. Confirm the county-park launch carry and Club House parking before unloading because the put-in is not a simple ramp.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Dells of the Eau Claire Park rules, local road-parking rules at Club House Road, and Wisconsin public-waterway limits.',
+      camping:
+        'Dells of the Eau Claire Park has a county campground near the put-in, but the paddle itself should be treated as a day route. Reserve or confirm campsite availability separately before counting on it as an overnight base.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch below the Dells from the county park carry and paddle the Class II island-and-boulder corridor to Club House Road. This route intentionally starts below the Class III-IV Dells drop, then eases into a quieter lower-river finish.',
+      accessCaveats: [
+        'Miles Paddled describes the Dells put-in as confusing and inconvenient, with a carry from the park down slick rocks and roots rather than a formal ramp.',
+        'Do not launch above the Dells unless you are intentionally running advanced whitewater with local scouting and rescue planning.',
+        'The Kelly gauge is downstream of the route; use it as a screen, then check local rain, trend, and visual depth in the first mile before committing.',
+      ],
+      watchFor: [
+        'Class II rapids, shallow ledges, boulder gardens, island channels, slick rock footing, and possible walking if the gauge is near or below the floor.',
+        'Pushier hydraulics and fewer recovery eddies as the Kelly gauge rises above the broad target window.',
+        'Wood, strainers, cold water, storm debris, private banks, and limited easy exits between road crossings.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'dells-of-the-eau-claire-park',
+        name: 'Dells of the Eau Claire Park',
+        latitude: 45.00481,
+        longitude: -89.3381,
+        mileFromStart: 0,
+        segmentKind: 'transition',
+        note: 'County park carry used by Miles Paddled for the below-Dells route; scout footing and launch location.',
+      },
+      {
+        id: 'club-house-road',
+        name: 'Club House Road Landing / Edwin\'s Park',
+        latitude: 44.906091,
+        longitude: -89.45826,
+        mileFromStart: 10,
+        segmentKind: 'creek',
+        note: 'Great Pinery mile-zero lower-trail landing and the Miles Paddled take-out for this route.',
+      },
+    ],
+  },
+  'eau-claire-river-clubhouse-ross': {
+    putIn: {
+      name: 'Club House Road Landing / Edwin\'s Park',
+      latitude: 44.906091,
+      longitude: -89.45826,
+    },
+    takeOut: {
+      name: 'Ross Avenue River Access',
+      latitude: 44.91845,
+      longitude: -89.55213,
+    },
+    logistics: {
+      distanceLabel: '7.4 to 7.8 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, depending on level and stops',
+      shuttle:
+        'Use a short Wausau-area car shuttle from Club House Road to the Ross Avenue access at Babl Lane. Wisconsin River Trips notes the adjacent Mountain-Bay Trail can help bike shuttlers, but road and trail conditions should be checked first.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted village, trail, and landing rules at Club House Road, County J, and Ross Avenue.',
+      camping:
+        'No on-route camping is documented for this suburban water-trail day segment. Treat it as a day paddle with separate nearby lodging or basecamp plans if needed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Club House Road and finish at Ross Avenue for the core lower Eau Claire boulder-garden run. The route mixes quiet wooded banks with riffles, Class I drops, and a clean take-out near the Kelly gauge.',
+      accessCaveats: [
+        'Great Pinery names Clubhouse Road as the start of the lower trail and Ross Avenue as the mile 7.4 landing.',
+        'Weston publishes Ross Avenue as an official river access, but same-day parking, construction, and landing conditions still control the shuttle.',
+        'The gauge is near the take-out; upstream rain can make the first half react before the number fully tells the story.',
+      ],
+      watchFor: [
+        'Shallow scraping and walking when the Ross / Kelly stage is near 0.5 ft.',
+        'Boulder gardens, Class I riffles, a stronger drop below Highway J, downed trees, and strainers along outside bends.',
+        'Higher-stage current, cold water, storm debris, and private residential banks as the route approaches Weston.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'club-house-road',
+        name: 'Club House Road Landing / Edwin\'s Park',
+        latitude: 44.906091,
+        longitude: -89.45826,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Great Pinery trail start and Wisconsin River Trips / Miles Paddled put-in.',
+      },
+      {
+        id: 'ross-avenue',
+        name: 'Ross Avenue River Access',
+        latitude: 44.91845,
+        longitude: -89.55213,
+        mileFromStart: 7.4,
+        segmentKind: 'creek',
+        note: 'Official Weston access and Miles Paddled take-out near the USGS gauge.',
+      },
+    ],
+  },
+  'eau-claire-river-ross-drott': {
+    putIn: {
+      name: 'Ross Avenue River Access',
+      latitude: 44.91845,
+      longitude: -89.55213,
+    },
+    takeOut: {
+      name: 'Drott Street Landing / Brooks and Ross Dam portage',
+      latitude: 44.916515,
+      longitude: -89.609702,
+    },
+    logistics: {
+      distanceLabel: '6.2 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, plus time for the dam-adjacent take-out or portage',
+      shuttle:
+        'Use a short local shuttle between Ross Avenue / Babl Lane and Drott Street Landing. Mark the Drott Street exit before launching because it sits next to the Brooks and Ross Dam portage.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Weston / Great Pinery landing rules, and do not continue past the dam area without a deliberate portage and Lake Wausau plan.',
+      camping:
+        'No on-route camping is documented. This is an urban water-trail day segment, not an overnight route.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Ross Avenue and paddle the lower Great Pinery Eau Claire segment to Drott Street Landing. This is the official short-water option when the upper lower-trail is too shallow, but the Brooks and Ross Dam take-out is mandatory.',
+      accessCaveats: [
+        'Great Pinery recommends Ross Avenue as the late-summer put-in when shallow water makes the full lower trail difficult.',
+        'Drott Street is next to the Brooks and Ross Dam portage; miss the landing and the route becomes a dam/flowage decision rather than a simple river float.',
+        'The reach passes urban and camp/private-bank areas, so use only named public landings and the marked portage corridor.',
+      ],
+      watchFor: [
+        'Shallow boulders and walking near the 0.5 ft low-water floor.',
+        'Downed trees, old bridge or splash-dam remnants, flowage wind, and reduced current near the finish.',
+        'Brooks and Ross Dam, higher-water push toward the take-out, cold water, storms, and limited legal stopping spots outside the mapped landings.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'ross-avenue',
+        name: 'Ross Avenue River Access',
+        latitude: 44.91845,
+        longitude: -89.55213,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Official Weston access and Great Pinery mile 7.4 landing.',
+      },
+      {
+        id: 'yellow-banks-park',
+        name: 'Yellow Banks Park',
+        latitude: 44.92807,
+        longitude: -89.574417,
+        mileFromStart: 2.7,
+        segmentKind: 'transition',
+        note: 'Great Pinery mile 10.1 landing and short-trip put-in option.',
+      },
+      {
+        id: 'drott-street',
+        name: 'Drott Street Landing / Brooks and Ross Dam portage',
+        latitude: 44.916515,
+        longitude: -89.609702,
+        mileFromStart: 6.2,
+        segmentKind: 'transition',
+        note: 'Great Pinery mile 13.6 take-out with restrooms, shelter, dock, and the dam portage.',
+      },
+    ],
+  },
   'bois-brule-river-stones-winneboujou': {
     putIn: {
       name: "Stone's Bridge Landing",
@@ -27392,6 +27566,171 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 9.5,
         segmentKind: 'creek',
         note: "Default take-out at Wold's Ferry Crossing, about 5 miles east of Palisade on County Road 10.",
+      },
+    ],
+  },
+  'mississippi-river-palisade-waldeck': {
+    putIn: {
+      name: 'Mississippi River, Palisade Public Water Access Site',
+      latitude: 46.709611,
+      longitude: -93.485152,
+    },
+    takeOut: {
+      name: 'Mississippi River, Hwy 169 / Waldeck Public Water Access Site',
+      latitude: 46.651684,
+      longitude: -93.61233,
+    },
+    logistics: {
+      distanceLabel: '12.3 mi',
+      estimatedPaddleTime: 'About 4 hr, longer with low water, wind, wood, or long breaks',
+      shuttle:
+        'Stage the Hwy 169 / Waldeck take-out first, then drive back to Palisade. Confirm the signed Aitkin County access, parking, and river level before unloading because public exits are limited between endpoints.',
+      permits:
+        'No route-specific paddling permit is known. Use signed public accesses, follow Minnesota boating/PFD rules, and obey posted Aitkin County, DNR water-trail, and campsite rules.',
+      camping:
+        'MHB / Aitkin County route mapping shows campground and watercraft-campsite context on this corridor, but treat overnight use as planned and rule-checked rather than a guaranteed stop.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Palisade and take out at the Hwy 169 / Waldeck access for a signed MHB/Aitkin County Mississippi River day trip. Use the Aitkin DNR gauge as the official downstream same-corridor check and make a visual call at Palisade.',
+      accessCaveats: [
+        'Palisade resolves as WAS01038 at river mile 1086.4, and Hwy 169 / Waldeck resolves as WAS02311 at river mile 1074.1 in the Minnesota public-water-access GIS.',
+        'The Aitkin DNR gauge is downstream of this reach. Pair its official bands with a visual check for depth, wood, and landing conditions at Palisade.',
+        'The route is signed as a Mississippi Headwaters Board / Aitkin County excursion, but intervening banks are not assumed public. Stay with mapped public accesses, public land, or confirmed campsite stops.',
+      ],
+      watchFor: [
+        'Snags, downed trees, oxbows, dead-end side channels, and shallow inside bars in the floodplain corridor.',
+        'Private banks and limited bailout options between Palisade and Waldeck.',
+        'Cold water, storms, rising water, and debris after rain or upstream flow changes.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'palisade-access',
+        name: 'Mississippi River, Palisade Public Water Access Site',
+        latitude: 46.709611,
+        longitude: -93.485152,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at public-water-access GIS river mile 1086.4; resolves as WAS01038.',
+      },
+      {
+        id: 'hwy-169-waldeck-access',
+        name: 'Mississippi River, Hwy 169 / Waldeck Public Water Access Site',
+        latitude: 46.651684,
+        longitude: -93.61233,
+        mileFromStart: 12.3,
+        segmentKind: 'creek',
+        note: 'Default take-out at public-water-access GIS river mile 1074.1; resolves as WAS02311 and matches MHB Waldeck directions.',
+      },
+    ],
+  },
+  'mississippi-river-waldeck-kimball': {
+    putIn: {
+      name: 'Mississippi River, Hwy 169 / Waldeck Public Water Access Site',
+      latitude: 46.651684,
+      longitude: -93.61233,
+    },
+    takeOut: {
+      name: 'Mississippi River, Kimball Public Water Access Site',
+      latitude: 46.57967,
+      longitude: -93.660697,
+    },
+    logistics: {
+      distanceLabel: 'About 11.5 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr depending on current, wood, wind, and stops',
+      shuttle:
+        'Stage Kimball first, then drive back to the Hwy 169 / Waldeck access. Inspect both Aitkin County landings because river height, mud, and wood can change usable landing angles.',
+      permits:
+        'No route-specific paddling permit is known. Use signed public accesses, follow Minnesota boating/PFD rules, and obey Aitkin County and DNR water-trail rules.',
+      camping:
+        'Treat this as a day route unless a specific watercraft campsite or public-land overnight stop is confirmed for the date of travel. Do not assume private floodplain banks are available for camping.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Hwy 169 / Waldeck access and finish at Kimball for the signed MHB/Aitkin County Map 4 excursion. The Aitkin DNR gauge is downstream but direct to the same corridor.',
+      accessCaveats: [
+        'Hwy 169 / Waldeck and Kimball both resolve in Minnesota public-water-access GIS with Aitkin County administration, directions, river-mile records, and coordinates.',
+        'MHB publishes this as a signed excursion, but the route still depends on same-day access visibility and a clean take-out at Kimball.',
+        'The Aitkin gauge is downstream of the route; do not use it as a substitute for checking local wood, bars, and landing conditions at Waldeck.',
+      ],
+      watchFor: [
+        'Long meanders, oxbows, sweepers, floodplain wood, shallow bars, and slow progress at lower flows.',
+        'Limited public exits between Waldeck and Kimball; commit only with daylight and weather margin.',
+        'Private banks, cold water, fishing traffic, storms, and faster current after rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hwy-169-waldeck-access',
+        name: 'Mississippi River, Hwy 169 / Waldeck Public Water Access Site',
+        latitude: 46.651684,
+        longitude: -93.61233,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at public-water-access GIS river mile 1074.1; resolves as WAS02311.',
+      },
+      {
+        id: 'kimball-access',
+        name: 'Mississippi River, Kimball Public Water Access Site',
+        latitude: 46.57967,
+        longitude: -93.660697,
+        mileFromStart: 11.5,
+        segmentKind: 'creek',
+        note: 'Default take-out at public-water-access GIS river mile 1062.6; resolves as WAS01037.',
+      },
+    ],
+  },
+  'mississippi-river-kimball-aitkin-campground': {
+    putIn: {
+      name: 'Mississippi River, Kimball Public Water Access Site',
+      latitude: 46.57967,
+      longitude: -93.660697,
+    },
+    takeOut: {
+      name: 'Mississippi River, Aitkin Public Water Access Site / Aitkin Campground',
+      latitude: 46.542399,
+      longitude: -93.713071,
+    },
+    logistics: {
+      distanceLabel: 'About 6.9 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 3.5 hr depending on level, wood, and take-out traffic',
+      shuttle:
+        'Stage the Aitkin Campground / Mississippi River boat access first, then drive back to Kimball. Confirm campground parking, access, camping, fee, and one-way traffic rules before relying on the finish.',
+      permits:
+        'No route-specific paddling permit is known. Use signed public accesses, follow Minnesota boating/PFD rules, and obey Aitkin County campground, parking, and boat-landing rules.',
+      camping:
+        'Aitkin County documents campground facilities at the take-out, including campsites, showers, drinking water, picnic tables, and boat access. Treat camping as a managed endpoint reservation or fee-based plan.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Kimball and take out at the Aitkin Campground / Mississippi River boat access for the short signed MHB/Aitkin County excursion. The Aitkin DNR gauge is near the finish and has official DNR interpretation bands.',
+      accessCaveats: [
+        'Kimball resolves as WAS01037 at river mile 1062.6, and Aitkin resolves as WAS01042 at river mile 1055.7 in Minnesota public-water-access GIS.',
+        'Aitkin County lists the campground at 814 4th Ave NW with Mississippi River boat access and campground amenities; check current fees and rules before counting on camping or overnight parking.',
+        'DNR Map 4 warns about the Rice River diversion channel and diversion dam near Aitkin during high flow. Stay with the signed Mississippi route and planned campground take-out.',
+      ],
+      watchFor: [
+        'Rice River diversion-channel and dam context near Aitkin, especially at high water.',
+        'Snags, downed trees, private banks, shallow bars, fishing traffic, and campground landing congestion.',
+        'Cold water, storms, rising water, and debris after rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'kimball-access',
+        name: 'Mississippi River, Kimball Public Water Access Site',
+        latitude: 46.57967,
+        longitude: -93.660697,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at public-water-access GIS river mile 1062.6; resolves as WAS01037.',
+      },
+      {
+        id: 'aitkin-campground-access',
+        name: 'Mississippi River, Aitkin Public Water Access Site / Aitkin Campground',
+        latitude: 46.542399,
+        longitude: -93.713071,
+        mileFromStart: 6.9,
+        segmentKind: 'creek',
+        note: 'Default take-out at public-water-access GIS river mile 1055.7; resolves as WAS01042 and matches the Aitkin campground/boat-access corridor.',
       },
     ],
   },

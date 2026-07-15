@@ -15280,6 +15280,322 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'eau-claire-river-dells-park-clubhouse',
+    slug: 'eau-claire-river-dells-park-clubhouse',
+    name: 'Eau Claire River',
+    reach: 'Dells of the Eau Claire Park to Club House Road',
+    state: 'Wisconsin',
+    region: 'Central Wisconsin',
+    summary:
+      'A shorter Marathon County Eau Claire run that starts below the Dells and carries the Class II island-and-boulder section into the quieter Club House Road finish. It is a whitewater-light route, not a casual low-water float.',
+    statusText:
+      'Use the Kelly gauge conservatively. Around 600 to 1,500 cfs is the best broad window from the WTG ladder, while the 480 cfs Miles Paddled trip worked for experienced lightwater paddlers. Below 300 cfs is too shallow, and above 2,000 cfs is too pushy for a general recommendation.',
+    latitude: 45.00481,
+    longitude: -89.3381,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-05397500',
+      provider: 'usgs',
+      siteId: '05397500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eau Claire River at Kelly, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05397500/',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05397500-stage',
+        provider: 'usgs',
+        siteId: '05397500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Eau Claire River at Kelly, WI',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 600,
+      idealMax: 1500,
+      tooLow: 300,
+      tooHigh: 2000,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Eau Claire River EC1 suggested river levels',
+        url: 'https://wisconsintrailguide.com/paddle/eau-claire-river.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring runoff and sustained rain are the most reliable windows. The river can rise or fall quickly after local storms, and the Kelly gauge is downstream enough that same-day visual checks still matter.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The route starts immediately below the Class III-IV Dells, then runs Class I-II ledges, island channels, boulder gardens, shallow shoals, and a longer slow-water finish.',
+      confidenceNotes:
+        'Confidence is good for a guarded route: Miles Paddled documents this exact Dells-to-Club-House trip with GPS endpoints and a successful 480 cfs / 1.8 ft Kelly reading, Wisconsin Trail Guide supplies the broader Eau Claire cfs ladder and Dells safety context, and Wisconsin River Trips corroborates the lower access chain. The put-in is an informal county-park carry, so the card keeps access and scouting caveats explicit.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route report',
+        value: '10 miles',
+        note: 'Miles Paddled documents Dells of the Eau Claire Park to Club House Road as a 10-mile trip starting below the Class III-IV Dells, with GPS points for both ends.',
+        sourceUrl: 'https://milespaddled.com/eau-claire-river-ii-marathon-county/',
+      },
+      {
+        label: 'Observed runnable level',
+        value: '480 cfs / 1.8 ft',
+        note: 'Miles Paddled strongly recommended the trip-day Kelly reading for experienced lightwater paddlers, while noting the first few miles need enough water and get advanced at high volume.',
+        sourceUrl: 'https://milespaddled.com/eau-claire-river-ii-marathon-county/',
+      },
+      {
+        label: 'WTG ladder',
+        value: '300 / 600-1,500 / 2,000 cfs',
+        note: 'Wisconsin Trail Guide ties the Eau Claire route family to USGS 05397500 and gives the full cfs ladder used by the existing upstream card.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/eau-claire-river.html',
+      },
+      {
+        label: 'Live check',
+        value: '105 cfs / 0.50 ft',
+        note: 'USGS Water Services returned this July 15, 2026 03:00 CDT reading during implementation, below the defended floor.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05397500&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Miles Paddled Eau Claire River II',
+        url: 'https://milespaddled.com/eau-claire-river-ii-marathon-county/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Wisconsin Trail Guide Eau Claire River',
+        url: 'https://wisconsintrailguide.com/paddle/eau-claire-river.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin River Trips Eau Claire River - Weston',
+        url: 'https://www.wisconsinrivertrips.com/segments/eau-claire-river-marathon-county/weston',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05397500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05397500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'eau-claire-river-clubhouse-ross',
+    slug: 'eau-claire-river-clubhouse-ross',
+    name: 'Eau Claire River',
+    reach: 'Club House Road to Ross Avenue',
+    state: 'Wisconsin',
+    region: 'Wausau Area',
+    summary:
+      'A lower Eau Claire water-trail day with wooded banks, boulder gardens, riffles, and a clean Ross Avenue exit near the Kelly gauge. It is friendlier than the upstream Dells run, but shallow water and post-rain push can still change the day.',
+    statusText:
+      'Use the Ross Avenue / Kelly stage gauge. Around 1.0 to 1.75 ft is the best defended window; below 0.5 ft expect walking and portages, while levels over 2 ft should be treated as experienced-paddler water.',
+    latitude: 44.906091,
+    longitude: -89.45826,
+    gaugeSource: {
+      id: 'usgs-05397500',
+      provider: 'usgs',
+      siteId: '05397500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Eau Claire River at Kelly, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05397500/',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05397500-flow',
+        provider: 'usgs',
+        siteId: '05397500',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Eau Claire River at Kelly, WI',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1,
+      idealMax: 1.75,
+      tooLow: 0.5,
+      tooHigh: 2,
+      thresholdSource: {
+        label: 'Village of Weston Eau Claire River Waterway Trail gauge guidance',
+        url: 'https://www.westonwi.gov/506/Canoe-Kayak-Launches',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The lower water trail is usable through more of the warm season than the upper whitewater route, but Weston and Great Pinery both frame levels as rain-sensitive and shallow by late summer.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Expect easy-to-moderate water with Class I riffles, boulder gardens, occasional downed trees, shallow scraping, and a few stronger drops below Highway J at higher stages.',
+      confidenceNotes:
+        'Confidence is high enough for a lower water-trail card: Great Pinery documents Clubhouse Road as the official start and Ross Avenue at mile 7.4, Weston publishes Ross-gauge stage guidance, and Miles Paddled / Wisconsin River Trips both document the exact Club House-to-Ross trip and access points. The threshold range remains mixed because the upper end is a manager caution rather than a formal paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official trail shape',
+        value: 'Mile 0 to mile 7.4',
+        note: 'Great Pinery starts the Lower Eau Claire trail at Clubhouse Road and places Ross Avenue Landing at mile marker 7.4.',
+        sourceUrl: 'https://greatpinery.com/lower-eau-claire-river-trail/',
+      },
+      {
+        label: 'Route-specific report',
+        value: '7.5 miles at 1.75 ft / 480 cfs',
+        note: 'Miles Paddled documents Club House Road to Ross Avenue with GPS endpoints, Class I character, and a recommended trip-day Kelly reading.',
+        sourceUrl: 'https://milespaddled.com/eau-claire-river-iii-marathon-county/',
+      },
+      {
+        label: 'Gauge guidance',
+        value: '0.5 / 1.0 / 2.0 ft',
+        note: 'Weston says around 1 ft is ideal for beginners, below half a foot often requires portaging, and over 2 ft means more challenging water for experienced paddlers.',
+        sourceUrl: 'https://www.westonwi.gov/506/Canoe-Kayak-Launches',
+      },
+      {
+        label: 'Live check',
+        value: '0.50 ft / 105 cfs',
+        note: 'USGS Water Services returned this July 15, 2026 03:00 CDT reading during implementation, right at the low-water floor.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05397500&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Great Pinery Lower Eau Claire River Trail',
+        url: 'https://greatpinery.com/lower-eau-claire-river-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'Village of Weston canoe/kayak launches',
+        url: 'https://www.westonwi.gov/506/Canoe-Kayak-Launches',
+        provider: 'local',
+      },
+      {
+        label: 'Miles Paddled Eau Claire River III',
+        url: 'https://milespaddled.com/eau-claire-river-iii-marathon-county/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Wisconsin River Trips Eau Claire River - Weston',
+        url: 'https://www.wisconsinrivertrips.com/segments/eau-claire-river-marathon-county/weston',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05397500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05397500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'eau-claire-river-ross-drott',
+    slug: 'eau-claire-river-ross-drott',
+    name: 'Eau Claire River',
+    reach: 'Ross Avenue Landing to Drott Street Landing',
+    state: 'Wisconsin',
+    region: 'Wausau Area',
+    summary:
+      'The lower Eau Claire finish through the Ross Avenue, Yellow Banks, flowage, and Drott Street access chain. It is a short official water-trail option for low-water days, with a firm take-out and portage decision at Brooks and Ross Dam.',
+    statusText:
+      'Use the Ross Avenue / Kelly stage gauge. Around 1.0 to 1.75 ft is the defended easy-to-moderate window; below 0.5 ft is walky, and over 2 ft should be limited to experienced paddlers with a dam-aware take-out plan.',
+    latitude: 44.91845,
+    longitude: -89.55213,
+    gaugeSource: {
+      id: 'usgs-05397500',
+      provider: 'usgs',
+      siteId: '05397500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Eau Claire River at Kelly, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05397500/',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05397500-flow',
+        provider: 'usgs',
+        siteId: '05397500',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Eau Claire River at Kelly, WI',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1,
+      idealMax: 1.75,
+      tooLow: 0.5,
+      tooHigh: 2,
+      thresholdSource: {
+        label: 'Village of Weston Eau Claire River Waterway Trail gauge guidance',
+        url: 'https://www.westonwi.gov/506/Canoe-Kayak-Launches',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Great Pinery specifically recommends moving the put-in to Ross Avenue during shallow late-summer periods. The reach still changes quickly after rain and becomes a more consequential urban-flowage route as the stage rises.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly easy-to-moderate lower water-trail paddling, but shallow boulder fields, downed trees, flowage wind, old bridge and splash-dam remnants, and the dam-adjacent Drott Street finish require attention.',
+      confidenceNotes:
+        'Confidence is good because Great Pinery documents Ross Avenue, Yellow Banks, and Drott Street mile markers and coordinates, Weston publishes the gauge-stage guidance, and USGS 05397500 is directly at the Ross Avenue / Kelly corridor. The main safety caveat is the hard take-out/portage requirement at Brooks and Ross Dam.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official trail segment',
+        value: 'Mile 7.4 to mile 13.6',
+        note: 'Great Pinery places Ross Avenue Landing at mile marker 7.4, Yellow Banks at 10.1, and Drott Street Landing / Brooks and Ross Dam portage at 13.6.',
+        sourceUrl: 'https://greatpinery.com/lower-eau-claire-river-trail/',
+      },
+      {
+        label: 'Late-summer option',
+        value: 'Move put-in to Ross Avenue',
+        note: 'Great Pinery recommends Ross Avenue to Drott Street or the Lake Wausau portage when late-summer shallowness makes the full lower trail difficult.',
+        sourceUrl: 'https://greatpinery.com/lower-eau-claire-river-trail/',
+      },
+      {
+        label: 'Gauge guidance',
+        value: '0.5 / 1.0 / 2.0 ft',
+        note: 'Weston says around 1 ft is ideal for beginners, below half a foot often requires portaging, and over 2 ft means more challenging water for experienced paddlers.',
+        sourceUrl: 'https://www.westonwi.gov/506/Canoe-Kayak-Launches',
+      },
+      {
+        label: 'Live check',
+        value: '0.50 ft / 105 cfs',
+        note: 'USGS Water Services returned this July 15, 2026 03:00 CDT reading during implementation, so the route currently sits at the walky low-water threshold.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05397500&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Great Pinery Lower Eau Claire River Trail',
+        url: 'https://greatpinery.com/lower-eau-claire-river-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'Village of Weston canoe/kayak launches',
+        url: 'https://www.westonwi.gov/506/Canoe-Kayak-Launches',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05397500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05397500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'bois-brule-river-stones-winneboujou',
     slug: 'bois-brule-river-stones-winneboujou',
     name: 'Bois Brule River',
@@ -74027,6 +74343,372 @@ export const rivers: River[] = [
       {
         label: 'MN DNR river levels',
         url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'mississippi-river-palisade-waldeck',
+    slug: 'mississippi-river-palisade-waldeck',
+    name: 'Mississippi River',
+    reach: 'Palisade to Waldeck Landing',
+    state: 'Minnesota',
+    region: 'Mississippi Headwaters',
+    summary:
+      'Signed Mississippi Headwaters Board / Aitkin County day route from Palisade to Waldeck Landing on DNR Mississippi Map 4. It fills a public-access gap above Aitkin with a downstream same-map DNR gauge proxy and long-meander headwaters logistics.',
+    statusText:
+      'Use the Aitkin DNR gauge as the downstream same-map check: 1,500 to 6,000 cfs is the official medium band. Below 712 cfs is scrapable, and above 8,000 cfs is very high.',
+    latitude: 46.709611,
+    longitude: -93.485152,
+    gaugeSource: {
+      id: 'mn-dnr-120',
+      provider: 'mn_dnr',
+      siteId: '120',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'Mississippi River at Aitkin, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=10015001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=10015001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 6000,
+      tooLow: 712.3,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River at Aitkin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.15,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This flat Aitkin County section is most useful in the open-water season when the Aitkin gauge is above the scrapable band. Low water can expose riffles and inside bars; high water spreads into oxbows, wood, and floodplain edges.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'MHB frames this as a roughly four-hour signed excursion, but 12.3 meandering miles, few bailout points, private banks, snags, and floodplain navigation make it more committed than a short park float.',
+      confidenceNotes:
+        'Confidence is good: MN DNR Map 4 directs paddlers to the Mississippi Headwaters Board for the Palisade-to-Waldeck day trip, the MHB / Aitkin County map gives a 12.3-mile route, public-water-access GIS resolves Palisade and the Hwy 169/Waldeck access with IDs, river miles, and coordinates, and the Aitkin DNR gauge is the downstream same-map interpreted proxy for this Map 4 corridor.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'remote', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Pair the downstream Aitkin gauge with a same-day visual check at Palisade because the route sits upstream of the gauge and can differ after localized rain or wind.',
+        'DNR Map 4 warns of snags, downed trees, and floodplain oxbows in the Jacobson-to-Aitkin section. Stay in the main current and avoid dead-end side channels.',
+        'Use the signed public accesses and mapped public stops only; much of the low floodplain shoreline is privately managed or easy to flood.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'MHB signed route',
+        value: '12.3 river miles',
+        note: 'The Mississippi Headwaters Board / Aitkin County Palisade map labels Palisade to Waldeck Access as a 12.3-mile Mississippi River Water Trail excursion.',
+        sourceUrl: 'https://www.mississippiheadwaters.org/rivermaps/palisade_map.pdf',
+      },
+      {
+        label: 'DNR Map 4 referral',
+        value: 'Additional day trip',
+        note: 'MN DNR Map 4 text directs paddlers to the Mississippi Headwaters Board for Palisade to Waldeck Landing and other Aitkin County day-trip maps.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS01038 to WAS02311',
+        note: 'Minnesota public-water-access GIS resolves Palisade at river mile 1086.4 and the Hwy 169 / Waldeck access at river mile 1074.1, both administered by Aitkin County.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '712 / 1,500-6,000 / 8,000 cfs',
+        note: 'MN DNR interprets the Aitkin gauge as Scrapable below 712.3 cfs, Low from 712.3 to 1,500, Medium from 1,500 to 6,000, High from 6,000 to 8,000, and Very High above 8,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '1,700 cfs at 2026-07-15 02:30',
+        note: 'The current MN DNR feed placed Aitkin inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Camping context',
+        value: 'Berglund Park / watercraft campsite context',
+        note: 'The Palisade-to-Waldeck map shows campground and watercraft-campsite symbols in the corridor; treat any overnight stop as planned and rule-checked, not assumed.',
+        sourceUrl: 'https://www.mississippiheadwaters.org/rivermaps/palisade_map.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'Mississippi Headwaters Board recreation routes',
+        url: 'https://www.mississippiheadwaters.org/scenicrecreation.asp',
+      },
+      {
+        label: 'MHB Palisade to Waldeck map',
+        url: 'https://www.mississippiheadwaters.org/rivermaps/palisade_map.pdf',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'mississippi-river-waldeck-kimball',
+    slug: 'mississippi-river-waldeck-kimball',
+    name: 'Mississippi River',
+    reach: 'Waldeck Landing to Kimball',
+    state: 'Minnesota',
+    region: 'Mississippi Headwaters',
+    summary:
+      'Signed Mississippi Headwaters Board / Aitkin County route from the Hwy 169 Waldeck access to Kimball. It extends the Map 4 Aitkin corridor with public access IDs, a downstream same-map DNR gauge proxy, and floodplain-oxbow caveats.',
+    statusText:
+      'Use the Aitkin DNR gauge as the downstream same-map check: 1,500 to 6,000 cfs is the official medium band. Below 712 cfs is scrapable, and above 8,000 cfs is very high.',
+    latitude: 46.651684,
+    longitude: -93.61233,
+    gaugeSource: {
+      id: 'mn-dnr-120',
+      provider: 'mn_dnr',
+      siteId: '120',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'proxy',
+      siteName: 'Mississippi River at Aitkin, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=10015001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=10015001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 6000,
+      tooLow: 712.3,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River at Aitkin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.15,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Use this route when the Aitkin gauge is out of the scrapable band and winds are manageable. At low water, the long meanders can get slow and shallow; high water can make oxbows, strainers, and landings harder to read.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'MHB frames Waldeck to Kimball as a 3.5-hour excursion, but the route covers about 11.5 river miles with limited exits, floodplain bends, wood, and private banks.',
+      confidenceNotes:
+        'Confidence is good: MN DNR points Map 4 users to MHB for Waldeck-to-Kimball, the MHB / Aitkin County route is published as a signed excursion, public-water-access GIS resolves Hwy 169 / Waldeck and Kimball with IDs, river miles, and coordinates, and the Aitkin DNR gauge is the downstream same-map interpreted proxy for this same corridor.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'remote', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'The Aitkin gauge is downstream of the route; use it for official bands, then verify current, depth, and wood at Waldeck before launching.',
+        'Expect long bends, oxbows, wood, shallow inside bars, and limited bailout options between the two Aitkin County accesses.',
+        'Do not climb private floodplain banks for breaks or scouting unless a public access, public land, or legal campsite is clearly identified.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'MHB signed route',
+        value: '3.5-hour excursion',
+        note: 'The Mississippi Headwaters Board lists Waldeck to Kimball as an Aitkin County signed excursion with a downloadable map and driving directions for both endpoints.',
+        sourceUrl: 'https://www.mississippiheadwaters.org/scenicrecreation.asp',
+      },
+      {
+        label: 'Route mileage',
+        value: 'About 11.5 river miles',
+        note: 'Minnesota public-water-access GIS places Hwy 169 / Waldeck at river mile 1074.1 and Kimball at river mile 1062.6, supporting an 11.5-mile route.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'DNR Map 4 referral',
+        value: 'Additional day trip',
+        note: 'MN DNR Map 4 text directs paddlers to the Mississippi Headwaters Board for Waldeck to Kimball and other Aitkin County day-trip maps.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS02311 to WAS01037',
+        note: 'Minnesota public-water-access GIS resolves the Hwy 169 / Waldeck access and Kimball access with Aitkin County administration, directions, river miles, and coordinates.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '712 / 1,500-6,000 / 8,000 cfs',
+        note: 'MN DNR interprets the Aitkin gauge as Scrapable below 712.3 cfs, Low from 712.3 to 1,500, Medium from 1,500 to 6,000, High from 6,000 to 8,000, and Very High above 8,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '1,700 cfs at 2026-07-15 02:30',
+        note: 'The current MN DNR feed placed Aitkin inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'Mississippi Headwaters Board recreation routes',
+        url: 'https://www.mississippiheadwaters.org/scenicrecreation.asp',
+      },
+      {
+        label: 'MHB Waldeck to Kimball map',
+        url: 'https://www.mississippiheadwaters.org/rivermaps/waldeck_map.pdf',
+      },
+      {
+        label: 'MN DNR river-level site data',
+        url: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'mississippi-river-kimball-aitkin-campground',
+    slug: 'mississippi-river-kimball-aitkin-campground',
+    name: 'Mississippi River',
+    reach: 'Kimball to Aitkin County Campground',
+    state: 'Minnesota',
+    region: 'Mississippi Headwaters',
+    summary:
+      'Short signed Mississippi Headwaters Board / Aitkin County route from Kimball to the Mississippi River campground and boat landing in Aitkin. It uses the direct Aitkin DNR gauge near the take-out and has endpoint campground support.',
+    statusText:
+      'Use the Aitkin DNR gauge near the take-out: 1,500 to 6,000 cfs is the official medium band. Below 712 cfs is scrapable, and above 8,000 cfs is very high.',
+    latitude: 46.57967,
+    longitude: -93.660697,
+    gaugeSource: {
+      id: 'mn-dnr-120',
+      provider: 'mn_dnr',
+      siteId: '120',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      metricLabel: 'Discharge',
+      kind: 'direct',
+      siteName: 'Mississippi River at Aitkin, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=10015001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=10015001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 6000,
+      tooLow: 712.3,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River at Aitkin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This shorter Aitkin approach is best when the direct Aitkin gauge is in range. Low water can slow riffles and shallow bars; high water raises current, debris, and landing exposure at the campground.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route is shorter than the upstream Aitkin County excursions and finishes at a managed campground/boat landing, but wood, private banks, cold water, and the Rice River diversion channel context still require caution.',
+      confidenceNotes:
+        'Confidence is high: MN DNR Map 4 directs paddlers to MHB for Kimball to Aitkin County Campground, public-water-access GIS resolves Kimball and Aitkin with river miles and coordinates, Aitkin County documents the campground and Mississippi boat access, and the Aitkin DNR gauge is effectively in the take-out corridor with official interpretation bands.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'dam', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'DNR Map 4 warns that the Rice River diversion channel carries water around Aitkin during high flow and has no portage route around its diversion dam; stay with the signed Mississippi route and campground take-out.',
+        'Confirm campground parking, boat landing, camping, and fee rules before relying on the take-out or overnight plan.',
+        'Watch for sweepers, shallow bars, fishing traffic, cold water, and stronger current near the Aitkin finish after rain.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'MHB signed route',
+        value: '2.5-hour excursion',
+        note: 'The Mississippi Headwaters Board lists Kimball to Aitkin County Campground as an Aitkin County signed excursion with a downloadable map and endpoint directions.',
+        sourceUrl: 'https://www.mississippiheadwaters.org/scenicrecreation.asp',
+      },
+      {
+        label: 'Route mileage',
+        value: 'About 6.9 river miles',
+        note: 'Minnesota public-water-access GIS places Kimball at river mile 1062.6 and Aitkin at river mile 1055.7, supporting a short 6.9-mile route to the campground corridor.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Endpoint campground',
+        value: 'Aitkin Campground boat access',
+        note: 'Aitkin County says the campground is on the Mississippi River, has nine campsites, showers, drinking water, picnic tables, and boat access to the Mississippi River.',
+        sourceUrl: 'https://www.co.aitkin.mn.us/departments/land/land-campground-aitkin.php',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS01037 to WAS01042',
+        note: 'Minnesota public-water-access GIS resolves Kimball and Aitkin as Aitkin County Mississippi River access sites with directions, river miles, and coordinates.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Official DNR bands',
+        value: '712 / 1,500-6,000 / 8,000 cfs',
+        note: 'MN DNR interprets the Aitkin gauge as Scrapable below 712.3 cfs, Low from 712.3 to 1,500, Medium from 1,500 to 6,000, High from 6,000 to 8,000, and Very High above 8,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Current gauge check',
+        value: '1,700 cfs at 2026-07-15 02:30',
+        note: 'The current MN DNR feed placed Aitkin inside the official medium band during this run.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html',
+      },
+      {
+        label: 'Mississippi Headwaters Board recreation routes',
+        url: 'https://www.mississippiheadwaters.org/scenicrecreation.asp',
+      },
+      {
+        label: 'MHB Kimball to Aitkin map',
+        url: 'https://www.mississippiheadwaters.org/rivermaps/kimball_map.pdf',
+      },
+      {
+        label: 'Aitkin County Campground',
+        url: 'https://www.co.aitkin.mn.us/departments/land/land-campground-aitkin.php',
       },
       {
         label: 'MN DNR river-level site data',

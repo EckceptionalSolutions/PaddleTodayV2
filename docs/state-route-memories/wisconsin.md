@@ -4,16 +4,24 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 98.
-- Top represented rivers: Wisconsin River 13, Milwaukee River 5, Peshtigo River 5, St. Croix River 5, Wolf River 5, Bois Brule River 4, Chippewa River 4, Namekagon River 4, Pine River 4, Baraboo River 3, Sugar River 3, Black River 3, Brule River 3, Grant River 3, Platte River 3, South Fork Flambeau River 3.
-- Ledger candidates: 93 total; 83 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
+- Live routes: 101.
+- Top represented rivers: Wisconsin River 13, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Baraboo River 3, Sugar River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3.
+- Ledger candidates: 96 total; 86 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three St. Croix Riverway routes beyond the 95-route baseline: `st-croix-river-riverside-thayers`, `st-croix-river-thayers-norway-point`, and `st-croix-river-norway-point-fox`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three lower Eau Claire / Great Pinery routes beyond the 98-route baseline: `eau-claire-river-dells-park-clubhouse`, `eau-claire-river-clubhouse-ross`, and `eau-claire-river-ross-drott`.
 
 ## Latest Audit
 
+- 2026-07-15 America/Chicago: added `eau-claire-river-dells-park-clubhouse`, `eau-claire-river-clubhouse-ross`, and `eau-claire-river-ross-drott`, bringing the live Wisconsin route count to 101.
+- The three routes fill the Marathon County / Weston Eau Claire River chain below the already-live `eau-claire-river-bear-lake-county-n` card. The first is a below-Dells whitewater-light route from Miles Paddled's Eau Claire II report; the second and third are lower Great Pinery / Weston water-trail cards from Clubhouse Road to Ross Avenue and Ross Avenue to Drott Street Landing.
+- Source packet: Miles Paddled Eau Claire II and III route reports with GPS endpoints and route-specific observed levels, Wisconsin Trail Guide Eau Claire cfs ladder, Wisconsin River Trips Eau Claire River - Weston access-chain report, Great Pinery Lower Eau Claire River Trail mileage/landing/portage details, Village of Weston Ross-gauge stage guidance, and direct USGS `05397500` Water Services.
+- Live gauge verification: USGS Water Services returned `105 cfs / 0.50 ft` at `2026-07-15 03:00 CDT` for Eau Claire River at Kelly. The Dells-to-Clubhouse route ships below its WTG 300 cfs floor, and the lower two stage-based routes ship at the walky 0.5 ft low-water floor.
+- Threshold posture: Dells-to-Clubhouse uses the existing WTG two-sided cfs ladder (`tooLow 300`, `ideal 600-1500`, `tooHigh 2000`) with the Miles Paddled 480 cfs trip as route-specific observed support rather than a lower ideal. Clubhouse-to-Ross and Ross-to-Drott use Weston / Ross-gauge stage guidance (`tooLow 0.5 ft`, `ideal 1.0-1.75 ft`, `tooHigh 2.0 ft`) with explicit mixed-source confidence.
+- Safety/logistics added: below-Dells launch only, no casual Class III-IV Dells run, rough county-park carry, low-water walking, boulder gardens, Class I-II riffles, downed trees/strainers, rapid post-rain changes, private/urban banks, cold water, flowage wind, and a mandatory Drott Street / Brooks and Ross Dam take-out or portage decision.
+- Bounded image review found route-relevant Miles Paddled / web images but no clearly reusable rights-clean exact-route paddling image; three no-image rows were added to the image audit instead of adding route-gallery assets.
+- Prompt leads were reconciled before selection: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica remain already implemented; Black Earth Creek Cross Plains-to-Salmo Pond remains blocked by unresolved obstruction evidence; upper Chippewa / Wolf / WTG families remain heavily represented; and Oconto North Branch Bagley Rapids remains held for calculated-flow and wood/chute clearance.
 - 2026-07-15 America/Chicago: added `st-croix-river-riverside-thayers`, `st-croix-river-thayers-norway-point`, and `st-croix-river-norway-point-fox`, bringing the live Wisconsin route count to 98.
 - The three routes fill Wisconsin-bank St. Croix National Scenic Riverway gaps around already implemented cards. `st-croix-river-gordon-dam-riverside`, `st-croix-river-little-yellow-banks-sand-creek`, and `st-croix-river-fox-highway-70` were reconciled as already added before selection; the new cards use Riverside-to-Thayers SC3, Thayers-to-Norway SC4, and the upper Norway-to-Fox SC5 rapid split rather than counting those existing routes again.
 - Wisconsin Trail Guide documents SC3/SC4/SC5 with WGS84 coordinates, mileages, access names, campsite/state-park context, State Line Rapids, Pike Rapids, Big Beef Rapids, the Head of the Rapids channel decision, Kettle River Slough caveats, and local Norway Point gauge notes. NPS Section Maps 5 and 6 add official Riverway map, camping, landing, and rules context.
