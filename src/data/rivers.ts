@@ -4574,6 +4574,371 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'rum-river-north-county-central',
+    slug: 'rum-river-north-county-central',
+    name: 'Rum River',
+    reach: 'North County Park to Central Regional Park',
+    state: 'Minnesota',
+    region: 'Twin Cities North Metro',
+    summary:
+      'Shorter lower-Rum corridor day between the two main Anoka County canoe parks. The gauge question is straightforward: stay comfortably above scrape territory and do not treat broad easy-river character as permission to ignore wood or fresh post-rain debris.',
+    statusText:
+      'Treat the official DNR medium band as the sweet spot here. Below about 600 cfs, expect too much dragging or shallow current; above 3,000 cfs, this easier corridor becomes a high-water call instead of a casual yes.',
+    latitude: 45.394587,
+    longitude: -93.353557,
+    gaugeSource: {
+      id: 'mn-dnr-211',
+      provider: 'mn_dnr',
+      siteId: '211',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Rum River near St. Francis, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=21095001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=21095001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05286000',
+        provider: 'usgs',
+        siteId: '05286000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Rum River near St. Francis, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1000,
+      idealMax: 2000,
+      tooLow: 600,
+      tooHigh: 3000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Rum River near St. Francis',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the main window. Summer remains viable on this park-to-park corridor, but low water slows the day down and post-rain debris still deserves a same-day check.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a broad, beginner-friendly moving-water corridor with few technical features, but it still deserves respect for wood, cold shoulder-season water, and faster current when the river rises.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: the St. Francis gauge is on the route corridor, MN DNR publishes the full paddling ladder for that gauge, and DNR plus Anoka County together document the exact North-to-Central canoe corridor and amenities.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '600 / 1,000 / 2,000 / 3,000 cfs',
+        note: 'MN DNR interprets the St. Francis gauge as Scrapable below 600 cfs, Low from 600 to 1,000, Medium from 1,000 to 2,000, High from 2,000 to 3,000, and Very High above 3,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Official route context',
+        value: 'About 9.4 river miles',
+        note: 'The DNR Rum River Map 3 PDF places Rum River North County Park at river mile 23.2 and the Rum River Central Regional Park trailer access at river mile 13.8.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/rum3.pdf',
+      },
+      {
+        label: 'Corridor support',
+        value: 'North County to Central is the county canoe corridor',
+        note: 'Anoka County says Rum River North County Park is the northern access to the Rum River Canoe Corridor and that the corridor passes by Rum River Central Regional Park before ending in Anoka.',
+        sourceUrl: 'https://www.anokacountymn.gov/facilities/facility/details/Rum-River-North-County-Park-15',
+      },
+      {
+        label: 'Central park amenities',
+        value: 'Watercraft campsites, toilets, drinking water',
+        note: 'DNR Map 3 lists Rum River Central Regional Park with trailer access, watercraft campsites, toilets, and drinking water at river mile 13.8.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/rum3.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Wood and flood debris',
+        note: 'The lower Rum is generally approachable, but DNR still flags downed trees and snags as the relevant hazard pattern on this corridor.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/rum3.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Rum River overview',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/rum-river/index.html',
+      },
+      {
+        label: 'MN DNR Rum River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/rumriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Rum River Map 3 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/rum3.pdf',
+      },
+      {
+        label: 'Anoka County Rum River North County Park',
+        url: 'https://www.anokacountymn.gov/facilities/facility/details/Rum-River-North-County-Park-15',
+      },
+      {
+        label: 'Anoka County Rum River Central Regional Park',
+        url: 'https://www.anokacountymn.gov/Directory.aspx?did=149',
+      },
+      {
+        label: 'Anoka County Parks Rum River Central Regional Park',
+        url: 'https://www.anokacountyparks.com/parks/rum-river-central-park',
+      },
+      {
+        label: 'USGS 05286000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05286000/',
+      },
+    ],
+  },
+  {
+    id: 'rum-river-north-county-germanium',
+    slug: 'rum-river-north-county-germanium',
+    name: 'Rum River',
+    reach: 'North County Park to Germanium',
+    state: 'Minnesota',
+    region: 'Twin Cities North Metro',
+    summary:
+      'Longer lower-Rum continuation from the St. Francis county-park launch to Ramsey\'s Brookview / Germanium access. The main call still comes from the official St. Francis gauge, but the route is long enough that wood, pace, and shuttle logistics matter more than the easy rating first suggests.',
+    statusText:
+      'Treat the official DNR medium band as the best target. Below about 600 cfs, the route becomes too shallow for a confident long-day recommendation; above 3,000 cfs, the river shifts into a debris-and-current day rather than an easy cruise.',
+    latitude: 45.394587,
+    longitude: -93.353557,
+    gaugeSource: {
+      id: 'mn-dnr-211',
+      provider: 'mn_dnr',
+      siteId: '211',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Rum River near St. Francis, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=21095001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=21095001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05286000',
+        provider: 'usgs',
+        siteId: '05286000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Rum River near St. Francis, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1000,
+      idealMax: 2000,
+      tooLow: 600,
+      tooHigh: 3000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Rum River near St. Francis',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the normal window. The corridor is usually friendly in summer, but low water slows a 14-mile day quickly and flood debris after storms can linger longer than casual paddlers expect.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The lower Rum remains approachable here, but the length and occasional wood or log-jam cleanup make this more of a real river day than a beginner novelty float.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: the route begins at the live St. Francis gauge corridor, DNR provides the full paddling ladder and lower-river access map, and Ramsey documents Brookview Park as the Germanium endpoint.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '600 / 1,000 / 2,000 / 3,000 cfs',
+        note: 'MN DNR interprets the St. Francis gauge as Scrapable below 600 cfs, Low from 600 to 1,000, Medium from 1,000 to 2,000, High from 2,000 to 3,000, and Very High above 3,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Official route context',
+        value: 'About 14.2 river miles',
+        note: 'The DNR Rum River Map 3 PDF places Rum River North County Park at river mile 23.2 and the Germanium carry-in access at river mile 9.0 in Brookview City Park.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/rum3.pdf',
+      },
+      {
+        label: 'Corridor support',
+        value: 'County corridor with mid-route campsites',
+        note: 'Anoka County describes the lower Rum canoe corridor from St. Francis through Rum River Central Regional Park toward Anoka, and DNR Map 3 lists Central watercraft campsites and services along the way.',
+        sourceUrl: 'https://www.anokacountymn.gov/facilities/facility/details/Rum-River-North-County-Park-15',
+      },
+      {
+        label: 'Germanium endpoint detail',
+        value: 'Brookview Park at 17200 Germanium Street NW',
+        note: 'The City of Ramsey parks amenities page lists Brookview Park at 17200 Germanium Street NW and identifies it as a fishing park at the Germanium access corridor.',
+        sourceUrl: 'https://cityoframsey.com/1119',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Snags and long-day pace',
+        note: 'DNR says lower-Rum hazards include downed trees and snags. On a 14-mile corridor, that matters more than on the shorter park-to-park option.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/rum3.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Rum River overview',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/rum-river/index.html',
+      },
+      {
+        label: 'MN DNR Rum River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/rumriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Rum River Map 3 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/rum3.pdf',
+      },
+      {
+        label: 'Anoka County Rum River North County Park',
+        url: 'https://www.anokacountymn.gov/facilities/facility/details/Rum-River-North-County-Park-15',
+      },
+      {
+        label: 'City of Ramsey parks and trails amenities',
+        url: 'https://cityoframsey.com/1119',
+      },
+      {
+        label: 'USGS 05286000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05286000/',
+      },
+    ],
+  },
+  {
+    id: 'rum-river-germanium-south-county-park',
+    slug: 'rum-river-germanium-south-county-park',
+    name: 'Rum River',
+    reach: 'Germanium to South County Park',
+    state: 'Minnesota',
+    region: 'Twin Cities North Metro',
+    summary:
+      'Shorter metro-edge Rum continuation from Ramsey\'s Brookview / Germanium access to the South County Park landing above the Anoka dam. The river itself stays friendly, but the lower-corridor finish deserves a more deliberate take-out plan than the easy rating implies.',
+    statusText:
+      'There is no direct lower-route gauge here, so Paddle Today uses the upstream St. Francis gauge as a conservative same-river proxy. Below about 600 cfs, expect too much scrape risk for a confident recommendation.',
+    latitude: 45.2826032,
+    longitude: -93.4079762,
+    gaugeSource: {
+      id: 'mn-dnr-211',
+      provider: 'mn_dnr',
+      siteId: '211',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Rum River near St. Francis, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=21095001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=21095001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05286000',
+        provider: 'usgs',
+        siteId: '05286000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'proxy',
+        siteName: 'Rum River near St. Francis, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 600,
+      thresholdSource: {
+        label: 'MN DNR St. Francis gauge interpretation used as an upstream proxy for the lower Rum corridor',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the practical window. Summer often works well, but the route gets slower fast when the proxy gauge slips toward scrape level and fresh debris can linger after storms.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Current and rapids are usually manageable for many paddlers, but this lower finish still requires attention to wood, take-out timing, and the downstream dam corridor in Anoka.',
+      confidenceNotes:
+        'The route itself is well documented by DNR Map 3 and official park pages. Confidence is slightly lower than the upstream Rum additions because the St. Francis gauge is a same-river upstream proxy rather than a live lower-route station.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Proxy low-water floor',
+        value: '600 cfs at St. Francis',
+        note: 'MN DNR interprets the active St. Francis gauge as scrapable below 600 cfs. Paddle Today uses that same-river upstream reading as a conservative floor for the Germanium-to-South corridor.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Official route context',
+        value: 'About 7.1 river miles',
+        note: 'The DNR Rum River Map 3 PDF places Germanium carry-in access at river mile 9.0 and Rum River South County Park at river mile 1.9.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/rum3.pdf',
+      },
+      {
+        label: 'Germanium endpoint detail',
+        value: 'Brookview Park at 17200 Germanium Street NW',
+        note: 'The City of Ramsey parks amenities page identifies Brookview Park at the Germanium access corridor.',
+        sourceUrl: 'https://cityoframsey.com/1119',
+      },
+      {
+        label: 'South County endpoint detail',
+        value: '3000 Ferry Street N; 5 a.m. to 10 p.m.',
+        note: 'Anoka County Parks lists Rum River South County Park at 3000 Ferry Street N in Anoka and gives the park-hours window as 5 a.m. to 10 p.m.',
+        sourceUrl: 'https://www.anokacountyparks.com/parks/rum-river-south',
+      },
+      {
+        label: 'Dam proximity',
+        value: 'South County Park is above Rum River Dam',
+        note: 'DNR Map 3 places Rum River South County Park at river mile 1.9 and Rum River Dam at river mile 0.8, so the normal take-out remains safely above the dam if you finish cleanly at South County Park.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/rum3.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Rum River overview',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/rum-river/index.html',
+      },
+      {
+        label: 'MN DNR Rum River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/rumriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Rum River Map 3 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/rum3.pdf',
+      },
+      {
+        label: 'City of Ramsey parks and trails amenities',
+        url: 'https://cityoframsey.com/1119',
+      },
+      {
+        label: 'Anoka County Parks Rum River South County Park',
+        url: 'https://www.anokacountyparks.com/parks/rum-river-south',
+      },
+      {
+        label: 'Anoka County Rum River South County Park directory',
+        url: 'https://www.anokacountymn.gov/Directory.aspx?did=150',
+      },
+      {
+        label: 'USGS 05286000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05286000/',
+      },
+    ],
+  },
+  {
     id: 'rum-river-walbo-cambridge-west',
     slug: 'rum-river-walbo-cambridge-west',
     name: 'Rum River',

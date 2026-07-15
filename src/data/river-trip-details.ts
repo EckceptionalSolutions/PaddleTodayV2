@@ -2321,6 +2321,106 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'rum-river-north-county-central': {
+    putIn: {
+      name: 'Rum River North County Park access',
+      latitude: 45.394587,
+      longitude: -93.353557,
+    },
+    takeOut: {
+      name: 'Rum River Central Regional Park access',
+      latitude: 45.2961635,
+      longitude: -93.3860982,
+    },
+    logistics: {
+      distanceLabel: '9.4 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr 30 min',
+      shuttle:
+        'Standard two-car shuttle is simplest. Both ends are managed county parks, so confirm vehicle-entry and parking expectations before leaving cars.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted county park, access, and boating rules at both landings.',
+      camping:
+        'Watercraft campsites exist at both North County Park and Central Regional Park, so this corridor can support a short overnight plan if you intentionally reserve around current rules; many paddlers will still treat it as a half-day or relaxed day trip.',
+      summary:
+        'Launch at Rum River North County Park and finish at Rum River Central Regional Park for a shorter lower-Rum county-corridor day. The official St. Francis gauge sits right on this corridor, so the level call is cleaner than on many metro-adjacent rivers.',
+      accessCaveats: [
+        'Both endpoints are managed county parks, so park hours, parking rules, and seasonal vehicle-permit expectations deserve a same-day check.',
+        'Do not assume low-hazard character means zero cleanup issues; flood debris and fresh wood can still change the route after storms.',
+      ],
+      watchFor: [
+        'Low-water scraping when the gauge falls toward the 600 cfs floor.',
+        'Fresh strainers or snags after heavy rain or spring runoff.',
+        'Cold-water exposure outside midsummer even on an otherwise easy-feeling river day.',
+      ],
+    },
+  },
+  'rum-river-north-county-germanium': {
+    putIn: {
+      name: 'Rum River North County Park access',
+      latitude: 45.394587,
+      longitude: -93.353557,
+    },
+    takeOut: {
+      name: 'Germanium carry-in access at Brookview Park',
+      latitude: 45.2826032,
+      longitude: -93.4079762,
+    },
+    logistics: {
+      distanceLabel: '14.2 mi',
+      estimatedPaddleTime: 'About 4 hr 45 min to 6 hr 30 min',
+      shuttle:
+        'Standard two-car shuttle is the realistic plan. The route is long enough that daylight, pace, and wind deserve more thought than on the shorter county-park option.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted county-park and city-park access, parking, and boating rules at both endpoints.',
+      camping:
+        'This corridor passes official watercraft campsites at North County Park and Rum River Central Regional Park, but the Germanium finish is a simple city-park carry-in rather than an overnight endpoint. Treat camping as a separate plan, not as part of the normal day shuttle.',
+      summary:
+        'Put in at Rum River North County Park and take out at the Germanium / Brookview Park access in Ramsey for a fuller lower-Rum day. This keeps the official St. Francis gauge in the route story while extending the mileage well past the casual park-to-park float.',
+      accessCaveats: [
+        'The Ramsey finish is a city-park carry-in access, not a large trailer-ramp complex, so confirm the landing and parking layout before launching.',
+        'Because the route is longer than it first looks on the map, low water or debris can turn a casual plan into a slower all-day effort.',
+      ],
+      watchFor: [
+        'Long-day fatigue on a route that remains easy but not short.',
+        'Downed trees, snags, or debris after storms.',
+        'Slow progress or occasional dragging when the gauge is near the low-water floor.',
+      ],
+    },
+  },
+  'rum-river-germanium-south-county-park': {
+    putIn: {
+      name: 'Germanium carry-in access at Brookview Park',
+      latitude: 45.2826032,
+      longitude: -93.4079762,
+    },
+    takeOut: {
+      name: 'Rum River South County Park access',
+      latitude: 45.2121606,
+      longitude: -93.3907042,
+    },
+    logistics: {
+      distanceLabel: '7.1 mi',
+      estimatedPaddleTime: 'About 2 hr 30 min to 3 hr 30 min',
+      shuttle:
+        'Standard two-car shuttle is simplest. The finish is straightforward if you know South County Park, but it is worth looking at before launching because the dam lies farther downstream in Anoka.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted city-park and county-park access, parking, and boating rules at both public landings.',
+      camping:
+        'No simple route camping plan is indicated for this lower corridor. Treat it as a day trip and do not assume camping is available at the South County finish.',
+      summary:
+        'Launch at the Germanium / Brookview Park access and finish at Rum River South County Park for a shorter lower-Rum continuation above the Anoka dam. The live level check comes from the upstream St. Francis gauge, so stay conservative when that proxy is near scrape territory.',
+      accessCaveats: [
+        'South County Park has posted park hours, so settle the vehicle plan before launching if your day could run late.',
+        'The normal take-out is safely above the Rum River dam, but only if you actually finish at South County Park rather than drifting past it.',
+        'Do not over-read the St. Francis gauge. It is a useful same-river proxy, but it is still upstream of this lower route.',
+      ],
+      watchFor: [
+        'Missing the South County take-out and carrying on toward the downstream dam corridor.',
+        'Low-water dragging or slow current when the proxy gauge is near the floor.',
+        'Fresh debris or strainers after storms, especially along lower banks and bends.',
+      ],
+    },
+  },
   'rum-river-walbo-cambridge-west': {
     putIn: {
       name: 'Walbo carry-in access',
