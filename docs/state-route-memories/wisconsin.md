@@ -4,16 +4,22 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 92.
-- Top represented rivers: Wisconsin River 13, Wolf River 5, Milwaukee River 5, Peshtigo River 5, Chippewa River 4, Bois Brule River 4, Pine River 4, Namekagon River 4, Baraboo River 3, Sugar River 3, Black River 3, Brule River 3, Grant River 3, Platte River 3.
-- Ledger candidates: 87 total; 77 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
+- Live routes: 95.
+- Top represented rivers: Wisconsin River 13, Wolf River 5, Milwaukee River 5, Peshtigo River 5, Chippewa River 4, Bois Brule River 4, Pine River 4, Namekagon River 4, Baraboo River 3, Sugar River 3, Black River 3, Brule River 3, Grant River 3, Platte River 3, South Fork Flambeau River 3.
+- Ledger candidates: 90 total; 80 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three Platte River / Grant County splits beyond the 89-route baseline: `platte-river-airport-platte-road`, `platte-river-platte-road-big-platte`, and `platte-river-big-platte-banfield-bridge`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three South Fork Flambeau whitewater routes beyond the 92-route baseline: `flambeau-south-fork-simon-road-county-f`, `flambeau-south-fork-county-f-county-w`, and `flambeau-south-fork-county-w-skinner-creek`.
 
 ## Latest Audit
 
+- 2026-07-15 America/Chicago: added `flambeau-south-fork-simon-road-county-f`, `flambeau-south-fork-county-f-county-w`, and `flambeau-south-fork-county-w-skinner-creek`, bringing the live Wisconsin route count to 95.
+- The three routes fill the South Fork Flambeau route family above the existing North Fork / main-Flambeau cards. American Whitewater documents exact C/D/E South Fork reaches, endpoint coordinates, rapid names, and numeric runnable bands tied to USGS `05359500` South Fork Flambeau near Phillips; Wisconsin DNR corroborates the South Fork state-forest whitewater corridor and named rapids; Wisconsin Trail Guide corroborates the South Fork route family, seasonal volatility, access names, Little Falls / Slough Gundy hazard context, and the no-South-Fork-canoe-camps posture.
+- Live gauge verification: USGS Water Services returned South Fork Flambeau River near Phillips (`05359500`) `227 cfs / 5.06 ft` at 2026-07-15 01:45 CDT. Simon-Road-to-County-F ships below its AW 500-4000 cfs band, and the two downstream routes ship just below their AW 250-1200 cfs bands.
+- Safety/logistics added: remote road-access checks, private-bank limits, no on-route South Fork camping assumption, no casual continuation beyond selected endpoints, same-day visual checks, low-water scraping, high/rising-water push, Class I-II boulder gardens, Slough Gundy / Little Falls scouting and portage caveats, cold water, strainers, storms, and limited rescue exposure.
+- Bounded image review found no clearly rights-clean exact-route paddling image for the three South Fork Flambeau splits; rows were added to the image audit instead of adding local route-gallery assets.
+- Reviewed but did not add or revive Little Wolf because the checked USGS route gauge returned stale 2019 data, Little Platte because public access / threshold support was weaker, Grafton Dells because current dam-gate context adds avoidable uncertainty, and Waupaca upstream because logjam and official-route support were weaker than the selected South Fork Flambeau family. Prompt leads were reconciled again: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica are already implemented; Black Earth Creek Cross Plains-to-Salmo Pond remains blocked; Oconto North Branch Bagley Rapids remains held for calculated-flow and wood/chute clearance issues.
 - 2026-07-15 America/Chicago: added `platte-river-airport-platte-road`, `platte-river-platte-road-big-platte`, and `platte-river-big-platte-banfield-bridge`, bringing the live Wisconsin route count to 92.
 - The three routes fill a new Grant County Platte River family that was absent from the live Wisconsin inventory. Travel Wisconsin identifies the Platte as navigable from Ellenboro to the Mississippi with Class I rapids and multiple access points; Wisconsin River Trips documents the Airport-to-Platte and Platte-to-Big-Platte segment chain, bridge-access conditions, hazards, and Rockville-gauge observations; Miles Paddled publishes endpoint GPS points for Airport Road, Platte Road, Big Platte Road, and Banfield Bridge and ties the Platte route family to the Rockville USGS gauge.
 - Threshold posture is conservative minimum-only: all three use USGS `05414000` Platte River near Rockville with a 3.5 ft low-water floor from Miles Paddled's Platte guide. USGS Water Services returned 147 cfs / 4.60 ft at 2026-07-15 00:00 CDT during this run. No official upper cutoff was found or invented; the cards retain high/rising-water caveats for fences, wood, access, and private banks.

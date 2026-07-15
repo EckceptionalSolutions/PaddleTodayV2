@@ -12584,6 +12584,186 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'flambeau-south-fork-simon-road-county-f': {
+    putIn: {
+      id: 'simon-road',
+      name: 'Simon Road Landing',
+      latitude: 45.8312,
+      longitude: -90.457,
+    },
+    takeOut: {
+      id: 'county-f-lugerville',
+      name: 'County F / Lugerville Access',
+      latitude: 45.7777,
+      longitude: -90.5137,
+    },
+    logistics: {
+      distanceLabel: '7.75 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, plus scouting and low-water delay time',
+      shuttle:
+        'Plan a rural Price County / South Fork shuttle between Simon Road south of Fifield and the County F access at Lugerville. Confirm parking and road conditions at both endpoints before unloading because this is not a developed metro-style launch.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Wisconsin DNR / local access rules, Flambeau River State Forest glass-container restrictions when in the state-forest corridor, and private-bank limits.',
+      camping:
+        'Treat this as a day route. Wisconsin Trail Guide says there are no State Forest canoe campsites on the South Fork; use Connors Lake, Lake of the Pines, or another legal nearby basecamp rather than assuming on-route camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Simon Road Landing and take out at County F / Lugerville for the upper implementation-grade South Fork Flambeau card. American Whitewater names Simons, Priest Lake, Boars, Rock Ledge, and Rocky Carry rapids on this reach.',
+      accessCaveats: [
+        'American Whitewater supplies the endpoint coordinates and route shape; confirm current public parking, signage, and shoulder conditions before launching.',
+        'The South Fork Flambeau near Phillips gauge is AW-backed for this route family, but it is still a proxy for what you will see at both endpoints. Use same-day visual checks.',
+        'Banks are remote and may be private outside public access areas. Do not assume casual exit or camping permission away from named landings.',
+      ],
+      watchFor: [
+        'Class I-II rapids, boulder gardens, shallow ledges, and scraping below the AW low-runnable floor.',
+        'Pushier current and harder swims near the upper end of the AW range or after Price County rain.',
+        'Wood, strainers, cold water, limited rescue exposure, and long gaps between easy exits.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'simon-road',
+        name: 'Simon Road Landing',
+        latitude: 45.8312,
+        longitude: -90.457,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'American Whitewater put-in for the South Fork Flambeau C reach.',
+      },
+      {
+        id: 'county-f-lugerville',
+        name: 'County F / Lugerville Access',
+        latitude: 45.7777,
+        longitude: -90.5137,
+        mileFromStart: 7.75,
+        segmentKind: 'creek',
+        note: 'Take-out for this route and put-in for the downstream County F-to-County W run.',
+      },
+    ],
+  },
+  'flambeau-south-fork-county-f-county-w': {
+    putIn: {
+      id: 'county-f-lugerville',
+      name: 'County F / Lugerville Access',
+      latitude: 45.7776,
+      longitude: -90.5137,
+    },
+    takeOut: {
+      id: 'county-w-bridge',
+      name: 'County W Bridge Landing',
+      latitude: 45.7035,
+      longitude: -90.616,
+    },
+    logistics: {
+      distanceLabel: '9.3 mi',
+      estimatedPaddleTime: 'About 4 hr for a prepared group, plus time for scouting and low-water scraping',
+      shuttle:
+        'Use a two-car shuttle from the Lugerville / County F access to the County W bridge landing. This is a remote Northwoods road shuttle; confirm the take-out before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted landing rules, Wisconsin DNR Flambeau paddling restrictions, and private-bank limits.',
+      camping:
+        'Plan this as a day run. Wisconsin Trail Guide states there are no State Forest canoe campsites on the South Fork, so overnight plans should use nearby legal campgrounds rather than informal riverbank camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Lugerville / County F and take out at County W Bridge Landing. The route fills the middle South Fork Flambeau gap with a WTG / AW-documented 9.3-mile Class I-II / Class II day.',
+      accessCaveats: [
+        'Use the named County F / Lugerville and County W bridge accesses; do not assume every roadside opening along the South Fork is a public landing.',
+        'The gauge is a same-river AW proxy. Low numbers mean scraping and pinned boats are more likely; rising water can make the boulder gardens much pushier.',
+        'Inspect the County W landing before launch if you have not used it before, because it is also the put-in for the more advanced downstream reach.',
+      ],
+      watchFor: [
+        'Riffles, Class I-II rock gardens, blind bends, and changing channels around wooded islands.',
+        'Strainers and sweepers after storms or spring melt.',
+        'Cold water, limited bailout options, private banks, and rapid level changes after heavy rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-f-lugerville',
+        name: 'County F / Lugerville Access',
+        latitude: 45.7776,
+        longitude: -90.5137,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'American Whitewater and Wisconsin Trail Guide access for the Lugerville / CTH F start.',
+      },
+      {
+        id: 'county-w-bridge',
+        name: 'County W Bridge Landing',
+        latitude: 45.7035,
+        longitude: -90.616,
+        mileFromStart: 9.3,
+        segmentKind: 'creek',
+        note: 'Downstream bridge landing and transition point before the lower South Fork whitewater corridor.',
+      },
+    ],
+  },
+  'flambeau-south-fork-county-w-skinner-creek': {
+    putIn: {
+      id: 'county-w-bridge',
+      name: 'County W Bridge Landing',
+      latitude: 45.703499,
+      longitude: -90.616096,
+    },
+    takeOut: {
+      id: 'skinner-creek',
+      name: 'Skinner Creek Landing',
+      latitude: 45.625198,
+      longitude: -90.7696,
+    },
+    logistics: {
+      distanceLabel: '11.2 mi',
+      estimatedPaddleTime: 'Long whitewater day, roughly 5 hr to 7 hr with scouting and portage decisions',
+      shuttle:
+        'Set a remote two-car shuttle from County W Bridge Landing to Skinner Creek Landing. Many whitewater groups use County M / Little Falls access for shorter play runs, but this route keeps the AW CTH W-to-Skinner Creek through-run geometry.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Wisconsin DNR / state-forest rules, glass restrictions, and any landing-specific parking instructions.',
+      camping:
+        'Do not plan on South Fork canoe camping. Wisconsin Trail Guide says there are no State Forest canoe campsites on the South Fork; this route ends at Skinner Creek before the North Fork confluence camp chain.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at County W and take out at Skinner Creek for the lower South Fork Flambeau whitewater card. Expect Cornsheller, Price Creek, Big Bull, Slough Gundy, Little Falls, Scratch, Otter Slide, and other boulder-bed hazards depending on the exact line and water level.',
+      accessCaveats: [
+        'County W and Skinner Creek are AW-documented endpoints, but paddlers should verify current parking and landing condition before committing to the through-run.',
+        'The USGS 05359500 number is an AW-backed South Fork gauge, not a substitute for scouting Little Falls, Slough Gundy, or fresh wood.',
+        'Do not casually continue downstream without a separate plan; camping, take-outs, and rapids change again toward the North Fork confluence.',
+      ],
+      watchFor: [
+        'Slough Gundy and Little Falls. Scout from shore and portage if the line, water level, or group skill is not right.',
+        'Class II-III ledges, boulder gardens, holes, pushy wave trains at higher water, and bony pin hazards at lower water.',
+        'Cold water, remote rescue exposure, limited exits, strainers, changing channels, and storms in the Price County headwaters.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-w-bridge',
+        name: 'County W Bridge Landing',
+        latitude: 45.703499,
+        longitude: -90.616096,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'American Whitewater put-in for the lower South Fork E reach.',
+      },
+      {
+        id: 'county-m-little-falls',
+        name: 'County M / Little Falls access area',
+        latitude: 45.6626,
+        longitude: -90.7056,
+        mileFromStart: 6.9,
+        segmentKind: 'creek',
+        note: 'Approximate mid-route scout / park-and-play context for Slough Gundy and Little Falls; confirm local signage before using it as an alternate access.',
+      },
+      {
+        id: 'skinner-creek',
+        name: 'Skinner Creek Landing',
+        latitude: 45.625198,
+        longitude: -90.7696,
+        mileFromStart: 11.2,
+        segmentKind: 'creek',
+        note: 'American Whitewater take-out before the final South Fork miles toward the confluence.',
+      },
+    ],
+  },
   'flambeau-river-highway-w-hervas': {
     putIn: {
       id: 'highway-w',

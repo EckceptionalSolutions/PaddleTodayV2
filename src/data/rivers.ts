@@ -37591,6 +37591,363 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'flambeau-south-fork-simon-road-county-f',
+    slug: 'flambeau-south-fork-simon-road-county-f',
+    name: 'South Fork Flambeau River',
+    reach: 'Simon Road Landing to County F / Lugerville Access',
+    aliases: [
+      'South Fork Flambeau - Simon Road to Lugerville',
+      'Flambeau South Fork C - Simon Road Landing to CTH F',
+      'Flambeau River South Fork - Simon Road to County F',
+    ],
+    state: 'Wisconsin',
+    region: 'Northwoods Wisconsin',
+    summary:
+      'Remote upper South Fork Flambeau run south of Fifield, using Simon Road Landing and the County F / Lugerville access with low-grade rapids such as Simons, Priest Lake, Boars, Rock Ledge, and Rocky Carry. American Whitewater ties this exact reach to the live South Fork Flambeau near Phillips gauge.',
+    statusText:
+      'Use USGS 05359500 as an American Whitewater-backed South Fork proxy. AW lists 500-4,000 cfs as the runnable band for this reach; below 500 cfs expect shallow, scrapey rock gardens, and above 4,000 cfs the route is beyond the app\'s broad recommendation posture.',
+    latitude: 45.8312,
+    longitude: -90.457,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-05359500',
+      provider: 'usgs',
+      siteId: '05359500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'South Fork Flambeau River Near Phillips, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05359500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 500,
+      idealMax: 4000,
+      tooLow: 500,
+      tooHigh: 4000,
+      thresholdSource: {
+        label: 'American Whitewater South Fork Flambeau C runnable band',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2946/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 9, 10],
+      seasonNotes:
+        'Wisconsin DNR says South Fork Flambeau peak paddling is usually early spring to mid-June, while Wisconsin Trail Guide notes levels can change dramatically with snowmelt and rain. Scout current conditions before committing, especially after storms.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'American Whitewater rates the reach Class I-II. It is a moving-water / easy-whitewater day for prepared paddlers, with named rapids, remote banks, and cold-water consequences rather than a casual flatwater float.',
+      confidenceNotes:
+        'Confidence is good for route shape, gauge relationship, and thresholds because American Whitewater publishes the exact Simon Road-to-CTH F reach, endpoint coordinates, the South Fork Flambeau near Phillips gauge, and a numeric runnable band. Wisconsin DNR and Wisconsin Trail Guide corroborate the broader South Fork corridor, seasonal volatility, and no-canoe-camp posture. The gauge is still modeled as a proxy because it is not located at both endpoints, so same-day visual checks remain important.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route shape',
+        value: 'Simon Road Landing to County F / Lugerville, about 7.75 mi',
+        note: 'American Whitewater lists the exact South Fork Flambeau C reach from Simon Road Landing to CTH F at 7.75 miles.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2946/main',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.8312, -90.4570 to 45.7777, -90.5137',
+        note: 'American Whitewater publishes put-in and take-out coordinates for the Simon Road and CTH F / Lugerville endpoints.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2946/main',
+      },
+      {
+        label: 'Gauge and thresholds',
+        value: 'USGS 05359500, 500-4,000 cfs',
+        note: 'American Whitewater ties this reach to the South Fork Flambeau near Phillips gauge and lists a 500 cfs low-runnable floor plus 4,000 cfs top-of-high value.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2946/main',
+      },
+      {
+        label: 'Whitewater character',
+        value: 'Class I-II with named rapids',
+        note: 'American Whitewater names Simons, Priest Lake, Boars, Rock Ledge, and Rocky Carry rapids on the reach.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2946/main',
+      },
+      {
+        label: 'South Fork corridor',
+        value: 'Seasonal state-forest whitewater context',
+        note: 'Wisconsin DNR describes the South Fork as a short, challenging seasonal run within the Flambeau River State Forest corridor and lists named South Fork rapids and safety guidance.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/StateForests/flambeauriver/recreation/paddle',
+      },
+      {
+        label: 'Camping posture',
+        value: 'No South Fork canoe camps',
+        note: 'Wisconsin Trail Guide states there are no State Forest canoe campsites on the South Fork; use nearby state-forest campgrounds for basecamp plans.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/flambeau-river-south.html',
+      },
+      {
+        label: 'Live gauge',
+        value: 'USGS 05359500 South Fork Flambeau near Phillips',
+        note: 'USGS operates the live monitoring location that American Whitewater uses for South Fork Flambeau reaches.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05359500/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater South Fork Flambeau C',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2946/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'WI DNR Paddling the Flambeau River',
+        url: 'https://dnr.wisconsin.gov/topic/StateForests/flambeauriver/recreation/paddle',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide South Fork Flambeau overview',
+        url: 'https://wisconsintrailguide.com/2024/paddle/flambeau-river-south.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide South Fork FS1 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-flambeauSouth1.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 05359500 South Fork Flambeau River Near Phillips',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05359500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'flambeau-south-fork-county-f-county-w',
+    slug: 'flambeau-south-fork-county-f-county-w',
+    name: 'South Fork Flambeau River',
+    reach: 'County F / Lugerville Access to County W Bridge Landing',
+    aliases: [
+      'South Fork Flambeau - Lugerville to County W',
+      'Flambeau South Fork D - CTH F to CTH W',
+      'Flambeau River South Fork - County F to County W',
+    ],
+    state: 'Wisconsin',
+    region: 'Northwoods Wisconsin',
+    summary:
+      'Middle South Fork Flambeau whitewater day from Lugerville / County F to the County W bridge landing, mixing quietwater, boulder gardens, and Class I-II ledges before the state-forest rapids intensify downstream.',
+    statusText:
+      'Use USGS 05359500 as an American Whitewater-backed South Fork proxy. AW lists 250-1,200 cfs as the runnable band for this reach; below 250 cfs expect shallow scraping, and above 1,200 cfs boulder gardens and turns become pushier.',
+    latitude: 45.7776,
+    longitude: -90.5137,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-05359500',
+      provider: 'usgs',
+      siteId: '05359500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'South Fork Flambeau River Near Phillips, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05359500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 250,
+      idealMax: 1200,
+      tooLow: 250,
+      tooHigh: 1200,
+      thresholdSource: {
+        label: 'American Whitewater South Fork Flambeau D runnable band',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2294/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 9, 10],
+      seasonNotes:
+        'Wisconsin Trail Guide describes the South Fork as best in late spring through mid-to-late summer, with rapid behavior changing dramatically after rain. Treat the AW band as a planning screen and scout visible drops.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'American Whitewater rates this reach Class I-II and Wisconsin Trail Guide describes the comparable FS1 run as novice Class II. It is still a remote boulder-bed river with current, wood, and cold-water risk.',
+      confidenceNotes:
+        'Confidence is good for implementation because American Whitewater publishes this exact CTH F-to-CTH W reach, endpoint coordinates, gauge, and runnable band; Wisconsin Trail Guide corroborates the Lugerville-to-County-W route family, distance, difficulty, and access names. The gauge is modeled as a proxy, and the app does not infer any official DNR threshold.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route shape',
+        value: 'CTH F / Lugerville to CTH W, about 9.3 mi',
+        note: 'American Whitewater lists the exact South Fork Flambeau D reach from CTH F to CTH W at 9.3 miles.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2294/main',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.7776, -90.5137 to 45.7035, -90.6160',
+        note: 'American Whitewater publishes the Lugerville / CTH F and CTH W coordinates; Wisconsin Trail Guide FS1 materials corroborate the access names.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2294/main',
+      },
+      {
+        label: 'Gauge and thresholds',
+        value: 'USGS 05359500, 250-1,200 cfs',
+        note: 'American Whitewater ties this reach to the South Fork Flambeau near Phillips gauge and lists a 250 cfs low-runnable floor plus 1,200 cfs top-of-high value.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2294/main',
+      },
+      {
+        label: 'Practical route guide',
+        value: 'WTG FS1, 9.3 mi, Class II',
+        note: 'Wisconsin Trail Guide describes the Lugerville-to-County-W South Fork trip as a 9.3-mile novice run with Class II features and about four hours on the water.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/flambeau-river-south-lugerville.html',
+      },
+      {
+        label: 'South Fork safety context',
+        value: 'Seasonal rapids and PFD/glass guidance',
+        note: 'Wisconsin DNR identifies the South Fork as the state forest whitewater branch and publishes Flambeau paddling safety guidance.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/StateForests/flambeauriver/recreation/paddle',
+      },
+      {
+        label: 'Camping posture',
+        value: 'No South Fork canoe camps',
+        note: 'Wisconsin Trail Guide states there are no State Forest canoe campsites on the South Fork; plan this as a day run with nearby state-forest campgrounds if needed.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/flambeau-river-south.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater South Fork Flambeau D',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2294/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'WI DNR Paddling the Flambeau River',
+        url: 'https://dnr.wisconsin.gov/topic/StateForests/flambeauriver/recreation/paddle',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide South Fork Lugerville',
+        url: 'https://wisconsintrailguide.com/paddle/flambeau-river-south-lugerville.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide South Fork FS1 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-flambeauSouth1.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 05359500 South Fork Flambeau River Near Phillips',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05359500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'flambeau-south-fork-county-w-skinner-creek',
+    slug: 'flambeau-south-fork-county-w-skinner-creek',
+    name: 'South Fork Flambeau River',
+    reach: 'County W Bridge Landing to Skinner Creek Landing',
+    aliases: [
+      'South Fork Flambeau - County W to Skinner Creek',
+      'Flambeau South Fork E - CTH W to Skinner Creek',
+      'Flambeau River South Fork - County W to Skinner Creek Landing',
+    ],
+    state: 'Wisconsin',
+    region: 'Northwoods Wisconsin',
+    summary:
+      'Lower South Fork Flambeau whitewater run from County W toward Skinner Creek, passing Cornsheller, Price Creek, Big Bull, Slough Gundy, Little Falls, Scratch, and Otter Slide context. This is the most consequential of the three South Fork cards and requires scouting discipline.',
+    statusText:
+      'Use USGS 05359500 as an American Whitewater-backed South Fork proxy. AW lists 250-1,200 cfs as the runnable band for this reach. Below 250 cfs Little Falls and ledges become bony; above 1,200 cfs the route is pushier and less suitable for broad recommendations.',
+    latitude: 45.703499,
+    longitude: -90.616096,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-05359500',
+      provider: 'usgs',
+      siteId: '05359500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'South Fork Flambeau River Near Phillips, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05359500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 250,
+      idealMax: 1200,
+      tooLow: 250,
+      tooHigh: 1200,
+      thresholdSource: {
+        label: 'American Whitewater South Fork Flambeau E runnable band',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2295/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 9, 10],
+      seasonNotes:
+        'Wisconsin DNR says the South Fork peaks early spring to mid-June, and Wisconsin Trail Guide warns levels can make the same rapids behave very differently. Avoid high/rising water unless the group has suitable whitewater skill and rescue gear.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'American Whitewater rates the reach II(III), while Wisconsin Trail Guide and Wisconsin DNR identify Little Falls / Slough Gundy as advanced hazards. Scout Little Falls and portage if there is any doubt.',
+      confidenceNotes:
+        'Confidence is good for the route and threshold because American Whitewater publishes the exact CTH W-to-Skinner Creek reach, endpoint coordinates, named rapids, gauge, and 250-1,200 cfs runnable band. Wisconsin DNR and Wisconsin Trail Guide supply strong hazard context for Slough Gundy, Little Falls, and the lower South Fork. The gauge is still a same-river proxy, not a substitute for scouting.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route shape',
+        value: 'CTH W to Skinner Creek Landing, about 11.2 mi',
+        note: 'American Whitewater lists the exact South Fork Flambeau E reach from CTH W to Skinner Creek Landing at 11.2 miles.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2295/main',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.703499, -90.616096 to 45.625198, -90.769600',
+        note: 'American Whitewater publishes coordinates for the County W put-in and Skinner Creek take-out.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2295/main',
+      },
+      {
+        label: 'Gauge and thresholds',
+        value: 'USGS 05359500, 250-1,200 cfs',
+        note: 'American Whitewater ties this reach to the South Fork Flambeau near Phillips gauge and lists a 250 cfs low-runnable floor plus 1,200 cfs top-of-high value.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2295/main',
+      },
+      {
+        label: 'Named hazards',
+        value: 'Cornsheller, Big Bull, Little Falls, Slough Gundy, Scratch',
+        note: 'American Whitewater names the lower South Fork rapids, and Wisconsin DNR lists Little Falls as the hardest South Fork feature in the state-forest corridor.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/StateForests/flambeauriver/recreation/paddle',
+      },
+      {
+        label: 'Practical hazard guide',
+        value: 'WTG FS2 / FS3, scout and portage Little Falls if needed',
+        note: 'Wisconsin Trail Guide describes the County W-to-County M and County M-to-Hervas sequence, with Slough Gundy and Little Falls as the major advanced hazards and a right-bank scout / portage option.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/flambeau-river-south-county-m.html',
+      },
+      {
+        label: 'Camping posture',
+        value: 'No South Fork canoe camps before the confluence',
+        note: 'Wisconsin Trail Guide states there are no State Forest canoe campsites on the South Fork; this route ends at Skinner Creek before the North Fork confluence camp chain.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/flambeau-river-south.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater South Fork Flambeau E',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2295/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'WI DNR Paddling the Flambeau River',
+        url: 'https://dnr.wisconsin.gov/topic/StateForests/flambeauriver/recreation/paddle',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide South Fork County W',
+        url: 'https://wisconsintrailguide.com/paddle/flambeau-river-south-county-w.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide South Fork County M',
+        url: 'https://wisconsintrailguide.com/2024/paddle/flambeau-river-south-county-m.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 05359500 South Fork Flambeau River Near Phillips',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05359500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'flambeau-river-highway-w-hervas',
     slug: 'flambeau-river-highway-w-hervas',
     name: 'Flambeau River',
