@@ -9637,6 +9637,114 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'wisconsin-river-camp-new-wood-alexander': {
+    putIn: {
+      name: 'Camp New Wood County Park landing',
+      latitude: 45.287797,
+      longitude: -89.792781,
+    },
+    takeOut: {
+      name: 'Alexander Dam portage take-out',
+      latitude: 45.188514,
+      longitude: -89.754247,
+    },
+    logistics: {
+      distanceLabel: '8.6 mi',
+      estimatedPaddleTime: 'About 2 hr 45 min, longer with low water or scouting',
+      shuttle:
+        'Use a rural Great Pinery shuttle between Camp New Wood County Park and the Alexander Dam portage. Stage and inspect the portage take-out before launching because it is the required exit above dam infrastructure.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted county-park, Great Pinery, Wisconsin boating/PFD, and dam-portage rules.',
+      camping:
+        'Camp New Wood County Park is the natural nearby basecamp. Do not assume informal riverbank camping or dam-area overnight use on this day route.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Camp New Wood County Park and paddle the official Great Pinery segment through Bill Cross Wildlife Area scenery, Posey Rapids, and Bill Cross Rapids to the Alexander Dam portage.',
+      accessCaveats: [
+        'The route ends at the Alexander Dam portage. Missed or late take-out decisions are not acceptable; scout the portage before launching.',
+        'The Merrill gauge is downstream of the route and is used as a same-corridor live check, while local releases and rain can still change the reach.',
+        'Road, landing, and portage conditions should be checked the same day, especially after high water or maintenance activity.',
+      ],
+      watchFor: [
+        'Class I-II Posey and Bill Cross rapids, with more scraping at low flow and stronger push after rain or releases.',
+        'Wood, cold water, islands, shallow shoals, and limited bailout options in the wildlife-area corridor.',
+        'Dam-warning signs, portage signage, and current near the Alexander Dam take-out.',
+        'Broad Great Pinery flow guidance rather than a segment-specific ladder; make a visual check before committing.',
+      ],
+    },
+  },
+  'wisconsin-river-alexander-riverside': {
+    putIn: {
+      name: 'Alexander Dam portage put-in',
+      latitude: 45.18683,
+      longitude: -89.752708,
+    },
+    takeOut: {
+      name: 'Riverside Park Landing',
+      latitude: 45.175744,
+      longitude: -89.675105,
+    },
+    logistics: {
+      distanceLabel: '5.4 mi',
+      estimatedPaddleTime: 'About 2 hr 45 min, plus Merrill Dam portage time',
+      shuttle:
+        'Use a short Merrill-area shuttle from Riverside Park Landing back to the Alexander Dam portage. Inspect the Merrill Dam portage route and the Riverside Park finish before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow Great Pinery portage guidance, city park rules, Wisconsin boating/PFD rules, and posted dam warnings.',
+      camping:
+        'No on-route camping is documented. Treat this as a day route with Merrill-area lodging or campgrounds only if separately reserved and legal.',
+      campingClassification: 'none',
+      summary:
+        'Launch below Alexander Dam and follow the official Great Pinery urban segment through Merrill to Riverside Park Landing, including the required Merrill Dam portage.',
+      accessCaveats: [
+        'This is not an uninterrupted float: the Merrill Dam portage is part of the route and must be planned before launch.',
+        'Use the posted Alexander and Merrill portage infrastructure rather than informal banks near dam structures.',
+        'Riverside Park is downstream from Merrill Dam and is the intended finish; do not extend into downstream segments without a separate plan.',
+      ],
+      watchFor: [
+        'Merrill Dam portage timing, signage, current, and restricted areas.',
+        'Urban bridges, small islands, shallow water near the banks, cold water, and debris after rain.',
+        'Broad Great Pinery flow guidance rather than a precise route ladder.',
+        'Changing dam-release behavior that may not be fully captured by the Merrill gauge at trip time.',
+      ],
+    },
+  },
+  'wisconsin-river-oak-island-rothschild': {
+    putIn: {
+      name: 'Oak Island Park Landing',
+      latitude: 44.953182,
+      longitude: -89.629095,
+    },
+    takeOut: {
+      name: 'Rothschild Dam portage take-out',
+      latitude: 44.89441,
+      longitude: -89.626397,
+    },
+    logistics: {
+      distanceLabel: '8.3 mi',
+      estimatedPaddleTime: 'About 4.5 hr, longer with wind or lake traffic',
+      shuttle:
+        'Stage the take-out at the Rothschild Dam portage, then launch from Oak Island Park. This is mostly Lake Wausau, so check wind and boat traffic before committing.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted park, dam-portage, Wisconsin boating/PFD, and Lake Wausau navigation rules.',
+      camping:
+        'No on-route camping is documented. Treat this as a day route; use separate Wausau-area camping or lodging only after checking current rules.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Oak Island Park and paddle the Great Pinery Lake Wausau segment past Wausau-area parks and landings to the mandatory take-out just north of Rothschild Dam.',
+      accessCaveats: [
+        'The take-out is just north of Rothschild Dam. Scout the portage before launch and do not drift toward dam infrastructure.',
+        'Great Pinery recommends staying near the left bank to avoid powerboats, skiers, and pontoons on Lake Wausau.',
+        'Several intermediate parks and landings exist, but this route is scored for Oak Island to Rothschild Dam so shuttle and daylight planning stay honest.',
+      ],
+      watchFor: [
+        'Wind, waves, wake, motorboats, open-water crossings, and poor visibility on Lake Wausau.',
+        'Dam take-out timing, restricted areas, and current near Rothschild Dam.',
+        'Cold water, floating debris, shallow margins, and private or developed shorelines.',
+        'Broad Great Pinery flow guidance rather than a route-specific Lake Wausau threshold ladder.',
+      ],
+    },
+  },
   'jacks-fork-river-buck-hollow-rymers': {
     putIn: {
       name: 'Buck Hollow / Highway 17 Bridge Access',
