@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 23:10 America/Chicago.
+Last summarized: 2026-07-15 00:11 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 128.
-- Top represented rivers: Sauk River 17, Mississippi River 16, Little Fork River 9, Minnesota River 10, Crow Wing River 7, Big Fork River 5, St. Croix River 3, Otter Tail River 4, Cannon River 4, Root River 4, North Fork Crow River 4, St. Louis River 4, Zumbro River 4.
-- Ledger candidates: 839 total; 478 `added`, 83 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
+- Live routes: 131.
+- Top represented rivers: Mississippi River 19, Sauk River 17, Minnesota River 10, Little Fork River 9, Crow Wing River 7, Big Fork River 5, Otter Tail River 4, Cannon River 4, Root River 4, North Fork Crow River 4, St. Louis River 4, Zumbro River 4, Red River of the North 4.
+- Ledger candidates: 845 total; 484 `added`, 83 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
 
-Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
+Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 00:11 America/Chicago: added `mississippi-river-county-line-jacobson`, `mississippi-river-overlook-belle-prairie`, and `mississippi-river-royalton-sartell`.
+- Baseline at run start was 128 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 131 Minnesota routes and all three new slugs have trip-detail records.
+- Stayed in Minnesota and promoted three official MN DNR Mississippi River water-trail planners still absent from live inventory: County Line-to-Jacobson Campground `4.9` miles, Overlook Park-to-Belle Prairie County Park `25.6` miles, and Royalton Sportsman's Club-to-Sartell `19.8` miles.
+- Minnesota public-water-access GIS resolves County Line `WAS01336`, Jacobson Campground `WAS02564`, Belle Prairie County Park `WAS01278`, Royalton Sportsman's Club `WAS00463`, Walleye Road `WAS01899`, Sartell `WAS02448`, and Rotary Park `WAS01059`; the Overlook Park put-in is anchored by DNR Map 6 at river mile `995.8` plus the City of Baxter's published `6005 Oakdale Road` park address.
+- Current MN DNR river-level feed exposed interpreted ladders for Mississippi Grand Rapids site `124` (`30 / 44-1410 / 1910 cfs`), Mississippi Brainerd site `121` (`908 / 1800-7000 / 10000 cfs`), and Mississippi Royalton site `149` (`2000 / 3000-9000 / 12000 cfs`). County-Line-to-Jacobson and Overlook-to-Belle-Prairie ship with explicit upstream same-map proxy caveats; Royalton-to-Sartell uses the direct put-in gauge.
+- Camping posture: County-Line-to-Jacobson is `endpoint_campground` at Jacobson Campground, Overlook-to-Belle-Prairie is `on_route_campsite` because DNR Map 6 identifies Overlook Park watercraft campsite and Crow Wing State Park camping/access support, and Royalton-to-Sartell is `on_route_campsite` with Stearns County Park / watercraft campsite context while warning not to camp on private islands or banks.
+- No route-gallery images were added. Bounded DNR / Commons / City of Baxter / county-local / same-river image review did not produce clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed but did not add Little-Falls-Dam-to-Pike-Creek because the best nearby gauge story was weaker than the selected routes due to downstream Blanchard Dam / proxy complications, and did not add North Fork Crow Manannah-to-Highway-22 because DNR tree-alert context remains active on that exact upper reach.
 
 - 2026-07-14 23:10 America/Chicago: added `crow-wing-river-lake-placid-crow-wing-state-park`, `minnesota-river-judson-riverside-st-peter`, and `st-croix-river-william-obrien-boomsite`.
 - Baseline at run start was 125 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 128 Minnesota routes and all three new slugs have trip-detail records.

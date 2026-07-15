@@ -25314,6 +25314,88 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'mississippi-river-royalton-sartell': {
+    putIn: {
+      name: "Mississippi River, Royalton Sportsman's Club Public Water Access Site",
+      latitude: 45.8297201,
+      longitude: -94.3506845,
+    },
+    takeOut: {
+      name: 'Mississippi River, Sartell Public Water Access Site',
+      latitude: 45.6435082,
+      longitude: -94.2025067,
+    },
+    logistics: {
+      distanceLabel: '19.8 mi',
+      estimatedPaddleTime: 'About 6 hr to 9 hr depending on level, wind, island-channel choices, and stops',
+      shuttle:
+        'Stage the Sartell take-out first, then drive upstream to Royalton Sportsman\'s Club. Scout Stearns County Park and Walleye Road as bailouts before launch if the full distance is weather- or daylight-sensitive.',
+      permits:
+        'No route-specific paddling permit is known. Follow Royalton Sportsman\'s Club fee/parking rules, DNR public-access rules, Minnesota boating/PFD requirements, and local park rules at Sartell.',
+      camping:
+        'DNR Map 7 identifies Stearns County Park and a watercraft campsite downstream of it, plus several public accesses. Treat campsite use as planned and first-come rather than guaranteed, and do not camp on private islands or banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Royalton Sportsman\'s Club and finish at Sartell for the full DNR Map 7 19.8-mile Mississippi one-way. The Royalton gauge is direct at the put-in, and Sartell is the required finish before the downstream dam corridor.',
+      accessCaveats: [
+        'Royalton Sportsman\'s Club, Walleye Road, Sartell, and Rotary Park resolve in Minnesota public-water-access GIS with coordinates and river-mile records. Stearns County Park remains a mapped DNR access and planned bailout in the route corridor.',
+        'The selected route ends at Sartell river mile 933.8. DNR Map 7 marks Sartell Dam downstream; do not drift past the planned take-out toward the dam or Sauk Rapids without a separate portage plan.',
+        'Royalton Sportsman\'s Club may charge a fee. Confirm parking and access rules before staging.',
+      ],
+      watchFor: [
+        'Long-day fatigue, wind, storms, and changing island channels between Royalton and Sartell.',
+        'Rocky riffles in low water, private islands and banks, anglers, and fresh wood after rain.',
+        'Missing the Sartell take-out and drifting toward Sartell Dam, plus deciding too late to use Stearns County Park or Walleye Road as bailouts.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'royalton-sportsmans-club',
+        name: "Mississippi River, Royalton Sportsman's Club Public Water Access Site",
+        latitude: 45.8297201,
+        longitude: -94.3506845,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 953.6 and direct Royalton gauge corridor; club-administered access may charge a fee.',
+      },
+      {
+        id: 'stearns-county-park',
+        name: 'Stearns County Park / Mississippi River County Park access',
+        latitude: 45.7265772,
+        longitude: -94.2228602,
+        mileFromStart: 11.4,
+        segmentKind: 'creek',
+        note: 'Mapped public access and lower-commitment bailout; this is the take-out for the shorter existing Royalton-to-Stearns card.',
+      },
+      {
+        id: 'walleye-road-landing',
+        name: 'Mississippi River, Walleye Road Landing Public Water Access Site',
+        latitude: 45.7167445,
+        longitude: -94.2258147,
+        mileFromStart: 12.6,
+        segmentKind: 'creek',
+        note: 'Additional public bailout at DNR river mile 941.0; resolves as WAS01899.',
+      },
+      {
+        id: 'sartell-public-access',
+        name: 'Mississippi River, Sartell Public Water Access Site',
+        latitude: 45.6435082,
+        longitude: -94.2025067,
+        mileFromStart: 19.8,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 933.8 before the downstream Sartell Dam corridor.',
+      },
+      {
+        id: 'rotary-park-sartell',
+        name: 'Mississippi River, Rotary Park Canoe Carry-in Public Water Access Site',
+        latitude: 45.6138907,
+        longitude: -94.2009573,
+        mileFromStart: 22.1,
+        segmentKind: 'creek',
+        note: 'Downstream reference only; DNR Map 7 places Sartell Dam between the selected take-out and this carry-in, so it is not part of the default route.',
+      },
+    ],
+  },
   'vermilion-river-twomile-eightmile': {
     putIn: {
       name: 'Two Mile Creek Public Water Access Site',
@@ -26639,6 +26721,135 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 18.7,
         segmentKind: 'creek',
         note: 'Default take-out at DNR river mile 1180.1 in Grand Rapids/Sylvan Municipal Park context.',
+      },
+    ],
+  },
+  'mississippi-river-county-line-jacobson': {
+    putIn: {
+      name: 'Mississippi River, County Line Public Water Access Site',
+      latitude: 47.0343553,
+      longitude: -93.3229605,
+    },
+    takeOut: {
+      name: 'Mississippi River, Jacobson Campground Public Water Access Site',
+      latitude: 47.0236587,
+      longitude: -93.2762605,
+    },
+    logistics: {
+      distanceLabel: '4.9 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.75 hr depending on level, wood, and stops',
+      shuttle:
+        'Stage the take-out at Jacobson Campground first, then drive back to County Line on County Road 3. Confirm campground parking, water-trail access, and any county rules before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the public access sites, follow Minnesota boating/PFD rules, and obey Jacobson Campground or county access rules.',
+      camping:
+        'Jacobson Campground can support an endpoint overnight or basecamp plan. DNR Map 3 also names nearby watercraft campsites, but this short route should not assume an unreserved or guaranteed campsite unless current rules confirm it.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at County Line and take out at Jacobson Campground for a short DNR Map 3 Mississippi route. Use the Grand Rapids DNR gauge as the upstream same-map check and make a visual call at the put-in.',
+      accessCaveats: [
+        'County Line and Jacobson Campground both resolve in Minnesota public-water-access GIS with public access IDs, river-mile records, directions, and coordinates.',
+        'The Grand Rapids gauge is upstream of this route. Do not treat it as a substitute for checking water depth, wood, and landing conditions at County Line.',
+        'Jacobson Campground is a managed county campground access; confirm parking, camping, fees, and current access rules before relying on it.',
+      ],
+      watchFor: [
+        'Low-water scraping, shallow bars, aquatic vegetation, sweepers, and fresh wood.',
+        'Private-adjacent banks; use signed accesses, campground facilities, or legal public stops only.',
+        'Cold water outside summer, storms, rising water, and limited services between endpoints.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-line-access',
+        name: 'Mississippi River, County Line Public Water Access Site',
+        latitude: 47.0343553,
+        longitude: -93.3229605,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 1145.5; resolves as WAS01336.',
+      },
+      {
+        id: 'jacobson-campground',
+        name: 'Mississippi River, Jacobson Campground Public Water Access Site',
+        latitude: 47.0236587,
+        longitude: -93.2762605,
+        mileFromStart: 4.9,
+        segmentKind: 'creek',
+        note: 'Default take-out and endpoint-campground support at DNR river mile 1140.6; resolves as WAS02564.',
+      },
+    ],
+  },
+  'mississippi-river-overlook-belle-prairie': {
+    putIn: {
+      name: 'Mississippi River Overlook Park carry-in access',
+      latitude: 46.316399,
+      longitude: -94.278205,
+    },
+    takeOut: {
+      name: 'Mississippi River, Belle Prairie County Park Public Water Access Site',
+      latitude: 46.0353503,
+      longitude: -94.3435523,
+    },
+    logistics: {
+      distanceLabel: '25.6 mi',
+      estimatedPaddleTime:
+        'Best planned as a very long day or supported overnight; roughly 8 hr to 11 hr depending on wind, stops, and level',
+      shuttle:
+        'Stage Belle Prairie County Park first, then drive back to Mississippi River Overlook Park in Baxter. Confirm the signed carry-in, overnight/campsite plan, Crow Wing State Park bailouts, and daylight before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, City of Baxter park rules, Crow Wing State Park rules, Morrison County park rules, and any campground or campsite requirements.',
+      camping:
+        'DNR Map 6 identifies Overlook Park as a watercraft campsite and Crow Wing State Park as having camping and support on the route. Treat overnight use as planned and rule-checked rather than improvised.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Overlook Park and finish at Belle Prairie County Park for the DNR 25.6-mile Brainerd-to-Little Falls planner. Use the Brainerd DNR gauge, but make local checks for wind, campsites, and long-day exposure.',
+      accessCaveats: [
+        'DNR Map 6 names Overlook Park at river mile 995.8 as a carry-in access and watercraft campsite. The City of Baxter lists Mississippi River Overlook Park at 6005 Oakdale Road; use current signs to find the exact carry-in.',
+        'Belle Prairie County Park resolves in Minnesota public-water-access GIS as WAS01278 with trailer access, Morrison County administration, and coordinates.',
+        'This route passes Crow Wing State Park and Camp Ripley boundary context. Use mapped public accesses and do not assume informal bank stops are legal.',
+      ],
+      watchFor: [
+        'Long-distance fatigue, wind on open bends, storms, cold water, and limited daylight.',
+        'Low-water riffles, shallow bars, strainers, fresh wood, and higher-current debris after rain.',
+        'Campsite availability, private banks, Camp Ripley boundary awareness, and committing too far without a bailout plan.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'overlook-park',
+        name: 'Mississippi River Overlook Park carry-in access',
+        latitude: 46.316399,
+        longitude: -94.278205,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the DNR Map 6 Overlook Park carry-in / watercraft campsite; use the City of Baxter address as a practical park anchor and confirm the signed landing.',
+      },
+      {
+        id: 'crow-wing-state-park',
+        name: 'Crow Wing State Park Mississippi River access area',
+        latitude: 46.2792155,
+        longitude: -94.3322834,
+        mileFromStart: 5.4,
+        segmentKind: 'creek',
+        note: 'Mapped state-park access and camping support on the route; use as a planned bailout or overnight only after checking current park rules.',
+      },
+      {
+        id: 'fort-ripley-landing',
+        name: 'Mississippi River, Fort Ripley Landing Public Water Access Site',
+        latitude: 46.1794923,
+        longitude: -94.3648683,
+        mileFromStart: 13.5,
+        segmentKind: 'creek',
+        note: 'Public access and practical bailout in the middle of the long route.',
+      },
+      {
+        id: 'belle-prairie-county-park',
+        name: 'Mississippi River, Belle Prairie County Park Public Water Access Site',
+        latitude: 46.0353503,
+        longitude: -94.3435523,
+        mileFromStart: 25.6,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 970.2; resolves as WAS01278 with park support.',
       },
     ],
   },
