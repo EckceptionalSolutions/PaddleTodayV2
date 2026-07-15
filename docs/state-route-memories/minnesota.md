@@ -1,18 +1,28 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 09:12 America/Chicago.
+Last summarized: 2026-07-15 10:11 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 137 after the 2026-07-15 09:12 three-route addition pass.
-- Top represented rivers: Mississippi River 24, Minnesota River 11, Sauk River 7, Rum River 6, Big Fork River 5, Root River 5, Zumbro River 5, Red River of the North 5, Cannon River 5, Crow Wing River 5, Little Fork River 4, Red Lake River 4, Otter Tail River 4, St. Croix River 4, North Fork Crow River 4, St. Louis River 4, Cedar River 3, Snake River 3, Des Moines River 3, Straight River 3.
-- Ledger candidates: 909 total; 527 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 25 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
+- Live routes: 140 after the 2026-07-15 10:11 three-route addition pass.
+- Top represented rivers: Mississippi River 24, Minnesota River 12, Sauk River 7, Rum River 6, Big Fork River 5, Root River 5, Zumbro River 5, Red River of the North 5, Cannon River 5, Crow Wing River 5, Little Fork River 4, Red Lake River 4, Otter Tail River 4, St. Croix River 4, North Fork Crow River 4, St. Louis River 4, Cedar River 3, Snake River 3, Des Moines River 3, Straight River 3, Chippewa River 3, Pine River 3.
+- Ledger candidates: 918 total; 536 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 25 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 10:11 America/Chicago: added `chippewa-river-lagoon-priens`, `pine-river-norway-pine-river-one`, and `minnesota-river-belle-plaine-thompson-ferry`.
+- Baseline at run start was 137 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 140 Minnesota routes and all three new slugs have trip-detail records.
+- Stayed in Minnesota and promoted three official/source-backed gaps. Chippewa Lagoon-to-Prien's fills the short lower-Chippewa finish below Watson with DNR recommended-one-way support; Pine Norway-Lake-South-to-Pine-River-#1 adds the official 0.7-mile upper Pine sampler above Rock Rapids; Minnesota River Belle-Plaine-to-Thompson-Ferry fills the lower-Minnesota gap between existing Henderson-to-Belle-Plaine and Thompson-to-Carver cards.
+- Current MN DNR river-level feed exposed interpreted ladders for Chippewa Watson site `20` (`200 / 400-600 / 800 cfs`), Pine Jenkins site `316` (`35 / 50-200 / 500 cfs`), and Minnesota River Jordan site `112` (`4 / 9-12 / 16 ft`). During the run, Chippewa was low at `354 cfs`, Pine was medium at `57.5 cfs`, and Minnesota River was medium at `9.67 ft`.
+- Minnesota public-water-access GIS resolves Lagoon Park / Montevideo Chippewa `WAS02654` and Prien's Landing `WAS01053`, Norway Lake `WAS00722` and Pine River #1 `WAS00726`, and Belle Plaine `WAS02403` and Thompson Ferry `WAS01222`.
+- Camping posture: Chippewa is `nearby_basecamp` because Lagoon Park has DNR-documented fee camping and toilets; Pine and Minnesota River are `none`. No route assumes informal bank or sandbar camping.
+- Safety posture: Chippewa carries upstream-proxy, confluence-current, private-bank, low-water, muddy-bank, and strainer caveats; Pine carries downstream-proxy, low-water, lake-wind, cold-water, and mandatory stop/scout caveats for constructed Rock Rapids; Minnesota River carries lower-river wind, sandbar, flood-debris, private-shoreland, muddy-bank, and designated-camping-only caveats.
+- No route-gallery images were added. Bounded DNR / public-access / Wikimedia Commons / same-route image review did not produce clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed but did not add Little-Falls-Dam-to-Pike-Creek because the gauge relationship remains weak due downstream Blanchard Dam/proxy complications; Long Prairie Lake Carlos-to-Highway-29 because take-out and downstream-gauge support remain weaker than accepted routes; Red River Lindenwood-to-MB-Johnson because it overlaps existing Red River coverage and introduces cross-state start logistics; or already-live prompt leads including Chippewa Lentz-to-Watson, Kettle Musclewood, Vermilion Twomile-to-Eightmile, Mississippi Cass/Winnibigoshish, and Zumbro Falls/Theilman coverage.
 
 - 2026-07-15 09:12 America/Chicago: added `cedar-river-dreisner-riverwood`, `rum-river-onamia-wayside`, and `crow-wing-river-first-crow-wing-huntersville`.
 - Baseline at run start was 134 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 137 Minnesota routes and all three new slugs have trip-detail records.
