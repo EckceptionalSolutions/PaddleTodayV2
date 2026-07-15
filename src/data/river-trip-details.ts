@@ -1894,22 +1894,62 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       distanceLabel: '11.75 mi',
       estimatedPaddleTime: 'About 4 hr to 5 hr 15 min',
       shuttle:
-        "MilesPaddled describes a bike shuttle using the Cannon Valley Trail. Car shuttle is simplest.",
+        'Use Miesville Ravine or Sunset Trail as public shorter exits, or continue to Welch only if the private landing plan is confirmed. MilesPaddled describes a bike shuttle using the Cannon Valley Trail; a car shuttle is simplest.',
       permits:
-        "No state water-trail permit required. Confirm local parking rules and any Welch Mill landing fee before you go.",
+        'No state water-trail permit required. Confirm local parking rules, Miesville/Sunset public-access rules, and any Welch Mill landing fee before you go.',
       camping: 'No established camping documented for this segment.',
       summary:
-        'Put in at Riverside Park in Cannon Falls and take out at Welch Mill. Confirm access rules and any fees at both endpoints before staging a shuttle.',
+        'Put in at Riverside Park in Cannon Falls and choose Miesville Ravine, Sunset Trail, or Welch as the planned take-out. Miesville is the official shorter public section; Welch is the longer private take-out option.',
       accessCaveats: [
         'Riverside Park has an official canoe launch, but local parking or day-use rules can still change.',
+        'Miesville Ravine County Park and Sunset Trail are public access-planner exits inside this corridor.',
         'Welch Mill is a private take-out. Confirm landing rules and any take-out fee before leaving a vehicle there.',
       ],
       watchFor: [
+        'Light rapids, shallow bars, and fresh snags between Riverside and Miesville.',
         'Wood or debris after storms, especially on outside bends and blind corners.',
         'Heavy tuber traffic in summer can slow the day and complicate landing space.',
         'Cold-water risk outside summer.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'riverside-park-cannon-falls',
+        name: 'Cannon River, Riverside Park Public Water Access Site',
+        latitude: 44.5119132,
+        longitude: -92.9068155,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Primary put-in for the consolidated Cannon Falls-to-Welch corridor.',
+      },
+      {
+        id: 'miesville-ravine-county-park',
+        name: 'Cannon River, Miesville Ravine Co Park Public Water Access Site',
+        latitude: 44.5430566,
+        longitude: -92.8008416,
+        mileFromStart: 6.9,
+        segmentKind: 'creek',
+        note: 'Official shorter public take-out for the MN DNR Riverside-to-Miesville route.',
+      },
+      {
+        id: 'sunset-trail-access',
+        name: 'Cannon River, Sunset Trail Public Water Access Site',
+        latitude: 44.5348587,
+        longitude: -92.8102358,
+        mileFromStart: 7.5,
+        segmentKind: 'creek',
+        note: 'Nearby public access option downstream of Miesville for bailout or alternate staging.',
+      },
+      {
+        id: 'welch-mill',
+        name: 'Welch Mill Canoeing, Tubing & Kayaking (Welch)',
+        latitude: 44.5679337,
+        longitude: -92.7385579,
+        mileFromStart: 11.75,
+        segmentKind: 'creek',
+        note: 'Private extended-route take-out; confirm current rules and fees before staging.',
+      },
+    ],
   },
   'straight-river-faribault': {
     putIn: {
@@ -6591,6 +6631,70 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'wisconsin-river-pine-island-portage': {
+    putIn: {
+      name: 'Pine Island Wildlife Area boat ramp',
+      latitude: 43.54303,
+      longitude: -89.58245,
+    },
+    takeOut: {
+      name: 'Highway 33 access / Portage',
+      latitude: 43.53565,
+      longitude: -89.47382,
+    },
+    logistics: {
+      distanceLabel: '6.0 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 3.5 hr, longer with sandbar stops or headwind',
+      shuttle:
+        'Use a two-car shuttle between Pine Island Wildlife Area on Levee Road and the Highway 33 access in Portage. Check river and floodplain road status before staging Pine Island.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, Wisconsin DNR Pine Island Wildlife Area rules, and any posted Portage or highway-access parking restrictions.',
+      camping:
+        'Do not treat this as an overnight route. Wisconsin DNR says Pine Island Wildlife Area has no camping or overnight parking and prohibits camping on the property, including Wisconsin River islands and sandbars.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Pine Island Wildlife Area and paddle the Wisconsin River to Portage / Highway 33. This is a quiet big-river sandbar day when Wisconsin Dells flows leave bars exposed, with side sloughs, wind exposure, private-bank limits, and floodplain access caveats.',
+      accessCaveats: [
+        'Wisconsin River Trips documents the Pine Island Boat Ramp to Highway 33 Access route and publishes a shuttle map with endpoint coordinates.',
+        'Wisconsin DNR confirms Pine Island Wildlife Area has one boat launch on Levee Road for Wisconsin River access, but also says camping and overnight parking are not allowed.',
+        'The Wisconsin Dells gauge is an upstream corridor proxy. Pair WRT bands with same-day visual checks for floodplain access, sandbar exposure, wind, and debris.',
+      ],
+      watchFor: [
+        'Wind, powerboats near Portage, sudden sandbar drop-offs, and confusing side channels.',
+        'High water that covers sandbars, increases debris, and can close Pine Island floodplain roads or access.',
+        'Private banks and no-camping rules on Pine Island Wildlife Area islands and sandbars.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'pine-island-boat-ramp',
+        name: 'Pine Island Wildlife Area boat ramp',
+        latitude: 43.54303,
+        longitude: -89.58245,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in on Levee Road; Wisconsin DNR lists one boat launch for Wisconsin River access at Pine Island Wildlife Area.',
+      },
+      {
+        id: 'pine-island-side-sloughs',
+        name: 'Pine Island side sloughs and sandbars',
+        latitude: 43.5405,
+        longitude: -89.5355,
+        mileFromStart: 3,
+        segmentKind: 'creek',
+        note: 'WRT describes side sloughs, sandbars, and quiet channels; use only legal day-use stops and avoid private or closed banks.',
+      },
+      {
+        id: 'highway-33-portage-access',
+        name: 'Highway 33 access / Portage',
+        latitude: 43.53565,
+        longitude: -89.47382,
+        mileFromStart: 6,
+        segmentKind: 'creek',
+        note: 'Default take-out from WRT Pine Island route; carry-in access near the Highway 33 bridge with nearby city ramp options if separately staged.',
+      },
+    ],
+  },
   'wisconsin-river-portage-dekorra': {
     putIn: {
       name: 'Highway 33 bridge carry-in (Portage)',
@@ -6827,129 +6931,63 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       distanceLabel: '23 mi',
       estimatedPaddleTime: 'About 6 hr to 8 hr, or split as an overnight',
       shuttle:
-        'Long lower-river shuttle from Boscobel to Bridgeport. Plan vehicle logistics before launching; there are fewer easy bailout options than on the busier Sauk-to-Spring Green corridor.',
+        'Long lower-river shuttle from Boscobel to Bridgeport. Woodman and Millville are retained as alternate access-planner stops for shorter days, but confirm landing and parking conditions before choosing a split.',
       permits:
         'No route-specific day paddling permit is known. Follow Lower Wisconsin State Riverway rules, posted landing rules, and current camping/trash/PFD guidance.',
       camping:
         'Overnight sandbar camping may be practical at suitable flows, but use current DNR rules and avoid high-water sandbars. The route is long enough that a late start can force an unplanned overnight.',
       summary:
-        'Put in at Boscobel and take out at Bridgeport near the Highway 18 bridge. This is a quieter lower-river commitment with flatwater, wooded islands, sloughs, and fewer crowds than upstream segments.',
+        'Put in at Boscobel and take out at Bridgeport near the Highway 18 bridge, or use Woodman and Millville as shorter alternate access points inside the same corridor. This is a quieter lower-river commitment with flatwater, wooded islands, sloughs, and fewer crowds than upstream segments.',
       accessCaveats: [
         'Wisconsin DNR lists Boscobel and Bridgeport among major Lower Wisconsin access points, but Bridgeport has multiple nearby landing references; confirm the intended take-out and current road/parking conditions.',
-        'The route is scored separately from Blue River-to-Boscobel because the 23-mile length and lower-river isolation change the decision.',
+        'Woodman and Millville are documented Lower Wisconsin public access points inside this corridor and replace the separate Boscobel-Woodman, Woodman-Millville, and Millville-Bridgeport live route cards.',
+        'Bridgeport access is on Weniger Island with north- and south-channel options; identify the intended take-out channel before launching.',
       ],
       watchFor: [
         'Long-distance fatigue and weather exposure.',
         'Broad lower-river wind, slough choices, and wooded island strainers.',
+        'Channel-selection mistakes around Weniger Island near the take-out.',
         'High-water hidden current and reduced sandbar availability.',
       ],
     },
-  },
-  'wisconsin-river-boscobel-woodman': {
-    putIn: {
-      name: 'Boscobel Landing / Floyd Von Haden Boat Landing',
-      latitude: 43.1492722,
-      longitude: -90.715253,
-    },
-    takeOut: {
-      name: 'Woodman Landing / Woodman Lake access',
-      latitude: 43.07699,
-      longitude: -90.84597,
-    },
-    logistics: {
-      distanceLabel: '9.5 mi',
-      estimatedPaddleTime: 'About 3.5 hr to 4.5 hr, longer with sandbar stops',
-      shuttle:
-        'Use a two-car Lower Wisconsin shuttle between Boscobel and Woodman. This is a shorter split inside the broader Boscobel-to-Bridgeport corridor, so confirm the intended Woodman vehicle spot before launching.',
-      permits:
-        'No route-specific day paddling permit is known. Follow Lower Wisconsin State Riverway rules, posted landing rules, PFD requirements, and current camping/trash guidance.',
-      camping:
-        'Sandbar camping may be possible at suitable low to moderate flows, but this split is normally a day route. Do not camp on high-water sandbars, private banks, or unstable cutbanks.',
-      campingClassification: 'sandbar_or_gravel_bar',
-      summary:
-        'Put in at Boscobel and take out at Woodman. The route is a manageable lower-river day with wooded islands, bluff scenery, quieter traffic than upstream reaches, and a direct Muscoda gauge.',
-      accessCaveats: [
-        'Wisconsin DNR lists Boscobel Landings and Woodman Lake among major Lower Wisconsin State Riverway public access points.',
-        'This route overlaps the longer Boscobel-to-Bridgeport corridor but stops at Woodman to keep mileage and shuttle timing realistic for a shorter day.',
-      ],
-      watchFor: [
-        'Shifting channels around wooded islands and sloughs.',
-        'Strainers along outside bends and narrow cuts, especially as higher water opens side channels.',
-        'Fast hidden current and sudden drop-offs near sandbar edges.',
-        'High water above the normal band that reduces sandbars and makes camping a poor plan.',
-      ],
-    },
-  },
-  'wisconsin-river-woodman-millville': {
-    putIn: {
-      name: 'Woodman Landing / Woodman Lake access',
-      latitude: 43.07699,
-      longitude: -90.84597,
-    },
-    takeOut: {
-      name: 'Millville Boat Landing',
-      latitude: 43.03505,
-      longitude: -90.96091,
-    },
-    logistics: {
-      distanceLabel: '7.7 mi',
-      estimatedPaddleTime: 'About 3 hr to 4 hr, longer with sandbar stops',
-      shuttle:
-        'Use a short rural shuttle between Woodman and Millville. The put-in starts from the Green River / Woodman access area, so stage the vehicle where posted access and parking rules allow.',
-      permits:
-        'No route-specific day paddling permit is known. Follow Lower Wisconsin State Riverway rules, posted landing rules, PFD requirements, and current camping/trash guidance.',
-      camping:
-        'Sandbar camping may be possible at suitable low to moderate flows, but the route is short enough to plan as a day trip. Avoid overnight plans when sandbars are covered or shrinking.',
-      campingClassification: 'sandbar_or_gravel_bar',
-      summary:
-        'Launch at Woodman, enter the Wisconsin near the Green River mouth, and take out at Millville. Expect a quieter lower-river day with Newton and Harris island channel choices, sandbars, bluffs, and wildlife.',
-      accessCaveats: [
-        'Wisconsin DNR lists Woodman Lake and Millville Landing among major Lower Wisconsin State Riverway public access points.',
-        'Wisconsin River Trips describes Millville Landing as maintained and easy, but same-day water level and landing condition still matter.',
-      ],
-      watchFor: [
-        'Island splits around Newton Island, Harris Island, and smaller side channels.',
-        'Wind on broad bends, especially if the afternoon forecast builds.',
-        'Strainers, sandbar drop-offs, and fast current where side channels rejoin the main river.',
-        'Remote-feeling lower-river exposure despite the shorter mileage.',
-      ],
-    },
-  },
-  'wisconsin-river-millville-bridgeport': {
-    putIn: {
-      name: 'Millville Boat Landing',
-      latitude: 43.03505,
-      longitude: -90.96091,
-    },
-    takeOut: {
-      name: 'Bridgeport North Landing / Weniger Island north channel',
-      latitude: 43.0239,
-      longitude: -91.0877,
-    },
-    logistics: {
-      distanceLabel: '6.1 mi',
-      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with sandbar stops or wind',
-      shuttle:
-        'Use the short Millville-to-Bridgeport shuttle. Wisconsin River Trips notes this can be one of the easier Lower Wisconsin bike shuttles, but a vehicle shuttle is still simpler for most groups.',
-      permits:
-        'No route-specific day paddling permit is known. Follow Lower Wisconsin State Riverway rules, posted landing rules, and current boating/PFD guidance.',
-      camping:
-        'Sandbar camping is possible on the Lower Wisconsin at suitable flows, but this short route is best treated as a day trip. Do not plan on camping when water is high, rising, or leaving only small unstable bars.',
-      campingClassification: 'sandbar_or_gravel_bar',
-      summary:
-        'Put in at Millville and finish at Bridgeport North Landing. This second-to-last Lower Wisconsin leg has huge islands, bluffs, sandbars, and a cleaner finish than continuing into the Mississippi confluence.',
-      accessCaveats: [
-        'Wisconsin DNR lists Millville Landing and Bedford Slough / Bridgeport among major Lower Wisconsin State Riverway public access points.',
-        'Bridgeport access is on Weniger Island with north- and south-channel options; identify the intended take-out channel before launching.',
-        'Do not miss the Bridgeport off-ramp channel. Backpaddling around Weniger Island can be difficult in brisk current.',
-      ],
-      watchFor: [
-        'Strainers along shorelines where current is fast and deep.',
-        'Lower Wisconsin undertows and sudden sandbar drop-offs, especially if anyone swims.',
-        'Wind, broad-water exposure, and fewer usable sandbars as flows rise.',
-        'Channel-selection mistakes around Weniger Island near the take-out.',
-      ],
-    },
+    accessPoints: [
+      {
+        id: 'boscobel-landing',
+        name: 'Boscobel Landing / Floyd Von Haden Boat Landing',
+        latitude: 43.1492722,
+        longitude: -90.715253,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Primary upstream access for the consolidated Boscobel-to-Bridgeport corridor.',
+      },
+      {
+        id: 'woodman-landing',
+        name: 'Woodman Landing / Woodman Lake access',
+        latitude: 43.07699,
+        longitude: -90.84597,
+        mileFromStart: 9.5,
+        segmentKind: 'creek',
+        note: 'Alternate public access for a shorter Boscobel-to-Woodman day or a Woodman-to-Millville continuation.',
+      },
+      {
+        id: 'millville-boat-landing',
+        name: 'Millville Boat Landing',
+        latitude: 43.03505,
+        longitude: -90.96091,
+        mileFromStart: 17.2,
+        segmentKind: 'creek',
+        note: 'Alternate public access for the lower split toward Bridgeport or Wyalusing.',
+      },
+      {
+        id: 'bridgeport-north-landing',
+        name: 'Bridgeport North Landing / Weniger Island north channel',
+        latitude: 43.0239,
+        longitude: -91.0877,
+        mileFromStart: 23,
+        segmentKind: 'creek',
+        note: 'Primary downstream take-out; choose the correct Weniger Island channel before committing.',
+      },
+    ],
   },
   'wisconsin-river-millville-wyalusing-beach': {
     putIn: {
@@ -8011,6 +8049,79 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'brule-river-campground-highway-139': {
+    putIn: {
+      name: 'Brule River Campground Landing',
+      latitude: 46.02745,
+      longitude: -88.79757,
+    },
+    takeOut: {
+      name: 'Highway 139/189 Bridge Landing',
+      latitude: 45.98768,
+      longitude: -88.65239,
+    },
+    logistics: {
+      distanceLabel: '14.5 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr',
+      shuttle:
+        'Plan a remote border-river shuttle between the old Brule River Campground landing and the Highway 139/189 bridge. Download maps and confirm forest-road conditions before leaving a vehicle.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted landing, camping, fire, and Wisconsin-Michigan border-river rules, and use only named landings or confirmed primitive campsites.',
+      camping:
+        'Wisconsin Trail Guide documents a primitive riverside canoe/kayak campsite area near Brule River Drive, but the old Brule River Campground itself is closed for camping. Confirm current rules before planning an overnight.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch from Brule River Campground Landing and paddle the upper Brule to Highway 139/189. This is a long remote day with marsh, lowland forest, riffles, limited exits, and a downstream Highway 2 gauge used as a same-river minimum-flow screen.',
+      accessCaveats: [
+        'Wisconsin Trail Guide publishes WGS84 coordinates for the Brule River Campground Landing and Highway 139/189 Bridge Landing.',
+        'The Brule River Campground is closed for camping but the landing remains the documented launch point. Do not plan to camp at the put-in.',
+        'The US Highway 2 gauge is downstream from the route. Pair the 220 cfs minimum with a visual check for wood, scraping, and local rain effects.',
+      ],
+      watchFor: [
+        'Strainers, deadfall, marsh navigation, and narrow bends with limited quick exits.',
+        'Long mileage and remote rescue exposure on a corridor with sparse road access.',
+        'Low-water scraping below the WTG minimum and faster wood hazards after rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'brule-river-campground-landing',
+        name: 'Brule River Campground Landing',
+        latitude: 46.02745,
+        longitude: -88.79757,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; WTG B1 lists it as a hand-carry landing with parking at the old campground site.',
+      },
+      {
+        id: 'hwy-55-73-bridge',
+        name: 'Highway 55/73 Bridge',
+        latitude: 46.03245,
+        longitude: -88.79731,
+        mileFromStart: 0.4,
+        segmentKind: 'creek',
+        note: 'Early bridge landmark from the WTG B1 map.',
+      },
+      {
+        id: 'brule-river-drive-campsite-area',
+        name: 'Brule River Drive primitive campsite area',
+        latitude: 46.00885,
+        longitude: -88.67603,
+        mileFromStart: 11.9,
+        segmentKind: 'creek',
+        note: 'WTG marks a primitive riverside canoe/kayak campsite area near Brule River Drive; confirm current rules and availability before relying on it.',
+      },
+      {
+        id: 'highway-139-189-landing',
+        name: 'Highway 139/189 Bridge Landing',
+        latitude: 45.98768,
+        longitude: -88.65239,
+        mileFromStart: 14.5,
+        segmentKind: 'creek',
+        note: 'Default take-out and the put-in for the adjacent Brule B2 route.',
+      },
+    ],
+  },
   'brule-river-highway-139-fr-2150': {
     putIn: {
       name: 'Highway 139/189 Bridge Landing',
@@ -8045,6 +8156,88 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private shoreline context near the Forest Road 2150 landing; use the signed/known landing path rather than nearby banks.',
       ],
     },
+  },
+  'brule-river-forest-road-2150-flowage': {
+    putIn: {
+      name: 'Forest Road 2150 Landing',
+      latitude: 45.99013,
+      longitude: -88.45012,
+    },
+    takeOut: {
+      name: 'Brule River Flowage WEPCO Rec Area #28 Landing',
+      latitude: 45.96359,
+      longitude: -88.25001,
+    },
+    logistics: {
+      distanceLabel: '14.3 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr',
+      shuttle:
+        'Plan a remote shuttle between Forest Road 2150 and the Brule River Flowage / WEPCO Rec Area #28 landing. Confirm road condition at Forest Road 2150 and identify the flowage take-out before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted forest-road, power-company, dam, landing, and border-river rules, and avoid restricted infrastructure near the flowage.',
+      camping:
+        'Wisconsin Trail Guide does not document riverside canoe/kayak campsites on this B3 segment. Treat it as a long day route and use off-route camping or lodging if needed.',
+      campingClassification: 'none',
+      summary:
+        'Launch from Forest Road 2150 and paddle the lower Brule to the Brule River Flowage. The US Highway 2 gauge sits inside the route, and the day mixes remote flatwater, riffles, La Chapelle Rapids, rough-road access, and a flowage finish.',
+      accessCaveats: [
+        'Forest Road 2150 is a hand-carry landing with limited parking and potentially rough road access.',
+        'The US Highway 2 bridge landing is inside the route and can be used for a shorter bailout only if staging and legal parking are confirmed.',
+        'The WEPCO Rec Area #28 take-out is on the Brule River Flowage above dam and utility infrastructure. Start looking early and avoid restricted areas.',
+      ],
+      watchFor: [
+        'Current ripping through the Forest Road 2150 put-in area at higher water.',
+        'McGovern Creek riffles, La Chapelle Rapids, strainers, and remote rescue exposure.',
+        'Wind and motorized-water context on the final flowage approach.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'forest-road-2150-landing',
+        name: 'Forest Road 2150 Landing',
+        latitude: 45.99013,
+        longitude: -88.45012,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; WTG B3 lists it as a hand-carry landing with parking off Forest Road 2150.',
+      },
+      {
+        id: 'carney-dam-road-landing',
+        name: 'Carney Dam Road Landing',
+        latitude: 45.98046,
+        longitude: -88.39845,
+        mileFromStart: 3.9,
+        segmentKind: 'creek',
+        note: 'WTG B3 intermediate landing reached by rough road; useful as a bailout only if staged and confirmed.',
+      },
+      {
+        id: 'highway-2-bridge-landing',
+        name: 'US Highway 2 Bridge Landing',
+        latitude: 45.96076,
+        longitude: -88.31589,
+        mileFromStart: 9.9,
+        segmentKind: 'creek',
+        note: 'WTG B3 intermediate landing and USGS gauge location; access is on the left / Michigan side per the guide.',
+      },
+      {
+        id: 'la-chapelle-rapids',
+        name: 'La Chapelle Rapids',
+        latitude: 45.95429,
+        longitude: -88.28667,
+        mileFromStart: 11.8,
+        segmentKind: 'creek',
+        note: 'Class I-II feature from WTG B3; scout or portage right when uncertain.',
+      },
+      {
+        id: 'wepco-rec-area-28',
+        name: 'Brule River Flowage WEPCO Rec Area #28 Landing',
+        latitude: 45.96359,
+        longitude: -88.25001,
+        mileFromStart: 14.3,
+        segmentKind: 'lake',
+        note: 'Default take-out on the Brule River Flowage; confirm utility-area rules before leaving vehicles.',
+      },
+    ],
   },
   'pike-river-amberg-yellow-bridge': {
     putIn: {
@@ -26219,70 +26412,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 3.25,
         segmentKind: 'transition',
         note: 'Approximate upstream turnaround area from DNR route text; keep a safe distance from falls, dam, hydro, and restricted-water hazards rather than treating this as a landing.',
-      },
-    ],
-  },
-  'cannon-river-riverside-miesville': {
-    putIn: {
-      name: 'Cannon River, Riverside Park Public Water Access Site',
-      latitude: 44.5119132,
-      longitude: -92.9068155,
-    },
-    takeOut: {
-      name: 'Cannon River, Miesville Ravine Co Park Public Water Access Site',
-      latitude: 44.5430566,
-      longitude: -92.8008416,
-    },
-    logistics: {
-      distanceLabel: '6.9 mi',
-      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with low water, wood, or a stop at Sunset Trail',
-      shuttle:
-        'Stage Miesville Ravine County Park first, then drive back to Riverside Park in Cannon Falls. Confirm the carry-in, parking, and park hours at both public access sites before launching.',
-      permits:
-        'No route-specific paddling permit is known. Use the city/county public accesses, follow Minnesota boating/PFD rules, and obey Dakota County and Cannon Falls parking or day-use rules.',
-      camping:
-        'Treat this as a day route. DNR does not document on-route camping for the Riverside-to-Miesville section, and private banks should not be used for overnight stops.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Riverside Park and take out at Miesville Ravine County Park for the official 6.9-mile lower-Cannon day. The Welch DNR gauge is just downstream, but the shorter public-access pair avoids the Welch parking/access caveat.',
-      accessCaveats: [
-        'Riverside Park and Miesville Ravine County Park both resolve in Minnesota public-water-access GIS with coordinates, public access names, and river-mile context.',
-        'Sunset Trail is a nearby public access below Miesville that can help with a contingency plan, but the intended route ends at Miesville Ravine.',
-        'The Welch gauge is downstream of the take-out, so pair the official bands with a visual check for shallow bars, snags, and current at Riverside before committing.',
-      ],
-      watchFor: [
-        'Light rapids, snags, overhanging trees, low-water dragging, and fresh wood on bends after storms.',
-        'Fast rises and pushier current above the official high band or after heavy rain.',
-        'Private banks between public access points and the access/parking limitations DNR notes for the longer Welch extension.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'riverside-park-cannon-falls',
-        name: 'Cannon River, Riverside Park Public Water Access Site',
-        latitude: 44.5119132,
-        longitude: -92.9068155,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Default put-in at DNR river mile 25.5; resolves as WAS01692 with City of Cannon Falls administration.',
-      },
-      {
-        id: 'miesville-ravine',
-        name: 'Cannon River, Miesville Ravine Co Park Public Water Access Site',
-        latitude: 44.5430566,
-        longitude: -92.8008416,
-        mileFromStart: 6.9,
-        segmentKind: 'creek',
-        note: 'Default take-out at DNR river mile 18.5; resolves as WAS01694 with Dakota County administration.',
-      },
-      {
-        id: 'sunset-trail',
-        name: 'Cannon River, Sunset Trail Public Water Access Site',
-        latitude: 44.5348587,
-        longitude: -92.8102358,
-        mileFromStart: 6.4,
-        segmentKind: 'creek',
-        note: 'Nearby public access at DNR river mile 19.1; use only if it fits the day plan or conditions require an earlier public exit.',
       },
     ],
   },

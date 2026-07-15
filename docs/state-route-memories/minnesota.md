@@ -1,11 +1,11 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 19:12 America/Chicago.
+Last summarized: 2026-07-14 19:48 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 120.
-- Top represented rivers: Sauk River 17, Mississippi River 14, Little Fork River 9, Minnesota River 7, Crow Wing River 6, Big Fork River 5, Cannon River 4, North Fork Crow River 4, Red River of the North 4, Root River 4, St. Louis River 4, Zumbro River 4, Otter Tail River 3.
+- Live routes: 119.
+- Top represented rivers: Sauk River 17, Mississippi River 14, Little Fork River 9, Minnesota River 7, Crow Wing River 6, Big Fork River 5, North Fork Crow River 4, Red River of the North 4, Root River 4, St. Louis River 4, Zumbro River 4, Cannon River 3.
 - Ledger candidates: 817 total; 463 `added`, 77 `implemented`, 100 `threshold_weak`, 82 `no_live_gauge`, 54 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
@@ -13,6 +13,10 @@ Last summarized: 2026-07-14 19:12 America/Chicago.
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-07-14 19:48 America/Chicago route-audit follow-up: folded `cannon-river-riverside-miesville` into canonical `cannon-river-welch`.
+- The canonical Cannon route now carries the official MN DNR Welch bands, Riverside / Miesville / Sunset / Welch access-planner points, and the existing Cannon route-gallery/mobile image wiring; Miesville remains represented as the official shorter public take-out rather than a separate live route card.
+- Current imported Minnesota route count is now 119 in the current unpushed branch. No new local route-gallery assets were selected for the folded Cannon card because the canonical Welch route already has gallery/mobile image wiring.
 
 - 2026-07-14 19:12 America/Chicago: added `otter-tail-river-friberg-hwy-210`, `minnesota-river-buessman-riverside`, and `shell-rock-river-frank-hall-st-nicholas`.
 - Baseline at run start was 117 live Minnesota routes; patched route data now imports 120 Minnesota routes with no missing trip-detail records.
@@ -24,8 +28,8 @@ Minnesota still has the strongest official-source foundation and a broad existin
 
 - 2026-07-14 17:43 America/Chicago route-audit follow-up: consolidated duplicate `zumbro-river-green-bridge-zumbro-falls` into the existing canonical `zumbro-river-falls` slug.
 - The duplicate carried stronger current MN DNR and public-water-access GIS evidence than the older route object, so the canonical slug now uses DNR site `267`, official `5.2 / 7.0-9.0 / 10.5 ft` bands, GIS-backed Green Bridge / Zumbro Falls coordinates, access points, and updated safety caveats while preserving the old public URL.
-- Current imported Minnesota route count is now 117, not 118. The audit also confirmed the remaining 2026-07-14 Minnesota additions have route objects, trip-detail blocks, ledger rows, and image-audit rows; no local route-gallery assets were selected.
-- Lower Wisconsin overlap findings were noted separately as a Wisconsin consolidation candidate; no Minnesota routes besides the exact Zumbro duplicate were removed in this audit.
+- At that point, imported Minnesota route count was 117, not 118. A later same-day audit follow-up folded the Cannon Miesville overlap into canonical `cannon-river-welch`, bringing the current unpushed Minnesota count to 119 after subsequent route additions.
+- Lower Wisconsin overlap findings were handled separately by folding the Boscobel/Woodman/Millville/Bridgeport split cards into canonical `wisconsin-river-boscobel-bridgeport`.
 
 - 2026-07-14 17:14 America/Chicago: added `pomme-de-terre-river-highway-12-appleton`, `long-prairie-river-reynolds-browerville`, and `north-fork-crow-river-forest-city-kingston`.
 - Baseline at run start was 115 live Minnesota routes; patched route data now imports 118 Minnesota routes with no missing trip-detail records.

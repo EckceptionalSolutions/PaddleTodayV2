@@ -2347,61 +2347,80 @@ export const rivers: River[] = [
     state: 'Minnesota',
     region: 'Southeast Minnesota',
     summary:
-      'Easy-moving day paddle from Cannon Falls to Welch. Flow is the main call, with crowding and private take-out logistics as secondary concerns.',
+      'Consolidated lower-Cannon corridor from Cannon Falls toward Welch, with Miesville Ravine and Sunset Trail as public access-planner exits before the private Welch landing. Flow is the main call, with crowding, wood, and take-out logistics as secondary concerns.',
     statusText:
-      'Best in the 300 to 700 cfs sweet spot. Still workable through a broader medium band when the river is not spiking after rain.',
+      'Use the Welch DNR gauge: the official medium band is 300 to 1,540 cfs. Below 231 cfs is scrapable, and above 3,000 cfs is very high.',
     latitude: 44.5148835,
     longitude: -92.8990298,
     gaugeSource: {
-      id: 'usgs-05355200',
-      provider: 'usgs',
-      siteId: '05355200',
+      id: 'mn-dnr-13',
+      provider: 'mn_dnr',
+      siteId: '13',
       metric: 'discharge_cfs',
       unit: 'cfs',
+      metricLabel: 'Discharge',
       kind: 'direct',
       siteName: 'Cannon River at Welch, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=39004002',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=39004002&var1=262&width=700&height=320',
     },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 300,
-      idealMax: 700,
-      tooLow: 220,
-      tooHigh: 1540,
+      idealMax: 1540,
+      tooLow: 231,
+      tooHigh: 3000,
       thresholdSource: {
-        label: 'MilesPaddled Cannon River II numeric range notes',
-        url: 'https://milespaddled.com/cannon-river-ii/',
+        label: 'MN DNR river-level interpretation bands for Cannon River at Welch',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
       },
-      thresholdSourceStrength: 'mixed',
+      thresholdSourceStrength: 'official',
       rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9],
-      seasonNotes: 'Spring through early fall is the normal window. Summer is still viable, but crowding can reduce trip quality.',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is practical when the Welch gauge and a Riverside visual check agree. Summer crowding can reduce trip quality, and storm water adds swift current, wood, and snag risk.',
       difficulty: 'easy',
-      difficultyNotes: 'Mostly an easy day-trip river, but current still matters when the gauge climbs.',
+      difficultyNotes:
+        'Mostly an easy day-trip river, but light rapids, wood, private banks, summer traffic, and stronger current at higher levels require conservative choices.',
       confidenceNotes:
-        'The sweet spot is still community-sourced, but MN DNR route guidance and DNR weekly stream-flow reports support a broader workable band and confirm that spring spikes push this reach into a higher-risk state.',
+        'Confidence is high for the consolidated corridor: MN DNR documents the shorter Riverside-to-Miesville section, public-water-access GIS resolves Riverside Park, Miesville Ravine, and Sunset Trail, the route-owned Welch gauge has official interpretation bands, and the older Welch card already carries the established gallery/mobile image wiring. The removed Riverside-to-Miesville card remains represented as an access-planner option inside this canonical route.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'Use Miesville Ravine County Park or Sunset Trail as public access-planner exits if you are not explicitly continuing to the Welch private take-out.',
+        'Expect light rapids, snags, shallow bars, and fresh wood after storms even when the Welch gauge is inside the medium band.',
+        'Banks are a mix of public access points and private land. Use the named public accesses, and confirm any Welch landing fees or rules before staging a vehicle there.',
+      ],
+      reviewStatus: 'reviewed',
     },
     evidenceNotes: [
       {
-        label: 'Ideal gauge',
+        label: 'Official DNR bands',
+        value: '231 / 300-1,540 / 3,000 cfs',
+        note: 'MN DNR interprets the Welch gauge as Scrapable below 231 cfs, Low from 231 to 300, Medium from 300 to 1,540, High from 1,540 to 3,000, and Very High above 3,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Official shorter route',
+        value: 'Riverside Park to Miesville, 6.9 miles',
+        note: 'MN DNR lists Riverside Park to Miesville as a recommended Cannon River section from river mile 25.5 to 18.5 and describes it as a 2- to 3-hour paddle.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'Riverside, Miesville, and Sunset Trail',
+        note: 'Minnesota public-water-access GIS resolves the public access sequence used by the shorter official section; Welch remains the older private extended take-out context.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Community sweet spot',
         value: '300 to 700 cfs',
-        note: 'Primary sweet spot from MilesPaddled. The same source treats 300 to 1,540 cfs as medium rather than extreme.',
+        note: 'MilesPaddled treats 300 to 700 cfs as the classic sweet spot inside the broader official medium band.',
         sourceUrl: 'https://milespaddled.com/cannon-river-ii/',
-      },
-      {
-        label: 'DNR level context',
-        value: '310 cfs = Normal; 1,840 cfs = High',
-        note: 'MN DNR weekly stream-flow reports classified Welch as Normal at 310 cfs on October 18, 2021 and High at 1,840 cfs on May 2, 2011.',
-        sourceUrl: 'https://files.dnr.state.mn.us/waters/surfacewater_section/stream_hydro/2021data/sfr101721table.pdf',
-      },
-      {
-        label: 'Difficulty',
-        value: 'Easy',
-        note: 'Good first-pass river, but not a blind yes when levels spike.',
-      },
-      {
-        label: 'Primary caution',
-        value: 'Welch take-out logistics',
-        note: 'Private landing context reduces confidence outside well-known conditions.',
       },
     ],
     sourceLinks: [
@@ -2411,19 +2430,19 @@ export const rivers: River[] = [
       },
       {
         label: 'MN DNR Cannon River segments and maps',
-        url: 'https://www.dnr.state.mn.us/watertrails/cannonriver/segments-maps.html',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html',
       },
       {
-        label: 'MN DNR recommended Cannon Falls to Welch trip',
-        url: 'https://www.dnr.state.mn.us/watertrails/recommended/cannon.html',
+        label: 'MN DNR Cannon River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/cannon2.pdf',
       },
       {
-        label: 'MN DNR weekly stream-flow report 2021-10-18',
-        url: 'https://files.dnr.state.mn.us/waters/surfacewater_section/stream_hydro/2021data/sfr101721table.pdf',
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
       },
       {
-        label: 'MN DNR weekly stream-flow report 2011-05-02',
-        url: 'https://files.dnr.state.mn.us/waters/surfacewater_section/stream_hydro/2011data/sfr050211table.pdf',
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
       },
       {
         label: 'USGS 05355200 monitoring location',
@@ -15808,7 +15827,7 @@ export const rivers: River[] = [
       siteId: '16',
       metric: 'discharge_cfs',
       unit: 'cfs',
-      kind: 'direct',
+      kind: 'proxy',
       siteName: 'Cannon River at Northfield, 2nd St West',
       detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=39069002',
       hydrographUrl:
@@ -16394,6 +16413,124 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'wisconsin-river-pine-island-portage',
+    slug: 'wisconsin-river-pine-island-portage',
+    name: 'Wisconsin River',
+    reach: 'Pine Island Boat Ramp to Highway 33 Access',
+    state: 'Wisconsin',
+    region: 'South-Central Wisconsin',
+    summary:
+      'Quiet sandbar-focused Wisconsin River day from Pine Island Wildlife Area to Portage, with side sloughs, levee scenery, low motorboat pressure at moderate water, and Wisconsin River Trips gauge bands tied to Wisconsin Dells.',
+    statusText:
+      'Use the Wisconsin River at Wisconsin Dells gauge. Wisconsin River Trips treats 4,000 to 6,000 cfs as average summer water with good sandbars, 6,000 to 8,000 cfs as higher spring-style water with fewer sandbars, and 13,000+ cfs as unsuitable except for experienced groups.',
+    latitude: 43.54303,
+    longitude: -89.58245,
+    gaugeSource: {
+      id: 'usgs-05404000',
+      provider: 'usgs',
+      siteId: '05404000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Wisconsin River near Wisconsin Dells, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05404000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'This is a big-river sandbar reach: watch for wind, motorboats near Portage, drop-offs at sandbars, confusing side channels, and debris near wooded banks.',
+        'DNR says Pine Island Wildlife Area has no camping or overnight parking, and camping is not allowed on the property, including Wisconsin River islands and sandbars.',
+        'The levee and floodplain corridor can close during high water. Check DNR and local flood advisories before using Levee Road or the Pine Island launch.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4000,
+      idealMax: 6000,
+      tooLow: 0,
+      tooHigh: 13000,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Wisconsin Dells gauge bands for Pine Island and Portage',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/pine-island',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.2,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall works best when Wisconsin Dells flows leave sandbars exposed and winds are manageable. Very low water means route-finding and exposed bars rather than a hard no-go; high water removes sandbars and raises rescue exposure.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The current is generally easy and WRT describes the route as an obscure, sandbar-rich day. It stays easy only when flow, wind, and floodplain access are favorable.',
+      confidenceNotes:
+        'Confidence is acceptable with explicit caveats: Wisconsin River Trips documents Pine Island Boat Ramp to Highway 33 Access as a 6.0-mile route, gives shuttle coordinates and Wisconsin Dells gauge bands, Wisconsin DNR confirms Pine Island Wildlife Area public boating/canoeing access on the Wisconsin River and no camping/overnight parking, and the City of Portage/nearby Portage access context supports public downstream access. The Wisconsin Dells gauge is an upstream corridor proxy rather than an in-segment gauge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific guide',
+        value: '6.0 miles; 3 hours 6 minutes',
+        note: 'Wisconsin River Trips documents the Pine Island Boat Ramp to Highway 33 Access route as a 6.0-mile Wisconsin River segment with sandbars, side channels, strainers that are avoidable with attention, and a carry-in take-out at Highway 33.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/pine-island',
+      },
+      {
+        label: 'Gauge bands',
+        value: '4,000-6,000 cfs best summer sandbar window; 13,000+ cfs unsuitable',
+        note: 'Wisconsin River Trips publishes Wisconsin Dells gauge guidance for the Pine Island and Portage corridor, including 4,001-6,000 cfs as average summer depth with good-sized sandbars and 13,001+ cfs as potentially unsuitable except for experienced paddlers.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/portage',
+      },
+      {
+        label: 'Live gauge check',
+        value: '4,250 cfs / 2.70 ft on 2026-07-14',
+        note: 'USGS Water Services returned a current Wisconsin Dells reading inside the WRT average-summer band during this automation run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05404000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Public access and camping constraint',
+        value: 'Pine Island Wildlife Area boat launch; camping prohibited',
+        note: 'Wisconsin DNR says Pine Island Wildlife Area offers boating and canoeing on the Wisconsin River, has one boat launch on Levee Road, has no camping or overnight parking, and prohibits camping on the property including islands and sandbars.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/Lands/WildlifeAreas/pineisland',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '43.54303, -89.58245 to 43.53565, -89.47382',
+        note: 'Wisconsin River Trips publishes a Pine Island-to-Highway-33 shuttle map whose coordinate route resolves the launch and take-out points.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/pine-island',
+      },
+      {
+        label: 'Floodplain caveat',
+        value: 'Levee Road and Pine Island access can close in high water',
+        note: 'Wisconsin DNR issued a 2026 high-water closure notice for Pine Island State Wildlife Area during a Wisconsin River flood event, reinforcing the need to check current closures before using this route.',
+        sourceUrl: 'https://dnr.wisconsin.gov/newsroom/release/121826',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Pine Island',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/pine-island',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin River Trips Portage gauge guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/portage',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin DNR Pine Island Wildlife Area',
+        url: 'https://dnr.wisconsin.gov/topic/Lands/WildlifeAreas/pineisland',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05404000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05404000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'wisconsin-river-portage-dekorra',
     slug: 'wisconsin-river-portage-dekorra',
     name: 'Wisconsin River',
@@ -16965,7 +17102,7 @@ export const rivers: River[] = [
     state: 'Wisconsin',
     region: 'Lower Wisconsin Riverway',
     summary:
-      'Longer, quieter lower Lower Wisconsin route from Boscobel toward Bridgeport. It shares the same Muscoda gauge ladder, but the 23-mile length and more remote lower-river feel make it a separate full-day or overnight planning problem.',
+      'Consolidated lower Lower Wisconsin corridor from Boscobel to Bridgeport with Woodman and Millville as alternate access points. It uses the same Muscoda gauge ladder while keeping the quieter 23-mile reach in one access-planner route instead of separate overlapping cards.',
     statusText:
       'Use the Muscoda gauge for the Lower Wisconsin level ladder. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.',
     latitude: 43.1492722,
@@ -17000,7 +17137,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Flatwater, but 23 miles, fewer bailout options, broad-water exposure, and overnight-style planning make this more committed than an easy short day trip.',
       confidenceNotes:
-        'Wisconsin DNR lists Boscobel to Bridgeport as a popular 23-mile route, and Wisconsin Trail Guide LWSR4 uses the same Muscoda gauge ladder. The endpoint record is adequate but not as polished as the upper riverway landings, so the route stays conservative.',
+        'Wisconsin DNR lists Boscobel to Bridgeport as a popular 23-mile route, Wisconsin Trail Guide LWSR4 uses the same Muscoda gauge ladder, and Wisconsin River Trips documents the Boscobel-Woodman, Woodman-Millville, and Millville-Bridgeport access sequence. This route absorbs those adjacent unpushed split cards as a Rice Creek-style multi-access corridor.',
     },
     evidenceNotes: [
       {
@@ -17021,6 +17158,12 @@ export const rivers: River[] = [
         note: 'Wisconsin Trail Guide describes the final Lower Wisconsin segment as quieter and more isolated, with wooded islands, sloughs, and large bottomland areas.',
         sourceUrl: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
       },
+      {
+        label: 'Alternate access sequence',
+        value: 'Woodman and Millville splits',
+        note: 'Wisconsin River Trips documents Boscobel-to-Woodman, Woodman-to-Millville, and Millville-to-Bridgeport as adjacent shorter options inside the same lower-river corridor, so they are retained as access-planner choices rather than separate overlapping live routes.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/boscobel-to-woodman',
+      },
     ],
     sourceLinks: [
       {
@@ -17032,6 +17175,21 @@ export const rivers: River[] = [
         label: 'Wisconsin Trail Guide LWSR4',
         url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
         provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin River Trips Boscobel to Woodman',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/boscobel-to-woodman',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin River Trips Woodman',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/woodman',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin River Trips Millville',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/millville',
+        provider: 'wisconsin_river_trips',
       },
       {
         label: 'USGS 05407000 monitoring location',
@@ -17042,291 +17200,6 @@ export const rivers: River[] = [
         label: 'Bridgeport Landing North reference',
         url: 'https://paddling.com/paddle/locations/bridgeport-landing-north',
         provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'wisconsin-river-boscobel-woodman',
-    slug: 'wisconsin-river-boscobel-woodman',
-    name: 'Wisconsin River',
-    reach: 'Boscobel Landing to Woodman Landing',
-    state: 'Wisconsin',
-    region: 'Lower Wisconsin Riverway',
-    summary:
-      'Shorter lower-river split from Boscobel to Woodman with wooded islands, bluff views, and sandbar stops. It uses the direct Muscoda gauge and the Lower Wisconsin level ladder, while keeping the day shorter than the broader Boscobel-to-Bridgeport route.',
-    statusText:
-      'Use the Muscoda gauge. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.',
-    latitude: 43.1492722,
-    longitude: -90.715253,
-    gaugeSource: {
-      id: 'usgs-05407000',
-      provider: 'usgs',
-      siteId: '05407000',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Wisconsin River at Muscoda, WI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 4000,
-      idealMax: 10000,
-      tooLow: 2500,
-      tooHigh: 20000,
-      thresholdSource: {
-        label: 'Wisconsin Trail Guide LWSR4 Muscoda-gauge suggested river levels',
-        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
-        provider: 'wisconsin_trail_guide',
-      },
-      thresholdSourceStrength: 'mixed',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Late spring through fall is the normal season. Check upstream rain, wind, and possible river surges before committing, especially if a sandbar stop or overnight plan is possible.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'Flatwater with no rapids, but broad-channel wind, side slough choices, strainers, and deceptively strong sandbar-edge current still require conservative Lower Wisconsin judgment.',
-      confidenceNotes:
-        'Confidence is good for a Lower Wisconsin split add: Wisconsin River Trips documents Boscobel Landing to Woodman Landing as a 9.5-mile route and ties its observed trip level to the Muscoda gauge; Wisconsin DNR lists Boscobel Landings and Woodman Lake as major Lower Wisconsin access points; and Wisconsin Trail Guide LWSR4 publishes the Muscoda-gauge river-level ladder for this lower-river corridor.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Route report',
-        value: '9.5 miles, 3.5 hours',
-        note: 'Wisconsin River Trips documents Boscobel Landing to Woodman Landing as a lower Wisconsin route with sandbars, narrowing channel, bluff scenery, and a 6,000 cfs observed Muscoda-gauge trip level.',
-        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/boscobel-to-woodman',
-      },
-      {
-        label: 'Public access',
-        value: 'Boscobel and Woodman Lake',
-        note: 'Wisconsin DNR lists Boscobel Landings and Woodman Lake among major public access points on the Lower Wisconsin State Riverway.',
-        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
-      },
-      {
-        label: 'Published level bands',
-        value: '4,000 to 10,000 cfs normal',
-        note: 'Wisconsin Trail Guide LWSR4 uses the Muscoda gauge and lists 4,000-10,000 cfs as normal summer conditions, 17,000-20,000 cfs as high day-trip-only water, and above 20,000 cfs as not recommended.',
-        sourceUrl: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
-      },
-      {
-        label: 'Current gauge check',
-        value: '6,610 cfs at 2026-07-14 16:00 CDT',
-        note: 'USGS Water Services returned same-day discharge and stage for the direct Muscoda gauge during this run.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05407000&parameterCd=00060,00065&siteStatus=all',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Wisconsin River Trips Boscobel to Woodman',
-        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/boscobel-to-woodman',
-        provider: 'wisconsin_river_trips',
-      },
-      {
-        label: 'Wisconsin DNR Lower Wisconsin boating and canoeing',
-        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
-        provider: 'local',
-      },
-      {
-        label: 'Wisconsin Trail Guide LWSR4',
-        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
-        provider: 'wisconsin_trail_guide',
-      },
-      {
-        label: 'USGS 05407000 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'wisconsin-river-woodman-millville',
-    slug: 'wisconsin-river-woodman-millville',
-    name: 'Wisconsin River',
-    reach: 'Woodman Landing to Millville Boat Landing',
-    state: 'Wisconsin',
-    region: 'Lower Wisconsin Riverway',
-    summary:
-      'Quiet lower-river day from Woodman down to Millville, using the Green River mouth as a distinctive launch and ending at a maintained Lower Wisconsin landing. It is a compact alternative to the broader Boscobel-to-Bridgeport corridor.',
-    statusText:
-      'Use the Muscoda gauge. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.',
-    latitude: 43.07699,
-    longitude: -90.84597,
-    gaugeSource: {
-      id: 'usgs-05407000',
-      provider: 'usgs',
-      siteId: '05407000',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Wisconsin River at Muscoda, WI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 4000,
-      idealMax: 10000,
-      tooLow: 2500,
-      tooHigh: 20000,
-      thresholdSource: {
-        label: 'Wisconsin Trail Guide LWSR4 Muscoda-gauge suggested river levels',
-        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
-        provider: 'wisconsin_trail_guide',
-      },
-      thresholdSourceStrength: 'mixed',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Late spring through fall is the normal paddling season. The route is short enough for a day trip, but sandbar plans still depend on current flows and upstream rain.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'No rapids are expected. Treat island splits, wind, strainers, sandbar-edge current, and the Green River mouth as the main operational hazards.',
-      confidenceNotes:
-        'Confidence is good for a Lower Wisconsin split add: Wisconsin River Trips documents Woodman Landing to Millville Landing as a 7.7-mile route with a Muscoda-gauge observed level; Wisconsin DNR lists Woodman Lake and Millville Landing as major public access points; and Wisconsin Trail Guide LWSR4 supplies the same lower-river Muscoda gauge ladder used by adjacent app routes.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Route report',
-        value: '7.7 miles, 3.5 hours',
-        note: 'Wisconsin River Trips documents Woodman Landing to Millville Landing, notes the Green River mouth start, Newton and Harris island channels, sandbars, bluffs, and a maintained Millville take-out.',
-        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/woodman',
-      },
-      {
-        label: 'Public access',
-        value: 'Woodman Lake and Millville Landing',
-        note: 'Wisconsin DNR lists Woodman Lake and Millville Landing among major Lower Wisconsin State Riverway public access points.',
-        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
-      },
-      {
-        label: 'Published level bands',
-        value: '4,000 to 10,000 cfs normal',
-        note: 'Wisconsin Trail Guide LWSR4 ties this lower-river corridor to the Muscoda gauge and warns against early-spring or especially high-water paddling.',
-        sourceUrl: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
-      },
-      {
-        label: 'Current gauge check',
-        value: '6,610 cfs at 2026-07-14 16:00 CDT',
-        note: 'USGS Water Services returned same-day discharge and stage for the direct Muscoda gauge during this run.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05407000&parameterCd=00060,00065&siteStatus=all',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Wisconsin River Trips Woodman',
-        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/woodman',
-        provider: 'wisconsin_river_trips',
-      },
-      {
-        label: 'Wisconsin DNR Lower Wisconsin boating and canoeing',
-        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
-        provider: 'local',
-      },
-      {
-        label: 'Wisconsin Trail Guide LWSR4',
-        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
-        provider: 'wisconsin_trail_guide',
-      },
-      {
-        label: 'USGS 05407000 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'wisconsin-river-millville-bridgeport',
-    slug: 'wisconsin-river-millville-bridgeport',
-    name: 'Wisconsin River',
-    reach: 'Millville Boat Landing to Bridgeport North Landing',
-    state: 'Wisconsin',
-    region: 'Lower Wisconsin Riverway',
-    summary:
-      'Second-to-last Lower Wisconsin day from Millville to the Bridgeport north-channel landing, with huge islands, bluff views, sandbars, and an easier shuttle than the Mississippi confluence finish.',
-    statusText:
-      'Use the Muscoda gauge. Treat 3,001 to 7,500 cfs as the best practical window, 2,000 cfs as the low/scrape floor, and 20,000 cfs as too high for a broad recommendation. Above about 12,500 cfs, expect fewer sandbars and pushier, dirtier water.',
-    latitude: 43.03505,
-    longitude: -90.96091,
-    gaugeSource: {
-      id: 'usgs-05407000',
-      provider: 'usgs',
-      siteId: '05407000',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Wisconsin River at Muscoda, WI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 3001,
-      idealMax: 7500,
-      tooLow: 2000,
-      tooHigh: 20000,
-      thresholdSource: {
-        label: 'Wisconsin River Trips Millville Muscoda-gauge depth guide',
-        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/millville',
-        provider: 'wisconsin_river_trips',
-      },
-      thresholdSourceStrength: 'community',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Late spring through fall is the normal window. Check wind and upstream rain; the route is short, but missed channels around Weniger Island or rising water can make Bridgeport logistics harder.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'No rapids are expected, but the north-channel take-out requires staying ahead of the correct off-ramp, and Lower Wisconsin strainers, undertows, sandbar drop-offs, and wind remain serious hazards.',
-      confidenceNotes:
-        'Confidence is good for a Lower Wisconsin split add: Wisconsin River Trips documents Millville Boat Landing to Bridgeport North Landing with route distance, access notes, hazards, and a Muscoda-gauge flow ladder; Wisconsin DNR lists Millville Landing plus Bedford Slough and Bridgeport as major public access points; and the direct Muscoda gauge returned same-day data during this run.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Route report',
-        value: '6.1 miles, 2-3 hours',
-        note: 'Wisconsin River Trips documents Millville Boat Landing to Bridgeport North Landing as a shorter lower-river route with huge islands, bluff scenery, sandbars, and a 7,100 cfs observed Muscoda-gauge trip level.',
-        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/millville',
-      },
-      {
-        label: 'Published level bands',
-        value: '3,001 to 7,500 cfs practical window',
-        note: 'Wisconsin River Trips lists 3,001-5,000 cfs as very ideal, 5,001-7,500 cfs as common and ok, 15,001-20,000 cfs as very high and pushy, and 20,001+ cfs as probably too high for safe paddling.',
-        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/millville',
-      },
-      {
-        label: 'Public access',
-        value: 'Millville and Bridgeport',
-        note: 'Wisconsin DNR lists Millville Landing and Bedford Slough / Bridgeport among major Lower Wisconsin public access points.',
-        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
-      },
-      {
-        label: 'Current gauge check',
-        value: '6,610 cfs at 2026-07-14 16:00 CDT',
-        note: 'USGS Water Services returned same-day discharge and stage for the direct Muscoda gauge during this run.',
-        sourceUrl:
-          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05407000&parameterCd=00060,00065&siteStatus=all',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Wisconsin River Trips Millville',
-        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/millville',
-        provider: 'wisconsin_river_trips',
-      },
-      {
-        label: 'Wisconsin DNR Lower Wisconsin boating and canoeing',
-        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
-        provider: 'local',
-      },
-      {
-        label: 'Wisconsin Trail Guide LWSR4',
-        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
-        provider: 'wisconsin_trail_guide',
-      },
-      {
-        label: 'USGS 05407000 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
-        provider: 'usgs',
       },
     ],
   },
@@ -19480,6 +19353,105 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'brule-river-campground-highway-139',
+    slug: 'brule-river-campground-highway-139',
+    name: 'Brule River',
+    reach: 'Brule River Campground Landing to Highway 139/189 Bridge Landing',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Remote upper Brule border-river day from the old Brule River Campground landing to Highway 139/189, with marsh, lowland forest, riffles, a primitive campsite option, and Wisconsin Trail Guide minimum-flow guidance.',
+    statusText:
+      'Use the Brule River at US Highway 2 gauge as the downstream same-river screen. Wisconsin Trail Guide lists 220 cfs / 3.5 ft as the practical minimum; below that expect scraping and slow marshy water. High water raises strainer and remote-rescue risk.',
+    latitude: 46.02745,
+    longitude: -88.79757,
+    gaugeSource: {
+      id: 'usgs-04060993',
+      provider: 'usgs',
+      siteId: '04060993',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Brule River at US Highway 2 near Florence, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04060993/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'remote', 'cold_water'],
+      safetyNotes: [
+        'This 14.5-mile reach has sparse road access, lowland marsh sections, and limited quick exits; carry repair, navigation, and self-rescue gear.',
+        'Expect strainers, narrow bends, and riffles in the final miles. Low water can mean scraping, while high water makes wood and landing approaches less forgiving.',
+        'The historic Brule River Campground is closed for camping, even though the landing remains open. Use only confirmed primitive sites or off-route lodging for overnight plans.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 220,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Brule River B1 minimum suggested flow',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-brule1.pdf',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Wisconsin Trail Guide says the reach is usually navigable through spring, summer, and fall but can become scrappy during periods with little rainfall. Cold water and remote access make shoulder-season trips more consequential.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The whitewater is only class I, but 14.5 miles, remoteness, marsh navigation, deadfall risk, and limited access points make this a prepared-paddler day rather than a casual beginner float.',
+      confidenceNotes:
+        'Confidence is good for a guarded minimum-only route: Wisconsin Trail Guide documents the exact Brule River Campground-to-Highway-139/189 route, WGS84 access coordinates, mileage, hazards, campsite context, and a 220 cfs / 3.5 ft minimum tied to USGS 04060993. The gauge is downstream of the route, so the app treats it as a same-river proxy and does not invent an upper limit.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific guide',
+        value: '14.5 miles; 6 to 8 hours',
+        note: 'Wisconsin Trail Guide publishes Brule River B1 from Brule River Campground to Highway 139/189, with 14.5 miles, 6 to 8 hours, 115 feet of elevation drop, and class I as the hardest whitewater.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/brule-river-campground.html',
+      },
+      {
+        label: 'Minimum suggested flow',
+        value: '220 cfs / 3.5 ft',
+        note: 'Wisconsin Trail Guide lists 220 cfs / 3.5 ft at the US Highway 2 bridge gauge as the minimum suggested flow for this B1 route.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-brule1.pdf',
+      },
+      {
+        label: 'Live gauge check',
+        value: '248 cfs / 3.69 ft on 2026-07-14',
+        note: 'USGS Water Services returned current discharge and stage above the WTG minimum during this automation run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04060993&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '46.02745, -88.79757 to 45.98768, -88.65239',
+        note: 'Wisconsin Trail Guide publishes NAD83 / WGS84 coordinates for Brule River Campground Landing and Highway 139/189 Bridge Landing.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-brule1.pdf',
+      },
+      {
+        label: 'Camping and access',
+        value: 'Primitive site near Brule River Drive; campground closed',
+        note: 'Wisconsin Trail Guide documents one primitive riverside canoe campsite area near Brule River Drive and notes the old Brule River Campground is closed for camping while the landing remains open.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/brule-river-campground.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Brule River B1 page',
+        url: 'https://wisconsintrailguide.com/2024/paddle/brule-river-campground.html',
+      },
+      {
+        label: 'Wisconsin Trail Guide Brule River B1 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-brule1.pdf',
+      },
+      {
+        label: 'USGS 04060993 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04060993/',
+      },
+    ],
+  },
+  {
     id: 'brule-river-highway-139-fr-2150',
     slug: 'brule-river-highway-139-fr-2150',
     name: 'Brule River',
@@ -19588,6 +19560,109 @@ export const rivers: River[] = [
       {
         label: 'Florence County highway map',
         url: 'https://wisconsindot.gov/Documents/travel/road/hwy-maps/county-maps/florence.pdf',
+      },
+    ],
+  },
+  {
+    id: 'brule-river-forest-road-2150-flowage',
+    slug: 'brule-river-forest-road-2150-flowage',
+    name: 'Brule River',
+    reach: 'Forest Road 2150 Landing to Brule River Flowage WEPCO #28 Landing',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Lower Brule border-river day from Forest Road 2150 to the Brule River Flowage, with long remote flatwater, McGovern Creek riffles, La Chapelle Rapids, and Wisconsin Trail Guide gauge guidance at the US Highway 2 bridge inside the run.',
+    statusText:
+      'Use the Brule River at US Highway 2 gauge. Wisconsin Trail Guide lists 220 cfs / 3.5 ft as the minimum for this B3 route; below that expect scraping, while higher water makes La Chapelle Rapids, wood, and take-out decisions more consequential.',
+    latitude: 45.99013,
+    longitude: -88.45012,
+    gaugeSource: {
+      id: 'usgs-04060993',
+      provider: 'usgs',
+      siteId: '04060993',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Brule River at US Highway 2 near Florence, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04060993/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'strainers', 'remote', 'cold_water'],
+      safetyNotes: [
+        'Scout La Chapelle Rapids from river right if the line is not obvious; stronger groups may run it, but conservative paddlers should be ready to portage.',
+        'Forest Road 2150 and Carney Dam Road can be rough, and the route has long remote intervals between reliable exits.',
+        'The final Brule River Flowage approach can add wind exposure after a long day, and the endpoint is above dam and flowage infrastructure.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 220,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Brule River B3 minimum suggested flow',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-brule3.pdf',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Wisconsin Trail Guide says the reach is usually navigable through spring, summer, and fall but can become scrappy during periods with little rainfall. High or cold water raises the consequence of La Chapelle Rapids and remote rescue.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The guide rates the route novice with class I-II rapids, but 14.3 miles, low road density, rough access roads, La Chapelle scouting, strainers, and flowage wind make it a moderate planning day.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only route: Wisconsin Trail Guide documents the exact Forest-Road-2150-to-Brule-River-Flowage route, endpoint WGS84 coordinates, mileage, hazards, and a 220 cfs / 3.5 ft minimum tied to USGS 04060993. The gauge is inside the segment at the US Highway 2 bridge, so the implementation treats it as direct but still avoids inventing an upper limit.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific guide',
+        value: '14.3 miles; 6 to 8 hours',
+        note: 'Wisconsin Trail Guide publishes Brule River B3 from Forest Road 2150 to Brule River Flowage, with 14.3 miles, 6 to 8 hours, 123 feet of elevation drop, and class I-II as the hardest whitewater.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/brule-river-forest-road-2150.html',
+      },
+      {
+        label: 'Minimum suggested flow',
+        value: '220 cfs / 3.5 ft',
+        note: 'Wisconsin Trail Guide lists 220 cfs / 3.5 ft at the US Highway 2 bridge gauge as the minimum suggested flow for this B3 route.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-brule3.pdf',
+      },
+      {
+        label: 'Live gauge check',
+        value: '248 cfs / 3.69 ft on 2026-07-14',
+        note: 'USGS Water Services returned current discharge and stage above the WTG minimum during this automation run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04060993&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.99013, -88.45012 to 45.96359, -88.25001',
+        note: 'Wisconsin Trail Guide publishes NAD83 / WGS84 coordinates for Forest Road 2150 Landing and the WEPCO Rec Area #28 landing at Brule River Flowage.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-brule3.pdf',
+      },
+      {
+        label: 'Hazards and camping',
+        value: 'La Chapelle Rapids; no riverside canoe campsites',
+        note: 'Wisconsin Trail Guide calls out La Chapelle Rapids, rough access roads, remote conditions, and no riverside canoe/kayak campsites on the B3 segment.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/brule-river-forest-road-2150.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Brule River B3 page',
+        url: 'https://wisconsintrailguide.com/2024/paddle/brule-river-forest-road-2150.html',
+      },
+      {
+        label: 'Wisconsin Trail Guide Brule River B3 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-brule3.pdf',
+      },
+      {
+        label: 'USGS 04060993 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04060993/',
+      },
+      {
+        label: 'Wisconsin DNR Brule River Flowage water detail',
+        url: 'https://apps.dnr.wi.gov/water/waterDetail.aspx?key=890809',
       },
     ],
   },
@@ -71849,115 +71924,6 @@ export const rivers: River[] = [
       {
         label: 'MN DNR Jay Cooke State Park',
         url: 'https://www.dnr.state.mn.us/state_parks/park.html?id=spk00187',
-      },
-    ],
-  },
-  {
-    id: 'cannon-river-riverside-miesville',
-    slug: 'cannon-river-riverside-miesville',
-    name: 'Cannon River',
-    reach: 'Riverside City Park to Miesville Ravine County Park',
-    state: 'Minnesota',
-    region: 'Southern Minnesota',
-    summary:
-      'Official shorter lower-Cannon day from Riverside City Park to Miesville Ravine, avoiding the less developed Welch parking/access issue while keeping a direct downstream interpreted DNR gauge.',
-    statusText:
-      'Use the Welch DNR gauge just downstream of the route: the official medium band is 300 to 1,540 cfs. Below 231 cfs is scrapable, and above 3,000 cfs is very high.',
-    latitude: 44.5119132,
-    longitude: -92.9068155,
-    gaugeSource: {
-      id: 'mn-dnr-13',
-      provider: 'mn_dnr',
-      siteId: '13',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      metricLabel: 'Discharge',
-      kind: 'proxy',
-      siteName: 'Cannon River at Welch, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=39004002',
-      hydrographUrl:
-        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=39004002&var1=262&width=700&height=320',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 300,
-      idealMax: 1540,
-      tooLow: 231,
-      tooHigh: 3000,
-      thresholdSource: {
-        label: 'MN DNR river-level interpretation bands for Cannon River at Welch',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Late spring through fall is practical when the Welch gauge and a Riverside visual check agree. Dry stretches create shallow bars, while storm water adds swift current, wood, and snag risk.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'DNR describes this as a gently winding 2- to 3-hour route past fields and forest. It is still moving water with light rapids, snags, and private banks, so use the shorter Miesville take-out as the planned finish.',
-      confidenceNotes:
-        'Confidence is high: MN DNR recommends Riverside Park to Miesville as a 6.9-mile Cannon River route, public-water-access GIS resolves Riverside Park and Miesville Ravine County Park with coordinates, and the Welch DNR gauge is directly downstream on the same Cannon map section with official interpretation bands. This is intentionally distinct from the longer Riverside-to-Welch card because Miesville is the official shorter public access pair and avoids the Welch developed-access/parking caveat.',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'fast_rise', 'private_banks'],
-      safetyNotes: [
-        'Use Miesville Ravine County Park as the planned take-out. Continuing to Welch changes the access plan and carries parking / developed-public-access caveats.',
-        'Expect light rapids, snags, shallow bars, and fresh wood after storms even when the Welch gauge is inside the medium band.',
-        'Banks are a mix of public access points and private land. Use the named public accesses or Sunset Trail as an emergency/bailout option if conditions deteriorate.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route',
-        value: '6.9 river miles',
-        note: 'MN DNR lists Riverside Park to Miesville as a recommended Cannon River section from river mile 25.5 to 18.5 and describes it as a 2- to 3-hour paddle.',
-        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html',
-      },
-      {
-        label: 'Public access records',
-        value: 'Riverside Park and Miesville Ravine',
-        note: 'Minnesota public-water-access GIS resolves Riverside Park and Miesville Ravine County Park as Cannon River public access sites, with Sunset Trail as a nearby downstream public access option.',
-        sourceUrl:
-          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
-      },
-      {
-        label: 'Official DNR bands',
-        value: '231 / 300-1,540 / 3,000 cfs',
-        note: 'MN DNR interprets the Welch gauge as Scrapable below 231 cfs, Low from 231 to 300, Medium from 300 to 1,540, High from 1,540 to 3,000, and Very High above 3,000.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'Current gauge check',
-        value: '1,040 cfs at 2026-07-14 14:00',
-        note: 'The current MN DNR feed placed Welch inside the official medium band during this run.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'Access distinction',
-        value: 'Shorter official route before Welch',
-        note: 'DNR separately notes that the longer paddle to Welch lacks a developed public access and has a parking premium; this implementation stops at the cleaner Miesville Ravine public access pair.',
-        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'MN DNR Cannon River segments and maps',
-        url: 'https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html',
-      },
-      {
-        label: 'MN DNR Cannon River Map 2 PDF',
-        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/cannon2.pdf',
-      },
-      {
-        label: 'MN DNR river levels',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      {
-        label: 'Minnesota public water access feature service',
-        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
       },
     ],
   },
