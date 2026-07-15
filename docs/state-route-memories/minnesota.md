@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 04:13 America/Chicago.
+Last summarized: 2026-07-15 05:19 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 143.
-- Top represented rivers: Mississippi River 23, Sauk River 18, Minnesota River 10, Little Fork River 9, Crow Wing River 7, Big Fork River 5, Root River 5, Zumbro River 5, Cannon River 4, North Fork Crow River 4, Otter Tail River 4, Red River of the North 4, Rum River 4, St. Croix River 4, St. Louis River 4, Red Lake River 3.
-- Ledger candidates: 868 total; 508 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
+- Live routes: 146.
+- Top represented rivers: Mississippi River 25, Sauk River 18, Minnesota River 10, Little Fork River 9, Crow Wing River 8, Big Fork River 5, Root River 5, Zumbro River 5, Cannon River 4, North Fork Crow River 4, Otter Tail River 4, Red River of the North 4, Rum River 4, St. Croix River 4, St. Louis River 4, Red Lake River 3.
+- Ledger candidates: 871 total; 511 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 05:19 America/Chicago: added `crow-wing-river-little-white-dog-cottingham`, `mississippi-river-kiwanis-crow-wing-state-park`, and `mississippi-river-belle-prairie-lebourget`.
+- Baseline at run start was 143 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 146 Minnesota routes and all three new slugs have trip-detail records.
+- Stayed in Minnesota and promoted three distinct official/source-backed gaps after reconciling already-live prompt leads. Crow Wing Little-White-Dog-to-Cottingham is the current DNR Map 2 recommended lower county-park day trip; Mississippi Kiwanis-to-Crow-Wing-State-Park and Belle-Prairie-to-LeBourget are DNR Map 6 additional day trips backed by Mississippi Headwaters Board maps.
+- Minnesota public-water-access GIS resolves Little White Dog `WAS01527`, Cottingham `WAS01325`, Kiwanis `WAS01003`, Crow Wing State Park `WAS00990`, Belle Prairie `WAS01278`, and LeBourget `WAS01262`.
+- Current MN DNR river-level feed exposed interpreted ladders for Crow Wing Nimrod site `55` (`300 / 400-800 / 1100 cfs`) and Mississippi Brainerd site `121` (`908 / 1800-7000 / 10000 cfs`). During the run, Nimrod was low/scrapable at `284 cfs`; Brainerd was medium at `2420 cfs`.
+- Camping posture: Little-White-Dog-to-Cottingham is `on_route_campsite` under Wadena County campground rule verification, Kiwanis-to-Crow-Wing-State-Park is `endpoint_campground` with Crow Wing State Park as the planned finish/basecamp, and Belle-Prairie-to-LeBourget is `nearby_basecamp` with a required LeBourget take-out before the Little Falls dam corridor.
+- No route-gallery images were added. Bounded DNR / Mississippi Headwaters Board / Wadena County / state-park / Commons / same-route image review did not produce clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed but did not add Fort Ripley-to-Fletcher Creek because Fletcher Creek still did not resolve in the public-water-access GIS, Snake Silver-Star-to-Lower-Falls because the upper Snake gauge remained stale and Lower Falls lacked clean access proof, or broader Red River leads because endpoint/gauge support was weaker than the accepted official DNR/MHB routes.
 
 - 2026-07-15 04:13 America/Chicago: added `mississippi-river-palisade-waldeck`, `mississippi-river-waldeck-kimball`, and `mississippi-river-kimball-aitkin-campground`.
 - Baseline at run start was 140 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 143 Minnesota routes and all three new slugs have trip-detail records.

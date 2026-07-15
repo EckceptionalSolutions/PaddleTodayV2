@@ -1,6 +1,6 @@
 # Midwest Route Automation Memory
 
-- 2026-07-15 10:00 America/Chicago / 2026-07-15 15:00 UTC: Minnesota three-route implementation pass (`minnesota-route-additions-2`).
+- 2026-07-15 05:19 America/Chicago / 2026-07-15 10:19 UTC: Minnesota three-route implementation pass (`minnesota-route-additions-2`).
   - Added three Minnesota slugs beyond the 143-route Minnesota baseline at run start: `crow-wing-river-little-white-dog-cottingham`, `mississippi-river-kiwanis-crow-wing-state-park`, and `mississippi-river-belle-prairie-lebourget`, bringing Minnesota to 146 live routes.
   - Qualification path: MN DNR Crow Wing Map 2 recommends Little White Dog-to-Cottingham and identifies the lower Wadena county-park chain; MN DNR Mississippi Map 6 points paddlers to Mississippi Headwaters Board Kiwanis-to-Crow-Wing-State-Park and Belle-Prairie-to-LeBourget trips; Minnesota public-water-access GIS resolves Little White Dog `WAS01527`, Cottingham `WAS01325`, Kiwanis `WAS01003`, Crow Wing State Park `WAS00990`, Belle Prairie `WAS01278`, and LeBourget `WAS01262`.
   - Live gauge verification: MN DNR river-level JSON returned Crow Wing Nimrod site `55` at `284 cfs` on 2026-07-15 02:00 and Mississippi Brainerd site `121` at `2420 cfs` on 2026-07-15 02:30. Nimrod was below the low band; Brainerd was inside the official medium band.
