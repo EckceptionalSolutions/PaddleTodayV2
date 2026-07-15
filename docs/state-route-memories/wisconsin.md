@@ -4,15 +4,23 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 121.
-- Top represented rivers: Wisconsin River 16, Sugar River 5, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Baraboo River 5, Rock River 4, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Fox River 3, Popple River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3, Kickapoo River 3.
-- Ledger candidates: 108 total; 98 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
+- Live routes: 124.
+- Top represented rivers: Wisconsin River 15, Big Rib River 3, Sugar River 5, Wolf River 5, St. Croix River 5, Milwaukee River 5, Peshtigo River 5, Baraboo River 5, Rock River 4, Chippewa River 4, Namekagon River 4, Eau Claire River 4, Bois Brule River 4, Pine River 4, Fox River 3, Popple River 3, Black River 3, Brule River 3, South Fork Flambeau River 3, Grant River 3, Kickapoo River 3.
+- Ledger candidates: 111 total; 101 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 118-route baseline: `kickapoo-river-readstown-soldiers-grove`, `baraboo-river-rock-springs-north-freedom`, and `baraboo-river-north-freedom-giese`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 121-route baseline: `big-rib-river-rib-falls-marathon`, `big-rib-river-marathon-little-rib`, and `big-rib-river-little-rib-bluegill-bay`.
 
 ## Latest Audit
+
+- 2026-07-15 America/Chicago: added `big-rib-river-rib-falls-marathon`, `big-rib-river-marathon-little-rib`, and `big-rib-river-little-rib-bluegill-bay`, bringing the live Wisconsin route count from the run-start baseline of 121 to 124.
+- The Big Rib routes introduce a new Wausau-area tributary family that was absent from the live inventory. Rib-Falls-to-Marathon uses Wisconsin River Trips' exact Rib Falls-to-Marathon route report, Marathon County Rib Falls Park context, Great Pinery's Marathon Riverside landing, and direct USGS `05396000`. The two lower-trail cards use Great Pinery's official Lower Big Rib River Water Trail landing chain, mileage, coordinates, shallow-water context, Rookery Park / Snake Bridge / Bluegill Bay landmarks, and the same Rib Falls gauge as a conservative upstream proxy.
+- Live gauge verification: USGS Water Services returned Big Rib River at Rib Falls `05396000` at `54.7 cfs / 2.08 ft` at 2026-07-15 11:00 CDT. All three cards ship below the WRT 100 cfs low-water floor with low-water scrape/walk warnings, not good-day recommendations.
+- Threshold posture: all three use WRT's Rib Falls-gauge bands (`0-100 cfs` very low, `101-200 cfs` doable but bumpy, `201-300 cfs` common target, `401-500 cfs` pretty high, `501+ cfs` not recommended for casual paddlers). The two Great Pinery lower-trail cards are `mixed` strength because the gauge is upstream and Great Pinery supplies official route/access evidence but not a numeric paddling ladder.
+- Safety/logistics added: Rib-Falls-to-Marathon warns to launch below the dangerous Rib Falls drop, not run it casually; it also carries Class I riffle, strainer, cold-water, private-bank, and low-water caveats. Marathon-to-Little-Rib is a long no-camping day route with spotty reception, limited bailout, private-bank, strainers/wood, low-water, and no speculative Sunnyvale access assumptions. Little-Rib-to-Bluegill-Bay is a short no-camping Lake-Wausau-transition route with wind/wake, landing-visibility, private-bank, and no-casual-extension caveats.
+- Bounded image review found WRT / Great Pinery / Marathon County / Commons context imagery but no clearly rights-clean exact-route paddling asset selected for the three new Big Rib cards; no-image rows were added to the image audit.
+- Reviewed prompt and memory leads before selection: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica are already live, Black Earth Creek Cross Plains-to-Salmo Pond remains blocked by unresolved obstruction evidence, and upper Chippewa / Wolf / WTG families remain heavily represented. The Big Rib family cleared because it was absent, official Great Pinery access evidence exists, and direct USGS current data is product-ready.
 
 - 2026-07-15 America/Chicago: added `kickapoo-river-readstown-soldiers-grove`, `baraboo-river-rock-springs-north-freedom`, and `baraboo-river-north-freedom-giese`, bringing the live Wisconsin route count from the run-start baseline of 118 to 121.
 - The Kickapoo route adds the lower Readstown-to-Soldiers-Grove day segment below existing upper-Kickapoo Reserve coverage. Wisconsin River Trips documents the exact route, mileage, public endpoint pair, Steuben-gauge stage ladder, and high-water warnings; Kickapoo Valley Reserve and Wisconsin DNR corroborate fast-rise, logjam, snag, cold-water, no-riverbank-camping, and low-head-dam safety context. USGS Water Services returned Kickapoo River at Steuben `05410490` at `636 cfs / 7.16 ft` at 2026-07-15 10:45 CDT, inside WRT's high / maybe-too-high band.

@@ -31295,6 +31295,180 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'big-rib-river-rib-falls-marathon': {
+    putIn: {
+      name: 'Rib Falls / County Road S bridge access',
+      latitude: 44.9725,
+      longitude: -89.9052778,
+    },
+    takeOut: {
+      name: "Marathon Lions Riverside Park / Highway 107 landing",
+      latitude: 44.933874,
+      longitude: -89.843461,
+    },
+    logistics: {
+      distanceLabel: 'About 6.6 to 7.5 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer at very low water',
+      shuttle:
+        'Use a two-car shuttle between the Rib Falls / County Road S bridge area and Marathon Lions Riverside Park. Launch below Rib Falls rather than above the drop unless the group is deliberately planning advanced whitewater.',
+      permits:
+        'No route-specific paddling permit is known. Use the county park / bridge access area and Great Pinery public landing, follow Wisconsin boating/PFD rules, and obey posted park and parking rules.',
+      camping:
+        'No on-route camping is documented for this day segment. Treat Rib Falls-to-Marathon as a day route and use separate Marathon County or Wausau-area campground plans if staying overnight.',
+      campingClassification: 'none',
+      summary:
+        'Launch below Rib Falls near the County Road S bridge and USGS gauge, then paddle the wooded Big Rib to Marathon Lions Riverside Park. The current gauge check was below the low-water floor, so expect scraping until flows recover.',
+      accessCaveats: [
+        'WRT recommends the bridge/gauge-area launch below the main Rib Falls drop; do not treat the falls as part of a casual route.',
+        'The take-out is the Great Pinery Riverside Park landing at lower Big Rib mile 0. Mark it from land because it can be less obvious from the road than from the river.',
+        'Private banks and gravel-pit edges line parts of the route; keep stops to public land or emergency use.',
+      ],
+      watchFor: [
+        'Rib Falls above the launch, a dangerous Class IV drop if approached from upstream.',
+        'Bumpy riffles, scraping, and possible walking below about 100 cfs at the Rib Falls gauge.',
+        'Class I pitches with strainers, cold water, fast rises after rain, and limited quick exits.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rib-falls-county-road-s-bridge',
+        name: 'Rib Falls / County Road S bridge access',
+        latitude: 44.9725,
+        longitude: -89.9052778,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below Rib Falls near the USGS gauge and County Road S bridge.',
+      },
+      {
+        id: 'marathon-lions-riverside-park',
+        name: "Marathon Lions Riverside Park / Highway 107 landing",
+        latitude: 44.933874,
+        longitude: -89.843461,
+        mileFromStart: 6.6,
+        segmentKind: 'creek',
+        note: 'Default take-out and Great Pinery Lower Big Rib mile 0 landing.',
+      },
+    ],
+  },
+  'big-rib-river-marathon-little-rib': {
+    putIn: {
+      name: "Marathon Lions Riverside Park / Highway 107 landing",
+      latitude: 44.933874,
+      longitude: -89.843461,
+    },
+    takeOut: {
+      name: 'Little Rib River Landing',
+      latitude: 44.94868,
+      longitude: -89.682705,
+    },
+    logistics: {
+      distanceLabel: 'About 12.6 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, depending on water level, wind, and stops',
+      shuttle:
+        'Stage the Little Rib River Landing take-out first, then launch from Marathon Lions Riverside Park. This is the long middle part of the Great Pinery lower Big Rib trail, so start early and keep a conservative daylight plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow Great Pinery landing rules, Wisconsin boating/PFD rules, local parking signs, and any posted water-quality or access advisories.',
+      camping:
+        'No legal on-route campsite is documented for this lower Big Rib segment. Treat it as a long day route; use Wausau, Marathon, or county campground options only as separate base-camp planning.',
+      campingClassification: 'none',
+      summary:
+        'Paddle from Marathon Lions Riverside Park into the wooded lower Big Rib floodplain to Little Rib River Landing. The route is official Great Pinery mileage, but the Rib Falls gauge is upstream and currently below the low-water floor.',
+      accessCaveats: [
+        'Great Pinery lists Riverside Park and Little Rib River Landing as designated lower Big Rib landings with parking.',
+        'Do not rely on speculative Sunnyvale Lake access as a normal bailout; this card uses the official Little Rib River Landing take-out.',
+        'Reception can be spotty and the shuttle is longer than the straight-line map suggests, so share the plan before launching.',
+      ],
+      watchFor: [
+        'Shallow bars, low-water scraping, and slow progress when the Rib Falls gauge is below about 100 cfs.',
+        'Fresh strainers or floating wood after storms and higher-water push through wooded bends.',
+        'Private banks, limited intermediate exits, cold water in shoulder seasons, and heat/fatigue on a long day.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'marathon-lions-riverside-park',
+        name: "Marathon Lions Riverside Park / Highway 107 landing",
+        latitude: 44.933874,
+        longitude: -89.843461,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Great Pinery Lower Big Rib mile 0 landing and default put-in.',
+      },
+      {
+        id: 'little-rib-river-landing',
+        name: 'Little Rib River Landing',
+        latitude: 44.94868,
+        longitude: -89.682705,
+        mileFromStart: 12.6,
+        segmentKind: 'creek',
+        note: 'Great Pinery designated landing and default take-out.',
+      },
+    ],
+  },
+  'big-rib-river-little-rib-bluegill-bay': {
+    putIn: {
+      name: 'Little Rib River Landing',
+      latitude: 44.94868,
+      longitude: -89.682705,
+    },
+    takeOut: {
+      name: 'Bluegill Bay Park',
+      latitude: 44.926437,
+      longitude: -89.639969,
+    },
+    logistics: {
+      distanceLabel: 'About 4.4 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer with wind or low water',
+      shuttle:
+        'Use a short local shuttle between Little Rib River Landing and Bluegill Bay Park. Rookery Park is a practical intermediate landing and bailout if the wind or lake-transition conditions are worse than expected.',
+      permits:
+        'No route-specific paddling permit is known. Follow Great Pinery landing rules, Wisconsin boating/PFD rules, park parking signs, and posted Lake Wausau or local water-quality advisories.',
+      camping:
+        'No on-route camping is documented for this short lower-trail finish. Treat it as a day-use paddle and plan any overnight stay separately.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Little Rib River Landing and finish the lower Big Rib trail through Rookery Park and the Lake Wausau transition to Bluegill Bay Park. Use the upstream Rib Falls gauge as a conservative level signal plus same-day wind checks.',
+      accessCaveats: [
+        'Great Pinery lists Little Rib River Landing, Rookery Park Landing, and Bluegill Bay Park as designated landings with coordinates and parking.',
+        'The route transitions from river to Lake Wausau influence; wind and boat wake can matter more than current near the finish.',
+        'Do not extend casually into the Wisconsin River / Lake Wausau traffic pattern without a separate plan.',
+      ],
+      watchFor: [
+        'Low-water shallows and slower progress when the Rib Falls gauge is below the low-water floor.',
+        'Open-water wind, recreational boat wake, and route-finding near Bluegill Bay.',
+        'Private banks, cold water, storm-driven rises, and changing wood or debris after high water.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'little-rib-river-landing',
+        name: 'Little Rib River Landing',
+        latitude: 44.94868,
+        longitude: -89.682705,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Great Pinery designated landing and default put-in.',
+      },
+      {
+        id: 'rookery-park-landing',
+        name: 'Rookery Park Landing',
+        latitude: 44.937007,
+        longitude: -89.655286,
+        mileFromStart: 2,
+        segmentKind: 'transition',
+        note: 'Great Pinery landing and practical intermediate take-out option.',
+      },
+      {
+        id: 'bluegill-bay-park',
+        name: 'Bluegill Bay Park',
+        latitude: 44.926437,
+        longitude: -89.639969,
+        mileFromStart: 4.4,
+        segmentKind: 'transition',
+        note: 'Great Pinery endpoint where the lower Big Rib trail meets the broader waterway.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {
