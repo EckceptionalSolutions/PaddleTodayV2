@@ -4,16 +4,22 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 86.
-- Top represented rivers: Wisconsin River 13, Wolf River 5, Milwaukee River 5, Peshtigo River 5, Chippewa River 4, Bois Brule River 4, Pine River 4, Baraboo River 3, Sugar River 3, Black River 3, Brule River 3, Grant River 3.
-- Ledger candidates: 81 total; 71 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
+- Live routes: 89.
+- Top represented rivers: Wisconsin River 13, Wolf River 5, Milwaukee River 5, Peshtigo River 5, Chippewa River 4, Bois Brule River 4, Pine River 4, Namekagon River 4, Baraboo River 3, Sugar River 3, Black River 3, Brule River 3, Grant River 3.
+- Ledger candidates: 84 total; 74 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-14/15 America/Chicago run added two South Fork Jump whitewater reaches plus the upper St. Croix Gordon Dam-to-Riverside National Scenic Riverway section beyond the 83-route baseline: `jump-south-fork-county-line-little-falls`, `jump-south-fork-little-falls-big-falls`, and `st-croix-river-gordon-dam-riverside`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three upstream/middle Namekagon Riverway splits beyond the 86-route baseline: `namekagon-river-hayward-stinnett`, `namekagon-river-stinnett-springbrook`, and `namekagon-river-springbrook-big-bend`.
 
 ## Latest Audit
 
+- 2026-07-15 America/Chicago: added `namekagon-river-hayward-stinnett`, `namekagon-river-stinnett-springbrook`, and `namekagon-river-springbrook-big-bend`, bringing the live Wisconsin route count to 89.
+- The three routes fill the public Namekagon Hayward-to-Big-Bend gap upstream of existing `namekagon-river-big-bend-trego`. They use Wisconsin Trail Guide N2/N3 WGS84 endpoint coordinates and access/camping/hazard notes, NPS Namekagon Section Map 2 and official current-condition bands, American Whitewater broad-reach landing/gauge corroboration, and USGS `05331833` at Leonards.
+- Threshold posture is conservative minimum-only: NPS lists Leonards normal level as 150-230 cfs and high above 650 cfs, while American Whitewater corroborates the same USGS gauge with a 90-500 cfs recommended band. The run-time USGS Water Services check returned 64.2 cfs / 1.49 ft at 2026-07-14 23:00 CDT, below the accepted floor, so the cards ship as live low-water warnings until levels recover.
+- Safety/logistics added: upstream proxy-gauge caveats, same-day launch visual checks, Warder Rapids / Fox Slough, Stinnett bridge constriction, Chippanazie Rapids, riffles below Springbrook, shallow rock gardens, split channels, strainers/wood, private/restricted banks, NPS campsite planning, cold water, thunderstorms, and limited bailout exposure.
+- Bounded image review found no clearly rights-clean exact-route paddling image for the three new Namekagon splits; rows were added to the image audit instead of adding local route-gallery assets.
+- Reconciled earlier prompt leads before adding: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica are already implemented; Black Earth Creek Cross Plains-to-Salmo Pond remains blocked by unresolved 2025 obstruction evidence; upper Chippewa / Wolf / Wisconsin Trail Guide families are already heavily represented; Oconto North Branch Bagley Rapids remains held because the useful AW level depends on calculated local flow and current wood/chute clearance is not strong enough.
 - 2026-07-14/15 America/Chicago: added `jump-south-fork-county-line-little-falls`, `jump-south-fork-little-falls-big-falls`, and `st-croix-river-gordon-dam-riverside`, bringing the live Wisconsin route count to 86.
 - The two South Fork Jump routes use American Whitewater exact-reach geometry, feature coordinates, whitewater ratings, and USGS `05362000` discharge bands: 525-3525 cfs for County Line Road-to-Little Falls and 600-2500 cfs for Little Falls-to-Big Falls. USGS Water Services returned 87.7 cfs / 3.18 ft at 2026-07-14 21:00 CDT, below both AW runnable floors, so both ship as live low-water warnings when current conditions match.
 - South Fork Jump implementation adds roadside-access, low-water bony ledge, Little Falls/Big Falls scouting, Class III+ / waterfall, portage, cold-water, poison-ivy, strainer, rural rescue, and Price County Big Falls endpoint-campground caveats. Price County, Travel Wisconsin, and Wisconsin DNR context support the Big Falls / Jump River public recreation story.

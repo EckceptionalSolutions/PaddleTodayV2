@@ -4146,6 +4146,361 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'namekagon-river-hayward-stinnett',
+    slug: 'namekagon-river-hayward-stinnett',
+    name: 'Namekagon River',
+    reach: 'Hayward Landing to Stinnett Landing',
+    aliases: ['Namekagon N2 upper', 'Hayward Landing to Stinnett'],
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Upper-middle Namekagon day that leaves Hayward through a wooded National Scenic Riverway corridor with riffles, island channels, and a public Stinnett Landing finish. The Leonards gauge is the best live screen, but this short split still needs a launch visual when water is low.',
+    statusText:
+      'Use Namekagon at Leonards as a conservative live screen. NPS calls 150 to 230 cfs normal and 650+ cfs high; below 150 cfs, expect scraping, walking, and channel picking in shallow riffles.',
+    latitude: 46.0035,
+    longitude: -91.48906,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'strainers', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Warder Rapids, Fox Slough, bridge constrictions, and shallow rock gardens can become scrapy or pinny when the Leonards gauge is below the NPS normal floor.',
+        'The route is inside the St. Croix National Scenic Riverway. Use named public landings and legal NPS campsites rather than assuming private banks are available.',
+        'Cold water, wood, and summer traffic still matter even though this is a low-gradient Riverway segment.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-05331833',
+      provider: 'usgs',
+      siteId: '05331833',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Namekagon River at Leonards, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05331833/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 150,
+      thresholdSource: {
+        label: 'NPS Namekagon current-conditions normal level at Leonards',
+        url: 'https://www.nps.gov/sacn/planyourvisit/current-conditions.htm',
+        provider: 'nps',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the normal public-use window. Summer drought can expose riffles and island channels quickly, while rain can add push and wood movement.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly Class I-II Riverway paddling, but Warder Rapids, shallow boulder riffles, wood, and a bridge constriction keep this above a casual flatwater float.',
+      confidenceNotes:
+        'Confidence is good: Wisconsin Trail Guide documents the Hayward-to-Springbrook route family with WGS84 access coordinates, Stinnett is an intermediate named landing, NPS publishes the official Namekagon level context at Leonards, and American Whitewater ties the broad Namekagon route to USGS 05331833. Confidence is capped because the Leonards gauge is upstream, so the app uses only a conservative minimum floor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level context',
+        value: '150 to 230 cfs normal; 650+ cfs high',
+        note: 'NPS publishes the Leonards gauge as the Namekagon current-conditions reference and lists 150 to 230 cfs as normal with high water above 650 cfs.',
+        sourceUrl:
+          'https://www.nps.gov/common/uploads/sortable_dataset/sacn/A0AA7297-9A93-D166-BA7CC72680163EB0/A0AA7297-9A93-D166-BA7CC72680163EB0.json',
+      },
+      {
+        label: 'Gauge corroboration',
+        value: 'AW 90 to 500 cfs runnable band',
+        note: 'American Whitewater identifies USGS 05331833 at Leonards for the broad Namekagon route and publishes a 90 to 500 cfs recommended band. Paddle Today keeps the stricter NPS 150 cfs normal-floor threshold.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info?reachid=2302',
+      },
+      {
+        label: 'Access and mileage',
+        value: 'Hayward RM 66.1 to Stinnett RM 57.7',
+        note: 'American Whitewater lists both named public landings and river miles; Wisconsin Trail Guide supplies WGS84 coordinates for Hayward Landing and Stinnett Landing.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2302/main',
+      },
+      {
+        label: 'Route hazards',
+        value: 'Class I-II riffles and constrictions',
+        note: 'Wisconsin Trail Guide describes the Hayward-to-Springbrook section as a novice Class I-II trip with riffles, Warder Rapids / Fox Slough context, and a wavy chute below the old Stinnett bridge.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/namekagon-river-hayward-landing.html',
+      },
+      {
+        label: 'Live check during add',
+        value: '64.2 cfs / 1.49 ft at 2026-07-14 23:00 CDT',
+        note: 'USGS Water Services returned a current Leonards reading below both the NPS normal floor and the AW low-runnable band, so the route ships with a live low-water warning when conditions match.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05331833&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Namekagon N2',
+        url: 'https://wisconsintrailguide.com/paddle/namekagon-river-hayward-landing.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide N2 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-namekagon2.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'NPS Namekagon current conditions',
+        url: 'https://www.nps.gov/sacn/planyourvisit/current-conditions.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Namekagon Section Map 2 PDF',
+        url: 'https://www.nps.gov/sacn/planyourvisit/upload/Section-2_Namekagon_Hayward-Landing-to-Trego-Namekagon_2024_508.pdf',
+        provider: 'nps',
+      },
+      {
+        label: 'American Whitewater Namekagon',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2302/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 05331833 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05331833/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'namekagon-river-stinnett-springbrook',
+    slug: 'namekagon-river-stinnett-springbrook',
+    name: 'Namekagon River',
+    reach: 'Stinnett Landing to Springbrook Landing',
+    aliases: ['Namekagon N2 lower', 'Stinnett Landing to Springbrook'],
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Shorter Namekagon connector through the lower half of the Hayward-to-Springbrook water-trail section, with public NPS landings, wooded islands, Chippanazie Rapids, and enough campsite context for a planned Riverway overnight.',
+    statusText:
+      'Use the Leonards gauge conservatively. NPS calls 150 to 230 cfs normal and 650+ cfs high; Paddle Today treats 150 cfs as the floor and does not invent a separate ideal range for this subreach.',
+    latitude: 45.98378,
+    longitude: -91.58901,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'strainers', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'The old Stinnett bridge constriction, Chippanazie Rapids, shallow riffles, and island channels all deserve a same-day look when the river is near the low floor.',
+        'Use only named public landings and legal Riverway campsites. Do not improvise exits or camps on private banks.',
+        'Wood can move after storms, and cold-water exposure remains real in spring and fall.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-05331833',
+      provider: 'usgs',
+      siteId: '05331833',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Namekagon River at Leonards, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05331833/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 150,
+      thresholdSource: {
+        label: 'NPS Namekagon current-conditions normal level at Leonards',
+        url: 'https://www.nps.gov/sacn/planyourvisit/current-conditions.htm',
+        provider: 'nps',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'This short section is most dependable from late spring through early fall, but shallow riffles can still scrape during dry summer periods and storms can move wood into the channel.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The mileage is approachable, but Chippanazie Rapids, shallow riffles, and the old-bridge constriction keep it in a cautious Class I-II category.',
+      confidenceNotes:
+        'Confidence is good for access and route shape: Wisconsin Trail Guide gives WGS84 coordinates for Stinnett and Springbrook, NPS maps cover the section, and American Whitewater lists the same landings in the broad Namekagon reach. Flow confidence remains conservative because the Leonards gauge is upstream and route-specific ideal bands are not published for this subreach.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level context',
+        value: '150 to 230 cfs normal; 650+ cfs high',
+        note: 'NPS current conditions publish the Leonards gauge as the Namekagon reference and identify 150 to 230 cfs as normal.',
+        sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/current-conditions.htm',
+      },
+      {
+        label: 'Gauge corroboration',
+        value: 'AW 90 to 500 cfs runnable band',
+        note: 'American Whitewater ties the broad Namekagon route to USGS 05331833; Paddle Today uses the stricter NPS normal floor as the minimum.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info?reachid=2302',
+      },
+      {
+        label: 'Access and mileage',
+        value: 'Stinnett RM 57.7 to Springbrook RM 49.9',
+        note: 'American Whitewater lists Stinnett and Springbrook landings with river miles; Wisconsin Trail Guide supplies coordinates and landing details.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2302/main',
+      },
+      {
+        label: 'Camping and route character',
+        value: 'NPS Riverway section with legal campsites',
+        note: 'Wisconsin Trail Guide says the full Hayward-to-Springbrook section has multiple individual and group campsites; plan from the NPS map rather than assuming every bank is legal.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-namekagon2.pdf',
+      },
+      {
+        label: 'Live check during add',
+        value: '64.2 cfs / 1.49 ft at 2026-07-14 23:00 CDT',
+        note: 'The live USGS reading was below the accepted floor during implementation, so current low-water scoring should be pessimistic until levels recover.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05331833&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Namekagon N2',
+        url: 'https://wisconsintrailguide.com/paddle/namekagon-river-hayward-landing.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide N2 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-namekagon2.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'NPS Namekagon Section Map 2 PDF',
+        url: 'https://www.nps.gov/sacn/planyourvisit/upload/Section-2_Namekagon_Hayward-Landing-to-Trego-Namekagon_2024_508.pdf',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Namekagon current conditions',
+        url: 'https://www.nps.gov/sacn/planyourvisit/current-conditions.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'American Whitewater Namekagon',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2302/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 05331833 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05331833/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'namekagon-river-springbrook-big-bend',
+    slug: 'namekagon-river-springbrook-big-bend',
+    name: 'Namekagon River',
+    reach: 'Springbrook Landing to Big Bend Landing',
+    aliases: ['Namekagon N3 upper', 'Springbrook Landing to Big Bend'],
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Compact Namekagon Riverway section that links Springbrook Landing to Big Bend Landing above the existing Big Bend-to-Trego route. It is a short public-landing trip, but low water can still expose rock gardens and force careful channel choices.',
+    statusText:
+      'Use Namekagon at Leonards as a conservative same-river screen. NPS normal is 150 to 230 cfs and high water begins above 650 cfs; below 150 cfs, treat this as too low for a general recommendation.',
+    latitude: 45.9539,
+    longitude: -91.68636,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'A riffly stretch about 1.5 miles below Springbrook and the islanded approach to Big Bend can become slow, scratchy, or wood-affected at low water.',
+        'Stay with NPS public landings and designated campsites. Private or restricted banks are not alternate take-outs except in emergencies.',
+        'This is short, but cold water, storms, wood, and low-water channel picking can still punish casual planning.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-05331833',
+      provider: 'usgs',
+      siteId: '05331833',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Namekagon River at Leonards, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05331833/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 150,
+      thresholdSource: {
+        label: 'NPS Namekagon current-conditions normal level at Leonards',
+        url: 'https://www.nps.gov/sacn/planyourvisit/current-conditions.htm',
+        provider: 'nps',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'The short mileage makes this a useful shoulder or family-scale route when water is normal, but dry spells can make the riffles and island channels feel much longer.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Generally easy Riverway paddling with one notable riffly stretch below Springbrook and low-water rock gardens toward Big Bend.',
+      confidenceNotes:
+        'Confidence is good for access, shape, and conservative thresholding: Wisconsin Trail Guide documents Springbrook-to-Trego with Springbrook and Big Bend coordinates, NPS maps cover both landings, and NPS current conditions provide the official Leonards level categories. Confidence is intentionally not route-specific enough for a two-sided ideal range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level context',
+        value: '150 to 230 cfs normal; 650+ cfs high',
+        note: 'NPS publishes the Leonards gauge as the Namekagon river-level reference and lists the normal and high-water categories used by this route.',
+        sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/current-conditions.htm',
+      },
+      {
+        label: 'Gauge corroboration',
+        value: 'AW 90 to 500 cfs runnable band',
+        note: 'American Whitewater uses USGS 05331833 for the broader Namekagon route and lists the Springbrook and Big Bend landings in the same reach.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2302/main',
+      },
+      {
+        label: 'Access and mileage',
+        value: 'Springbrook RM 49.9 to Big Bend RM 45.0',
+        note: 'American Whitewater river miles and Wisconsin Trail Guide coordinates support this as a distinct 4.9-mile connector above the existing Big Bend-to-Trego card.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-namekagon3.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Riffles and low-water scraping',
+        note: 'Wisconsin Trail Guide calls out a notable riffly stretch about 1.5 miles below Springbrook, with rock gardens and shallow water making low flows the main practical issue.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/namekagon-river-springbrook-landing.html',
+      },
+      {
+        label: 'Live check during add',
+        value: '64.2 cfs / 1.49 ft at 2026-07-14 23:00 CDT',
+        note: 'The live Leonards reading was well below the NPS floor during implementation, validating the low-water warning path.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05331833&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Namekagon N3',
+        url: 'https://wisconsintrailguide.com/paddle/namekagon-river-springbrook-landing.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide N3 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-namekagon3.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'NPS Namekagon Section Map 2 PDF',
+        url: 'https://www.nps.gov/sacn/planyourvisit/upload/Section-2_Namekagon_Hayward-Landing-to-Trego-Namekagon_2024_508.pdf',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Namekagon current conditions',
+        url: 'https://www.nps.gov/sacn/planyourvisit/current-conditions.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'American Whitewater Namekagon',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2302/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 05331833 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05331833/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'namekagon-river-big-bend-trego',
     slug: 'namekagon-river-big-bend-trego',
     name: 'Namekagon River',

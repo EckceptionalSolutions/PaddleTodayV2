@@ -2325,6 +2325,111 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'namekagon-river-hayward-stinnett': {
+    putIn: {
+      name: 'Hayward Landing',
+      latitude: 46.0035,
+      longitude: -91.48906,
+    },
+    takeOut: {
+      name: 'Stinnett Landing',
+      latitude: 45.98378,
+      longitude: -91.58901,
+    },
+    logistics: {
+      distanceLabel: 'About 8.4 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr 30 min',
+      shuttle:
+        'Short two-car shuttle west of Hayward. Stage Stinnett first, then return to Hayward Landing; summer traffic and Riverway parking can make the small landings feel tighter than the mileage suggests.',
+      permits:
+        'No day-use paddling permit is known. Follow St. Croix National Scenic Riverway rules at landings and campsites, and check same-day NPS alerts before relying on any campsite or landing.',
+      camping:
+        'Treat this as a day trip unless you have an NPS Riverway campsite plan. Wisconsin Trail Guide notes multiple campsites in the broader Hayward-to-Springbrook section and a group-campsite context at Hayward Landing, but legal overnight use must match the current NPS map and rules.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Hayward Landing and take out at Stinnett Landing for the upper half of the Hayward-to-Springbrook Namekagon section. Expect a mostly wooded Riverway day with shallow riffles, Warder Rapids / Fox Slough context, and a public landing finish before the old bridge constriction.',
+      accessCaveats: [
+        'Hayward and Stinnett are named public Riverway landings with WTG coordinates, but parking, launch surface, and crowding still need same-day inspection.',
+        'The Leonards gauge is upstream of the route. Use it as a conservative live screen and make a launch visual when water is near or below 150 cfs.',
+        'Do not improvise take-outs or camps on private banks. Stay with named landings, legal NPS campsites, and emergency-only shoreline stops.',
+      ],
+      watchFor: [
+        'Warder Rapids, Fox Slough, riffles, shallow rock gardens, and wood after storms.',
+        'Low water that turns split channels and bony riffles into scraping or walking.',
+        'Cold shoulder-season water, summer landing congestion, thunderstorms, and limited quick roadside exits once committed.',
+      ],
+    },
+  },
+  'namekagon-river-stinnett-springbrook': {
+    putIn: {
+      name: 'Stinnett Landing',
+      latitude: 45.98378,
+      longitude: -91.58901,
+    },
+    takeOut: {
+      name: 'Springbrook Landing',
+      latitude: 45.95392,
+      longitude: -91.68622,
+    },
+    logistics: {
+      distanceLabel: 'About 7.8 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr',
+      shuttle:
+        'Simple two-car shuttle between Stinnett and Springbrook. Inspect the Stinnett bridge area before launching if flows are near the low floor because the first constriction comes quickly.',
+      permits:
+        'No day-use paddling permit is known. Follow St. Croix National Scenic Riverway rules, current NPS closures, and any posted landing restrictions.',
+      camping:
+        'The broader Hayward-to-Springbrook section has NPS Riverway campsite support, but do not assume an open site on this short split. Plan the exact legal campsite from the current NPS map if making it part of an overnight.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Use Stinnett Landing to Springbrook Landing for a compact lower-N2 Namekagon day. The route keeps the public access chain clean while still preserving the section character: wooded bends, islands, Chippanazie Rapids, and shallow riffles that punish low water.',
+      accessCaveats: [
+        'Stinnett and Springbrook coordinates are WTG-backed, but a current NPS map or sign check should still govern parking and launch use.',
+        'The Leonards gauge is the defensible live data source, but it is not an exact in-reach gauge. Paddle Today uses a minimum floor only.',
+        'Private banks and non-designated shoreline camps are not part of the route plan.',
+      ],
+      watchFor: [
+        'The old Stinnett bridge constriction and short wavy chute just below the launch.',
+        'Chippanazie Rapids, shallow riffles, island channels, and wood or strainers after storms.',
+        'Low water below the 150 cfs NPS normal floor, cold water, thunderstorms, and limited bailout options.',
+      ],
+    },
+  },
+  'namekagon-river-springbrook-big-bend': {
+    putIn: {
+      name: 'Springbrook Landing',
+      latitude: 45.9539,
+      longitude: -91.68636,
+    },
+    takeOut: {
+      name: 'Big Bend Landing',
+      latitude: 45.93224,
+      longitude: -91.75011,
+    },
+    logistics: {
+      distanceLabel: 'About 4.9 mi',
+      estimatedPaddleTime: 'About 1 hr 45 min to 2 hr 45 min',
+      shuttle:
+        'Very short local shuttle between Springbrook and Big Bend. This can be paired with the existing Big Bend-to-Trego route only if daylight, water, and group pace justify the longer day.',
+      permits:
+        'No day-use paddling permit is known. Follow St. Croix National Scenic Riverway rules and posted landing or campsite restrictions.',
+      camping:
+        'NPS campsites exist in the broader Springbrook-to-Trego section, but this short connector should be treated as a day route unless it is part of a mapped Riverway overnight plan.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Springbrook Landing and take out at Big Bend Landing for a short Namekagon connector above the existing Big Bend-to-Trego route. The trip is beginner-friendly at normal water, but low water exposes the riffles and channels that make the Leonards gauge check matter.',
+      accessCaveats: [
+        'Springbrook and Big Bend are named Riverway landings with WTG coordinates and NPS map support.',
+        'Do not confuse this connector with the longer Springbrook-to-Trego route unless you intentionally continue through the existing Big Bend-to-Trego segment.',
+        'The Leonards gauge is upstream, so use the app score as a screen and verify water at the launch.',
+      ],
+      watchFor: [
+        'A riffly stretch about 1.5 miles below Springbrook.',
+        'Low-water scraping, split-channel route finding, rock gardens, and fresh wood after rain.',
+        'Private or restricted banks, cold shoulder-season water, and missing the Big Bend take-out if continuing too casually.',
+      ],
+    },
+  },
   'namekagon-river-big-bend-trego': {
     putIn: {
       name: 'Big Bend Landing',
