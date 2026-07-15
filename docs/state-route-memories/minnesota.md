@@ -1,18 +1,28 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 14:12 America/Chicago.
+Last summarized: 2026-07-15 15:13 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 152 after the 2026-07-15 14:12 three-route addition pass.
-- Top represented rivers: Mississippi River 26, Minnesota River 12, Sauk River 7, Rum River 7, Big Fork River 5, Cannon River 5, Crow Wing River 5, North Fork Crow River 5, Red Lake River 5, Red River of the North 5, Root River 5, Zumbro River 5, Little Fork River 4, Otter Tail River 4, Snake River 4, St. Croix River 4, St. Louis River 4, Straight River 4, Cedar River 3, Des Moines River 3, Long Prairie River 3, Pine River 3, Blue Earth River 2, Redwood River 2, Shell Rock River 2.
-- Ledger candidates: 939 total; 557 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 25 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
+- Live routes: 155 after the 2026-07-15 15:13 three-route addition pass.
+- Top represented rivers: Mississippi River 26, Minnesota River 12, Sauk River 7, Rum River 7, North Fork Crow River 6, Root River 6, Big Fork River 5, Cannon River 5, Crow Wing River 5, Red Lake River 5, Red River of the North 5, Zumbro River 5, Little Fork River 4, Otter Tail River 4, Snake River 4, St. Croix River 4, St. Louis River 4, Straight River 4, Cedar River 3, Cloquet River 3, Des Moines River 3, Long Prairie River 3, Pine River 3, Blue Earth River 2, Redwood River 2, Shell Rock River 2.
+- Ledger candidates: 948 total; 566 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 25 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 15:13 America/Chicago: added `root-river-chatfield-parsley`, `north-fork-crow-river-wildlife-albrights`, and `cloquet-river-bear-lake-cloquet-south`.
+- Baseline at run start was 152 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data imports 155 Minnesota routes and all three new slugs have trip-detail records.
+- Stayed in Minnesota and promoted three distinct official-source gaps after reconciling prompt leads already live, represented, closed, or weaker than accepted routes. Root Chatfield-to-Parsley adds the upper access pair above the existing Parsley-to-Moen card; North Fork Crow Wildlife-to-Albright's adds the DNR-supported continuation below Betty-Mason-to-Wildlife; Cloquet Bear-Lake-to-Cloquet-South adds the Map 2 continuation below the existing Indian-Lake-to-Bear-Lake route.
+- Current MN DNR river-level feed exposed interpreted ladders for Root Pilot Mound site `201` (`7 / 8.2-9.2 / 11.5 ft`), North Fork Crow Rockford site `310` (`345 / 500-1,500 / 1,750 cfs`), and Cloquet Brimson site `288` (`1485 / 1487-1489.5 / 1491 ft`). During the run, Root was medium at `8.93 ft`, North Fork Crow was medium at `699 cfs`, and Cloquet was low but above floor at `1486.08 ft`.
+- Minnesota public-water-access GIS resolves Chatfield `WAS00269`, Parsley Bridge `WAS00268`, Wildlife Park `WAS01954`, Albright's Mill `WAS01743`, Severson Landing / Bear Lake Road `WAS01633`, and Cloquet River South `WAS01632`.
+- Camping posture: Root is `none`; North Fork Crow is `endpoint_campground` only through Wildlife County Park reservation context; Cloquet is `on_route_campsite` under DNR Map 2 campsite context. No route assumes informal private-bank camping.
+- Safety posture: Root carries downstream-gauge, bridge-access, shallow-riffle, strainer/wood, cold-water, private-bank, and no-casual-continuation caveats. North Fork Crow carries downstream-gauge, reservation/camping, low-water, strainer/wood, cold-water, private-bank, and no-informal-camping caveats. Cloquet is `whitewater` / advanced with upstream-gauge, low-current, rapids/scouting, strainer/wood, cold-water, no-drinking-water, private-bank, and remote-rescue caveats.
+- No route-gallery images were added. Bounded DNR / public-access / Wright County / Wikimedia Commons / same-route image review found context leads but no clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed but did not add Root Whalan-to-Lanesboro because river-mile review made it a wrong-direction/duplicate overlap with existing Root cards; Peterson-based Root options because DNR reports the Peterson access closed for bridge work; Cannon Northfield/Dundas variants because they are represented by existing Cannon cards; and several prompt leads including Kettle Musclewood, Watonwan CR32-to-Garden City, St. Louis segments, Vermilion Twomile-to-Eightmile, and Cloquet Indian-Lake-to-Bear-Lake because they are already live.
 
 - 2026-07-15 14:12 America/Chicago: added `north-fork-crow-river-lake-rebecca-dayton`, `rum-river-north-county-peninsula-point`, and `snake-river-mora-cross-lake`.
 - Baseline at run start was 149 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data should import 152 Minnesota routes and all three new slugs have trip-detail records.
