@@ -31796,6 +31796,180 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'long-prairie-river-browerville-wma': {
+    putIn: {
+      name: 'Long Prairie River, Browerville Public Water Access Site',
+      latitude: 46.0764071,
+      longitude: -94.8584952,
+    },
+    takeOut: {
+      name: 'Long Prairie River WMA Public Water Access Site',
+      latitude: 46.1502717,
+      longitude: -94.818495,
+    },
+    logistics: {
+      distanceLabel: 'About 10.1 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer with low water or wood',
+      shuttle:
+        'Stage the Long Prairie River WMA take-out first, then drive back to Browerville. Confirm the WMA carry-in and parking layout before launching because public exits are limited between the endpoints.',
+      permits:
+        'No route-specific paddling permit is known. Use only the named public accesses, follow Minnesota boating/PFD rules, and obey DNR wildlife-area, city, and posted access rules.',
+      camping:
+        'No on-route watercraft campsite is documented for Browerville to the Long Prairie WMA access. Treat this as a day route and do not assume WMA or private-bank overnight use is allowed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Browerville and take out at the Long Prairie River WMA access for a shorter lower Long Prairie day below the existing Reynolds-to-Browerville card. Use the official Long Prairie gauge as an upstream same-water-trail proxy.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Browerville as WAS01260 with City of Browerville administration and Long Prairie River WMA as WAS00631 with DNR Fish and Wildlife administration.',
+        'DNR map mileposts and current GIS river-mile fields differ slightly; navigate by named access sites and coordinates rather than trying to force one mileage source.',
+        'The Long Prairie gauge is upstream of this reach. Pair the official bands with a visual check at Browerville and the WMA take-out.',
+      ],
+      watchFor: [
+        'Bridge and culvert approaches, low-water scraping, and occasional wood or strainers on tight bends.',
+        'Private banks and sparse legal bailout options between the endpoints.',
+        'Faster current and more debris when the upstream Long Prairie gauge moves into the high band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'browerville-long-prairie',
+        name: 'Long Prairie River, Browerville Public Water Access Site',
+        latitude: 46.0764071,
+        longitude: -94.8584952,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01260 in Minnesota public-water-access GIS.',
+      },
+      {
+        id: 'long-prairie-river-wma',
+        name: 'Long Prairie River WMA Public Water Access Site',
+        latitude: 46.1502717,
+        longitude: -94.818495,
+        mileFromStart: 10.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00631 in Minnesota public-water-access GIS.',
+      },
+    ],
+  },
+  'red-lake-river-st-hilaire-sportsmans': {
+    putIn: {
+      name: 'St. Hilaire City Park trailer access',
+      latitude: 48.0092108,
+      longitude: -96.2088527,
+    },
+    takeOut: {
+      name: "Sportsman's Park trailer access",
+      latitude: 47.8939989,
+      longitude: -96.2820976,
+    },
+    logistics: {
+      distanceLabel: 'About 21.8 mi',
+      estimatedPaddleTime: 'About 7 hr to 9 hr, longer with low water or scouting',
+      shuttle:
+        'Stage Sportsman\'s Park first, then drive upstream to St. Hilaire City Park. This is a long moving-water day; launch early and shorten the plan if the group is not comfortable with boulder-field current.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules and current city, park, campground, and public-access rules at St. Hilaire and Sportsman\'s Park.',
+      camping:
+        'DNR Map 2 marks camping or campground services at both endpoint parks: St. Hilaire has camping/rest-area services, and Sportsman\'s Park has campsites and drinking water. Treat camping as endpoint/basecamp use, not permission to camp on private riverbanks.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Put in at St. Hilaire City Park and take out at Sportsman\'s Park for the bouldery Red Lake River approach to Red Lake Falls. The CR 13 DNR gauge sits just above the finish corridor and uses the same official ladder as the downstream card.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves St. Hilaire City Park as WAS00808 and the Sportsman Park confluence access as WAS01943.',
+        'DNR Map 2 places the CR 13 river-level gauge near river mile 93.9, immediately upstream of the Sportsman\'s Park finish at river mile 93.0.',
+        'Expect tuber traffic near Red Lake Falls, especially from the Voyageur\'s View / County Road 13 area down to Sportsman\'s Park.',
+      ],
+      watchFor: [
+        'Intermittent Class I-II rapids, bouldery shallows, and pools that can scrape hard below the official medium band.',
+        'Pushier waves, faster recovery windows, and fresh wood after storms or when the gauge approaches the high band.',
+        'Downstream dam context if anyone is tempted to continue below Sportsman\'s Park instead of taking out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'st-hilaire-city-park',
+        name: 'St. Hilaire City Park trailer access',
+        latitude: 48.0092108,
+        longitude: -96.2088527,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00808 with City of St. Hilaire administration.',
+      },
+      {
+        id: 'voyageurs-view-cr13-gauge',
+        name: "Voyageur's View / County Road 13 gauge corridor",
+        latitude: 47.897,
+        longitude: -96.273,
+        mileFromStart: 20.9,
+        segmentKind: 'creek',
+        note: 'DNR Map 2 places the river-level gauge near river mile 93.9, just above Sportsman\'s Park.',
+      },
+      {
+        id: 'sportsmans-park-red-lake',
+        name: "Sportsman's Park trailer access",
+        latitude: 47.8939989,
+        longitude: -96.2820976,
+        mileFromStart: 21.8,
+        segmentKind: 'creek',
+        note: 'Default take-out at the Clearwater/Red Lake confluence park; resolves as WAS01943 in Minnesota public-water-access GIS.',
+      },
+    ],
+  },
+  'blue-earth-river-blue-earth-150th-street': {
+    putIn: {
+      name: 'Blue Earth River, City of Blue Earth Public Water Access Site',
+      latitude: 43.6455672,
+      longitude: -94.0965559,
+    },
+    takeOut: {
+      name: 'Blue Earth River, 150th Street Public Water Access Site',
+      latitude: 43.7082929,
+      longitude: -94.1430004,
+    },
+    logistics: {
+      distanceLabel: 'About 9.5 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer with low water, wood, or headwind',
+      shuttle:
+        'Stage 150th Street first, then drive back to the City of Blue Earth access near East Leland Parkway. Mark the 150th Street take-out before launching because downstream continuation adds unnecessary exposure.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules and posted city, county, and DNR public-access rules.',
+      camping:
+        'No on-route watercraft campsite is documented for the City of Blue Earth-to-150th-Street reach. Treat the route as a day trip and do not assume private banks are legal rest or overnight stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the City of Blue Earth public access and take out at 150th Street for a conservative upper Blue Earth one-way. The route is far upstream of the current Rapidan Dam failure warning but still needs wood, bridge, and fast-rise checks.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves the City of Blue Earth access as WAS01369 and 150th Street as WAS03082.',
+        'The Winnebago DNR gauge is downstream of the 150th Street take-out, so use it as an upper-river proxy and verify conditions at both accesses.',
+        'Do not extend this card toward the Rapidan Dam failure warning corridor; the planned route ends at 150th Street around river mile 91.0.',
+      ],
+      watchFor: [
+        'Agricultural-bank wood, bridge debris, shallow bars, and occasional strainers.',
+        'Muddy fast rises after heavy rain even when the route is short enough for a normal day.',
+        'Private banks and limited legal bailout options between the public endpoints.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'blue-earth-city-access',
+        name: 'Blue Earth River, City of Blue Earth Public Water Access Site',
+        latitude: 43.6455672,
+        longitude: -94.0965559,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01369 in Minnesota public-water-access GIS.',
+      },
+      {
+        id: '150th-street-blue-earth',
+        name: 'Blue Earth River, 150th Street Public Water Access Site',
+        latitude: 43.7082929,
+        longitude: -94.1430004,
+        mileFromStart: 9.5,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS03082 in Minnesota public-water-access GIS.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {

@@ -1,18 +1,28 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 12:12 America/Chicago.
+Last summarized: 2026-07-15 13:15 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 146 after the 2026-07-15 12:12 three-route addition pass.
-- Top represented rivers: Mississippi River 26, Minnesota River 12, Sauk River 7, Rum River 6, Big Fork River 5, Cannon River 5, Crow Wing River 5, Red River of the North 5, Root River 5, Zumbro River 5, Little Fork River 4, North Fork Crow River 4, Otter Tail River 4, Red Lake River 4, St. Croix River 4, St. Louis River 4, Straight River 4, Cedar River 3, Des Moines River 3, Pine River 3, Snake River 3, Redwood River 2, Shell Rock River 2.
-- Ledger candidates: 930 total; 548 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 25 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
+- Live routes: 149 after the 2026-07-15 13:15 three-route addition pass.
+- Top represented rivers: Mississippi River 26, Minnesota River 12, Sauk River 7, Rum River 6, Big Fork River 5, Cannon River 5, Crow Wing River 5, Red Lake River 5, Red River of the North 5, Root River 5, Zumbro River 5, Little Fork River 4, North Fork Crow River 4, Otter Tail River 4, St. Croix River 4, St. Louis River 4, Straight River 4, Cedar River 3, Des Moines River 3, Long Prairie River 3, Pine River 3, Snake River 3, Blue Earth River 2, Redwood River 2, Shell Rock River 2.
+- Ledger candidates: 936 total; 554 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 25 `duplicate_corridor`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 13:15 America/Chicago: added `long-prairie-river-browerville-wma`, `red-lake-river-st-hilaire-sportsmans`, and `blue-earth-river-blue-earth-150th-street`.
+- Baseline at run start was 146 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 149 Minnesota routes and all three new slugs have trip-detail records. Total route count is 679 because the worktree/branch also contains concurrent Wisconsin route additions.
+- Stayed in Minnesota and promoted three non-overlapping official-source gaps after reconciling prompt leads already live or represented. Long Prairie Browerville-to-WMA adds the lower public-access pair below the existing upstream route; Red Lake St.-Hilaire-to-Sportsman's fills the bouldery approach above the existing Sportsman's-to-Huot card; and Blue Earth City-of-Blue-Earth-to-150th-Street adds an upper public-access one-way far upstream of the Rapidan Dam warning corridor.
+- Current MN DNR river-level feed exposed interpreted ladders for Long Prairie site `89` (`53 / 200-500 / 650 cfs`), Red Lake Falls / CR13 site `180` (`5 / 8-11 / 15 ft`), and Blue Earth Winnebago site `283` (`21.5 / 22-26 / 29 ft`). During the run, Long Prairie was medium at `263 cfs`, Red Lake was medium at `10.21 ft`, and Blue Earth was medium at `23.89 ft`.
+- Minnesota public-water-access GIS resolves Browerville `WAS01260`, Long Prairie River WMA `WAS00631`, St. Hilaire City Park `WAS00808`, Sportsman Park `WAS01943`, City of Blue Earth `WAS01369`, and 150th Street `WAS03082`.
+- Camping posture: Long Prairie and Blue Earth are `none`; Red Lake is `endpoint_campground` because DNR Map 2 marks camping/rest services at St. Hilaire and campsites/drinking water at Sportsman's Park. No route assumes informal private-bank or WMA camping.
+- Safety posture: Long Prairie carries upstream proxy-gauge, bridge/culvert, low-water, wood/strainer, private-bank, limited-exit, and WMA-no-camping caveats. Red Lake carries Class I-II/boulder, tuber-traffic, low-water scraping, high-water push, downstream-dam, strainer, private-bank, and cold-water caveats. Blue Earth carries downstream proxy-gauge, strict 150th-Street stop, Rapidan-no-extension, bridge/wood, fast-rise, agricultural-bank, private-bank, and no-camping caveats.
+- No route-gallery images were added. Bounded DNR / public-access / Wikimedia Commons / same-route review found context leads but no clearly rights-clean exact-route paddling assets for local reuse.
+- Reviewed but did not add Zumbro Kruger-to-Kellogg because the existing Kruger-to-West-Newton card already represents the practical downstream corridor, Red Lake Neptune/Centennial because the long planners remain too long and upstream gauge support is stale, Long Prairie lake connectors because gauge/access support is weaker than Browerville-to-WMA, or lower Blue Earth/Rapidan-dependent options because the current Rapidan Dam failure warning remains unsuitable for a new general card.
 
 - 2026-07-15 12:12 America/Chicago: added `straight-river-morehouse-kohlmeier-lake`, `redwood-river-redwood-lake-loop`, and `shell-rock-river-myre-big-island-loop`.
 - Baseline at run start was 143 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. Patched route data now imports 146 Minnesota routes and all three new slugs have trip-detail records. The total route count is 673 because the worktree also contains concurrent Wisconsin route additions outside this Minnesota run.
