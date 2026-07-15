@@ -27804,4 +27804,172 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'crow-wing-river-lake-placid-crow-wing-state-park': {
+    putIn: {
+      name: 'Lake Placid Reservoir Landing #3 public water access',
+      latitude: 46.3166056,
+      longitude: -94.4865461,
+    },
+    takeOut: {
+      name: 'Crow Wing State Park public water access',
+      latitude: 46.26827,
+      longitude: -94.3431079,
+    },
+    logistics: {
+      distanceLabel: '11.8 mi',
+      estimatedPaddleTime: 'About 4 hr to 5.5 hr, longer with low water, wind, or fishing stops',
+      shuttle:
+        'Stage the take-out at Crow Wing State Park before driving back to Lake Placid Reservoir Landing #3. Confirm state-park entry, parking, and landing conditions before launch because the finish is at the Mississippi confluence area.',
+      permits:
+        'No special paddling permit is known for private boats. Follow posted public-water-access rules at Lake Placid and Crow Wing State Park, and follow state-park vehicle permit rules if parking inside the park.',
+      camping:
+        'Endpoint campground support exists at Crow Wing State Park, but treat the paddle itself as a day route unless you have a separate state-park reservation and shuttle plan.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Lake Placid Reservoir Landing #3 and paddle the lower Crow Wing to Crow Wing State Park. The route uses the nearby Sylvan Dam DNR gauge and should be treated as a gentle but real full-day lower-river trip.',
+      accessCaveats: [
+        'Lake Placid Reservoir Landing #3 and the Crow Wing State Park access are public-water-access records, but same-day parking, ramp condition, mud, and park entry rules still control.',
+        'The take-out is at the state-park / Mississippi confluence area. Do not continue onto the Mississippi unless you have planned a separate route and shuttle.',
+        'The Sylvan Dam gauge is in the lower corridor, but make a visual call at Lake Placid because local obstructions, wind, and reservoir/current transitions can vary.',
+      ],
+      watchFor: [
+        'Scraping and slow current when the Sylvan Dam gauge falls toward the scrapable or low bands.',
+        'Wood, sweepers, outside-bend strainers, and fishing boats or bank anglers on bends and at landings.',
+        'Wind or waves near wider reservoir and confluence water, plus cold-water exposure outside midsummer.',
+        'Private shoreland away from public accesses and legal state-park facilities.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lake-placid-reservoir-3',
+        name: 'Lake Placid Reservoir Landing #3',
+        latitude: 46.3166056,
+        longitude: -94.4865461,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'DNR public-water-access record WAS01657 at Crow Wing River mile 11.8.',
+      },
+      {
+        id: 'crow-wing-state-park-access',
+        name: 'Crow Wing State Park public water access',
+        latitude: 46.26827,
+        longitude: -94.3431079,
+        mileFromStart: 11.8,
+        segmentKind: 'transition',
+        note: 'State-park endpoint at the Crow Wing / Mississippi confluence area; do not continue downstream without a separate plan.',
+      },
+    ],
+  },
+  'minnesota-river-judson-riverside-st-peter': {
+    putIn: {
+      name: 'Judson public water access',
+      latitude: 44.2010314,
+      longitude: -94.1947752,
+    },
+    takeOut: {
+      name: 'Riverside Park public water access / St. Peter',
+      latitude: 44.3078703,
+      longitude: -93.9601843,
+    },
+    logistics: {
+      distanceLabel: '27.4 mi',
+      estimatedPaddleTime: 'About 8 hr to 11 hr, strongly dependent on wind, current, stops, and daylight',
+      shuttle:
+        'This is a long two-car shuttle. Stage the take-out at St. Peter Riverside Park first, then drive back to Judson. Consider breaking the day or choosing the shorter Judson-to-Mankato route if wind, heat, daylight, or crew pace is uncertain.',
+      permits:
+        'No route-specific paddling permit is known. Use public accesses, follow posted city and DNR access rules, and respect Minnesota boating and PFD requirements.',
+      camping:
+        'Treat this as a long day route. Nearby public camping exists in the broader Mankato / St. Peter corridor, but no normal on-route river campsite is confirmed for this selected trip.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Launch at Judson and finish at Riverside Park in St. Peter for DNR's long recommended Minnesota River planner. The Judson gauge gives an official stage ladder, but wind, sandbars, mud, and daylight are the real trip-planning constraints.",
+      accessCaveats: [
+        'Judson and Riverside Park are public-water-access records with river-mile support. Inspect both landings before launch because mud, high water, parking, and local events can change usability.',
+        'This route extends beyond the shorter Judson-to-Land-of-Memories day already represented in PaddleToday. Use this card only when the group is prepared for the longer St. Peter finish.',
+        'Do not assume every bank or sandbar is legal for stopping. Stay with public accesses or clearly legal emergency stops.',
+      ],
+      watchFor: [
+        'Wind and waves on open big-river bends, especially later in the day.',
+        'Sandbars, muddy banks, slow current, and fatigue when the Judson gauge is in the low band.',
+        'Floating debris, strainers near outside bends, storm runoff, and faster current when the river rises.',
+        'Sparse exits between the named public accesses and the consequence of missing the St. Peter take-out late in the day.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'judson-access',
+        name: 'Judson public water access',
+        latitude: 44.2010314,
+        longitude: -94.1947752,
+        mileFromStart: 0,
+        segmentKind: 'transition',
+        note: 'DNR public-water-access record WAS02412 at Minnesota River mile 116.0.',
+      },
+      {
+        id: 'riverside-park-st-peter',
+        name: 'Riverside Park public water access / St. Peter',
+        latitude: 44.3078703,
+        longitude: -93.9601843,
+        mileFromStart: 27.4,
+        segmentKind: 'transition',
+        note: 'DNR public-water-access record WAS01017 at Minnesota River mile 89.7.',
+      },
+    ],
+  },
+  'st-croix-river-william-obrien-boomsite': {
+    putIn: {
+      name: "William O'Brien State Park public water access",
+      latitude: 45.2173383,
+      longitude: -92.7589261,
+    },
+    takeOut: {
+      name: 'Boomsite public water access',
+      latitude: 45.0810527,
+      longitude: -92.7999607,
+    },
+    logistics: {
+      distanceLabel: '11.2 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer with headwind, wakes, or low side-channel water',
+      shuttle:
+        "Stage the take-out at Boomsite Landing before launching from William O'Brien State Park. Verify park access, parking, and any lower St. Croix no-wake or high-water restrictions before committing.",
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota and National Scenic Riverway boating rules, posted state-park and public-water-access rules, and state PFD requirements.',
+      camping:
+        "William O'Brien State Park can support base-camping by reservation, but this selected route should be treated as a day trip with a planned Boomsite take-out.",
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Launch at William O'Brien State Park and take out at Boomsite Landing for a lower St. Croix continuation below the existing Osceola-to-William O'Brien route. The St. Croix Falls DNR gauge gives official bands, while wind, wakes, and side-channel depth remain same-day checks.",
+      accessCaveats: [
+        "William O'Brien and Boomsite are public-water-access records. Confirm state-park access, parking, ramp condition, and river level before launching.",
+        'The St. Croix Falls gauge is upstream of this lower-river reach. Use it as the official same-river gauge, but also check wind, wakes, and Stillwater-stage restrictions.',
+        'Take out at Boomsite for this route. Continuing toward Stillwater or the Mississippi changes the route, traffic exposure, and shuttle plan.',
+      ],
+      watchFor: [
+        'Headwind, crosswind, powerboat wakes, and broad-water fatigue on the lower St. Croix.',
+        'Shallow side channels and exposed bars when flow drops toward the low band.',
+        'High or rising water, floating debris, no-wake restrictions, and stronger current near constrictions or landings.',
+        'Private banks and bluff shoreline; use public accesses and legal stops only.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'william-obrien-state-park',
+        name: "William O'Brien State Park public water access",
+        latitude: 45.2173383,
+        longitude: -92.7589261,
+        mileFromStart: 0,
+        segmentKind: 'transition',
+        note: 'DNR public-water-access record WAS00278 at St. Croix River mile 37.0.',
+      },
+      {
+        id: 'boomsite-landing',
+        name: 'Boomsite public water access',
+        latitude: 45.0810527,
+        longitude: -92.7999607,
+        mileFromStart: 11.2,
+        segmentKind: 'transition',
+        note: 'DNR public-water-access record WAS02194 at St. Croix River mile 25.6.',
+      },
+    ],
+  },
 };

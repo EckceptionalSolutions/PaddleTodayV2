@@ -74622,4 +74622,299 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'crow-wing-river-lake-placid-crow-wing-state-park',
+    slug: 'crow-wing-river-lake-placid-crow-wing-state-park',
+    name: 'Crow Wing River',
+    reach: 'Lake Placid Reservoir Landing #3 to Crow Wing State Park',
+    state: 'Minnesota',
+    region: 'Brainerd Lakes Area',
+    summary:
+      'Lower Crow Wing day from Lake Placid Reservoir Landing #3 to the state park at the Mississippi confluence, with official DNR route support, public access records, and a fresh interpreted DNR gauge at Sylvan Dam.',
+    statusText:
+      'The Sylvan Dam gauge is best from 800 to 3,000 cfs. Below 400 cfs, expect scraping and slow travel; above 5,000 cfs, this lower Crow Wing reach is too high for a general recommendation.',
+    latitude: 46.3166056,
+    longitude: -94.4865461,
+    gaugeSource: {
+      id: 'mn-dnr-58',
+      provider: 'mn_dnr',
+      siteId: '58',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Crow Wing River near Pillager, Sylvan Dam',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=12039001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12039001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 800,
+      idealMax: 3000,
+      tooLow: 400,
+      tooHigh: 5000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River near Pillager / Sylvan Dam',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall can work when the lower Crow Wing is above the scrapable band. Summer lows can expose sand and shallow bars, while recent rain can speed current and move wood.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR frames this lower reach as generally gentle, but it is still an 11.8-mile moving-water day with wooded banks, private shoreline, and confluence logistics at the state park.',
+      confidenceNotes:
+        'Confidence is high: MN DNR lists Lake Placid Reservoir Landing #3 to Crow Wing State Park as a recommended 11.8-mile section, public-water-access GIS resolves Lake Placid and the Crow Wing State Park boat landing area, and the Sylvan Dam DNR gauge sits in the lower route corridor with official interpretation bands.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '400 / 800-3000 / 5000 cfs',
+        note: 'MN DNR interprets the Sylvan Dam gauge as Scrapable below 400 cfs, Low from 400 to 800, Medium from 800 to 3,000, High from 3,000 to 5,000, and Very High above 5,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended section',
+        value: '11.8 river miles',
+        note: 'The statewide DNR recommended paddling sections list names Lake Placid Reservoir Landing #3 to Crow Wing State Park as an 11.8-mile Crow Wing route.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS01657 and WAS00990',
+        note: 'Minnesota public-water-access GIS resolves Crow Wing River Lake Placid Reservoir #3 and the Mississippi River Crow Wing State Park public access, matching the state-park confluence take-out context.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Route character',
+        value: 'Gentle lower Crow Wing',
+        note: 'MN DNR describes the Crow Wing as a clear river with undeveloped shoreline, numerous camping options, and few major rapids, while still requiring current water-level checks.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/crow-wing-river/index.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR recommended paddling sections',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Crow Wing River overview',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/crow-wing-river/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'MN DNR Crow Wing State Park',
+        url: 'https://www.dnr.state.mn.us/state_parks/park.html?id=spk00139',
+      },
+    ],
+  },
+  {
+    id: 'minnesota-river-judson-riverside-st-peter',
+    slug: 'minnesota-river-judson-riverside-st-peter',
+    name: 'Minnesota River',
+    reach: 'Judson Access to Riverside Park / St. Peter',
+    state: 'Minnesota',
+    region: 'Minnesota River Valley',
+    summary:
+      'Long official Minnesota River planner from Judson to the Riverside Park millpond access in St. Peter, extending beyond the existing Mankato day route with direct DNR gauge support at Judson.',
+    statusText:
+      'Use the Judson gauge conservatively: 10 to 15 ft is the best DNR band, below 5 ft is scrapable, and above 22 ft is too high for a general recommendation.',
+    latitude: 44.200171,
+    longitude: -94.194231,
+    gaugeSource: {
+      id: 'mn-dnr-95',
+      provider: 'mn_dnr',
+      siteId: '95',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Minnesota River at Judson, CSAH42',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=28054001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=28054001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 10,
+      idealMax: 15,
+      tooLow: 5,
+      tooHigh: 22,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Minnesota River at Judson',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 2,
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the practical window. This longer big-river route should be planned around daylight, wind, heat, and the Judson gauge rather than mileage alone.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The route is not technical at normal levels, but 27.4 miles, wind, sandbars, muddy banks, and sparse exits make it a committed long day or expert-paced outing.',
+      confidenceNotes:
+        'Confidence is good: MN DNR lists Judson to Riverside Park Millpond as a recommended 27.4-mile section, the Judson DNR gauge is at the put-in with official interpretation bands, and public-water-access GIS resolves both Judson and the St. Peter Riverside Park endpoint. The app keeps the long-mileage and wind caveats prominent.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '5 / 10-15 / 22 ft',
+        note: 'MN DNR interprets Judson as Scrapable below 5 ft, Low from 5 to 10, Medium from 10 to 15, High from 15 to 22, and Very High above 22.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended section',
+        value: '27.4 river miles',
+        note: 'The statewide DNR recommended paddling sections list Judson trailer access to Riverside Park Millpond trailer access as a 27.4-mile Minnesota River route.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS02412 and WAS01017',
+        note: 'Minnesota public-water-access GIS resolves Judson at river mile 116.0 and the St. Peter Riverside Park access at river mile 89.7.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Long-route caveat',
+        value: 'Big-river exposure',
+        note: 'DNR materials for the Minnesota River emphasize current river levels, wind, waves, sandbars, and planned public accesses; this route extends past the shorter Mankato route and should be treated as a long planner.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR recommended paddling sections',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR Minnesota River segments and maps',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/minnesota-river/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Minnesota River Map 5 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota5.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'st-croix-river-william-obrien-boomsite',
+    slug: 'st-croix-river-william-obrien-boomsite',
+    name: 'St. Croix River',
+    reach: "William O'Brien State Park Landing to Boomsite Landing",
+    state: 'Minnesota',
+    region: 'Lower St. Croix',
+    summary:
+      "Lower St. Croix continuation from William O'Brien State Park to Boomsite Landing, using official DNR recommended-section mileage, public access records, and the interpreted St. Croix Falls gauge.",
+    statusText:
+      'The St. Croix Falls gauge is best from 3,000 to 8,000 cfs. Below 2,000 cfs is scrapable, and above 11,000 cfs is too high for a general recommendation.',
+    latitude: 45.2173383,
+    longitude: -92.7589261,
+    gaugeSource: {
+      id: 'mn-dnr-236',
+      provider: 'mn_dnr',
+      siteId: '236',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'St. Croix River at St. Croix Falls, WI',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=37048002',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=37048002&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3000,
+      idealMax: 8000,
+      tooLow: 2000,
+      tooHigh: 11000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for St. Croix River at St. Croix Falls',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 2,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the normal lower-river window. Summer can work, but wind, wakes, shallow side channels, and no-wake restrictions at high Stillwater stage can matter as much as the St. Croix Falls flow.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The current is usually approachable, but the route is broad lower-river water with powerboats, wind exposure, side channels, and a mandatory public take-out at Boomsite.',
+      confidenceNotes:
+        "Confidence is high for route shape and access: DNR lists William O'Brien to Boomsite as a recommended 11.2-mile section, public-water-access GIS resolves both endpoints, and the St. Croix Falls DNR gauge publishes official bands. The gauge is upstream, so the route copy also calls out Stillwater-stage and same-day wind/wake checks.",
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '2000 / 3000-8000 / 11000 cfs',
+        note: 'MN DNR interprets St. Croix Falls as Scrapable below 2,000 cfs, Low from 2,000 to 3,000, Medium from 3,000 to 8,000, High from 8,000 to 11,000, and Very High above 11,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended section',
+        value: '11.2 river miles',
+        note: "The statewide DNR recommended paddling sections list William O'Brien State Park Landing to Boom Site Landing as an 11.2-mile St. Croix route.",
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'Public access records',
+        value: 'WAS00278 and WAS02194',
+        note: "Minnesota public-water-access GIS resolves William O'Brien State Park at river mile 37.0 and Boomsite Landing at river mile 25.6.",
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Lower-river caution',
+        value: 'Wind, wakes, and no-wake stage',
+        note: 'The DNR Stillwater gauge note points paddlers to slow-no-wake rules, and the lower St. Croix corridor requires same-day wind and powerboat checks.',
+        sourceUrl: 'https://www.dnr.state.mn.us/safety/boatwater/nowake/index.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR recommended paddling sections',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways',
+      },
+      {
+        label: 'MN DNR St. Croix River State Water Trail',
+        url: 'https://www.dnr.state.mn.us/state-water-trails/st-croix-river/index.html',
+      },
+      {
+        label: 'MN DNR lower St. Croix Map 10 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/stcroix10.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'MN DNR slow no-wake restrictions',
+        url: 'https://www.dnr.state.mn.us/safety/boatwater/nowake/index.html',
+      },
+    ],
+  },
 ];
