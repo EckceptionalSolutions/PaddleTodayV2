@@ -12891,6 +12891,192 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'platte-river-airport-platte-road': {
+    putIn: {
+      id: 'airport-road-bridge',
+      name: 'Airport Road Bridge access',
+      latitude: 42.78357,
+      longitude: -90.609,
+    },
+    takeOut: {
+      id: 'platte-road-bridge',
+      name: 'Platte Road Bridge access',
+      latitude: 42.76273,
+      longitude: -90.61322,
+    },
+    logistics: {
+      distanceLabel: '5.0 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr depending on level, fence delays, and stops',
+      shuttle:
+        'Use a short rural Grant County two-car shuttle from Platte Road back to Airport Road. Inspect both bridge-area landings before launching because neither is a developed park landing.',
+      permits:
+        'No route-specific paddling permit is known. Use only legal bridge-area access, keep vehicles clear of farm traffic, and obey current signs or landowner restrictions.',
+      camping:
+        'No on-route camping is documented. Treat this as a day trip and use a separately reserved nearby campground in Platteville, Grant River Recreation Area, Nelson Dewey State Park, or another legal basecamp.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Airport Road Bridge and finish at Platte Road Bridge for a short riffly Platte River section above the established Platte Road route family.',
+      accessCaveats: [
+        'Wisconsin River Trips describes bridge-area access with okay parking at Airport Road and a tougher, muddy Platte Road exit with good parking nearby.',
+        'Miles Paddled publishes GPS points for the Airport Road and Platte Road bridge accesses in the Platte route family.',
+        'The Rockville gauge is downstream of this short reach, so pair the 3.5 ft floor with a visual check for scraping, fences, fresh wood, and landing condition.',
+      ],
+      watchFor: [
+        'Two barbed-wire or electric-fence hazards described in the Airport-to-Platte segment.',
+        'Shallow riffles, cattle-bank damage, private banks, muddy exits, and farm debris.',
+        'Fast rises after rain, when fences and strainers can become much more consequential.',
+        'Cold water in spring and fall, plus limited clean exits between the two bridges.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'airport-road-bridge',
+        name: 'Airport Road Bridge access',
+        latitude: 42.78357,
+        longitude: -90.609,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Bridge-area put-in west of Ellenboro; scout parking and current signs before unloading.',
+      },
+      {
+        id: 'platte-road-bridge',
+        name: 'Platte Road Bridge access',
+        latitude: 42.76273,
+        longitude: -90.61322,
+        mileFromStart: 5,
+        segmentKind: 'creek',
+        note: 'Default take-out for this short card; the landing can be steep, muddy, and weedy.',
+      },
+    ],
+  },
+  'platte-river-platte-road-big-platte': {
+    putIn: {
+      id: 'platte-road-bridge',
+      name: 'Platte Road Bridge access',
+      latitude: 42.76278,
+      longitude: -90.61334,
+    },
+    takeOut: {
+      id: 'big-platte-road-bridge',
+      name: 'Big Platte Road Bridge access',
+      latitude: 42.69941,
+      longitude: -90.63872,
+    },
+    logistics: {
+      distanceLabel: '8.25 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr depending on water, stops, and wood/fence checks',
+      shuttle:
+        'Use a two-car shuttle between Big Platte Road and Platte Road. Stage Big Platte first, then confirm the Platte Road put-in path and parking before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Respect current bridge parking, farm traffic, and private-bank boundaries at both accesses.',
+      camping:
+        'No legal on-route camping is documented. Use a nearby legal campground or lodging basecamp rather than assuming gravel-bar or private-bank camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Platte Road and paddle the signature Platte riffle chain to Big Platte Road. This is the most scenic and concentrated Platte River day, with constant riffles and bluff/farm-valley scenery.',
+      accessCaveats: [
+        'Miles Paddled documents Platte Road-to-Big Platte Road at 8.25 miles with GPS endpoints.',
+        'Wisconsin River Trips corroborates the Platte Road-to-Big Platte chain and describes a good Big Platte Road access, while still warning about low/high-water limits.',
+        'The Rockville gauge is downstream. Use it as a same-river screen, then make a local call on strainers, scraping, wires, cattle, and landing condition.',
+      ],
+      watchFor: [
+        'Continuous riffles, light Class I waves, tight bends, and occasional push into strainers.',
+        'Wire or fence hazards, livestock in the channel, private banks, muddy bridge exits, and agricultural debris.',
+        'Low-water dragging when Rockville drops below the floor, and more serious wood/fence consequences when water is high or rising.',
+        'Limited bailout options; stay with named bridge accesses unless there is an emergency.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'platte-road-bridge',
+        name: 'Platte Road Bridge access',
+        latitude: 42.76278,
+        longitude: -90.61334,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; expect a bridge-area path rather than a developed landing.',
+      },
+      {
+        id: 'county-road-b-bridge',
+        name: 'County Road B bridge area',
+        latitude: 42.73119,
+        longitude: -90.63999,
+        mileFromStart: 5,
+        segmentKind: 'creek',
+        note: 'Intermediate bridge landmark from the Miles Paddled alternate trip; do not assume clean public parking without a same-day check.',
+      },
+      {
+        id: 'big-platte-road-bridge',
+        name: 'Big Platte Road Bridge access',
+        latitude: 42.69941,
+        longitude: -90.63872,
+        mileFromStart: 8.25,
+        segmentKind: 'creek',
+        note: 'Default take-out for the full Platte Road-to-Big Platte Road card.',
+      },
+    ],
+  },
+  'platte-river-big-platte-banfield-bridge': {
+    putIn: {
+      id: 'big-platte-road-bridge',
+      name: 'Big Platte Road Bridge access',
+      latitude: 42.69959,
+      longitude: -90.63857,
+    },
+    takeOut: {
+      id: 'banfield-bridge-recreation-area',
+      name: 'Banfield Bridge Recreation Area',
+      latitude: 42.63088,
+      longitude: -90.65301,
+    },
+    logistics: {
+      distanceLabel: '8.5 mi',
+      estimatedPaddleTime:
+        'About 2.5 hr to 4 hr, longer with wind, low water, or slow lower-river current',
+      shuttle:
+        'Use a two-car shuttle from Banfield Bridge Recreation Area back to Big Platte Road. Confirm the Banfield exit before launching because continuing downstream changes the trip into a Mississippi River plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow current Grant County, bridge-area, and recreation-area signs, and keep vehicles out of farm and emergency access lanes.',
+      camping:
+        'No on-route camping is documented for this card. Use nearby legal basecamp options such as Grant River Recreation Area, Nelson Dewey State Park, Wyalusing State Park, or Platteville lodging/camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Big Platte Road and finish at Banfield Bridge Recreation Area for the lower Platte day. The reach has fewer riffles than upstream but remains a distinct Grant County paddle toward Mississippi backwater.',
+      accessCaveats: [
+        'Miles Paddled publishes exact GPS endpoints and an 8.5-mile Big Platte-to-Banfield route report.',
+        'Wisconsin River Trips overview corroborates the lower Big Platte Road / Highway O / Indian Creek corridor and warns that Mississippi continuation requires separate planning.',
+        'The Rockville gauge is a same-river screen, but lower-river wind, slow current, backwater, and landing condition can drive the day.',
+      ],
+      watchFor: [
+        'Shallow riffles in the first miles, then slower lower-river current and possible wind exposure.',
+        'Private banks, cattle or farm debris, strainers, muddy exits, cold water, and limited legal stops.',
+        'Backwater influence near the mouth; do not continue to the Mississippi without a separate access and big-river safety plan.',
+        'Scraping when Rockville falls below the floor, and pushier wood/fence hazards after heavy rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'big-platte-road-bridge',
+        name: 'Big Platte Road Bridge access',
+        latitude: 42.69959,
+        longitude: -90.63857,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the lower Platte card.',
+      },
+      {
+        id: 'banfield-bridge-recreation-area',
+        name: 'Banfield Bridge Recreation Area',
+        latitude: 42.63088,
+        longitude: -90.65301,
+        mileFromStart: 8.5,
+        segmentKind: 'transition',
+        note: 'Default take-out near Indian Creek Road / Banfield Bridge; continuing downstream needs a separate Mississippi River plan.',
+      },
+    ],
+  },
   'pine-river-edgetts-lincoln': {
     putIn: {
       id: 'edgetts',

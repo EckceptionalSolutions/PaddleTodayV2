@@ -4,16 +4,22 @@ Last summarized: 2026-07-15.
 
 ## Current Inventory
 
-- Live routes: 89.
-- Top represented rivers: Wisconsin River 13, Wolf River 5, Milwaukee River 5, Peshtigo River 5, Chippewa River 4, Bois Brule River 4, Pine River 4, Namekagon River 4, Baraboo River 3, Sugar River 3, Black River 3, Brule River 3, Grant River 3.
-- Ledger candidates: 84 total; 74 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
+- Live routes: 92.
+- Top represented rivers: Wisconsin River 13, Wolf River 5, Milwaukee River 5, Peshtigo River 5, Chippewa River 4, Bois Brule River 4, Pine River 4, Namekagon River 4, Baraboo River 3, Sugar River 3, Black River 3, Brule River 3, Grant River 3, Platte River 3.
+- Ledger candidates: 87 total; 77 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three upstream/middle Namekagon Riverway splits beyond the 86-route baseline: `namekagon-river-hayward-stinnett`, `namekagon-river-stinnett-springbrook`, and `namekagon-river-springbrook-big-bend`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three Platte River / Grant County splits beyond the 89-route baseline: `platte-river-airport-platte-road`, `platte-river-platte-road-big-platte`, and `platte-river-big-platte-banfield-bridge`.
 
 ## Latest Audit
 
+- 2026-07-15 America/Chicago: added `platte-river-airport-platte-road`, `platte-river-platte-road-big-platte`, and `platte-river-big-platte-banfield-bridge`, bringing the live Wisconsin route count to 92.
+- The three routes fill a new Grant County Platte River family that was absent from the live Wisconsin inventory. Travel Wisconsin identifies the Platte as navigable from Ellenboro to the Mississippi with Class I rapids and multiple access points; Wisconsin River Trips documents the Airport-to-Platte and Platte-to-Big-Platte segment chain, bridge-access conditions, hazards, and Rockville-gauge observations; Miles Paddled publishes endpoint GPS points for Airport Road, Platte Road, Big Platte Road, and Banfield Bridge and ties the Platte route family to the Rockville USGS gauge.
+- Threshold posture is conservative minimum-only: all three use USGS `05414000` Platte River near Rockville with a 3.5 ft low-water floor from Miles Paddled's Platte guide. USGS Water Services returned 147 cfs / 4.60 ft at 2026-07-15 00:00 CDT during this run. No official upper cutoff was found or invented; the cards retain high/rising-water caveats for fences, wood, access, and private banks.
+- Safety/logistics added: bridge-area access and parking checks, barbed-wire/electric-fence hazards on the Airport-to-Platte segment, continuous riffles/Class I current, livestock/cattle-bank damage, strainers/wood, low-water scraping, farm/private banks, cold water, backwater/wind near Banfield, no casual continuation to the Mississippi, and nearby-basecamp camping posture only.
+- Bounded image review found no clearly rights-clean exact-route paddling image for the three Platte splits; rows were added to the image audit instead of adding local route-gallery assets.
+- Reviewed but did not add or revive St. Croix / Namekagon follow-ons because exact live-gauge threshold support was weaker or already represented; Oconto North Branch Bagley Rapids remains held because calculated-flow and wood/chute clearance remain unresolved; Black Earth Creek Cross Plains-to-Salmo Pond remains blocked by unresolved obstruction evidence; and Coon Hollow-to-Highway A was avoided because access and high-water dependence are weaker than the selected Platte reaches.
 - 2026-07-15 America/Chicago: added `namekagon-river-hayward-stinnett`, `namekagon-river-stinnett-springbrook`, and `namekagon-river-springbrook-big-bend`, bringing the live Wisconsin route count to 89.
 - The three routes fill the public Namekagon Hayward-to-Big-Bend gap upstream of existing `namekagon-river-big-bend-trego`. They use Wisconsin Trail Guide N2/N3 WGS84 endpoint coordinates and access/camping/hazard notes, NPS Namekagon Section Map 2 and official current-condition bands, American Whitewater broad-reach landing/gauge corroboration, and USGS `05331833` at Leonards.
 - Threshold posture is conservative minimum-only: NPS lists Leonards normal level as 150-230 cfs and high above 650 cfs, while American Whitewater corroborates the same USGS gauge with a 90-500 cfs recommended band. The run-time USGS Water Services check returned 64.2 cfs / 1.49 ft at 2026-07-14 23:00 CDT, below the accepted floor, so the cards ship as live low-water warnings until levels recover.

@@ -38194,6 +38194,370 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'platte-river-airport-platte-road',
+    slug: 'platte-river-airport-platte-road',
+    name: 'Platte River',
+    reach: 'Airport Road Bridge to Platte Road Bridge',
+    aliases: ['Airport Road to Platte Road', 'Platte River - Ellenboro'],
+    state: 'Wisconsin',
+    region: 'Southwest Wisconsin',
+    summary:
+      'Short Driftless Platte River day from Airport Road to Platte Road, with continuous riffles, Class I character, barbed-wire/farm-bank caveats, and the Rockville gauge as a same-river low-water screen.',
+    statusText:
+      'Use the Platte River at Rockville gauge. Treat 3.5 ft as the conservative low-water floor; below that expect scraping, and do not infer a safe high-water ceiling from the app.',
+    latitude: 42.78357,
+    longitude: -90.609,
+    gaugeSource: {
+      id: 'usgs-05414000',
+      provider: 'usgs',
+      siteId: '05414000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Platte River near Rockville, WI',
+      detailUrl:
+        'https://waterdata.usgs.gov/monitoring-location/USGS-05414000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 3.5,
+      thresholdSource: {
+        label: 'Miles Paddled Platte River guide Rockville-gauge low-water floor',
+        url: 'https://milespaddled.com/platte-river-paddle-guide/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring and fall usually give the best combination of water and visibility. Summer can work after rain, but the Platte drains quickly, and high water raises the consequence of fences, wood, and tight riffles.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Wisconsin River Trips calls this a five-mile Class I/riffle run, but barbed-wire fences, farm banks, shallow ledges, and limited public exits make it more than a passive beginner float.',
+      confidenceNotes:
+        'Confidence is good for a guarded community-source add: Wisconsin River Trips documents Airport Road Bridge to Platte Road Bridge at 5 miles with Rockville-gauge observation and access notes; Miles Paddled publishes the Airport Road and Platte Road GPS points, and its Platte guide ties the family to the Rockville gauge with a 3.5 ft floor; Travel Wisconsin recognizes the Platte as a navigable Grant County riverway with Class I rapids and multiple access points; and USGS 05414000 provides live same-river data. The app uses a proxy and minimum-only model because no trusted upper cutoff was found for this exact short reach.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Scout the Airport Road and Platte Road bridge accesses from the road before launching; both are bridge-area landings rather than developed parks.',
+        'Expect shallow riffles, barbed-wire or farm fence hazards, cattle-bank damage, private banks, and possible new wood after storms.',
+        'Do not treat a gauge above the 3.5 ft floor as an all-clear. Rising or high water can make fences, strainers, and tight bends more consequential.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Segment corroboration',
+        value: 'Airport Road to Platte Road; 5.0 mi',
+        note: 'Wisconsin River Trips documents the exact Airport Road Bridge-to-Platte Road Bridge run, including mileage, riffles, access notes, and a Rockville-gauge observation.',
+        sourceUrl:
+          'https://www.wisconsinrivertrips.com/segments/platte-river/ellenboro',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.78357, -90.60900 to 42.76273, -90.61322',
+        note: 'Miles Paddled publishes GPS points for Airport Road Bridge and Platte Road Bridge in the Platte River family notes.',
+        sourceUrl: 'https://milespaddled.com/platte-river-ii/',
+      },
+      {
+        label: 'Threshold support',
+        value: '3.5 ft conservative floor at Rockville',
+        note: 'Miles Paddled says to check the Rockville USGS gauge, prefer at least 3.5 ft, and expect dicey scraping below that; 4 ft is better.',
+        sourceUrl: 'https://milespaddled.com/platte-river-paddle-guide/',
+      },
+      {
+        label: 'Official tourism context',
+        value: 'Navigable Grant County Class I riverway',
+        note: 'Travel Wisconsin describes the Platte as navigable from Ellenboro to the Mississippi, with frequent changes from quiet water to Class I rapids and multiple access points.',
+        sourceUrl:
+          'https://www.travelwisconsin.com/outdoors/on-the-water/platte-river',
+      },
+      {
+        label: 'Live gauge',
+        value: '147 cfs / 4.60 ft at 2026-07-15 00:00 CDT',
+        note: 'USGS Water Services returned current provisional discharge and gage height for Platte River near Rockville during this run.',
+        sourceUrl:
+          'https://waterdata.usgs.gov/monitoring-location/USGS-05414000/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Platte River - Ellenboro',
+        url: 'https://www.wisconsinrivertrips.com/segments/platte-river/ellenboro',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Miles Paddled Platte River paddle guide',
+        url: 'https://milespaddled.com/platte-river-paddle-guide/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Miles Paddled Platte River II',
+        url: 'https://milespaddled.com/platte-river-ii/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Travel Wisconsin Platte River',
+        url: 'https://www.travelwisconsin.com/outdoors/on-the-water/platte-river',
+        provider: 'local',
+      },
+      {
+        label: 'Grant County boating and tubing',
+        url: 'https://grantcounty.org/tourism/outdoor-activities/canoe-and-boat-rental/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05414000 Platte River near Rockville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05414000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'platte-river-platte-road-big-platte',
+    slug: 'platte-river-platte-road-big-platte',
+    name: 'Platte River',
+    reach: 'Platte Road Bridge to Big Platte Road Bridge',
+    aliases: ['Platte River III', 'Platte Road to Big Platte Road'],
+    state: 'Wisconsin',
+    region: 'Southwest Wisconsin',
+    summary:
+      'Signature Platte River riffle run from Platte Road to the lower Big Platte Road access, linking bluff views, Class I riffles, rock outcrops, and farm-valley hazards.',
+    statusText:
+      'Use the Platte River at Rockville gauge. Treat 3.5 ft as the conservative low-water floor; below that expect dragging, and high water needs a fence/wood/access check before launch.',
+    latitude: 42.76278,
+    longitude: -90.61334,
+    gaugeSource: {
+      id: 'usgs-05414000',
+      provider: 'usgs',
+      siteId: '05414000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Platte River near Rockville, WI',
+      detailUrl:
+        'https://waterdata.usgs.gov/monitoring-location/USGS-05414000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 3.5,
+      thresholdSource: {
+        label: 'Miles Paddled Platte River guide and Platte Road route notes',
+        url: 'https://milespaddled.com/platte-river-paddle-guide/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Plan around recent rain, but avoid treating a rising river as a shortcut to quality. The lower Platte holds water better than the headwaters, yet strainers and fences become more serious when the narrow valley is pushy.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Miles Paddled rates the reach beginner riffles, but the 8.25-mile length, constant current, tight turns, strainers, wires, livestock, and bridge-area exits make it a moderate planning route.',
+      confidenceNotes:
+        'Confidence is strong for this route family: Miles Paddled documents Platte Road-to-Big Platte Road with endpoint GPS points, 8.25-mile distance, riffle/Class I character, and a Rockville-gauge observed level; its Platte guide gives a 3.5 ft Rockville floor; Wisconsin River Trips corroborates the Platte Road-to-Big Platte chain, access quality, hazards, and river-level cautions; Travel Wisconsin and Grant County tourism corroborate the Platte as a recognized county paddling river; and USGS 05414000 provides live same-river data. The app remains minimum-only because source opinions vary on high water and no official upper cutoff exists.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Use the Platte Road and Big Platte Road bridge areas only where current signage and landowner conditions allow public access.',
+        'Watch for tight turns, strainers, livestock, wires across the channel, shallow riffles, and private farm banks.',
+        'The Rockville gauge is downstream of the selected reach, so pair it with a visual check for scraping, fresh wood, and landing condition at both bridges.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published route report',
+        value: 'Platte Road to Big Platte Road; 8.25 mi',
+        note: 'Miles Paddled documents Platte River III from Platte Road to Big Platte Road, including distance, endpoint GPS points, riffles, Class I character, and access notes.',
+        sourceUrl: 'https://milespaddled.com/platte-river-iii/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.76278, -90.61334 to 42.69941, -90.63872',
+        note: 'Miles Paddled publishes GPS points for the Platte Road put-in and Big Platte Road take-out.',
+        sourceUrl: 'https://milespaddled.com/platte-river-iii/',
+      },
+      {
+        label: 'Threshold support',
+        value: '3.5 ft conservative floor at Rockville',
+        note: 'Miles Paddled recommends checking the Rockville USGS gauge and treating at least 3.5 ft as the practical floor for the Platte River family.',
+        sourceUrl: 'https://milespaddled.com/platte-river-paddle-guide/',
+      },
+      {
+        label: 'Segment corroboration',
+        value: 'Platte Road to Big Platte Road chain',
+        note: 'Wisconsin River Trips documents the Platte Road-to-Big Platte Road corridor, describes good Big Platte Road access, and warns that the river can still become too low or too high.',
+        sourceUrl:
+          'https://www.wisconsinrivertrips.com/segments/platte-river/platte-road',
+      },
+      {
+        label: 'Live gauge',
+        value: '147 cfs / 4.60 ft at 2026-07-15 00:00 CDT',
+        note: 'USGS Water Services returned current provisional discharge and gage height for Platte River near Rockville during this run.',
+        sourceUrl:
+          'https://waterdata.usgs.gov/monitoring-location/USGS-05414000/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Miles Paddled Platte River III',
+        url: 'https://milespaddled.com/platte-river-iii/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Miles Paddled Platte River paddle guide',
+        url: 'https://milespaddled.com/platte-river-paddle-guide/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Wisconsin River Trips Platte Road',
+        url: 'https://www.wisconsinrivertrips.com/segments/platte-river/platte-road',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin River Trips Platte River overview',
+        url: 'https://www.wisconsinrivertrips.com/segments/platte-river',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Travel Wisconsin Platte River',
+        url: 'https://www.travelwisconsin.com/outdoors/on-the-water/platte-river',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05414000 Platte River near Rockville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05414000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'platte-river-big-platte-banfield-bridge',
+    slug: 'platte-river-big-platte-banfield-bridge',
+    name: 'Platte River',
+    reach: 'Big Platte Road Bridge to Banfield Bridge Recreation Area',
+    aliases: ['Platte River IV', 'Big Platte Road to Indian Creek Road'],
+    state: 'Wisconsin',
+    region: 'Southwest Wisconsin',
+    summary:
+      'Lower Platte River day from Big Platte Road to Banfield Bridge Recreation Area, trading the upstream constant riffles for a quieter Driftless finish near the Mississippi backwater.',
+    statusText:
+      'Use the Platte River at Rockville gauge. Treat 3.5 ft as the conservative low-water floor; below that expect scraping, while wind and backwater can dominate the lower miles.',
+    latitude: 42.69959,
+    longitude: -90.63857,
+    gaugeSource: {
+      id: 'usgs-05414000',
+      provider: 'usgs',
+      siteId: '05414000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Platte River near Rockville, WI',
+      detailUrl:
+        'https://waterdata.usgs.gov/monitoring-location/USGS-05414000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 3.5,
+      thresholdSource: {
+        label: 'Miles Paddled Platte River IV and Platte guide Rockville guidance',
+        url: 'https://milespaddled.com/platte-river-iv/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      windSensitivity: 1.2,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This lower reach can be practical when the upstream Platte is scratchy, but it still depends on recent water. Wind, slow current, and Mississippi backwater become more important near the Banfield finish.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route has only a few early riffles and fewer bridges than upstream, but the 8.5-mile commitment, private banks, lower-current miles, and bridge-area access still need a real shuttle plan.',
+      confidenceNotes:
+        'Confidence is good for the lower Platte: Miles Paddled documents Big Platte Road-to-Banfield Bridge Recreation Area with endpoint GPS points, 8.5 miles, observed Rockville gauge level, and practical route notes; the broader Miles Paddled guide gives a 3.5 ft Rockville floor; Wisconsin River Trips overview corroborates the Big Platte-to-Indian Creek lower corridor; Travel Wisconsin recognizes the Platte as a navigable Grant County riverway; and USGS 05414000 provides live same-river data. The app uses minimum-only because the exact source recommends the observed lower-water level but does not provide a trusted upper cutoff.',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Confirm Big Platte Road and Banfield Bridge Recreation Area access, parking, and signs before launching.',
+        'Expect private banks, shallow riffles early, slower lower water, possible wood, cattle/farm-bank debris, wind, and Mississippi backwater influence near the finish.',
+        'Do not continue toward the Mississippi without a separate big-river plan and a confirmed downstream take-out.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published route report',
+        value: 'Big Platte Road to Banfield Bridge; 8.5 mi',
+        note: 'Miles Paddled documents Platte River IV from Big Platte Road to Banfield Bridge Recreation Area, including GPS endpoints, mileage, lower-river character, and observed Rockville gauge level.',
+        sourceUrl: 'https://milespaddled.com/platte-river-iv/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.69959, -90.63857 to 42.63088, -90.65301',
+        note: 'Miles Paddled publishes GPS points for the Big Platte Road put-in and Banfield Bridge Recreation Area take-out.',
+        sourceUrl: 'https://milespaddled.com/platte-river-iv/',
+      },
+      {
+        label: 'Threshold support',
+        value: '3.5 ft conservative floor at Rockville',
+        note: 'The broader Miles Paddled Platte guide recommends checking the Rockville gauge and keeping the route family at or above 3.5 ft to avoid an overly scrapey day.',
+        sourceUrl: 'https://milespaddled.com/platte-river-paddle-guide/',
+      },
+      {
+        label: 'Lower-corridor corroboration',
+        value: 'Big Platte Road to Indian Creek Road pieces',
+        note: 'Wisconsin River Trips overview breaks the lower Platte into Big Platte Road, Highway O, Indian Creek Road, and mouth segments, with Mississippi options requiring separate planning.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/platte-river',
+      },
+      {
+        label: 'Live gauge',
+        value: '147 cfs / 4.60 ft at 2026-07-15 00:00 CDT',
+        note: 'USGS Water Services returned current provisional discharge and gage height for Platte River near Rockville during this run.',
+        sourceUrl:
+          'https://waterdata.usgs.gov/monitoring-location/USGS-05414000/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Miles Paddled Platte River IV',
+        url: 'https://milespaddled.com/platte-river-iv/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Miles Paddled Platte River paddle guide',
+        url: 'https://milespaddled.com/platte-river-paddle-guide/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Wisconsin River Trips Platte River overview',
+        url: 'https://www.wisconsinrivertrips.com/segments/platte-river',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Travel Wisconsin Platte River',
+        url: 'https://www.travelwisconsin.com/outdoors/on-the-water/platte-river',
+        provider: 'local',
+      },
+      {
+        label: 'Grant County boating and tubing',
+        url: 'https://grantcounty.org/tourism/outdoor-activities/canoe-and-boat-rental/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05414000 Platte River near Rockville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05414000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'pine-river-edgetts-lincoln',
     slug: 'pine-river-edgetts-lincoln',
     name: 'Pine River',
