@@ -1746,6 +1746,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'NPS asset: public domain',
     },
   ],
+  'buffalo-river-kyles-landing-ozark': [
+    {
+      id: 'buffalo-river-kyles-ozark-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River bends through a forested Ozark bluff corridor like the longer Kyle\'s Landing to Ozark continuation.',
+      caption: 'Upper Buffalo River corridor below Kyle\'s Landing',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'buffalo-river-erbie-pruitt': [
+    {
+      id: 'buffalo-river-erbie-pruitt-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River runs between wooded bluffs in the Erbie to Pruitt corridor.',
+      caption: 'Buffalo River corridor between Erbie and Pruitt',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'buffalo-river-ozark-hasty': [
+    {
+      id: 'buffalo-river-ozark-hasty-pruitt-commons',
+      src: '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+      alt: 'The Buffalo River flows past Pruitt Landing with wooded Ozark hills above the bank.',
+      caption: 'Buffalo River at Pruitt Landing',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
   'buffalo-river-ozark-pruitt': [
     {
       id: 'buffalo-river-ozark-pruitt-corridor-nps',

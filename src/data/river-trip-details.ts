@@ -14659,6 +14659,123 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'buffalo-river-kyles-landing-ozark': {
+    putIn: {
+      id: 'kyles-landing',
+      name: "Kyle's Landing campground / river access",
+      latitude: 36.055756,
+      longitude: -93.2813,
+    },
+    takeOut: {
+      id: 'ozark-access',
+      name: 'Ozark Campground / river access',
+      latitude: 36.062132,
+      longitude: -93.159724,
+    },
+    logistics: {
+      distanceLabel: 'About 11.1 mi',
+      estimatedPaddleTime: 'About 6 hr to 7 hr, longer with low water, wood, or stops',
+      shuttle:
+        "Stage the take-out at Ozark, then drive back to Kyle's Landing. NPS says the component shuttles are about 1 hour from Kyle's Landing to Erbie and 30 minutes from Erbie to Ozark, so expect a longer upper-district shuttle on gravel roads and inspect both landings before launching.",
+      permits:
+        'No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check park alerts, weather, and river level before launching.',
+      camping:
+        "Kyle's Landing and Ozark are both formal NPS campgrounds, so this continuation works well as a campground-to-campground Buffalo day if the group wants overnight support at either end instead of forcing a same-morning shuttle.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Kyle's Landing and take out at Ozark for a longer upper Buffalo continuation through the Erbie corridor. Use the Pruitt USGS gauge as the nearest downstream low-water check, and skip the route when the river is rising fast, very low, or above the NPS unsafe level.",
+      accessCaveats: [
+        "Kyle's Landing is a remote upper-district access reached by rough park road. NPS recommends high clearance and four-wheel drive for Kyle's Landing Road.",
+        'Ozark is a developed campground access, but the sandy beach and parking rhythm can shift with water, gravel movement, and summer crowding.',
+        'NPS says no road follows the river, access roads may be unpaved or rocky, and GPS can be unreliable in the park. Carry a real map and do not assume cell service.',
+        'This route uses the Pruitt gauge as a downstream corridor check with minimum-only scoring. It is not a full ideal-range recommendation.',
+      ],
+      watchFor: [
+        'Swift current, sharp bends, occasional obstacles, strainers, sweepers, fresh flood wood, and cold-water swims.',
+        'Low water below about 100 cfs at Pruitt, when the Float Guide marks Pruitt very low and dragging or shallow braid-finding become likely.',
+        'High water above the NPS 2,000 cfs Pruitt unsafe level; do not treat flood or rising water as suitable private-boater conditions.',
+        'Upper-district remoteness, rough-road shuttle delays, limited or no cell service, and a longer day than the shorter Kyles or Erbie splits.',
+      ],
+    },
+  },
+  'buffalo-river-erbie-pruitt': {
+    putIn: {
+      id: 'erbie-access',
+      name: 'Erbie Campground / river access',
+      latitude: 36.070346,
+      longitude: -93.211886,
+    },
+    takeOut: {
+      id: 'pruitt-launch',
+      name: 'Pruitt Landing / Highway 7 access',
+      latitude: 36.057666,
+      longitude: -93.135032,
+    },
+    logistics: {
+      distanceLabel: 'About 7.6 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr, longer with low water, wood, or gravel-bar stops',
+      shuttle:
+        'Stage the take-out at Pruitt Landing, then drive back to Erbie. NPS says the component shuttles are about 30 minutes from Erbie to Ozark and 15 minutes from Ozark to Pruitt, but upper Buffalo park roads can still be slow, rough, or muddy after storms. Inspect both accesses before launching.',
+      permits:
+        'No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check park alerts, weather, and river level before launching.',
+      camping:
+        'Erbie is a formal NPS campground and Pruitt is a major developed access, so this route works well as a campground-backed day float without implying an overnight on private banks.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Erbie and take out at Pruitt for a compact upper Buffalo continuation below Ozark. Use the direct Pruitt USGS gauge as the low-water check, and skip the route when the river is rising fast, very low, or above the NPS unsafe level.',
+      accessCaveats: [
+        'Erbie and Pruitt are signed NPS accesses, but the roads and parking can still be muddy, crowded, or slow after storms and during summer weekends.',
+        'NPS says to continue about half a mile past the Highway 7 bridge to reach Pruitt Landing on river left. Do not mistake the bridge area for the signed take-out.',
+        'NPS says no road follows the river, access roads may be unpaved or rocky, and GPS can be unreliable in the park. Carry a real map and do not assume cell service.',
+        'This route uses the direct Pruitt gauge with minimum-only scoring. It is not a full ideal-range recommendation.',
+      ],
+      watchFor: [
+        'Bouncy riffles, bluff eddies, strainers, sweepers, fresh flood wood, and cold-water swims.',
+        'Low water below about 100 cfs at Pruitt, when the Float Guide marks Pruitt very low and dragging or rocky shallows become likely.',
+        'High water above the NPS 2,000 cfs Pruitt unsafe level; do not treat flood or rising water as suitable private-boater conditions.',
+        'Limited or no cell service, upper-district weather swings, and campground or Highway 7 congestion around busy weekends.',
+      ],
+    },
+  },
+  'buffalo-river-ozark-hasty': {
+    putIn: {
+      id: 'ozark-access',
+      name: 'Ozark Campground / river access',
+      latitude: 36.062132,
+      longitude: -93.159724,
+    },
+    takeOut: {
+      id: 'hasty-access',
+      name: 'Hasty river access / Chimney Rock Bluff take-out',
+      latitude: 36.008993,
+      longitude: -93.08242,
+    },
+    logistics: {
+      distanceLabel: 'About 8.9 to 9.1 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr at moderate water, longer with low water, wood, or stops',
+      shuttle:
+        'Stage the take-out at Hasty, then drive back to Ozark. NPS says the component shuttles are about 15 minutes from Ozark to Pruitt and about 25 minutes from Pruitt to Hasty, but river roads and loading traffic can still slow the day. Inspect both accesses before launching.',
+      permits:
+        'No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check park alerts, weather, and river level before launching.',
+      camping:
+        'Ozark is a formal NPS campground, so this continuation can work as a campground-based day float even though Hasty itself is a simpler rural take-out.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Ozark and take out at Hasty for a longer Buffalo continuation that drops through Pruitt into the popular lower-water fallback section. Use the direct Pruitt USGS gauge as the low-water check, and skip the route when the river is rising fast, very low, or above the NPS unsafe level.',
+      accessCaveats: [
+        'Ozark can attract swimmers and beach users, so loading space and parking rhythm may be different from quieter Buffalo accesses.',
+        'Hasty is the sandy river-right take-out across from Chimney Rock Bluff. It is a rural access with limited services; do not assume cell coverage or quick rescue response.',
+        'NPS says no road follows the river, access roads may be unpaved or rocky, and GPS can be unreliable in the park. Carry a real map and do not assume cell service.',
+        'This route uses the direct Pruitt gauge with minimum-only scoring. It is not a full ideal-range recommendation.',
+      ],
+      watchFor: [
+        'Swift water, sharp bends, occasional obstacles, strainers, sweepers, and fresh flood wood.',
+        'The Little Buffalo River enters about halfway through the Pruitt-to-Hasty half and NPS says the river typically gains velocity from there.',
+        'Low water below about 100 cfs at Pruitt, when the Float Guide marks Pruitt very low and dragging or portage-like sections become likely.',
+        'High water above the NPS 2,000 cfs Pruitt unsafe level; do not treat flood or rising water as suitable private-boater conditions.',
+      ],
+    },
+  },
   'buffalo-river-ozark-pruitt': {
     putIn: {
       id: 'ozark-access',

@@ -45582,6 +45582,385 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'buffalo-river-kyles-landing-ozark',
+    slug: 'buffalo-river-kyles-landing-ozark',
+    name: 'Buffalo River',
+    reach: "Kyle's Landing to Ozark",
+    aliases: [
+      "Buffalo National River - Kyle's Landing to Ozark",
+      'Buffalo River - Kyles Landing to Ozark Campground',
+      'Upper Buffalo River - Kyles to Ozark',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Highlands',
+    routeType: 'whitewater',
+    summary:
+      "Long upper Buffalo National River day from Kyle's Landing to Ozark, linking the exact NPS Kyles-to-Erbie and Erbie-to-Ozark paddles into one bluff-lined corridor. The Pruitt gauge remains the nearest official downstream check for a guarded low-water floor.",
+    statusText:
+      'Use the Buffalo River at Pruitt gauge as a downstream corridor check. Around 100 cfs is the conservative low-water floor; below that, the Buffalo float guide marks Pruitt as very low. NPS says levels above 2,000 cfs at Pruitt are unsafe.',
+    latitude: 36.055756,
+    longitude: -93.2813,
+    gaugeSource: {
+      id: 'usgs-07055680',
+      provider: 'usgs',
+      siteId: '07055680',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Buffalo River at Pruitt, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'NPS Buffalo National River Float Guide Pruitt gauge bands',
+        url: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+        provider: 'nps',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [2, 3, 4, 5, 6, 11, 12],
+      seasonNotes:
+        'NPS says upper Buffalo paddling is rainfall dependent and usually best in spring and early summer when recent water feeds the corridor. Treat this as a stable-or-falling-gauge trip rather than a dependable summer float.',
+      difficulty: 'hard',
+      difficultyNotes:
+        "This longer upper-district continuation inherits the not-for-beginners Kyles-to-Erbie section and adds another campground-to-campground half day below Erbie. Swift current, rough-road logistics, wood, and cold-water swims keep it behind the whitewater route type.",
+      confidenceNotes:
+        "Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Kyle's Landing to Erbie and Erbie to Ozark, the Buffalo access mileage chart supports the combined corridor, NPS Getting Around supplies coordinate anchors for Kyle's, Erbie, and Ozark, and direct USGS 07055680 at Pruitt returned same-day values during review. The app uses the NPS-linked Pruitt Float Guide's 100 cfs low-water floor as minimum-only scoring and keeps the NPS 2,000 cfs unsafe level as a caveat rather than an ideal range.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: "Kyle's Landing to Ozark, 11.1 miles",
+        note: "NPS publishes Kyle's Landing to Erbie as a 5.7-mile trip and Erbie to Ozark as a 5.4-mile trip, while the NPS access mileage chart lists 5.6 and 5.5 river miles between those access points.",
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-kyles-landing-to-erbie.htm',
+      },
+      {
+        label: 'Direct corridor gauge',
+        value: 'USGS 07055680',
+        note: 'Direct USGS Water Services for Buffalo River at Pruitt showed same-day values of 41.7 cfs and 3.25 ft at 2026-07-14 20:30 CDT during review. Paddle Today uses that downstream same-river gauge as the nearest official corridor check for this upper reach.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055680&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Low-water floor',
+        value: '100 cfs minimum-only',
+        note: 'The NPS-linked Buffalo National River Float Guide uses Pruitt bands of Very Low below 100 cfs, Low from 100 to 200 cfs, Moderate from 200 to 1,000 cfs, High from 1,000 to 2,000 cfs, and Flood above 2,000 cfs. Paddle Today uses only the start of Low as a conservative floor.',
+        sourceUrl: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+      },
+      {
+        label: 'Campground-backed endpoints',
+        value: "Kyle's Landing Campground to Ozark Campground",
+        note: "NPS campground and route pages describe both Kyle's Landing and Ozark as formal park campgrounds with river access support for float planning.",
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+      },
+      {
+        label: 'Access coordinates',
+        value: "Kyle's Landing 36.055756, -93.2813; Ozark 36.062132, -93.159724",
+        note: "NPS Getting Around lists Kyle's Landing and Ozark coordinate anchors. Use the signed landings and current park access conditions rather than GPS alone.",
+        sourceUrl: 'https://home.nps.gov/buff/planyourvisit/getting-around.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Paddle Kyles Landing to Erbie',
+        url: 'https://www.nps.gov/thingstodo/paddle-kyles-landing-to-erbie.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle Erbie to Ozark',
+        url: 'https://www.nps.gov/thingstodo/paddle-erbie-to-ozark.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo River accesses and mileage',
+        url: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo National River paddling',
+        url: 'https://www.nps.gov/buff/planyourvisit/paddling.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo getting around / coordinates',
+        url: 'https://home.nps.gov/buff/planyourvisit/getting-around.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo camping',
+        url: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo National River Float Guide',
+        url: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+        provider: 'nps',
+      },
+      {
+        label: 'USGS 07055680 Buffalo River at Pruitt',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS Water Services 07055680 latest conditions',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055680&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'buffalo-river-erbie-pruitt',
+    slug: 'buffalo-river-erbie-pruitt',
+    name: 'Buffalo River',
+    reach: 'Erbie to Pruitt',
+    aliases: [
+      'Buffalo National River - Erbie to Pruitt',
+      'Buffalo River - Erbie to Highway 7 Pruitt',
+      'Upper Buffalo River - Erbie to Pruitt',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Highlands',
+    routeType: 'whitewater',
+    summary:
+      'Upper Buffalo continuation from Erbie to Pruitt, combining the exact NPS Erbie-to-Ozark and Ozark-to-Pruitt paddles into one compact campground-to-highway day. The Pruitt gauge is the direct same-corridor official check for the finish.',
+    statusText:
+      'Use the Buffalo River at Pruitt gauge as the direct same-corridor check. Around 100 cfs is the conservative low-water floor; below that, the Buffalo float guide marks Pruitt as very low. NPS says levels above 2,000 cfs at Pruitt are unsafe.',
+    latitude: 36.070346,
+    longitude: -93.211886,
+    gaugeSource: {
+      id: 'usgs-07055680',
+      provider: 'usgs',
+      siteId: '07055680',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Buffalo River at Pruitt, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'NPS Buffalo National River Float Guide Pruitt gauge bands',
+        url: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+        provider: 'nps',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [2, 3, 4, 5, 6, 11, 12],
+      seasonNotes:
+        'NPS says Buffalo paddling windows shift quickly with rainfall and that upper-district opportunities move downstream as the river drops. Treat this as a same-day level-and-trend decision rather than a dependable low-water float.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This continuation links two short upper-Buffalo segments with riffles, bluff turns, shallow pools, and cold-water consequences, but it avoids the rougher Kyles start and stays shorter than the longer all-day upper continuations.',
+      confidenceNotes:
+        'Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Erbie to Ozark and Ozark to Pruitt, the Buffalo access mileage chart supports the combined corridor, NPS Getting Around supplies coordinate anchors for Erbie, Ozark, and Pruitt, and direct USGS 07055680 at Pruitt returned same-day values during review. The app uses the NPS-linked Pruitt Float Guide 100 cfs low-water floor as minimum-only scoring and keeps the NPS 2,000 cfs unsafe level as a caveat rather than an ideal range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Erbie to Pruitt, 7.6 miles',
+        note: 'NPS publishes Erbie to Ozark as a 5.4-mile trip and Ozark to Pruitt as a 2.1-mile trip, while the NPS access mileage chart lists 5.5 and 2.1 river miles between those access points.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-erbie-to-ozark.htm',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07055680',
+        note: 'Direct USGS Water Services for Buffalo River at Pruitt showed same-day values of 41.7 cfs and 3.25 ft at 2026-07-14 20:30 CDT during review.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055680&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Low-water floor',
+        value: '100 cfs minimum-only',
+        note: 'The NPS-linked Buffalo National River Float Guide uses Pruitt bands of Very Low below 100 cfs, Low from 100 to 200 cfs, Moderate from 200 to 1,000 cfs, High from 1,000 to 2,000 cfs, and Flood above 2,000 cfs. Paddle Today uses only the start of Low as a conservative floor.',
+        sourceUrl: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+      },
+      {
+        label: 'Campground-backed put-in',
+        value: 'Erbie Campground',
+        note: 'NPS route and campground pages describe Erbie as a formal park campground with river access support for float planning.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+      },
+      {
+        label: 'Access coordinates',
+        value: 'Erbie 36.070346, -93.211886; Pruitt 36.057666, -93.135032',
+        note: 'NPS Getting Around lists Erbie and Pruitt coordinate anchors. Use the signed landings and current park access conditions rather than GPS alone.',
+        sourceUrl: 'https://home.nps.gov/buff/planyourvisit/getting-around.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Paddle Erbie to Ozark',
+        url: 'https://www.nps.gov/thingstodo/paddle-erbie-to-ozark.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle Ozark to Pruitt',
+        url: 'https://www.nps.gov/thingstodo/paddle-ozark-to-pruitt.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo River accesses and mileage',
+        url: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo National River paddling',
+        url: 'https://www.nps.gov/buff/planyourvisit/paddling.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo getting around / coordinates',
+        url: 'https://home.nps.gov/buff/planyourvisit/getting-around.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo camping',
+        url: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo National River Float Guide',
+        url: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+        provider: 'nps',
+      },
+      {
+        label: 'USGS 07055680 Buffalo River at Pruitt',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS Water Services 07055680 latest conditions',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055680&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'buffalo-river-ozark-hasty',
+    slug: 'buffalo-river-ozark-hasty',
+    name: 'Buffalo River',
+    reach: 'Ozark to Hasty',
+    aliases: [
+      'Buffalo National River - Ozark to Hasty',
+      'Buffalo River - Ozark Campground to Hasty',
+      'Upper Buffalo River - Ozark to Hasty',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Highlands',
+    routeType: 'whitewater',
+    summary:
+      'Upper-to-middle Buffalo continuation from Ozark to Hasty, combining the short Ozark-to-Pruitt connector with the popular lower-water Pruitt-to-Hasty day. The direct Pruitt gauge remains the same-corridor decision point.',
+    statusText:
+      'Use the Buffalo River at Pruitt gauge as the direct same-corridor check. Around 100 cfs is the conservative low-water floor; below that, the Buffalo float guide marks Pruitt as very low. NPS says levels above 2,000 cfs at Pruitt are unsafe.',
+    latitude: 36.062132,
+    longitude: -93.159724,
+    gaugeSource: {
+      id: 'usgs-07055680',
+      provider: 'usgs',
+      siteId: '07055680',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Buffalo River at Pruitt, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'NPS Buffalo National River Float Guide Pruitt gauge bands',
+        url: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+        provider: 'nps',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [2, 3, 4, 5, 6, 11, 12],
+      seasonNotes:
+        'NPS says the Buffalo shifts downstream as dry weather arrives, and this Ozark-to-Hasty continuation can stay viable longer than routes above Pruitt when the gauge is low but still moving. Treat it as a stable-or-falling same-day decision, not a dependable all-summer float.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'This continuation includes the not-for-beginners Pruitt-to-Hasty section with swift bends and increasing speed below the Little Buffalo inflow. Even though the Ozark-to-Pruitt half is shorter and mellower, the combined day stays behind the whitewater route type.',
+      confidenceNotes:
+        'Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Ozark to Pruitt and Pruitt to Hasty, the Buffalo access mileage chart supports the combined corridor, NPS Getting Around supplies coordinate anchors for Ozark and Pruitt, and direct USGS 07055680 at Pruitt returned same-day values during review. The app uses the NPS-linked Pruitt Float Guide 100 cfs low-water floor as minimum-only scoring and keeps the NPS 2,000 cfs unsafe level as a caveat rather than an ideal range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Ozark to Hasty, 8.9 to 9.1 miles',
+        note: 'NPS publishes Ozark to Pruitt as a 2.1-mile trip and Pruitt to Hasty as a 7-mile trip, while the NPS access mileage chart lists 2.1 and 6.8 river miles between those access points.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-ozark-to-pruitt.htm',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07055680',
+        note: 'Direct USGS Water Services for Buffalo River at Pruitt showed same-day values of 41.7 cfs and 3.25 ft at 2026-07-14 20:30 CDT during review.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055680&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Low-water floor',
+        value: '100 cfs minimum-only',
+        note: 'The NPS-linked Buffalo National River Float Guide uses Pruitt bands of Very Low below 100 cfs, Low from 100 to 200 cfs, Moderate from 200 to 1,000 cfs, High from 1,000 to 2,000 cfs, and Flood above 2,000 cfs. Paddle Today uses only the start of Low as a conservative floor.',
+        sourceUrl: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+      },
+      {
+        label: 'Route character',
+        value: 'Upper Buffalo connector into the lower-water Pruitt-to-Hasty fallback',
+        note: 'NPS says Pruitt to Hasty is a popular alternative when the river above Pruitt is too low for paddling and that the river usually gains velocity after the Little Buffalo River enters halfway through the trip.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-pruitt-to-hasty.htm',
+      },
+      {
+        label: 'Access coordinates',
+        value: 'Ozark 36.062132, -93.159724; Hasty 36.008993, -93.08242',
+        note: 'NPS Getting Around lists Ozark and Pruitt coordinate anchors, and Hasty remains the signed public take-out identified by the NPS route page across from Chimney Rock Bluff.',
+        sourceUrl: 'https://home.nps.gov/buff/planyourvisit/getting-around.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Paddle Ozark to Pruitt',
+        url: 'https://www.nps.gov/thingstodo/paddle-ozark-to-pruitt.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle Pruitt to Hasty',
+        url: 'https://www.nps.gov/thingstodo/paddle-pruitt-to-hasty.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo River accesses and mileage',
+        url: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo National River paddling',
+        url: 'https://www.nps.gov/buff/planyourvisit/paddling.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo getting around / coordinates',
+        url: 'https://home.nps.gov/buff/planyourvisit/getting-around.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo National River Float Guide',
+        url: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+        provider: 'nps',
+      },
+      {
+        label: 'USGS 07055680 Buffalo River at Pruitt',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS Water Services 07055680 latest conditions',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055680&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'buffalo-river-tyler-bend-gilbert',
     slug: 'buffalo-river-tyler-bend-gilbert',
     name: 'Buffalo River',
