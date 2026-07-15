@@ -31266,6 +31266,133 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'eleven-point-river-greer-crossing-turner-mill-south',
+    slug: 'eleven-point-river-greer-crossing-turner-mill-south',
+    name: 'Eleven Point River',
+    reach: 'Greer Crossing Recreation Area to Turner Mill South River Access',
+    aliases: [
+      'Eleven Point River - Greer Crossing to Turner Mill South',
+      'Eleven Point River - Greer Spring to Turner Mill South',
+      'Upper Eleven Point - Greer to Turner South',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Short spring-supported Eleven Point day from Greer Crossing to Turner Mill South, using the official Forest Service put-in and river-right landing with the Bardley gauge as a conservative low-water check.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge. Around 300 cfs is the low-water marker; below that, expect shallow shoals and possible dragging. There is not enough official support to name an ideal range or high-water cutoff, so treat rising or storm-affected water as a caution flag.',
+    latitude: 36.79356389,
+    longitude: -91.32854167,
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and Greer-to-Turner trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Greer Spring more than doubles the river volume just upstream of this reach, so the Greer-to-Turner section is more dependable than the warmer upper Eleven Point. The Forest Service still warns that the river can rise rapidly after rain.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Forest Service materials describe this reach as having shoals rather than named rapids. Expect cold spring-fed water, Mary Decker Shoal, bouldery shallow spots near low water, rural access roads, and possible motorized users under the 25 hp limit.',
+      confidenceNotes:
+        'Confidence is good for a conservative adjacent Eleven Point add: the Forest Service lists Greer Crossing as a popular canoe launch with official coordinates, says Turner Mill South is 4.9 miles below Greer, and publishes Turner Mill South coordinates and access details. Same-day USGS Water Services returned official Bardley values during this run, and Rivers.MOHERP still supports the familiar 300 cfs minimum-only floor through the exact Greer-to-Turner corridor. The app keeps the threshold model conservative because the numeric support remains community-calibrated rather than a manager-published paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Greer to Turner Mill South, 4.9 miles',
+        note: 'The Forest Service names Greer to Turner Mill as a popular 4.9-mile float trip and says Turner Mill South is 4.9 miles below Greer Crossing on river right.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Greer Crossing Recreation Area',
+        note: 'The Forest Service identifies Greer Crossing as a popular canoe launch with a single-lane concrete boat ramp, water seasonally, toilets, parking, and coordinates 36.79356389, -91.32854167.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Turner Mill South River Access',
+        note: 'The Forest Service lists Turner Mill South as open on river right with a rustic day-use area, limited campsites, a single-lane concrete boat launch, toilet facilities, and coordinates 36.76456, -91.26653037.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07071500 at 463 cfs / 2.56 ft',
+        note: 'A same-day Water Services IV refresh returned 463 cfs and 2.56 ft at 2026-07-15 12:30 CDT for Eleven Point River near Bardley, the direct same-river gauge already used by adjacent Eleven Point routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Bardley gauge Good beginning at 300 cfs and includes exact Greer-to-Turner trip evidence in runnable conditions. The app does not infer an ideal range or upper cutoff from those community rows.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Greer Spring, Mary Decker Shoal, day-use split take-out',
+        note: 'The Forest Service says Greer Spring more than doubles the river volume, Greer to Turner passes Mary Decker Shoal, and Turner Mill South is the developed river-right landing rather than the smaller day-use north-side access.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Greer Crossing Recreation Area',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Turner Mill South River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Eleven Point River prospects',
+        url: 'https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'eleven-point-river-greer-crossing-whitten',
     slug: 'eleven-point-river-greer-crossing-whitten',
     name: 'Eleven Point River',
@@ -31923,6 +32050,143 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'eleven-point-river-turner-mill-south-riverton-west',
+    slug: 'eleven-point-river-turner-mill-south-riverton-west',
+    name: 'Eleven Point River',
+    reach: 'Turner Mill South River Access to Riverton West River Access',
+    aliases: [
+      'Eleven Point River - Turner Mill South to Riverton West',
+      'Eleven Point River - Turner Mill to Riverton West',
+      'Lower Eleven Point - Turner to Riverton West',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Long lower Eleven Point continuation from Turner Mill South to Riverton West, staying in the cold spring-fed White Ribbon water and finishing at the official river-right day-use access below Whitten.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge as a conservative low-water check. Around 300 cfs remains the floor; below that, expect shoals, slower travel, and more dragging on the long middle miles. No exact high-water cutoff is claimed.',
+    latitude: 36.76456,
+    longitude: -91.26653037,
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['cold_water', 'fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'This is a long lower-Eleven Point day with limited developed exits between Turner Mill South and Riverton West, so low water, fatigue, and weather shifts matter more than on the short split routes.',
+        'The route stays in cold spring-fed water with fresh wood risk after rain, shoals, and the Halls Bay channel choice late in the run.',
+        'Use the named Forest Service accesses only. Riverton West is the official river-right day-use finish below Whitten; do not substitute private banks or informal pull-offs.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and adjacent lower Eleven Point trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Greer Spring keeps this part of the Eleven Point colder and more dependable than the upper river, but the Forest Service still warns that the river can rise rapidly after changing weather. Spring and fall usually offer the best margin for this longer continuation.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is generally Class I spring-fed Ozark water, but the 13.7-mile route adds commitment. Expect shoals, wind on broader lower sections, cold water, Halls Bay, rural shuttle roads, and possible motorized users under the 25 hp limit.',
+      confidenceNotes:
+        'Confidence is good for a conservative lower-Eleven Point continuation: current Forest Service pages still show Turner Mill South and Riverton West open with published coordinates, Turner Mill South says Whitten is the next access downriver, the Riverton West page says the site is 7.6 miles below Whitten, same-day USGS 07071500 returned official Bardley values during this run, and current Rivers.MOHERP Bardley rows still support the familiar 300 cfs minimum-only floor through exact adjacent lower-Eleven trip evidence. The app keeps the threshold model conservative because the numeric support is still community-calibrated rather than an official paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Turner Mill South to Riverton West, about 13.7 river miles',
+        note: 'Forest Service pages say Turner Mill South is the access 4.9 miles below Greer with Whitten as the next access, while Riverton West is 7.6 miles below Whitten, supporting a combined public route of about 13.7 miles.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-west-river-access',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Turner Mill South River Access',
+        note: 'The Forest Service lists Turner Mill South as open on river right, with limited dispersed campsites, a single-lane concrete boat launch, toilet facilities, and coordinates 36.76456, -91.26653037.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Riverton West River Access',
+        note: 'The Forest Service lists Riverton West as open on river right with river access, boat launch, picnic area, parking, vault toilet, and coordinates 36.648594, -91.202781.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-west-river-access',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07071500 at 463 cfs / 2.56 ft',
+        note: 'A same-day Water Services IV refresh returned 463 cfs and 2.56 ft at 2026-07-15 12:30 CDT for Eleven Point River near Bardley, the direct same-river gauge already used by the existing lower Eleven Point routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Bardley gauge Good beginning at 300 cfs, and the exact adjacent Turner-to-Whitten and Whitten-to-Riverton corridor evidence supports keeping that same conservative floor for this combined route. The app does not infer an ideal range or upper cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Cold lower-river continuation with Halls Bay',
+        note: 'Forest Service pages describe the lower corridor as spring-fed National Wild and Scenic River water with shoals, motorized users, and Halls Bay near Riverton where channel choice matters as levels change.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Turner Mill South River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Whitten River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Riverton West River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-west-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'eleven-point-river-turner-mill-south-narrows',
     slug: 'eleven-point-river-turner-mill-south-narrows',
     name: 'Eleven Point River',
@@ -32174,6 +32438,128 @@ export const rivers: River[] = [
         label: 'American Whitewater Eleven Point',
         url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3007/main',
         provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'eleven-point-river-whitten-riverton-west',
+    slug: 'eleven-point-river-whitten-riverton-west',
+    name: 'Eleven Point River',
+    reach: 'Whitten River Access to Riverton West River Access',
+    aliases: [
+      'Eleven Point River - Whitten to Riverton West',
+      'Eleven Point River - Whitten to Riverton river right',
+      'Lower Eleven Point - Whitten to Riverton West',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Classic lower Eleven Point day float from Whitten to Riverton West on the National Wild and Scenic River, using the official river-right finish below Halls Bay and the direct Bardley gauge.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge. Around 300 cfs is the low-water marker; below that, expect more dragging in shoals. There is not enough guidance yet to name a high-water cutoff, so rising water deserves extra caution.',
+    latitude: 36.732356,
+    longitude: -91.214837,
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and Whitten-to-Riverton trip logs',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The lower Eleven Point is spring-fed and often floatable beyond the wettest months, but the Forest Service still warns that the river can rise rapidly. Cold water, rain pulses, and post-storm wood can change an otherwise easy day.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Forest Service materials describe this as mostly Class I water with shoals and fast-water spots. Halls Bay has a faster right-channel option at above-normal water, and motorized users are allowed on this reach under the 25 hp limit.',
+      confidenceNotes:
+        'Confidence is good but intentionally conservative: the Forest Service explicitly says Whitten is a popular launch and that Riverton West is 7.6 miles downstream, both pages still show Site Open with access details and coordinates, same-day USGS 07071500 returned official Bardley values during this run, and Rivers.MOHERP still provides a usable community low-water floor for the same corridor. The app uses minimum-only scoring because the 300 cfs floor remains community guidance rather than a manager-published paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official day-float shape',
+        value: 'Whitten to Riverton West, about 7.6 miles',
+        note: 'The Forest Service says Riverton West is 7.6 miles downriver of Whitten, supporting a named lower-Eleven day float between two official accesses.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-west-river-access',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Whitten River Access',
+        note: 'The Forest Service lists Whitten as open on the right bank, with a vault toilet, single-lane concrete boat ramp, parking for vehicles with trailers, and coordinates 36.732356, -91.214837.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Riverton West River Access',
+        note: 'The Forest Service lists Riverton West as open and accessible by vehicle or boat, with river access, boat launch, picnic area, parking, vault toilet, and coordinates 36.648594, -91.202781.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-west-river-access',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07071500 at 463 cfs / 2.56 ft',
+        note: 'A same-day Water Services IV refresh returned 463 cfs and 2.56 ft at 2026-07-15 12:30 CDT for Eleven Point River near Bardley, the direct same-river gauge already used by the existing lower Eleven Point routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Bardley gauge good beginning at 300 cfs and includes Whitten-to-Riverton corridor evidence in runnable conditions. The app keeps the floor conservative and does not infer an upper cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Shoals, cold water, Halls Bay',
+        note: 'Forest Service river-mile notes call out Conner Chute, Boze Mill Spring, and Halls Bay near Riverton, where channel choice changes as water rises and the right channel is favored above normal water.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Whitten River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Riverton West River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-west-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+        provider: 'usgs',
       },
       {
         label: 'USGS 07071500 monitoring location',

@@ -1336,6 +1336,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
+  'eleven-point-river-greer-crossing-turner-mill-south': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-greer-crossing-turner-mill-south/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
   'eleven-point-river-greer-crossing-whitten': [
     {
       id: 'eleven-point-river-missouri-commons',
@@ -1476,6 +1486,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
+  'eleven-point-river-whitten-riverton-west': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-whitten-riverton-west/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
   'eleven-point-river-riverton-narrows': [
     {
       id: 'eleven-point-river-missouri-commons',
@@ -1490,6 +1510,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     {
       id: 'eleven-point-river-missouri-commons',
       src: '/gallery/eleven-point-river-turner-mill-south-riverton/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-turner-mill-south-riverton-west': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-turner-mill-south-riverton-west/eleven-point-river-missouri.jpg',
       alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
       caption: 'Eleven Point River in Missouri',
       credit: 'Charlie Llewellin via Wikimedia Commons',

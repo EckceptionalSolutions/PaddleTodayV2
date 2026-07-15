@@ -9969,6 +9969,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'eleven-point-river-greer-crossing-turner-mill-south': {
+    putIn: {
+      name: 'Greer Crossing Recreation Area',
+      latitude: 36.79356389,
+      longitude: -91.32854167,
+    },
+    takeOut: {
+      name: 'Turner Mill South River Access',
+      latitude: 36.76456,
+      longitude: -91.26653037,
+    },
+    logistics: {
+      distanceLabel: '4.9 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr depending on level, stops, and shuttle timing',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Greer Crossing and Turner Mill South. Roads to Turner Mill are rural Forest Service roads, so inspect the landing, parking, and turnaround before committing.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, day-use restrictions, no-glass/no-polystyrene river rules, campground rules at Greer, and posted parking signs.',
+      camping:
+        'Treat this as a day trip unless you have a separate legal camping plan. Greer Crossing has campground facilities, while Turner Mill South is mainly a day-use launch with limited campsite context and designated float camps have separate rules.',
+      summary:
+        'Launch at Greer Crossing and take out at Turner Mill South for a short spring-fed Eleven Point run through Mary Decker Shoal and the Blue Ribbon Trout Area. Use the Bardley gauge as a conservative low-water check, then make a visual call at the launch.',
+      accessCaveats: [
+        'Greer Crossing and Turner Mill South are official Forest Service river accesses with published coordinates, but road, parking, campground, and day-use rules can change.',
+        'Turner Mill South is the larger river-right landing below Greer. Do not confuse it with Turner Mill North on river left or cross private land between the two accesses.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'Mary Decker Shoal and shallow bouldery spots, especially when the Bardley gauge is near the 300 cfs floor.',
+        'Cold spring-fed water, rapid rises after rain, fresh wood, blind bends, and remote-feeling gaps between accesses.',
+        'Motorized users are allowed on this part of the National Wild and Scenic River under the 25 hp limit.',
+      ],
+    },
+  },
   'eleven-point-river-greer-crossing-whitten': {
     putIn: {
       name: 'Greer Crossing Recreation Area',
@@ -10143,6 +10177,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'eleven-point-river-turner-mill-south-riverton-west': {
+    putIn: {
+      name: 'Turner Mill South River Access',
+      latitude: 36.76456,
+      longitude: -91.26653037,
+    },
+    takeOut: {
+      name: 'Riverton West River Access',
+      latitude: 36.648594,
+      longitude: -91.202781,
+    },
+    logistics: {
+      distanceLabel: 'About 13.7 mi by combined Forest Service mileage notes',
+      estimatedPaddleTime: 'About 6 hr to 8.5 hr depending on level, stops, wind, and shuttle timing',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Turner Mill South and Riverton West. Inspect the Riverton West finish before launching because it is a separate river-right day-use area below Whitten and not the same landing as Riverton East above Highway 160.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, no-glass/no-polystyrene river rules, float-camp rules, Missouri boating rules, and posted parking signs.',
+      camping:
+        'Turner Mill South has limited campsite context and the Forest Service river corridor includes designated float camps between Whitten and Riverton, so this corridor can support a legal overnight split. Riverton West itself is a day-use access rather than a campground.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Turner Mill South and take out at Riverton West for a long lower Eleven Point continuation through the White Ribbon trout water. Use the Bardley gauge as a conservative low-water check and keep extra margin for distance, weather, and cold water.',
+      accessCaveats: [
+        'Turner Mill South and Riverton West are official Forest Service river accesses with published coordinates, but road, parking, and day-use rules can change after storms.',
+        'Riverton West is the river-right day-use finish below Whitten. Riverton East is the river-left access above Highway 160, so confirm the correct side before shuttling.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'A full-day commitment, shoals and slower travel when the Bardley gauge is near the 300 cfs floor, and wind or fatigue on the long middle miles.',
+        'Cold spring-fed water, fresh wood, blind bends, Halls Bay near the end of the route, and rapid rises after rain.',
+        'Motorized users under the 25 hp limit and limited developed bailouts between Turner Mill South and Riverton West.',
+      ],
+    },
+  },
   'eleven-point-river-turner-mill-south-narrows': {
     putIn: {
       name: 'Turner Mill South River Access',
@@ -10203,6 +10272,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       accessCaveats: [
         'Whitten and Riverton East are official Forest Service river accesses, but day-use access areas have posted rules and no overnight camping.',
         'Riverton East is the cleaner canoe/kayak take-out on river left just above the Highway 160 bridge; Riverton West is a separate river-right day-use area.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'Shallow shoals and occasional scraping when the Bardley gauge falls near the 300 cfs floor.',
+        'Halls Bay near the end of the route: the right channel is a fast ledge line above normal water, while the left is a tricky shallow S-curve with swift current.',
+        'Cold spring-fed water, rapid rises after rain, fresh wood, boat traffic, and the 25 hp motor allowance on this part of the National Wild and Scenic River.',
+      ],
+    },
+  },
+  'eleven-point-river-whitten-riverton-west': {
+    putIn: {
+      name: 'Whitten River Access',
+      latitude: 36.732356,
+      longitude: -91.214837,
+    },
+    takeOut: {
+      name: 'Riverton West River Access',
+      latitude: 36.648594,
+      longitude: -91.202781,
+    },
+    logistics: {
+      distanceLabel: 'About 7.6 mi',
+      estimatedPaddleTime: 'About 4 hr to 5.5 hr depending on level, stops, and wind',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Whitten and Riverton West. The route to Whitten includes gravel and a steep descent into the access, and Riverton West is a separate river-right finish rather than the more common Riverton East landing.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, day-use restrictions, no-glass/no-polystyrene river rules, and posted parking signs.',
+      camping:
+        'Treat this as a day trip unless you have a separate legal camping plan. The Forest Service prohibits overnight camping in day-use access areas, while designated float camps and dispersed camping have separate rules.',
+      summary:
+        'Launch at Whitten River Access and take out at Riverton West River Access for a lower Eleven Point day float that finishes on river right below Halls Bay. Expect clear cold water, shoals, spring-fed current, and a direct Bardley gauge used conservatively as a low-water check.',
+      accessCaveats: [
+        'Whitten and Riverton West are official Forest Service river accesses, but day-use access areas have posted rules and no overnight camping.',
+        'Riverton West is the river-right day-use landing below Whitten. Riverton East is the river-left take-out above Highway 160, so confirm the intended access before staging vehicles.',
         'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
       ],
       watchFor: [
