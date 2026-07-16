@@ -38473,6 +38473,192 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'allen-creek-hwy-59-old-hwy-92': {
+    putIn: {
+      id: 'hwy-59-213-allen-creek-access',
+      name: 'Highway 59/213 Allen Creek access',
+      latitude: 42.75105,
+      longitude: -89.29892,
+    },
+    takeOut: {
+      id: 'old-hwy-92-allen-creek-access',
+      name: 'Old Highway 92 Allen Creek access',
+      latitude: 42.74481,
+      longitude: -89.32262,
+    },
+    logistics: {
+      distanceLabel: 'About 2.5 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with logjam scouting, low-water walking, or weedy access',
+      shuttle:
+        'Stage Old Highway 92 first, then drive back to the Highway 59/213 bridge. WRT lists an easy 2.7-mile bike shuttle, but both bridge accesses need same-day parking and footing checks.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules, use only legal bridge or wildlife-area access, and obey posted Evansville Wildlife Area / Allen Creek Stream Bank Protection Area rules.',
+      camping:
+        'Treat this as a day route. Wisconsin DNR lists no campground at Evansville Wildlife Area, and no on-route public campsite is assumed on this small trout-stream corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Highway 59/213 and take out at Old Highway 92 for the short WRT Allen Creek reach. The route is a small clear-water Sugar River tributary with a rough Verona gauge proxy, one easy logjam portage, and Evansville Wildlife Area context.',
+      accessCaveats: [
+        'Highway 59/213 is a bridge-style put-in, not a developed paddling launch. Use the nearby wildlife-area parking context only where current signage allows.',
+        'Old Highway 92 is a bridge-style take-out that can become weedy; identify the landing and legal parking before launching.',
+        'The Sugar River near Verona gauge is a rough proxy. If Allen Creek itself looks too shallow, bankfull, muddy, or obstructed, skip the run.',
+        'Do not assume private banks, farm edges, or streambank corridors allow breaks, camping, or shuttle parking outside posted public access.',
+      ],
+      watchFor: [
+        'One logjam portage documented by WRT, plus new storm wood and low branches.',
+        'An old beaver dam that may need a scoot or short lift depending on water level.',
+        'Micro-riffles and shallow gravel below the proxy floor.',
+        'Summer weeds, cold water, hunting/fishing traffic on public lands, and private banks.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hwy-59-213-allen-creek-access',
+        name: 'Highway 59/213 Allen Creek access',
+        latitude: 42.75105,
+        longitude: -89.29892,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from WRT map data; bridge access with nearby Evansville Wildlife Area parking context.',
+      },
+      {
+        id: 'old-hwy-92-allen-creek-access',
+        name: 'Old Highway 92 Allen Creek access',
+        latitude: 42.74481,
+        longitude: -89.32262,
+        mileFromStart: 2.5,
+        segmentKind: 'creek',
+        note: 'Default take-out from WRT map data; bridge access can be weedy in late summer.',
+      },
+    ],
+  },
+  'honey-creek-bell-school-hwy-20': {
+    putIn: {
+      id: 'bell-school-honey-creek-access',
+      name: 'Bell School Road Honey Creek access',
+      latitude: 42.79534,
+      longitude: -88.32139,
+    },
+    takeOut: {
+      id: 'hwy-20-honey-creek-access',
+      name: 'Highway 20 Honey Creek access',
+      latitude: 42.77285,
+      longitude: -88.30299,
+    },
+    logistics: {
+      distanceLabel: 'About 3.3 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with low-water wading or access scouting',
+      shuttle:
+        'Stage the Highway 20 take-out first, then drive back to Bell School Road. WRT lists a short 2.2-mile bike shuttle with little climbing.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules, use only legal bridge or streambank-property access, and obey posted DNR / road-access rules.',
+      camping:
+        'Treat this as a day route. No public campsite was identified between Bell School Road and Highway 20, and streambank/public-access context should not be treated as overnight permission.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Bell School Road and take out at Highway 20 for WRTs clear Honey Creek route. The route has shallow gravel, boulder gardens, light riffles, no documented logjam portage on the 2022 WRT run, and a Mukwonago River proxy gauge.',
+      accessCaveats: [
+        'Bell School Road has tight shoulder parking and a muddy launch path. Park conservatively and choose footing before unloading.',
+        'Highway 20 has a pull-off northwest of the bridge but a larger embankment; scout the exit before launch.',
+        'Honey Creek has no direct gauge. Use the Mukwonago number only as context and verify depth at Bell School, Hill Valley, or Highway 20.',
+        'Do not rely on private banks for rest stops or camping, and expect fishing or hunting use near streambank lands.',
+      ],
+      watchFor: [
+        'Shallow first-quarter-mile water and wading in riffles near the WRT low band.',
+        'Boulder gardens, light riffles, and gravel shallows that can pin or scrape loaded boats.',
+        'Late-season weeds, muddy footing at the put-in, and possible new wood after storms.',
+        'Cold spring water and limited legal bailout options away from named roads.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'bell-school-honey-creek-access',
+        name: 'Bell School Road Honey Creek access',
+        latitude: 42.79534,
+        longitude: -88.32139,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from WRT map data; Miles Paddled publishes a nearly identical coordinate.',
+      },
+      {
+        id: 'hwy-20-honey-creek-access',
+        name: 'Highway 20 Honey Creek access',
+        latitude: 42.77285,
+        longitude: -88.30299,
+        mileFromStart: 3.3,
+        segmentKind: 'creek',
+        note: 'Default take-out from WRT map data; bridge pull-off and embankment access.',
+      },
+    ],
+  },
+  'mukwonago-river-rainbow-springs-hwy-i': {
+    putIn: {
+      id: 'rainbow-springs-mukwonago-access',
+      name: 'Rainbow Springs Golf Resort Road access',
+      latitude: 42.85564,
+      longitude: -88.41809,
+    },
+    takeOut: {
+      id: 'hwy-i-mukwonago-access',
+      name: 'Highway I Mukwonago River access',
+      latitude: 42.8604,
+      longitude: -88.36542,
+    },
+    logistics: {
+      distanceLabel: 'About 5.4 mi',
+      estimatedPaddleTime: 'About 3 hr to 5.5 hr, longer if wild rice obscures the Highway I marsh channel',
+      shuttle:
+        'Stage Highway I first, then drive back to the Rainbow Springs access road / former golf-course parking. Consider leaving an early-exit vehicle at Beulah Road if late-season wild rice or group stamina is a concern.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules, obey Kettle Moraine State Forest - Mukwonago River Unit hours and rules, and use only legal bridge or public-property access.',
+      camping:
+        'Treat this as a day route. The Mukwonago River Unit is day-use oriented in the route evidence, and no public on-route river campsite was identified.',
+      campingClassification: 'none',
+      summary:
+        'Launch from the former Rainbow Springs property and paddle to Highway I for the main WRT Mukwonago River reach. The upper part is a clear spring-fed stream; the lower Beulah-to-Highway-I marsh can become a serious wild-rice navigation problem.',
+      accessCaveats: [
+        'Rainbow Springs access requires parking at the old entrance and dragging boats roughly 400 feet to the old bridge as described by WRT.',
+        'Beulah Road is a useful split or early take-out before the wild-rice marsh; verify shoulder parking and bridge access before relying on it.',
+        'Highway I is the default take-out. Do not continue toward the Mukwonago dam or flowage without separate planning.',
+        'The direct Mukwonago gauge helps, but WRT describes conflicting level tradeoffs. Same-day scouting and seasonal judgment matter more than a single number.',
+      ],
+      watchFor: [
+        'Low limbs, a low bridge, dead ash, beaver activity, and fresh wood that may require ducking or easy portages.',
+        'Wild rice before Highway I that can hide the channel, slow current, and create route-finding risk; bring GPS or a map with satellite imagery.',
+        'Cold spring-fed water, wetland exposure, private shorelines, and limited easy bailouts between Beulah Road and Highway I.',
+        'Higher water that may help the rice beds but can make upstream low obstructions harder to clear.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rainbow-springs-mukwonago-access',
+        name: 'Rainbow Springs Golf Resort Road access',
+        latitude: 42.85564,
+        longitude: -88.41809,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from WRT map data; former Rainbow Springs property with parking and a short boat drag.',
+      },
+      {
+        id: 'beulah-road-mukwonago-access',
+        name: 'Beulah Road access',
+        latitude: 42.85451,
+        longitude: -88.39507,
+        mileFromStart: 2.4,
+        segmentKind: 'creek',
+        note: 'Intermediate access and conservative early exit before the wild-rice marsh.',
+      },
+      {
+        id: 'hwy-i-mukwonago-access',
+        name: 'Highway I Mukwonago River access',
+        latitude: 42.8604,
+        longitude: -88.36542,
+        mileFromStart: 5.4,
+        segmentKind: 'creek',
+        note: 'Default take-out from WRT map data; pull-off southwest of the Highway I bridge.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {

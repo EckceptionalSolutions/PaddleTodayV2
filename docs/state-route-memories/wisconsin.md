@@ -4,13 +4,13 @@ Last summarized: 2026-07-16 America/Chicago / 2026-07-16 UTC.
 
 ## Current Inventory
 
-- Live routes: 169.
-- Top represented rivers: Wisconsin River 15, Black River 6, Baraboo River 5, Maunesha River 5, Milwaukee River 5, Peshtigo River 5, Rock River 5, St. Croix River 5, Sugar River 5, Wolf River 5, Bois Brule River 4, Chippewa River 4, Eau Claire River 4, Kickapoo River 4, Namekagon River 4, Pine River 4, Big Rib River 3, Brule River 3, Crawfish River 3, East Branch Pecatonica River 3, Fox River 3, Grant River 3, La Crosse River 3, Mecan River 3, Platte River 3, Plover River 3, Popple River 3, Prairie River 3, Sheboygan River 3, South Fork Flambeau River 3, Badfish Creek 2, Bark River 2, Beaver Dam River 2, Blue River 2, Apple River 1, Ashippun River 1, Bower Creek 1, Cedar Creek 1, Little Sugar River 1, Neshota / West Twin River 1, Root River 1, Rush River 1, West Branch Sugar River 1.
-- Ledger candidates: 164 Wisconsin candidates tracked; 155 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 3 `rejected`.
+- Live routes: 171 after the 2026-07-16 15:00 consolidation audit.
+- Top represented rivers: Wisconsin River 15, Black River 6, Baraboo River 5, Milwaukee River 5, Peshtigo River 5, Rock River 5, St. Croix River 5, Sugar River 5, Wolf River 5, Bois Brule River 4, Chippewa River 4, Eau Claire River 4, Kickapoo River 4, Namekagon River 4, Pine River 4, Big Rib River 3, Brule River 3, Crawfish River 3, East Branch Pecatonica River 3, Fox River 3, Grant River 3, La Crosse River 3, Mecan River 3, Platte River 3, Plover River 3, Popple River 3, Prairie River 3, Sheboygan River 3, South Fork Flambeau River 3, Badfish Creek 2, Bark River 2, Beaver Dam River 2, Blue River 2, Maunesha River 2, Allen Creek 1, Apple River 1, Ashippun River 1, Bower Creek 1, Cedar Creek 1, Honey Creek 1, Little Sugar River 1, Mukwonago River 1, Neshota / West Twin River 1, Root River 1, Rush River 1, West Branch Sugar River 1.
+- Ledger candidates: 167 Wisconsin candidates tracked; 157 added/implemented, 5 `research_later`, 2 `duplicate_corridor`, 3 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-16 America/Chicago / 2026-07-16 UTC run added three routes beyond the 166-route baseline: `blue-river-bluff-bowers`, `blue-river-bowers-shemak`, and `rush-river-690th-570th`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-16 America/Chicago / 2026-07-16 UTC run added three routes beyond the 169-route baseline: `allen-creek-hwy-59-old-hwy-92`, `honey-creek-bell-school-hwy-20`, and `mukwonago-river-rainbow-springs-hwy-i`.
 
 ## Latest Audit
 
