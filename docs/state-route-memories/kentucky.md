@@ -2,6 +2,14 @@
 
 Last summarized: 2026-07-16 03:50 America/Chicago / 2026-07-16 08:50 UTC.
 
+## 2026-07-16 South Fork restoration after duplicate cleanup pass
+
+- Reused the live repo state as the only valid baseline and restored three Kentucky slugs that were absent from the current tree at run start: `south-fork-kentucky-river-oneida-cedar-valley`, `south-fork-kentucky-river-hacker-branch-kay-wood`, and `south-fork-kentucky-river-bishop-bend-fish-creek`.
+- Current KDFWR South Fork Kentucky River guidance still documents the exact public access-chain mileages of Oneida -> Rocky Branch `6.8`, Rocky Branch -> Cedar Valley `2.5`, Bishop Bend -> Hacker Branch `3.3`, Hacker Branch -> Upper Wolf Creek `2.9`, Upper Wolf Creek -> Kay Wood `5.6`, and Kay Wood -> Fish Creek `7.9`, which support the restored public route mileages of `9.3`, `8.5`, and `19.7`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Oneida Ramp (`asid=903`), Cedar Valley Road Access (`asid=1125`), Hacker Branch Road Access (`asid=1122`), Kay Wood Road Access (`asid=1121`), Bishop Bend School Road Access (`asid=1123`), and Fish Creek Boat Ramp (`asid=994`). The latest official direct USGS Water Services values available during this run were `552 cfs / 5.29 ft` at `2026-07-15 15:30 EDT` for South Fork Kentucky River at Booneville (`03281500`), inside the official `350-900 cfs / 4.8-6.0 ft` good band, so all three slugs ship with normal in-band South Fork framing rather than scrape or fast-water caution.
+- Camping stays conservative at `none` for all three because KDFWR still documents only simple day-use launch sites with no public overnight support on this chain.
+- Reused the approved South Fork Commons corridor image for all three slugs, restored the matching image-audit rows, and removed three accidental duplicate Susquehanna route objects that were inserted during the initial failed attempt.
+
 ## 2026-07-16 South Fork in-band continuation restoration pass
 
 - Reused the live repo state as the only valid baseline and restored three Kentucky slugs that were absent from the current tree at run start: `south-fork-kentucky-river-oneida-bishop-bend`, `south-fork-kentucky-river-rocky-branch-hacker-branch`, and `south-fork-kentucky-river-cedar-valley-upper-wolf-creek`.
