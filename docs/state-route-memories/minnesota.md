@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 23:16 America/Chicago.
+Last summarized: 2026-07-16 00:05 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 174 after the 2026-07-15 23:16 Mississippi Headwaters Board pass.
-- Top represented rivers: Mississippi River 35, Minnesota River 12, Rum River 7, Sauk River 7, Big Fork River 6, North Fork Crow River 6, Red Lake River 6, Root River 6, Zumbro River 6, Cannon River 5, Crow Wing River 5, Red River of the North 5, Little Fork River 4, Otter Tail River 4, Pomme de Terre River 4, Snake River 4, St. Croix River 4, St. Louis River 4, Straight River 4, Cedar River 3, Cloquet River 3, Cottonwood River 3, Des Moines River 3, Long Prairie River 3, Pine River 3, Redwood River 3, Blue Earth River 2, Chippewa River 2, Kettle River 2, Shell Rock River 2, South Fork Crow River 2, Watonwan River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, and Vermilion River.
-- Ledger candidates: 986 total; 603 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
+- Live routes: 177 after the 2026-07-16 00:05 St. Croix Map 7 pass.
+- Top represented rivers: Mississippi River 35, Minnesota River 12, Rum River 7, Sauk River 7, St. Croix River 7, Big Fork River 6, North Fork Crow River 6, Red Lake River 6, Root River 6, Zumbro River 6, Cannon River 5, Crow Wing River 5, Red River of the North 5, Little Fork River 4, Otter Tail River 4, Pomme de Terre River 4, Snake River 4, St. Louis River 4, Straight River 4, Cedar River 3, Cloquet River 3, Cottonwood River 3, Des Moines River 3, Long Prairie River 3, Pine River 3, Redwood River 3, Blue Earth River 2, Chippewa River 2, Kettle River 2, Shell Rock River 2, South Fork Crow River 2, Watonwan River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, and Vermilion River.
+- Ledger candidates: 989 total; 606 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-16 00:05 America/Chicago / 2026-07-16 05:05 UTC: added `st-croix-river-highway-70-stevens-creek`, `st-croix-river-stevens-creek-sunrise`, and `st-croix-river-sunrise-wild-river`.
+- Baseline at run start was 174 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 177 and split the previously rejected broad Highway-70-to-Highway-8 St. Croix idea into practical above-dam Map 7 day routes.
+- Qualification path: NPS St. Croix Map 7 documents the Highway 70-to-Highway 8 Riverway section, safety rules, shallow-water/sandbar context, Stevens Creek rapid warning, designated-campsite rules, Nevers/Dam/portage context, and current 2024 map status. MN DNR St. Croix materials identify Stevens Creek, Sunrise, and Wild River landing facilities plus downstream portage warnings. Minnesota public-water-access GIS resolves Highway 70 `WAS00085`, Stevens Creek `WAS02204`, Sunrise `WAS00299`, and Wild River State Park `WAS00298` with coordinates and river miles.
+- Live gauge verification: MN DNR site `236` at St. Croix Falls returned `3,810 cfs` at 2026-07-15 21:00 CDT, inside the official medium band.
+- Implemented official DNR gauge model: all three cards use St. Croix Falls bands `2,000 / 3,000-8,000 / 11,000 cfs` as a downstream same-corridor proxy, with local visual checks because the gauge is downstream and below the dam corridor.
+- Camping posture: Highway-70-to-Stevens is nearby-basecamp only; Stevens-to-Sunrise records designated Riverway campsite-only context; Sunrise-to-Wild-River is endpoint-campground through Wild River State Park and signed primitive shoreline campsite context. Safety posture includes low-water sandbars, Stevens Creek rapids, strainers/wood, wind, cold water, private banks, designated-campsite-only rules, state-park vehicle/camping rules, and no casual continuation into the downstream dam-portage corridor.
+- No route-gallery images were added. Image audit rows record bounded NPS / DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed prompt and memory leads again. Most prompt examples were already live in the 174-route baseline. The old Highway-70-to-Highway-8 St. Croix blocker remains valid as a single 34.4-mile dam/portage route, but the accepted segments stay above Wild River and avoid shipping the dam-portage problem as one casual route card.
 
 - 2026-07-15 23:16 America/Chicago / 2026-07-16 04:16 UTC: added `mississippi-river-county-road-25-andrusia`, `mississippi-river-big-winnie-leech-lake`, and `mississippi-river-tioga-pokegama`.
 - Baseline at run start was 171 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 174 and fill three missing signed Mississippi Headwaters Board excursions without counting earlier automation commits.
