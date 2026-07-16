@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 16:40 America/Chicago.
+Last summarized: 2026-07-15 20:09 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 156 after the 2026-07-15 16:40 Cottonwood consolidation pass.
-- Top represented rivers: Mississippi River 26, Minnesota River 12, Sauk River 7, Rum River 7, North Fork Crow River 6, Root River 6, Big Fork River 5, Cannon River 5, Crow Wing River 5, Red Lake River 5, Red River of the North 5, Zumbro River 5, Little Fork River 4, Otter Tail River 4, Snake River 4, St. Croix River 4, St. Louis River 4, Straight River 4, Cedar River 3, Cloquet River 3, Cottonwood River 3, Des Moines River 3, Long Prairie River 3, Pine River 3, Blue Earth River 2, Redwood River 2, Shell Rock River 2.
-- Ledger candidates: 953 total; 570 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
+- Live routes: 168 after the 2026-07-15 20:09 Zumbro upstream pass.
+- Top represented rivers: Mississippi River 29, Minnesota River 12, Rum River 7, Sauk River 7, Big Fork River 6, North Fork Crow River 6, Red Lake River 6, Root River 6, Zumbro River 6, Cannon River 5, Crow Wing River 5, Red River of the North 5, Little Fork River 4, Otter Tail River 4, Pomme de Terre River 4, Snake River 4, St. Croix River 4, St. Louis River 4, Straight River 4, Cedar River 3, Cloquet River 3, Cottonwood River 3, Des Moines River 3, Long Prairie River 3, Pine River 3, Redwood River 3, Blue Earth River 2, Chippewa River 2, Kettle River 2, Shell Rock River 2, South Fork Crow River 2, Watonwan River 2, plus one each for North Fork Zumbro River and South Branch Middle Fork Zumbro River.
+- Ledger candidates: 974 total; 591 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 20:09 America/Chicago: added `zumbro-river-covered-bridge-walking-bridge`, `zumbro-river-walking-bridge-green-bridge`, and `zumbro-river-mantorville-oxbow`.
+- Baseline at run start was 165 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 168 and fill upstream Zumbro-family public-access gaps while avoiding the already-canonical `zumbro-river-falls` Green-Bridge-to-Zumbro-Falls card.
+- Qualification path: MN DNR Zumbro Map 1 documents Covered Bridge Park, Walking Bridge Park, Mazeppa Rapids / portage, Green Bridge, Zumbro Lake Dam context, Mantorville Park, and Oxbow Park with campground amenities. Minnesota public-water-access GIS resolves all selected endpoints: Covered Bridge Park `WAS02181`, Walking Bridge Park `WAS02184`, Green Bridge `WAS00059`, Mantorville `WAS00185`, and Oxbow Park `WAS02187`.
+- Live gauge verification: MN DNR site `311` near Mazeppa returned `95.4 cfs` at 2026-07-15 18:30 CDT, inside the official medium band; MN DNR site `333` near Oronoco returned `943.47 ft` at 2026-07-15 18:30 CDT, just inside the official medium band.
+- Implemented official DNR gauge models: the two upper connectors use Mazeppa site `311` bands `50 / 63-724.7 / 1,435.7 cfs`, with Covered-Bridge-to-Walking-Bridge as a downstream same-branch proxy and Walking-Bridge-to-Green-Bridge as a lower-corridor direct check. Mantorville-to-Oxbow uses downstream same-branch Oronoco site `333` bands `942 / 943.4-946.4 / 947 ft`.
+- Camping posture: the two upper Zumbro routes are no-camping day routes; Mantorville-to-Oxbow is endpoint-campground only through Oxbow Park. Safety posture includes fast-rise, strainers/wood, private banks, cold water, bridge scouting, Mazeppa Rapids / portage, downstream Zumbro Lake Dam no-continuation, and no informal bank camping.
+- No route-gallery images were added. Image audit rows record bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact Zumbro paddling asset selected for local reuse.
+- Reviewed prompt leads again and treated many as already live in the 165-route baseline, including Chippewa Lentz-to-Watson, Des Moines Mayflower-to-Christianna, Kettle Musclewood, Minnesota River Kinney-to-Skalbekken, Otter Tail Phelps/Wannigan/Riverside, St. Louis CR4/95/Fond du Lac/Paupores, Mississippi Itasca/Coffee-Pot/Cass/Winnie, Vermilion Twomile-to-Eightmile, Watonwan CR20-to-Garden-City, and the latest Big Fork / Red Lake / Redwood additions. Upper Red Lake still depends on a stale Thief River Falls gauge; South Fork Crow and lower Blue Earth/Rapidan variants remain hazard-blocked.
 
 - 2026-07-15 16:40 America/Chicago: consolidated marginal Cottonwood split routes after unpushed Minnesota route review.
 - Removed `cottonwood-river-highway-4-county-road-11` and `cottonwood-river-county-road-11-highway-15` from live route data and trip details because they are practical subsections of the already-live `cottonwood-river-highway-4-highway-15` card, using the same official lower-Cottonwood source family. Marked both ledger candidates `duplicate_corridor` and removed their image-audit rows.
@@ -561,6 +570,7 @@ Minnesota still has the strongest official-source foundation and a broad existin
 - The corridor uses MN DNR site `120` at Aitkin as a downstream same-map proxy. The feed returned `1,590 cfs` at `2026-07-15 14:30`, inside the official medium band; all three cards keep explicit downstream-proxy and local-visual-check caveats.
 - No route-gallery image was added. Image audit rows record bounded DNR / MHB / Aitkin County / Commons / same-route searches with no clearly rights-clean exact-route paddling asset selected.
 - Reviewed but did not add Aitkin City Park-to-County-Campground because endpoint coordinate/access authority was weaker than the selected DNR/PWA chain; prompt leads such as Otter Tail Phelps/West Lost and multiple Red/Des-Moines/Cloquet/St.-Louis/Mississippi corridors were already represented or weaker on duplication/gauge fit.
+
 - 2026-07-15 18:13 America/Chicago: added `pomme-de-terre-river-koosman-highway-12`, `pomme-de-terre-river-appleton-pomme-de-terre-2`, and `watonwan-river-county-road-32-county-road-20`.
 - Baseline at run start was 159 live Minnesota routes from `src/data/rivers.ts`; the selected slugs fill public-access gaps immediately above and below the existing Pomme de Terre Appleton coverage and immediately upstream of the existing `watonwan-river-county-road-20-garden-city` card.
 - Qualification path: MN DNR Pomme de Terre / Minnesota River Map 1 documents Koosman, Highway 12 / Pomme de Terre #1, Appleton, Pomme de Terre #2, campsite/rest-area context, and lower Appleton hazard notes; MN DNR Blue Earth / Watonwan map plus Minnesota public-water-access GIS document County Road 32 and County Road 20; PWA GIS resolves Koosman `WAS00180`, Highway 12 `WAS02176`, Appleton `WAS00050`, Pomme de Terre #2 `WAS00049`, Watonwan CR32 `WAS00214`, and Watonwan CR20 `WAS00213`.
