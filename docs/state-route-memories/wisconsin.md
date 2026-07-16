@@ -4,15 +4,23 @@ Last summarized: 2026-07-15 America/Chicago / 2026-07-16 UTC.
 
 ## Current Inventory
 
-- Live routes: 151.
-- Top represented rivers: Wisconsin River 15, Black River 6, Baraboo River 5, Milwaukee River 5, Peshtigo River 5, Rock River 5, St. Croix River 5, Sugar River 5, Wolf River 5, Bois Brule River 4, Chippewa River 4, Eau Claire River 4, Kickapoo River 4, Namekagon River 4, Pine River 4, Big Rib River 3, Brule River 3, Crawfish River 3, East Branch Pecatonica River 3, Fox River 3, Grant River 3, La Crosse River 3, Mecan River 3, Platte River 3, Popple River 3, Prairie River 3, Sheboygan River 3, South Fork Flambeau River 3, Badfish Creek 2, Bark River 2.
-- Ledger candidates: 146 Wisconsin candidates tracked; 137 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 3 `rejected`.
+- Live routes: 154.
+- Top represented rivers: Wisconsin River 15, Black River 6, Baraboo River 5, Maunesha River 5, Milwaukee River 5, Peshtigo River 5, Rock River 5, St. Croix River 5, Sugar River 5, Wolf River 5, Bois Brule River 4, Chippewa River 4, Eau Claire River 4, Kickapoo River 4, Namekagon River 4, Pine River 4, Big Rib River 3, Brule River 3, Crawfish River 3, East Branch Pecatonica River 3, Fox River 3, Grant River 3, La Crosse River 3, Mecan River 3, Platte River 3, Popple River 3, Prairie River 3, Sheboygan River 3, South Fork Flambeau River 3, Badfish Creek 2, Bark River 2.
+- Ledger candidates: 149 Wisconsin candidates tracked; 140 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 3 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago / 2026-07-16 UTC run added three routes beyond the 148-route baseline: `manitowoc-river-clark-mills-north-union`, `manitowoc-river-north-union-mill-road`, and `spirit-river-squaw-creek-hwy-o`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-16 America/Chicago / 2026-07-16 UTC run added three routes beyond the 151-route baseline: `maunesha-river-marshall-firemens`, `maunesha-river-cherry-lane-firemens`, and `maunesha-river-firemens-hubbleton`.
 
 ## Latest Audit
+
+- 2026-07-16 00:35 America/Chicago / 2026-07-16 05:35 UTC: added `maunesha-river-marshall-firemens`, `maunesha-river-cherry-lane-firemens`, and `maunesha-river-firemens-hubbleton`, bringing the live Wisconsin route count from the run-start baseline of 151 to 154.
+- The three Maunesha cards fill the source-backed Marshall / Cherry Lane / Waterloo / Hubbleton route family rather than duplicating already-live Bark, Sugar, Crawfish, or lower-Manitowoc coverage. Wisconsin River Trips documents all three route shapes with public access notes, mileages, cleanup history, hazards, and Crawfish-at-Milford proxy bands; Miles Paddled corroborates the Marshall-to-Firemen's route and endpoint coordinates; Marshall documents nearby public kayak-launch context.
+- Live gauge verification: USGS Water Services returned Crawfish River at Milford `05426000` at `196 cfs / 2.21 ft` at 2026-07-16 00:00 CDT. All three Maunesha cards currently warn below the selected useful proxy ranges.
+- Threshold posture: Marshall-to-Firemen's and Cherry-Lane-to-Firemen's use WRT's Maunesha proxy ladder with `301-800 cfs` selected as the guarded useful band, `0-300 cfs` low, and `1101+ cfs` too high for general paddling. Firemen's-to-Hubbleton uses WRT's final-leg ladder with `301-400 cfs` selected as the good target, `0-300 cfs` low, and `1101+ cfs` too high. All three are marked `mixed` because WRT explicitly says Milford is an imperfect proxy for the ungauged Maunesha.
+- Safety/logistics added: Marshall-to-Firemen's carries dam-below-launch, old-dam/Waterloo rapids, bridge/ledge, deadfall, fast-rise, private-bank, urban-water-quality, and no-camping caveats. Cherry-Lane-to-Firemen's carries bridge-access, former-dam Class II, railroad/downtown rapid, strainer, fast-rise, private-bank, and no-camping caveats. Firemen's-to-Hubbleton carries Highway 19 early-exit, hidden low-water wood, wind/open-lower-river, Hubbleton/Crawfish-mouth navigation, private-bank, and no-camping caveats.
+- Bounded image review found Wisconsin River Trips / Miles Paddled / Marshall / USGS / Commons / same-route leads, but no clearly rights-clean exact-route paddling/gallery asset selected for the three new cards; no-image rows were added to the image audit.
+- Reviewed prompt and memory leads again: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica are already live; Black Earth Creek Cross Plains-to-Salmo Pond remains blocked by unresolved obstruction evidence; upper Chippewa / Wolf / Wisconsin Trail Guide families remain heavily represented, so the Maunesha family was the stronger distinct add.
 
 - 2026-07-15 23:13 America/Chicago / 2026-07-16 04:13 UTC: added `manitowoc-river-clark-mills-north-union`, `manitowoc-river-north-union-mill-road`, and `spirit-river-squaw-creek-hwy-o`, bringing the live Wisconsin route count from the run-start baseline of 148 to 151.
 - The Manitowoc cards fill two distinct segments below Clark Mills: Clark-Mills-to-North-Union is a short whitewater/dells card with Lower Cato Falls scout-or-portage posture, while North-Union-to-Mill-Road is a longer lower-Manitowoc continuation with direct lower-gauge support and Mill Road public access. The Spirit card adds a new family but starts below Spirit Falls at Squaw Creek to avoid reviving the Class III falls / boulder-gauntlet start.

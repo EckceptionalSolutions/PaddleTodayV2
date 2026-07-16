@@ -35951,6 +35951,195 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'maunesha-river-marshall-firemens': {
+    putIn: {
+      id: 'marshall-dam-waterloo-road-maunesha',
+      name: 'Marshall Dam / Waterloo Road Maunesha access',
+      latitude: 43.16715,
+      longitude: -89.06009,
+    },
+    takeOut: {
+      id: 'waterloo-firemens-park-maunesha',
+      name: "Waterloo Firemen's Park Maunesha access",
+      latitude: 43.18969,
+      longitude: -88.98244,
+    },
+    logistics: {
+      distanceLabel: 'About 8.3 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with wood, scouting, or low water',
+      shuttle:
+        "Stage Firemen's Park first, then drive back to the Marshall dam / Waterloo Road access. WRT warns the dirt approach below the dam can be muddy or rutted, so park legally on the road and carry if conditions are poor.",
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, current village or park parking rules, and any posted access signs at Marshall, Cherry Lane, and Waterloo.',
+      camping:
+        'No on-route camping is documented for this Marshall-to-Waterloo day route. Use separate campground or lodging plans; private banks and town/industrial edges are not overnight options.',
+      campingClassification: 'none',
+      summary:
+        "Launch below the Marshall dam and take out at Waterloo Firemen's Park for the full Maunesha route. WRT and Miles Paddled document the corridor, while Paddle Today uses the Crawfish River at Milford as a conservative proxy only.",
+      accessCaveats: [
+        'The Marshall put-in is below a dam and can have poor muddy approach conditions; inspect footing, parking, and the first ledge before unloading.',
+        "Cherry Lane is a bridge-access option, not a managed launch. Use it only after same-day shoulder, sign, parking, and bank-footing checks.",
+        "Firemen's Park is the intended stop. Avoid private farm banks, bar frontage, and industrial edges except for emergencies.",
+      ],
+      watchFor: [
+        'Deadfall, strainers, and low branches that can return after storms despite local cleanup work.',
+        'Old-dam and railroad-bridge features, Class I-II Waterloo rapids, pylon debris, and pushy current when the proxy gauge is high or rising.',
+        'Low-water scraping below the selected floor, cold shoulder-season water, and urban water-quality concerns near Waterloo.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'marshall-dam-waterloo-road-maunesha',
+        name: 'Marshall Dam / Waterloo Road Maunesha access',
+        latitude: 43.16715,
+        longitude: -89.06009,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below the Marshall dam; inspect the ledge and muddy approach.',
+      },
+      {
+        id: 'cherry-lane-maunesha-bridge',
+        name: 'Cherry Lane bridge access',
+        latitude: 43.1763,
+        longitude: -89.0189,
+        mileFromStart: 3,
+        segmentKind: 'creek',
+        note: 'Intermediate access from WRT; bridge parking and footing must be checked day-of.',
+      },
+      {
+        id: 'waterloo-firemens-park-maunesha',
+        name: "Waterloo Firemen's Park Maunesha access",
+        latitude: 43.18969,
+        longitude: -88.98244,
+        mileFromStart: 8.3,
+        segmentKind: 'creek',
+        note: 'Default take-out before any lower-Maunesha continuation.',
+      },
+    ],
+  },
+  'maunesha-river-cherry-lane-firemens': {
+    putIn: {
+      id: 'cherry-lane-maunesha-bridge',
+      name: 'Cherry Lane bridge access',
+      latitude: 43.1763,
+      longitude: -89.0189,
+    },
+    takeOut: {
+      id: 'waterloo-firemens-park-maunesha',
+      name: "Waterloo Firemen's Park Maunesha access",
+      latitude: 43.18969,
+      longitude: -88.98244,
+    },
+    logistics: {
+      distanceLabel: 'About 5.2 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer if scouting rapids or wood',
+      shuttle:
+        "Stage the Firemen's Park take-out first, then return to Cherry Lane. The bike shuttle is short but hilly; drivers should confirm Cherry Lane parking and shoulder safety before leaving a vehicle.",
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules and any posted bridge, road-shoulder, Waterloo park, or local water-trail restrictions.',
+      camping:
+        'No on-route camping is documented. This is a short day route through a small river corridor with private, urban, and industrial banks.',
+      campingClassification: 'none',
+      summary:
+        "Use Cherry Lane to Firemen's Park for the shorter Waterloo rapids-focused Maunesha card. The downstream Milford gauge is a rough proxy, so local bridge and rapid visuals decide marginal days.",
+      accessCaveats: [
+        'Cherry Lane is a practical bridge access from WRT rather than an official staffed launch; do not use it if parking, signage, traffic, or footing is unclear.',
+        "The Firemen's Park landing can have steep or muddy banks. Identify the marked take-out before launching.",
+        'The Milford gauge includes the larger Crawfish watershed and can misread the Maunesha. Local visuals at Cherry Lane and downtown Waterloo override the score.',
+      ],
+      watchFor: [
+        'Former-dam rapid and downtown Waterloo Class I-II features after the malt-factory area.',
+        'Fresh strainers, low branches, and bridge debris after storms or high water.',
+        'Cold water, urban runoff, and private banks through Waterloo.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cherry-lane-maunesha-bridge',
+        name: 'Cherry Lane bridge access',
+        latitude: 43.1763,
+        longitude: -89.0189,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; use only after same-day access checks.',
+      },
+      {
+        id: 'waterloo-firemens-park-maunesha',
+        name: "Waterloo Firemen's Park Maunesha access",
+        latitude: 43.18969,
+        longitude: -88.98244,
+        mileFromStart: 5.2,
+        segmentKind: 'creek',
+        note: 'Default take-out at Firemen\'s Park.',
+      },
+    ],
+  },
+  'maunesha-river-firemens-hubbleton': {
+    putIn: {
+      id: 'waterloo-firemens-park-maunesha',
+      name: "Waterloo Firemen's Park Maunesha access",
+      latitude: 43.18969,
+      longitude: -88.98244,
+    },
+    takeOut: {
+      id: 'hubbleton-road-crawfish-access',
+      name: 'Hubbleton Road Access / Crawfish River landing',
+      latitude: 43.2343,
+      longitude: -88.88654,
+    },
+    logistics: {
+      distanceLabel: 'About 6.4 mi',
+      estimatedPaddleTime: 'About 3 hr, longer with wind, wood, or low water',
+      shuttle:
+        "Stage Hubbleton Road Access first, then launch from Firemen's Park. WRT notes a hilly bike shuttle; confirm the Hubbleton landing is accessible before leaving the take-out vehicle.",
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, Waterloo park rules, Hubbleton landing signs, and any road-shoulder restrictions.',
+      camping:
+        'No on-route camping is documented. Treat Firemen\'s-to-Hubbleton as a day route; use separate campground or lodging plans if needed.',
+      campingClassification: 'none',
+      summary:
+        "Launch at Waterloo Firemen's Park and continue to Hubbleton Road just below the Maunesha mouth. This lower card is slower and more wind-exposed than the upstream Waterloo rapids cards.",
+      accessCaveats: [
+        "Use Firemen's Park or the second Highway 19 access as public staging points; do not assume informal banks between them are legal exits.",
+        'The second Highway 19 access is a good early stop if wind, timing, wood, or group energy makes the lower open miles unattractive.',
+        'Hubbleton Road is on the Crawfish just below the Maunesha mouth; identify the landing before launching and avoid drifting into a longer Crawfish plan by accident.',
+      ],
+      watchFor: [
+        'Hidden low-water logjams, strainers, and fresh wood between the two Highway 19 bridges.',
+        'Wind exposure and slower open water below the second Highway 19 bridge.',
+        'Private lowland banks, cold shoulder-season water, and proxy-gauge mismatch after local storms.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'waterloo-firemens-park-maunesha',
+        name: "Waterloo Firemen's Park Maunesha access",
+        latitude: 43.18969,
+        longitude: -88.98244,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at Firemen\'s Park.',
+      },
+      {
+        id: 'maunesha-highway-19-second-bridge',
+        name: 'Highway 19 second bridge Maunesha access',
+        latitude: 43.2242,
+        longitude: -88.9258,
+        mileFromStart: 3.2,
+        segmentKind: 'creek',
+        note: 'Source-backed intermediate public canoe/kayak access and early take-out option.',
+      },
+      {
+        id: 'hubbleton-road-crawfish-access',
+        name: 'Hubbleton Road Access / Crawfish River landing',
+        latitude: 43.2343,
+        longitude: -88.88654,
+        mileFromStart: 6.4,
+        segmentKind: 'creek',
+        note: 'Default take-out just below the Maunesha mouth.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {
