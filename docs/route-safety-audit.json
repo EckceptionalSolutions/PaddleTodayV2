@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-10T08:01:11.108Z",
-  "routeCount": 425,
-  "issueCount": 568,
+  "generatedAt": "2026-07-16T21:49:53.928Z",
+  "routeCount": 610,
+  "issueCount": 759,
   "summary": {
-    "Critical": 4,
-    "High": 357,
-    "Medium": 207,
+    "Critical": 7,
+    "High": 483,
+    "Medium": 269,
     "Low": 0
   },
   "issues": [
@@ -33,6 +33,17 @@
       "evidence": "oad valleys, riffles, sandbars, and a campground finish that avoids the Elkader dam take-out logistics. Use the Turkey River above French Hollow Creek at Elkader gauge as a downstream same-river proxy. Treat about 250 cfs / 5.5 ft as the conservative low-water"
     },
     {
+      "routeId": "goose-creek-jacks-dump-hollow",
+      "slug": "goose-creek-jacks-dump-hollow",
+      "name": "Goose Creek",
+      "reach": "Jacks / Bowling Branch Bridge Access to Dump Hollow Ford",
+      "state": "Kentucky",
+      "severity": "Critical",
+      "category": "Dam",
+      "message": "Route text suggests a dam or mandatory take-out with high consequence if missed.",
+      "evidence": "cleanly into a 3.0-mile downstream route below the Rawlings / Stinson low-head-dam warning. KDFWR also publishes official Manchester cfs and stage bands and source-backed endpoint coordinates. Same-day USGS Water Services returned 191 cfs and 7.32 ft at 2026-"
+    },
+    {
       "routeId": "goose-creek-jacks-laurel-branch",
       "slug": "goose-creek-jacks-laurel-branch",
       "name": "Goose Creek",
@@ -52,7 +63,29 @@
       "severity": "Critical",
       "category": "Dam",
       "message": "Route text suggests a dam or mandatory take-out with high consequence if missed.",
-      "evidence": "cuments the exact 2.2-mile public segment below the Rawlings / Stinson low-head-dam warning and ties it to the direct Manchester gauge. Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs as good for boating and fishing. Below that is low and l"
+      "evidence": "Branch as a year-round carry-down access with unpaved parking and no amenities. Take-out access Tobacco Road Bridge Ramp, 37.2163, -83.7175 KDFWR identifies Tobacco Road Bridge Access as a year-round carry-down access under the bridge with unpaved parking and"
+    },
+    {
+      "routeId": "green-river-houchins-ferry-brownsville-city-park",
+      "slug": "green-river-houchins-ferry-brownsville-city-park",
+      "name": "Green River",
+      "reach": "Houchins Ferry to Brownsville City Park",
+      "state": "Kentucky",
+      "severity": "Critical",
+      "category": "Dam",
+      "message": "Route text suggests a dam or mandatory take-out with high consequence if missed.",
+      "evidence": "rrent, ferry-side launch logistics, the class 2 rapid left from former Lock and Dam 6 near Brownsville, and private land after the park boundary make it a cautious finish segment rather than a novice pond shuttle. Confidence is good for a conservative new add:"
+    },
+    {
+      "routeId": "rum-river-germanium-south-county-park",
+      "slug": "rum-river-germanium-south-county-park",
+      "name": "Rum River",
+      "reach": "Germanium to South County Park",
+      "state": "Minnesota",
+      "severity": "Critical",
+      "category": "Dam",
+      "message": "Route text suggests a dam or mandatory take-out with high consequence if missed.",
+      "evidence": "itself stays friendly, but the lower-corridor finish deserves a more deliberate take-out plan than the easy rating implies. There is no direct lower-route gauge here, so Paddle Today uses the upstream St. Francis gauge as a conservative same-river proxy. Below"
     },
     {
       "routeId": "buffalo-river-erbie-ozark",
@@ -88,6 +121,17 @@
       "evidence": "ffles, bluffs, and shallow pools. It is still an upper Buffalo decision because wood, fast rises, and cold-water swims remain first-class concerns even when the whitewater is modest. Confidence is good for a guarded Arkansas add: NPS publishes the exact Erbie-"
     },
     {
+      "routeId": "buffalo-river-erbie-pruitt",
+      "slug": "buffalo-river-erbie-pruitt",
+      "name": "Buffalo River",
+      "reach": "Erbie to Pruitt",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Whitewater route is missing safetyProfile.",
+      "evidence": "routeType=whitewater"
+    },
+    {
       "routeId": "buffalo-river-kyles-landing-erbie",
       "slug": "buffalo-river-kyles-landing-erbie",
       "name": "Buffalo River",
@@ -119,6 +163,50 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "Short upper Buffalo National River whitewater day from Kyle's Landing to Erbie through one of the park's rough-road upper-district access corridors. NPS documents the exact trip, access pair, and mileage, and the Pr"
+    },
+    {
+      "routeId": "buffalo-river-kyles-landing-ozark",
+      "slug": "buffalo-river-kyles-landing-ozark",
+      "name": "Buffalo River",
+      "reach": "Kyle's Landing to Ozark",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Whitewater route is missing safetyProfile.",
+      "evidence": "routeType=whitewater"
+    },
+    {
+      "routeId": "buffalo-river-kyles-landing-ozark",
+      "slug": "buffalo-river-kyles-landing-ozark",
+      "name": "Buffalo River",
+      "reach": "Kyle's Landing to Ozark",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Hard route is missing safetyProfile.",
+      "evidence": "difficulty=hard"
+    },
+    {
+      "routeId": "buffalo-river-kyles-landing-ozark",
+      "slug": "buffalo-river-kyles-landing-ozark",
+      "name": "Buffalo River",
+      "reach": "Kyle's Landing to Ozark",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "ft current, rough-road logistics, wood, and cold-water swims keep it behind the whitewater route type. Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Kyle's Landing to Erbie and Erbie to Ozark, the Buffalo access mil"
+    },
+    {
+      "routeId": "buffalo-river-kyles-landing-ozark",
+      "slug": "buffalo-river-kyles-landing-ozark",
+      "name": "Buffalo River",
+      "reach": "Kyle's Landing to Ozark",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "ground-to-campground half day below Erbie. Swift current, rough-road logistics, wood, and cold-water swims keep it behind the whitewater route type. Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Kyle's Landing to Er"
     },
     {
       "routeId": "buffalo-river-kyles-landing-pruitt",
@@ -198,6 +286,39 @@
       "evidence": "pools. It still belongs under the whitewater route type because swift current, wood, and rain-driven changes matter more than on a casual flatwater trail. Confidence is good for a guarded Arkansas add: NPS publishes the exact Ozark-to-Pruitt trip page, NPS ac"
     },
     {
+      "routeId": "buffalo-river-ponca-hasty",
+      "slug": "buffalo-river-ponca-hasty",
+      "name": "Buffalo River",
+      "reach": "Ponca to Hasty",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Whitewater route is missing safetyProfile.",
+      "evidence": "routeType=whitewater"
+    },
+    {
+      "routeId": "buffalo-river-ponca-hasty",
+      "slug": "buffalo-river-ponca-hasty",
+      "name": "Buffalo River",
+      "reach": "Ponca to Hasty",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Hard route is missing safetyProfile.",
+      "evidence": "difficulty=hard"
+    },
+    {
+      "routeId": "buffalo-river-ponca-hasty",
+      "slug": "buffalo-river-ponca-hasty",
+      "name": "Buffalo River",
+      "reach": "Ponca to Hasty",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "only low-water floor and high-water caveat. The miles stack up into a very long whitewater-ish moving-water day with repeated riffles, bluff bends, rough-road shuttles, remote rescue exposure, and the Little Buffalo speed-up below Pruitt. Treat this as an adva"
+    },
+    {
       "routeId": "buffalo-river-ponca-kyles-landing",
       "slug": "buffalo-river-ponca-kyles-landing",
       "name": "Buffalo River",
@@ -242,10 +363,10 @@
       "evidence": "Ponca gauge, but this is rain-dependent Class II water with remote shuttle and wood risk. Use the Buffalo River at Ponca gauge. Around 130 cfs is the conservative low-water floor for this route; below that, expect scraping, dragging, and missed lines. NPS say"
     },
     {
-      "routeId": "buffalo-river-pruitt-hasty",
-      "slug": "buffalo-river-pruitt-hasty",
+      "routeId": "buffalo-river-ponca-ozark",
+      "slug": "buffalo-river-ponca-ozark",
       "name": "Buffalo River",
-      "reach": "Pruitt to Hasty",
+      "reach": "Ponca to Ozark",
       "state": "Arkansas",
       "severity": "High",
       "category": "Missing safety profile",
@@ -253,10 +374,10 @@
       "evidence": "routeType=whitewater"
     },
     {
-      "routeId": "buffalo-river-pruitt-hasty",
-      "slug": "buffalo-river-pruitt-hasty",
+      "routeId": "buffalo-river-ponca-ozark",
+      "slug": "buffalo-river-ponca-ozark",
       "name": "Buffalo River",
-      "reach": "Pruitt to Hasty",
+      "reach": "Ponca to Ozark",
       "state": "Arkansas",
       "severity": "High",
       "category": "Missing safety profile",
@@ -264,26 +385,279 @@
       "evidence": "difficulty=hard"
     },
     {
-      "routeId": "buffalo-river-pruitt-hasty",
-      "slug": "buffalo-river-pruitt-hasty",
+      "routeId": "buffalo-river-ponca-ozark",
+      "slug": "buffalo-river-ponca-ozark",
       "name": "Buffalo River",
-      "reach": "Pruitt to Hasty",
+      "reach": "Ponca to Ozark",
       "state": "Arkansas",
       "severity": "High",
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "can maneuver in swift water with sharp bends and occasional obstacles. American Whitewater lists the reach as Class I-II, so the route is hidden behind the whitewater route type rather than treated as a casual Explore float. Confidence is good for a guarded Ar"
+      "evidence": "le's rapids, the Erbie corridor, and the bluff-lined Ozark finish into one long whitewater-ish moving-water day. Treat it as an advanced planning route rather than a casual scenic float. Confidence is good for a conservative Arkansas add: NPS still publishes t"
     },
     {
-      "routeId": "buffalo-river-pruitt-hasty",
-      "slug": "buffalo-river-pruitt-hasty",
+      "routeId": "buffalo-river-ponca-steel-creek",
+      "slug": "buffalo-river-ponca-steel-creek",
       "name": "Buffalo River",
-      "reach": "Pruitt to Hasty",
+      "reach": "Ponca to Steel Creek",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Whitewater route is missing safetyProfile.",
+      "evidence": "routeType=whitewater"
+    },
+    {
+      "routeId": "buffalo-river-ponca-steel-creek",
+      "slug": "buffalo-river-ponca-steel-creek",
+      "name": "Buffalo River",
+      "reach": "Ponca to Steel Creek",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Hard route is missing safetyProfile.",
+      "evidence": "difficulty=hard"
+    },
+    {
+      "routeId": "buffalo-river-ponca-steel-creek",
+      "slug": "buffalo-river-ponca-steel-creek",
+      "name": "Buffalo River",
+      "reach": "Ponca to Steel Creek",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "Short upper Buffalo National River whitewater day from Ponca to Steel Creek beneath Roark Bluff. NPS documents the exact 2.5-mile trip and the direct Ponca gauge is live, but this is still rain-dependent swift water"
+    },
+    {
+      "routeId": "buffalo-river-ponca-steel-creek",
+      "slug": "buffalo-river-ponca-steel-creek",
+      "name": "Buffalo River",
+      "reach": "Ponca to Steel Creek",
       "state": "Arkansas",
       "severity": "High",
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "e is live, but this remains swift, rain-dependent Ozark water with sharp bends, wood, and remote-service caveats. Use the Buffalo River at Pruitt gauge. Around 100 cfs is the conservative low-water floor; below that, the Buffalo float guide marks Pruitt as ver"
+      "evidence": "Ponca gauge is live, but this is still rain-dependent swift water with chutes, wood, and quick-rising conditions. Use the Buffalo River at Ponca gauge. Around 130 cfs is the conservative low-water floor for this route; below that, expect scraping, dragging, a"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-erbie",
+      "slug": "buffalo-river-steel-creek-erbie",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Erbie",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Whitewater route is missing safetyProfile.",
+      "evidence": "routeType=whitewater"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-erbie",
+      "slug": "buffalo-river-steel-creek-erbie",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Erbie",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Hard route is missing safetyProfile.",
+      "evidence": "difficulty=hard"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-erbie",
+      "slug": "buffalo-river-steel-creek-erbie",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Erbie",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "o-Erbie continuation into one committed upper-district day. It stays behind the whitewater route type because swift current, wood, rough-road shuttles, and quick rises are first-class decisions. Confidence is good for a guarded Arkansas add: NPS still publishe"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-erbie",
+      "slug": "buffalo-river-steel-creek-erbie",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Erbie",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "-district day. It stays behind the whitewater route type because swift current, wood, rough-road shuttles, and quick rises are first-class decisions. Confidence is good for a guarded Arkansas add: NPS still publishes exact current route pages for Steel Creek t"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-hasty",
+      "slug": "buffalo-river-steel-creek-hasty",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Hasty",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Whitewater route is missing safetyProfile.",
+      "evidence": "routeType=whitewater"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-hasty",
+      "slug": "buffalo-river-steel-creek-hasty",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Hasty",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Hard route is missing safetyProfile.",
+      "evidence": "difficulty=hard"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-hasty",
+      "slug": "buffalo-river-steel-creek-hasty",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Hasty",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "rent, wood, rough-road shuttles, and cold-water consequences keep it behind the whitewater route type. Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Steel Creek to Kyle's Landing, Kyle's Landing to Erbie, Erbie to O"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-hasty",
+      "slug": "buffalo-river-steel-creek-hasty",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Hasty",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "-to-Hasty fallback into one very long upper-district commitment. Swift current, wood, rough-road shuttles, and cold-water consequences keep it behind the whitewater route type. Confidence is good for a guarded Arkansas add: NPS publishes exact current route pa"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-kyles-landing",
+      "slug": "buffalo-river-steel-creek-kyles-landing",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Kyle's Landing",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Whitewater route is missing safetyProfile.",
+      "evidence": "routeType=whitewater"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-kyles-landing",
+      "slug": "buffalo-river-steel-creek-kyles-landing",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Kyle's Landing",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Hard route is missing safetyProfile.",
+      "evidence": "difficulty=hard"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-kyles-landing",
+      "slug": "buffalo-river-steel-creek-kyles-landing",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Kyle's Landing",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "out road at Kyle's Landing is a major practical constraint. It stays behind the whitewater route type because swift current, wood, and shuttle risk matter even when the lines are friendly. Confidence is good for a guarded Arkansas add: NPS publishes the exact"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-kyles-landing",
+      "slug": "buffalo-river-steel-creek-kyles-landing",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Kyle's Landing",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "t this remains rainfall-dependent moving water with rapids, rough-road shuttle, wood, and crowding constraints. Use the Buffalo River at Ponca gauge as the nearest upstream corridor check. Around 130 cfs is the conservative low-water floor for this upper-Buffa"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-ozark",
+      "slug": "buffalo-river-steel-creek-ozark",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Ozark",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Whitewater route is missing safetyProfile.",
+      "evidence": "routeType=whitewater"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-ozark",
+      "slug": "buffalo-river-steel-creek-ozark",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Ozark",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Hard route is missing safetyProfile.",
+      "evidence": "difficulty=hard"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-ozark",
+      "slug": "buffalo-river-steel-creek-ozark",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Ozark",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "t current, wood, rough shuttles, and cold-water consequences keep it behind the whitewater route type. Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Steel Creek to Kyle's Landing, Kyle's Landing to Erbie, and Erbie"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-ozark",
+      "slug": "buffalo-river-steel-creek-ozark",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Ozark",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "orridor, and the Ozark campground finish into one committed day. Swift current, wood, rough shuttles, and cold-water consequences keep it behind the whitewater route type. Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages f"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-pruitt",
+      "slug": "buffalo-river-steel-creek-pruitt",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Pruitt",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Whitewater route is missing safetyProfile.",
+      "evidence": "routeType=whitewater"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-pruitt",
+      "slug": "buffalo-river-steel-creek-pruitt",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Pruitt",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Hard route is missing safetyProfile.",
+      "evidence": "difficulty=hard"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-pruitt",
+      "slug": "buffalo-river-steel-creek-pruitt",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Pruitt",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "wood, rough-road shuttles, and cold-water consequences, so it stays behind the whitewater route type. Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Steel Creek to Kyle's Landing, Kyle's Landing to Erbie, Erbie to O"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-pruitt",
+      "slug": "buffalo-river-steel-creek-pruitt",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Pruitt",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "7 finish at Pruitt. It is a long upper-district commitment with swift current, wood, rough-road shuttles, and cold-water consequences, so it stays behind the whitewater route type. Confidence is good for a guarded Arkansas add: NPS publishes exact current rou"
     },
     {
       "routeId": "buffalo-river-tyler-bend-gilbert",
@@ -328,6 +702,39 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "e, but this is still rain-sensitive Ozark moving water with swift I-II current, wood, and high-water judgment. Use the Buffalo River near St. Joe gauge. Around 120 cfs is the conservative low-water floor; below that, expect dragging and shortened float plans."
+    },
+    {
+      "routeId": "buffalo-river-tyler-bend-grinders-ferry",
+      "slug": "buffalo-river-tyler-bend-grinders-ferry",
+      "name": "Buffalo River",
+      "reach": "Tyler Bend to Grinder's Ferry",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Whitewater route is missing safetyProfile.",
+      "evidence": "routeType=whitewater"
+    },
+    {
+      "routeId": "buffalo-river-tyler-bend-grinders-ferry",
+      "slug": "buffalo-river-tyler-bend-grinders-ferry",
+      "name": "Buffalo River",
+      "reach": "Tyler Bend to Grinder's Ferry",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "rrent that can change quickly with rain. The route stays in the guarded Buffalo whitewater family so rising water, wood, and poor judgment are not hidden. Confidence is good for a guarded Arkansas add: NPS publishes the exact Tyler-Bend-to-Grinder's-Ferry rout"
+    },
+    {
+      "routeId": "buffalo-river-tyler-bend-grinders-ferry",
+      "slug": "buffalo-river-tyler-bend-grinders-ferry",
+      "name": "Buffalo River",
+      "reach": "Tyler Bend to Grinder's Ferry",
+      "state": "Arkansas",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "rain. The route stays in the guarded Buffalo whitewater family so rising water, wood, and poor judgment are not hidden. Confidence is good for a guarded Arkansas add: NPS publishes the exact Tyler-Bend-to-Grinder's-Ferry route page, the access mileage chart, o"
     },
     {
       "routeId": "cossatot-river-ed-banks-highway-278",
@@ -484,26 +891,26 @@
       "evidence": "Illinois whitewater run from the Lowell / N.2249th Road rafting put-in to the Oglesby boat launch below Ed Hand Highway. This is a real II-III route with Wildcat and other named rapids, not"
     },
     {
-      "routeId": "wabash-river-vera-cruz-white-bridge",
-      "slug": "wabash-river-vera-cruz-white-bridge",
+      "routeId": "wabash-river-vera-cruz-hale-street",
+      "slug": "wabash-river-vera-cruz-hale-street",
       "name": "Wabash River",
-      "reach": "Vera Cruz Paddlesports Launch to White Bridge Picnic Area",
+      "reach": "Vera Cruz Paddlesports Launch to Hale Street access",
       "state": "Indiana",
       "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "slow-river day with improved public concrete launches, but high water, debris, private banks, and limited bailout access make same-day judgment important. Confidence is good for a conservative Indiana add: Wells County Trails names Vera Cruz Paddlesports Laun"
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "ay call. The current is usually mellow, but the route still needs attention for wood, private banks, and the simpler earthen Hale finish once you enter the Bluffton corridor. Confidence is good for a conservative Indiana add: Wells County Trails supports the r"
     },
     {
-      "routeId": "wabash-river-white-bridge-hale-street",
-      "slug": "wabash-river-white-bridge-hale-street",
+      "routeId": "wabash-river-vera-cruz-hale-street",
+      "slug": "wabash-river-vera-cruz-hale-street",
       "name": "Wabash River",
-      "reach": "White Bridge Picnic Area to Hale Street access",
+      "reach": "Vera Cruz Paddlesports Launch to Hale Street access",
       "state": "Indiana",
       "severity": "High",
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "Wabash link, but it is still moving river water with bridge debris, strainers, private banks, and limited bailout options between the named public accesses. Confidence is good for a conservative Indiana add: Wells County Trails names White Bridge Picnic Area"
+      "evidence": "l. The current is usually mellow, but the route still needs attention for wood, private banks, and the simpler earthen Hale finish once you enter the Bluffton corridor. Confidence is good for a conservative Indiana add: Wells County Trails supports the route b"
     },
     {
       "routeId": "black-hawk-creek-ranchero-hope-martin",
@@ -1394,7 +1801,7 @@
       "severity": "High",
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "still uses a ford-style upstream access, limited roadside parking, and a narrow wood-prone channel. Confidence is good for a conservative Kentucky add: current KDFWR Goose Creek guidance still lists Dump Hollow Ford to Laurel Branch Road Access as a 4.8-mile p"
+      "evidence": "mal levels this is a manageable shallow-creek float, but the ford-style launch, wood, and narrow outside bends mean conditions outside the official band should be treated cautiously. Confidence is high for a conservative split add: KDFWR publishes this exact 4"
     },
     {
       "routeId": "goose-creek-dump-hollow-laurel-branch",
@@ -1405,7 +1812,29 @@
       "severity": "High",
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "route should score low today. Route character Ford access, shallow pools, wood, private banks KDFWR describes Goose Creek as a shallow stream with riffles, pools, and rock bars, and this lower split still depends on careful footing and private-bank discipline"
+      "evidence": "identifies Dump Hollow Ford Road as a year-round carry-down access with unpaved parking and no amenities. Take-out access Laurel Branch Road Access, 37.2370, -83.6703 KDFWR identifies Laurel Branch Road as a year-round carry-down access with limited parking, n"
+    },
+    {
+      "routeId": "goose-creek-jacks-dump-hollow",
+      "slug": "goose-creek-jacks-dump-hollow",
+      "name": "Goose Creek",
+      "reach": "Jacks / Bowling Branch Bridge Access to Dump Hollow Ford",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Dam",
+      "message": "Route text mentions dam, portage, hydro, or release hazards.",
+      "evidence": "cleanly into a 3.0-mile downstream route below the Rawlings / Stinson low-head-dam warning. KDFWR also publishes official Manchester cfs and stage bands and source-backed endpoint coordinates. Same-day USGS Water Services returned 191 cfs and 7.32 ft at 2026-"
+    },
+    {
+      "routeId": "goose-creek-jacks-dump-hollow",
+      "slug": "goose-creek-jacks-dump-hollow",
+      "name": "Goose Creek",
+      "reach": "Jacks / Bowling Branch Bridge Access to Dump Hollow Ford",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "-ford creek float, but it is still narrow, shallow, and sensitive to low water, wood, and quick rises. Confidence is high for a conservative split add: KDFWR documents the Jacks/Bowling Branch to Tobacco Road segment at 2.2 miles and Tobacco Road to Dump Hollo"
     },
     {
       "routeId": "goose-creek-jacks-laurel-branch",
@@ -1449,7 +1878,7 @@
       "severity": "High",
       "category": "Dam",
       "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "cuments the exact 2.2-mile public segment below the Rawlings / Stinson low-head-dam warning and ties it to the direct Manchester gauge. Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs as good for boating and fishing. Below that is low and l"
+      "evidence": "d score low today. Route character Short shallow creek split below the upstream dam warning KDFWR's Goose Creek page describes a relatively shallow stream with riffles, pools, and rock bars. Starting at Jacks keeps this split below the Rawlings/Stinson low-hea"
     },
     {
       "routeId": "goose-creek-jacks-tobacco-road",
@@ -1458,20 +1887,9 @@
       "reach": "Jacks / Bowling Branch Bridge Access to Tobacco Road Bridge Ramp",
       "state": "Kentucky",
       "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "should score low today. Route character Narrow creek, bridge access, rock bars, private banks KDFWR describes Goose Creek as a relatively shallow stream with riffles, pools, and rock bars, and this split stays on the lower public corridor below the upstream lo"
-    },
-    {
-      "routeId": "goose-creek-tobacco-road-dump-hollow",
-      "slug": "goose-creek-tobacco-road-dump-hollow",
-      "name": "Goose Creek",
-      "reach": "Tobacco Road Bridge Ramp to Dump Hollow Ford",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "d score low today. Route character Bridge access, ford finish, shallow riffles, private banks KDFWR describes Goose Creek as a shallow stream with riffles, pools, and rock bars, and Dump Hollow remains a ford-style landing that deserves extra care after rain."
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "ridge creek float, but it is still narrow, shallow, and sensitive to low water, wood, and quick rises. Confidence is high for a conservative split add: KDFWR publishes this exact 2.2-mile Jacks-to-Tobacco segment, gives official Manchester cfs and stage bands,"
     },
     {
       "routeId": "green-river-american-legion-lynn-camp-creek",
@@ -1483,6 +1901,72 @@
       "category": "Missing safety profile",
       "message": "Hard route is missing safetyProfile.",
       "evidence": "difficulty=hard"
+    },
+    {
+      "routeId": "green-river-dennison-ferry-brownsville-city-park",
+      "slug": "green-river-dennison-ferry-brownsville-city-park",
+      "name": "Green River",
+      "reach": "Dennison Ferry to Brownsville City Park",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Hard route is missing safetyProfile.",
+      "evidence": "difficulty=hard"
+    },
+    {
+      "routeId": "green-river-dennison-ferry-brownsville-city-park",
+      "slug": "green-river-dennison-ferry-brownsville-city-park",
+      "name": "Green River",
+      "reach": "Dennison Ferry to Brownsville City Park",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Dam",
+      "message": "Route text mentions dam, portage, hydro, or release hazards.",
+      "evidence": "gal midpoint stop, and the Brownsville finish still carries the former Lock and Dam 6 rapid context plus private-land caution past the park boundary. NPS Dennison Ferry to Green River Ferry https://www.nps.gov/thingstodo/dennison-ferry-to-green-river-ferry.htm"
+    },
+    {
+      "routeId": "green-river-dennison-ferry-brownsville-city-park",
+      "slug": "green-river-dennison-ferry-brownsville-city-park",
+      "name": "Green River",
+      "reach": "Dennison Ferry to Brownsville City Park",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "ure. Camping and finish context Permit camping or Houchins support; Brownsville rapid near finish NPS says the Green River Ferry to Houchin stretch can support gravel-bar or low-bank camping with a valid riverside permit, Houchins Ferry Campground offers a cle"
+    },
+    {
+      "routeId": "green-river-dennison-ferry-brownsville-city-park",
+      "slug": "green-river-dennison-ferry-brownsville-city-park",
+      "name": "Green River",
+      "reach": "Dennison Ferry to Brownsville City Park",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "stage sits just above the broad 9 to 15-foot comfort band but below the 20-foot closure, so the route should ship with explicit experienced-water caution. Official route shape Dennison Ferry to Brownsville, about 23.6 mi NPS publishes Dennison Ferry to Green R"
+    },
+    {
+      "routeId": "green-river-dennison-green-river-ferry",
+      "slug": "green-river-dennison-green-river-ferry",
+      "name": "Green River",
+      "reach": "Dennison Ferry to Green River Ferry",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "nd prohibits launching in the park at or above 20 ft. The route is flatwater by whitewater standards, but NPS still says prior paddling experience is recommended because the river is wide, current can be swift, and ferry traffic, logjams, mud, and steep carry-"
+    },
+    {
+      "routeId": "green-river-dennison-green-river-ferry",
+      "slug": "green-river-dennison-green-river-ferry",
+      "name": "Green River",
+      "reach": "Dennison Ferry to Green River Ferry",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "nd 16.15 ft at 2026-07-14 08:00 CDT. That stage is below the NPS 20-foot launch closure but above the park's broad beginner-friendly 9 to 15-foot band, so the route should ship with explicit above-band caution rather than comfort framing. Official route segmen"
     },
     {
       "routeId": "green-river-dennison-ferry-houchins-ferry",
@@ -1518,6 +2002,94 @@
       "evidence": "ion, changing gravel bars, shifting channels, limited rescue access, and a near-closure high-water ceiling make this a committed Mammoth Cave route rather than a casual float. Confidence is good for a conservative Kentucky add: KDFWR's Pool 6 page still lists"
     },
     {
+      "routeId": "green-river-green-river-ferry-brownsville-city-park",
+      "slug": "green-river-green-river-ferry-brownsville-city-park",
+      "name": "Green River",
+      "reach": "Green River Ferry to Brownsville City Park",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Dam",
+      "message": "Route text mentions dam, portage, hydro, or release hazards.",
+      "evidence": "s stretch with the swift final miles toward Brownsville and the former lock-and-dam rapid near the finish. Confidence is high for a conservative continuation add: NPS still publishes Green River Ferry to Houchin Ferry as 12.4 miles and Houchin Ferry to Brownsv"
+    },
+    {
+      "routeId": "green-river-green-river-ferry-brownsville-city-park",
+      "slug": "green-river-green-river-ferry-brownsville-city-park",
+      "name": "Green River",
+      "reach": "Green River Ferry to Brownsville City Park",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "retch with the swift final miles toward Brownsville and the former lock-and-dam rapid near the finish. Confidence is high for a conservative continuation add: NPS still publishes Green River Ferry to Houchin Ferry as 12.4 miles and Houchin Ferry to Brownsville"
+    },
+    {
+      "routeId": "green-river-green-river-ferry-brownsville-city-park",
+      "slug": "green-river-green-river-ferry-brownsville-city-park",
+      "name": "Green River",
+      "reach": "Green River Ferry to Brownsville City Park",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "k's broad beginner-friendly 9 to 15-foot band but below the hard 20-foot launch closure, so the route should ship with explicit above-band caution. Official route shape Green River Ferry to Brownsville, about 16.0 mi NPS publishes Green River Ferry to Houchin"
+    },
+    {
+      "routeId": "green-river-green-river-ferry-houchins",
+      "slug": "green-river-green-river-ferry-houchins",
+      "name": "Green River",
+      "reach": "Green River Ferry to Houchins Ferry",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "026 values of 3950 cfs and 16.15 ft. That stage is below the NPS 20-foot launch closure but above the park's broad beginner-friendly 9 to 15-foot band, so the route should ship with explicit above-band caution. Official route segment Green River Ferry to Houch"
+    },
+    {
+      "routeId": "green-river-greensburg-city-ramp-lynn-camp-creek",
+      "slug": "green-river-greensburg-city-ramp-lynn-camp-creek",
+      "name": "Green River",
+      "reach": "Greensburg City Ramp to Lynn Camp Creek Ramp",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Hard route is missing safetyProfile.",
+      "evidence": "difficulty=hard"
+    },
+    {
+      "routeId": "green-river-greensburg-city-ramp-lynn-camp-creek",
+      "slug": "green-river-greensburg-city-ramp-lynn-camp-creek",
+      "name": "Green River",
+      "reach": "Greensburg City Ramp to Lynn Camp Creek Ramp",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "; below that expect a slower all-day grind, while above that the broad current, private banks, and steep Lynn Camp finish deserve more caution. The current stays recreational, but 32.9 miles, broad-river wind, sparse legal stops below Glenview, private-bank li"
+    },
+    {
+      "routeId": "green-river-hh-wilson-park-dennison-ferry",
+      "slug": "green-river-hh-wilson-park-dennison-ferry",
+      "name": "Green River",
+      "reach": "H.H. Wilson Park Ramp to Dennison Ferry Carrydown",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "expect a slower, more consequential all-day trip; above that the broad current, wood, and park carry-down finish deserve more caution. This is a flatwater-style Green River route, but 24.6 miles, limited bailout options, private banks, open-river wind, and a d"
+    },
+    {
+      "routeId": "green-river-hh-wilson-park-dennison-ferry",
+      "slug": "green-river-hh-wilson-park-dennison-ferry",
+      "name": "Green River",
+      "reach": "H.H. Wilson Park Ramp to Dennison Ferry Carrydown",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "s a flatwater-style Green River route, but 24.6 miles, limited bailout options, private banks, open-river wind, and a day-use-only park finish make it a committed moderate outing rather than a casual family float. Confidence is good for a conservative Kentucky"
+    },
+    {
       "routeId": "green-river-hh-wilson-park-green-river-ferry",
       "slug": "green-river-hh-wilson-park-green-river-ferry",
       "name": "Green River",
@@ -1551,15 +2123,103 @@
       "evidence": "ishing. Below that expect a slower all-day route; above that the broad current, wood, and park ferry finish deserve extra caution. The water is still flatwater by whitewater standards, but 32.1 miles, limited bailout options after Stovall, broad-river wind, an"
     },
     {
-      "routeId": "green-river-lynn-camp-creek-stovall-park",
-      "slug": "green-river-lynn-camp-creek-stovall-park",
+      "routeId": "green-river-hh-wilson-stovall",
+      "slug": "green-river-hh-wilson-stovall",
       "name": "Green River",
-      "reach": "Lynn Camp Creek Ramp to Munfordville-Stovall Park Ramp",
+      "reach": "H.H. Wilson Park Ramp to Stovall Park Ramp",
       "state": "Kentucky",
       "severity": "High",
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "elow that expect a slower, scrape-prone full day; above that the broad current, wood, and park landing deserve more caution. This is still recreational Green River water, but the 21.8-mile length, limited bailout options, private-bank limits, and late-day Stov"
+      "evidence": "dges; above that is high and deserves extra broad-river caution around current, wood, and landings. This is a short KDFWR public-ramp segment on a broad Class I river corridor. Treat it as easy only when the Munfordville gauge is stable in the KDFWR good band;"
+    },
+    {
+      "routeId": "green-river-hh-wilson-stovall",
+      "slug": "green-river-hh-wilson-stovall",
+      "name": "Green River",
+      "reach": "H.H. Wilson Park Ramp to Stovall Park Ramp",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "stable in the KDFWR good band; high water, wind, boat traffic, ramp drops, and private banks can make landings less forgiving. Confidence is high for a conservative Kentucky restore: KDFWR lists H.H. Wilson Park Ramp to Stovall Park Ramp as a 3.6-mile Green R"
+    },
+    {
+      "routeId": "green-river-houchins-ferry-brownsville-city-park",
+      "slug": "green-river-houchins-ferry-brownsville-city-park",
+      "name": "Green River",
+      "reach": "Houchins Ferry to Brownsville City Park",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Dam",
+      "message": "Route text mentions dam, portage, hydro, or release hazards.",
+      "evidence": "rrent, ferry-side launch logistics, the class 2 rapid left from former Lock and Dam 6 near Brownsville, and private land after the park boundary make it a cautious finish segment rather than a novice pond shuttle. Confidence is good for a conservative new add:"
+    },
+    {
+      "routeId": "green-river-houchins-ferry-brownsville-city-park",
+      "slug": "green-river-houchins-ferry-brownsville-city-park",
+      "name": "Green River",
+      "reach": "Houchins Ferry to Brownsville City Park",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "not a throwaway float. Swift current, ferry-side launch logistics, the class 2 rapid left from former Lock and Dam 6 near Brownsville, and private land after the park boundary make it a cautious finish segment rather than a novice pond shuttle. Confidence is"
+    },
+    {
+      "routeId": "green-river-houchins-ferry-brownsville-city-park",
+      "slug": "green-river-houchins-ferry-brownsville-city-park",
+      "name": "Green River",
+      "reach": "Houchins Ferry to Brownsville City Park",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "026 values of 3950 cfs and 16.15 ft. That stage is below the NPS 20-foot launch closure but above the park's broad beginner-friendly 9 to 15-foot band, so the route should ship with explicit above-band caution and a strong downstream-hazard note at Brownsville"
+    },
+    {
+      "routeId": "green-river-lynn-camp-creek-hh-wilson-park",
+      "slug": "green-river-lynn-camp-creek-hh-wilson-park",
+      "name": "Green River",
+      "reach": "Lynn Camp Creek Ramp to H.H. Wilson Park Ramp",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "t a slower, shallower day with more dragging; above that the broad river, fresh wood, and the H.H. Wilson landing deserve extra caution. This is still a recreational Green River corridor, but 18.2 miles, limited public bailout options, private-bank limits, and"
+    },
+    {
+      "routeId": "green-river-lynn-camp-creek-rio-carrydown",
+      "slug": "green-river-lynn-camp-creek-rio-carrydown",
+      "name": "Green River",
+      "reach": "Lynn Camp Creek Ramp to Rio Carrydown Access",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "at expect a slower shoal-filled day; above that the steep Lynn Camp carry-down, wood, and faster current deserve more caution. This is a shorter moving-water Green River route rather than an all-day Mammoth Cave chain, but the steep Lynn Camp ramp, private-ban"
+    },
+    {
+      "routeId": "green-river-lynn-camp-creek-rio-carrydown",
+      "slug": "green-river-lynn-camp-creek-rio-carrydown",
+      "name": "Green River",
+      "reach": "Lynn Camp Creek Ramp to Rio Carrydown Access",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": ", -85.7098 KDFWR identifies Lynn Camp Creek VPA #1 as a free carry-down ramp on private property opened for public use, with steep access, unpaved parking, and no camping. Take-out access Rio Carrydown Access, 37.3183, -85.7692 KDFWR identifies Rio as a free p"
+    },
+    {
+      "routeId": "green-river-stovall-park-dennison-ferry",
+      "slug": "green-river-stovall-park-dennison-ferry",
+      "name": "Green River",
+      "reach": "Munfordville-Stovall Park Ramp to Dennison Ferry Carrydown",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "th extra caution at the park carry-down finish. The water is still flatwater by whitewater standards, but 21 miles, broad-river wind, limited bailout options, and a day-use-only park finish make this a committed moderate outing rather than a casual family floa"
     },
     {
       "routeId": "green-river-stovall-park-green-river-ferry",
@@ -1595,6 +2255,61 @@
       "evidence": "ishing. Below that expect a slower all-day route; above that the broad current, wood, and park ferry finish deserve extra caution. The water is still flatwater by whitewater standards, but 28.5 miles, limited bailout options after Stovall, broad-river wind, an"
     },
     {
+      "routeId": "green-river-rio-carrydown-dennison-ferry",
+      "slug": "green-river-rio-carrydown-dennison-ferry",
+      "name": "Green River",
+      "reach": "Rio Carrydown Access to Dennison Ferry Carrydown",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Hard route is missing safetyProfile.",
+      "evidence": "difficulty=hard"
+    },
+    {
+      "routeId": "green-river-rio-carrydown-dennison-ferry",
+      "slug": "green-river-rio-carrydown-dennison-ferry",
+      "name": "Green River",
+      "reach": "Rio Carrydown Access to Dennison Ferry Carrydown",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "expect a slower, more consequential all-day trip; above that the broad current, wood, and park carry-down finish deserve extra caution. This is still flatwater-style Green River paddling, but 33 miles, broad-river wind, private-bank limits, limited bailout opt"
+    },
+    {
+      "routeId": "green-river-rio-carrydown-hh-wilson-park",
+      "slug": "green-river-rio-carrydown-hh-wilson-park",
+      "name": "Green River",
+      "reach": "Rio Carrydown Access to H.H. Wilson Park Ramp",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "the Munfordville discharge is stable near KDFWR's good band. High water, fresh wood, private banks, and the H.H. Wilson ramp drop can make the finish less forgiving than a casual park paddle. Confidence is high for a conservative Kentucky restore: KDFWR's Har"
+    },
+    {
+      "routeId": "green-river-rio-carrydown-hh-wilson-park",
+      "slug": "green-river-rio-carrydown-hh-wilson-park",
+      "name": "Green River",
+      "reach": "Rio Carrydown Access to H.H. Wilson Park Ramp",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "unfordville discharge is stable near KDFWR's good band. High water, fresh wood, private banks, and the H.H. Wilson ramp drop can make the finish less forgiving than a casual park paddle. Confidence is high for a conservative Kentucky restore: KDFWR's Hart Coun"
+    },
+    {
+      "routeId": "green-river-rio-carrydown-stovall-park",
+      "slug": "green-river-rio-carrydown-stovall-park",
+      "name": "Green River",
+      "reach": "Rio Carrydown Access to Munfordville-Stovall Park Ramp",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "g. Below that expect a slower shoal-filled day; above that the broader current, wood, and Stovall ramp drop deserve more caution. The route remains recreational Green River water, but 12 miles, broad bends, private-bank limits, and a developed park finish with"
+    },
+    {
       "routeId": "green-river-roachville-glenview-road",
       "slug": "green-river-roachville-glenview-road",
       "name": "Green River",
@@ -1604,6 +2319,28 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "that expect more shoal dragging and a long day; above that the broader current, private banks, and no-amenity Glenview finish deserve more caution. The current is still recreational Green River water, but 24.8 miles, limited legal stops away from the named acc"
+    },
+    {
+      "routeId": "green-river-russell-ford-american-legion",
+      "slug": "green-river-russell-ford-american-legion",
+      "name": "Green River",
+      "reach": "Russell Ford Access to American Legion Park Ramp",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "y route-finding, but it is still a broad moving river with shoals, muddy edges, private banks, and current that becomes less forgiving above the KDFWR good band. Confidence is high for a conservative Kentucky restore: KDFWR still lists Russell Ford to American"
+    },
+    {
+      "routeId": "levisa-fork-airport-boat-ramp",
+      "slug": "levisa-fork-airport-boat-ramp",
+      "name": "Levisa Fork",
+      "reach": "Airport Ramp to Levisa Fork Boat Ramp",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "exposed shoals; above that is high and the broader river can push harder around wood, banks, and bridge current. At normal levels this is a straightforward developed-ramp float on a larger warmwater river. The main complications are distance, low-water pacing,"
     },
     {
       "routeId": "levisa-fork-cedar-creek-thompson-road",
@@ -1617,6 +2354,39 @@
       "evidence": "auge bands, but the route still needs same-day judgment around woody debris and dam-release changes. Use the Levisa Fork at Pikeville gauge. KDFWR rates 800 to 1,400 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Below that is low; above that is high"
     },
     {
+      "routeId": "levisa-fork-island-creek-cedar-creek",
+      "slug": "levisa-fork-island-creek-cedar-creek",
+      "name": "Levisa Fork",
+      "reach": "Island Creek Ramp to Cedar Creek Canoe Access",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "ing. Below that is low and likely shallow; above that is high and faster around wood, bridge current, and busy urban banks. KDFWR describes this Pikeville corridor as a warmwater public-access float, but it is still moving water with shoals, bridge current, wo"
+    },
+    {
+      "routeId": "levisa-fork-island-creek-thompson-road",
+      "slug": "levisa-fork-island-creek-thompson-road",
+      "name": "Levisa Fork",
+      "reach": "Island Creek Ramp to Thompson Road Ramp",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "expect slower shoals and more dragging; above that expect faster current around wood, bridges, and busy urban banks. KDFWR and Pikeville route materials frame this corridor as beginner-friendly at normal levels, but the longer Island-to-Thompson combination st"
+    },
+    {
+      "routeId": "levisa-fork-jubilee-cedar-creek",
+      "slug": "levisa-fork-jubilee-cedar-creek",
+      "name": "Levisa Fork",
+      "reach": "Jubilee Christian Church Ramp to Cedar Creek Canoe Access",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "s low and slower with more exposed shoals; above that is high and faster around wood, bridges, and urban banks. KDFWR frames the Pikeville Levisa Fork as a family-friendly moving-water corridor with gentle riffles, shoals, and deep pools at normal levels. The"
+    },
+    {
       "routeId": "levisa-fork-jubilee-thompson-road",
       "slug": "levisa-fork-jubilee-thompson-road",
       "name": "Levisa Fork",
@@ -1626,6 +2396,39 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": ". Below that expect a slower, shoalier all-day float; above that swift current, wood, and the longer mileage become much less forgiving. The current KDFWR Levisa pages still frame this as a beginner-friendly moving-water corridor at normal levels, but the full"
+    },
+    {
+      "routeId": "levisa-fork-prestonsburg-airport",
+      "slug": "levisa-fork-prestonsburg-airport",
+      "name": "Levisa Fork",
+      "reach": "Prestonsburg Ramp to Airport Ramp",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "shoals; above that is high and the larger mainstem current gets pushier around wood, bridge piers, and outside bends. At normal levels this is a straightforward warmwater mainstem float between developed ramps, but it is still a moving river with long pools,"
+    },
+    {
+      "routeId": "levisa-fork-prestonsburg-boat-ramp",
+      "slug": "levisa-fork-prestonsburg-boat-ramp",
+      "name": "Levisa Fork",
+      "reach": "Prestonsburg Ramp to Levisa Fork Boat Ramp",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "r downstream splits. Treat it as moderate because of length and commitment, not whitewater. Confidence is high for a conservative Kentucky add: KDFWR still publishes the direct Prestonsburg-to-Airport 8.2-mile segment and Airport-to-Levisa Fork Boat Ramp 8.1-m"
+    },
+    {
+      "routeId": "levisa-fork-prestonsburg-boat-ramp",
+      "slug": "levisa-fork-prestonsburg-boat-ramp",
+      "name": "Levisa Fork",
+      "reach": "Prestonsburg Ramp to Levisa Fork Boat Ramp",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "at this longer route can feel slow and shoaly; above that the mainstem current, wood, and fatigue make the full downstream commitment much less forgiving. The water is not technical at normal levels, but the full 16.3-mile lower-Levisa commitment is a longer d"
     },
     {
       "routeId": "russell-creek-hatcher-todd-ford-milltown",
@@ -1661,6 +2464,83 @@
       "evidence": "idge accesses KDFWR says both endpoints provide canoe/kayak access with limited parking and no amenities; bank fishing is limited near each access because adjacent property is private. Hatcher/Todd Ford users should not block the ford. Live direct gauge USGS 0"
     },
     {
+      "routeId": "russell-creek-hatcher-todd-ford-russell-creek-road",
+      "slug": "russell-creek-hatcher-todd-ford-russell-creek-road",
+      "name": "Russell Creek",
+      "reach": "Hatcher Road / Todd Ford Road Access to Russell Creek Road Access",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Hard route is missing safetyProfile.",
+      "evidence": "difficulty=hard"
+    },
+    {
+      "routeId": "russell-creek-hatcher-todd-ford-russell-creek-road",
+      "slug": "russell-creek-hatcher-todd-ford-russell-creek-road",
+      "name": "Russell Creek",
+      "reach": "Hatcher Road / Todd Ford Road Access to Russell Creek Road Access",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "consequences quickly on a 21-mile commitment. The creek itself is not technical whitewater, but KDFWR describes it as narrow and remote with access points far apart. Combining the first two official public segments into a 21-mile run creates a dawn-to-dusk com"
+    },
+    {
+      "routeId": "russell-creek-hatcher-todd-ford-russell-creek-road",
+      "slug": "russell-creek-hatcher-todd-ford-russell-creek-road",
+      "name": "Russell Creek",
+      "reach": "Hatcher Road / Todd Ford Road Access to Russell Creek Road Access",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "arrow-creek day turns into repeated scraping and delay; above that, current and wood stack consequences quickly on a 21-mile commitment. The creek itself is not technical whitewater, but KDFWR describes it as narrow and remote with access points far apart. Com"
+    },
+    {
+      "routeId": "russell-creek-milltown-russell-creek-road",
+      "slug": "russell-creek-milltown-russell-creek-road",
+      "name": "Russell Creek",
+      "reach": "Milltown Road Bridge Access to Russell Creek Road Access",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": ", dragging, and a slower day; above that, this narrow creek gets pushier around wood, bends, and the slab take-out. This is a longer version of the same narrow, remote Russell Creek character KDFWR describes upstream. The 13.2-mile length, limited amenities, p"
+    },
+    {
+      "routeId": "russell-creek-russell-creek-road-green-river-russell-creek-vpa",
+      "slug": "russell-creek-russell-creek-road-green-river-russell-creek-vpa",
+      "name": "Russell Creek",
+      "reach": "Russell Creek Road Access to Green River-Russell Creek VPA",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "ng. Below that, expect shallow riffles and gravel bars; above that, current and wood get pushier, and the VPA take-out remains a low-amenity bank access. This lower reach stays on the same narrow, remote creek character, but the 12.6-mile length and VPA take-o"
+    },
+    {
+      "routeId": "russell-creek-russell-creek-road-green-river-russell-creek-vpa",
+      "slug": "russell-creek-russell-creek-road-green-river-russell-creek-vpa",
+      "name": "Russell Creek",
+      "reach": "Russell Creek Road Access to Green River-Russell Creek VPA",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "ssing put-in to daylight-only VPA bank access KDFWR says Russell Creek Road has parking pull-offs and a large gravel bar, while the Green River-Russell Creek VPA is a walk-in VPA site at the mouth with limited parking, no amenities, no camping, and daylight-ho"
+    },
+    {
+      "routeId": "south-fork-kentucky-river-cedar-valley-fish-creek",
+      "slug": "south-fork-kentucky-river-cedar-valley-fish-creek",
+      "name": "South Fork Kentucky River",
+      "reach": "Cedar Valley Road Access to Fish Creek Boat Ramp",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "Road Access to Upper Wolf Creek Ramp at 2.9 miles, Upper Wolf Creek Ramp to Kay Wood Road Access at 5.6 miles, and Kay Wood Road Access to Fish Creek Boat Ramp at 7.9 miles, supporting a 24.4-mile public float. KDFWR still publishes exact public endpoint coord"
+    },
+    {
       "routeId": "south-fork-kentucky-river-oneida-fish-creek",
       "slug": "south-fork-kentucky-river-oneida-fish-creek",
       "name": "South Fork Kentucky River",
@@ -1670,6 +2550,39 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "nd likely scrape-prone; above that is high and faster around shoals, bends, and wood. KDFWR describes the South Fork as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles. This route stays in the named public access ch"
+    },
+    {
+      "routeId": "south-fork-kentucky-river-rocky-branch-fish-creek",
+      "slug": "south-fork-kentucky-river-rocky-branch-fish-creek",
+      "name": "South Fork Kentucky River",
+      "reach": "Rocky Branch Road Access to Fish Creek Boat Ramp",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "Road Access to Upper Wolf Creek Ramp at 2.9 miles, Upper Wolf Creek Ramp to Kay Wood Road Access at 5.6 miles, and Kay Wood Road Access to Fish Creek Boat Ramp at 7.9 miles, supporting a 26.9-mile public float. KDFWR still publishes exact public endpoint coord"
+    },
+    {
+      "routeId": "south-fork-kentucky-river-rocky-branch-kay-wood",
+      "slug": "south-fork-kentucky-river-rocky-branch-kay-wood",
+      "name": "South Fork Kentucky River",
+      "reach": "Rocky Branch Road Access to Kay Wood Road Access",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "ng middle-to-lower South Fork continuation from Rocky Branch Road Access to Kay Wood Road Access. Current KDFWR guidance still supports this exact chained public float, but the Booneville gauge sat above the official good band during this run. Use the South Fo"
+    },
+    {
+      "routeId": "south-fork-kentucky-river-upper-wolf-creek-kay-wood",
+      "slug": "south-fork-kentucky-river-upper-wolf-creek-kay-wood",
+      "name": "South Fork Kentucky River",
+      "reach": "Upper Wolf Creek Ramp to Kay Wood Road Access",
+      "state": "Kentucky",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "Lower South Fork Kentucky River split from Upper Wolf Creek Ramp to Kay Wood Road Access. Current KDFWR guidance still supports this exact public float, and the Booneville gauge sat just above the official good band during this run. Use the South Fork"
     },
     {
       "routeId": "tygarts-creek-olive-hill-carter-caves",
@@ -2068,6 +2981,50 @@
       "evidence": "e published preferred band without recent rain turning a pretty easy run into a wood-and-current check? Around 8.25 ft at Pilot Mound is the low-water marker. A report near 8.7 ft described a strong day, but the source guidance does not define a full low-to-hi"
     },
     {
+      "routeId": "rum-river-germanium-south-county-park",
+      "slug": "rum-river-germanium-south-county-park",
+      "name": "Rum River",
+      "reach": "Germanium to South County Park",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Dam",
+      "message": "Route text mentions dam, portage, hydro, or release hazards.",
+      "evidence": "s Brookview / Germanium access to the South County Park landing above the Anoka dam. The river itself stays friendly, but the lower-corridor finish deserves a more deliberate take-out plan than the easy rating implies. There is no direct lower-route gauge here"
+    },
+    {
+      "routeId": "rum-river-germanium-south-county-park",
+      "slug": "rum-river-germanium-south-county-park",
+      "name": "Rum River",
+      "reach": "Germanium to South County Park",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "manageable for many paddlers, but this lower finish still requires attention to wood, take-out timing, and the downstream dam corridor in Anoka. The route itself is well documented by DNR Map 3 and official park pages. Confidence is slightly lower than the ups"
+    },
+    {
+      "routeId": "rum-river-north-county-central",
+      "slug": "rum-river-north-county-central",
+      "name": "Rum River",
+      "reach": "North County Park to Central Regional Park",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "e territory and do not treat broad easy-river character as permission to ignore wood or fresh post-rain debris. Treat the official DNR medium band as the sweet spot here. Below about 600 cfs, expect too much dragging or shallow current; above 3,000 cfs, this e"
+    },
+    {
+      "routeId": "rum-river-north-county-germanium",
+      "slug": "rum-river-north-county-germanium",
+      "name": "Rum River",
+      "reach": "North County Park to Germanium",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "ll comes from the official St. Francis gauge, but the route is long enough that wood, pace, and shuttle logistics matter more than the easy rating first suggests. Treat the official DNR medium band as the best target. Below about 600 cfs, the route becomes too"
+    },
+    {
       "routeId": "rum-river-walbo-cambridge-west",
       "slug": "rum-river-walbo-cambridge-west",
       "name": "Rum River",
@@ -2077,6 +3034,39 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "beginning or intermediate paddlers, but it is still long enough that low water, wood, and fatigue deserve respect. The route itself is very well supported by MN DNR. Confidence is reduced because the live gauge is a downstream proxy at St. Francis rather than"
+    },
+    {
+      "routeId": "sauk-river-eagle-heims-mill",
+      "slug": "sauk-river-eagle-heims-mill",
+      "name": "Sauk River",
+      "reach": "Eagle Park to Heims Mill",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "onfidence is good because MN DNR names both endpoints and warns about the final rapid section, while Rockville and Stearns County both document the public access points. Current level 15.26 ft at 7:00 PM The official MN DNR St. Martin gauge reported 15.26 ft o"
+    },
+    {
+      "routeId": "sauk-river-eagle-knights-of-columbus",
+      "slug": "sauk-river-eagle-knights-of-columbus",
+      "name": "Sauk River",
+      "reach": "Eagle Park to Knights of Columbus Park",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "at starts with the cleaner Rockville city landing and finishes before the Heims rapid section. It is the simpler St. Cloud-area full-day card when you want more mileage than Eagle-to-Miller without the confluence runout. Treat 15 to 17 ft at St. Martin as the"
+    },
+    {
+      "routeId": "sauk-river-eagle-knights-of-columbus",
+      "slug": "sauk-river-eagle-knights-of-columbus",
+      "name": "Sauk River",
+      "reach": "Eagle Park to Knights of Columbus Park",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "still broad-audience lower-Sauk water at sane levels, but the full-day mileage, wood, and cold-water exposure make it more committing than the short Miller or Knights shuttles. Confidence is high because MN DNR names the lower-Sauk access ladder, Rockville doc"
     },
     {
       "routeId": "sauk-river-eagle-miller-landing",
@@ -2090,6 +3080,193 @@
       "evidence": "cautious flood-style read. Approachable for newer paddlers at sane levels, but wood, strainers, and cold-water exposure still matter more than the easy label alone implies. MN DNR recommends this exact trip and publishes official level guidance for the matchi"
     },
     {
+      "routeId": "sauk-river-frogtown-eagle-park",
+      "slug": "sauk-river-frogtown-eagle-park",
+      "name": "Sauk River",
+      "reach": "Frogtown Park to Eagle Park",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "ve 20 ft. This is still a broad-audience lower-Sauk float at normal levels, but wood, strainers, and cold-water exposure remain real same-day concerns. Confidence is good because MN DNR names the Frogtown and Eagle access ladder on Map 2, Cold Spring documents"
+    },
+    {
+      "routeId": "sauk-river-frogtown-heims-mill",
+      "slug": "sauk-river-frogtown-heims-mill",
+      "name": "Sauk River",
+      "reach": "Frogtown Park to Heims Mill",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "t of the run is broad-audience lower-Sauk water at sane levels, but 21.8 miles, wood, weather exposure, and the final Class I-II mouth section at Heims make it more serious than the short Miller or Knights shuttles. Confidence is good because MN DNR names both"
+    },
+    {
+      "routeId": "sauk-river-frogtown-knights-of-columbus",
+      "slug": "sauk-river-frogtown-knights-of-columbus",
+      "name": "Sauk River",
+      "reach": "Frogtown Park to Knights of Columbus Park",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "Class I-II mouth section, but it is still a long lower-river day with the usual wood, strainers, and cold-water caveats. Confidence is good because MN DNR names the lower-Sauk access ladder, Cold Spring documents the Frogtown canoe landing, St. Cloud documents"
+    },
+    {
+      "routeId": "sauk-river-frogtown-miller-landing",
+      "slug": "sauk-river-frogtown-miller-landing",
+      "name": "Sauk River",
+      "reach": "Frogtown Park to Miller Landing",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "ner when you want the whole Frogtown-through-Miller float without the St. Cloud rapid finish. Treat 15 to 17 ft at St. Martin as the sweet spot. Below 14 ft gets shallow and weedy, while flood-style caution matters above 20 ft. The river stays broadly approach"
+    },
+    {
+      "routeId": "sauk-river-frogtown-miller-landing",
+      "slug": "sauk-river-frogtown-miller-landing",
+      "name": "Sauk River",
+      "reach": "Frogtown Park to Miller Landing",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "stays broadly approachable at sane levels, but this much mileage still deserves wood awareness, cold-water judgment, and honest energy management. Confidence is high because DNR publishes the same lower-Sauk trip and explicitly says to extend it by starting at"
+    },
+    {
+      "routeId": "sauk-river-frogtown-rockville",
+      "slug": "sauk-river-frogtown-rockville",
+      "name": "Sauk River",
+      "reach": "Frogtown Park to Rockville County Park",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "20 ft. This is one of the friendlier lower-Sauk segments at normal levels, but wood, strainers, and cold-water exposure still matter. Confidence is high because MN DNR names both access points on the water-trail map, Cold Spring documents the Frogtown canoe l"
+    },
+    {
+      "routeId": "sauk-river-knights-of-columbus-heims-mill",
+      "slug": "sauk-river-knights-of-columbus-heims-mill",
+      "name": "Sauk River",
+      "reach": "Knights of Columbus Park to Heims Mill",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "Compact Sauk finish with the route-family rapid section packed into a short shuttle. Choose this over the easier Miller-to-Knights split when you specifically want the lower Class I-II finish into the Mississippi confluenc"
+    },
+    {
+      "routeId": "sauk-river-knights-of-columbus-heims-mill",
+      "slug": "sauk-river-knights-of-columbus-heims-mill",
+      "name": "Sauk River",
+      "reach": "Knights of Columbus Park to Heims Mill",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "county pages document the public access parks. The main uncertainty is same-day wood and how pushy the final rapids feel at the upper end of the band. Current level 15.34 ft at 10:00 AM MN DNR listed the St. Martin gauge at 15.34 ft on July 13, 2026, which lan"
+    },
+    {
+      "routeId": "sauk-river-miller-landing-heims-mill",
+      "slug": "sauk-river-miller-landing-heims-mill",
+      "name": "Sauk River",
+      "reach": "Miller Landing to Heims Mill",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "ecause MN DNR names the lower-Sauk access ladder and explicitly warns about the rapid finish, while Stearns County documents both Miller Landing and Heims Mill as managed public endpoints. Current level 15.34 ft at 10:00 AM MN DNR listed the St. Martin gauge a"
+    },
+    {
+      "routeId": "sauk-river-miller-landing-knights-of-columbus",
+      "slug": "sauk-river-miller-landing-knights-of-columbus",
+      "name": "Sauk River",
+      "reach": "Miller Landing to Knights of Columbus Park",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid zone on this split. Confidence is high because MN DNR names both endpoints on the official map, Stearns County documents Miller Landing, and St. Cloud documents Knights of Co"
+    },
+    {
+      "routeId": "sauk-river-miller-landing-knights-of-columbus",
+      "slug": "sauk-river-miller-landing-knights-of-columbus",
+      "name": "Sauk River",
+      "reach": "Miller Landing to Knights of Columbus Park",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "ft. This is a broad-audience lower-Sauk shuttle at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid zone on this split. Confidence is high because MN DNR names both endpoints on the official map, Stearns County docume"
+    },
+    {
+      "routeId": "sauk-river-pineview-heims-mill",
+      "slug": "sauk-river-pineview-heims-mill",
+      "name": "Sauk River",
+      "reach": "Pineview Park to Heims Mill",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "Map 2 places Pineview Park at river mile 6.2 and Heims Mill at river mile 0.0. Rapid finish Class I-II in final 2.5 mi MN DNR warns the final 2.5 miles are boulder-filled Class I-II rapids that may not be passable at low water. Access support Official DNR and"
+    },
+    {
+      "routeId": "sauk-river-rockville-heims-mill",
+      "slug": "sauk-river-rockville-heims-mill",
+      "name": "Sauk River",
+      "reach": "Rockville County Park to Heims Mill",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "ims Mill/Mississippi finish. Choose it when you want a full day plus the family rapid section in one route card. Treat 15 to 17 ft at St. Martin as the best all-around range. Below 14 ft the lower river gets scrape-prone and the mouth rapids can turn bony, whi"
+    },
+    {
+      "routeId": "sauk-river-rockville-knights-of-columbus",
+      "slug": "sauk-river-rockville-knights-of-columbus",
+      "name": "Sauk River",
+      "reach": "Rockville County Park to Knights of Columbus Park",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid finish. Confidence is high because MN DNR names the lower-Sauk access ladder, Stearns County documents Rockville County Park and its watercraft campsite, and St. Cloud docume"
+    },
+    {
+      "routeId": "sauk-river-rockville-knights-of-columbus",
+      "slug": "sauk-river-rockville-knights-of-columbus",
+      "name": "Sauk River",
+      "reach": "Rockville County Park to Knights of Columbus Park",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "This is still a broad-audience lower-Sauk route at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid finish. Confidence is high because MN DNR names the lower-Sauk access ladder, Stearns County documents Rockville Coun"
+    },
+    {
+      "routeId": "sauk-river-rockville-miller-landing",
+      "slug": "sauk-river-rockville-miller-landing",
+      "name": "Sauk River",
+      "reach": "Rockville County Park to Miller Landing",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "s paddle. This remains a broad-audience Sauk float at normal levels, but recent wood, strainers, and cold-water exposure still deserve routine river judgment. Confidence is high because MN DNR names both access points and Rockville County Park plus Miller Land"
+    },
+    {
+      "routeId": "sauk-river-spring-hill-frogtown",
+      "slug": "sauk-river-spring-hill-frogtown",
+      "name": "Sauk River",
+      "reach": "Spring Hill County Park to Frogtown Park",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "outing. The river character stays mostly easy, but 34.4 miles of moving water, wood management, and weather exposure make this a serious full-day or overnight-planned corridor rather than a casual float. Confidence is good because MN DNR names both endpoints"
+    },
+    {
       "routeId": "sauk-river-spring-hill-st-martin",
       "slug": "sauk-river-spring-hill-st-martin",
       "name": "Sauk River",
@@ -2099,6 +3276,39 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "mmendation. Mostly an approachable upper-Sauk day when the level is normal, but wood, shallow riffles, and cold-water exposure still deserve normal river judgment. Confidence is high because MN DNR names both access points on the water-trail map and publishes"
+    },
+    {
+      "routeId": "sauk-river-st-martin-eagle-park",
+      "slug": "sauk-river-st-martin-eagle-park",
+      "name": "Sauk River",
+      "reach": "St. Martin Canoe Access to Eagle Park",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "outing. The river character stays mostly easy, but 30.9 miles of moving water, wood management, and weather exposure push this beyond a casual beginner float. Confidence is good because MN DNR names both endpoints on the official water-trail map, the St. Mart"
+    },
+    {
+      "routeId": "sauk-river-st-martin-frogtown",
+      "slug": "sauk-river-st-martin-frogtown",
+      "name": "Sauk River",
+      "reach": "St. Martin Canoe Access to Frogtown Park",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "outing. The river character stays mostly easy, but 25.3 miles of moving water, wood management, and weather exposure push this well beyond a casual beginner float. Confidence is good because MN DNR names both endpoints on the official water-trail map, the St."
+    },
+    {
+      "routeId": "sauk-river-st-martin-rockville",
+      "slug": "sauk-river-st-martin-rockville",
+      "name": "Sauk River",
+      "reach": "St. Martin Canoe Access to Rockville County Park",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "outing. The river character stays mostly easy, but 30.3 miles of moving water, wood management, and weather exposure push this beyond a casual beginner float. Confidence is good because MN DNR names both endpoints on the official water-trail map, the St. Mart"
     },
     {
       "routeId": "snake-river-canary-cross-lake",
@@ -2321,6 +3531,28 @@
       "evidence": "d possible dragging. Do not treat high or rising water as casual, and check NPS closure notices before launching. NPS treats Akers to Pulltite as a standard 4-hour upper-Current canoe/kayak float. The route is easy at ordinary levels, but shallow riffles, cold"
     },
     {
+      "routeId": "current-river-akers-ferry-round-spring",
+      "slug": "current-river-akers-ferry-round-spring",
+      "name": "Current River",
+      "reach": "Akers Ferry to Round Spring",
+      "state": "Missouri",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "ing over a long day. Do not treat high or rising water as casual, and check NPS closure notices before launching. NPS treats both component segments as standard easy Upper Current floats, but combining them into an 8-hour route makes pace, weather, and exit di"
+    },
+    {
+      "routeId": "current-river-big-spring-cataract",
+      "slug": "current-river-big-spring-cataract",
+      "name": "Current River",
+      "reach": "Big Spring Upper River Landing to Cataract Landing",
+      "state": "Missouri",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "yplaceAmerica for the named Ozark National Scenic Riverways landing. High-water closure context Van Buren Bridge 5.00 ft closed level The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and l"
+    },
+    {
       "routeId": "current-river-big-spring-gooseneck",
       "slug": "current-river-big-spring-gooseneck",
       "name": "Current River",
@@ -2330,6 +3562,17 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "oseneck / Hawes access naming and Recreation.gov campground context. High-water closure context Van Buren Bridge 5.00 ft closed level The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and l"
+    },
+    {
+      "routeId": "current-river-cataract-gooseneck",
+      "slug": "current-river-cataract-gooseneck",
+      "name": "Current River",
+      "reach": "Cataract Landing to Gooseneck / Hawes Recreation Area",
+      "state": "Missouri",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "oseneck / Hawes point already used by adjacent lower-Current routes. High-water closure context Van Buren Bridge 5.00 ft closed level The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and l"
     },
     {
       "routeId": "current-river-cedar-grove-akers",
@@ -2354,6 +3597,28 @@
       "evidence": "dragging. Do not treat high or rising water as a casual float, and respect NPS closure notices. NPS treats Cedar Grove to Akers as a standard 3-hour upper-Current canoe/kayak float. The route is easy at ordinary levels, but shallow riffles, cold spring water,"
     },
     {
+      "routeId": "current-river-cedar-grove-pulltite",
+      "slug": "current-river-cedar-grove-pulltite",
+      "name": "Current River",
+      "reach": "Cedar Grove to Pulltite",
+      "state": "Missouri",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "oals and dragging. Do not treat high or rising water as casual, and respect NPS closure notices. NPS treats both component segments as standard easy Upper Current floats, but the combined 17.3-mile day is a much bigger commitment. The river is still mostly app"
+    },
+    {
+      "routeId": "current-river-cedar-grove-round-spring",
+      "slug": "current-river-cedar-grove-round-spring",
+      "name": "Current River",
+      "reach": "Cedar Grove to Round Spring",
+      "state": "Missouri",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "oals and dragging. Do not treat high or rising water as casual, and respect NPS closure notices. Each component segment is an easy NPS float at ordinary levels, but this full continuation is an all-day commitment bordering on an overnight plan for many groups."
+    },
+    {
       "routeId": "current-river-pulltite-round-spring",
       "slug": "current-river-pulltite-round-spring",
       "name": "Current River",
@@ -2376,6 +3641,17 @@
       "evidence": "dium language; do not substitute the lower motorized-only boat ramp. High-water closure context Van Buren Bridge 5.00 ft closed level The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and l"
     },
     {
+      "routeId": "current-river-van-buren-cataract",
+      "slug": "current-river-van-buren-cataract",
+      "name": "Current River",
+      "reach": "Van Buren Riverfront Park to Cataract Landing",
+      "state": "Missouri",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "yplaceAmerica for the named Ozark National Scenic Riverways landing. High-water closure context Van Buren Bridge 5.00 ft closed level The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and l"
+    },
+    {
       "routeId": "current-river-waymeyer-van-buren",
       "slug": "current-river-waymeyer-van-buren",
       "name": "Current River",
@@ -2387,6 +3663,17 @@
       "evidence": "s 700 cfs as a conservative floor and does not infer an ideal range. High-water closure context Van Buren Bridge 5.00 ft closed level The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and l"
     },
     {
+      "routeId": "eleven-point-river-greer-crossing-riverton",
+      "slug": "eleven-point-river-greer-crossing-riverton",
+      "name": "Eleven Point River",
+      "reach": "Greer Crossing Recreation Area to Riverton East River Access",
+      "state": "Missouri",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "the floor, but this is a long 19-mile cold-water route, so low water, wind, or wood can turn it into a very slow day. No exact high-water cutoff is claimed. This is mostly Class I spring-fed Ozark water, but the route is long and includes Mary Decker Shoal, m"
+    },
+    {
       "routeId": "eleven-point-river-greer-crossing-turner-mill",
       "slug": "eleven-point-river-greer-crossing-turner-mill",
       "name": "Eleven Point River",
@@ -2396,6 +3683,17 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "pper cutoff from those reports. Spring and hazard context Greer Spring, shoals, rapid rises The Forest Service says Greer Spring more than doubles the river volume, this reach includes the Blue Ribbon Trout Area to Turner Mill, and the river can rise rapidly a"
+    },
+    {
+      "routeId": "eleven-point-river-greer-crossing-turner-mill-south",
+      "slug": "eleven-point-river-greer-crossing-turner-mill-south",
+      "name": "Eleven Point River",
+      "reach": "Greer Crossing Recreation Area to Turner Mill South River Access",
+      "state": "Missouri",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "canoe launch with a single-lane concrete boat ramp, water seasonally, toilets, parking, and coordinates 36.79356389, -91.32854167. Public take-out Turner Mill South River Access The Forest Service lists Turner Mill South as open on river right with a rustic d"
     },
     {
       "routeId": "eleven-point-river-riverton-narrows",
@@ -2770,6 +4068,127 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "oordinates for the Mill Hollow side. Hazards Low water, light Class II riffles, wood, bridge hydraulics downstream AW notes the light Class II sections on this middle reach; ODNR water-trail materials warn the lower Vermilion can include log jams and bridge ab"
+    },
+    {
+      "routeId": "conodoguinet-creek-good-hope-acri-meadow",
+      "slug": "conodoguinet-creek-good-hope-acri-meadow",
+      "name": "Conodoguinet Creek",
+      "reach": "Good Hope Access to Acri Meadow Park",
+      "state": "Pennsylvania",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "is above the minimum, but the 7.8-mile length, mixed launch quality, and bridge/wood scouting still make it more committed than a park pond outing. Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Good Hope Access and Acri"
+    },
+    {
+      "routeId": "conodoguinet-creek-vincent-difilippo-good-hope",
+      "slug": "conodoguinet-creek-vincent-difilippo-good-hope",
+      "name": "Conodoguinet Creek",
+      "reach": "Vincent DiFilippo Nature Preserve to Good Hope Access",
+      "state": "Pennsylvania",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "gestown is above the county floor, but it still needs a real same-day check for wood, shallow bridge approaches, and the PFBC launch conditions at Good Hope. Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Vincent DiFilipp"
+    },
+    {
+      "routeId": "conodoguinet-creek-willow-mill-vincent-difilippo",
+      "slug": "conodoguinet-creek-willow-mill-vincent-difilippo",
+      "name": "Conodoguinet Creek",
+      "reach": "Willow Mill Park to Vincent DiFilippo Nature Preserve",
+      "state": "Pennsylvania",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "eek link with improved public launches, but it still needs a same-day check for wood, dragging, and stronger post-rain current. Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Willow Mill Park and Vincent DiFilippo Nat"
+    },
+    {
+      "routeId": "lehigh-river-rockport-glen-onoko",
+      "slug": "lehigh-river-rockport-glen-onoko",
+      "name": "Lehigh River",
+      "reach": "Rockport to Glen Onoko",
+      "state": "Pennsylvania",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Whitewater route is missing safetyProfile.",
+      "evidence": "routeType=whitewater"
+    },
+    {
+      "routeId": "lehigh-river-rockport-glen-onoko",
+      "slug": "lehigh-river-rockport-glen-onoko",
+      "name": "Lehigh River",
+      "reach": "Rockport to Glen Onoko",
+      "state": "Pennsylvania",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Hard route is missing safetyProfile.",
+      "evidence": "difficulty=hard"
+    },
+    {
+      "routeId": "lehigh-river-rockport-glen-onoko",
+      "slug": "lehigh-river-rockport-glen-onoko",
+      "name": "Lehigh River",
+      "reach": "Rockport to Glen Onoko",
+      "state": "Pennsylvania",
+      "severity": "High",
+      "category": "Dam",
+      "message": "Route text mentions dam, portage, hydro, or release hazards.",
+      "evidence": "paddlers to the same USGS/USACE White Haven flow story below Francis E. Walter Dam. Use the Lehigh River below Francis E. Walter Reservoir gauge near White Haven. DCNR says below 250 cfs is very low, 250 to 1,000 cfs is better for boating, difficulty rises ab"
+    },
+    {
+      "routeId": "lehigh-river-rockport-glen-onoko",
+      "slug": "lehigh-river-rockport-glen-onoko",
+      "name": "Lehigh River",
+      "reach": "Rockport to Glen Onoko",
+      "state": "Pennsylvania",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "Lower Lehigh Gorge whitewater from the DCNR Rockport access to Glen Onoko. DCNR names this 12.2-mile Class II-III trip, publishes official flow bands, and points paddlers to the same USGS/USACE White"
+    },
+    {
+      "routeId": "lehigh-river-white-haven-glen-onoko",
+      "slug": "lehigh-river-white-haven-glen-onoko",
+      "name": "Lehigh River",
+      "reach": "White Haven to Glen Onoko",
+      "state": "Pennsylvania",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Whitewater route is missing safetyProfile.",
+      "evidence": "routeType=whitewater"
+    },
+    {
+      "routeId": "lehigh-river-white-haven-glen-onoko",
+      "slug": "lehigh-river-white-haven-glen-onoko",
+      "name": "Lehigh River",
+      "reach": "White Haven to Glen Onoko",
+      "state": "Pennsylvania",
+      "severity": "High",
+      "category": "Missing safety profile",
+      "message": "Hard route is missing safetyProfile.",
+      "evidence": "difficulty=hard"
+    },
+    {
+      "routeId": "lehigh-river-white-haven-glen-onoko",
+      "slug": "lehigh-river-white-haven-glen-onoko",
+      "name": "Lehigh River",
+      "reach": "White Haven to Glen Onoko",
+      "state": "Pennsylvania",
+      "severity": "High",
+      "category": "Dam",
+      "message": "Route text mentions dam, portage, hydro, or release hazards.",
+      "evidence": "Class II-III whitewater through a steep-walled gorge. The full-corridor length, release traffic, and cold-water consequence make it a major day even for qualified private groups. Confidence is high for this Pennsylvania add: DCNR identifies White Haven to Glen"
+    },
+    {
+      "routeId": "lehigh-river-white-haven-glen-onoko",
+      "slug": "lehigh-river-white-haven-glen-onoko",
+      "name": "Lehigh River",
+      "reach": "White Haven to Glen Onoko",
+      "state": "Pennsylvania",
+      "severity": "High",
+      "category": "Whitewater",
+      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
+      "evidence": "Full Lehigh Gorge whitewater from the DCNR White Haven access to Glen Onoko. DCNR names this 20.9-mile Class II-III trip, warns that raft trips can take 10 to 12 hours at lower water, and publishes"
     },
     {
       "routeId": "lehigh-river-white-haven-rockport",
@@ -4004,6 +5423,17 @@
       "evidence": "Short upper Buffalo National River whitewater day from Kyle's Landing to Erbie through one of the park's rough-road upper-district access corridors. NPS documents the exact trip, a"
     },
     {
+      "routeId": "buffalo-river-kyles-landing-ozark",
+      "slug": "buffalo-river-kyles-landing-ozark",
+      "name": "Buffalo River",
+      "reach": "Kyle's Landing to Ozark",
+      "state": "Arkansas",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Long upper Buffalo National River day from Kyle's Landing to Ozark, linking the exact NPS Kyles-to-Erbie and Erbie-to-Ozark paddles into one bluff-lined corridor. The Pruitt gauge"
+    },
+    {
       "routeId": "buffalo-river-kyles-landing-pruitt",
       "slug": "buffalo-river-kyles-landing-pruitt",
       "name": "Buffalo River",
@@ -4024,6 +5454,17 @@
       "category": "Minimum-only hazard review",
       "message": "Minimum-only route has hazard language but no safetyProfile.",
       "evidence": "Short upper Buffalo National River run from Ozark to Pruitt with riffles, pools, and the natural tunnel corridor described by NPS. The Pruitt gauge is the direct same-corridor offi"
+    },
+    {
+      "routeId": "buffalo-river-ponca-hasty",
+      "slug": "buffalo-river-ponca-hasty",
+      "name": "Buffalo River",
+      "reach": "Ponca to Hasty",
+      "state": "Arkansas",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Full upper Buffalo continuation from Ponca to Hasty through Steel Creek, Kyle's Landing, Erbie, Ozark, and Pruitt. NPS still publishes the current access ladder and mileage chart,"
     },
     {
       "routeId": "buffalo-river-ponca-kyles-landing",
@@ -4048,15 +5489,81 @@
       "evidence": "levels greater than 1,600 cfs at the Ponca gage are unsafe. Use that as a hard caution even though this route ships as minimum-only scoring. Access coordinates Ponca 36.0225, -93.354722; Kyle's Landing 36.055756, -93.2813 USGS station metadata places the Ponc"
     },
     {
-      "routeId": "buffalo-river-pruitt-hasty",
-      "slug": "buffalo-river-pruitt-hasty",
+      "routeId": "buffalo-river-ponca-ozark",
+      "slug": "buffalo-river-ponca-ozark",
       "name": "Buffalo River",
-      "reach": "Pruitt to Hasty",
+      "reach": "Ponca to Ozark",
       "state": "Arkansas",
       "severity": "Medium",
       "category": "Minimum-only hazard review",
       "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Seven-mile Buffalo National River day from Pruitt to Hasty, often used when the river above Pruitt is too low. NPS documents the exact trip and the direct Pruitt gauge is live, but"
+      "evidence": "Long upper Buffalo continuation from Ponca to Ozark through Steel Creek, Kyle's Landing, and Erbie before the developed Ozark take-out. NPS still publishes the current access ladde"
+    },
+    {
+      "routeId": "buffalo-river-ponca-steel-creek",
+      "slug": "buffalo-river-ponca-steel-creek",
+      "name": "Buffalo River",
+      "reach": "Ponca to Steel Creek",
+      "state": "Arkansas",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Short upper Buffalo National River whitewater day from Ponca to Steel Creek beneath Roark Bluff. NPS documents the exact 2.5-mile trip and the direct Ponca gauge is live, but this"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-erbie",
+      "slug": "buffalo-river-steel-creek-erbie",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Erbie",
+      "state": "Arkansas",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Long upper Buffalo day from Steel Creek to Erbie, linking the classic Steel-Creek-to-Kyle's section with the Erbie continuation into one campground-backed trip. The direct Pruitt g"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-hasty",
+      "slug": "buffalo-river-steel-creek-hasty",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Hasty",
+      "state": "Arkansas",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Full upper Buffalo continuation from Steel Creek to Hasty, linking the exact Steel-Creek-to-Kyle's, Kyle's-to-Erbie, Erbie-to-Ozark, Ozark-to-Pruitt, and Pruitt-to-Hasty paddles in"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-kyles-landing",
+      "slug": "buffalo-river-steel-creek-kyles-landing",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Kyle's Landing",
+      "state": "Arkansas",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Beloved upper Buffalo National River day from Steel Creek to Kyle's Landing through the Ponca Wilderness. NPS publishes the exact 8-mile trip and both public access points, but thi"
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-ozark",
+      "slug": "buffalo-river-steel-creek-ozark",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Ozark",
+      "state": "Arkansas",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Long upper Buffalo National River day from Steel Creek to Ozark, linking the exact Steel-Creek-to-Kyle's, Kyle's-to-Erbie, and Erbie-to-Ozark paddles into one guarded continuation."
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-pruitt",
+      "slug": "buffalo-river-steel-creek-pruitt",
+      "name": "Buffalo River",
+      "reach": "Steel Creek to Pruitt",
+      "state": "Arkansas",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Full upper Buffalo National River continuation from Steel Creek to Pruitt, linking the exact Steel-Creek-to-Kyle's, Kyle's-to-Erbie, Erbie-to-Ozark, and Ozark-to-Pruitt paddles int"
     },
     {
       "routeId": "buffalo-river-tyler-bend-gilbert",
@@ -4068,6 +5575,17 @@
       "category": "Minimum-only hazard review",
       "message": "Minimum-only route has hazard language but no safetyProfile.",
       "evidence": "Popular middle Buffalo National River day from Tyler Bend to Gilbert, with Grinder's Ferry as an optional short take-out. NPS supports the route and the direct St. Joe gauge is liv"
+    },
+    {
+      "routeId": "buffalo-river-tyler-bend-grinders-ferry",
+      "slug": "buffalo-river-tyler-bend-grinders-ferry",
+      "name": "Buffalo River",
+      "reach": "Tyler Bend to Grinder's Ferry",
+      "state": "Arkansas",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Short middle Buffalo National River float from Tyler Bend to Grinder's Ferry. NPS documents the exact 1.1-mile route and the direct St. Joe gauge is live, but even this mostly flat"
     },
     {
       "routeId": "kings-river-rockhouse-trigger-gap",
@@ -4477,17 +5995,6 @@
       "evidence": "igh bands. The Parklands safety sheet and the route PDF add specific downstream hazard context. Official level band 50-300 cfs / 1.3-2.5 ft KDFWR rates Floyds Fork near Fisherville as Low below 50 cfs or 1.3 ft, Good from 50 to 300 cfs or 1.3 to 2.5 ft, and Hi"
     },
     {
-      "routeId": "goose-creek-dump-hollow-laurel-branch",
-      "slug": "goose-creek-dump-hollow-laurel-branch",
-      "name": "Goose Creek",
-      "reach": "Dump Hollow Ford to Laurel Branch Road Access",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "o mean scraping or dragging; above that is high and deserves extra narrow-creek caution. The route is a straightforward lower-creek float in the official band, but it still uses a ford-style upstream access, limited roadside parking, and a narrow wood-prone ch"
-    },
-    {
       "routeId": "goose-creek-jacks-laurel-branch",
       "slug": "goose-creek-jacks-laurel-branch",
       "name": "Goose Creek",
@@ -4499,17 +6006,6 @@
       "evidence": "o mean scraping or dragging; above that is high and deserves extra narrow-creek caution. This lower-Goose segment avoids the Manchester low-head-dam problem upstream, but it is still a narrow shallow creek with rock bars, ford access, wood, and limited parking"
     },
     {
-      "routeId": "goose-creek-jacks-tobacco-road",
-      "slug": "goose-creek-jacks-tobacco-road",
-      "name": "Goose Creek",
-      "reach": "Jacks / Bowling Branch Bridge Access to Tobacco Road Bridge Ramp",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "o mean scraping or dragging; above that is high and deserves extra narrow-creek caution. This short lower-Goose split avoids the upstream low-head-dam problem, but it is still a narrow creek with shallow riffles, rock bars, bridge-access footing, and limited p"
-    },
-    {
       "routeId": "goose-creek-tobacco-road-dump-hollow",
       "slug": "goose-creek-tobacco-road-dump-hollow",
       "name": "Goose Creek",
@@ -4518,7 +6014,18 @@
       "severity": "Medium",
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
-      "evidence": "o mean scraping or dragging; above that is high and deserves extra narrow-creek caution. The mileage is short, but the route still depends on small carry-down and ford-style accesses, shallow rock bars, and careful footing rather than a groomed park launch. Co"
+      "evidence": "ols, and rock bars, while the Dump Hollow access note keeps the downstream ford caution explicit. KDFWR Goose Creek https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx KDFWR Tobacco Road Bridge Access https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196 K"
+    },
+    {
+      "routeId": "green-river-american-legion-glenview-road",
+      "slug": "green-river-american-legion-glenview-road",
+      "name": "Green River",
+      "reach": "American Legion Park Ramp to Glenview Road Carrydown",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "hile above that the broad current and private-bank Glenview finish deserve more caution. The river itself remains recreational, but 15.7 miles, the private-bank Glenview finish, and fewer comfortable legal stops after Greensburg make this more committed than t"
     },
     {
       "routeId": "green-river-american-legion-greensburg",
@@ -4543,6 +6050,28 @@
       "evidence": "broader current, private-bank corridor, and steep Lynn Camp finish deserve more caution. The current stays recreational, but 34.9 miles, sparse legal exits after Glenview, private-bank limits, and the steep Lynn Camp finish make this a hard planning route rath"
     },
     {
+      "routeId": "green-river-dennison-ferry-brownsville-city-park",
+      "slug": "green-river-dennison-ferry-brownsville-city-park",
+      "name": "Green River",
+      "reach": "Dennison Ferry to Brownsville City Park",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "w the 20-foot closure, so the route should ship with explicit experienced-water caution. Official route shape Dennison Ferry to Brownsville, about 23.6 mi NPS publishes Dennison Ferry to Green River Ferry as 7.6 miles, Green River Ferry to Houchin Ferry as 12."
+    },
+    {
+      "routeId": "green-river-dennison-green-river-ferry",
+      "slug": "green-river-dennison-green-river-ferry",
+      "name": "Green River",
+      "reach": "Dennison Ferry to Green River Ferry",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "r-friendly 9 to 15-foot band, so the route should ship with explicit above-band caution rather than comfort framing. Official route segment Dennison Ferry to Green River Ferry, about 7.5-7.6 mi KDFWR lists Dennison Ferry to Green River Ferry as a 7.5-mile Pool"
+    },
+    {
       "routeId": "green-river-dennison-ferry-houchins-ferry",
       "slug": "green-river-dennison-ferry-houchins-ferry",
       "name": "Green River",
@@ -4552,6 +6081,61 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "ark's beginner-friendly band, so the route should ship with explicit high-water caution. Official route segment Dennison Ferry to Houchins Ferry, about 19.8-20.0 mi KDFWR lists Dennison Ferry to Green River Ferry as 7.5 miles and Green River Ferry to Houchins"
+    },
+    {
+      "routeId": "green-river-glenview-road-lynn-camp-creek",
+      "slug": "green-river-glenview-road-lynn-camp-creek",
+      "name": "Green River",
+      "reach": "Glenview Road Carrydown to Lynn Camp Creek Ramp",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "hat the broader current, private-bank corridor, and longer shuttle deserve more caution. The current is still recreational Green River water, but this 19.2-mile day adds commitment. Low water, broad-river wind, private-bank limits, and a steep Lynn Camp finish"
+    },
+    {
+      "routeId": "green-river-green-river-ferry-brownsville-city-park",
+      "slug": "green-river-green-river-ferry-brownsville-city-park",
+      "name": "Green River",
+      "reach": "Green River Ferry to Brownsville City Park",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "hard 20-foot launch closure, so the route should ship with explicit above-band caution. Official route shape Green River Ferry to Brownsville, about 16.0 mi NPS publishes Green River Ferry to Houchin Ferry as 12.4 miles and Houchin Ferry to Brownsville as 3.6"
+    },
+    {
+      "routeId": "green-river-green-river-ferry-houchins",
+      "slug": "green-river-green-river-ferry-houchins",
+      "name": "Green River",
+      "reach": "Green River Ferry to Houchins Ferry",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "same route as 12.4 miles with a 4 to 6 hour travel time plus explicit camping, hazard, and wildlife context. The park-maintained direct USGS gauge at Mammoth Cave returned same-day July 14, 2026 values of 3950 cfs and 16.15 ft. That stage is below the NPS 20-"
+    },
+    {
+      "routeId": "green-river-greensburg-city-ramp-lynn-camp-creek",
+      "slug": "green-river-greensburg-city-ramp-lynn-camp-creek",
+      "name": "Green River",
+      "reach": "Greensburg City Ramp to Lynn Camp Creek Ramp",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "that the broad current, private banks, and steep Lynn Camp finish deserve more caution. The current stays recreational, but 32.9 miles, broad-river wind, sparse legal stops below Glenview, private-bank limits, and the steep Lynn Camp finish make this a hard p"
+    },
+    {
+      "routeId": "green-river-hh-wilson-park-dennison-ferry",
+      "slug": "green-river-hh-wilson-park-dennison-ferry",
+      "name": "Green River",
+      "reach": "H.H. Wilson Park Ramp to Dennison Ferry Carrydown",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "ip; above that the broad current, wood, and park carry-down finish deserve more caution. This is a flatwater-style Green River route, but 24.6 miles, limited bailout options, private banks, open-river wind, and a day-use-only park finish make it a committed mo"
     },
     {
       "routeId": "green-river-hh-wilson-park-green-river-ferry",
@@ -4565,15 +6149,59 @@
       "evidence": "route; above that the broad current, wood, and park ferry finish deserve extra caution. The water is still flatwater by whitewater standards, but 32.1 miles, limited bailout options after Stovall, broad-river wind, and a managed park ferry finish make this a"
     },
     {
-      "routeId": "green-river-lynn-camp-creek-stovall-park",
-      "slug": "green-river-lynn-camp-creek-stovall-park",
+      "routeId": "green-river-hh-wilson-stovall",
+      "slug": "green-river-hh-wilson-stovall",
       "name": "Green River",
-      "reach": "Lynn Camp Creek Ramp to Munfordville-Stovall Park Ramp",
+      "reach": "H.H. Wilson Park Ramp to Stovall Park Ramp",
       "state": "Kentucky",
       "severity": "Medium",
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
-      "evidence": "one full day; above that the broad current, wood, and park landing deserve more caution. This is still recreational Green River water, but the 21.8-mile length, limited bailout options, private-bank limits, and late-day Stovall finish make it a more committed"
+      "evidence": "expose shoals or ramp edges; above that is high and deserves extra broad-river caution around current, wood, and landings. This is a short KDFWR public-ramp segment on a broad Class I river corridor. Treat it as easy only when the Munfordville gauge is stable"
+    },
+    {
+      "routeId": "green-river-houchins-ferry-brownsville-city-park",
+      "slug": "green-river-houchins-ferry-brownsville-city-park",
+      "name": "Green River",
+      "reach": "Houchins Ferry to Brownsville City Park",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "r-friendly 9 to 15-foot band, so the route should ship with explicit above-band caution and a strong downstream-hazard note at Brownsville. Official route segment Houchins Ferry to Brownsville, about 3.6 mi NPS publishes Houchin Ferry to Brownsville as a 3.6-m"
+    },
+    {
+      "routeId": "green-river-lynn-camp-creek-hh-wilson-park",
+      "slug": "green-river-lynn-camp-creek-hh-wilson-park",
+      "name": "Green River",
+      "reach": "Lynn Camp Creek Ramp to H.H. Wilson Park Ramp",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "ove that the broad river, fresh wood, and the H.H. Wilson landing deserve extra caution. This is still a recreational Green River corridor, but 18.2 miles, limited public bailout options, private-bank limits, and the broad-river wind and debris story make it a"
+    },
+    {
+      "routeId": "green-river-lynn-camp-creek-rio-carrydown",
+      "slug": "green-river-lynn-camp-creek-rio-carrydown",
+      "name": "Green River",
+      "reach": "Lynn Camp Creek Ramp to Rio Carrydown Access",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "bove that the steep Lynn Camp carry-down, wood, and faster current deserve more caution. This is a shorter moving-water Green River route rather than an all-day Mammoth Cave chain, but the steep Lynn Camp ramp, private-bank limits, and changing shoals keep it"
+    },
+    {
+      "routeId": "green-river-stovall-park-dennison-ferry",
+      "slug": "green-river-stovall-park-dennison-ferry",
+      "name": "Green River",
+      "reach": "Munfordville-Stovall Park Ramp to Dennison Ferry Carrydown",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "at 1670 cfs, so expect a faster, more consequential broad-river day with extra caution at the park carry-down finish. The water is still flatwater by whitewater standards, but 21 miles, broad-river wind, limited bailout options, and a day-use-only park finish"
     },
     {
       "routeId": "green-river-stovall-park-green-river-ferry",
@@ -4587,6 +6215,50 @@
       "evidence": "route; above that the broad current, wood, and park ferry finish deserve extra caution. The water is still flatwater by whitewater standards, but 28.5 miles, limited bailout options after Stovall, broad-river wind, and a managed park ferry finish make this a"
     },
     {
+      "routeId": "green-river-rio-carrydown-dennison-ferry",
+      "slug": "green-river-rio-carrydown-dennison-ferry",
+      "name": "Green River",
+      "reach": "Rio Carrydown Access to Dennison Ferry Carrydown",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "p; above that the broad current, wood, and park carry-down finish deserve extra caution. This is still flatwater-style Green River paddling, but 33 miles, broad-river wind, private-bank limits, limited bailout options, and a day-use-only park finish make it a"
+    },
+    {
+      "routeId": "green-river-rio-carrydown-hh-wilson-park",
+      "slug": "green-river-rio-carrydown-hh-wilson-park",
+      "name": "Green River",
+      "reach": "Rio Carrydown Access to H.H. Wilson Park Ramp",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "bove that the broad river, bends, and landings deserve extra current and debris caution. This is a family-friendly Class I float only when the Munfordville discharge is stable near KDFWR's good band. High water, fresh wood, private banks, and the H.H. Wilson r"
+    },
+    {
+      "routeId": "green-river-rio-carrydown-stovall-park",
+      "slug": "green-river-rio-carrydown-stovall-park",
+      "name": "Green River",
+      "reach": "Rio Carrydown Access to Munfordville-Stovall Park Ramp",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "d day; above that the broader current, wood, and Stovall ramp drop deserve more caution. The route remains recreational Green River water, but 12 miles, broad bends, private-bank limits, and a developed park finish with a ramp drop make it more than a casual b"
+    },
+    {
+      "routeId": "green-river-roachville-american-legion",
+      "slug": "green-river-roachville-american-legion",
+      "name": "Green River",
+      "reach": "Roachville Ford to American Legion Park Ramp",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "and islands, while above that the chutes, bends, and park landing deserve more caution. This remains an approachable Green River float, but it is longer than the short split routes and still rewards active line choice around islands, shallow shoals, and the p"
+    },
+    {
       "routeId": "green-river-roachville-glenview-road",
       "slug": "green-river-roachville-glenview-road",
       "name": "Green River",
@@ -4596,6 +6268,94 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "the broader current, private banks, and no-amenity Glenview finish deserve more caution. The current is still recreational Green River water, but 24.8 miles, limited legal stops away from the named access chain, the muddy Roachville start, and the private-bank"
+    },
+    {
+      "routeId": "green-river-roachville-russell-ford",
+      "slug": "green-river-roachville-russell-ford",
+      "name": "Green River",
+      "reach": "Roachville Ford to Russell Ford Access",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "uddier landings; above that the islands and chutes get pushier and deserve more caution. This is still a manageable Green River float, but the islands, chutes, shallow shoals, and easy-to-miss Russell Ford landing reward active line choice rather than sleepy d"
+    },
+    {
+      "routeId": "green-river-russell-ford-american-legion",
+      "slug": "green-river-russell-ford-american-legion",
+      "name": "Green River",
+      "reach": "Russell Ford Access to American Legion Park Ramp",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "d muddier landings, while above that the current and park approach deserve more caution. This is a short public-ramp Green River segment with easy route-finding, but it is still a broad moving river with shoals, muddy edges, private banks, and current that bec"
+    },
+    {
+      "routeId": "green-river-russell-ford-glenview-road",
+      "slug": "green-river-russell-ford-glenview-road",
+      "name": "Green River",
+      "reach": "Russell Ford Access to Glenview Road Carrydown",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "ng, while above that the broader current and private-bank corridor deserve more caution. The river itself remains recreational, but 18 miles, limited public bailout options away from the named access chain, and the no-amenity Glenview finish make this a more c"
+    },
+    {
+      "routeId": "levisa-fork-island-creek-cedar-creek",
+      "slug": "levisa-fork-island-creek-cedar-creek",
+      "name": "Levisa Fork",
+      "reach": "Island Creek Ramp to Cedar Creek Canoe Access",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "Conditions",
+      "message": "Route text mentions condition hazards that need explicit safety review.",
+      "evidence": "ly shallow; above that is high and faster around wood, bridge current, and busy urban banks. KDFWR describes this Pikeville corridor as a warmwater public-access float, but it is still moving water with shoals, bridge current, wood, and urban corridor distract"
+    },
+    {
+      "routeId": "levisa-fork-island-creek-thompson-road",
+      "slug": "levisa-fork-island-creek-thompson-road",
+      "name": "Levisa Fork",
+      "reach": "Island Creek Ramp to Thompson Road Ramp",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "Conditions",
+      "message": "Route text mentions condition hazards that need explicit safety review.",
+      "evidence": "more dragging; above that expect faster current around wood, bridges, and busy urban banks. KDFWR and Pikeville route materials frame this corridor as beginner-friendly at normal levels, but the longer Island-to-Thompson combination still includes bridge curr"
+    },
+    {
+      "routeId": "levisa-fork-jubilee-cedar-creek",
+      "slug": "levisa-fork-jubilee-cedar-creek",
+      "name": "Levisa Fork",
+      "reach": "Jubilee Christian Church Ramp to Cedar Creek Canoe Access",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "Conditions",
+      "message": "Route text mentions condition hazards that need explicit safety review.",
+      "evidence": "th more exposed shoals; above that is high and faster around wood, bridges, and urban banks. KDFWR frames the Pikeville Levisa Fork as a family-friendly moving-water corridor with gentle riffles, shoals, and deep pools at normal levels. The longer Jubilee-to-C"
+    },
+    {
+      "routeId": "levisa-fork-jubilee-island-creek",
+      "slug": "levisa-fork-jubilee-island-creek",
+      "name": "Levisa Fork",
+      "reach": "Jubilee Christian Church Ramp to Island Creek Ramp",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "w the official good discharge band but right at the stage floor for a low-water caution framing. Official level band 800-1,400 cfs / 7.4-8.5 ft KDFWR rates Levisa Fork at Pikeville as Low below 800 cfs or 7.4 ft, Good from 800 to 1,400 cfs or 7.4 to 8.5 ft, an"
+    },
+    {
+      "routeId": "levisa-fork-prestonsburg-boat-ramp",
+      "slug": "levisa-fork-prestonsburg-boat-ramp",
+      "name": "Levisa Fork",
+      "reach": "Prestonsburg Ramp to Levisa Fork Boat Ramp",
+      "state": "Kentucky",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "s run, below the official good band, so the route ships with explicit low-water caution instead of comfort framing. Official level band 800-1,500 cfs / 3.5-5.0 ft KDFWR rates Levisa Fork at Prestonsburg as Low below 800 cfs or 3.5 ft, Good from 800 to 1,500 cf"
     },
     {
       "routeId": "tygarts-creek-olive-hill-carter-caves",
@@ -4862,6 +6622,17 @@
       "evidence": "Upper North Branch Driftless day with riffles, bluffs, and a cleaner gauge question than most small rivers: is Pilot Mound at or above the lower edge of the published preferred ban"
     },
     {
+      "routeId": "rum-river-germanium-south-county-park",
+      "slug": "rum-river-germanium-south-county-park",
+      "name": "Rum River",
+      "reach": "Germanium to South County Park",
+      "state": "Minnesota",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Shorter metro-edge Rum continuation from Ramsey's Brookview / Germanium access to the South County Park landing above the Anoka dam. The river itself stays friendly, but the lower-"
+    },
+    {
       "routeId": "rum-river-martins-north-county-park",
       "slug": "rum-river-martins-north-county-park",
       "name": "Rum River",
@@ -4871,6 +6642,28 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "rth County Park are both documented public endpoints for this corridor. Primary caution Flood debris Rising post-rain water can add debris and make an easy scenic route feel less forgiving. MN DNR river levels https://www.dnr.state.mn.us/river_levels/index.htm"
+    },
+    {
+      "routeId": "rum-river-north-county-central",
+      "slug": "rum-river-north-county-central",
+      "name": "Rum River",
+      "reach": "North County Park to Central Regional Park",
+      "state": "Minnesota",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": ", watercraft campsites, toilets, and drinking water at river mile 13.8. Primary caution Wood and flood debris The lower Rum is generally approachable, but DNR still flags downed trees and snags as the relevant hazard pattern on this corridor. MN DNR river leve"
+    },
+    {
+      "routeId": "rum-river-north-county-germanium",
+      "slug": "rum-river-north-county-germanium",
+      "name": "Rum River",
+      "reach": "North County Park to Germanium",
+      "state": "Minnesota",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "W and identifies it as a fishing park at the Germanium access corridor. Primary caution Snags and long-day pace DNR says lower-Rum hazards include downed trees and snags. On a 14-mile corridor, that matters more than on the shorter park-to-park option. MN DNR"
     },
     {
       "routeId": "rum-river-walbo-cambridge-west",
@@ -4893,6 +6686,105 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "absolute because that guidance is broad and does not account for every same-day hazard on this route. DNR bands 14 / 15 / 17 / 20 ft MN DNR interprets this gauge as Scrapable below 14 ft, Low from 14 to 15, Medium from 15 to 17, High from 17 to 20, and Very Hi"
+    },
+    {
+      "routeId": "sauk-river-frogtown-eagle-park",
+      "slug": "sauk-river-frogtown-eagle-park",
+      "name": "Sauk River",
+      "reach": "Frogtown Park to Eagle Park",
+      "state": "Minnesota",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "st lower-Sauk range. Below 14 ft the river trends scrape-prone and weedy, while caution rises above 20 ft. This is still a broad-audience lower-Sauk float at normal levels, but wood, strainers, and cold-water exposure remain real same-day concerns. Confidence"
+    },
+    {
+      "routeId": "sauk-river-frogtown-knights-of-columbus",
+      "slug": "sauk-river-frogtown-knights-of-columbus",
+      "name": "Sauk River",
+      "reach": "Frogtown Park to Knights of Columbus Park",
+      "state": "Minnesota",
+      "severity": "Medium",
+      "category": "Conditions",
+      "message": "Route text mentions condition hazards that need explicit safety review.",
+      "evidence": "one-card planner for paddlers who want the full Frogtown extension plus an easy urban finish instead of stopping at Miller Landing. Treat 15 to 17 ft at St. Martin as the best broad-audience range. Below 14 ft this long lower stretch gets shallow, weedy, and s"
+    },
+    {
+      "routeId": "sauk-river-frogtown-knights-of-columbus",
+      "slug": "sauk-river-frogtown-knights-of-columbus",
+      "name": "Sauk River",
+      "reach": "Frogtown Park to Knights of Columbus Park",
+      "state": "Minnesota",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "4 ft this long lower stretch gets shallow, weedy, and slower, while flood-style caution matters more above 20 ft. The character stays broad-audience at sane levels because this route exits before the Class I-II mouth section, but it is still a long lower-river"
+    },
+    {
+      "routeId": "sauk-river-frogtown-miller-landing",
+      "slug": "sauk-river-frogtown-miller-landing",
+      "name": "Sauk River",
+      "reach": "Frogtown Park to Miller Landing",
+      "state": "Minnesota",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "Martin as the sweet spot. Below 14 ft gets shallow and weedy, while flood-style caution matters above 20 ft. The river stays broadly approachable at sane levels, but this much mileage still deserves wood awareness, cold-water judgment, and honest energy manage"
+    },
+    {
+      "routeId": "sauk-river-frogtown-rockville",
+      "slug": "sauk-river-frogtown-rockville",
+      "name": "Sauk River",
+      "reach": "Frogtown Park to Rockville County Park",
+      "state": "Minnesota",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "uk zone. Below 14 ft the river trends scrape-prone and weedy, while flood-style caution starts to matter above 20 ft. This is one of the friendlier lower-Sauk segments at normal levels, but wood, strainers, and cold-water exposure still matter. Confidence is h"
+    },
+    {
+      "routeId": "sauk-river-miller-landing-knights-of-columbus",
+      "slug": "sauk-river-miller-landing-knights-of-columbus",
+      "name": "Sauk River",
+      "reach": "Miller Landing to Knights of Columbus Park",
+      "state": "Minnesota",
+      "severity": "Medium",
+      "category": "Conditions",
+      "message": "Route text mentions condition hazards that need explicit safety review.",
+      "evidence": "Short urban lower-Sauk shuttle that keeps the logistics easy while avoiding the Class I-II mouth rapids. It is the simple St. Cloud-area pick when you want a quick gauge-backed paddle in"
+    },
+    {
+      "routeId": "sauk-river-miller-landing-knights-of-columbus",
+      "slug": "sauk-river-miller-landing-knights-of-columbus",
+      "name": "Sauk River",
+      "reach": "Miller Landing to Knights of Columbus Park",
+      "state": "Minnesota",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "range. Below 14 ft this short reach gets slower and weedier, while flood-style caution matters more once the Sauk climbs above 20 ft. This is a broad-audience lower-Sauk shuttle at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR"
+    },
+    {
+      "routeId": "sauk-river-pineview-heims-mill",
+      "slug": "sauk-river-pineview-heims-mill",
+      "name": "Sauk River",
+      "reach": "Pineview Park to Heims Mill",
+      "state": "Minnesota",
+      "severity": "Medium",
+      "category": "Conditions",
+      "message": "Route text mentions condition hazards that need explicit safety review.",
+      "evidence": "partially impassable, while above 20 ft pushes the finish well beyond a casual urban paddle. The last 2.5 miles include DNR-noted Class I-II rapids, so this is not the same skill demand as the easy lower-Sauk floats upstream. Confidence is good because MN DNR"
+    },
+    {
+      "routeId": "sauk-river-rockville-knights-of-columbus",
+      "slug": "sauk-river-rockville-knights-of-columbus",
+      "name": "Sauk River",
+      "reach": "Rockville County Park to Knights of Columbus Park",
+      "state": "Minnesota",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "t range. Below 14 ft the lower river gets slower and weedier, while flood-style caution matters more above 20 ft. This is still a broad-audience lower-Sauk route at sane levels, with the usual wood, strainers, and cold-water caveats but no DNR-noted rapid fini"
     },
     {
       "routeId": "snake-river-county-road-3-mora",
@@ -5137,6 +7029,50 @@
       "evidence": "conditions and lists Akers and Pulltite closure stages. Use this as high-water caution, not an ideal range. Endpoint coordinates 37.37591, -91.55148 to 37.33505, -91.47959 Coordinates reuse the already implemented Akers Lower and Pulltite access-area anchors"
     },
     {
+      "routeId": "current-river-akers-ferry-round-spring",
+      "slug": "current-river-akers-ferry-round-spring",
+      "name": "Current River",
+      "reach": "Akers Ferry to Round Spring",
+      "state": "Missouri",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Long Upper Current continuation inside Ozark National Scenic Riverways that combines the Akers to Pulltite and Pulltite to Round Spring public floats. NPS still documents both sect"
+    },
+    {
+      "routeId": "current-river-akers-ferry-round-spring",
+      "slug": "current-river-akers-ferry-round-spring",
+      "name": "Current River",
+      "reach": "Akers Ferry to Round Spring",
+      "state": "Missouri",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "the Upper Current landings used on this continuation. Treat those as high-water caution and closure support, not as an ideal gauge band. Flood-repair caveat Pulltite remains partly repaired NPS said in March 2025 that Akers and Round Spring group sites were ex"
+    },
+    {
+      "routeId": "current-river-big-spring-cataract",
+      "slug": "current-river-big-spring-cataract",
+      "name": "Current River",
+      "reach": "Big Spring Upper River Landing to Cataract Landing",
+      "state": "Missouri",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Mid-length lower Current day from Big Spring to Cataract Landing. NPS lists this section at 8.8 miles and about four hours, and the Van Buren USGS gauge remains the direct conserva"
+    },
+    {
+      "routeId": "current-river-big-spring-cataract",
+      "slug": "current-river-big-spring-cataract",
+      "name": "Current River",
+      "reach": "Big Spring Upper River Landing to Cataract Landing",
+      "state": "Missouri",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "uren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff. NPS Estimated Float Times https://www.nps.gov/ozar/planyourvisit/floattimes.htm NPS Ozark park brochure https://www.nps.gov/ozar/planyourvisit/p"
+    },
+    {
       "routeId": "current-river-big-spring-gooseneck",
       "slug": "current-river-big-spring-gooseneck",
       "name": "Current River",
@@ -5159,6 +7095,28 @@
       "evidence": "uren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff. NPS Paddle the Lower Current River https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm NPS Ozark park brochure https://www.nps.gov"
     },
     {
+      "routeId": "current-river-cataract-gooseneck",
+      "slug": "current-river-cataract-gooseneck",
+      "name": "Current River",
+      "reach": "Cataract Landing to Gooseneck / Hawes Recreation Area",
+      "state": "Missouri",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Short final lower Current section from Cataract Landing to Gooseneck / Hawes. The current NPS float-times page lists this stretch at 6.2 miles and about three hours, and the Van Bu"
+    },
+    {
+      "routeId": "current-river-cataract-gooseneck",
+      "slug": "current-river-cataract-gooseneck",
+      "name": "Current River",
+      "reach": "Cataract Landing to Gooseneck / Hawes Recreation Area",
+      "state": "Missouri",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "uren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff. NPS Estimated Float Times https://www.nps.gov/ozar/planyourvisit/floattimes.htm NPS Ozark park brochure https://www.nps.gov/ozar/planyourvisit/p"
+    },
+    {
       "routeId": "current-river-cedar-grove-akers",
       "slug": "current-river-cedar-grove-akers",
       "name": "Current River",
@@ -5179,6 +7137,39 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "lists Akers at 2.00 ft average and 4.00 ft closed level. Use this as high-water caution, not an ideal range. Access rules Designated access points NPS private-vessel guidance says there is no fee for private floating inside park boundaries, but paddlers should"
+    },
+    {
+      "routeId": "current-river-cedar-grove-pulltite",
+      "slug": "current-river-cedar-grove-pulltite",
+      "name": "Current River",
+      "reach": "Cedar Grove to Pulltite",
+      "state": "Missouri",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Long Upper Current continuation inside Ozark National Scenic Riverways that combines the Cedar Grove to Akers and Akers to Pulltite public floats. NPS still documents both segments"
+    },
+    {
+      "routeId": "current-river-cedar-grove-round-spring",
+      "slug": "current-river-cedar-grove-round-spring",
+      "name": "Current River",
+      "reach": "Cedar Grove to Round Spring",
+      "state": "Missouri",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Full Upper Current continuation inside Ozark National Scenic Riverways from Cedar Grove to Round Spring. NPS still documents all three component segments, the Akers gauge remains l"
+    },
+    {
+      "routeId": "current-river-cedar-grove-round-spring",
+      "slug": "current-river-cedar-grove-round-spring",
+      "name": "Current River",
+      "reach": "Cedar Grove to Round Spring",
+      "state": "Missouri",
+      "severity": "Medium",
+      "category": "Conditions",
+      "message": "Route text mentions condition hazards that need explicit safety review.",
+      "evidence": "l-day commitment bordering on an overnight plan for many groups. Pace, weather, cold water, crowding, and access discipline matter more than the simple segment ratings suggest. Confidence is good for a guarded long-route add: NPS still lists Cedar Grove to Ake"
     },
     {
       "routeId": "current-river-pulltite-round-spring",
@@ -5225,6 +7216,28 @@
       "evidence": "uren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff. NPS Paddle the Lower Current River https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm NPS Ozark Superintendent Compendium https:/"
     },
     {
+      "routeId": "current-river-van-buren-cataract",
+      "slug": "current-river-van-buren-cataract",
+      "name": "Current River",
+      "reach": "Van Buren Riverfront Park to Cataract Landing",
+      "state": "Missouri",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Longer lower Current continuation from Van Buren to Cataract Landing. The current NPS float-times page supports this public combination at about 13.1 miles and 6 hours, and the Van"
+    },
+    {
+      "routeId": "current-river-van-buren-cataract",
+      "slug": "current-river-van-buren-cataract",
+      "name": "Current River",
+      "reach": "Van Buren Riverfront Park to Cataract Landing",
+      "state": "Missouri",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "uren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff. NPS Estimated Float Times https://www.nps.gov/ozar/planyourvisit/floattimes.htm NPS Ozark park brochure https://www.nps.gov/ozar/planyourvisit/p"
+    },
+    {
       "routeId": "current-river-waymeyer-van-buren",
       "slug": "current-river-waymeyer-van-buren",
       "name": "Current River",
@@ -5247,6 +7260,17 @@
       "evidence": "uren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff. Endpoint coordinates 37.054302, -91.055459 to 36.9939, -91.0140 Paddling.com publishes coordinates for Waymeyer Access. The Van Buren coordinate"
     },
     {
+      "routeId": "eleven-point-river-greer-crossing-riverton",
+      "slug": "eleven-point-river-greer-crossing-riverton",
+      "name": "Eleven Point River",
+      "reach": "Greer Crossing Recreation Area to Riverton East River Access",
+      "state": "Missouri",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Longer lower Eleven Point day from Greer Crossing to Riverton East, using official Forest Service access pages, the direct Bardley gauge, and the Forest Service one-long-day or eas"
+    },
+    {
       "routeId": "eleven-point-river-greer-crossing-turner-mill",
       "slug": "eleven-point-river-greer-crossing-turner-mill",
       "name": "Eleven Point River",
@@ -5267,6 +7291,50 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "support to name an ideal range or high-water cutoff, so treat rising water as a caution flag. Forest Service materials describe this reach as having shoals rather than named rapids. Expect cold spring-fed water, Mary Decker Shoal, bouldery shallow spots near l"
+    },
+    {
+      "routeId": "eleven-point-river-greer-crossing-turner-mill-south",
+      "slug": "eleven-point-river-greer-crossing-turner-mill-south",
+      "name": "Eleven Point River",
+      "reach": "Greer Crossing Recreation Area to Turner Mill South River Access",
+      "state": "Missouri",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Short spring-supported Eleven Point day from Greer Crossing to Turner Mill South, using the official Forest Service put-in and river-right landing with the Bardley gauge as a conse"
+    },
+    {
+      "routeId": "eleven-point-river-greer-crossing-turner-mill-south",
+      "slug": "eleven-point-river-greer-crossing-turner-mill-south",
+      "name": "Eleven Point River",
+      "reach": "Greer Crossing Recreation Area to Turner Mill South River Access",
+      "state": "Missouri",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "ideal range or high-water cutoff, so treat rising or storm-affected water as a caution flag. Forest Service materials describe this reach as having shoals rather than named rapids. Expect cold spring-fed water, Mary Decker Shoal, bouldery shallow spots near l"
+    },
+    {
+      "routeId": "eleven-point-river-greer-crossing-whitten",
+      "slug": "eleven-point-river-greer-crossing-whitten",
+      "name": "Eleven Point River",
+      "reach": "Greer Crossing Recreation Area to Whitten River Access",
+      "state": "Missouri",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Spring-fed Eleven Point day from Greer Crossing to Whitten, with official Forest Service access at both ends, a direct Bardley gauge, and a practical one-day link through the Blue"
+    },
+    {
+      "routeId": "eleven-point-river-greer-crossing-whitten",
+      "slug": "eleven-point-river-greer-crossing-whitten",
+      "name": "Eleven Point River",
+      "reach": "Greer Crossing Recreation Area to Whitten River Access",
+      "state": "Missouri",
+      "severity": "Medium",
+      "category": "Conditions",
+      "message": "Route text mentions condition hazards that need explicit safety review.",
+      "evidence": "y Class I spring-fed Ozark water with shoals, Mary Decker Shoal near the start, cold water, and a longer remote feel than the short split sections. Motorized users are also allowed under the 25 hp limit. Confidence is good for a conservative mid-river Eleven P"
     },
     {
       "routeId": "eleven-point-river-riverton-narrows",
@@ -5707,6 +7775,39 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "anoe ramp, parking, picnic facilities, and ODNR boating-facility grant context. Hazard escalation Denny's Run strainers and non-rec warning AW describes rescues, wrapped boats, and persistent strainers at Denny's Run; a 2018 trip report explicitly warns the ro"
+    },
+    {
+      "routeId": "conodoguinet-creek-good-hope-acri-meadow",
+      "slug": "conodoguinet-creek-good-hope-acri-meadow",
+      "name": "Conodoguinet Creek",
+      "reach": "Good Hope Access to Acri Meadow Park",
+      "state": "Pennsylvania",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Longer lower-central Conodoguinet day from the PFBC Good Hope Access to Acri Meadow Park. Cumberland County still publishes both launches, the official mile spacing, and the same d"
+    },
+    {
+      "routeId": "conodoguinet-creek-vincent-difilippo-good-hope",
+      "slug": "conodoguinet-creek-vincent-difilippo-good-hope",
+      "name": "Conodoguinet Creek",
+      "reach": "Vincent DiFilippo Nature Preserve to Good Hope Access",
+      "state": "Pennsylvania",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Mid-creek Cumberland County Conodoguinet day from Vincent DiFilippo Nature Preserve to the PFBC Good Hope Access. The current county access table still defines the pair cleanly, an"
+    },
+    {
+      "routeId": "conodoguinet-creek-willow-mill-vincent-difilippo",
+      "slug": "conodoguinet-creek-willow-mill-vincent-difilippo",
+      "name": "Conodoguinet Creek",
+      "reach": "Willow Mill Park to Vincent DiFilippo Nature Preserve",
+      "state": "Pennsylvania",
+      "severity": "Medium",
+      "category": "Minimum-only hazard review",
+      "message": "Minimum-only route has hazard language but no safetyProfile.",
+      "evidence": "Short Cumberland County Conodoguinet day from Willow Mill Park to Vincent DiFilippo Nature Preserve. The county water-trail materials publish both named public launches, official m"
     },
     {
       "routeId": "big-sioux-river-farm-field-rotary",
