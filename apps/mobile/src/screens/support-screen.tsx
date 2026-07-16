@@ -9,6 +9,7 @@ import { SectionCard } from '../components/section-card';
 import { appDiagnosticRows } from '../lib/app-diagnostics';
 import { resolveApiBaseUrl, resolveApiUrl } from '../lib/api-base-url';
 import { captureAppException, observabilityStatus, trackAppEvent } from '../lib/observability';
+import { openFeedbackForm } from '../lib/feedback-controller';
 import { resetWelcome } from '../lib/onboarding';
 import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
 import { androidBottomInset } from '../lib/safe-area';
@@ -118,8 +119,8 @@ export default function SupportScreen() {
 
       <SectionCard title="Support" subtitle="Fast links for feedback, route requests, and release paperwork.">
         <View style={styles.actionList}>
-          <ActionRow icon="information-outline" title="How PaddleToday works" body="Replay the short guide to scores, conditions, and route details." onPress={() => replayWelcome(router, 'guide')} />
-          <ActionRow icon="tune-variant" title="Change trip preference" body="Choose the kind of paddle you want to find first." onPress={() => replayWelcome(router, 'intent')} />
+          <ActionRow icon="information-outline" title="How PaddleToday works" body="Replay the short guide to scores, conditions, and route details." onPress={() => replayWelcome(router)} />
+          <ActionRow icon="message-text-outline" title="Send feedback" body="Share an idea, issue, or missing feature." onPress={openManualFeedback} />
           <ActionRow icon="email-outline" title="Email support" body="hello@paddletoday.com" onPress={() => openUrl('mailto:hello@paddletoday.com')} />
           <ActionRow icon="bug-outline" title="Email app diagnostics" body="Send build, connection, and environment details." onPress={() => openUrl(buildDiagnosticsEmailUrl())} />
           <ActionRow icon="plus-circle-outline" title="Request a route" body="Send river, area, access, and notes." onPress={() => router.push('/request-route')} />
@@ -307,8 +308,8 @@ function diagnosticTone(state: DiagnosticState) {
   return styles.diagnosticIdle;
 }
 
-function replayWelcome(router: ReturnType<typeof useRouter>, mode: 'guide' | 'intent') {
-  void resetWelcome().then(() => router.push({ pathname: '/welcome', params: mode === 'intent' ? { mode } : undefined }));
+function replayWelcome(router: ReturnType<typeof useRouter>) {
+  void resetWelcome().then(() => router.push('/welcome'));
 }
 
 function openUrl(url: string) {
@@ -316,6 +317,13 @@ function openUrl(url: string) {
     target: url.startsWith('mailto:') ? 'email' : url,
   });
   void Linking.openURL(url);
+}
+
+function openManualFeedback() {
+  trackAppEvent('app_feedback_opened', {
+    source: 'more',
+  });
+  openFeedbackForm('/more');
 }
 
 function buildDiagnosticsEmailUrl() {

@@ -15,11 +15,14 @@ Primary references:
 | Saved rivers | User action | No | No | App functionality | Stored locally with AsyncStorage. No account sync. |
 | Alert email | User input | Yes, POST to `/api/alerts`; also stored locally for form reuse | Yes | App functionality / communications | Used to deliver threshold alert emails. Emails include unsubscribe links. |
 | Route request reply email | User input, optional | Yes, POST to `/api/river-request` | Yes if provided | App functionality / support | Optional follow-up address for route requests. |
+| App feedback text/category | User input | Yes, POST to `/api/feedback` | Could be linked through optional email and request metadata | App functionality / support / analytics | Stored in Azure Blob or local development storage. Feedback text is not sent to Firebase. |
+| App feedback reply email | User input, optional | Yes, POST to `/api/feedback` | Yes if provided | Developer communications / support | Used only when follow-up is needed. |
+| Feedback prompt eligibility | App opens and aggregate meaningful-action counts | No | No | App functionality | Stored locally in AsyncStorage to control prompt timing. No route history or feedback text is included. |
 | Route report contributor name/email | User input | Yes, POST to `/api/route-photo-submissions` | Yes | App functionality / support / content moderation | Email used for follow-up. Public copy should not include private contact info. |
 | Route report text/notes | User input | Yes, POST to `/api/route-photo-submissions` | Could be linked through submission metadata | App functionality / content moderation | Reviewed before publishing. |
 | Route report photos | User-selected media | Yes, only if user adds photos | Could be linked through submission metadata | App functionality / content moderation | Photo access is requested only when the user taps Add. Rights confirmation required. |
 | Crash/error diagnostics | Firebase Crashlytics in preview/production builds | Yes, to Firebase/Google | Not intentionally linked | Analytics / diagnostics | App code avoids sending email, names, report text, and photo contents to Firebase. Route slugs/status may appear. |
-| Product events | Firebase Analytics in preview/production builds | Yes, to Firebase/Google | Not intentionally linked | Analytics / diagnostics | Includes app open, route open, save toggle, directions, report, alert, diagnostic events. Advertising-oriented collection is disabled in `apps/mobile/firebase.json`. |
+| Product events | Firebase Analytics in preview/production builds | Yes, to Firebase/Google | Not intentionally linked | Analytics / diagnostics | Includes app open, route open, save toggle, directions, report, alert, diagnostic, feedback prompt/submission category, and store-review events. Feedback text and email are excluded. Advertising-oriented collection is disabled in `apps/mobile/firebase.json`. |
 | API request logs | Production API/hosting | Yes, server-side | Potentially via IP/request metadata | App functionality / security / diagnostics | Covered by web/API hosting operations. |
 
 ## Apple App Privacy Draft
@@ -35,13 +38,13 @@ Rationale: the app does not use third-party advertising or cross-app/site tracki
 Likely disclose:
 
 - Contact Info -> Email Address
-  - Collected for alert emails, route request follow-up, and route report follow-up.
+  - Collected for alert emails, route request follow-up, route report follow-up, and optional app-feedback follow-up.
   - Purpose: App Functionality, Developer Communications.
 - User Content -> Photos or Videos
   - Collected only when the user attaches route photos.
   - Purpose: App Functionality.
 - User Content -> Other User Content
-  - Route report text, route request notes, corrections, access/hazard notes.
+  - Route report text, route request notes, app feedback, corrections, access/hazard notes.
   - Purpose: App Functionality, Developer Communications.
 
 Review whether these should be marked linked to identity because submissions include email/name and are stored together for moderation.

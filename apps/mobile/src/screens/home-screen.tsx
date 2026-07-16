@@ -243,7 +243,7 @@ export default function HomeScreen() {
         <ExploreActionStrip
           hasLocation={Boolean(location)}
           locationStatus={status}
-          onUseLocation={() => requestLocation()}
+          onUseLocation={() => void requestLocation()}
           onOpenExplore={() => router.push({ pathname: '/explore', params: { reset: '1', intentKey: Date.now().toString() } })}
           onOpenIntent={openExploreIntent}
         />

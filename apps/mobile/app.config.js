@@ -3,6 +3,11 @@ const { join } = require('node:path');
 const baseAppConfig = require('./app.config.base.json');
 
 const androidGoogleMapsApiKey = process.env.GOOGLE_MAPS_ANDROID_API_KEY?.trim();
+const appStoreUrl = (
+  process.env.EXPO_PUBLIC_APP_STORE_URL ||
+  process.env.PUBLIC_APP_STORE_URL ||
+  ''
+).trim();
 const appEnvironment = process.env.EXPO_PUBLIC_APP_ENV?.trim();
 const firebaseDiagnosticsEnabled = appEnvironment === 'preview' || appEnvironment === 'production';
 const firebaseIosConfig = './firebase/GoogleService-Info.plist';
@@ -43,6 +48,7 @@ module.exports = ({ config }) => {
     ios: {
       ...config.ios,
       ...baseAppConfig.expo.ios,
+      ...(appStoreUrl ? { appStoreUrl } : {}),
     },
     web: {
       ...config.web,

@@ -71,7 +71,7 @@ const liveRank = {
 
 export default function ExploreScreen() {
   const router = useRouter();
-  const params = useLocalSearchParams<{ intent?: string; intentKey?: string; reset?: string; state?: string }>();
+  const params = useLocalSearchParams<{ intent?: string; intentKey?: string; reset?: string; state?: string; transientIntent?: string }>();
   const insets = useSafeAreaInsets();
   const { height: windowHeight } = useWindowDimensions();
   const summaryQuery = useRiverSummaryQuery();
@@ -84,6 +84,7 @@ export default function ExploreScreen() {
   const [preferencesHydrated, setPreferencesHydrated] = useState(false);
   const appliedStoredLocationDefaultRef = useRef(false);
   const appliedIntentRef = useRef<string | null>(null);
+  const transientIntentFiltersRef = useRef<ExploreFilters | null>(null);
   const appliedResetRef = useRef<string | null>(null);
   const appliedStateRef = useRef<string | null>(null);
   const requestedIntent = isExploreIntentId(params.intent) ? params.intent : null;
@@ -165,10 +166,13 @@ export default function ExploreScreen() {
 
     const intentFilters = filtersForExploreIntent(requestedIntent, { locationReady });
     appliedIntentRef.current = requestedIntentKey;
+    if (params.transientIntent === '1') {
+      transientIntentFiltersRef.current = intentFilters;
+    }
     setSelectedSlug(null);
     setFilters(intentFilters);
     setDraftFilters(intentFilters);
-  }, [locationReady, preferencesHydrated, requestedIntent, requestedIntentKey]);
+  }, [locationReady, params.transientIntent, preferencesHydrated, requestedIntent, requestedIntentKey]);
 
   useEffect(() => {
     if (!preferencesHydrated || requestedIntent || requestedReset || !requestedState || !requestedStateKey || appliedStateRef.current === requestedStateKey) {
@@ -187,6 +191,13 @@ export default function ExploreScreen() {
 
   useEffect(() => {
     if (!preferencesHydrated) {
+      return;
+    }
+
+    if (transientIntentFiltersRef.current) {
+      if (filters === transientIntentFiltersRef.current) {
+        transientIntentFiltersRef.current = null;
+      }
       return;
     }
 

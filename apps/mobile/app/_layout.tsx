@@ -11,10 +11,15 @@ import {
   configureNativeNotifications,
   getLastNotificationResponse,
 } from '../src/lib/native-notifications';
-import { initObservability, withObservability } from '../src/lib/observability';
+import { initObservability, trackAppEvent, withObservability } from '../src/lib/observability';
 import { AppProviders } from '../src/providers/app-providers';
 import { colors } from '../src/theme/tokens';
-import { WELCOME_COMPLETED_STORAGE_KEY } from '../src/lib/onboarding';
+import {
+  consumeFirstRouteOpenPending,
+  migrateOnboardingStorage,
+  WELCOME_COMPLETED_STORAGE_KEY,
+} from '../src/lib/onboarding';
+import { FeedbackExperience } from '../src/components/feedback-experience';
 
 initObservability();
 configureNativeNotifications();
@@ -44,6 +49,10 @@ function RootLayout() {
   const pathname = usePathname();
 
   useEffect(() => {
+    void migrateOnboardingStorage();
+  }, []);
+
+  useEffect(() => {
     let active = true;
     void AsyncStorage.getItem(WELCOME_COMPLETED_STORAGE_KEY).then((completed) => {
       if (active && completed !== '1' && pathname !== '/welcome') {
@@ -54,6 +63,22 @@ function RootLayout() {
     return () => {
       active = false;
     };
+  }, [pathname]);
+
+  useEffect(() => {
+    const isRiverDetail = pathname.startsWith('/river/');
+    const isRiverHub = pathname.startsWith('/river-hub/');
+    if (!isRiverDetail && !isRiverHub) {
+      return;
+    }
+
+    void consumeFirstRouteOpenPending().then((pending) => {
+      if (pending) {
+        trackAppEvent('first_route_opened_after_welcome', {
+          destination: isRiverHub ? 'river_hub' : 'river_detail',
+        });
+      }
+    });
   }, [pathname]);
 
   useEffect(() => {
@@ -94,6 +119,7 @@ function RootLayout() {
           <Stack.Screen name="privacy" options={{ title: 'Privacy' }} />
           <Stack.Screen name="terms" options={{ title: 'Terms' }} />
         </Stack>
+        <FeedbackExperience pathname={pathname} />
       </ThemeProvider>
     </AppProviders>
   );

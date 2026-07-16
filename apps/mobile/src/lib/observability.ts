@@ -1,5 +1,6 @@
 import Constants, { ExecutionEnvironment } from 'expo-constants';
 import type { ComponentType } from 'react';
+import { recordFeedbackUsageEvent } from './feedback-usage';
 
 type EventProperties = Record<string, boolean | number | string | null | undefined>;
 type FirebaseBridge = {
@@ -32,6 +33,8 @@ export function captureAppException(error: unknown, context?: { name?: string; e
 }
 
 export function trackAppEvent(name: string, properties?: EventProperties) {
+  void recordFeedbackUsageEvent(name, properties ?? {});
+
   if (!isFirebaseDiagnosticsEnabled()) {
     return;
   }

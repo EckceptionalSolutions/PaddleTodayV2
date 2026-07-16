@@ -12,19 +12,19 @@ const legalCopy = {
     title: 'Privacy',
     kicker: 'PaddleToday',
     heading: 'Privacy Policy',
-    updated: 'Last updated: May 7, 2026',
+    updated: 'Last updated: July 16, 2026',
     intro:
-      'PaddleToday uses only the information needed to provide route recommendations, support requests, alerts, and app diagnostics.',
+      'PaddleToday uses only the information needed to provide route recommendations, feedback and support, alerts, and app diagnostics.',
     sections: [
       {
         title: 'Information we use',
         body:
-          'The app may use your approximate or precise location when you choose location-aware route sorting. Route requests, support emails, alerts, and community submissions may include the contact details and notes you provide.',
+          'The app may use your approximate or precise location when you choose location-aware route sorting. Feedback, route requests, support emails, alerts, and community submissions may include the contact details and notes you provide.',
       },
       {
         title: 'How it is used',
         body:
-          'Location is used to estimate drive-aware route recommendations. Submitted route, alert, support, and report details are used to operate PaddleToday, review coverage requests, improve route data, and respond when needed.',
+          'Location is used to estimate drive-aware route recommendations. Submitted feedback, route, alert, support, and report details are used to operate PaddleToday, improve the app and route data, and respond when needed.',
       },
       {
         title: 'Diagnostics',
@@ -69,7 +69,7 @@ const legalCopy = {
       {
         title: 'Submissions',
         body:
-          'Route requests, reports, notes, and photos may be reviewed, edited for clarity, rejected, or used to improve PaddleToday route coverage. Only submit material you have the right to share.',
+          'Feedback, route requests, reports, notes, and photos may be reviewed, edited for clarity, rejected, or used to improve PaddleToday. Only submit material you have the right to share.',
       },
       {
         title: 'Contact',

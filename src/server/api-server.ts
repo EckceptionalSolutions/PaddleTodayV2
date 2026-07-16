@@ -13,6 +13,7 @@ import {
   handleWeekendSummary,
 } from './routes/public-rivers';
 import { handleRiverRequest } from './routes/route-requests';
+import { handleAppFeedback } from './routes/feedback';
 import {
   handleCommunityPhoto,
   handleRouteCommunity,
@@ -169,6 +170,10 @@ function handleOptions(pathname: string, response: Parameters<typeof sendEmpty>[
     return sendCorsOptions(response, 'POST, OPTIONS', 'content-type, accept');
   }
 
+  if (pathname === '/api/feedback') {
+    return sendCorsOptions(response, 'POST, OPTIONS', 'content-type, accept');
+  }
+
   if (pathname === '/api/route-contributions' || pathname === '/api/route-photo-submissions') {
     return sendCorsOptions(response, 'POST, OPTIONS', 'content-type, accept');
   }
@@ -199,6 +204,10 @@ async function handleWriteRoutes(
 
   if ((pathname === '/api/river-request' || pathname === '/api/route-request') && request.method === 'POST') {
     return handleRiverRequest(request, response, requestId, includeBody);
+  }
+
+  if (pathname === '/api/feedback' && request.method === 'POST') {
+    return handleAppFeedback(request, response, requestId, includeBody);
   }
 
   if ((pathname === '/api/route-contributions' || pathname === '/api/route-photo-submissions') && request.method === 'POST') {

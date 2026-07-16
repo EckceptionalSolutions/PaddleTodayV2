@@ -36,7 +36,9 @@ Firebase receives:
 - route report starts/submissions,
 - alert creation starts/successes/failures,
 - API diagnostic starts/successes/failures,
-- support link opens.
+- support link opens,
+- feedback prompt opens/dismissals/submissions using category and source only,
+- native store-review requests and permanent review-link opens.
 
 ## What We Are Avoiding For MVP
 
@@ -50,3 +52,5 @@ Do not add paid or higher-disclosure analytics features yet:
 - precise location analytics.
 
 Those would create extra implementation, data safety, and privacy-policy work without being required for the first release.
+
+Never attach feedback text, feedback reply email, or other free-form user input to Firebase events.

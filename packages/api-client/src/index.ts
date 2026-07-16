@@ -1,5 +1,7 @@
 import type {
   ApiErrorResponse,
+  CreateAppFeedbackRequest,
+  CreateAppFeedbackResponse,
   CreateRiverRequestRequest,
   CreateRiverRequestResponse,
   CreateRouteReportRequest,
@@ -52,6 +54,7 @@ export interface PaddleTodayApiClient {
   getRiverHistory(slug: string, options?: RiverHistoryRequestOptions): Promise<RiverHistoryResponse>;
   getRouteCommunity(slug: string, options?: RequestOptions): Promise<RouteCommunityResponse>;
   createRiverAlert(input: CreateRiverAlertRequest, options?: RequestOptions): Promise<CreateRiverAlertResponse>;
+  createAppFeedback(input: CreateAppFeedbackRequest, options?: RequestOptions): Promise<CreateAppFeedbackResponse>;
   createRiverRequest(input: CreateRiverRequestRequest, options?: RequestOptions): Promise<CreateRiverRequestResponse>;
   createRouteReport(input: CreateRouteReportRequest, options?: RequestOptions): Promise<CreateRouteReportResponse>;
   createRouteContribution(
@@ -162,6 +165,13 @@ export function createPaddleTodayApiClient(args: {
     },
     createRiverAlert(input, options) {
       return requestJson<CreateRiverAlertResponse>('/api/alerts', {
+        ...options,
+        method: 'POST',
+        body: input,
+      });
+    },
+    createAppFeedback(input, options) {
+      return requestJson<CreateAppFeedbackResponse>('/api/feedback', {
         ...options,
         method: 'POST',
         body: input,

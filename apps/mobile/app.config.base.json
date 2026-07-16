@@ -16,6 +16,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.paddletoday.mobile",
+      "appStoreUrl": "https://apps.apple.com/app/id6769542734",
       "buildNumber": "22",
       "infoPlist": {
         "NSUserNotificationsUsageDescription": "PaddleToday can send route alerts when a saved river reaches your chosen paddling threshold.",
@@ -32,6 +33,7 @@
       "softwareKeyboardLayoutMode": "resize",
       "predictiveBackGestureEnabled": false,
       "package": "com.paddletoday.mobile",
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.paddletoday.mobile",
       "versionCode": 15,
       "permissions": [
         "android.permission.ACCESS_COARSE_LOCATION",

@@ -139,4 +139,45 @@ describe('@paddletoday/api-client', () => {
       submissionId: 'submission-1',
     });
   });
+
+  it('posts app feedback as JSON', async () => {
+    const fetchImpl = async (_input: URL | RequestInfo, init?: RequestInit) => {
+      expect(String(_input)).toBe('https://api.example.com/api/feedback');
+      expect(init?.method).toBe('POST');
+      expect(JSON.parse(String(init?.body))).toEqual({
+        category: 'usability',
+        message: 'The route filters are useful but hard to discover.',
+        sourceScreen: '/more',
+        platform: 'ios',
+      });
+
+      return Response.json(
+        {
+          requestId: 'req-feedback',
+          ok: true,
+          stored: true,
+          storage: 'azure',
+          notificationSent: true,
+        },
+        { status: 202 }
+      );
+    };
+
+    const client = createPaddleTodayApiClient({
+      baseUrl: 'https://api.example.com',
+      fetchImpl,
+    });
+
+    await expect(
+      client.createAppFeedback({
+        category: 'usability',
+        message: 'The route filters are useful but hard to discover.',
+        sourceScreen: '/more',
+        platform: 'ios',
+      })
+    ).resolves.toMatchObject({
+      ok: true,
+      notificationSent: true,
+    });
+  });
 });
