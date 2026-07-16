@@ -11,6 +11,14 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Current Pennsylvania candidate ledger rows: 50 implemented rows as of 2026-06-25 UTC.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
+## 2026-07-16 Section 3 and Section 14 restore pass
+
+- 2026-07-16 06:00 America/Chicago / 2026-07-16 11:00 UTC: Pennsylvania three-route restoration pass; restored three supported North Branch Susquehanna slugs beyond the live repo baseline at run start.
+- Rebuilt the current live baseline from `src/data/rivers.ts` and `src/data/river-trip-details.ts`, then restored `susquehanna-river-canal-park-wetlands`, `susquehanna-river-pfbc-danville-wrays`, and `susquehanna-river-wrays-shikellamy-west` after confirming they remained documented in the ledger/history but were absent from the live route array.
+- Qualification package: PFBC Section 3 still publishes exact Canal Park and Wetlands Nature Area coordinates, official river miles, Wilkes-Barre stage guidance, and the mile-180 rapid below the Nanticoke bridge; the current 2021 North Branch guide still publishes exact PFBC Danville, Wray's Riverfront Campground, and Shikellamy State Park West coordinates plus Section 14 Danville guidance of `2 ft` lower limit, `4 ft` better paddling level, and `7 ft` novice ceiling with explicit Lake Augusta and Sunbury Fabridam caution context; and direct USGS Water Services returned same-day July 16, 2026 values of `2,990 cfs / 0.74 ft` at `2026-07-16 05:45 EDT` for Wilkes-Barre (`01536500`) plus `3,430 cfs / 2.89 ft` at `2026-07-16 06:30 EDT` for Danville (`01540500`).
+- Camping stays conservative and route-specific: `susquehanna-river-canal-park-wetlands` remains `none`, while `susquehanna-river-pfbc-danville-wrays` and `susquehanna-river-wrays-shikellamy-west` ship as `endpoint_campground` because Wray's remains the only named legal overnight support in those exact route plans.
+- No gallery image was added. Added bounded 2026-07-16 no-image audit rows for all three routes after Commons, PFBC/guide imagery, and same-river USGS media review did not surface clearly rights-clean exact-route assets for local reuse.
+
 ## 2026-07-11 Yellow Breeches completion pass
 
 - 2026-07-11 00:25 America/Chicago / 2026-07-11 05:25 UTC: Pennsylvania three-route implementation pass; added the remaining current Yellow Breeches Creek short-to-middle slugs beyond the live repo baseline at run start.

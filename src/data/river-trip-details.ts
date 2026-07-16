@@ -7073,6 +7073,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  'susquehanna-river-canal-park-wetlands': {
+    putIn: {
+      name: 'Canal Park access',
+      latitude: 41.22,
+      longitude: -76.018611,
+    },
+    takeOut: {
+      name: 'Wetlands Nature Area access',
+      latitude: 41.089444,
+      longitude: -76.1225,
+    },
+    logistics: {
+      distanceLabel: 'About 14 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7 hr in ordinary conditions, longer with headwind, lower-water line picking, or extra care around the early rapid and the primitive Wetlands finish',
+      shuttle:
+        'Stage the take-out at Wetlands Nature Area first, then drive back to Canal Park in West Nanticoke. Inspect both accesses before launching because broad-river mud, current, or same-day maintenance can change the practical landing feel.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, park, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this river corridor is none, and banks away from the named public accesses may be private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Canal Park and take out at Wetlands Nature Area for a full upper Section 3 Susquehanna day. Use the Wilkes-Barre stage gauge, keep the easiest planning days around 2 to 4 feet there, and make the mile-180 rapid your first same-day hazard check.',
+      accessCaveats: [
+        'PFBC Section 3 publishes both Canal Park and Wetlands Nature Area coordinates directly in the official access table.',
+        'Canal Park is a primitive access on a gravel path and Wetlands is a primitive river-right finish. Confirm same-day footing, parking, and bank angle at both ends before leaving vehicles.',
+        'This route has more committed mileage than the shorter Section 3 slugs. Once you leave the Nanticoke corridor, broad-river wind and a thin exit network can matter more than the flat profile suggests.',
+        'Stay with the named public accesses rather than using islands or private banks as casual substitutes.',
+      ],
+      watchFor: [
+        'A long class I-II rapid on river right about one-half mile downstream from the Nanticoke bridge, flagged by PFBC at mile 180.',
+        'Wilkes-Barre stages below about -0.5 ft, when the broad channel gets scratchier and more technical around shallow bars and inside lines.',
+        'Wilkes-Barre stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and muddy footing at the primitive Wetlands finish after a long exposed day.',
+      ],
+    },
+  },
   'susquehanna-river-canal-park-test-track': {
     "putIn": {
       "id": "canal-park",
@@ -7218,6 +7256,80 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default corridor finish and handoff to the Shikellamy corridor."
       }
     ]
+  },
+  'susquehanna-river-pfbc-danville-wrays': {
+    putIn: {
+      name: 'PFBC Danville Access',
+      latitude: 40.94349,
+      longitude: -76.598507,
+    },
+    takeOut: {
+      name: "Wray's Riverfront Campground",
+      latitude: 40.953143,
+      longitude: -76.664439,
+    },
+    logistics: {
+      distanceLabel: 'About 4 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 3 hr in ordinary conditions, longer with headwind or a relaxed campground finish',
+      shuttle:
+        "Stage the take-out at Wray's first, then drive back to the PFBC Danville ramp. Confirm same-day campground access expectations before launching if your group is using the site as a take-out without staying there.",
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, campground, boating, and PFD rules.',
+      camping:
+        "Wray's Riverfront Campground is a named endpoint campground in the current North Branch guide and can support a legal overnight finish if you have a reservation or permission.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at the PFBC Danville ramp and finish at Wray's Riverfront Campground for a short lower-Susquehanna link. Use the direct Danville stage gauge, keep the easiest planning days around 2 to 4 feet there, and treat the campground finish as managed private property rather than a casual public bank.",
+      accessCaveats: [
+        "The current 2021 North Branch guide publishes both PFBC Danville and Wray's coordinates directly in the official access table.",
+        "Wray's is a named water-trail access but still a private campground. Respect current staff instructions, parking rules, launch boundaries, and any reservation expectations.",
+        'The river is broad and can feel slower than it is. Headwind can erase much of the short-mileage advantage on an exposed day.',
+        'Stay with the named accesses and do not improvise on private banks or islands between Danville and the campground finish.',
+      ],
+      watchFor: [
+        'Danville stages below about 2 feet, when the route becomes scratchier and less forgiving despite its short length.',
+        'Danville stages above about 4 feet, when current speeds up and the simple campground finish becomes more time-sensitive for less experienced groups.',
+        'Headwind, thunderstorms, floating wood, and managed-property expectations at the private campground take-out.',
+      ],
+    },
+  },
+  'susquehanna-river-wrays-shikellamy-west': {
+    putIn: {
+      name: "Wray's Riverfront Campground",
+      latitude: 40.953143,
+      longitude: -76.664439,
+    },
+    takeOut: {
+      name: 'Shikellamy State Park West',
+      latitude: 40.883406,
+      longitude: -76.79251,
+    },
+    logistics: {
+      distanceLabel: 'About 9 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr in ordinary conditions, longer with wind on Lake Augusta or a busy state-park finish',
+      shuttle:
+        "Stage the take-out at Shikellamy State Park West first, then drive back to Wray's. Confirm both the campground launch expectations and the state-park landing conditions before launching because the lower miles feel bigger when wind or boat traffic builds.",
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, campground, state-park, boating, and PFD rules.',
+      camping:
+        "Wray's can support an overnight start if you have a reservation or permission, but this route should still be planned as a same-day finish at Shikellamy rather than as open riverbank camping.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch from Wray's Riverfront Campground and finish at Shikellamy State Park West for a lower Section 14 Susquehanna day. Use the Danville gauge as the official same-section proxy, keep the easiest planning days around 2 to 4 feet there, and treat Lake Augusta wind plus Fabridam take-out discipline as the decisive safety checks.",
+      accessCaveats: [
+        "The current guide publishes both Wray's and Shikellamy West coordinates directly in the access table.",
+        'This route uses Danville as a same-section proxy because the current guide writes Section 14 thresholds around that gauge rather than around a lower-lake site.',
+        "Wray's remains a managed private campground even though it is listed in the water-trail guide. Respect current launch and parking rules.",
+        'Shikellamy West is the intended finish. Do not drift downstream toward Sunbury unless you have a separate portage and access plan for the Fabridam corridor.',
+      ],
+      watchFor: [
+        'Danville stages below about 2 feet, when the lower pool loses current help and wind matters more.',
+        'Danville stages above about 4 feet, when the broad river carries more speed and less experienced groups have less time to recover from missed landings.',
+        'Lake Augusta wind and powerboat wakes, floating wood, private shorelines, and the downstream Sunbury Fabridam hazard if you miss the planned take-out.',
+      ],
+    },
   },
   'susquehanna-river-pfbc-danville-shikellamy-west': {
     "putIn": {

@@ -53001,6 +53001,116 @@ export const rivers: River[] = [
     ]
   },
   {
+    id: 'susquehanna-river-canal-park-wetlands',
+    slug: 'susquehanna-river-canal-park-wetlands',
+    name: 'Susquehanna River',
+    reach: 'North Branch: Canal Park to Wetlands Nature Area',
+    aliases: [
+      'North Branch Susquehanna - Canal Park to Wetlands',
+      'Susquehanna River - Canal Park to Wetlands Nature Area',
+      'North Branch Section 3 full upper corridor day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      'Longer North Branch Susquehanna day from Canal Park in West Nanticoke to Wetlands Nature Area. The official PFBC Section 3 guide publishes both access coordinates, uses Wilkes-Barre stage guidance for the corridor, and makes the mile-180 rapid below the Nanticoke bridge the clearest route-specific hazard.',
+    statusText:
+      'Use the Susquehanna River at Wilkes-Barre gauge. PFBC uses about 2 ft there as the safe-base planning level, says the river can still be paddled as low as about -0.5 ft, and says novice paddlers should stay off when Wilkes-Barre is over about 5 ft.',
+    latitude: 41.154722,
+    longitude: -76.070556,
+    gaugeSource: {
+      id: 'usgs-01536500',
+      provider: 'usgs',
+      siteId: '01536500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Susquehanna River at Wilkes-Barre, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['private_banks'],
+      safetyNotes: [
+        'PFBC flags a long class I-II rapid on river right about one-half mile below the Nanticoke bridge early in this route.',
+        'Once you leave Canal Park, this becomes a committed exposed-river day with headwind, floating wood, and fewer obvious public exits than the first miles suggest.',
+        'Stay with the planned Wetlands Nature Area finish and do not improvise on private banks or islands between the named accesses.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2,
+      idealMax: 4,
+      tooLow: -0.5,
+      tooHigh: 5,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 3 Wilkes-Barre stage guidance',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'PFBC says the North Branch often stays paddleable in lower-water periods, but thunderstorms, valley wind, and floating wood still change the same-day feel quickly on this longer Section 3 run.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is still an easier broad-river float with named public accesses, but the 14-mile length, exposed headwind risk, and early rapid make it a real day rather than a casual park paddle.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania restore: the PFBC North Branch Section 3 guide publishes exact Canal Park and Wetlands Nature Area coordinates, defines the corridor with official river miles, and writes the section guidance around the direct Wilkes-Barre stage gauge. USGS Water Services returned same-day July 16, 2026 values of 2,990 cfs and 0.74 ft at 2026-07-16 05:45 EDT for direct USGS 01536500 during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Canal Park to Wetlands Nature Area, about 14 mi',
+        note: 'The PFBC North Branch Section 3 guide places Canal Park at river mile 180 and Wetlands Nature Area at river mile 166.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'The PFBC Section 3 access table publishes Canal Park at 41 13 12 / -76 01 07 and Wetlands Nature Area at 41 05 22 / -76 07 21.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01536500 at Wilkes-Barre',
+        note: 'USGS Water Services returned same-day July 16, 2026 values of 2,990 cfs and 0.74 ft at 2026-07-16 05:45 EDT for Susquehanna River at Wilkes-Barre, PA.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
+      },
+      {
+        label: 'Official stage guidance',
+        value: 'Wilkes-Barre about 2 ft safe base, 5 ft novice ceiling',
+        note: 'PFBC says the river can still be paddled as low as about -0.5 ft at Wilkes-Barre, uses about 2 ft as the safe paddle base level, and says novice paddlers should stay off above about 5 ft.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Mile-180 rapid below the Nanticoke bridge',
+        note: 'The PFBC Section 3 caution list flags a long class I-II rapid on river right about one-half mile downstream from the Nanticoke bridge.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC North Branch Susquehanna Section 3',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01536500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     "id": "susquehanna-river-canal-park-test-track",
     "slug": "susquehanna-river-canal-park-test-track",
     "name": "Susquehanna River",
@@ -53215,6 +53325,234 @@ export const rivers: River[] = [
         "provider": "local"
       }
     ]
+  },
+  {
+    id: 'susquehanna-river-pfbc-danville-wrays',
+    slug: 'susquehanna-river-pfbc-danville-wrays',
+    name: 'Susquehanna River',
+    reach: "North Branch: PFBC Danville to Wray's Riverfront Campground",
+    aliases: [
+      "North Branch Susquehanna - Danville to Wray's",
+      "Susquehanna River - PFBC Danville to Wray's Riverfront Campground",
+      'North Branch Section 14 short campground link',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      "Short North Branch Susquehanna campground link from the PFBC Danville ramp to Wray's Riverfront Campground. The current 2021 North Branch guide publishes both access coordinates, ties this lower corridor to the Danville gauge, and keeps the route in the broad-audience big-river bucket when stages stay under the novice ceiling.",
+    statusText:
+      'Use the Susquehanna River at Danville gauge. The current guide says about 2 ft is the lower limit, around 4 ft is the better planning level, and novice paddlers should stay off when Danville rises above about 7 ft.',
+    latitude: 40.948317,
+    longitude: -76.631473,
+    gaugeSource: {
+      id: 'usgs-01540500',
+      provider: 'usgs',
+      siteId: '01540500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Susquehanna River at Danville, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2,
+      idealMax: 4,
+      tooLow: 2,
+      tooHigh: 7,
+      thresholdSource: {
+        label: '2021 North Branch Susquehanna guide Danville stage guidance',
+        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The lower Danville corridor usually stays paddleable through much of the warm season, but big-river headwind, thunderstorms, and faster post-rain current still change the day quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        "This is a short and comparatively forgiving Susquehanna link with straightforward named accesses, but it is still a mainstem river with wind, current, and private-bank judgment rather than flatwater certainty.",
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania restore: the current 2021 North Branch guide publishes exact coordinates for PFBC Danville and Wray's Riverfront Campground, lists Danville gauge thresholds for Section 14, and shows the campground as a named downstream access in the same official access table. USGS Water Services returned same-day July 16, 2026 values of 3,430 cfs and 2.89 ft at 2026-07-16 06:30 EDT for direct USGS 01540500 during this run.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: "PFBC Danville to Wray's, about 4 mi",
+        note: "The current 2021 North Branch guide places PFBC Danville at river mile 137.9 and Wray's Riverfront Campground at river mile 133.6.",
+        sourceUrl:
+          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'Guide access-table coordinates',
+        note: "The same guide publishes PFBC Danville at 40.943490, -76.598507 and Wray's Riverfront Campground at 40.953143, -76.664439.",
+        sourceUrl:
+          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01540500 at Danville',
+        note: 'USGS Water Services returned same-day July 16, 2026 values of 3,430 cfs and 2.89 ft at 2026-07-16 06:30 EDT for Susquehanna River at Danville, PA.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
+      },
+      {
+        label: 'Official stage guidance',
+        value: 'Danville 2 / 4 / 7 ft',
+        note: 'The current guide lists Section 13-14 paddling guidance at Danville with a 2 ft lower limit, 4 ft good paddling level, and 7 ft upper novice ceiling.',
+        sourceUrl:
+          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+      },
+      {
+        label: 'Campground endpoint',
+        value: "Wray's Riverfront Campground access",
+        note: "The current guide lists Wray's as a paved private campground access with parking, restroom, camping, water, and food support on river right.",
+        sourceUrl:
+          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: '2021 North Branch Susquehanna guide',
+        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'North Branch Susquehanna River Water Trail',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/where-to-boat/water-trails/north-branch-susquehanna-river',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01540500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'susquehanna-river-wrays-shikellamy-west',
+    slug: 'susquehanna-river-wrays-shikellamy-west',
+    name: 'Susquehanna River',
+    reach: "North Branch: Wray's Riverfront Campground to Shikellamy State Park West",
+    aliases: [
+      "North Branch Susquehanna - Wray's to Shikellamy West",
+      "Susquehanna River - Wray's Riverfront Campground to Shikellamy State Park West",
+      'North Branch Section 14 lower day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      "Lower North Branch Susquehanna day from Wray's Riverfront Campground to Shikellamy State Park West. The current 2021 North Branch guide publishes both access coordinates, uses the Danville gauge for this Section 14 corridor, and makes the Lake Augusta powerboat zone plus the downstream Sunbury Fabridam the main same-day judgment points.",
+    statusText:
+      'Use the Susquehanna River at Danville gauge as the published same-section proxy for this lower corridor. The current guide lists 2 ft as the lower limit, about 4 ft as the better planning level, and about 7 ft as the novice ceiling.',
+    latitude: 40.918275,
+    longitude: -76.728474,
+    gaugeSource: {
+      id: 'usgs-01540500',
+      provider: 'usgs',
+      siteId: '01540500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Susquehanna River at Danville, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam'],
+      safetyNotes: [
+        "The current guide marks Sunbury Fabridam downstream at river mile 122.6, so stay with the Shikellamy West finish or another planned state-park take-out instead of drifting into the dam corridor.",
+        'The river widens and slows into Lake Augusta around mile 129.9, where wind and powerboat wakes can matter more than current alone.',
+        'Treat the last miles as a committed downstream finish with few reasons to improvise on private banks or islands.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2,
+      idealMax: 4,
+      tooLow: 2,
+      tooHigh: 7,
+      thresholdSource: {
+        label: '2021 North Branch Susquehanna guide Danville stage guidance',
+        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This lower Sunbury corridor is broad and usually accessible through much of the warm season, but pooled Lake Augusta wind, thunderstorms, and faster high water still change the route character quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This remains an easier big-river route with named campground and state-park endpoints, but the lower-lake feel, boat traffic, and Fabridam take-out discipline make it less casual than the mileage alone suggests.',
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania restore: the current 2021 North Branch guide publishes exact coordinates for Wray's and Shikellamy State Park West, lists Danville as the Section 14 gauge reference, and marks the Fabridam downstream of the state-park take-out. Confidence is intentionally tempered because the selected gauge sits upstream at Danville rather than inside the final Lake Augusta pool. USGS Water Services returned same-day July 16, 2026 values of 3,430 cfs and 2.89 ft at 2026-07-16 06:30 EDT for USGS 01540500 during this run.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: "Wray's to Shikellamy West, about 9 mi",
+        note: "The current 2021 guide places Wray's Riverfront Campground at river mile 133.6 and Shikellamy State Park West at river mile 125.1.",
+        sourceUrl:
+          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'Guide access-table coordinates',
+        note: "The same guide publishes Wray's at 40.953143, -76.664439 and Shikellamy State Park West at 40.883406, -76.792510.",
+        sourceUrl:
+          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+      },
+      {
+        label: 'Official section gauge proxy',
+        value: 'USGS 01540500 at Danville',
+        note: 'The current guide uses Danville for Section 13-14 thresholds, and USGS Water Services returned same-day July 16, 2026 values of 3,430 cfs and 2.89 ft at 2026-07-16 06:30 EDT there.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
+      },
+      {
+        label: 'Official stage guidance',
+        value: 'Danville 2 / 4 / 7 ft',
+        note: 'The current guide lists a 2 ft lower limit, 4 ft good paddling level, and 7 ft upper novice ceiling at Danville for Sections 13-14.',
+        sourceUrl:
+          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Lake Augusta and Sunbury Fabridam',
+        note: 'The guide notes Lake Augusta begins near mile 129.9 and marks Sunbury Fabridam downstream at mile 122.6, making a planned state-park take-out important for this route.',
+        sourceUrl:
+          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: '2021 North Branch Susquehanna guide',
+        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'North Branch Susquehanna River Water Trail',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/where-to-boat/water-trails/north-branch-susquehanna-river',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01540500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
   },
   {
     "id": "susquehanna-river-pfbc-danville-shikellamy-west",
