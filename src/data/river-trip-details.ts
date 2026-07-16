@@ -37232,6 +37232,189 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'ashippun-river-druid-lake-hwy-o': {
+    putIn: {
+      id: 'druid-lake-boat-ramp',
+      name: 'Druid Lake Boat Ramp',
+      latitude: 43.2810478,
+      longitude: -88.4090715,
+    },
+    takeOut: {
+      id: 'highway-o-ashippun-takeout',
+      name: 'Highway O Ashippun River bridge',
+      latitude: 43.252453,
+      longitude: -88.3992672,
+    },
+    logistics: {
+      distanceLabel: 'About 3.3 mi',
+      estimatedPaddleTime: 'About 2 hr, longer with portages, low water, or lake wind',
+      shuttle:
+        'Stage the Highway O take-out first, then drive back to the Druid Lake public boat landing. Inspect Highway O before launch because the exit is steep and shoulder-style rather than a developed ramp.',
+      permits:
+        'No route-specific paddling permit is known. Use the public Druid Lake landing, follow Wisconsin boating and PFD rules, obey posted DNR and local parking rules, and use only legal roadside access at Highway O.',
+      camping:
+        'Treat this as a day trip. No on-route public campsite was identified, and the banks below Druid Lake should be treated as private unless posted otherwise or permission is secured.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Druid Lake public boat landing and paddle the short Ashippun River reach to Highway O. Wisconsin River Trips ties this route to the Bark River at Delafield gauge, but that gauge is a nearby proxy and must be paired with a same-day visual check.',
+      accessCaveats: [
+        'Druid Lake can be affected by wind before the river narrows; do not commit to the outlet if conditions at the ramp are already marginal.',
+        'Wisconsin River Trips identifies Druid Lake Road as an alternate bridge access, but this route defaults to the public Druid Lake landing and the Highway O take-out.',
+        'Highway O has a steep shoulder-style exit. Inspect parking, footing, and traffic exposure before launching.',
+        'The Bark River at Delafield gauge is not on the Ashippun River. Treat its 31-55 cfs target as community proxy guidance and make the final decision at the put-in.',
+      ],
+      watchFor: [
+        'Five logjams requiring portage and two low bridges that may require portage, with new wood possible after storms.',
+        'Shallow riffles and scraping when the proxy gauge is below the community target window.',
+        'Private banks, cold water in shoulder seasons, road-shoulder traffic at Highway O, and limited legal bailout options.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'druid-lake-boat-ramp',
+        name: 'Druid Lake Boat Ramp',
+        latitude: 43.2810478,
+        longitude: -88.4090715,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default put-in; Wisconsin DNR lists public boat-landing access for Druid Lake.',
+      },
+      {
+        id: 'druid-lake-road-ashippun-access',
+        name: 'Druid Lake Road bridge access',
+        latitude: 43.2698396,
+        longitude: -88.3999038,
+        mileFromStart: 1.3,
+        segmentKind: 'creek',
+        note: 'Alternate bridge access identified by Wisconsin River Trips; verify roadside legality and footing before use.',
+      },
+      {
+        id: 'highway-o-ashippun-takeout',
+        name: 'Highway O Ashippun River bridge',
+        latitude: 43.252453,
+        longitude: -88.3992672,
+        mileFromStart: 3.3,
+        segmentKind: 'creek',
+        note: 'Default take-out; inspect the steep shoulder access before launching.',
+      },
+    ],
+  },
+  'west-branch-sugar-river-fritz-pb': {
+    putIn: {
+      id: 'fritz-road-west-branch-sugar-access',
+      name: 'Fritz Road bridge access',
+      latitude: 42.903107,
+      longitude: -89.5973575,
+    },
+    takeOut: {
+      id: 'county-pb-west-branch-sugar-access',
+      name: 'County Road PB bridge access',
+      latitude: 42.879219,
+      longitude: -89.5589697,
+    },
+    logistics: {
+      distanceLabel: 'About 5.2 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with wind, low water, or wood',
+      shuttle:
+        'Stage County Road PB first, then return to Fritz Road. Both endpoints are bridge-style accesses, so check shoulder parking, road traffic, footing, and whether recent rain has made the banks muddy.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules, use only legal bridge access and parking, and respect posted local, county, and DNR rules.',
+      camping:
+        'Treat this as a day trip. No on-route public campsite was identified, and farm and wetland banks should be treated as private unless posted otherwise or permission is secured.',
+      campingClassification: 'none',
+      summary:
+        'Run the open West Branch Sugar River from Fritz Road to County Road PB. Wisconsin River Trips and Miles Paddled both document the route and tie practical level decisions to the downstream Sugar River near Verona gauge.',
+      accessCaveats: [
+        'Fritz Road and County Road PB are bridge-style access points rather than developed paddling parks; inspect parking and footing before committing.',
+        'The Verona gauge is downstream on the main Sugar River, not on this exact tributary reach. Use it as a proxy and make a same-day visual call at Fritz Road.',
+        'Do not assume private farm banks are available for breaks, scouting, or emergency exits unless a true safety emergency exists.',
+      ],
+      watchFor: [
+        'Open wetgrass and farm edges where wind can slow progress and obscure shallow channels.',
+        'Deadfall, low branches, farm debris, and new strainers after storms.',
+        'High water near or above the 300 cfs community caution on the Verona proxy, when banks may be full and water clarity poor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'fritz-road-west-branch-sugar-access',
+        name: 'Fritz Road bridge access',
+        latitude: 42.903107,
+        longitude: -89.5973575,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; documented by Wisconsin River Trips and Miles Paddled.',
+      },
+      {
+        id: 'county-pb-west-branch-sugar-access',
+        name: 'County Road PB bridge access',
+        latitude: 42.879219,
+        longitude: -89.5589697,
+        mileFromStart: 5.2,
+        segmentKind: 'creek',
+        note: 'Default take-out; documented by Wisconsin River Trips and Miles Paddled.',
+      },
+    ],
+  },
+  'little-sugar-river-tin-can-american-legion': {
+    putIn: {
+      id: 'tin-can-road-little-sugar-access',
+      name: 'Tin Can Road Little Sugar River access',
+      latitude: 42.7252163,
+      longitude: -89.4672485,
+    },
+    takeOut: {
+      id: 'american-legion-park-landing-albany',
+      name: 'American Legion Park Landing',
+      latitude: 42.7100667,
+      longitude: -89.4397001,
+    },
+    logistics: {
+      distanceLabel: 'About 3.2 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with low water, wildlife-area stops, or wood',
+      shuttle:
+        'Stage American Legion Park Landing first, then drive back to Tin Can Road. Identify the landing from shore and from the water before launch because it is the required exit above Albany Dam.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules, obey posted DNR Albany Wildlife Area and Village of Albany rules, and respect hunting-season access notices.',
+      camping:
+        'Treat this as a day trip. Wisconsin DNR lists no campground for Albany Wildlife Area, and this route does not assume informal camping on wildlife-area or private-adjacent banks.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Tin Can Road and take out at American Legion Park Landing for a short Little Sugar River day through the Albany Wildlife Area corridor. This route deliberately stops above Albany Dam.',
+      accessCaveats: [
+        'American Legion Park Landing is the mandatory take-out for this card. Do not continue toward Albany Dam unless you have a separate, current, legal portage plan.',
+        'Wisconsin River Trips notes the upstream Schneeberger Road to Tin Can Road reach has serious logjams; this card starts at Tin Can Road and does not include that upstream reach.',
+        'The Sugar River near Verona gauge is a downstream proxy for this tributary route. Pair it with same-day visual checks at Tin Can Road and American Legion Park.',
+        'Albany Wildlife Area can have hunting-season activity and posted rules; follow DNR notices and avoid blocking access points.',
+      ],
+      watchFor: [
+        'The Albany Dam hazard below the take-out, plus possible confusion if paddlers drift past the landing.',
+        'Fresh wood, low branches, and logjam changes after storms.',
+        'Low-water scraping below the community average band and very high, dirty water at or above the 96 cfs community caution on the Verona proxy.',
+        'Private-adjacent banks, cold water, and limited legal mid-route exits.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'tin-can-road-little-sugar-access',
+        name: 'Tin Can Road Little Sugar River access',
+        latitude: 42.7252163,
+        longitude: -89.4672485,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Wisconsin River Trips identifies a trail and launch northwest of the bridge.',
+      },
+      {
+        id: 'american-legion-park-landing-albany',
+        name: 'American Legion Park Landing',
+        latitude: 42.7100667,
+        longitude: -89.4397001,
+        mileFromStart: 3.2,
+        segmentKind: 'creek',
+        note: 'Default take-out above Albany Dam; Village of Albany identifies Legion Park as a riverfront boat launch.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {
