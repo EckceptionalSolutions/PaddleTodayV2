@@ -1,11 +1,11 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-16 14:11 America/Chicago.
+Last summarized: 2026-07-16 15:00 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 201 after the 2026-07-16 14:11 lower Minnesota River pass.
-- Top represented rivers: Mississippi River 38, Minnesota River 15, North Fork Crow River 9, Root River 9, Rum River 8, St. Croix River 8, Sauk River 7, St. Louis River 7, Big Fork River 6, Cannon River 6, Crow Wing River 6, Red Lake River 6, Zumbro River 6, Red River of the North 5, Straight River 5, Cloquet River 4, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Cedar River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, Vermilion River, and Whitewater River.
+- Live routes: 199 after the 2026-07-16 15:00 consolidation audit.
+- Top represented rivers: Mississippi River 38, Minnesota River 15, North Fork Crow River 9, Rum River 8, St. Croix River 8, Root River 7, Sauk River 7, St. Louis River 7, Big Fork River 6, Cannon River 6, Crow Wing River 6, Red Lake River 6, Zumbro River 6, Red River of the North 5, Straight River 5, Cloquet River 4, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Cedar River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, Vermilion River, and Whitewater River.
 - Ledger candidates: 1029 total; 645 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
 
 ## Status
@@ -13,6 +13,9 @@ Last summarized: 2026-07-16 14:11 America/Chicago.
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-16 15:00 America/Chicago / 2026-07-16 20:00 UTC: consolidation audit removed `root-river-rushford-mound-prairie` and `root-river-parsley-whalan` from live route data. The former is already covered by `root-river-rushford-houston` plus `root-river-houston-mound-prairie`; the latter is already covered by `root-river-parsley-moens` plus `root-river-moens-whalan`. Keep those split cards as the canonical Root River access-planner representation unless the product deliberately adds long multi-segment planner cards.
+- Same audit added `mandatory_takeout` to the safety hazards for `rum-river-county-road-4-princeton`, `cannon-river-northfield-byllesby-west`, and `mississippi-river-lake-bemidji-state-park-county-road-12-dam` because each route intentionally ends above a dam or old rock-dam boundary.
 
 - 2026-07-16 14:11 America/Chicago / 2026-07-16 19:11 UTC: added `minnesota-river-carver-shakopee`, `minnesota-river-shakopee-russell`, and `minnesota-river-russell-fort-snelling`.
 - Baseline at run start was 198 live Minnesota routes from `src/data/rivers.ts`. The selected slugs bring the live Minnesota inventory to 201 and extend the lower Minnesota River downstream from the already-live Thompson-to-Carver card through Carver, Shakopee, MN Valley Refuge - Russel, and Fort Snelling.

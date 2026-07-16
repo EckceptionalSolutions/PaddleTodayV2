@@ -7,6 +7,7 @@ import type { River, RiverAccessPoint } from '../src/lib/types';
 type Point = { latitude: number; longitude: number };
 type FindingType =
   | 'duplicate_or_reversed'
+  | 'access_chain_contains'
   | 'crossing_segments'
   | 'contained_connector'
   | 'near_collinear_overlap'
@@ -282,6 +283,20 @@ function minPointToRouteDistance(point: Point, route: AuditRoute) {
   );
 }
 
+function accessChainContainment(containing: AuditRoute, contained: AuditRoute) {
+  if (containing.points.length < 3 || containing.straightLineMi <= contained.straightLineMi * 1.05) return null;
+
+  const startIndex = containing.points.findIndex((point) => distanceMiles(point, contained.endpointStart) <= sharedEndpointMi);
+  const endIndex = containing.points.findIndex((point) => distanceMiles(point, contained.endpointEnd) <= sharedEndpointMi);
+  if (startIndex === -1 || endIndex === -1 || startIndex === endIndex) return null;
+
+  return {
+    startIndex,
+    endIndex,
+    direction: startIndex < endIndex ? 'forward' : 'reverse',
+  };
+}
+
 function addFinding(findings: Finding[], finding: Finding) {
   const ids = [finding.a.id, finding.b.id].sort().join('|');
   const key = `${finding.type}|${ids}`;
@@ -304,6 +319,21 @@ function analyzePair(a: AuditRoute, b: AuditRoute, findings: Finding[]) {
       detail: `${endpointMatches.length} endpoint pairs are within ${endpointMatchMi} mi`,
     });
     return;
+  }
+
+  const aContainsB = accessChainContainment(a, b);
+  const bContainsA = accessChainContainment(b, a);
+  if (aContainsB || bContainsA) {
+    const containing = aContainsB ? a : b;
+    const contained = aContainsB ? b : a;
+    const containment = aContainsB ?? bContainsA;
+    addFinding(findings, {
+      type: 'access_chain_contains',
+      severity: 88,
+      a: containing,
+      b: contained,
+      detail: `${containing.slug} access chain contains ${contained.slug} endpoints at chain indexes ${containment.startIndex} and ${containment.endIndex} (${containment.direction})`,
+    });
   }
 
   for (const aSegment of a.segments) {
@@ -395,6 +425,7 @@ function groupKey(finding: Finding) {
 function classifyReviewSet(set: Omit<ReviewSet, 'category' | 'action'>): Pick<ReviewSet, 'category' | 'action'> {
   const duplicateCount = set.byType.duplicate_or_reversed ?? 0;
   const crossingCount = set.byType.crossing_segments ?? 0;
+  const chainContainmentCount = set.byType.access_chain_contains ?? 0;
   const containedCount = set.byType.contained_connector ?? 0;
 
   if (duplicateCount > 0) {
@@ -418,10 +449,10 @@ function classifyReviewSet(set: Omit<ReviewSet, 'category' | 'action'>): Pick<Re
     };
   }
 
-  if (containedCount > 0) {
+  if (chainContainmentCount > 0 || containedCount > 0) {
     return {
       category: 'route_family_overlap',
-      action: 'Full-route plus subroute options; usually model/visibility cleanup, not deletion.',
+      action: 'Full-route plus subroute options; prefer access-planner modeling unless alternate route cards are intentional.',
     };
   }
 
@@ -573,7 +604,7 @@ async function writeReports(routes: AuditRoute[], findings: Finding[]) {
   lines.push(
     '## Triage Guidance',
     '',
-    '- Start with `duplicate_or_reversed`, `crossing_segments`, and `contained_connector` findings.',
+    '- Start with `duplicate_or_reversed`, `access_chain_contains`, `crossing_segments`, and `contained_connector` findings.',
     '- Treat `shared_endpoint` as informational; adjacent reaches often intentionally share an access.',
     '- Confirm fixes against route evidence before deleting, merging, or suppressing a route span.',
     '',

@@ -139,6 +139,19 @@ Needed context:
 - Basic route character: easy, moderate, hard.
 - Major hazards or operational caveats.
 
+### Consolidation And Redundancy
+
+Do not add a long planner card when it only concatenates existing split cards on the same river, state, and access chain. Keep the split cards as the canonical representation and model intermediate launches, bailouts, campsites, or shorter options in `riverTripDetails[slug].accessPoints` unless there is a deliberate product decision to support alternate itinerary cards.
+
+A longer route can still be added when it has a materially distinct user-facing purpose, such as:
+
+- An official named water-trail segment that is not already represented by the split cards.
+- Different gauge support or thresholds that materially change the same-day recommendation.
+- A hazard boundary, portage, dam, campsite, or mandatory take-out that makes the route operationally different.
+- A product-approved multi-day or alternate-itinerary pattern with clear display rules.
+
+Before adding a route in a mature corridor, run `npm.cmd run routes:audit:overlap` and review `tmp/route-overlap-audit.md` for `duplicate_or_reversed`, `access_chain_contains`, and `contained_connector` findings. Treat those findings as review gates, not automatic deletion instructions; confirm the route evidence before merging, hiding, or removing a card.
+
 ### Camping Classification
 
 Every implemented route should include a `logistics.camping` note that is clear enough to classify conservatively for home and weekend filters. Do not write vague camping copy just to sound helpful; unclear support should stay out of camping filters.

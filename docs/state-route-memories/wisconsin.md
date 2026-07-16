@@ -1,6 +1,6 @@
 # Wisconsin Route Memory
 
-Last summarized: 2026-07-16 America/Chicago / 2026-07-16 UTC.
+Last summarized: 2026-07-16 15:00 America/Chicago / 2026-07-16 20:00 UTC.
 
 ## Current Inventory
 
@@ -13,6 +13,16 @@ Last summarized: 2026-07-16 America/Chicago / 2026-07-16 UTC.
 Wisconsin remains mature and heavily implemented. The latest 2026-07-16 America/Chicago / 2026-07-16 UTC run added three routes beyond the 169-route baseline: `allen-creek-hwy-59-old-hwy-92`, `honey-creek-bell-school-hwy-20`, and `mukwonago-river-rainbow-springs-hwy-i`.
 
 ## Latest Audit
+
+- 2026-07-16 15:00 America/Chicago / 2026-07-16 20:00 UTC: consolidation audit removed `maunesha-river-cherry-lane-firemens` from live route data and marked the ledger candidate `duplicate_corridor`. Cherry Lane remains represented as an intermediate access point inside `maunesha-river-marshall-firemens`, so do not re-add the short Cherry-Lane-to-Firemens card unless alternate short-option route cards become an intentional product pattern.
+
+- 2026-07-16 America/Chicago / 2026-07-16 UTC: added `allen-creek-hwy-59-old-hwy-92`, `honey-creek-bell-school-hwy-20`, and `mukwonago-river-rainbow-springs-hwy-i`, bringing the live Wisconsin route count from the run-start baseline of 169 to 172.
+- The accepted routes add three distinct southeast/southern Wisconsin small-stream routes rather than another split of mature Wisconsin, Wolf, Sugar, St. Croix, Plover, or Blue coverage. Wisconsin River Trips documents all three exact route shapes with embedded map coordinates, access pairs, mileages, hazards, and direct/proxy gauge context; Wisconsin DNR supports Evansville / Allen Creek, Honey Creek Streambank, and Mukwonago River Unit public-land context; Miles Paddled corroborates Honey Creek access and no-direct-gauge caution.
+- Live gauge verification: USGS Water Services returned Sugar River near Verona `05435950` at `29.8 cfs / 2.94 ft` at 2026-07-16 13:00 CDT and Mukwonago River at Mukwonago `05544200` at `30.1 cfs / 2.15 ft` at 2026-07-16 13:00 CDT. Allen currently warns just below its selected proxy floor; Honey is above its selected proxy floor but below WRT's better bands; Mukwonago is just above its selected direct-gauge floor.
+- Threshold posture: Allen Creek uses a minimum-only `31 cfs` Verona proxy floor from WRT's exact-route ladder and does not convert WRT's uncertain 101+ cfs caution into an upper cutoff. Honey Creek uses a minimum-only `28 cfs` Mukwonago proxy floor from WRT's exact-route ladder, with the 36-65 cfs good-to-average bands documented but no invented high cutoff. Mukwonago River uses a minimum-only `29 cfs` direct-gauge floor from WRT's completed trip and records WRT's low-water versus wild-rice/higher-water tradeoff without inventing an ideal range.
+- Safety/logistics added: Allen is no-camping with bridge-access, one-logjam, beaver-dam, low-water, weedy-access, proxy-gauge, private-bank, cold-water, and public-land/hunting-fishing caveats. Honey is no-camping with muddy/tight Bell School access, shallow riffle/wading, boulder-garden, proxy-gauge, weed, private-bank, and cold-water caveats. Mukwonago is no-camping with Rainbow Springs boat-drag, Beulah early-exit, low-limb/low-bridge, dead-ash/wood, wild-rice/GPS navigation, direct-gauge tradeoff, Highway I mandatory planning stop, private-bank, and cold-water caveats.
+- Bounded image review found WRT / Miles Paddled / DNR / USGS / Commons / same-route leads, but no clearly rights-clean exact-route paddling/gallery asset selected for the three new cards; no-image rows were added to the image audit.
+- Rechecked prompt leads: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica remain already live; Black Earth Creek Cross Plains-to-Salmo Pond remains obstruction-blocked; upper Chippewa / Wolf / Wisconsin Trail Guide families remain mature and were not stronger than the accepted Allen/Honey/Mukwonago source packages.
 
 - 2026-07-16 America/Chicago / 2026-07-16 UTC: added `blue-river-bluff-bowers`, `blue-river-bowers-shemak`, and `rush-river-690th-570th`, bringing the live Wisconsin route count from the run-start baseline of 166 to 169.
 - The accepted routes add two distinct Driftless Blue River trout-stream segments and one Pierce County Rush River whitewater/trout-stream segment rather than duplicating already-live Bark, Sugar, Plover, Wisconsin, Wolf, or St. Croix coverage. Wisconsin River Trips documents all three selected route shapes, while Miles Paddled and Wisconsin DNR support the Blue River / Snow Bottom access and threshold package, and Wisconsin DNR / Trout Unlimited support Rush River trout-stream access context.

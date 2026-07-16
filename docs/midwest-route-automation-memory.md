@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-16 15:00 America/Chicago / 2026-07-16 20:00 UTC: MN/WI committed-route consolidation audit.
+  - Removed three duplicate live route cards: `root-river-rushford-mound-prairie`, `root-river-parsley-whalan`, and `maunesha-river-cherry-lane-firemens`.
+  - Consolidation decisions: Root Rushford-to-Mound-Prairie is already represented by `root-river-rushford-houston` plus `root-river-houston-mound-prairie`; Root Parsley-to-Whalan is already represented by `root-river-parsley-moens` plus `root-river-moens-whalan`; Maunesha Cherry-Lane-to-Firemens remains represented as the Cherry Lane intermediate access inside `maunesha-river-marshall-firemens`.
+  - Added missing `mandatory_takeout` hazards to dam-boundary routes `rum-river-county-road-4-princeton`, `cannon-river-northfield-byllesby-west`, and `mississippi-river-lake-bemidji-state-park-county-road-12-dam`.
+  - Post-consolidation direct state counts are 199 Minnesota routes and 171 Wisconsin routes. Do not re-add the retired cards unless multi-segment planner or alternate-short-option cards become an intentional product pattern.
+
 - 2026-07-16 14:39 America/Chicago / 2026-07-16 19:39 UTC: Wisconsin three-route implementation pass (`wisconsin-route-additions`).
   - Added three Wisconsin slugs beyond the 169-route Wisconsin baseline at run start: `allen-creek-hwy-59-old-hwy-92`, `honey-creek-bell-school-hwy-20`, and `mukwonago-river-rainbow-springs-hwy-i`, bringing Wisconsin to 172 unique live routes.
   - Qualification path: Allen Creek uses WRT Highway-59-to-Old-Highway-92 route support, WRT embedded map coordinates, Wisconsin DNR Evansville Wildlife Area / Allen Creek Stream Bank Protection Area context, and USGS `05435950` Sugar River near Verona proxy. Honey Creek uses WRT Bell-School-to-Highway-20 route support, Miles Paddled access/gauge caution, Wisconsin DNR Honey Creek Streambank Protection Area context, and USGS `05544200` Mukwonago River proxy. Mukwonago River uses WRT Rainbow-Springs-to-Highway-I route support, WRT map coordinates, Wisconsin DNR Mukwonago River Unit context, and direct USGS `05544200`.
