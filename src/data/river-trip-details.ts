@@ -8901,6 +8901,180 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'baraboo-river-kalepp-dutch-hollow': {
+    putIn: {
+      name: 'Kalepp Road / 400 State Trail Baraboo River access',
+      latitude: 43.62394,
+      longitude: -90.17365,
+    },
+    takeOut: {
+      name: 'North Dutch Hollow Road bridge access',
+      latitude: 43.59957,
+      longitude: -90.15302,
+    },
+    logistics: {
+      distanceLabel: '5.3 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr',
+      shuttle:
+        'Short rural shuttle between Kalepp Road and North Dutch Hollow Road. Wisconsin River Trips maps the bike shuttle at about 2.1 miles, mostly on the 400 State Trail, but a two-car shuttle is still simplest if trail conditions are wet or rough.',
+      permits:
+        'No route-specific paddling permit is known. Check 400 State Trail, roadside parking, and bridge-area signage before staging vehicles.',
+      camping:
+        'No on-route camping was confirmed. Treat this as a day trip and do not use private muddy banks as routine stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Kalepp Road and take out at North Dutch Hollow Road for a seldom-paddled upper-Baraboo segment with recessed sandstone outcrops, downed trees, muddy banks, and a WRT Baraboo-gauge flow ladder.',
+      accessCaveats: [
+        'The endpoint coordinates come from the Wisconsin River Trips shuttle map, not a polished agency boat-ramp inventory.',
+        'Both endpoints are bridge or trail-corridor style accesses; verify same-day parking and avoid private land.',
+        'The route source reported one required logjam portage and several hop-over or duck-under obstructions that may be worse at different levels.',
+      ],
+      watchFor: [
+        'Downed trees, tight fits, and at least one muddy logjam portage.',
+        'Steep muddy banks that can turn a simple obstruction into a difficult portage.',
+        'Pushier, dirtier water above the target band, especially if the Baraboo is rising after rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'kalepp-road-400-state-trail-baraboo-access',
+        name: 'Kalepp Road / 400 State Trail Baraboo River access',
+        latitude: 43.62394,
+        longitude: -90.17365,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from the Wisconsin River Trips shuttle map for the Kalepp-to-Dutch-Hollow route.',
+      },
+      {
+        id: 'north-dutch-hollow-road-baraboo-access',
+        name: 'North Dutch Hollow Road bridge access',
+        latitude: 43.59957,
+        longitude: -90.15302,
+        mileFromStart: 5.3,
+        segmentKind: 'creek',
+        note: 'Default take-out from the Wisconsin River Trips shuttle map; expect muddy bridge-area access rather than a developed landing.',
+      },
+    ],
+  },
+  'baraboo-river-dutch-hollow-la-valle': {
+    putIn: {
+      name: 'North Dutch Hollow Road bridge access',
+      latitude: 43.59957,
+      longitude: -90.15302,
+    },
+    takeOut: {
+      name: 'North River Road / La Valle below the former dam',
+      latitude: 43.58231,
+      longitude: -90.13353,
+    },
+    logistics: {
+      distanceLabel: '3.84 mi',
+      estimatedPaddleTime: 'About 2 hr, longer if scouting or portaging',
+      shuttle:
+        'Use a short shuttle between North Dutch Hollow Road and La Valle. The 400 State Trail helps with orientation in the broader valley, but the final access below the La Valle rapids should be scouted before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow village, road-shoulder, and posted access rules at La Valle and avoid parking where the Lazy Beaver race or local events need staging room.',
+      camping:
+        'No on-route camping was confirmed. Hemlock Slough County Park is nearby for day-use context, but this route should not imply an overnight river stop.',
+      campingClassification: 'none',
+      summary:
+        'Launch at North Dutch Hollow Road and paddle into La Valle for a short scenic Baraboo reach with multiple sandstone outcrops and Class II ledges at the removed La Valle dam site.',
+      accessCaveats: [
+        'The put-in is muddy bridge access below North Dutch Hollow Road, not a formal ramp.',
+        'The take-out is below the La Valle ledges on river right; scout the exit and ledges before committing.',
+        'WRT reported a significant wood hazard before the take-out. Larger boats or changed wood may force a muddy portage.',
+      ],
+      watchFor: [
+        'Class II ledges at the former La Valle dam site; scout and stay right if running them.',
+        'Downed trees, blind bends, and one major logjam concern upstream of La Valle.',
+        'Fast rises after rain that make wood, ledges, and muddy banks much less forgiving.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'north-dutch-hollow-road-baraboo-access',
+        name: 'North Dutch Hollow Road bridge access',
+        latitude: 43.59957,
+        longitude: -90.15302,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from the WRT Dutch Hollow route and adjacent WRT shuttle-map coordinate.',
+      },
+      {
+        id: 'north-river-road-la-valle-below-former-dam',
+        name: 'North River Road / La Valle below the former dam',
+        latitude: 43.58231,
+        longitude: -90.13353,
+        mileFromStart: 3.84,
+        segmentKind: 'creek',
+        note: 'Default take-out near the La Valle gauge and WRT-described river-right exit just below the former dam rapids.',
+      },
+    ],
+  },
+  'baraboo-river-giese-haskins': {
+    putIn: {
+      name: 'Giese Park Baraboo River access',
+      latitude: 43.46813,
+      longitude: -89.81044,
+    },
+    takeOut: {
+      name: 'Haskins Park ADA kayak launch',
+      latitude: 43.46997,
+      longitude: -89.76158,
+    },
+    logistics: {
+      distanceLabel: 'About 3.5 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr',
+      shuttle:
+        'Stage between Giese Park and Haskins Park. WRT maps the Giese-to-Gander bike shuttle at 2.7 miles with some hills; continuing to Haskins keeps both endpoints public park accesses but makes a car shuttle more straightforward.',
+      permits:
+        'No route-specific paddling permit is known. Follow Town of Baraboo and City/Village park rules, posted hours, and Wisconsin boating/PFD requirements.',
+      camping:
+        'No on-route camping is documented. Treat Giese and Haskins as day-use public park accesses, not overnight stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch from Giese Park and finish at Haskins Park to cover the missing public-access gap immediately upstream of the existing Haskins-to-Glenville Baraboo rapids card.',
+      accessCaveats: [
+        'Giese Park is public access, but facilities and restroom condition can vary by season.',
+        'The route intentionally stops at Haskins Park before the existing downtown Baraboo rapids card begins.',
+        'Avoid the commercial Gander/Gander Outdoors bank as a routine endpoint unless separately confirming same-day permission.',
+      ],
+      watchFor: [
+        'A simple Giese-to-Gander first leg followed by light rapids and boulders in the final Gander-to-Haskins approach.',
+        'Low-water rock bumps below the Haskins-area floor and stronger muddy current after rain.',
+        'Urban corridor edges, bridges, strainers, cold water, and private banks between public accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'giese-park-baraboo-river-access',
+        name: 'Giese Park Baraboo River access',
+        latitude: 43.46813,
+        longitude: -89.81044,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; WRT and Town of Baraboo materials support Giese Park as a public river access.',
+      },
+      {
+        id: 'gander-outdoors-baraboo-river-reference',
+        name: 'Gander Outdoors / West Baraboo reference point',
+        latitude: 43.4714,
+        longitude: -89.77153,
+        mileFromStart: 3,
+        segmentKind: 'creek',
+        note: 'Source-backed split point from WRT; included for route shape only, not as the default take-out.',
+      },
+      {
+        id: 'haskins-park-ada-kayak-launch',
+        name: 'Haskins Park ADA kayak launch',
+        latitude: 43.46997,
+        longitude: -89.76158,
+        mileFromStart: 3.5,
+        segmentKind: 'creek',
+        note: 'Default public take-out before the existing Haskins-to-Glenville route begins.',
+      },
+    ],
+  },
   'wisconsin-river-sauk-city-arena': {
     putIn: {
       name: 'Sauk Canoe Access',
