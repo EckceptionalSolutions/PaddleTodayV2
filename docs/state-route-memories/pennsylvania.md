@@ -58,6 +58,12 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Run Notes
 
+- 2026-07-16 04:51 America/Chicago / 2026-07-16 09:51 UTC: Pennsylvania mixed restoration pass; restored three supported Pennsylvania slugs beyond the live repo baseline at run start.
+  - Rebuilt the live-tree baseline from `src/data/rivers.ts` first and treated the current repo state, not prior automation commits, as the requirement for this pass.
+  - Restored `juniata-river-granville-mifflintown`, `juniata-river-victory-park-walker`, and `susquehanna-river-ulster-bridge-towanda` after confirming the route objects were absent from the live tree while official-source lineage remained strong.
+  - Qualification package: the current PFBC lower Juniata guide still publishes exact public access coordinates and official river-mile spacing for Granville, Victory Park, Mifflintown, and Walker plus the lower-section Lewistown `3.1 ft` minimum; the current PFBC North Branch Section 1 guide still publishes exact public access coordinates and caution miles for Ulster Bridge and Towanda plus Towanda stage guidance of runnable around `-0.5 ft`, safe-base planning around `2 ft`, and novice ceiling around `5 ft`; and current direct USGS Water Services returned `1270 cfs / 3.63 ft` at `2026-07-15 15:30 EDT` for Lewistown (`01564895`) plus `1690 cfs / 0.43 ft` at `2026-07-15 15:45 EDT` for Towanda (`01531500`).
+  - Restored matching trip-detail logistics and bounded no-image outcomes for all three routes without adding a gallery asset.
+
 - 2026-07-14 01:45 America/Chicago / 2026-07-14 06:45 UTC: Pennsylvania three-route restoration pass; reintroduced two upper and one lower North Branch Susquehanna routes beyond the live repo baseline at run start.
   - Rebuilt the live-tree baseline from `src/data/rivers.ts` at run start and treated the current `535`-route repo state, not prior automation commits or stale support surfaces, as the requirement for this pass.
   - Restored `susquehanna-river-ulster-bridge-wysox-township-park`, `susquehanna-river-hornbrook-towanda`, and `susquehanna-river-pfbc-bloomsburg-montgomery-park` after confirming those slugs still had trip-detail and image-audit support but were absent from the live route objects.

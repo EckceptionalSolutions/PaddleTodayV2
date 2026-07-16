@@ -19530,6 +19530,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+'susquehanna-river-ulster-bridge-towanda': {
+    putIn: {
+      name: 'Ulster Bridge access',
+      latitude: 41.8525,
+      longitude: -76.497222,
+    },
+    takeOut: {
+      name: 'Towanda Riverfront Park ramp',
+      latitude: 41.768611,
+      longitude: -76.438611,
+    },
+    logistics: {
+      distanceLabel: 'About 8.8 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr in ordinary conditions, longer with low-water line picking, headwind, or a careful approach to the Towanda bridge corridor',
+      shuttle:
+        'Stage the take-out at Towanda Riverfront Park first, then drive back to Ulster Bridge. Inspect both accesses before launching because mud, current angle, storm cleanup, or town-side activity can change the practical landing line.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, borough, boating, and PFD rules.',
+      camping:
+        'Hornbrook County Park is listed in the official North Branch corridor camping table and sits on this route. Treat that as legal on-route camping support only, not as permission to land on arbitrary islands or private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Ulster Bridge and take out at Towanda Riverfront Park for a shorter Towanda-corridor Susquehanna day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and keep the strainer and bridge-current sequence on the same-day checklist.',
+      accessCaveats: [
+        'PFBC Section 1 publishes both Ulster Bridge and Towanda Riverfront Park coordinates directly in the official access table.',
+        'Hornbrook County Park is a legal support point on the corridor, but the slug itself still starts at Ulster and ends at Towanda Riverfront Park.',
+        'Towanda is a stronger town landing than Ulster, but the current toward structure and the busier riverfront setting still require finish discipline.',
+        'Stay within the named public accesses and do not assume islands, bars, or private banks are legitimate substitutes.',
+      ],
+      watchFor: [
+        'Fast riffles at mile 277, the strainer-prone mile-274 area, current under bridge arches at mile 272, and more quick water before the bridge at mile 270 flagged by PFBC.',
+        'Towanda stages below about 1 foot, when the shallow riffle lines get scratchier and more technical even on a broad channel.',
+        'Towanda stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and drifting past the obvious Towanda finish because the river feels easy early.',
+      ],
+    },
+  },
 'susquehanna-river-ulster-bridge-wysox-township-park': {
     putIn: {
       name: 'Ulster Bridge access',
@@ -24784,6 +24822,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+'juniata-river-granville-mifflintown': {
+    putIn: {
+      id: 'granville-pfbc-ramp',
+      name: 'Granville PFBC ramp',
+      latitude: 40.558333,
+      longitude: -77.603056,
+    },
+    takeOut: {
+      id: 'mifflintown-pfbc-ramp',
+      name: 'Mifflintown PFBC ramp',
+      latitude: 40.595,
+      longitude: -77.415278,
+    },
+    logistics: {
+      distanceLabel: 'About 15 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7 hr in ordinary conditions, longer with low-water dragging, headwind, or time spent easing through the mile-43 ledge area',
+      shuttle:
+        'Stage the take-out at the Mifflintown PFBC ramp first, then drive back upstream to the Granville PFBC ramp. Inspect both public landings before leaving a vehicle because muddy edges and current angle can change after storms.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Locust Campground sits just downstream of the put-in and is the clearest legal overnight support if you want to split this longer lower-Juniata corridor conservatively.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at the Granville PFBC ramp and take out at Mifflintown PFBC for a fuller Lewistown-area Juniata float. Use the direct Lewistown gauge and expect scraping whenever the river sits under PFBC\'s 3.1 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Granville and Mifflintown coordinates directly in the official lower Juniata access table.',
+        'Locust Campground is legal on-route support, but the intended downstream finish for this slug is Mifflintown PFBC.',
+        'Fifteen broad-river miles can feel longer than they look when the valley wind turns upstream or the channel gets scratchy.',
+        'Stay with the named public accesses rather than using private banks or islands as substitute stops.',
+      ],
+      watchFor: [
+        'Bridge abutments with possible strainers near miles 51 and 49, both flagged in the PFBC caution list.',
+        'A ledge stretching across the river at mile 43, followed by rough water pushing into a cut bank, as flagged by PFBC.',
+        'Lewistown stages below about 3.1 ft, when broad cobble bars, ledge lines, and slower pools can force dragging.',
+        'Fresh wood after storms, muddy landing edges, and broad-river headwind through the exposed Lewistown bends.',
+      ],
+    },
+  },
 'juniata-river-victory-park-mifflintown': {
     putIn: {
       id: 'victory-park-access',
@@ -24919,6 +24997,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         note: 'Default full-corridor take-out.',
       },
     ],
+  },
+'juniata-river-victory-park-walker': {
+    putIn: {
+      id: 'victory-park-access',
+      name: 'Victory Park access',
+      latitude: 40.595,
+      longitude: -77.578889,
+    },
+    takeOut: {
+      id: 'walker-pfbc-ramp',
+      name: 'Walker PFBC ramp',
+      latitude: 40.531944,
+      longitude: -77.357222,
+    },
+    logistics: {
+      distanceLabel: 'About 16 mi',
+      estimatedPaddleTime:
+        'About 5.5 hr to 7.5 hr in ordinary conditions, longer with low-water line picking, headwind, or time spent scouting the mile-43 ledge and mile-33 current zones',
+      shuttle:
+        'Stage the take-out at Walker PFBC first, then drive back to Victory Park in Lewistown. Check both ramps before launching because muddy edges and river angle can change after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Treat this as a long day trip. Lewistown and the Mifflintown / Mifflin area provide the clearest nearby lodging and basecamp support, but the guide does not identify a committed on-route campground for this exact slug.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Victory Park and take out at Walker PFBC for a long lower-Juniata town-to-ramp float. Use the direct Lewistown gauge and expect scraping whenever the river sits under PFBC\'s 3.1 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Victory Park and Walker coordinates directly in the official lower Juniata access table.',
+        'Walker PFBC is the intended public finish. Do not assume private banks, bridge shoulders, or islands are legitimate substitutes.',
+        'Sixteen broad-river miles can feel longer than they look when the valley wind turns upstream or the channel gets scratchy.',
+        'If the river is near the low floor, scout from legal public vantage points before committing to the ledge and rapid-current zones.',
+      ],
+      watchFor: [
+        'A ledge stretching across the river at mile 43, followed by rough water pushing into a cut bank, as flagged by PFBC.',
+        'Rapid current near mile 33, the other main caution point PFBC flags in this corridor.',
+        'Lewistown stages below about 3.1 ft, when shallow bars and ledge lines become slower and more technical.',
+        'Fresh wood after storms, bridge-current changes, and muddy landing edges at either public access.',
+      ],
+    },
   },
 'juniata-river-mifflintown-walker': {
     putIn: {
