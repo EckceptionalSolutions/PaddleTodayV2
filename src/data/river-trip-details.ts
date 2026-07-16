@@ -19136,7 +19136,127 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
-        'juniata-river-mifflin-muskrat-springs': {
+  'juniata-river-lewistown-narrows-walker': {
+    putIn: {
+      id: 'lewistown-narrows-pfbc-ramp',
+      name: 'Lewistown Narrows PFBC ramp',
+      latitude: 40.603889,
+      longitude: -77.487778,
+    },
+    takeOut: {
+      id: 'walker-pfbc-ramp',
+      name: 'Walker PFBC ramp',
+      latitude: 40.531944,
+      longitude: -77.357222,
+    },
+    logistics: {
+      distanceLabel: 'About 10 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr in ordinary conditions, longer if low water forces channel picking or if headwind stalls progress through the exposed middle bends',
+      shuttle:
+        'Stage the take-out at Walker PFBC first, then drive back upstream to the Lewistown Narrows PFBC ramp. Check both ramp edges before leaving a vehicle because mud and current angle can shift after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'No established camping is identified for this Narrows-to-Walker segment. Treat it as a day trip.',
+      campingClassification: 'none',
+      summary:
+        "Launch at Lewistown Narrows and take out at Walker PFBC for a longer middle lower-Juniata link. The app uses the Lewistown gauge conservatively as an upstream same-river proxy and expects scraping whenever that corridor sits under PFBC's 3.1 ft minimum.",
+      accessCaveats: [
+        'PFBC publishes both Lewistown Narrows and Walker coordinates directly in the official lower Juniata access table.',
+        'The gauge story here stays conservative because Lewistown is upstream of this route, not on top of it.',
+        'Use only the named public accesses rather than bridge shoulders or private banks.',
+        'This segment is broad enough for wind to matter more than the mileage suggests on an exposed day.',
+      ],
+      watchFor: [
+        'Rapid current near mile 33, the main caution point PFBC flags in this corridor.',
+        'Low water under the conservative Lewistown 3.1 ft proxy floor, when broad cobble bars and slower channels can force dragging.',
+        'Fresh wood after storms, muddy landing edges, and broad-river wind across exposed bends.',
+        'Private shorelines away from the named public accesses and the temptation to improvise on bars because the route looks simple.',
+      ],
+    },
+  },
+  'juniata-river-walker-muskrat-springs': {
+    putIn: {
+      id: 'walker-pfbc-ramp',
+      name: 'Walker PFBC ramp',
+      latitude: 40.531944,
+      longitude: -77.357222,
+    },
+    takeOut: {
+      id: 'muskrat-springs-pfbc-ramp',
+      name: 'Muskrat Springs PFBC ramp',
+      latitude: 40.535,
+      longitude: -77.299444,
+    },
+    logistics: {
+      distanceLabel: 'About 4 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr in ordinary conditions, longer if low water forces channel picking or if wind stalls progress in the open Mexico bends',
+      shuttle:
+        'Stage the take-out at Muskrat Springs PFBC first, then drive back upstream to Walker PFBC. Check both ramp edges before leaving a vehicle because muddy approaches and river angle can change after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Buttonwood Campground and River Rock Campground sit along the route near Mexico and are the clearest legal overnight support if you want to turn this short link into a conservative base-camp float.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        "Launch at Walker PFBC and take out at Muskrat Springs PFBC for a short lower-Juniata link. The app uses the Lewistown gauge conservatively as an upstream same-river proxy and expects scraping whenever that corridor sits under PFBC's 3.1 ft minimum.",
+      accessCaveats: [
+        'PFBC publishes both Walker and Muskrat Springs coordinates directly in the official lower Juniata access table.',
+        'The gauge story here stays conservative because Lewistown is upstream of this middle-lower segment, not on top of it.',
+        'River Rock and Buttonwood are legal support points near Mexico, but Muskrat Springs is the intended finish for this slug.',
+        'Use only the named public accesses rather than bars, private banks, or informal roadside pull-offs.',
+      ],
+      watchFor: [
+        'Low water under the conservative Lewistown 3.1 ft proxy floor, when broad cobble bars and slower channels can force dragging.',
+        'Fresh wood after storms, bridge-related strainers elsewhere in the corridor, and broad-river headwind through the exposed bends.',
+        'Busy campground-adjacent shoreline near Mexico and the temptation to stop early instead of finishing at Muskrat Springs.',
+        'Private shorelines away from the named public accesses even when the banks look easy to use.',
+      ],
+    },
+  },
+  'juniata-river-greenwood-newport': {
+    putIn: {
+      id: 'greenwood-pfbc-ramp',
+      name: 'Greenwood PFBC ramp',
+      latitude: 40.530278,
+      longitude: -77.141944,
+    },
+    takeOut: {
+      id: 'newport-primitive-access',
+      name: 'Newport access',
+      latitude: 40.479167,
+      longitude: -77.129444,
+    },
+    logistics: {
+      distanceLabel: 'About 4 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr in ordinary conditions, longer with low-water scraping, headwind, or time spent checking the primitive Newport finish',
+      shuttle:
+        'Stage the take-out at the Newport primitive access first, then drive back upstream to Greenwood PFBC. Confirm same-day parking and the intended final line into Newport before launching.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        "Pittman's Riverside Campground near Greenwood and Little Buffalo Family Campground near Newport are the clearest legal overnight support, but neither is committed on-route camping for this short segment.",
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Launch at Greenwood PFBC and take out at Newport for a short lower-Juniata town link. Use the direct Newport gauge and expect scraping whenever the river sits under PFBC's 3.5 ft minimum.",
+      accessCaveats: [
+        'PFBC publishes both Greenwood and Newport coordinates directly in the official lower Juniata access table.',
+        'Newport is a primitive town-side finish, so scout the landing edge and do not assume any nearby private shoreline is an acceptable substitute.',
+        'This is still a broad river even on a short trip; wind and wood can make the easy mileage feel slower than expected.',
+        'Use the named public accesses rather than islands, bars, or roadside guesses.',
+      ],
+      watchFor: [
+        'Newport stages below about 3.5 ft, when shallow bars and slower lines can force dragging before the take-out.',
+        'Fresh wood after storms, bridge-related strainers elsewhere in the corridor, and broad-river headwind on the open lower bends.',
+        'Primitive landing footing and parking at Newport, especially if the bank is muddy.',
+        'Private shorelines away from the named accesses even when the river appears calm.',
+      ],
+    },
+  },
+  'juniata-river-mifflin-muskrat-springs': {
     "putIn": {
       "id": "mifflin-ramp",
       "name": "Mifflin ramp",
