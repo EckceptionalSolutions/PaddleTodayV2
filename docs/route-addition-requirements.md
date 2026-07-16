@@ -76,6 +76,25 @@ Coordinates:
 - Strongly preferred for both endpoints.
 - If official endpoint names are unambiguous, coordinates may be derived during route work, but should not remain missing.
 
+### Access Points
+
+Each new implemented route should include `riverTripDetails[slug].accessPoints` whenever the route has coordinate-backed endpoints.
+
+Minimum:
+
+- Include the default put-in as `mileFromStart: 0`.
+- Include the default take-out at the route distance.
+- Use the same verified coordinates as `putIn` and `takeOut` unless a better source-backed launch or landing coordinate is available.
+- Add intermediate public accesses, bailout points, camps, or split points only when they are source-backed and coordinate-backed.
+
+Why this matters:
+
+- Route detail pages use `accessPoints` for selectable access-planner rows when more than two planner points exist.
+- Summary and group maps use `accessPoints` to draw route lines and fit map bounds.
+- API clients receive the field for route planner and map behavior.
+
+Do not add speculative points. If a map or PDF only labels a campsite or landing without enough coordinate confidence, keep that context in logistics, access caveats, watch-for notes, evidence notes, or memory instead of inventing an `accessPoints` row.
+
 ### Access Legitimacy
 
 Endpoints should be legal and normal to use.

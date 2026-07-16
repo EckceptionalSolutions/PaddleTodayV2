@@ -2,6 +2,8 @@ import '../src/lib/suppress-web-font-timeout';
 import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { Stack, router } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { usePathname } from 'expo-router';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 import {
@@ -12,6 +14,7 @@ import {
 import { initObservability, withObservability } from '../src/lib/observability';
 import { AppProviders } from '../src/providers/app-providers';
 import { colors } from '../src/theme/tokens';
+import { WELCOME_COMPLETED_STORAGE_KEY } from '../src/lib/onboarding';
 
 initObservability();
 configureNativeNotifications();
@@ -38,6 +41,21 @@ const navigationTheme = {
 };
 
 function RootLayout() {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    let active = true;
+    void AsyncStorage.getItem(WELCOME_COMPLETED_STORAGE_KEY).then((completed) => {
+      if (active && completed !== '1' && pathname !== '/welcome') {
+        router.replace('/welcome');
+      }
+    });
+
+    return () => {
+      active = false;
+    };
+  }, [pathname]);
+
   useEffect(() => {
     void getLastNotificationResponse().then((response) => {
       redirectFromNotification(response?.notification.request.content.data);
@@ -68,6 +86,7 @@ function RootLayout() {
           }}
         >
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="welcome" options={{ headerShown: false, gestureEnabled: false }} />
           <Stack.Screen name="river/[slug]" options={{ title: 'River detail' }} />
           <Stack.Screen name="river-hub/[riverId]" options={{ title: 'River hub' }} />
           <Stack.Screen name="contribute-photo/[slug]" options={{ title: 'Contribute photos' }} />

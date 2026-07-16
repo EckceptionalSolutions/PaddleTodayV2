@@ -9,6 +9,7 @@ import { SectionCard } from '../components/section-card';
 import { appDiagnosticRows } from '../lib/app-diagnostics';
 import { resolveApiBaseUrl, resolveApiUrl } from '../lib/api-base-url';
 import { captureAppException, observabilityStatus, trackAppEvent } from '../lib/observability';
+import { resetWelcome } from '../lib/onboarding';
 import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
 import { androidBottomInset } from '../lib/safe-area';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -117,6 +118,8 @@ export default function SupportScreen() {
 
       <SectionCard title="Support" subtitle="Fast links for feedback, route requests, and release paperwork.">
         <View style={styles.actionList}>
+          <ActionRow icon="information-outline" title="How PaddleToday works" body="Replay the short guide to scores, conditions, and route details." onPress={() => replayWelcome(router, 'guide')} />
+          <ActionRow icon="tune-variant" title="Change trip preference" body="Choose the kind of paddle you want to find first." onPress={() => replayWelcome(router, 'intent')} />
           <ActionRow icon="email-outline" title="Email support" body="hello@paddletoday.com" onPress={() => openUrl('mailto:hello@paddletoday.com')} />
           <ActionRow icon="bug-outline" title="Email app diagnostics" body="Send build, connection, and environment details." onPress={() => openUrl(buildDiagnosticsEmailUrl())} />
           <ActionRow icon="plus-circle-outline" title="Request a route" body="Send river, area, access, and notes." onPress={() => router.push('/request-route')} />
@@ -302,6 +305,10 @@ function diagnosticTone(state: DiagnosticState) {
   if (state === 'ok') return styles.diagnosticOk;
   if (state === 'error') return styles.diagnosticError;
   return styles.diagnosticIdle;
+}
+
+function replayWelcome(router: ReturnType<typeof useRouter>, mode: 'guide' | 'intent') {
+  void resetWelcome().then(() => router.push({ pathname: '/welcome', params: mode === 'intent' ? { mode } : undefined }));
 }
 
 function openUrl(url: string) {

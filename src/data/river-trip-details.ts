@@ -9207,6 +9207,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Cold water, private banks, cattle/farm runoff areas, thunderstorms, and limited bailout options away from roads and parks.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'laack-schnappsville-park-johnsonville',
+        name: 'Laack Schnappsville Park / Johnsonville fire-station access',
+        latitude: 43.79907,
+        longitude: -87.9105,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below the Johnsonville low-head dam; inspect the dam exclusion zone before launching.',
+      },
+      {
+        id: 'dassow-park-sheboygan-river',
+        name: 'Dassow Park',
+        latitude: 43.76773,
+        longitude: -87.8937,
+        mileFromStart: 6.3,
+        segmentKind: 'creek',
+        note: 'Default take-out; public endpoint for the upper Sheboygan split.',
+      },
+    ],
   },
   'sheboygan-river-rochester-esslingen': {
     putIn: {
@@ -9246,6 +9266,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Class I riffles below Walderhaus and I-43, strainers, cold water, fall salmon anglers, private banks, and limited exits.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'rochester-park-sheboygan-river',
+        name: 'Rochester Park',
+        latitude: 43.72354,
+        longitude: -87.80464,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the Kohler-area Sheboygan segment.',
+      },
+      {
+        id: 'esslingen-park-canoe-launch',
+        name: 'Esslingen Park / canoe launch',
+        latitude: 43.74046,
+        longitude: -87.74999,
+        mileFromStart: 9.8,
+        segmentKind: 'creek',
+        note: 'Shared handoff with the Esslingen-to-Kiwanis lower-Sheboygan segment.',
+      },
+    ],
   },
   'sheboygan-river-esslingen-kiwanis': {
     putIn: {
@@ -9284,6 +9324,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Cold Lake Michigan-influenced air and water, wind funneling through the lower corridor, thunderstorms, and missing the Kiwanis take-out.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'esslingen-park-canoe-launch',
+        name: 'Esslingen Park / canoe launch',
+        latitude: 43.74046,
+        longitude: -87.74999,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Shared handoff with the Rochester-to-Esslingen segment.',
+      },
+      {
+        id: 'kiwanis-park-sheboygan-kayak-launch',
+        name: 'Kiwanis Park kayak launch',
+        latitude: 43.75281,
+        longitude: -87.72622,
+        mileFromStart: 2.1,
+        segmentKind: 'creek',
+        note: 'Default public city take-out before the harbor and Lake Michigan corridor.',
+      },
+    ],
   },
   'la-crosse-river-fishermans-hammer': {
     putIn: {
@@ -9571,6 +9631,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Cold water and remote-bank exposure outside warm, stable conditions.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'black-river-highway-73-popple-wayside',
+        name: 'Highway 73 wayside on the Popple River',
+        latitude: 44.83648,
+        longitude: -90.5987,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; last practical public access on the documented Popple connector.',
+      },
+      {
+        id: 'black-river-willard-road',
+        name: 'Willard Road access',
+        latitude: 44.74157,
+        longitude: -90.62195,
+        mileFromStart: 8.5,
+        segmentKind: 'creek',
+        note: 'Shared handoff with the Willard-to-Hill Road upper-Black segment.',
+      },
+    ],
   },
   'black-river-willard-grand-avenue': {
     putIn: {
@@ -9607,6 +9687,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fatigue and daylight risk on a 15.25-mile technical day.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'black-river-willard-road',
+        name: 'Willard Road access',
+        latitude: 44.74157,
+        longitude: -90.62211,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Shared handoff with the Highway 73-to-Willard segment; coordinate variation reflects the road-side access anchor.',
+      },
+      {
+        id: 'black-river-hill-road-grand-avenue',
+        name: 'Grand Avenue / Hill Road access',
+        latitude: 44.57044,
+        longitude: -90.59798,
+        mileFromStart: 15.25,
+        segmentKind: 'creek',
+        note: 'Shared handoff with the Hill Road-to-Opelt whitewater segment.',
+      },
+    ],
   },
   'black-river-hill-road-opelt': {
     putIn: {
@@ -9643,6 +9743,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'The 2024 high-water report in WRT noting that about 752 cfs felt brutal and should be avoided by most groups.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'black-river-hill-road-grand-avenue',
+        name: 'Hill Road / Grand Avenue access',
+        latitude: 44.57044,
+        longitude: -90.59798,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Shared handoff with the Willard-to-Hill Road segment; scout the shore carry and the downstream Class III zone.',
+      },
+      {
+        id: 'black-river-opelt-avenue-launch',
+        name: 'Opelt Ave Launch',
+        latitude: 44.51674,
+        longitude: -90.62598,
+        mileFromStart: 6.6,
+        segmentKind: 'creek',
+        note: 'Default take-out; obscure launch that should be located before launching.',
+      },
+    ],
   },
   'black-river-irving-melrose': {
     putIn: {
@@ -10560,6 +10680,62 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'rock-river-willow-street-johnson-creek': {
+    putIn: {
+      name: 'Willow Street Landing / Watertown Portage Area',
+      latitude: 43.183889,
+      longitude: -88.703611,
+    },
+    takeOut: {
+      name: 'Rock River Park / County Road B Launch',
+      latitude: 43.07137,
+      longitude: -88.79488,
+    },
+    logistics: {
+      distanceLabel: 'About 16.75 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr, longer with wind, low water, or fishing stops',
+      shuttle:
+        'Stage the take-out at Rock River Park / Johnson Creek and confirm any Jefferson County launch permit or parking rule before driving back to Watertown. Scout the Willow Street / Watertown launch choice from land and start below the dam-portage sequence only.',
+      permits:
+        'No route-specific paddling permit is known, but Jefferson County notes boat-launch permit requirements for county launches including Rock River Park. Follow Rock River National Water Trail signage, county rules, and local parking restrictions.',
+      camping:
+        'No on-route camping is documented for this Watertown-to-Johnson-Creek day route. Treat it as a long day paddle with separate Jefferson County or private campground plans only if reserved and legal.',
+      campingClassification: 'none',
+      summary:
+        'Launch below the Watertown dam corridor at the Willow Street / portage-area access and paddle the long Rock River National Water Trail continuation to Rock River Park near Johnson Creek. The card uses the direct Watertown gauge with a minimum-only model.',
+      accessCaveats: [
+        'Willow Street is dam-portage context, not a casual above-dam launch. Start below the dam sequence after checking current signage and bank conditions.',
+        'Rock River Park is a county launch with possible launch-permit requirements; confirm parking and access rules before committing to the shuttle.',
+        'The long mileage leaves limited easy bailout options. Keep a conservative daylight, wind, and current plan.',
+      ],
+      watchFor: [
+        'Downtown Watertown dam and spillway infrastructure upstream of the launch area; do not turn this into an unplanned dam portage.',
+        'Slow pools, headwind, and low-water dragging near the 182 cfs minimum.',
+        'Motorboats, docks, bridge debris, strainers, and private banks.',
+        'High or rising water that increases push into bends, docks, and shoreline wood.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'willow-street-landing',
+        name: 'Willow Street Landing / Watertown Portage Area',
+        latitude: 43.183889,
+        longitude: -88.703611,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Official Rock River Water Trail landing and portage-area access; launch only below the dam sequence after scouting current signage.',
+      },
+      {
+        id: 'rock-river-park-johnson-creek',
+        name: 'Rock River Park / County Road B Launch',
+        latitude: 43.07137,
+        longitude: -88.79488,
+        mileFromStart: 16.75,
+        segmentKind: 'creek',
+        note: 'Jefferson County water-trail launch at Rock River Park near Johnson Creek; check current county launch permit and parking rules.',
+      },
+    ],
+  },
   'big-eau-pleine-river-march-rapids-big-rapids': {
     putIn: {
       name: 'March Rapids Park',
@@ -10680,62 +10856,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
       watchFor: [
         'Frequent shallow Class I riffles and boulder gardens that can require scraping or walking below the low band.',
-  'rock-river-willow-street-johnson-creek': {
-    putIn: {
-      name: 'Willow Street Landing / Watertown Portage Area',
-      latitude: 43.183889,
-      longitude: -88.703611,
-    },
-    takeOut: {
-      name: 'Rock River Park / County Road B Launch',
-      latitude: 43.07137,
-      longitude: -88.79488,
-    },
-    logistics: {
-      distanceLabel: 'About 16.75 mi',
-      estimatedPaddleTime: 'About 6 hr to 8 hr, longer with wind, low water, or fishing stops',
-      shuttle:
-        'Stage the take-out at Rock River Park / Johnson Creek and confirm any Jefferson County launch permit or parking rule before driving back to Watertown. Scout the Willow Street / Watertown launch choice from land and start below the dam-portage sequence only.',
-      permits:
-        'No route-specific paddling permit is known, but Jefferson County notes boat-launch permit requirements for county launches including Rock River Park. Follow Rock River National Water Trail signage, county rules, and local parking restrictions.',
-      camping:
-        'No on-route camping is documented for this Watertown-to-Johnson-Creek day route. Treat it as a long day paddle with separate Jefferson County or private campground plans only if reserved and legal.',
-      campingClassification: 'none',
-      summary:
-        'Launch below the Watertown dam corridor at the Willow Street / portage-area access and paddle the long Rock River National Water Trail continuation to Rock River Park near Johnson Creek. The card uses the direct Watertown gauge with a minimum-only model.',
-      accessCaveats: [
-        'Willow Street is dam-portage context, not a casual above-dam launch. Start below the dam sequence after checking current signage and bank conditions.',
-        'Rock River Park is a county launch with possible launch-permit requirements; confirm parking and access rules before committing to the shuttle.',
-        'The long mileage leaves limited easy bailout options. Keep a conservative daylight, wind, and current plan.',
-      ],
-      watchFor: [
-        'Downtown Watertown dam and spillway infrastructure upstream of the launch area; do not turn this into an unplanned dam portage.',
-        'Slow pools, headwind, and low-water dragging near the 182 cfs minimum.',
-        'Motorboats, docks, bridge debris, strainers, and private banks.',
-        'High or rising water that increases push into bends, docks, and shoreline wood.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'willow-street-landing',
-        name: 'Willow Street Landing / Watertown Portage Area',
-        latitude: 43.183889,
-        longitude: -88.703611,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Official Rock River Water Trail landing and portage-area access; launch only below the dam sequence after scouting current signage.',
-      },
-      {
-        id: 'rock-river-park-johnson-creek',
-        name: 'Rock River Park / County Road B Launch',
-        latitude: 43.07137,
-        longitude: -88.79488,
-        mileFromStart: 16.75,
-        segmentKind: 'creek',
-        note: 'Jefferson County water-trail launch at Rock River Park near Johnson Creek; check current county launch permit and parking rules.',
-      },
-    ],
-  },
         'Fast current and stronger Class I-II wave trains when the Sheldon gauge is high or rising after rain.',
         'Wind on more open stretches, cold water in spring, and changing wood or strainers after high water.',
         'Do not use the 2200 cfs Sheldon Canoe Race observation as normal recreational guidance; that is extreme, fast water for this app audience.',
@@ -11717,6 +11837,118 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'prairie-river-county-j-county-c': {
+    putIn: {
+      name: 'County Road J Prairie River Access',
+      latitude: 45.29389,
+      longitude: -89.54626,
+    },
+    takeOut: {
+      name: 'County Road C Prairie River Access',
+      latitude: 45.23554,
+      longitude: -89.65006,
+    },
+    logistics: {
+      distanceLabel: 'About 10 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with scouting or scraping',
+      shuttle:
+        'Use a rural shuttle between the County Road C bridge access and the County Road J put-in. Scout both bridge areas before unloading because parking, shoulder space, and bank slope can change with water level and road work.',
+      permits:
+        'No route-specific paddling permit is known. Use only the established public road / bridge access areas, avoid private banks, and follow any Lincoln County or local posting.',
+      camping:
+        'No on-route camping is documented for this Prairie River day route. Council Grounds State Park and Merrill-area options are nearby basecamp choices only after checking current reservations and rules.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at County Road J and paddle the rocky Prairie River continuation to County Road C. Expect Class II ledges and boulder gardens, with the Merrill gauge below the selected minimum during this run.',
+      accessCaveats: [
+        'County Road J is a bridge-area access from the route-specific guide; inspect parking and any posted restrictions before staging boats.',
+        'County Road C is the planned take-out and is also used by the downstream route. Keep the landing clear for other users and do not block the road shoulder.',
+        'Banks away from bridges and public access are not assumed public. Plan food, rest, and emergency stops without relying on private shoreline.',
+      ],
+      watchFor: [
+        'Low-water scraping below 155 cfs, with 200 cfs or more preferred for most recreational paddlers.',
+        'Old-dam remnants, rocky ledges, boulder gardens, and cold-water swims.',
+        'Fresh strainers after storms, especially in blind bends and against bridge pilings.',
+        'Fast rises after rain and limited easy exits on private or brushy banks.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'prairie-river-county-j',
+        name: 'County Road J Prairie River Access',
+        latitude: 45.29389,
+        longitude: -89.54626,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Bridge-area put-in used by the route-specific Miles Paddled guide; inspect parking, bank slope, and any current posting before launch.',
+      },
+      {
+        id: 'prairie-river-county-c',
+        name: 'County Road C Prairie River Access',
+        latitude: 45.23554,
+        longitude: -89.65006,
+        mileFromStart: 10,
+        segmentKind: 'creek',
+        note: 'Established County C bridge access and take-out for this card; also the put-in for the downstream Merrill route.',
+      },
+    ],
+  },
+  'prairie-river-county-c-stanges': {
+    putIn: {
+      name: 'County Road C Prairie River Access',
+      latitude: 45.23552,
+      longitude: -89.65012,
+    },
+    takeOut: {
+      name: 'Stange\'s Park Prairie River Access',
+      latitude: 45.18096,
+      longitude: -89.70142,
+    },
+    logistics: {
+      distanceLabel: 'About 9.25 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer at low water',
+      shuttle:
+        'Stage the take-out at Stange\'s Park in Merrill, then drive back to the County Road C bridge access. Scout County C parking, the launch bank, and the Stange\'s Park landing before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Merrill park rules at Stange\'s Park, posted bridge-area parking rules at County C, and Wisconsin boating/PFD requirements.',
+      camping:
+        'No on-route camping is documented. Treat the route as a day paddle; use Council Grounds State Park or Merrill-area overnight options only through normal reservation channels.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at County Road C and paddle the lower Prairie River through riffles and Merrill parkland to Stange\'s Park. The route has a route-specific 200-to-400 cfs guidance window tied to the direct Merrill gauge.',
+      accessCaveats: [
+        'County Road C parking is limited bridge-area access; check shoulder conditions and any posting before launch.',
+        'Stange\'s Park is the planned take-out in Merrill. Confirm current park rules and landing conditions before leaving the shuttle vehicle.',
+        'The lower route passes residential and parkland banks; do not assume informal bank stops are legal.',
+      ],
+      watchFor: [
+        'Shallow riffles and scraping below the 200 cfs floor.',
+        'Pushier bends, bridge debris, and tighter shoreline wood above about 400 cfs.',
+        'Cold water, strainers, private banks, and side channels around Merrill.',
+        'Low branches, urban runoff after storms, and limited parking at the County C access.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'prairie-river-county-c',
+        name: 'County Road C Prairie River Access',
+        latitude: 45.23552,
+        longitude: -89.65012,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'County C bridge-area access documented by route-specific guide; inspect parking and current signage before unloading.',
+      },
+      {
+        id: 'stanges-park-prairie-river',
+        name: 'Stange\'s Park Prairie River Access',
+        latitude: 45.18096,
+        longitude: -89.70142,
+        mileFromStart: 9.25,
+        segmentKind: 'creek',
+        note: 'Merrill park take-out below the lower Prairie run; stage shuttle and check park rules before launch.',
+      },
+    ],
+  },
   'turtle-creek-highway-140-sweet-allyn': {
     putIn: {
       name: 'Highway 140 Turtle Creek access',
@@ -11837,118 +12069,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       {
         id: 'alexander-dam-portage-take-out',
         name: 'Alexander Dam portage take-out',
-  'prairie-river-county-j-county-c': {
-    putIn: {
-      name: 'County Road J Prairie River Access',
-      latitude: 45.29389,
-      longitude: -89.54626,
-    },
-    takeOut: {
-      name: 'County Road C Prairie River Access',
-      latitude: 45.23554,
-      longitude: -89.65006,
-    },
-    logistics: {
-      distanceLabel: 'About 10 mi',
-      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with scouting or scraping',
-      shuttle:
-        'Use a rural shuttle between the County Road C bridge access and the County Road J put-in. Scout both bridge areas before unloading because parking, shoulder space, and bank slope can change with water level and road work.',
-      permits:
-        'No route-specific paddling permit is known. Use only the established public road / bridge access areas, avoid private banks, and follow any Lincoln County or local posting.',
-      camping:
-        'No on-route camping is documented for this Prairie River day route. Council Grounds State Park and Merrill-area options are nearby basecamp choices only after checking current reservations and rules.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at County Road J and paddle the rocky Prairie River continuation to County Road C. Expect Class II ledges and boulder gardens, with the Merrill gauge below the selected minimum during this run.',
-      accessCaveats: [
-        'County Road J is a bridge-area access from the route-specific guide; inspect parking and any posted restrictions before staging boats.',
-        'County Road C is the planned take-out and is also used by the downstream route. Keep the landing clear for other users and do not block the road shoulder.',
-        'Banks away from bridges and public access are not assumed public. Plan food, rest, and emergency stops without relying on private shoreline.',
-      ],
-      watchFor: [
-        'Low-water scraping below 155 cfs, with 200 cfs or more preferred for most recreational paddlers.',
-        'Old-dam remnants, rocky ledges, boulder gardens, and cold-water swims.',
-        'Fresh strainers after storms, especially in blind bends and against bridge pilings.',
-        'Fast rises after rain and limited easy exits on private or brushy banks.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'prairie-river-county-j',
-        name: 'County Road J Prairie River Access',
-        latitude: 45.29389,
-        longitude: -89.54626,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Bridge-area put-in used by the route-specific Miles Paddled guide; inspect parking, bank slope, and any current posting before launch.',
-      },
-      {
-        id: 'prairie-river-county-c',
-        name: 'County Road C Prairie River Access',
-        latitude: 45.23554,
-        longitude: -89.65006,
-        mileFromStart: 10,
-        segmentKind: 'creek',
-        note: 'Established County C bridge access and take-out for this card; also the put-in for the downstream Merrill route.',
-      },
-    ],
-  },
-  'prairie-river-county-c-stanges': {
-    putIn: {
-      name: 'County Road C Prairie River Access',
-      latitude: 45.23552,
-      longitude: -89.65012,
-    },
-    takeOut: {
-      name: 'Stange\'s Park Prairie River Access',
-      latitude: 45.18096,
-      longitude: -89.70142,
-    },
-    logistics: {
-      distanceLabel: 'About 9.25 mi',
-      estimatedPaddleTime: 'About 3 hr to 5 hr, longer at low water',
-      shuttle:
-        'Stage the take-out at Stange\'s Park in Merrill, then drive back to the County Road C bridge access. Scout County C parking, the launch bank, and the Stange\'s Park landing before unloading.',
-      permits:
-        'No route-specific paddling permit is known. Follow City of Merrill park rules at Stange\'s Park, posted bridge-area parking rules at County C, and Wisconsin boating/PFD requirements.',
-      camping:
-        'No on-route camping is documented. Treat the route as a day paddle; use Council Grounds State Park or Merrill-area overnight options only through normal reservation channels.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at County Road C and paddle the lower Prairie River through riffles and Merrill parkland to Stange\'s Park. The route has a route-specific 200-to-400 cfs guidance window tied to the direct Merrill gauge.',
-      accessCaveats: [
-        'County Road C parking is limited bridge-area access; check shoulder conditions and any posting before launch.',
-        'Stange\'s Park is the planned take-out in Merrill. Confirm current park rules and landing conditions before leaving the shuttle vehicle.',
-        'The lower route passes residential and parkland banks; do not assume informal bank stops are legal.',
-      ],
-      watchFor: [
-        'Shallow riffles and scraping below the 200 cfs floor.',
-        'Pushier bends, bridge debris, and tighter shoreline wood above about 400 cfs.',
-        'Cold water, strainers, private banks, and side channels around Merrill.',
-        'Low branches, urban runoff after storms, and limited parking at the County C access.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'prairie-river-county-c',
-        name: 'County Road C Prairie River Access',
-        latitude: 45.23552,
-        longitude: -89.65012,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'County C bridge-area access documented by route-specific guide; inspect parking and current signage before unloading.',
-      },
-      {
-        id: 'stanges-park-prairie-river',
-        name: 'Stange\'s Park Prairie River Access',
-        latitude: 45.18096,
-        longitude: -89.70142,
-        mileFromStart: 9.25,
-        segmentKind: 'creek',
-        note: 'Merrill park take-out below the lower Prairie run; stage shuttle and check park rules before launch.',
-      },
-    ],
-  },
         latitude: 45.188514,
         longitude: -89.754247,
         mileFromStart: 8.6,
