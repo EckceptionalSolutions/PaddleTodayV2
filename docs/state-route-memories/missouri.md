@@ -1,6 +1,8 @@
 # Missouri Route Memory
 
-Last summarized: 2026-07-11 15:20 America/Chicago.
+Last summarized: 2026-07-16 10:32 America/Chicago.
+
+Latest run: consolidated five redundant Eleven Point `Riverton West` variants into the existing Riverton East corridor cards after confirming the west-bank additions only changed the bank-side Highway 160 landing, not the Bardley gauge, threshold posture, camping class, or core trip shape. Removed `eleven-point-river-cane-bluff-riverton-west`, `eleven-point-river-greer-crossing-riverton-west`, `eleven-point-river-turner-mill-south-riverton-west`, `eleven-point-river-whitten-riverton-west`, and `eleven-point-river-riverton-west-narrows`; kept the existing east-bank planners and updated their trip-detail shuttle/access notes so Riverton West still surfaces as a nearby same-corridor alternate at the Highway 160 bridge. Route-data typecheck and `routes:audit` both passed after the cleanup, and the image-audit plus gallery mappings were pruned to match.
 
 Latest run: added three new Eleven Point continuations sourced from current Forest Service pages, same-day USGS Bardley data, and the existing corridor threshold model: `eleven-point-river-cane-bluff-riverton-west`, `eleven-point-river-greer-crossing-riverton-west`, and `eleven-point-river-riverton-west-narrows`. The current Forest Service pages still show Cane Bluff, Greer Crossing, Riverton West, and Highway 142 open with published coordinates and access details; Cane Bluff still places Greer at river mile `16.6` from Thomasville versus Cane Bluff at `9.3`, the Whitten page still says Greer to Whitten is `11 miles`, Riverton West still says it is `7.6 miles` below Whitten, and Highway 142 still says The Narrows is `8.7 miles` below Riverton. Same-day direct USGS Water Services returned `463 cfs / 2.56 ft` at `2026-07-15 13:30 CDT` for Bardley gauge `07071500`. Together those sources support the three new public routes at about `25.9`, `18.6`, and `8.7` miles. All three routes keep the existing conservative `300 cfs` minimum-only Bardley floor already used on adjacent Eleven Point routes because the numeric support is still community-calibrated rather than an official manager band. Reused the approved same-river Commons Eleven Point corridor image for all three new slugs.
 
@@ -28,7 +30,7 @@ Latest run: added three new Jacks Fork continuations sourced from current NPS an
 
 ## Current Inventory
 
-- Live routes: 64.
+- Live routes: 59.
 - Top represented rivers: Jacks Fork River 15, Eleven Point River 15, Current River 12, Big Piney River 6, Meramec River 5, James River 4.
 - Ledger candidates: the structured ledger has a large Missouri backlog; many remain blocked by stale live-gauge evidence, weak threshold support, route-definition uncertainty, or endpoint-coordinate/access gaps.
 
