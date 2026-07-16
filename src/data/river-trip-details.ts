@@ -9536,6 +9536,114 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'black-river-highway-73-willard': {
+    putIn: {
+      name: 'Highway 73 wayside on the Popple River',
+      latitude: 44.83648,
+      longitude: -90.5987,
+    },
+    takeOut: {
+      name: 'Willard Road access',
+      latitude: 44.74157,
+      longitude: -90.62195,
+    },
+    logistics: {
+      distanceLabel: '8.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr',
+      shuttle:
+        'Use a north-south shuttle along the Highway 73 corridor between the wayside put-in and Willard Road. The drive is straightforward, but the route itself is remote enough that groups should not count on easy mid-route exits.',
+      permits:
+        'No route-specific paddling permit is known. Use the Highway 73 wayside and Willard Road access only, obey posted parking, and treat all other banks as private unless a public access is confirmed.',
+      camping:
+        'No legal on-route campsite is documented for this Popple / upper-Black connector. Treat it as a day trip.',
+      campingClassification: 'none',
+      summary:
+        'Launch from the Highway 73 wayside on the Clark County Popple River, paddle into the upper Black, and finish at Willard Road. Expect an intermediate whitewater day with Class I-II rapids, exposed boulder gardens, and a downstream Neillsville gauge screen.',
+      accessCaveats: [
+        'Miles Paddled documents GPS coordinates for both endpoints and describes the Highway 73 wayside as the last practical public access on this Popple tributary before the Black River confluence.',
+        'The Neillsville gauge is downstream of the route, so confirm actual depth and wood at both endpoints before launching.',
+        'Do not confuse this Clark County Popple tributary with the designated Wild & Scenic Popple River farther north.',
+      ],
+      watchFor: [
+        'Scraping and dragging if the Neillsville gauge is below about 300 cfs.',
+        'Class I-II rapids, exposed boulders, blind rock gardens, and fresh strainers after storms.',
+        'Higher water that submerges route-defining boulders and makes the rapids faster and more consequential.',
+        'Cold water and remote-bank exposure outside warm, stable conditions.',
+      ],
+    },
+  },
+  'black-river-willard-grand-avenue': {
+    putIn: {
+      name: 'Willard Road access',
+      latitude: 44.74157,
+      longitude: -90.62211,
+    },
+    takeOut: {
+      name: 'Grand Avenue / Hill Road access',
+      latitude: 44.57044,
+      longitude: -90.59798,
+    },
+    logistics: {
+      distanceLabel: '15.25 mi',
+      estimatedPaddleTime: 'About 5 hr, longer at low water',
+      shuttle:
+        'Plan a long upper-Black shuttle from Willard Road to the Grand Avenue / Hill Road access in Neillsville. The vehicle route is much longer than the river line, and low water can make the paddle run late.',
+      permits:
+        'No route-specific paddling permit is known. Use named public or long-established accesses and avoid private shoreline pull-offs unless permission is explicit.',
+      camping:
+        'No legal on-route campsite is documented for this segment. Sand or gravel bars may appear at low water, but the app should treat this as a long day trip rather than an overnight route.',
+      campingClassification: 'none',
+      summary:
+        'Paddle the long upper-Black reach from Willard Road to Grand Avenue / Hill Road. The route links wooded islands, riffles, Class I-II rapids, outcrops, and extensive boulder gardens with very little development.',
+      accessCaveats: [
+        'Miles Paddled publishes GPS coordinates for Willard Road and Grand Avenue / Hill Road and describes the route as a long outing that can be split only with careful access planning.',
+        'The Grand Avenue / Hill Road finish is also the upstream handoff for the Neillsville whitewater route; identify it before the trip so the group does not drift into the harder downstream rapids unintentionally.',
+        'Because the route is long and undeveloped, carry repair, insulation, and communication plans appropriate for limited road access.',
+      ],
+      watchFor: [
+        'Boulder gardens and shallow rock gardens that become tedious or boat-damaging at low water.',
+        'Pushier Class II current when the Neillsville gauge is above the moderate target window.',
+        'Fresh wood, private banks, cold water, and long gaps between obvious road exits.',
+        'Fatigue and daylight risk on a 15.25-mile technical day.',
+      ],
+    },
+  },
+  'black-river-hill-road-opelt': {
+    putIn: {
+      name: 'Hill Road / Grand Avenue access',
+      latitude: 44.57044,
+      longitude: -90.59798,
+    },
+    takeOut: {
+      name: 'Opelt Ave Launch',
+      latitude: 44.51674,
+      longitude: -90.62598,
+    },
+    logistics: {
+      distanceLabel: '6.6 mi',
+      estimatedPaddleTime: 'About 3 hr for capable groups; slower with scouting',
+      shuttle:
+        'Use a short Neillsville-area shuttle between Hill Road / Grand Avenue and the obscure Opelt Ave Launch. WRT describes the bike shuttle as paved but hilly, and paddlers should locate the take-out before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the Hill Road / Grand Avenue access and Opelt Ave Launch only, and respect private shoreline around downstream roads and homes.',
+      camping:
+        'No on-route camping is documented for this short whitewater reach. Treat it as a day run.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Hill Road / Grand Avenue and run the compact Neillsville whitewater reach to Opelt Ave Launch. This route has many Class I-II rapids, two Class III rapids, boulder gardens, flatwater pauses, and a direct local gauge.',
+      accessCaveats: [
+        'WRT describes the Hill Road / Grand Avenue start as shoulder parking with a grassy drag to the river; Miles Paddled publishes coordinates for this access from the adjacent upstream route.',
+        'WRT describes Opelt Ave as an obscure but usable canoe launch. Confirm the take-out before paddling because missing it pushes the group into a less documented downstream reach.',
+        'The take-out and shuttle area can have poison ivy and limited parking options. Keep boats and vehicles out of roadways and private drives.',
+      ],
+      watchFor: [
+        'Lower Neillsville Rapids near Highway 73, including two Class III rapids that should be scouted or portaged by anyone unsure of the line.',
+        'A narrow sweet spot: below 150 cfs likely too shallow, 251-350 cfs preferred, and 751+ cfs serious whitewater.',
+        'Fast cold water, ledges, hidden rocks at high water, and rescue exposure despite the short mileage.',
+        'The 2024 high-water report in WRT noting that about 752 cfs felt brutal and should be avoided by most groups.',
+      ],
+    },
+  },
   'black-river-irving-melrose': {
     putIn: {
       name: 'David Hansen Memorial Landing at Irving',
@@ -28928,6 +29036,171 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 19.2,
         segmentKind: 'creek',
         note: 'Default take-out at DNR river mile 36.1; resolves as WAS02772.',
+      },
+    ],
+  },
+  'zumbro-river-covered-bridge-walking-bridge': {
+    putIn: {
+      name: 'Zumbro River, Covered Bridge Park Public Water Access Site',
+      latitude: 44.2964356,
+      longitude: -92.6702134,
+    },
+    takeOut: {
+      name: 'Zumbro River, Walking Bridge Park Public Water Access Site',
+      latitude: 44.2717713,
+      longitude: -92.5488493,
+    },
+    logistics: {
+      distanceLabel: 'About 9.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr depending on level, wood, and bridge scouting',
+      shuttle:
+        'Stage the Mazeppa Walking Bridge Park take-out first, then drive back to Covered Bridge Park in Zumbrota. Confirm the take-out from land because Mazeppa Rapids and the DNR portage sequence are just downstream of town.',
+      permits:
+        'No route-specific paddling permit is known. Use the named city public accesses, follow Minnesota boating/PFD rules, and respect posted city-park and private-bank rules.',
+      camping:
+        'Treat this as a day route. Covered Bridge Park has city-park amenities, but no on-route camping is assumed between Zumbrota and Mazeppa.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Zumbrota Covered Bridge Park and take out at Mazeppa Walking Bridge Park for the upper North Fork Zumbro public-access gap. Use the downstream Mazeppa DNR gauge conservatively and inspect for wood before launching.',
+      accessCaveats: [
+        'Covered Bridge Park resolves in Minnesota public-water-access GIS as WAS02181 at North Fork Zumbro river mile 69.6.',
+        'Walking Bridge Park resolves as WAS02184 at river mile 60.1, near the city of Mazeppa and south of Cooper Park.',
+        'The selected DNR gauge is downstream of this reach near Mazeppa / CSAH 7, so make a visual launch and take-out check before relying on the score.',
+      ],
+      watchFor: [
+        'Small-river wood, strainers, shallow riffles, and bridge approaches.',
+        'Fast storm rises in the Zumbro system; avoid high, rising, or muddy water.',
+        'Private banks between public parks and the Mazeppa Rapids / portage sequence just downstream of town.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'covered-bridge-park',
+        name: 'Zumbro River, Covered Bridge Park Public Water Access Site',
+        latitude: 44.2964356,
+        longitude: -92.6702134,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02181 at North Fork Zumbro river mile 69.6 with City of Zumbrota administration.',
+      },
+      {
+        id: 'walking-bridge-park',
+        name: 'Zumbro River, Walking Bridge Park Public Water Access Site',
+        latitude: 44.2717713,
+        longitude: -92.5488493,
+        mileFromStart: 9.5,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02184 at river mile 60.1 with City of Mazeppa administration.',
+      },
+    ],
+  },
+  'zumbro-river-walking-bridge-green-bridge': {
+    putIn: {
+      name: 'Zumbro River, Walking Bridge Park Public Water Access Site',
+      latitude: 44.2717713,
+      longitude: -92.5488493,
+    },
+    takeOut: {
+      name: 'Zumbro River, Green Bridge Public Water Access Site',
+      latitude: 44.233409,
+      longitude: -92.4824913,
+    },
+    logistics: {
+      distanceLabel: 'About 4.3 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer if scouting or portaging Mazeppa Rapids',
+      shuttle:
+        'Set the Green Bridge take-out first, then launch from Walking Bridge Park in Mazeppa. Keep the route short and deliberate; do not continue toward Zumbro Lake Dam without a separate dam-portage plan.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR and city public accesses, follow Minnesota boating/PFD rules, and respect posted park, portage, and private-bank signs.',
+      camping:
+        'No camping is part of this short connector. Treat it as a day-use segment between public accesses.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Walking Bridge Park and take out at Green Bridge for the short Mazeppa-to-Green-Bridge connector. The nearby DNR gauge is fresh, but the route requires an active decision around Mazeppa Rapids and the downstream dam context.',
+      accessCaveats: [
+        'Walking Bridge Park resolves in Minnesota public-water-access GIS at river mile 60.1.',
+        'Green Bridge resolves as WAS00059 at river mile 55.8 with DNR Parks and Trails administration.',
+        'DNR Map 1 marks Mazeppa Rapids and a 90-yard portage right near the start, and places Zumbro Lake Dam downstream of Green Bridge.',
+      ],
+      watchFor: [
+        'Mazeppa Rapids, low-water rocks, strainers, bridge current, and fresh wood.',
+        'Zumbro Lake Dam downstream of Green Bridge; take out before extending toward the dam corridor.',
+        'Fast rises after rain, cold water, and private banks outside the named accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'walking-bridge-park',
+        name: 'Zumbro River, Walking Bridge Park Public Water Access Site',
+        latitude: 44.2717713,
+        longitude: -92.5488493,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02184 at river mile 60.1.',
+      },
+      {
+        id: 'green-bridge',
+        name: 'Zumbro River, Green Bridge Public Water Access Site',
+        latitude: 44.233409,
+        longitude: -92.4824913,
+        mileFromStart: 4.3,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00059 at river mile 55.8.',
+      },
+    ],
+  },
+  'zumbro-river-mantorville-oxbow': {
+    putIn: {
+      name: 'Zumbro River, Mantorville Public Water Access Site',
+      latitude: 44.0655843,
+      longitude: -92.7540765,
+    },
+    takeOut: {
+      name: 'Zumbro River, Oxbow Park Public Water Access Site',
+      latitude: 44.0838992,
+      longitude: -92.6558348,
+    },
+    logistics: {
+      distanceLabel: 'About 8.8 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr depending on level, wood, bridge scouting, and stops at Oxbow',
+      shuttle:
+        'Stage the Oxbow Park take-out first, then drive back to Mantorville Park. Confirm Oxbow access, campground traffic, and park rules from land before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted city, county, campground, and private-bank rules.',
+      camping:
+        'Oxbow Park has a fee campground, toilets, and drinking water on DNR Map 1. Treat camping as an endpoint campground / separate reservation plan, not informal riverbank camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Mantorville Park and take out at Oxbow Park for a South Branch Middle Fork Zumbro day. Use the downstream Oronoco DNR gauge conservatively and make same-day visual checks for wood, shallow riffles, and storm rises.',
+      accessCaveats: [
+        'Mantorville resolves in Minnesota public-water-access GIS as WAS00185 at South Branch Middle Fork Zumbro river mile 94.5.',
+        'Oxbow Park resolves as WAS02187 at river mile 85.7, and DNR Map 1 marks Oxbow Park with campground, toilets, and drinking water context.',
+        'The selected DNR gauge is downstream near Oronoco, so make a local visual check before relying on the score.',
+      ],
+      watchFor: [
+        'Small-river wood, strainers, shallow riffles, bridge approaches, and tight bends.',
+        'Flash-flood behavior after rainstorms; do not launch on a high or rising downstream gauge.',
+        'Private banks, cold water, campground traffic at Oxbow, and limited legal exits between endpoints.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mantorville',
+        name: 'Zumbro River, Mantorville Public Water Access Site',
+        latitude: 44.0655843,
+        longitude: -92.7540765,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00185 at South Branch Middle Fork Zumbro river mile 94.5.',
+      },
+      {
+        id: 'oxbow-park',
+        name: 'Zumbro River, Oxbow Park Public Water Access Site',
+        latitude: 44.0838992,
+        longitude: -92.6558348,
+        mileFromStart: 8.8,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02187 at river mile 85.7 with Olmsted County administration and DNR map campground context.',
       },
     ],
   },
