@@ -12120,6 +12120,38 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+      'clinton-river-rotary-budd': {
+    "putIn": {
+      "id": "rotary-park-sterling-heights",
+      "name": "Rotary Park accessible launch",
+      "latitude": 42.570595,
+      "longitude": -82.971459
+    },
+    "takeOut": {
+      "id": "budd-park",
+      "name": "Budd Park carry-in launch",
+      "latitude": 42.586506,
+      "longitude": -82.927598
+    },
+    "logistics": {
+      "distanceLabel": "About 3.6 mi",
+      "estimatedPaddleTime": "About 1.5 hr to 2 hr, longer with low water, wood, or scouting",
+      "shuttle": "Stage the take-out at Budd Park in Clinton Township, then drive back to Rotary Park in Sterling Heights. Check both landings before launching because riverbank conditions and access signage can change after high water.",
+      "permits": "No route-specific paddling permit is known. Follow Sterling Heights and Clinton Township park, launch, and parking rules at both public access sites.",
+      "camping": "Treat this as a short day trip. No on-route camping plan is assumed on this lower Clinton connector.",
+      "summary": "Launch from Rotary Park and take out at Budd Park for a short lower Clinton connector between the Sterling Heights and Clinton Township public launches. Use the Sterling Heights gauge as a same-day warning check and expect more scraping than speed when the gauge sits below the CRWC low-water warning.",
+      "accessCaveats": [
+        "Rotary Park is a free public accessible launch in Sterling Heights with an EZDock system and riverside parking.",
+        "Clinton Township lists Budd Park as a public canoe/kayak launch with parking and park amenities.",
+        "Stay with the named public launches and do not substitute private banks or roadside spots if wood blocks the main line."
+      ],
+      "watchFor": [
+        "Low-water scraping and slower travel when the Sterling Heights gauge is below the CRWC 8 ft warning floor.",
+        "Fast rises after rain, bridge-current lines, floating wood, and fresh strainers in the urban corridor.",
+        "Urban stormwater and sewer-overflow water-quality concerns after wet weather."
+      ]
+    }
+  },
       'clinton-river-budd-macarthur': {
     "putIn": {
       "id": "budd-park",
@@ -12181,7 +12213,39 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
-    'clinton-river-macarthur-harley-ensign': {
+      'clinton-river-budd-shadyside': {
+    "putIn": {
+      "id": "budd-park",
+      "name": "Budd Park carry-in launch",
+      "latitude": 42.586506,
+      "longitude": -82.927598
+    },
+    "takeOut": {
+      "id": "shadyside-park",
+      "name": "Shadyside Park boat and canoe launch",
+      "latitude": 42.582529,
+      "longitude": -82.880104
+    },
+    "logistics": {
+      "distanceLabel": "About 4.4 mi",
+      "estimatedPaddleTime": "About 2 hr, longer with low water, wood, or landing checks",
+      "shuttle": "Stage the take-out at Shadyside Park in Mount Clemens, then return to Budd Park to launch. Inspect the Shadyside landing first because riverbank wood and park activity can change the finish.",
+      "permits": "No route-specific paddling permit is known. Follow Clinton Township, Mount Clemens, and posted Clinton River Water Trail access rules at both public parks.",
+      "camping": "Treat this as a day trip. No on-route camping plan is assumed between Budd Park and Shadyside Park.",
+      "summary": "Launch at Budd Park and take out at Shadyside Park for a slower lower-Clinton day that CRWC still frames as the best beginner stretch on the river. Use the Sterling Heights gauge as a conservative warning check and keep rain-driven wood or water-quality issues visible in the same-day call.",
+      "accessCaveats": [
+        "Clinton Township lists Budd Park as a public canoe/kayak launch.",
+        "Mount Clemens says Shadyside Park has a handicapped accessible pier with a boat and canoe launch.",
+        "Shadyside is the intended finish. Do not improvise on private banks if the current is slower or the launch is busy."
+      ],
+      "watchFor": [
+        "Low-water scraping and slower current below the CRWC 8 ft low-water warning.",
+        "High, fast water, wood, strainers, and bridge-current hazards after rain.",
+        "Urban stormwater and sewer-overflow water-quality concerns after wet weather."
+      ]
+    }
+  },
+  'clinton-river-macarthur-harley-ensign': {
     putIn: {
       id: 'neil-dempsey-macarthur-park',
       name: 'Neil Dempsey Launch at MacArthur Park',
@@ -12218,6 +12282,38 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Do not continue onto Lake St. Clair unless your group has the weather window, craft, navigation, and rescue plan for open-water paddling.',
       ],
     },
+  },
+      'clinton-river-shadyside-macarthur': {
+    "putIn": {
+      "id": "shadyside-park",
+      "name": "Shadyside Park boat and canoe launch",
+      "latitude": 42.582529,
+      "longitude": -82.880104
+    },
+    "takeOut": {
+      "id": "neil-dempsey-macarthur-park",
+      "name": "Neil Dempsey Launch at MacArthur Park",
+      "latitude": 42.597338,
+      "longitude": -82.871104
+    },
+    "logistics": {
+      "distanceLabel": "About 2.0 mi",
+      "estimatedPaddleTime": "About 45 min to 1 hr, longer with low water, wood, or launch congestion",
+      "shuttle": "Stage the take-out at MacArthur Park, then drive back to Shadyside Park. Inspect MacArthur before launching because downtown events, docks, or riverfront activity can slow the finish.",
+      "permits": "No route-specific paddling permit is known. Follow Mount Clemens park, launch, and parking rules at both public access sites.",
+      "camping": "Treat this as a short day trip. No on-route camping plan is assumed between Shadyside Park and MacArthur Park.",
+      "summary": "Launch at Shadyside Park and take out at the Neil Dempsey launch in MacArthur Park for a very short Mount Clemens lower-Clinton link. Use the Sterling Heights gauge as a conservative warning check, then make a same-day call on wood, signage, and any lower-river obstructions before committing.",
+      "accessCaveats": [
+        "Mount Clemens says Shadyside Park has a handicapped accessible pier with a boat and canoe launch.",
+        "Mount Clemens says MacArthur Park includes the Neil Dempsey universally accessible kayak launch.",
+        "Do not continue downstream beyond MacArthur without a separate lower-river and Lake St. Clair plan."
+      ],
+      "watchFor": [
+        "Low-water scraping or muddy landings when the Sterling Heights gauge is below the CRWC 8 ft low-water warning.",
+        "Fast rises after rain, floating wood, strainers, and any posted dam or weir warning signage in the Mount Clemens reach.",
+        "Urban stormwater and sewer-overflow water-quality concerns after wet weather."
+      ]
+    }
   },
   'green-river-flaming-gorge-dam-little-hole': {
     putIn: {

@@ -1656,6 +1656,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: public domain',
     },
   ],
+  'clinton-river-rotary-budd': [
+    {
+      id: 'clinton-river-macomb-county-commons',
+      src: '/gallery/clinton-river-rotary-budd/clinton-river-macomb-county.jpg',
+      alt: 'The Clinton River flows past wooded banks in Macomb County, Michigan.',
+      caption: 'Clinton River in Macomb County',
+      credit: 'Local hero via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'clinton-river-budd-shadyside': [
+    {
+      id: 'clinton-river-macomb-county-commons',
+      src: '/gallery/clinton-river-budd-shadyside/clinton-river-macomb-county.jpg',
+      alt: 'The Clinton River flows past wooded banks in Macomb County, Michigan.',
+      caption: 'Clinton River in Macomb County',
+      credit: 'Local hero via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'clinton-river-shadyside-macarthur': [
+    {
+      id: 'clinton-river-macomb-county-commons',
+      src: '/gallery/clinton-river-shadyside-macarthur/clinton-river-macomb-county.jpg',
+      alt: 'The Clinton River flows past wooded banks in Macomb County, Michigan.',
+      caption: 'Clinton River in Macomb County',
+      credit: 'Local hero via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
   'clinton-river-macarthur-harley-ensign': [
     {
       id: 'clinton-river-macomb-county-commons',

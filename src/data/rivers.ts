@@ -37427,6 +37427,127 @@ export const rivers: River[] = [
     ],
   },
     {
+    id: 'clinton-river-rotary-budd',
+    slug: 'clinton-river-rotary-budd',
+    name: 'Clinton River',
+    reach: 'Rotary Park to Budd Park',
+    state: 'Michigan',
+    region: 'Southeast Michigan',
+    summary:
+      'Short lower Clinton connector from Sterling Heights Rotary Park to Budd Park in Clinton Township. The CRWC water-trail map lists both launches, and the Sterling Heights gauge stays close enough to keep same-day warning checks direct for this section.',
+    statusText:
+      'Use the Clinton River at Sterling Heights gauge. CRWC warns of low water at 8.0 ft and high water at 10.0 ft; the latest official USGS reading available during this run was 7.56 ft and 105 cfs at 2026-07-15T15:00:00-05:00, so expect scrape-prone slower water until levels recover.',
+    latitude: 42.570595,
+    longitude: -82.971459,
+    gaugeSource: {
+      id: 'usgs-04161820',
+      provider: 'usgs',
+      siteId: '04161820',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Clinton River at Sterling Heights, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/04161820/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 8,
+      idealMax: 10,
+      tooLow: 8,
+      tooHigh: 10,
+      thresholdSource: {
+        label: 'Clinton River Watershed Council Sterling Heights gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the practical paddling season. Even this short lower-river connector can change quickly after rain because CRWC warns that high water carries wood and blocked passages through the urban corridor.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is one of the calmer lower Clinton access links, but it still needs real same-day checks for wood, bridge current, and water-quality fallout after rain.',
+      confidenceNotes:
+        'Confidence is good for a conservative Michigan add: the current CRWC water-trail map still lists Rotary Park at river mile 17.2 and Budd Park at river mile 13.6, the Sterling Heights city page still confirms Rotary as a free public accessible launch, Clinton Township still lists a canoe/kayak launch at Budd Park, and direct USGS Water Services returned 7.56 ft and 105 cfs at 2026-07-15T15:00:00-05:00 for USGS 04161820 during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Access map',
+        value: 'Rotary Park RM 17.2 to Budd Park RM 13.6',
+        note: 'The 2024 CRWC Clinton River Water Trail map lists Rotary Park and Budd Park as consecutive public access sites on the lower Clinton corridor.',
+        sourceUrl:
+          'https://pufferfish-dolphin-5bdb.squarespace.com/s/2024-Clinton-River-Watertrail-Map.pdf',
+      },
+      {
+        label: 'Public launch support',
+        value: 'Rotary and Budd are active public launches',
+        note: 'Sterling Heights says Rotary Park has a public accessible EZDock launch, and Clinton Township lists a canoe/kayak launch at Budd Park.',
+        sourceUrl: 'https://www.sterlingheights.gov/1434/Canoe-Kayak-the-Clinton-River',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 04161820 at Sterling Heights',
+        note: 'USGS Water Services returned 7.56 ft and 105 cfs at 2026-07-15T15:00:00-05:00 for Clinton River at Sterling Heights, MI.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04161820&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Official warning window',
+        value: '8.0 ft low warning / 10.0 ft high warning',
+        note: 'CRWC uses the Sterling Heights gauge as the lower-river warning check and tells paddlers to assess if the river is running high before launching.',
+        sourceUrl: 'https://www.crwc.org/recreation/paddling',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'CRWC paddling and gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      {
+        label: '2024 Clinton River Water Trail map PDF',
+        url: 'https://pufferfish-dolphin-5bdb.squarespace.com/s/2024-Clinton-River-Watertrail-Map.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Sterling Heights canoe and kayak page',
+        url: 'https://www.sterlingheights.gov/1434/Canoe-Kayak-the-Clinton-River',
+        provider: 'local',
+      },
+      {
+        label: 'Clinton Township Budd Park',
+        url: 'https://www.clintontownship.com/Facilities/Facility/Details/Budd-Park-7',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04161820 Water Services',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04161820&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Michigan Water Trails Clinton River Water Trail',
+        url: 'https://www.michiganwatertrails.org/trail.asp?ait=cv&cid=242',
+        provider: 'local',
+      },
+    ],
+    aliases: [
+      'Clinton River - Rotary Park to Budd Park',
+      'Lower Clinton River Rotary to Budd',
+      'Sterling Heights to Clinton Township Clinton River segment',
+    ],
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'urban_water_quality'],
+      reviewStatus: 'reviewed',
+      safetyNotes: [
+        'Fast rises after rain can push wood, strainers, and bridge-current hazards into this short connector quickly.',
+        'CRWC says high water can carry woody debris and blocked passages downstream, while urban stormwater and sewer-overflow concerns remain part of same-day planning after rain.',
+        'Stay with the Rotary and Budd public launches rather than treating private banks as backups.',
+      ],
+    },
+  },
+  {
     "id": "clinton-river-downtown-utica-budd",
     "slug": "clinton-river-downtown-utica-budd",
     "name": "Clinton River",
@@ -37550,7 +37671,128 @@ export const rivers: River[] = [
       ]
     }
   },
-    {
+      {
+    id: 'clinton-river-budd-shadyside',
+    slug: 'clinton-river-budd-shadyside',
+    name: 'Clinton River',
+    reach: 'Budd Park to Shadyside Park',
+    state: 'Michigan',
+    region: 'Southeast Michigan',
+    summary:
+      'Short beginner-friendly lower Clinton link from Budd Park to Shadyside Park. CRWC explicitly frames this protected lower stretch as the best place for beginners, and the public Budd and Shadyside launches keep the route simple when the Sterling Heights gauge stays out of the warning extremes.',
+    statusText:
+      'Use the Clinton River at Sterling Heights gauge as a conservative downstream proxy. CRWC warns of low water at 8.0 ft and high water at 10.0 ft; the latest official USGS reading available during this run was 7.56 ft and 105 cfs at 2026-07-15T15:00:00-05:00, so expect slower travel and shallower lines.',
+    latitude: 42.586506,
+    longitude: -82.927598,
+    gaugeSource: {
+      id: 'usgs-04161820',
+      provider: 'usgs',
+      siteId: '04161820',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Clinton River at Sterling Heights, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/04161820/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 8,
+      idealMax: 10,
+      tooLow: 8,
+      tooHigh: 10,
+      thresholdSource: {
+        label: 'Clinton River Watershed Council Sterling Heights gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the practical season. The lower Clinton is slower than the upstream Macomb corridor, but rain can still raise current, move wood, and worsen urban water-quality conditions quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'CRWC treats the Budd Park downstream reach as the best beginner stretch on the Clinton, but it is still moving urban river water with wood, strainers, and stormwater caveats.',
+      confidenceNotes:
+        'Confidence is good for a conservative Michigan add: the current CRWC map still places Budd Park at river mile 13.6 and Shadyside Park at river mile 9.2, Clinton Township still lists a canoe/kayak launch at Budd Park, the current Mount Clemens parks page still lists a handicapped-accessible pier with a boat and canoe launch at Shadyside Park, and USGS Water Services returned 7.56 ft and 105 cfs at 2026-07-15T15:00:00-05:00 for the Sterling Heights warning gauge during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Access map',
+        value: 'Budd Park RM 13.6 to Shadyside Park RM 9.2',
+        note: 'The 2024 CRWC water-trail map lists Budd Park and Shadyside Park as public lower-river launches about 4.4 miles apart.',
+        sourceUrl:
+          'https://pufferfish-dolphin-5bdb.squarespace.com/s/2024-Clinton-River-Watertrail-Map.pdf',
+      },
+      {
+        label: 'Beginner lower-river context',
+        value: 'Best stretch for beginners',
+        note: 'CRWC says the lower river from Budd Park in Clinton Township downstream to Mount Clemens is the best stretch for beginners.',
+        sourceUrl: 'https://www.crwc.org/recreation/paddling',
+      },
+      {
+        label: 'Public launches',
+        value: 'Budd Park and Shadyside Park',
+        note: 'Clinton Township lists a canoe/kayak launch at Budd Park, and Mount Clemens says Shadyside Park has a handicapped accessible pier with a boat and canoe launch.',
+        sourceUrl: 'https://www.clintontownship.com/Facilities/Facility/Details/Budd-Park-7',
+      },
+      {
+        label: 'Proxy gauge',
+        value: 'USGS 04161820 at Sterling Heights',
+        note: 'USGS Water Services returned 7.56 ft and 105 cfs at 2026-07-15T15:00:00-05:00 for Clinton River at Sterling Heights, MI. This downstream section uses that same official warning gauge conservatively as a proxy.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04161820&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'CRWC paddling and gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      {
+        label: '2024 Clinton River Water Trail map PDF',
+        url: 'https://pufferfish-dolphin-5bdb.squarespace.com/s/2024-Clinton-River-Watertrail-Map.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Clinton Township Budd Park',
+        url: 'https://www.clintontownship.com/Facilities/Facility/Details/Budd-Park-7',
+        provider: 'local',
+      },
+      {
+        label: 'Mount Clemens city parks',
+        url: 'https://mountclemens.gov/parks/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04161820 Water Services',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04161820&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Michigan Water Trails Clinton River Water Trail',
+        url: 'https://www.michiganwatertrails.org/trail.asp?ait=cv&cid=242',
+        provider: 'local',
+      },
+    ],
+    aliases: [
+      'Clinton River - Budd Park to Shadyside Park',
+      'Lower Clinton River Budd to Shadyside',
+      'Budd Park in Clinton Township to Shadyside Park in Mount Clemens',
+    ],
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'urban_water_quality'],
+      reviewStatus: 'reviewed',
+      safetyNotes: [
+        'This is a slower lower-river route, but rain still brings fast rises, floating wood, and possible blocked passages.',
+        'Urban stormwater and sewer-overflow concerns remain part of same-day judgment after wet weather.',
+        'Use the public Budd and Shadyside launches and inspect the Shadyside finish before launching.',
+      ],
+    },
+  },
+  {
     id: 'clinton-river-macarthur-harley-ensign',
     slug: 'clinton-river-macarthur-harley-ensign',
     name: 'Clinton River',
@@ -37663,6 +37905,128 @@ export const rivers: River[] = [
         provider: 'usgs',
       },
     ],
+  },
+  {
+    id: 'clinton-river-shadyside-macarthur',
+    slug: 'clinton-river-shadyside-macarthur',
+    name: 'Clinton River',
+    reach: 'Shadyside Park to MacArthur Park',
+    state: 'Michigan',
+    region: 'Southeast Michigan',
+    summary:
+      'Very short Mount Clemens lower Clinton link from Shadyside Park to the Neil Dempsey launch at MacArthur Park. The CRWC map and Mount Clemens parks page still support both public endpoints, and this works as a cautious extension below the beginner Budd-to-Shadyside segment.',
+    statusText:
+      'Use the Clinton River at Sterling Heights gauge as a conservative downstream proxy. CRWC warns of low water at 8.0 ft and high water at 10.0 ft; the latest official USGS reading available during this run was 7.56 ft and 105 cfs at 2026-07-15T15:00:00-05:00, so expect slow water, shallow lines, and more landing inspection than speed.',
+    latitude: 42.582529,
+    longitude: -82.880104,
+    gaugeSource: {
+      id: 'usgs-04161820',
+      provider: 'usgs',
+      siteId: '04161820',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Clinton River at Sterling Heights, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/04161820/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 8,
+      idealMax: 10,
+      tooLow: 8,
+      tooHigh: 10,
+      thresholdSource: {
+        label: 'Clinton River Watershed Council Sterling Heights gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the practical season. This short city reach is still sensitive to rain spikes, floating wood, and water-quality issues despite its modest mileage.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mileage is short and the corridor is slower than the open-water mouth section, but the Mount Clemens finish still demands attention to signage, obstructions, and any posted dam or weir warnings.',
+      confidenceNotes:
+        'Confidence is good for a conservative Michigan add: the current CRWC water-trail map still places Shadyside Park at river mile 9.2 and Neil Dempsey at MacArthur Park at river mile 7.2, the current Mount Clemens parks page still says Shadyside has a boat and canoe launch and MacArthur has a universally accessible kayak launch, and USGS Water Services returned 7.56 ft and 105 cfs at 2026-07-15T15:00:00-05:00 for the Sterling Heights warning gauge during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Access map',
+        value: 'Shadyside Park RM 9.2 to Neil Dempsey RM 7.2',
+        note: 'The 2024 CRWC water-trail map lists Shadyside Park and Neil Dempsey at MacArthur Park as consecutive public launches about 2 river miles apart.',
+        sourceUrl:
+          'https://pufferfish-dolphin-5bdb.squarespace.com/s/2024-Clinton-River-Watertrail-Map.pdf',
+      },
+      {
+        label: 'Public launches',
+        value: 'Shadyside Park and MacArthur Park',
+        note: 'Mount Clemens says Shadyside Park has a handicapped accessible pier with a boat and canoe launch, and MacArthur Park has a universally accessible kayak launch.',
+        sourceUrl: 'https://mountclemens.gov/parks/',
+      },
+      {
+        label: 'Proxy gauge',
+        value: 'USGS 04161820 at Sterling Heights',
+        note: 'USGS Water Services returned 7.56 ft and 105 cfs at 2026-07-15T15:00:00-05:00 for Clinton River at Sterling Heights, MI. This lower Mount Clemens reach uses that same official warning gauge conservatively as a proxy.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04161820&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Lower-river context',
+        value: 'Macomb County public launch network',
+        note: 'Macomb County says the main branch of the Clinton River has eight public paddle launches across Utica, Sterling Heights, Clinton Township, Mount Clemens, and Harrison Township.',
+        sourceUrl:
+          'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/trail-network/water-trails/main-branch-clinton-river',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'CRWC paddling and gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      {
+        label: '2024 Clinton River Water Trail map PDF',
+        url: 'https://pufferfish-dolphin-5bdb.squarespace.com/s/2024-Clinton-River-Watertrail-Map.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Mount Clemens city parks',
+        url: 'https://mountclemens.gov/parks/',
+        provider: 'local',
+      },
+      {
+        label: 'Macomb County main branch Clinton River',
+        url: 'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/trail-network/water-trails/main-branch-clinton-river',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04161820 Water Services',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=04161820&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Michigan Water Trails Clinton River Water Trail',
+        url: 'https://www.michiganwatertrails.org/trail.asp?ait=cv&cid=242',
+        provider: 'local',
+      },
+    ],
+    aliases: [
+      'Clinton River - Shadyside Park to MacArthur Park',
+      'Lower Clinton River Shadyside to Neil Dempsey Launch',
+      'Shadyside Park to MacArthur Park in Mount Clemens',
+    ],
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'urban_water_quality'],
+      reviewStatus: 'reviewed',
+      safetyNotes: [
+        'This short lower-city segment still needs a same-day scan for wood, strainers, and any posted Mount Clemens dam or weir warning signage.',
+        'Urban stormwater and sewer-overflow concerns remain part of the call after rain or high water.',
+        'Finish at Neil Dempsey and do not continue toward Lake St. Clair or the lower mouth corridor without a separate wind, waves, and motorboat plan.',
+      ],
+    },
   },
   {
     id: 'green-river-flaming-gorge-dam-little-hole',
