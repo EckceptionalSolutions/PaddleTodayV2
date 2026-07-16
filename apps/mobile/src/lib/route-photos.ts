@@ -366,6 +366,15 @@ const routeGalleryImages: Record<string, string[]> = {
   'buffalo-river-kyles-landing-pruitt': [
     '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
   ],
+  'buffalo-river-steel-creek-hasty': [
+    '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+  ],
+  'buffalo-river-kyles-landing-hasty': [
+    '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+  ],
+  'buffalo-river-erbie-hasty': [
+    '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+  ],
   'buffalo-river-tyler-bend-gilbert': [
     '/gallery/buffalo-river-tyler-bend-gilbert/buffalo-river-gilbert-aerial.jpg',
   ],

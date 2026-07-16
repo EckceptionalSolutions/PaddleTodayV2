@@ -1826,6 +1826,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'NPS asset: public domain',
     },
   ],
+  'buffalo-river-steel-creek-hasty': [
+    {
+      id: 'buffalo-river-steel-hasty-pruitt-commons',
+      src: '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+      alt: 'The Buffalo River flows past Pruitt Landing with wooded Ozark hills above the bank in the same corridor used for the longer Steel Creek to Hasty continuation.',
+      caption: 'Buffalo River at Pruitt Landing',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'buffalo-river-kyles-landing-hasty': [
+    {
+      id: 'buffalo-river-kyles-hasty-pruitt-commons',
+      src: '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+      alt: 'The Buffalo River flows past Pruitt Landing with wooded Ozark hills above the bank in the same corridor used for the longer Kyles Landing to Hasty continuation.',
+      caption: 'Buffalo River at Pruitt Landing',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'buffalo-river-erbie-hasty': [
+    {
+      id: 'buffalo-river-erbie-hasty-pruitt-commons',
+      src: '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+      alt: 'The Buffalo River flows past Pruitt Landing with wooded Ozark hills above the bank in the same corridor used for the Erbie to Hasty continuation.',
+      caption: 'Buffalo River at Pruitt Landing',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
   'buffalo-river-ozark-hasty': [
     {
       id: 'buffalo-river-ozark-hasty-pruitt-commons',

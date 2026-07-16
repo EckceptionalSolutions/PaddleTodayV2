@@ -2,6 +2,18 @@
 
 Last summarized: 2026-07-14 21:15 America/Chicago.
 
+## 2026-07-16 Buffalo Hasty continuation pass
+
+- Rebuilt the live Arkansas inventory from the current repo state before editing. Arkansas had thirty-eight live route objects and matching trip-detail entries at run start, so this follow-up still had to create three genuinely new slugs beyond that baseline.
+- Added `buffalo-river-steel-creek-hasty`, `buffalo-river-kyles-landing-hasty`, and `buffalo-river-erbie-hasty` from the Buffalo National River upper-district access chain.
+- Current source package rechecked live in this run:
+  - The current NPS access mileage chart still supports the combined public mileages of Steel Creek -> Hasty `about 28.0`, Kyle's Landing -> Hasty `about 20.0`, and Erbie -> Hasty `about 14.4`.
+  - The current NPS paddling and weekend-upper-district pages still say the upper Buffalo is rainfall dependent, still describe Steel Creek -> Kyle's Landing as the classic 8-mile wilderness float, and still describe Pruitt -> Hasty as the popular fallback when conditions above Pruitt are too low, with the Hasty take-out on river right across from Chimney Rock Bluff and more current after the Little Buffalo enters.
+  - The current NPS camping and getting-around pages still publish official Steel Creek, Kyles Landing, Erbie, Ozark, and Pruitt access/campground coordinates plus the rough-road and unreliable-GPS warnings that anchor this family's shuttle notes.
+  - Direct USGS Water Services for `07055680` returned `36.9 cfs / 3.21 ft` at `2026-07-15 22:30 CDT` during this Thursday, July 16, 2026 run, so all three routes ship with explicit too-low / scraping-likely framing rather than a normal runnable recommendation.
+- Threshold posture stayed family-consistent. All three new Hasty continuations use the existing Pruitt `minimum-only` `tooLow: 100` model from the NPS-linked Float Guide and keep the NPS `2,000 cfs` unsafe ceiling as a hard caveat rather than a full two-sided range.
+- Image coverage stayed reuse-only: all three new Hasty continuations reuse the approved Commons Pruitt Landing image, and matching rows were added to `docs/river-image-source-audit.csv`.
+
 ## Current Inventory
 
 - Live routes: 38.
