@@ -40082,3 +40082,198 @@ for (const [slug, backfill] of Object.entries(wisconsinTripDetailsBackfill)) {
   if (backfill.campingClassification && !tripDetails.logistics.campingClassification) tripDetails.logistics.campingClassification = backfill.campingClassification;
   if (backfill.accessPoints && !tripDetails.accessPoints?.length) tripDetails.accessPoints = backfill.accessPoints;
 }
+  'blue-river-bluff-bowers': {
+    putIn: {
+      id: 'bluff-road-blue-river-access',
+      name: 'Bluff Road bridge access',
+      latitude: 43.00385,
+      longitude: -90.43648,
+    },
+    takeOut: {
+      id: 'bowers-road-blue-river-access',
+      name: 'Bowers Road / Snow Bottom access',
+      latitude: 43.03144,
+      longitude: -90.46485,
+    },
+    logistics: {
+      distanceLabel: 'About 4.1 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer with low water, scouting, or wood',
+      shuttle:
+        'Stage Bowers Road first, then drive back to Bluff Road. Inspect both bridge-style accesses before launch because this is a small trout stream where footing, parking tolerance, and actual depth matter more than the proxy gauge alone.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules, use only legal bridge or DNR-context access, and obey posted Snow Bottom / fisheries-area rules.',
+      camping:
+        'Treat this as a day route. Wisconsin DNR says camping and campfires are prohibited at Snow Bottom State Natural Area, and no on-route public campsite is assumed upstream of Bowers Road.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Bluff Road and take out at Bowers Road for the short upper Blue River section. Wisconsin River Trips documents the route and ties its practical level notes to the Platte River near Rockville proxy, with Miles Paddled corroborating the Bluff Road GPS and Blue River gauge relationship.',
+      accessCaveats: [
+        'Bluff Road is a bridge-style put-in, not a developed paddling ramp. Confirm legal parking and safe footing before unloading.',
+        'Bowers Road has DNR Snow Bottom parking context, but the take-out still needs same-day scouting from land so the group can identify the clean exit.',
+        'The Platte River at Rockville gauge is only a nearby proxy. Make the final launch call from the Blue River itself.',
+        'Do not assume private banks, farm edges, or trout-stream easements allow paddling breaks or camping.',
+      ],
+      watchFor: [
+        'Low-water scraping and bumpy riffles below the conservative Platte proxy floor.',
+        'Fast bends, low branches, and new strainers after storms.',
+        'Fences, tape, cattle edges, and farm debris if conditions push you downstream or if flood debris has shifted.',
+        'Cold water, wild parsnip, private banks, and limited legal bailout options.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'bluff-road-blue-river-access',
+        name: 'Bluff Road bridge access',
+        latitude: 43.00385,
+        longitude: -90.43648,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Miles Paddled publishes this Bluff Road GPS and WRT documents the exact Bluff-to-Bowers route.',
+      },
+      {
+        id: 'bowers-road-blue-river-access',
+        name: 'Bowers Road / Snow Bottom access',
+        latitude: 43.03144,
+        longitude: -90.46485,
+        mileFromStart: 4.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; DNR describes Bowers Road parking for Snow Bottom and Miles Paddled publishes this coordinate.',
+      },
+    ],
+  },
+  'blue-river-bowers-shemak': {
+    putIn: {
+      id: 'bowers-road-blue-river-access',
+      name: 'Bowers Road / Snow Bottom access',
+      latitude: 43.03144,
+      longitude: -90.46485,
+    },
+    takeOut: {
+      id: 'shemak-road-blue-river-access',
+      name: 'Shemak Road fishing access',
+      latitude: 43.07636,
+      longitude: -90.48361,
+    },
+    logistics: {
+      distanceLabel: 'About 6.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, fences, portages, or fishing-access scouting',
+      shuttle:
+        'Stage Shemak Road first, then drive back to the Bowers Road / Snow Bottom parking area. Use small maneuverable boats and inspect the put-in and take-out because both are small-stream access points, not large concrete ramps.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules, use the Bowers/Shemak public or fishing-access corridor legally, and obey posted DNR Snow Bottom rules.',
+      camping:
+        'Treat this as a day trip. Wisconsin DNR says camping and campfires are prohibited at Snow Bottom State Natural Area, and this route does not assume informal camping on trout-stream banks.',
+      campingClassification: 'none',
+      summary:
+        'Run the Snow Bottom Blue River section from Bowers Road to Shemak Road. Wisconsin DNR describes this as a spring-flow paddle for small kayaks, while Wisconsin River Trips and Miles Paddled provide route-specific access, mileage, hazard, and proxy-gauge context.',
+      accessCaveats: [
+        'The DNR Snow Bottom description supports Bowers-to-Shemak route context, but same-day signage, parking, and launch footing still control the final access decision.',
+        'Shemak Road is a fishing-access style exit. Identify the path and safe landing before launching from Bowers.',
+        'The Platte River near Rockville gauge is a proxy, not a Blue River gauge. If the Blue looks too shallow, muddy, or fast, do not defer to the number.',
+        'Stay on legal public access or signed fishing-easement corridors. Do not treat private banks as rest stops.',
+      ],
+      watchFor: [
+        'Shallow gravel and scraping when the Platte proxy is below the conservative Bowers-to-Shemak floor.',
+        'Fast riffles, tight corners, overhanging branches, and new wood.',
+        'Cattle, tape, fences, or barbed-wire style debris reported on Blue River route extensions.',
+        'Wild parsnip, cold water, private banks, and no legal on-route camping.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'bowers-road-blue-river-access',
+        name: 'Bowers Road / Snow Bottom access',
+        latitude: 43.03144,
+        longitude: -90.46485,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; DNR describes Bowers Road parking for the Snow Bottom paddle and Miles Paddled publishes this coordinate.',
+      },
+      {
+        id: 'shemak-road-blue-river-access',
+        name: 'Shemak Road fishing access',
+        latitude: 43.07636,
+        longitude: -90.48361,
+        mileFromStart: 6.5,
+        segmentKind: 'creek',
+        note: 'Default take-out; Miles Paddled publishes this GPS and describes a well-used fishing-access path with better footing.',
+      },
+    ],
+  },
+  'rush-river-690th-570th': {
+    putIn: {
+      id: '690th-avenue-rush-river-access',
+      name: '690th Avenue Rush River access',
+      latitude: 44.78945,
+      longitude: -92.36515,
+    },
+    takeOut: {
+      id: '570th-avenue-rush-river-access',
+      name: '570th Avenue Rush River access',
+      latitude: 44.743,
+      longitude: -92.3332,
+    },
+    logistics: {
+      distanceLabel: 'About 6.0 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4.5 hr, longer with scouting, low-water walking, or high-water portages',
+      shuttle:
+        'Stage the 570th Avenue take-out first, then drive back to 690th Avenue. Inspect both accesses and at least one mid-route bridge if possible because the Eau Galle gauge is a proxy and the Rush changes quickly after rain.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules, use only named public or signed fishing-easement access, and obey posted trout-stream and road-access restrictions.',
+      camping:
+        'Treat this as a day trip. No route campsite was identified, and streambank easements or fishing paths should not be treated as overnight camping permission.',
+      campingClassification: 'none',
+      summary:
+        'Launch at 690th Avenue and take out at 570th Avenue for the main WRT Rush River day reach. It is a steep trout-stream run with scenic riffles, Class I-II water, and a high-water warning when the Eau Galle proxy climbs above the WRT target band.',
+      accessCaveats: [
+        'Wisconsin River Trips calls both endpoints good accesses, but the 570th Avenue coordinate is resolved to the named crossing/access corridor and should be verified against current parking and signage.',
+        'The old Rush gauge is decommissioned. The Eau Galle River at Spring Valley is a practical proxy, not direct evidence of exact Rush River flow.',
+        'DNR streambank easements are for legal access and angling corridors, not a general license to camp, picnic, or cross private land beyond posted limits.',
+        'Do not continue beyond the planned take-out unless you have separately verified access, hazards, and group skill.',
+      ],
+      watchFor: [
+        'Class I-II ledges and boulder gardens, with County N to County G capable of Class II+ or III character in high water.',
+        'Very low water below the WRT floor, when walking and boat abuse become likely.',
+        'Heavy-rain spikes, pushy current, cold water, and fast strainers in narrow bends.',
+        'Private banks, trout-fishing traffic, limited legal bailout points, and no route camping.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: '690th-avenue-rush-river-access',
+        name: '690th Avenue Rush River access',
+        latitude: 44.78945,
+        longitude: -92.36515,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; WRT describes a great public access with small parking lot and trail, and public access listings resolve this 690th Avenue site coordinate.',
+      },
+      {
+        id: 'el-paso-rush-river-access',
+        name: 'El Paso / County Road N access',
+        latitude: 44.771,
+        longitude: -92.352,
+        mileFromStart: 2.9,
+        segmentKind: 'creek',
+        note: 'Intermediate access named by WRT; verify legal parking and signed public or fishing-easement access before relying on it.',
+      },
+      {
+        id: 'koch-land-rush-river-access',
+        name: 'Koch Land fishing access',
+        latitude: 44.7558,
+        longitude: -92.33974,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Intermediate fishing access near the lower gorge, included for scouting and contingency context.',
+      },
+      {
+        id: '570th-avenue-rush-river-access',
+        name: '570th Avenue Rush River access',
+        latitude: 44.743,
+        longitude: -92.3332,
+        mileFromStart: 6,
+        segmentKind: 'creek',
+        note: 'Default take-out; WRT names 570th Avenue as a great access with parking lot, lawn, and picnic table. Verify exact local signage same day.',
+      },
+    ],
+  },
