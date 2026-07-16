@@ -11,6 +11,14 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Current Pennsylvania candidate ledger rows: 50 implemented rows as of 2026-06-25 UTC.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
+## 2026-07-16 Lower Juniata restore pass
+
+- 2026-07-16 14:45 America/Chicago / 2026-07-16 19:45 UTC: Pennsylvania three-route restoration pass; restored three supported lower Juniata slugs beyond the live repo baseline at run start.
+- Rebuilt the current live baseline from `src/data/rivers.ts` and `src/data/river-trip-details.ts`, then restored `juniata-river-lewistown-narrows-newport`, `juniata-river-mifflintown-muskrat-springs`, and `juniata-river-millerstown-amity-hall` after confirming the route-detail support still existed while the route objects were absent from the live array.
+- Qualification package: the current PFBC lower Juniata guide still publishes exact public access coordinates for Lewistown Narrows, Mifflintown, Muskrat Springs, Millerstown Community Park, Newport, and Amity Hall plus official route-mile spacing of `28`, `10`, and `15` miles and the lower-corridor caution points near miles `33`, `10.5`, `5.5`, and `5`; and current direct USGS Water Services returned same-day July 16, 2026 values of `1,200 cfs / 3.55 ft` at `2026-07-16 13:30 EDT` for Lewistown (`01564895`) plus `1,460 cfs / 3.73 ft` at `2026-07-16 14:15 EDT` for Newport (`01567000`).
+- Camping stayed route-specific: `juniata-river-lewistown-narrows-newport` and `juniata-river-millerstown-amity-hall` remain `on_route_campsite`, while `juniata-river-mifflintown-muskrat-springs` remains `on_route_campsite` because the Mexico corridor campgrounds still provide the clearest legal overnight support.
+- No new gallery asset was added. Existing bounded no-image rows remained valid for `juniata-river-lewistown-narrows-newport` and `juniata-river-millerstown-amity-hall`, and a bounded 2026-07-16 no-image audit row was added for `juniata-river-mifflintown-muskrat-springs`.
+
 ## 2026-07-16 Section 1 and Lower Juniata restore pass
 
 - 2026-07-16 08:35 America/Chicago / 2026-07-16 13:35 UTC: Pennsylvania mixed restoration pass; restored three supported Pennsylvania slugs beyond the live repo baseline at run start.

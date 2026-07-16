@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-16 14:45 America/Chicago / 2026-07-16 19:45 UTC: Pennsylvania three-route restoration pass (`3-new-routes-automation`).
+  - Reused the current route queue after the morning Pennsylvania mixed-state work and stayed internet-first on the official PFBC lower Juniata family because three source-backed lower-corridor slugs still had trip-detail support but were absent from the live route array at run start.
+  - Restored three internet-sourced Pennsylvania routes: `juniata-river-lewistown-narrows-newport`, `juniata-river-mifflintown-muskrat-springs`, and `juniata-river-millerstown-amity-hall`.
+  - Qualification path: the current PFBC lower Juniata guide still documents exact public access coordinates for Lewistown Narrows, Mifflintown, Muskrat Springs, Millerstown Community Park, Newport, and Amity Hall plus official river-mile spacing of `28`, `10`, and `15` miles and the lower-corridor caution points near miles `33`, `10.5`, `5.5`, and `5`; same-day direct USGS Water Services returned `1200 cfs / 3.55 ft` at `2026-07-16 13:30 EDT` for Lewistown (`01564895`) and `1460 cfs / 3.73 ft` at `2026-07-16 14:15 EDT` for Newport (`01567000`).
+  - Reused the existing trip-detail logistics for all three routes and recorded bounded no-image outcomes, adding only the missing audit row for `juniata-river-mifflintown-muskrat-springs`.
+
 - 2026-07-01 19:58 America/Chicago / 2026-07-02 00:58 UTC: Pennsylvania three-route implementation pass (`3-new-routes-automation`).
   - Reused the current route queue after the earlier Pennsylvania lower-Juniata adds and stayed internet-first on the official PFBC lower Juniata family because the access table still had three clean remaining Newport finishes with direct same-day USGS support.
   - Added three internet-sourced Pennsylvania routes: `juniata-river-lewistown-narrows-newport`, `juniata-river-lewistown-narrows-newport`, and `juniata-river-lewistown-narrows-newport`.
