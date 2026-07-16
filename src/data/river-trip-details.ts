@@ -36707,6 +36707,177 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'cannon-river-northfield-byllesby-west': {
+    putIn: {
+      id: 'riverside-city-park-northfield-cannon',
+      name: 'Cannon River, Riverside City Park / Highway 3 Public Water Access Site',
+      latitude: 44.4531293,
+      longitude: -93.1647835,
+    },
+    takeOut: {
+      id: 'lake-byllesby-west-cannon',
+      name: 'Cannon River, Lake Byllesby West Public Water Access Site',
+      latitude: 44.5157797,
+      longitude: -92.9882217,
+    },
+    logistics: {
+      distanceLabel: 'About 11.9 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water or lake wind',
+      shuttle:
+        'Stage Lake Byllesby West first, then drive back to Riverside City Park in Northfield. Confirm both public accesses, reservoir wind, and any Lake Byllesby park or dam-area notices before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted Northfield, county-park, and DNR access rules.',
+      camping:
+        'Treat this as a day route. Cannon River Map 2 says riverbed camping next to private property is not permitted; use only designated or separately reserved park camping around the broader Cannon / Lake Byllesby area.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Riverside City Park in Northfield and take out at Lake Byllesby West for the middle-Cannon gap above the dam. The Northfield DNR gauge is at the put-in and the trip should end before any Lake Byllesby Dam continuation.',
+      accessCaveats: [
+        'Riverside City Park / Highway 3 resolves as WAS01379 at river mile 42.1 and Lake Byllesby West resolves as WAS01693 at river mile 30.3 in Minnesota public-water-access GIS.',
+        'Lake Byllesby West is the selected stop for this card. The downstream Lake Byllesby East / dam-area launch belongs to a separate lower-Cannon route.',
+        'Wind and small waves on Lake Byllesby can slow the final approach even when the river current was useful upstream.',
+      ],
+      watchFor: [
+        'Shallow bars, scraping, and slower travel as the Northfield gauge drops toward the official low and scrapable bands.',
+        'Fresh wood, blind-bend strainers, private banks, and faster debris-rich current after heavy rain.',
+        'Lake Byllesby Dam awareness, reservoir wind, and avoiding a casual downstream extension toward the dam.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'riverside-city-park-northfield-cannon',
+        name: 'Cannon River, Riverside City Park / Highway 3 Public Water Access Site',
+        latitude: 44.4531293,
+        longitude: -93.1647835,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01379 at river mile 42.1.',
+      },
+      {
+        id: 'lake-byllesby-west-cannon',
+        name: 'Cannon River, Lake Byllesby West Public Water Access Site',
+        latitude: 44.5157797,
+        longitude: -92.9882217,
+        mileFromStart: 11.9,
+        segmentKind: 'creek',
+        note: 'Default take-out above Lake Byllesby Dam; resolves as WAS01693 at river mile 30.3.',
+      },
+    ],
+  },
+  'straight-river-county-road-45-medford': {
+    putIn: {
+      id: 'county-road-45-straight-river',
+      name: 'Straight River, County Road 45 Public Water Access Site',
+      latitude: 44.1484502,
+      longitude: -93.2438302,
+    },
+    takeOut: {
+      id: 'medford-city-park-straight-river',
+      name: 'Straight River, Medford Public Water Access Site',
+      latitude: 44.1775975,
+      longitude: -93.2490711,
+    },
+    logistics: {
+      distanceLabel: 'About 3.7 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with low water or wood',
+      shuttle:
+        'Stage Medford City Park first, then drive back to the County Road 45 access. This is a short shuttle, but inspect both landings because narrow-river wood or low water can quickly decide whether the route is worth running.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted Steele County, City of Medford, and DNR access rules.',
+      camping:
+        'No on-route camping is documented for this short Straight River connector. Treat it as a day paddle and use separate lodging or campground plans.',
+      campingClassification: 'none',
+      summary:
+        'Launch at County Road 45 and take out at Medford City Park for the short Straight River split below Clinton Falls. Use the downstream Faribault DNR gauge as a conservative proxy and make a visual call at the put-in.',
+      accessCaveats: [
+        'County Road 45 resolves as WAS02043 at river mile 20.8 and Medford resolves as WAS02042 at river mile 17.2 in Minnesota public-water-access GIS.',
+        'This card starts below the Clinton Falls portage area and ends before the downstream former Walcott Mill Dam / Kroghs route. Do not stretch either direction without a separate plan.',
+        'The Faribault gauge is downstream of the selected reach, so local shallow spots or wood at County Road 45 can make the route unsuitable even when the gauge is in the official medium band.',
+      ],
+      watchFor: [
+        'Fresh strainers, narrow bends, shallow riffles, and cold water in shoulder seasons.',
+        'Fast rises and pushier current after rain on a small, responsive watershed.',
+        'Private banks and road-adjacent access constraints; use only legal public access points.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-road-45-straight-river',
+        name: 'Straight River, County Road 45 Public Water Access Site',
+        latitude: 44.1484502,
+        longitude: -93.2438302,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02043 at river mile 20.8.',
+      },
+      {
+        id: 'medford-city-park-straight-river',
+        name: 'Straight River, Medford Public Water Access Site',
+        latitude: 44.1775975,
+        longitude: -93.2490711,
+        mileFromStart: 3.7,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02042 at river mile 17.2.',
+      },
+    ],
+  },
+  'watonwan-river-madelia-county-road-32': {
+    putIn: {
+      id: 'madelia-watonwan',
+      name: 'Watonwan River, Madelia Public Water Access Site',
+      latitude: 44.0393631,
+      longitude: -94.4224647,
+    },
+    takeOut: {
+      id: 'county-road-32-watonwan',
+      name: 'Watonwan River, County Road 32 Public Water Access Site',
+      latitude: 44.0041578,
+      longitude: -94.2886309,
+    },
+    logistics: {
+      distanceLabel: 'About 12.6 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer in low water',
+      shuttle:
+        'Stage County Road 32 first, then drive back to the Madelia public access. Because the Garden City gauge is downstream and currently near the scrapable floor, inspect the Madelia landing and first riffles before leaving a vehicle.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted city, county, and DNR access rules.',
+      camping:
+        'No on-route camping is documented for Madelia to County Road 32. Treat this as a day route; the downstream Blue Earth County Fair campground is not part of this selected segment.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Madelia and take out at County Road 32 for the upstream Watonwan split above the existing CR32-to-Garden-City cards. Use the downstream Garden City gauge conservatively and expect shallow conditions near the low band.',
+      accessCaveats: [
+        'Madelia resolves as WAS00009 at river mile 47.6 and County Road 32 resolves as WAS00214 at river mile 35.0 in Minnesota public-water-access GIS.',
+        'The Garden City gauge is downstream of this route, so it must be paired with visual checks at the Madelia put-in and County Road 32 take-out.',
+        'This card ends at County Road 32. Downstream CR32-to-Garden-City route cards are separate plans, and the lower river below Garden City remains affected by the Rapidan Dam failure warning.',
+      ],
+      watchFor: [
+        'Low-water scraping, shallow riffles, muddy banks, and possible dragging when Garden City is near the official scrapable floor.',
+        'Occasional snags, fresh farm-country wood, and faster post-rain current even though the Watonwan has no major rapids.',
+        'Private banks and limited public exits between Madelia and County Road 32.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'madelia-watonwan',
+        name: 'Watonwan River, Madelia Public Water Access Site',
+        latitude: 44.0393631,
+        longitude: -94.4224647,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00009 at river mile 47.6.',
+      },
+      {
+        id: 'county-road-32-watonwan',
+        name: 'Watonwan River, County Road 32 Public Water Access Site',
+        latitude: 44.0041578,
+        longitude: -94.2886309,
+        mileFromStart: 12.6,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00214 at river mile 35.0.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {

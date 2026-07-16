@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-16 00:05 America/Chicago.
+Last summarized: 2026-07-16 08:14 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 177 after the 2026-07-16 00:05 St. Croix Map 7 pass.
-- Top represented rivers: Mississippi River 35, Minnesota River 12, Rum River 7, Sauk River 7, St. Croix River 7, Big Fork River 6, North Fork Crow River 6, Red Lake River 6, Root River 6, Zumbro River 6, Cannon River 5, Crow Wing River 5, Red River of the North 5, Little Fork River 4, Otter Tail River 4, Pomme de Terre River 4, Snake River 4, St. Louis River 4, Straight River 4, Cedar River 3, Cloquet River 3, Cottonwood River 3, Des Moines River 3, Long Prairie River 3, Pine River 3, Redwood River 3, Blue Earth River 2, Chippewa River 2, Kettle River 2, Shell Rock River 2, South Fork Crow River 2, Watonwan River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, and Vermilion River.
-- Ledger candidates: 989 total; 606 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
+- Live routes: 183 after the 2026-07-16 08:14 Cannon / Straight / Watonwan pass.
+- Top represented rivers: Mississippi River 35, Minnesota River 12, Root River 7, Rum River 7, Sauk River 7, St. Croix River 7, Big Fork River 6, Cannon River 6, North Fork Crow River 6, Red Lake River 6, Zumbro River 6, Crow Wing River 5, Red River of the North 5, Straight River 5, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, St. Louis River 4, Cedar River 3, Cloquet River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, Vermilion River, and Whitewater River.
+- Ledger candidates: 1001 total; 618 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-16 08:14 America/Chicago / 2026-07-16 13:14 UTC: added `cannon-river-northfield-byllesby-west`, `straight-river-county-road-45-medford`, and `watonwan-river-madelia-county-road-32`.
+- Baseline at run start was 180 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 183 and fill three non-overlapping public-access gaps: Northfield-to-Lake-Byllesby-West above the existing lower Cannon card, County-Road-45-to-Medford between existing Straight cards, and Madelia-to-County-Road-32 above the existing Watonwan chain.
+- Qualification path: MN DNR Cannon Map 2 plus Minnesota public-water-access GIS resolves Riverside City Park `WAS01379` and Lake Byllesby West `WAS01693`; MN DNR Cannon/Straight Map 1 plus public-water-access GIS resolves County Road 45 `WAS02043` and Medford `WAS02042`; MN DNR Blue Earth/Watonwan Map 1 plus public-water-access GIS resolves Madelia `WAS00009` and County Road 32 `WAS00214`.
+- Live gauge verification: MN DNR site `16` at Northfield returned `464 cfs` at 2026-07-16 06:45 CDT, inside the official medium band; site `247` near Faribault returned `387 cfs` at 2026-07-15 14:15 CDT, inside the official medium band; site `254` near Garden City returned `2.03 ft` at 2026-07-15 14:30 CDT, just above the official scrapable floor.
+- Implemented official DNR gauge models: Cannon Northfield `88 / 202-2,730 / 3,710 cfs`; Straight Faribault `182 / 220-1,370 / 1,640 cfs` as a downstream proxy; and Watonwan Garden City `2.0 / 3.5-4.5 / 5.2 ft` as a downstream proxy with low-water caveats.
+- Camping posture: all three are no-camping day routes. Cannon flags Lake Byllesby Dam/no-continuation, reservoir wind, private banks, and designated-camping-only rules. Straight flags proxy-gauge, no upstream Clinton-Falls extension, no downstream Walcott/Kroghs extension, cold water, wood, and private banks. Watonwan flags low/scrapable current, downstream proxy gauge, snags, private banks, and no continuation toward the lower Rapidan Dam failure warning zone.
+- No route-gallery images were added. Image audit rows record bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add St. Croix variants because Minnesota/Wisconsin coverage already represents the corridor, upper Red Lake because the Thief River Falls gauge remains stale, Long Prairie lake connectors because endpoint/gauge support remains weaker, or Vermilion Shively extensions because upstream whitewater/portage exposure remains higher than the already-live Twomile-to-Eightmile card.
 
 - 2026-07-16 00:05 America/Chicago / 2026-07-16 05:05 UTC: added `st-croix-river-highway-70-stevens-creek`, `st-croix-river-stevens-creek-sunrise`, and `st-croix-river-sunrise-wild-river`.
 - Baseline at run start was 174 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 177 and split the previously rejected broad Highway-70-to-Highway-8 St. Croix idea into practical above-dam Map 7 day routes.
