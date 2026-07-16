@@ -35593,6 +35593,209 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
 type WisconsinTripDetailsBackfill = {
   campingClassification?: NonNullable<RiverTripDetails['logistics']['campingClassification']>;
   accessPoints?: NonNullable<RiverTripDetails['accessPoints']>;
+  'manitowoc-river-clark-mills-north-union': {
+    putIn: {
+      id: 'clark-mills-mill-street-landing',
+      name: 'Clark Mills / Mill Street Landing',
+      latitude: 44.0934262,
+      longitude: -87.8632856,
+    },
+    takeOut: {
+      id: 'north-union-road-manitowoc',
+      name: 'North Union Road take-out',
+      latitude: 44.1117546,
+      longitude: -87.7812451,
+    },
+    logistics: {
+      distanceLabel: 'About 6.1 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, plus scout or portage time at Lower Cato Falls',
+      shuttle:
+        'Use a two-car shuttle between Clark Mills and North Union Road. Stage North Union first so the roadside exit is obvious from the water and the group does not drift into the much longer lower continuation by mistake.',
+      permits:
+        'No route-specific paddling permit is known. Launch below the Clark Mills dam from the public landing area, park legally at North Union Road, and follow posted county or township rules.',
+      camping:
+        'No on-route camping is documented. Treat this as a day route; use separate Manitowoc County or private campground plans only after checking current rules.',
+      campingClassification: 'none',
+      summary:
+        'Launch below the Clark Mills dam and paddle the fast Manitowoc River to North Union Road. The route is short but serious enough for skilled paddlers because Lower Cato Falls, boulder gardens, cold water, and same-day gauge checks matter.',
+      accessCaveats: [
+        'Launch downstream of the Clark Mills dam rather than from the impoundment or dam structure.',
+        'North Union Road is the planned exit. WRT notes the next practical take-out is far downstream, so identify the bridge and landing before launching.',
+        'The Manitowoc gauge is downstream. Pair the number with a visual check at Clark Mills, Lower Cato Falls, and North Union.',
+      ],
+      watchFor: [
+        'Lower Cato Falls, a Class III ledge that should be scouted or portaged unless the group intentionally plans to run it.',
+        'Continuous riffles, Class I-II boulder gardens, strainers, cold water, and pushier current above the normal route window.',
+        'Private banks, agricultural runoff after rain, and limited clean bailout points between bridges.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'clark-mills-mill-street-landing',
+        name: 'Clark Mills / Mill Street Landing',
+        latitude: 44.0934262,
+        longitude: -87.8632856,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below the Clark Mills dam.',
+      },
+      {
+        id: 'lower-cato-falls',
+        name: 'Lower Cato Falls scout / portage',
+        latitude: 44.1060518,
+        longitude: -87.8575427,
+        mileFromStart: 1.1,
+        segmentKind: 'creek',
+        note: 'Class III ledge; scout and portage when the line, flow, or group skill is questionable.',
+      },
+      {
+        id: 'north-union-road-manitowoc',
+        name: 'North Union Road take-out',
+        latitude: 44.1117546,
+        longitude: -87.7812451,
+        mileFromStart: 6.1,
+        segmentKind: 'creek',
+        note: 'Default take-out before the much longer lower Manitowoc continuation.',
+      },
+    ],
+  },
+  'manitowoc-river-north-union-mill-road': {
+    putIn: {
+      id: 'north-union-road-manitowoc',
+      name: 'North Union Road put-in',
+      latitude: 44.1117546,
+      longitude: -87.7812451,
+    },
+    takeOut: {
+      id: 'manitowoc-river-public-access-mill-road',
+      name: 'Manitowoc River Public Access / Mill Road',
+      latitude: 44.09673,
+      longitude: -87.70258,
+    },
+    logistics: {
+      distanceLabel: 'About 10.25 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer at low water or with scouting',
+      shuttle:
+        'Stage the Mill Road public access first, then use North Union Road as the shortened put-in for the lower Manitowoc. This is a long swiftwater day, so avoid late starts and make sure the group is not expecting a casual float.',
+      permits:
+        'No route-specific paddling permit is known. Use legal roadside staging at North Union and the public access park at Mill Road; do not count on Michigan Avenue as a planned exit.',
+      camping:
+        'No on-route camping is documented for this lower Manitowoc day route. Treat it as a day paddle with a firm shuttle plan.',
+      campingClassification: 'none',
+      summary:
+        'Put in at North Union Road and paddle the lower Manitowoc to the Mill Road public access park. This continuation avoids duplicating the Clark Mills upper card and focuses on the long swiftwater run, I-43 boulder gardens, and direct lower-river gauge.',
+      accessCaveats: [
+        'North Union is a roadside access rather than a developed launch; inspect slope, parking, and traffic before unloading.',
+        'Michigan Avenue is a gauge and bridge landmark, but WRT describes it as a sketchier take-out. Plan to finish at Mill Road unless conditions force an early exit.',
+        'The lower Manitowoc gauge is near the route, but low water can still expose long boulder gardens and high water can make rapids pushier than expected.',
+      ],
+      watchFor: [
+        'Long mileage, fatigue, and limited easy exits before Mill Road.',
+        'Class I-II boulder gardens, especially near the I-43 corridor, plus blind bends and strainers.',
+        'Cold water, private banks, agricultural runoff or dirty water after storms, and high-water swiftwater consequences.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'north-union-road-manitowoc',
+        name: 'North Union Road put-in',
+        latitude: 44.1117546,
+        longitude: -87.7812451,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Shortened lower-route put-in documented by Miles Paddled and WRT continuation context.',
+      },
+      {
+        id: 'michigan-avenue-manitowoc-gauge',
+        name: 'Michigan Avenue / USGS gauge area',
+        latitude: 44.1061667,
+        longitude: -87.7160278,
+        mileFromStart: 8.9,
+        segmentKind: 'creek',
+        note: 'Gauge and bridge landmark; not the default take-out.',
+      },
+      {
+        id: 'manitowoc-river-public-access-mill-road',
+        name: 'Manitowoc River Public Access / Mill Road',
+        latitude: 44.09673,
+        longitude: -87.70258,
+        mileFromStart: 10.25,
+        segmentKind: 'creek',
+        note: 'Default public access park take-out.',
+      },
+    ],
+  },
+  'spirit-river-squaw-creek-hwy-o': {
+    putIn: {
+      id: 'spirit-falls-avenue-squaw-creek',
+      name: 'Spirit Falls Avenue / Squaw Creek bridge access',
+      latitude: 45.4401068,
+      longitude: -89.9705058,
+    },
+    takeOut: {
+      id: 'spirit-river-hwy-o-access',
+      name: 'Highway O / New Wood Road bridge access',
+      latitude: 45.4479142,
+      longitude: -89.8783347,
+    },
+    logistics: {
+      distanceLabel: 'About 7.6 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with beaver-dam portages or flowage wind',
+      shuttle:
+        'Stage the Highway O / New Wood Road take-out first, then launch at Spirit Falls Avenue by Squaw Creek. This card intentionally starts below Spirit Falls to avoid the Bridge Road boulder gauntlet and Class III drop.',
+      permits:
+        'No route-specific paddling permit is known. Use only legal bridge/access shoulders, do not block roads or private drives, and follow posted flowage or county rules.',
+      camping:
+        'No on-route camping is documented for this access pair. Treat it as a remote day route and use separate nearby campground or lodging plans only after checking current rules.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Spirit Falls Avenue / Squaw Creek and paddle the Spirit River to Highway O. The route trades the dangerous Spirit Falls upper gauntlet for a still-remote day with boulder gardens, beaver dams, possible wood, and flowage navigation.',
+      accessCaveats: [
+        'Do not start from Bridge Road for this card; WRT advises most paddlers to skip the Spirit Falls boulder field and launch at Spirit Falls Avenue / Squaw Creek instead.',
+        'New Wood Road is a rough public access and possible bailout, not the default finish. Verify it before relying on it.',
+        'Highway O has a sandy trail to the shoreline; inspect the take-out during the shuttle because wind and flowage levels can change the landing feel.',
+      ],
+      watchFor: [
+        'At least one beaver-dam portage, possible fresh wood, and shallow boulder gardens above the flowage.',
+        'Open-water wind, side bays, poor cell reception, and navigation mistakes on the upper Spirit Flowage.',
+        'Cold water, remote banks, hunting-season traffic/noise, and higher flows that can make the excluded Spirit Falls section dangerous upstream.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'spirit-falls-avenue-squaw-creek',
+        name: 'Spirit Falls Avenue / Squaw Creek bridge access',
+        latitude: 45.4401068,
+        longitude: -89.9705058,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below the rough Spirit Falls boulder field.',
+      },
+      {
+        id: 'spirit-river-new-wood-road-access',
+        name: 'New Wood Road rough access',
+        latitude: 45.4429,
+        longitude: -89.9072,
+        mileFromStart: 5.9,
+        segmentKind: 'creek',
+        note: 'Rough public access and possible bailout before the lake-like finish.',
+      },
+      {
+        id: 'spirit-river-hwy-o-access',
+        name: 'Highway O / New Wood Road bridge access',
+        latitude: 45.4479142,
+        longitude: -89.8783347,
+        mileFromStart: 7.6,
+        segmentKind: 'creek',
+        note: 'Default take-out northeast of the bridge.',
+      },
+    ],
+  },
+};
+
+type WisconsinTripDetailsBackfill = {
+  campingClassification?: NonNullable<RiverTripDetails['logistics']['campingClassification']>;
+  accessPoints?: NonNullable<RiverTripDetails['accessPoints']>;
 };
 
 const wisconsinTripDetailsBackfill: Record<string, WisconsinTripDetailsBackfill> = {

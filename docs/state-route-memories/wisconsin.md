@@ -1,18 +1,26 @@
 # Wisconsin Route Memory
 
-Last summarized: 2026-07-15.
+Last summarized: 2026-07-15 America/Chicago / 2026-07-16 UTC.
 
 ## Current Inventory
 
-- Live routes: 142.
-- Top represented rivers: Wisconsin River 15, Baraboo River 5, Milwaukee River 5, Peshtigo River 5, St. Croix River 5, Sugar River 5, Wolf River 5, Bois Brule River 4, Chippewa River 4, Eau Claire River 4, Kickapoo River 4, Namekagon River 4, Pine River 4, Rock River 4, Big Rib River 3, Black River 3, Brule River 3, Crawfish River 3, East Branch Pecatonica River 3, Fox River 3, Grant River 3, La Crosse River 3, Mecan River 3, Platte River 3, Popple River 3, Sheboygan River 3, South Fork Flambeau River 3.
-- Ledger candidates: 135 Wisconsin candidates tracked; 125 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 4 `rejected`.
+- Live routes: 151.
+- Top represented rivers: Wisconsin River 15, Black River 6, Baraboo River 5, Milwaukee River 5, Peshtigo River 5, Rock River 5, St. Croix River 5, Sugar River 5, Wolf River 5, Bois Brule River 4, Chippewa River 4, Eau Claire River 4, Kickapoo River 4, Namekagon River 4, Pine River 4, Big Rib River 3, Brule River 3, Crawfish River 3, East Branch Pecatonica River 3, Fox River 3, Grant River 3, La Crosse River 3, Mecan River 3, Platte River 3, Popple River 3, Prairie River 3, Sheboygan River 3, South Fork Flambeau River 3, Badfish Creek 2, Bark River 2.
+- Ledger candidates: 146 Wisconsin candidates tracked; 137 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 3 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago run added three routes beyond the 139-route baseline: `sheboygan-river-johnsonville-dassow`, `sheboygan-river-rochester-esslingen`, and `sheboygan-river-esslingen-kiwanis`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-15 America/Chicago / 2026-07-16 UTC run added three routes beyond the 148-route baseline: `manitowoc-river-clark-mills-north-union`, `manitowoc-river-north-union-mill-road`, and `spirit-river-squaw-creek-hwy-o`.
 
 ## Latest Audit
+
+- 2026-07-15 23:13 America/Chicago / 2026-07-16 04:13 UTC: added `manitowoc-river-clark-mills-north-union`, `manitowoc-river-north-union-mill-road`, and `spirit-river-squaw-creek-hwy-o`, bringing the live Wisconsin route count from the run-start baseline of 148 to 151.
+- The Manitowoc cards fill two distinct segments below Clark Mills: Clark-Mills-to-North-Union is a short whitewater/dells card with Lower Cato Falls scout-or-portage posture, while North-Union-to-Mill-Road is a longer lower-Manitowoc continuation with direct lower-gauge support and Mill Road public access. The Spirit card adds a new family but starts below Spirit Falls at Squaw Creek to avoid reviving the Class III falls / boulder-gauntlet start.
+- Live gauge verification: USGS Water Services returned Manitowoc River at Manitowoc `04085427` at `45.3 cfs / 4.27 ft` at 2026-07-15 22:00 CDT, below both Manitowoc selected floors/windows. Spirit River at Spirit Falls `05393500` returned `10.9 cfs / 1.31 ft` at 2026-07-15 22:30 CDT, inside the selected below-Squaw-Creek WRT band.
+- Threshold posture: Clark-Mills-to-North-Union uses WRT's Manitowoc ladder with `101-300 cfs` useful, `60 cfs` too-low, and `401+ cfs` high/whitewater-only. North-Union-to-Mill-Road uses Miles Paddled's lower-Manitowoc guidance as a minimum-only `250 cfs` floor without inventing an upper cutoff. Spirit Squaw-Creek-to-Hwy-O uses WRT's below-Squaw-Creek guide with `0-40 cfs` as the selected low-to-fine window and `81+ cfs` as possible flood-stage water.
+- Safety/logistics added: Clark-Mills-to-North-Union carries dam-below-launch, Lower Cato Falls Class III scout/portage, boulder, cold-water, private-bank, downstream-proxy, and no-camping caveats. North-Union-to-Mill-Road carries long-day, I-43 boulder-garden, strainer, runoff/high-water, private-bank, direct-gauge, and no-camping caveats. Spirit carries excluded-falls, beaver-dam, fresh-wood, flowage-wind/navigation, remote-rescue, cold-water, bridge-access, and no-camping caveats.
+- Bounded image review found Wisconsin River Trips / Miles Paddled / USGS / Commons / same-route leads, but no clearly rights-clean exact-route paddling/gallery asset selected for the three new cards; no-image rows were added to the image audit.
+- Reviewed prompt and memory leads again: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica are already live; Black Earth Creek Cross Plains-to-Salmo Pond remains blocked by unresolved obstruction evidence; Fond du Lac Rogersville-to-Benson was held because the east/west Rogersville endpoint support conflicts; White River was held because American Whitewater warns the Jackson Creek proxy often correlates poorly due Geneva Lake regulation.
 
 - 2026-07-15 America/Chicago: added `sheboygan-river-johnsonville-dassow`, `sheboygan-river-rochester-esslingen`, and `sheboygan-river-esslingen-kiwanis`, bringing the live Wisconsin route count from the run-start baseline of 139 to 142.
 - The three routes introduce a new Sheboygan River family instead of expanding an already-saturated corridor. Johnsonville-to-Dassow uses Wisconsin River Trips exact-route support, Miles Paddled endpoint coordinates, the county-backed Sheboygan River Water Trail access-planning context, and downstream USGS `04086000` as a conservative same-river proxy. Rochester-to-Esslingen uses Wisconsin River Trips' Kohler route page, Miles Paddled lower-Sheboygan context, Sheboygan County park support, and the same downstream gauge. Esslingen-to-Kiwanis uses Wisconsin River Trips' lower split, Miles Paddled lower-route threshold guidance, City of Sheboygan Kiwanis Park kayak-launch support, and the water trail.
