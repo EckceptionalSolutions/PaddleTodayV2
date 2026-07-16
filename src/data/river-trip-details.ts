@@ -11057,6 +11057,189 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'neshota-west-twin-zander-hwy-147': {
+    putIn: {
+      name: 'Zander Road put-in',
+      latitude: 44.312401,
+      longitude: -87.759499,
+    },
+    takeOut: {
+      name: 'Highway 147 take-out',
+      latitude: 44.276402,
+      longitude: -87.756203,
+    },
+    logistics: {
+      distanceLabel: '3.5 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, plus scouting or portage time',
+      shuttle:
+        'Run a short rural shuttle from Highway 147 to Zander Road. Inspect both bridge access points first because parking, snowbanks, farm traffic, and water level can make a normally simple roadside launch impractical.',
+      permits:
+        'No route-specific paddling permit is known. Use only legal public road right-of-way or posted access points, avoid blocking bridges or drives, and do not scout or portage across private banks without permission.',
+      camping:
+        'No on-route camping is documented for this short whitewater reach. Treat it as a day run; use separate Manitowoc County or private campground plans only after checking current rules.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Zander Road and take out at Highway 147 for the Neshota / West Twin whitewater reach documented by American Whitewater. The Kewaunee gauge is a source-tied proxy, so local visual checks matter as much as the number.',
+      accessCaveats: [
+        'Zander Road and Highway 147 are AW-mapped access points, but the sources do not describe developed launches. Scout parking and bank conditions before unloading.',
+        'The route shares hazard features with the Devils River confluence area, including ledges, a ford, and Unfound Falls. Identify scout or portage options from legal access only.',
+        'The Kewaunee gauge is downstream in the watershed rather than on this exact small stream. If bridge depth looks inconsistent with the gauge, skip the run.',
+      ],
+      watchFor: [
+        'Nachtwey Road falls, dells constrictions, Hunter\'s Ledge, Devils Meet Ledges, the ford, and Unfound Falls.',
+        'Fresh strainers, low branches, private banks, cold water, and fast changes after rain or snowmelt.',
+        'Very low water below the 200 cfs AW floor and powerful ledge hydraulics near the top of the runnable band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'zander-road-west-twin-access',
+        name: 'Zander Road put-in',
+        latitude: 44.312401,
+        longitude: -87.759499,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default AW put-in coordinate.',
+      },
+      {
+        id: 'unfound-falls-west-twin',
+        name: 'Unfound Falls',
+        latitude: 44.2886009,
+        longitude: -87.7733002,
+        mileFromStart: 2.2,
+        segmentKind: 'creek',
+        note: 'Named AW hazard and scout/portage decision point.',
+      },
+      {
+        id: 'highway-147-west-twin-access',
+        name: 'Highway 147 take-out',
+        latitude: 44.276402,
+        longitude: -87.756203,
+        mileFromStart: 3.5,
+        segmentKind: 'creek',
+        note: 'Default AW take-out coordinate.',
+      },
+    ],
+  },
+  'bower-creek-fonferek-falls-tordeur': {
+    putIn: {
+      name: 'Fonferek Falls downstream put-in',
+      latitude: 44.424692,
+      longitude: -87.939321,
+    },
+    takeOut: {
+      name: 'Highway V / Tordeur Court take-out',
+      latitude: 44.448101,
+      longitude: -87.973701,
+    },
+    logistics: {
+      distanceLabel: '4.3 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, plus mandatory scouting time',
+      shuttle:
+        'Stage Tordeur Court first, then drive to the Fonferek Falls park-area put-in. Scout the opening quarter to half mile before launching because AW warns it has very few eddies and can be blocked by one fallen tree.',
+      permits:
+        'No route-specific paddling permit is known. Follow Brown County park rules around Fonferek Falls, use only legal shoulder parking at Tordeur Court, and do not scout, portage, or stop on private banks without permission.',
+      camping:
+        'No on-route camping is documented. Treat Bower Creek as a short whitewater day run; nearby public or private camping must be planned separately.',
+      campingClassification: 'none',
+      summary:
+        'Put in below Fonferek Falls and run Bower Creek to Tordeur Court. The route is short but serious, with shallow bedrock, blind bends, deadfall, private-bank exposure, and a proxy gauge that must be checked against local water level.',
+      accessCaveats: [
+        'The AW recommended put-in is below Fonferek Falls. The falls itself has a shallow landing pool and is not part of the default PaddleToday line.',
+        'The old Bower Creek staff gauge at County MM is not online. Use the Dutchman Creek proxy only with a same-day visual/staff-gauge check.',
+        'The creek passes private-property and golf-course corridors. Stay in the channel except at legal scout/portage/take-out locations.',
+      ],
+      watchFor: [
+        'Opening bedrock slides, Skylight Ledge, Blind Left Bend, braided deadfall, and boulder waves.',
+        'Full-channel wood blocks that can appear after storms; AW recommends scouting the opening sequence before putting in.',
+        'Cold water, shallow slab-rock swims, fast rises, private banks, and limited rescue room in the narrow corridor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'fonferek-falls-bower-creek-putin',
+        name: 'Fonferek Falls downstream put-in',
+        latitude: 44.424692,
+        longitude: -87.939321,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default AW put-in below Fonferek Falls.',
+      },
+      {
+        id: 'blind-left-bend-bower-creek',
+        name: 'Blind Left Bend',
+        latitude: 44.4264984,
+        longitude: -87.9389038,
+        mileFromStart: 0.2,
+        segmentKind: 'creek',
+        note: 'Scout-sensitive bend in the opening sequence.',
+      },
+      {
+        id: 'tordeur-court-bower-creek-takeout',
+        name: 'Highway V / Tordeur Court take-out',
+        latitude: 44.448101,
+        longitude: -87.973701,
+        mileFromStart: 4.3,
+        segmentKind: 'creek',
+        note: 'Default AW take-out where the creek comes alongside Tordeur Court.',
+      },
+    ],
+  },
+  'apple-river-somerset-pnp': {
+    putIn: {
+      name: 'Somerset park put-in',
+      latitude: 45.1286125,
+      longitude: -92.678833,
+    },
+    takeOut: {
+      name: 'Somerset park take-out',
+      latitude: 45.1361885,
+      longitude: -92.6841888,
+    },
+    logistics: {
+      distanceLabel: 'About 0.6 mi',
+      estimatedPaddleTime: 'Short park-and-play session; allow time for laps, scouting, and crowd management',
+      shuttle:
+        'This is a short Somerset park reach, so a full vehicle shuttle may not be needed for groups treating it as park-and-play. If paddling through once, identify the take-out before launching and do not drift downstream without a separate plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow Village of Somerset or park rules, avoid interfering with tubers or anglers, and use only legal public access and parking.',
+      camping:
+        'No on-route camping is documented for the park play reach. Commercial and private Apple River camping in the Somerset area is separate from this route and must be reserved under its own rules.',
+      campingClassification: 'none',
+      summary:
+        'Use the Somerset park put-in and take-out for a compact Apple River Class I-II whitewater session. The direct USGS park gauge was in AW low-runnable range during review, but the card is intentionally scoped as a short whitewater feature, not a downstream day trip.',
+      accessCaveats: [
+        'The AW take-out coordinate is close to the park reach and may be used as a short run exit or session boundary; scout it from land before launching.',
+        'This area can have heavy seasonal tubing and park traffic. Avoid crowded or conflicting use windows.',
+        'Do not continue into downstream private-bank, backwater, or dam-influenced areas without separate current local information.',
+      ],
+      watchFor: [
+        'Bridge waves, small ledges or riffles, tubers, swimmers, anglers, and short recovery windows.',
+        'High or rising water above AW guidance, cold water, and fast current that can make a short feature more consequential.',
+        'Access changes from park events, local closures, or high-water cleanup.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'apple-river-somerset-putin',
+        name: 'Somerset park put-in',
+        latitude: 45.1286125,
+        longitude: -92.678833,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default AW put-in near the direct USGS gauge.',
+      },
+      {
+        id: 'apple-river-somerset-takeout',
+        name: 'Somerset park take-out',
+        latitude: 45.1361885,
+        longitude: -92.6841888,
+        mileFromStart: 0.6,
+        segmentKind: 'creek',
+        note: 'Default AW take-out coordinate for the short play reach.',
+      },
+    ],
+  },
   'jump-river-wayside-park-sheldon': {
     putIn: {
       name: 'Wayside Park / Highway 73 Jump River Access',

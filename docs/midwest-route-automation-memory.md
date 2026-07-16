@@ -1,5 +1,14 @@
 # Midwest Route Automation Memory
 
+- 2026-07-16 America/Chicago / 2026-07-16 UTC: Wisconsin three-route implementation pass (`wisconsin-route-additions`).
+  - Added three Wisconsin slugs beyond the 157-route Wisconsin baseline at run start: `neshota-west-twin-zander-hwy-147`, `bower-creek-fonferek-falls-tordeur`, and `apple-river-somerset-pnp`, bringing Wisconsin to 160 unique live routes.
+  - Qualification path: all three are AW exact-reach Wisconsin whitewater adds with live USGS support. Neshota / West Twin uses Zander Road-to-Highway 147 with AW's Kewaunee proxy `04085200`; Bower Creek uses Fonferek Falls-to-Tordeur Court with AW's Dutchman Creek proxy `04085078`; Apple River Somerset uses AW's direct park gauge `05341498`.
+  - Live gauge verification: `04085200` returned `28.1 cfs / 8.84 ft`, `04085078` returned `3.97 cfs / 4.49 ft`, and `05341498` returned `309 cfs / 3.01 ft` during the 2026-07-16 morning checks. Neshota and Bower are below floor; Apple is low runnable.
+  - Implemented AW route-specific gauge models only: Neshota `200-2,000 cfs`, Bower `220-1,400 cfs`, and Apple `200-1,000 cfs`, with no invented ideal ranges.
+  - Added no-camping and safety/logistics caveats for bridge/roadside access, proxy-gauge uncertainty, mandatory scouting, full-channel wood, ledges/falls, private banks, crowd/tubing conflicts, cold water, high/rising water, and avoiding unplanned downstream continuation.
+  - No route-gallery assets were added. Bounded AW / USGS / Commons / same-route image review found no clearly rights-clean exact-route paddling asset selected for local reuse.
+  - Reviewed but did not add Devils River because AW uses a calculated gauge, Menomonee Falls because USGS Water Services returned no current time series and AW has wood/closure alerts, Cedar Creek Cedarburg-Mill-to-County-T because it is dam/wood-heavy and overlaps the live Covered-Bridge-to-Lions corridor, or South Fork Jump / Pine / Wolf / Peshtigo variants already live in the current inventory.
+
 - 2026-07-16 09:17 America/Chicago / 2026-07-16 14:17 UTC: Minnesota three-route implementation pass (`minnesota-route-additions-2`).
   - Added three Minnesota slugs beyond the 183-route Minnesota baseline at run start: `mississippi-river-wolds-ferry-palisade`, `st-louis-river-floodwood-paupores`, and `cloquet-river-highway-53-highway-7`, bringing Minnesota to 186 live routes.
   - Qualification path: MN DNR Mississippi Map 4 plus public-water-access GIS document Wold's-Ferry-to-Palisade with downstream same-map Aitkin site `120`; MN DNR St. Louis Map 2 plus public-water-access GIS document Floodwood-to-Paupores with direct Floodwood site `338`; and MN DNR Cloquet Map 1 plus public-water-access GIS document Highway-53-to-Highway-7 with direct Burnett site `38`.
