@@ -18,6 +18,7 @@
     "typecheck:routes": "tsc --noEmit -p tsconfig.route-data.json",
     "routes:audit": "tsx scripts/audit-route-data.ts",
     "routes:audit:coordinates": "tsx scripts/audit-route-coordinate-river-distance.ts",
+    "routes:audit:overlap": "tsx scripts/audit-route-overlap.ts",
     "routes:leads:gather": "tsx scripts/gather-route-leads.ts",
     "routes:safety:audit": "tsx scripts/audit-route-safety.ts",
     "alert:mock-email": "tsx scripts/send-mock-river-alert.ts",
@@ -46,11 +47,11 @@
   },
   "dependencies": {
     "@azure/communication-email": "^1.1.0",
-    "astro": "^5.17.3",
+    "astro": "^7.0.9",
     "tsx": "^4.21.0"
   },
   "devDependencies": {
-    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/sitemap": "^3.7.3",
     "@playwright/test": "^1.59.1",
     "eas-cli": "^18.13.0",
     "sharp": "^0.34.5",

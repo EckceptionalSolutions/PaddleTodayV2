@@ -606,6 +606,32 @@ export interface CreateRiverRequestResponse {
   storage?: 'local' | string;
 }
 
+export type AppFeedbackCategory =
+  | 'route_coverage'
+  | 'river_calls'
+  | 'maps'
+  | 'alerts'
+  | 'usability'
+  | 'other';
+
+export interface CreateAppFeedbackRequest {
+  category: AppFeedbackCategory;
+  message: string;
+  replyEmail?: string;
+  sourceScreen?: string;
+  appVersion?: string;
+  platform?: string;
+  company?: string;
+}
+
+export interface CreateAppFeedbackResponse {
+  requestId: string;
+  ok: true;
+  stored: boolean;
+  storage?: 'local' | string;
+  notificationSent?: boolean;
+}
+
 export interface RouteContributionFileInput {
   name: string;
   type: string;

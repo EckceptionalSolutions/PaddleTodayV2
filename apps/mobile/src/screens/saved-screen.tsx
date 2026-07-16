@@ -11,6 +11,7 @@ import { RiverCard } from '../components/river-card';
 import { SectionCard } from '../components/section-card';
 import { alertMutationMessage, alertThresholdLabel } from '../lib/alerts';
 import { registerForRiverAlertPushNotifications } from '../lib/native-notifications';
+import { androidBottomInset } from '../lib/safe-area';
 import { useAlertPreferences, type SavedRouteAlertRecord } from '../providers/alert-preferences-provider';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -20,6 +21,7 @@ type SavedTab = 'routes' | 'alerts';
 export default function SavedScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const bottomContentInset = androidBottomInset(insets.bottom);
   const summaryQuery = useRiverSummaryQuery();
   const createAlertMutation = useCreateRiverAlertMutation();
   const { savedRivers, isHydrated, isSaved, toggleSavedRiver } = useSavedRivers();
@@ -76,7 +78,16 @@ export default function SavedScreen() {
   }
 
   return (
-    <ScrollView style={styles.screen} contentContainerStyle={[styles.content, { paddingTop: spacing.md + insets.top }]}>
+    <ScrollView
+      style={styles.screen}
+      contentContainerStyle={[
+        styles.content,
+        {
+          paddingTop: spacing.md + insets.top,
+          paddingBottom: spacing.xl + bottomContentInset,
+        },
+      ]}
+    >
       <Text style={styles.kicker}>Saved</Text>
       <Text style={styles.title}>Your saved routes</Text>
       <Text style={styles.subtitle}>

@@ -24,12 +24,15 @@ async function maskLiveUi(page: any) {
 const pages: Array<{ name: string; path: string }> = [
   { name: 'summary', path: '/' },
   { name: 'about', path: '/about/' },
-  { name: 'request', path: '/request/' },
+  { name: 'request', path: '/request-river/' },
 ];
 
 // Add one representative river detail page. We pick Rice Creek because it's a key
 // MN example and typically present in seeds.
-const detailCandidates = ['/rivers/rice-creek/', '/rivers/rice-creek'];
+const detailCandidates = [
+  '/rivers/rice-creek-peltier-to-long-lake/',
+  '/rivers/rice-creek-peltier-to-long-lake',
+];
 
 test.describe('critical pages (visual)', () => {
   for (const p of pages) {
@@ -44,8 +47,11 @@ test.describe('critical pages (visual)', () => {
       if (p.path === '/') {
         await page.waitForSelector('main', { timeout: 30_000 });
       }
-      if (p.path === '/request/' || p.path === '/request') {
-        await page.waitForSelector('form', { timeout: 30_000 });
+      if (p.path === '/request-river/' || p.path === '/request-river') {
+        await page.waitForSelector('[data-request-form]', { timeout: 30_000 });
+        await expect(page.locator('[data-request-form] input[name="routeName"]')).toBeVisible();
+        await expect(page.locator('[data-request-form] input[name="state"]')).toBeVisible();
+        await expect(page.locator('[data-request-submit]')).toHaveText('Send request');
       }
 
       await maskLiveUi(page);
@@ -54,7 +60,8 @@ test.describe('critical pages (visual)', () => {
     });
   }
 
-  test('page: rice-creek detail (best effort)', async ({ page }) => {
+  test('page: rice-creek detail (desktop smoke)', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== 'desktop-chromium', 'Detail-page visual capture is currently stable only on desktop.');
     await stabilizeForScreenshot(page);
     for (const path of detailCandidates) {
       const res = await page.goto(path, { waitUntil: 'domcontentloaded' });

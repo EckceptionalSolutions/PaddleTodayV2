@@ -5,10 +5,11 @@ import { colors } from '../../src/theme/tokens';
 
 export default function TabLayout() {
   const insets = useSafeAreaInsets();
-  const bottomInset = Math.max(insets.bottom, 12);
+  const bottomInset = insets.bottom;
 
   return (
     <Tabs
+      safeAreaInsets={{ bottom: 0 }}
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: colors.accent,
@@ -16,9 +17,9 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: colors.surfaceStrong,
           borderTopColor: colors.border,
-          height: 62 + bottomInset,
+          height: 58 + bottomInset,
           paddingTop: 6,
-          paddingBottom: bottomInset + 4,
+          paddingBottom: Math.max(bottomInset, 4),
         },
         tabBarLabelStyle: {
           fontSize: 11,

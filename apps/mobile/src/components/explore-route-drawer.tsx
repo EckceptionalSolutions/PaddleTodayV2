@@ -43,20 +43,19 @@ export function ExploreRouteDrawer({
   onToggleSaved,
 }: ExploreRouteDrawerProps) {
   const { height: windowHeight } = useWindowDimensions();
-  const maxSheetHeight = Math.max(sheetHeightValue('half'), Math.round(windowHeight * 0.86));
+  const maxSheetHeight = Math.max(sheetHeightValue('half'), Math.round((windowHeight - bottomInset) * 0.86));
   const sheetGesture = useMapSheetPanResponder(sheetSnap, setSheetSnap, maxSheetHeight, onClose);
   const selectedDirectionsUrl = mapUrlForAccessPoint(selectedRiver.river.putIn);
-  const expanded = sheetSnap !== 'peek';
   const full = sheetSnap === 'full';
 
   return (
-    <Animated.View style={[styles.mapSheet, styles.fullMapSheet, sheetHeightStyle(bottomInset), { height: sheetGesture.animatedHeight }]}>
+    <Animated.View style={[styles.mapSheet, styles.fullMapSheet, { height: sheetGesture.animatedHeight }]}>
       <View style={styles.mapSheetHandleWrap} collapsable={false} {...sheetGesture.panHandlers}>
         <Pressable
           style={styles.mapSheetHandleButton}
           onPress={() => setSheetSnap(nextSheetSnap(sheetSnap))}
           accessibilityRole="button"
-          accessibilityLabel={sheetSnap === 'peek' ? 'Expand route drawer' : 'Collapse route drawer'}
+          accessibilityLabel={sheetSnap === 'full' ? 'Collapse route drawer' : 'Expand route drawer'}
         >
           <View style={styles.mapSheetHandle} />
         </Pressable>
@@ -101,14 +100,12 @@ export function ExploreRouteDrawer({
           <MaterialCommunityIcons name="close" color={colors.textMuted} size={21} />
         </Pressable>
       </View>
-      {expanded ? (
-        <RoutePhotoCard
-          river={selectedRiver.river}
-          compact
-          height={full ? 108 : 82}
-          onContributePhotos={() => onContributePhotos(selectedRiver.river.slug)}
-        />
-      ) : null}
+      <RoutePhotoCard
+        river={selectedRiver.river}
+        compact
+        height={full ? 86 : 78}
+        onContributePhotos={() => onContributePhotos(selectedRiver.river.slug)}
+      />
       <View style={styles.mapSheetActions}>
         <Pressable
           style={styles.mapPreviewOpenButton}
@@ -143,7 +140,7 @@ export function ExploreRouteDrawer({
         <ScrollView
           style={styles.drawerContentScroll}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={styles.drawerContent}
+          contentContainerStyle={[styles.drawerContent, { paddingBottom: spacing.sm + bottomInset }]}
         >
           <Text style={styles.mapPreviewReason}>
             {drawerDecisionLine(selectedRiver)}
@@ -189,12 +186,8 @@ export function ExploreRouteDrawer({
             <Text style={styles.selectedNoteText}>{drawerFactLine(selectedRiver)}</Text>
           </View>
         </ScrollView>
-      ) : expanded ? (
-        <Text style={styles.mapPreviewReason} numberOfLines={2}>
-          {drawerDecisionLine(selectedRiver)}
-        </Text>
       ) : (
-        <Text style={styles.mapPreviewReason} numberOfLines={1}>
+        <Text style={styles.mapPreviewReason} numberOfLines={2}>
           {drawerDecisionLine(selectedRiver)}
         </Text>
       )}
@@ -287,34 +280,24 @@ function useMapSheetPanResponder(
   return { panHandlers: panResponder.panHandlers, animatedHeight };
 }
 
-function sheetHeightStyle(bottomInset = 0) {
-  return {
-    paddingBottom: spacing.sm + bottomInset,
-  };
-}
-
 export function sheetHeightValue(value: MapSheetSnap, maxHeight = 510) {
-  if (value === 'full') return Math.min(460, maxHeight);
-  if (value === 'half') return Math.min(306, Math.max(286, maxHeight - 184));
-  return 196;
+  if (value === 'full') return Math.min(500, maxHeight);
+  return Math.min(268, Math.max(252, maxHeight - 246));
 }
 
 function nextSheetSnap(value: MapSheetSnap): MapSheetSnap {
-  if (value === 'peek') return 'half';
-  if (value === 'half') return 'full';
-  return 'peek';
+  if (value === 'full') return 'half';
+  return 'full';
 }
 
 function snapSheetAfterDrag(value: MapSheetSnap, dragY: number): MapSheetSnap | null {
   if (dragY < -48) {
-    if (value === 'peek') return 'half';
     return 'full';
   }
 
   if (dragY > 28) {
-    if (value === 'peek') return null;
     if (value === 'full') return 'half';
-    return 'peek';
+    return null;
   }
 
   return value;
@@ -366,7 +349,6 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: colors.border,
     paddingHorizontal: spacing.md,
-    paddingBottom: spacing.sm,
     gap: 6,
     shadowColor: '#000',
     shadowOpacity: 0.18,

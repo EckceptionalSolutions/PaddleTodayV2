@@ -76,6 +76,25 @@ Coordinates:
 - Strongly preferred for both endpoints.
 - If official endpoint names are unambiguous, coordinates may be derived during route work, but should not remain missing.
 
+### Access Points
+
+Each new implemented route should include `riverTripDetails[slug].accessPoints` whenever the route has coordinate-backed endpoints.
+
+Minimum:
+
+- Include the default put-in as `mileFromStart: 0`.
+- Include the default take-out at the route distance.
+- Use the same verified coordinates as `putIn` and `takeOut` unless a better source-backed launch or landing coordinate is available.
+- Add intermediate public accesses, bailout points, camps, or split points only when they are source-backed and coordinate-backed.
+
+Why this matters:
+
+- Route detail pages use `accessPoints` for selectable access-planner rows when more than two planner points exist.
+- Summary and group maps use `accessPoints` to draw route lines and fit map bounds.
+- API clients receive the field for route planner and map behavior.
+
+Do not add speculative points. If a map or PDF only labels a campsite or landing without enough coordinate confidence, keep that context in logistics, access caveats, watch-for notes, evidence notes, or memory instead of inventing an `accessPoints` row.
+
 ### Access Legitimacy
 
 Endpoints should be legal and normal to use.
@@ -119,6 +138,19 @@ Needed context:
 - Region and state.
 - Basic route character: easy, moderate, hard.
 - Major hazards or operational caveats.
+
+### Consolidation And Redundancy
+
+Do not add a long planner card when it only concatenates existing split cards on the same river, state, and access chain. Keep the split cards as the canonical representation and model intermediate launches, bailouts, campsites, or shorter options in `riverTripDetails[slug].accessPoints` unless there is a deliberate product decision to support alternate itinerary cards.
+
+A longer route can still be added when it has a materially distinct user-facing purpose, such as:
+
+- An official named water-trail segment that is not already represented by the split cards.
+- Different gauge support or thresholds that materially change the same-day recommendation.
+- A hazard boundary, portage, dam, campsite, or mandatory take-out that makes the route operationally different.
+- A product-approved multi-day or alternate-itinerary pattern with clear display rules.
+
+Before adding a route in a mature corridor, run `npm.cmd run routes:audit:overlap` and review `tmp/route-overlap-audit.md` for `duplicate_or_reversed`, `access_chain_contains`, and `contained_connector` findings. Treat those findings as review gates, not automatic deletion instructions; confirm the route evidence before merging, hiding, or removing a card.
 
 ### Camping Classification
 

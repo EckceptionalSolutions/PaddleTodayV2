@@ -1,4 +1,5 @@
 import type {
+  CreateAppFeedbackRequest,
   CreateRiverAlertRequest,
   CreateRiverRequestRequest,
   CreateRouteReportRequest,
@@ -78,6 +79,12 @@ export function useRouteCommunityQuery(slug: string) {
 export function useCreateRiverAlertMutation() {
   return useMutation({
     mutationFn: (input: CreateRiverAlertRequest) => apiClient.createRiverAlert(input),
+  });
+}
+
+export function useCreateAppFeedbackMutation() {
+  return useMutation({
+    mutationFn: (input: CreateAppFeedbackRequest) => apiClient.createAppFeedback(input),
   });
 }
 

@@ -128,11 +128,17 @@ Health and runtime notes:
 - `/health/ready` is the deploy-time readiness check
 - `/api` responses carry a request ID in both the JSON body and the `x-request-id` response header
 - `/api/river-request` and `/api/route-request` both accept the request form payload and write JSON blobs when storage is configured
+- `/api/feedback` accepts mobile app feedback, stores it as JSON, and can send a best-effort inbox notification
 
 Request intake env vars:
 
 - `ROUTE_REQUESTS_CONTAINER_SAS_URL`
 - `ROUTE_REQUESTS_BLOB_PREFIX`
+- `FEEDBACK_CONTAINER_SAS_URL` (optional; falls back to `ROUTE_REQUESTS_CONTAINER_SAS_URL`)
+- `FEEDBACK_BLOB_PREFIX` (optional; defaults to `app-feedback`)
+- `FEEDBACK_TO_EMAIL` (optional; defaults to `hello@paddletoday.com`)
+- `FEEDBACK_FROM_EMAIL` (optional; falls back to an existing configured ACS sender)
+- `FEEDBACK_EMAIL_PROVIDER` (optional, `azure`, `log`, or `disabled`)
 - `ROUTE_CONTRIBUTIONS_CONTAINER_SAS_URL`
 - `ROUTE_CONTRIBUTIONS_BLOB_PREFIX`
 - `PADDLETODAY_ADMIN_PASSWORD`
@@ -146,6 +152,9 @@ Route request storage needs a container SAS with read, create, write, and list p
 
 If request storage is not configured or the write fails, the request page falls back to opening the user's email client with a prefilled message to `routes@paddletoday.com`.
 When ACS Email and `ROUTE_REPLIES_FROM_EMAIL` are configured, the admin page can send a one-off reply to route requests that include a reply email. The sender must match a configured Azure Email sender username, such as `route-requests@paddletoday.com`. Local development can set `ROUTE_REPLIES_EMAIL_PROVIDER=log` to exercise the flow without sending mail.
+
+The mobile app uses the native store review API for automatic review prompts. The public iOS App Store URL and Android package URL are configured in `apps/mobile/app.config.base.json`; `EXPO_PUBLIC_APP_STORE_URL` or `PUBLIC_APP_STORE_URL` can override the iOS URL for a build.
+On mobile web, the review action sends Android browsers to Google Play and iPhone/iPad browsers to the App Store. Desktop or unknown browsers are shown a two-store chooser.
 
 Route contributions and moderation:
 

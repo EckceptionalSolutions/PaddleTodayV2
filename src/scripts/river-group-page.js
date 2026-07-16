@@ -540,8 +540,11 @@ function routeSpanCoordinates(route) {
         .map((entry) => entry.coordinate)
     : [];
 
-  if (accessPoints.length >= 2) {
-    return accessPoints;
+  if (accessPoints.length > 0) {
+    const routeChain = [accessCoordinate(route.putIn), ...accessPoints, accessCoordinate(route.takeOut)].filter(Boolean);
+    if (routeChain.length >= 2) {
+      return routeChain;
+    }
   }
 
   return [accessCoordinate(route.putIn), accessCoordinate(route.takeOut)].filter(Boolean);

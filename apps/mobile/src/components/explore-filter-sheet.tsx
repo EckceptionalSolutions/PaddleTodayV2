@@ -4,6 +4,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Animated, Modal, PanResponder, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ChoiceChip, isExploreSort, type ExploreSort } from './explore-controls';
+import { androidBottomInset } from '../lib/safe-area';
 import { isRecord } from '../lib/storage';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -217,7 +218,7 @@ export function ExploreFilterSheet({
   onApplyPreset: (apply: (filters: ExploreFilters) => ExploreFilters) => void;
 }) {
   const insets = useSafeAreaInsets();
-  const bottomInset = Math.max(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET);
+  const bottomInset = androidBottomInset(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET);
   const translateY = useRef(new Animated.Value(0)).current;
   const panResponder = useRef(
     PanResponder.create({

@@ -254,6 +254,12 @@ let mapMarkersByKey = new Map();
 let summaryMapRenderVersion = 0;
 let selectedSummaryMapKey = null;
 let summaryMapCardFlashTimeout = 0;
+
+const SUMMARY_ROUTE_LINE_COLOR_SELECTED = '#2563eb';
+const SUMMARY_ROUTE_LINE_WIDTH = 4.2;
+const SUMMARY_ROUTE_LINE_WIDTH_SELECTED = 8;
+const SUMMARY_ROUTE_LINE_CASING_WIDTH = 7.4;
+const SUMMARY_ROUTE_LINE_CASING_WIDTH_SELECTED = 13;
 let lastSummaryMapItems = [];
 let featuredMapRuntime = null;
 let featuredMapMarkers = [];
@@ -3618,8 +3624,8 @@ function syncSummaryRouteLines(items) {
       },
       paint: {
         'line-color': '#ffffff',
-        'line-width': 9.5,
-        'line-opacity': 0.86,
+        'line-width': SUMMARY_ROUTE_LINE_CASING_WIDTH,
+        'line-opacity': summaryRouteLineCasingOpacityPaint(),
         'line-blur': 0.25,
       },
     });
@@ -3646,11 +3652,13 @@ function syncSummaryRouteLines(items) {
           '#ad752c',
           '#bb5840',
         ],
-        'line-width': 5.6,
-        'line-opacity': 0.94,
+        'line-width': SUMMARY_ROUTE_LINE_WIDTH,
+        'line-opacity': summaryRouteLineOpacityPaint(),
       },
     });
   }
+
+  updateSummaryRouteLinesSelectionPaint();
 }
 
 function syncSummaryRouteLine() {
@@ -3691,7 +3699,7 @@ function syncSummaryRouteLine() {
         },
         paint: {
           'line-color': '#ffffff',
-          'line-width': 13,
+          'line-width': SUMMARY_ROUTE_LINE_CASING_WIDTH_SELECTED,
           'line-opacity': 0.9,
           'line-blur': 0.35,
         },
@@ -3705,14 +3713,14 @@ function syncSummaryRouteLine() {
           'line-join': 'round',
         },
         paint: {
-          'line-color': featuredRouteLineColor(selectedItem.cardRoute.rating),
-          'line-width': 8,
+          'line-color': SUMMARY_ROUTE_LINE_COLOR_SELECTED,
+          'line-width': SUMMARY_ROUTE_LINE_WIDTH_SELECTED,
           'line-opacity': 0.95,
         },
       });
     }
 
-    mapRuntime.setPaintProperty(layerId, 'line-color', featuredRouteLineColor(selectedItem.cardRoute.rating));
+    mapRuntime.setPaintProperty(layerId, 'line-color', SUMMARY_ROUTE_LINE_COLOR_SELECTED);
     return;
   }
 
@@ -3724,6 +3732,36 @@ function syncSummaryRouteLine() {
   }
   if (mapRuntime.getSource(sourceId)) {
     mapRuntime.removeSource(sourceId);
+  }
+}
+
+function summaryRouteLineOpacityPaint() {
+  if (!selectedSummaryMapKey) {
+    return 0.9;
+  }
+
+  return ['case', ['==', ['get', 'key'], selectedSummaryMapKey], 0, 0.52];
+}
+
+function summaryRouteLineCasingOpacityPaint() {
+  if (!selectedSummaryMapKey) {
+    return 0.78;
+  }
+
+  return ['case', ['==', ['get', 'key'], selectedSummaryMapKey], 0, 0.42];
+}
+
+function updateSummaryRouteLinesSelectionPaint() {
+  if (!mapRuntime || !isSummaryMapStyleReady()) {
+    return;
+  }
+
+  if (mapRuntime.getLayer('summary-route-lines')) {
+    mapRuntime.setPaintProperty('summary-route-lines', 'line-opacity', summaryRouteLineOpacityPaint());
+  }
+
+  if (mapRuntime.getLayer('summary-route-lines-casing')) {
+    mapRuntime.setPaintProperty('summary-route-lines-casing', 'line-opacity', summaryRouteLineCasingOpacityPaint());
   }
 }
 
@@ -3789,6 +3827,7 @@ function popupMarkup(item) {
 function updateSummaryMapSelection(key) {
   selectedSummaryMapKey = key || null;
   syncSummaryRouteLine();
+  updateSummaryRouteLinesSelectionPaint();
 
   if (summaryMapResults instanceof HTMLElement) {
     const rows = Array.from(summaryMapResults.querySelectorAll('[data-summary-map-item]'));

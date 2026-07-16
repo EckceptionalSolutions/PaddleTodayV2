@@ -1,6 +1,6 @@
 ---
 import FeatureIcon from '../components/FeatureIcon.astro';
-import { listRiverGroups, listRivers, listRiverStateGroups } from '../lib/rivers';
+import { listRiverStateGroups } from '../lib/rivers';
 
 type Props = {
   title: string;
@@ -73,40 +73,6 @@ const extraStructuredData = structuredData
     : [structuredData]
   : [];
 const structuredDataJson = JSON.stringify([...defaultStructuredData, ...extraStructuredData]);
-const searchRouteItems = listRivers()
-  .map((river) => ({
-    kind: 'route',
-    kindLabel: 'Route',
-    title: river.name,
-    subtitle: river.reach,
-    meta: [river.region, river.state].filter(Boolean).join(' / '),
-    href: `/rivers/${river.slug}/`,
-    searchText: [river.name, river.reach, ...(river.aliases ?? []), river.region, river.state].filter(Boolean).join(' '),
-  }))
-  .sort((left, right) => left.title.localeCompare(right.title));
-const searchRiverItems = listRiverGroups()
-  .map((group) => ({
-    kind: 'river',
-    kindLabel: 'River',
-    title: group.name,
-    subtitle: `${group.routeCount} ${group.routeCount === 1 ? 'route' : 'routes'}`,
-    meta: group.states.join(' / '),
-    href:
-      group.routeCount > 1
-        ? `/rivers/by-river/${group.riverId}/`
-        : `/rivers/${group.routes[0]?.slug ?? group.riverId}/`,
-    searchText: [
-      group.name,
-      ...group.states,
-      ...group.regions,
-      ...group.routes.map((route) => route.reach),
-      ...group.routes.flatMap((route) => route.aliases ?? []),
-    ]
-      .filter(Boolean)
-      .join(' '),
-  }))
-  .sort((left, right) => left.title.localeCompare(right.title));
-const searchIndexJson = JSON.stringify([...searchRiverItems, ...searchRouteItems]);
 const footerStateLinks = listRiverStateGroups();
 const pageClass =
   Astro.url.pathname === '/'
@@ -326,7 +292,7 @@ const appDownloadConfigJson = JSON.stringify({
         </div>
       </section>
     </div>
-    <script type="application/json" data-site-search-index set:html={searchIndexJson}></script>
+    <script type="application/json" data-site-search-index data-site-search-index-src="/search-index.json"></script>
     <script type="application/json" data-app-download-config set:html={appDownloadConfigJson}></script>
     <script>
       import '../scripts/site-shell.js';

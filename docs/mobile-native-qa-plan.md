@@ -81,8 +81,11 @@ Use this before TestFlight, Google internal testing, and final MVP release.
 1. Open the More tab.
 2. Confirm safety guidance is readable.
 3. Tap Email support and confirm the mail client opens.
-4. Tap Privacy and Terms links and confirm they open.
-5. Run the API diagnostic and confirm success against production.
+4. Tap Send feedback, open the private feedback form, submit a note, and confirm the success state.
+5. Confirm submitted feedback appears in Azure storage and the configured inbox notification arrives.
+6. Reopen Send feedback, tap Rate PaddleToday on the choice screen, and confirm the correct store review page opens.
+7. Tap Privacy and Terms links and confirm they open.
+8. Run the API diagnostic and confirm success against production.
 
 ## Failure Checks
 

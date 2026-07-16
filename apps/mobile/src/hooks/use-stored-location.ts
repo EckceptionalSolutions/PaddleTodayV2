@@ -8,10 +8,17 @@ const STORAGE_KEY = 'paddletoday:user-location';
 
 export type LocationStatus = 'loading' | 'ready' | 'idle' | 'requesting' | 'denied' | 'error';
 
+export interface LocationRequestResult {
+  location: StoredLocation | null;
+  permission: 'granted' | 'denied' | 'error';
+  canAskAgain: boolean;
+}
+
 interface StoredLocationContextValue {
   location: StoredLocation | null;
   status: LocationStatus;
-  requestLocation: () => Promise<void>;
+  requestLocation: () => Promise<LocationRequestResult>;
+  setLocationFromQuery: (query: string) => Promise<StoredLocation | null>;
   clearLocation: () => Promise<void>;
 }
 
@@ -41,14 +48,18 @@ export function StoredLocationProvider({ children }: PropsWithChildren) {
     void hydrateLocation();
   }, [hydrateLocation]);
 
-  const requestLocation = useCallback(async () => {
+  const requestLocation = useCallback(async (): Promise<LocationRequestResult> => {
     setStatus('requesting');
 
     try {
       const permission = await Location.requestForegroundPermissionsAsync();
       if (permission.status !== 'granted') {
         setStatus('denied');
-        return;
+        return {
+          location: null,
+          permission: 'denied',
+          canAskAgain: permission.canAskAgain,
+        };
       }
 
       const reading = await Location.getCurrentPositionAsync({
@@ -66,10 +77,53 @@ export function StoredLocationProvider({ children }: PropsWithChildren) {
       setLocation(nextLocation);
       setStatus('ready');
       await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(nextLocation));
+      return {
+        location: nextLocation,
+        permission: 'granted',
+        canAskAgain: permission.canAskAgain,
+      };
     } catch {
       setStatus('error');
+      return {
+        location: null,
+        permission: 'error',
+        canAskAgain: true,
+      };
     }
   }, []);
+
+  const setLocationFromQuery = useCallback(async (query: string) => {
+    const cleanQuery = query.trim();
+    if (!cleanQuery) {
+      return null;
+    }
+
+    setStatus('requesting');
+
+    try {
+      const [result] = await Location.geocodeAsync(cleanQuery);
+      if (!result) {
+        setStatus(location ? 'ready' : 'idle');
+        return null;
+      }
+
+      const resolvedLabel = await reverseGeocodeLabel(result.latitude, result.longitude);
+      const nextLocation: StoredLocation = {
+        latitude: result.latitude,
+        longitude: result.longitude,
+        label: resolvedLabel === 'Current location' ? cleanQuery : resolvedLabel,
+        source: 'search',
+      };
+
+      setLocation(nextLocation);
+      setStatus('ready');
+      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(nextLocation));
+      return nextLocation;
+    } catch {
+      setStatus(location ? 'ready' : 'error');
+      return null;
+    }
+  }, [location]);
 
   const clearLocation = useCallback(async () => {
     setLocation(null);
@@ -78,8 +132,8 @@ export function StoredLocationProvider({ children }: PropsWithChildren) {
   }, []);
 
   const value = useMemo(
-    () => ({ location, status, requestLocation, clearLocation }),
-    [location, status, requestLocation, clearLocation]
+    () => ({ location, status, requestLocation, setLocationFromQuery, clearLocation }),
+    [location, status, requestLocation, setLocationFromQuery, clearLocation]
   );
 
   return createElement(StoredLocationContext.Provider, { value }, children);

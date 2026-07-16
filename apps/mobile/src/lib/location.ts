@@ -2,7 +2,7 @@ export interface StoredLocation {
   latitude: number;
   longitude: number;
   label: string;
-  source: 'device';
+  source: 'device' | 'search';
 }
 
 const EARTH_RADIUS_MILES = 3958.8;

@@ -72,6 +72,7 @@ import {
   normalizeReportPhotoAsset,
   ROUTE_REPORT_MAX_PHOTOS,
 } from '../lib/report-photos';
+import { androidBottomInset } from '../lib/safe-area';
 import { useAlertPreferences } from '../providers/alert-preferences-provider';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -98,9 +99,7 @@ export default function RiverDetailScreen() {
   const params = useLocalSearchParams<{ slug?: string | string[] }>();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const bottomContentInset = Platform.OS === 'android'
-    ? Math.max(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET)
-    : insets.bottom;
+  const bottomContentInset = androidBottomInset(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET);
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug ?? '';
   const detailQuery = useRiverDetailQuery(slug);
   const historyQuery = useRiverHistoryQuery(slug, 7);
@@ -111,8 +110,11 @@ export default function RiverDetailScreen() {
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const scrollRef = useRef<ScrollView | null>(null);
   const sectionTabsYRef = useRef(0);
+  const sectionTabsHeightRef = useRef(0);
+  const sectionContentYRef = useRef(0);
+  const pendingSectionScrollRef = useRef<DetailSection | null>(null);
   const conditionsYRef = useRef(0);
-  const [alertStatus, setAlertStatus] = useState('Choose Good or Strong phone notifications for this route.');
+  const [alertStatus, setAlertStatus] = useState('');
   const [pendingThreshold, setPendingThreshold] = useState<RiverAlertThreshold | null>(null);
   const [reportName, setReportName] = useState('');
   const [reportEmail, setReportEmail] = useState(storedEmail);
@@ -174,6 +176,19 @@ export default function RiverDetailScreen() {
       score: detail.score,
     });
   }, [detailSlug]);
+
+  useEffect(() => {
+    if (pendingSectionScrollRef.current !== activeSection) {
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      scrollToSectionTop();
+      pendingSectionScrollRef.current = null;
+    }, 0);
+
+    return () => clearTimeout(timeout);
+  }, [activeSection]);
 
   if (!slug) {
     return (
@@ -341,9 +356,19 @@ export default function RiverDetailScreen() {
     });
   }
 
+  function scrollToSectionTop() {
+    const sectionTop = sectionContentYRef.current || sectionTabsYRef.current;
+    const stickyOffset = sectionTabsHeightRef.current + spacing.sm;
+    scrollToY(Math.max(sectionTop - stickyOffset, 0));
+  }
+
   function showSection(section: DetailSection) {
+    pendingSectionScrollRef.current = section;
     setActiveSection(section);
-    scrollToY(sectionTabsYRef.current);
+    if (section === activeSection) {
+      scrollToSectionTop();
+      pendingSectionScrollRef.current = null;
+    }
   }
 
   function showConditions() {
@@ -439,6 +464,8 @@ export default function RiverDetailScreen() {
       <ScrollView
         ref={scrollRef}
         style={styles.screen}
+        keyboardShouldPersistTaps="handled"
+        removeClippedSubviews={false}
         contentContainerStyle={[
           styles.content,
           { paddingBottom: spacing.xl + bottomContentInset },
@@ -527,32 +554,23 @@ export default function RiverDetailScreen() {
         </View>
 
         <View
+          collapsable={false}
+          renderToHardwareTextureAndroid
           style={styles.sectionTabsSticky}
           onLayout={(event) => {
             sectionTabsYRef.current = event.nativeEvent.layout.y;
+            sectionTabsHeightRef.current = event.nativeEvent.layout.height;
           }}
         >
-          <View style={styles.sectionTabs}>
-            {DETAIL_SECTIONS.map((section) => {
-              const selected = activeSection === section;
-              return (
-                <Pressable
-                  key={section}
-                  style={[styles.sectionTab, selected ? styles.sectionTabSelected : null]}
-                  accessibilityRole="button"
-                  accessibilityLabel={`Show ${section} section`}
-                  accessibilityState={{ selected }}
-                  onPress={() => showSection(section)}
-                >
-                  <Text style={[styles.sectionTabText, selected ? styles.sectionTabTextSelected : null]}>{section}</Text>
-                </Pressable>
-              );
-            })}
-          </View>
+          <DetailSectionTabs activeSection={activeSection} onSelect={showSection} />
         </View>
 
         {activeSection === 'Today' ? (
-          <>
+          <View
+            onLayout={(event) => {
+              sectionContentYRef.current = event.nativeEvent.layout.y;
+            }}
+          >
             <RouteBasicsCard detail={detail} />
 
             <View
@@ -594,11 +612,15 @@ export default function RiverDetailScreen() {
             </View>
 
             <AboutRouteCard detail={detail} />
-          </>
+          </View>
         ) : null}
 
         {activeSection === 'Reports' ? (
-          <>
+          <View
+            onLayout={(event) => {
+              sectionContentYRef.current = event.nativeEvent.layout.y;
+            }}
+          >
             <SectionCard
               title="Community reports"
               subtitle={
@@ -666,11 +688,15 @@ export default function RiverDetailScreen() {
                 <Text style={styles.reportCtaButtonText}>Report</Text>
               </Pressable>
             </View>
-          </>
+          </View>
         ) : null}
 
         {activeSection === 'More' ? (
-          <>
+          <View
+            onLayout={(event) => {
+              sectionContentYRef.current = event.nativeEvent.layout.y;
+            }}
+          >
             {detail.river.riverId && siblingRouteCount > 1 ? (
               <SectionCard
                 title="More routes on this river"
@@ -727,11 +753,15 @@ export default function RiverDetailScreen() {
             >
               <HistoryBars days={history?.days ?? []} />
             </SectionCard>
-          </>
+          </View>
         ) : null}
 
         {activeSection === 'Access' ? (
-          <>
+          <View
+            onLayout={(event) => {
+              sectionContentYRef.current = event.nativeEvent.layout.y;
+            }}
+          >
             <SectionCard
               title="Access & logistics"
               subtitle="Access, shuttle, and route basics."
@@ -800,13 +830,12 @@ export default function RiverDetailScreen() {
                 </View>
                 <View style={styles.alertCtaCopy}>
                   <Text style={styles.alertCtaTitle}>Alert me at Good or Strong</Text>
-                  <Text style={styles.alertCtaText}>Choose phone notifications for this route.</Text>
                 </View>
                 <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={22} />
               </Pressable>
-              <Text style={styles.alertStatus}>{alertStatus}</Text>
+              {alertStatus ? <Text style={styles.alertStatus}>{alertStatus}</Text> : null}
             </SectionCard>
-          </>
+          </View>
         ) : null}
       </ScrollView>
 
@@ -843,6 +872,7 @@ export default function RiverDetailScreen() {
         routeName={detail.river.name}
         routeReach={detail.river.reach}
         status={alertStatus}
+        bottomInset={bottomContentInset}
         pendingThreshold={pendingThreshold}
         mutationPending={createAlertMutation.isPending}
         onClose={() => setAlertSheetVisible(false)}
@@ -1688,11 +1718,43 @@ function HeroIconButton({
   );
 }
 
+function DetailSectionTabs({
+  activeSection,
+  onSelect,
+}: {
+  activeSection: DetailSection;
+  onSelect: (section: DetailSection) => void;
+}) {
+  return (
+    <View style={styles.sectionTabs}>
+      {DETAIL_SECTIONS.map((section) => {
+        const selected = activeSection === section;
+        return (
+          <Pressable
+            key={section}
+            style={[styles.sectionTab, selected ? styles.sectionTabSelected : null]}
+            hitSlop={4}
+            pressRetentionOffset={8}
+            android_ripple={{ color: selected ? 'rgba(255,255,255,0.16)' : colors.canvasMuted, borderless: false }}
+            accessibilityRole="button"
+            accessibilityLabel={`Show ${section} section`}
+            accessibilityState={{ selected }}
+            onPress={() => onSelect(section)}
+          >
+            <Text style={[styles.sectionTabText, selected ? styles.sectionTabTextSelected : null]}>{section}</Text>
+          </Pressable>
+        );
+      })}
+    </View>
+  );
+}
+
 function AlertSetupSheet({
   visible,
   routeName,
   routeReach,
   status,
+  bottomInset,
   pendingThreshold,
   mutationPending,
   onClose,
@@ -1702,6 +1764,7 @@ function AlertSetupSheet({
   routeName: string;
   routeReach: string;
   status: string;
+  bottomInset: number;
   pendingThreshold: RiverAlertThreshold | null;
   mutationPending: boolean;
   onClose: () => void;
@@ -1710,7 +1773,7 @@ function AlertSetupSheet({
   return (
     <Modal animationType="slide" transparent visible={visible} onRequestClose={onClose}>
       <View style={styles.alertSheetScrim}>
-        <View style={styles.alertSheet}>
+        <View style={[styles.alertSheet, { paddingBottom: spacing.md + bottomInset }]}>
           <View style={styles.alertSheetHandle} />
           <View style={styles.alertSheetHeader}>
             <View style={styles.alertSheetTitleWrap}>
@@ -1745,28 +1808,13 @@ function AlertSetupSheet({
                 );
               })}
             </View>
-            <Text style={styles.alertHelper}>
-              {nativeAlertHelperText()}
-            </Text>
           </View>
 
-          <Text style={styles.alertStatus}>{status}</Text>
+          {status ? <Text style={styles.alertStatus}>{status}</Text> : null}
         </View>
       </View>
     </Modal>
   );
-}
-
-function nativeAlertHelperText() {
-  if (Platform.OS === 'android') {
-    return 'Phone alerts open this route when tapped. Android requires a development or preview build, not Expo Go.';
-  }
-
-  if (Platform.OS === 'ios') {
-    return 'Phone alerts open this route when tapped. iOS will ask for notification permission the first time you enable one.';
-  }
-
-  return 'Phone alerts open this route when tapped. Push notifications require a preview or production build.';
 }
 
 function ChecklistRow({ item }: { item: DecisionChecklistItem }) {
@@ -2940,8 +2988,9 @@ const styles = StyleSheet.create({
   sectionTabsSticky: {
     backgroundColor: colors.canvas,
     paddingVertical: spacing.xs,
-    zIndex: 20,
-    elevation: 8,
+    zIndex: 30,
+    elevation: 16,
+    overflow: 'visible',
   },
   sectionTabs: {
     flexDirection: 'row',
@@ -2951,6 +3000,11 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     padding: 3,
     gap: 3,
+    shadowColor: '#0F172A',
+    shadowOpacity: 0.14,
+    shadowRadius: 18,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 12,
   },
   sectionTab: {
     flex: 1,
@@ -3790,6 +3844,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(10, 24, 29, 0.34)',
   },
   alertSheet: {
+    maxHeight: '88%',
     backgroundColor: colors.surfaceStrong,
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,

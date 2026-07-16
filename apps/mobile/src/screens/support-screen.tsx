@@ -9,7 +9,10 @@ import { SectionCard } from '../components/section-card';
 import { appDiagnosticRows } from '../lib/app-diagnostics';
 import { resolveApiBaseUrl, resolveApiUrl } from '../lib/api-base-url';
 import { captureAppException, observabilityStatus, trackAppEvent } from '../lib/observability';
+import { openFeedbackForm } from '../lib/feedback-controller';
+import { resetWelcome } from '../lib/onboarding';
 import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
+import { androidBottomInset } from '../lib/safe-area';
 import { colors, radius, spacing } from '../theme/tokens';
 
 type DiagnosticState = 'idle' | 'checking' | 'ok' | 'error';
@@ -17,6 +20,7 @@ type DiagnosticState = 'idle' | 'checking' | 'ok' | 'error';
 export default function SupportScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const bottomContentInset = androidBottomInset(insets.bottom);
   const summaryQuery = useRiverSummaryQuery();
   const [diagnosticState, setDiagnosticState] = useState<DiagnosticState>('idle');
   const [diagnosticText, setDiagnosticText] = useState('Ready to check the route feed.');
@@ -87,7 +91,16 @@ export default function SupportScreen() {
   }
 
   return (
-    <ScrollView style={styles.screen} contentContainerStyle={[styles.content, { paddingTop: spacing.md + insets.top }]}>
+    <ScrollView
+      style={styles.screen}
+      contentContainerStyle={[
+        styles.content,
+        {
+          paddingTop: spacing.md + insets.top,
+          paddingBottom: spacing.xl + bottomContentInset,
+        },
+      ]}
+    >
       <View style={styles.hero}>
         <Text style={styles.kicker}>More</Text>
         <Text style={styles.title}>Safety, support, and app checks</Text>
@@ -106,6 +119,8 @@ export default function SupportScreen() {
 
       <SectionCard title="Support" subtitle="Fast links for feedback, route requests, and release paperwork.">
         <View style={styles.actionList}>
+          <ActionRow icon="information-outline" title="How PaddleToday works" body="Replay the short guide to scores, conditions, and route details." onPress={() => replayWelcome(router)} />
+          <ActionRow icon="message-text-outline" title="Send feedback" body="Share an idea, issue, or missing feature." onPress={openManualFeedback} />
           <ActionRow icon="email-outline" title="Email support" body="hello@paddletoday.com" onPress={() => openUrl('mailto:hello@paddletoday.com')} />
           <ActionRow icon="bug-outline" title="Email app diagnostics" body="Send build, connection, and environment details." onPress={() => openUrl(buildDiagnosticsEmailUrl())} />
           <ActionRow icon="plus-circle-outline" title="Request a route" body="Send river, area, access, and notes." onPress={() => router.push('/request-route')} />
@@ -293,11 +308,22 @@ function diagnosticTone(state: DiagnosticState) {
   return styles.diagnosticIdle;
 }
 
+function replayWelcome(router: ReturnType<typeof useRouter>) {
+  void resetWelcome().then(() => router.push('/welcome'));
+}
+
 function openUrl(url: string) {
   trackAppEvent('support_link_opened', {
     target: url.startsWith('mailto:') ? 'email' : url,
   });
   void Linking.openURL(url);
+}
+
+function openManualFeedback() {
+  trackAppEvent('app_feedback_opened', {
+    source: 'more',
+  });
+  openFeedbackForm('/more');
 }
 
 function buildDiagnosticsEmailUrl() {
