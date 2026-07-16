@@ -1,11 +1,11 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-14 14:59 America/Chicago.
+Last summarized: 2026-07-16 10:30 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 83.
-- Top represented rivers: Sauk River 17, Little Fork River 9, Minnesota River 7, Crow Wing River 6, Big Fork River 5, Mississippi River 4.
+- Live routes: 86.
+- Top represented rivers: Sauk River 20, Little Fork River 9, Minnesota River 7, Crow Wing River 6, Big Fork River 5, Mississippi River 4.
 - Ledger candidates: 781 total; 412 `added`, 109 `threshold_weak`, 86 `no_live_gauge`, 55 `research_later`, 15 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`, 3 `duplicate_corridor`.
 
 ## Status
@@ -13,6 +13,13 @@ Last summarized: 2026-07-14 14:59 America/Chicago.
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing now has a small restored county-chain layer on top of the June canonical core, while Little Fork continues to reward restore-first checks where support docs still prove live source quality.
 
 ## Latest Run
+
+- 2026-07-16 10:30 America/Chicago: added `sauk-river-spring-hill-frogtown`, `sauk-river-frogtown-heims-mill`, and `sauk-river-st-martin-rockville`.
+- Started from the current repo baseline at run start and stayed in Minnesota after a bounded Big South Fork recheck surfaced stale USGS discharge, while the Sauk family still had three additive official access-to-access planners backed by the same current DNR gauge, current interpretation bands, and clean county/city endpoint support.
+- Current MN DNR site `328` (`Sauk River nr St. Martin, CR12`) showed `15.01 ft` at `2026-07-16 08:00 AM`, still inside the official Medium band, and same-day USGS `05270500` near St. Cloud remained live as a downstream fallback monitor.
+- DNR Map 2 still places Spring Hill County Park at river mile `56.2`, St. Martin at `47.1`, Frogtown Park at `21.8`, Rockville County Park at `16.8`, and Heims Mill at `0.0`, which supports the three new public continuations at `34.4`, `21.8`, and `30.3` river miles without reopening any collapsed short permutations.
+- Camping posture stayed route-specific. `sauk-river-spring-hill-frogtown` and `sauk-river-frogtown-heims-mill` ship as `on_route_campsite` because Rockville remains the real documented overnight split mid-corridor, while `sauk-river-st-martin-rockville` ships as `endpoint_campground` because Rockville County Park still documents the watercraft campsite at the finish.
+- Reused the existing Sauk Commons family asset for all three new slugs and recorded matching image-audit rows after a bounded no-better-image recheck.
 
 - 2026-07-14 14:59 America/Chicago: added `crow-wing-river-mary-brown-cottingham`.
 - Started from the live `556`-route repo baseline at run start, rejected several tempting Kentucky, Indiana, and Minnesota restore-looking candidates after `git log -S` or state-memory checks showed deliberate consolidation history, and stayed with the additive Crow Wing county-chain because the current tree still had one clean no-history continuation supported by exact official mileposts and current direct gauge data.

@@ -2855,6 +2855,76 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'sauk-river-spring-hill-frogtown': {
+    putIn: {
+      name: 'Spring Hill County Park carry-in access',
+      latitude: 45.529026,
+      longitude: -94.776531,
+    },
+    takeOut: {
+      name: 'Frogtown Park canoe landing',
+      latitude: 45.45775,
+      longitude: -94.421,
+    },
+    logistics: {
+      distanceLabel: '34.4 mi',
+      estimatedPaddleTime: 'About 11 hr to 14 hr, or split overnight',
+      shuttle:
+        'Use a long Stearns County to Cold Spring shuttle and inspect both ends before launching. This is not a casual same-town mover, and most groups should settle the Rockville bailout plan before they leave the put-in.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county and city access rules at Spring Hill, Frogtown, and intermediate parks.',
+      camping:
+        'Rockville County Park sits mid-route and has a watercraft campsite, making this a defensible overnight split or bailout. Otherwise treat it as a very long day and do not assume informal shoreline camping is legal.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Spring Hill County Park and finish at Frogtown Park for a long upper-to-central Sauk day into Cold Spring. This is the additive family planner when the St. Martin gauge is solid and you want the full upper corridor without extending into the St. Cloud finish.',
+      accessCaveats: [
+        'Spring Hill County Park is a cleaner park launch than the simple St. Martin carry-in, but you still need to check same-day county parking and staging rules before leaving a vehicle.',
+        'Frogtown launches and lands below the Cold Spring dam area, so make sure you are using the signed downstream canoe landing rather than any upstream obstruction-adjacent spot.',
+        'Rockville County Park is the cleanest intentional overnight split because it is the documented watercraft-campsite stop on this corridor.',
+      ],
+      watchFor: [
+        'Long-mileage fatigue and weather exposure on a route that is easy in character but not short.',
+        'Shallow riffles, slow vegetation-choked miles, and extra drag if the St. Martin gauge trends toward 14 ft.',
+        'Fresh wood, strainers, and cold-water consequences far from your planned take-out.',
+      ],
+    },
+  },
+  'sauk-river-frogtown-heims-mill': {
+    putIn: {
+      name: 'Frogtown Park canoe landing',
+      latitude: 45.45775,
+      longitude: -94.421,
+    },
+    takeOut: {
+      name: 'Heims Mill Canoe Access',
+      latitude: 45.5936215,
+      longitude: -94.1813947,
+    },
+    logistics: {
+      distanceLabel: '21.8 mi',
+      estimatedPaddleTime: 'About 7 hr to 9 hr 30 min, or split overnight',
+      shuttle:
+        'Use a Cold Spring to St. Cloud-area shuttle and inspect both endpoints before launching. The Heims finish is farther and more committed than Miller or Knights, so identify the take-out before leaving Frogtown.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted city and county access rules at Frogtown, Heims, and intermediate parks.',
+      camping:
+        'Rockville County Park sits mid-route and has a watercraft campsite, making this a defensible overnight split or bailout. Otherwise treat it as a committed day and do not assume informal shoreline camping is legal.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Frogtown Park and finish at Heims Mill for the full lower Sauk route into the Mississippi confluence corridor. This is the additive card to choose when you want to carry the lower river past Eagle and Miller all the way through the final mouth section.',
+      accessCaveats: [
+        'Frogtown launches below the Cold Spring dam area, so make sure you are using the signed downstream canoe landing rather than any upstream obstruction-adjacent spot.',
+        'Heims Mill is the intended finish and the final 2.5 miles before it carry the DNR-signaled Class I-II mouth section, so identify the take-out before launching and do not drift toward the Mississippi confluence by accident.',
+        'Rockville County Park is the cleanest intentional overnight split because it is the documented watercraft-campsite stop on this corridor.',
+      ],
+      watchFor: [
+        'Longer-day fatigue and changing weather on an otherwise easy river.',
+        'Vegetation, shallow riffles, and slower current when the St. Martin gauge slides toward 14 ft.',
+        'Fresh wood, strainers, and the boulder-filled Class I-II finish in the final miles before Heims Mill.',
+      ],
+    },
+  },
   'sauk-river-st-martin-frogtown': {
     putIn: {
       name: 'St. Martin Public Water Access / County Road 12',
@@ -2881,6 +2951,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'St. Martin is a simple county carry-in rather than a full-service landing, so settle your staging and parking plan before unloading boats.',
         'Frogtown is below the Cold Spring dam area, so make sure you are taking out at the signed park canoe landing rather than drifting into upstream obstruction confusion.',
         'Rockville County Park is the cleanest intentional overnight split because it is the documented watercraft-campsite stop on this corridor.',
+      ],
+      watchFor: [
+        'Long-mileage fatigue and weather exposure on a route that is easy in character but not short.',
+        'Shallow riffles, slow vegetation-choked miles, and extra drag if the St. Martin gauge trends toward 14 ft.',
+        'Fresh wood, strainers, and cold-water consequences far from your planned take-out.',
+      ],
+    },
+  },
+  'sauk-river-st-martin-rockville': {
+    putIn: {
+      name: 'St. Martin Public Water Access / County Road 12',
+      latitude: 45.520241,
+      longitude: -94.67885,
+    },
+    takeOut: {
+      name: 'Rockville County Park carry-in access',
+      latitude: 45.4755294,
+      longitude: -94.3507888,
+    },
+    logistics: {
+      distanceLabel: '30.3 mi',
+      estimatedPaddleTime: 'About 9 hr to 12 hr, or split overnight',
+      shuttle:
+        'Use a standard vehicle shuttle between St. Martin and Rockville. Because this is a long corridor, most groups should inspect both ends before launching rather than assuming a quick county-road shuttle day.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county access and campground rules at St. Martin, Rockville, and intermediate parks.',
+      camping:
+        'Rockville County Park has a documented watercraft campsite at the take-out, which gives this route a legitimate endpoint campground finish or conservative overnight split.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at St. Martin Canoe Access and finish at Rockville County Park for the long central Sauk corridor. This is the cleaner middle-family planner when the St. Martin gauge is solid and you want the Rockville campground finish instead of extending to Frogtown or Eagle Park.',
+      accessCaveats: [
+        'St. Martin is a simple county carry-in rather than a full-service landing, so settle your staging and parking plan before unloading boats.',
+        'Rockville County Park is the intended finish and campground checkpoint. Confirm current campsite rules, park hours, and vehicle placement before launching.',
+        'This route passes multiple intermediate accesses, which is useful for bailout planning but also makes it easy to underestimate how long the full St. Martin-to-Rockville commitment really is.',
       ],
       watchFor: [
         'Long-mileage fatigue and weather exposure on a route that is easy in character but not short.',

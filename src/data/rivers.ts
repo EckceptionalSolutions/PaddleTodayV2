@@ -6431,6 +6431,254 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'sauk-river-spring-hill-frogtown',
+    slug: 'sauk-river-spring-hill-frogtown',
+    name: 'Sauk River',
+    reach: 'Spring Hill County Park to Frogtown Park',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Long upper-to-central Sauk planner that links the Spring Hill county-park launch to the Cold Spring canoe landing without pushing all the way into the St. Cloud finish. It is the cleaner all-day option when you want a full same-gauge river commitment but still want the Frogtown stop rather than the longer lower corridor.',
+    statusText:
+      'Treat 15 to 17 ft at St. Martin as the best broad-audience range. Below 14 ft this long route gets scrape-prone and weedy, while above 20 ft the mileage and faster current stack up into a much more serious outing.',
+    latitude: 45.529026,
+    longitude: -94.776531,
+    gaugeSource: {
+      id: 'mn-dnr-328',
+      provider: 'mn_dnr',
+      siteId: '328',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Sauk River nr St. Martin, CR12',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=16051001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=16051001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05270500',
+        provider: 'usgs',
+        siteId: '05270500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Sauk River near St. Cloud, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 15,
+      idealMax: 17,
+      tooLow: 14,
+      tooHigh: 20,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Sauk River near St. Martin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. Low summer flow and vegetation matter more here because the route is long enough that a merely slow river can still turn the day into a grind.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The river character stays mostly easy, but 34.4 miles of moving water, wood management, and weather exposure make this a serious full-day or overnight-planned corridor rather than a casual float.',
+      confidenceNotes:
+        'Confidence is good because MN DNR names both endpoints on the official water-trail map, the St. Martin gauge still tracks the middle of the same corridor, and local-government pages support the Frogtown and Rockville stops. The main uncertainty is same-day endurance and wood, not the route identity.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Current level',
+        value: '15.01 ft at 8:00 AM',
+        note: 'MN DNR listed the St. Martin gauge at 15.01 ft on July 16, 2026, which lands in the official Medium band.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '14 / 15 / 17 / 20 ft',
+        note: 'MN DNR interprets the St. Martin gauge as Scrapable below 14 ft, Low from 14 to 15, Medium from 15 to 17, High from 17 to 20, and Very High above 20.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Route shape',
+        value: '34.4 river miles',
+        note: 'MN DNR Map 2 places Spring Hill County Park at river mile 56.2 and Frogtown Park at river mile 21.8.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Camping support',
+        value: 'Mid-route watercraft campsite',
+        note: 'Rockville County Park sits along this corridor and Stearns County documents a watercraft campsite there, giving this longer route a defensible overnight split instead of forcing a pure ultra-day.',
+        sourceUrl: 'https://www.stearnscountymn.gov/397/Rockville-County-Park',
+      },
+      {
+        label: 'Access support',
+        value: 'Official county and city endpoints',
+        note: 'Stearns County still documents Spring Hill County Park on the Sauk River, and Cold Spring says Frogtown Park has a canoe landing on the Sauk.',
+        sourceUrl: 'https://coldspringmn.gov/index.asp?SEC=70D61018-342B-4C4E-93F2-C0546E96A196',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Sauk River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Stearns County Spring Hill County Park',
+        url: 'https://www.stearnscountymn.gov/399/Spring-Hill-County-Park',
+      },
+      {
+        label: 'Cold Spring Frogtown Park',
+        url: 'https://coldspringmn.gov/index.asp?SEC=70D61018-342B-4C4E-93F2-C0546E96A196',
+      },
+      {
+        label: 'Stearns County Rockville County Park',
+        url: 'https://www.stearnscountymn.gov/397/Rockville-County-Park',
+      },
+      {
+        label: 'USGS 05270500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05270500/',
+      },
+    ],
+  },
+  {
+    id: 'sauk-river-frogtown-heims-mill',
+    slug: 'sauk-river-frogtown-heims-mill',
+    name: 'Sauk River',
+    reach: 'Frogtown Park to Heims Mill',
+    state: 'Minnesota',
+    region: 'St. Cloud Area',
+    summary:
+      'Full lower-Sauk continuation from Cold Spring into the Mississippi confluence corridor. It links the clean Frogtown launch to the Heims finish so paddlers can keep one additive lower-river card that includes the final Class I-II mouth section.',
+    statusText:
+      'Treat 15 to 17 ft at St. Martin as the cleanest broad-audience range. Below 14 ft the lower river gets weedier and the Heims finish turns bony, while above 20 ft the extra current and confluence-adjacent consequence deserve a more cautious read.',
+    latitude: 45.45775,
+    longitude: -94.421,
+    gaugeSource: {
+      id: 'mn-dnr-328',
+      provider: 'mn_dnr',
+      siteId: '328',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Sauk River nr St. Martin, CR12',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=16051001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=16051001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05270500',
+        provider: 'usgs',
+        siteId: '05270500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Sauk River near St. Cloud, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 15,
+      idealMax: 17,
+      tooLow: 14,
+      tooHigh: 20,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Sauk River near St. Martin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. Low summer flow and vegetation matter more here because the lower river can turn slow and scrapy before it fully quits, especially near the Heims rapid section.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Most of the run is broad-audience lower-Sauk water at sane levels, but 21.8 miles, wood, weather exposure, and the final Class I-II mouth section at Heims make it more serious than the short Miller or Knights shuttles.',
+      confidenceNotes:
+        'Confidence is good because MN DNR names both endpoints on the official water-trail map, the St. Martin gauge still tracks the same lower corridor, Cold Spring documents Frogtown, and Stearns County documents Heims Mill. The main uncertainty is same-day wood and the mouth section, not the route identity.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Current level',
+        value: '15.01 ft at 8:00 AM',
+        note: 'MN DNR listed the St. Martin gauge at 15.01 ft on July 16, 2026, which lands in the official Medium band.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '14 / 15 / 17 / 20 ft',
+        note: 'MN DNR interprets the St. Martin gauge as Scrapable below 14 ft, Low from 14 to 15, Medium from 15 to 17, High from 17 to 20, and Very High above 20.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Route shape',
+        value: '21.8 river miles',
+        note: 'MN DNR Map 2 places Frogtown Park at river mile 21.8 and Heims Mill at river mile 0.0.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Camping support',
+        value: 'Mid-route Rockville watercraft campsite',
+        note: 'Rockville County Park sits along this corridor and Stearns County documents a watercraft campsite there, which gives this longer lower-Sauk route a defensible overnight split or bailout.',
+        sourceUrl: 'https://www.stearnscountymn.gov/397/Rockville-County-Park',
+      },
+      {
+        label: 'Access support',
+        value: 'Official city and county endpoints',
+        note: 'Cold Spring says Frogtown Park has a canoe landing on the Sauk, and Stearns County documents Heims Mill as carry-in access to the Sauk and Mississippi rivers.',
+        sourceUrl: 'https://www.stearnscountymn.gov/heims-mill-canoe-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Sauk River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Cold Spring Frogtown Park',
+        url: 'https://coldspringmn.gov/index.asp?SEC=70D61018-342B-4C4E-93F2-C0546E96A196',
+      },
+      {
+        label: 'Stearns County Rockville County Park',
+        url: 'https://www.stearnscountymn.gov/397/Rockville-County-Park',
+      },
+      {
+        label: 'Stearns County Heims Mill Canoe Access',
+        url: 'https://www.stearnscountymn.gov/heims-mill-canoe-access',
+      },
+      {
+        label: 'USGS 05270500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05270500/',
+      },
+    ],
+  },
+  {
     id: 'sauk-river-st-martin-frogtown',
     slug: 'sauk-river-st-martin-frogtown',
     name: 'Sauk River',
@@ -6543,6 +6791,126 @@ export const rivers: River[] = [
       {
         label: 'Cold Spring Frogtown Park',
         url: 'https://coldspringmn.gov/index.asp?SEC=70D61018-342B-4C4E-93F2-C0546E96A196',
+      },
+      {
+        label: 'Stearns County Rockville County Park',
+        url: 'https://www.stearnscountymn.gov/397/Rockville-County-Park',
+      },
+      {
+        label: 'USGS 05270500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05270500/',
+      },
+    ],
+  },
+  {
+    id: 'sauk-river-st-martin-rockville',
+    slug: 'sauk-river-st-martin-rockville',
+    name: 'Sauk River',
+    reach: 'St. Martin Canoe Access to Rockville County Park',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Long central-Sauk corridor that stops at the documented Rockville watercraft campsite instead of continuing into Cold Spring or Eagle Park. It is the strongest remaining same-gauge middle planner when you want a full river day with a legitimate campground finish.',
+    statusText:
+      'Treat 15 to 17 ft at St. Martin as the best broad-audience range. Below 14 ft this long reach gets scrape-prone and weedy, while above 20 ft the mileage and faster current stack up into a much more serious outing.',
+    latitude: 45.520241,
+    longitude: -94.67885,
+    gaugeSource: {
+      id: 'mn-dnr-328',
+      provider: 'mn_dnr',
+      siteId: '328',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Sauk River nr St. Martin, CR12',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=16051001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=16051001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05270500',
+        provider: 'usgs',
+        siteId: '05270500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Sauk River near St. Cloud, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 15,
+      idealMax: 17,
+      tooLow: 14,
+      tooHigh: 20,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Sauk River near St. Martin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. Low summer flow and vegetation matter more here because the route is long enough that a merely slow river can still turn the day into a grind.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The river character stays mostly easy, but 30.3 miles of moving water, wood management, and weather exposure push this beyond a casual beginner float.',
+      confidenceNotes:
+        'Confidence is good because MN DNR names both endpoints on the official water-trail map, the St. Martin gauge sits directly at the put-in, and Stearns County documents Rockville County Park plus its watercraft campsite. The main uncertainty is same-day endurance and wood, not the route identity.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Current level',
+        value: '15.01 ft at 8:00 AM',
+        note: 'MN DNR listed the St. Martin gauge at 15.01 ft on July 16, 2026, which lands in the official Medium band.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '14 / 15 / 17 / 20 ft',
+        note: 'MN DNR interprets the St. Martin gauge as Scrapable below 14 ft, Low from 14 to 15, Medium from 15 to 17, High from 17 to 20, and Very High above 20.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Route shape',
+        value: '30.3 river miles',
+        note: 'MN DNR Map 2 places St. Martin at river mile 47.1 and Rockville County Park at river mile 16.8.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Camping support',
+        value: 'Rockville watercraft campsite at the finish',
+        note: 'Stearns County documents Rockville County Park with a watercraft campsite, drinking water, and carry-in access, which supports an endpoint campground finish for this long central Sauk planner.',
+        sourceUrl: 'https://www.stearnscountymn.gov/397/Rockville-County-Park',
+      },
+      {
+        label: 'Access support',
+        value: 'Official county endpoints',
+        note: 'Stearns County still documents St. Martin Canoe Access as Sauk River access and Rockville County Park as a county-park carry-in and campsite stop.',
+        sourceUrl: 'https://www.stearnscountymn.gov/398/St-Martin-Canoe-Access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Sauk River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Stearns County St. Martin Canoe Access',
+        url: 'https://www.stearnscountymn.gov/398/St-Martin-Canoe-Access',
       },
       {
         label: 'Stearns County Rockville County Park',

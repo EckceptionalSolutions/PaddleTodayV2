@@ -54,6 +54,15 @@ const routeGalleryImages: Record<string, string[]> = {
   'sauk-river-spring-hill-st-martin': [
     '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
   ],
+  'sauk-river-spring-hill-frogtown': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-frogtown-heims-mill': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-st-martin-rockville': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
   'cottonwood-river-juenemann-springfield': [
     '/gallery/cottonwood-river-juenemann-springfield/cottonwood-river-flandrau.jpg',
   ],
