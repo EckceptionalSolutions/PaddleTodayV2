@@ -39364,6 +39364,195 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'lemonweir-river-mauston-dam-19th-ave': {
+    putIn: {
+      id: 'mauston-dam-lemonweir-access',
+      name: 'Mauston Dam downstream access',
+      latitude: 43.7994,
+      longitude: -90.0684,
+    },
+    takeOut: {
+      id: 'lemonweir-mills',
+      name: '19th Avenue / Lemonweir Mills Landing',
+      latitude: 43.78723,
+      longitude: -90.0168,
+    },
+    logistics: {
+      distanceLabel: 'About 5 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 3.5 hr, longer if wood or low water forces scouting',
+      shuttle:
+        'Stage the 19th Avenue / Lemonweir Mills take-out first, then drive back to the downstream Mauston Dam access. Keep the put-in below the dam and inspect the tailwater before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Use only the downstream dam access and the Juneau County Lemonweir Mills public landing, and follow posted parking and launch rules.',
+      camping:
+        'Treat this as a day route. WRT mentions sandbars on the broader lower Lemonweir, but no legal public campsite was verified for this short reach.',
+      campingClassification: 'none',
+      summary:
+        'Launch below the Mauston Dam and paddle the first lower-Lemonweir reach to the 19th Avenue / Lemonweir Mills landing. The route has easy riffles and wooded scenery but sits immediately below a dam and depends on same-day wood and tailwater checks.',
+      accessCaveats: [
+        'Do not launch above the Mauston Dam for this route. Put in only below the dam and away from spillway current.',
+        'Lemonweir Mills is a basic no-fee public launch without a dock or toilets. Confirm footing and current before committing as the take-out.',
+        'The New Lisbon gauge is direct but upstream of the route. Visual checks at the dam and 19th Avenue still control after storms or wind events.',
+      ],
+      watchFor: [
+        'Dam tailwater, immediate riffles, fresh strainers, and blind wooded bends.',
+        'Low-water sandbars, mosquitoes, and private banks along the short corridor.',
+        'Cold water in spring and fall, plus faster current or new obstructions after rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mauston-dam-lemonweir-access',
+        name: 'Mauston Dam downstream access',
+        latitude: 43.7994,
+        longitude: -90.0684,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from Wisconsin River Trips; use the downstream launch below the dam.',
+      },
+      {
+        id: 'lemonweir-mills',
+        name: '19th Avenue / Lemonweir Mills Landing',
+        latitude: 43.78723,
+        longitude: -90.0168,
+        mileFromStart: 5,
+        segmentKind: 'creek',
+        note: 'Juneau County no-fee public launch for kayaks, canoes, and small boats.',
+      },
+    ],
+  },
+  'hay-river-county-ff-highway-25': {
+    putIn: {
+      id: 'hay-river-county-ff',
+      name: 'County Road FF Hay River access',
+      latitude: 45.0972,
+      longitude: -91.9743,
+    },
+    takeOut: {
+      id: 'hay-river-highway-25-wheeler',
+      name: 'Highway 25 at Wheeler take-out',
+      latitude: 45.0478,
+      longitude: -91.9108,
+    },
+    logistics: {
+      distanceLabel: 'About 9.9 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6 hr depending on deadfall and portages',
+      shuttle:
+        'Stage the Highway 25 take-out first and scout the sandbar/pull-up from the bridge. Then drive to County Road FF and launch river-left downstream from the bridge only where parking and bank conditions are legal and safe.',
+      permits:
+        'No route-specific paddling permit is known. Use lawful bridge/roadside access, avoid blocking shoulders, and stay off private banks except for safety.',
+      camping:
+        'No public on-route campsite was identified. Treat this as a day route with a committed shuttle and only one known mid-route road crossing.',
+      campingClassification: 'none',
+      summary:
+        'Paddle the clear, sandy Hay River from County FF to Highway 25 at Wheeler. The river is scenic and riffly, but WRT reports many deadfalls and two portages at the selected reference level.',
+      accessCaveats: [
+        'County FF is an informal bridge-area put-in with poison ivy noted by WRT; confirm legal parking and carry-in footing before unloading.',
+        'County N is the only mid-route bridge noted in the overview and should not be assumed as a routine exit without a same-day access check.',
+        'Highway 25 has road-traffic exposure. Know the take-out line before reaching the bridge.',
+      ],
+      watchFor: [
+        'More than 20 deadfalls or snags, including pass-throughs and likely portages.',
+        'Steady riffles, cold water, sandy footing that can hide holes, and limited bailouts.',
+        'Private banks, poison ivy, and higher-water strainer hazards after storms.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hay-river-county-ff',
+        name: 'County Road FF Hay River access',
+        latitude: 45.0972,
+        longitude: -91.9743,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from WRT; river-left downstream from the bridge with poison ivy warning.',
+      },
+      {
+        id: 'hay-river-county-n',
+        name: 'County Road N bridge',
+        latitude: 45.0698,
+        longitude: -91.9262,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Only mid-route road crossing noted in WRT overview; confirm legality before use.',
+      },
+      {
+        id: 'hay-river-highway-25-wheeler',
+        name: 'Highway 25 at Wheeler take-out',
+        latitude: 45.0478,
+        longitude: -91.9108,
+        mileFromStart: 9.9,
+        segmentKind: 'creek',
+        note: 'Default WRT take-out at the Highway 25 bridge sandbar near the Wheeler gauge.',
+      },
+    ],
+  },
+  'badger-mill-creek-old-county-pb-highway-69': {
+    putIn: {
+      id: 'badger-mill-old-county-pb',
+      name: 'Old County Road PB / Military Ridge Park and Ride access',
+      latitude: 42.99188,
+      longitude: -89.51428,
+    },
+    takeOut: {
+      id: 'badger-mill-highway-69-sugar-river',
+      name: 'Highway 69 take-out on the Sugar River',
+      latitude: 42.94921,
+      longitude: -89.54436,
+    },
+    logistics: {
+      distanceLabel: 'About 5.75 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with gates, portages, or new wood',
+      shuttle:
+        'Use the Military Ridge Park and Ride for the put-in logistics and stage a vehicle at the Highway 69 take-out on the Sugar River. Bike shuttles can use Verona-area roads and the Military Ridge Trail as described by Miles Paddled.',
+      permits:
+        'No route-specific paddling permit is known. Use legal public parking, respect farm/private banks, and do not force passage through gates, livestock, or posted areas.',
+      camping:
+        'No on-route campsite was identified. This is a short urban/rural challenge route and should be treated as day-use only.',
+      campingClassification: 'none',
+      summary:
+        'Launch near Old County Road PB and follow Badger Mill Creek to the Sugar River and Highway 69. The route has clear water and riffles, but it is defined by deadfall, low cattle gates, a long tunnel, and very narrow level tolerance.',
+      accessCaveats: [
+        'Launch downstream from the PB bridge and park at the Military Ridge Park and Ride rather than assuming garden or farm access is open.',
+        'The Highway 69 take-out is on the Sugar River after the confluence; scout parking and bank footing before launching.',
+        'The Verona gauge is direct. If stage is near or above 5 ft, low gates and tunnel clearance can make the run unsafe.',
+      ],
+      watchFor: [
+        'Deadfall, climbovers, duck-unders, shallow riffles, cow encounters, low cattle gates, and a 100-yard tunnel.',
+        'Fast rises after rain, low clearance above 5 ft, and too much dragging below about 4.75 ft.',
+        'Private banks, limited clean exits, and cold-water consequences outside summer.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'badger-mill-old-county-pb',
+        name: 'Old County Road PB / Military Ridge Park and Ride access',
+        latitude: 42.99188,
+        longitude: -89.51428,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from Miles Paddled; launch downstream from PB and park at the Military Ridge Park and Ride.',
+      },
+      {
+        id: 'badger-mill-riverside-road',
+        name: 'Riverside Road alternate exit',
+        latitude: 42.9518,
+        longitude: -89.5366,
+        mileFromStart: 5,
+        segmentKind: 'creek',
+        note: 'Approximate alternate exit near the Badger Mill / Sugar River confluence; verify legality before relying on it.',
+      },
+      {
+        id: 'badger-mill-highway-69-sugar-river',
+        name: 'Highway 69 take-out on the Sugar River',
+        latitude: 42.94921,
+        longitude: -89.54436,
+        mileFromStart: 5.75,
+        segmentKind: 'creek',
+        note: 'Default take-out coordinate from Miles Paddled after the confluence with the Sugar River.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {
