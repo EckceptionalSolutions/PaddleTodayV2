@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-16 09:17 America/Chicago.
+Last summarized: 2026-07-16 10:30 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 186 after the 2026-07-16 09:17 Mississippi / St. Louis / Cloquet pass.
-- Top represented rivers: Mississippi River 36, Minnesota River 12, Root River 7, Rum River 7, Sauk River 7, St. Croix River 7, Big Fork River 6, Cannon River 6, North Fork Crow River 6, Red Lake River 6, Zumbro River 6, Crow Wing River 5, Red River of the North 5, St. Louis River 5, Straight River 5, Cloquet River 4, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Cedar River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, Vermilion River, and Whitewater River.
-- Ledger candidates: 1004 total; 621 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
+- Live routes: 189 after the 2026-07-16 10:30 St. Croix / St. Louis pass.
+- Top represented rivers: Mississippi River 36, Minnesota River 12, St. Croix River 8, Root River 7, Rum River 7, Sauk River 7, St. Louis River 7, Big Fork River 6, Cannon River 6, North Fork Crow River 6, Red Lake River 6, Zumbro River 6, Crow Wing River 5, Red River of the North 5, Straight River 5, Cloquet River 4, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Cedar River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, Vermilion River, and Whitewater River.
+- Ledger candidates: 1011 total; 627 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-16 10:30 America/Chicago / 2026-07-16 15:30 UTC: added `st-croix-river-sand-creek-highway-70`, `st-louis-river-toivola-county-road-29`, and `st-louis-river-county-road-29-floodwood`.
+- Baseline at run start was 186 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 189 and fill three public-access gaps: NPS Map 6 Sand Creek-to-Highway-70 between existing St. Croix cards, Toivola-to-County-Road-29 on the middle St. Louis above Floodwood, and County-Road-29-to-Floodwood immediately above the existing Floodwood-to-Paupores card.
+- Qualification path: NPS St. Croix Map 6 plus MN DNR recommended-one-way and public-water-access GIS resolve Sand Creek `WAS01894` and Highway 70 `WAS00085`; MN DNR St. Louis Maps 1/2 plus public-water-access GIS resolve Toivola `WAS00615`, County Road 29 `WAS02129`, and Floodwood `WAS01940`.
+- Live gauge verification: MN DNR Danbury site `212` returned `653 cfs` at 2026-07-16 08:00 CDT, below the official scrapable floor; MN DNR Floodwood site `338` returned `23.64 ft` at 2026-07-16 08:45 CDT, below the official scrapable floor.
+- Implemented official DNR gauge models: St. Croix Sand-Creek-to-Highway-70 uses Danbury `1,250 / 1,500-2,200 / 6,000 cfs` as an upstream same-corridor proxy with Kettle-confluence caveats; both St. Louis cards use Floodwood `24.4 / 28-37 / 42 ft`, with Toivola-to-County-Road-29 as a downstream same-corridor proxy and County-Road-29-to-Floodwood as direct/takeout-corridor.
+- Camping posture: Sand Creek-to-Highway-70 is designated Riverway campsite-only; Toivola-to-County-Road-29 records the DNR watercraft campsite near river mile 78.0; County-Road-29-to-Floodwood is a day route with nearby campsite context only. Safety posture includes low/scrapable current, island-channel choices, optional Kettle Slough Class II, St. Louis wood/strainers, remote/private banks, cold water, fast rises, and Floodwood tributary take-out inspection.
+- No route-gallery images were added. Image audit rows record bounded NPS / DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add Long Prairie Lake-Carlos-to-Highway-29 because the public endpoints now resolve but the only interpreted gauge is far downstream below the dam/outlet reach; broader St. Croix Highway-70-to-Highway-8 because the practical above-dam pieces are already live; or St. Louis Brookston-to-Cloquet because downstream confluence/dam exposure remains weaker than the accepted upstream access pairs.
 
 - 2026-07-16 09:17 America/Chicago / 2026-07-16 14:17 UTC: added `mississippi-river-wolds-ferry-palisade`, `st-louis-river-floodwood-paupores`, and `cloquet-river-highway-53-highway-7`.
 - Baseline at run start was 183 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 186 and fill three non-overlapping official/public-access gaps: Wold's-Ferry-to-Palisade between existing Mississippi Map 4 cards, Floodwood-to-Paupores above the existing Paupores-to-Brookston St. Louis card, and Highway-53-to-Highway-7 on the lower Cloquet above the St. Louis confluence continuation.

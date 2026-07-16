@@ -37237,6 +37237,172 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
 type WisconsinTripDetailsBackfill = {
   campingClassification?: NonNullable<RiverTripDetails['logistics']['campingClassification']>;
   accessPoints?: NonNullable<RiverTripDetails['accessPoints']>;
+  'st-croix-river-sand-creek-highway-70': {
+    putIn: {
+      name: 'St. Croix River, Mouth of Sand Creek Public Water Access Site',
+      latitude: 45.9331669,
+      longitude: -92.6407033,
+    },
+    takeOut: {
+      name: 'St. Croix River, Highway 70 Landing',
+      latitude: 45.7739241,
+      longitude: -92.7820489,
+    },
+    logistics: {
+      distanceLabel: 'About 15 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, scouting, or campsite stops',
+      shuttle:
+        'Stage Highway 70 first, then drive back through the St. Croix State Park / Sand Creek access corridor. Inspect the Highway 70 landing and the first riffles before leaving a vehicle because low water can make the final miles slower than the map distance implies.',
+      permits:
+        'No route-specific paddling permit is known. Follow NPS Riverway rules, Minnesota boating/PFD requirements, state-park vehicle rules where applicable, and designated-campsite regulations.',
+      camping:
+        'NPS Map 6 allows camping only at designated first-come, first-served sites with size, fire, sanitation, and stay-limit rules. Treat this as designated Riverway camping only; do not assume island or private-bank camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Sand Creek Landing and take out at Highway 70 for the NPS Map 6 St. Croix section. The route closes the gap between the existing Sand Creek and Highway 70 cards, using the upstream Danbury DNR gauge conservatively and requiring a local visual check because the Kettle River joins near the lower miles.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Sand Creek as WAS01894 and Highway 70 as WAS00085 with public administrators, river miles, and coordinates.',
+        'The Danbury gauge is upstream of the route and above the Kettle River confluence; it is intentionally conservative for low-water calls, not an exact lower-route reading.',
+        'NPS Map 6 warns that the river splits around large islands. Stay left for the deeper main channel unless intentionally paddling and scouting the Kettle River Slough route.',
+      ],
+      watchFor: [
+        'Low water, shallow bars, and Sandrock Cliffs channel drying out.',
+        'The Kettle River Slough option, where NPS identifies a ledge and regular Class II rapids near the St. Croix confluence.',
+        'Downed trees, cold water, private or restricted banks, and remote rescue exposure between landings.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'sand-creek-landing',
+        name: 'Mouth of Sand Creek Landing',
+        latitude: 45.9331669,
+        longitude: -92.6407033,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01894 in Minnesota public-water-access GIS.',
+      },
+      {
+        id: 'st-croix-highway-70',
+        name: 'Highway 70 Landing',
+        latitude: 45.7739241,
+        longitude: -92.7820489,
+        mileFromStart: 15,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00085 in Minnesota public-water-access GIS.',
+      },
+    ],
+  },
+  'st-louis-river-toivola-county-road-29': {
+    putIn: {
+      name: 'St. Louis River, Toivola Public Water Access Site',
+      latitude: 47.1672586,
+      longitude: -92.7792689,
+    },
+    takeOut: {
+      name: 'St. Louis River, County Road 29 Public Water Access Site',
+      latitude: 46.9713542,
+      longitude: -92.8258324,
+    },
+    logistics: {
+      distanceLabel: 'About 15.7 mi',
+      estimatedPaddleTime: 'About 5.5 hr to 8 hr, longer with low water, wood, or campsite stops',
+      shuttle:
+        'Stage County Road 29 first, then drive back to Toivola. Confirm both carry-in accesses before launching because there are few clean public exits and the route sits well upstream of town services.',
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR public accesses, follow Minnesota boating/PFD rules, and obey state water-trail and campsite rules.',
+      camping:
+        'DNR Map 2 marks a watercraft campsite near river mile 78.0 just below County Road 29. Use only designated or otherwise legal public-land sites, and do not camp on private riverbed or private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Use Toivola to County Road 29 for a longer middle-St. Louis day above Floodwood. The app scores it from the downstream Floodwood DNR gauge with explicit proxy and low-water caveats.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Toivola as WAS00615 and County Road 29 as WAS02129 with source-backed coordinates and river-mile records.',
+        'The Floodwood gauge is downstream of the route. It is the best interpreted gauge for the middle corridor, but launch-side depth, recent rain, and visible riffles should override a marginal score.',
+        'Do not extend casually into Floodwood or Paupores unless the group has planned the additional miles, take-out logistics, and level exposure.',
+      ],
+      watchFor: [
+        'Shallow water and possible dragging when Floodwood is below the official 24.4 ft scrapable floor.',
+        'Remote wooded banks, strainers, cold water, and sparse legal bailout options.',
+        'Fast rises after rain and private shoreland away from official accesses or designated campsite areas.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'st-louis-toivola',
+        name: 'Toivola Public Water Access Site',
+        latitude: 47.1672586,
+        longitude: -92.7792689,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00615 in Minnesota public-water-access GIS.',
+      },
+      {
+        id: 'st-louis-county-road-29',
+        name: 'County Road 29 Public Water Access Site',
+        latitude: 46.9713542,
+        longitude: -92.8258324,
+        mileFromStart: 15.7,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02129 in Minnesota public-water-access GIS.',
+      },
+    ],
+  },
+  'st-louis-river-county-road-29-floodwood': {
+    putIn: {
+      name: 'St. Louis River, County Road 29 Public Water Access Site',
+      latitude: 46.9713542,
+      longitude: -92.8258324,
+    },
+    takeOut: {
+      name: 'Floodwood River Public Water Access Site',
+      latitude: 46.9291846,
+      longitude: -92.9170726,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with low water or the Floodwood River turn',
+      shuttle:
+        'Stage Floodwood first and inspect the tributary access before launching at County Road 29. The take-out sits off the St. Louis on the Floodwood River access corridor, so confirm that the final turn is paddleable before committing.',
+      permits:
+        'No route-specific paddling permit is known. Use the public DNR and city accesses, follow Minnesota boating/PFD rules, and respect posted city access and parking rules.',
+      camping:
+        'Treat this as a day route. DNR Map 2 marks a watercraft campsite near County Road 29, but this short connector does not require or assume overnight use; use only designated or otherwise legal public-land campsites.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Put in at County Road 29 and take out at Floodwood for the short connector immediately above the existing Floodwood-to-Paupores card. The Floodwood DNR gauge is effectively at the take-out corridor, but current low water makes same-day inspection important.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves County Road 29 as WAS02129 and Floodwood as WAS01940 with source-backed coordinates and river-mile records.',
+        'DNR Map 2 places Floodwood trailer access about one-half mile up the Floodwood River from the St. Louis confluence; inspect the turn and be prepared for mud, weak current, or shallow water.',
+        'This card ends at Floodwood. The downstream Floodwood-to-Paupores route is a separate plan with more Class I-II and low-water exposure.',
+      ],
+      watchFor: [
+        'Below-scrapable Floodwood gauge readings, exposed gravel, and slow shallow water.',
+        'Wood, cold water, muddy banks, and fast changes after rain.',
+        'Private banks and limited routine exits away from County Road 29 and Floodwood.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'st-louis-county-road-29',
+        name: 'County Road 29 Public Water Access Site',
+        latitude: 46.9713542,
+        longitude: -92.8258324,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02129 in Minnesota public-water-access GIS.',
+      },
+      {
+        id: 'floodwood-river-access',
+        name: 'Floodwood River Public Water Access Site',
+        latitude: 46.9291846,
+        longitude: -92.9170726,
+        mileFromStart: 6,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS01940 and requires checking the Floodwood River access turn.',
+      },
+    ],
+  },
+
 };
 
 const wisconsinTripDetailsBackfill: Record<string, WisconsinTripDetailsBackfill> = {
