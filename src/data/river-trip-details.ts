@@ -28480,6 +28480,171 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       }
     ],
   },
+  'mississippi-river-trommald-little-rabbit': {
+    putIn: {
+      name: 'Mississippi River, Trommald Public Water Access Site',
+      latitude: 46.5149237,
+      longitude: -94.0696772,
+    },
+    takeOut: {
+      name: 'Mississippi River, Little Rabbit Lake #1 Public Water Access Site',
+      latitude: 46.4641834,
+      longitude: -94.0597176,
+    },
+    logistics: {
+      distanceLabel: '5.1 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with wind, fishing stops, or strong current',
+      shuttle:
+        'Stage Little Rabbit Lake first, then drive back to Trommald. This is the short signed excursion below the Highway 6 route, so keep the day scoped and do not assume downstream Brainerd access notes apply.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR public accesses, follow Minnesota boating/PFD rules, and respect posted parking, fishing, and access rules.',
+      camping:
+        'DNR Map 5 marks Half-Moon watercraft campsite near river mile 1017.0 between Trommald and Little Rabbit Lake. Treat it as first-come or separately confirmed rather than guaranteed overnight capacity.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Trommald and take out at Little Rabbit Lake for the signed Mississippi Headwaters Board excursion. Use the Brainerd DNR gauge as a downstream official proxy, then make a visual same-day call at both accesses.',
+      accessCaveats: [
+        'Trommald resolves in Minnesota public-water-access GIS as WAS02294 at DNR Map 5 river mile 1018.3.',
+        'Little Rabbit Lake #1 resolves as WAS02290 at river mile 1013.2. Use the signed public access, not an informal lake or shoreline stop.',
+        'The Brainerd gauge is downstream of the selected route. Treat it as a corridor condition check and do not continue toward French Rapids, Lum Park, or the Potlatch Dam corridor without a separate plan.',
+      ],
+      watchFor: [
+        'Wind and motorboat wake on broad water.',
+        'Faster current and floating debris after rain or rising water.',
+        'Cold water, private banks, limited legal bailouts, and pressure to keep drifting after the signed take-out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mississippi-river-trommald-public-water-access-site',
+        name: 'Mississippi River, Trommald Public Water Access Site',
+        latitude: 46.5149237,
+        longitude: -94.0696772,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR Map 5 river mile 1018.3; resolves as WAS02294.',
+      },
+      {
+        id: 'mississippi-river-little-rabbit-lake-1-public-water-access-site',
+        name: 'Mississippi River, Little Rabbit Lake #1 Public Water Access Site',
+        latitude: 46.4641834,
+        longitude: -94.0597176,
+        mileFromStart: 5.1,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR Map 5 river mile 1013.2; resolves as WAS02290.',
+      },
+    ],
+  },
+  'mississippi-river-little-rabbit-french-rapids': {
+    putIn: {
+      name: 'Mississippi River, Little Rabbit Lake #1 Public Water Access Site',
+      latitude: 46.4641834,
+      longitude: -94.0597176,
+    },
+    takeOut: {
+      name: 'Mississippi River, French Rapids Public Water Access Site',
+      latitude: 46.4037437,
+      longitude: -94.1586897,
+    },
+    logistics: {
+      distanceLabel: '6.7 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with wind, high water, or fishing stops',
+      shuttle:
+        'Stage French Rapids first, then drive back to Little Rabbit Lake. Confirm the French Rapids take-out before launch because missing it pushes the group toward Lum Park and the Potlatch Dam corridor.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR public accesses, follow Minnesota boating/PFD rules, and obey posted parking, fishing, and access rules.',
+      camping:
+        'Treat this as a day route. DNR Map 5 shows public accesses in the corridor, but no on-route watercraft campsite is assumed for Little Rabbit Lake to French Rapids.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Little Rabbit Lake and take out at French Rapids for the signed Mississippi Headwaters Board excursion. The route intentionally stops above Lum Park and Potlatch Dam, with the Brainerd DNR gauge used as the official corridor check.',
+      accessCaveats: [
+        'Little Rabbit Lake #1 resolves as WAS02290 at DNR Map 5 river mile 1013.2.',
+        'French Rapids resolves as WAS01005 at river mile 1006.5 and is the planned take-out for this route.',
+        'Potlatch Dam is downstream at river mile 1004.1. Do not treat the dam portage or Lum Park as casual extensions of this card.',
+      ],
+      watchFor: [
+        'Missing or crowding the French Rapids take-out and drifting into the dam-influenced Brainerd corridor.',
+        'Wind, motorboat wake, cold water, post-rain debris, and stronger current.',
+        'Private banks, limited public bailouts, and a downstream proxy gauge that still needs local visual confirmation.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mississippi-river-little-rabbit-lake-1-public-water-access-site',
+        name: 'Mississippi River, Little Rabbit Lake #1 Public Water Access Site',
+        latitude: 46.4641834,
+        longitude: -94.0597176,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR Map 5 river mile 1013.2; resolves as WAS02290.',
+      },
+      {
+        id: 'mississippi-river-french-rapids-public-water-access-site',
+        name: 'Mississippi River, French Rapids Public Water Access Site',
+        latitude: 46.4037437,
+        longitude: -94.1586897,
+        mileFromStart: 6.7,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR Map 5 river mile 1006.5; resolves as WAS01005.',
+      },
+    ],
+  },
+  'mississippi-river-fort-ripley-belle-prairie': {
+    putIn: {
+      name: 'Mississippi River, Fort Ripley Landing Public Water Access Site',
+      latitude: 46.1794923,
+      longitude: -94.3648683,
+    },
+    takeOut: {
+      name: 'Mississippi River, Belle Prairie County Park Public Water Access Site',
+      latitude: 46.0353503,
+      longitude: -94.3435523,
+    },
+    logistics: {
+      distanceLabel: '12 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr depending on wind, stops, and current',
+      shuttle:
+        'Stage Belle Prairie County Park first, then drive back to Fort Ripley Landing. Confirm daylight, wind, Camp Ripley boundary awareness, and whether any mid-route bailout is part of the plan before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use public accesses, follow Minnesota boating/PFD rules, and obey posted county, city, public-land, and Camp Ripley boundary rules.',
+      camping:
+        'Treat this as a day route with nearby base-camp options rather than assumed on-route camping. Camp Ripley and private banks are not camping or bailout substitutes.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Fort Ripley and take out at Belle Prairie County Park for the signed Mississippi Headwaters Board 12-mile day split below Brainerd. Use the Brainerd DNR gauge as an upstream official proxy and make local access checks before committing.',
+      accessCaveats: [
+        'Fort Ripley Landing resolves in Minnesota public-water-access GIS as WAS01026 near DNR river mile 982.3.',
+        'Belle Prairie County Park resolves as WAS01278 near river mile 970.2 and is the signed finish for this day route.',
+        'This card is the shorter signed excursion inside the longer Overlook-to-Belle-Prairie planner. Do not rely on long-route access notes as a substitute for a Fort Ripley shuttle plan.',
+      ],
+      watchFor: [
+        'Camp Ripley boundary context, private banks, and limited legal exits between public accesses.',
+        'Wind on broad bends, cold water, post-rain current, floating wood, and debris near tributary mouths.',
+        'Twelve-mile fatigue and committing too late in the day without a bailout or daylight margin.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'fort-ripley-landing',
+        name: 'Mississippi River, Fort Ripley Landing Public Water Access Site',
+        latitude: 46.1794923,
+        longitude: -94.3648683,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in near DNR river mile 982.3; resolves as WAS01026.',
+      },
+      {
+        id: 'belle-prairie-county-park',
+        name: 'Mississippi River, Belle Prairie County Park Public Water Access Site',
+        latitude: 46.0353503,
+        longitude: -94.3435523,
+        mileFromStart: 12,
+        segmentKind: 'creek',
+        note: 'Default take-out near DNR river mile 970.2; resolves as WAS01278.',
+      },
+    ],
+  },
   'crow-wing-river-first-crow-wing-huntersville': {
     putIn: {
       name: 'Crow Wing River, 1st Crow Wing Lake Public Water Access Site',
