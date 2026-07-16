@@ -1,11 +1,11 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-16 10:30 America/Chicago.
+Last summarized: 2026-07-16 11:13 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 189 after the 2026-07-16 10:30 St. Croix / St. Louis pass.
-- Top represented rivers: Mississippi River 36, Minnesota River 12, St. Croix River 8, Root River 7, Rum River 7, Sauk River 7, St. Louis River 7, Big Fork River 6, Cannon River 6, North Fork Crow River 6, Red Lake River 6, Zumbro River 6, Crow Wing River 5, Red River of the North 5, Straight River 5, Cloquet River 4, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Cedar River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, Vermilion River, and Whitewater River.
+- Live routes: 192 after the 2026-07-16 11:13 Root / Crow Wing planner pass.
+- Top represented rivers: Mississippi River 36, Minnesota River 12, Root River 9, St. Croix River 8, Rum River 7, Sauk River 7, St. Louis River 7, Big Fork River 6, Cannon River 6, Crow Wing River 6, North Fork Crow River 6, Red Lake River 6, Zumbro River 6, Red River of the North 5, Straight River 5, Cloquet River 4, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Cedar River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, Vermilion River, and Whitewater River.
 - Ledger candidates: 1011 total; 627 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
 
 ## Status
@@ -13,6 +13,15 @@ Last summarized: 2026-07-16 10:30 America/Chicago.
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-16 11:13 America/Chicago / 2026-07-16 16:13 UTC: added `root-river-rushford-mound-prairie`, `root-river-parsley-whalan`, and `crow-wing-river-first-crow-wing-stigmans`.
+- Baseline at run start was 189 live Minnesota routes from `src/data/rivers.ts`. The selected slugs bring the live Minnesota inventory to 192 and add official MN DNR recommended planner cards that were not present as exact slugs at baseline: Rushford-to-Mound-Prairie, Parsley-to-Whalan, and 1st-Crow-Wing-Lake-to-Stigman's-Mound.
+- Qualification path: MN DNR recommended-one-way list names all three exact routes and mileages; Root River Map 1/2 and Crow Wing Map 1 support access chain, campsite, hazard, and route-shape details; public-water-access records were reused from the already-live split cards where available.
+- Live gauge verification: MN DNR Mound Prairie site `200` returned `656.30 ft` at 2026-07-16 08:45 CDT in the official high band; Pilot Mound site `201` returned `8.81 ft` at 2026-07-16 09:00 CDT in the official medium band; Crow Wing Nimrod site `55` returned `284 cfs` at 2026-07-16 09:00 CDT below the official scrapable floor.
+- Implemented official DNR gauge models: Mound Prairie `650 / 654-656 / 658 ft`, Pilot Mound `7.0 / 8.2-9.2 / 11.5 ft`, and Nimrod `300 / 400-800 / 1,100 cfs` as a downstream same-water-trail proxy for the upper Crow Wing planner.
+- Camping posture: Rushford-to-Mound-Prairie is nearby-basecamp with Houston split/campground context; Parsley-to-Whalan is on-route-campsite capable only with designated-site confirmation; 1st-Crow-Wing-to-Stigman's is on-route-campsite capable using DNR Map 1 watercraft-campsite context. Safety posture includes long-mile fatigue, low/scrapable water, high-band current, lake wind, rapids, old bridge debris, strainers, private banks, cold water, and remote rescue exposure.
+- No route-gallery images were added. Image audit rows record bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add Big Fork Highway-6-South-to-Big-Falls because its 38.5 miles exceeds the current `routes:audit` day-route bound; Big Fork Dora-Lake-to-Lime because the in-route Bigfork gauge is stale; lower Rum Martin's-to-Peninsula because the repo explicitly represents it as split cards to avoid duplicate full-corridor coverage; and Pomme-de-Terre #1-to-Appleton because `pomme-de-terre-river-highway-12-appleton` is already live.
 
 - 2026-07-16 10:30 America/Chicago / 2026-07-16 15:30 UTC: added `st-croix-river-sand-creek-highway-70`, `st-louis-river-toivola-county-road-29`, and `st-louis-river-county-road-29-floodwood`.
 - Baseline at run start was 186 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 189 and fill three public-access gaps: NPS Map 6 Sand Creek-to-Highway-70 between existing St. Croix cards, Toivola-to-County-Road-29 on the middle St. Louis above Floodwood, and County-Road-29-to-Floodwood immediately above the existing Floodwood-to-Paupores card.

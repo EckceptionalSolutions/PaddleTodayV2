@@ -2250,6 +2250,70 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'root-river-rushford-mound-prairie': {
+    putIn: {
+      name: 'Rushford carry-in access (Historic Depot area)',
+      latitude: 43.78358,
+      longitude: -91.83403,
+    },
+    takeOut: {
+      name: 'Root River, Mound Prairie Public Water Access Site',
+      latitude: 43.7094539,
+      longitude: -91.4671173,
+    },
+    logistics: {
+      distanceLabel: '21.8 mi',
+      estimatedPaddleTime: 'About 7.5 hr to 10 hr, or split with a Houston stop',
+      shuttle:
+        'Stage Mound Prairie first, then drive back to Rushford. This is the full DNR Rushford-to-Mound-Prairie planner, so many groups should use Houston as a split, bailout, or overnight staging point instead of forcing one very long day.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted trail-town, WMA, parking, and campsite rules.',
+      camping:
+        'Houston has established trailhead/campground support, and the broader trail-town corridor has nearby lodging and campgrounds. Treat riverbank camping as unavailable unless a specific legal campsite or permit is confirmed.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Rushford and finish at Mound Prairie for the official 21.8-mile lower Root planner. The individual reaches are approachable at normal levels, but high-band water, wood, and long mileage make this a committed itinerary.',
+      accessCaveats: [
+        'Rushford, Houston, and Mound Prairie are the planned public access chain; Houston is the clean split if daylight, water level, or group pace is marginal.',
+        'Mound Prairie is a WMA-side carry-in by the County Road 25 bridge and gauge, not a town landing. Inspect the take-out before launching.',
+        'The Mound Prairie gauge is at the finish corridor and was in the high band during this run, so a same-day shore check still matters.',
+      ],
+      watchFor: [
+        'Fresh sweepers, strainers, and flood debris after rain.',
+        'Pushier current and harder landings when Mound Prairie is above the medium band.',
+        'Long-mileage fatigue, private banks, cold shoulder-season water, and limited clean exits away from public accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rushford-carry-in-access',
+        name: 'Rushford carry-in access (Historic Depot area)',
+        latitude: 43.78358,
+        longitude: -91.83403,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 33.8.',
+      },
+      {
+        id: 'houston-access',
+        name: 'Root River, Houston Public Water Access Site',
+        latitude: 43.7645,
+        longitude: -91.57037,
+        mileFromStart: 15.1,
+        segmentKind: 'creek',
+        note: 'Primary split, bailout, town-support, and campground-planning point.',
+      },
+      {
+        id: 'mound-prairie',
+        name: 'Root River, Mound Prairie Public Water Access Site',
+        latitude: 43.7094539,
+        longitude: -91.4671173,
+        mileFromStart: 21.8,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 12.0 beside the County Road 25 bridge and selected gauge.',
+      },
+    ],
+  },
   'root-river-chatfield-parsley': {
     putIn: {
       name: 'Root River, Chatfield Public Water Access Site',
@@ -2476,6 +2540,70 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         segmentKind: 'creek',
         note: "Default take-out for this route.",
       }
+    ],
+  },
+  'root-river-parsley-whalan': {
+    putIn: {
+      name: 'Parsley Bridge carry-in access',
+      latitude: 43.81641,
+      longitude: -92.13924,
+    },
+    takeOut: {
+      name: 'Whalan carry-in access',
+      latitude: 43.7558,
+      longitude: -91.9179,
+    },
+    logistics: {
+      distanceLabel: '29.2 mi',
+      estimatedPaddleTime: 'About 9 hr to 12 hr, or split overnight with a confirmed campsite plan',
+      shuttle:
+        'Long Driftless shuttle from Whalan back to Parsley Bridge. Stage Whalan first, confirm the town parking and carry-in location, and use Moen\'s Bridge as the practical split if the group is not intentionally doing the full DNR planner.',
+      permits:
+        'No route-specific paddling permit is known. Use named public carry-ins, follow Minnesota boating/PFD rules, and confirm any campsite, state-trail, parking, or local access rules before relying on them.',
+      camping:
+        'DNR Map 1 shows campsite/rest-area context along the route, including Pilot Mound and Power Plant. Treat overnight use as a deliberate designated-site plan, not an informal private-bank option.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Parsley Bridge and finish at Whalan for the official 29.2-mile Root River planner. The Pilot Mound gauge was in the medium band during this run, but mileage, bridge accesses, old debris, and overnight logistics keep the card cautious.',
+      accessCaveats: [
+        'Parsley and Moen\'s are bridge carry-ins; expect short carries and verify parking before unloading.',
+        'Moen\'s Bridge is the clean split or bailout point if the full Parsley-to-Whalan itinerary is too long for the day.',
+        'DNR notes Whalan parking is about 500 feet from the carry-in, so inspect the take-out before launching.',
+      ],
+      watchFor: [
+        'Shallow riffles and scraping when Pilot Mound falls toward the low or scrapable bands.',
+        'Old bridge debris near Whalan plus fresh wood and sweepers after storms.',
+        'Long-mileage fatigue, cold water outside midsummer, private banks, and campsite availability assumptions.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'parsley-bridge',
+        name: 'Parsley Bridge carry-in access',
+        latitude: 43.81641,
+        longitude: -92.13924,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the upper end of the DNR recommended planner.',
+      },
+      {
+        id: 'moens-bridge',
+        name: "Moen's Bridge carry-in access",
+        latitude: 43.782576,
+        longitude: -92.0317899,
+        mileFromStart: 13.3,
+        segmentKind: 'creek',
+        note: 'Primary public split point and downstream start of the existing Moen-to-Whalan card.',
+      },
+      {
+        id: 'whalan-carry-in',
+        name: 'Whalan carry-in access',
+        latitude: 43.7558,
+        longitude: -91.9179,
+        mileFromStart: 29.2,
+        segmentKind: 'creek',
+        note: 'Default take-out; DNR notes parking is about 500 feet from the carry-in.',
+      },
     ],
   },
   'wolf-river-pearson-lily': {
@@ -34244,6 +34372,79 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'crow-wing-river-first-crow-wing-stigmans': {
+    putIn: {
+      name: 'Crow Wing River, 1st Crow Wing Lake Public Water Access Site',
+      latitude: 46.8231595,
+      longitude: -94.871236,
+    },
+    takeOut: {
+      name: "Stigman's Mound #7 carry-in access",
+      latitude: 46.64045859179894,
+      longitude: -94.87970389700178,
+    },
+    logistics: {
+      distanceLabel: '24.0 mi',
+      estimatedPaddleTime: 'About 8 hr to 11 hr, or split with a designated campsite plan',
+      shuttle:
+        "Long upper-Crow-Wing shuttle from Stigman's Mound back to 1st Crow Wing Lake. Stage the take-out first, confirm road and parking conditions, and treat Huntersville North or Mary Brown as split options if water is low.",
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey DNR, county, state-forest, campsite, and posted access rules.',
+      camping:
+        'DNR Map 1 shows watercraft campsite context around Big Bend, Huntersville / State Forest Campground, Mary Brown, and Stigman. Treat camping as designated-site planning that must be confirmed before relying on it.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        "Launch at 1st Crow Wing Lake and finish at Stigman's Mound for the official 24-mile MN DNR upper Crow Wing planner. The Nimrod gauge was below the scrapable floor during this run, so shallow-water drag and split-route planning are central.",
+      accessCaveats: [
+        'The Nimrod gauge is downstream of the selected route. Use it as the official same-water-trail check and still make visual decisions at the lake launch and intermediate accesses.',
+        'Huntersville North and Mary Brown are the clean public split points if the full route is too long, shallow, windy, or woody.',
+        "Stigman's Mound is the planned finish for this card; continuing toward Frame's Landing enters the separate rapids-bearing lower card.",
+      ],
+      watchFor: [
+        'Lake wind and cold-water exposure at the launch, then narrow channel, marsh vegetation, sandy shallows, and wood.',
+        'Low-water dragging when Nimrod is below the 300 cfs scrapable floor.',
+        "Walkin's, Burrows, and Westra rapids in the lower approach toward Stigman's, plus remote rescue spacing and private banks.",
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'first-crow-wing-lake',
+        name: 'Crow Wing River, 1st Crow Wing Lake Public Water Access Site',
+        latitude: 46.8231595,
+        longitude: -94.871236,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default put-in at DNR river mile 89.7.',
+      },
+      {
+        id: 'huntersville-north',
+        name: 'Huntersville (N) Public Water Access Site',
+        latitude: 46.7783954,
+        longitude: -94.8929814,
+        mileFromStart: 7.1,
+        segmentKind: 'creek',
+        note: 'First public split point and start of the existing Huntersville-to-Mary-Brown card.',
+      },
+      {
+        id: 'mary-brown-5',
+        name: 'Mary Brown #5 Public Water Access Site',
+        latitude: 46.7175822,
+        longitude: -94.9289851,
+        mileFromStart: 14.4,
+        segmentKind: 'creek',
+        note: 'Second public split point before the rapids-bearing approach toward Stigman.',
+      },
+      {
+        id: 'stigmans-mound',
+        name: "Stigman's Mound #7 carry-in access",
+        latitude: 46.64045859179894,
+        longitude: -94.87970389700178,
+        mileFromStart: 24,
+        segmentKind: 'creek',
+        note: 'Default take-out for the DNR recommended upper Crow Wing planner.',
+      },
+    ],
+  },
   'red-lake-river-fisher-red-river-recreation': {
     putIn: {
       name: 'Red Lake River, Fisher Landing Public Water Access Site',
@@ -36461,7 +36662,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'No on-route camping is documented for this access pair. Treat it as a remote day route and use separate nearby campground or lodging plans only after checking current rules.',
       campingClassification: 'none',
       summary:
-        'Launch at Spirit Falls Avenue / Squaw Creek and paddle the Spirit River to Highway O. The route trades the dangerous Spirit Falls upper gauntlet for a still-remote day with boulder gardens, beaver dams, possible wood, and flowage navigation.',
+        'Launch at Spirit Falls Avenue / Squaw Creek and paddle the Spirit River to Highway O. The route trades the dangerous Spirit Falls upper gauntlet for a still-remote day with boulder gardens, beaver dams, possible wood, and flowage navigation. Treat 21 to 40 cfs as the preferred source-supported band, while under 20 cfs may remain navigable with more scraping and local visual checks.',
       accessCaveats: [
         'Do not start from Bridge Road for this card; WRT advises most paddlers to skip the Spirit Falls boulder field and launch at Spirit Falls Avenue / Squaw Creek instead.',
         'New Wood Road is a rough public access and possible bailout, not the default finish. Verify it before relying on it.',
@@ -36593,7 +36794,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'No on-route camping is documented. This is a short day route through a small river corridor with private, urban, and industrial banks.',
       campingClassification: 'none',
       summary:
-        "Use Cherry Lane to Firemen's Park for the shorter Waterloo rapids-focused Maunesha card. The downstream Milford gauge is a rough proxy, so local bridge and rapid visuals decide marginal days.",
+        "Use Cherry Lane to Firemen's Park for the shorter Waterloo rapids-focused Maunesha card. This is the intentional short option nested inside the longer Marshall-to-Firemen's Park route, not a separate corridor. The downstream Milford gauge is a rough proxy, so local bridge and rapid visuals decide marginal days.",
       accessCaveats: [
         'Cherry Lane is a practical bridge access from WRT rather than an official staffed launch; do not use it if parking, signage, traffic, or footing is unclear.',
         "The Firemen's Park landing can have steep or muddy banks. Identify the marked take-out before launching.",
@@ -37232,6 +37433,171 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'st-croix-river-sand-creek-highway-70': {
+    putIn: {
+      name: 'St. Croix River, Mouth of Sand Creek Public Water Access Site',
+      latitude: 45.9331669,
+      longitude: -92.6407033,
+    },
+    takeOut: {
+      name: 'St. Croix River, Highway 70 Landing',
+      latitude: 45.7739241,
+      longitude: -92.7820489,
+    },
+    logistics: {
+      distanceLabel: 'About 15 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, scouting, or campsite stops',
+      shuttle:
+        'Stage Highway 70 first, then drive back through the St. Croix State Park / Sand Creek access corridor. Inspect the Highway 70 landing and the first riffles before leaving a vehicle because low water can make the final miles slower than the map distance implies.',
+      permits:
+        'No route-specific paddling permit is known. Follow NPS Riverway rules, Minnesota boating/PFD requirements, state-park vehicle rules where applicable, and designated-campsite regulations.',
+      camping:
+        'NPS Map 6 allows camping only at designated first-come, first-served sites with size, fire, sanitation, and stay-limit rules. Treat this as designated Riverway camping only; do not assume island or private-bank camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Sand Creek Landing and take out at Highway 70 for the NPS Map 6 St. Croix section. The route closes the gap between the existing Sand Creek and Highway 70 cards, using the upstream Danbury DNR gauge conservatively and requiring a local visual check because the Kettle River joins near the lower miles.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Sand Creek as WAS01894 and Highway 70 as WAS00085 with public administrators, river miles, and coordinates.',
+        'The Danbury gauge is upstream of the route and above the Kettle River confluence; it is intentionally conservative for low-water calls, not an exact lower-route reading.',
+        'NPS Map 6 warns that the river splits around large islands. Stay left for the deeper main channel unless intentionally paddling and scouting the Kettle River Slough route.',
+      ],
+      watchFor: [
+        'Low water, shallow bars, and Sandrock Cliffs channel drying out.',
+        'The Kettle River Slough option, where NPS identifies a ledge and regular Class II rapids near the St. Croix confluence.',
+        'Downed trees, cold water, private or restricted banks, and remote rescue exposure between landings.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'sand-creek-landing',
+        name: 'Mouth of Sand Creek Landing',
+        latitude: 45.9331669,
+        longitude: -92.6407033,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01894 in Minnesota public-water-access GIS.',
+      },
+      {
+        id: 'st-croix-highway-70',
+        name: 'Highway 70 Landing',
+        latitude: 45.7739241,
+        longitude: -92.7820489,
+        mileFromStart: 15,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00085 in Minnesota public-water-access GIS.',
+      },
+    ],
+  },
+  'st-louis-river-toivola-county-road-29': {
+    putIn: {
+      name: 'St. Louis River, Toivola Public Water Access Site',
+      latitude: 47.1672586,
+      longitude: -92.7792689,
+    },
+    takeOut: {
+      name: 'St. Louis River, County Road 29 Public Water Access Site',
+      latitude: 46.9713542,
+      longitude: -92.8258324,
+    },
+    logistics: {
+      distanceLabel: 'About 15.7 mi',
+      estimatedPaddleTime: 'About 5.5 hr to 8 hr, longer with low water, wood, or campsite stops',
+      shuttle:
+        'Stage County Road 29 first, then drive back to Toivola. Confirm both carry-in accesses before launching because there are few clean public exits and the route sits well upstream of town services.',
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR public accesses, follow Minnesota boating/PFD rules, and obey state water-trail and campsite rules.',
+      camping:
+        'DNR Map 2 marks a watercraft campsite near river mile 78.0 just below County Road 29. Use only designated or otherwise legal public-land sites, and do not camp on private riverbed or private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Use Toivola to County Road 29 for a longer middle-St. Louis day above Floodwood. The app scores it from the downstream Floodwood DNR gauge with explicit proxy and low-water caveats.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Toivola as WAS00615 and County Road 29 as WAS02129 with source-backed coordinates and river-mile records.',
+        'The Floodwood gauge is downstream of the route. It is the best interpreted gauge for the middle corridor, but launch-side depth, recent rain, and visible riffles should override a marginal score.',
+        'Do not extend casually into Floodwood or Paupores unless the group has planned the additional miles, take-out logistics, and level exposure.',
+      ],
+      watchFor: [
+        'Shallow water and possible dragging when Floodwood is below the official 24.4 ft scrapable floor.',
+        'Remote wooded banks, strainers, cold water, and sparse legal bailout options.',
+        'Fast rises after rain and private shoreland away from official accesses or designated campsite areas.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'st-louis-toivola',
+        name: 'Toivola Public Water Access Site',
+        latitude: 47.1672586,
+        longitude: -92.7792689,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00615 in Minnesota public-water-access GIS.',
+      },
+      {
+        id: 'st-louis-county-road-29',
+        name: 'County Road 29 Public Water Access Site',
+        latitude: 46.9713542,
+        longitude: -92.8258324,
+        mileFromStart: 15.7,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02129 in Minnesota public-water-access GIS.',
+      },
+    ],
+  },
+  'st-louis-river-county-road-29-floodwood': {
+    putIn: {
+      name: 'St. Louis River, County Road 29 Public Water Access Site',
+      latitude: 46.9713542,
+      longitude: -92.8258324,
+    },
+    takeOut: {
+      name: 'Floodwood River Public Water Access Site',
+      latitude: 46.9291846,
+      longitude: -92.9170726,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with low water or the Floodwood River turn',
+      shuttle:
+        'Stage Floodwood first and inspect the tributary access before launching at County Road 29. The take-out sits off the St. Louis on the Floodwood River access corridor, so confirm that the final turn is paddleable before committing.',
+      permits:
+        'No route-specific paddling permit is known. Use the public DNR and city accesses, follow Minnesota boating/PFD rules, and respect posted city access and parking rules.',
+      camping:
+        'Treat this as a day route. DNR Map 2 marks a watercraft campsite near County Road 29, but this short connector does not require or assume overnight use; use only designated or otherwise legal public-land campsites.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Put in at County Road 29 and take out at Floodwood for the short connector immediately above the existing Floodwood-to-Paupores card. The Floodwood DNR gauge is effectively at the take-out corridor, but current low water makes same-day inspection important.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves County Road 29 as WAS02129 and Floodwood as WAS01940 with source-backed coordinates and river-mile records.',
+        'DNR Map 2 places Floodwood trailer access about one-half mile up the Floodwood River from the St. Louis confluence; inspect the turn and be prepared for mud, weak current, or shallow water.',
+        'This card ends at Floodwood. The downstream Floodwood-to-Paupores route is a separate plan with more Class I-II and low-water exposure.',
+      ],
+      watchFor: [
+        'Below-scrapable Floodwood gauge readings, exposed gravel, and slow shallow water.',
+        'Wood, cold water, muddy banks, and fast changes after rain.',
+        'Private banks and limited routine exits away from County Road 29 and Floodwood.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'st-louis-county-road-29',
+        name: 'County Road 29 Public Water Access Site',
+        latitude: 46.9713542,
+        longitude: -92.8258324,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02129 in Minnesota public-water-access GIS.',
+      },
+      {
+        id: 'floodwood-river-access',
+        name: 'Floodwood River Public Water Access Site',
+        latitude: 46.9291846,
+        longitude: -92.9170726,
+        mileFromStart: 6,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS01940 and requires checking the Floodwood River access turn.',
+      },
+    ],
+  },
   'ashippun-river-druid-lake-hwy-o': {
     putIn: {
       id: 'druid-lake-boat-ramp',
@@ -37420,172 +37786,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
 type WisconsinTripDetailsBackfill = {
   campingClassification?: NonNullable<RiverTripDetails['logistics']['campingClassification']>;
   accessPoints?: NonNullable<RiverTripDetails['accessPoints']>;
-  'st-croix-river-sand-creek-highway-70': {
-    putIn: {
-      name: 'St. Croix River, Mouth of Sand Creek Public Water Access Site',
-      latitude: 45.9331669,
-      longitude: -92.6407033,
-    },
-    takeOut: {
-      name: 'St. Croix River, Highway 70 Landing',
-      latitude: 45.7739241,
-      longitude: -92.7820489,
-    },
-    logistics: {
-      distanceLabel: 'About 15 mi',
-      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, scouting, or campsite stops',
-      shuttle:
-        'Stage Highway 70 first, then drive back through the St. Croix State Park / Sand Creek access corridor. Inspect the Highway 70 landing and the first riffles before leaving a vehicle because low water can make the final miles slower than the map distance implies.',
-      permits:
-        'No route-specific paddling permit is known. Follow NPS Riverway rules, Minnesota boating/PFD requirements, state-park vehicle rules where applicable, and designated-campsite regulations.',
-      camping:
-        'NPS Map 6 allows camping only at designated first-come, first-served sites with size, fire, sanitation, and stay-limit rules. Treat this as designated Riverway camping only; do not assume island or private-bank camping.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Sand Creek Landing and take out at Highway 70 for the NPS Map 6 St. Croix section. The route closes the gap between the existing Sand Creek and Highway 70 cards, using the upstream Danbury DNR gauge conservatively and requiring a local visual check because the Kettle River joins near the lower miles.',
-      accessCaveats: [
-        'Minnesota public-water-access GIS resolves Sand Creek as WAS01894 and Highway 70 as WAS00085 with public administrators, river miles, and coordinates.',
-        'The Danbury gauge is upstream of the route and above the Kettle River confluence; it is intentionally conservative for low-water calls, not an exact lower-route reading.',
-        'NPS Map 6 warns that the river splits around large islands. Stay left for the deeper main channel unless intentionally paddling and scouting the Kettle River Slough route.',
-      ],
-      watchFor: [
-        'Low water, shallow bars, and Sandrock Cliffs channel drying out.',
-        'The Kettle River Slough option, where NPS identifies a ledge and regular Class II rapids near the St. Croix confluence.',
-        'Downed trees, cold water, private or restricted banks, and remote rescue exposure between landings.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'sand-creek-landing',
-        name: 'Mouth of Sand Creek Landing',
-        latitude: 45.9331669,
-        longitude: -92.6407033,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Default put-in; resolves as WAS01894 in Minnesota public-water-access GIS.',
-      },
-      {
-        id: 'st-croix-highway-70',
-        name: 'Highway 70 Landing',
-        latitude: 45.7739241,
-        longitude: -92.7820489,
-        mileFromStart: 15,
-        segmentKind: 'creek',
-        note: 'Default take-out; resolves as WAS00085 in Minnesota public-water-access GIS.',
-      },
-    ],
-  },
-  'st-louis-river-toivola-county-road-29': {
-    putIn: {
-      name: 'St. Louis River, Toivola Public Water Access Site',
-      latitude: 47.1672586,
-      longitude: -92.7792689,
-    },
-    takeOut: {
-      name: 'St. Louis River, County Road 29 Public Water Access Site',
-      latitude: 46.9713542,
-      longitude: -92.8258324,
-    },
-    logistics: {
-      distanceLabel: 'About 15.7 mi',
-      estimatedPaddleTime: 'About 5.5 hr to 8 hr, longer with low water, wood, or campsite stops',
-      shuttle:
-        'Stage County Road 29 first, then drive back to Toivola. Confirm both carry-in accesses before launching because there are few clean public exits and the route sits well upstream of town services.',
-      permits:
-        'No route-specific paddling permit is known. Use the named DNR public accesses, follow Minnesota boating/PFD rules, and obey state water-trail and campsite rules.',
-      camping:
-        'DNR Map 2 marks a watercraft campsite near river mile 78.0 just below County Road 29. Use only designated or otherwise legal public-land sites, and do not camp on private riverbed or private banks.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Use Toivola to County Road 29 for a longer middle-St. Louis day above Floodwood. The app scores it from the downstream Floodwood DNR gauge with explicit proxy and low-water caveats.',
-      accessCaveats: [
-        'Minnesota public-water-access GIS resolves Toivola as WAS00615 and County Road 29 as WAS02129 with source-backed coordinates and river-mile records.',
-        'The Floodwood gauge is downstream of the route. It is the best interpreted gauge for the middle corridor, but launch-side depth, recent rain, and visible riffles should override a marginal score.',
-        'Do not extend casually into Floodwood or Paupores unless the group has planned the additional miles, take-out logistics, and level exposure.',
-      ],
-      watchFor: [
-        'Shallow water and possible dragging when Floodwood is below the official 24.4 ft scrapable floor.',
-        'Remote wooded banks, strainers, cold water, and sparse legal bailout options.',
-        'Fast rises after rain and private shoreland away from official accesses or designated campsite areas.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'st-louis-toivola',
-        name: 'Toivola Public Water Access Site',
-        latitude: 47.1672586,
-        longitude: -92.7792689,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Default put-in; resolves as WAS00615 in Minnesota public-water-access GIS.',
-      },
-      {
-        id: 'st-louis-county-road-29',
-        name: 'County Road 29 Public Water Access Site',
-        latitude: 46.9713542,
-        longitude: -92.8258324,
-        mileFromStart: 15.7,
-        segmentKind: 'creek',
-        note: 'Default take-out; resolves as WAS02129 in Minnesota public-water-access GIS.',
-      },
-    ],
-  },
-  'st-louis-river-county-road-29-floodwood': {
-    putIn: {
-      name: 'St. Louis River, County Road 29 Public Water Access Site',
-      latitude: 46.9713542,
-      longitude: -92.8258324,
-    },
-    takeOut: {
-      name: 'Floodwood River Public Water Access Site',
-      latitude: 46.9291846,
-      longitude: -92.9170726,
-    },
-    logistics: {
-      distanceLabel: 'About 6 mi',
-      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with low water or the Floodwood River turn',
-      shuttle:
-        'Stage Floodwood first and inspect the tributary access before launching at County Road 29. The take-out sits off the St. Louis on the Floodwood River access corridor, so confirm that the final turn is paddleable before committing.',
-      permits:
-        'No route-specific paddling permit is known. Use the public DNR and city accesses, follow Minnesota boating/PFD rules, and respect posted city access and parking rules.',
-      camping:
-        'Treat this as a day route. DNR Map 2 marks a watercraft campsite near County Road 29, but this short connector does not require or assume overnight use; use only designated or otherwise legal public-land campsites.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Put in at County Road 29 and take out at Floodwood for the short connector immediately above the existing Floodwood-to-Paupores card. The Floodwood DNR gauge is effectively at the take-out corridor, but current low water makes same-day inspection important.',
-      accessCaveats: [
-        'Minnesota public-water-access GIS resolves County Road 29 as WAS02129 and Floodwood as WAS01940 with source-backed coordinates and river-mile records.',
-        'DNR Map 2 places Floodwood trailer access about one-half mile up the Floodwood River from the St. Louis confluence; inspect the turn and be prepared for mud, weak current, or shallow water.',
-        'This card ends at Floodwood. The downstream Floodwood-to-Paupores route is a separate plan with more Class I-II and low-water exposure.',
-      ],
-      watchFor: [
-        'Below-scrapable Floodwood gauge readings, exposed gravel, and slow shallow water.',
-        'Wood, cold water, muddy banks, and fast changes after rain.',
-        'Private banks and limited routine exits away from County Road 29 and Floodwood.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'st-louis-county-road-29',
-        name: 'County Road 29 Public Water Access Site',
-        latitude: 46.9713542,
-        longitude: -92.8258324,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Default put-in; resolves as WAS02129 in Minnesota public-water-access GIS.',
-      },
-      {
-        id: 'floodwood-river-access',
-        name: 'Floodwood River Public Water Access Site',
-        latitude: 46.9291846,
-        longitude: -92.9170726,
-        mileFromStart: 6,
-        segmentKind: 'creek',
-        note: 'Default take-out; resolves as WAS01940 and requires checking the Floodwood River access turn.',
-      },
-    ],
-  },
-
 };
 
 const wisconsinTripDetailsBackfill: Record<string, WisconsinTripDetailsBackfill> = {
