@@ -63406,7 +63406,317 @@ export const rivers: River[] = [
 
 
 
-        {
+  {
+    id: 'wabash-river-linn-grove-vera-cruz',
+    slug: 'wabash-river-linn-grove-vera-cruz',
+    name: 'Wabash River',
+    reach: 'Linn Grove Park to Vera Cruz Paddlesports Launch',
+    aliases: [
+      'Wabash River - Linn Grove to Vera Cruz',
+      'Wells County Wabash Linn Grove to Vera Cruz',
+    ],
+    state: 'Indiana',
+    region: 'Northeast Indiana',
+    summary:
+      'Short upstream Wells County Wabash paddle from Linn Grove Park to Vera Cruz Paddlesports Launch. The local kayaking band is narrow, so use the Bluffton stage gauge and stay conservative outside 1.5 to 3 ft.',
+    statusText:
+      'Wells County Trails calls 1.5 to 3 ft the ideal kayaking height. The latest official USGS reading available during this run was 1.41 ft at 2026-07-16 02:45 EDT, so expect scraping and slower shallow sections rather than a clean green-light.',
+    latitude: 40.645752,
+    longitude: -85.031219,
+    gaugeSource: {
+      id: 'usgs-03323000',
+      provider: 'usgs',
+      siteId: '03323000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Wabash River at Bluffton, IN',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1.5,
+      idealMax: 3,
+      tooLow: 1.5,
+      tooHigh: 3,
+      thresholdSource: {
+        label: 'Wells County Trails Wabash River kayaking stage guidance',
+        url: 'https://www.wellscountytrails.org/kayaking',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall can work when the Bluffton stage is inside the local kayaking band. Heavy rain can push this slow rural river into stronger current, debris, and flood-stage hazards.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The reach is a short slow-river day between two public launches, but private banks, wood, and the narrow local stage window still make same-day judgment important.',
+      confidenceNotes:
+        'Confidence is good for a conservative Indiana add: Wells County Trails names Linn Grove Park and Vera Cruz Paddlesports Launch as public Wabash access points, gives the 5.3-mile downstream spacing, and publishes the same 1.5 to 3 ft kayaking band tied to the Bluffton gauge. Northeast Indiana Water Trails exposes endpoint coordinates, and USGS Water Services returned the latest official values available during this run as 1.41 ft and 33.7 cfs at 2026-07-16 02:45 EDT for 03323000.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Local stage band',
+        value: '1.5 to 3 ft',
+        note: 'Wells County Trails says this is the ideal river height for kayaking and warns never to enter during Action or Flood Stages.',
+        sourceUrl: 'https://www.wellscountytrails.org/kayaking',
+      },
+      {
+        label: 'Public route shape',
+        value: '5.3 mi',
+        note: 'Wells County Trails lists Linn Grove Park as public and says the next improved launch is 5.3 miles downstream at Vera Cruz Paddlesports Launch.',
+        sourceUrl: 'https://www.wellscountytrails.org/kayaking',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'NEI Water Trails map',
+        note: 'The Northeast Indiana Water Trails map lists Linn Grove Park at 40.645752, -85.031219 and Vera Cruz - Wabash River at 40.69890779, -85.0828222.',
+        sourceUrl: 'https://neiwatertrails.com/map',
+      },
+      {
+        label: 'Live gauge',
+        value: '1.41 ft / 33.7 cfs',
+        note: 'USGS Water Services returned the latest official values available during this run at 2026-07-16 02:45 EDT for Wabash River at Bluffton, IN.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03323000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Indiana water-trail context',
+        value: 'DNR points to NEI Water Trails',
+        note: 'Indiana DNR says its old canoe-guide material was removed as outdated and lists Northeast Indiana Water Trails as a current regional resource that includes the Wabash River.',
+        sourceUrl: 'https://www.in.gov/dnr/state-parks/recreation/water-trails/water-trails-guide',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wells County Trails kayaking',
+        url: 'https://www.wellscountytrails.org/kayaking',
+      },
+      {
+        label: 'Northeast Indiana Water Trails map',
+        url: 'https://neiwatertrails.com/map',
+      },
+      {
+        label: 'Indiana DNR Water Trails Guide',
+        url: 'https://www.in.gov/dnr/state-parks/recreation/water-trails/water-trails-guide',
+      },
+      {
+        label: 'USGS 03323000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03323000/',
+      },
+      {
+        label: 'USGS 03323000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03323000&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+  },
+  {
+    id: 'wabash-river-linn-grove-white-bridge',
+    slug: 'wabash-river-linn-grove-white-bridge',
+    name: 'Wabash River',
+    reach: 'Linn Grove Park to White Bridge Picnic Area',
+    aliases: [
+      'Wabash River - Linn Grove to White Bridge',
+      'Wells County Wabash Linn Grove to White Bridge',
+    ],
+    state: 'Indiana',
+    region: 'Northeast Indiana',
+    summary:
+      'Longer Wells County Wabash day from Linn Grove Park to White Bridge Picnic Area. The river is still broad-audience at ordinary levels, but the local stage window stays strict at 1.5 to 3 ft.',
+    statusText:
+      'Wells County Trails calls 1.5 to 3 ft the ideal kayaking height. The latest official USGS reading available during this run was 1.41 ft at 2026-07-16 02:45 EDT, so expect shallow dragging and slower progress on this longer run.',
+    latitude: 40.645752,
+    longitude: -85.031219,
+    gaugeSource: {
+      id: 'usgs-03323000',
+      provider: 'usgs',
+      siteId: '03323000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Wabash River at Bluffton, IN',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1.5,
+      idealMax: 3,
+      tooLow: 1.5,
+      tooHigh: 3,
+      thresholdSource: {
+        label: 'Wells County Trails Wabash River kayaking stage guidance',
+        url: 'https://www.wellscountytrails.org/kayaking',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall can work when the Bluffton stage is inside the local kayaking band. Heavy rain can turn this longer rural run into a debris-heavy commitment.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The current is generally mellow, but 9.5 miles of river with limited legal exits make this more of a real day plan than the shorter Wells County links.',
+      confidenceNotes:
+        'Confidence is good for a conservative Indiana add: Wells County Trails supports the route by combining its 5.3-mile Linn Grove-to-Vera Cruz leg and 4.2-mile Vera Cruz-to-White Bridge leg under the same Bluffton gauge guidance, Northeast Indiana Water Trails exposes both endpoint coordinates, and USGS Water Services returned the latest official values available during this run as 1.41 ft and 33.7 cfs at 2026-07-16 02:45 EDT for 03323000.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Local stage band',
+        value: '1.5 to 3 ft',
+        note: 'Wells County Trails says this is the ideal river height for kayaking and warns never to enter during Action or Flood Stages.',
+        sourceUrl: 'https://www.wellscountytrails.org/kayaking',
+      },
+      {
+        label: 'Public route shape',
+        value: '9.5 mi total',
+        note: 'Wells County Trails lists Linn Grove Park to Vera Cruz as 5.3 miles and Vera Cruz to White Bridge Picnic Area as 4.2 miles, supporting the combined Linn Grove-to-White Bridge route.',
+        sourceUrl: 'https://www.wellscountytrails.org/kayaking',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '40.645752, -85.031219 to 40.728082, -85.136707',
+        note: 'The Northeast Indiana Water Trails map lists Linn Grove Park at 40.645752, -85.031219 and Wabash / White Bridge at 40.728082, -85.136707.',
+        sourceUrl: 'https://neiwatertrails.com/map',
+      },
+      {
+        label: 'Live gauge',
+        value: '1.41 ft / 33.7 cfs',
+        note: 'USGS Water Services returned the latest official values available during this run at 2026-07-16 02:45 EDT for Wabash River at Bluffton, IN.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03323000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Indiana water-trail context',
+        value: 'DNR points to NEI Water Trails',
+        note: 'Indiana DNR says its old canoe-guide material was removed as outdated and lists Northeast Indiana Water Trails as a current regional resource that includes the Wabash River.',
+        sourceUrl: 'https://www.in.gov/dnr/state-parks/recreation/water-trails/water-trails-guide',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wells County Trails kayaking',
+        url: 'https://www.wellscountytrails.org/kayaking',
+      },
+      {
+        label: 'Northeast Indiana Water Trails map',
+        url: 'https://neiwatertrails.com/map',
+      },
+      {
+        label: 'Indiana DNR Water Trails Guide',
+        url: 'https://www.in.gov/dnr/state-parks/recreation/water-trails/water-trails-guide',
+      },
+      {
+        label: 'USGS 03323000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03323000/',
+      },
+      {
+        label: 'USGS 03323000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03323000&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+  },
+  {
+    id: 'wabash-river-vera-cruz-hale-street',
+    slug: 'wabash-river-vera-cruz-hale-street',
+    name: 'Wabash River',
+    reach: 'Vera Cruz Paddlesports Launch to Hale Street access',
+    aliases: [
+      'Wabash River - Vera Cruz to Hale Street',
+      'Wells County Wabash Vera Cruz to Hale',
+    ],
+    state: 'Indiana',
+    region: 'Northeast Indiana',
+    summary:
+      'Mid-length Wells County Wabash link from Vera Cruz Paddlesports Launch into Bluffton at the public east-end Hale Street access. Use the Bluffton stage gauge and keep the same conservative 1.5 to 3 ft posture.',
+    statusText:
+      'Wells County Trails calls 1.5 to 3 ft the ideal kayaking height. The latest official USGS reading available during this run was 1.41 ft at 2026-07-16 02:45 EDT, so expect scraping and slower lines instead of a clean easy-day call.',
+    latitude: 40.69890779,
+    longitude: -85.0828222,
+    gaugeSource: {
+      id: 'usgs-03323000',
+      provider: 'usgs',
+      siteId: '03323000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Wabash River at Bluffton, IN',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1.5,
+      idealMax: 3,
+      tooLow: 1.5,
+      tooHigh: 3,
+      thresholdSource: {
+        label: 'Wells County Trails Wabash River kayaking stage guidance',
+        url: 'https://www.wellscountytrails.org/kayaking',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall can work when the Bluffton stage is inside the local kayaking band. Heavy rain can tighten the current, increase debris, and make the simple Hale finish more awkward.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The current is usually mellow, but the route still needs attention for wood, private banks, and the simpler earthen Hale finish once you enter the Bluffton corridor.',
+      confidenceNotes:
+        'Confidence is good for a conservative Indiana add: Wells County Trails supports the route by combining its public 4.2-mile Vera Cruz-to-White Bridge leg with the public 2.4-mile White Bridge-to-Hale connector under the same Bluffton gauge guidance, Northeast Indiana Water Trails exposes the Vera Cruz coordinate, and the existing Hale endpoint package already anchors the public east-end access used by the live downstream route. USGS Water Services returned the latest official values available during this run as 1.41 ft and 33.7 cfs at 2026-07-16 02:45 EDT for 03323000.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Local stage band',
+        value: '1.5 to 3 ft',
+        note: 'Wells County Trails says this is the ideal river height for kayaking and warns never to enter during Action or Flood Stages.',
+        sourceUrl: 'https://www.wellscountytrails.org/kayaking',
+      },
+      {
+        label: 'Public route shape',
+        value: '6.6 mi total',
+        note: 'Wells County Trails lists Vera Cruz Paddlesports Launch to White Bridge Picnic Area as 4.2 miles, then White Bridge to Hale Street access as another 2.4 miles through the public Bluffton access chain.',
+        sourceUrl: 'https://www.wellscountytrails.org/kayaking',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '40.69890779, -85.0828222 to 40.7448153, -85.1745966',
+        note: 'The Vera Cruz coordinate comes from the Northeast Indiana Water Trails map. The Hale Street coordinate uses the existing product access anchor at the mapped east end of West Hale Street, matching Wells County Trails public-access wording.',
+        sourceUrl: 'https://neiwatertrails.com/map',
+      },
+      {
+        label: 'Live gauge',
+        value: '1.41 ft / 33.7 cfs',
+        note: 'USGS Water Services returned the latest official values available during this run at 2026-07-16 02:45 EDT for Wabash River at Bluffton, IN.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03323000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Indiana water-trail context',
+        value: 'DNR points to NEI Water Trails',
+        note: 'Indiana DNR says its old canoe-guide material was removed as outdated and lists Northeast Indiana Water Trails as a current regional resource that includes the Wabash River.',
+        sourceUrl: 'https://www.in.gov/dnr/state-parks/recreation/water-trails/water-trails-guide',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wells County Trails kayaking',
+        url: 'https://www.wellscountytrails.org/kayaking',
+      },
+      {
+        label: 'Northeast Indiana Water Trails map',
+        url: 'https://neiwatertrails.com/map',
+      },
+      {
+        label: 'Indiana DNR Water Trails Guide',
+        url: 'https://www.in.gov/dnr/state-parks/recreation/water-trails/water-trails-guide',
+      },
+      {
+        label: 'USGS 03323000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03323000/',
+      },
+      {
+        label: 'USGS 03323000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03323000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'OpenStreetMap West Hale Street geometry',
+        url: 'https://api.openstreetmap.org/api/0.6/way/17590121/full.json',
+      },
+    ],
+  },
+  {
     id: 'wabash-river-linn-grove-hale-street',
     slug: 'wabash-river-linn-grove-hale-street',
     name: 'Wabash River',
@@ -69738,7 +70048,7 @@ export const rivers: River[] = [
       },
     ],
   },
-      {
+  {
     id: "juniata-river-mifflintown-muskrat-springs",
     slug: "juniata-river-mifflintown-muskrat-springs",
     name: "Juniata River",
@@ -69964,7 +70274,7 @@ export const rivers: River[] = [
       },
           ],
   },
-            {
+  {
     id: "juniata-river-portstown-park-newton-hamilton",
     slug: "juniata-river-portstown-park-newton-hamilton",
     name: "Juniata River",
