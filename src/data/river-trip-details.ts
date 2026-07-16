@@ -1096,6 +1096,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       }
     ],
   },
+  'big-fork-river-highway-6-north-johnson': {
+    putIn: {
+      name: 'Bill Counter Landing / Highway 6 North carry-in access',
+      latitude: 48.034694214683626,
+      longitude: -93.74155634703675,
+    },
+    takeOut: {
+      name: 'Johnson Landing carry-in access',
+      latitude: 48.0886284,
+      longitude: -93.6816927,
+    },
+    logistics: {
+      distanceLabel: '8.3 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer at low water',
+      shuttle:
+        'Use a two-car Koochiching County shuttle between Highway 6 North / Bill Counter Landing and Johnson Landing. This is a quieter connector, but both landings are remote enough that the take-out should be checked before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR public-water-access rules, and any posted state-forest or campsite rules at Johnson.',
+      camping:
+        'Johnson Landing has a mapped watercraft campsite and rest area, so this connector can finish into an overnight plan. Treat the campsite as first-come and bring a backup plan.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Highway 6 North / Bill Counter Landing and paddle the official Big Fork Map 2 connector to Johnson Landing. It fills the gap between the Highway 6 route and the Johnson-to-Big-Falls route.',
+      accessCaveats: [
+        'Highway 6 North resolves as WAS01792 in Minnesota public-water-access GIS and DNR Map 2 places it at Big Fork River mile 75.8.',
+        'Johnson Landing resolves as WAS02708 and DNR Map 2 places it at river mile 67.5 with a rest area and watercraft campsite.',
+        'The Craigsville DNR gauge is upstream of this connector, so pair the official bands with a local visual check at Highway 6 North and Johnson.',
+      ],
+      watchFor: [
+        'Remote wooded bends, fresh strainers, cold water, and limited bailout between named landings.',
+        'Rocky or slow travel when the Craigsville gauge falls toward the scrapable/low band.',
+        'Faster current and shorter recovery windows after rain or when the same-corridor gauge is high or rising.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'bill-counter-landing-highway-6-north-carry-in-access',
+        name: 'Bill Counter Landing / Highway 6 North carry-in access',
+        latitude: 48.034694214683626,
+        longitude: -93.74155634703675,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01792 and DNR Map 2 marks Highway 6 North at river mile 75.8.',
+      },
+      {
+        id: 'johnson-landing',
+        name: 'Johnson Landing carry-in access',
+        latitude: 48.0886284,
+        longitude: -93.6816927,
+        mileFromStart: 8.3,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02708 with a mapped watercraft campsite and rest area.',
+      },
+    ],
+  },
   'big-fork-river-johnson-big-falls-east': {
     putIn: {
       name: 'Johnson Landing carry-in access',
@@ -9112,6 +9167,121 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'The initial Class II current below Lock 29 before the run settles into easier Class I water.',
         'Fresh strainers, cold water, and post-rain push that the gauge alone may not fully price in.',
         'Rocky carry paths, crowded parking, and bicyclist/pedestrian traffic around the shuttle.',
+      ],
+    },
+  },
+  'sheboygan-river-johnsonville-dassow': {
+    putIn: {
+      id: 'laack-schnappsville-park-johnsonville',
+      name: 'Laack Schnappsville Park / Johnsonville fire-station access',
+      latitude: 43.79907,
+      longitude: -87.9105,
+    },
+    takeOut: {
+      id: 'dassow-park-sheboygan-river',
+      name: 'Dassow Park',
+      latitude: 43.76773,
+      longitude: -87.8937,
+    },
+    logistics: {
+      distanceLabel: 'About 6.25 to 6.4 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr 30 min, longer with low-water dragging or scouting',
+      shuttle:
+        'Stage Dassow Park first, then drive back to the Johnsonville / Laack Schnappsville Park access by the fire station. Inspect the dam area, first ledges, and the take-out carry before leaving a vehicle because the gauge is downstream and this upper split can be shallow.',
+      permits:
+        'No route-specific paddling permit is known. Use only the named public park/access areas, follow Wisconsin boating and PFD rules, and do not launch from or land on private farm banks without permission.',
+      camping:
+        'Treat this as a daylight day trip. No on-route camping is assumed, and banks away from the public endpoints should be treated as private unless clearly posted otherwise.',
+      campingClassification: 'none',
+      summary:
+        'Launch below the Johnsonville low-head dam and take out at Dassow Park for the short upper Sheboygan River split. Use the downstream Sheboygan gauge only as a conservative low-water screen, and make a same-day visual call before committing.',
+      accessCaveats: [
+        'Put in below the Johnsonville low-head dam. Do not run the dam, climb on it, or stage where a swim could drift back toward it.',
+        'Wisconsin River Trips and Miles Paddled both document this Johnsonville-to-Dassow route, but the USGS gauge is well downstream in Sheboygan. Local depth can differ from the app score.',
+        'Miles Paddled publishes endpoint coordinates for Laack Schnappsville Park and Dassow Park. Confirm current signs, parking, and carry paths on arrival.',
+        'The corridor includes private banks, farm edges, and cattle access areas. Plan a clean endpoint-to-endpoint day instead of casual mid-route stops.',
+      ],
+      watchFor: [
+        'Shallow riffles, scraping, and short walks when the Sheboygan gauge is near or below the 85 cfs floor used by this card.',
+        'The Johnsonville dam at the start, small ledges downstream, slick rocks, strainers, and fresh wood after rain.',
+        'Cold water, private banks, cattle/farm runoff areas, thunderstorms, and limited bailout options away from roads and parks.',
+      ],
+    },
+  },
+  'sheboygan-river-rochester-esslingen': {
+    putIn: {
+      id: 'rochester-park-sheboygan-river',
+      name: 'Rochester Park',
+      latitude: 43.72354,
+      longitude: -87.80464,
+    },
+    takeOut: {
+      id: 'esslingen-park-canoe-launch',
+      name: 'Esslingen Park / canoe launch',
+      latitude: 43.74046,
+      longitude: -87.74999,
+    },
+    logistics: {
+      distanceLabel: 'About 9.5 to 9.8 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 5 hr 30 min for a prepared group, longer with portage scouting, salmon traffic, low water, or wood',
+      shuttle:
+        'Stage Esslingen Park first, then drive back to Rochester Park. Before launching, review both dam-portage exits and the take-out path because this route passes private resort and golf-course shoreline where casual bailouts are not assumed.',
+      permits:
+        'No route-specific paddling permit is known for the public park endpoints. Use only public landings or permissioned stops, follow Wisconsin boating and PFD rules, and do not use private River Wildlife, resort, or golf-course landings without permission.',
+      camping:
+        'Treat this as a daylight Sheboygan River day run. No on-route camping is assumed; arrange separate lodging or campground plans off-route if needed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Rochester Park and finish at Esslingen Park for the Kohler-area Sheboygan water-trail segment. Use the downstream Sheboygan gauge and Wisconsin River Trips ladder, with extra planning for two dam portages and private-bank constraints.',
+      accessCaveats: [
+        'Wisconsin River Trips documents Rochester Park to Esslingen Park as the exact route and calls out River Bend Dam and Walderhaus Dam portages. Identify the exits before launching.',
+        'Miles Paddled publishes Rochester Park coordinates, while Wisconsin River Trips and Sheboygan County support Esslingen Park as the public take-out. The Esslingen coordinate used here is a geocoded park/canoe-launch point and should be confirmed against signs on arrival.',
+        'The Sheboygan River Water Trail was built to help paddlers find access points, calculate distances, identify hazards, and check levels. Use it as the current map check before staging vehicles.',
+        'Private shoreline is a major practical constraint through Kohler. Do not assume resort, River Wildlife, golf-course, or residential banks are legal bailouts.',
+      ],
+      watchFor: [
+        'River Bend Dam and Walderhaus Dam portages, including pushier approaches when the downstream gauge rises.',
+        'Shallow scraping below about 100 cfs, faster current above the WRT good-day band, and levels around 801 cfs or higher that WRT flags as maybe too high for casual paddlers.',
+        'Class I riffles below Walderhaus and I-43, strainers, cold water, fall salmon anglers, private banks, and limited exits.',
+      ],
+    },
+  },
+  'sheboygan-river-esslingen-kiwanis': {
+    putIn: {
+      id: 'esslingen-park-canoe-launch',
+      name: 'Esslingen Park / canoe launch',
+      latitude: 43.74046,
+      longitude: -87.74999,
+    },
+    takeOut: {
+      id: 'kiwanis-park-sheboygan-kayak-launch',
+      name: 'Kiwanis Park kayak launch',
+      latitude: 43.75281,
+      longitude: -87.72622,
+    },
+    logistics: {
+      distanceLabel: 'About 2.1 mi',
+      estimatedPaddleTime: 'About 45 min to 1 hr 30 min depending on depth, wind, current, and urban traffic',
+      shuttle:
+        'Stage Kiwanis Park first, then drive back to Esslingen Park. This is a short city water-trail continuation, so check both launch areas, downtown weather, and harbor conditions before deciding whether to stop at Kiwanis or plan a separate lower-harbor outing.',
+      permits:
+        'No route-specific paddling permit is known. Use the public Esslingen and Kiwanis launches, follow Wisconsin boating and PFD rules, and avoid private marinas, industrial banks, and unauthorized riverfront landings.',
+      camping:
+        'No on-route camping is assumed. Treat Kiwanis as a public city take-out with day-use facilities, not an overnight river-camp option.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Esslingen Park and take out at the City of Sheboygan Kiwanis Park kayak launch for a short lower-Sheboygan segment that avoids committing casual paddlers to the harbor or Lake Michigan.',
+      accessCaveats: [
+        'Wisconsin River Trips lists Esslingen-to-Kiwanis as the first lower-Sheboygan split below Kohler, and the City of Sheboygan lists Kiwanis Park features including a kayak launch, parking, and restrooms.',
+        'Miles Paddled supports the lower-Sheboygan 300 cfs minimum and notes Kiwanis as a workable take-out, but the route is urban and slower than the upstream riffle sections.',
+        'The Esslingen and Kiwanis coordinates are geocoded public access anchors. Follow current signs, launch rollers, park hours, and any city maintenance notices.',
+        'The route intentionally ends at Kiwanis. Do not drift into the downtown harbor, marinas, or open Lake Michigan unless the group has planned that separately with appropriate boats, weather, and rescue margin.',
+      ],
+      watchFor: [
+        'Scraping, slow progress, and shallow lines when the downstream Sheboygan gauge is below the 300 cfs lower-route floor.',
+        'Urban runoff and sediment, private banks, industrial or marina traffic downstream, fishing lines, strainers, and bridge-area debris.',
+        'Cold Lake Michigan-influenced air and water, wind funneling through the lower corridor, thunderstorms, and missing the Kiwanis take-out.',
       ],
     },
   },
@@ -32631,6 +32801,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'red-lake-river-fisher-red-river-recreation': {
+    putIn: {
+      name: 'Red Lake River, Fisher Landing Public Water Access Site',
+      latitude: 47.8007512,
+      longitude: -96.8090097,
+    },
+    takeOut: {
+      name: 'Red River Rec. Area Public Water Access Site',
+      latitude: 47.923431775804865,
+      longitude: -97.0151716272161,
+    },
+    logistics: {
+      distanceLabel: 'About 27.6 mi',
+      estimatedPaddleTime: 'Long day, roughly 9 hr to 11.5 hr depending on level and wind',
+      shuttle:
+        'Use a long Polk County / East Grand Forks shuttle between Fisher Landing and the Red River Recreation Area. Confirm the take-out and parking before launching because there are few clean intermediate exits.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR public-access rules, and Red River State Recreation Area parking or camping rules.',
+      camping:
+        'Red River State Recreation Area has campground support, drinking water, toilets, and other amenities near the finish. Treat any overnight as a separate reservation or fee-based state recreation area plan.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Fisher Landing and follow the lower Red Lake River to the Red River Recreation Area in East Grand Forks, taking out before the constructed rock rapids and Red River confluence.',
+      accessCaveats: [
+        'Fisher Landing resolves as WAS02138 and DNR Map 2 places it at Red Lake River mile 27.9 with the direct Fisher gauge.',
+        'Red River Rec. Area resolves as WAS02136 and DNR Map 2 places the trailer access near river mile 0.3 inside the Red River State Recreation Area corridor.',
+        'This route ends before the East Grand Forks constructed rock rapids at river mile 0.2; continuing to the Red River or LaFave access is a separate plan.',
+      ],
+      watchFor: [
+        'Long exposure, wind, muddy banks, and few public bailout options between Fisher and East Grand Forks.',
+        'Strainers, outside-bend wood, private agricultural banks, and changing snags after high water.',
+        'Mandatory take-out before the constructed rock rapids and the Red River confluence.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'fisher-landing',
+        name: 'Red Lake River, Fisher Landing Public Water Access Site',
+        latitude: 47.8007512,
+        longitude: -96.8090097,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02138 and DNR Map 2 marks Fisher Landing with the direct river-level gauge at river mile 27.9.',
+      },
+      {
+        id: 'red-river-rec-area',
+        name: 'Red River Rec. Area Public Water Access Site',
+        latitude: 47.923431775804865,
+        longitude: -97.0151716272161,
+        mileFromStart: 27.6,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02136 near Red River State Recreation Area and upstream of the constructed rock rapids.',
+      },
+    ],
+  },
   'redwood-river-wabasso-redwood-lake': {
     putIn: {
       name: 'Redwood River, Wabasso Public Water Access Site',
@@ -32683,6 +32908,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 7.6,
         segmentKind: 'creek',
         note: 'Default take-out; resolves as WAS00025 and DNR Map 3 marks Redwood Lake / Westside Park near river mile 5.7, just upstream of the impassable Highway 19 dam.',
+      },
+    ],
+  },
+  'redwood-river-vesta-wabasso': {
+    putIn: {
+      name: 'Redwood River, Vesta Public Water Access Site',
+      latitude: 44.5003333966892,
+      longitude: -95.42798885444438,
+    },
+    takeOut: {
+      name: 'Redwood River, Wabasso Public Water Access Site',
+      latitude: 44.5079048,
+      longitude: -95.2298076,
+    },
+    logistics: {
+      distanceLabel: 'About 15.6 mi',
+      estimatedPaddleTime: 'About 5.5 hr to 7.5 hr, longer at low water',
+      shuttle:
+        'Use a Redwood County shuttle between Vesta and Wabasso. Confirm both small-river access conditions before leaving vehicles, especially when the downstream gauge is near the low band.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR public-access rules, and posted local or wildlife-management-area rules.',
+      camping:
+        'No on-route campsite was confirmed for the Vesta-to-Wabasso split. Treat this as a day route and use Redwood Falls, Vesta, or Wabasso area lodging or campgrounds as separate base-camp plans.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Vesta and paddle the official Redwood River water trail to Wabasso, filling the upstream public-access split above the Wabasso-to-Redwood-Lake card.',
+      accessCaveats: [
+        'Vesta resolves as WAS02156 in Minnesota public-water-access GIS and DNR Map 3 places it at Redwood River mile 28.9.',
+        'Wabasso resolves as WAS00004 and DNR Map 3 places it at river mile 13.3.',
+        'The Redwood Falls DNR gauge is downstream of the selected split, so pair the official bands with a local visual check for depth, wood, and access condition.',
+      ],
+      watchFor: [
+        'Low-water scraping, shallow bars, slow current, and dragging when the downstream gauge is near the low band.',
+        'Snags, sweepers, muddy banks, private shoreline, and limited legal bailout options.',
+        'Fast-rising storm water that can hide wood and make narrow bends harder to recover from.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'vesta-public-water-access',
+        name: 'Redwood River, Vesta Public Water Access Site',
+        latitude: 44.5003333966892,
+        longitude: -95.42798885444438,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02156 and DNR Map 3 marks Vesta at Redwood River mile 28.9.',
+      },
+      {
+        id: 'wabasso-public-water-access',
+        name: 'Redwood River, Wabasso Public Water Access Site',
+        latitude: 44.5079048,
+        longitude: -95.2298076,
+        mileFromStart: 15.6,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00004 and DNR Map 3 marks Wabasso at river mile 13.3.',
       },
     ],
   },
