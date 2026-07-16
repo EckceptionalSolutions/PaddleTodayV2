@@ -71919,6 +71919,123 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: "juniata-river-portstown-park-newton-hamilton",
+    slug: "juniata-river-portstown-park-newton-hamilton",
+    name: "Juniata River",
+    reach: "Upper Section: Portstown Park to Newton-Hamilton",
+    aliases: [
+      "Juniata River - Portstown Park to Newton-Hamilton",
+      "Upper Juniata - Huntingdon to Newton-Hamilton",
+      "Juniata River - Portstown Park to Newton-Hamilton access",
+    ],
+    state: "Pennsylvania",
+    region: "Upper Juniata",
+    summary:
+      "Upper-Juniata access-planner corridor from Portstown Park in Huntingdon through Juniata Point, Riverside Park, Mt. Union, and Shawmut to Newton-Hamilton. The official PFBC upper guide publishes the public access coordinates, defines the chain through its river-mile access table, and ties the core corridor to the direct Mapleton Depot gauge with a 2.5 ft minimum level.",
+    statusText:
+      "Use the Juniata River at Mapleton Depot gauge. The official PFBC upper Juniata guide recommends at least 2.5 ft there for this corridor.",
+    latitude: 40.485833,
+    longitude: -78.014167,
+    gaugeSource: {
+      id: "usgs-01563500",
+      provider: "usgs",
+      siteId: "01563500",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Juniata River at Mapleton Depot, PA",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01563500/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["private_banks"],
+      safetyNotes: [
+        "PFBC flags hazardous current with waves near mile 90, the Mapleton-corridor caution features near miles 86.5 and 85.5, waves with hidden rocks near mile 75, and the Newton-Hamilton current/rock zone near mile 73.",
+        "This is a legitimately long public-access day, and broad-river headwind, fresh wood, or low-water bars can turn it into a much slower commitment than the clean map line suggests.",
+        "Use only the named public accesses in the Portstown-to-Newton-Hamilton chain rather than bridge shoulders, islands, or private banks.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 2.5,
+      thresholdSource: {
+        label: "PFBC upper Juniata guide minimum Mapleton Depot gauge level",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "The PFBC guide says upper-Juniata levels improve after snowmelt or rain, while summer dry spells expose bars and make the wider pools slower and scratchier.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is an easy public-access route in the product sense, but its length plus the mile-90, Mapleton, mile-75, and Newton-Hamilton current features make it more consequential than the shorter upper-Juniata cards.",
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania add: the PFBC upper Juniata guide publishes exact coordinates for the Portstown-to-Newton-Hamilton public access chain and lists Mapleton Depot as a useful direct gauge with a 2.5 ft minimum. USGS Water Services returned same-day July 16, 2026 values of 831 cfs and 2.85 ft at 2026-07-16 16:15 EDT for direct USGS 01563500 during this run.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Portstown Park to Newton-Hamilton, about 21 mi",
+        note: "The PFBC upper Juniata guide places Portstown Park at river mile 94 and Newton-Hamilton at river mile 73, with public access options between them.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+      {
+        label: "Endpoint coordinates",
+        value: "PFBC access-site coordinates",
+        note: "The PFBC access table publishes Portstown Park, Juniata Point, Riverside Park, Mt. Union, Shawmut, and Newton-Hamilton coordinates directly.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+      {
+        label: "Direct gauge",
+        value: "USGS 01563500 at Mapleton Depot",
+        note: "USGS Water Services returned same-day July 16, 2026 values of 831 cfs and 2.85 ft at 2026-07-16 16:15 EDT for Juniata River at Mapleton Depot, PA.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01563500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Official minimum level",
+        value: "Mapleton Depot 2.5 ft minimum",
+        note: "PFBC lists Mapleton Depot among the useful gauges for the upper Juniata and recommends a minimum level of 2.5 ft there.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+      {
+        label: "Primary cautions",
+        value: "Miles 90, 86.5, 85.5, 75, and 73 current features",
+        note: "PFBC flags hazardous current with waves near mile 90, small ledges and ripples at mile 86.5, strong bridge-abutment current near mile 85.5, waves with hidden rocks near mile 75, and the more complex current/rock zone near mile 73.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "PFBC upper Juniata guide",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+        provider: "local",
+      },
+      {
+        label: "USGS 01563500 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/01563500/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 01563500 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01563500&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+      {
+        label: "PFBC launch permit vs boat registration",
+        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        provider: "local",
+      },
+    ],
+  },
+  {
     id: "juniata-river-granville-mifflintown",
     slug: "juniata-river-granville-mifflintown",
     name: "Juniata River",
@@ -72357,6 +72474,240 @@ export const rivers: River[] = [
       {
         label: "USGS 01564895 monitoring location",
         url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
+        provider: "usgs",
+      },
+      {
+        label: "PFBC launch permit vs boat registration",
+        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        provider: "local",
+      },
+    ],
+  },
+  {
+    id: "juniata-river-walker-muskrat-springs",
+    slug: "juniata-river-walker-muskrat-springs",
+    name: "Juniata River",
+    reach: "Lower Section: Walker PFBC to Muskrat Springs PFBC",
+    aliases: [
+      "Juniata River - Walker to Muskrat Springs",
+      "Lower Juniata - Walker to Muskrat Springs PFBC",
+      "Juniata River - Walker PFBC to Muskrat Springs ramp",
+    ],
+    state: "Pennsylvania",
+    region: "Lower Juniata",
+    summary:
+      "Four-mile lower-Juniata link from the Walker PFBC ramp to the Muskrat Springs PFBC ramp. The official PFBC lower guide publishes both access coordinates, defines the pair as a 4-mile segment, and supports a conservative minimum-only model using the Lewistown gauge as an upstream same-river lower-section reference.",
+    statusText:
+      "Use the Juniata River at Lewistown gauge as a conservative upstream same-river reference. The official PFBC lower Juniata guide lists Lewistown among the useful gauges for this lower-section corridor and recommends at least 3.1 ft there.",
+    latitude: 40.531944,
+    longitude: -77.357222,
+    gaugeSource: {
+      id: "usgs-01564895",
+      provider: "usgs",
+      siteId: "01564895",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "proxy",
+      siteName: "Juniata River at Lewistown, PA",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01564895/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["strainers", "private_banks"],
+      safetyNotes: [
+        "PFBC does not flag a numbered ledge or rapid inside this exact Walker-to-Muskrat span, but it warns that lower-Juniata bridge structures can collect strainers and that the river changes after storms.",
+        "Buttonwood and River Rock campground traffic near Mexico can make the mid-route shoreline busier than the mileage suggests, so stay disciplined about the intended Muskrat Springs finish.",
+        "Use only the named public accesses at Walker and Muskrat Springs rather than private banks or informal bars.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 3.1,
+      thresholdSource: {
+        label: "PFBC lower Juniata guide minimum Lewistown gauge level used as an upstream same-river proxy",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "PFBC says the lower Juniata often feels best after recent rain, while dry summer periods expose wide cobble bars and slower channels.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is an easy public-access link when the corridor has enough depth, but the proxy-gauge posture and broad-river wind still justify a conservative read.",
+      confidenceNotes:
+        "Confidence is solid but intentionally capped below the directly gauged Lewistown and Newport routes. The PFBC lower Juniata guide publishes exact coordinates for Walker and Muskrat Springs and defines them as an official 4-mile access pair, while listing Lewistown as a useful lower-Juniata gauge with a 3.1 ft minimum. USGS Water Services returned same-day July 16, 2026 values of 1190 cfs and 3.54 ft at 2026-07-16 16:30 EDT, but that gauge remains upstream of this route, so the app keeps only a conservative minimum floor.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Walker PFBC to Muskrat Springs PFBC, about 4 mi",
+        note: "The PFBC lower Juniata guide places Walker PFBC at river mile 30 and Muskrat Springs at river mile 26.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Endpoint coordinates",
+        value: "PFBC access-site coordinates",
+        note: "The PFBC access table publishes Walker PFBC at 40 31 55 / 77 21 26 and Muskrat Springs at 40 32 06 / 77 17 58.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Proxy gauge support",
+        value: "USGS 01564895 at Lewistown",
+        note: "USGS Water Services returned same-day July 16, 2026 values of 1190 cfs and 3.54 ft at 2026-07-16 16:30 EDT for Juniata River at Lewistown, PA. PFBC lists Lewistown as a useful lower-section gauge, but it remains upstream of this route.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01564895&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Official minimum level",
+        value: "Lewistown 3.1 ft minimum",
+        note: "PFBC lists Lewistown among the useful gauges for the lower Juniata and recommends a minimum level of 3.1 ft there.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Camping context",
+        value: "Buttonwood and River Rock campground corridor",
+        note: "PFBC says Mexico at mile 29 offers dining and camping opportunities, including Buttonwood Campground and River Rock Campground with shoreline river access for overnight paddlers.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "PFBC lower Juniata guide",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      {
+        label: "USGS 01564895 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 01564895 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01564895&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+      {
+        label: "PFBC launch permit vs boat registration",
+        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        provider: "local",
+      },
+    ],
+  },
+  {
+    id: "juniata-river-greenwood-newport",
+    slug: "juniata-river-greenwood-newport",
+    name: "Juniata River",
+    reach: "Lower Section: Greenwood PFBC to Newport",
+    aliases: [
+      "Juniata River - Greenwood to Newport",
+      "Lower Juniata - Greenwood PFBC to Newport",
+      "Juniata River - Greenwood ramp to Newport access",
+    ],
+    state: "Pennsylvania",
+    region: "Lower Juniata",
+    summary:
+      "Four-mile lower-Juniata link from the Greenwood PFBC ramp to the Newport primitive access. The official PFBC lower guide publishes both access coordinates, defines the pair as a 4-mile segment, and ties the take-out corridor to the direct Newport gauge with a 3.5 ft minimum level.",
+    statusText:
+      "Use the Juniata River at Newport gauge. The official PFBC lower Juniata guide lists Newport among the useful gauges for this lower-section corridor and recommends at least 3.5 ft there.",
+    latitude: 40.530278,
+    longitude: -77.141944,
+    gaugeSource: {
+      id: "usgs-01567000",
+      provider: "usgs",
+      siteId: "01567000",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Juniata River at Newport, PA",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["strainers", "private_banks"],
+      safetyNotes: [
+        "PFBC does not flag a numbered rapid inside this Greenwood-to-Newport span, but it still warns that lower-Juniata bridges can collect strainers and that scouting after storms matters.",
+        "The route finishes at a primitive town-side landing in Newport, so confirm parking and the final take-out line before launching.",
+        "Use only the named public accesses at Greenwood and Newport rather than private banks or islands.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 3.5,
+      thresholdSource: {
+        label: "PFBC lower Juniata guide minimum Newport gauge level",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "PFBC says low summer conditions can leave broad bars and shallow lines, while a recent rain usually improves this lower corridor without requiring a full high-water call.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is an easy lower-river link when Newport clears the official floor, but the primitive take-out, broad-river wind, and dynamic post-rain wood still deserve a conservative plan.",
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Greenwood PFBC and Newport, defines them as an official 4-mile access pair, and lists Newport among the useful lower-Juniata gauges with a 3.5 ft minimum. USGS Water Services returned same-day July 16, 2026 values of 1460 cfs and 3.73 ft at 2026-07-16 16:45 EDT for direct USGS 01567000 in the take-out corridor.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Greenwood PFBC to Newport, about 4 mi",
+        note: "The PFBC lower Juniata guide places Greenwood PFBC at river mile 16 and Newport at river mile 12.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Endpoint coordinates",
+        value: "PFBC access-site coordinates",
+        note: "The PFBC access table publishes Greenwood PFBC at 40 31 49 / 77 08 31 and Newport at 40 28 45 / 77 07 46.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Direct gauge",
+        value: "USGS 01567000 at Newport",
+        note: "USGS Water Services returned same-day July 16, 2026 values of 1460 cfs and 3.73 ft at 2026-07-16 16:45 EDT for Juniata River at Newport, PA.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01567000&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Official minimum level",
+        value: "Newport 3.5 ft minimum",
+        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+      {
+        label: "Camping context",
+        value: "Greenwood and Newport support camp corridor",
+        note: "PFBC says Pittman's Riverside Campground sits at mile 16 and Little Buffalo Family Campground lies near Newport, giving this short corridor nearby legal base-camp support rather than committed on-route camping.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "PFBC lower Juniata guide",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        provider: "local",
+      },
+      {
+        label: "USGS 01567000 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/01567000/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 01567000 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01567000&parameterCd=00060,00065&siteStatus=all",
         provider: "usgs",
       },
       {
