@@ -4521,6 +4521,180 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       }
     ],
   },
+  'minnesota-river-carver-shakopee': {
+    putIn: {
+      name: 'Minnesota River, Carver Public Water Access Site',
+      latitude: 44.766777,
+      longitude: -93.616717,
+    },
+    takeOut: {
+      name: 'Minnesota River, Shakopee Public Water Access Site',
+      latitude: 44.80101,
+      longitude: -93.525775,
+    },
+    logistics: {
+      distanceLabel: 'About 6.8 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with headwind, low current, or muddy landings',
+      shuttle:
+        'Stage the take-out at Shakopee first, then drive back to the Carver riverfront access. Winkle Park in Chaska is the main mapped intermediate public access if you need a shorter plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access, city park, DNR water-trail, and Minnesota boating/PFD rules.',
+      camping:
+        'Treat this as a day trip. DNR Map 6 says watercraft camping must use designated campsites and that riverbed camping next to private property is not permitted; no on-route campsite is assumed for this split.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Carver Riverfront Park and take out at Shakopee for the first lower-Minnesota connector below the existing Thompson-to-Carver route. The app uses the official Jordan DNR gauge as an upstream proxy because DNR publishes the lower-river ladder for this same corridor.',
+      accessCaveats: [
+        'Carver, Winkle Park, and Shakopee are named public-water-access GIS records with river miles and coordinates; use those sites instead of informal muddy banks.',
+        'The Jordan gauge is upstream of the put-in, so make a same-day visual call at Carver before committing.',
+        'Much of the lower Minnesota River shore is private or managed public land with specific use rules; do not assume sandbars, banks, or park edges are legal stops.',
+      ],
+      watchFor: [
+        'Low, slow water when the Jordan gauge is below the medium band.',
+        'Wind and small waves on exposed bends between Carver, Chaska, and Shakopee.',
+        'Floating debris, fresh strainers, muddy ramps, bridge approaches, and changing sandbars after high water.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'carver-minnesota-river-access',
+        name: 'Minnesota River, Carver Public Water Access Site',
+        latitude: 44.766777,
+        longitude: -93.616717,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the Carver riverfront access near DNR Map 6 river mile 32.',
+      },
+      {
+        id: 'winkle-park-minnesota-river-access',
+        name: 'Minnesota River, Winkle Park Public Water Access Site',
+        latitude: 44.782414,
+        longitude: -93.600581,
+        mileFromStart: 2,
+        segmentKind: 'creek',
+        note: 'Optional public access in Chaska; GIS lists City of Chaska administration and river mile 30.0.',
+      },
+      {
+        id: 'shakopee-minnesota-river-access',
+        name: 'Minnesota River, Shakopee Public Water Access Site',
+        latitude: 44.80101,
+        longitude: -93.525775,
+        mileFromStart: 6.8,
+        segmentKind: 'creek',
+        note: 'Default take-out near DNR Map 6 river mile 25.3.',
+      },
+    ],
+  },
+  'minnesota-river-shakopee-russell': {
+    putIn: {
+      name: 'Minnesota River, Shakopee Public Water Access Site',
+      latitude: 44.80101,
+      longitude: -93.525775,
+    },
+    takeOut: {
+      name: 'Minnesota River, MN Valley Refuge - Russel Public Water Access Site',
+      latitude: 44.801033,
+      longitude: -93.288612,
+    },
+    logistics: {
+      distanceLabel: 'About 14.8 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with headwind, low current, or extended rest stops',
+      shuttle:
+        'Stage the take-out at the MN Valley Refuge - Russel access under I-35W, then drive back to Shakopee. This is a long urban-river day, so leave daylight and bailout margin.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted access, refuge, city, DNR water-trail, and Minnesota boating/PFD rules.',
+      camping:
+        'Treat this as a day route. DNR Map 6 says watercraft camping must use designated campsites, and this split does not assume a legal overnight stop between Shakopee and Russel.',
+      campingClassification: 'none',
+      summary:
+        'Run the lower Minnesota from Shakopee to the MN Valley Refuge - Russel access, passing mapped rest-area corridors near Huber City Park and The Landing. The Jordan DNR gauge remains the official interpreted lower-river level reference.',
+      accessCaveats: [
+        'Shakopee and Russel are named public-water-access GIS records with DNR Map 6 river-mile context.',
+        'Huber City Park and The Landing are mapped rest areas, not substitute take-outs unless same-day public access, rules, and landing conditions are separately confirmed.',
+        'The Jordan gauge is upstream of the route. Treat it as an official lower-river proxy and inspect the Shakopee landing before launching.',
+      ],
+      watchFor: [
+        'A long committing distance with limited simple exits.',
+        'Wind, rain runoff, bridge approaches, debris, muddy banks, and changing sandbars.',
+        'Private shoreland and managed public land boundaries; stop only at clearly legal sites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'shakopee-minnesota-river-access',
+        name: 'Minnesota River, Shakopee Public Water Access Site',
+        latitude: 44.80101,
+        longitude: -93.525775,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in near DNR Map 6 river mile 25.3.',
+      },
+      {
+        id: 'russel-minnesota-river-access',
+        name: 'Minnesota River, MN Valley Refuge - Russel Public Water Access Site',
+        latitude: 44.801033,
+        longitude: -93.288612,
+        mileFromStart: 14.8,
+        segmentKind: 'creek',
+        note: 'Default take-out at the Russel access under I-35W near DNR Map 6 river mile 10.4.',
+      },
+    ],
+  },
+  'minnesota-river-russell-fort-snelling': {
+    putIn: {
+      name: 'Minnesota River, MN Valley Refuge - Russel Public Water Access Site',
+      latitude: 44.801033,
+      longitude: -93.288612,
+    },
+    takeOut: {
+      name: 'Minnesota River, Fort Snelling Public Water Access Site',
+      latitude: 44.885562,
+      longitude: -93.1739,
+    },
+    logistics: {
+      distanceLabel: 'About 8.9 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with headwind, low current, or crowded park conditions',
+      shuttle:
+        'Stage the take-out at Fort Snelling State Park before launching at Russel. Plan to exit at Fort Snelling rather than drifting into the Mississippi confluence unless you have a separate Mississippi route plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted refuge, Fort Snelling State Park, DNR access, and Minnesota boating/PFD rules; a state-park vehicle permit or posted parking fee may apply at Fort Snelling.',
+      camping:
+        'Treat this as a day route. DNR Map 6 limits watercraft camping to designated campsites, and no legal on-route overnight stop is assumed between Russel and Fort Snelling.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the MN Valley Refuge - Russel access and take out at Fort Snelling State Park for the final Minnesota River approach to the Mississippi confluence. The route avoids using the Cedar access because the public-access GIS record flagged it as closed during review.',
+      accessCaveats: [
+        'Russel and Fort Snelling are named public-water-access GIS records; use Fort Snelling as the planned take-out before the river reaches the Mississippi.',
+        'The Cedar / Highway 77 access is not a planned stop for this card because the DNR public-water-access record was marked closed due to construction during review.',
+        'The Jordan gauge is upstream of the route; combine the official DNR ladder with a same-day visual inspection at Russel.',
+      ],
+      watchFor: [
+        'Barge-traffic caution on the lower 15 river miles, as noted in the DNR river-level metadata.',
+        'Urban bridge approaches, airport-area wind, floating debris, muddy landings, and fast-rising water after storms.',
+        'The Mississippi confluence below Fort Snelling; take out as planned unless continuing under a separate route plan.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'russel-minnesota-river-access',
+        name: 'Minnesota River, MN Valley Refuge - Russel Public Water Access Site',
+        latitude: 44.801033,
+        longitude: -93.288612,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in under I-35W near DNR Map 6 river mile 10.4.',
+      },
+      {
+        id: 'fort-snelling-minnesota-river-access',
+        name: 'Minnesota River, Fort Snelling Public Water Access Site',
+        latitude: 44.885562,
+        longitude: -93.1739,
+        mileFromStart: 8.9,
+        segmentKind: 'creek',
+        note: 'Default take-out in Fort Snelling State Park upstream of the Mississippi confluence.',
+      },
+    ],
+  },
   'mississippi-river-norin-babcock': {
     putIn: {
       name: 'Mississippi River, Norin Landing Public Water Access Site',

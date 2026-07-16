@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-16 13:11 America/Chicago.
+Last summarized: 2026-07-16 14:11 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 198 after the 2026-07-16 13:11 Rum/Mississippi headwaters gap pass.
-- Top represented rivers: Mississippi River 38, Minnesota River 12, North Fork Crow River 9, Root River 9, Rum River 8, St. Croix River 8, Sauk River 7, St. Louis River 7, Big Fork River 6, Cannon River 6, Crow Wing River 6, Red Lake River 6, Zumbro River 6, Red River of the North 5, Straight River 5, Cloquet River 4, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Cedar River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, Vermilion River, and Whitewater River.
-- Ledger candidates: 1014 total; 630 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
+- Live routes: 201 after the 2026-07-16 14:11 lower Minnesota River pass.
+- Top represented rivers: Mississippi River 38, Minnesota River 15, North Fork Crow River 9, Root River 9, Rum River 8, St. Croix River 8, Sauk River 7, St. Louis River 7, Big Fork River 6, Cannon River 6, Crow Wing River 6, Red Lake River 6, Zumbro River 6, Red River of the North 5, Straight River 5, Cloquet River 4, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Cedar River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, Vermilion River, and Whitewater River.
+- Ledger candidates: 1029 total; 645 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-16 14:11 America/Chicago / 2026-07-16 19:11 UTC: added `minnesota-river-carver-shakopee`, `minnesota-river-shakopee-russell`, and `minnesota-river-russell-fort-snelling`.
+- Baseline at run start was 198 live Minnesota routes from `src/data/rivers.ts`. The selected slugs bring the live Minnesota inventory to 201 and extend the lower Minnesota River downstream from the already-live Thompson-to-Carver card through Carver, Shakopee, MN Valley Refuge - Russel, and Fort Snelling.
+- Qualification path: MN DNR Minnesota River Map 6 documents the lower-river access sequence, rest-area context, river miles, Mississippi confluence, private-bank/designated-stop rules, and general safety cautions. Minnesota public-water-access GIS resolves Carver `WAS02646`, Winkle Park `WAS01245`, Shakopee `WAS02635`, Russel `WAS01234`, Fort Snelling `WAS01207`, and the closed Cedar `WAS01213` record used only as a caveat.
+- Live gauge verification: MN DNR Minnesota River near Jordan site `112` returned `8.90 ft` at 2026-07-16 12:45 CDT, just below the official medium band. The DNR site metadata lists lower-15-mile barge-traffic caution, which is carried on the Russel-to-Fort-Snelling route.
+- Implemented official DNR gauge model only: Jordan site `112` uses `4.0 ft` scrapable floor, `9.0-12.0 ft` medium, and `16.0 ft` very high as an upstream same-water-trail proxy for all three lower Minnesota splits. No extra ideal range or high cutoff was invented.
+- Camping posture: all three are no-camping day routes. DNR Map 6 says watercraft camping must use designated campsites and riverbed camping next to private property is not permitted. Safety posture includes low/slow water, muddy landings, wind, bridge approaches, floating debris, private or managed shoreland, limited exits, Cedar access closure, Fort Snelling state-park rules, barge traffic, and no casual continuation into the Mississippi confluence.
+- No route-gallery images were added. Image audit rows record bounded DNR / public-access / state-park / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed and kept as already represented or weaker: Sauk Richmond-to-Horseshoe, Whitewater County-Hwy-26-to-Beaver, Little Fork and Crow Wing subset cards, and St. Croix Thayer/Norway-style corridors. The accepted lower Minnesota splits had stronger official map, access, and gauge support than those duplicate leads.
 
 - 2026-07-16 13:11 America/Chicago / 2026-07-16 18:11 UTC: added `rum-river-county-road-4-princeton`, `mississippi-river-iron-bridge-lake-irving`, and `mississippi-river-lake-bemidji-state-park-county-road-12-dam`.
 - Baseline at run start was 195 live Minnesota routes from `src/data/rivers.ts`. The selected slugs bring the live Minnesota inventory to 198 and fill three non-overlapping gaps: the middle Rum between the existing County-Road-4 stop and Princeton, the Mississippi headwaters below Iron Bridge to Lake Irving, and the state-park-side Lake Bemidji / Stump Lake connector to County Road 12 Dam.

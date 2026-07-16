@@ -1,5 +1,13 @@
 # Midwest Route Automation Memory
 
+- 2026-07-16 14:11 America/Chicago / 2026-07-16 19:11 UTC: Minnesota three-route implementation pass (`minnesota-route-additions-2`).
+  - Added three Minnesota slugs beyond the 198-route Minnesota baseline at run start: `minnesota-river-carver-shakopee`, `minnesota-river-shakopee-russell`, and `minnesota-river-russell-fort-snelling`, bringing Minnesota to 201 live routes.
+  - Qualification path: MN DNR Minnesota River Map 6 plus Minnesota public-water-access GIS document Carver, Winkle Park, Shakopee, MN Valley Refuge - Russel, Fort Snelling, and the closed Cedar access caveat. All three use MN DNR Minnesota River near Jordan site `112` as the official interpreted upstream same-water-trail proxy.
+  - Live gauge verification: Jordan site `112` returned `8.90 ft` at 2026-07-16 12:45 CDT, just below the official medium band. Implemented DNR bands are `4.0 ft` scrapable floor, `9.0-12.0 ft` medium, and `16.0 ft` very high, with no invented extra ideal range or high cutoff.
+  - Added no-camping and safety/logistics notes for designated-stop/private-bank rules, low/slow water, wind, muddy landings, bridge approaches, floating debris, limited exits, Cedar access closure, Fort Snelling state-park rules, lower-15-mile barge traffic, and no casual continuation into the Mississippi confluence.
+  - No route-gallery assets were added. Bounded DNR / public-access / state-park / Commons / same-route image review found no clearly rights-clean exact lower-Minnesota paddling asset selected for local reuse.
+  - Reviewed but did not add duplicate/represented leads including Sauk Richmond-to-Horseshoe, Whitewater County-Hwy-26-to-Beaver, Little Fork and Crow Wing subset cards, and St. Croix Thayer/Norway-style corridors.
+
 - 2026-07-16 13:14 America/Chicago / 2026-07-16 18:14 UTC: Minnesota three-route implementation pass (`minnesota-route-additions-2`).
   - Added three Minnesota slugs beyond the 195-route Minnesota baseline at run start: `rum-river-county-road-4-princeton`, `mississippi-river-iron-bridge-lake-irving`, and `mississippi-river-lake-bemidji-state-park-county-road-12-dam`, bringing Minnesota to 198 live routes.
   - Qualification path: MN DNR Rum Map 2 plus public-water-access GIS document County-Road-4-to-Princeton with Onamia site `207` as an official same-water-trail proxy; MN DNR Mississippi Map 1 plus public-water-access GIS document Iron-Bridge-to-Lake-Irving with direct Wilton site `155`; and MN DNR Mississippi Map 1 plus Lake Bemidji State Park / public-access GIS document Lake-Bemidji-State-Park-to-County-Road-12-Dam with direct Stump Lake site `341`.
