@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-16 08:14 America/Chicago.
+Last summarized: 2026-07-16 09:17 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 183 after the 2026-07-16 08:14 Cannon / Straight / Watonwan pass.
-- Top represented rivers: Mississippi River 35, Minnesota River 12, Root River 7, Rum River 7, Sauk River 7, St. Croix River 7, Big Fork River 6, Cannon River 6, North Fork Crow River 6, Red Lake River 6, Zumbro River 6, Crow Wing River 5, Red River of the North 5, Straight River 5, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, St. Louis River 4, Cedar River 3, Cloquet River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, Vermilion River, and Whitewater River.
-- Ledger candidates: 1001 total; 618 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
+- Live routes: 186 after the 2026-07-16 09:17 Mississippi / St. Louis / Cloquet pass.
+- Top represented rivers: Mississippi River 36, Minnesota River 12, Root River 7, Rum River 7, Sauk River 7, St. Croix River 7, Big Fork River 6, Cannon River 6, North Fork Crow River 6, Red Lake River 6, Zumbro River 6, Crow Wing River 5, Red River of the North 5, St. Louis River 5, Straight River 5, Cloquet River 4, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Cedar River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, Vermilion River, and Whitewater River.
+- Ledger candidates: 1004 total; 621 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-16 09:17 America/Chicago / 2026-07-16 14:17 UTC: added `mississippi-river-wolds-ferry-palisade`, `st-louis-river-floodwood-paupores`, and `cloquet-river-highway-53-highway-7`.
+- Baseline at run start was 183 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 186 and fill three non-overlapping official/public-access gaps: Wold's-Ferry-to-Palisade between existing Mississippi Map 4 cards, Floodwood-to-Paupores above the existing Paupores-to-Brookston St. Louis card, and Highway-53-to-Highway-7 on the lower Cloquet above the St. Louis confluence continuation.
+- Qualification path: MN DNR Mississippi Map 4 plus public-water-access GIS resolves Wold's Ferry `WAS02563` and Palisade `WAS01038`; MN DNR St. Louis Map 2 plus public-water-access GIS resolves Floodwood `WAS01940` and Paupores `WAS00609`; MN DNR Cloquet Map 1 plus public-water-access GIS resolves Highway 53 Wayside `WAS02744` and Highway 7 `WAS02471`.
+- Live gauge verification: MN DNR site `120` at Aitkin returned `1,590 cfs` at 2026-07-15 14:30 CDT, just inside the official medium band; site `338` at Floodwood returned `23.64 ft` at 2026-07-16 07:45 CDT, below the official scrapable floor; site `38` near Burnett returned `254 cfs` at 2026-07-16 07:15 CDT, inside the official low band.
+- Implemented official DNR gauge models: Mississippi Aitkin `712.3 / 1,500-6,000 / 8,000 cfs` as a downstream same-map proxy; St. Louis Floodwood `24.4 / 28-37 / 42 ft` as a direct put-in gauge; and Cloquet Burnett `139.6 / 500-2,200 / 2,500 cfs` as a direct take-out-corridor gauge.
+- Camping posture: all three are no-camping day routes. Mississippi flags downstream proxy, floodplain oxbows, wood, cold water, private banks, and no informal riverbed camping. St. Louis is whitewater/advanced and flags below-scrapable current, Class I-II rapids, fast rises, remote/private banks, cold water, and no on-route campsite assumption. Cloquet is whitewater/caution and flags low-water scraping, strainers, cold water, fast rises, private banks, and no casual continuation to the St. Louis River.
+- No route-gallery images were added. Image audit rows record bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add lower Big Fork because remaining public accesses are already inside existing broad Big Fork cards, Red Lake upper variants because the Thief River Falls gauge remains stale, St. Louis Brookston-to-Cloquet because downstream dam/confluence exposure is weaker than the accepted access pairs, or Bimijiwan/Winnie Mississippi variants because they are already represented by `mississippi-river-cass-lake-winnibigoshish`.
 
 - 2026-07-16 08:14 America/Chicago / 2026-07-16 13:14 UTC: added `cannon-river-northfield-byllesby-west`, `straight-river-county-road-45-medford`, and `watonwan-river-madelia-county-road-32`.
 - Baseline at run start was 180 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 183 and fill three non-overlapping public-access gaps: Northfield-to-Lake-Byllesby-West above the existing lower Cannon card, County-Road-45-to-Medford between existing Straight cards, and Madelia-to-County-Road-32 above the existing Watonwan chain.

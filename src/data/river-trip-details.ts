@@ -36878,6 +36878,177 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'mississippi-river-wolds-ferry-palisade': {
+    putIn: {
+      id: 'wolds-ferry-crossing-mississippi',
+      name: "Mississippi River, Wold's Ferry Crossing Public Water Access Site",
+      latitude: 46.7467308,
+      longitude: -93.3973426,
+    },
+    takeOut: {
+      id: 'palisade-mississippi',
+      name: 'Mississippi River, Palisade Public Water Access Site',
+      latitude: 46.7096108,
+      longitude: -93.4851524,
+    },
+    logistics: {
+      distanceLabel: 'About 9.6 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with wind, low water, or wood',
+      shuttle:
+        "Stage Palisade first, then drive back to Wold's Ferry Crossing. Confirm both public accesses because the intervening floodplain reach has limited clean bailout options.",
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted DNR, Aitkin County, and local access rules.',
+      camping:
+        'Treat this as a day route. DNR Map 4 shows campsite context elsewhere on the map sheet, but no on-route campsite is assumed for the Wold\'s-Ferry-to-Palisade split; riverbed camping next to private property is not permitted.',
+      campingClassification: 'none',
+      summary:
+        "Launch at Wold's Ferry Crossing and take out at Palisade for the Map 4 connector between existing Mississippi Headwaters cards. Use the downstream Aitkin gauge as a same-map proxy and make local checks for wood, wind, and floodplain side channels.",
+      accessCaveats: [
+        "Wold's Ferry resolves as WAS02563 at river mile 1096.0 and Palisade resolves as WAS01038 at river mile 1086.4 in Minnesota public-water-access GIS.",
+        'The Aitkin gauge is downstream of this reach. Treat it as an official same-map proxy and check current, depth, and wood at the launch before committing.',
+        'Stay in the main river corridor unless you have a clear map and daylight plan; oxbows and floodplain side channels can complicate navigation.',
+      ],
+      watchFor: [
+        'Downed trees, floating debris, private banks, cold water, and limited public exits between the named accesses.',
+        'Wind and slow current on open bends or backwaters, especially when the Aitkin gauge is near the low band.',
+        'High or rising water covering banks and campsite areas, speeding debris, and reducing recovery room around wood.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'wolds-ferry-crossing-mississippi',
+        name: "Mississippi River, Wold's Ferry Crossing Public Water Access Site",
+        latitude: 46.7467308,
+        longitude: -93.3973426,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02563 at river mile 1096.0.',
+      },
+      {
+        id: 'palisade-mississippi',
+        name: 'Mississippi River, Palisade Public Water Access Site',
+        latitude: 46.7096108,
+        longitude: -93.4851524,
+        mileFromStart: 9.6,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS01038 at river mile 1086.4.',
+      },
+    ],
+  },
+  'st-louis-river-floodwood-paupores': {
+    putIn: {
+      id: 'floodwood-st-louis',
+      name: 'St. Louis River, Floodwood Public Water Access Site',
+      latitude: 46.9291846,
+      longitude: -92.9170726,
+    },
+    takeOut: {
+      id: 'paupores-st-louis',
+      name: 'St. Louis River, Paupores Public Water Access Site',
+      latitude: 46.8741117,
+      longitude: -92.7652286,
+    },
+    logistics: {
+      distanceLabel: 'About 10.7 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, scouting, or wood',
+      shuttle:
+        'Stage Paupores first, then drive back to Floodwood. Inspect the gauge corridor and first riffles before leaving a vehicle because current conditions during this run were below the DNR scrapable floor.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted city, county, DNR, and forest access rules.',
+      camping:
+        'Treat this as a day route. DNR Map 2 shows watercraft campsites below Paupores on the adjacent downstream route, but no source-backed on-route campsite is assumed for Floodwood to Paupores.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Floodwood and take out at Paupores for the upstream middle-St. Louis connector above the existing Paupores-to-Brookston card. The Floodwood DNR gauge is direct for the put-in corridor, but current conditions were below the official scrapable floor during this run.',
+      accessCaveats: [
+        'Floodwood resolves as WAS01940 at river mile 72.5 and Paupores resolves as WAS00609 at river mile 61.8 in Minnesota public-water-access GIS.',
+        'The route currently reads below the official DNR scrapable floor at Floodwood. Do not launch just because the access pair is public; make a visual water-depth call first.',
+        'This card ends at Paupores. The Paupores-to-Brookston whitewater/advanced segment is a separate downstream plan.',
+      ],
+      watchFor: [
+        'Class I-II rapids, shallow rocks, exposed ledges, dragging, and slower travel in low water.',
+        'Fast rises, pushy wave trains, strainers, cold water, and debris after rain or when the gauge climbs through the medium band.',
+        'Remote/private banks, sparse road crossings, and limited clean exits between Floodwood and Paupores.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'floodwood-st-louis',
+        name: 'St. Louis River, Floodwood Public Water Access Site',
+        latitude: 46.9291846,
+        longitude: -92.9170726,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01940 at river mile 72.5.',
+      },
+      {
+        id: 'paupores-st-louis',
+        name: 'St. Louis River, Paupores Public Water Access Site',
+        latitude: 46.8741117,
+        longitude: -92.7652286,
+        mileFromStart: 10.7,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00609 at river mile 61.8.',
+      },
+    ],
+  },
+  'cloquet-river-highway-53-highway-7': {
+    putIn: {
+      id: 'highway-53-wayside-cloquet',
+      name: 'Cloquet River, Highway 53 Wayside Rest Public Water Access Site',
+      latitude: 46.9595303,
+      longitude: -92.4600367,
+    },
+    takeOut: {
+      id: 'highway-7-cloquet',
+      name: 'Cloquet River, Highway 7 Public Water Access Site',
+      latitude: 46.8963329,
+      longitude: -92.514587,
+    },
+    logistics: {
+      distanceLabel: 'About 6.0 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with low water or scouting',
+      shuttle:
+        'Stage Highway 7 first, then drive back to the Highway 53 wayside. Inspect the take-out before launch because this card deliberately stops above the lower continuation toward the St. Louis River.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted MNDOT, DNR, county, and local access rules.',
+      camping:
+        'No on-route camping is assumed for this short lower-Cloquet split. Treat it as a day route and use separate nearby campground or lodging plans only after checking current rules.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Highway 53 wayside and take out at Highway 7 for a lower-Cloquet day split with a direct DNR gauge at the take-out corridor. Current conditions during this run were in the official low band, so shallow rock and scraping are likely.',
+      accessCaveats: [
+        'Highway 53 Wayside Rest resolves as WAS02744 at river mile 10.2 and Highway 7 resolves as WAS02471 at river mile 4.2 in Minnesota public-water-access GIS.',
+        'The Burnett / County Road 694 gauge is at the take-out corridor and should be paired with a visual check at Highway 53 before launching.',
+        'This card ends at Highway 7. Do not casually continue toward the St. Louis River confluence without a separate lower-river plan.',
+      ],
+      watchFor: [
+        'Low-water scraping, shallow rock gardens, and possible dragging when Burnett is in the official low band.',
+        'Fresh strainers, cold water, fast rises after rain, and private banks or limited legal exits between accesses.',
+        'Bridge current, roadside access footing, and the need to identify the Highway 7 take-out from the water before launch.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-53-wayside-cloquet',
+        name: 'Cloquet River, Highway 53 Wayside Rest Public Water Access Site',
+        latitude: 46.9595303,
+        longitude: -92.4600367,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02744 at river mile 10.2.',
+      },
+      {
+        id: 'highway-7-cloquet',
+        name: 'Cloquet River, Highway 7 Public Water Access Site',
+        latitude: 46.8963329,
+        longitude: -92.514587,
+        mileFromStart: 6.0,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02471 at river mile 4.2.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {
