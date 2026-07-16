@@ -1,18 +1,26 @@
 # Wisconsin Route Memory
 
-Last summarized: 2026-07-16 15:00 America/Chicago / 2026-07-16 20:00 UTC.
+Last summarized: 2026-07-16 15:12 America/Chicago / 2026-07-16 20:12 UTC.
 
 ## Current Inventory
 
-- Live routes: 171 after the 2026-07-16 15:00 consolidation audit.
-- Top represented rivers: Wisconsin River 15, Black River 6, Baraboo River 5, Milwaukee River 5, Peshtigo River 5, Rock River 5, St. Croix River 5, Sugar River 5, Wolf River 5, Bois Brule River 4, Chippewa River 4, Eau Claire River 4, Kickapoo River 4, Namekagon River 4, Pine River 4, Big Rib River 3, Brule River 3, Crawfish River 3, East Branch Pecatonica River 3, Fox River 3, Grant River 3, La Crosse River 3, Mecan River 3, Platte River 3, Plover River 3, Popple River 3, Prairie River 3, Sheboygan River 3, South Fork Flambeau River 3, Badfish Creek 2, Bark River 2, Beaver Dam River 2, Blue River 2, Maunesha River 2, Allen Creek 1, Apple River 1, Ashippun River 1, Bower Creek 1, Cedar Creek 1, Honey Creek 1, Little Sugar River 1, Mukwonago River 1, Neshota / West Twin River 1, Root River 1, Rush River 1, West Branch Sugar River 1.
-- Ledger candidates: 167 Wisconsin candidates tracked; 157 added/implemented, 5 `research_later`, 2 `duplicate_corridor`, 3 `rejected`.
+- Live routes: 174 after the 2026-07-16 15:12 implementation pass.
+- Top represented rivers: Wisconsin River 15, Black River 6, Baraboo River 5, Milwaukee River 5, Peshtigo River 5, Rock River 5, St. Croix River 5, Sugar River 5, Wolf River 5, Bois Brule River 4, Chippewa River 4, Eau Claire River 4, Kickapoo River 4, Namekagon River 4, Pine River 4, Rock River - East Branch 3, Big Rib River 3, Brule River 3, Crawfish River 3, East Branch Pecatonica River 3, Fox River 3, Grant River 3, La Crosse River 3, Mecan River 3, Platte River 3, Plover River 3, Popple River 3, Prairie River 3, Sheboygan River 3, South Fork Flambeau River 3, Badfish Creek 2, Bark River 2, Beaver Dam River 2, Blue River 2, Maunesha River 2, Allen Creek 1, Apple River 1, Ashippun River 1, Bower Creek 1, Cedar Creek 1, Honey Creek 1, Little Sugar River 1, Mukwonago River 1, Neshota / West Twin River 1, Root River 1, Rush River 1, West Branch Sugar River 1.
+- Ledger candidates: 155 Wisconsin candidates tracked; 146 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 3 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-16 America/Chicago / 2026-07-16 UTC run added three routes beyond the 169-route baseline: `allen-creek-hwy-59-old-hwy-92`, `honey-creek-bell-school-hwy-20`, and `mukwonago-river-rainbow-springs-hwy-i`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-16 15:12 America/Chicago / 2026-07-16 20:12 UTC run added three routes beyond the 171-route baseline: `rock-river-east-branch-hillcrest-hwy-dw`, `rock-river-east-branch-north-pole-gill`, and `rock-river-east-branch-furnace-bridge-kekoskee`.
 
 ## Latest Audit
+
+- 2026-07-16 15:12 America/Chicago / 2026-07-16 20:12 UTC: added `rock-river-east-branch-hillcrest-hwy-dw`, `rock-river-east-branch-north-pole-gill`, and `rock-river-east-branch-furnace-bridge-kekoskee`, bringing the live Wisconsin route count from the run-start baseline of 171 to 174.
+- The accepted routes add a new East Branch Rock River family rather than another split of already-mature Wisconsin, Wolf, Sugar, St. Croix, or mainstem Rock coverage. Wisconsin River Trips documents the exact Allenton, Theresa, and Mayville route family with access names, embedded map coordinates, mileages, logjam/dam/portage notes, and Horicon-gauge thresholds; Wisconsin DNR supports Theresa Marsh public-land context; and USGS Water Services verified the Horicon proxy gauge.
+- Live gauge verification: USGS Water Services returned Rock River at Horicon `05424057` at `120 cfs / 6.66 ft` at 2026-07-16 14:00 CDT. Allenton sits inside its useful WRT band, Theresa is above the low floor but below the preferred 201-300 cfs target, and Furnace-Bridge-to-Kekoskee currently warns below its 200 cfs minimum-only floor.
+- Threshold posture: Allenton uses WRT's exact-route Horicon proxy ladder with `31-300 cfs` as the selected useful band, `31 cfs` low, and `801+ cfs` maybe too high. Theresa uses WRT's exact-route ladder with `201-300 cfs` target, `101 cfs` low, and `801+ cfs` maybe too high. Furnace-Bridge-to-Kekoskee uses WRT Mayville guidance as minimum-only at `200 cfs`; no upper cutoff was inferred.
+- Safety/logistics added: Allenton is no-camping with bridge-style access, Riveredge Park alternate, known logjam/wood, proxy-gauge, private-bank, and cold-water caveats. Theresa is no-camping with mandatory Theresa dam portage, Gill Road bridge take-out, shallow boulder-garden, proxy-gauge, private-bank, and cold-water caveats. Furnace-to-Kekoskee is no-camping with below-dam launch, mandatory take-out before the Kekoskee dam/private-portage problem, low-water boulder gardens, pond wind, proxy-gauge, private-bank, and cold-water caveats.
+- Bounded image review found WRT / DNR / USGS / Commons / same-route leads, but no clearly rights-clean exact-route paddling/gallery asset selected for the three new cards; no-image rows were added to the image audit.
+- Rechecked prompt leads: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica remain already live; Black Earth Creek Cross Plains-to-Salmo Pond remains obstruction-blocked; Oconomowoc Loew/Monches/Fowler options remain weaker because of private-lawn access, current logjam-not-recommended status, or dam-portage/take-out uncertainty; upper Chippewa / Wolf / Wisconsin Trail Guide families remain mature and were not stronger than the accepted East Branch Rock package.
 
 - 2026-07-16 15:00 America/Chicago / 2026-07-16 20:00 UTC: consolidation audit removed `maunesha-river-cherry-lane-firemens` from live route data and marked the ledger candidate `duplicate_corridor`. Cherry Lane remains represented as an intermediate access point inside `maunesha-river-marshall-firemens`, so do not re-add the short Cherry-Lane-to-Firemens card unless alternate short-option route cards become an intentional product pattern.
 

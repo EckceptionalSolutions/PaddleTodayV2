@@ -5564,6 +5564,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       }
     ],
   },
+  'cloquet-river-bachelor-road-highway-53': {
+    putIn: {
+      name: 'Cloquet River, Bachelor Road Public Water Access Site',
+      latitude: 46.9524154,
+      longitude: -92.327051,
+    },
+    takeOut: {
+      name: 'Cloquet River, Highway 53 Wayside Rest Public Water Access Site',
+      latitude: 46.9595303,
+      longitude: -92.4600367,
+    },
+    logistics: {
+      distanceLabel: 'About 10.3 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with low water, scouting, or campsite stops',
+      shuttle:
+        'Stage the Highway 53 wayside first, then drive back to Bachelor Road. Inspect both landings before launch because low release levels can make this connector slower than the mileage suggests.',
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR public accesses, follow Minnesota boating/PFD rules, and obey posted watercraft-campsite and access rules.',
+      camping:
+        'DNR Map 1 shows designated watercraft campsites between Bachelor Road and Highway 53, including MCC, Old Mule, and Three Island. Treat them as rustic first-come sites and do not use private banks or informal riverbed camps.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Bachelor Road and take out at the Highway 53 wayside for the middle lower-Cloquet connector. The downstream Burnett gauge is the official interpreted screen, but same-day depth, dam releases, and visible rock at Bachelor Road still decide marginal days.',
+      accessCaveats: [
+        'Bachelor Road resolves as WAS01627 at river mile 20.5; Highway 53 Wayside Rest resolves as WAS02744 at river mile 10.2 in Minnesota public-water-access GIS.',
+        'The Burnett gauge is downstream of this route near Highway 7, so it is a conservative corridor proxy rather than an exact route gauge.',
+        'This card ends at Highway 53. The Highway-53-to-Highway-7 continuation is already a separate PaddleToday route with additional lower-river rapid and confluence caveats.',
+      ],
+      watchFor: [
+        'Repeated Class I rapid reaches, shallow rock, and possible scraping when Burnett is in the official low band.',
+        'Dam-release changes from Island Lake, fast rises after rain, fresh strainers, bridge approaches, cold water, and private banks.',
+        'No casual continuation below Highway 53 unless the group deliberately chooses the downstream route and conditions fit.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'bachelor-road-cloquet',
+        name: 'Bachelor Road Public Water Access Site',
+        latitude: 46.9524154,
+        longitude: -92.327051,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01627 at DNR river mile 20.5.',
+      },
+      {
+        id: 'highway-53-wayside-cloquet',
+        name: 'Cloquet River, Highway 53 Wayside Rest Public Water Access Site',
+        latitude: 46.9595303,
+        longitude: -92.4600367,
+        mileFromStart: 10.3,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02744 at DNR river mile 10.2.',
+      },
+    ],
+  },
   'st-louis-river-paupores-brookston': {
     putIn: {
       name: 'St. Louis River, Paupores Public Water Access Site',
@@ -6157,6 +6212,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         segmentKind: 'creek',
         note: "Default take-out for this route.",
       }
+    ],
+  },
+  'whitewater-river-highway-74-us-61': {
+    putIn: {
+      name: 'Whitewater River, Beaver Public Water Access Site',
+      latitude: 44.1496762,
+      longitude: -92.005621,
+    },
+    takeOut: {
+      name: 'Whitewater River, Highway 61 Public Water Access Site',
+      latitude: 44.2083885,
+      longitude: -91.9230759,
+    },
+    logistics: {
+      distanceLabel: 'About 9.8 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with wood, scouting, or low water',
+      shuttle:
+        'Stage the Highway 61 access first, then drive back to the Beaver / Highway 74 access. Confirm both small parking areas and the exact take-out before launch because this lower WMA reach has few friendly exit options.',
+      permits:
+        'No special paddling permit is known for the Minnesota DNR Whitewater River State Water Trail. Use the named public accesses, follow Minnesota boating/PFD rules, and obey WMA and parking rules.',
+      camping:
+        'No camping is assumed on this route. MN DNR says there are no campsites or rest areas in the ecologically sensitive Whitewater Wildlife Management Area.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Beaver / Highway 74 access and take out at Highway 61 near Weaver. The Beaver gauge is direct and currently in the official medium band, but DNR warns this lower corridor is not novice-friendly because trees and occasional log jams can block the channel.',
+      accessCaveats: [
+        'Beaver resolves as WAS02183 at river mile 10.3 and Highway 61 resolves as WAS00260 at river mile 0.5 in Minnesota public-water-access GIS.',
+        'These are small carry-in accesses with limited parking and no restroom listed in the public-water-access records.',
+        'Do not use informal WMA banks, private banks, or agricultural edges as routine stops; plan the shuttle around the two named public accesses.',
+      ],
+      watchFor: [
+        'Many trees, occasional log jams, deadfall, strainers, and tight maneuvering below Beaver.',
+        'Constructed rock rapids at and below Beaver, including drops shown on DNR Map 2 near river miles 10.2, 6.4, and 4.2.',
+        'Flashy rain response, cold water, poor summer visibility, soft banks, and scraping if the Beaver gauge drops below the medium band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'whitewater-beaver-highway-74',
+        name: 'Whitewater River, Beaver Public Water Access Site',
+        latitude: 44.1496762,
+        longitude: -92.005621,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02183 at DNR river mile 10.3.',
+      },
+      {
+        id: 'whitewater-highway-61',
+        name: 'Whitewater River, Highway 61 Public Water Access Site',
+        latitude: 44.2083885,
+        longitude: -91.9230759,
+        mileFromStart: 9.8,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00260 at DNR river mile 0.5.',
+      },
     ],
   },
   'south-fork-zumbro-lake-zumbro': {
@@ -11302,6 +11412,195 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 16.75,
         segmentKind: 'creek',
         note: 'Jefferson County water-trail launch at Rock River Park near Johnson Creek; check current county launch permit and parking rules.',
+      },
+    ],
+  },
+  'rock-river-east-branch-hillcrest-hwy-dw': {
+    putIn: {
+      name: 'Hillcrest Drive Bridge Access',
+      latitude: 43.41249,
+      longitude: -88.3392634,
+    },
+    takeOut: {
+      name: 'Highway DW Bridge Access',
+      latitude: 43.4425814,
+      longitude: -88.35311,
+    },
+    logistics: {
+      distanceLabel: '4.1 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer if wood forces portages',
+      shuttle:
+        'Stage the take-out at the Highway DW bridge, then drive back to Hillcrest Drive. Scout both bridge accesses from land before unloading because neither endpoint should be treated as a full-service ramp.',
+      permits:
+        'No route-specific paddling permit is known. Use only legal bridge or park access, avoid blocking roads or driveways, and respect private banks between public stops.',
+      camping:
+        'No on-route camping is documented for this short Allenton reach. Treat it as a day trip; Riveredge Park is an access alternative, not an assumed overnight stop.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Hillcrest Drive in Allenton and paddle the upper East Branch Rock River to Highway DW. Riveredge Park can shorten the trip and avoid the worst upstream wood if the Hillcrest section looks messy.',
+      accessCaveats: [
+        'Hillcrest Drive is the WRT put-in but should be checked for legal parking, bridge-bank footing, and current obstruction conditions before launch.',
+        'Riveredge Park is a practical alternate access downstream of the heaviest WRT-reported logjam section.',
+        'Highway DW is the planned take-out. Verify shoulder parking and the bank before committing to the shuttle.',
+        'The Horicon gauge is a downstream proxy, so same-day visual inspection at the selected put-in matters.',
+      ],
+      watchFor: [
+        'Known logjams and fresh wood, especially upstream of Riveredge Park.',
+        'Low-water scraping below about 31 cfs on the Horicon proxy.',
+        'High, muddy, or rising water that reduces reaction time around small-stream bends and wood.',
+        'Private banks and cold spring/fall water.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hillcrest-drive-allenton',
+        name: 'Hillcrest Drive Bridge Access',
+        latitude: 43.41249,
+        longitude: -88.3392634,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default WRT put-in; inspect roadside access before launching.',
+      },
+      {
+        id: 'riveredge-park-allenton',
+        name: 'Riveredge Park Alternate Access',
+        latitude: 43.4203449,
+        longitude: -88.3465379,
+        mileFromStart: 0.9,
+        segmentKind: 'creek',
+        note: 'Cleaner alternate access if the Hillcrest-to-Riveredge wood is not worth paddling.',
+      },
+      {
+        id: 'highway-dw-east-branch-rock',
+        name: 'Highway DW Bridge Access',
+        latitude: 43.4425814,
+        longitude: -88.35311,
+        mileFromStart: 4.1,
+        segmentKind: 'creek',
+        note: 'Default WRT take-out; inspect shoulder parking and bridge-bank conditions.',
+      },
+    ],
+  },
+  'rock-river-east-branch-north-pole-gill': {
+    putIn: {
+      name: 'North Pole Road Landing',
+      latitude: 43.520901,
+      longitude: -88.4295997,
+    },
+    takeOut: {
+      name: 'Gill Road Bridge Take-Out',
+      latitude: 43.4931852,
+      longitude: -88.4944046,
+    },
+    logistics: {
+      distanceLabel: '6.0 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, plus Theresa dam portage time',
+      shuttle:
+        'Stage the take-out at Gill Road and inspect the weedy bridge bank before launch. Then drive back to North Pole Road Landing and review the Theresa dam portage plan with the group.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public landing and bridge access, obey any posted park or road rules, and avoid private-bank stops.',
+      camping:
+        'No on-route camping is documented for this Theresa reach. Treat it as a day paddle; any Theresa Marsh-area camping or lodging should be planned separately and legally.',
+      campingClassification: 'none',
+      summary:
+        'Launch at North Pole Road Landing and paddle the East Branch Rock River through the Theresa corridor to Gill Road. The route includes a mandatory Theresa dam portage and is best when the Horicon proxy is near WRT target flows.',
+      accessCaveats: [
+        'North Pole Road Landing is the WRT put-in. Confirm current landing and parking conditions before leaving the take-out vehicle.',
+        'The Theresa dam must be portaged. Identify the legal take-out/re-entry path before reaching the dam from the water.',
+        'Gill Road is a bridge-style take-out with weedy bank conditions and shoulder-style parking. Scout it before launch.',
+        'The Horicon gauge is a downstream proxy, so visual checks override marginal scores.',
+      ],
+      watchFor: [
+        'Mandatory Theresa dam portage; do not run the dam.',
+        'Shallow boulder gardens and possible scraping or wading below the preferred band.',
+        'Fresh wood or strainers after storms.',
+        'Private banks, cold water, and reduced clarity or stronger current at higher flows.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'north-pole-road-landing',
+        name: 'North Pole Road Landing',
+        latitude: 43.520901,
+        longitude: -88.4295997,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default WRT Theresa route put-in.',
+      },
+      {
+        id: 'gill-road-east-branch-rock',
+        name: 'Gill Road Bridge Take-Out',
+        latitude: 43.4931852,
+        longitude: -88.4944046,
+        mileFromStart: 6,
+        segmentKind: 'creek',
+        note: 'Default WRT Theresa route take-out; inspect parking and weedy bridge bank.',
+      },
+    ],
+  },
+  'rock-river-east-branch-furnace-bridge-kekoskee': {
+    putIn: {
+      name: 'Furnace Bridge Dam / North Main Street Launch',
+      latitude: 43.5066608,
+      longitude: -88.5417684,
+    },
+    takeOut: {
+      name: 'Highway TW / Kekoskee Pond Ramp',
+      latitude: 43.5287837,
+      longitude: -88.5646266,
+    },
+    logistics: {
+      distanceLabel: 'About 4.0 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer at low water or in pond wind',
+      shuttle:
+        'Stage the take-out at the Highway TW / Kekoskee Pond ramp before driving back to the Furnace Bridge Dam launch area. Keep this as the planned endpoint unless a separate legal Kekoskee dam portage has been scouted from land.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Mayville, village, and access-site rules, launch below dam hazards, and avoid informal private-bank stops.',
+      camping:
+        'No on-route camping is documented for this short Mayville split. Treat it as a day route and keep any Horicon/Mayville overnight plan separate from the river corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch below Furnace Bridge Dam and paddle the Mayville East Branch through the best riffly/boulder-garden section to the Highway TW / Kekoskee Pond ramp. This card intentionally ends before the downstream Kekoskee dam portage issue.',
+      accessCaveats: [
+        'Launch below Furnace Bridge Dam only after scouting current signage, bank footing, and dam exclusion areas.',
+        "Highway Y / Ziegler Park can serve as a shorter alternate stop near the end of WRT's favorite two-mile section.",
+        'Highway TW / Kekoskee Pond ramp is the planned take-out before the downstream Kekoskee dam. Do not continue casually past it.',
+        'The Horicon gauge is a downstream proxy, and this split currently warns below the WRT Mayville target when the proxy is under 200 cfs.',
+      ],
+      watchFor: [
+        'Dam-adjacent launch and mandatory take-out discipline before Kekoskee dam.',
+        'Shallow boulder gardens, scraping, and possible walking below the selected floor.',
+        'Wind, slow travel, and boat traffic on the pond approach.',
+        'Fresh wood, private banks, cold water, and high/rising-water judgment gaps because no source-backed upper cutoff was found.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'furnace-bridge-dam',
+        name: 'Furnace Bridge Dam / North Main Street Launch',
+        latitude: 43.5066608,
+        longitude: -88.5417684,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default WRT Mayville put-in area below Furnace Bridge Dam.',
+      },
+      {
+        id: 'hwy-y-ziegler-park',
+        name: 'Highway Y / Ziegler Park Alternate Access',
+        latitude: 43.5098726,
+        longitude: -88.5555017,
+        mileFromStart: 2,
+        segmentKind: 'creek',
+        note: "Alternate stop near the end of WRT's highlighted favorite section.",
+      },
+      {
+        id: 'hwy-tw-kekoskee-pond-ramp',
+        name: 'Highway TW / Kekoskee Pond Ramp',
+        latitude: 43.5287837,
+        longitude: -88.5646266,
+        mileFromStart: 4,
+        segmentKind: 'creek',
+        note: 'Planned take-out before the downstream Kekoskee dam portage problem.',
       },
     ],
   },
@@ -30104,6 +30403,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 12.1,
         segmentKind: 'creek',
         note: 'Default take-out at DNR river mile 913.7.',
+      },
+    ],
+  },
+  'mississippi-river-clearwater-snuffies': {
+    putIn: {
+      name: 'Mississippi River, Clearwater Public Water Access Site',
+      latitude: 45.4194636,
+      longitude: -94.0423392,
+    },
+    takeOut: {
+      name: "Mississippi River, Snuffie's Landing Public Water Access Site",
+      latitude: 45.3837473,
+      longitude: -93.9148507,
+    },
+    logistics: {
+      distanceLabel: 'About 8.2 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with wind, low water, or campsite stops',
+      shuttle:
+        "Stage Snuffie's Landing first, then drive back to Clearwater. Inspect the take-out before launch because the landing is tucked into the lower end of the route and the river continues into the Norin / Babcock corridor.",
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey city, DNR, camping, and fishing rules.',
+      camping:
+        'DNR Map 8 identifies Oak Island at river mile 906 as a no-fee watercraft campsite. Treat camping as designated-site only; do not assume private island, sandbar, or bank camping elsewhere.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        "Launch at Clearwater and finish at Snuffie's Landing for a shorter Map 8 Mississippi connector below the existing Beaver-Island-to-Clearwater route. The St. Cloud gauge is upstream, so pair the official bands with local wind, riffle, and access checks.",
+      accessCaveats: [
+        "Clearwater resolves as WAS01309 at river mile 913.7 and Snuffie's Landing resolves as WAS01297 at river mile 905.5 in Minnesota public-water-access GIS.",
+        'The St. Cloud gauge is upstream of this route and should be treated as a same-map proxy, not an exact local measurement.',
+        "Take out at Snuffie's for this card. Do not drift into the downstream Norin and Babcock corridor without a separate shuttle plan.",
+      ],
+      watchFor: [
+        'Low-water riffles, shallow side channels, and slower progress when the upstream St. Cloud gauge is near the low band.',
+        'Fast current, floating wood, bridge approaches, wind on open bends, motorboats, anglers, cold water, and private banks.',
+        "Finding Snuffie's Landing from the water before the final bends and avoiding unplanned downstream continuation.",
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'clearwater-mississippi',
+        name: 'Mississippi River, Clearwater Public Water Access Site',
+        latitude: 45.4194636,
+        longitude: -94.0423392,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01309 at DNR river mile 913.7.',
+      },
+      {
+        id: 'snuffies-landing',
+        name: "Snuffie's Landing Public Water Access Site",
+        latitude: 45.3837473,
+        longitude: -93.9148507,
+        mileFromStart: 8.2,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS01297 at DNR river mile 905.5.',
       },
     ],
   },
