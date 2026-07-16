@@ -1,11 +1,11 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-16 12:10 America/Chicago.
+Last summarized: 2026-07-16 13:11 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 195 after the 2026-07-16 12:10 North Fork Crow gap pass.
-- Top represented rivers: Mississippi River 36, Minnesota River 12, North Fork Crow River 9, Root River 9, St. Croix River 8, Rum River 7, Sauk River 7, St. Louis River 7, Big Fork River 6, Cannon River 6, Crow Wing River 6, Red Lake River 6, Zumbro River 6, Red River of the North 5, Straight River 5, Cloquet River 4, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Cedar River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, Vermilion River, and Whitewater River.
+- Live routes: 198 after the 2026-07-16 13:11 Rum/Mississippi headwaters gap pass.
+- Top represented rivers: Mississippi River 38, Minnesota River 12, North Fork Crow River 9, Root River 9, Rum River 8, St. Croix River 8, Sauk River 7, St. Louis River 7, Big Fork River 6, Cannon River 6, Crow Wing River 6, Red Lake River 6, Zumbro River 6, Red River of the North 5, Straight River 5, Cloquet River 4, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Cedar River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, Vermilion River, and Whitewater River.
 - Ledger candidates: 1014 total; 630 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
 
 ## Status
@@ -13,6 +13,15 @@ Last summarized: 2026-07-16 12:10 America/Chicago.
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-16 13:11 America/Chicago / 2026-07-16 18:11 UTC: added `rum-river-county-road-4-princeton`, `mississippi-river-iron-bridge-lake-irving`, and `mississippi-river-lake-bemidji-state-park-county-road-12-dam`.
+- Baseline at run start was 195 live Minnesota routes from `src/data/rivers.ts`. The selected slugs bring the live Minnesota inventory to 198 and fill three non-overlapping gaps: the middle Rum between the existing County-Road-4 stop and Princeton, the Mississippi headwaters below Iron Bridge to Lake Irving, and the state-park-side Lake Bemidji / Stump Lake connector to County Road 12 Dam.
+- Qualification path: MN DNR Rum Map 2 documents County Road 4, Princeton City Park, old rock dam, and Princeton logjam cautions; MN DNR Mississippi Map 1 documents Iron Bridge, Lake Irving, Lake Bemidji State Park, Stump Lake campsite, County Road 12 Dam, vegetation, submerged-piling, wind, campsite, and portage/dam context. Minnesota public-water-access GIS resolves all six endpoints with named records, administrators, river miles, and coordinates.
+- Live gauge verification: MN DNR Onamia site `207` returned `10.78 ft` at 2026-07-16 11:45 CDT, inside the official medium band; Wilton site `155` returned `41.61 ft` at 2026-07-16 11:30 CDT, inside the official medium band; Stump Lake site `341` returned `3.05 ft` at 2026-07-16 11:30 CDT, inside the official medium band.
+- Implemented official DNR gauge models only: Onamia `10.0 / 10.5-11.5 / 12.5 ft` as an upstream same-water-trail proxy for County-Road-4-to-Princeton; Wilton `39.1 / 40-42.5 / 45 ft` as direct put-in-corridor support for Iron-Bridge-to-Lake-Irving; and Stump Lake `1.8 / 2.8-3.6 / 5.0 ft` as direct take-out-corridor support for Lake-Bemidji-State-Park-to-County-Road-12-Dam.
+- Camping posture: Rum County-Road-4-to-Princeton is endpoint-campground through Princeton Riverside Park. Iron-Bridge-to-Lake-Irving and Lake-Bemidji-State-Park-to-County-Road-12-Dam are on-route-campsite capable only at DNR-designated watercraft campsites with current confirmation. Safety posture includes Princeton old rock dam, frequent log jams, proxy-gauge limits, wetland vegetation, Island Point Rapids, submerged pilings, Lake Bemidji wind, County Road 12 Dam/portage, private banks, cold water, and no casual continuation into unplanned downstream/open-water segments.
+- No route-gallery images were added. Image audit rows record bounded DNR / public-access / City of Princeton / state-park / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add Princeton-to-Highway-7 because it starts immediately around the old rock dam and runs through the DNR-noted frequent-logjam corridor; did not add a downtown Bemidji-to-County-Road-12 card because DNR warns large lakes can produce powerful waves and the accepted state-park split avoids promoting a full Lake Bemidji crossing.
 
 - 2026-07-16 12:10 America/Chicago / 2026-07-16 17:10 UTC: added `north-fork-crow-river-highway-22-forest-city`, `north-fork-crow-river-kingston-betty-mason`, and `north-fork-crow-river-albrights-humphrey-arends`.
 - Baseline at run start was 192 live Minnesota routes from `src/data/rivers.ts`. The selected slugs bring the live Minnesota inventory to 195 and fill three North Fork Crow gaps around existing cards: Highway 22-to-Forest City above the live Forest-City-to-Kingston card, Kingston-to-Betty Mason above the live Betty-Mason-to-Wildlife card, and Albright's-Mill-to-Humphrey-Arends below the live Wildlife-to-Albright's card.

@@ -31429,6 +31429,62 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'mississippi-river-lake-bemidji-state-park-county-road-12-dam': {
+    putIn: {
+      name: 'Lake Bemidji State Park Public Water Access Site',
+      latitude: 47.5334026,
+      longitude: -94.8248527,
+    },
+    takeOut: {
+      name: 'Mississippi River, Co Rd 12 Public Water Access Site',
+      latitude: 47.4837193,
+      longitude: -94.7283419,
+    },
+    logistics: {
+      distanceLabel: 'About 6.4 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4.5 hr, longer with wind, low water, or campsite stops',
+      shuttle:
+        'Stage the County Road 12 Dam take-out first and identify the public landing above the dam/portage area. Then drive back to Lake Bemidji State Park and make a wind call at the launch before committing.',
+      permits:
+        'No route-specific paddling permit is known. Follow Lake Bemidji State Park vehicle, parking, and launch rules; DNR public-access rules at County Road 12; and Minnesota boating/PFD requirements.',
+      camping:
+        'Lake Bemidji State Park can support endpoint/basecamp camping, and DNR Map 1 marks Stump Lake watercraft campsite in the route corridor. Use only reserved or signed/designated sites and confirm current rules before treating this as an overnight split.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch from Lake Bemidji State Park and take out at the County Road 12 Dam carry-in for a shorter headwaters Mississippi route below Lake Bemidji. The Stump Lake gauge is direct at the take-out corridor, and the card avoids promoting an open-water crossing from downtown Bemidji.',
+      accessCaveats: [
+        'Lake Bemidji State Park resolves as WAS00520 and County Road 12 resolves as WAS00096 in Minnesota public-water-access GIS.',
+        'The County Road 12 Dam/gauge is the required take-out area for this route. Do not continue below the dam unless following the separate downstream County-Road-12-to-County-Road-25 route from the proper below-dam launch.',
+        'The route starts from a large lake access. Wind, cold water, park rules, and shoreline landing conditions can override a favorable gauge reading.',
+      ],
+      watchFor: [
+        'Wind and waves near Lake Bemidji State Park, especially with cold water or loaded boats.',
+        'Headwaters wood, aquatic vegetation, shallow spots, beaver activity, and private banks below the lake outlet.',
+        'Stump Lake watercraft campsite signage and availability if using it; do not improvise camps on private shoreline.',
+        'County Road 12 Dam, portage, outlet current, and take-out congestion at the finish.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lake-bemidji-state-park',
+        name: 'Lake Bemidji State Park Public Water Access Site',
+        latitude: 47.5334026,
+        longitude: -94.8248527,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default put-in on the state-park side of Lake Bemidji; resolves as WAS00520 near DNR river mile 1284.3.',
+      },
+      {
+        id: 'county-road-12-dam',
+        name: 'Mississippi River, Co Rd 12 Public Water Access Site',
+        latitude: 47.4837193,
+        longitude: -94.7283419,
+        mileFromStart: 6.4,
+        segmentKind: 'creek',
+        note: 'Default take-out and direct DNR gauge corridor at river mile 1277.7; resolves as WAS00096.',
+      },
+    ],
+  },
   'mississippi-river-schoolcraft-sylvan': {
     putIn: {
       name: 'Mississippi River, Schoolcraft SPK Public Water Access Site',
@@ -32884,6 +32940,62 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'mississippi-river-iron-bridge-lake-irving': {
+    putIn: {
+      name: 'Mississippi River, Iron Bridge Public Water Access Site',
+      latitude: 47.43548,
+      longitude: -94.9994115,
+    },
+    takeOut: {
+      name: 'Lake Irving Public Water Access Site',
+      latitude: 47.4654184,
+      longitude: -94.8794715,
+    },
+    logistics: {
+      distanceLabel: 'About 13.5 mi',
+      estimatedPaddleTime: 'About 5 hr to 7.5 hr, longer with vegetation, low water, or scouting',
+      shuttle:
+        'Stage the Lake Irving take-out first, then drive back to Iron Bridge. This route intentionally stops before a promoted Lake Bemidji crossing; do not continue onto big open water unless that is a separate planned trip with wind and shoreline checks.',
+      permits:
+        'No route-specific paddling permit is known. Use DNR/city public accesses, follow Minnesota boating/PFD rules, and obey posted access, camping, and parking rules.',
+      camping:
+        'DNR Map 1 marks Silver Maple watercraft campsite inside this corridor. Use only signed/designated sites, confirm availability before relying on an overnight, and do not camp on private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Iron Bridge and take out at Lake Irving for a headwaters Mississippi connector into Bemidji. Use the direct Wilton gauge as the upstream condition check and stop before Lake Bemidji open-water exposure.',
+      accessCaveats: [
+        'Iron Bridge resolves as WAS00519 at Mississippi river mile 1300.6, and Lake Irving resolves as WAS00760 at river mile 1287.1 in Minnesota public-water-access GIS.',
+        'The Wilton gauge sits at the put-in corridor and is the best official DNR level check, but the lower half still needs same-day visual checks for vegetation, wood, and lake-edge wind.',
+        'DNR Map 1 warns of submerged pilings near the Lake Irving / Highway 2 corridor. Use the marked channel and take out deliberately.',
+      ],
+      watchFor: [
+        'Dense aquatic vegetation, narrow channels through wetlands, and channel-finding problems in slow headwaters water.',
+        'Island Point Rapids, marked as Class I with no established portage.',
+        'Submerged pilings, bridge current, wood, shallow bars, cold water, and private banks near Bemidji.',
+        'Wind and waves if you drift beyond the Lake Irving take-out toward Lake Bemidji.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'iron-bridge',
+        name: 'Mississippi River, Iron Bridge Public Water Access Site',
+        latitude: 47.43548,
+        longitude: -94.9994115,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in and Wilton gauge corridor at DNR river mile 1300.6; resolves as WAS00519.',
+      },
+      {
+        id: 'lake-irving',
+        name: 'Lake Irving Public Water Access Site',
+        latitude: 47.4654184,
+        longitude: -94.8794715,
+        mileFromStart: 13.5,
+        segmentKind: 'lake',
+        note: 'Default take-out before Lake Bemidji open-water exposure; resolves as WAS00760 at DNR river mile 1287.1.',
+      },
+    ],
+  },
   'otter-tail-river-riverside-phelps-mill': {
     putIn: {
       name: 'Otter Tail River, Highway 72 / Riverside Public Water Access Site',
@@ -34112,6 +34224,62 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 6.4,
         segmentKind: 'creek',
         note: 'Default take-out; resolves as WAS00460 at Rum River mile 104.9.',
+      },
+    ],
+  },
+  'rum-river-county-road-4-princeton': {
+    putIn: {
+      name: 'Rum River, Mille Lacs County Road 4 Public Water Access Site',
+      latitude: 45.7031972,
+      longitude: -93.5858556,
+    },
+    takeOut: {
+      name: 'Rum River, Princeton / Riverside Park Public Water Access Site',
+      latitude: 45.5727933,
+      longitude: -93.5786234,
+    },
+    logistics: {
+      distanceLabel: 'About 17.1 mi',
+      estimatedPaddleTime: 'About 5.5 hr to 8 hr, longer with low water, log jams, or scouting',
+      shuttle:
+        'Stage the take-out at Princeton Riverside Park first, then drive back to the County Road 4 carry-in. Walk the Princeton landing before launching because this route must end before the old rock dam just downstream.',
+      permits:
+        'No route-specific paddling permit is known. Follow DNR public-access, City of Princeton park/campground, state boating/PFD, and designated-campsite rules.',
+      camping:
+        'Princeton Riverside Park has campground facilities at the take-out. Treat that as endpoint camping or a separate basecamp, not permission to camp on private banks or at informal river stops.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Mille Lacs County Road 4 and take out at Princeton Riverside Park for the middle-Rum gap below the existing Riverview-to-County-Road-4 card. The route ends before the old rock dam and the more problematic downstream Princeton logjam corridor.',
+      accessCaveats: [
+        'County Road 4 resolves as WAS00460 at Rum River mile 104.9 and Princeton resolves as WAS00459 near river mile 87.8 in Minnesota public-water-access GIS.',
+        'The Onamia gauge is upstream of this route. Use its official DNR bands as same-river context, then inspect County Road 4, Princeton, and current wood before launching.',
+        'DNR Map 2 places the old rock dam immediately downstream of Princeton City Park. Do not miss the take-out or continue without a separate scout/portage plan.',
+      ],
+      watchFor: [
+        'Frequent log jams near Princeton, plus sweepers, downed trees, shallow bars, and blind bends.',
+        'Low-water dragging below the DNR low band and pushy current or poor recovery above the high band.',
+        'Private banks, cold water, storms, and limited public exits between the named access points.',
+        'Princeton park traffic, swimmers, anglers, and campground rules at the take-out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mille-lacs-county-road-4',
+        name: 'Rum River, Mille Lacs County Road 4 Public Water Access Site',
+        latitude: 45.7031972,
+        longitude: -93.5858556,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00460 at Rum River mile 104.9.',
+      },
+      {
+        id: 'princeton-riverside-park',
+        name: 'Rum River, Princeton / Riverside Park Public Water Access Site',
+        latitude: 45.5727933,
+        longitude: -93.5786234,
+        mileFromStart: 17.1,
+        segmentKind: 'creek',
+        note: 'Default take-out before the old rock dam; resolves as WAS00459 near Rum River mile 87.8.',
       },
     ],
   },
