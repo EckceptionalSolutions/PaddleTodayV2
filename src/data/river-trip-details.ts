@@ -4851,6 +4851,171 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       }
     ],
   },
+  'north-fork-crow-river-highway-22-forest-city': {
+    putIn: {
+      name: 'North Fork Crow River, Highway 22 Public Water Access Site',
+      latitude: 45.2519536,
+      longitude: -94.5457714,
+    },
+    takeOut: {
+      name: 'North Fork Crow River, Forest City Public Water Access Site',
+      latitude: 45.2095748,
+      longitude: -94.4657051,
+    },
+    logistics: {
+      distanceLabel: '10.7 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer with shallow water or wood scouting',
+      shuttle:
+        'Stage Forest City first, then drive back to the Highway 22 access. Inspect both landings and the first visible bends before unloading because this is an obstruction-prone upper-river reach.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted DNR, county, and local access rules.',
+      camping:
+        'Treat this as a day route. DNR Map 1 shows designated watercraft campsites elsewhere on the upper river, but this Highway 22-to-Forest-City card does not assume an on-route overnight stop.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Highway 22 and take out at Forest City for the upper North Fork Crow connector below the current Manannah-to-Highway-22 tree-alert reach. The Highway 22 gauge is direct, but the route still needs a same-day wood and bridge-clearance check.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Highway 22 at river mile 116.9 as WAS00688 and Forest City at river mile 106.2 as WAS02367.',
+        'The DNR alert says to avoid the section between Manannah and Highway 22 until a large tree is cleared; do not extend this route upstream into that alert reach.',
+        'The Highway 22 gauge publishes a low floor and medium band but no separate very-high cutoff, so high or rising water needs conservative local judgment.',
+      ],
+      watchFor: [
+        'Low bridge clearance in high water, easy rapids around river miles 112.5 and 110.6, and shallow gravel at lower levels.',
+        'Underwater branches, overhanging trees, strainers, and possible unlawful fences on a narrow upper-river corridor.',
+        'Private banks and limited public exits between Highway 22 and Forest City.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-22-north-fork-crow',
+        name: 'North Fork Crow River, Highway 22 Public Water Access Site',
+        latitude: 45.2519536,
+        longitude: -94.5457714,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 116.9; resolves as WAS00688 with DNR administration.',
+      },
+      {
+        id: 'forest-city-north-fork-crow',
+        name: 'North Fork Crow River, Forest City Public Water Access Site',
+        latitude: 45.2095748,
+        longitude: -94.4657051,
+        mileFromStart: 10.7,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 106.2; resolves as WAS02367 with DNR administration.',
+      },
+    ],
+  },
+  'north-fork-crow-river-kingston-betty-mason': {
+    putIn: {
+      name: 'North Fork Crow River, Kingston Public Water Access Site',
+      latitude: 45.1950363,
+      longitude: -94.3272284,
+    },
+    takeOut: {
+      name: 'North Fork Crow River, Betty T Mason Public Water Access Site',
+      latitude: 45.1888537,
+      longitude: -94.1899769,
+    },
+    logistics: {
+      distanceLabel: '14.9 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, wood, or scouting',
+      shuttle:
+        'Stage Betty T. Mason first, then drive back to Kingston / Finnish Memorial County Park. Build in daylight margin because this upper-river connector is longer than the adjacent Forest City-to-Kingston card.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted county, Wright County, and DNR access rules.',
+      camping:
+        'Treat this as a day trip. DNR Map 1 supports designated watercraft camping elsewhere on the corridor, but this Kingston-to-Betty-Mason card does not assume a legal overnight stop.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Kingston and take out at Betty T. Mason for the missing upper North Fork Crow connector between two existing PaddleToday cards. Use the Cokato DNR gauge as a downstream same-corridor proxy and make a same-day wood check.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Kingston at river mile 94.2 as WAS00687 and Betty T. Mason at river mile 79.3 as WAS01735.',
+        'The Cokato gauge is downstream of the take-out, so it is a same-corridor proxy rather than an exact on-site gauge.',
+        'Do not assume private banks, farm crossings, or bridge shoulders are legal bailout points.',
+      ],
+      watchFor: [
+        'Underwater branches, overhanging trees, strainers, and possible fences on a narrow upper-river corridor.',
+        'Shallow scraping below the Cokato medium band and pushier bends above the official high band.',
+        'Cold water, private banks, and limited public exits over a nearly 15-mile day.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'kingston-north-fork-crow',
+        name: 'North Fork Crow River, Kingston Public Water Access Site',
+        latitude: 45.1950363,
+        longitude: -94.3272284,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 94.2; resolves as WAS00687 with Meeker County administration.',
+      },
+      {
+        id: 'betty-t-mason-north-fork-crow',
+        name: 'North Fork Crow River, Betty T Mason Public Water Access Site',
+        latitude: 45.1888537,
+        longitude: -94.1899769,
+        mileFromStart: 14.9,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 79.3; resolves as WAS01735 with Wright County administration.',
+      },
+    ],
+  },
+  'north-fork-crow-river-albrights-humphrey-arends': {
+    putIn: {
+      name: "North Fork Crow River, Albright's Mill Public Water Access Site",
+      latitude: 45.1268083,
+      longitude: -94.1116757,
+    },
+    takeOut: {
+      name: 'North Fork Crow River, Humphrey Arends Public Water Access Site',
+      latitude: 45.1006712,
+      longitude: -93.9539676,
+    },
+    logistics: {
+      distanceLabel: '17.6 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr, longer with low water, wind, or wood scouting',
+      shuttle:
+        'Stage Humphrey-Arends first, then drive back to Albright\'s Mill. Treat this as a committed middle-river day; the next simple app route starts downstream near Rockford, not at Humphrey-Arends.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted Wright County, DNR, and county-park rules. Campsites require current county permission or reservation where applicable.',
+      camping:
+        'Humphrey-Arends and other county parks on this corridor may have watercraft campsite context by permit. Treat overnight use as a separately confirmed county-permit plan, not informal riverbank camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Albright's Mill and take out at Humphrey-Arends for the middle North Fork Crow public-access connector below the existing Wildlife-to-Albright's card. Use the upstream Cokato gauge and verify local depth, wood, and access conditions before committing.",
+      accessCaveats: [
+        "Minnesota public-water-access GIS resolves Albright's Mill at river mile 62.7 as WAS01743 and Humphrey-Arends at river mile 45.1 as WAS01744.",
+        'The Cokato gauge is upstream of the put-in corridor, so pair the official bands with a visual check at Albright\'s Mill and Humphrey-Arends.',
+        'This route ends above the lower Rockford / Hanover dam corridor; do not continue downstream without a separate plan and current hazard review.',
+      ],
+      watchFor: [
+        'Snags, underwater branches, overhanging trees, and fresh floodplain wood.',
+        'Long-day fatigue, cold water, private banks, and limited public exits over 17.6 miles.',
+        'Low-water dragging below the Cokato medium band and faster current after rain or above the official high band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'albrights-mill-county-park-public-water-access',
+        name: "North Fork Crow River, Albright's Mill Public Water Access Site",
+        latitude: 45.1268083,
+        longitude: -94.1116757,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 62.7; resolves as WAS01743 with Wright County administration.',
+      },
+      {
+        id: 'humphrey-arends-north-fork-crow',
+        name: 'North Fork Crow River, Humphrey Arends Public Water Access Site',
+        latitude: 45.1006712,
+        longitude: -93.9539676,
+        mileFromStart: 17.6,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 45.1; resolves as WAS01744 with Wright County administration.',
+      },
+    ],
+  },
   'north-fork-crow-river-betty-mason-wildlife': {
     putIn: {
       name: 'Betty T. Mason County Park carry-in access',
@@ -37778,6 +37943,191 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 3.2,
         segmentKind: 'creek',
         note: 'Default take-out above Albany Dam; Village of Albany identifies Legion Park as a riverfront boat launch.',
+      },
+    ],
+  },
+  'plover-river-esker-hwy-153': {
+    putIn: {
+      id: 'esker-road-plover-access',
+      name: 'Esker Road bridge access',
+      latitude: 44.83674,
+      longitude: -89.36681,
+    },
+    takeOut: {
+      id: 'highway-153-plover-access',
+      name: 'Highway 153 / Bevent canoe landing',
+      latitude: 44.7707,
+      longitude: -89.39203,
+    },
+    logistics: {
+      distanceLabel: 'About 6.4 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with scouting, low water, or wood',
+      shuttle:
+        'Stage the Highway 153 / Bevent take-out first, then drive back to Esker Road. Inspect parking and the take-out before launch because Wisconsin River Trips describes the Highway 153 exit as a private canoe landing apparently open to public use, not a formal park ramp.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules, use only legal bridge or landing access, and do not block farm or landing traffic at Highway 153.',
+      camping:
+        'Treat this as a day trip. No on-route public campsite was identified, and the banks away from the named bridge and landing access points should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Esker Road and take out at Highway 153 / Bevent for the steeper upper Plover River section with boulder gardens, three Class II ledges, and a low driveway bridge.',
+      accessCaveats: [
+        'The Highway 153 / Bevent exit depends on current local access tolerance. Confirm there are no new signs and leave farm machinery access clear.',
+        'The Eau Claire River at Kelly gauge is a neighboring-watershed proxy for the Plover River. Pair the number with same-day visual checks at Esker Road and Highway 153.',
+        'This card uses the WRT Esker Road to Highway 153 route only. Do not assume downstream or upstream access is equivalent.',
+        'No public camping is assumed for this reach; plan a single-day shuttle.',
+      ],
+      watchFor: [
+        'Three Class II drops between Plover River Road and Kristof Road, especially if flows are above the WRT comfort window.',
+        'A low driveway bridge with fast current that can require caution or portage at higher levels.',
+        'Fresh deadfall, strainers, and cold water. WRT found the corridor mostly cleared, but new wood can appear after storms.',
+        'Low-water scraping below the WRT target band and pushier water above about 250 cfs on the Kelly proxy.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'esker-road-plover-access',
+        name: 'Esker Road bridge access',
+        latitude: 44.83674,
+        longitude: -89.36681,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Miles Paddled publishes this GPS coordinate and Wisconsin River Trips describes good bridge access.',
+      },
+      {
+        id: 'highway-153-plover-access',
+        name: 'Highway 153 / Bevent canoe landing',
+        latitude: 44.7707,
+        longitude: -89.39203,
+        mileFromStart: 6.4,
+        segmentKind: 'creek',
+        note: 'Default take-out; coordinate resolved to the named Highway 153 / Plover River crossing and paired with WRT access notes.',
+      },
+    ],
+  },
+  'plover-river-hwy-153-pinery': {
+    putIn: {
+      id: 'highway-153-plover-access',
+      name: 'Highway 153 / Bevent canoe landing',
+      latitude: 44.7707,
+      longitude: -89.39203,
+    },
+    takeOut: {
+      id: 'pinery-road-plover-access',
+      name: 'Pinery Road bridge access',
+      latitude: 44.7361329,
+      longitude: -89.4258907,
+    },
+    logistics: {
+      distanceLabel: 'About 5.0 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with low water, scouting, or branch dodging',
+      shuttle:
+        'Stage Pinery Road first, then drive back to the Highway 153 / Bevent access. Bevent Drive is a documented shorter alternate put-in, but this card keeps the longer WRT Highway 153-to-Pinery shape.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules, use legal bridge access, and obey any posted local parking or roadside restrictions.',
+      camping:
+        'Treat this as a day trip. No public campsite was identified along the route, and nearby banks should be treated as private unless a signed public access says otherwise.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Highway 153 / Bevent and take out at Pinery Road for an easy boulder-and-pine Plover River day that Wisconsin River Trips documents as about five miles with no logjams on the reviewed run.',
+      accessCaveats: [
+        'The Highway 153 access is less formal than Pinery Road; inspect parking and landing conditions before committing to the shuttle.',
+        'The Eau Claire River at Kelly is a proxy, not a Plover River gauge. Use a same-day visual check before launching.',
+        'Wisconsin River Trips recommends this reach below about 200 cfs on the Kelly proxy to preserve boulder gardens and clarity; this card does not infer a formal high cutoff.',
+        'Do not assume camping or legal bank access between the bridges.',
+      ],
+      watchFor: [
+        'Low branches, fresh wood, and shallow boulder gardens at lower flows.',
+        'Pushier current and less visible rocks when the Kelly proxy climbs toward or above 200 cfs.',
+        'Cold water, private-adjacent banks, and limited mid-route exits.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-153-plover-access',
+        name: 'Highway 153 / Bevent canoe landing',
+        latitude: 44.7707,
+        longitude: -89.39203,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; coordinate resolved to the named Highway 153 / Plover River crossing and paired with WRT access notes.',
+      },
+      {
+        id: 'bevent-drive-plover-access',
+        name: 'Bevent Drive bridge access',
+        latitude: 44.75659,
+        longitude: -89.42864,
+        mileFromStart: 2.6,
+        segmentKind: 'creek',
+        note: 'Optional shorter put-in documented by Wisconsin River Trips and corroborated by Miles Paddled GPS.',
+      },
+      {
+        id: 'pinery-road-plover-access',
+        name: 'Pinery Road bridge access',
+        latitude: 44.7361329,
+        longitude: -89.4258907,
+        mileFromStart: 5.0,
+        segmentKind: 'creek',
+        note: 'Default take-out; WRT describes this as a nice landing and its adjacent shuttle mapping supports the coordinate.',
+      },
+    ],
+  },
+  'plover-river-pinery-shantytown': {
+    putIn: {
+      id: 'pinery-road-plover-access',
+      name: 'Pinery Road bridge access',
+      latitude: 44.7361329,
+      longitude: -89.4258907,
+    },
+    takeOut: {
+      id: 'shantytown-drive-plover-access',
+      name: 'Shantytown Drive canoe access',
+      latitude: 44.6990744,
+      longitude: -89.4440665,
+    },
+    logistics: {
+      distanceLabel: 'About 4.9 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with low bridges, scouting, or a logjam portage',
+      shuttle:
+        'Stage the Shantytown Drive take-out first, then drive back to Pinery Road. Inspect the take-out before launch because WRT notes poison ivy at the public canoe access.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules, use only legal bridge/canoe access, and obey posted local parking restrictions.',
+      camping:
+        'Treat this as a day route. No public campsite was identified between Pinery Road and Shantytown Drive, and private banks are not part of the route plan.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Pinery Road and take out at Shantytown Drive for a short upper-Plover section with clear water, low farm bridges, one known logjam, and a detailed WRT Kelly-gauge ladder.',
+      accessCaveats: [
+        'The Eau Claire River at Kelly is a proxy gauge in a neighboring watershed. Confirm actual Plover River depth and bridge clearance before launching.',
+        'Shantytown Drive is the default exit. Scout it from land first so the poison-ivy-affected landing does not surprise the group at the end of the run.',
+        'Several low private farm bridges cross the route; portage if clearance or current makes a duck-under unsafe.',
+        'Do not camp or trespass on private banks between the public access points.',
+      ],
+      watchFor: [
+        'One known logjam that may require a hop-over or short portage, plus fresh strainers after storms.',
+        'Swift current near wood, especially around bends and bridge constrictions.',
+        'Low farm bridges that can be awkward or unsafe at higher water.',
+        'High-water conditions above the WRT caution bands, and cold-water exposure outside warm months.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'pinery-road-plover-access',
+        name: 'Pinery Road bridge access',
+        latitude: 44.7361329,
+        longitude: -89.4258907,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; WRT describes this as a very good access and its shuttle map supports the coordinate.',
+      },
+      {
+        id: 'shantytown-drive-plover-access',
+        name: 'Shantytown Drive canoe access',
+        latitude: 44.6990744,
+        longitude: -89.4440665,
+        mileFromStart: 4.9,
+        segmentKind: 'creek',
+        note: 'Default take-out; WRT describes it as a public canoe access area and its shuttle map supports the coordinate.',
       },
     ],
   },

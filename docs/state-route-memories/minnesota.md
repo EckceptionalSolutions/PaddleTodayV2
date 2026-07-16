@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-16 11:13 America/Chicago.
+Last summarized: 2026-07-16 12:10 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 192 after the 2026-07-16 11:13 Root / Crow Wing planner pass.
-- Top represented rivers: Mississippi River 36, Minnesota River 12, Root River 9, St. Croix River 8, Rum River 7, Sauk River 7, St. Louis River 7, Big Fork River 6, Cannon River 6, Crow Wing River 6, North Fork Crow River 6, Red Lake River 6, Zumbro River 6, Red River of the North 5, Straight River 5, Cloquet River 4, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Cedar River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, Vermilion River, and Whitewater River.
-- Ledger candidates: 1011 total; 627 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
+- Live routes: 195 after the 2026-07-16 12:10 North Fork Crow gap pass.
+- Top represented rivers: Mississippi River 36, Minnesota River 12, North Fork Crow River 9, Root River 9, St. Croix River 8, Rum River 7, Sauk River 7, St. Louis River 7, Big Fork River 6, Cannon River 6, Crow Wing River 6, Red Lake River 6, Zumbro River 6, Red River of the North 5, Straight River 5, Cloquet River 4, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Cedar River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, Vermilion River, and Whitewater River.
+- Ledger candidates: 1014 total; 630 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-16 12:10 America/Chicago / 2026-07-16 17:10 UTC: added `north-fork-crow-river-highway-22-forest-city`, `north-fork-crow-river-kingston-betty-mason`, and `north-fork-crow-river-albrights-humphrey-arends`.
+- Baseline at run start was 192 live Minnesota routes from `src/data/rivers.ts`. The selected slugs bring the live Minnesota inventory to 195 and fill three North Fork Crow gaps around existing cards: Highway 22-to-Forest City above the live Forest-City-to-Kingston card, Kingston-to-Betty Mason above the live Betty-Mason-to-Wildlife card, and Albright's-Mill-to-Humphrey-Arends below the live Wildlife-to-Albright's card.
+- Qualification path: MN DNR North Fork Crow segments page and official Maps 1/2 document the access sequence, river miles, low-water/obstruction hazards, designated-camping/private-bank rules, campsite context, and downstream dam corridor; Minnesota public-water-access GIS resolves all six endpoints with named access records, administrators, river miles, and coordinates.
+- Live gauge verification: MN DNR Manannah / Highway 22 site `47` returned `81.46 ft` at 2026-07-16 10:30 CDT, inside the official medium band; MN DNR Cokato site `308` returned `463 cfs` at 2026-07-16 10:45 CDT, inside the official medium band.
+- Implemented official DNR gauge models: Highway-22-to-Forest-City uses direct Manannah/Hwy22 minimum-only support with `80.5 ft` as the scrapable floor and no invented upper cutoff. Kingston-to-Betty-Mason and Albright's-to-Humphrey-Arends use Cokato `241 / 300-600 / 800 cfs` as downstream and upstream same-corridor proxies respectively.
+- Camping posture: Highway-22-to-Forest-City and Kingston-to-Betty-Mason are no-camping day routes with designated-campsite-only caveats; Albright's-to-Humphrey-Arends is endpoint/permitted-camping capable around Humphrey-Arends. Safety posture includes the active upstream Manannah-to-Highway-22 tree-alert boundary, rapids, low water, snags, overhanging trees, strainers, cold water, private banks, and no casual continuation into downstream dam corridors.
+- No route-gallery images were added. Image audit rows record bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add North Fork Crow Manannah-to-Highway-22 because the current DNR alert flags a dangerous tree between those river miles; Long Prairie Lake-Carlos/Miltona remains weaker due far-downstream gauge and endpoint proof; and many prompt leads were already live or represented in the 192-route baseline.
 
 - 2026-07-16 11:13 America/Chicago / 2026-07-16 16:13 UTC: added `root-river-rushford-mound-prairie`, `root-river-parsley-whalan`, and `crow-wing-river-first-crow-wing-stigmans`.
 - Baseline at run start was 189 live Minnesota routes from `src/data/rivers.ts`. The selected slugs bring the live Minnesota inventory to 192 and add official MN DNR recommended planner cards that were not present as exact slugs at baseline: Rushford-to-Mound-Prairie, Parsley-to-Whalan, and 1st-Crow-Wing-Lake-to-Stigman's-Mound.
