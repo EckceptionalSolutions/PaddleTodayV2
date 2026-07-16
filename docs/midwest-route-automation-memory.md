@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-16 15:30 America/Chicago / 2026-07-16 20:30 UTC: Kentucky three-route restoration pass (`3-new-routes-automation`).
+  - Reused the current route queue after the Pennsylvania lower Juniata restore and stayed internet-first on the official KDFWR South Fork family because three source-backed South Fork slugs still had gallery wiring and ledger support but were absent from the live route array at run start.
+  - Restored three internet-sourced Kentucky routes: `south-fork-kentucky-river-oneida-rocky-branch`, `south-fork-kentucky-river-oneida-cedar-valley`, and `south-fork-kentucky-river-cedar-valley-hacker-branch`.
+  - Qualification path: the current KDFWR South Fork page still documents exact public access-chain mileages of `6.8`, `2.5`, `4.7`, and `3.3` miles for the relevant Oneida, Rocky Branch, Cedar Valley, Bishop Bend, and Hacker Branch links; current KDFWR access-detail pages still expose source-backed coordinates and public-use notes for Oneida Ramp, Rocky Branch Road Access, Cedar Valley Road Access, and Hacker Branch Road Access; and same-day direct USGS Water Services returned `325 cfs / 4.69 ft` at `2026-07-16 15:30 EDT` for Booneville gauge `03281500`, just below the official `350-900 cfs / 4.8-6.0 ft` good band.
+  - Reused the approved South Fork Commons corridor image for all three routes and restored the missing image-audit rows.
+
 - 2026-07-16 14:45 America/Chicago / 2026-07-16 19:45 UTC: Pennsylvania three-route restoration pass (`3-new-routes-automation`).
   - Reused the current route queue after the morning Pennsylvania mixed-state work and stayed internet-first on the official PFBC lower Juniata family because three source-backed lower-corridor slugs still had trip-detail support but were absent from the live route array at run start.
   - Restored three internet-sourced Pennsylvania routes: `juniata-river-lewistown-narrows-newport`, `juniata-river-mifflintown-muskrat-springs`, and `juniata-river-millerstown-amity-hall`.
