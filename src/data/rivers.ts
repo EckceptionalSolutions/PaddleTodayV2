@@ -47461,6 +47461,145 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'buffalo-river-ponca-ozark',
+    slug: 'buffalo-river-ponca-ozark',
+    name: 'Buffalo River',
+    reach: 'Ponca to Ozark',
+    aliases: [
+      'Upper Buffalo - Ponca to Ozark',
+      'Buffalo River - Ponca to Ozark Campground',
+      'Ponca to Ozark upper-district continuation',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Highlands',
+    routeType: 'whitewater',
+    summary:
+      "Long upper Buffalo continuation from Ponca to Ozark through Steel Creek, Kyle's Landing, and Erbie before the developed Ozark take-out. NPS still publishes the current access ladder and mileage chart, and the direct Pruitt gauge remains the closest official low-water and unsafe-high check for the lower corridor.",
+    statusText:
+      'Use the Buffalo River at Pruitt gauge as the nearest downstream corridor check. The NPS-linked Float Guide still marks Pruitt very low below 100 cfs and the park still says levels above 2,000 cfs at Pruitt / Highway 7 are unsafe, so this route keeps a conservative minimum-only low-water floor and high-water caveat.',
+    latitude: 36.0225,
+    longitude: -93.354722,
+    gaugeSource: {
+      id: 'usgs-07055680',
+      provider: 'usgs',
+      siteId: '07055680',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Buffalo River at Pruitt, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'NPS-linked Buffalo River Float Guide Pruitt bands',
+        url: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+        provider: 'nps',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS still says upper-district Buffalo paddling is extremely dependent on rainfall and usually works best in spring or early summer, but the lower upper-district corridor can still open after shorter storm windows later in the year. Treat this as a same-day level-and-trend decision rather than a dependable low-water float.',
+      difficulty: 'hard',
+      difficultyNotes:
+        "This route stacks the Ponca shoals, the classic Steel Creek to Kyle's rapids, the Erbie corridor, and the bluff-lined Ozark finish into one long whitewater-ish moving-water day. Treat it as an advanced planning route rather than a casual scenic float.",
+      confidenceNotes:
+        "Confidence is good for a conservative Arkansas add: NPS still publishes the official upper-district mileage chart with Ponca to Ozark at 21.8 miles, the upper-district paddling page still says the corridor is rainfall dependent and should be checked against gauges, and direct USGS Water Services returned 36.9 cfs and 3.21 ft at Pruitt at 2026-07-16 09:30 CDT during this run. The app keeps the established Pruitt minimum-only floor from the NPS-linked Float Guide rather than inferring a broader ideal range.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Ponca to Ozark, 21.8 miles',
+        note: "The current NPS Buffalo River mileage chart still lists Ponca to Ozark as 21.8 river miles and preserves the intermediate access ladder of Steel Creek, Kyle's Landing, and Erbie.",
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+      },
+      {
+        label: 'Upper-district condition framing',
+        value: 'Rainfall dependent upper-district route',
+        note: 'The current NPS upper-district paddling page still says paddling conditions in the upper district are extremely dependent on rainfall and tells visitors to check gauges and current conditions before launching.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/upper-district-paddling.htm',
+      },
+      {
+        label: 'Direct gauge reading',
+        value: 'USGS 07055680 at 36.9 cfs / 3.21 ft',
+        note: 'USGS Water Services returned direct Pruitt values of 36.9 cfs and 3.21 ft at 2026-07-16 09:30 CDT, which is below the conservative 100 cfs floor and supports explicit too-low / scraping-likely framing in this run.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055680&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Threshold support',
+        value: 'Pruitt minimum-only 100 cfs floor; 2,000 cfs unsafe high caveat',
+        note: 'The current NPS-linked Buffalo Float Guide still marks Pruitt very low below 100 cfs and the NPS paddling guidance still says levels above 2,000 cfs at Pruitt / Highway 7 are unsafe.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/upper-district-paddling.htm',
+      },
+      {
+        label: 'Public endpoints',
+        value: 'Ponca access to Ozark Campground / river access',
+        note: 'Current NPS Buffalo access pages and campground material still treat Ponca as an upper-district launch and Ozark as a formal public campground-backed take-out.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+      },
+      {
+        label: 'Camping support',
+        value: "Steel Creek, Kyle's Landing, Erbie, and Ozark campground corridor",
+        note: 'Current NPS campground pages still confirm legal overnight support at the major intermediate campgrounds, which keeps the route on developed public infrastructure instead of implying private-bank camping.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Paddle Ponca to Steel Creek',
+        url: 'https://www.nps.gov/thingstodo/paddle-ponca-to-steel-creek.htm',
+        provider: 'nps',
+      },
+      {
+        label: "NPS Paddle Steel Creek to Kyle's Landing",
+        url: 'https://www.nps.gov/thingstodo/paddle-steel-creek-to-kyles-landing.htm',
+        provider: 'nps',
+      },
+      {
+        label: "NPS Paddle Kyle's Landing to Erbie",
+        url: 'https://www.nps.gov/thingstodo/paddle-kyles-landing-to-erbie.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle Erbie to Ozark',
+        url: 'https://www.nps.gov/thingstodo/paddle-erbie-to-ozark.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo upper district paddling',
+        url: 'https://www.nps.gov/buff/planyourvisit/upper-district-paddling.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo river accesses and mileage',
+        url: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo camping',
+        url: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo National River Float Guide',
+        url: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+        provider: 'nps',
+      },
+      {
+        label: 'USGS 07055680 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS Water Services 07055680 current discharge and gage height',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055680&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'buffalo-river-kyles-landing-pruitt',
     slug: 'buffalo-river-kyles-landing-pruitt',
     name: 'Buffalo River',
@@ -48462,6 +48601,135 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'buffalo-river-steel-creek-erbie',
+    slug: 'buffalo-river-steel-creek-erbie',
+    name: 'Buffalo River',
+    reach: 'Steel Creek to Erbie',
+    aliases: [
+      'Buffalo National River - Steel Creek to Erbie',
+      'Buffalo River - Steel Creek Campground to Erbie',
+      'Upper Buffalo River - Steel Creek to Erbie',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Highlands',
+    routeType: 'whitewater',
+    summary:
+      "Long upper Buffalo day from Steel Creek to Erbie, linking the classic Steel-Creek-to-Kyle's section with the Erbie continuation into one campground-backed trip. The direct Pruitt gauge remains the nearest official downstream check for a conservative low-water and unsafe-high call on this corridor.",
+    statusText:
+      'Use the Buffalo River at Pruitt gauge as the nearest downstream corridor check. The NPS-linked Float Guide still marks Pruitt very low below 100 cfs and the park still says levels above 2,000 cfs at Pruitt / Highway 7 are unsafe, so this route keeps a conservative minimum-only low-water floor and high-water caveat.',
+    latitude: 36.040776,
+    longitude: -93.344048,
+    gaugeSource: {
+      id: 'usgs-07055680',
+      provider: 'usgs',
+      siteId: '07055680',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Buffalo River at Pruitt, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'NPS-linked Buffalo River Float Guide Pruitt bands',
+        url: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+        provider: 'nps',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS still says upper-district Buffalo paddling is extremely dependent on rainfall and usually practical in spring or early summer when consistent rain feeds the watershed. Treat this as a recent-water, stable-or-falling-gauge trip rather than a dependable summer float.',
+      difficulty: 'hard',
+      difficultyNotes:
+        "This route stacks the classic Steel Creek to Kyle's rapids with the bluffy Kyles-to-Erbie continuation into one committed upper-district day. It stays behind the whitewater route type because swift current, wood, rough-road shuttles, and quick rises are first-class decisions.",
+      confidenceNotes:
+        "Confidence is good for a guarded Arkansas add: NPS still publishes exact current route pages for Steel Creek to Kyle's Landing and Kyle's Landing to Erbie; the Buffalo access mileage chart supports the combined corridor at 13.6 miles; NPS camping still documents both Steel Creek and Erbie as formal campground-backed accesses; and direct USGS Water Services returned 36.9 cfs and 3.21 ft at Pruitt at 2026-07-16 09:30 CDT during this run. The app keeps the established Pruitt minimum-only floor from the NPS-linked Float Guide rather than inventing an ideal range.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Steel Creek to Erbie, 13.6 miles',
+        note: "The current NPS Buffalo River mileage chart still lists Steel Creek to Erbie as 13.6 river miles, and the component NPS route pages still publish Steel Creek to Kyle's Landing and Kyle's Landing to Erbie as the exact corridor pieces.",
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+      },
+      {
+        label: 'Upper-district condition framing',
+        value: 'Rainfall dependent upper-district route',
+        note: 'The current NPS upper-district paddling page still says paddling conditions in the upper district are extremely dependent on rainfall and tells visitors to check gauges and current conditions before launching.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/upper-district-paddling.htm',
+      },
+      {
+        label: 'Direct gauge reading',
+        value: 'USGS 07055680 at 36.9 cfs / 3.21 ft',
+        note: 'USGS Water Services returned direct Pruitt values of 36.9 cfs and 3.21 ft at 2026-07-16 09:30 CDT, which is below the conservative 100 cfs floor and supports explicit too-low / scraping-likely framing in this run.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055680&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Threshold support',
+        value: 'Pruitt minimum-only 100 cfs floor; 2,000 cfs unsafe high caveat',
+        note: 'The current NPS-linked Buffalo Float Guide still marks Pruitt very low below 100 cfs and the NPS paddling guidance still says levels above 2,000 cfs at Pruitt / Highway 7 are unsafe.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/upper-district-paddling.htm',
+      },
+      {
+        label: 'Campground-backed endpoints',
+        value: 'Steel Creek Campground to Erbie Campground',
+        note: 'Current NPS campground pages still document both Steel Creek and Erbie as formal public campground-backed river accesses for upper-district float planning.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+      },
+      {
+        label: 'Access coordinates',
+        value: 'Steel Creek 36.040776, -93.344048; Erbie 36.070346, -93.211886',
+        note: 'Current NPS campground and getting-around pages still provide coordinate anchors for Steel Creek and Erbie.',
+        sourceUrl: 'https://home.nps.gov/buff/planyourvisit/getting-around.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "NPS Paddle Steel Creek to Kyle's Landing",
+        url: 'https://www.nps.gov/thingstodo/paddle-steel-creek-to-kyles-landing.htm',
+        provider: 'nps',
+      },
+      {
+        label: "NPS Paddle Kyle's Landing to Erbie",
+        url: 'https://www.nps.gov/thingstodo/paddle-kyles-landing-to-erbie.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo upper district paddling',
+        url: 'https://www.nps.gov/buff/planyourvisit/upper-district-paddling.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo river accesses and mileage',
+        url: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo camping',
+        url: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo National River Float Guide',
+        url: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+        provider: 'nps',
+      },
+      {
+        label: 'USGS 07055680 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS Water Services 07055680 current discharge and gage height',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055680&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'buffalo-river-steel-creek-pruitt',
     slug: 'buffalo-river-steel-creek-pruitt',
     name: 'Buffalo River',
@@ -48600,6 +48868,155 @@ export const rivers: River[] = [
       },
       {
         label: 'USGS Water Services 07055680 latest conditions',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055680&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'buffalo-river-ponca-hasty',
+    slug: 'buffalo-river-ponca-hasty',
+    name: 'Buffalo River',
+    reach: 'Ponca to Hasty',
+    aliases: [
+      'Upper Buffalo - Ponca to Hasty',
+      'Buffalo River - Ponca to Hasty access',
+      'Ponca to Hasty full upper-district continuation',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Highlands',
+    routeType: 'whitewater',
+    summary:
+      "Full upper Buffalo continuation from Ponca to Hasty through Steel Creek, Kyle's Landing, Erbie, Ozark, and Pruitt. NPS still publishes the current access ladder and mileage chart, and the direct Pruitt gauge keeps the lower-corridor low-water and unsafe-high warnings on one official source.",
+    statusText:
+      'Use the Buffalo River at Pruitt gauge as the direct lower-corridor check. The NPS-linked Float Guide still marks Pruitt very low below 100 cfs and the park still says levels above 2,000 cfs at Pruitt / Highway 7 are unsafe, so this route keeps a conservative minimum-only low-water floor and high-water caveat.',
+    latitude: 36.0225,
+    longitude: -93.354722,
+    gaugeSource: {
+      id: 'usgs-07055680',
+      provider: 'usgs',
+      siteId: '07055680',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Buffalo River at Pruitt, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'NPS-linked Buffalo River Float Guide Pruitt bands',
+        url: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+        provider: 'nps',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS still says upper-district Buffalo paddling is extremely dependent on rainfall and usually works best in spring or early summer, but the Pruitt fallback section can still open after shorter storm windows. Treat this as a same-day level-and-trend decision rather than a dependable low-water float.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The miles stack up into a very long whitewater-ish moving-water day with repeated riffles, bluff bends, rough-road shuttles, remote rescue exposure, and the Little Buffalo speed-up below Pruitt. Treat this as an advanced planning route, and for most groups it is more naturally an overnight-capable corridor than a casual day float.',
+      confidenceNotes:
+        "Confidence is good for a conservative Arkansas add: NPS still publishes the official upper-district mileage chart with Ponca to Hasty at 30.7 miles, the upper-district paddling page still says the corridor is rainfall dependent and should be checked against gauges, and direct USGS Water Services returned 36.9 cfs and 3.21 ft at Pruitt at 2026-07-16 09:30 CDT during this run. The app keeps the established Pruitt minimum-only floor from the NPS-linked Float Guide rather than inferring a broader ideal range.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Ponca to Hasty, 30.7 miles',
+        note: "The current NPS Buffalo River mileage chart still lists Ponca to Hasty as 30.7 river miles and preserves the intermediate access ladder of Steel Creek, Kyle's Landing, Erbie, Ozark, and Pruitt.",
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+      },
+      {
+        label: 'Upper-district condition framing',
+        value: 'Rainfall dependent upper-district route',
+        note: 'The current NPS upper-district paddling page still says paddling conditions in the upper district are extremely dependent on rainfall and tells visitors to check gauges and current conditions before launching.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/upper-district-paddling.htm',
+      },
+      {
+        label: 'Direct gauge reading',
+        value: 'USGS 07055680 at 36.9 cfs / 3.21 ft',
+        note: 'USGS Water Services returned direct Pruitt values of 36.9 cfs and 3.21 ft at 2026-07-16 09:30 CDT, which is below the conservative 100 cfs floor and supports explicit too-low / scraping-likely framing in this run.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055680&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Threshold support',
+        value: 'Pruitt minimum-only 100 cfs floor; 2,000 cfs unsafe high caveat',
+        note: 'The current NPS-linked Buffalo Float Guide still marks Pruitt very low below 100 cfs and the NPS paddling guidance still says levels above 2,000 cfs at Pruitt / Highway 7 are unsafe.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/upper-district-paddling.htm',
+      },
+      {
+        label: 'Camping support',
+        value: "Steel Creek, Kyle's Landing, Erbie, and Ozark campground corridor",
+        note: 'Current NPS campground pages still confirm legal overnight support at the major intermediate campgrounds, which makes this 30.7-mile route legitimately overnight-capable without implying private-bank camping at the Hasty finish.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+      },
+      {
+        label: 'Public endpoints',
+        value: 'Ponca access to Hasty river access',
+        note: 'Current NPS Buffalo access pages and corridor guidance still treat Ponca as an upper-district launch and Hasty as the common lower-water fallback take-out across from Chimney Rock Bluff.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-pruitt-to-hasty.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Paddle Ponca to Steel Creek',
+        url: 'https://www.nps.gov/thingstodo/paddle-ponca-to-steel-creek.htm',
+        provider: 'nps',
+      },
+      {
+        label: "NPS Paddle Steel Creek to Kyle's Landing",
+        url: 'https://www.nps.gov/thingstodo/paddle-steel-creek-to-kyles-landing.htm',
+        provider: 'nps',
+      },
+      {
+        label: "NPS Paddle Kyle's Landing to Erbie",
+        url: 'https://www.nps.gov/thingstodo/paddle-kyles-landing-to-erbie.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle Erbie to Ozark',
+        url: 'https://www.nps.gov/thingstodo/paddle-erbie-to-ozark.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle Ozark to Pruitt',
+        url: 'https://www.nps.gov/thingstodo/paddle-ozark-to-pruitt.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle Pruitt to Hasty',
+        url: 'https://www.nps.gov/thingstodo/paddle-pruitt-to-hasty.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo upper district paddling',
+        url: 'https://www.nps.gov/buff/planyourvisit/upper-district-paddling.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo river accesses and mileage',
+        url: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo camping',
+        url: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo National River Float Guide',
+        url: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+        provider: 'nps',
+      },
+      {
+        label: 'USGS 07055680 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS Water Services 07055680 current discharge and gage height',
         url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055680&parameterCd=00060,00065&siteStatus=all',
         provider: 'usgs',
       },

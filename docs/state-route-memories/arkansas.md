@@ -2,6 +2,19 @@
 
 Last summarized: 2026-07-14 21:15 America/Chicago.
 
+## 2026-07-16 Buffalo full-corridor continuation pass
+
+- Rebuilt the live Arkansas inventory from the current repo state before editing. Arkansas had forty-one live route objects and matching trip-detail entries at run start, so this pass still had to create three genuinely new slugs beyond that baseline.
+- Added `buffalo-river-ponca-ozark`, `buffalo-river-steel-creek-erbie`, and `buffalo-river-ponca-hasty` from the Buffalo National River upper-district access chain.
+- Current source package rechecked live in this run:
+  - The current NPS access mileage chart still lists Ponca -> Ozark at `21.8`, Steel Creek -> Erbie at `13.6`, and Ponca -> Hasty at `30.7` river miles, with the same public access ladder through Steel Creek, Kyle's Landing, Erbie, Ozark, and Pruitt.
+  - The current upper-district paddling page still says the upper Buffalo is extremely rainfall dependent and should be checked against gauges before launch.
+  - Same-day direct USGS Water Services returned `36.9 cfs / 3.21 ft` at `2026-07-16 09:30 CDT` for Buffalo River at Pruitt (`07055680`), so all three routes ship with explicit too-low / scraping-likely framing rather than a normal runnable recommendation.
+- Threshold, camping, and image posture:
+  - All three routes keep the established Pruitt `minimum-only` floor at `100 cfs` from the NPS-linked Float Guide and retain the NPS `2,000 cfs` unsafe level as a hard caveat rather than a full ideal band.
+  - `buffalo-river-steel-creek-erbie` and `buffalo-river-ponca-ozark` use `endpoint_campground` because Steel Creek / Erbie and Ozark still provide formal campground-backed public endpoints, while `buffalo-river-ponca-hasty` uses `overnight_capable` because the 30.7-mile corridor is naturally long enough to split and still has legal developed overnight support at Steel Creek, Kyle's Landing, Erbie, and Ozark.
+  - Image coverage stayed reuse-only: `buffalo-river-steel-creek-erbie` reuses the approved Commons Ponca corridor image, `buffalo-river-ponca-ozark` reuses the approved NPS Ozark/Pruitt corridor image, and `buffalo-river-ponca-hasty` reuses the approved Commons Pruitt Landing image. Matching audit rows were added to `docs/river-image-source-audit.csv`.
+
 ## 2026-07-16 Bayou and Buffalo continuation pass
 
 - Rebuilt the live Arkansas inventory from the current repo state before editing. Arkansas had thirty-eight live route objects and matching trip-detail entries at run start, so this pass still had to create three genuinely new slugs beyond that baseline.

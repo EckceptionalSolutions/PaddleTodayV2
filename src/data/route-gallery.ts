@@ -1776,6 +1776,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'NPS asset: public domain',
     },
   ],
+  'buffalo-river-ponca-ozark': [
+    {
+      id: 'buffalo-river-ponca-ozark-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River bends through wooded Ozark bluffs in the long upper-district corridor from Ponca toward Ozark.',
+      caption: 'Upper Buffalo River corridor toward Ozark',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
   'buffalo-river-kyles-landing-pruitt': [
     {
       id: 'buffalo-river-ozark-pruitt-trail-nps',
@@ -1784,6 +1794,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Buffalo River corridor between Ozark and Pruitt',
       credit: 'NPS via Wikimedia Commons',
       takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'buffalo-river-steel-creek-erbie': [
+    {
+      id: 'buffalo-river-steel-erbie-corridor-commons',
+      src: '/gallery/buffalo-river-ponca-kyles-landing/buffalo-river-ponca-low-water-bridge.jpg',
+      alt: 'The upper Buffalo River passes under the Ponca low-water bridge with wooded Ozark hills rising above the corridor used by the Steel Creek to Erbie continuation.',
+      caption: 'Upper Buffalo River corridor near Ponca',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
   ],
   'buffalo-river-kyles-landing-erbie': [
@@ -1851,6 +1871,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       id: 'buffalo-river-steel-hasty-pruitt-commons',
       src: '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
       alt: 'The Buffalo River flows past Pruitt Landing with wooded Ozark hills above the bank in the same corridor used for the longer Steel Creek to Hasty continuation.',
+      caption: 'Buffalo River at Pruitt Landing',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'buffalo-river-ponca-hasty': [
+    {
+      id: 'buffalo-river-ponca-hasty-pruitt-commons',
+      src: '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+      alt: 'The Buffalo River flows past Pruitt Landing with wooded Ozark hills above the bank in the same corridor used by the full Ponca to Hasty continuation.',
       caption: 'Buffalo River at Pruitt Landing',
       credit: 'Chris Light via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
