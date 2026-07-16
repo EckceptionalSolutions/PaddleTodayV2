@@ -18080,6 +18080,90 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'lehigh-river-rockport-glen-onoko': {
+    putIn: {
+      id: 'rockport-access-area',
+      name: 'Rockport Access Area',
+      latitude: 40.966616,
+      longitude: -75.755074,
+    },
+    takeOut: {
+      id: 'glen-onoko-access-area',
+      name: 'Glen Onoko Access Area',
+      latitude: 40.8835,
+      longitude: -75.75914,
+    },
+    logistics: {
+      distanceLabel: 'About 12.2 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6.5 hr for qualified whitewater groups, longer with low water, release crowds, scouting, or a conservative take-out plan',
+      shuttle:
+        'Stage the take-out at Glen Onoko, then drive back to Rockport. DCNR says release days can change parking and traffic patterns at White Haven, Rockport, and Glen Onoko, so confirm current Lehigh Gorge State Park alerts, posted signs, and access routing before leaving vehicles.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current DCNR/PFBC rules, posted Lehigh Gorge access rules, and whitewater equipment requirements.',
+      camping:
+        'Treat this as a managed daylight state-park whitewater day. Do not camp, stage, or park outside posted Lehigh Gorge State Park areas, and leave enough daylight for the shuttle and any release-day traffic delays.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Rockport and take out at Glen Onoko for the lower Lehigh Gorge whitewater section. Use the USGS White Haven outflow gauge below Francis E. Walter Reservoir and DCNR flow bands, and skip the route when water, weather, access status, or group skill is not clearly right.',
+      accessCaveats: [
+        'DCNR says private boaters must put on and take off only at designated Lehigh River access areas in the state park.',
+        'Rockport and Glen Onoko can both see parking and traffic changes on release weekends. Use current DCNR signs rather than stale directions.',
+        'Glen Onoko GPS context is cross-checked to 40.8835, -75.75914 because the current state-park page appears to publish the correct longitude with a northing typo in the latitude.',
+        'This is a whitewater route. DCNR says inexperienced boaters should not attempt the Lehigh River without qualified guides.',
+        'Release weekends can be crowded with commercial rafts, clubs, private boaters, cyclists, and shuttle traffic.',
+      ],
+      watchFor: [
+        'Class II-III rapids, ledges, rock outcrops, boulders, waterfalls, swift current, and cold-water swims in a steep-walled gorge.',
+        'Very low water below about 250 cfs, when DCNR says many parts are not deep enough for boating.',
+        'Flows above 1,000 cfs, when DCNR says difficulty progressively increases and better skill and equipment are needed.',
+        'Flows above 5,000 cfs, which DCNR reserves for expert boaters in kayaks, closed canoes, or very large rafts.',
+        'Dam-release timing, tributary rain, rising water, wood, strainer hazards, limited exits, release-day traffic changes, and missing the Glen Onoko take-out.',
+      ],
+    },
+  },
+  'lehigh-river-white-haven-glen-onoko': {
+    putIn: {
+      id: 'white-haven-south-access',
+      name: 'White Haven South Access Area',
+      latitude: 41.05527,
+      longitude: -75.771581,
+    },
+    takeOut: {
+      id: 'glen-onoko-access-area',
+      name: 'Glen Onoko Access Area',
+      latitude: 40.8835,
+      longitude: -75.75914,
+    },
+    logistics: {
+      distanceLabel: 'About 20.9 mi',
+      estimatedPaddleTime:
+        'About 7 hr to 12 hr for qualified whitewater groups, longer with low water, release crowds, scouting, or any conservative pace through the full gorge',
+      shuttle:
+        'Stage the take-out at Glen Onoko, then drive back to White Haven. DCNR says release days can change parking and traffic patterns at White Haven, Rockport, and Glen Onoko, so confirm current Lehigh Gorge State Park alerts, posted signs, and access routing before leaving vehicles.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current DCNR/PFBC rules, posted Lehigh Gorge access rules, and whitewater equipment requirements.',
+      camping:
+        'Treat this as an all-day managed state-park whitewater trip. DCNR specifically warns the White Haven to Glen Onoko raft trip can take 10 to 12 hours at lower water levels, so build in daylight rather than assuming a midpoint overnight option.',
+      campingClassification: 'none',
+      summary:
+        'Launch at White Haven and take out at Glen Onoko for the full Lehigh Gorge whitewater corridor. Use the USGS White Haven outflow gauge below Francis E. Walter Reservoir and DCNR flow bands, and make a hard same-day call on water, weather, release timing, and total daylight before committing.',
+      accessCaveats: [
+        'DCNR says private boaters must put on and take off only at designated Lehigh River access areas in the state park.',
+        'This full-corridor route combines the White Haven-to-Rockport and Rockport-to-Glen-Onoko sections into one long commitment that should not be treated as a casual default trip.',
+        'Glen Onoko GPS context is cross-checked to 40.8835, -75.75914 because the current state-park page appears to publish the correct longitude with a northing typo in the latitude.',
+        'This is a whitewater route. DCNR says inexperienced boaters should not attempt the Lehigh River without qualified guides.',
+        'Release weekends can be crowded with commercial rafts, clubs, private boaters, cyclists, and shuttle traffic.',
+      ],
+      watchFor: [
+        'Class II-III rapids, ledges, rock outcrops, boulders, waterfalls, swift current, and cold-water swims in a steep-walled gorge.',
+        'Very low water below about 250 cfs, when DCNR says many parts are not deep enough for boating and the full route can stretch toward a 10-12 hour day.',
+        'Flows above 1,000 cfs, when DCNR says difficulty progressively increases and better skill and equipment are needed.',
+        'Flows above 5,000 cfs, which DCNR reserves for expert boaters in kayaks, closed canoes, or very large rafts.',
+        'Dam-release timing, tributary rain, rising water, wood, strainer hazards, limited exits, release-day traffic changes, fatigue, and missing the Glen Onoko take-out after a long day.',
+      ],
+    },
+  },
   'platte-river-schramm-louisville': {
     putIn: {
       id: 'schramm-park-sra-canoe-kayak-access',

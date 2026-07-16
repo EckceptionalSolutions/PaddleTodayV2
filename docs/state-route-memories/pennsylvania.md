@@ -11,6 +11,14 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Current Pennsylvania candidate ledger rows: 50 implemented rows as of 2026-06-25 UTC.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
+## 2026-07-16 Section 1 and Lower Juniata restore pass
+
+- 2026-07-16 08:35 America/Chicago / 2026-07-16 13:35 UTC: Pennsylvania mixed restoration pass; restored three supported Pennsylvania slugs beyond the live repo baseline at run start.
+- Rebuilt the current live baseline from `src/data/rivers.ts` and `src/data/river-trip-details.ts`, then added `susquehanna-river-wetlands-bloomsburg`, `lehigh-river-rockport-glen-onoko`, and `lehigh-river-white-haven-glen-onoko` beyond the live repo baseline at run start.
+- Qualification package: PFBC Sections 3 and 4 still publish Wetlands Nature Area, PFBC Bloomsburg, the Bloomsburg stage band of about `1-4 ft`, and the Berwick ledge warning below `2 ft`; DCNR still publishes Lehigh Gorge whitewater trip lengths of `12.2` miles for Rockport to Glen Onoko and `20.9` miles for White Haven to Glen Onoko, direct flow bands of below `250 cfs` very low, `250-1,000 cfs` better for boating, above `1,000 cfs` progressively harder, and above `5,000 cfs` expert-only, plus current White Haven / Rockport / Glen Onoko access directions and GPS context; and direct USGS Water Services returned same-day July 16, 2026 values of `3,690 cfs / 1.42 ft` at `2026-07-16 12:15 EDT` for Bloomsburg (`01538700`) plus `294 cfs / 3.55 ft` at `2026-07-16 12:30 EDT` for Lehigh River below Francis E. Walter Reservoir near White Haven (`01447800`).
+- Camping stayed route-specific: `susquehanna-river-wetlands-bloomsburg` stays `none`, and both new Lehigh Gorge runs stay `none` because DCNR frames them as managed daylight whitewater trips with designated access use rather than camping routes.
+- No new gallery asset was added. Existing bounded no-image coverage for `lehigh-river-white-haven-rockport` remained the model, and bounded 2026-07-16 no-image audit rows were added for `susquehanna-river-wetlands-bloomsburg`, `lehigh-river-rockport-glen-onoko`, and `lehigh-river-white-haven-glen-onoko`.
+
 ## 2026-07-16 Section 3 and Section 14 restore pass
 
 - 2026-07-16 06:00 America/Chicago / 2026-07-16 11:00 UTC: Pennsylvania three-route restoration pass; restored three supported North Branch Susquehanna slugs beyond the live repo baseline at run start.

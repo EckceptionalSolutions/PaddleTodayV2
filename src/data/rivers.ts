@@ -52784,6 +52784,238 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'lehigh-river-rockport-glen-onoko',
+    slug: 'lehigh-river-rockport-glen-onoko',
+    name: 'Lehigh River',
+    reach: 'Rockport to Glen Onoko',
+    aliases: [
+      'Lehigh Gorge Lower',
+      'Lehigh River - Rockport to Glen Onoko',
+      'Lehigh River Lower Section',
+    ],
+    state: 'Pennsylvania',
+    region: 'Pocono Mountains',
+    summary:
+      'Lower Lehigh Gorge whitewater from the DCNR Rockport access to Glen Onoko. DCNR names this 12.2-mile Class II-III trip, publishes official flow bands, and points paddlers to the same USGS/USACE White Haven flow story below Francis E. Walter Dam.',
+    statusText:
+      'Use the Lehigh River below Francis E. Walter Reservoir gauge near White Haven. DCNR says below 250 cfs is very low, 250 to 1,000 cfs is better for boating, difficulty rises above 1,000 cfs, and above 5,000 cfs is expert-only water.',
+    latitude: 40.966616,
+    longitude: -75.755074,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-01447800',
+      provider: 'usgs',
+      siteId: '01447800',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Lehigh River below Francis E. Walter Reservoir near White Haven, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01447800/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 250,
+      idealMax: 1000,
+      tooLow: 250,
+      tooHigh: 5000,
+      thresholdSource: {
+        label: 'PA DCNR Lehigh Gorge State Park flow rates',
+        url: 'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park/whitewater-boating',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'USACE Francis E. Walter Dam releases for fishing and recreational whitewater occur spring through fall, and DCNR says release days can change parking and traffic patterns at White Haven, Rockport, and Glen Onoko. Tributary rain, cold spring and fall water, and release timing still require same-day judgment.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'DCNR describes this Lehigh Gorge section as Class II-III whitewater through a steep-walled gorge. Inexperienced boaters should use qualified guides, and all private groups need whitewater craft, PFDs, helmets for canoe/kayak paddlers, and conservative release-day planning.',
+      confidenceNotes:
+        'Confidence is high for this Pennsylvania add: DCNR identifies Rockport to Glen Onoko as a 12.2-mile Lehigh Gorge route, publishes official cfs bands for the state-park gauges, and states that flow rates are measured at White Haven, Rockport, and Glen Onoko. USGS Water Services returned same-day July 16, 2026 discharge and stage of 294 cfs and 3.55 ft at 2026-07-16 12:30 EDT for site 01447800 below Francis E. Walter Reservoir near White Haven, and the Glen Onoko coordinate is cross-checked to 40.8835, -75.75914 because the current DCNR page appears to publish the correct longitude with a latitude typo.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: 'Rockport to Glen Onoko, 12.2 miles',
+        note: 'DCNR lists Rockport to Glen Onoko as a 12.2-mile private-trip option in Lehigh Gorge State Park, where boating is limited to designated access areas.',
+        sourceUrl:
+          'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park/whitewater-boating',
+      },
+      {
+        label: 'Access GPS',
+        value: 'Rockport 40.9667, -75.7551 and Glen Onoko 40.8835, -75.75914',
+        note: 'The current DCNR park page publishes Rockport GPS directly, and Glen Onoko is cross-checked to the long-used 40.8835, -75.75914 public park-access coordinate because the current DCNR page appears to carry a latitude typo.',
+        sourceUrl:
+          'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01447800 at White Haven outflow',
+        note: 'USGS Water Services returned same-day July 16, 2026 values of 294 cfs and 3.55 ft at 2026-07-16 12:30 EDT for Lehigh River below Francis E. Walter Reservoir near White Haven, PA.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01447800&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'DCNR flow bands',
+        value: '250 / 250-1,000 / 5,000 cfs',
+        note: 'DCNR says flows below 250 cfs are very low and many parts are not deep enough for boating, 250 to 1,000 cfs becomes better for boating, difficulty rises above 1,000 cfs, and above 5,000 cfs is expert-only water.',
+        sourceUrl:
+          'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park/whitewater-boating',
+      },
+      {
+        label: 'Core hazards',
+        value: 'Class II-III gorge whitewater',
+        note: 'DCNR highlights Class II-III whitewater, deep steep-walled gorge terrain, rock outcroppings, waterfalls, changing release traffic, whitewater craft rules, PFD requirements, helmets for canoes and kayaks, and cold-water gear recommendations for spring and fall.',
+        sourceUrl:
+          'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park/whitewater-boating',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PA DCNR Lehigh Gorge whitewater boating',
+        url: 'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park/whitewater-boating',
+        provider: 'local',
+      },
+      {
+        label: 'PA DCNR Lehigh Gorge State Park access directions',
+        url: 'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01447800 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-01447800/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USACE Lehigh Basin data summary',
+        url: 'https://www.nap-wc.usace.army.mil/nap/lehipub.html',
+        provider: 'local',
+      },
+      {
+        label: 'PFBC registration vs launch permit',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'lehigh-river-white-haven-glen-onoko',
+    slug: 'lehigh-river-white-haven-glen-onoko',
+    name: 'Lehigh River',
+    reach: 'White Haven to Glen Onoko',
+    aliases: [
+      'Lehigh Gorge Full Run',
+      'Lehigh River - White Haven to Glen Onoko',
+      'Lehigh River Full Gorge Section',
+    ],
+    state: 'Pennsylvania',
+    region: 'Pocono Mountains',
+    summary:
+      'Full Lehigh Gorge whitewater from the DCNR White Haven access to Glen Onoko. DCNR names this 20.9-mile Class II-III trip, warns that raft trips can take 10 to 12 hours at lower water, and publishes official flow bands tied to the White Haven gauge family.',
+    statusText:
+      'Use the Lehigh River below Francis E. Walter Reservoir gauge near White Haven. DCNR says below 250 cfs is very low, 250 to 1,000 cfs is better for boating, difficulty rises above 1,000 cfs, and above 5,000 cfs is expert-only water.',
+    latitude: 41.05527,
+    longitude: -75.771581,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-01447800',
+      provider: 'usgs',
+      siteId: '01447800',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Lehigh River below Francis E. Walter Reservoir near White Haven, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01447800/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 250,
+      idealMax: 1000,
+      tooLow: 250,
+      tooHigh: 5000,
+      thresholdSource: {
+        label: 'PA DCNR Lehigh Gorge State Park flow rates',
+        url: 'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park/whitewater-boating',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'USACE Francis E. Walter Dam releases for fishing and recreational whitewater occur spring through fall, and DCNR says release days can change parking and traffic patterns at White Haven, Rockport, and Glen Onoko. Tributary rain, cold spring and fall water, and release timing still require same-day judgment.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'DCNR describes this full Lehigh Gorge run as Class II-III whitewater through a steep-walled gorge. The full-corridor length, release traffic, and cold-water consequence make it a major day even for qualified private groups.',
+      confidenceNotes:
+        'Confidence is high for this Pennsylvania add: DCNR identifies White Haven to Glen Onoko as a 20.9-mile Lehigh Gorge route, warns that raft trips can take 10 to 12 hours at lower water levels, publishes official cfs bands for the state-park gauges, and states that flow rates are measured at White Haven, Rockport, and Glen Onoko. USGS Water Services returned same-day July 16, 2026 discharge and stage of 294 cfs and 3.55 ft at 2026-07-16 12:30 EDT for site 01447800 below Francis E. Walter Reservoir near White Haven, and the Glen Onoko coordinate is cross-checked to 40.8835, -75.75914 because the current DCNR page appears to publish the correct longitude with a latitude typo.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: 'White Haven to Glen Onoko, 20.9 miles',
+        note: 'DCNR lists White Haven to Glen Onoko as a 20.9-mile private-trip option in Lehigh Gorge State Park and says the raft trip may take 10 to 12 hours at lower water levels.',
+        sourceUrl:
+          'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park/whitewater-boating',
+      },
+      {
+        label: 'Access GPS',
+        value: 'White Haven 41.055270, -75.771581 and Glen Onoko 40.8835, -75.75914',
+        note: 'The current DCNR park page publishes White Haven South Access GPS directly, and Glen Onoko is cross-checked to the long-used 40.8835, -75.75914 public park-access coordinate because the current DCNR page appears to carry a latitude typo.',
+        sourceUrl:
+          'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01447800 at White Haven outflow',
+        note: 'USGS Water Services returned same-day July 16, 2026 values of 294 cfs and 3.55 ft at 2026-07-16 12:30 EDT for Lehigh River below Francis E. Walter Reservoir near White Haven, PA.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01447800&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'DCNR flow bands',
+        value: '250 / 250-1,000 / 5,000 cfs',
+        note: 'DCNR says flows below 250 cfs are very low and many parts are not deep enough for boating, 250 to 1,000 cfs becomes better for boating, difficulty rises above 1,000 cfs, and above 5,000 cfs is expert-only water.',
+        sourceUrl:
+          'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park/whitewater-boating',
+      },
+      {
+        label: 'Core hazards',
+        value: 'Class II-III gorge whitewater over a full-day commitment',
+        note: 'DCNR highlights Class II-III whitewater, deep steep-walled gorge terrain, rock outcroppings, waterfalls, changing release traffic, whitewater craft rules, PFD requirements, helmets for canoes and kayaks, and the long-day timing risk at lower water.',
+        sourceUrl:
+          'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park/whitewater-boating',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PA DCNR Lehigh Gorge whitewater boating',
+        url: 'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park/whitewater-boating',
+        provider: 'local',
+      },
+      {
+        label: 'PA DCNR Lehigh Gorge State Park access directions',
+        url: 'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01447800 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-01447800/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USACE Lehigh Basin data summary',
+        url: 'https://www.nap-wc.usace.army.mil/nap/lehipub.html',
+        provider: 'local',
+      },
+      {
+        label: 'PFBC registration vs launch permit',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     "id": "susquehanna-river-sayre-towanda",
     "slug": "susquehanna-river-sayre-towanda",
     "name": "Susquehanna River",
@@ -54824,6 +55056,122 @@ export const rivers: River[] = [
         "provider": "local"
       }
     ]
+  },
+  {
+    id: 'susquehanna-river-wetlands-bloomsburg',
+    slug: 'susquehanna-river-wetlands-bloomsburg',
+    name: 'Susquehanna River',
+    reach: 'North Branch: Wetlands Nature Area to PFBC Bloomsburg',
+    aliases: [
+      'North Branch Susquehanna - Wetlands Nature Area to Bloomsburg',
+      'Susquehanna River - Wetlands Nature Area to PFBC Bloomsburg',
+      'North Branch Section 3 to 4 long Bloomsburg approach day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      'Seventeen-mile lower North Branch continuation from Wetlands Nature Area to the PFBC Bloomsburg ramp. PFBC Sections 3 and 4 publish the public endpoints, official river-mile support, the direct Bloomsburg stage guidance, and the low-water Berwick ledge warning that matters most on this run.',
+    statusText:
+      'Use the Susquehanna River at Bloomsburg gauge. PFBC says the river can be paddled as low as about 1 ft there, the calmer planning band is about 2 to 4 ft, and novice paddlers should stay off when Bloomsburg is above about 5 to 6 ft.',
+    latitude: 41.089444,
+    longitude: -76.1225,
+    gaugeSource: {
+      id: 'usgs-01538700',
+      provider: 'usgs',
+      siteId: '01538700',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Susquehanna River at Bloomsburg, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['private_banks'],
+      safetyNotes: [
+        'PFBC warns that about one-half mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
+        'This is a long exposed mainstem day where wind, thunderstorms, floating wood, and fatigue can matter more than the nominal easy rating.',
+        'Stay with the named public accesses at Wetlands Nature Area and PFBC Bloomsburg rather than improvising on islands or private banks late in the day.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2,
+      idealMax: 4,
+      tooLow: 1,
+      tooHigh: 5.5,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 4 Bloomsburg stage guidance',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'PFBC says this lower corridor can stay paddleable through warmer months, but broad-river wind and post-rain current shifts still matter on the longer Section 3 to 4 continuation.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is still broad-audience Susquehanna water in the conservative band, but the 17-mile length, primitive upstream launch, and low-water ledge warning push it well beyond a casual park float.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania restore: PFBC Section 3 still publishes Wetlands Nature Area as a public paddler access at mile 166R, Section 4 still publishes the PFBC Bloomsburg access coordinates and Bloomsburg stage guidance directly, and the same guide family still calls out the Berwick-Nescopeck ledge under 2 ft. USGS Water Services returned same-day July 16, 2026 values of 3,690 cfs and 1.42 ft at 2026-07-16 12:15 EDT for direct USGS 01538700 during this restore pass.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Wetlands Nature Area to PFBC Bloomsburg, about 17 mi',
+        note: 'PFBC Section 3 places Wetlands Nature Area at mile 166R and the Section 4 access table publishes PFBC Bloomsburg as the next clean downstream public finish for this longer continuation.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'PFBC Section 3 opens Wetlands Nature Area for paddlers and the Section 4 access table publishes PFBC Bloomsburg at 40 59 49 / -76 25 56.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01538700 at Bloomsburg',
+        note: 'USGS Water Services returned same-day July 16, 2026 values of 3,690 cfs and 1.42 ft at 2026-07-16 12:15 EDT for Susquehanna River at Bloomsburg, PA.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01538700&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Official stage guidance',
+        value: 'Bloomsburg 1 ft low runnable, 2-4 ft easier band, 5-6 ft novice caution ceiling',
+        note: 'PFBC says the river can be paddled as low as 1 ft at Bloomsburg, is usually paddled around 2 to 4 ft, and moves fast enough above about 5 ft that novice paddlers should stay off.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Berwick-Nescopeck low-water ledge under 2 ft',
+        note: 'PFBC warns that about one-half mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC North Branch Susquehanna Section 3',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'PFBC North Branch Susquehanna Section 4',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01538700 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
   },
   {
     id: 'susquehanna-river-pfbc-bloomsburg-montgomery-park',
