@@ -21422,6 +21422,73 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'crooked-creek-lower-pyatt-mark-oliver': {
+    putIn: {
+      id: 'lower-pyatt-access',
+      name: 'Lower Pyatt Access',
+      latitude: 36.24665,
+      longitude: -92.83494,
+    },
+    takeOut: {
+      id: 'mark-oliver-access',
+      name: 'Mark Oliver Access',
+      latitude: 36.24973,
+      longitude: -92.7486,
+    },
+    logistics: {
+      distanceLabel: 'About 11.9 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7 hr depending on level, fishing stops, and how much dragging the shoals require',
+      shuttle:
+        'Stage the take-out at Mark Oliver Access, then drive back to Lower Pyatt Access. Snow is the clean public split point if the full upper-middle continuation feels too long for the day.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC access points, follow Arkansas boating and PFD rules, and respect posted parking signs at each access.',
+      camping:
+        'Snow Access campsites and Brooksher Crooked Creek Preserve give this reach real designated-campsite support, but private banks remain off-limits and Brooksher has no road access.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Lower Pyatt Access and take out at Mark Oliver Access for a longer upper-middle Crooked Creek continuation. This is a rain-sensitive Ozark creek float keyed to the Kelly Crossing gauge rather than to a broad flatwater assumption.',
+      accessCaveats: [
+        'Lower Pyatt, Snow, and Mark Oliver are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than full-service park ramps.',
+        "The current Kelly Crossing gauge reading during this run was below AGFC's moderate band, so expect more scraping and slower riffles than the best Crooked Creek days.",
+        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.',
+      ],
+      watchFor: [
+        'Water below about 12 ft, when scraping and slower riffles become more likely.',
+        'Fast post-rain rises, fresh wood, strainers, muddy exits, and stronger current than the clear-water appearance suggests.',
+        'Shoals, riffles, small waves, rural self-rescue conditions, and the lack of road access at Brooksher if a camping stop is part of a longer plan.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lower-pyatt-access',
+        name: 'Lower Pyatt Access',
+        latitude: 36.24665,
+        longitude: -92.83494,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream put-in for the upper-middle continuation.',
+      },
+      {
+        id: 'snow-access',
+        name: 'Snow Access',
+        latitude: 36.24352,
+        longitude: -92.79995,
+        mileFromStart: 6.7,
+        segmentKind: 'creek',
+        note: 'Intermediate public split point with primitive campsites.',
+      },
+      {
+        id: 'mark-oliver-access',
+        name: 'Mark Oliver Access',
+        latitude: 36.24973,
+        longitude: -92.7486,
+        mileFromStart: 11.9,
+        segmentKind: 'creek',
+        note: 'Default take-out for the upper-middle continuation.',
+      },
+    ],
+  },
   'crooked-creek-snow-mark-oliver': {
     putIn: {
       id: 'snow-access',
@@ -21538,6 +21605,83 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'crooked-creek-snow-yellville': {
+    putIn: {
+      id: 'snow-access',
+      name: 'Snow Access',
+      latitude: 36.24352,
+      longitude: -92.79995,
+    },
+    takeOut: {
+      id: 'yellville-access',
+      name: 'Yellville Access',
+      latitude: 36.22259,
+      longitude: -92.67944,
+    },
+    logistics: {
+      distanceLabel: 'About 15.3 mi',
+      estimatedPaddleTime:
+        "About 6 hr to 8.5 hr depending on level, wood scouting, fishing stops, and whether you pause to inspect Kelley's Slab before continuing to Yellville",
+      shuttle:
+        'Stage the take-out at Yellville City Park, then drive back to Snow Access. Mark Oliver and Kelleys Slab are the clean public split points if the lower corridor feels too long for the day or the creek looks pushier than expected.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC access points, follow Arkansas boating and PFD rules, and respect posted parking signs at each access.',
+      camping:
+        'Snow Access campsites and Brooksher Crooked Creek Preserve give this reach real designated-campsite support, but private banks remain off-limits and Yellville should not be treated as a corridor campsite.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Snow Access and take out at Yellville City Park for the longest lower-corridor Crooked Creek continuation. This is a rain-sensitive Ozark creek float keyed to the Kelly Crossing gauge rather than to a broad flatwater assumption.',
+      accessCaveats: [
+        "Snow, Mark Oliver, Kelley's Slab, and Yellville are named public AGFC Crooked Creek Water Trail accesses with simple launches rather than full-service park ramps.",
+        "The current Kelly Crossing gauge reading during this run was below AGFC's moderate band, so expect more scraping and slower riffles than the best Crooked Creek days.",
+        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.',
+        "This route passes through Kelley's Slab before the city-park finish, so do not let the Yellville take-out make the middle of the route feel more casual than it is.",
+      ],
+      watchFor: [
+        'Water below about 12 ft, when scraping and slower riffles become more likely.',
+        'Fast post-rain rises, fresh wood, strainers, muddy exits, and stronger current than the clear-water appearance suggests.',
+        "Shoals, riffles, small waves, rural self-rescue conditions, and the need to scout Kelley's Slab when the creek is up or dirty.",
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'snow-access',
+        name: 'Snow Access',
+        latitude: 36.24352,
+        longitude: -92.79995,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream put-in for the lower-corridor continuation.',
+      },
+      {
+        id: 'mark-oliver-access',
+        name: 'Mark Oliver Access',
+        latitude: 36.24973,
+        longitude: -92.7486,
+        mileFromStart: 5.2,
+        segmentKind: 'creek',
+        note: 'Primary midpoint split point before the Kelley section.',
+      },
+      {
+        id: 'kelleys-slab-access',
+        name: "Kelley's Slab Access",
+        latitude: 36.22921,
+        longitude: -92.71045,
+        mileFromStart: 11.8,
+        segmentKind: 'creek',
+        note: 'Scout point and intermediate split before the city-park finish.',
+      },
+      {
+        id: 'yellville-access',
+        name: 'Yellville Access',
+        latitude: 36.22259,
+        longitude: -92.67944,
+        mileFromStart: 15.3,
+        segmentKind: 'creek',
+        note: 'Default take-out at Yellville City Park.',
+      },
+    ],
+  },
   'crooked-creek-mark-oliver-yellville': {
     putIn: {
       id: 'mark-oliver-access',
@@ -21576,6 +21720,92 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         "Shoals, riffles, small waves, rural self-rescue conditions, and the need to scout Kelley's Slab when the creek is up or dirty.",
       ],
     },
+  },
+  'crooked-creek-lower-pyatt-yellville': {
+    putIn: {
+      id: 'lower-pyatt-access',
+      name: 'Lower Pyatt Access',
+      latitude: 36.24665,
+      longitude: -92.83494,
+    },
+    takeOut: {
+      id: 'yellville-access',
+      name: 'Yellville Access',
+      latitude: 36.22259,
+      longitude: -92.67944,
+    },
+    logistics: {
+      distanceLabel: '22.0 mi',
+      estimatedPaddleTime:
+        "About 8 hr to 11 hr depending on level, fishing stops, shoal scouting, and whether you pause to inspect Kelley's Slab before the final run to Yellville",
+      shuttle:
+        'Stage the take-out at Yellville City Park, then drive back to Lower Pyatt Access. Snow, Mark Oliver, and Kelleys Slab are the only clean public split points if the full 22-mile trail feels too long for the day or the creek looks pushier than expected.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC access points, follow Arkansas boating and PFD rules, and respect posted parking signs at each access.',
+      camping:
+        'Snow Access, Brooksher Crooked Creek Preserve, and Fred Berry Crooked Creek Nature Center give this corridor real designated-campsite support, but AGFC limits camping and private banks remain off-limits.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Lower Pyatt Access and take out at Yellville City Park for the full Crooked Creek Water Trail corridor. This is a rain-sensitive Ozark creek float keyed to the Kelly Crossing gauge rather than to a broad flatwater assumption.',
+      accessCaveats: [
+        "Lower Pyatt, Snow, Mark Oliver, Kelley's Slab, and Yellville are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than full-service park ramps.",
+        "The current Kelly Crossing gauge reading during this run was below AGFC's moderate band, so expect more scraping and slower riffles than the best Crooked Creek days.",
+        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.',
+        "The Yellville finish is easier to identify than Kelley's Slab, but the route still passes through Kelley's hazard zone and stays a serious all-day rural creek commitment.",
+      ],
+      watchFor: [
+        'Water below about 12 ft, when scraping and slower riffles become more likely.',
+        'Fast post-rain rises, fresh wood, strainers, muddy exits, and stronger current than the clear-water appearance suggests.',
+        "Shoals, riffles, small waves, rural self-rescue conditions, and the need to scout Kelley's Slab when the creek is up or dirty.",
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lower-pyatt-access',
+        name: 'Lower Pyatt Access',
+        latitude: 36.24665,
+        longitude: -92.83494,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default full-corridor put-in.',
+      },
+      {
+        id: 'snow-access',
+        name: 'Snow Access',
+        latitude: 36.24352,
+        longitude: -92.79995,
+        mileFromStart: 6.7,
+        segmentKind: 'creek',
+        note: 'First major split point with primitive campsites.',
+      },
+      {
+        id: 'mark-oliver-access',
+        name: 'Mark Oliver Access',
+        latitude: 36.24973,
+        longitude: -92.7486,
+        mileFromStart: 11.9,
+        segmentKind: 'creek',
+        note: 'Middle public split point before the Kelley section.',
+      },
+      {
+        id: 'kelleys-slab-access',
+        name: "Kelley's Slab Access",
+        latitude: 36.22921,
+        longitude: -92.71045,
+        mileFromStart: 18.5,
+        segmentKind: 'creek',
+        note: 'Scout point and final major split before the city-park finish.',
+      },
+      {
+        id: 'yellville-access',
+        name: 'Yellville Access',
+        latitude: 36.22259,
+        longitude: -92.67944,
+        mileFromStart: 22.0,
+        segmentKind: 'creek',
+        note: 'Default full-corridor take-out at Yellville City Park.',
+      },
+    ],
   },
   'crooked-creek-kelleys-slab-yellville': {
     putIn: {

@@ -18,6 +18,15 @@ Last summarized: 2026-07-14 21:15 America/Chicago.
 - Camping and safety posture:
   - `bayou-deview-hickson-lake-rock-island-road`, `bayou-deview-rock-island-road-apple-lake`, and `bayou-deview-apple-lake-bank-of-brinkley` all keep `nearby_basecamp` camping classification because Dagmar WMA primitive sites remain real nearby support, but none of the restored pairs need to imply an overnight split as part of the default route plan.
   - All three restored routes keep the same Bayou DeView caution set around indistinct channels, route-finding, floating wood, private-bank limits, Apple Lake seasonal closure, and high-water danger as the gauge approaches the `17 ft` closure line.
+
+## 2026-07-15 Crooked Creek final-combination pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Crooked Creek had seven live route objects and matching trip-detail entries before this pass, leaving exactly three additive gaps in the public access matrix: `crooked-creek-lower-pyatt-mark-oliver`, `crooked-creek-snow-yellville`, and `crooked-creek-lower-pyatt-yellville`.
+- Current AGFC Crooked Creek guidance still lists the exact public mileages of Lower Pyatt -> Snow `6.7`, Snow -> Mark Oliver `5.2`, Mark Oliver -> Kelley’s Slab `6.6`, and Kelley’s Slab -> Yellville `3.5`, while the page also explicitly says the full trail covers `22 miles` from Lower Pyatt to Yellville.
+- Current AGFC access detail on the same page still supports the named public launch ladder of Lower Pyatt, Snow, Mark Oliver, Kelley’s Slab, and Yellville, plus the corridor camping rules: primitive campsites at Snow Access and Brooksher Crooked Creek Preserve, and one-night camping at Fred Berry Crooked Creek Nature Center with manager permission.
+- Same-day direct USGS Water Services for Crooked Creek at Kelly Crossing near Yellville (`07055607`) returned `272 cfs / 11.17 ft` at `2026-07-15 19:45 CDT`, so all three routes keep the conservative Crooked Creek `minimum-only` stage model with `tooLow: 12` and explicit below-band scrape-prone caution.
+- Camping stays route-specific: `crooked-creek-lower-pyatt-mark-oliver`, `crooked-creek-snow-yellville`, and `crooked-creek-lower-pyatt-yellville` all use `on_route_campsite` because the corridor still includes Snow Access campsites and Brooksher preserve support even when the finish shifts downstream.
+- Bounded AGFC, Commons, Marion County, and same-river USGS media review stayed negative for all three slugs, so `docs/river-image-source-audit.csv` records no-gallery outcomes and no new route-gallery asset was added.
 - No gallery image was added. Bounded Commons, AGFC page imagery, Sheffield Nelson Dagmar WMA context, and same-river USGS media review still did not produce a clearly rights-clean exact-route paddling asset for local reuse, so the image audit records bounded no-image outcomes for the restored slugs.
 
 ## 2026-07-15 Bayou DeView restoration pass

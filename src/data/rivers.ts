@@ -59157,6 +59157,125 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'crooked-creek-lower-pyatt-mark-oliver',
+    slug: 'crooked-creek-lower-pyatt-mark-oliver',
+    name: 'Crooked Creek',
+    reach: 'Lower Pyatt Access to Mark Oliver Access',
+    aliases: [
+      'Crooked Creek - Lower Pyatt to Mark Oliver',
+      'AGFC Crooked Creek upper-middle continuation',
+      'Crooked Creek Lower Pyatt to Mark Oliver planner',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Arkansas',
+    summary:
+      'Upper-middle Crooked Creek continuation from Lower Pyatt to Mark Oliver. AGFC still documents the exact public access chain and the direct Kelly Crossing gauge, but the only official numeric guidance remains the 12-12.5 ft moderate band, so this route stays conservative and minimum-only.',
+    statusText:
+      'Use the Crooked Creek at Kelly Crossing gauge. AGFC calls 12 to 12.5 ft a moderate floating level; below about 12 ft expect more dragging and slower riffles, and higher water deserves extra caution because the creek can rise fast and AGFC does not publish a full high-water ladder.',
+    latitude: 36.24665,
+    longitude: -92.83494,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Crooked Creek can rise quickly after heavy spring or summer rain and turn from a clear smallmouth float into a faster, pushier current day.',
+        'Almost all property along the creek is private; use only the named public access points and camp only where AGFC explicitly allows it.',
+        'Shoals, riffles, fresh wood, and muddy or gravelly exits become more consequential when the creek is below the moderate band or rising fast.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07055607',
+      provider: 'usgs',
+      siteId: '07055607',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Crooked Creek at Kelly Crossing at Yellville, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055607/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 12,
+      thresholdSource: {
+        label: 'Arkansas Game and Fish Crooked Creek moderate-level guidance',
+        url: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'AGFC frames Crooked Creek as rainfall dependent moving water. Spring through early fall is the main floating season, but quick rain-driven rises can change the route much faster than on larger regulated rivers.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is not whitewater, but AGFC still describes deep pools, fast chutes, riffles, and small waves. Treat it as a rural moving-water trip rather than a flatwater float.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: AGFC still publishes Lower Pyatt, Snow, and Mark Oliver as named public Crooked Creek Water Trail accesses with exact mileage, exposes coordinate-linked map pins for all three access points, and ties the route family to direct USGS gauge 07055607 near Kelly Crossing. Because AGFC only publishes a 12-12.5 ft moderate floating band rather than a full low/ideal/high ladder, Paddle Today uses a minimum-only floor at 12 ft and keeps higher-water messaging cautious.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Lower Pyatt Access to Mark Oliver Access, about 11.9 miles',
+        note: 'AGFC lists Lower Pyatt-to-Snow as 6.7 miles and Snow-to-Mark Oliver as 5.2 miles, supporting this combined public Crooked Creek continuation.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07055607 at 272 cfs / 11.17 ft',
+        note: "USGS Water Services returned same-day Crooked Creek at Kelly Crossing values of 272 cfs and 11.17 ft at 2026-07-15 19:45 CDT during this run, below AGFC's moderate band.",
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055607&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Level guidance',
+        value: '12-12.5 ft moderate floating band',
+        note: 'AGFC says a moderate level for floating Crooked Creek is 12-12.5 ft at the Kelly Crossing gauge. Paddle Today treats 12 ft as the conservative minimum-only floor because AGFC does not publish a complete high-water ladder for this route family.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Lower Pyatt Access, 36.24665, -92.83494',
+        note: 'AGFC publishes Lower Pyatt Access as a named public Crooked Creek Water Trail access with a Google Maps coordinate link.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Mark Oliver Access, 36.24973, -92.7486',
+        note: 'AGFC publishes Mark Oliver Access as a named public Crooked Creek Water Trail access with a Google Maps coordinate link.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+      {
+        label: 'Camping support',
+        value: 'Snow Access and Brooksher camping support',
+        note: 'AGFC says primitive campsites are available at Snow Access and at Brooksher Crooked Creek Preserve, which has no road access.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'AGFC Crooked Creek Water Trail',
+        url: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+        provider: 'local',
+      },
+      {
+        label: 'AGFC Crooked Creek Water Trail brochure',
+        url: 'https://www.agfc.com/wp-content/uploads/2023/05/crookedcreek-watertrailmap.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07055607 Crooked Creek at Kelly Crossing',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055607/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07055607 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055607&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'crooked-creek-snow-mark-oliver',
     slug: 'crooked-creek-snow-mark-oliver',
     name: 'Crooked Creek',
@@ -59514,6 +59633,125 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'crooked-creek-snow-yellville',
+    slug: 'crooked-creek-snow-yellville',
+    name: 'Crooked Creek',
+    reach: 'Snow Access to Yellville Access',
+    aliases: [
+      'Crooked Creek - Snow to Yellville',
+      'AGFC Crooked Creek lower-corridor continuation',
+      'Crooked Creek Snow to city-park planner',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Arkansas',
+    summary:
+      'Long lower-corridor Crooked Creek continuation from Snow to Yellville City Park. AGFC still documents the exact public access chain and the direct Kelly Crossing gauge, but the only official numeric guidance remains the 12-12.5 ft moderate band, so this route stays conservative and minimum-only.',
+    statusText:
+      'Use the Crooked Creek at Kelly Crossing gauge. AGFC calls 12 to 12.5 ft a moderate floating level; below about 12 ft expect more dragging and slower riffles, and higher water deserves extra caution because the creek can rise fast and AGFC does not publish a full high-water ladder.',
+    latitude: 36.24352,
+    longitude: -92.79995,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Crooked Creek can rise quickly after heavy spring or summer rain and turn from a clear smallmouth float into a faster, pushier current day.',
+        'Almost all property along the creek is private; use only the named public access points and camp only where AGFC explicitly allows it.',
+        "This route passes through Kelley's Slab before reaching Yellville, so the middle of the day deserves more attention than the city-park finish might suggest.",
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07055607',
+      provider: 'usgs',
+      siteId: '07055607',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Crooked Creek at Kelly Crossing at Yellville, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055607/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 12,
+      thresholdSource: {
+        label: 'Arkansas Game and Fish Crooked Creek moderate-level guidance',
+        url: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'AGFC frames Crooked Creek as rainfall dependent moving water. Spring through early fall is the main floating season, but quick rain-driven rises can change the route much faster than on larger regulated rivers.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        "This is not whitewater, but AGFC still describes deep pools, fast chutes, riffles, and small waves. Treat it as a rural moving-water trip rather than a flatwater float, with extra caution through Kelley's Slab before the easier Yellville finish.",
+      confidenceNotes:
+        "Confidence is good for a conservative add: AGFC still publishes Snow, Mark Oliver, Kelley's Slab, and Yellville as named public Crooked Creek Water Trail accesses with exact mileage preserved in the current page and brochure. AGFC ties the route family to direct USGS gauge 07055607 near Kelly Crossing. Because AGFC only publishes a 12-12.5 ft moderate floating band rather than a full low/ideal/high ladder, Paddle Today uses a minimum-only floor at 12 ft and keeps higher-water messaging cautious.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Snow Access to Yellville Access, about 15.3 miles',
+        note: "AGFC lists Snow-to-Mark Oliver as 5.2 miles, Mark Oliver-to-Kelley's Slab as 6.6 miles, and Kelley's Slab-to-Yellville as 3.5 miles, supporting this combined public Crooked Creek continuation.",
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07055607 at 272 cfs / 11.17 ft',
+        note: "USGS Water Services returned same-day Crooked Creek at Kelly Crossing values of 272 cfs and 11.17 ft at 2026-07-15 19:45 CDT during this run, below AGFC's moderate band.",
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055607&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Level guidance',
+        value: '12-12.5 ft moderate floating band',
+        note: 'AGFC says a moderate level for floating Crooked Creek is 12-12.5 ft at the Kelly Crossing gauge. Paddle Today treats 12 ft as the conservative minimum-only floor because AGFC does not publish a complete high-water ladder for this route family.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Snow Access, 36.24352, -92.79995',
+        note: 'AGFC publishes Snow Access as a named public Crooked Creek Water Trail access with a Google Maps coordinate link and primitive campsites.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Yellville Access, 36.22259, -92.67944',
+        note: 'The current AGFC Crooked Creek brochure labels Yellville Access in Yellville City Park and prints the access coordinate in the water-trail map.',
+        sourceUrl: 'https://www.agfc.com/wp-content/uploads/2023/05/crookedcreek-watertrailmap.pdf',
+      },
+      {
+        label: 'Camping support',
+        value: 'Snow Access and Brooksher camping support',
+        note: 'AGFC says primitive campsites are available at Snow Access and at Brooksher Crooked Creek Preserve, which has no road access.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'AGFC Crooked Creek Water Trail',
+        url: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+        provider: 'local',
+      },
+      {
+        label: 'AGFC Crooked Creek Water Trail brochure',
+        url: 'https://www.agfc.com/wp-content/uploads/2023/05/crookedcreek-watertrailmap.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07055607 Crooked Creek at Kelly Crossing',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055607/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07055607 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055607&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'crooked-creek-mark-oliver-yellville',
     slug: 'crooked-creek-mark-oliver-yellville',
     name: 'Crooked Creek',
@@ -59606,6 +59844,125 @@ export const rivers: River[] = [
         label: 'Camping support',
         value: 'Fred Berry nearby basecamp with permission',
         note: 'AGFC says paddlers may camp at Fred Berry Crooked Creek Nature Center with permission from the center manager and a one-night limit, but that support is separate from the Mark Oliver and Yellville access endpoints.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'AGFC Crooked Creek Water Trail',
+        url: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+        provider: 'local',
+      },
+      {
+        label: 'AGFC Crooked Creek Water Trail brochure',
+        url: 'https://www.agfc.com/wp-content/uploads/2023/05/crookedcreek-watertrailmap.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07055607 Crooked Creek at Kelly Crossing',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055607/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07055607 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055607&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'crooked-creek-lower-pyatt-yellville',
+    slug: 'crooked-creek-lower-pyatt-yellville',
+    name: 'Crooked Creek',
+    reach: 'Lower Pyatt Access to Yellville Access',
+    aliases: [
+      'Crooked Creek - Lower Pyatt to Yellville',
+      'AGFC Crooked Creek full trail corridor',
+      'Crooked Creek Lower Pyatt to city-park planner',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Arkansas',
+    summary:
+      'Full Crooked Creek Water Trail corridor from Lower Pyatt to Yellville City Park. AGFC still documents the exact 22-mile public trail and the direct Kelly Crossing gauge, but the only official numeric guidance remains the 12-12.5 ft moderate band, so this route stays conservative and minimum-only.',
+    statusText:
+      'Use the Crooked Creek at Kelly Crossing gauge. AGFC calls 12 to 12.5 ft a moderate floating level; below about 12 ft expect more dragging and slower riffles, and higher water deserves extra caution because the creek can rise fast and AGFC does not publish a full high-water ladder.',
+    latitude: 36.24665,
+    longitude: -92.83494,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Crooked Creek can rise quickly after heavy spring or summer rain and turn from a clear smallmouth float into a faster, pushier current day.',
+        'Almost all property along the creek is private; use only the named public access points and camp only where AGFC explicitly allows it.',
+        "The Yellville finish is easier to identify than Kelley's Slab, but the route still passes through Kelley's hazard zone and stays a serious all-day rural creek commitment.",
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07055607',
+      provider: 'usgs',
+      siteId: '07055607',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Crooked Creek at Kelly Crossing at Yellville, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055607/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 12,
+      thresholdSource: {
+        label: 'Arkansas Game and Fish Crooked Creek moderate-level guidance',
+        url: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'AGFC frames Crooked Creek as rainfall dependent moving water. Spring through early fall is the main floating season, but quick rain-driven rises can change the route much faster than on larger regulated rivers.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        "This is not whitewater, but AGFC still describes deep pools, fast chutes, riffles, and small waves. The 22-mile length, rural self-rescue context, and mid-route Kelley hazard make it a deliberate moving-water plan rather than a casual float.",
+      confidenceNotes:
+        'Confidence is good for a conservative add: AGFC still publishes Lower Pyatt, Snow, Mark Oliver, Kelley\'s Slab, and Yellville as one named Crooked Creek Water Trail access chain and explicitly says the trail covers 22 miles from Lower Pyatt to Yellville. AGFC ties the route family to direct USGS gauge 07055607 near Kelly Crossing. Because AGFC only publishes a 12-12.5 ft moderate floating band rather than a full low/ideal/high ladder, Paddle Today uses a minimum-only floor at 12 ft and keeps higher-water messaging cautious.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Lower Pyatt Access to Yellville Access, 22 miles',
+        note: 'AGFC explicitly says the Crooked Creek Water Trail covers 22 miles from Lower Pyatt Access to Yellville Access.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07055607 at 272 cfs / 11.17 ft',
+        note: "USGS Water Services returned same-day Crooked Creek at Kelly Crossing values of 272 cfs and 11.17 ft at 2026-07-15 19:45 CDT during this run, below AGFC's moderate band.",
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055607&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Level guidance',
+        value: '12-12.5 ft moderate floating band',
+        note: 'AGFC says a moderate level for floating Crooked Creek is 12-12.5 ft at the Kelly Crossing gauge. Paddle Today treats 12 ft as the conservative minimum-only floor because AGFC does not publish a complete high-water ladder for this route family.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Lower Pyatt Access, 36.24665, -92.83494',
+        note: 'AGFC publishes Lower Pyatt Access as a named public Crooked Creek Water Trail access with a Google Maps coordinate link.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Yellville Access, 36.22259, -92.67944',
+        note: 'The current AGFC Crooked Creek brochure labels Yellville Access in Yellville City Park and prints the access coordinate in the water-trail map.',
+        sourceUrl: 'https://www.agfc.com/wp-content/uploads/2023/05/crookedcreek-watertrailmap.pdf',
+      },
+      {
+        label: 'Camping support',
+        value: 'Snow, Brooksher, and Fred Berry camping support',
+        note: 'AGFC says primitive campsites are available at Snow Access and Brooksher Crooked Creek Preserve, and paddlers may camp at Fred Berry Crooked Creek Nature Center with permission and a one-night limit.',
         sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/crooked-creek/',
       },
     ],
