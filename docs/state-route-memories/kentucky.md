@@ -2,6 +2,14 @@
 
 Last summarized: 2026-07-14 14:59 America/Chicago / 2026-07-14 19:59 UTC.
 
+## 2026-07-15 South Fork Booneville in-band continuation pass
+
+- Reused the live repo state as the only valid baseline and added three new Kentucky slugs that were absent from the current tree at run start: `south-fork-kentucky-river-oneida-hacker-branch`, `south-fork-kentucky-river-rocky-branch-upper-wolf-creek`, and `south-fork-kentucky-river-bishop-bend-upper-wolf-creek`.
+- Current KDFWR South Fork Kentucky River guidance still documents the exact public access-chain mileages of Oneida -> Rocky Branch `6.8`, Rocky Branch -> Cedar Valley `2.5`, Cedar Valley -> Bishop Bend `4.7`, Bishop Bend -> Hacker Branch `3.3`, and Hacker Branch -> Upper Wolf Creek `2.9`, which support the new public route mileages of `17.3`, `13.4`, and `6.2`.
+- Current KDFWR access-detail pages still support the source-backed coordinates and public-use notes for Oneida Ramp (`asid=903`), Rocky Branch Road Access (`asid=1124`), Bishop Bend School Road Access (`asid=1123`), Hacker Branch Road Access (`asid=1122`), and Upper Wolf Creek Ramp (`asid=1073`). Same-day direct USGS Water Services returned `552 cfs / 5.29 ft` at `2026-07-15 15:30 EDT` for South Fork Kentucky River at Booneville (`03281500`), inside the official `350-900 cfs / 4.8-6.0 ft` good band, so all three slugs ship with normal in-band South Fork framing rather than scrape or fast-water caution.
+- Camping stays conservative at `none` for all three because KDFWR still documents only simple day-use launch sites with no public overnight support on this chain.
+- Reused the approved South Fork Commons corridor image for all three slugs and added matching image-audit rows for the new continuations.
+
 ## 2026-07-15 Lower Barren Beech Bend segment pass
 
 - Reused the live repo state as the only valid baseline and added three new Kentucky slugs that were absent from the current tree at run start: `barren-river-state-street-beech-bend`, `barren-river-beech-bend-james-r-hines`, and `barren-river-beech-bend-lonnie-white`.
