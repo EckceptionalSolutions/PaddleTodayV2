@@ -1,18 +1,27 @@
 # Wisconsin Route Memory
 
-Last summarized: 2026-07-15 America/Chicago / 2026-07-16 UTC.
+Last summarized: 2026-07-16 America/Chicago / 2026-07-16 UTC.
 
 ## Current Inventory
 
-- Live routes: 154.
-- Top represented rivers: Wisconsin River 15, Black River 6, Baraboo River 5, Maunesha River 5, Milwaukee River 5, Peshtigo River 5, Rock River 5, St. Croix River 5, Sugar River 5, Wolf River 5, Bois Brule River 4, Chippewa River 4, Eau Claire River 4, Kickapoo River 4, Namekagon River 4, Pine River 4, Big Rib River 3, Brule River 3, Crawfish River 3, East Branch Pecatonica River 3, Fox River 3, Grant River 3, La Crosse River 3, Mecan River 3, Platte River 3, Popple River 3, Prairie River 3, Sheboygan River 3, South Fork Flambeau River 3, Badfish Creek 2, Bark River 2.
-- Ledger candidates: 149 Wisconsin candidates tracked; 140 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 3 `rejected`.
+- Live routes: 157.
+- Top represented rivers: Wisconsin River 15, Black River 6, Baraboo River 5, Maunesha River 5, Milwaukee River 5, Peshtigo River 5, Rock River 5, St. Croix River 5, Sugar River 5, Wolf River 5, Bois Brule River 4, Chippewa River 4, Eau Claire River 4, Kickapoo River 4, Namekagon River 4, Pine River 4, Beaver Dam River 2, Big Rib River 3, Brule River 3, Crawfish River 3, East Branch Pecatonica River 3, Fox River 3, Grant River 3, La Crosse River 3, Mecan River 3, Platte River 3, Popple River 3, Prairie River 3, Sheboygan River 3, South Fork Flambeau River 3, Badfish Creek 2, Bark River 2, Cedar Creek 1, Root River 1.
+- Ledger candidates: 152 Wisconsin candidates tracked; 143 added/implemented, 5 `research_later`, 1 `duplicate_corridor`, 3 `rejected`.
 
 ## Status
 
-Wisconsin remains mature and heavily implemented. The latest 2026-07-16 America/Chicago / 2026-07-16 UTC run added three routes beyond the 151-route baseline: `maunesha-river-marshall-firemens`, `maunesha-river-cherry-lane-firemens`, and `maunesha-river-firemens-hubbleton`.
+Wisconsin remains mature and heavily implemented. The latest 2026-07-16 America/Chicago / 2026-07-16 UTC run added three routes beyond the 154-route baseline: `cedar-creek-covered-bridge-lions`, `root-river-five-mile-horlick`, and `beaver-dam-river-county-s-lowell`.
 
 ## Latest Audit
+
+- 2026-07-16 America/Chicago / 2026-07-16 UTC: added `cedar-creek-covered-bridge-lions`, `root-river-five-mile-horlick`, and `beaver-dam-river-county-s-lowell`, bringing the live Wisconsin route count from the run-start baseline of 154 to 157.
+- The Cedar Creek card adds a new Ozaukee County family rather than expanding the saturated Wisconsin / Wolf / Sugar / Maunesha clusters. WRT documents Covered Bridge Park-to-Grafton Lions Park, Robin Court split context, low/high Cedarburg-gauge guidance, and downstream Cedarburg/dam caveats; USGS Water Services returned Cedar Creek near Cedarburg `04086500` at `29.3 cfs / 5.52 ft` at 2026-07-16 07:00 CDT.
+- The Root River card adds the Racine 5-Mile-to-Horlick reach, with AW documenting the exact Class I reach and W. Eight Mile Road direct gauge, Miles Paddled corroborating endpoint coordinates and low-water guidance, WRT supporting the route family, and Racine County documenting Horlick Park small-boat/canoe/kayak launch context. USGS Water Services returned `040872342` at `23.2 cfs / 4.58 ft` at 2026-07-16 06:00 CDT, below the selected AW minimum.
+- The lower Beaver Dam card extends the existing Beaver Dam family below County S into the quieter Leipsig-to-Lowell day route. Miles Paddled documents the exact route, endpoint coordinates, 11.25 miles, and a 130 cfs very-recommendable level; Dodge County supports Beaver Dam River waterway paddling context; WRT ties the direct gauge to the river and the 30-140 cfs useful window. USGS Water Services returned `05425912` at `21.8 cfs / 838.92 ft` at 2026-07-16 07:00 CDT, below the selected useful window.
+- Threshold posture: Cedar Creek uses a two-sided `5.5-6.5 ft` Cedarburg stage window with `5.24 ft` low and `6.8 ft` high-water caution from WRT/community guidance. Root River uses a minimum-only `31 cfs` floor from AW because no defensible upper cutoff surfaced. Beaver Dam County-S-to-Lowell uses the same direct Beaver Dam gauge as the existing upstream route with WRT's `30-140 cfs` useful band and `211+ cfs` broad-use high cutoff, with confidence caveats because the most detailed WRT ladder is strongest for the upstream whitewater section.
+- Safety/logistics added: Cedar is no-camping with rock, strainer, fast-rise, private-bank, urban-water-quality, and no-downstream-dam-continuation caveats. Root is no-camping / `whitewater` with mandatory Horlick take-out, shallow riffle, strainer, dam-removal/no-continuation, private/golf-course-bank, urban-water-quality, and cold-water caveats. Beaver Dam is no-camping with mandatory Lowell dam take-out, low-water, erratic dam-release, wood, low bridge, private-bank, wind, water-quality, and long-day caveats.
+- Bounded image review found WRT / Miles Paddled / AW / Racine County / Dodge County / USGS / Commons / same-route leads, but no clearly rights-clean exact-route paddling/gallery asset selected for the three new cards; no-image rows were added to the image audit.
+- Reviewed prompt and memory leads again: Bark River Prince's Point-to-Burnt Village and Sugar River Highway X-to-Attica remain already live; Black Earth Creek Cross Plains-to-Salmo Pond remains blocked by unresolved obstruction evidence; upper Chippewa / Wolf / Wisconsin Trail Guide families remain heavily represented; Little Wolf, Rubicon, Ashippun, Scuppernong, Allen Creek, and Ahnapee were not selected because gauge/current/threshold/access support was weaker than the accepted set.
 
 - 2026-07-16 00:35 America/Chicago / 2026-07-16 05:35 UTC: added `maunesha-river-marshall-firemens`, `maunesha-river-cherry-lane-firemens`, and `maunesha-river-firemens-hubbleton`, bringing the live Wisconsin route count from the run-start baseline of 151 to 154.
 - The three Maunesha cards fill the source-backed Marshall / Cherry Lane / Waterloo / Hubbleton route family rather than duplicating already-live Bark, Sugar, Crawfish, or lower-Manitowoc coverage. Wisconsin River Trips documents all three route shapes with public access notes, mileages, cleanup history, hazards, and Crawfish-at-Milford proxy bands; Miles Paddled corroborates the Marshall-to-Firemen's route and endpoint coordinates; Marshall documents nearby public kayak-launch context.
