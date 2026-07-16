@@ -1,11 +1,11 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-16 15:30 America/Chicago.
+Last summarized: 2026-07-16 16:11 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 202 after the 2026-07-16 15:30 Minnesota route-addition run.
-- Top represented rivers: Mississippi River 39, Minnesota River 15, North Fork Crow River 9, Rum River 8, St. Croix River 8, Root River 7, Sauk River 7, St. Louis River 7, Big Fork River 6, Cannon River 6, Crow Wing River 6, Red Lake River 6, Zumbro River 6, Cloquet River 5, Red River of the North 5, Straight River 5, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Cedar River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, and Vermilion River.
+- Live routes: 205 after the 2026-07-16 16:11 Minnesota route-addition run.
+- Top represented rivers: Mississippi River 40, Minnesota River 15, North Fork Crow River 9, Rum River 9, Sauk River 8, St. Croix River 8, Root River 7, St. Louis River 7, Big Fork River 6, Cannon River 6, Crow Wing River 6, Red Lake River 6, Zumbro River 6, Cloquet River 5, Red River of the North 5, Straight River 5, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Cedar River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, and Vermilion River.
 - Ledger candidates: 1029 total; 645 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
 
 ## Status
@@ -13,6 +13,15 @@ Last summarized: 2026-07-16 15:30 America/Chicago.
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-16 16:11 America/Chicago / 2026-07-16 21:11 UTC: added `rum-river-kathio-onamia`, `sauk-river-richmond-horseshoe`, and `mississippi-river-little-falls-pike-creek`.
+- Baseline at run start was 202 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 205 and fill three small official/public-access gaps above or between existing cards rather than reusing prior automation commits.
+- Qualification path: MN DNR Rum Map 1 plus public-water-access GIS document Mille Lacs Kathio-to-Onamia with direct Onamia site `207`; MN DNR recommended one-way list, Sauk Map 2, and public-water-access GIS document Richmond-to-Horseshoe with upstream St. Martin site `328`; and MN DNR recommended one-way list, Mississippi Map 7, and public-water-access GIS document Little-Falls-Dam-to-Pike-Creek with downstream Royalton site `149`.
+- Live gauge verification: Onamia returned `10.69 ft` at 2026-07-16 14:45 CDT in the official medium band; St. Martin returned `14.98 ft` at 2026-07-16 14:00 CDT just below the official medium band; and Royalton returned `3,990 cfs` at 2026-07-16 14:15 CDT in the official medium band.
+- Implemented official DNR interpreted gauge models only: Onamia `10 / 10.5-11.5 / 12.5 ft`, St. Martin `14 / 15-17 / 20 ft`, and Royalton `2,000 / 3,000-9,000 / 12,000 cfs`. Sauk and Mississippi ship with explicit proxy caveats because the gauge is not at the exact route.
+- Camping posture: Rum is nearby-basecamp through Mille Lacs Kathio; Sauk is no-camping day use; Mississippi is on-route-campsite capable only around Pike Creek with current DNR campsite confirmation. Safety posture includes Onamia dam/portage and not-recommended downstream logjam boundary, rock weirs, pilings, lake wind, Sauk lake-chain wind and private shoreline, Little Falls dam-tailwater launch discipline, Pike Creek mandatory take-out, downstream Blanchard Dam avoidance, cold water, strainers, and private-bank limits.
+- No route-gallery images were added. Image audit rows record bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected.
+- Reviewed but did not add `little-fork-river-samuelson-silverdale` because it is already contained in the existing Highway-73-to-Silverdale card as the Samuelson access/campsite; did not add `whitewater-river-county-26-beaver` because memory and current coverage treat it as duplicate of the Elba-to-Highway-74 corridor; did not add Red Lake Centennial-to-St.-Hilaire because the Thief River Falls dam/portage boundary and stale site `179` remain weaker than the accepted gaps.
 
 - 2026-07-16 15:30 America/Chicago / 2026-07-16 20:30 UTC: added `cloquet-river-bachelor-road-highway-53`, `whitewater-river-highway-74-us-61`, and `mississippi-river-clearwater-snuffies`.
 - Baseline at run start was 199 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 202 and fill three distinct public-access gaps: Bachelor Road-to-Highway 53 on the lower Cloquet, Beaver/Highway-74-to-Highway-61 on the lower Whitewater, and Clearwater-to-Snuffie's Landing on Mississippi Map 8.

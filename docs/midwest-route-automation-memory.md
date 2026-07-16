@@ -1,5 +1,14 @@
 # Midwest Route Automation Memory
 
+- 2026-07-16 16:11 America/Chicago / 2026-07-16 21:11 UTC: Minnesota three-route implementation pass (`minnesota-route-additions-2`).
+  - Added three Minnesota slugs beyond the 202-route Minnesota baseline at run start: `rum-river-kathio-onamia`, `sauk-river-richmond-horseshoe`, and `mississippi-river-little-falls-pike-creek`, bringing Minnesota to 205 live routes.
+  - Qualification path: MN DNR Rum Map 1 plus public-water-access GIS document Mille Lacs Kathio-to-Onamia; MN DNR recommended-one-way list plus Sauk Map 2 document Richmond-to-Horseshoe; and MN DNR recommended-one-way list plus Mississippi Map 7 document Little-Falls-Dam-to-Pike-Creek. PWA GIS resolves all six endpoints.
+  - Live gauge verification: Rum Onamia site `207` returned `10.69 ft` at 2026-07-16 14:45 CDT in medium; Sauk St. Martin site `328` returned `14.98 ft` at 2026-07-16 14:00 CDT just below medium; and Mississippi Royalton site `149` returned `3,990 cfs` at 2026-07-16 14:15 CDT in medium.
+  - Implemented official DNR interpreted gauge models only: Onamia `10 / 10.5-11.5 / 12.5 ft`, St. Martin `14 / 15-17 / 20 ft`, and Royalton `2,000 / 3,000-9,000 / 12,000 cfs`, with proxy caveats on Sauk and Mississippi.
+  - Added camping and safety/logistics notes for Mille Lacs Kathio basecamp context, Pike Creek watercraft campsite context, Onamia dam/portage and not-recommended downstream logjam boundary, Sauk lake-chain wind and private shoreline, Little Falls dam-tailwater launch discipline, Pike Creek mandatory take-out, downstream Blanchard Dam avoidance, cold water, strainers, and private-bank limits.
+  - No route-gallery assets were added. Bounded DNR / public-access / Commons / same-route image review found no clearly rights-clean exact-route paddling asset selected for local reuse.
+  - Reviewed but did not add Little Fork Samuelson-to-Silverdale because it is already represented inside Highway-73-to-Silverdale, Whitewater County-26-to-Beaver because it duplicates Elba-to-Highway-74, or Red Lake Centennial-to-St.-Hilaire because the dam boundary and stale Thief River Falls gauge remain weaker than accepted gaps.
+
 - 2026-07-16 15:12 America/Chicago / 2026-07-16 20:12 UTC: Wisconsin three-route implementation pass (`wisconsin-route-additions`).
   - Added three Wisconsin slugs beyond the 171-route Wisconsin baseline at run start: `rock-river-east-branch-hillcrest-hwy-dw`, `rock-river-east-branch-north-pole-gill`, and `rock-river-east-branch-furnace-bridge-kekoskee`, bringing Wisconsin to 174 unique live routes.
   - Qualification path: Wisconsin River Trips documents the Allenton, Theresa, and Mayville East Branch Rock River family with named endpoints, embedded-map coordinates, mileages, logjam/dam/portage notes, and Horicon gauge ladders. Wisconsin DNR supports Theresa Marsh public-land context, and USGS Water Services verified current `05424057` Horicon data.

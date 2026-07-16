@@ -3181,6 +3181,62 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       }
     ],
   },
+  'rum-river-kathio-onamia': {
+    putIn: {
+      name: 'Rum River, Mille Lacs Kathio State Park Public Water Access Site',
+      latitude: 46.1229244270785,
+      longitude: -93.76035617366433,
+    },
+    takeOut: {
+      name: 'Onamia Lake Public Water Access Site',
+      latitude: 46.069245536554,
+      longitude: -93.68033892299972,
+    },
+    logistics: {
+      distanceLabel: 'About 7.5 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, wind, or portage delays',
+      shuttle:
+        'Stage the take-out at Onamia Lake before driving to the Mille Lacs Kathio State Park river access. Confirm the park vehicle permit, lake wind, and the Onamia Highway 27 take-out / portage layout before launching.',
+      permits:
+        'No route-specific paddling permit is known. A Minnesota state-park vehicle permit may be required at Mille Lacs Kathio; follow DNR access, boating, PFD, and posted park rules.',
+      camping:
+        'Mille Lacs Kathio State Park has campground options near the put-in, making this a nearby-basecamp route. Do not assume private-bank or lake-edge camping between the endpoints.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at the Mille Lacs Kathio State Park Rum River access and take out at Onamia Lake below the Highway 27 dam/constructed-rock-rapid corridor. This fills the upper public-access gap above the existing Onamia-to-Wayside card.',
+      accessCaveats: [
+        'The Onamia take-out is below the Highway 27 dam / constructed rock rapids. Identify the portage and landing from land before committing.',
+        'DNR Map 1 says the immediately downstream Onamia section from river mile 143 to 142 is not recommended because log jams pile up and create hazardous conditions; this route ends before that section.',
+        'Lake wind on Shakopee and Onamia lakes can dominate a short route. Avoid starting in whitecaps or poor visibility.',
+        'Stay with public accesses and managed park land. Do not use private banks as bailout or picnic stops.',
+      ],
+      watchFor: [
+        'Constructed rock rapids, rock weirs, pilings, dams, and turbulent water near the upper-river control structures.',
+        'Low-water scraping and possible wading when the Onamia gauge is near the 10 ft scrapable floor.',
+        'Cold water, wind, wild-rice vegetation, private banks, and fresh wood after storms.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mille-lacs-kathio',
+        name: 'Rum River, Mille Lacs Kathio State Park Public Water Access Site',
+        latitude: 46.1229244270785,
+        longitude: -93.76035617366433,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public-water-access GIS resolves it as WAS00334 at river mile 150.5.',
+      },
+      {
+        id: 'onamia-lake',
+        name: 'Onamia Lake Public Water Access Site',
+        latitude: 46.069245536554,
+        longitude: -93.68033892299972,
+        mileFromStart: 7.5,
+        segmentKind: 'lake',
+        note: 'Default take-out below the Highway 27 dam / constructed-rock-rapid corridor; resolves as WAS01267 at river mile 143.0.',
+      },
+    ],
+  },
   'rum-river-onamia-wayside': {
     putIn: {
       name: 'Onamia Lake Public Water Access Site',
@@ -3615,6 +3671,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         segmentKind: 'creek',
         note: 'Default take-out at the Sauk-Mississippi confluence access.',
       }
+    ],
+  },
+  'sauk-river-richmond-horseshoe': {
+    putIn: {
+      name: 'Sauk River, Richmond Public Water Access Site',
+      latitude: 45.4574855816426,
+      longitude: -94.53454276890497,
+    },
+    takeOut: {
+      name: 'Horseshoe Lake Public Water Access Site',
+      latitude: 45.44277995491589,
+      longitude: -94.5226614261946,
+    },
+    logistics: {
+      distanceLabel: 'About 1.6 mi',
+      estimatedPaddleTime: 'About 45 min to 1.5 hr, longer with wind, fishing stops, or low vegetation',
+      shuttle:
+        'Stage the take-out at the Horseshoe Lake access, then drive back to Richmond City Park. This is a short shuttle, but inspect wind, boat traffic, and the landing before committing.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey Richmond and DNR access rules.',
+      camping:
+        'Treat this as a short day trip. No on-route camping is assumed between Richmond and Horseshoe Lake.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Richmond City Park and take out at the Horseshoe Lake access for the short DNR recommended Chain of Lakes connector on Sauk River Map 2.',
+      accessCaveats: [
+        'This card uses the upstream St. Martin DNR gauge as a same-map proxy, not a gauge at Richmond or Horseshoe Lake.',
+        'The route is short but lake-influenced. Wind, boat wakes, and aquatic vegetation can matter more than the current.',
+        'Do not continue downstream toward later Sauk River dam and rapid corridors unless you have a separate map, gauge, and take-out plan.',
+      ],
+      watchFor: [
+        'Wind and boat traffic on the Sauk River Chain of Lakes.',
+        'Snags, fallen trees, low-water vegetation, and shallow margins near the access points.',
+        'Private or developed shoreline; use public access areas rather than yard or shoreline stops.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'richmond-sauk-access',
+        name: 'Sauk River, Richmond Public Water Access Site',
+        latitude: 45.4574855816426,
+        longitude: -94.53454276890497,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public-water-access GIS resolves it as WAS00328 at DNR river mile 31.5.',
+      },
+      {
+        id: 'horseshoe-lake-access',
+        name: 'Horseshoe Lake Public Water Access Site',
+        latitude: 45.44277995491589,
+        longitude: -94.5226614261946,
+        mileFromStart: 1.6,
+        segmentKind: 'lake',
+        note: 'Default take-out; public-water-access GIS resolves the DNR-administered access as WAS01770 at DNR river mile 29.9.',
+      },
     ],
   },
   'sauk-river-spring-hill-st-martin': {
@@ -29406,6 +29517,62 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Upstream wind, fresh wood after rain, and fatigue on the pooled Thomas Landing finish.',
       ],
     },
+  },
+  'mississippi-river-little-falls-pike-creek': {
+    putIn: {
+      name: 'Mississippi River, Little Falls Dam Public Water Access Site',
+      latitude: 45.97427195581591,
+      longitude: -94.36548565186429,
+    },
+    takeOut: {
+      name: 'Mississippi River, Pike Creek Public Water Access Site',
+      latitude: 45.95278544573383,
+      longitude: -94.39147727155583,
+    },
+    logistics: {
+      distanceLabel: 'About 1.8 mi',
+      estimatedPaddleTime: 'About 45 min to 1.5 hr, longer with scouting, fishing, or low water',
+      shuttle:
+        'Stage Pike Creek Landing first, then drive to the Little Falls Dam access on the east bank below the dam. Inspect both landings and do not launch unless the group has a clear downstream stop plan.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted dam, city, county, and park restrictions.',
+      camping:
+        'Pike Creek watercraft campsite is on the route near the take-out, so this short card is on-route-campsite capable only when current DNR campsite rules and occupancy make it legal and practical. Charles A. Lindbergh State Park also provides nearby managed camping context.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch below Little Falls Dam and take out at Pike Creek Landing for a short Map 7 Mississippi River route with immediate dam-tailwater awareness and a clean public landing finish.',
+      accessCaveats: [
+        'Launch below Little Falls Dam only. Do not enter restricted dam areas or drift near the structure.',
+        'Pike Creek Landing is the planned take-out. Blanchard Dam is downstream and is not included in this route.',
+        'The Royalton gauge is downstream of this short route and below Blanchard Dam, so pair the gauge with a same-day visual check at Little Falls.',
+        'Use public landings and designated campsite areas only; private banks along the Mississippi are not casual bailout points.',
+      ],
+      watchFor: [
+        'Dam-tailwater current, eddies, floating debris, and colder water below Little Falls Dam.',
+        'Rocky riffles and shallow margins when Royalton is near or below the low band.',
+        'A short route ending before a longer dam corridor; do not let the group drift downstream without a separate plan.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'little-falls-dam-access',
+        name: 'Mississippi River, Little Falls Dam Public Water Access Site',
+        latitude: 45.97427195581591,
+        longitude: -94.36548565186429,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below Little Falls Dam; public-water-access GIS resolves it as WAS01280 at river mile 965.1.',
+      },
+      {
+        id: 'pike-creek-landing',
+        name: 'Mississippi River, Pike Creek Public Water Access Site',
+        latitude: 45.95278544573383,
+        longitude: -94.39147727155583,
+        mileFromStart: 1.8,
+        segmentKind: 'creek',
+        note: 'Default take-out at Pike Creek Landing; resolves as WAS01279 at river mile 963.3.',
+      },
+    ],
   },
   'mississippi-river-royalton-sartell': {
     putIn: {
