@@ -2305,6 +2305,71 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'root-river-preston-lanesboro': {
+    putIn: {
+      name: 'Root River, Preston Public Water Access Site',
+      latitude: 43.6700585,
+      longitude: -92.0888915,
+    },
+    takeOut: {
+      name: 'Root River, Lanesboro Shorefishing Public Water Access Site',
+      latitude: 43.7175077,
+      longitude: -91.9781076,
+    },
+    logistics: {
+      distanceLabel: 'About 14.1 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, wood, or campsite stops',
+      shuttle:
+        'Stage the Lanesboro vehicle first, then drive to Preston. Walk the Lanesboro finish and dam-portage area before launching so the group knows where to land and where not to drift.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted city, DNR, campground, and parking rules.',
+      camping:
+        'DNR Map 1 labels Riverview Campground watercraft campsite above Lanesboro and Sylvan Park watercraft campsite just below the Lanesboro dam portage. Treat camping as a deliberate campsite or town-basecamp plan, not informal private-bank camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Preston and finish in Lanesboro for the missing South Branch Root River route above the existing Lanesboro-to-Peterson card. The Lanesboro DNR gauge is inside the take-out corridor and was in the official medium band during this run.',
+      accessCaveats: [
+        'Preston and Lanesboro both resolve in Minnesota public-water-access GIS with Root River water-trail mile records and coordinates.',
+        'The Lanesboro dam is part of the finish corridor. Identify the access, portage signs, and safe landing before launching.',
+        'The gauge is near the lower end of the route; still make a same-day visual depth and wood check at Preston.',
+      ],
+      watchFor: [
+        'Shallow riffles and scrape risk when Lanesboro drops below the medium band.',
+        'Fresh sweepers, strainers, and debris after thunderstorms in the smaller South Branch channel.',
+        'The Lanesboro dam and portage corridor, especially if the group is tired late in the day.',
+        'Private banks and limited rural bailouts outside named public sites and mapped campsites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'root-river-preston-pwa',
+        name: 'Root River, Preston Public Water Access Site',
+        latitude: 43.6700585,
+        longitude: -92.0888915,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public-water-access GIS resolves WAS00267 at DNR river mile 70.1.',
+      },
+      {
+        id: 'riverview-campground-campsite',
+        name: 'Riverview Campground watercraft campsite',
+        latitude: 43.7168,
+        longitude: -91.9822,
+        mileFromStart: 13.6,
+        segmentKind: 'creek',
+        note: 'DNR Map 1 campsite support near river mile 56.5 above the Lanesboro access and dam corridor.',
+      },
+      {
+        id: 'root-river-lanesboro-shorefishing-pwa',
+        name: 'Root River, Lanesboro Shorefishing Public Water Access Site',
+        latitude: 43.7175077,
+        longitude: -91.9781076,
+        mileFromStart: 14.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; public-water-access GIS resolves WAS00266 and DNR Map 1 places the Lanesboro access/dam corridor near river mile 56.2.',
+      },
+    ],
+  },
   'root-river-parsley-moens': {
     putIn: {
       name: 'Parsley Bridge carry-in access',
@@ -29593,6 +29658,71 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'kettle-river-banning-1-sandstone': {
+    putIn: {
+      name: 'Kettle River, #1 Public Water Access Site',
+      latitude: 46.1802972,
+      longitude: -92.832115,
+    },
+    takeOut: {
+      name: 'Kettle River, Sandstone Public Water Access Site / Robinson Quarry Park',
+      latitude: 46.1331127,
+      longitude: -92.8573794,
+    },
+    logistics: {
+      distanceLabel: 'About 4.3 mi',
+      estimatedPaddleTime: 'About 2 hr to 4 hr for prepared whitewater paddlers, plus scouting and portage time',
+      shuttle:
+        'Stage the Sandstone / Robinson Quarry Park vehicle first, then inspect #2 as the final bailout before Banning Rapids. Do not launch if the group is not prepared to scout, portage, and rescue in cold, rocky whitewater.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted DNR public-water-access and Banning State Park rules, carry required PFDs, and use whitewater helmets and rescue gear.',
+      camping:
+        'DNR Map 1 labels Blueberry Slide watercraft campsites near #2, and DNR segment text notes watercraft campsites in Banning State Park. Use only legal state-park or mapped watercraft campsites; do not camp casually on banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at #1 / Highway 23 and take out at Sandstone / Robinson Quarry Park for the advanced Banning State Park whitewater gap. The Sandstone DNR gauge was far below the official scrapable floor during this run.',
+      accessCaveats: [
+        '#1, #2, and Sandstone all resolve in Minnesota public-water-access GIS with Kettle River mile records and coordinates.',
+        '#2 is the final mapped exit before committing to the Banning sequence. If the group has any doubt, take out there.',
+        'Sandstone / Robinson Quarry Park is the planned finish before the route hands off toward Map 2 and the lower Kettle corridor.',
+      ],
+      watchFor: [
+        'Blueberry Slide, Mother\'s Delight, Dragon\'s Tooth, Little Banning, Hell\'s Gate, and Quarry Rapids.',
+        'Undercut sandstone walls, ledges, holes, standing waves, sharp boulders, and debris traps.',
+        'Scrapable or unrunnable low water when the Sandstone gauge is below the official floor or the #1 bridge gauge is below DNR map guidance.',
+        'Fast rain-driven rises, cold water, strainers, and difficult rescue access inside the park canyon.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'kettle-river-one',
+        name: 'Kettle River #1 / Highway 23 Public Water Access Site',
+        latitude: 46.1802972,
+        longitude: -92.832115,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 29.8; resolves as WAS00904.',
+      },
+      {
+        id: 'kettle-river-two',
+        name: 'Kettle River #2 / Banning State Park Public Water Access Site',
+        latitude: 46.164497,
+        longitude: -92.8343025,
+        mileFromStart: 1.4,
+        segmentKind: 'creek',
+        note: 'Final bailout before the main Banning Rapids sequence; resolves as WAS02571 at DNR river mile 28.4.',
+      },
+      {
+        id: 'kettle-river-sandstone',
+        name: 'Kettle River, Sandstone Public Water Access Site / Robinson Quarry Park',
+        latitude: 46.1331127,
+        longitude: -92.8573794,
+        mileFromStart: 4.3,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 25.5; resolves as WAS00561.',
+      },
+    ],
+  },
   'watonwan-river-county-road-20-garden-city': {
     putIn: {
       name: 'Watonwan River, County Road 20 Public Water Access Site',
@@ -33321,6 +33451,80 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 4.5,
         segmentKind: 'creek',
         note: 'Default take-out; resolves as WAS02986 at Pine River mile 15.3 above the lower Pine route.',
+      },
+    ],
+  },
+  'pine-river-pine-river-one-cross-lake': {
+    putIn: {
+      name: 'Pine River, #1 Public Water Access Site',
+      latitude: 46.7231773,
+      longitude: -94.4005481,
+    },
+    takeOut: {
+      name: 'Pine River, Cross Lake Public Water Access Site / Cross Lake Recreation Area',
+      latitude: 46.6685153,
+      longitude: -94.1128315,
+    },
+    logistics: {
+      distanceLabel: 'About 18.0 mi',
+      estimatedPaddleTime: 'About 7 hr to 10 hr depending on level, wind, scouting, and lake traffic',
+      shuttle:
+        'Stage Cross Lake Recreation Area first, then drive to Pine River #1. For a shorter contingency, verify Upper Whitefish Lake access before launch; the full route is long enough that wind, low water, or wood can make a planned bailout prudent.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, posted DNR and U.S. Army Corps recreation-area rules, and any Cross Lake day-use or parking requirements.',
+      camping:
+        'DNR Map labels South Bend and Mosquito Ridge watercraft campsites, and Cross Lake Recreation Area offers campground/basecamp support. Use only legal mapped campsites or the recreation-area campground; do not assume private-bank camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Pine River #1 and finish at Cross Lake Recreation Area for the missing middle Pine River connector. The route includes the Jenkins gauge corridor, several Class I rapid sections, the beginning of the Whitefish Chain, and a dam-aware Cross Lake finish.',
+      accessCaveats: [
+        'Pine River #1, Upper Whitefish, and Cross Lake all resolve in Minnesota public-water-access GIS with coordinates and Pine River mile records.',
+        'The Jenkins gauge is inside the selected route corridor near County Road 15 and is the official DNR condition signal for this card.',
+        'Cross Lake Recreation Area sits by a dam and Corps-managed recreation facilities; confirm the proper public landing, parking, and any day-use rules before launch.',
+      ],
+      watchFor: [
+        'Constructed Rock Rapids below Pine River #1, plus Gromek, Hopper\'s, Kell\'s, Reynolds, and Carlson rapids.',
+        'Old bridge pilings, low bridges, wood, strainers, and shallow scraping near the official low boundary.',
+        'Large waves and motorboat traffic where the route reaches the Whitefish Chain; stay near shore when conditions demand it.',
+        'Cross Lake dam and portage/landing decisions at the finish; do not drift toward dam structures.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'pine-river-one',
+        name: 'Pine River #1 Public Water Access Site',
+        latitude: 46.7231773,
+        longitude: -94.4005481,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public-water-access GIS resolves WAS00726 and DNR Map places the access just above constructed Rock Rapids.',
+      },
+      {
+        id: 'pine-river-jenkins-gauge',
+        name: 'Pine River near Jenkins gauge / County Road 15 corridor',
+        latitude: 46.693494,
+        longitude: -94.304259,
+        mileFromStart: 7.3,
+        segmentKind: 'creek',
+        note: 'Direct DNR level site near river mile 30.5 inside the selected route.',
+      },
+      {
+        id: 'upper-whitefish-lake',
+        name: 'Upper Whitefish Lake Public Water Access Site',
+        latitude: 46.6820594,
+        longitude: -94.2855384,
+        mileFromStart: 8.8,
+        segmentKind: 'lake',
+        note: 'Source-backed split point at DNR river mile 29.0; resolves as WAS00354.',
+      },
+      {
+        id: 'cross-lake-pwa',
+        name: 'Pine River, Cross Lake Public Water Access Site',
+        latitude: 46.6685153,
+        longitude: -94.1128315,
+        mileFromStart: 18,
+        segmentKind: 'creek',
+        note: 'Default take-out near Cross Lake Recreation Area; resolves as WAS01002 at Pine River mile 19.8.',
       },
     ],
   },

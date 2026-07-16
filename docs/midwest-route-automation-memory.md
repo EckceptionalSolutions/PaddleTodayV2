@@ -8507,6 +8507,14 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
 - Wisconsin follow-up added access-planner chains to upper Black and Sheboygan. The upper Black chain is Highway 73 / Popple -> Willard Road -> Hill Road / Grand Avenue -> Opelt; the Sheboygan chain is Rochester -> Esslingen -> Kiwanis, with Johnsonville -> Dassow retained as a separate upper split.
 - High-confidence Minnesota corridor chains include Mississippi Map 4, Pomme de Terre, Watonwan, Snake, Badfish, Cloquet, Root, and Red Lake. Do not collapse official round trips such as Straight River Morehouse -> Kohlmeier Lake into one-way cards; document them as intentional route variants when overlap geometry is noisy.
 
+## 2026-07-16 07:20 America/Chicago / 2026-07-16 12:20 UTC Minnesota implementation pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `177` to `180` route slugs by adding `root-river-preston-lanesboro`, `kettle-river-banning-1-sandstone`, and `pine-river-pine-river-one-cross-lake`.
+- Qualification path: MN DNR Root Map 1 plus Minnesota public-water-access GIS document Preston-to-Lanesboro and the Lanesboro DNR gauge; MN DNR Kettle Map 1 plus PWA GIS document the #1 / #2 / Sandstone Banning chain and Sandstone gauge; MN DNR Pine map plus PWA GIS document Pine River #1 -> Upper Whitefish -> Cross Lake and the Jenkins gauge corridor.
+- Gauge status: South Branch Root at Lanesboro site `204` returned `2.92 ft` at `2026-07-16 05:30`, inside the official medium band. Kettle near Sandstone site `68` returned `259 cfs` at `2026-07-16 05:00`, below the official scrapable floor, so the card ships as advanced whitewater with a low-water warning. Pine near Jenkins site `316` returned `50.9 cfs` at `2026-07-16 05:45`, barely inside the official medium band, so the card keeps low-water and local-visual-check caveats.
+- No gallery images were added; image audit rows record bounded DNR / PWA / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected.
+- Reviewed but did not add upper Red Lake because the Thief River Falls gauge was stale, Whitewater because the practical County-Hwy-26-to-Beaver/Elba family is already represented by `whitewater-river-elba-highway-74`, or lower Zumbro variants because the existing Theilman/Kruger/West-Newton coverage already captures the higher-value lower river.
+
 ## 2026-07-03 17:54 America/Chicago / 2026-07-03 22:54 UTC Kentucky implementation pass
 
 - Treated the live repo state at run start as the baseline and expanded the current tree from `367` to `370` route slugs by adding `upper-cumberland-river-4-mile-artemus`, `upper-cumberland-river-varilla-artemus`, and `upper-cumberland-river-4-mile-barbourville`.
