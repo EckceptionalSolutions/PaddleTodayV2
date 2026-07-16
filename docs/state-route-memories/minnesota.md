@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-15 20:09 America/Chicago.
+Last summarized: 2026-07-15 23:16 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 168 after the 2026-07-15 20:09 Zumbro upstream pass.
-- Top represented rivers: Mississippi River 29, Minnesota River 12, Rum River 7, Sauk River 7, Big Fork River 6, North Fork Crow River 6, Red Lake River 6, Root River 6, Zumbro River 6, Cannon River 5, Crow Wing River 5, Red River of the North 5, Little Fork River 4, Otter Tail River 4, Pomme de Terre River 4, Snake River 4, St. Croix River 4, St. Louis River 4, Straight River 4, Cedar River 3, Cloquet River 3, Cottonwood River 3, Des Moines River 3, Long Prairie River 3, Pine River 3, Redwood River 3, Blue Earth River 2, Chippewa River 2, Kettle River 2, Shell Rock River 2, South Fork Crow River 2, Watonwan River 2, plus one each for North Fork Zumbro River and South Branch Middle Fork Zumbro River.
-- Ledger candidates: 974 total; 591 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
+- Live routes: 174 after the 2026-07-15 23:16 Mississippi Headwaters Board pass.
+- Top represented rivers: Mississippi River 35, Minnesota River 12, Rum River 7, Sauk River 7, Big Fork River 6, North Fork Crow River 6, Red Lake River 6, Root River 6, Zumbro River 6, Cannon River 5, Crow Wing River 5, Red River of the North 5, Little Fork River 4, Otter Tail River 4, Pomme de Terre River 4, Snake River 4, St. Croix River 4, St. Louis River 4, Straight River 4, Cedar River 3, Cloquet River 3, Cottonwood River 3, Des Moines River 3, Long Prairie River 3, Pine River 3, Redwood River 3, Blue Earth River 2, Chippewa River 2, Kettle River 2, Shell Rock River 2, South Fork Crow River 2, Watonwan River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, and Vermilion River.
+- Ledger candidates: 986 total; 603 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 10 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-15 23:16 America/Chicago / 2026-07-16 04:16 UTC: added `mississippi-river-county-road-25-andrusia`, `mississippi-river-big-winnie-leech-lake`, and `mississippi-river-tioga-pokegama`.
+- Baseline at run start was 171 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 174 and fill three missing signed Mississippi Headwaters Board excursions without counting earlier automation commits.
+- Qualification path: Mississippi Headwaters Board publishes the County-Road-25-to-Andrusia, Big-Winnie-to-Leech-Lake, and Tioga-to-Pokegama route PDFs; MN DNR Mississippi Map 2 / Map 3 provide water-trail context for the Winnie, Andrusia, Leech Lake, Tioga, Pokegama, campground/campsite, dam, and portage settings; Minnesota public-water-access GIS resolves Andrusia Lake South `WAS01524`, Lake Winnibigoshish Recreation Area `WAS01346`, Leech Lake River `WAS00098`, Tioga `WAS00432`, and Blandin/Pokegama `WAS02540`.
+- Live gauge verification: MN DNR site `341` Stump Lake returned `3.01 ft` at 2026-07-15 14:30 CDT, inside the official medium band; site `116` Days High Landing returned `1273.57 ft` at 2026-07-15 14:30 CDT, inside the official low band; site `124` Grand Rapids returned `247 cfs` at 2026-07-15 14:45 CDT, inside the official medium band.
+- Implemented official DNR gauge models: County-Road-25-to-Andrusia uses Stump Lake `1.8 / 2.8-3.6 / 5.0 ft` as an upstream same-corridor proxy; Big-Winnie-to-Leech-Lake uses Days High Landing `1272.9 / 1273.8-1274.5 / 1275.0 ft` as a downstream same-corridor proxy and ships low-water caveats; Tioga-to-Pokegama uses Grand Rapids `30 / 44-1410 / 1910 cfs` as a downstream dam-corridor proxy.
+- Camping posture: County-Road-25-to-Andrusia is a no-camping day route; Big-Winnie-to-Leech-Lake is `on_route_campsite` only through DNR Map 2 watercraft-campsite context and needs current campsite confirmation; Tioga-to-Pokegama is `endpoint_campground` through Pokegama Recreation Area context. Safety posture includes lake wind, dam-area discipline, low water, strainers/wood, private/developed banks, cold water, remote exposure, and no informal bank camping.
+- No route-gallery images were added. Image audit rows record bounded MHB / DNR / PWA / USACE / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed prompt and memory leads again. Most named prompt examples were already live; Big Fork and Red Lake upper leads still had stale DNR gauge blockers; Aitkin City Park-to-County-Campground was held because endpoint access authority was weaker than the selected PWA-backed MHB routes; Pokegama-to-Sylvan variants were held because the selected Tioga-to-Pokegama route is the cleaner signed route above the dam/portage context.
 
 - 2026-07-15 20:09 America/Chicago: added `zumbro-river-covered-bridge-walking-bridge`, `zumbro-river-walking-bridge-green-bridge`, and `zumbro-river-mantorville-oxbow`.
 - Baseline at run start was 165 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 168 and fill upstream Zumbro-family public-access gaps while avoiding the already-canonical `zumbro-river-falls` Green-Bridge-to-Zumbro-Falls card.

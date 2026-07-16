@@ -28933,6 +28933,171 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'mississippi-river-county-road-25-andrusia': {
+    putIn: {
+      name: 'Mississippi River, Co Rd 25 Public Water Access Site',
+      latitude: 47.4469663,
+      longitude: -94.7176399,
+    },
+    takeOut: {
+      name: 'Andrusia Lake South Public Water Access Site',
+      latitude: 47.4333447,
+      longitude: -94.644751,
+    },
+    logistics: {
+      distanceLabel: 'About 6.4 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with lake wind or low water',
+      shuttle:
+        'Stage Andrusia Lake South first, then drive back to County Road 25. This route starts where the existing County-Road-12-to-County-Road-25 card ends, so keep the day scoped to the signed MHB excursion.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted DNR, U.S. Forest Service, and access-site rules.',
+      camping:
+        'Treat this as a day route. DNR Map 2 shows state/national forest and designated-campsite context in the broader headwaters corridor, but no selected on-route campsite is assumed for County Road 25 to Andrusia Lake South.',
+      campingClassification: 'none',
+      summary:
+        'Launch at County Road 25 and take out at Andrusia Lake South for the signed Mississippi Headwaters Board excursion below the existing upper-headwaters card. Use the Stump Lake DNR gauge as an upstream official proxy, then make local wind and access checks.',
+      accessCaveats: [
+        'County Road 25 is the existing public Mississippi access at DNR river mile 1273.9.',
+        'Andrusia Lake South resolves in Minnesota public-water-access GIS as WAS01524 at river mile 1267.5 with U.S. Forest Service administration.',
+        'The Stump Lake gauge is upstream of the route and above lake-influenced water. Use it as an official corridor check, not as a substitute for visual conditions at County Road 25 and Andrusia.',
+      ],
+      watchFor: [
+        'Wind and boat wake on Andrusia Lake near the finish.',
+        'Low-water scraping, marshy bends, floating wood, and cold water.',
+        'Private or regulated shoreline, limited legal bailouts, and pressure to continue into a different headwaters lake plan.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-road-25-mississippi',
+        name: 'Mississippi River, Co Rd 25 Public Water Access Site',
+        latitude: 47.4469663,
+        longitude: -94.7176399,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default put-in at DNR river mile 1273.9; same access as the existing upstream route take-out.',
+      },
+      {
+        id: 'andrusia-lake-south',
+        name: 'Andrusia Lake South Public Water Access Site',
+        latitude: 47.4333447,
+        longitude: -94.644751,
+        mileFromStart: 6.4,
+        segmentKind: 'lake',
+        note: 'Default take-out; resolves as WAS01524 at river mile 1267.5 with U.S. Forest Service administration.',
+      },
+    ],
+  },
+  'mississippi-river-big-winnie-leech-lake': {
+    putIn: {
+      name: 'Mississippi River, Lake Winnibigoshish Rec Area Public Water Access Site',
+      latitude: 47.4287324,
+      longitude: -94.049459,
+    },
+    takeOut: {
+      name: 'Leech Lake River Public Water Access Site',
+      latitude: 47.2472985,
+      longitude: -94.2184719,
+    },
+    logistics: {
+      distanceLabel: '18 mi',
+      estimatedPaddleTime: 'About 7.5 hr, longer with wind, low water, or campsite stops',
+      shuttle:
+        'Stage the Leech Lake River landing first, then drive back to the Lake Winnibigoshish Recreation Area. Build in daylight margin because this is a long, remote MHB excursion with lake and marsh exposure.',
+      permits:
+        'No route-specific paddling permit is known. Use the Corps/DNR public accesses, follow Minnesota boating/PFD rules, and obey posted U.S. Army Corps, DNR, campsite, and public-land rules.',
+      camping:
+        'DNR Map 2 marks watercraft campsite context around Little Winnibigoshish / Crazy James Point and Leech Lake. Treat any overnight plan as campsite-specific and confirm current availability, rules, and fire restrictions before relying on it.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch below Big Winnie Dam and take out at the Leech Lake River landing for the 18-mile signed Mississippi Headwaters Board excursion. The Days High Landing DNR gauge is the official downstream same-corridor proxy, but wind and local water checks are decisive.',
+      accessCaveats: [
+        'Lake Winnibigoshish Recreation Area resolves as WAS01346 near river mile 1227.5 with U.S. Army Corps administration.',
+        'Leech Lake River public access resolves as WAS00098 near the Leech Lake River mouth with U.S. Army Corps administration.',
+        'Check the Winnibigoshish Dam / portage area before launch and do not drift near dam structures.',
+      ],
+      watchFor: [
+        'Wind on Lake Winnibigoshish, Little Winnibigoshish, and broad marsh or lake reaches.',
+        'Low-water dragging, strainers, cold water, remote rescue exposure, and long gaps between simple exits.',
+        'Campsite assumptions, daylight loss, and committing to an 18-mile day when the DNR gauge is only low or local wind is building.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'big-winnie-dam-rec-area',
+        name: 'Mississippi River, Lake Winnibigoshish Rec Area Public Water Access Site',
+        latitude: 47.4287324,
+        longitude: -94.049459,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default put-in; resolves as WAS01346 and should be used only after checking the dam / portage context.',
+      },
+      {
+        id: 'leech-lake-river-landing',
+        name: 'Leech Lake River Public Water Access Site',
+        latitude: 47.2472985,
+        longitude: -94.2184719,
+        mileFromStart: 18,
+        segmentKind: 'lake',
+        note: 'Default take-out; resolves as WAS00098 with U.S. Army Corps of Engineers administration.',
+      },
+    ],
+  },
+  'mississippi-river-tioga-pokegama': {
+    putIn: {
+      name: 'Pokegama Lake, Tioga Public Water Access Site',
+      latitude: 47.2236695,
+      longitude: -93.6103548,
+    },
+    takeOut: {
+      name: 'Mississippi River, Blandin Lake / Pokegama Public Water Access Site',
+      latitude: 47.2512613,
+      longitude: -93.5868505,
+    },
+    logistics: {
+      distanceLabel: '7 mi',
+      estimatedPaddleTime: 'About 2 hr 15 min to 3.5 hr depending on wind and boat traffic',
+      shuttle:
+        'Stage the Pokegama/Blandin access first, then drive back to Tioga Beach. Confirm the take-out and dam-area boundary before launching because this route should end at the recreation-area access.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR and Corps public accesses, follow Minnesota boating/PFD rules, and obey posted recreation-area, dam, and park rules.',
+      camping:
+        'Use Pokegama Recreation Area or other legal nearby basecamp options only if separately reserved or confirmed. Do not assume informal shoreline camping along this reservoir route.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Tioga Beach and take out at the Pokegama/Blandin access for the short signed MHB Grand Rapids-area excursion. The Grand Rapids DNR gauge provides an official same-corridor check, but wind, boat traffic, and dam-area conditions drive the final call.',
+      accessCaveats: [
+        'Tioga Beach resolves as WAS00432 with DNR Parks and Trails administration.',
+        'The Blandin/Pokegama access resolves as WAS02540 near DNR river mile 1182.6 with U.S. Army Corps administration.',
+        'Pokegama Dam is adjacent to the recreation-area context. Stop at the named access and do not continue toward dam structures without a separate portage plan.',
+      ],
+      watchFor: [
+        'Open-water wind, boat wakes, cold water, and reservoir fetch.',
+        'Dam-area current, posted restrictions, and the need to identify the take-out before the finish.',
+        'Private or developed shoreline and a downstream gauge that does not replace same-day local checks.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'tioga-beach-pokegama',
+        name: 'Pokegama Lake, Tioga Public Water Access Site',
+        latitude: 47.2236695,
+        longitude: -93.6103548,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default put-in; resolves as WAS00432 with DNR Parks and Trails administration.',
+      },
+      {
+        id: 'pokegama-blandin-lake',
+        name: 'Mississippi River, Blandin Lake / Pokegama Public Water Access Site',
+        latitude: 47.2512613,
+        longitude: -93.5868505,
+        mileFromStart: 7,
+        segmentKind: 'lake',
+        note: 'Default take-out near Pokegama Recreation Area; resolves as WAS02540 with U.S. Army Corps of Engineers administration.',
+      },
+    ],
+  },
   'crow-wing-river-first-crow-wing-huntersville': {
     putIn: {
       name: 'Crow Wing River, 1st Crow Wing Lake Public Water Access Site',
@@ -35588,11 +35753,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-};
-
-type WisconsinTripDetailsBackfill = {
-  campingClassification?: NonNullable<RiverTripDetails['logistics']['campingClassification']>;
-  accessPoints?: NonNullable<RiverTripDetails['accessPoints']>;
   'manitowoc-river-clark-mills-north-union': {
     putIn: {
       id: 'clark-mills-mill-street-landing',
