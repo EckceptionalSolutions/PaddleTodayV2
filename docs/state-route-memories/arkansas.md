@@ -2,6 +2,19 @@
 
 Last summarized: 2026-07-14 21:15 America/Chicago.
 
+## 2026-07-16 Bayou and Buffalo continuation pass
+
+- Rebuilt the live Arkansas inventory from the current repo state before editing. Arkansas had thirty-eight live route objects and matching trip-detail entries at run start, so this pass still had to create three genuinely new slugs beyond that baseline.
+- Added `bayou-deview-benson-creek-rock-island-road`, `bayou-deview-hickson-lake-bank-of-brinkley`, and `buffalo-river-ponca-pruitt`.
+- Current source package rechecked live in this run:
+  - The current AGFC Bayou DeView page still says the trail needs around `14 ft` or higher to paddle and that the Dagmar Road gate closes at `17 ft`; its current mileage ladder still supports Benson Creek -> Hickson Lake `6.5`, Hickson Lake -> Rock Island Road `2.9`, Rock Island Road -> Apple Lake `1.5`, and Apple Lake -> Bank of Brinkley `4.3`, which supports the two restored Bayou DeView continuations at about `9.4` and `8.7` miles.
+  - Same-day direct USGS Water Services returned `14.43 ft` at `2026-07-16 09:00 CDT` for Bayou DeView near Brinkley (`07077730`), so both Bayou routes ship in-range with explicit floodplain route-finding and high-water caution rather than comfort language.
+  - The current NPS Buffalo access mileage chart still lists Ponca -> Pruitt at `23.9` river miles with Steel Creek, Kyle's Landing, Erbie, and Ozark between them; the current upper-district paddling page still says the upper Buffalo is extremely rainfall dependent and should be checked against gauges; and same-day direct USGS Water Services returned `35.8 cfs / 3.21 ft` at `2026-07-16 09:00-09:15 CDT` for Buffalo River at Pruitt (`07055680`).
+- Threshold, camping, and image posture:
+  - Both Bayou DeView restorations keep the existing conservative two-sided AGFC model of `tooLow: 14`, `idealMin: 14`, `idealMax: 16.9`, and `tooHigh: 17`, with `nearby_basecamp` camping because Dagmar WMA remains the legal overnight support rather than in-route camping for these day-float lengths.
+  - `buffalo-river-ponca-pruitt` uses the established upper-Buffalo `minimum-only` Pruitt floor at `100 cfs`, keeps the NPS unsafe-high caveat above `2,000 cfs`, ships as `routeType: whitewater`, and stays `endpoint_campground` because Ponca / Steel Creek / Kyle's / Erbie / Ozark legal campground infrastructure still anchors the corridor.
+  - Image coverage stayed reuse-only: the two Bayou routes keep their existing bounded no-image audit outcomes, while `buffalo-river-ponca-pruitt` reuses the approved NPS upper-Buffalo corridor image already used on adjacent Pruitt-family continuations.
+
 ## 2026-07-16 Buffalo Hasty continuation pass
 
 - Rebuilt the live Arkansas inventory from the current repo state before editing. Arkansas had thirty-eight live route objects and matching trip-detail entries at run start, so this follow-up still had to create three genuinely new slugs beyond that baseline.

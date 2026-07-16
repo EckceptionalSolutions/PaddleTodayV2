@@ -14845,6 +14845,83 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'bayou-deview-benson-creek-rock-island-road': {
+    putIn: {
+      id: 'benson-creek-access',
+      name: 'Benson Creek Access',
+      latitude: 34.93569,
+      longitude: -91.24092,
+    },
+    takeOut: {
+      id: 'rock-island-road-access',
+      name: 'Rock Island Road Access',
+      latitude: 34.85911,
+      longitude: -91.29025,
+    },
+    logistics: {
+      distanceLabel: 'About 9.4 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7 hr, longer if route-finding, wood, or low water slows the floodplain travel',
+      shuttle:
+        'Stage the take-out at Rock Island Road Access, then drive back to Benson Creek Access. Carry the AGFC georeferenced map before launching because this longer continuation crosses multiple indistinct floodplain turns and side-channel decisions.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
+      camping:
+        'AGFC still treats nearby Dagmar WMA camping as the legal overnight support, but this continuation is still most defensible as a long day float unless the group separately confirms a primitive camp plan. Camping is not allowed on Cache River National Wildlife Refuge.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Benson Creek Access and take out at Rock Island Road Access for a longer upper-to-middle Bayou DeView day. This is still flatwater, but it is not a casual paddle: use the Brinkley gauge, carry the AGFC map, and expect a real route-finding commitment.',
+      accessCaveats: [
+        'Benson Creek and Rock Island Road are named public AGFC Bayou DeView Water Trail accesses reached by rural WMA roads rather than by developed park marinas.',
+        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
+        'The main channel is not always distinct. Carry the georeferenced map or equivalent offline navigation before leaving cell coverage.',
+        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
+      ],
+      watchFor: [
+        'Water below about 14 ft, when shallow obstructions and disconnected lower channels become more likely.',
+        'Water approaching or above 17 ft, when AGFC says the access roads can close and high-water timber travel becomes more dangerous.',
+        'Floating logs, strainers, wind exposure in open reaches, and missing the marked route through the lower cypress-tupelo corridor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'benson-creek-access',
+        name: 'Benson Creek Access',
+        latitude: 34.93569,
+        longitude: -91.24092,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream access for this longer upper-to-middle continuation.',
+      },
+      {
+        id: 'dark-corner-access',
+        name: 'Dark Corner Access',
+        latitude: 34.91998,
+        longitude: -91.25798,
+        mileFromStart: 2.1,
+        segmentKind: 'creek',
+        note: 'Intermediate public access and bailout before the Hickson Lake half of the route.',
+      },
+      {
+        id: 'hickson-lake-access',
+        name: 'Hickson Lake Access',
+        latitude: 34.89039,
+        longitude: -91.29826,
+        mileFromStart: 6.5,
+        segmentKind: 'creek',
+        note: 'Mid-route public access where the corridor transitions into the lower Dagmar half.',
+      },
+      {
+        id: 'rock-island-road-access',
+        name: 'Rock Island Road Access',
+        latitude: 34.85911,
+        longitude: -91.29025,
+        mileFromStart: 9.4,
+        segmentKind: 'creek',
+        note: 'Default downstream access for this longer upper-to-middle continuation.',
+      },
+    ],
+  },
   'bayou-deview-hickson-lake-rock-island-road': {
     putIn: {
       id: 'hickson-lake-access',
@@ -15017,6 +15094,84 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 4.3,
         segmentKind: 'creek',
         note: 'Default downstream access for this lower Bayou DeView split.',
+      },
+    ],
+  },
+  'bayou-deview-hickson-lake-bank-of-brinkley': {
+    putIn: {
+      id: 'hickson-lake-access',
+      name: 'Hickson Lake Access',
+      latitude: 34.89039,
+      longitude: -91.29826,
+    },
+    takeOut: {
+      id: 'bank-of-brinkley-access',
+      name: 'Bank of Brinkley Access',
+      latitude: 34.80024,
+      longitude: -91.30049,
+    },
+    logistics: {
+      distanceLabel: 'About 8.7 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7 hr, longer if route-finding, wind, or wood slows the lower floodplain channels',
+      shuttle:
+        'Stage the take-out at Bank of Brinkley Access, then drive back to Hickson Lake Access. Carry the AGFC georeferenced map before launching because this lower-half continuation still requires active navigation through multiple access-to-access decisions.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public AGFC accesses, follow Arkansas boating and PFD rules, and respect any WMA, refuge, gate, or road postings.',
+      camping:
+        'AGFC still treats nearby Dagmar WMA camping as the legal overnight support, but this lower-half continuation is still usually handled as a long day float unless the group separately confirms a primitive camp plan. Camping is not allowed on Cache River National Wildlife Refuge.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Hickson Lake Access and take out at Bank of Brinkley Access for a longer lower-half Bayou DeView route. Use the Brinkley gauge, verify Apple Lake seasonal access, and carry the AGFC map because the lower channel remains indistinct and wood-prone even on an in-range day.',
+      accessCaveats: [
+        'Hickson Lake and Bank of Brinkley are named public AGFC Bayou DeView Water Trail accesses reached by WMA or refuge roads rather than by full-service launch parks.',
+        'AGFC says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so verify both gauge freshness and road access before launching.',
+        'Apple Lake Waterfowl Rest Area is closed to access from Nov. 1 through Feb. 15, so a mid-route bailout or staged vehicle there is not always available.',
+        'Stay with the named public accesses and avoid private banks, fences, signs, and purple-painted property.',
+      ],
+      watchFor: [
+        'Water below about 14 ft, when shallow obstructions and disconnected lower channels become more likely.',
+        'Water approaching or above 17 ft, when AGFC says the access roads can close and high-water timber travel becomes more dangerous.',
+        'Floating logs, strainers, wind exposure in open reaches, and missing the marked route through the lower cypress-tupelo corridor.',
+        'Lower-day fatigue, limited bailout options after Apple Lake, and the transition toward Cache River NWR where camping remains prohibited.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hickson-lake-access',
+        name: 'Hickson Lake Access',
+        latitude: 34.89039,
+        longitude: -91.29826,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream access for this lower-half Bayou DeView continuation.',
+      },
+      {
+        id: 'rock-island-road-access',
+        name: 'Rock Island Road Access',
+        latitude: 34.85911,
+        longitude: -91.29025,
+        mileFromStart: 2.9,
+        segmentKind: 'creek',
+        note: 'Intermediate public access and bailout before the Apple Lake leg.',
+      },
+      {
+        id: 'apple-lake-access',
+        name: 'Apple Lake Access',
+        latitude: 34.84159,
+        longitude: -91.282,
+        mileFromStart: 4.4,
+        segmentKind: 'creek',
+        note: 'Intermediate lower access with seasonal closure from Nov. 1 through Feb. 15.',
+      },
+      {
+        id: 'bank-of-brinkley-access',
+        name: 'Bank of Brinkley Access',
+        latitude: 34.80024,
+        longitude: -91.30049,
+        mileFromStart: 8.7,
+        segmentKind: 'creek',
+        note: 'Default downstream access for this longer lower-half continuation.',
       },
     ],
   },
@@ -15442,6 +15597,101 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Long day mileage, rough-road shuttle delays, limited or no cell service, remote rescue exposure, and late-day darkness.',
       ],
     },
+  },
+  'buffalo-river-ponca-pruitt': {
+    putIn: {
+      id: 'ponca-access',
+      name: 'Ponca access / Buffalo River at Ponca gauge corridor',
+      latitude: 36.0225,
+      longitude: -93.354722,
+    },
+    takeOut: {
+      id: 'pruitt-launch',
+      name: 'Pruitt Landing / Highway 7 access',
+      latitude: 36.057666,
+      longitude: -93.135032,
+    },
+    logistics: {
+      distanceLabel: 'About 23.9 mi',
+      estimatedPaddleTime: 'About 10 hr to 12 hr, longer with low water, wood, scouting, or slow upper-district shuttles',
+      shuttle:
+        'Stage the take-out at Pruitt Landing, then drive back to Ponca. NPS component shuttles add up to roughly 2 hours between Ponca, Steel Creek, Kyle\'s Landing, Erbie, Ozark, and Pruitt, and upper-district roads can still be rough, muddy, or slow after storms. Inspect both accesses before launching.',
+      permits:
+        'No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check park alerts, weather, and river level before launching.',
+      camping:
+        'Ponca, Steel Creek, Kyle\'s Landing, Erbie, and Ozark still anchor this corridor with legal NPS camping support, so this route is best staged around developed campground infrastructure rather than private-bank improvisation.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Ponca and take out at Pruitt for a full upper Buffalo continuation through Steel Creek, Kyle\'s Landing, Erbie, and Ozark. Use the direct Pruitt gauge as the downstream low-water check, and skip the route when the river is rising fast, very low, or above the NPS unsafe level.',
+      accessCaveats: [
+        'Ponca is a busy upper-district access and the gauge sits in the launch corridor. Make a visual low-water and wood check before committing.',
+        'Pruitt is the signed Highway 7 finish, but NPS says to continue about half a mile past the bridge to the landing on river left. Do not mistake the bridge area for the take-out.',
+        'NPS says no road follows the river, access roads may be unpaved or rocky, and GPS can be unreliable in the park. Carry a real map and do not assume cell service.',
+        'This route uses the direct Pruitt gauge with minimum-only scoring. It is not a full ideal-range recommendation.',
+      ],
+      watchFor: [
+        'Swift Class I-II current, wave trains, side channels, sharp bends, bluff eddies, fresh flood wood, and cold-water swims.',
+        'Low water below about 100 cfs at Pruitt, when the Float Guide marks the lower corridor very low and the long mileage compounds dragging and slow route pace.',
+        'High water above the NPS 2,000 cfs Pruitt unsafe level; do not treat flood or rising water as suitable private-boater conditions.',
+        'Long day fatigue, rough-road shuttle delays, limited or no cell service, remote rescue exposure, and late-day darkness if the launch is delayed.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'ponca-access',
+        name: 'Ponca access / Buffalo River at Ponca gauge corridor',
+        latitude: 36.0225,
+        longitude: -93.354722,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream access for the full Ponca-to-Pruitt continuation.',
+      },
+      {
+        id: 'steel-creek-access',
+        name: 'Steel Creek campground / river access',
+        latitude: 36.040776,
+        longitude: -93.344048,
+        mileFromStart: 2.7,
+        segmentKind: 'creek',
+        note: 'First major public bailout and campground stop below Ponca.',
+      },
+      {
+        id: 'kyles-landing',
+        name: "Kyle's Landing campground / river access",
+        latitude: 36.055756,
+        longitude: -93.2813,
+        mileFromStart: 10.7,
+        segmentKind: 'creek',
+        note: 'Remote intermediate access with the roughest shuttle road in the corridor.',
+      },
+      {
+        id: 'erbie-access',
+        name: 'Erbie Campground / river access',
+        latitude: 36.070346,
+        longitude: -93.211886,
+        mileFromStart: 16.3,
+        segmentKind: 'creek',
+        note: 'Major middle-corridor campground access and practical split point.',
+      },
+      {
+        id: 'ozark-access',
+        name: 'Ozark Campground / river access',
+        latitude: 36.062132,
+        longitude: -93.159724,
+        mileFromStart: 21.8,
+        segmentKind: 'creek',
+        note: 'Lower-corridor public campground and the last obvious developed stop before Pruitt.',
+      },
+      {
+        id: 'pruitt-launch',
+        name: 'Pruitt Landing / Highway 7 access',
+        latitude: 36.057666,
+        longitude: -93.135032,
+        mileFromStart: 23.9,
+        segmentKind: 'creek',
+        note: 'Default downstream take-out below Highway 7 on river left.',
+      },
+    ],
   },
   'buffalo-river-kyles-landing-pruitt': {
     putIn: {
@@ -27567,4 +27817,3 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 };
-

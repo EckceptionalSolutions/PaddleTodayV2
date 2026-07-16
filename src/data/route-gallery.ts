@@ -1766,6 +1766,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
   ],
+  'buffalo-river-ponca-pruitt': [
+    {
+      id: 'buffalo-river-ponca-pruitt-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River bends through wooded Ozark bluffs in the long upper-district corridor from Ponca toward Pruitt.',
+      caption: 'Upper Buffalo River corridor toward Pruitt',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
   'buffalo-river-kyles-landing-pruitt': [
     {
       id: 'buffalo-river-ozark-pruitt-trail-nps',

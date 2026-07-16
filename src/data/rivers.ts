@@ -45675,6 +45675,133 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'bayou-deview-benson-creek-rock-island-road',
+    slug: 'bayou-deview-benson-creek-rock-island-road',
+    name: 'Bayou DeView',
+    reach: 'Benson Creek Access to Rock Island Road Access',
+    aliases: [
+      'Bayou DeView - Benson Creek to Rock Island Road',
+      'Bayou DeView Water Trail upper-to-middle continuation',
+      'AGFC Bayou DeView Benson Creek to Rock Island Road',
+    ],
+    state: 'Arkansas',
+    region: 'Delta',
+    summary:
+      'Longer upper-to-middle Bayou DeView continuation from Benson Creek Access to Rock Island Road Access. AGFC still documents the public access chain, the direct gauge thresholds, and the same floodplain route-finding caveats that make this more than a casual flatwater day.',
+    statusText:
+      'Use the Bayou DeView near Brinkley gauge. AGFC still says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so this route treats 14 to under 17 ft as the usable band and flags lower or higher water as a problem.',
+    latitude: 34.8974,
+    longitude: -91.27058,
+    routeType: 'recreational',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'AGFC says Bayou DeView high water is dangerous and the main channel is not always distinct, so this longer continuation needs active route-finding and conservative launch decisions.',
+        'Carry the AGFC georeferenced map offline and keep trail markers in sight because the upper-to-middle corridor leaves more room for wrong turns and time loss than the short splits.',
+        'Stay off private banks and expect wood, floating debris, and stronger current if the gauge rises toward the 17-foot Dagmar Road closure mark.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07077730',
+      provider: 'usgs',
+      siteId: '07077730',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Bayou Deview near Brinkley, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 14,
+      idealMax: 16.9,
+      tooLow: 14,
+      tooHigh: 17,
+      thresholdSource: {
+        label: 'Arkansas Game and Fish Bayou DeView gauge guidance',
+        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This longer continuation still depends on enough stage to connect the marked trail without forcing shallow detours, and road-access checks matter because the Dagmar gate closes when the gauge reaches 17 ft.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'AGFC treats the trail as flatwater without rapids, but this 9.4-mile upper-to-middle version is a fuller navigation day through a floodplain channel network rather than a casual one-channel float.',
+      confidenceNotes:
+        'Confidence is high for a conservative Arkansas add: AGFC still publishes the Benson Creek -> Hickson Lake 6.5-mile and Hickson Lake -> Rock Island Road 2.9-mile public segments, which support a defensible 9.4-mile continuation with source-backed public endpoints. The same AGFC page still ties the trail to direct USGS 07077730 with explicit low and closure thresholds, and Water Services returned 14.43 ft at 2026-07-16 09:00 CDT during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Benson Creek Access to Rock Island Road Access, about 9.4 miles',
+        note: 'AGFC lists Benson Creek to Hickson Lake as 6.5 miles and Hickson Lake to Rock Island Road as 2.9 miles, which supports the longer continuation through the same public access chain.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Direct gauge threshold',
+        value: 'Around 14 ft to paddle; Dagmar Road gate closes at 17 ft',
+        note: 'AGFC still says the gauge height needs to be around 14 feet or higher to paddle the trail and that the gate on Dagmar Road is closed at 17 feet.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Recent official gauge reading',
+        value: 'USGS 07077730 at 14.43 ft',
+        note: 'USGS Water Services returned a latest gage-height reading of 14.43 ft at 2026-07-16 09:00 CDT for Bayou Deview near Brinkley, inside AGFC\'s floatable threshold window.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07077730&parameterCd=00065&siteStatus=all',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Benson Creek Access, 34.93569, -91.24092',
+        note: 'AGFC still publishes Benson Creek Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Rock Island Road Access, 34.85911, -91.29025',
+        note: 'AGFC still publishes Rock Island Road Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
+        sourceUrl: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
+      },
+      {
+        label: 'Camping policy',
+        value: 'AGFC camping permit on Dagmar WMA; no Cache River NWR camping',
+        note: 'AGFC still treats Dagmar WMA as the nearby legal camping support and says Apple Lake WRA closes to access from Nov. 1 through Feb. 15, while camping is not allowed on Cache River National Wildlife Refuge.',
+        sourceUrl: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'AGFC Bayou DeView Water Trail',
+        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'AGFC Bayou DeView trail map',
+        url: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'AGFC Sheffield Nelson Dagmar WMA',
+        url: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07077730 Bayou Deview near Brinkley',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS Water Services 07077730 latest gage height',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07077730&parameterCd=00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'bayou-deview-hickson-lake-rock-island-road',
     slug: 'bayou-deview-hickson-lake-rock-island-road',
     name: 'Bayou DeView',
@@ -46024,6 +46151,133 @@ export const rivers: River[] = [
         label: 'Camping and access policy',
         value: 'Dagmar WMA campsites upstream; Apple Lake closed Nov. 1-Feb. 15; no Cache River NWR camping',
         note: 'AGFC still says free first-come campsites marked by blue paint are available on Dagmar WMA, Apple Lake WRA closes to access Nov. 1 through Feb. 15, and camping is not allowed on Cache River National Wildlife Refuge.',
+        sourceUrl: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'AGFC Bayou DeView Water Trail',
+        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'AGFC Bayou DeView trail map',
+        url: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'AGFC Sheffield Nelson Dagmar WMA',
+        url: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07077730 Bayou Deview near Brinkley',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS Water Services 07077730 latest gage height',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07077730&parameterCd=00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'bayou-deview-hickson-lake-bank-of-brinkley',
+    slug: 'bayou-deview-hickson-lake-bank-of-brinkley',
+    name: 'Bayou DeView',
+    reach: 'Hickson Lake Access to Bank of Brinkley Access',
+    aliases: [
+      'Bayou DeView - Hickson Lake to Bank of Brinkley',
+      'Bayou DeView Water Trail lower-half continuation',
+      'AGFC Bayou DeView Hickson Lake to Bank of Brinkley',
+    ],
+    state: 'Arkansas',
+    region: 'Delta',
+    summary:
+      'Longer lower-half Bayou DeView continuation from Hickson Lake Access to Bank of Brinkley Access. AGFC still documents the access chain, the direct gauge thresholds, and the seasonal Apple Lake caveat that shape this route.',
+    statusText:
+      'Use the Bayou DeView near Brinkley gauge. AGFC still says the trail needs about 14 ft or higher to paddle and that the Dagmar Road gate closes at 17 ft, so this route treats 14 to under 17 ft as the usable band and flags lower or higher water as a problem.',
+    latitude: 34.84534,
+    longitude: -91.29269,
+    routeType: 'recreational',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'AGFC says Bayou DeView high water is dangerous and the main channel is not always distinct, so this longer lower-half route still needs route-finding discipline even though it ends near Brinkley.',
+        'Use the Apple Lake seasonal access rule and the lower access roads as real go/no-go checks, not just the river gauge.',
+        'Stay off private banks and expect floating wood, blind turns through cypress, and stronger push as the gauge rises toward the 17-foot road-closure mark.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07077730',
+      provider: 'usgs',
+      siteId: '07077730',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Bayou Deview near Brinkley, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07077730/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 14,
+      idealMax: 16.9,
+      tooLow: 14,
+      tooHigh: 17,
+      thresholdSource: {
+        label: 'Arkansas Game and Fish Bayou DeView gauge guidance',
+        url: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This longer lower-half route still depends on enough stage to keep the trail connected, and launch-day checks should include both the USGS gauge and whether Apple Lake or lower access roads are open under current WMA conditions.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'AGFC treats the trail as flatwater without rapids, but this 8.7-mile lower-half version still needs navigation through timbered floodplain turns and should not be treated like a straight canal paddle.',
+      confidenceNotes:
+        'Confidence is high for a conservative Arkansas add: AGFC still publishes the Hickson Lake -> Rock Island 2.9-mile, Rock Island -> Apple Lake 1.5-mile, and Apple Lake -> Bank of Brinkley 4.3-mile public segments, which support a defensible 8.7-mile continuation with source-backed public endpoints. The same AGFC page still ties the trail to direct USGS 07077730 with explicit low and closure thresholds, and Water Services returned 14.43 ft at 2026-07-16 09:00 CDT during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Hickson Lake Access to Bank of Brinkley Access, about 8.7 miles',
+        note: 'AGFC lists Hickson Lake to Rock Island Road as 2.9 miles, Rock Island Road to Apple Lake as 1.5 miles, and Apple Lake to Bank of Brinkley as 4.3 miles, which supports the longer lower-half continuation.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Direct gauge threshold',
+        value: 'Around 14 ft to paddle; Dagmar Road gate closes at 17 ft',
+        note: 'AGFC still says the gauge height needs to be around 14 feet or higher to paddle the trail and that the gate on Dagmar Road is closed at 17 feet.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Recent official gauge reading',
+        value: 'USGS 07077730 at 14.43 ft',
+        note: 'USGS Water Services returned a latest gage-height reading of 14.43 ft at 2026-07-16 09:00 CDT for Bayou Deview near Brinkley, inside AGFC\'s floatable threshold window.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07077730&parameterCd=00065&siteStatus=all',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Hickson Lake Access, 34.89039, -91.29826',
+        note: 'AGFC still publishes Hickson Lake Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/bayou-deview-water-trail/',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Bank of Brinkley Access, 34.80024, -91.30049',
+        note: 'AGFC still publishes Bank of Brinkley Access as a named public Bayou DeView Water Trail launch with a map-linked coordinate point.',
+        sourceUrl: 'https://www.agfc.com/wp-content/uploads/2023/05/bayoudeviewwatertrail.pdf',
+      },
+      {
+        label: 'Camping and seasonal access',
+        value: 'AGFC camping permit on Dagmar WMA; Apple Lake closed Nov. 1-Feb. 15; no Cache River NWR camping',
+        note: 'AGFC still treats Dagmar WMA as the nearby legal camping support, says Apple Lake WRA is closed to access from Nov. 1 through Feb. 15, and says camping is not allowed on Cache River National Wildlife Refuge.',
         sourceUrl: 'https://www.agfc.com/wma/sheffield-nelson-dagmar-wma/',
       },
     ],
@@ -47079,6 +47333,130 @@ export const rivers: River[] = [
         label: 'American Whitewater Pruitt to Hasty',
         url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3964/main',
         provider: 'american_whitewater',
+      },
+    ],
+  },
+  {
+    id: 'buffalo-river-ponca-pruitt',
+    slug: 'buffalo-river-ponca-pruitt',
+    name: 'Buffalo River',
+    reach: 'Ponca to Pruitt',
+    aliases: [
+      'Upper Buffalo - Ponca to Pruitt',
+      'Buffalo River - Ponca to Pruitt Landing',
+      'Ponca to Pruitt upper-district continuation',
+    ],
+    state: 'Arkansas',
+    region: 'Ozarks',
+    summary:
+      'Long upper Buffalo continuation from Ponca to Pruitt through Steel Creek, Kyle\'s Landing, Erbie, and Ozark. NPS still publishes the current access ladder and mileage chart, and the direct Pruitt gauge keeps the lower-corridor low-water and unsafe-high warnings on one official source.',
+    statusText:
+      'Use the Buffalo River at Pruitt gauge. The NPS-linked Float Guide still marks Pruitt very low below 100 cfs and the park still says levels above 2,000 cfs at Pruitt / Highway 7 are unsafe, so this route keeps a conservative minimum-only low-water floor and high-water caveat.',
+    latitude: 36.0225,
+    longitude: -93.354722,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'fast_rise', 'strainers', 'cold_water', 'remote', 'private_banks'],
+      safetyNotes: [
+        'This is a long upper-district Buffalo commitment with swift Class I-II current, sharp bends, cold water, and long no-road stretches between public accesses.',
+        'NPS still says upper-district paddling is extremely dependent on rainfall, no road follows the river, many access roads are rough or unpaved, and GPS can be unreliable in the park.',
+        'Use the direct Pruitt gauge and current park alerts before launching. Very low water can turn the route into a drag-heavy all-day problem, while rising or flood water is not suitable private-boater conditions.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07055680',
+      provider: 'usgs',
+      siteId: '07055680',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Buffalo River at Pruitt, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'NPS-linked Buffalo River Float Guide Pruitt bands',
+        url: 'https://www.nps.gov/buff/planyourvisit/upper-district-paddling.htm',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS still says upper-district Buffalo paddling is extremely dependent on rainfall and often works best in spring or early summer, but the Pruitt gauge can still show runnable windows after storms outside that core season.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The miles stack up into a very long whitewater-ish moving-water day with repeated riffles, bluff bends, remote rescue exposure, and rough-road shuttle friction. Treat this as an advanced planning route, not a casual scenic float.',
+      confidenceNotes:
+        'Confidence is good for a conservative Arkansas add: NPS still publishes the official upper-district mileage chart with Ponca -> Pruitt at 23.9 miles, the upper-district paddling page still says the corridor is rainfall dependent and should be checked against river gauges, and direct USGS Water Services returned 35.8 cfs and 3.21 ft at Pruitt during this run. The app keeps the established Pruitt minimum-only floor from the NPS-linked Float Guide rather than inferring a broader ideal range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Ponca to Pruitt, 23.9 miles',
+        note: 'The current NPS Buffalo River mileage chart still lists Ponca to Pruitt as 23.9 river miles and preserves the intermediate access ladder of Steel Creek, Kyle\'s Landing, Erbie, and Ozark.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+      },
+      {
+        label: 'Upper-district condition framing',
+        value: 'Rainfall dependent upper-district route',
+        note: 'The current NPS upper-district paddling page still says paddling conditions in the upper district are extremely dependent on rainfall and tells visitors to check gauges and current conditions before launching.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/upper-district-paddling.htm',
+      },
+      {
+        label: 'Direct gauge reading',
+        value: 'USGS 07055680 at 35.8 cfs / 3.21 ft',
+        note: 'USGS Water Services returned direct Pruitt values of 35.8 cfs at 2026-07-16 09:00 CDT and 3.21 ft at 2026-07-16 09:15 CDT, which is below the conservative 100 cfs floor and supports explicit too-low / scraping-likely framing in this run.',
+        sourceUrl: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055680&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Threshold support',
+        value: 'Pruitt minimum-only 100 cfs floor; 2,000 cfs unsafe high caveat',
+        note: 'The current NPS-linked Buffalo Float Guide still marks Pruitt very low below 100 cfs and the NPS paddling guidance still says levels above 2,000 cfs at Pruitt / Highway 7 are unsafe.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/upper-district-paddling.htm',
+      },
+      {
+        label: 'Public endpoints',
+        value: 'Ponca access and Pruitt Landing / Highway 7 access',
+        note: 'Current NPS Buffalo access pages and corridor guidance still treat Ponca as an upper-district launch and Pruitt Landing as the signed Highway 7 take-out below the bridge area.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+      },
+      {
+        label: 'Camping support',
+        value: 'Steel Creek, Kyle\'s Landing, Erbie, and Ozark campground corridor',
+        note: 'Current NPS campground pages still confirm legal overnight support at the major intermediate campgrounds, which keeps the route on developed public infrastructure instead of implying private-bank camping.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Buffalo upper district paddling',
+        url: 'https://www.nps.gov/buff/planyourvisit/upper-district-paddling.htm',
+        provider: 'local',
+      },
+      {
+        label: 'NPS Buffalo river accesses and mileage',
+        url: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+        provider: 'local',
+      },
+      {
+        label: 'NPS Buffalo camping',
+        url: 'https://www.nps.gov/buff/planyourvisit/camping.htm',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07055680 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS Water Services 07055680 current discharge and gage height',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055680&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
       },
     ],
   },
