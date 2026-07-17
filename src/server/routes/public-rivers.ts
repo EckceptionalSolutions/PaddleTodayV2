@@ -68,7 +68,7 @@ export async function handleRiverSummary(response: ServerResponse, requestId: st
       generatedAt: snapshot.generatedAt,
       riverCount: snapshot.riverCount,
       rivers: snapshot.rivers,
-    }, includeBody);
+    }, includeBody, 'no-store');
   }
 
   const generatedAt = new Date().toISOString();
@@ -81,7 +81,7 @@ export async function handleRiverSummary(response: ServerResponse, requestId: st
     generatedAt,
     riverCount: rivers.length,
     rivers,
-  }, includeBody);
+  }, includeBody, 'no-store');
 }
 
 export async function handleWeekendSummary(response: ServerResponse, requestId: string, includeBody: boolean) {
@@ -94,7 +94,7 @@ export async function handleWeekendSummary(response: ServerResponse, requestId: 
       riverCount: snapshot.riverCount,
       withheldCount: snapshot.withheldCount,
       rivers: snapshot.rivers,
-    }, includeBody);
+    }, includeBody, 'no-store');
   }
 
   const generatedAt = new Date().toISOString();
@@ -113,7 +113,7 @@ export async function handleWeekendSummary(response: ServerResponse, requestId: 
     riverCount: rivers.length,
     withheldCount: Math.max(0, results.length - rivers.length),
     rivers,
-  }, includeBody);
+  }, includeBody, 'no-store');
 }
 
 export async function handleRiverDetail(response: ServerResponse, requestId: string, includeBody: boolean, slug: string) {
