@@ -41027,6 +41027,171 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'minnesota-river-camp-release-priens': {
+    putIn: {
+      name: 'Minnesota River, Camp Release Public Water Access Site',
+      latitude: 44.9600387,
+      longitude: -95.8112619,
+    },
+    takeOut: {
+      name: "Minnesota River, Prien's Landing Public Water Access Site",
+      latitude: 44.9296663,
+      longitude: -95.7267761,
+    },
+    logistics: {
+      distanceLabel: 'About 8.0 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr depending on level, wind, and campsite stops',
+      shuttle:
+        "Stage Prien's Landing south of Montevideo first, then drive back to Camp Release. Check both ramps for mud, debris, and high-water cleanup before committing.",
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR public accesses, follow Minnesota boating/PFD rules, and obey DNR watercraft-campsite and access rules.',
+      camping:
+        "DNR Map 2 marks a watercraft campsite around river mile 261.1 inside this reach. Treat overnight use as designated-site only; do not camp on private banks or unmarked riverbed areas next to private property.",
+      campingClassification: 'on_route_campsite',
+      summary:
+        "Launch at Camp Release and take out at Prien's Landing for a short upper Minnesota River connector with the Montevideo gauge inside the selected reach. The route has a mapped watercraft campsite and a Class I feature, but it is not a highlighted DNR recommended one-way.",
+      accessCaveats: [
+        'Camp Release resolves as WAS01022 at public-access river mile 265.6, and Prien resolves as WAS01053 at river mile 257.3 in the Minnesota public-water-access service.',
+        'DNR Map 2 places the Montevideo river-level gauge near river mile 258.5 and Prien near river mile 257.6, so same-day gauge and landing checks are unusually close to the take-out.',
+        "End at Prien's Landing unless you have a separate lower-corridor plan. Do not casually extend toward Granite Falls dam and rapids context.",
+      ],
+      watchFor: [
+        'Class I riffle current, floating wood, muddy banks, railroad-bridge context, and debris around the Montevideo corridor.',
+        'Low-water scraping below the official medium band and pushier current after rain.',
+        'Private banks and designated-campsite limits; stop only where access and camping are clearly legal.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'camp-release',
+        name: 'Minnesota River, Camp Release Public Water Access Site',
+        latitude: 44.9600387,
+        longitude: -95.8112619,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01022 at GIS river mile 265.6.',
+      },
+      {
+        id: 'priens-landing',
+        name: "Minnesota River, Prien's Landing Public Water Access Site",
+        latitude: 44.9296663,
+        longitude: -95.7267761,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS01053 at GIS river mile 257.3.',
+      },
+    ],
+  },
+  'minnesota-river-highway-4-harkin-store': {
+    putIn: {
+      name: 'Minnesota River, Highway 4 Public Water Access Site',
+      latitude: 44.4340345,
+      longitude: -94.7166648,
+    },
+    takeOut: {
+      name: 'Minnesota River, Harkin Store Public Water Access Site',
+      latitude: 44.3862362,
+      longitude: -94.5992038,
+    },
+    logistics: {
+      distanceLabel: 'About 11.3 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr depending on wind, current, and mud',
+      shuttle:
+        'Stage Harkin Store first, then drive back to the Highway 4 access south of Fairfax. This is a rural big-river shuttle with limited intermediate public exits.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and respect DNR, historical-site, WMA, and posted access rules.',
+      camping:
+        'Treat this as a day trip. No legal on-route watercraft campsite was confirmed between Highway 4 and Harkin Store during this run; use separate legal campgrounds or parks only after checking current rules.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Highway 4 and take out at Harkin Store for a Map 4 public-access connector below the existing Morton-to-Highway-4 card. The Morton gauge is an upstream same-map proxy, so visual landing checks matter.',
+      accessCaveats: [
+        'Highway 4 resolves as WAS00644 at GIS river mile 163.3, and Harkin Store resolves as WAS02302 at GIS river mile 152.0.',
+        'DNR Map 4 documents the larger Highway-4-to-Buessman corridor; Harkin Store is supported by the official public-access GIS, not by the recommended-one-way PDF.',
+        'Do not rely on private banks, farm lanes, sandbars, or wildlife-management-area frontage for bailout or camping.',
+      ],
+      watchFor: [
+        'Wind on broad bends, muddy banks, floating wood, debris, and strainers after rain.',
+        'Low-water shoals and slow bends if the Morton gauge falls toward the official scrapable band.',
+        'Limited legal exits between access points and rural rescue spacing.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-4-minnesota-river',
+        name: 'Minnesota River, Highway 4 Public Water Access Site',
+        latitude: 44.4340345,
+        longitude: -94.7166648,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00644 at GIS river mile 163.3.',
+      },
+      {
+        id: 'harkin-store',
+        name: 'Minnesota River, Harkin Store Public Water Access Site',
+        latitude: 44.3862362,
+        longitude: -94.5992038,
+        mileFromStart: 11.3,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02302 at GIS river mile 152.0.',
+      },
+    ],
+  },
+  'minnesota-river-harkin-store-buessman': {
+    putIn: {
+      name: 'Minnesota River, Harkin Store Public Water Access Site',
+      latitude: 44.3862362,
+      longitude: -94.5992038,
+    },
+    takeOut: {
+      name: 'Minnesota River, Buessman Bridge / County Road 14 Public Water Access Site',
+      latitude: 44.3620467,
+      longitude: -94.4979132,
+    },
+    logistics: {
+      distanceLabel: 'About 9.0 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr depending on level, wind, and landing conditions',
+      shuttle:
+        'Stage Buessman Bridge first, then drive back to Harkin Store. Inspect Buessman before launch because the next existing PaddleToday card starts there and downstream continuation should be deliberate.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey DNR, historical-site, county-road, and posted access rules.',
+      camping:
+        'Treat this as a day trip. No on-route watercraft campsite was confirmed between Harkin Store and Buessman Bridge; plan any overnight separately at legal public or private campgrounds.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Harkin Store and take out at Buessman Bridge for a short Map 4 connector that ends where the existing Buessman-to-Riverside card begins. The Mankato gauge is downstream, so same-day visual checks are required.',
+      accessCaveats: [
+        'Harkin Store resolves as WAS02302 at GIS river mile 152.0, and Buessman Bridge resolves as WAS00804 at GIS river mile 143.0.',
+        'DNR Map 4 documents the lower part of this split and the Buessman Bridge access; Harkin Store is supported by the official public-access GIS.',
+        'Do not assume private banks, WMA edges, or field roads are legal exits, rest stops, or campsites.',
+      ],
+      watchFor: [
+        'Wind exposure, muddy approaches, floating debris, overhanging trees, and strainers.',
+        'A downstream proxy gauge that may lag local conditions; postpone if the route has fresh rain, rising water, or poor landing visibility.',
+        'The planned take-out is Buessman Bridge. Continue downstream only if you intentionally join the separate Buessman-to-Riverside route plan.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'harkin-store',
+        name: 'Minnesota River, Harkin Store Public Water Access Site',
+        latitude: 44.3862362,
+        longitude: -94.5992038,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02302 at GIS river mile 152.0.',
+      },
+      {
+        id: 'buessman-bridge',
+        name: 'Minnesota River, Buessman Bridge / County Road 14 Public Water Access Site',
+        latitude: 44.3620467,
+        longitude: -94.4979132,
+        mileFromStart: 9,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00804 at GIS river mile 143.0.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {

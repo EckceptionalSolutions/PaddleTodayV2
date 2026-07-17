@@ -1,18 +1,28 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-16 22:17 America/Chicago.
+Last summarized: 2026-07-16 23:19 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 217 after the 2026-07-16 22:17 Minnesota route-addition run.
-- Top represented rivers: Mississippi River 43, Minnesota River 15, Sauk River 10, Crow Wing River 9, North Fork Crow River 9, Rum River 9, St. Croix River 8, St. Louis River 8, Root River 7, Big Fork River 6, Cannon River 6, Red Lake River 6, Zumbro River 6, Cloquet River 5, Otter Tail River 5, Red River of the North 5, Straight River 5, Cedar River 4, Cottonwood River 4, Little Fork River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, and Vermilion River.
-- Ledger candidates: 1064 total; 676 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 56 `research_later`, 30 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
+- Live routes: 220 after the 2026-07-16 23:19 Minnesota route-addition run.
+- Top represented rivers: Mississippi River 43, Minnesota River 18, Sauk River 10, Crow Wing River 9, North Fork Crow River 9, Rum River 9, St. Croix River 8, St. Louis River 8, Root River 7, Big Fork River 6, Cannon River 6, Red Lake River 6, Zumbro River 6, Cloquet River 5, Otter Tail River 5, Red River of the North 5, Straight River 5, Cedar River 4, Cottonwood River 4, Little Fork River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, and Vermilion River.
+- Ledger candidates: 1073 total; 685 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 56 `research_later`, 30 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-16 23:19 America/Chicago / 2026-07-17 04:19 UTC: added `minnesota-river-camp-release-priens`, `minnesota-river-highway-4-harkin-store`, and `minnesota-river-harkin-store-buessman`.
+- Baseline at run start was 217 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 220 and fill three public-access Minnesota River gaps between existing cards rather than reusing older automation commits.
+- Qualification path: MN DNR Minnesota River Map 2 documents Camp Release, Prien's Landing, a watercraft campsite near RM 261.1, Class I context near Montevideo, and the route-gauge area. MN DNR Minnesota River Map 4 documents the Highway 4-to-Buessman corridor, WMAs, tributary crossings, Buessman Bridge, and water-trail safety/camping rules. Minnesota public-water-access GIS resolves all selected endpoints: Camp Release `WAS01022`, Prien's Landing `WAS01053`, Highway 4 `WAS00644`, Harkin Store `WAS02302`, and Buessman Bridge `WAS00804`.
+- Live gauge verification: MN DNR Montevideo site `99` returned `6.10 ft` at 2026-07-16 21:00 CDT, Morton site `107` returned `1,900 cfs` at 2026-07-16 21:00 CDT, and Mankato site `96` returned `4,250 cfs` at 2026-07-16 21:30 CDT. Montevideo and Morton were in official medium bands; Mankato was just below the official medium band and therefore ships with low/visual-check caveats.
+- Implemented official DNR interpreted gauge models only: Montevideo `3 / 5-9 / 14 ft`, Morton `307 / 1,330-3,750 / 10,900 cfs`, and Mankato `566.9 / 4,550-17,900 / 22,500 cfs`. No extra ideal ranges or upper cutoffs were invented.
+- Camping posture: Camp-Release-to-Prien's is `on_route_campsite` through the mapped DNR watercraft campsite; Highway-4-to-Harkin and Harkin-to-Buessman are no-camping day routes. All three reject informal private-bank or riverbed camping.
+- Safety posture: all three carry wind, mud, low-water, high/rising-water, strainers/floating debris, private-bank, limited-exit, and visual-check caveats. Camp-Release-to-Prien's adds Class I and no-unplanned-continuation wording toward Granite Falls dam/rapids context. The Harkin splits explicitly state that Harkin is official public-access GIS support, not a DNR recommended-one-way highlight, and keep proxy-gauge caveats.
+- Image posture: no route-gallery images were added. Image audit rows record bounded MN DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add already-live prompt leads including Chippewa Lentz-to-Watson, Des Moines Mayflower-to-Christianna, Kettle Musclewood, Minnesota River Kinney-to-Skalbekken, St. Louis CR4/95, Fond du Lac/Oldenburg, Paupores/Brookston, Vermilion Twomile-to-Eightmile, Watonwan CR32-to-Garden-City, Mississippi Itasca/Coffee-Pot/Cass/Winnie, and the official DNR Red River recommended sections. Lower Blue Earth/Rapidan remains dam-hazard blocked; Snake Silver-Star-to-Lower-Falls remains threshold/access weak; most remaining Big Fork/Crow Wing/Cottonwood/Long Prairie splits were weaker duplicate-corridor adds than the selected Minnesota River gap fillers.
 
 - 2026-07-16 22:17 America/Chicago / 2026-07-17 03:17 UTC: added `crow-wing-river-little-white-dog-cottingham`, `crow-wing-river-cottingham-bullard-bluff`, and `crow-wing-river-bullard-bluff-old-wadena`.
 - Baseline at run start was 214 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 217 and add lower Crow Wing Map 2 county-park legs that were absent from the current repo baseline.
