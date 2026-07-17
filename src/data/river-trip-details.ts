@@ -7359,6 +7359,63 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'badfish-creek-highway-a-old-stage': {
+    putIn: {
+      id: 'badfish-creek-county-highway-a-landing',
+      name: 'County Highway A Badfish Creek landing',
+      latitude: 42.89336,
+      longitude: -89.29837,
+    },
+    takeOut: {
+      id: 'old-stage-road-canoe-kayak-landing',
+      name: 'Old Stage Road canoe/kayak landing',
+      latitude: 42.85299,
+      longitude: -89.25676,
+    },
+    logistics: {
+      distanceLabel: 'About 4.2 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with wood or low-water wading',
+      shuttle:
+        'Use a short rural shuttle between the County Highway A landing and Old Stage Road. A bike shuttle is possible on local roads, but confirm shoulder comfort and do not block either landing.',
+      permits:
+        'No route-specific paddling permit is known. Use the public Highway A landing, follow posted Badfish Creek Wildlife Area rules at Old Stage Road, and respect private banks between access points.',
+      camping:
+        'No on-route camping is documented. Treat this as a day paddle; nearby public-land or private-campground overnights require separate reservation and rule checks.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the County Highway A landing west of Gallagher Lane and take out at Old Stage Road before the downstream favorite Badfish section. This upper link is worthwhile when wood is clear and the Cooksville gauge is in the normal Badfish window.',
+      accessCaveats: [
+        'County Highway A is a public landing with off-road parking, but WRT and 2024 comments still describe the bridge-area bank as potentially steep or weedy. Inspect the landing before unloading.',
+        'Old Stage Road is the cleanest take-out and connects to the downstream route family. Use the maintained landing rather than nearby private banks or informal roadside pullouts.',
+        'The route passes channelized banks, wildlife-area frontage, and private land. Stay in the public waterway and use only known access points.',
+      ],
+      watchFor: [
+        'Fresh deadfall, sweepers, and duck-unders, especially near Old Stone Road and after wind or storms.',
+        'Fast current around narrow bends above 200 cfs and shallow riffle bumps at lower levels.',
+        'Wastewater-effluent water-quality context, possible post-rain sewage concerns, wild parsnip or weedy banks, and cold-water exposure outside summer.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'badfish-creek-county-highway-a-landing',
+        name: 'County Highway A Badfish Creek landing',
+        latitude: 42.89336,
+        longitude: -89.29837,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the new Highway A landing west of Gallagher Lane.',
+      },
+      {
+        id: 'old-stage-road-canoe-kayak-landing',
+        name: 'Old Stage Road canoe/kayak landing',
+        latitude: 42.85299,
+        longitude: -89.25676,
+        mileFromStart: 4.2,
+        segmentKind: 'creek',
+        note: 'Default take-out and downstream Badfish route-family put-in.',
+      },
+    ],
+  },
   'badfish-creek-old-stage-casey': {
     putIn: {
       name: 'Old Stage Road canoe/kayak landing',
@@ -13456,6 +13513,63 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Strainers, eroding banks, limited cell service, and difficult rescue access in the gorge.',
       ],
     },
+  },
+  'prairie-river-county-ccc-prairie-forks': {
+    putIn: {
+      id: 'prairie-river-county-ccc-fishing-wayside',
+      name: 'County Road CCC public fishing wayside',
+      latitude: 45.33596,
+      longitude: -89.46462,
+    },
+    takeOut: {
+      id: 'prairie-river-prairie-forks-drive-access',
+      name: 'Prairie Forks Drive bridge access',
+      latitude: 45.30847,
+      longitude: -89.51597,
+    },
+    logistics: {
+      distanceLabel: 'About 6.2 mi',
+      estimatedPaddleTime: 'About 3 hr, longer with scouting or logjam portages',
+      shuttle:
+        'Run a rural shuttle between the Prairie Forks Drive public parking area and the County Road CCC fishing wayside. WRT reports a 3.6-mile bike shuttle east of the river on paved roads, but vehicle shuttles are simpler for most groups.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public-style fishing and bridge access areas, follow any Lincoln County or trout-stream posting, and avoid private banks.',
+      camping:
+        'No on-route camping is documented. Treat this as a day route; Merrill-area lodging, Council Grounds State Park, or other basecamps require separate reservation and rule checks.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the County Road CCC public fishing wayside and take out at Prairie Forks Drive for the upper Prairie River Dudley segment. The best scenery is early, while the Bachelors Lane to Town Hall Road middle reach needs a wood check before committing to the full 6.2 miles.',
+      accessCaveats: [
+        'County Road CCC is a public fishing wayside rather than a full-service launch. Confirm parking, footing, and any fishing-season crowding before unloading.',
+        'Prairie Forks Drive has a public parking lot northwest of the bridge, but the landing is still a bridge/fishing access. Scout it before passing Bachelors Lane.',
+        'Bachelors Lane is the recommended shorter take-out in WRT if the logjam section below it has not been checked. Do not use nearby private farm or horse-property banks.',
+      ],
+      watchFor: [
+        'Two minor logjams upstream of Bachelors Lane and roughly five more between Bachelors Lane and Town Hall Road, including two that WRT found difficult.',
+        'Brisk Class I riffles, shallow rocky boulder gardens, cold trout-stream water, and quick bends into wood.',
+        'Higher water above the WRT target window pushing into strainers, lowering clarity, and making wades or portages less forgiving.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'prairie-river-county-ccc-fishing-wayside',
+        name: 'County Road CCC public fishing wayside',
+        latitude: 45.33596,
+        longitude: -89.46462,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in north of County Road CCC and east of the Highway 17 bridge.',
+      },
+      {
+        id: 'prairie-river-prairie-forks-drive-access',
+        name: 'Prairie Forks Drive bridge access',
+        latitude: 45.30847,
+        longitude: -89.51597,
+        mileFromStart: 6.2,
+        segmentKind: 'creek',
+        note: 'Default take-out at the bridge with public parking northwest of the bridge.',
+      },
+    ],
   },
   'prairie-river-county-j-county-c': {
     putIn: {
@@ -40847,6 +40961,63 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 16.6,
         segmentKind: 'creek',
         note: 'Default take-out; DNR public access near river mile 79.0 before the downstream Melrose dam/portage boundary.',
+      },
+    ],
+  },
+  'milwaukee-river-riverside-bruce-street': {
+    putIn: {
+      id: 'riverside-park-rotary-centennial-arboretum-landing',
+      name: 'Riverside Park / Milwaukee Rotary Centennial Arboretum landing',
+      latitude: 43.0674,
+      longitude: -87.89238,
+    },
+    takeOut: {
+      id: 'bruce-street-boat-ramp',
+      name: 'Bruce Street Boat Ramp',
+      latitude: 43.02503,
+      longitude: -87.90403,
+    },
+    logistics: {
+      distanceLabel: 'About 3.9 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr depending on current, bridge traffic, and stops',
+      shuttle:
+        'Use an urban two-car shuttle between Bruce Street and Riverside Park / Milwaukee Rotary Centennial Arboretum. A bike or rideshare shuttle is feasible, but account for downtown traffic, events, parking fees, and ramp congestion.',
+      permits:
+        'No route-specific paddling permit is known. Follow Milwaukee County Parks and Milwaukee Urban Water Trail access rules, any Bruce Street launch fee or parking rules, and Wisconsin boating/PFD requirements.',
+      camping:
+        'No on-route camping is documented or appropriate for this urban day route.',
+      campingClassification: 'none',
+      summary:
+        'Launch from Riverside Park / Milwaukee Rotary Centennial Arboretum and finish at Bruce Street Boat Ramp before the harbor and Lake Michigan add-on. This is a compact downtown route, but North Avenue riffles, seawalls, tour boats, movable bridges, and urban water-quality timing matter.',
+      accessCaveats: [
+        'Riverside Park has a longer carry to the canoe landing. Confirm the access path, footing, and park conditions before staging boats.',
+        'Bruce Street is a public county ramp and can be busy with motor boats, emergency vessels, and harbor traffic. Land decisively and keep the ramp clear.',
+        'This card ends at Bruce Street. Continuing to McKinley Marina, Lake Michigan, or the harbor mouth adds open-water wind, swell, wake, and port-traffic exposure that is outside this route.',
+      ],
+      watchFor: [
+        'North Avenue riffles and pushier water when the Milwaukee gauge rises above the lower beginner window.',
+        'Movable bridges, tour boats, paddler congestion, hard seawalls, limited bailout spots, and wake reflection in the lower channel.',
+        'Urban runoff, possible sewage bypasses after heavy rain, cold water, wind, and harbor-adjacent motorboat traffic near Bruce Street.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'riverside-park-rotary-centennial-arboretum-landing',
+        name: 'Riverside Park / Milwaukee Rotary Centennial Arboretum landing',
+        latitude: 43.0674,
+        longitude: -87.89238,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the downtown split; WRT notes a long carry to the landing.',
+      },
+      {
+        id: 'bruce-street-boat-ramp',
+        name: 'Bruce Street Boat Ramp',
+        latitude: 43.02503,
+        longitude: -87.90403,
+        mileFromStart: 3.9,
+        segmentKind: 'creek',
+        note: 'Default take-out before the Lake Michigan add-on; expect motorboat and harbor traffic.',
       },
     ],
   },
