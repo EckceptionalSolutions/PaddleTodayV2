@@ -40676,6 +40676,183 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'milwaukee-river-thiensville-badger-meter': {
+    putIn: {
+      id: 'thiensville-village-park-launch',
+      name: 'Thiensville Village Park Launch',
+      latitude: 43.23144,
+      longitude: -87.979,
+    },
+    takeOut: {
+      id: 'badger-meter-river-park-launch',
+      name: 'Badger Meter River Park canoe/kayak launch',
+      latitude: 43.1779,
+      longitude: -87.95739,
+    },
+    logistics: {
+      distanceLabel: 'About 4.7 mi',
+      estimatedPaddleTime: 'About 1.75 hr to 2.5 hr depending on level and stops',
+      shuttle:
+        'Run a short two-car shuttle from Badger Meter River Park back to Thiensville Village Park. A bike shuttle can use Brown Deer and Ozaukee Interurban corridors, but expect urban crossings and local-street navigation.',
+      permits:
+        'No route-specific paddling permit is known. Follow Thiensville Village Park and Brown Deer park hours, parking, launch, and posted Urban Water Trail rules.',
+      camping:
+        'Treat this as a short urban day route. No on-route public camping is documented or assumed.',
+      campingClassification: 'none',
+      summary:
+        'Launch below the Mequon-Thiensville dam at Village Park and take out at Badger Meter River Park in Brown Deer for an easy lower-Milwaukee water-trail run. The Cedarburg USGS station is upstream, so pair the gauge band with same-day visual checks at the launch.',
+      accessCaveats: [
+        'Use the Village Park launch below the dam for this route. The Thiensville park page and boating guidance identify Village Park as the launch and dam portage area; do not run the dam.',
+        'Badger Meter River Park has a public canoe/kayak launch, but Wisconsin River Trips notes the exit includes a grassy uphill carry of roughly 300 feet.',
+        'The Cedarburg gauge is upstream of the whole reach. Local storms, dam operations, and downstream tributary input can make the water different than the gauge suggests.',
+        'Most banks are private or urban park frontage. Use only the named public launches and legal shoreline stops.',
+      ],
+      watchFor: [
+        'Fast or rising water after rain, minor riffles, bridge constrictions, strainers, and floating debris.',
+        'Urban runoff and water-quality concerns after storms.',
+        'Private islands, riprapped yards, fishing lines, and narrow channels around bends.',
+        'Low water can expose rocks and make riffles scrapey even when the route remains passable.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'thiensville-village-park-launch',
+        name: 'Thiensville Village Park Launch',
+        latitude: 43.23144,
+        longitude: -87.979,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below the Mequon-Thiensville dam at Village Park.',
+      },
+      {
+        id: 'badger-meter-river-park-launch',
+        name: 'Badger Meter River Park canoe/kayak launch',
+        latitude: 43.1779,
+        longitude: -87.95739,
+        mileFromStart: 4.7,
+        segmentKind: 'creek',
+        note: 'Default take-out at Brown Deer public canoe/kayak launch; expect an uphill carry to parking.',
+      },
+    ],
+  },
+  'pecatonica-river-highway-78-gratiot': {
+    putIn: {
+      id: 'pecatonica-highway-78-landing',
+      name: 'Highway 78 Landing',
+      latitude: 42.5985,
+      longitude: -90.0009,
+    },
+    takeOut: {
+      id: 'gratiot-conservation-club-landing',
+      name: 'Gratiot Conservation Club Landing',
+      latitude: 42.59378,
+      longitude: -89.96556,
+    },
+    logistics: {
+      distanceLabel: 'About 5.8 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr depending on current and wind',
+      shuttle:
+        'Use a two-car shuttle between the Highway 78 Landing and the Gratiot Conservation Club Landing. The Cheese Country Trail can shorten a bike shuttle, but it is an ATV/multi-use corridor and may require a trail pass.',
+      permits:
+        'No route-specific paddling permit is known. Follow Lafayette County and local landing rules, and confirm any Cheese Country Trail pass requirements if using a bike shuttle.',
+      camping:
+        'Treat this as a day route. No legal on-route campsite was identified between Highway 78 and Gratiot.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Highway 78 Landing and take out at Gratiot Conservation Club Landing for a quiet lower-Pecatonica connector. The Darlington USGS gauge is upstream of this reach, so use it as a same-river proxy and inspect the landings before committing.',
+      accessCaveats: [
+        'Use the signed or mapped landings rather than private farm lanes or bridge shoulders.',
+        'The Darlington gauge is upstream of this segment. Local rain, tributary inflow, and slow backwater conditions can change the lower river response.',
+        'Banks are mostly private agricultural frontage; avoid improvised stops and do not block field or club access at the take-out.',
+        'Mud is normal at lower-Pecatonica landings, especially after rain or at higher stages.',
+      ],
+      watchFor: [
+        'Slow current, muddy water, wind on open bends, and downed trees that may require careful maneuvering.',
+        'Cold-water exposure outside summer and limited clean bailout points along private banks.',
+        'High flows can make strainers and muddy eddies more consequential even though the reach has no normal rapids.',
+        'Wear bright colors during deer seasons where the river borders hunting land.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'pecatonica-highway-78-landing',
+        name: 'Highway 78 Landing',
+        latitude: 42.5985,
+        longitude: -90.0009,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the public Highway 78 Landing.',
+      },
+      {
+        id: 'gratiot-conservation-club-landing',
+        name: 'Gratiot Conservation Club Landing',
+        latitude: 42.59378,
+        longitude: -89.96556,
+        mileFromStart: 5.8,
+        segmentKind: 'creek',
+        note: 'Default take-out at the public Gratiot Conservation Club Landing.',
+      },
+    ],
+  },
+  'little-platte-river-stumpton-hwy-o': {
+    putIn: {
+      id: 'little-platte-stumpton-road-access',
+      name: 'Stumpton Road bridge access',
+      latitude: 42.7181,
+      longitude: -90.5205,
+    },
+    takeOut: {
+      id: 'little-platte-county-o-access',
+      name: 'County Highway O bridge access',
+      latitude: 42.6897,
+      longitude: -90.56434,
+    },
+    logistics: {
+      distanceLabel: 'About 6.1 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water or fence scouting',
+      shuttle:
+        'Use a two-car rural shuttle. A bike shuttle has hills and awkward highway routing; at the County O take-out, park completely clear of farm access and road shoulders.',
+      permits:
+        'No route-specific paddling permit is known. Access is bridge and shoulder style rather than developed ramps, so park legally, avoid private land, and use only public right-of-way or clearly allowed access.',
+      camping:
+        'No on-route public campsite is documented. Treat this as a day route and do not camp on farm or private banks.',
+      campingClassification: 'none',
+      summary:
+        'Run the fast, riffly Little Platte from Stumpton Road to County O only when the Platte River proxy is high enough and the group is ready for fences, shallow riffles, and fast high-water consequences.',
+      accessCaveats: [
+        'The put-in and take-out are practical bridge accesses, not developed launches; same-day parking legality and bank conditions control.',
+        'Wisconsin River Trips reports the County O take-out as a mowed path and muddy exit near a farm road; do not block tractor or field access.',
+        'The Rockville Platte gauge is a downstream proxy, not an on-segment gauge. Use it only with visual confirmation at Stumpton Road.',
+        'Banks are largely private agricultural frontage. Do not use private fields, lanes, or banks for scouting or breaks without permission.',
+      ],
+      watchFor: [
+        'Multiple fences, including a reported low electric fence over moving water near Maple Ridge Road.',
+        'High water can make this narrow creek dangerous; cancel if the gauge is above the recommended band or if the water is rising quickly.',
+        'Low water can mean repeated scraping and walking over riffles.',
+        'Class I riffles, possible wood strainers, cold water, remote road access, and limited rescue options between bridges.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'little-platte-stumpton-road-access',
+        name: 'Stumpton Road bridge access',
+        latitude: 42.7181,
+        longitude: -90.5205,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the practical Stumpton Road bridge access; confirm shoulder parking and bank condition.',
+      },
+      {
+        id: 'little-platte-county-o-access',
+        name: 'County Highway O bridge access',
+        latitude: 42.6897,
+        longitude: -90.56434,
+        mileFromStart: 6.1,
+        segmentKind: 'creek',
+        note: 'Default take-out at the County O bridge area; use only legal parking and keep farm access clear.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {
