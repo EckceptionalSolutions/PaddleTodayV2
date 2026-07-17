@@ -81,7 +81,7 @@ export default function WelcomeScreen() {
   ];
   if (previewBreakdown && previewBreakdown.finalScore !== previewBreakdown.rawTripScore) {
     previewScoreFactors.push({
-      label: 'Score cap',
+      label: 'Limit applied',
       value: previewBreakdown.finalScore - previewBreakdown.rawTripScore,
     });
   }

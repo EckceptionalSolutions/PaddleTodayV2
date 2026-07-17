@@ -510,6 +510,10 @@ function scoreBreakdownRows(breakdown: ScoreBreakdown) {
     rows.push({ label: 'Other', value: breakdown.comfortAdjustment });
   }
 
+  if (breakdown.finalScore !== breakdown.rawTripScore) {
+    rows.push({ label: 'Limit applied', value: breakdown.finalScore - breakdown.rawTripScore });
+  }
+
   return rows;
 }
 
@@ -544,8 +548,8 @@ function friendlyCapReason(reason: string) {
     return 'Strong wind puts a ceiling on today, even if the gauge is in range.';
   }
 
-  if (/Imminent heavy rain caps today at 65\./i.test(normalized)) {
-    return 'Rain is expected soon, so today stays in the cautious range.';
+  if (/Imminent heavy rain caps today at 65\.|Heavy rain or storms likely soon limit the score to 65\./i.test(normalized)) {
+    return 'Heavy rain or storms likely within 3 hours limit the score to 65.';
   }
 
   if (/Minimum-only guidance caps the trip score at 74\./i.test(normalized)) {

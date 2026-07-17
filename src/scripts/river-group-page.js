@@ -11,6 +11,7 @@ import { bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
 import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { ratingVerdictLabel } from '@paddletoday/api-contract';
+import { buildRouteMapSegments } from '../lib/route-map-segments.ts';
 
 const root = document.querySelector('[data-river-group-page]');
 
@@ -633,7 +634,6 @@ async function renderGroupMap(routes, { preserveViewport = false } = {}) {
     }
     mapMarkers = [];
 
-    const features = [];
     const bounds = new maplibregl.LngLatBounds();
     let hasBounds = false;
     const selectedRoute = routes.find((route) => route.slug === selectedSlug) ?? routes[0] ?? null;
@@ -643,21 +643,27 @@ async function renderGroupMap(routes, { preserveViewport = false } = {}) {
       lineOpacity: 0.36,
     });
 
-    for (const route of routes) {
-      const routeCoordinates = routeSpanCoordinates(route);
+    const routeSpans = routes.map((route) => ({
+      slug: route.slug,
+      rating: route.rating,
+      coordinates: routeSpanCoordinates(route),
+    }));
+    const features = buildRouteMapSegments(routeSpans, selectedSlug).map((segment) => ({
+      type: 'Feature',
+      properties: {
+        slug: segment.key,
+        rating: segment.rating,
+        selected: segment.selected,
+      },
+      geometry: {
+        type: 'LineString',
+        coordinates: segment.coordinates.map((point) => [point.longitude, point.latitude]),
+      },
+    }));
+
+    for (const [routeIndex, route] of routes.entries()) {
+      const routeCoordinates = routeSpans[routeIndex]?.coordinates ?? [];
       if (routeCoordinates.length >= 2) {
-        features.push({
-          type: 'Feature',
-          properties: {
-            slug: route.slug,
-            rating: route.rating,
-            selected: route.slug === selectedSlug,
-          },
-          geometry: {
-            type: 'LineString',
-            coordinates: routeCoordinates.map((point) => [point.longitude, point.latitude]),
-          },
-        });
         for (const point of routeCoordinates) {
           bounds.extend([point.longitude, point.latitude]);
         }

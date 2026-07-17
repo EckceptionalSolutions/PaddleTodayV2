@@ -1106,14 +1106,18 @@ function buildScoreBreakdown(args: {
     capReasons.push('High wind caps today at 75.');
   }
 
-  if (
-    ((args.weather?.next12hPrecipProbabilityMax ?? 0) > 60 &&
-      typeof args.weather?.next12hPrecipStartsInHours === 'number' &&
+  const rainOrStormsSoon =
+    (typeof args.weather?.next12hPrecipStartsInHours === 'number' &&
       args.weather.next12hPrecipStartsInHours <= 3) ||
-    args.weather?.rainTimingLabel === 'Imminent'
-  ) {
+    args.weather?.rainTimingLabel === 'Imminent';
+  const strongRainOrStormSignal =
+    (args.weather?.next12hPrecipProbabilityMax ?? 0) > 60 ||
+    (args.weather?.next12hPrecipitationIn ?? 0) >= 0.3 ||
+    args.weather?.next12hStormRisk === true;
+
+  if (rainOrStormsSoon && strongRainOrStormSignal) {
     finalScore = Math.min(finalScore, 65);
-    capReasons.push('Imminent heavy rain caps today at 65.');
+    capReasons.push('Heavy rain or storms likely soon limit the score to 65.');
   }
 
   if (args.river.profile.thresholdModel === 'minimum-only') {
