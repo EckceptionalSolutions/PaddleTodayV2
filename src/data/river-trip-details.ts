@@ -3238,6 +3238,62 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       }
     ],
   },
+  'st-croix-river-wild-river-lions-park': {
+    putIn: {
+      name: 'St. Croix River, Wild River State Park Public Water Access Site',
+      latitude: 45.522759,
+      longitude: -92.72902,
+    },
+    takeOut: {
+      name: "Taylors Falls Lion's Park dam portage take-out",
+      latitude: 45.42645,
+      longitude: -92.6515,
+    },
+    logistics: {
+      distanceLabel: 'About 8.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr on the water, plus portage time if continuing downstream',
+      shuttle:
+        "Stage Lion's Park first and identify the dam take-out before driving to Wild River State Park. If continuing to Minnesota Interstate State Park, plan the official Taylors Falls town portage as a separate carry that can take several hours.",
+      permits:
+        'No day-use paddling permit is known, but Wild River State Park requires a Minnesota state park vehicle permit for vehicles using the landing. Follow Riverway rules, posted dam/portage signs, and Minnesota boating/PFD requirements.',
+      camping:
+        'Treat the selected route as a day trip ending above the dam. Wild River State Park and Riverway designated campsites may support separate overnight planning, but only under current reservation, permit, and posted-site rules.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Launch at Wild River State Park and take out at Taylors Falls Lion's Park above the St. Croix Falls hydroelectric dam. The St. Croix Falls DNR gauge is the official same-corridor check, but the route's real gate is the mandatory dam take-out and portage plan.",
+      accessCaveats: [
+        'Wild River State Park resolves in Minnesota public-water-access GIS as WAS00298 at St. Croix river mile 63.0.',
+        "NPS Map 8 identifies Taylors Falls Lion's Park at S54.5 as the required portage take-out, but it is not represented in the Minnesota public-water-access GIS records reviewed for this run.",
+        'Do not continue below the hydroelectric dam by water. NPS says the river just below the dam lacks public access and has unpredictable water levels.',
+      ],
+      watchFor: [
+        'Missing or delaying the Lion\'s Park take-out above the dam.',
+        'Wind, motorboat wake, and lake-like travel through the Indian Head Flowage.',
+        'Summer sandbars, side-channel shallows, cold water, private banks, and fresh wood after storms.',
+        'Extra time, traffic, and physical effort if carrying through Taylors Falls to Minnesota Interstate State Park.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'wild-river-state-park-public-water-access',
+        name: 'St. Croix River, Wild River State Park Public Water Access Site',
+        latitude: 45.522759,
+        longitude: -92.72902,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; DNR public-access record WAS00298 at St. Croix river mile 63.0.',
+      },
+      {
+        id: 'taylors-falls-lions-park',
+        name: "Taylors Falls Lion's Park dam portage take-out",
+        latitude: 45.42645,
+        longitude: -92.6515,
+        mileFromStart: 8.5,
+        segmentKind: 'creek',
+        note: 'Mandatory take-out above the hydroelectric dam; NPS labels this portage point S54.5.',
+      },
+    ],
+  },
   'st-croix-river-osceola-william-obrien': {
     putIn: {
       name: 'Osceola Landing',
@@ -30448,6 +30504,79 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'mississippi-river-pike-creek-royalton': {
+    putIn: {
+      name: 'Mississippi River, Pike Creek Public Water Access Site',
+      latitude: 45.9527854,
+      longitude: -94.3914773,
+    },
+    takeOut: {
+      name: "Mississippi River, Royalton Sportsman's Club Public Water Access Site",
+      latitude: 45.8297201,
+      longitude: -94.3506845,
+    },
+    logistics: {
+      distanceLabel: 'About 9.7 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr including the Blanchard Dam portage',
+      shuttle:
+        "Stage Royalton Sportsman's Club first, then inspect the Blanchard Dam portage and below-dam carry-in before launching from Pike Creek. Do not commit unless the group can find and complete the left-bank portage.",
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, obey posted dam restrictions, and confirm any Royalton Sportsman\'s Club fee or parking rules.',
+      camping:
+        'Pike Creek has a DNR-mapped watercraft campsite at the launch corridor, but the selected route is best treated as a day trip with a dam portage. Do not camp on private banks or islands.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Pike Creek Landing and finish at Royalton Sportsman\'s Club for the missing Mississippi Map 7 connector. The route requires a mandatory Blanchard Dam portage on the left bank before continuing to the direct Royalton gauge corridor.',
+      accessCaveats: [
+        'Pike Creek, Blanchard Dam, and Royalton resolve in Minnesota public-water-access GIS with river-mile and coordinate records.',
+        'Blanchard Dam is not optional. DNR Map 7 marks a 600-yard left-bank portage; identify the exit before you are committed to dam current.',
+        'Royalton Sportsman\'s Club may charge a fee and is the planned finish. Do not continue into the longer Royalton-to-Sartell route unless the group has daylight, water, and shuttle planning for that separate card.',
+      ],
+      watchFor: [
+        'Dam approach current, portage footing, and the below-dam relaunch at Blanchard.',
+        'Rocky riffles, shallow margins, floating wood, and colder water when Royalton is near the low band.',
+        'Private banks and limited legal bailout between Pike Creek, Blanchard, and Royalton.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'pike-creek-landing',
+        name: 'Mississippi River, Pike Creek Public Water Access Site',
+        latitude: 45.9527854,
+        longitude: -94.3914773,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 963.3; resolves as WAS01279.',
+      },
+      {
+        id: 'blanchard-dam-landing',
+        name: 'Mississippi River, Blanchard Dam Landing / Zebulon Pike Lake Public Water Access Site',
+        latitude: 45.8651398,
+        longitude: -94.355031,
+        mileFromStart: 6.6,
+        segmentKind: 'creek',
+        note: 'Last trailer access above Blanchard Dam; use as the portage staging reference.',
+      },
+      {
+        id: 'blanchard-dam-carry-in',
+        name: 'Mississippi River, Blanchard Dam Public Water Access Site',
+        latitude: 45.8600499,
+        longitude: -94.3579586,
+        mileFromStart: 7.1,
+        segmentKind: 'creek',
+        note: 'Below-dam carry-in after the mapped 600-yard left-bank portage; resolves as WAS01282.',
+      },
+      {
+        id: 'royalton-sportsmans-club',
+        name: "Mississippi River, Royalton Sportsman's Club Public Water Access Site",
+        latitude: 45.8297201,
+        longitude: -94.3506845,
+        mileFromStart: 9.7,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 953.6 and direct Royalton gauge corridor.',
+      },
+    ],
+  },
   'vermilion-river-shively-eightmile': {
     putIn: {
       name: 'Vermilion River, Shively Falls Public Water Access Site',
@@ -31848,6 +31977,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 4.3,
         segmentKind: 'creek',
         note: 'Default take-out at DNR river mile 25.5; resolves as WAS00561.',
+      },
+    ],
+  },
+  'kettle-river-number-4-number-5': {
+    putIn: {
+      name: 'Kettle River #4 Public Water Access Site',
+      latitude: 46.1079205,
+      longitude: -92.863723,
+    },
+    takeOut: {
+      name: 'Kettle River #5 Public Water Access Site',
+      latitude: 46.0108726,
+      longitude: -92.8400816,
+    },
+    logistics: {
+      distanceLabel: 'About 8.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr depending on level, scouting, and low-water dragging',
+      shuttle:
+        'Stage #5 first, then drive upstream to #4. Do not move the put-in upstream to Sandstone, #2, or #1 unless the group is intentionally running the advanced Banning whitewater card.',
+      permits:
+        'No route-specific paddling permit is known. Follow DNR public-water-access rules, Banning State Park rules where applicable, Minnesota boating/PFD requirements, and posted parking limits.',
+      camping:
+        'Treat this as a day trip. Banning State Park and mapped watercraft campsites provide nearby planning context upstream, but this connector should not rely on informal bank camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Kettle River #4 and take out at #5 for the lower-Banning connector below the hardest Sandstone rapids. The Sandstone DNR gauge is direct to the put-in corridor and was far below the official scrapable floor during this run.',
+      accessCaveats: [
+        '#4 and #5 both resolve in Minnesota public-water-access GIS with Kettle River mile records and coordinates.',
+        '#4 is the intended upstream boundary. Starting above #4 adds Big Spring Falls / Sandstone Rapids, undercut walls, and advanced portage decisions.',
+        'The Kettle is runoff-sensitive; access may be physically public even when the channel is too low or too pushy for the selected group.',
+      ],
+      watchFor: [
+        'Shallow rocks, scraping, and dragging when the Sandstone gauge is below the official 800 cfs scrapable floor.',
+        'Fresh wood, fast rain-driven rises, cold water, and limited road access between #4 and #5.',
+        'Accidentally treating this as an extension of the upstream Banning whitewater route without helmets, rescue gear, or portage planning.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'kettle-river-four',
+        name: 'Kettle River #4 Public Water Access Site',
+        latitude: 46.1079205,
+        longitude: -92.863723,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below the main Banning rapids corridor; resolves as WAS02573 at DNR river mile 23.6.',
+      },
+      {
+        id: 'kettle-river-five',
+        name: 'Kettle River #5 Public Water Access Site',
+        latitude: 46.0108726,
+        longitude: -92.8400816,
+        mileFromStart: 8.5,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 15.1; resolves as WAS00910.',
       },
     ],
   },
@@ -42794,6 +42978,204 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 4.75,
         segmentKind: 'creek',
         note: 'Miles Paddled GPS point for the Little Hope / Shadow Lake Road take-out.',
+      },
+    ],
+  },
+  'tyler-forks-hwy-77-vogues-road': {
+    putIn: {
+      id: 'highway-77-tyler-forks',
+      name: 'Highway 77 / USGS sampling site access',
+      latitude: 46.34722,
+      longitude: -90.49445,
+    },
+    takeOut: {
+      id: 'vogues-road-tyler-forks',
+      name: 'Vogues Road take-out',
+      latitude: 46.4134,
+      longitude: -90.5168,
+    },
+    logistics: {
+      distanceLabel: 'About 7.2 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with Wren Falls scouting or portage',
+      shuttle:
+        'Stage Vogues Road first, then return to the Highway 77 bridge / USGS sampling-site access. Both endpoints are whitewater bridge accesses rather than developed landings, so verify shoulder parking, gravel-road condition, and footing before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules, keep bridge access low-impact, and obey any posted road, forest, or local restrictions.',
+      camping:
+        'No on-route public watercraft campsite is documented. Nearby Copper Falls State Park can work as a basecamp, but treat this whitewater run itself as a day route.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Use Highway 77 as the practical Tyler Forks put-in for the lower AW run and take out at Vogues Road after Wren Falls. The direct Stricker Road USGS gauge has AW-specific runnable bands, but the route is advanced whitewater with remote rescue exposure.',
+      accessCaveats: [
+        'Highway 77 is the AW alternate put-in that skips the upper Dells approach; do not assume the Moore Road upper mile is included in this card.',
+        'Wren Falls is a mandatory scout decision and should be portaged when wood, level, line, or group skill is wrong.',
+        'Vogues Road is the planned exit. Do not continue downstream without a separate plan and current access information.',
+      ],
+      watchFor: [
+        'Boulderbed Class II-III rapids, shallow pin rocks, alder strainers, and cold water.',
+        'Wren Falls, a Class IV drop with changing wood and consequential swims.',
+        'Fast rain-driven rises, remote road access, limited cell service, and long rescue response times.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-77-tyler-forks',
+        name: 'Highway 77 / USGS sampling site access',
+        latitude: 46.34722,
+        longitude: -90.49445,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'AW-listed alternate put-in below the upper Dells approach and near the direct USGS sampling site.',
+      },
+      {
+        id: 'wren-falls-tyler-forks',
+        name: 'Wren Falls scout / portage decision',
+        latitude: 46.3979,
+        longitude: -90.5058,
+        mileFromStart: 5.7,
+        segmentKind: 'creek',
+        note: 'Class IV drop near the end of the run; scout for wood and portage when appropriate.',
+      },
+      {
+        id: 'vogues-road-tyler-forks',
+        name: 'Vogues Road take-out',
+        latitude: 46.4134,
+        longitude: -90.5168,
+        mileFromStart: 7.2,
+        segmentKind: 'creek',
+        note: 'AW-listed take-out below the Wren Falls runout.',
+      },
+    ],
+  },
+  'mullet-river-sumac-river-park': {
+    putIn: {
+      id: 'sumac-road-mullet-river',
+      name: 'Sumac Road bridge access',
+      latitude: 43.72148,
+      longitude: -87.88006,
+    },
+    takeOut: {
+      id: 'river-park-sheboygan-falls',
+      name: 'River Park canoe ramp',
+      latitude: 43.72924,
+      longitude: -87.81406,
+    },
+    logistics: {
+      distanceLabel: 'About 7.6 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, longer with logjam portages',
+      shuttle:
+        'Stage the River Park canoe ramp in Sheboygan Falls, then drive or bike back to Sumac Road. WRT lists a 3.6-mile bike shuttle, but both endpoints should be inspected before launch because Sumac Road parking is tight.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules, keep the Sumac Road bridge access low-impact, and obey River Park and road-shoulder parking rules.',
+      camping:
+        'No on-route public campsite is documented. Treat this as a day route through private-bank and city-park corridors.',
+      campingClassification: 'none',
+      summary:
+        'Paddle the lower Mullet River from Sumac Road to River Park for a small-stream Sheboygan Falls day with riffles, boulder gardens, a dam portage, and multiple logjam checks. The Sheboygan gauge is only a rough proxy.',
+      accessCaveats: [
+        'WRT recommends launching west of the Sumac Road bridge because the east side has a private residence; parking is tight but workable when conditions allow.',
+        'River Park is the clean public take-out at the canoe ramp east of the main park and across from downtown businesses.',
+        'The Sheboygan gauge is downstream on a larger river. Use it as a conservative signal, then make a visual call at Sumac Road.',
+      ],
+      watchFor: [
+        'The lower-route dam portage. Scout and portage deliberately; do not run the dam.',
+        'Several logjams, dead ash, tight duckers, and fast current after the dam.',
+        'Low-water scraping below the WRT floor and pushy strainer risk when the proxy gauge is high or rising.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'sumac-road-mullet-river',
+        name: 'Sumac Road bridge access',
+        latitude: 43.72148,
+        longitude: -87.88006,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from WRT; launch west of the bridge to avoid the private residence east of the bridge.',
+      },
+      {
+        id: 'mullet-river-dam-portage',
+        name: 'Lower Mullet River dam portage',
+        latitude: 43.7262,
+        longitude: -87.8314,
+        mileFromStart: 5.8,
+        segmentKind: 'transition',
+        note: 'Approximate dam-portage zone from the WRT route map and report; scout both banks and expect faster wood below.',
+      },
+      {
+        id: 'river-park-sheboygan-falls',
+        name: 'River Park canoe ramp',
+        latitude: 43.72924,
+        longitude: -87.81406,
+        mileFromStart: 7.6,
+        segmentKind: 'creek',
+        note: 'Default take-out at the public parking lot and canoe ramp east of River Park in Sheboygan Falls.',
+      },
+    ],
+  },
+  'embarrass-south-branch-hwy-45-county-m': {
+    putIn: {
+      id: 'highway-45-south-branch-embarrass',
+      name: 'Highway 45 bridge access',
+      latitude: 44.74194,
+      longitude: -89.05728,
+    },
+    takeOut: {
+      id: 'county-road-m-south-branch-embarrass',
+      name: 'County Road M take-out',
+      latitude: 44.7359,
+      longitude: -89.02716,
+    },
+    logistics: {
+      distanceLabel: 'About 2.5 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer with scouting or wood portages',
+      shuttle:
+        'Stage County Road M first, then return to the Highway 45 bridge in Tigerton. Both endpoints are bridge-style whitewater accesses with limited staging, so inspect parking, bank slope, and any bridge work before launch.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules, use legal road shoulders only, and avoid crossing private banks except for necessary legal portage/scout decisions.',
+      camping:
+        'No on-route public campsite is documented. Treat Tigerton Dells as a short day-run and use area lodging or campgrounds separately if needed.',
+      campingClassification: 'none',
+      summary:
+        'Run the South Branch Embarrass from Highway 45 to County Road M for the short Tigerton Dells whitewater section. Miles Paddled gives a 130 cfs minimum on the downstream Embarrass gauge, while AW corroborates the dells hazards and wood exposure.',
+      accessCaveats: [
+        'Highway 45 access is not a developed canoe landing; plan for rough footing and limited roadside staging.',
+        'County Road M is the required take-out for this card. Verify bridge status and parking before committing because local work or washouts can change the exit.',
+        'The Embarrass gauge is a downstream mainstem proxy. Use the Miles Paddled floor only after a same-day visual check at the South Branch put-in.',
+      ],
+      watchFor: [
+        'Continuous rocky Class II-III drops, shallow ledges, and few eddies in the dells.',
+        'Fresh wood or river-wide blockages, including AW-reported portage-style hazards that can change by season.',
+        'High or rising water; Miles Paddled warns the run becomes wild Class IV around 650 cfs on the Embarrass gauge.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-45-south-branch-embarrass',
+        name: 'Highway 45 bridge access',
+        latitude: 44.74194,
+        longitude: -89.05728,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Miles Paddled-listed put-in for the Tigerton Dells run.',
+      },
+      {
+        id: 'tigerton-dells-south-branch-embarrass',
+        name: 'Tigerton Dells scout corridor',
+        latitude: 44.7369,
+        longitude: -89.0404,
+        mileFromStart: 1.4,
+        segmentKind: 'creek',
+        note: 'Approximate AW-described dells/wood-check corridor; inspect for fresh blockages and portage needs.',
+      },
+      {
+        id: 'county-road-m-south-branch-embarrass',
+        name: 'County Road M take-out',
+        latitude: 44.7359,
+        longitude: -89.02716,
+        mileFromStart: 2.5,
+        segmentKind: 'creek',
+        note: 'Miles Paddled-listed take-out at County Road M; verify bridge, parking, and bank condition before launch.',
       },
     ],
   },
