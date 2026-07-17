@@ -1,18 +1,28 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-16 23:19 America/Chicago.
+Last summarized: 2026-07-17 01:16 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 220 after the 2026-07-16 23:19 Minnesota route-addition run.
-- Top represented rivers: Mississippi River 43, Minnesota River 18, Sauk River 10, Crow Wing River 9, North Fork Crow River 9, Rum River 9, St. Croix River 8, St. Louis River 8, Root River 7, Big Fork River 6, Cannon River 6, Red Lake River 6, Zumbro River 6, Cloquet River 5, Otter Tail River 5, Red River of the North 5, Straight River 5, Cedar River 4, Cottonwood River 4, Little Fork River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, and Vermilion River.
-- Ledger candidates: 1073 total; 685 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 56 `research_later`, 30 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
+- Live routes: 223 after the 2026-07-17 01:16 Minnesota route-addition run.
+- Top represented rivers: Mississippi River 43, Minnesota River 18, Sauk River 10, Crow Wing River 9, North Fork Crow River 9, Rum River 9, St. Croix River 8, St. Louis River 8, Root River 7, Big Fork River 6, Cannon River 6, Red Lake River 6, Zumbro River 6, Chippewa River 5, Cloquet River 5, Otter Tail River 5, Red River of the North 5, Straight River 5, Cedar River 4, Cottonwood River 4, Little Fork River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, and Vermilion River.
+- Ledger candidates: 1079 total; 691 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 56 `research_later`, 30 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-17 01:16 America/Chicago / 2026-07-17 06:16 UTC: added `chippewa-river-swift-county-norby`, `chippewa-river-norby-lentz`, and `chippewa-river-watson-lagoon`.
+- Baseline at run start was 220 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 223 and fill three Chippewa public-access gaps around already-live Lentz-to-Watson and Lagoon-to-Prien's cards.
+- Qualification path: MN DNR Chippewa River segments/maps and map PDF document the corridor character, access context, Lagoon Park camping/toilets, Class I/light-rapid context, and lower-river speed caveat. Minnesota public-water-access GIS resolves Swift County `WAS01373`, Norby Landing `WAS01651`, Lentz Landing `WAS01687`, Watson Sag Dam `WAS01688`, and Lagoon Park / Montevideo Chippewa `WAS02654` with coordinates and river-mile records.
+- Live gauge verification: MN DNR river-level JSON returned Benson site `21` at `375 cfs` at 2026-07-16 23:30 CDT, Milan site `24` at `2.30 ft` at 2026-07-16 23:45 CDT, and Watson site `20` at `335 cfs` at 2026-07-16 23:00 CDT. Benson and Watson were in official low bands; Milan was in the official medium band.
+- Implemented official DNR interpreted gauge models only: Benson `135 / 482-942 / 1641 cfs`, Milan `1 / 2-4 / 6 ft`, and Watson `200 / 400-600 / 800 cfs`. No extra ideal ranges or upper cutoffs were invented.
+- Camping posture: Swift-to-Norby and Norby-to-Lentz are no-camping day routes; Watson-to-Lagoon is `endpoint_campground` through Lagoon Park's DNR-documented fee camping/toilets/10 campsites. All three reject informal private-bank camping.
+- Safety posture: all three carry low-water, strainers/snags/fallen trees, wind, cold-water, private-bank, high/rising-water, and visual-check caveats. Norby-to-Lentz adds long-mile/rural-rescue exposure; Watson-to-Lagoon adds dam-area launch discipline and no-unplanned-continuation wording toward the separate Lagoon-to-Prien's connector.
+- Image posture: no route-gallery images were added. Image audit rows record bounded MN DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add already-live prompt leads including Chippewa Lentz-to-Watson, Des Moines Mayflower-to-Christianna, Kettle Musclewood, Minnesota River Kinney-to-Skalbekken, Red River recommended sections, St. Louis CR4/95/Fond du Lac/Paupores, Otter Tail Phelps/Wannigan/Riverside, Mississippi Itasca/Coffee-Pot/Cass/Winnie, Vermilion Twomile-to-Eightmile, and Watonwan CR32-to-Garden-City. Little Fork and Long Prairie splits stayed out as duplicate-corridor or gauge-proxy-weak candidates.
 
 - 2026-07-16 23:19 America/Chicago / 2026-07-17 04:19 UTC: added `minnesota-river-camp-release-priens`, `minnesota-river-highway-4-harkin-store`, and `minnesota-river-harkin-store-buessman`.
 - Baseline at run start was 217 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 220 and fill three public-access Minnesota River gaps between existing cards rather than reusing older automation commits.
