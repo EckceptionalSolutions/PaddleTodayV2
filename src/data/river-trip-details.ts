@@ -42079,6 +42079,378 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'north-fork-crow-river-highway-4-manannah': {
+    putIn: {
+      name: 'North Fork Crow River, Highway 4 Public Water Access Site',
+      latitude: 45.2936548,
+      longitude: -94.6716136,
+    },
+    takeOut: {
+      name: 'North Fork Crow River, Manannah Public Water Access Site',
+      latitude: 45.2538082,
+      longitude: -94.6146809,
+    },
+    logistics: {
+      distanceLabel: 'About 5.7 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with shallow water or wood scouting',
+      shuttle:
+        'Stage Manannah first, then drive back to the Highway 4 access. Inspect both landings before committing because the narrow upper North Fork Crow can collect fresh wood after storms.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted DNR and local access rules.',
+      camping:
+        'Treat this as a day route. DNR Map 1 shows designated campsites elsewhere on the upper river, but this Highway-4-to-Manannah split does not assume an on-route overnight stop.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Highway 4 and take out at Manannah for a short upper North Fork Crow gap above the current Manannah-to-Highway-22 tree-alert reach. Use the downstream Highway 22 gauge as a conservative corridor check and make a same-day wood/bridge-clearance call.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Highway 4 as WAS02280 at river mile 128.5 and Manannah as WAS00681 at river mile 122.8.',
+        'The DNR alert says to avoid the downstream section between Manannah and Highway 22 until a large tree is cleared; take out at Manannah for this route.',
+        'The Highway 22 gauge is downstream of the selected reach and does not publish a separate very-high cutoff, so high or rising water should be treated conservatively.',
+      ],
+      watchFor: [
+        'Easy rapids, low bridge clearance, shallow gravel, underwater branches, overhanging trees, and strainers.',
+        'Private banks and limited public exits between Highway 4 and Manannah.',
+        'Fast rises after rain and cold water in shoulder seasons.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-4-north-fork-crow',
+        name: 'North Fork Crow River, Highway 4 Public Water Access Site',
+        latitude: 45.2936548,
+        longitude: -94.6716136,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 128.5; resolves as WAS02280.',
+      },
+      {
+        id: 'manannah-north-fork-crow',
+        name: 'North Fork Crow River, Manannah Public Water Access Site',
+        latitude: 45.2538082,
+        longitude: -94.6146809,
+        mileFromStart: 5.7,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 122.8; resolves as WAS00681.',
+      },
+    ],
+  },
+  'red-lake-river-highway-1-st-hilaire': {
+    putIn: {
+      name: 'Red Lake River, Highway 1 Public Water Access Site',
+      latitude: 48.1238659,
+      longitude: -96.1681105,
+    },
+    takeOut: {
+      name: 'Red Lake River, St. Hilaire City Park Public Water Access Site',
+      latitude: 48.0092108,
+      longitude: -96.2088527,
+    },
+    logistics: {
+      distanceLabel: 'About 13.8 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, headwind, or wood scouting',
+      shuttle:
+        'Stage St. Hilaire City Park first, then drive upstream to the Highway 1 access in Thief River Falls. Check both endpoints before launching because the route uses a downstream proxy gauge.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules and posted city, park, and public-access rules at both endpoints.',
+      camping:
+        'St. Hilaire City Park is mapped with camping/rest-area services on DNR Map 2. Treat camping as managed endpoint/basecamp use only; do not camp on private riverbanks.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Put in at Highway 1 / Centennial Park and take out at St. Hilaire for the upper Red Lake River gap above the existing St. Hilaire-to-Sportsman\'s card. The Red Lake Falls gauge is current and official, but it is downstream of the route, so local visual checks matter.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Highway 1 as WAS02414 at river mile 128.6 and St. Hilaire City Park as WAS00808 at river mile 114.8.',
+        'The nearby Thief River Falls gauge is stale in the current DNR feed; this card uses the downstream Red Lake Falls CR 13 gauge only as an official corridor proxy.',
+        'Intermediate farm crossings and private banks should not be treated as exits unless separately confirmed legal and public.',
+      ],
+      watchFor: [
+        'Low-water scraping, bouldery shoals, wood, strainers, and long rural spacing between public accesses.',
+        'Higher or rising water after storms, which can hide wood and increase recovery difficulty.',
+        'Cold water, private banks, and fatigue on a longer day.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-1-red-lake-river',
+        name: 'Red Lake River, Highway 1 Public Water Access Site',
+        latitude: 48.1238659,
+        longitude: -96.1681105,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 128.6; resolves as WAS02414.',
+      },
+      {
+        id: 'st-hilaire-city-park-red-lake',
+        name: 'Red Lake River, St. Hilaire City Park Public Water Access Site',
+        latitude: 48.0092108,
+        longitude: -96.2088527,
+        mileFromStart: 13.8,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR river mile 114.8; resolves as WAS00808.',
+      },
+    ],
+  },
+  'mississippi-river-aitkin-highway-6': {
+    putIn: {
+      name: 'Mississippi River, Aitkin Public Water Access Site / Aitkin Campground',
+      latitude: 46.5423989,
+      longitude: -93.713071,
+    },
+    takeOut: {
+      name: 'Mississippi River, Hwy 6 Public Water Access Site',
+      latitude: 46.5435051,
+      longitude: -93.9564174,
+    },
+    logistics: {
+      distanceLabel: 'About 25.7 mi',
+      estimatedPaddleTime: 'About 8 hr to 11 hr, longer with wind, low water, fishing stops, or fatigue',
+      shuttle:
+        'Stage the Highway 6 take-out north of Crosby, then drive back to Aitkin Campground. This is a long day; start early, carry lights, and consider shortening or postponing if the Aitkin gauge is low or wind is building.',
+      permits:
+        'No route-specific paddling permit is known. Use signed public accesses, follow Minnesota boating/PFD rules, and obey Aitkin County campground, parking, and boat-landing rules.',
+      camping:
+        'Aitkin County documents campground facilities at the put-in, including campsites, showers, drinking water, picnic tables, and boat access. Treat camping as managed endpoint/basecamp support, not an assumed on-route overnight stop.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Aitkin Campground and take out at Highway 6 for the missing Mississippi Map 5 connector above the existing Highway-6-to-Trommald card. The Aitkin gauge is direct at the put-in corridor and is currently below the preferred medium band.',
+      accessCaveats: [
+        'Aitkin resolves as WAS01042 at river mile 1055.7, and Highway 6 resolves as WAS00999 at river mile 1030.0 in Minnesota public-water-access GIS.',
+        'Aitkin County campground rules, fees, parking, and overnight use should be checked before relying on the put-in as a basecamp.',
+        'Public exits are limited for such a long reach; do not assume private banks or informal roads are legal bailouts.',
+      ],
+      watchFor: [
+        'Long mileage, fatigue, wind, motorboat wake, and fishing traffic on wider Mississippi bends.',
+        'Shallow bars and slow progress when the Aitkin gauge is in the low band.',
+        'Downed trees, floating debris, cold water, private banks, storms, and rising water after rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'aitkin-campground-mississippi',
+        name: 'Mississippi River, Aitkin Public Water Access Site / Aitkin Campground',
+        latitude: 46.5423989,
+        longitude: -93.713071,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at public-water-access GIS river mile 1055.7; resolves as WAS01042.',
+      },
+      {
+        id: 'highway-6-mississippi',
+        name: 'Mississippi River, Hwy 6 Public Water Access Site',
+        latitude: 46.5435051,
+        longitude: -93.9564174,
+        mileFromStart: 25.7,
+        segmentKind: 'creek',
+        note: 'Default take-out at public-water-access GIS river mile 1030.0; resolves as WAS00999.',
+      },
+    ],
+  },
+  'plover-river-hwy-k-jordan-park': {
+    putIn: {
+      id: 'county-highway-k-plover-access',
+      name: 'County Highway K bridge launch',
+      latitude: 44.6226,
+      longitude: -89.4822,
+    },
+    takeOut: {
+      id: 'jordan-park-canoe-launch',
+      name: 'Jordan Park canoe launch / Jordan Pond',
+      latitude: 44.57416,
+      longitude: -89.50188,
+    },
+    logistics: {
+      distanceLabel: 'About 5.3 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 3.5 hr, longer with low water or scouting',
+      shuttle:
+        'Stage Jordan Park first, then drive back to the County Highway K bridge. Inspect the Hwy K shoulder before unloading because WRT notes poor parking despite a useful launch trail.',
+      permits:
+        'No route-specific paddling permit is known. Use the public bridge / park accesses, follow Wisconsin boating and PFD rules, and obey Portage County park and campground rules.',
+      camping:
+        'Jordan Park has a campground and facilities at the take-out, making this a possible base-camp day route. No on-route riverbank camping is assumed between Hwy K and Jordan Park.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch from the Hwy K bridge area and finish at Jordan Park after the Sharonwood / boulder-garden corridor and Jordan Pond. The Kelly proxy was below the selected low-water floor during this run, so expect scraping until flows improve.',
+      accessCaveats: [
+        'Hwy K has a launch trail but poor shoulder parking; avoid blocking the road or private drives.',
+        'Sharonwood Lane is an intermediate access option, but the normal plan continues to Jordan Park.',
+        'Jordan Park is the planned exit. Do not continue into the downstream dam/tube section without a separate portage and route plan.',
+      ],
+      watchFor: [
+        'Boulder gardens, the former-dam / Sharonwood area, and low branches that may require scouting or a short carry.',
+        'New strainers after storms, cold water in shoulder seasons, and fast push when the proxy is above the recommended window.',
+        'Shallow scraping below about 130 cfs on the Kelly proxy and private banks between public accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-highway-k-plover-access',
+        name: 'County Highway K bridge launch',
+        latitude: 44.6226,
+        longitude: -89.4822,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; WRT describes a nice launch area by Hwy K but warns parking is poor.',
+      },
+      {
+        id: 'sharonwood-lane-plover-access',
+        name: 'Sharonwood Lane access option',
+        latitude: 44.5947,
+        longitude: -89.4942,
+        mileFromStart: 4.7,
+        segmentKind: 'creek',
+        note: 'Optional access just above the final boulder-garden / Jordan Pond approach.',
+      },
+      {
+        id: 'jordan-park-canoe-launch',
+        name: 'Jordan Park canoe launch / Jordan Pond',
+        latitude: 44.57416,
+        longitude: -89.50188,
+        mileFromStart: 5.3,
+        segmentKind: 'lake',
+        note: 'Default take-out at the north end of Jordan Park / Jordan Pond.',
+      },
+    ],
+  },
+  'big-rib-river-highway-64-greiner': {
+    putIn: {
+      id: 'highway-64-big-rib-access',
+      name: 'Highway 64 Big Rib access',
+      latitude: 45.1493,
+      longitude: -90.0591,
+    },
+    takeOut: {
+      id: 'greiner-road-big-rib-access',
+      name: 'Greiner Road / Silver Fox Road take-out',
+      latitude: 45.1329,
+      longitude: -90.0262,
+    },
+    logistics: {
+      distanceLabel: 'About 2.5 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, plus scouting and shuttle time',
+      shuttle:
+        'Scout the Greiner Road / Silver Fox Road take-out and road condition first, then launch from Highway 64. This is short mileage but not a casual no-scout float.',
+      permits:
+        'No route-specific paddling permit is known. Use the AW-listed access points only where parking is legal, follow Wisconsin boating/PFD rules, and respect any posted local road or landowner restrictions.',
+      camping:
+        'Treat Rib Dells as a day-only whitewater run. No legal on-route campsite is documented, and the remote access roads are not a camping plan.',
+      campingClassification: 'none',
+      summary:
+        'Run the Big Rib Rib Dells from Highway 64 to the Greiner / Silver Fox take-out when the AW-selected Prairie River proxy is in range. The current reading was below the AW floor, so this card ships with a low-water warning.',
+      accessCaveats: [
+        'The take-out road can be rough after rain or thaw; verify it before launching.',
+        'AW access points are the basis for the route. Keep parking tight and avoid private or logging-road conflicts.',
+        'The Prairie River gauge is a proxy, so visually confirm actual Big Rib water before putting on.',
+      ],
+      watchFor: [
+        'Class II dells, boulder constrictions, cold-water swims, and limited exits.',
+        'Fresh wood and strainers after rain, especially in blind bends and constricted dells.',
+        'Scraping below 300 cfs on the Prairie proxy and pushy/high-consequence current above 1,000 cfs.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-64-big-rib-access',
+        name: 'Highway 64 Big Rib access',
+        latitude: 45.1493,
+        longitude: -90.0591,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'AW-listed put-in for the Rib Dells reach.',
+      },
+      {
+        id: 'greiner-road-big-rib-access',
+        name: 'Greiner Road / Silver Fox Road take-out',
+        latitude: 45.1329,
+        longitude: -90.0262,
+        mileFromStart: 2.5,
+        segmentKind: 'creek',
+        note: 'AW-listed take-out; verify road condition and legal parking before launch.',
+      },
+    ],
+  },
+  'cedar-creek-cedarburg-mill-cth-t': {
+    putIn: {
+      id: 'cedarburg-mill-cedar-creek-put-in',
+      name: 'Cedarburg Mill / Rebellion Brewing access',
+      latitude: 43.2993,
+      longitude: -87.9845,
+    },
+    takeOut: {
+      id: 'county-highway-t-lakefield-road-takeout',
+      name: 'County Highway T / Lakefield Road bridge',
+      latitude: 43.294199,
+      longitude: -87.970663,
+    },
+    logistics: {
+      distanceLabel: 'About 2.3 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer with dam portages, low water, or scouting',
+      shuttle:
+        'Stage the Lakefield Road / CTH T take-out, then return to downtown Cedarburg. The shuttle is short, but scout the dam portages, Estate Bridge, and right-channel island before committing.',
+      permits:
+        'No route-specific paddling permit is known. Use legal street parking, follow Wisconsin boating and PFD rules, and keep dam portages short and leave-no-trace where Wisconsin portage law crosses private banks.',
+      camping:
+        'Day route only. No on-route public campsite is documented in the downtown Cedarburg corridor, and private banks are not part of the route plan.',
+      campingClassification: 'none',
+      summary:
+        'Launch by Cedarburg Mill / Rebellion Brewing and run the short AW Cedar Creek reach to CTH T, portaging Columbia Mills Dam and Nail Factory Dam. The direct Cedar Creek gauge was below AW runnable guidance during this run.',
+      accessCaveats: [
+        'Launch is a careful rockwork / creekside access by the Cedarburg Mill area; it is not a developed boat ramp.',
+        'Columbia Mills Dam and Nail Factory Dam require mandatory portages with private-bank constraints. Keep carries legal, brief, and respectful.',
+        'Creek View Court / Hoffmann Glen can be used as an alternate access to skip the first dam portage and city-park ledges.',
+      ],
+      watchFor: [
+        'Mandatory dam portages, shallow ledges, vertical-walled dells, and steep relaunch footing.',
+        'AW 2025-2026 wood alerts near Estate Bridge, the right channel around the island, and downstream blind bends.',
+        'Private banks, bridge hazards, cold water, rapidly rising storm flow, and very bony conditions below 100 cfs.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cedarburg-mill-cedar-creek-put-in',
+        name: 'Cedarburg Mill / Rebellion Brewing access',
+        latitude: 43.2993,
+        longitude: -87.9845,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'AW-listed put-in near the historic Cedarburg Mill / Rebellion Brewing patio.',
+      },
+      {
+        id: 'highland-drive-columbia-mills-dam-portage',
+        name: 'Highland Drive / Columbia Mills Dam portage',
+        latitude: 43.2982,
+        longitude: -87.9762,
+        mileFromStart: 0.68,
+        segmentKind: 'transition',
+        note: 'Mandatory dam portage with AW-described private-bank constraints; scout before launch.',
+      },
+      {
+        id: 'creek-view-court-cedar-creek-access',
+        name: 'Creek View Court / Hoffmann Glen alternate access',
+        latitude: 43.2999,
+        longitude: -87.9739,
+        mileFromStart: 0.69,
+        segmentKind: 'creek',
+        note: 'AW-listed alternate access that skips the first dam portage and city-park ledges.',
+      },
+      {
+        id: 'nail-factory-dam-portage',
+        name: 'Nail Factory Dam portage',
+        latitude: 43.2972,
+        longitude: -87.9731,
+        mileFromStart: 0.99,
+        segmentKind: 'transition',
+        note: 'Mandatory portage around the roughly 18.5-foot dam; relaunch footing is steep and flow-dependent.',
+      },
+      {
+        id: 'county-highway-t-lakefield-road-takeout',
+        name: 'County Highway T / Lakefield Road bridge',
+        latitude: 43.294199,
+        longitude: -87.970663,
+        mileFromStart: 2.3,
+        segmentKind: 'creek',
+        note: 'Default AW-listed take-out near 4900 Lakefield Road; street parking just west of the bridge.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {
