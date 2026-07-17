@@ -4682,6 +4682,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       }
     ],
   },
+  'minnesota-river-riverfront-seven-mile': {
+    putIn: {
+      name: 'Minnesota River, Riverfront Park Public Water Access Site',
+      latitude: 44.1750525,
+      longitude: -94.001449,
+    },
+    takeOut: {
+      name: 'Seven Mile Creek, County Park Public Water Access Site',
+      latitude: 44.2629698,
+      longitude: -94.0205424,
+    },
+    logistics: {
+      distanceLabel: 'About 7.8 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr depending on wind, level, and stops',
+      shuttle:
+        'Stage the Seven Mile Creek County Park river-side landing first, then drive back to Riverfront Park in Mankato. Confirm park hours, river-side parking, and landing conditions before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, City of Mankato park rules, Nicollet County park rules, and posted access or parking restrictions.',
+      camping:
+        'Treat this as a day route. Seven Mile Creek Park is a daylight-use park rather than an on-route campground; Land of Memories Park or other Mankato-area camping is a separate basecamp plan upstream of this route.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Mankato Riverfront Park and take out at Seven Mile Creek County Park for the short DNR Map 5 easy stretch below Mankato. The Mankato gauge is direct at the put-in corridor, but the current reading was low just below medium during review.',
+      accessCaveats: [
+        'Riverfront Park resolves as WAS01018 and Seven Mile Creek County Park resolves as WAS00211 in Minnesota public-water-access GIS with coordinates and river-mile records.',
+        'Explore Minnesota describes Seven Mile Creek Park as daylight-use with a large river-side parking lot and public boat landing; confirm same-day county rules before staging a vehicle.',
+        'Do not extend downstream toward St. Peter or Henderson without a separate plan, daylight, and access checks.',
+      ],
+      watchFor: [
+        'Wind, motorboat wake, bridge current, sandbars, muddy banks, cold water, and floating debris after rain.',
+        'Private banks and limited legal stopping options away from named city/county parks.',
+        'Low-water scraping when Mankato sits below the official medium band and stronger current above the preferred range.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'riverfront-park-mankato',
+        name: 'Minnesota River, Riverfront Park Public Water Access Site',
+        latitude: 44.1750525,
+        longitude: -94.001449,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR Map 5 river mile 102.5; resolves as WAS01018.',
+      },
+      {
+        id: 'seven-mile-creek-county-park',
+        name: 'Seven Mile Creek, County Park Public Water Access Site',
+        latitude: 44.2629698,
+        longitude: -94.0205424,
+        mileFromStart: 7.8,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR Map 5 river mile 94.7; resolves as WAS00211 with Nicollet County administration.',
+      },
+    ],
+  },
   'minnesota-river-franklin-mack-lake': {
     putIn: {
       name: 'Franklin trailer access / city boat landing',
@@ -32969,6 +33024,62 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'minnesota-river-skalbekken-morton': {
+    putIn: {
+      name: 'Minnesota River, Skalbekken Public Water Access Site',
+      latitude: 44.7317349,
+      longitude: -95.4194534,
+    },
+    takeOut: {
+      name: 'Minnesota River, Morton Access Public Water Access Site',
+      latitude: 44.5427019,
+      longitude: -95.002258,
+    },
+    logistics: {
+      distanceLabel: 'About 34.5 mi',
+      estimatedPaddleTime:
+        'Best planned as an efficient all-day paddle or a supported overnight; roughly 11 hr to 15 hr total paddling time depending on current, wind, and scouting',
+      shuttle:
+        'Stage Morton Access first, then drive back to Skalbekken County Park. Confirm campsite rules, daylight, road access, and a conservative split plan before launching because public exits are widely spaced.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey county-park, DNR water-trail, campsite, WMA/AMA, and posted access rules.',
+      camping:
+        'This route is overnight-capable only through mapped/designated options such as Vicksburg County Park watercraft campsite/rest area and the lower Map 3 watercraft campsite near river mile 195.6. Confirm current rules and do not camp on private banks or unposted riverbed areas.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Skalbekken County Park and take out at Morton Access for the long lower half of MN DNR Map 3. The Morton gauge sits at the take-out corridor and gives this route direct official bands, but distance, campsites, and Class I rapid scouting make it a planning route.',
+      accessCaveats: [
+        'Skalbekken resolves as WAS00685 and Morton Access resolves as WAS00670 in Minnesota public-water-access GIS with coordinates and water-trail mile records.',
+        'Vicksburg County Park and North Redwood are mapped intermediate access/campsite contexts, but only use them if current public access, parking, and campsite rules are confirmed.',
+        'Do not rely on private banks, farm lanes, WMA/AMA edges, or informal bars for bailout or camping. Treat public exits as sparse.',
+      ],
+      watchFor: [
+        'Long-mile fatigue, rural rescue spacing, wind on open bends, muddy banks, floating debris, strainers, and fast rises after rain.',
+        'Class I rapids near Vicksburg and Patterson Rapids, rock ledges, bluffs, and low-water shoals. Scout or portage when local conditions exceed the group.',
+        'Private-bank limits and campsite availability. Have a legal overnight plan before treating this as more than a long day route.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'skalbekken',
+        name: 'Minnesota River, Skalbekken Public Water Access Site',
+        latitude: 44.7317349,
+        longitude: -95.4194534,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR Map 3 river mile 224.5; resolves as WAS00685.',
+      },
+      {
+        id: 'morton-access',
+        name: 'Minnesota River, Morton Access Public Water Access Site',
+        latitude: 44.5427019,
+        longitude: -95.002258,
+        mileFromStart: 34.5,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR Map 3 river mile 189.9 / GIS river mile 189.7; resolves as WAS00670 near the Morton gauge.',
+      },
+    ],
+  },
   'minnesota-river-war-memorial-kinney': {
     putIn: {
       name: 'Minnesota River, War Memorial City Park Public Water Access Site',
@@ -33574,6 +33685,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 10.7,
         segmentKind: 'creek',
         note: 'MHB/DNR-linked downstream finish at Crow Wing State Park; confirm state-park parking and access rules.',
+      },
+    ],
+  },
+  'mississippi-river-crow-wing-state-park-fort-ripley': {
+    putIn: {
+      name: 'Mississippi River, Crow Wing State Park Public Water Access Site',
+      latitude: 46.26826999422346,
+      longitude: -94.34310794944992,
+    },
+    takeOut: {
+      name: 'Mississippi River, Fort Ripley Landing Public Water Access Site',
+      latitude: 46.1794923,
+      longitude: -94.3648683,
+    },
+    logistics: {
+      distanceLabel: 'About 8.1 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr depending on wind, current, and stops',
+      shuttle:
+        'Stage Fort Ripley Landing first, then drive back to Crow Wing State Park. Confirm state-park vehicle, launch, and parking rules before leaving a vehicle at the put-in.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, Crow Wing State Park entry and access rules, DNR public-water-access rules at Fort Ripley, and all Camp Ripley shoreline restrictions.',
+      camping:
+        'Crow Wing State Park can support endpoint base-camping when separately reserved or allowed under current park rules. No on-route campsite is assumed on the short Fort Ripley connector, and Camp Ripley shoreline is not a camping option.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Crow Wing State Park and take out at Fort Ripley Landing for the short Mississippi Map 6 gap below the Crow Wing confluence. The route uses the upstream Brainerd DNR gauge but keeps Camp Ripley and private-bank restrictions front and center.',
+      accessCaveats: [
+        'Crow Wing State Park is the planned put-in, using the same state-park Mississippi access coordinates already used by the adjacent Kiwanis-to-Crow-Wing route.',
+        'Fort Ripley Landing resolves in Minnesota public-water-access GIS as WAS01026 with DNR administration, coordinates, and river-mile context.',
+        'DNR Map 6 says access to Camp Ripley Training Center is not allowed from the Mississippi or Crow Wing rivers. Use mapped public accesses and signed state-park or DNR facilities only.',
+      ],
+      watchFor: [
+        'Wind and motorboat wake on broad mainstem water, cold water, fast rises, floating debris, and harder landings after rain.',
+        'Camp Ripley shoreline restrictions, private banks, and limited legal exits between Crow Wing State Park and Fort Ripley. Islands may have public recreation context, but do not treat them as guaranteed bailout or camping sites.',
+        'Low-water bars if Brainerd drops toward the official scrapable floor and stronger current above the medium band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'crow-wing-state-park',
+        name: 'Mississippi River, Crow Wing State Park Public Water Access Site',
+        latitude: 46.26826999422346,
+        longitude: -94.34310794944992,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default state-park put-in near DNR Map 6 river mile 990.4; confirm current park access and parking rules.',
+      },
+      {
+        id: 'fort-ripley-landing',
+        name: 'Mississippi River, Fort Ripley Landing Public Water Access Site',
+        latitude: 46.1794923,
+        longitude: -94.3648683,
+        mileFromStart: 8.1,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR Map 6 river mile 982.3; resolves as WAS01026 in public-water-access GIS.',
       },
     ],
   },
