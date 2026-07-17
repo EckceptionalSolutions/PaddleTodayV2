@@ -4180,6 +4180,180 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'crow-wing-river-little-white-dog-cottingham': {
+    putIn: {
+      name: 'Little White Dog County Park #9 carry-in access',
+      latitude: 46.586984884675736,
+      longitude: -94.82261571200662,
+    },
+    takeOut: {
+      name: 'Cottingham County Park #11 carry-in access',
+      latitude: 46.505529851247346,
+      longitude: -94.80738952007682,
+    },
+    logistics: {
+      distanceLabel: '9.8 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer at low water',
+      shuttle:
+        'Stage Cottingham County Park first, then drive back to Little White Dog. This is the DNR-highlighted Map 2 day trip, but both landings are county-park facilities with posted-use and camping rules.',
+      permits:
+        'No special paddling permit is known. Follow Minnesota boating/PFD requirements and posted Wadena County campground, day-use, and parking rules.',
+      camping:
+        'Little White Dog, Knob Hill, and Cottingham have mapped primitive campground context. Treat overnight use as posted county-campground use only, not informal shoreline camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Little White Dog and finish at Cottingham for the official DNR Map 2 lower Crow Wing day trip through forested bends, islands, and busier summer recreation near the lower parks.',
+      accessCaveats: [
+        'The Nimrod DNR gauge is upstream of the route; use it as an official corridor check and make a same-day visual call at Little White Dog.',
+        'Knob Hill is the cleanest midpoint public access and campground option if the group needs an exit or planned overnight split.',
+        'Cottingham can be busy with tubing, swimming, and county-park use during summer weekends.',
+      ],
+      watchFor: [
+        'Low-water scraping and slow travel while Nimrod is below 300 cfs.',
+        'Fresh wood, sweepers, and outside-bend strainers after storms.',
+        'Private banks and designated-site-only camping rules along the corridor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'little-white-dog',
+        name: 'Little White Dog County Park #9 carry-in access',
+        latitude: 46.586984884675736,
+        longitude: -94.82261571200662,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'DNR Map 2 recommended-route put-in at river mile 59.3.',
+      },
+      {
+        id: 'knob-hill',
+        name: 'Knob Hill County Park #10 carry-in access',
+        latitude: 46.533855996511825,
+        longitude: -94.81849257299048,
+        mileFromStart: 6.3,
+        segmentKind: 'creek',
+        note: 'Intermediate Wadena County campground, rest area, and public access.',
+      },
+      {
+        id: 'cottingham-county-park',
+        name: 'Cottingham County Park #11 carry-in access',
+        latitude: 46.505529851247346,
+        longitude: -94.80738952007682,
+        mileFromStart: 9.8,
+        segmentKind: 'creek',
+        note: 'DNR Map 2 recommended-route take-out at river mile 49.5.',
+      },
+    ],
+  },
+  'crow-wing-river-cottingham-bullard-bluff': {
+    putIn: {
+      name: 'Cottingham County Park #11 carry-in access',
+      latitude: 46.505529851247346,
+      longitude: -94.80738952007682,
+    },
+    takeOut: {
+      name: 'Bullard Bluff County Park #12 carry-in access',
+      latitude: 46.45665763343061,
+      longitude: -94.8014182279455,
+    },
+    logistics: {
+      distanceLabel: '6.7 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 3.5 hr',
+      shuttle:
+        'Stage Bullard Bluff first, then drive back to Cottingham. Keep this as a short county-park connector unless you have separately planned a downstream continuation.',
+      permits:
+        'No special paddling permit is known. Follow Minnesota boating/PFD requirements and posted Wadena County park, camping, and parking rules.',
+      camping:
+        'Both endpoints have primitive campground context on the DNR map. Use only posted county campsites and do not assume informal riverbank camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Cottingham and finish at Bullard Bluff for a short lower Crow Wing connector between two mapped Wadena County parks. The Nimrod gauge is upstream, so local depth checks matter.',
+      accessCaveats: [
+        'Cottingham is a busy county-park access in warm weather; confirm parking and the signed launch before leaving a vehicle.',
+        'The Nimrod gauge is upstream and does not remove the need for a local check at Cottingham and Bullard Bluff.',
+        'Bullard Bluff is the selected take-out. Continuing downstream changes the trip plan and adds more remote county-park spacing.',
+      ],
+      watchFor: [
+        'Shallow sandbars and slow current when the upstream Nimrod gauge is below 300 cfs.',
+        'Fresh wood, strainers, and debris around bends after local rain.',
+        'Private banks and rural rescue spacing between the county parks.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cottingham-county-park',
+        name: 'Cottingham County Park #11 carry-in access',
+        latitude: 46.505529851247346,
+        longitude: -94.80738952007682,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Wadena County campground-supported put-in at river mile 49.5.',
+      },
+      {
+        id: 'bullard-bluff',
+        name: 'Bullard Bluff County Park #12 carry-in access',
+        latitude: 46.45665763343061,
+        longitude: -94.8014182279455,
+        mileFromStart: 6.7,
+        segmentKind: 'creek',
+        note: 'Wadena County campground-supported take-out at river mile 42.8.',
+      },
+    ],
+  },
+  'crow-wing-river-bullard-bluff-old-wadena': {
+    putIn: {
+      name: 'Bullard Bluff County Park #12 carry-in access',
+      latitude: 46.45665763343061,
+      longitude: -94.8014182279455,
+    },
+    takeOut: {
+      name: 'Old Wadena County Park #13 carry-in access',
+      latitude: 46.42190905939157,
+      longitude: -94.82559695181752,
+    },
+    logistics: {
+      distanceLabel: '3.9 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr',
+      shuttle:
+        'Stage Old Wadena first, then drive back to Bullard Bluff. This is a compact county-park hop, but the take-out should still be confirmed before launch.',
+      permits:
+        'No special paddling permit is known. Follow Minnesota boating/PFD requirements and posted Wadena County park, camping, and parking rules.',
+      camping:
+        'Both endpoints have primitive campground context on DNR Map 2. Treat camping as posted county-park use only; do not use private banks or undeveloped shoreline.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Bullard Bluff and finish at Old Wadena for a short official-map Crow Wing connector across the Leaf River confluence area. The upstream Nimrod gauge is useful but not exact.',
+      accessCaveats: [
+        'The selected gauge is upstream of the route, and Leaf River inflow can change local conditions after rain.',
+        'Old Wadena is the selected take-out. Do not continue toward McGivern, Lake Placid, or dam/reservoir water without a separate plan.',
+        'County-park camping and parking rules control both endpoints.',
+      ],
+      watchFor: [
+        'Leaf River confluence debris, fresh wood, and outside-bend strainers.',
+        'Scraping and slow travel when the upstream Nimrod gauge is below 300 cfs.',
+        'Private banks, cold water, and rural rescue spacing even on a short mileage day.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'bullard-bluff',
+        name: 'Bullard Bluff County Park #12 carry-in access',
+        latitude: 46.45665763343061,
+        longitude: -94.8014182279455,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Wadena County campground-supported put-in at river mile 42.8.',
+      },
+      {
+        id: 'old-wadena',
+        name: 'Old Wadena County Park #13 carry-in access',
+        latitude: 46.42190905939157,
+        longitude: -94.82559695181752,
+        mileFromStart: 3.9,
+        segmentKind: 'creek',
+        note: 'Wadena County campground-supported take-out at river mile 38.9.',
+      },
+    ],
+  },
 
 
   'cottonwood-river-juenemann-springfield': {
