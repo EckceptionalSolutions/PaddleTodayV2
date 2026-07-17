@@ -1,16 +1,18 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-17 07:15 America/Chicago.
+Last summarized: 2026-07-17 07:58 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 241 after the 2026-07-17 07:15 Minnesota route-addition run.
-- Top represented rivers: Mississippi River 49, Minnesota River 20, Sauk River 11, North Fork Crow River 10, Rum River 10, Crow Wing River 9, St. Croix River 9, St. Louis River 9, Red Lake River 7, Root River 7, Big Fork River 6, Cannon River 6, Zumbro River 6, Chippewa River 5, Cloquet River 5, Otter Tail River 5, Red River of the North 5, Straight River 5, Cedar River 4, Cottonwood River 4, Des Moines River 4, Kettle River 4, Little Fork River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Long Prairie River 3, Redwood River 3, Vermilion River 3, Watonwan River 3, Blue Earth River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, and South Fork Zumbro.
-- Ledger candidates: 1106 total; 718 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 56 `research_later`, 30 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
+- Live routes: 240 after the 2026-07-17 07:58 pre-push Crow Wing consolidation.
+- Top represented rivers: Mississippi River 49, Minnesota River 20, Sauk River 11, North Fork Crow River 10, Rum River 10, St. Croix River 9, St. Louis River 9, Crow Wing River 8, Red Lake River 7, Root River 7, Big Fork River 6, Cannon River 6, Zumbro River 6, Chippewa River 5, Cloquet River 5, Otter Tail River 5, Red River of the North 5, Straight River 5, Cedar River 4, Cottonwood River 4, Des Moines River 4, Kettle River 4, Little Fork River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Long Prairie River 3, Redwood River 3, Vermilion River 3, Watonwan River 3, Blue Earth River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, and South Fork Zumbro.
+- Ledger candidates: 1109 total; 720 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 56 `research_later`, 31 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
+
+Pre-push audit note: the lower Crow Wing `crow-wing-river-cottingham-bullard-bluff` and `crow-wing-river-bullard-bluff-old-wadena` cards were consolidated into `crow-wing-river-cottingham-old-wadena`, with Bullard Bluff retained as a midpoint public access. This avoids two adjacent short cards sharing the same upstream Nimrod proxy-gauge story.
 
 ## Latest Run
 
@@ -74,12 +76,12 @@ Minnesota still has the strongest official-source foundation and a broad existin
 - Image posture: no route-gallery images were added. Image audit rows record bounded MN DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
 - Reviewed but did not add already-live prompt leads including Chippewa Lentz-to-Watson, Des Moines Mayflower-to-Christianna, Kettle Musclewood, Minnesota River Kinney-to-Skalbekken, St. Louis CR4/95, Fond du Lac/Oldenburg, Paupores/Brookston, Vermilion Twomile-to-Eightmile, Watonwan CR32-to-Garden-City, Mississippi Itasca/Coffee-Pot/Cass/Winnie, and the official DNR Red River recommended sections. Lower Blue Earth/Rapidan remains dam-hazard blocked; Snake Silver-Star-to-Lower-Falls remains threshold/access weak; most remaining Big Fork/Crow Wing/Cottonwood/Long Prairie splits were weaker duplicate-corridor adds than the selected Minnesota River gap fillers.
 
-- 2026-07-16 22:17 America/Chicago / 2026-07-17 03:17 UTC: added `crow-wing-river-little-white-dog-cottingham`, `crow-wing-river-cottingham-bullard-bluff`, and `crow-wing-river-bullard-bluff-old-wadena`.
-- Baseline at run start was 214 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 217 and add lower Crow Wing Map 2 county-park legs that were absent from the current repo baseline.
+- 2026-07-16 22:17 America/Chicago / 2026-07-17 03:17 UTC: added `crow-wing-river-little-white-dog-cottingham` and the lower Crow Wing county-park connector now represented by `crow-wing-river-cottingham-old-wadena`.
+- Baseline at run start was 214 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The originally separate Cottingham-to-Bullard-Bluff and Bullard-Bluff-to-Old-Wadena cards were consolidated before push into one Cottingham-to-Old-Wadena route to avoid adjacent short-card clutter.
 - Qualification path: MN DNR Crow Wing Map 2 documents Little White Dog, Knob Hill, Cottingham, Bullard Bluff, Old Wadena, river miles, county-park primitive campsite context, rapids/dam/private-bank safety rules, and the Little-White-Dog-to-Cottingham recommended day trip. Minnesota public-water-access GIS resolves all selected endpoints: Little White Dog `WAS01527`, Knob Hill `WAS01324`, Cottingham `WAS01325`, Bullard Bluff `WAS01528`, and Old Wadena `WAS02504`.
 - Live gauge verification: MN DNR river-level JSON returned Crow Wing River at Nimrod site `55` at `232 cfs` at 2026-07-16 20:00 CDT, below the official 300 cfs scrapable/low threshold. Implemented the official Nimrod ladder only: `300 / 400-800 / 1,100 cfs`.
-- Camping posture: Little-White-Dog-to-Cottingham is `on_route_campsite` through mapped county park campgrounds at Little White Dog, Knob Hill, and Cottingham. Cottingham-to-Bullard and Bullard-to-Old-Wadena are `endpoint_campground` only. All three reject informal private-bank camping.
-- Safety posture: all three carry low-water, wood/strainer, fast-rise, cold-water, private-bank, rural-rescue, and county-park-rule caveats. Cottingham-to-Bullard and Bullard-to-Old-Wadena keep explicit proxy-gauge limitations because Nimrod is upstream; Bullard-to-Old-Wadena adds Leaf River confluence caveats and no-unplanned-downstream-continuation wording.
+- Camping posture: Little-White-Dog-to-Cottingham is `on_route_campsite` through mapped county park campgrounds at Little White Dog, Knob Hill, and Cottingham. Cottingham-to-Old-Wadena is `endpoint_campground` with Bullard Bluff as an intermediate county-park access/campground stop. Both reject informal private-bank camping.
+- Safety posture: both Crow Wing cards carry low-water, wood/strainer, fast-rise, cold-water, private-bank, rural-rescue, county-park-rule, and upstream Nimrod proxy-gauge caveats. Cottingham-to-Old-Wadena also keeps Leaf River confluence and no-unplanned-downstream-continuation wording.
 - Image posture: no route-gallery images were added. Image audit rows record bounded MN DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
 - Reviewed but did not add already-live prompt leads including St. Louis CR4/95, Fond du Lac/Oldenburg, Paupores/Brookston, Vermilion Twomile-to-Eightmile, Watonwan CR32-to-Garden-City, Des Moines Mayflower-to-Christianna, Kettle Musclewood, and Mississippi Itasca/Coffee-Pot/Cass/Winnie. North Fork Crow Manannah-to-Highway-22 remains blocked by the current July 7, 2026 DNR tree alert; lower Blue Earth/Rapidan variants remain dam-hazard blocked; remaining Cottonwood and Des Moines splits were weaker duplicate-corridor adds than the selected Crow Wing county-park access gaps.
 
