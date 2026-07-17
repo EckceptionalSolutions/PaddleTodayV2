@@ -42617,6 +42617,186 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'bad-axe-north-fork-duck-egg-hwy-o': {
+    putIn: {
+      id: 'duck-egg-park-bad-axe-north-fork-put-in',
+      name: 'Duck Egg Park / Irish Ridge Road',
+      latitude: 43.588,
+      longitude: -91.0,
+    },
+    takeOut: {
+      id: 'highway-o-bad-axe-north-fork-takeout',
+      name: 'Highway O bridge',
+      latitude: 43.572,
+      longitude: -91.051,
+    },
+    logistics: {
+      distanceLabel: 'About 3.7 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer if fences, wood, or shallow water slow travel',
+      shuttle:
+        'Stage the Highway O bridge take-out first, then use Irish Ridge Road to reach Duck Egg Park. WRT describes a short 2.8-mile bike shuttle, but both endpoints should be checked for legal parking and current shoulder conditions.',
+      permits:
+        'No route-specific paddling permit is known. Launch from county-owned Duck Egg Park and use only legal bridge/roadside parking at Highway O. Respect private banks except where Wisconsin portage law or emergency need applies.',
+      camping:
+        'Day route only. No on-route public campsite is documented on this short North Fork segment; use nearby public or private campgrounds as a separate basecamp plan.',
+      campingClassification: 'none',
+      summary:
+        'Run the WRT Bad Axe North Fork leg from Duck Egg Park / Irish Ridge Road to Highway O. The route has fast Class I current, several fences, and a Kickapoo-at-Ontario proxy gauge rather than a direct Bad Axe gauge.',
+      accessCaveats: [
+        'Duck Egg Park is the uniquely named public put-in, but the coordinates in this data set are approximate for the Irish Ridge Road park access.',
+        'Highway O is a weedy bridge take-out; WRT favors the northwest corner under the bridge.',
+        'Do not count on private farm banks for breaks, scouting, or bailout except for legal portage or emergency needs.',
+      ],
+      watchFor: [
+        'Four to five fences, shallow ledges, and fast riffles that become pushier above the normal target window.',
+        'Fresh storm wood, blind bends, cold spring water, and limited rescue access in the narrow Driftless valley.',
+        'Proxy-gauge mismatch: the Kickapoo at Ontario is useful, but visual checks at Duck Egg still matter.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'duck-egg-park-bad-axe-north-fork-put-in',
+        name: 'Duck Egg Park / Irish Ridge Road',
+        latitude: 43.588,
+        longitude: -91.0,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'WRT-listed public launch at county-owned Duck Egg Park; approximate named-site coordinates.',
+      },
+      {
+        id: 'springville-branch-confluence-bad-axe',
+        name: 'Springville Branch confluence',
+        latitude: 43.584,
+        longitude: -91.012,
+        mileFromStart: 0.2,
+        segmentKind: 'creek',
+        note: 'Early confluence marker before the larger North Fork channel works toward Highway O.',
+      },
+      {
+        id: 'highway-o-bad-axe-north-fork-takeout',
+        name: 'Highway O bridge',
+        latitude: 43.572,
+        longitude: -91.051,
+        mileFromStart: 3.7,
+        segmentKind: 'creek',
+        note: 'WRT-listed take-out; expect a weedy carry and confirm bridge/roadside parking.',
+      },
+    ],
+  },
+  'new-wood-river-county-e-tesch': {
+    putIn: {
+      id: 'county-e-new-wood-put-in',
+      name: 'County Highway E bridge',
+      latitude: 45.25777,
+      longitude: -89.84434,
+    },
+    takeOut: {
+      id: 'tesch-road-new-wood-takeout',
+      name: 'Tesch Road bridge',
+      latitude: 45.24182,
+      longitude: -89.81235,
+    },
+    logistics: {
+      distanceLabel: 'About 4.7 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, depending on level, scouting, and bridge carries',
+      shuttle:
+        'Stage Tesch Road, then return to the County Highway E bridge. This is a short road shuttle, but both endpoints are bridge accesses rather than developed landings, so verify parking and footing before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules, use legal road shoulders only, and keep all bridge access low-impact.',
+      camping:
+        'Day route only. No on-route public campsite is documented. Miles Paddled notes Council Grounds State Park as a nearby basecamp option for the Merrill area, but it is not part of the river route.',
+      campingClassification: 'none',
+      summary:
+        'Run the AW New Wood River route from County Highway E to Tesch Road. The Prairie River near Merrill gauge is only a proxy, and the app uses the documented 202 cfs trip level as a minimum floor.',
+      accessCaveats: [
+        'County Highway E access requires a carry from the road/bridge area; AW describes the practical put-in by road geometry rather than a formal ramp.',
+        'Tesch Road is a bridge take-out with footing and parking that should be checked before launch.',
+        'Do not extend upstream or downstream without a separate plan; nearby quietwater and companion creeks use different access assumptions.',
+      ],
+      watchFor: [
+        'Continuous Class I-II rock gardens, waves, and bony lines near the 202 cfs floor.',
+        'Ropes, fences, or new wood across the channel after storms or land-use changes.',
+        'Fast rises, cold water, private banks, and limited rescue options on a small north-central Wisconsin creek.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-e-new-wood-put-in',
+        name: 'County Highway E bridge',
+        latitude: 45.25777,
+        longitude: -89.84434,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Miles Paddled GPS point for the put-in; AW describes carrying in from the CTH E bridge area.',
+      },
+      {
+        id: 'tesch-road-new-wood-takeout',
+        name: 'Tesch Road bridge',
+        latitude: 45.24182,
+        longitude: -89.81235,
+        mileFromStart: 4.7,
+        segmentKind: 'creek',
+        note: 'Miles Paddled GPS point and AW-listed take-out; scout shoulder parking and bank footing.',
+      },
+    ],
+  },
+  'crystal-river-rural-shadow-lake': {
+    putIn: {
+      id: 'main-street-rural-crystal-put-in',
+      name: 'Main Street / Rural put-in',
+      latitude: 44.31259,
+      longitude: -89.15951,
+    },
+    takeOut: {
+      id: 'shadow-lake-road-crystal-takeout',
+      name: 'Shadow Lake Road take-out',
+      latitude: 44.31967,
+      longitude: -89.0978,
+    },
+    logistics: {
+      distanceLabel: 'About 4.75 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with low water, crowding, or photo stops',
+      shuttle:
+        'Stage Shadow Lake Road near Little Hope, then return to Rural / Main Street. This corridor can be busy in summer, so confirm parking and rental/tubing traffic before committing.',
+      permits:
+        'No route-specific paddling permit is known. Use legal public access points, follow Wisconsin boating and PFD rules, and respect private riverfront property.',
+      camping:
+        'Day route only. No on-route public campsite is documented for the Rural-to-Shadow-Lake reach; use Waupaca-area campgrounds or lodging as a separate basecamp plan.',
+      campingClassification: 'none',
+      summary:
+        'Run the clear Crystal River day route from Rural to Shadow Lake Road. The old Waupaca/Crystal gauge is discontinued, so the AW Tomorrow River proxy is used only as a drought-check floor.',
+      accessCaveats: [
+        'Rural / Main Street is a village access rather than a large ramp; arrive early in busy summer periods.',
+        'Shadow Lake Road take-out parking and landing conditions should be confirmed before launch.',
+        'Do not assume private millpond or shorefront land is available for breaks or bailouts.',
+      ],
+      watchFor: [
+        'Boulder gardens, shallow riffles, tight channels, and post-storm deadfall.',
+        'Rental, tubing, and beginner traffic near the Waupaca Chain O Lakes / Rural corridor.',
+        'Proxy-gauge limitations, cold clear water, private banks, and lake/motorboat exposure if you miss the planned take-out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'main-street-rural-crystal-put-in',
+        name: 'Main Street / Rural put-in',
+        latitude: 44.31259,
+        longitude: -89.15951,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Miles Paddled GPS point for the Rural put-in near the covered-bridge / mill corridor.',
+      },
+      {
+        id: 'shadow-lake-road-crystal-takeout',
+        name: 'Shadow Lake Road take-out',
+        latitude: 44.31967,
+        longitude: -89.0978,
+        mileFromStart: 4.75,
+        segmentKind: 'creek',
+        note: 'Miles Paddled GPS point for the Little Hope / Shadow Lake Road take-out.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {
