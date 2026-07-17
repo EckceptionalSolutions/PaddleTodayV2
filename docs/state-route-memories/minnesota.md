@@ -1,12 +1,12 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-17 07:58 America/Chicago.
+Last summarized: 2026-07-17 08:13 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 240 after the 2026-07-17 07:58 pre-push Crow Wing consolidation.
-- Top represented rivers: Mississippi River 49, Minnesota River 20, Sauk River 11, North Fork Crow River 10, Rum River 10, St. Croix River 9, St. Louis River 9, Crow Wing River 8, Red Lake River 7, Root River 7, Big Fork River 6, Cannon River 6, Zumbro River 6, Chippewa River 5, Cloquet River 5, Otter Tail River 5, Red River of the North 5, Straight River 5, Cedar River 4, Cottonwood River 4, Des Moines River 4, Kettle River 4, Little Fork River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Long Prairie River 3, Redwood River 3, Vermilion River 3, Watonwan River 3, Blue Earth River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, and South Fork Zumbro.
-- Ledger candidates: 1109 total; 720 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 56 `research_later`, 31 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
+- Live routes: 243 after the 2026-07-17 08:13 Big Fork / lower Crow Wing additions.
+- Top represented rivers: Mississippi River 49, Minnesota River 20, Sauk River 11, Crow Wing River 10, North Fork Crow River 10, Rum River 10, St. Croix River 9, St. Louis River 9, Big Fork River 7, Red Lake River 7, Root River 7, Cannon River 6, Zumbro River 6, Chippewa River 5, Cloquet River 5, Otter Tail River 5, Red River of the North 5, Straight River 5, Cedar River 4, Cottonwood River 4, Des Moines River 4, Kettle River 4, Little Fork River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Long Prairie River 3, Redwood River 3, Vermilion River 3, Watonwan River 3, Blue Earth River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, and South Fork Zumbro.
+- Ledger candidates: 1112 total; 723 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 56 `research_later`, 31 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
 
 ## Status
 
@@ -15,6 +15,16 @@ Minnesota still has the strongest official-source foundation and a broad existin
 Pre-push audit note: the lower Crow Wing `crow-wing-river-cottingham-bullard-bluff` and `crow-wing-river-bullard-bluff-old-wadena` cards were consolidated into `crow-wing-river-cottingham-old-wadena`, with Bullard Bluff retained as a midpoint public access. This avoids two adjacent short cards sharing the same upstream Nimrod proxy-gauge story.
 
 ## Latest Run
+
+- 2026-07-17 08:13 America/Chicago / 2026-07-17 13:13 UTC: added `big-fork-river-highway-1-highway-6-south`, `crow-wing-river-old-wadena-green-oak`, and `crow-wing-river-green-oak-lake-placid`.
+- Baseline at run start was 240 live Minnesota routes from `src/data/rivers.ts` after the lower Crow Wing consolidation. The selected slugs bring the live Minnesota inventory to 243 and count only routes introduced in this run.
+- Qualification path: MN DNR Big Fork Map 1 documents Highway 1, Busticogan, Muldoon Rapids, Little American Falls, Old Hudson Bay Farm, and Highway 6 South; MN DNR Crow Wing Map 2 documents Old Wadena, McGivern, Marsh, Green Oak, Truck Station, Al Vah, Lake Placid Reservoir Landing #3, Placid Lake campsite, and Pillager Dam. Minnesota public-water-access GIS resolves all selected endpoints and intermediate access sites.
+- Live gauge verification: Big Fork Craigsville / Highway 6 South site `281` returned `4.81 ft` at 2026-07-17 07:00 CDT in the official medium band; Crow Wing Sylvan Dam site `58` returned `1,150 cfs` at 2026-07-17 06:45 CDT in the official medium band.
+- Implemented official DNR interpreted gauge models only: Big Fork Craigsville `4.0 / 4.5-8.5 / 9.5 ft` direct at the take-out, and Crow Wing Sylvan Dam `400 / 800-3000 / 5000 cfs` as a downstream lower-Crow-Wing proxy for both new Crow Wing connectors. No extra ideal ranges or upper cutoffs were invented.
+- Camping posture: Big Fork Highway-1-to-Highway-6-South is `on_route_campsite` through mapped DNR watercraft campsites and should normally be treated as overnight-capable. Crow Wing Old-Wadena-to-Green-Oak and Green-Oak-to-Lake-Placid are `on_route_campsite` capable through mapped county/watercraft campsite context; both reject informal private-bank camping.
+- Safety posture: Big Fork carries Class II Muldoon Rapids, mandatory Little American Falls Class IV-V portage, brushy portages, rocky low-water rapids, cold water, and remote rescue exposure. Old-Wadena-to-Green-Oak carries proxy-gauge, sandbar, strainer, private-bank, and rural-rescue caveats. Green-Oak-to-Lake-Placid adds reservoir wind/waves and a mandatory Lake Placid take-out immediately above Pillager Dam.
+- Image posture: no route-gallery images were added. Image audit rows record bounded MN DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add prompt leads that are already live or represented in the current 240-route baseline, including Chippewa Lentz-to-Watson, Des Moines Mayflower-to-Christianna, Kettle Musclewood, Minnesota River Kinney-to-Skalbekken, St. Louis CR4/95/Fond-du-Lac/Paupores, Otter Tail Phelps/Wannigan/Riverside, Mississippi Itasca/Coffee-Pot/Cass/Winnie variants, Vermilion Twomile-to-Eightmile, Watonwan CR32-to-Garden-City, and lower Big Fork / Crow Wing splits already covered by existing cards.
 
 - 2026-07-17 07:15 America/Chicago / 2026-07-17 12:15 UTC: added `rum-river-highway-7-walbo`, `sauk-river-mill-pond-oak-township`, and `des-moines-river-ashley-park-petersburg`.
 - Baseline at run start was 238 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 241 and fill three official/public-access gaps on dense existing corridors rather than counting prior automation commits.

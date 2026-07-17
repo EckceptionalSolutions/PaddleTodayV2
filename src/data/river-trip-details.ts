@@ -1042,6 +1042,89 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'big-fork-river-highway-1-highway-6-south': {
+    putIn: {
+      name: 'State Highway 1 carry-in access',
+      latitude: 47.84043782419257,
+      longitude: -93.50349149920625,
+    },
+    takeOut: {
+      name: 'Highway 6 South / State Hwy 6 Bridge carry-in access',
+      latitude: 47.95302296444459,
+      longitude: -93.75498797729725,
+    },
+    logistics: {
+      distanceLabel: '32.3 mi',
+      estimatedPaddleTime: 'Overnight or very long advanced day; roughly 12 hr to 16 hr of moving-water time',
+      shuttle:
+        'Stage the take-out at Highway 6 South / Craigsville before driving to the Highway 1 carry-in. This is a remote northern shuttle and should normally be planned as an overnight with daylight margin for portages.',
+      permits:
+        'No route-specific paddling permit is known. Follow DNR water-trail rules, posted public-access rules, and state/county forest camping and firewood rules.',
+      camping:
+        'DNR Map 1 names Busticogan, Muldoon, Little American Falls, and Old Hudson Bay Farm watercraft campsites along this route. Treat them as first-come and carry a backup plan because the corridor is remote.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Highway 1 and finish at Highway 6 South for the upstream Big Fork section above the existing Highway 6 South-to-North card. The route includes remote campsites, Muldoon Rapids, and the mandatory Little American Falls portage.',
+      accessCaveats: [
+        'Highway 1 and Highway 6 South are official public accesses, but both are remote carry-in landings; inspect parking, mud, and launch condition before leaving a vehicle.',
+        'Little American Falls is not an optional casual feature. General paddlers should portage left and budget time for a steep or brushy carry. A county campground and picnic area are nearby but require a climb from river level.',
+        'This route is too long to improvise late in the day. If campsites are occupied, weather changes, or water is lower than expected, shorten the plan rather than forcing the full distance.',
+      ],
+      watchFor: [
+        'Muldoon Rapids, a bouldery Class II reach with a mapped river-right half-mile portage and larger waves in high water.',
+        'Little American Falls, a Class IV-V six-foot ledge that DNR says should be portaged by all but the most experienced paddlers.',
+        'Rocky low-water rapids, brushy portages, cold water, fresh strainers, limited cell service, and long rescue exposure.',
+        'High or rising water that makes rapids, portage landings, and loaded-boat handling much more consequential.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-1-carry-in',
+        name: 'State Highway 1 carry-in access',
+        latitude: 47.84043782419257,
+        longitude: -93.50349149920625,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR Map 1 river mile 123.8.',
+      },
+      {
+        id: 'busticogan-campsite',
+        name: 'Busticogan watercraft campsite',
+        latitude: 47.8412,
+        longitude: -93.5192,
+        mileFromStart: 0.8,
+        segmentKind: 'creek',
+        note: 'Mapped watercraft campsite shortly below Highway 1; approximate coordinates from DNR river-mile context.',
+      },
+      {
+        id: 'muldoon-rapids-portage',
+        name: 'Muldoon Rapids portage',
+        latitude: 47.8788,
+        longitude: -93.5965,
+        mileFromStart: 8.8,
+        segmentKind: 'transition',
+        note: 'Class II rapid zone with mapped river-right half-mile portage; approximate coordinates from DNR river-mile context.',
+      },
+      {
+        id: 'little-american-falls-portage',
+        name: 'Little American Falls portage',
+        latitude: 47.9306,
+        longitude: -93.6368,
+        mileFromStart: 19,
+        segmentKind: 'transition',
+        note: 'Mandatory Class IV-V falls portage for general paddlers; approximate coordinates from DNR river-mile context.',
+      },
+      {
+        id: 'highway-6-south',
+        name: 'Highway 6 South / State Hwy 6 Bridge carry-in access',
+        latitude: 47.95302296444459,
+        longitude: -93.75498797729725,
+        mileFromStart: 32.3,
+        segmentKind: 'creek',
+        note: 'Default take-out beside the Craigsville / Highway 6 South DNR gauge.',
+      },
+    ],
+  },
   'big-fork-river-highway-6-south-north': {
     putIn: {
       name: 'Highway 6 South / State Hwy 6 Bridge carry-in access',
@@ -4584,6 +4667,153 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'crow-wing-river-old-wadena-green-oak': {
+    putIn: {
+      name: 'Old Wadena County Park #13 carry-in access',
+      latitude: 46.42190905939157,
+      longitude: -94.82559695181752,
+    },
+    takeOut: {
+      name: 'Green Oak Landing carry-in access',
+      latitude: 46.35203578493438,
+      longitude: -94.71513976221165,
+    },
+    logistics: {
+      distanceLabel: '12.5 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6.5 hr, longer at low water',
+      shuttle:
+        'Stage Green Oak first, then drive back to Old Wadena. McGivern and Marsh are useful intermediate access checks or bailout points if the river is shallow, windy, or woodier than expected.',
+      permits:
+        'No special paddling permit is known. Follow Minnesota boating/PFD requirements and posted Wadena County park, camping, parking, and public-access rules.',
+      camping:
+        'Old Wadena and McGivern have campground context, and DNR Map 2 names additional watercraft campsite support downstream. Use designated sites only and do not assume informal riverbank camping is legal.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Old Wadena and finish at Green Oak for the lower Crow Wing access chain below the existing Cottingham-to-Old-Wadena card. This is gentle water, but the Sylvan Dam gauge is downstream and local conditions still control.',
+      accessCaveats: [
+        'Old Wadena, McGivern, Marsh, and Green Oak are official public-access records, but county-park parking, campsite rules, and landing condition should be checked before launch.',
+        'The Sylvan Dam gauge is downstream of this segment. Use the official bands as a lower-river signal, then verify depth and obstructions locally at the accesses.',
+        'Green Oak is the selected take-out. Continuing downstream changes the trip into a longer Lake Placid / Pillager Dam approach plan.',
+      ],
+      watchFor: [
+        'Shallow sandbars and slow current when the lower-Crow-Wing gauge is near the scrapable or low bands.',
+        'Fresh strainers, outside-bend wood, cold water, and rural rescue spacing between named landings.',
+        'Private banks away from public accesses and designated campsites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'old-wadena',
+        name: 'Old Wadena County Park #13 carry-in access',
+        latitude: 46.42190905939157,
+        longitude: -94.82559695181752,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR Map 2 river mile 38.9.',
+      },
+      {
+        id: 'mcgivern-county-park',
+        name: 'McGivern County Park #15 trailer access',
+        latitude: 46.41446285675237,
+        longitude: -94.79928330362061,
+        mileFromStart: 5.2,
+        segmentKind: 'creek',
+        note: 'Intermediate Wadena County park access with mapped campsite support.',
+      },
+      {
+        id: 'marsh-landing',
+        name: "Marsh's Landing #16 carry-in access",
+        latitude: 46.38215640501823,
+        longitude: -94.73689977147652,
+        mileFromStart: 9.4,
+        segmentKind: 'creek',
+        note: 'Intermediate public access at DNR Map 2 river mile 29.5.',
+      },
+      {
+        id: 'green-oak-landing',
+        name: 'Green Oak Landing carry-in access',
+        latitude: 46.35203578493438,
+        longitude: -94.71513976221165,
+        mileFromStart: 12.5,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR Map 2 river mile 26.4.',
+      },
+    ],
+  },
+  'crow-wing-river-green-oak-lake-placid': {
+    putIn: {
+      name: 'Green Oak Landing carry-in access',
+      latitude: 46.35203578493438,
+      longitude: -94.71513976221165,
+    },
+    takeOut: {
+      name: 'Lake Placid Reservoir Landing #3 public water access',
+      latitude: 46.31660556485295,
+      longitude: -94.48654607229267,
+    },
+    logistics: {
+      distanceLabel: '14.6 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with reservoir wind or low water',
+      shuttle:
+        'Stage Lake Placid Reservoir Landing #3 first and confirm the dam-adjacent take-out is obvious from the water, then drive back to Green Oak. Truck Station and Al Vah are the clearest intermediate access checks.',
+      permits:
+        'No special paddling permit is known. Follow posted public-access rules at Green Oak, Truck Station, Al Vah, and Lake Placid, plus Minnesota boating/PFD requirements.',
+      camping:
+        'DNR Map 2 names Spud Oak and Placid Lake watercraft campsites on this corridor, so the route can support a planned overnight. Treat sites as first-come and keep a backup because private shoreline limits informal stops.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Green Oak, pass Truck Station and Al Vah, and finish at Lake Placid Reservoir Landing #3. The finish is immediately above Pillager Dam, so this card is only appropriate when the take-out is confirmed and conditions are controlled.',
+      accessCaveats: [
+        'Lake Placid Reservoir Landing #3 is the mandatory finish. DNR Map 2 places Pillager Dam just downstream, so do not miss the landing or continue casually.',
+        'The route transitions from river bends into Lake Placid Reservoir; wind, waves, boat traffic, and slower current can dominate the final miles.',
+        'The Sylvan Dam gauge is downstream of the route and below the dam corridor. Use the official bands as a lower-river guide, then make a local visual call before launching.',
+      ],
+      watchFor: [
+        'Pillager Dam immediately below the take-out and the consequences of drifting past Lake Placid Reservoir Landing #3.',
+        'Reservoir wind, waves, fishing or motor traffic, and fatigue near the end of a long route.',
+        'Sandbars, strainers, private banks, and faster current after rain in the upper half of the segment.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'green-oak-landing',
+        name: 'Green Oak Landing carry-in access',
+        latitude: 46.35203578493438,
+        longitude: -94.71513976221165,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR Map 2 river mile 26.4.',
+      },
+      {
+        id: 'truck-station-landing',
+        name: 'Truck Station Landing carry-in access',
+        latitude: 46.34283457823239,
+        longitude: -94.64694751544003,
+        mileFromStart: 4.8,
+        segmentKind: 'creek',
+        note: 'Intermediate public access at DNR Map 2 river mile 21.6.',
+      },
+      {
+        id: 'al-vah-landing',
+        name: "Al Vah's Landing carry-in access",
+        latitude: 46.30516549574981,
+        longitude: -94.54772116750775,
+        mileFromStart: 11,
+        segmentKind: 'transition',
+        note: 'Intermediate access near the beginning of Lake Placid Reservoir.',
+      },
+      {
+        id: 'lake-placid-reservoir-3',
+        name: 'Lake Placid Reservoir Landing #3',
+        latitude: 46.31660556485295,
+        longitude: -94.48654607229267,
+        mileFromStart: 14.6,
+        segmentKind: 'lake',
+        note: 'Default and mandatory take-out immediately above Pillager Dam.',
+      },
+    ],
+  },
+
 
 
   'cottonwood-river-juenemann-springfield': {

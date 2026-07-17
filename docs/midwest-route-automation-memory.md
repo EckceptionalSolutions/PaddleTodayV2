@@ -1,5 +1,14 @@
 # Midwest Route Automation Memory
 
+- 2026-07-17 08:13 America/Chicago / 2026-07-17 13:13 UTC: Minnesota three-route implementation pass (`minnesota-route-additions-2`).
+  - Added three Minnesota slugs beyond the 240-route Minnesota baseline at run start: `big-fork-river-highway-1-highway-6-south`, `crow-wing-river-old-wadena-green-oak`, and `crow-wing-river-green-oak-lake-placid`, bringing Minnesota to 243 live routes.
+  - Qualification path: MN DNR Big Fork Map 1, Crow Wing Map 2, MN DNR river-level JSON, and Minnesota public-water-access GIS document the selected endpoints, intermediate accesses, route shapes, camping posture, portage/dam hazards, and threshold models.
+  - Live gauge verification: Big Fork Craigsville / Highway 6 South site `281` returned `4.81 ft` at 2026-07-17 07:00 CDT in the official medium band; Crow Wing Sylvan Dam site `58` returned `1,150 cfs` at 2026-07-17 06:45 CDT in the official medium band.
+  - Implemented official DNR interpreted gauge models only: Craigsville `4.0 / 4.5-8.5 / 9.5 ft` direct for Big Fork Highway-1-to-Highway-6-South, and Sylvan Dam `400 / 800-3000 / 5000 cfs` downstream proxy for the two lower Crow Wing connectors. No invented thresholds.
+  - Safety/logistics include Big Fork Muldoon Rapids, Little American Falls mandatory portage, remote overnight/campsite planning, and cold-water/rocky-low-water caveats; Crow Wing Old-Wadena-to-Green-Oak wood/sandbar/private-bank/proxy-gauge caveats; and Green-Oak-to-Lake-Placid reservoir wind plus mandatory Lake Placid take-out above Pillager Dam.
+  - No route-gallery assets were added. Bounded DNR / public-access / Commons / same-route image review found no clearly rights-clean exact-route paddling asset selected.
+  - Reviewed high-value Minnesota prompt leads first; most were already live or represented. The accepted routes were cleaner official-source gap fills than duplicating existing Chippewa, Des Moines, Kettle, Minnesota, St. Louis, Otter Tail, Mississippi, Vermilion, or Watonwan cards.
+
 - 2026-07-17 07:58 America/Chicago: Minnesota pre-push route audit cleanup.
   - Consolidated `crow-wing-river-cottingham-bullard-bluff` and `crow-wing-river-bullard-bluff-old-wadena` into `crow-wing-river-cottingham-old-wadena`, with Bullard Bluff retained as an intermediate public access/campground stop.
   - Reason: the two adjacent lower Crow Wing cards were both short, shared the same upstream Nimrod proxy-gauge caveat, and read better as one Cottingham-to-Old-Wadena product route with multiple endpoint options. Minnesota live inventory is now 240 routes.
