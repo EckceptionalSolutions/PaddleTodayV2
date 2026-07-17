@@ -1,18 +1,28 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-17 05:14 America/Chicago.
+Last summarized: 2026-07-17 07:15 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 235 after the 2026-07-17 05:14 Minnesota route-addition run.
-- Top represented rivers: Mississippi River 48, Minnesota River 20, North Fork Crow River 10, Sauk River 10, Crow Wing River 9, Rum River 9, St. Louis River 9, St. Croix River 8, Red Lake River 7, Root River 7, Big Fork River 6, Cannon River 6, Zumbro River 6, Chippewa River 5, Cloquet River 5, Otter Tail River 5, Red River of the North 5, Straight River 5, Cedar River 4, Cottonwood River 4, Little Fork River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Vermilion River 3, Watonwan River 3, Blue Earth River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, and South Fork Zumbro.
-- Ledger candidates: 1088 total; 700 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 56 `research_later`, 30 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
+- Live routes: 241 after the 2026-07-17 07:15 Minnesota route-addition run.
+- Top represented rivers: Mississippi River 49, Minnesota River 20, Sauk River 11, North Fork Crow River 10, Rum River 10, Crow Wing River 9, St. Croix River 9, St. Louis River 9, Red Lake River 7, Root River 7, Big Fork River 6, Cannon River 6, Zumbro River 6, Chippewa River 5, Cloquet River 5, Otter Tail River 5, Red River of the North 5, Straight River 5, Cedar River 4, Cottonwood River 4, Des Moines River 4, Kettle River 4, Little Fork River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Long Prairie River 3, Redwood River 3, Vermilion River 3, Watonwan River 3, Blue Earth River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, and South Fork Zumbro.
+- Ledger candidates: 1106 total; 718 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 56 `research_later`, 30 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-17 07:15 America/Chicago / 2026-07-17 12:15 UTC: added `rum-river-highway-7-walbo`, `sauk-river-mill-pond-oak-township`, and `des-moines-river-ashley-park-petersburg`.
+- Baseline at run start was 238 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 241 and fill three official/public-access gaps on dense existing corridors rather than counting prior automation commits.
+- Qualification path: MN DNR Rum River Map 2 plus public-water-access GIS document Highway 7 `WAS00318` to Walbo `WAS00274`; MN DNR Sauk Map 1 documents Mill Pond, Melrose Dam portage, Sauk River Park, and Oak Township County Park camping context; MN DNR Des Moines map plus public-water-access GIS document Ashley Park `WAS02771`, Jackson former-dam/rapid context, the RM 6.1 wire hazard, and Petersburg `WAS01443`.
+- Live gauge verification: Rum St. Francis site `211` returned `729 cfs` at 2026-07-17 05:00 CDT in the official low band; Sauk St. Martin site `328` returned `14.92 ft` at 2026-07-17 05:00 CDT just below the official medium band; Des Moines Jackson site `259` returned `225 cfs` at 2026-07-17 05:00 CDT in the official medium band.
+- Implemented official DNR interpreted gauge models only: Rum St. Francis `600 / 1000-2000 / 3000 cfs` as downstream same-water-trail proxy, Sauk St. Martin `14 / 15-17 / 20 ft` as downstream same-map proxy, and Des Moines Jackson `75 / 200-900 / 1800 cfs` direct. No extra ideal ranges or upper cutoffs were invented.
+- Camping posture: Rum Highway-7-to-Walbo is a no-camping day route; Sauk Mill-Pond-to-Oak-Township is on-route-campsite capable through mapped Oak Township County Park; Des Moines Ashley-Park-to-Petersburg is a no-camping day route with Jackson services nearby but no informal riverbank camping. All three reject private-bank camping assumptions.
+- Safety posture: Rum carries downed-tree/snags/logjam context, private-bank, cold-water, and upstream DNR tree-alert caveats; Sauk carries mandatory Melrose Dam portage, low-water, strainers, private-bank, cold-water, and county-park camping caveats; Des Moines carries former-dam/Class-I current, RM 6.1 wire-hazard warning, high/rising-water, strainers, private-bank, and no-unplanned-continuation caveats.
+- Image posture: no route-gallery images were added. Image audit rows record bounded MN DNR / public-access / county / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add already-live or weaker prompt leads including Chippewa Lentz-to-Watson, Des Moines Mayflower-to-Christianna, Kettle Musclewood, Minnesota River Kinney-to-Skalbekken, Red River segments, Zumbro Village-Park-to-Theilman, Snake Silver-Star-to-Lower-Falls, St. Louis CR4/95/Fond-du-Lac/Paupores, Otter Tail Phelps/Wannigan/Riverside, Mississippi Itasca/Coffee-Pot/Cass/Winnie variants, Vermilion Twomile-to-Eightmile, and Watonwan CR32-to-Garden-City. The accepted three had cleaner access/gauge packages against the current inventory.
 
 - 2026-07-17 05:14 America/Chicago / 2026-07-17 10:14 UTC: added `mississippi-river-crow-wing-state-park-fort-ripley`, `minnesota-river-skalbekken-morton`, and `minnesota-river-riverfront-seven-mile`.
 - Baseline at run start was 232 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 235 and fill two Minnesota River public-access gaps plus the Crow-Wing-State-Park-to-Fort-Ripley Mississippi connector.
