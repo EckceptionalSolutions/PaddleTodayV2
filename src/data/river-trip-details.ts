@@ -39553,6 +39553,186 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'white-river-maple-ridge-highway-112': {
+    putIn: {
+      id: 'maple-ridge-road-white-river',
+      name: 'Maple Ridge Road Bridge',
+      latitude: 46.43763,
+      longitude: -91.0262,
+    },
+    takeOut: {
+      id: 'highway-112-dam-white-river',
+      name: 'Highway 112 Dam / Xcel Energy Landing',
+      latitude: 46.49858,
+      longitude: -90.90995,
+    },
+    logistics: {
+      distanceLabel: 'About 14.9 mi',
+      estimatedPaddleTime: 'About 6 hr or more; start early and allow extra time for low water, wood, or scouting',
+      shuttle:
+        'Stage the Highway 112 / White River Flowage take-out first, then drive back to Maple Ridge Road. Confirm the flowage is not drawn down and that the take-out above the dam is usable before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public/practical bridge and dam landing access only, follow posted Xcel/flowage signs, and avoid private banks except for emergencies.',
+      camping:
+        'No public on-route river campsite was verified. Wisconsin Trail Guide points paddlers to nearby basecamps such as Copper Falls State Park or Chequamegon-Nicolet National Forest campgrounds rather than riverbank camping on this reach.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Run the WH1 White River reach from Maple Ridge Road to the Highway 112 Dam landing. The first miles are remote and wooded; the lower half adds frequent riffles, Class I-II rapids, ledges, strainers, and a mandatory stop at the flowage/dam boundary.',
+      accessCaveats: [
+        'The Highway 112 landing is the mandatory plan stop. Do not continue below the dam or into drawdown-exposed drops without a separate whitewater plan.',
+        'The Ashland gauge is direct, but AW and Miles Paddled evidence makes the current 181 cfs reading low for this route. Scout before committing at marginal levels.',
+        'Private banks and remote forested corridors limit casual bailouts. Carry repair, insulation, and enough daylight for a long shuttle day.',
+      ],
+      watchFor: [
+        'Nearly continuous lower-route riffles and Class I-II rapids, including The Ledge area noted by WTG.',
+        'Overhanging trees, deadfall, strainers, and blind bends after wind or storms.',
+        'Cold water, limited rescue access, and flowage drawdown changes near the Highway 112 dam.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'maple-ridge-road-white-river',
+        name: 'Maple Ridge Road Bridge',
+        latitude: 46.43763,
+        longitude: -91.0262,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default WTG WH1 / Miles Paddled put-in at Maple Ridge Road Bridge.',
+      },
+      {
+        id: 'highway-112-dam-white-river',
+        name: 'Highway 112 Dam / Xcel Energy Landing',
+        latitude: 46.49858,
+        longitude: -90.90995,
+        mileFromStart: 14.9,
+        segmentKind: 'creek',
+        note: 'Default WTG WH1 take-out on the White River Flowage above the Highway 112 dam.',
+      },
+    ],
+  },
+  'white-river-park-riverview-park': {
+    putIn: {
+      id: 'white-river-county-park-launch',
+      name: 'White River County Park canoe/kayak launch',
+      latitude: 42.6245,
+      longitude: -88.3826,
+    },
+    takeOut: {
+      id: 'riverview-park-mill-street-white-river',
+      name: 'Riverview Park / Mill Street landing',
+      latitude: 42.64798,
+      longitude: -88.35771,
+    },
+    logistics: {
+      distanceLabel: 'About 3.9 mi from the county park area; about 6.6 mi if starting at the first Sheridan Springs bridge',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr depending on water level, scouting, and launch choice',
+      shuttle:
+        'Stage Riverview Park / Mill Street in Lyons first, then use the signed White River County Park launch or nearby Sheridan Springs access if the park carry is not practical. Bike shuttle is short by road.',
+      permits:
+        'No route-specific paddling permit is known. Follow Walworth County park hours and launch rules, avoid blocking roads, and do not use posted Spring Valley dry-land access as a planned exit.',
+      camping:
+        'No on-route public campsite was identified. Treat this as a day run; White River County Park is a day-use county park in the route evidence.',
+      campingClassification: 'none',
+      summary:
+        'Paddle the best Walworth County White River rapids reach from White River County Park toward Lyons. The run is short and clear, with many Class I riffles and one scout-worthy Class II former-dam drop before the Riverview Park take-out.',
+      accessCaveats: [
+        'Walworth County lists the park canoe/kayak launch, but WRT notes some park carries can be awkward. Verify the signed launch and carry before unloading.',
+        'Spring Valley Road has a noteworthy drop and posted/private access concerns nearby. Scout from legal ground and continue to Riverview Park for the normal take-out.',
+        'The Nippersink and Jackson Creek gauges are proxies. The Geneva Lake dam, millrace, local rain, and new wood can make same-day visual inspection more important than the app score.',
+      ],
+      watchFor: [
+        'Class I riffles through the park corridor and the Class II former-dam drop below Spring Valley Road.',
+        'Low-water scraping below about 100 cfs on the Nippersink proxy and pushier water above the WRT high bands.',
+        'Overhanging limbs, fresh strainers, private banks, and cold spring/fall water.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'white-river-county-park-launch',
+        name: 'White River County Park canoe/kayak launch',
+        latitude: 42.6245,
+        longitude: -88.3826,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Walworth County lists a canoe/kayak launch at White River County Park, 6503 Sheridan Springs Road; coordinate is approximate to the named park access.',
+      },
+      {
+        id: 'spring-valley-road-lyons-wave',
+        name: 'Spring Valley Road / Lyons Wave scout point',
+        latitude: 42.6417,
+        longitude: -88.3637,
+        mileFromStart: 2.7,
+        segmentKind: 'creek',
+        note: 'Former-dam Class II drop from WRT/AW; scout legally and do not rely on posted dry-land access as the default take-out.',
+      },
+      {
+        id: 'riverview-park-mill-street-white-river',
+        name: 'Riverview Park / Mill Street landing',
+        latitude: 42.64798,
+        longitude: -88.35771,
+        mileFromStart: 3.9,
+        segmentKind: 'creek',
+        note: 'Default WRT / Miles Paddled take-out just west of the Mill Street bridge in Lyons.',
+      },
+    ],
+  },
+  'pine-river-lincoln-pine-river-park-county-w': {
+    putIn: {
+      id: 'pine-river-park-center-road',
+      name: 'Pine River Park / Center Road access',
+      latitude: 45.15733,
+      longitude: -89.59732,
+    },
+    takeOut: {
+      id: 'pine-river-county-w',
+      name: 'County Road W Pine River take-out',
+      latitude: 45.13513,
+      longitude: -89.62277,
+    },
+    logistics: {
+      distanceLabel: 'About 2.5 mi',
+      estimatedPaddleTime: 'About 1 hr to 2.5 hr, longer with scouting, portages, or rescue setup',
+      shuttle:
+        'Scout the County W take-out first because the path is steep and easy to miss, then stage at Pine River Park / Center Road. Keep the group compact through the gorge.',
+      permits:
+        'No route-specific paddling permit is known. Use the park/bridge access described by WRT and Miles Paddled, verify County W parking and bank access, and avoid private banks except for emergencies.',
+      camping:
+        'No public on-route campsite was identified. Treat the Pine Dells reach as a short whitewater day run from Merrill-area lodging or other off-route basecamps.',
+      campingClassification: 'none',
+      summary:
+        'Run the Pine Dells gorge from Pine River Park / Center Road to County W. The mileage is short, but ledges, two Class III features, steep banks, few eddies, and imperfect proxy gauge support make it an advanced whitewater outing.',
+      accessCaveats: [
+        'County W is a mandatory practical exit for this card. Inspect the steep bank and hidden path before launching so the group recognizes the take-out from the water.',
+        'The Prairie River gauge is only a proxy; WRT warns the Pine can drop quickly after rain. Same-day visual inspection at Center Road controls.',
+        'Do not treat this as a beginner scenic paddle. Rescue access is limited by steep walls and few eddies in the gorge.',
+      ],
+      watchFor: [
+        'Double Dells and S-Turn Class III features, with scout/portage options depending on level and skill.',
+        'Class I-II ledges, shallow rocks below the 150 cfs proxy floor, and pushier hydraulics after rain.',
+        'Cold water, strainers, steep banks, limited eddies, and private-bank bailout limits.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'pine-river-park-center-road',
+        name: 'Pine River Park / Center Road access',
+        latitude: 45.15733,
+        longitude: -89.59732,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default WRT / Miles Paddled put-in at Pine River Park near the Center Road bridge.',
+      },
+      {
+        id: 'pine-river-county-w',
+        name: 'County Road W Pine River take-out',
+        latitude: 45.13513,
+        longitude: -89.62277,
+        mileFromStart: 2.5,
+        segmentKind: 'creek',
+        note: 'Default Miles Paddled take-out; WRT reports a steep bank and hidden path, so scout before launch.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {
