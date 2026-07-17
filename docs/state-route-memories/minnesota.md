@@ -1,18 +1,28 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-17 01:16 America/Chicago.
+Last summarized: 2026-07-17 02:09 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 223 after the 2026-07-17 01:16 Minnesota route-addition run.
-- Top represented rivers: Mississippi River 43, Minnesota River 18, Sauk River 10, Crow Wing River 9, North Fork Crow River 9, Rum River 9, St. Croix River 8, St. Louis River 8, Root River 7, Big Fork River 6, Cannon River 6, Red Lake River 6, Zumbro River 6, Chippewa River 5, Cloquet River 5, Otter Tail River 5, Red River of the North 5, Straight River 5, Cedar River 4, Cottonwood River 4, Little Fork River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, and Vermilion River.
-- Ledger candidates: 1079 total; 691 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 56 `research_later`, 30 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
+- Live routes: 226 after the 2026-07-17 02:09 Minnesota route-addition run.
+- Top represented rivers: Mississippi River 45, Minnesota River 18, Sauk River 10, Crow Wing River 9, North Fork Crow River 9, Rum River 9, St. Louis River 9, St. Croix River 8, Root River 7, Big Fork River 6, Cannon River 6, Red Lake River 6, Zumbro River 6, Chippewa River 5, Cloquet River 5, Otter Tail River 5, Red River of the North 5, Straight River 5, Cedar River 4, Cottonwood River 4, Little Fork River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, and Vermilion River.
+- Ledger candidates: 1082 total; 694 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 56 `research_later`, 30 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-17 02:09 America/Chicago / 2026-07-17 07:09 UTC: added `st-louis-river-county-road-95-forbes`, `mississippi-river-leech-lake-schoolcraft`, and `mississippi-river-county-road-72-county-line`.
+- Baseline at run start was 223 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 226 and fill one upper St. Louis access gap plus two Mississippi Map 2/3 public-access connectors.
+- Qualification path: MN DNR St. Louis Map 1 plus public-water-access GIS document County-Road-95-to-Forbes with direct Forbes site `244`; MN DNR Mississippi Map 2 plus public-water-access GIS document #2/Leech-Lake-to-Schoolcraft with direct Days High Landing site `116`; MN DNR Mississippi Map 3 plus public-water-access GIS document County-Road-72-to-County-Line with upstream Grand Rapids site `124`.
+- Live gauge verification: Forbes returned `2.91 ft` at 2026-07-17 00:45 CDT, below the official scrapable floor; Days High Landing returned `1273.57 ft` at 2026-07-17 00:30 CDT in the official low band; Grand Rapids returned `251 cfs` at 2026-07-16 23:45 CDT in the official medium band.
+- Implemented official DNR interpreted gauge models only: Forbes `3.0 / 3.7-7.6 / 8.0 ft`, Days High Landing `1272.9 / 1273.8-1274.5 / 1275.0 ft`, and Grand Rapids `30 / 44-1410 / 1910 cfs`. No extra ideal ranges or upper cutoffs were invented.
+- Camping posture: St. Louis County-Road-95-to-Forbes is nearby-basecamp only with no confirmed on-route campsite. Mississippi #2-to-Schoolcraft and County-Road-72-to-County-Line are `on_route_campsite` capable only through mapped/designated DNR watercraft or state-park camping; both reject informal private-bank camping.
+- Safety posture: St. Louis carries boulder-bed, Class I-III context, low-water scraping, wood/strainer, remote rescue, cold-water, and mandatory Forbes take-out / dam-boundary caveats. The Mississippi routes carry low-water, marsh/current, wind, debris, cold-water, private-bank, limited-exit, campsite-rule, and upstream-proxy/visual-check caveats where applicable.
+- Image posture: no route-gallery images were added. Image audit rows record bounded MN DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add already-live or weaker prompt leads including St. Louis County-Road-4-to-95, Fond-du-Lac/Oldenburg, Paupores/Brookston, Mississippi Big-Winnie-to-Leech-Lake, Schoolcraft-to-Sylvan, Blackberry-to-County-Road-72, County-Line-to-Jacobson, Itasca/Coffee-Pot, Red River sections, Des Moines Mayflower-to-Christianna, Kettle Musclewood, Minnesota River Kinney-to-Skalbekken, Snake Silver-Star-to-Lower-Falls, Vermilion Twomile-to-Eightmile, and Watonwan CR32-to-Garden-City. The accepted three were stronger public-access gaps than the remaining duplicate or threshold-weak options.
 
 - 2026-07-17 01:16 America/Chicago / 2026-07-17 06:16 UTC: added `chippewa-river-swift-county-norby`, `chippewa-river-norby-lentz`, and `chippewa-river-watson-lagoon`.
 - Baseline at run start was 220 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 223 and fill three Chippewa public-access gaps around already-live Lentz-to-Watson and Lagoon-to-Prien's cards.

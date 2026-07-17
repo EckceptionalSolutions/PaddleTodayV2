@@ -30998,6 +30998,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'mississippi-river-leech-lake-schoolcraft': {
+    putIn: {
+      name: 'Mississippi River, #2 Public Water Access Site',
+      latitude: 47.3020891,
+      longitude: -93.9033943,
+    },
+    takeOut: {
+      name: 'Mississippi River, Schoolcraft SPK Public Water Access Site',
+      latitude: 47.225074,
+      longitude: -93.8021304,
+    },
+    logistics: {
+      distanceLabel: 'About 14.7 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr depending on level, wind, and stops',
+      shuttle:
+        'Stage a vehicle at the Schoolcraft State Park access, then drive upstream to the #2 access near the Leech Lake River corridor. Confirm state-park parking, camping, and day-use rules before relying on the endpoint.',
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR public accesses, follow Minnesota boating/PFD rules, and obey Schoolcraft State Park and watercraft-campsite rules.',
+      camping:
+        'DNR Map 2 marks watercraft campsite context near the Leech Lake River/#2 area and Gambler\'s Point, and Schoolcraft State Park provides endpoint camping/drinking-water context. Use only designated, currently open campsites and confirm reservations or rules before an overnight plan.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at the #2 access and take out at Schoolcraft State Park for a 14.7-mile Mississippi headwaters connector. Days High Landing is the direct DNR level reference for this map section, but the current low-band reading makes same-day visual checks important.',
+      accessCaveats: [
+        'The #2 access resolves in Minnesota public-water-access GIS as WAS02462 at DNR river mile 1213.6.',
+        'Schoolcraft SPK resolves in Minnesota public-water-access GIS as WAS01351 in the state-park corridor.',
+        'Do not assume informal shoreline camping or bank access; use mapped public accesses and designated campsites only.',
+      ],
+      watchFor: [
+        'Low-water dragging, vegetation, hidden wood, and slow marsh current when the Days High Landing gauge is low.',
+        'Wind on broad bends and near the Leech Lake River confluence. Carry cold-water layers and daylight margin.',
+        'Private banks, limited intermediate exits, and campsite availability or rule changes.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mississippi-river-number-2-access',
+        name: 'Mississippi River, #2 Public Water Access Site',
+        latitude: 47.3020891,
+        longitude: -93.9033943,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; DNR public-water-access GIS resolves WAS02462 at river mile 1213.6.',
+      },
+      {
+        id: 'mississippi-river-schoolcraft-spk-access',
+        name: 'Mississippi River, Schoolcraft SPK Public Water Access Site',
+        latitude: 47.225074,
+        longitude: -93.8021304,
+        mileFromStart: 14.7,
+        segmentKind: 'creek',
+        note: 'Default take-out at the Schoolcraft State Park corridor; confirm current park access and campground status if using it as an overnight endpoint.',
+      },
+    ],
+  },
   'mississippi-river-tioga-pokegama': {
     putIn: {
       name: 'Pokegama Lake, Tioga Public Water Access Site',
@@ -32233,6 +32288,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 7.3,
         segmentKind: 'creek',
         note: 'Default take-out; public-water-access GIS resolves WAS02152 at river mile 144.5.',
+      },
+    ],
+  },
+  'st-louis-river-county-road-95-forbes': {
+    putIn: {
+      name: 'St. Louis River, County Rd 95 Public Water Access Site',
+      latitude: 47.4009308,
+      longitude: -92.3775989,
+    },
+    takeOut: {
+      name: 'St. Louis River, Forbes Public Water Access Site',
+      latitude: 47.3621657,
+      longitude: -92.6007601,
+    },
+    logistics: {
+      distanceLabel: 'About 18.6 mi',
+      estimatedPaddleTime: 'About 7 hr to 10 hr depending on level, scouting, and wood',
+      shuttle:
+        'Stage the Forbes take-out first, then drive upstream to the County Road 95 DNR access. Identify the Forbes access and downstream dam boundary before launch so the day ends at the public access, not at dam structures.',
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR public accesses, follow Minnesota boating/PFD rules, and check current St. Louis River water-trail alerts before committing.',
+      camping:
+        'No designated on-route watercraft campsite was confirmed for this 18.6-mile split. Treat it as a long day trip or use legal nearby basecamp options only if separately reserved or confirmed.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at County Road 95 and take out at Forbes for the downstream upper St. Louis section below the existing County-Road-4-to-95 card. The Forbes DNR gauge is direct at the take-out corridor, but low-water scraping, boulder beds, wood, and Forbes Dam discipline drive the trip call.',
+      accessCaveats: [
+        'County Road 95 resolves in Minnesota public-water-access GIS as WAS02152 at DNR river mile 144.5.',
+        'Forbes resolves in Minnesota public-water-access GIS as WAS00614 near DNR river mile 125.9.',
+        'Forbes Dam is downstream of the take-out corridor. Do not miss the public access or continue without a separate portage and dam plan.',
+      ],
+      watchFor: [
+        'Boulder beds, shallow ledges, Class I-III context on the DNR map, and long scraping at low Forbes readings.',
+        'Wood, strainers, cold water, limited exits, and remote rescue exposure over an 18.6-mile day.',
+        'Dam, portage, and Highway 53 corridor hazards if extending or if the take-out is missed.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-road-95',
+        name: 'St. Louis River, County Rd 95 Public Water Access Site',
+        latitude: 47.4009308,
+        longitude: -92.3775989,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public-water-access GIS resolves WAS02152 at river mile 144.5.',
+      },
+      {
+        id: 'forbes-st-louis-access',
+        name: 'St. Louis River, Forbes Public Water Access Site',
+        latitude: 47.3621657,
+        longitude: -92.6007601,
+        mileFromStart: 18.6,
+        segmentKind: 'creek',
+        note: 'Default take-out; public-water-access GIS resolves WAS00614 at river mile 125.9 upstream of Forbes Dam context.',
       },
     ],
   },
@@ -41011,6 +41121,63 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 9.5,
         segmentKind: 'creek',
         note: 'Default take-out; DNR public access at river mile 1161.4.',
+      },
+    ],
+  },
+  'mississippi-river-county-road-72-county-line': {
+    putIn: {
+      id: 'mississippi-river-co-rd-72-public-water-access-site',
+      name: 'Mississippi River, Co Rd 72 Public Water Access Site',
+      latitude: 47.1084087,
+      longitude: -93.3903507,
+    },
+    takeOut: {
+      id: 'mississippi-river-county-line-public-water-access-site',
+      name: 'Mississippi River, County Line Public Water Access Site',
+      latitude: 47.0343553,
+      longitude: -93.3229605,
+    },
+    logistics: {
+      distanceLabel: 'About 15.9 mi',
+      estimatedPaddleTime: 'About 5.5 hr to 8 hr depending on wind, level, and stops',
+      shuttle:
+        'Stage the County Line take-out first, then drive upstream to the County Road 72 DNR access. This card intentionally ends at County Line to connect with the already-live County-Line-to-Jacobson route without duplicating it.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted MN DNR public-water-access rules at County Road 72 and County Line.',
+      camping:
+        'DNR Map 3 marks watercraft-camping context on this corridor, including Swimming Bear downstream of County Road 72. Treat any overnight as a designated-site plan only, confirm current rules, and do not camp on private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at County Road 72 and take out at County Line for the 15.9-mile Map 3 connector above the existing Jacobson route. Use the upstream Grand Rapids DNR gauge as an official corridor check, then make the final call from local depth, wind, and debris.',
+      accessCaveats: [
+        'County Road 72 resolves in Minnesota public-water-access GIS as WAS01345 at DNR river mile 1161.4.',
+        'County Line resolves in Minnesota public-water-access GIS as WAS01336 at DNR river mile 1145.5.',
+        'The Grand Rapids gauge is upstream of this split. It is official same-corridor evidence, not a take-out reading.',
+      ],
+      watchFor: [
+        'Low-water riffles, exposed bars, floating debris, and slower current below Grand Rapids.',
+        'Wind, cold water, and limited exits over a 15.9-mile day.',
+        'Private banks and campsite assumptions; use mapped public accesses or designated campsites only.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mississippi-river-co-rd-72-public-water-access-site',
+        name: 'Mississippi River, Co Rd 72 Public Water Access Site',
+        latitude: 47.1084087,
+        longitude: -93.3903507,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; DNR public-water-access GIS resolves WAS01345 at river mile 1161.4.',
+      },
+      {
+        id: 'mississippi-river-county-line-public-water-access-site',
+        name: 'Mississippi River, County Line Public Water Access Site',
+        latitude: 47.0343553,
+        longitude: -93.3229605,
+        mileFromStart: 15.9,
+        segmentKind: 'creek',
+        note: 'Default take-out; DNR public-water-access GIS resolves WAS01336 at river mile 1145.5.',
       },
     ],
   },
