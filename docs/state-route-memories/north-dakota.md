@@ -1,5 +1,20 @@
 # North Dakota Route Memory
 
+## 2026-07-15 Sheyenne National Grassland continuation pass
+
+- Rebuilt the live route inventory at run start and confirmed North Dakota still had only four live slugs: `sheyenne-river-fish-hatchery-chautauqua`, `sheyenne-river-brome-field-mirror-pool`, `pembina-river-vang-riverside-park`, and `little-missouri-rough-rider-medora-bridge`.
+- Added three new Sheyenne National Grassland slugs beyond that baseline: `sheyenne-river-ylvisaker-bridge-brome-field`, `sheyenne-river-mirror-pool-east-river`, and `sheyenne-river-brome-field-east-river`.
+- Current source package rechecked live in this run:
+  - The current USDA Forest Service Sheyenne River Water Trail page still says the trail is open, still points paddlers to direct USGS gauge `05058000` below Baldhill Dam, and still publishes the official Sheyenne bands of `<=100` very low, `100-300` navigable with exposed obstacles, `300-1000` optimal, `1000-2000` caution, and `>2000` avoid.
+  - The current USFS water-activities page still names Ylvisaker Bridge, Brome Field, Mirror Pool, and East River as the four primary semi-primitive grassland access sites, and the current USFS fishing page still adds that Brome Field and East River have picnic tables and bike racks.
+  - Direct same-day USGS Water Services for `05058000` returned `301 cfs / 24.81 ft` at `2026-07-15 15:00 CDT`, which lands at the lower edge of the official optimal band and clears the current live-gauge gate.
+  - The official USFS / GovInfo 2019 Sheyenne National Grassland brochure map still labels Ylvisaker at river mile `0`, Brome Field at `3`, Mirror Pool at `8`, and East River at `16`, and the same geospatial access-anchor workflow already used for the live Brome-to-Mirror route was extended to the remaining Ylvisaker and East River hand-launch icons for practical endpoint anchors.
+- Route packaging decisions in this run:
+  - `sheyenne-river-ylvisaker-bridge-brome-field` ships as the shortest upstream day split with `campingClassification: 'none'`.
+  - `sheyenne-river-mirror-pool-east-river` ships as the longer downstream day split with `campingClassification: 'none'`.
+  - `sheyenne-river-brome-field-east-river` ships as the long continuation with `campingClassification: 'overnight_capable'` because the official brochure map marks overnight-camping icons along that corridor.
+- Photo status: no route-gallery image was added. `docs/river-image-source-audit.csv` records bounded 2026-07-15 USFS / GovInfo / Commons / USGS review with no clearly rights-clean exact-route paddling image selected for the three new grassland slugs.
+
 ## 2026-06-12 Fort Ransom coordinate blocker refresh 13:03
 
 - Rebuilt current inventory from route data: North Dakota has 3 live route objects and 3 trip-detail keys, `sheyenne-river-fish-hatchery-chautauqua`, `pembina-river-vang-riverside-park`, and `little-missouri-rough-rider-medora-bridge`, with 13 structured North Dakota ledger rows before this pass.

@@ -70,7 +70,9 @@ describe('getAllRiverScores', () => {
     }
 
     expect(vermilionGroups.map((group) => group.riverId).sort()).toEqual(expectedVermilionGroups.sort());
-    expect(stCroixGroup?.routeCount).toBe(14);
+    const expectedStCroixRouteCount = rivers.filter((river) => river.riverId === 'st-croix-river').length;
+
+    expect(stCroixGroup?.routeCount).toBe(expectedStCroixRouteCount);
     expect(stCroixGroup?.states).toEqual(['Minnesota', 'Wisconsin']);
   });
 

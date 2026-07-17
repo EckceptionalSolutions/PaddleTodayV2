@@ -1,21 +1,103 @@
 # Arkansas Route Memory
 
-Last summarized: 2026-07-11 18:45 America/Chicago.
+Last summarized: 2026-07-14 21:15 America/Chicago.
+
+## 2026-07-16 Buffalo full-corridor continuation pass
+
+- Rebuilt the live Arkansas inventory from the current repo state before editing. Arkansas had forty-one live route objects and matching trip-detail entries at run start, so this pass still had to create three genuinely new slugs beyond that baseline.
+- Added `buffalo-river-ponca-ozark`, `buffalo-river-steel-creek-erbie`, and `buffalo-river-ponca-hasty` from the Buffalo National River upper-district access chain.
+- Current source package rechecked live in this run:
+  - The current NPS access mileage chart still lists Ponca -> Ozark at `21.8`, Steel Creek -> Erbie at `13.6`, and Ponca -> Hasty at `30.7` river miles, with the same public access ladder through Steel Creek, Kyle's Landing, Erbie, Ozark, and Pruitt.
+  - The current upper-district paddling page still says the upper Buffalo is extremely rainfall dependent and should be checked against gauges before launch.
+  - Same-day direct USGS Water Services returned `36.9 cfs / 3.21 ft` at `2026-07-16 09:30 CDT` for Buffalo River at Pruitt (`07055680`), so all three routes ship with explicit too-low / scraping-likely framing rather than a normal runnable recommendation.
+- Threshold, camping, and image posture:
+  - All three routes keep the established Pruitt `minimum-only` floor at `100 cfs` from the NPS-linked Float Guide and retain the NPS `2,000 cfs` unsafe level as a hard caveat rather than a full ideal band.
+  - `buffalo-river-steel-creek-erbie` and `buffalo-river-ponca-ozark` use `endpoint_campground` because Steel Creek / Erbie and Ozark still provide formal campground-backed public endpoints, while `buffalo-river-ponca-hasty` uses `overnight_capable` because the 30.7-mile corridor is naturally long enough to split and still has legal developed overnight support at Steel Creek, Kyle's Landing, Erbie, and Ozark.
+  - Image coverage stayed reuse-only: `buffalo-river-steel-creek-erbie` reuses the approved Commons Ponca corridor image, `buffalo-river-ponca-ozark` reuses the approved NPS Ozark/Pruitt corridor image, and `buffalo-river-ponca-hasty` reuses the approved Commons Pruitt Landing image. Matching audit rows were added to `docs/river-image-source-audit.csv`.
+
+## 2026-07-16 Bayou and Buffalo continuation pass
+
+- Rebuilt the live Arkansas inventory from the current repo state before editing. Arkansas had thirty-eight live route objects and matching trip-detail entries at run start, so this pass still had to create three genuinely new slugs beyond that baseline.
+- Added `bayou-deview-benson-creek-rock-island-road`, `bayou-deview-hickson-lake-bank-of-brinkley`, and `buffalo-river-ponca-pruitt`.
+- Current source package rechecked live in this run:
+  - The current AGFC Bayou DeView page still says the trail needs around `14 ft` or higher to paddle and that the Dagmar Road gate closes at `17 ft`; its current mileage ladder still supports Benson Creek -> Hickson Lake `6.5`, Hickson Lake -> Rock Island Road `2.9`, Rock Island Road -> Apple Lake `1.5`, and Apple Lake -> Bank of Brinkley `4.3`, which supports the two restored Bayou DeView continuations at about `9.4` and `8.7` miles.
+  - Same-day direct USGS Water Services returned `14.43 ft` at `2026-07-16 09:00 CDT` for Bayou DeView near Brinkley (`07077730`), so both Bayou routes ship in-range with explicit floodplain route-finding and high-water caution rather than comfort language.
+  - The current NPS Buffalo access mileage chart still lists Ponca -> Pruitt at `23.9` river miles with Steel Creek, Kyle's Landing, Erbie, and Ozark between them; the current upper-district paddling page still says the upper Buffalo is extremely rainfall dependent and should be checked against gauges; and same-day direct USGS Water Services returned `35.8 cfs / 3.21 ft` at `2026-07-16 09:00-09:15 CDT` for Buffalo River at Pruitt (`07055680`).
+- Threshold, camping, and image posture:
+  - Both Bayou DeView restorations keep the existing conservative two-sided AGFC model of `tooLow: 14`, `idealMin: 14`, `idealMax: 16.9`, and `tooHigh: 17`, with `nearby_basecamp` camping because Dagmar WMA remains the legal overnight support rather than in-route camping for these day-float lengths.
+  - `buffalo-river-ponca-pruitt` uses the established upper-Buffalo `minimum-only` Pruitt floor at `100 cfs`, keeps the NPS unsafe-high caveat above `2,000 cfs`, ships as `routeType: whitewater`, and stays `endpoint_campground` because Ponca / Steel Creek / Kyle's / Erbie / Ozark legal campground infrastructure still anchors the corridor.
+  - Image coverage stayed reuse-only: the two Bayou routes keep their existing bounded no-image audit outcomes, while `buffalo-river-ponca-pruitt` reuses the approved NPS upper-Buffalo corridor image already used on adjacent Pruitt-family continuations.
+
+## 2026-07-16 Buffalo Hasty continuation pass
+
+- Rebuilt the live Arkansas inventory from the current repo state before editing. Arkansas had thirty-eight live route objects and matching trip-detail entries at run start, so this follow-up still had to create three genuinely new slugs beyond that baseline.
+- Added `buffalo-river-steel-creek-hasty`, `buffalo-river-kyles-landing-hasty`, and `buffalo-river-erbie-hasty` from the Buffalo National River upper-district access chain.
+- Current source package rechecked live in this run:
+  - The current NPS access mileage chart still supports the combined public mileages of Steel Creek -> Hasty `about 28.0`, Kyle's Landing -> Hasty `about 20.0`, and Erbie -> Hasty `about 14.4`.
+  - The current NPS paddling and weekend-upper-district pages still say the upper Buffalo is rainfall dependent, still describe Steel Creek -> Kyle's Landing as the classic 8-mile wilderness float, and still describe Pruitt -> Hasty as the popular fallback when conditions above Pruitt are too low, with the Hasty take-out on river right across from Chimney Rock Bluff and more current after the Little Buffalo enters.
+  - The current NPS camping and getting-around pages still publish official Steel Creek, Kyles Landing, Erbie, Ozark, and Pruitt access/campground coordinates plus the rough-road and unreliable-GPS warnings that anchor this family's shuttle notes.
+  - Direct USGS Water Services for `07055680` returned `36.9 cfs / 3.21 ft` at `2026-07-15 22:30 CDT` during this Thursday, July 16, 2026 run, so all three routes ship with explicit too-low / scraping-likely framing rather than a normal runnable recommendation.
+- Threshold posture stayed family-consistent. All three new Hasty continuations use the existing Pruitt `minimum-only` `tooLow: 100` model from the NPS-linked Float Guide and keep the NPS `2,000 cfs` unsafe ceiling as a hard caveat rather than a full two-sided range.
+- Image coverage stayed reuse-only: all three new Hasty continuations reuse the approved Commons Pruitt Landing image, and matching rows were added to `docs/river-image-source-audit.csv`.
 
 ## Current Inventory
 
-- Live routes: 26.
+- Live routes: 38.
 - Ledger candidates: older implemented-route records plus blocked Arkansas holds remain in `docs/route-candidate-ledger.json`; this run did not recount them.
+
+## 2026-07-15 Bayou DeView downstream restoration pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had forty-one live route objects and matching trip-detail entries before this pass, so the Bayou DeView follow-up still had to create three genuinely new slugs beyond that baseline.
+- Restored `bayou-deview-hickson-lake-rock-island-road`, `bayou-deview-rock-island-road-apple-lake`, and `bayou-deview-apple-lake-bank-of-brinkley` from the AGFC Bayou DeView Water Trail access chain after confirming those slugs were absent from the live route objects and trip-detail map at run start.
+- Qualification package:
+  - AGFC still publishes the named public access chain and exact segment mileages that support the three restored pairs: Hickson Lake-to-Rock Island Road `2.9` miles, Rock Island Road-to-Apple Lake `1.5` miles, and Apple Lake-to-Bank of Brinkley `4.3` miles.
+  - AGFC still says the Bayou DeView gauge height needs to be around `14 ft` or higher to paddle the trail and that the Dagmar Road gate closes at `17 ft`, so all three routes keep the same conservative two-sided stage model with `tooLow: 14`, `idealMin: 14`, `idealMax: 16.9`, and `tooHigh: 17`.
+  - Same-day direct USGS Water Services returned `14.15 ft` at `2026-07-15 17:00 CDT` for direct gauge `07077730`, just above the AGFC floor and therefore appropriate for explicit low-end caution rather than comfort language.
+- Camping and safety posture:
+  - `bayou-deview-hickson-lake-rock-island-road`, `bayou-deview-rock-island-road-apple-lake`, and `bayou-deview-apple-lake-bank-of-brinkley` all keep `nearby_basecamp` camping classification because Dagmar WMA primitive sites remain real nearby support, but none of the restored pairs need to imply an overnight split as part of the default route plan.
+  - All three restored routes keep the same Bayou DeView caution set around indistinct channels, route-finding, floating wood, private-bank limits, Apple Lake seasonal closure, and high-water danger as the gauge approaches the `17 ft` closure line.
+
+## 2026-07-15 Crooked Creek final-combination pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Crooked Creek had seven live route objects and matching trip-detail entries before this pass, leaving exactly three additive gaps in the public access matrix: `crooked-creek-lower-pyatt-mark-oliver`, `crooked-creek-snow-yellville`, and `crooked-creek-lower-pyatt-yellville`.
+- Current AGFC Crooked Creek guidance still lists the exact public mileages of Lower Pyatt -> Snow `6.7`, Snow -> Mark Oliver `5.2`, Mark Oliver -> Kelley’s Slab `6.6`, and Kelley’s Slab -> Yellville `3.5`, while the page also explicitly says the full trail covers `22 miles` from Lower Pyatt to Yellville.
+- Current AGFC access detail on the same page still supports the named public launch ladder of Lower Pyatt, Snow, Mark Oliver, Kelley’s Slab, and Yellville, plus the corridor camping rules: primitive campsites at Snow Access and Brooksher Crooked Creek Preserve, and one-night camping at Fred Berry Crooked Creek Nature Center with manager permission.
+- Same-day direct USGS Water Services for Crooked Creek at Kelly Crossing near Yellville (`07055607`) returned `272 cfs / 11.17 ft` at `2026-07-15 19:45 CDT`, so all three routes keep the conservative Crooked Creek `minimum-only` stage model with `tooLow: 12` and explicit below-band scrape-prone caution.
+- Camping stays route-specific: `crooked-creek-lower-pyatt-mark-oliver`, `crooked-creek-snow-yellville`, and `crooked-creek-lower-pyatt-yellville` all use `on_route_campsite` because the corridor still includes Snow Access campsites and Brooksher preserve support even when the finish shifts downstream.
+- Bounded AGFC, Commons, Marion County, and same-river USGS media review stayed negative for all three slugs, so `docs/river-image-source-audit.csv` records no-gallery outcomes and no new route-gallery asset was added.
+- No gallery image was added. Bounded Commons, AGFC page imagery, Sheffield Nelson Dagmar WMA context, and same-river USGS media review still did not produce a clearly rights-clean exact-route paddling asset for local reuse, so the image audit records bounded no-image outcomes for the restored slugs.
+
+## 2026-07-15 Bayou DeView restoration pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had thirty-five live route objects and matching trip-detail entries before this pass, so the Bayou DeView follow-up still had to create three genuinely new slugs beyond that baseline.
+- Restored `bayou-deview-hickson-lake-apple-lake`, `bayou-deview-rock-island-road-bank-of-brinkley`, and `bayou-deview-benson-creek-apple-lake` from the AGFC Bayou DeView Water Trail access chain after confirming those slugs were absent from the live route objects and trip-detail map at run start.
+- Qualification package:
+  - AGFC still publishes the named public access chain and segment mileages that support the three restored combinations: Hickson Lake-to-Rock Island `2.9` miles, Rock Island-to-Apple Lake `1.5` miles, Apple Lake-to-Bank of Brinkley `4.3` miles, and the longer Benson Creek continuations built from the same official access ladder.
+  - AGFC still says the Bayou DeView gauge height needs to be around `14 ft` or higher to paddle the trail and that the Dagmar Road gate closes at `17 ft`, so all three routes keep the same conservative two-sided stage model with `tooLow: 14`, `idealMin: 14`, `idealMax: 16.9`, and `tooHigh: 17`.
+  - Same-day direct USGS Water Services returned `14.10 ft` at `2026-07-15 12:00 CDT` for direct gauge `07077730`, barely above the AGFC floor and therefore appropriate for explicit low-end caution rather than comfort language.
+- Camping and safety posture:
+  - `bayou-deview-hickson-lake-apple-lake`, `bayou-deview-rock-island-road-bank-of-brinkley`, and `bayou-deview-benson-creek-apple-lake` all keep `nearby_basecamp` camping classification because Dagmar WMA primitive sites remain real nearby support, but none of the restored pairs need to imply an overnight split as part of the default route plan.
+  - All three restored routes keep the same Bayou DeView caution set around indistinct channels, route-finding, floating wood, private-bank limits, Apple Lake seasonal closure, and high-water danger as the gauge approaches the `17 ft` closure line.
+- No gallery image was added. Bounded Commons, AGFC page imagery, Sheffield Nelson Dagmar WMA context, and same-river USGS media review still did not produce a clearly rights-clean exact-route paddling asset for local reuse, so the image audit records bounded no-image outcomes for the restored slugs.
 
 ## Added Routes
 
 - `buffalo-river-ponca-kyles-landing` - Buffalo River, Ponca to Kyle's Landing. Added 2026-05-31 as a guarded `routeType: whitewater` route on direct USGS `07055660` at Ponca. Uses conservative `minimum-only` scoring with `tooLow: 130 cfs`; NPS's `1,600 cfs` Ponca unsafe level is retained as a hard caveat rather than a full two-sided scoring band.
+- `buffalo-river-ponca-steel-creek` - Buffalo River, Ponca to Steel Creek. Added 2026-07-14 as a guarded `routeType: whitewater` route on direct USGS `07055660` at Ponca. Uses the same conservative `minimum-only` `tooLow: 130 cfs` upper-Buffalo family model as the longer Ponca corridor and keeps NPS's `1,600 cfs` Ponca unsafe level as a hard caveat rather than a full two-sided scoring band.
 - `buffalo-river-kyles-landing-pruitt` - Buffalo River, Kyle's Landing to Pruitt. Added 2026-06-01 as a guarded `routeType: whitewater` route on direct/downstream-corridor USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
+- `buffalo-river-steel-creek-kyles-landing` - Buffalo River, Steel Creek to Kyle's Landing. Added 2026-07-14 as a guarded `routeType: whitewater` route on upstream-corridor USGS `07055660` at Ponca. Uses the same conservative `minimum-only` `tooLow: 130 cfs` upper-Buffalo family model and keeps NPS's `1,600 cfs` Ponca unsafe level as a hard caveat rather than a full two-sided scoring band.
+- `buffalo-river-ponca-erbie` - Buffalo River, Ponca to Erbie. Added 2026-07-14 as a guarded `routeType: whitewater` continuation on direct USGS `07055660` at Ponca. Uses the same conservative `minimum-only` `tooLow: 130 cfs` upper-Buffalo family model and keeps NPS's `1,600 cfs` Ponca unsafe level as a hard caveat rather than a full two-sided scoring band.
 - `buffalo-river-kyles-landing-erbie` - Buffalo River, Kyle's Landing to Erbie. Added 2026-07-02 as a guarded `routeType: whitewater` route on downstream-corridor USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
 - `buffalo-river-erbie-ozark` - Buffalo River, Erbie to Ozark. Added 2026-07-02 as a guarded `routeType: whitewater` route on downstream-corridor USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
+- `buffalo-river-kyles-landing-ozark` - Buffalo River, Kyle's Landing to Ozark. Added 2026-07-14 as a guarded `routeType: whitewater` continuation on downstream-corridor USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
+- `buffalo-river-steel-creek-ozark` - Buffalo River, Steel Creek to Ozark. Added 2026-07-14 as a guarded `routeType: whitewater` continuation on downstream-corridor USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
+- `buffalo-river-erbie-pruitt` - Buffalo River, Erbie to Pruitt. Added 2026-07-14 as a guarded `routeType: whitewater` continuation on direct USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
+- `buffalo-river-steel-creek-pruitt` - Buffalo River, Steel Creek to Pruitt. Added 2026-07-14 as a guarded `routeType: whitewater` continuation on direct USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
+- `buffalo-river-ozark-hasty` - Buffalo River, Ozark to Hasty. Added 2026-07-14 as a guarded `routeType: whitewater` continuation on direct USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
 - `buffalo-river-ozark-pruitt` - Buffalo River, Ozark to Pruitt. Added 2026-07-02 as a guarded `routeType: whitewater` route on direct USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
 - `buffalo-river-pruitt-hasty` - Buffalo River, Pruitt to Hasty. Added 2026-05-31 as a guarded `routeType: whitewater` route on direct USGS `07055680` at Pruitt. Uses conservative `minimum-only` scoring with `tooLow: 100 cfs` from the NPS-linked Buffalo National River Float Guide Pruitt bands; NPS's `2,000 cfs` Pruitt unsafe/flood level is retained as a hard caveat rather than a full two-sided scoring band.
 - `buffalo-river-tyler-bend-gilbert` - Buffalo River, Tyler Bend to Gilbert. Added 2026-06-01 UTC as a guarded `routeType: whitewater` middle-district route on direct USGS `07056000` near St. Joe. Uses conservative `minimum-only` scoring with `tooLow: 120 cfs` from Rivers.MOHERP St. Joe bands and same-route/nearby middle-Buffalo trip evidence; high/flood values are caveats only, not a full two-sided scoring band.
+- `buffalo-river-tyler-bend-grinders-ferry` - Buffalo River, Tyler Bend to Grinder's Ferry. Added 2026-07-14 as a guarded short middle-district `routeType: whitewater` route on direct USGS `07056000` near St. Joe. Uses the same conservative `minimum-only` `tooLow: 120 cfs` St. Joe family model and keeps NPS's `8,000 cfs` Grinder's Ferry unsafe level as a hard caveat rather than a full two-sided scoring band.
 - `cossatot-river-ed-banks-highway-278` - Cossatot River, Ed Banks Access to Highway 278 Access. Added 2026-06-01 UTC as an expert-only `routeType: whitewater` route on direct USGS `07340300` near Vandervoort. Uses conservative `two-sided` stage scoring from Arkansas State Parks floater guidance: `tooLow: 3.3 ft`, `idealMin: 3.8 ft`, `idealMax: 4.8 ft`, `tooHigh: 5.4 ft`.
 - `kings-river-rockhouse-trigger-gap` - Kings River, Rockhouse Access to Trigger Gap. Added 2026-05-31 as a conservative recreational route on direct same-river USGS `07050500` near Berryville. Uses `minimum-only` stage scoring with `tooLow: 3.2 ft`; no ideal range or high cutoff is claimed because the numeric floor is local route-guide evidence rather than an official AGFC paddling band.
 - `crooked-creek-lower-pyatt-snow` - Crooked Creek, Lower Pyatt Access to Snow Access. Added 2026-07-11 as a conservative recreational route on direct USGS `07055607` at Kelly Crossing near Yellville. Uses `minimum-only` stage scoring with `tooLow: 12 ft` from AGFC's current `12-12.5 ft` moderate band and keeps camping conservative as `endpoint_campground` because AGFC documents primitive campsites at Snow Access.
@@ -26,7 +108,44 @@ Last summarized: 2026-07-11 18:45 America/Chicago.
 
 ## Status
 
-Arkansas now has twenty-six live routes after the 2026-07-11 Crooked Creek split pass expanded the existing corridor planner into three exact AGFC day segments. The state still looks partially harvested rather than exhausted: Bayou DeView, Buffalo, Crooked Creek, Saline, upper Illinois, Mulberry, Cossatot, Kings, and Ouachita all have live coverage, while the strongest remaining near-term leads are still blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs.
+Arkansas now has thirty-five live routes after the 2026-07-14 upper-Buffalo continuation pass filled three more additive gaps in the Ponca, Steel Creek, and Pruitt corridor: Ponca-to-Erbie, Steel-Creek-to-Ozark, and Steel-Creek-to-Pruitt. The state still looks partially harvested rather than exhausted: Bayou DeView, Buffalo, Crooked Creek, Saline, upper Illinois, Mulberry, Cossatot, Kings, and Ouachita all have live coverage, while the strongest remaining near-term leads are still blocked by endpoint coordinates, weak primary threshold support, stale/product-unavailable USGS evidence, or advanced-whitewater research needs.
+
+## 2026-07-14 upper Buffalo continuation implementation pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had thirty-two live route objects and matching trip-detail entries before this pass, so the Buffalo follow-up had to create three genuinely new slugs beyond that baseline.
+- Added `buffalo-river-ponca-erbie`, `buffalo-river-steel-creek-ozark`, and `buffalo-river-steel-creek-pruitt` from the Buffalo National River upper-district access chain around Ponca, Steel Creek, Kyle's Landing, Erbie, Ozark, and Pruitt.
+- NPS still publishes the exact current route pages for Ponca-to-Steel-Creek, Steel-Creek-to-Kyle's-Landing, Kyle's-Landing-to-Erbie, Erbie-to-Ozark, and Ozark-to-Pruitt, while the current NPS access mileage chart supports the chained continuations at about `16.3`, `19.1`, and `21.1` miles.
+- Same-day official USGS Water Services stayed live on both upper-Buffalo gauge anchors during the pass: `07055660` at Ponca returned `51.4 cfs / 3.53 ft` at `2026-07-14 22:30 CDT`, and `07055680` at Pruitt returned `43.0 cfs / 3.26 ft` at `2026-07-14 22:30 CDT`. All three routes therefore ship with explicit too-low / scraping-likely framing rather than a normal runnable recommendation.
+- Threshold posture stayed family-consistent. `buffalo-river-ponca-erbie` reuses the current upper-Ponca `minimum-only` `tooLow: 130 cfs` model with the NPS `1,600 cfs` unsafe ceiling, while `buffalo-river-steel-creek-ozark` and `buffalo-river-steel-creek-pruitt` reuse the Pruitt Float Guide `minimum-only` `tooLow: 100 cfs` model with the NPS `2,000 cfs` unsafe ceiling.
+- Image coverage stayed reuse-only: `ponca-erbie` reuses the approved Commons Ponca low-water bridge asset, and the two Steel Creek continuations reuse the approved NPS Ozark-to-Pruitt corridor image. Matching rows were added to `docs/river-image-source-audit.csv`.
+
+## 2026-07-14 Buffalo continuation implementation pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had twenty-nine live route objects and matching trip-detail entries before this pass, so the Buffalo follow-up had to create three genuinely new slugs beyond that baseline.
+- Added `buffalo-river-kyles-landing-ozark`, `buffalo-river-erbie-pruitt`, and `buffalo-river-ozark-hasty` from the Buffalo National River upper-district access chain around Erbie, Ozark, Pruitt, and Hasty.
+- Route, gauge, and threshold evidence:
+  - NPS now publishes exact current route pages for Kyle's-Landing-to-Erbie (`5.7` miles), Erbie-to-Ozark (`5.4` miles), Ozark-to-Pruitt (`2.1` miles), and Pruitt-to-Hasty (`7.0` miles), while the official access mileage page supports `5.6`, `5.5`, `2.1`, and `6.8` river miles between those access points.
+  - Direct same-day official USGS Water Services showed `41.7 cfs / 3.25 ft` at `2026-07-14 20:30 CDT` for Buffalo River at Pruitt (`07055680`).
+  - All three routes reuse the established upper-Buffalo `minimum-only` `tooLow: 100 cfs` Pruitt family model from the current NPS-linked Float Guide. Current NPS paddling guidance still says levels above `2,000 cfs` at Pruitt / Highway 7 are unsafe.
+- Access, camping, and safety posture:
+  - All three routes use official NPS access-area coordinates or coordinate anchors for the named accesses: Kyle's Landing, Erbie, Ozark, and Pruitt from current NPS Getting Around, with Hasty preserved as the signed public take-out identified by the current NPS route page across from Chimney Rock Bluff.
+  - `buffalo-river-kyles-landing-ozark` and `buffalo-river-erbie-pruitt` keep campground-backed endpoint support from Kyle's, Erbie, and Ozark while preserving the upper-Buffalo caveats around rough-road access, cold water, strainers, fast rises, and limited cell service.
+  - `buffalo-river-ozark-hasty` keeps the harder Pruitt-to-Hasty caution set, including the Little Buffalo inflow velocity increase, remote take-out, and not-for-beginners moving-water posture.
+  - Gallery coverage was completed by reusing the already-approved NPS upper-Buffalo corridor image for the two Pruitt-corridor slugs and the already-approved Commons Pruitt Landing image for the Ozark-to-Hasty continuation; the reuse is documented in the image audit for all three new slugs.
+
+## 2026-07-14 Buffalo segment implementation pass
+
+- Rebuilt the current Arkansas inventory from the live repo state before editing. Arkansas had twenty-six live route objects and matching trip-detail entries before this pass, so the Buffalo follow-up had to create three genuinely new slugs beyond that baseline.
+- Added `buffalo-river-ponca-steel-creek`, `buffalo-river-steel-creek-kyles-landing`, and `buffalo-river-tyler-bend-grinders-ferry` from the existing Buffalo National River access chain.
+- Route, gauge, and threshold evidence:
+  - NPS now publishes exact route pages for Ponca-to-Steel-Creek (`2.5` miles), Steel-Creek-to-Kyles-Landing (`8` miles), and Tyler-Bend-to-Grinders-Ferry (`1` mile), while the official access mileage page supports `2.7`, `8.0`, and `1.1` river miles between those access points.
+  - Direct same-day official USGS Water Services showed `50.2 cfs / 3.52 ft` at `2026-07-14 19:30 CDT` for Buffalo River at Ponca (`07055660`) and `184 cfs / 3.37 ft` at `2026-07-14 18:45 CDT` for Buffalo River near St. Joe (`07056000`).
+  - The upper two splits reuse the established upper-Buffalo `minimum-only` `tooLow: 130 cfs` Ponca family model, while the Tyler-Bend split reuses the established middle-Buffalo `minimum-only` `tooLow: 120 cfs` St. Joe family model. Current NPS paddling guidance still says water above `1,600 cfs` at Ponca and above `8,000 cfs` at Grinder's Ferry is unsafe.
+- Access, camping, and safety posture:
+  - All three routes use official NPS access-area coordinates: Ponca from direct USGS station metadata, Steel Creek / Kyles / Tyler Bend / Grinders from current NPS camping and campground pages.
+  - `buffalo-river-ponca-steel-creek` and `buffalo-river-steel-creek-kyles-landing` both keep upper-Buffalo caveats around rapids, chutes, wood, rough-road logistics, limited cell service, and rapid rain rises; the longer Steel-Creek-to-Kyles split also carries the current Kyles parking and high-clearance road constraints.
+  - `buffalo-river-tyler-bend-grinders-ferry` stays conservative despite its short length: it carries Tyler Bend launch-management rules, Grinders gravel-bar access softness, tubing congestion, and rising-water caveats rather than treating the route as casual flatwater.
+  - Gallery coverage was completed by reusing the already-approved Ponca Commons image for the two new upper-Buffalo slugs and the already-approved Gilbert aerial for the new Tyler-Bend-to-Grinders slug; the reuse is documented in the image audit for all three new slugs.
 
 ## 2026-07-11 Crooked Creek split implementation pass
 

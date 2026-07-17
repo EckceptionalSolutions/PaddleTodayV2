@@ -11,6 +11,30 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Current Pennsylvania candidate ledger rows: 50 implemented rows as of 2026-06-25 UTC.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
+## 2026-07-16 Lower Juniata restore pass
+
+- 2026-07-16 14:45 America/Chicago / 2026-07-16 19:45 UTC: Pennsylvania three-route restoration pass; restored three supported lower Juniata slugs beyond the live repo baseline at run start.
+- Rebuilt the current live baseline from `src/data/rivers.ts` and `src/data/river-trip-details.ts`, then restored `juniata-river-lewistown-narrows-newport`, `juniata-river-mifflintown-muskrat-springs`, and `juniata-river-millerstown-amity-hall` after confirming the route-detail support still existed while the route objects were absent from the live array.
+- Qualification package: the current PFBC lower Juniata guide still publishes exact public access coordinates for Lewistown Narrows, Mifflintown, Muskrat Springs, Millerstown Community Park, Newport, and Amity Hall plus official route-mile spacing of `28`, `10`, and `15` miles and the lower-corridor caution points near miles `33`, `10.5`, `5.5`, and `5`; and current direct USGS Water Services returned same-day July 16, 2026 values of `1,200 cfs / 3.55 ft` at `2026-07-16 13:30 EDT` for Lewistown (`01564895`) plus `1,460 cfs / 3.73 ft` at `2026-07-16 14:15 EDT` for Newport (`01567000`).
+- Camping stayed route-specific: `juniata-river-lewistown-narrows-newport` and `juniata-river-millerstown-amity-hall` remain `on_route_campsite`, while `juniata-river-mifflintown-muskrat-springs` remains `on_route_campsite` because the Mexico corridor campgrounds still provide the clearest legal overnight support.
+- No new gallery asset was added. Existing bounded no-image rows remained valid for `juniata-river-lewistown-narrows-newport` and `juniata-river-millerstown-amity-hall`, and a bounded 2026-07-16 no-image audit row was added for `juniata-river-mifflintown-muskrat-springs`.
+
+## 2026-07-16 Section 1 and Lower Juniata restore pass
+
+- 2026-07-16 08:35 America/Chicago / 2026-07-16 13:35 UTC: Pennsylvania mixed restoration pass; restored three supported Pennsylvania slugs beyond the live repo baseline at run start.
+- Rebuilt the current live baseline from `src/data/rivers.ts` and `src/data/river-trip-details.ts`, then added `susquehanna-river-wetlands-bloomsburg`, `lehigh-river-rockport-glen-onoko`, and `lehigh-river-white-haven-glen-onoko` beyond the live repo baseline at run start.
+- Qualification package: PFBC Sections 3 and 4 still publish Wetlands Nature Area, PFBC Bloomsburg, the Bloomsburg stage band of about `1-4 ft`, and the Berwick ledge warning below `2 ft`; DCNR still publishes Lehigh Gorge whitewater trip lengths of `12.2` miles for Rockport to Glen Onoko and `20.9` miles for White Haven to Glen Onoko, direct flow bands of below `250 cfs` very low, `250-1,000 cfs` better for boating, above `1,000 cfs` progressively harder, and above `5,000 cfs` expert-only, plus current White Haven / Rockport / Glen Onoko access directions and GPS context; and direct USGS Water Services returned same-day July 16, 2026 values of `3,690 cfs / 1.42 ft` at `2026-07-16 12:15 EDT` for Bloomsburg (`01538700`) plus `294 cfs / 3.55 ft` at `2026-07-16 12:30 EDT` for Lehigh River below Francis E. Walter Reservoir near White Haven (`01447800`).
+- Camping stayed route-specific: `susquehanna-river-wetlands-bloomsburg` stays `none`, and both new Lehigh Gorge runs stay `none` because DCNR frames them as managed daylight whitewater trips with designated access use rather than camping routes.
+- No new gallery asset was added. Existing bounded no-image coverage for `lehigh-river-white-haven-rockport` remained the model, and bounded 2026-07-16 no-image audit rows were added for `susquehanna-river-wetlands-bloomsburg`, `lehigh-river-rockport-glen-onoko`, and `lehigh-river-white-haven-glen-onoko`.
+
+## 2026-07-16 Section 3 and Section 14 restore pass
+
+- 2026-07-16 06:00 America/Chicago / 2026-07-16 11:00 UTC: Pennsylvania three-route restoration pass; restored three supported North Branch Susquehanna slugs beyond the live repo baseline at run start.
+- Rebuilt the current live baseline from `src/data/rivers.ts` and `src/data/river-trip-details.ts`, then restored `susquehanna-river-canal-park-wetlands`, `susquehanna-river-pfbc-danville-wrays`, and `susquehanna-river-wrays-shikellamy-west` after confirming they remained documented in the ledger/history but were absent from the live route array.
+- Qualification package: PFBC Section 3 still publishes exact Canal Park and Wetlands Nature Area coordinates, official river miles, Wilkes-Barre stage guidance, and the mile-180 rapid below the Nanticoke bridge; the current 2021 North Branch guide still publishes exact PFBC Danville, Wray's Riverfront Campground, and Shikellamy State Park West coordinates plus Section 14 Danville guidance of `2 ft` lower limit, `4 ft` better paddling level, and `7 ft` novice ceiling with explicit Lake Augusta and Sunbury Fabridam caution context; and direct USGS Water Services returned same-day July 16, 2026 values of `2,990 cfs / 0.74 ft` at `2026-07-16 05:45 EDT` for Wilkes-Barre (`01536500`) plus `3,430 cfs / 2.89 ft` at `2026-07-16 06:30 EDT` for Danville (`01540500`).
+- Camping stays conservative and route-specific: `susquehanna-river-canal-park-wetlands` remains `none`, while `susquehanna-river-pfbc-danville-wrays` and `susquehanna-river-wrays-shikellamy-west` ship as `endpoint_campground` because Wray's remains the only named legal overnight support in those exact route plans.
+- No gallery image was added. Added bounded 2026-07-16 no-image audit rows for all three routes after Commons, PFBC/guide imagery, and same-river USGS media review did not surface clearly rights-clean exact-route assets for local reuse.
+
 ## 2026-07-11 Yellow Breeches completion pass
 
 - 2026-07-11 00:25 America/Chicago / 2026-07-11 05:25 UTC: Pennsylvania three-route implementation pass; added the remaining current Yellow Breeches Creek short-to-middle slugs beyond the live repo baseline at run start.
@@ -57,6 +81,12 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Record every reviewed lead in `docs/route-candidate-ledger.json`, even on no-add runs.
 
 ## Run Notes
+
+- 2026-07-16 04:51 America/Chicago / 2026-07-16 09:51 UTC: Pennsylvania mixed restoration pass; restored three supported Pennsylvania slugs beyond the live repo baseline at run start.
+  - Rebuilt the live-tree baseline from `src/data/rivers.ts` first and treated the current repo state, not prior automation commits, as the requirement for this pass.
+  - Restored `juniata-river-granville-mifflintown`, `juniata-river-victory-park-walker`, and `susquehanna-river-ulster-bridge-towanda` after confirming the route objects were absent from the live tree while official-source lineage remained strong.
+  - Qualification package: the current PFBC lower Juniata guide still publishes exact public access coordinates and official river-mile spacing for Granville, Victory Park, Mifflintown, and Walker plus the lower-section Lewistown `3.1 ft` minimum; the current PFBC North Branch Section 1 guide still publishes exact public access coordinates and caution miles for Ulster Bridge and Towanda plus Towanda stage guidance of runnable around `-0.5 ft`, safe-base planning around `2 ft`, and novice ceiling around `5 ft`; and current direct USGS Water Services returned `1270 cfs / 3.63 ft` at `2026-07-15 15:30 EDT` for Lewistown (`01564895`) plus `1690 cfs / 0.43 ft` at `2026-07-15 15:45 EDT` for Towanda (`01531500`).
+  - Restored matching trip-detail logistics and bounded no-image outcomes for all three routes without adding a gallery asset.
 
 - 2026-07-14 01:45 America/Chicago / 2026-07-14 06:45 UTC: Pennsylvania three-route restoration pass; reintroduced two upper and one lower North Branch Susquehanna routes beyond the live repo baseline at run start.
   - Rebuilt the live-tree baseline from `src/data/rivers.ts` at run start and treated the current `535`-route repo state, not prior automation commits or stale support surfaces, as the requirement for this pass.

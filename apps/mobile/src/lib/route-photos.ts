@@ -54,6 +54,15 @@ const routeGalleryImages: Record<string, string[]> = {
   'sauk-river-spring-hill-st-martin': [
     '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
   ],
+  'sauk-river-spring-hill-frogtown': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-frogtown-heims-mill': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'sauk-river-st-martin-rockville': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
   'cottonwood-river-juenemann-springfield': [
     '/gallery/cottonwood-river-juenemann-springfield/cottonwood-river-flandrau.jpg',
   ],
@@ -366,6 +375,15 @@ const routeGalleryImages: Record<string, string[]> = {
   'buffalo-river-kyles-landing-pruitt': [
     '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
   ],
+  'buffalo-river-steel-creek-hasty': [
+    '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+  ],
+  'buffalo-river-kyles-landing-hasty': [
+    '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+  ],
+  'buffalo-river-erbie-hasty': [
+    '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+  ],
   'buffalo-river-tyler-bend-gilbert': [
     '/gallery/buffalo-river-tyler-bend-gilbert/buffalo-river-gilbert-aerial.jpg',
   ],
@@ -403,6 +421,15 @@ const routeGalleryImages: Record<string, string[]> = {
     '/gallery/slate-creek-lions-club-old-slate-furnace/slate-creek-owingsville-usgs.jpg',
   ],
   'levisa-fork-cedar-creek-thompson-road': [
+    '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+  ],
+  'levisa-fork-prestonsburg-airport': [
+    '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+  ],
+  'levisa-fork-airport-boat-ramp': [
+    '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+  ],
+  'levisa-fork-prestonsburg-boat-ramp': [
     '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
   ],
   'elkhorn-creek-vpa-3-aw-access': [

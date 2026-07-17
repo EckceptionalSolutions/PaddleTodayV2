@@ -174,7 +174,27 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
+  'little-fork-river-dentaybow-fiedler': [
+    {
+      id: 'little-fork-river-cook-rapids-dpla',
+      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.jpg',
+      alt: 'The Little Fork River tumbles through a rocky rapid below tree-lined banks near Cook, Minnesota.',
+      caption: 'Little Fork River below the rapids near Cook',
+      credit: 'Minnesota State University Moorhead via DPLA/Wikimedia Commons',
+      takenLabel: 'Public domain',
+    },
+  ],
   'little-fork-river-dentaybow-devereaux': [
+    {
+      id: 'little-fork-river-cook-rapids-dpla',
+      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.jpg',
+      alt: 'The Little Fork River tumbles through a rocky rapid below tree-lined banks near Cook, Minnesota.',
+      caption: 'Little Fork River below the rapids near Cook',
+      credit: 'Minnesota State University Moorhead via DPLA/Wikimedia Commons',
+      takenLabel: 'Public domain',
+    },
+  ],
+  'little-fork-river-highway-73-samuelson': [
     {
       id: 'little-fork-river-cook-rapids-dpla',
       src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.jpg',
@@ -254,26 +274,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC0',
     },
   ],
-  'otter-tail-river-phelps-mill-west-red-river-lake': [
-    {
-      id: 'phelps-mill-otter-tail-river-commons',
-      src: '/gallery/otter-tail-river-phelps-mill-west-red-river-lake/phelps-mill-otter-tail-river.jpg',
-      alt: 'The Otter Tail River flows past the historic Phelps Mill under fall trees.',
-      caption: 'Otter Tail River at Phelps Mill',
-      credit: 'Tony Webster via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
-    },
-  ],
-  'otter-tail-river-phelps-mill-west-lost-lake': [
-    {
-      id: 'phelps-mill-otter-tail-river-commons',
-      src: '/gallery/otter-tail-river-phelps-mill-west-red-river-lake/phelps-mill-otter-tail-river.jpg',
-      alt: 'The Otter Tail River flows past the historic Phelps Mill under fall trees.',
-      caption: 'Otter Tail River at Phelps Mill',
-      credit: 'Tony Webster via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
-    },
-  ],
   'juniata-river-granville-mifflin': [
     {
       id: 'juniata-river-lewistown-commons',
@@ -294,6 +294,46 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
+  'sauk-river-spring-hill-frogtown': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-frogtown-heims-mill': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-st-martin-frogtown': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-st-martin-rockville': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
   'sauk-river-frogtown-rockville': [
     {
       id: 'sauk-river-sartell-commons',
@@ -304,7 +344,47 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
+  'sauk-river-frogtown-eagle-park': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
   'sauk-river-frogtown-miller-landing': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-frogtown-knights-of-columbus': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-rockville-miller-landing': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-rockville-knights-of-columbus': [
     {
       id: 'sauk-river-sartell-commons',
       src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
@@ -335,6 +415,56 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     },
   ],
   'sauk-river-st-martin-eagle-park': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-eagle-knights-of-columbus': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-eagle-heims-mill': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-miller-landing-knights-of-columbus': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-miller-landing-heims-mill': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sauk-river-knights-of-columbus-heims-mill': [
     {
       id: 'sauk-river-sartell-commons',
       src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
@@ -547,6 +677,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     },
   ],
   'minnesota-river-henderson-belle-plaine': [
+    {
+      id: 'minnesota-river-valley-refuge',
+      src: '/gallery/minnesota-river-henderson-belle-plaine/minnesota-valley-refuge.jpg',
+      alt: 'Brown marsh grasses and calm water fill a broad river-edge wetland below a wooded bluff.',
+      caption: 'Lower Minnesota River valley wetland scene',
+      credit: 'Debbie Koenigs/USFWS',
+      takenLabel: 'USFWS asset: public domain',
+    },
+  ],
+  'minnesota-river-henderson-station-thompson-ferry': [
+    {
+      id: 'minnesota-river-valley-refuge',
+      src: '/gallery/minnesota-river-henderson-belle-plaine/minnesota-valley-refuge.jpg',
+      alt: 'Brown marsh grasses and calm water fill a broad river-edge wetland below a wooded bluff.',
+      caption: 'Lower Minnesota River valley wetland scene',
+      credit: 'Debbie Koenigs/USFWS',
+      takenLabel: 'USFWS asset: public domain',
+    },
+  ],
+  'minnesota-river-belle-plaine-thompson-ferry': [
+    {
+      id: 'minnesota-river-valley-refuge',
+      src: '/gallery/minnesota-river-henderson-belle-plaine/minnesota-valley-refuge.jpg',
+      alt: 'Brown marsh grasses and calm water fill a broad river-edge wetland below a wooded bluff.',
+      caption: 'Lower Minnesota River valley wetland scene',
+      credit: 'Debbie Koenigs/USFWS',
+      takenLabel: 'USFWS asset: public domain',
+    },
+  ],
+  'minnesota-river-belle-plaine-carver': [
     {
       id: 'minnesota-river-valley-refuge',
       src: '/gallery/minnesota-river-henderson-belle-plaine/minnesota-valley-refuge.jpg',
@@ -1206,6 +1366,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
+  'eleven-point-river-greer-crossing-turner-mill-south': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-greer-crossing-turner-mill-south/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
   'eleven-point-river-greer-crossing-whitten': [
     {
       id: 'eleven-point-river-missouri-commons',
@@ -1516,6 +1686,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: public domain',
     },
   ],
+  'clinton-river-rotary-budd': [
+    {
+      id: 'clinton-river-macomb-county-commons',
+      src: '/gallery/clinton-river-rotary-budd/clinton-river-macomb-county.jpg',
+      alt: 'The Clinton River flows past wooded banks in Macomb County, Michigan.',
+      caption: 'Clinton River in Macomb County',
+      credit: 'Local hero via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'clinton-river-budd-shadyside': [
+    {
+      id: 'clinton-river-macomb-county-commons',
+      src: '/gallery/clinton-river-budd-shadyside/clinton-river-macomb-county.jpg',
+      alt: 'The Clinton River flows past wooded banks in Macomb County, Michigan.',
+      caption: 'Clinton River in Macomb County',
+      credit: 'Local hero via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'clinton-river-shadyside-macarthur': [
+    {
+      id: 'clinton-river-macomb-county-commons',
+      src: '/gallery/clinton-river-shadyside-macarthur/clinton-river-macomb-county.jpg',
+      alt: 'The Clinton River flows past wooded banks in Macomb County, Michigan.',
+      caption: 'Clinton River in Macomb County',
+      credit: 'Local hero via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
   'clinton-river-macarthur-harley-ensign': [
     {
       id: 'clinton-river-macomb-county-commons',
@@ -1556,6 +1756,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
   ],
+  'buffalo-river-ponca-steel-creek': [
+    {
+      id: 'buffalo-river-ponca-steel-corridor-commons',
+      src: '/gallery/buffalo-river-ponca-kyles-landing/buffalo-river-ponca-low-water-bridge.jpg',
+      alt: 'The Buffalo River passes under the Ponca low-water bridge with wooded Ozark hills rising behind the upper-river corridor.',
+      caption: 'Upper Buffalo River at Ponca',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
   'buffalo-river-pruitt-hasty': [
     {
       id: 'buffalo-river-pruitt-landing-commons',
@@ -1566,6 +1776,46 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
   ],
+  'buffalo-river-steel-creek-kyles-landing': [
+    {
+      id: 'buffalo-river-steel-kyles-corridor-commons',
+      src: '/gallery/buffalo-river-ponca-kyles-landing/buffalo-river-ponca-low-water-bridge.jpg',
+      alt: 'The upper Buffalo River flows through the Ponca corridor with forested hills and clear moving water.',
+      caption: 'Upper Buffalo River corridor near Ponca',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'buffalo-river-ponca-erbie': [
+    {
+      id: 'buffalo-river-ponca-erbie-corridor-commons',
+      src: '/gallery/buffalo-river-ponca-kyles-landing/buffalo-river-ponca-low-water-bridge.jpg',
+      alt: 'The Buffalo River passes under the Ponca low-water bridge with wooded Ozark hills above the broader upstream corridor toward Erbie.',
+      caption: 'Upper Buffalo River at Ponca',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'buffalo-river-ponca-pruitt': [
+    {
+      id: 'buffalo-river-ponca-pruitt-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River bends through wooded Ozark bluffs in the long upper-district corridor from Ponca toward Pruitt.',
+      caption: 'Upper Buffalo River corridor toward Pruitt',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'buffalo-river-ponca-ozark': [
+    {
+      id: 'buffalo-river-ponca-ozark-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River bends through wooded Ozark bluffs in the long upper-district corridor from Ponca toward Ozark.',
+      caption: 'Upper Buffalo River corridor toward Ozark',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
   'buffalo-river-kyles-landing-pruitt': [
     {
       id: 'buffalo-river-ozark-pruitt-trail-nps',
@@ -1574,6 +1824,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Buffalo River corridor between Ozark and Pruitt',
       credit: 'NPS via Wikimedia Commons',
       takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'buffalo-river-steel-creek-erbie': [
+    {
+      id: 'buffalo-river-steel-erbie-corridor-commons',
+      src: '/gallery/buffalo-river-ponca-kyles-landing/buffalo-river-ponca-low-water-bridge.jpg',
+      alt: 'The upper Buffalo River passes under the Ponca low-water bridge with wooded Ozark hills rising above the corridor used by the Steel Creek to Erbie continuation.',
+      caption: 'Upper Buffalo River corridor near Ponca',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
   ],
   'buffalo-river-kyles-landing-erbie': [
@@ -1596,6 +1856,96 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'NPS asset: public domain',
     },
   ],
+  'buffalo-river-kyles-landing-ozark': [
+    {
+      id: 'buffalo-river-kyles-ozark-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River bends through a forested Ozark bluff corridor like the longer Kyle\'s Landing to Ozark continuation.',
+      caption: 'Upper Buffalo River corridor below Kyle\'s Landing',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'buffalo-river-steel-creek-ozark': [
+    {
+      id: 'buffalo-river-steel-ozark-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River winds through a bluff-lined Ozark corridor similar to the longer Steel Creek to Ozark continuation.',
+      caption: 'Upper Buffalo River corridor toward Ozark',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'buffalo-river-erbie-pruitt': [
+    {
+      id: 'buffalo-river-erbie-pruitt-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River runs between wooded bluffs in the Erbie to Pruitt corridor.',
+      caption: 'Buffalo River corridor between Erbie and Pruitt',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'buffalo-river-steel-creek-pruitt': [
+    {
+      id: 'buffalo-river-steel-pruitt-corridor-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River runs through broad bends and wooded bluffs in the longer Steel Creek to Pruitt upper-district corridor.',
+      caption: 'Upper Buffalo River corridor toward Pruitt',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'buffalo-river-steel-creek-hasty': [
+    {
+      id: 'buffalo-river-steel-hasty-pruitt-commons',
+      src: '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+      alt: 'The Buffalo River flows past Pruitt Landing with wooded Ozark hills above the bank in the same corridor used for the longer Steel Creek to Hasty continuation.',
+      caption: 'Buffalo River at Pruitt Landing',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'buffalo-river-ponca-hasty': [
+    {
+      id: 'buffalo-river-ponca-hasty-pruitt-commons',
+      src: '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+      alt: 'The Buffalo River flows past Pruitt Landing with wooded Ozark hills above the bank in the same corridor used by the full Ponca to Hasty continuation.',
+      caption: 'Buffalo River at Pruitt Landing',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'buffalo-river-kyles-landing-hasty': [
+    {
+      id: 'buffalo-river-kyles-hasty-pruitt-commons',
+      src: '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+      alt: 'The Buffalo River flows past Pruitt Landing with wooded Ozark hills above the bank in the same corridor used for the longer Kyles Landing to Hasty continuation.',
+      caption: 'Buffalo River at Pruitt Landing',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'buffalo-river-erbie-hasty': [
+    {
+      id: 'buffalo-river-erbie-hasty-pruitt-commons',
+      src: '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+      alt: 'The Buffalo River flows past Pruitt Landing with wooded Ozark hills above the bank in the same corridor used for the Erbie to Hasty continuation.',
+      caption: 'Buffalo River at Pruitt Landing',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'buffalo-river-ozark-hasty': [
+    {
+      id: 'buffalo-river-ozark-hasty-pruitt-commons',
+      src: '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+      alt: 'The Buffalo River flows past Pruitt Landing with wooded Ozark hills above the bank.',
+      caption: 'Buffalo River at Pruitt Landing',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
   'buffalo-river-ozark-pruitt': [
     {
       id: 'buffalo-river-ozark-pruitt-corridor-nps',
@@ -1612,6 +1962,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       src: '/gallery/buffalo-river-tyler-bend-gilbert/buffalo-river-gilbert-aerial.jpg',
       alt: 'An aerial view shows the Buffalo River winding past Gilbert with wooded hills and gravel bars nearby.',
       caption: 'Buffalo River at Gilbert',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'buffalo-river-tyler-bend-grinders-ferry': [
+    {
+      id: 'buffalo-river-tyler-grinders-corridor-nps',
+      src: '/gallery/buffalo-river-tyler-bend-gilbert/buffalo-river-gilbert-aerial.jpg',
+      alt: 'An aerial view shows the middle Buffalo River winding through gravel bars and wooded hills near the Tyler Bend and Grinders Ferry corridor.',
+      caption: 'Middle Buffalo River near Gilbert',
       credit: 'NPS via Wikimedia Commons',
       takenLabel: 'NPS asset: public domain',
     },
@@ -1856,7 +2216,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
-  'south-fork-kentucky-river-oneida-fish-creek': [
+'south-fork-kentucky-river-oneida-fish-creek': [
     {
       id: 'south-fork-kentucky-river-bronner-bend-commons',
       src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
@@ -1866,7 +2226,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: public domain',
     },
   ],
-  'south-fork-kentucky-river-rocky-branch-bishop-bend': [
+'south-fork-kentucky-river-rocky-branch-bishop-bend': [
     {
       id: 'south-fork-kentucky-river-bronner-bend-commons',
       src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
@@ -1886,7 +2246,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: public domain',
     },
   ],
-  'south-fork-kentucky-river-cedar-valley-bishop-bend': [
+'south-fork-kentucky-river-cedar-valley-bishop-bend': [
     {
       id: 'south-fork-kentucky-river-bronner-bend-commons',
       src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
@@ -1906,6 +2266,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: public domain',
     },
   ],
+  'south-fork-kentucky-river-hacker-branch-kay-wood': [
+    {
+      id: 'south-fork-kentucky-river-bronner-bend-commons',
+      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
+      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
+      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
+      credit: 'Ernest Danglade via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
   'south-fork-kentucky-river-upper-wolf-creek-kay-wood': [
     {
       id: 'south-fork-kentucky-river-bronner-bend-commons',
@@ -1916,7 +2286,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: public domain',
     },
   ],
-  'slate-creek-lions-club-old-slate-furnace': [
+'slate-creek-lions-club-old-slate-furnace': [
     {
       id: 'slate-creek-owingsville-usgs',
       src: '/gallery/slate-creek-lions-club-old-slate-furnace/slate-creek-owingsville-usgs.jpg',
@@ -1924,6 +2294,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Slate Creek at Owingsville',
       credit: 'Andre Ferguson/USGS',
       takenLabel: 'USGS asset: public domain',
+    },
+  ],
+  'levisa-fork-jubilee-island-creek': [
+    {
+      id: 'levisa-fork-pikeville-commons',
+      src: '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+      alt: 'The Levisa Fork flows past Pikeville, Kentucky, with a broad river channel and wooded slopes nearby.',
+      caption: 'Levisa Fork in Pikeville',
+      credit: 'FatCat96 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
     },
   ],
   'levisa-fork-cedar-creek-thompson-road': [
@@ -1937,6 +2317,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     },
   ],
   'levisa-fork-jubilee-thompson-road': [
+    {
+      id: 'levisa-fork-pikeville-commons',
+      src: '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+      alt: 'The Levisa Fork flows past Pikeville, Kentucky, with a broad river channel and wooded slopes nearby.',
+      caption: 'Levisa Fork in Pikeville',
+      credit: 'FatCat96 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
+  'levisa-fork-prestonsburg-airport': [
+    {
+      id: 'levisa-fork-pikeville-commons',
+      src: '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+      alt: 'The Levisa Fork flows past Pikeville, Kentucky, with a broad river channel and wooded slopes nearby.',
+      caption: 'Levisa Fork in Pikeville',
+      credit: 'FatCat96 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
+  'levisa-fork-airport-boat-ramp': [
+    {
+      id: 'levisa-fork-pikeville-commons',
+      src: '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+      alt: 'The Levisa Fork flows past Pikeville, Kentucky, with a broad river channel and wooded slopes nearby.',
+      caption: 'Levisa Fork in Pikeville',
+      credit: 'FatCat96 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
+  'levisa-fork-prestonsburg-boat-ramp': [
     {
       id: 'levisa-fork-pikeville-commons',
       src: '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
@@ -2312,6 +2722,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Fox River at Yorkville whitewater course',
       credit: 'David Jakes via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY 4.0',
+    },
+  ],
+  'otter-tail-river-phelps-mill-west-lost-lake': [
+    {
+      id: 'phelps-mill-otter-tail-river-commons',
+      src: '/gallery/otter-tail-river-phelps-mill-west-red-river-lake/phelps-mill-otter-tail-river.jpg',
+      alt: 'The Otter Tail River flows past the historic Phelps Mill under fall trees.',
+      caption: 'Otter Tail River at Phelps Mill',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
 };
