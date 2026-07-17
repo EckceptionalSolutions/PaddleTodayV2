@@ -8563,6 +8563,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       }
     ],
   },
+  'cottonwood-river-highway-15-courtland': {
+    putIn: {
+      name: 'Highway 15 / Cottonwood Street Bridge public water access',
+      latitude: 44.2826599,
+      longitude: -94.4360667,
+    },
+    takeOut: {
+      name: 'Minnesota River, Courtland public water access',
+      latitude: 44.256539,
+      longitude: -94.3395693,
+    },
+    logistics: {
+      distanceLabel: 'About 10 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with low water, wind, or confluence scouting',
+      shuttle:
+        'Stage the Courtland take-out first, then drive back to the Highway 15 / Cottonwood Street bridge access in New Ulm. Inspect Courtland for mud, flood debris, and wind exposure before committing to the confluence finish.',
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR public accesses, follow Minnesota boating/PFD rules, and obey posted access, park, and private-bank signs.',
+      camping:
+        'Treat this as a day route. Flandrau State Park camping is upstream of the selected put-in; do not assume Cottonwood or Minnesota River banks near the confluence are legal overnight stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Highway 15 in New Ulm, paddle the final lower Cottonwood mile to the Minnesota River, and finish at Courtland. The New Ulm DNR gauge is just upstream and currently reads low, so same-day depth and wind checks matter.',
+      accessCaveats: [
+        'Highway 15 resolves as DNR access WAS01419 at Cottonwood river mile 1.6, and Courtland resolves as DNR access WAS00794 on the Minnesota River at river mile 128.0.',
+        'The selected gauge is upstream of the put-in, not on the Minnesota River finish; use it as a near-put-in Cottonwood check and inspect the Courtland take-out separately.',
+        'The route changes character at the Cottonwood-Minnesota confluence. Do not count on informal confluence banks or private land for bailout.',
+      ],
+      watchFor: [
+        'Low-water scraping and possible dragging while the New Ulm gauge is below the official medium band.',
+        'Confluence current, floating debris, muddy banks, and wind on the broader Minnesota River finish.',
+        'Snags, strainers, undercut banks, agricultural debris, private shoreland, and fast rises after rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-15-cottonwood-street-bridge-public-water-access',
+        name: 'Highway 15 / Cottonwood Street Bridge public water access',
+        latitude: 44.2826599,
+        longitude: -94.4360667,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01419 at Cottonwood river mile 1.6.',
+      },
+      {
+        id: 'courtland-public-water-access',
+        name: 'Minnesota River, Courtland public water access',
+        latitude: 44.256539,
+        longitude: -94.3395693,
+        mileFromStart: 10,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00794 on the Minnesota River at river mile 128.0.',
+      },
+    ],
+  },
   'minnesota-river-le-sueur-henderson': {
     putIn: {
       name: 'Minnesota River Le Sueur public water access',
@@ -31893,6 +31948,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'cedar-river-lansing-ramsey-mill-pond': {
+    putIn: {
+      name: 'Lansing / County Road 2 bridge gauge access',
+      latitude: 43.746416,
+      longitude: -92.958145,
+    },
+    takeOut: {
+      name: 'Cedar River, Ramsey Mill Pond Public Water Access Site',
+      latitude: 43.7064812,
+      longitude: -92.9595181,
+    },
+    logistics: {
+      distanceLabel: 'About 3.8 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer with low water, wood, or dam-area scouting',
+      shuttle:
+        'Stage Ramsey Mill Pond first, then drive north to the Lansing / County Road 2 bridge. Confirm that the bridge launch is legal and practical before unloading, and identify the Ramsey take-out above the low-head dam before launch.',
+      permits:
+        'No route-specific paddling permit is known. Use legal public right-of-way or public access only, follow Minnesota boating/PFD rules, and obey posted dam, park, WMA, and private-bank signs.',
+      camping:
+        'Treat this as a short day trip. DNR does not document an on-route campsite between Lansing and Ramsey Mill Pond, and riverbed camping next to private property is not permitted.',
+      campingClassification: 'none',
+      summary:
+        'Launch near the Lansing / County Road 2 DNR gauge and take out at Ramsey Mill Pond for the short upper-Cedar approach to the existing Ramsey-to-Austin route. The Lansing gauge is direct and was in the official medium band during this run.',
+      accessCaveats: [
+        'The Lansing put-in is anchored to the DNR river-level gauge and County Road 2 bridge at river mile 25.0, not to a public-water-access-layer record. Confirm same-day legal launch and parking before using it.',
+        'Ramsey Mill Pond resolves as DNR access WAS01376 at river mile 21.2 with public-water-access coordinates.',
+        'Take out at Ramsey above the low-head dam unless you have separately planned the Ramsey-to-Austin route and portage/dam context.',
+      ],
+      watchFor: [
+        'The Ramsey Mill Pond low-head dam and portage context; this route ends before the dam.',
+        'Snags, overhanging trees, shallow spots, private banks, and occasional flood conditions.',
+        'Fast rises after rain and low-water scraping as the Lansing gauge falls toward the official low and scrapable bands.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lansing-county-road-2-gauge',
+        name: 'Lansing / County Road 2 bridge gauge access',
+        latitude: 43.746416,
+        longitude: -92.958145,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'DNR-mapped river-level gauge at river mile 25.0; confirm legal launch and parking before using.',
+      },
+      {
+        id: 'ramsey-mill-pond',
+        name: 'Cedar River, Ramsey Mill Pond Public Water Access Site',
+        latitude: 43.7064812,
+        longitude: -92.9595181,
+        mileFromStart: 3.8,
+        segmentKind: 'creek',
+        note: 'Default take-out above Ramsey Mill Pond dam; resolves as WAS01376 at river mile 21.2.',
+      },
+    ],
+  },
   'st-louis-river-forbes-zim': {
     putIn: {
       name: 'St. Louis River, Forbes Public Water Access Site',
@@ -31945,6 +32055,70 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 12.9,
         segmentKind: 'creek',
         note: 'Default take-out at DNR river mile 113.0; resolves as WAS00613.',
+      },
+    ],
+  },
+  'st-louis-river-zim-toivola': {
+    putIn: {
+      name: 'St. Louis River, Zim Public Water Access Site',
+      latitude: 47.3059388,
+      longitude: -92.6595318,
+    },
+    takeOut: {
+      name: 'St. Louis River, Toivola Public Water Access Site',
+      latitude: 47.1672586,
+      longitude: -92.7792689,
+    },
+    logistics: {
+      distanceLabel: 'About 18.8 mi',
+      estimatedPaddleTime: 'About 7 hr to 10 hr, longer with low-water dragging, scouting, or an overnight stop',
+      shuttle:
+        'Stage Toivola first, then drive back to Zim. Confirm both remote carry-in accesses, the low-water condition, and whether the group is treating Stony Creek as an emergency stop, a legal campsite stop, or no stop at all.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR public accesses, follow Minnesota boating/PFD rules, and obey state water-trail and campsite rules.',
+      camping:
+        'DNR Map 1 marks the Stony Creek watercraft campsite at river mile 99.0 between Zim and Toivola. Use only designated or otherwise legal public-land sites, and do not camp on private riverbed or private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Zim and take out at Toivola for the upper-St. Louis connector below the existing Forbes-to-Zim route. The Forbes DNR gauge is an upstream proxy and was below the official scrapable floor during this run, so low-water dragging is the default assumption.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Zim as WAS00613 at river mile 113.0 and Toivola as WAS00615 at river mile 94.2.',
+        'The Forbes gauge is upstream of Zim. It has official DNR interpretation bands, but it is still a corridor proxy and should be paired with launch-side depth checks.',
+        'Do not continue below Toivola into the longer Toivola-to-County-Road-29 route unless that separate plan, campsite posture, and downstream gauge caveat are already accepted.',
+      ],
+      watchFor: [
+        'Below-scrapable Forbes readings, exposed boulder beds, shallow riffles, and possible dragging.',
+        'Class I rapids near river mile 99, cold water, fresh wood, strainers, remote banks, and limited services.',
+        'Private shoreland away from DNR accesses or designated/legal public campsites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'st-louis-zim',
+        name: 'St. Louis River, Zim Public Water Access Site',
+        latitude: 47.3059388,
+        longitude: -92.6595318,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00613 at DNR river mile 113.0.',
+      },
+      {
+        id: 'stony-creek-watercraft-campsite',
+        name: 'Stony Creek watercraft campsite',
+        latitude: 47.208,
+        longitude: -92.729,
+        mileFromStart: 14,
+        segmentKind: 'creek',
+        note: 'DNR Map 1 marks this watercraft campsite at river mile 99.0; coordinates are approximate from the mapped river-mile location.',
+      },
+      {
+        id: 'st-louis-toivola',
+        name: 'St. Louis River, Toivola Public Water Access Site',
+        latitude: 47.1672586,
+        longitude: -92.7792689,
+        mileFromStart: 18.8,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00615 at DNR river mile 94.2.',
       },
     ],
   },
@@ -39904,6 +40078,204 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 2.5,
         segmentKind: 'creek',
         note: 'Default Miles Paddled take-out; WRT reports a steep bank and hidden path, so scout before launch.',
+      },
+    ],
+  },
+  'bark-river-merton-dam-bark-river-park': {
+    putIn: {
+      id: 'merton-millpond-dam-launch',
+      name: "Merton Millpond / Firemen's Park downstream launch",
+      latitude: 43.14871,
+      longitude: -88.30684,
+    },
+    takeOut: {
+      id: 'bark-river-park-hartland',
+      name: 'Bark River Park / Church Street',
+      latitude: 43.1072301,
+      longitude: -88.3453733,
+    },
+    logistics: {
+      distanceLabel: 'About 4.9 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer if wood forces portages',
+      shuttle:
+        "Use a short Lake Country vehicle shuttle between the Merton Millpond / Firemen's Park dam area and Bark River Park in Hartland. Stage the Bark River Park take-out first because it is the practical endpoint before the Hartland segment.",
+      permits:
+        'No route-specific paddling permit is known. Use the public Merton Millpond and Hartland park access points, follow posted park rules, and avoid private banks except for emergencies.',
+      camping:
+        'No on-route camping is documented. Treat this as a day route from nearby Lake Country lodging or home base.',
+      campingClassification: 'none',
+      summary:
+        "Launch below the Merton Millpond dam area and paddle the clear upper Bark to Hartland's Bark River Park. The route has springs, boulder gardens, and attractive wooded sections, but wood and shallow rocks make the Delafield gauge and a same-day visual check important.",
+      accessCaveats: [
+        'Launch below the dam structure at Merton; do not stage or idle near dam hydraulics.',
+        'Bark River Park is the planned take-out for this card. Continuing downstream enters the separate Hartland-to-Delafield route with additional rapids, bridge clearance, and lake exposure.',
+        'Private banks line portions of the reach. Plan all stops at public parks or clear emergency exits only.',
+      ],
+      watchFor: [
+        'Shallow boulder gardens and scraping when the Delafield gauge is below the preferred window.',
+        'Fresh deadfall, low branches, and portage-worthy strainers in the narrow wooded channel.',
+        'Fast-rising water, cold spring-fed current, and limited bailout options between public parks.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'merton-millpond-dam-launch',
+        name: "Merton Millpond / Firemen's Park downstream launch",
+        latitude: 43.14871,
+        longitude: -88.30684,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Village of Merton public boat-launch area and WRT dam-area launch for the downstream Bark route.',
+      },
+      {
+        id: 'bark-river-park-hartland',
+        name: 'Bark River Park / Church Street',
+        latitude: 43.1072301,
+        longitude: -88.3453733,
+        mileFromStart: 4.9,
+        segmentKind: 'creek',
+        note: 'Village of Hartland public riverfront park at the end of Church Street.',
+      },
+    ],
+  },
+  'bark-river-bark-river-park-delafield': {
+    putIn: {
+      id: 'bark-river-park-hartland',
+      name: 'Bark River Park / Church Street',
+      latitude: 43.1072301,
+      longitude: -88.3453733,
+    },
+    takeOut: {
+      id: 'delafield-mill-street-launch',
+      name: 'Delafield Post Office / Mill Street kayak launch',
+      latitude: 43.0626414,
+      longitude: -88.4031778,
+    },
+    logistics: {
+      distanceLabel: 'About 6.2 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with scouting or bridge portages',
+      shuttle:
+        'Stage a vehicle at the Mill Street / Delafield Post Office launch, then put in at Bark River Park. A bike shuttle is possible in the Hartland-Delafield corridor, but vehicle staging avoids downtown and lake-traffic timing.',
+      permits:
+        'No route-specific paddling permit is known. Follow Hartland park rules at the put-in and local Delafield launch rules at the take-out.',
+      camping:
+        'No on-route camping is documented. Treat this as a day paddle; nearby developed lodging and campgrounds are off-route basecamps only.',
+      campingClassification: 'none',
+      summary:
+        'Paddle from Bark River Park through Hartland, the Highway 83 corridor, and Lake Nagawicka to the Mill Street launch by the Delafield Post Office. This route has the best Bark River gauge ladder in the app, but it also has rapids, wood, bridge clearance, and lake wind exposure.',
+      accessCaveats: [
+        'Identify the Delafield Mill Street launch before paddling across Lake Nagawicka; wind, motorboats, and shoreline development can make the final approach feel different from the creek miles.',
+        'Low bridges may require ducking or easy portages depending on water level and boat height.',
+        'Much of the route has private shoreline, especially below Hartland and along the lake. Do not count on casual bankside exits.',
+      ],
+      watchFor: [
+        'Class I-II current and a stronger rapid in the Hartland section.',
+        'Fresh tree blockages, low branches, and bridge-clearance issues after storms.',
+        'Wind, cold water, and motorboat traffic on Lake Nagawicka before the Delafield take-out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'bark-river-park-hartland',
+        name: 'Bark River Park / Church Street',
+        latitude: 43.1072301,
+        longitude: -88.3453733,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Village of Hartland public riverfront park and WRT put-in for the Hartland route.',
+      },
+      {
+        id: 'nixon-park-hartland',
+        name: 'Nixon Park / East Park Avenue',
+        latitude: 43.1051,
+        longitude: -88.3427,
+        mileFromStart: 0.9,
+        segmentKind: 'creek',
+        note: 'Downtown Hartland park corridor near early rapids and scout/bailout options.',
+      },
+      {
+        id: 'delafield-mill-street-launch',
+        name: 'Delafield Post Office / Mill Street kayak launch',
+        latitude: 43.0626414,
+        longitude: -88.4031778,
+        mileFromStart: 6.2,
+        segmentKind: 'lake',
+        note: 'WRT describes a dedicated canoe/kayak launch across from the Delafield Post Office near 623 Mill Street.',
+      },
+    ],
+  },
+  'pine-river-richland-center-canoe-port-1-port-4': {
+    putIn: {
+      id: 'pine-richland-canoe-port-1-bowens-mill',
+      name: "Canoe Port 1 / Bowen's Mill / Krouskop Park",
+      latitude: 43.34677,
+      longitude: -90.38865,
+    },
+    takeOut: {
+      id: 'pine-richland-canoe-port-4-seminary-street',
+      name: 'Canoe Port 4 / Seminary Street',
+      latitude: 43.3362,
+      longitude: -90.3864,
+    },
+    logistics: {
+      distanceLabel: 'About 5.5 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr',
+      shuttle:
+        "Use Richland Center's short in-town shuttle between Canoe Port 1 near Bowen's Mill / Krouskop Park and Canoe Port 4 at Seminary Street. The official canoe-port map also supports shorter Port 1-2, 2-3, and 3-4 segments.",
+      permits:
+        'No route-specific paddling permit is known. Use the city/county canoe-port sites, follow posted city park rules, and avoid private banks outside the official access chain.',
+      camping:
+        'No on-route camping is documented for the Richland Center in-town segment. Treat it as a day route; Pier County Park and private outfitters are off-route basecamp options.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Follow Richland Center's official Pine River canoe-port corridor from Port 1 / Bowen's Mill through town to Port 4 / Seminary Street. The river is approachable at normal levels, but the Kickapoo gauge is only a proxy and high water changes the character quickly.",
+      accessCaveats: [
+        'The La Farge Kickapoo gauge is not on the Pine River. Check water visually at Port 1 and treat recent local rain or flood debris as controlling information.',
+        'Stay with the city/county canoe-port chain for launches and exits; intervening banks may be private, muddy, unstable, or unsuitable for routine stops.',
+        'Seminary Street is the planned take-out for this card. Continuing downstream changes the route into a longer rural Pine River outing with fewer immediate exits.',
+      ],
+      watchFor: [
+        'Strainers, bridge debris, and fresh flood damage after storms.',
+        'Faster pushy current and fewer beginner-friendly eddies when the proxy gauge rises above modest-flow conditions.',
+        'Urban water-quality context, cold water, muddy banks, and private-property edges.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'pine-richland-canoe-port-1-bowens-mill',
+        name: "Canoe Port 1 / Bowen's Mill / Krouskop Park",
+        latitude: 43.34677,
+        longitude: -90.38865,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Official city/county canoe-port map labels Port 1 at Bowen's Mill; Miles Paddled gives Krouskop Park GPS for this Pine River access area.",
+      },
+      {
+        id: 'pine-richland-canoe-port-2-lions-park',
+        name: 'Canoe Port 2 / Lions Park',
+        latitude: 43.3423,
+        longitude: -90.3834,
+        mileFromStart: 2.7,
+        segmentKind: 'creek',
+        note: 'Official city/county canoe-port map lists Port 2 at Lions Park, 2.7 miles below Port 1.',
+      },
+      {
+        id: 'pine-richland-canoe-port-3-north-park',
+        name: 'Canoe Port 3 / North Park',
+        latitude: 43.3498866,
+        longitude: -90.3923001,
+        mileFromStart: 4.4,
+        segmentKind: 'creek',
+        note: 'Official city/county canoe-port map lists Port 3 at North Park, 1.7 miles below Port 2.',
+      },
+      {
+        id: 'pine-richland-canoe-port-4-seminary-street',
+        name: 'Canoe Port 4 / Seminary Street',
+        latitude: 43.3362,
+        longitude: -90.3864,
+        mileFromStart: 5.5,
+        segmentKind: 'creek',
+        note: 'Official city/county canoe-port map lists Port 4 at Seminary Street, and Richland Center tourism references Pine River access at 397 W. Seminary Street.',
       },
     ],
   },

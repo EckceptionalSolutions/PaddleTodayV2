@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-16 19:12 America/Chicago.
+Last summarized: 2026-07-16 20:15 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 208 after the 2026-07-16 19:12 Minnesota route-addition run.
-- Top represented rivers: Mississippi River 40, Minnesota River 15, North Fork Crow River 9, Rum River 9, Sauk River 8, St. Croix River 8, Root River 7, St. Louis River 7, Big Fork River 6, Cannon River 6, Crow Wing River 6, Red Lake River 6, Zumbro River 6, Cloquet River 5, Red River of the North 5, Straight River 5, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Cedar River 3, Cottonwood River 3, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, and Vermilion River.
-- Ledger candidates: 1029 total; 645 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 55 `research_later`, 27 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
+- Live routes: 211 after the 2026-07-16 20:15 Minnesota route-addition run.
+- Top represented rivers: Mississippi River 40, Minnesota River 15, North Fork Crow River 9, Rum River 9, Sauk River 8, St. Croix River 8, St. Louis River 8, Root River 7, Big Fork River 6, Cannon River 6, Crow Wing River 6, Red Lake River 6, Zumbro River 6, Cloquet River 5, Red River of the North 5, Straight River 5, Cedar River 4, Cottonwood River 4, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, and Vermilion River.
+- Ledger candidates: 1058 total; 670 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 56 `research_later`, 30 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-16 20:15 America/Chicago / 2026-07-17 01:15 UTC: added `cottonwood-river-highway-15-courtland`, `st-louis-river-zim-toivola`, and `cedar-river-lansing-ramsey-mill-pond`.
+- Baseline at run start was 208 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 211 and fill distinct DNR/public-access gaps: lower Cottonwood into the Minnesota River at Courtland, upper St. Louis between Zim and Toivola, and upper Cedar from Lansing / County Road 2 to Ramsey Mill Pond.
+- Qualification path: MN DNR Minnesota River Map 4 plus public-water-access GIS document Highway-15-to-Courtland with New Ulm site `39`; MN DNR St. Louis Map 1 plus public-water-access GIS document Zim-to-Toivola with upstream Forbes site `244`; MN DNR Cedar map plus public-water-access GIS document Ramsey Mill Pond and the DNR Lansing / County Road 2 gauge site `287`.
+- Live gauge verification: New Ulm returned `243 cfs` at 2026-07-16 18:00 CDT in the official low band; Forbes returned `2.92 ft` at 2026-07-16 18:45 CDT below the official scrapable floor; Lansing returned `45 cfs` at 2026-07-16 18:30 CDT in the official medium band.
+- Implemented official DNR interpreted gauge models only: Cottonwood New Ulm `150 / 250-870 / 2,190 cfs`, St. Louis Forbes `3.0 / 3.7-7.6 / 8.0 ft`, and Cedar Lansing `8.9 / 15.2-429.5 / 513.4 cfs`. No extra ideal ranges or upper cutoffs were invented.
+- Camping posture: Cottonwood and Cedar are no-camping day routes; St. Louis is on-route-campsite capable only through the DNR Map 1 Stony Creek watercraft campsite. Safety posture includes Cottonwood confluence/Minnesota River wind and mud, Zim-to-Toivola low-water/boulder/remote exposure, Cedar Ramsey low-head-dam take-out discipline, strainers, cold water, fast rises, private banks, and explicit proxy/launch caveats.
+- No route-gallery images were added. Image audit rows record bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add St. Louis County-95-to-Forbes because the selected Zim-to-Toivola gap had cleaner access/camping continuity below the Forbes dam area; Cannon Dundas-to-Wilderness was not used because the access order appeared duplicative/wrong-direction for the current inventory.
 
 - 2026-07-16 19:12 America/Chicago / 2026-07-17 00:12 UTC: added `mississippi-river-snuffies-montissippi`, `mississippi-river-montissippi-norin`, and `sauk-river-horseshoe-lions-park`.
 - Baseline at run start was 205 live Minnesota routes from `src/data/rivers.ts`, with no missing trip-detail records for the three selected additions. The selected slugs bring the live Minnesota inventory to 208 and fill two Mississippi Map 8 access gaps plus one Sauk Map 2 Chain of Lakes continuation.
