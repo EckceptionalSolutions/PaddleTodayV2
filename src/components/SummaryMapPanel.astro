@@ -16,6 +16,7 @@ const {
   ariaLabel = 'Route score map',
   itemNounSingular = 'river',
   itemNounPlural = 'rivers',
+  showRiverLegend = false,
 } = Astro.props;
 
 const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--nearby' : 'summary-map-shell', className]
@@ -97,6 +98,18 @@ const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--ne
     <div class="summary-map-footer">
       <p class="summary-map__status muted" data-summary-map-status>{status}</p>
       <div class="summary-map-legend" aria-label="Score map legend">
+        {showRiverLegend && (
+          <>
+            <span class="summary-map-legend__item">
+              <span class="summary-map-legend__line summary-map-legend__line--river"></span>
+              Supported river
+            </span>
+            <span class="summary-map-legend__item">
+              <span class="summary-map-legend__line summary-map-legend__line--reach"></span>
+              Selected reach
+            </span>
+          </>
+        )}
         <span class="summary-map-legend__item">
           <span class="summary-map-legend__marker summary-map-legend__marker--great">90</span>
           Great

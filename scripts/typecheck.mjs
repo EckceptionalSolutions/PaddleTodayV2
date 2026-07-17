@@ -11,6 +11,10 @@ execSync("npm run routes:audit", {
   stdio: "inherit",
 });
 
+execSync("npm run routes:geometries:audit", {
+  stdio: "inherit",
+});
+
 if (!existsSync(mobileWorkspace)) {
   console.log(`[typecheck] Skipping mobile typecheck; missing ${mobileWorkspace}.`);
   process.exit(0);

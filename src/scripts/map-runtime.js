@@ -231,6 +231,17 @@ export function riverNameVariants(name) {
     variants.add(withoutForkPrefix);
   }
 
+  // OpenMapTiles sometimes omits the generic waterbody suffix from a feature
+  // name (for example, "Mississippi" instead of "Mississippi River"). Keep
+  // the full name for precise matching, while also accepting that safe alias.
+  const withoutWaterbodySuffix = cleanName
+    .replace(/\s+(?:River|Creek|Stream|Run|Branch|Lake)\b.*$/i, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (withoutWaterbodySuffix && withoutWaterbodySuffix !== cleanName) {
+    variants.add(withoutWaterbodySuffix);
+  }
+
   return [...variants];
 }
 
@@ -289,6 +300,7 @@ function applyActualRiverLayer(mapRuntime, layerId, names, options = {}) {
     source: 'openmaptiles',
     'source-layer': 'waterway',
     filter,
+    minzoom: options.minZoom ?? 3.4,
     layout: {
       'line-cap': 'round',
       'line-join': 'round',

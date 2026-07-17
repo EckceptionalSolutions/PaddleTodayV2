@@ -21,6 +21,8 @@
     "typecheck:routes": "tsc --noEmit -p tsconfig.route-data.json",
     "routes:audit": "tsx scripts/audit-route-data.ts",
     "routes:audit:coordinates": "tsx scripts/audit-route-coordinate-river-distance.ts",
+    "routes:geometries:generate": "tsx scripts/generate-canonical-river-geometries.ts",
+    "routes:geometries:audit": "tsx scripts/audit-canonical-river-geometries.ts",
     "routes:audit:overlap": "tsx scripts/audit-route-overlap.ts",
     "routes:leads:gather": "tsx scripts/gather-route-leads.ts",
     "routes:safety:audit": "tsx scripts/audit-route-safety.ts",

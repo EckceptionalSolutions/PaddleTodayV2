@@ -4,6 +4,8 @@
   ensureMapLibre,
   escapeHtml,
   markerClassForRating,
+  riverNameVariants,
+  syncActualRiverLayer,
 } from './map-runtime.js';
 import {
   formatMixedFilterSummary,
@@ -20,6 +22,8 @@ import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } f
 import { confidenceDisplayLabel, liveDataWarning, ratingDisplayLabel } from './ui-taxonomy.js';
 import { ratingVerdictLabel } from '@paddletoday/api-contract';
 import { createRequestGuard, isAbortError } from './request-guard.js';
+import { loadCanonicalRiverGeometries } from '../lib/canonical-river-geometries.js';
+import { endpointSnappedRiverGeometry, stitchRiverLines } from '../lib/endpoint-snapped-river-geometry.js';
 
 const STORAGE_KEY = 'paddletoday:user-location';
 const STORAGE_RADIUS_KEY = 'paddletoday:recommendation-radius';
@@ -260,7 +264,13 @@ const SUMMARY_ROUTE_LINE_WIDTH = 4.2;
 const SUMMARY_ROUTE_LINE_WIDTH_SELECTED = 8;
 const SUMMARY_ROUTE_LINE_CASING_WIDTH = 7.4;
 const SUMMARY_ROUTE_LINE_CASING_WIDTH_SELECTED = 13;
+const stitchSummaryRiverLines = stitchRiverLines;
 let lastSummaryMapItems = [];
+let summaryTraceSignature = '';
+let summaryOverviewRiverSignature = '';
+let canonicalRiverGeometryPromise = null;
+let canonicalRiverGeometryByRoute = new Map();
+let canonicalRiverGeometryState = 'idle';
 let featuredMapRuntime = null;
 let featuredMapMarkers = [];
 let featuredMapRenderVersion = 0;
@@ -3548,16 +3558,31 @@ function bindSummaryMapLayerRefresh() {
     if (!isSummaryMapStyleReady()) {
       return;
     }
-    syncSummaryRouteLines(lastSummaryMapItems);
+    syncSummaryMapLayers(lastSummaryMapItems);
     syncSummaryRouteLine();
   };
 
   mapRuntime.__paddleTodaySummaryLayerRefreshBound = true;
-  mapRuntime.on('idle', refresh);
   mapRuntime.on('styledata', refresh);
+  mapRuntime.on('idle', () => {
+    if (isRiverFirstExploreMap() && canonicalRiverGeometryState !== 'ready') {
+      syncSummaryOverviewRiverLayer(lastSummaryMapItems);
+    }
+    if (selectedSummaryMapKey) {
+      syncSummaryRouteLine();
+    }
+  });
+  mapRuntime.on('moveend', () => {
+    syncSummaryRouteLine();
+    updateSummaryMarkerZoomMode();
+  });
 }
 
-function buildSummaryRouteLineFeature(item) {
+function summaryRiverName(item) {
+  return String(item?.cardRoute?.river?.name || '').trim();
+}
+
+function summaryRouteLineFeature(item) {
   const accessPoints = routeAccessPoints(item);
   if (accessPoints.length < 2) {
     return null;
@@ -3568,6 +3593,7 @@ function buildSummaryRouteLineFeature(item) {
     properties: {
       key: item.key,
       rating: item.cardRoute.rating,
+      traced: false,
     },
     geometry: {
       type: 'LineString',
@@ -3576,119 +3602,574 @@ function buildSummaryRouteLineFeature(item) {
   };
 }
 
-function syncSummaryRouteLines(items) {
-  if (!mapRuntime || !isSummaryMapStyleReady()) {
+function flattenSummaryRiverGeometry(geometry) {
+  if (!geometry) return [];
+  if (geometry.type === 'LineString') {
+    return [geometry.coordinates].filter((line) => Array.isArray(line) && line.length >= 2);
+  }
+  if (geometry.type === 'MultiLineString') {
+    return geometry.coordinates.filter((line) => Array.isArray(line) && line.length >= 2);
+  }
+  return [];
+}
+
+function projectedSummaryPoint(coordinate, referenceLatitude) {
+  const latitudeScale = Math.cos((referenceLatitude * Math.PI) / 180);
+  return { x: coordinate[0] * latitudeScale, y: coordinate[1] };
+}
+
+function summaryDistanceToSegmentSquared(point, start, end) {
+  const dx = end.x - start.x;
+  const dy = end.y - start.y;
+  const lengthSquared = dx * dx + dy * dy;
+  if (lengthSquared === 0) {
+    const pointDx = point.x - start.x;
+    const pointDy = point.y - start.y;
+    return { distanceSquared: pointDx * pointDx + pointDy * pointDy, t: 0 };
+  }
+
+  const rawT = ((point.x - start.x) * dx + (point.y - start.y) * dy) / lengthSquared;
+  const t = Math.max(0, Math.min(1, rawT));
+  const closest = {
+    x: start.x + dx * t,
+    y: start.y + dy * t,
+  };
+  const closestDx = point.x - closest.x;
+  const closestDy = point.y - closest.y;
+  return { distanceSquared: closestDx * closestDx + closestDy * closestDy, t };
+}
+
+function summaryLineMeasurements(line) {
+  const measurements = [0];
+  let total = 0;
+  for (let index = 1; index < line.length; index += 1) {
+    const previous = line[index - 1];
+    const current = line[index];
+    const referenceLatitude = (previous[1] + current[1]) / 2;
+    const start = projectedSummaryPoint(previous, referenceLatitude);
+    const end = projectedSummaryPoint(current, referenceLatitude);
+    const dx = end.x - start.x;
+    const dy = end.y - start.y;
+    total += Math.sqrt(dx * dx + dy * dy);
+    measurements.push(total);
+  }
+  return measurements;
+}
+
+function nearestSummaryMeasureOnLine(line, measurements, target) {
+  let best = null;
+  if (!Number.isFinite(target?.longitude) || !Number.isFinite(target?.latitude)) return null;
+  const targetCoordinate = [target.longitude, target.latitude];
+
+  for (let index = 1; index < line.length; index += 1) {
+    const previous = line[index - 1];
+    const current = line[index];
+    const referenceLatitude = (previous[1] + current[1] + targetCoordinate[1]) / 3;
+    const result = summaryDistanceToSegmentSquared(
+      projectedSummaryPoint(targetCoordinate, referenceLatitude),
+      projectedSummaryPoint(previous, referenceLatitude),
+      projectedSummaryPoint(current, referenceLatitude)
+    );
+    const segmentLength = measurements[index] - measurements[index - 1];
+    const measure = measurements[index - 1] + segmentLength * result.t;
+    if (!best || result.distanceSquared < best.distanceSquared) {
+      best = { distanceSquared: result.distanceSquared, measure };
+    }
+  }
+  return best;
+}
+
+function summaryLineFingerprint(line) {
+  return line.map((coordinate) => coordinate.map((value) => value.toFixed(6)).join(',')).join(';');
+}
+
+function clipSummarySegmentToBounds(start, end, bounds) {
+  const dx = end[0] - start[0];
+  const dy = end[1] - start[1];
+  let lower = 0;
+  let upper = 1;
+  const constraints = [
+    [-dx, start[0] - bounds.minLongitude],
+    [dx, bounds.maxLongitude - start[0]],
+    [-dy, start[1] - bounds.minLatitude],
+    [dy, bounds.maxLatitude - start[1]],
+  ];
+
+  for (const [coefficient, value] of constraints) {
+    if (coefficient === 0) {
+      if (value < 0) return null;
+      continue;
+    }
+    const ratio = value / coefficient;
+    if (coefficient < 0) {
+      if (ratio > upper) return null;
+      if (ratio > lower) lower = ratio;
+    } else {
+      if (ratio < lower) return null;
+      if (ratio < upper) upper = ratio;
+    }
+  }
+
+  const pointAt = (t) => [start[0] + dx * t, start[1] + dy * t];
+  return [pointAt(lower), pointAt(upper)];
+}
+
+function clipSummaryLineToBounds(line, bounds) {
+  const clipped = [];
+  for (let index = 1; index < line.length; index += 1) {
+    const segment = clipSummarySegmentToBounds(line[index - 1], line[index], bounds);
+    if (segment) clipped.push(segment);
+  }
+  return clipped;
+}
+
+function summaryFeatureMatchesItem(feature, item) {
+  const names = new Set(riverNameVariants(summaryRiverName(item)).map((name) => name.toLowerCase()));
+  const properties = feature?.properties ?? {};
+  return ['name', 'name_en', 'name:en', 'name:latin'].some((key) => {
+    const value = properties[key];
+    return typeof value === 'string' && names.has(value.toLowerCase());
+  });
+}
+
+function canonicalRiverFeatureForItem(item) {
+  const route = item?.cardRoute?.river;
+  const keys = [route?.id, route?.slug].filter((value) => typeof value === 'string' && value.length > 0);
+  for (const key of keys) {
+    const feature = canonicalRiverGeometryByRoute.get(key);
+    if (feature) return feature;
+  }
+  return null;
+}
+
+function ensureCanonicalRiverGeometries() {
+  if (canonicalRiverGeometryState === 'ready' || canonicalRiverGeometryState === 'failed') {
+    return canonicalRiverGeometryPromise;
+  }
+  canonicalRiverGeometryState = 'loading';
+  canonicalRiverGeometryPromise = loadCanonicalRiverGeometries()
+    .then((geometries) => {
+      canonicalRiverGeometryByRoute = geometries;
+      canonicalRiverGeometryState = canonicalRiverGeometryByRoute.size > 0 ? 'ready' : 'failed';
+      if (canonicalRiverGeometryState === 'ready' && mapRuntime && isSummaryMapStyleReady()) {
+        syncSummaryMapLayers(lastSummaryMapItems);
+        syncSummaryRouteLine();
+      }
+      return canonicalRiverGeometryByRoute;
+    })
+    .catch((error) => {
+      canonicalRiverGeometryState = 'failed';
+      console.warn('Canonical river geometries unavailable; using map waterways.', error);
+      return canonicalRiverGeometryByRoute;
+    });
+  return canonicalRiverGeometryPromise;
+}
+
+function summaryRiverLinesForItem(item) {
+  const canonicalFeature = canonicalRiverFeatureForItem(item);
+  if (canonicalFeature) {
+    return stitchSummaryRiverLines(flattenSummaryRiverGeometry(canonicalFeature.geometry));
+  }
+  if (!mapRuntime?.getLayer('summary-supported-rivers')) return [];
+  const rendered = typeof mapRuntime.queryRenderedFeatures === 'function'
+    ? mapRuntime.queryRenderedFeatures({ layers: ['summary-supported-rivers'] }).filter((feature) => summaryFeatureMatchesItem(feature, item))
+    : [];
+  const source = typeof mapRuntime.querySourceFeatures === 'function'
+    ? mapRuntime.querySourceFeatures('openmaptiles', { sourceLayer: 'waterway' }).filter((feature) => {
+        const waterwayClass = feature?.properties?.class;
+        return ['river', 'stream', 'canal'].includes(waterwayClass) && summaryFeatureMatchesItem(feature, item);
+      })
+    : [];
+  const namedLines = stitchSummaryRiverLines([...rendered, ...source].flatMap((feature) => flattenSummaryRiverGeometry(feature.geometry)));
+  if (namedLines.length > 0) return namedLines;
+
+  // A few OpenMapTiles features use a local/alternate name. If the named
+  // highlight is empty, use nearby rendered waterways as a cautious spatial
+  // fallback so a real river line can still be traced without drawing a chord.
+  const waterwayLayerIds = ['waterway_river', 'waterway_other'].filter((layerId) => mapRuntime.getLayer(layerId));
+  const renderedWaterways = waterwayLayerIds.length > 0 && typeof mapRuntime.queryRenderedFeatures === 'function'
+    ? mapRuntime.queryRenderedFeatures({ layers: waterwayLayerIds })
+    : [];
+  const routePoints = routeAccessPoints(item);
+  const candidateLines = stitchSummaryRiverLines(
+    [...renderedWaterways, ...source]
+      .filter((feature) => ['river', 'stream', 'canal'].includes(feature?.properties?.class))
+      .flatMap((feature) => flattenSummaryRiverGeometry(feature.geometry))
+  );
+  const nearbyLines = candidateLines
+    .map((line) => {
+      const measurements = summaryLineMeasurements(line);
+      const nearest = routePoints.map((point) => nearestSummaryMeasureOnLine(line, measurements, point)).filter(Boolean);
+      const score = nearest.length > 0
+        ? nearest.reduce((sum, point) => sum + point.distanceSquared, 0) / nearest.length
+        : Number.POSITIVE_INFINITY;
+      return { line, score };
+    })
+    .filter((candidate) => candidate.score <= 0.035 * 0.035)
+    .sort((left, right) => left.score - right.score)
+    .map((candidate) => candidate.line);
+
+  return nearbyLines;
+}
+
+function summaryRiverTraceFeature(item) {
+  const routePoints = routeAccessPoints(item);
+  if (routePoints.length < 2) return null;
+
+  const canonicalFeature = canonicalRiverFeatureForItem(item);
+  const lines = summaryRiverLinesForItem(item);
+  let bestTraceFeature = null;
+  const best = endpointSnappedRiverGeometry(lines, routePoints);
+  // Canonical route geometry is already constrained to this route's river
+  // corridor. Even when an access coordinate is some distance from the NHD
+  // centerline, the nearest projected point is the correct visual endpoint.
+  // Returning this snapped slice before the legacy corridor fallback keeps
+  // the highlight from extending past the put-in/take-out.
+  if (best && (canonicalFeature || best.errorSquared <= 0.012 * 0.012)) {
+    bestTraceFeature = {
+      type: 'Feature',
+      properties: { key: item.key, rating: item.cardRoute.rating, traced: true },
+      geometry: { type: 'LineString', coordinates: best.coordinates },
+    };
+  }
+
+  if (bestTraceFeature) return bestTraceFeature;
+
+  // A long river is commonly represented by several non-contiguous vector
+  // tile features. When no single stitched chain contains the whole route,
+  // retain every named river segment that falls inside the route corridor.
+  // Canonical features use only a small tolerance here because their primary
+  // path has already been endpoint-snapped above. The larger tile fallback
+  // remains necessary when the live basemap splits a waterway at tile edges.
+  const longitudes = routePoints.map((point) => point.longitude);
+  const latitudes = routePoints.map((point) => point.latitude);
+  const span = Math.max(Math.max(...longitudes) - Math.min(...longitudes), Math.max(...latitudes) - Math.min(...latitudes));
+  const buffer = canonicalFeature ? 0.001 : Math.max(0.003, Math.min(0.03, span * 0.08));
+  const bounds = {
+    minLongitude: Math.min(...longitudes) - buffer,
+    maxLongitude: Math.max(...longitudes) + buffer,
+    minLatitude: Math.min(...latitudes) - buffer,
+    maxLatitude: Math.max(...latitudes) + buffer,
+  };
+  const corridorLines = stitchSummaryRiverLines(lines.flatMap((line) => clipSummaryLineToBounds(line, bounds)));
+
+  if (corridorLines.length > 0) {
+    return {
+      type: 'Feature',
+      properties: { key: item.key, rating: item.cardRoute.rating, traced: true },
+      geometry: corridorLines.length === 1
+        ? { type: 'LineString', coordinates: corridorLines[0] }
+        : { type: 'MultiLineString', coordinates: corridorLines },
+    };
+  }
+
+  return bestTraceFeature;
+}
+
+function summaryRiverLabelData(items) {
+  const groups = new Map();
+  for (const item of items) {
+    const points = routeAccessPoints(item);
+    const point = points[Math.floor((points.length - 1) / 2)] ?? item?.cardRoute?.river;
+    if (!Number.isFinite(point?.longitude) || !Number.isFinite(point?.latitude)) continue;
+    const river = item.cardRoute.river;
+    const key = river.riverId || river.name;
+    const group = groups.get(key) ?? { name: river.name, points: [], routeCount: 0 };
+    group.points.push(point);
+    group.routeCount += 1;
+    groups.set(key, group);
+  }
+
+  return {
+    type: 'FeatureCollection',
+    features: [...groups.values()].map((group) => ({
+      type: 'Feature',
+      properties: { name: group.name, routeCount: group.routeCount },
+      geometry: {
+        type: 'Point',
+        coordinates: [
+          group.points.reduce((sum, point) => sum + point.longitude, 0) / group.points.length,
+          group.points.reduce((sum, point) => sum + point.latitude, 0) / group.points.length,
+        ],
+      },
+    })),
+  };
+}
+
+function syncSummarySupportedRivers(items) {
+  if (!mapRuntime || !isSummaryMapStyleReady()) return;
+
+  ensureCanonicalRiverGeometries();
+  if (canonicalRiverGeometryState === 'ready') {
+    syncActualRiverLayer(mapRuntime, 'summary-supported-rivers', [], {});
+    syncCanonicalRiverLayer(items);
+    if (mapRuntime.getLayer('summary-supported-rivers-overview')) {
+      mapRuntime.removeLayer('summary-supported-rivers-overview');
+    }
+    if (mapRuntime.getSource('summary-supported-rivers-overview')) {
+      mapRuntime.removeSource('summary-supported-rivers-overview');
+    }
+    summaryOverviewRiverSignature = '';
     return;
   }
 
+  for (const layerId of ['summary-route-lines', 'summary-route-lines-casing']) {
+    if (mapRuntime.getLayer(layerId)) mapRuntime.removeLayer(layerId);
+  }
+  if (mapRuntime.getSource('summary-route-lines')) mapRuntime.removeSource('summary-route-lines');
+
+  syncActualRiverLayer(mapRuntime, 'summary-supported-rivers', items.map(summaryRiverName), {
+    lineColor: '#16758a',
+    lineWidth: 4.5,
+    lineOpacity: 0.58,
+    minZoom: 3,
+  });
+  syncSummaryOverviewRiverLayer(items);
+}
+
+function canonicalRiverOverviewData(items) {
+  const groups = new Map();
+  for (const item of items) {
+    if (!canonicalRiverFeatureForItem(item)) continue;
+    const routeFeature = summaryRiverTraceFeature(item);
+    if (!routeFeature) continue;
+    const river = item.cardRoute.river;
+    const key = river.riverId || river.name;
+    const group = groups.get(key) ?? { name: river.name, lines: [] };
+    for (const line of flattenSummaryRiverGeometry(routeFeature.geometry)) {
+      const fingerprint = summaryLineFingerprint(line);
+      if (!group.lines.some((candidate) => summaryLineFingerprint(candidate) === fingerprint)) {
+        group.lines.push(line);
+      }
+    }
+    groups.set(key, group);
+  }
+
+  return {
+    type: 'FeatureCollection',
+    features: [...groups.values()].flatMap((group) => group.lines.map((line) => ({
+      type: 'Feature',
+      properties: { name: group.name },
+      geometry: { type: 'LineString', coordinates: line },
+    }))),
+  };
+}
+
+function dataHasFeatures(data) {
+  return Array.isArray(data?.features) && data.features.length > 0;
+}
+
+function syncCanonicalRiverLayer(items) {
+  const sourceId = 'summary-supported-rivers-canonical';
+  const data = canonicalRiverOverviewData(items);
+  const source = mapRuntime.getSource(sourceId);
+  if (source && typeof source.setData === 'function') {
+    source.setData(data);
+  } else if (!source) {
+    mapRuntime.addSource(sourceId, { type: 'geojson', data });
+  }
+
+  if (!mapRuntime.getLayer('summary-supported-rivers')) {
+    mapRuntime.addLayer({
+      id: 'summary-supported-rivers',
+      type: 'line',
+      source: sourceId,
+      minzoom: 3,
+      layout: { 'line-cap': 'round', 'line-join': 'round' },
+      paint: {
+        'line-color': '#16758a',
+        'line-width': ['interpolate', ['linear'], ['zoom'], 3, 2.8, 6, 4.2, 10, 5],
+        'line-opacity': 0.62,
+      },
+    });
+  }
+}
+
+function summaryOverviewRiverCandidates() {
+  if (!mapRuntime || typeof mapRuntime.querySourceFeatures !== 'function') return [];
+  return mapRuntime
+    .querySourceFeatures('openmaptiles', { sourceLayer: 'waterway' })
+    .filter((feature) => ['river', 'stream', 'canal'].includes(feature?.properties?.class))
+    .flatMap((feature) => flattenSummaryRiverGeometry(feature.geometry));
+}
+
+function summaryOverviewRiverData(items) {
+  const candidates = stitchSummaryRiverLines(summaryOverviewRiverCandidates());
+  const groups = new Map();
+  for (const item of items) {
+    const routePoints = routeAccessPoints(item);
+    if (routePoints.length < 2 || candidates.length === 0) continue;
+
+    let best = null;
+    for (const line of candidates) {
+      const measurements = summaryLineMeasurements(line);
+      const nearest = routePoints.map((point) => nearestSummaryMeasureOnLine(line, measurements, point)).filter(Boolean);
+      if (nearest.length < 2) continue;
+      const score = nearest.reduce((sum, point) => sum + point.distanceSquared, 0) / nearest.length;
+      if (!best || score < best.score) best = { line, score };
+    }
+
+    if (!best || best.score > 0.08 * 0.08) continue;
+    const river = item.cardRoute.river;
+    const key = river.riverId || river.name;
+    const group = groups.get(key) ?? { name: river.name, lines: [] };
+    const fingerprint = summaryLineFingerprint(best.line);
+    if (!group.lines.some((line) => summaryLineFingerprint(line) === fingerprint)) {
+      group.lines.push(best.line);
+    }
+    groups.set(key, group);
+  }
+
+  return {
+    type: 'FeatureCollection',
+    features: [...groups.values()].flatMap((group) => group.lines.map((line) => ({
+      type: 'Feature',
+      properties: { name: group.name },
+      geometry: { type: 'LineString', coordinates: line },
+    }))),
+  };
+}
+
+function syncSummaryOverviewRiverLayer(items) {
+  if (!mapRuntime || !isSummaryMapStyleReady() || !isRiverFirstExploreMap()) return;
+  const sourceId = 'summary-supported-rivers-overview';
+  const canonicalData = canonicalRiverGeometryState === 'ready' ? canonicalRiverOverviewData(items) : null;
+  const data = canonicalData && dataHasFeatures(canonicalData) ? canonicalData : summaryOverviewRiverData(items);
+  const signature = `${items.map((item) => item.key).join('|')}|${canonicalRiverGeometryState}|${data.features.length}`;
+  const source = mapRuntime.getSource(sourceId);
+  if (source && typeof source.setData === 'function') {
+    if (signature !== summaryOverviewRiverSignature) source.setData(data);
+  } else {
+    mapRuntime.addSource(sourceId, { type: 'geojson', data });
+  }
+  summaryOverviewRiverSignature = signature;
+
+  if (!mapRuntime.getLayer(sourceId)) {
+    mapRuntime.addLayer({
+      id: sourceId,
+      type: 'line',
+      source: sourceId,
+      minzoom: 3,
+      layout: { 'line-cap': 'round', 'line-join': 'round' },
+      paint: {
+        'line-color': '#16758a',
+        'line-width': ['interpolate', ['linear'], ['zoom'], 3, 2.8, 6, 4.2, 10, 5],
+        'line-opacity': 0.62,
+      },
+    });
+  }
+}
+
+function isRiverFirstExploreMap() {
+  return summaryMapShell instanceof HTMLElement && summaryMapShell.classList.contains('summary-map-shell--explore-workspace');
+}
+
+function syncLegacySummaryRouteLines(items) {
+  if (!mapRuntime || !isSummaryMapStyleReady()) return;
   const sourceId = 'summary-route-lines';
   const casingLayerId = 'summary-route-lines-casing';
   const layerId = 'summary-route-lines';
-  const features = items.map(buildSummaryRouteLineFeature).filter(Boolean);
-
-  if (features.length === 0) {
-    if (mapRuntime.getLayer(layerId)) {
-      mapRuntime.removeLayer(layerId);
-    }
-    if (mapRuntime.getLayer(casingLayerId)) {
-      mapRuntime.removeLayer(casingLayerId);
-    }
-    if (mapRuntime.getSource(sourceId)) {
-      mapRuntime.removeSource(sourceId);
-    }
-    return;
-  }
-
   const data = {
     type: 'FeatureCollection',
-    features,
+    features: items.map(summaryRouteLineFeature).filter(Boolean),
   };
 
   if (mapRuntime.getSource(sourceId)) {
     mapRuntime.getSource(sourceId).setData(data);
   } else {
-    mapRuntime.addSource(sourceId, {
-      type: 'geojson',
-      data,
-    });
+    mapRuntime.addSource(sourceId, { type: 'geojson', data });
   }
-
   if (!mapRuntime.getLayer(casingLayerId)) {
     mapRuntime.addLayer({
       id: casingLayerId,
       type: 'line',
       source: sourceId,
-      layout: {
-        'line-cap': 'round',
-        'line-join': 'round',
-      },
-      paint: {
-        'line-color': '#ffffff',
-        'line-width': SUMMARY_ROUTE_LINE_CASING_WIDTH,
-        'line-opacity': summaryRouteLineCasingOpacityPaint(),
-        'line-blur': 0.25,
-      },
+      layout: { 'line-cap': 'round', 'line-join': 'round' },
+      paint: { 'line-color': '#ffffff', 'line-width': SUMMARY_ROUTE_LINE_CASING_WIDTH, 'line-opacity': 0.78, 'line-blur': 0.25 },
     });
   }
-
   if (!mapRuntime.getLayer(layerId)) {
     mapRuntime.addLayer({
       id: layerId,
       type: 'line',
       source: sourceId,
-      layout: {
-        'line-cap': 'round',
-        'line-join': 'round',
-      },
+      layout: { 'line-cap': 'round', 'line-join': 'round' },
       paint: {
-        'line-color': [
-          'match',
-          ['get', 'rating'],
-          'Strong',
-          '#2c8a54',
-          'Good',
-          '#2c8a54',
-          'Fair',
-          '#ad752c',
-          '#bb5840',
-        ],
+        'line-color': ['match', ['get', 'rating'], 'Strong', '#2c8a54', 'Good', '#2c8a54', 'Fair', '#ad752c', '#bb5840'],
         'line-width': SUMMARY_ROUTE_LINE_WIDTH,
-        'line-opacity': summaryRouteLineOpacityPaint(),
+        'line-opacity': 0.9,
       },
     });
   }
+}
 
-  updateSummaryRouteLinesSelectionPaint();
+function syncSummaryMapLayers(items) {
+  if (isRiverFirstExploreMap()) {
+    syncSummarySupportedRivers(items);
+    syncSummaryRiverLabels(items);
+    return;
+  }
+  syncLegacySummaryRouteLines(items);
+}
+
+function syncSummaryRiverLabels(items) {
+  if (!mapRuntime || !isSummaryMapStyleReady()) return;
+  const sourceId = 'summary-river-labels';
+  const data = summaryRiverLabelData(items);
+  const source = mapRuntime.getSource(sourceId);
+  if (source && typeof source.setData === 'function') {
+    source.setData(data);
+  } else {
+    mapRuntime.addSource(sourceId, { type: 'geojson', data });
+  }
+
+  if (!mapRuntime.getLayer(sourceId)) {
+    mapRuntime.addLayer({
+      id: sourceId,
+      type: 'symbol',
+      source: sourceId,
+      minzoom: 3.6,
+      layout: {
+        'text-field': ['concat', ['get', 'name'], ' · ', ['to-string', ['get', 'routeCount']]],
+        'text-font': ['Noto Sans Bold'],
+        'text-size': ['interpolate', ['linear'], ['zoom'], 3.6, 8.5, 7.5, 12.5],
+        'text-padding': 8,
+        'text-allow-overlap': false,
+      },
+      paint: {
+        'text-color': '#173f4c',
+        'text-halo-color': 'rgba(255, 255, 255, 0.94)',
+        'text-halo-width': 2,
+      },
+    });
+  }
 }
 
 function syncSummaryRouteLine() {
-  if (!mapRuntime || !isSummaryMapStyleReady()) {
-    return;
-  }
+  if (!mapRuntime || !isSummaryMapStyleReady()) return;
 
   const sourceId = 'summary-selected-route-line';
   const casingLayerId = 'summary-selected-route-line-casing';
   const layerId = 'summary-selected-route-line';
   const selectedItem = lastSummaryMapItems.find((item) => item.key === selectedSummaryMapKey);
-  const accessPoints = selectedItem ? routeAccessPoints(selectedItem) : [];
+  const routeLine = selectedItem
+    ? (isRiverFirstExploreMap() ? summaryRiverTraceFeature(selectedItem) : summaryRouteLineFeature(selectedItem))
+    : null;
 
-  if (accessPoints.length > 1) {
-    const routeLine = {
-      type: 'Feature',
-      properties: {},
-      geometry: {
-        type: 'LineString',
-        coordinates: accessPoints.map((point) => [point.longitude, point.latitude]),
-      },
-    };
-
+  if (routeLine) {
+    const signature = `${routeLine.properties?.traced ? 'traced' : 'fallback'}:${JSON.stringify(routeLine.geometry?.coordinates || [])}`;
     if (mapRuntime.getSource(sourceId)) {
-      mapRuntime.getSource(sourceId).setData(routeLine);
+      if (signature !== summaryTraceSignature) {
+        mapRuntime.getSource(sourceId).setData(routeLine);
+      }
     } else {
       mapRuntime.addSource(sourceId, {
         type: 'geojson',
         data: routeLine,
       });
+    }
+    summaryTraceSignature = signature;
+    if (!mapRuntime.getLayer(casingLayerId)) {
       mapRuntime.addLayer({
         id: casingLayerId,
         type: 'line',
@@ -3704,6 +4185,8 @@ function syncSummaryRouteLine() {
           'line-blur': 0.35,
         },
       });
+    }
+    if (!mapRuntime.getLayer(layerId)) {
       mapRuntime.addLayer({
         id: layerId,
         type: 'line',
@@ -3721,7 +4204,13 @@ function syncSummaryRouteLine() {
     }
 
     mapRuntime.setPaintProperty(layerId, 'line-color', SUMMARY_ROUTE_LINE_COLOR_SELECTED);
-    return;
+    if (isRiverFirstExploreMap() && summaryMapStatus instanceof HTMLElement && selectedItem) {
+      const river = selectedItem.cardRoute.river;
+      summaryMapStatus.textContent = routeLine.properties?.traced
+        ? `Tracing ${river.name}: ${river.reach} along the river line.`
+        : `Showing ${river.name}: ${river.reach}. Detailed river geometry was not available here, so the selected reach uses access coordinates.`;
+    }
+    return routeLine;
   }
 
   if (mapRuntime.getLayer(layerId)) {
@@ -3733,36 +4222,12 @@ function syncSummaryRouteLine() {
   if (mapRuntime.getSource(sourceId)) {
     mapRuntime.removeSource(sourceId);
   }
-}
-
-function summaryRouteLineOpacityPaint() {
-  if (!selectedSummaryMapKey) {
-    return 0.9;
+  summaryTraceSignature = '';
+  if (isRiverFirstExploreMap() && summaryMapStatus instanceof HTMLElement && selectedItem) {
+    const river = selectedItem.cardRoute.river;
+    summaryMapStatus.textContent = `River geometry for ${river.name} is not loaded at this zoom. Zoom in or try another route to trace it along the river.`;
   }
-
-  return ['case', ['==', ['get', 'key'], selectedSummaryMapKey], 0, 0.52];
-}
-
-function summaryRouteLineCasingOpacityPaint() {
-  if (!selectedSummaryMapKey) {
-    return 0.78;
-  }
-
-  return ['case', ['==', ['get', 'key'], selectedSummaryMapKey], 0, 0.42];
-}
-
-function updateSummaryRouteLinesSelectionPaint() {
-  if (!mapRuntime || !isSummaryMapStyleReady()) {
-    return;
-  }
-
-  if (mapRuntime.getLayer('summary-route-lines')) {
-    mapRuntime.setPaintProperty('summary-route-lines', 'line-opacity', summaryRouteLineOpacityPaint());
-  }
-
-  if (mapRuntime.getLayer('summary-route-lines-casing')) {
-    mapRuntime.setPaintProperty('summary-route-lines-casing', 'line-opacity', summaryRouteLineCasingOpacityPaint());
-  }
+  return null;
 }
 
 function focusSummaryMapRoute(key) {
@@ -3773,8 +4238,13 @@ function focusSummaryMapRoute(key) {
   const item = lastSummaryMapItems.find((candidate) => candidate.key === key);
   const accessPoints = item ? routeAccessPoints(item) : [];
   if (accessPoints.length > 1) {
-    const longitudes = accessPoints.map((point) => point.longitude);
-    const latitudes = accessPoints.map((point) => point.latitude);
+    const feature = isRiverFirstExploreMap() ? summaryRiverTraceFeature(item) : null;
+    const tracedCoordinates = feature ? flattenSummaryRiverGeometry(feature.geometry).flat() : [];
+    const focusPoints = tracedCoordinates.length > 1
+      ? tracedCoordinates.map(([longitude, latitude]) => ({ longitude, latitude }))
+      : accessPoints;
+    const longitudes = focusPoints.map((point) => point.longitude);
+    const latitudes = focusPoints.map((point) => point.latitude);
     const compact = window.matchMedia('(max-width: 720px)').matches;
     mapRuntime.fitBounds(
       [
@@ -3826,8 +4296,19 @@ function popupMarkup(item) {
 
 function updateSummaryMapSelection(key) {
   selectedSummaryMapKey = key || null;
-  syncSummaryRouteLine();
-  updateSummaryRouteLinesSelectionPaint();
+  const feature = syncSummaryRouteLine();
+
+  if (isRiverFirstExploreMap() && summaryMapStatus instanceof HTMLElement) {
+    const selectedItem = lastSummaryMapItems.find((item) => item.key === selectedSummaryMapKey);
+    if (selectedItem) {
+      const river = selectedItem.cardRoute.river;
+      summaryMapStatus.textContent = feature?.properties?.traced
+        ? `Tracing ${river.name}: ${river.reach} along the river line.`
+        : `River geometry for ${river.name} is not loaded at this zoom. Zoom in or try another route to trace it along the river.`;
+    } else {
+      summaryMapStatus.textContent = summaryMapOverviewStatus(lastSummaryMapItems);
+    }
+  }
 
   if (summaryMapResults instanceof HTMLElement) {
     const rows = Array.from(summaryMapResults.querySelectorAll('[data-summary-map-item]'));
@@ -3845,6 +4326,26 @@ function updateSummaryMapSelection(key) {
       if (!(card instanceof HTMLElement)) continue;
       card.classList.toggle('river-card--map-active', card.dataset.summaryMapCard === selectedSummaryMapKey);
     }
+  }
+}
+
+function summaryMapOverviewStatus(items) {
+  if (!isRiverFirstExploreMap()) {
+    return isNearbySummaryMapMode() ? 'Nearby map is up to date.' : 'Map is up to date.';
+  }
+  const riverCount = new Set(items.map((item) => item.cardRoute.river.riverId || item.cardRoute.river.name)).size;
+  return `Showing ${riverCount} supported ${riverCount === 1 ? 'river' : 'rivers'} and ${items.length} ${items.length === 1 ? 'route' : 'routes'}. Route dots are visible now; zoom in for labels or select a route to trace its reach.`;
+}
+
+function updateSummaryMarkerZoomMode() {
+  if (!mapRuntime || !isRiverFirstExploreMap()) return;
+  const overview = mapRuntime.getZoom() < 6.85;
+  for (const marker of mapMarkers) {
+    const element = marker.getElement?.();
+    if (!(element instanceof HTMLElement)) continue;
+    element.classList.toggle('score-map-marker--overview', overview);
+    element.tabIndex = 0;
+    element.setAttribute('aria-hidden', 'false');
   }
 }
 
@@ -4238,7 +4739,7 @@ async function renderSummaryMap(items) {
     const bounds = new maplibregl.LngLatBounds();
     let hasBounds = false;
 
-    syncSummaryRouteLines(items);
+    syncSummaryMapLayers(items);
 
     for (const item of items) {
       const routePoints = routeAccessPoints(item);
@@ -4304,12 +4805,13 @@ async function renderSummaryMap(items) {
         duration: 0,
       });
       mapRuntime.resize();
+      updateSummaryMarkerZoomMode();
       if (!items.some((item) => item.key === selectedSummaryMapKey)) {
         updateSummaryMapSelection(null);
         closeSummaryMapPopups();
       }
       if (summaryMapStatus instanceof HTMLElement) {
-        summaryMapStatus.textContent = isNearbySummaryMapMode() ? 'Nearby map is up to date.' : 'Map is up to date.';
+        summaryMapStatus.textContent = summaryMapOverviewStatus(items);
       }
       return;
     }
@@ -5503,6 +6005,11 @@ export function initSummaryBoard() {
   const hydratedBoard = hydrateBoardFromCache();
   bindFavoriteButtons(document);
   updateSummaryMapToggle();
+  if (isRiverFirstExploreMap()) {
+    // Start the static geometry request before the map style and live scores
+    // finish loading so the first usable map frame can use canonical lines.
+    ensureCanonicalRiverGeometries();
+  }
   loadBoard({ silent: hydratedBoard });
   window.setInterval(() => {
     loadBoard({ silent: true });

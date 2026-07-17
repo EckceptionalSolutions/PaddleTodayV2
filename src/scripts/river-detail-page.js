@@ -3,13 +3,13 @@
   bindMarkerPopup,
   ensureMapLibre,
   escapeHtml,
-  syncActualRiverLayer,
 } from './map-runtime.js';
 import { readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { bindFavoriteButtons } from './favorites-ui.js';
 import { trackEvent } from './analytics.js';
 import { confidenceDisplayLabel, liveDataWarning, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
+import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
 
 const root = document.querySelector('[data-river-detail]');
 if (!(root instanceof HTMLElement)) {
@@ -162,6 +162,8 @@ let detailMapRuntime = null;
 let detailMapMarkers = [];
 let detailHeroMapRuntime = null;
 let detailHeroMapMarkers = [];
+let detailMapRenderVersion = 0;
+let detailHeroMapRenderVersion = 0;
 let currentChartWindowHours = 72;
 let latestResult = null;
 let plannerAccessPoints = [];
@@ -3123,28 +3125,19 @@ function buildAccessRouteLine(points) {
   };
 }
 
-function syncAccessRouteLine(mapRuntime, sourceId, layerId, points, result, paint = {}) {
-  if (!mapRuntime) {
-    return;
-  }
+function syncRouteGeoJsonLine(mapRuntime, sourceId, layerId, routeLine, result, paint = {}) {
+  if (!mapRuntime) return;
 
-  if (points.length > 1) {
-    const routeLine = buildAccessRouteLine(points);
+  if (routeLine?.geometry?.coordinates?.length >= 2) {
     if (mapRuntime.getSource(sourceId)) {
       mapRuntime.getSource(sourceId).setData(routeLine);
     } else {
-      mapRuntime.addSource(sourceId, {
-        type: 'geojson',
-        data: routeLine,
-      });
+      mapRuntime.addSource(sourceId, { type: 'geojson', data: routeLine });
       mapRuntime.addLayer({
         id: layerId,
         type: 'line',
         source: sourceId,
-        layout: {
-          'line-cap': 'round',
-          'line-join': 'round',
-        },
+        layout: { 'line-cap': 'round', 'line-join': 'round' },
         paint: {
           'line-color': routeLineColor(result),
           'line-width': paint.lineWidth ?? 4,
@@ -3153,21 +3146,24 @@ function syncAccessRouteLine(mapRuntime, sourceId, layerId, points, result, pain
       });
     }
     mapRuntime.setPaintProperty(layerId, 'line-color', routeLineColor(result));
-    if (typeof paint.lineWidth === 'number') {
-      mapRuntime.setPaintProperty(layerId, 'line-width', paint.lineWidth);
-    }
-    if (typeof paint.lineOpacity === 'number') {
-      mapRuntime.setPaintProperty(layerId, 'line-opacity', paint.lineOpacity);
-    }
+    if (typeof paint.lineWidth === 'number') mapRuntime.setPaintProperty(layerId, 'line-width', paint.lineWidth);
+    if (typeof paint.lineOpacity === 'number') mapRuntime.setPaintProperty(layerId, 'line-opacity', paint.lineOpacity);
     return;
   }
 
-  if (mapRuntime.getLayer(layerId)) {
-    mapRuntime.removeLayer(layerId);
-  }
-  if (mapRuntime.getSource(sourceId)) {
-    mapRuntime.removeSource(sourceId);
-  }
+  if (mapRuntime.getLayer(layerId)) mapRuntime.removeLayer(layerId);
+  if (mapRuntime.getSource(sourceId)) mapRuntime.removeSource(sourceId);
+}
+
+function syncAccessRouteLine(mapRuntime, sourceId, layerId, points, result, paint = {}) {
+  syncRouteGeoJsonLine(
+    mapRuntime,
+    sourceId,
+    layerId,
+    points.length > 1 ? buildAccessRouteLine(points) : null,
+    result,
+    paint,
+  );
 }
 
 function clearDetailMarkers(markers) {
@@ -3490,6 +3486,7 @@ function heroMapStatusText(points) {
 }
 
 async function renderDetailHeroMap(result = null) {
+  const renderVersion = ++detailHeroMapRenderVersion;
   if (!(detailHeroMap instanceof HTMLElement) || !(detailHeroMapShell instanceof HTMLElement)) {
     return;
   }
@@ -3537,13 +3534,23 @@ async function renderDetailHeroMap(result = null) {
 
       detailHeroMapMarkers = clearDetailMarkers(detailHeroMapMarkers);
       syncAccessRouteLine(
-      detailHeroMapRuntime,
-      'detail-hero-route-line',
-      'detail-hero-route-line',
-      points,
-      result,
-      { lineWidth: 3, lineOpacity: 0.8 }
-    );
+        detailHeroMapRuntime,
+        'detail-hero-route-line',
+        'detail-hero-route-line',
+        points,
+        result,
+        { lineWidth: 3, lineOpacity: 0.8 },
+      );
+      loadCanonicalRiverRouteLine(slug, points, { stateName: riverContext.state })
+        .then((routeLine) => {
+          if (detailHeroMapRuntime && routeLine && renderVersion === detailHeroMapRenderVersion) {
+            syncRouteGeoJsonLine(detailHeroMapRuntime, 'detail-hero-route-line', 'detail-hero-route-line', routeLine, result, {
+              lineWidth: 3,
+              lineOpacity: 0.8,
+            });
+          }
+        })
+        .catch((error) => console.warn('Canonical hero river geometry unavailable.', error));
 
     const bounds = new maplibregl.LngLatBounds();
     for (const point of points) {
@@ -3592,6 +3599,7 @@ async function renderDetailHeroMap(result = null) {
 }
 
 async function renderDetailMap(result = null) {
+  const renderVersion = ++detailMapRenderVersion;
   if (!(detailMap instanceof HTMLElement)) {
     return;
   }
@@ -3644,16 +3652,30 @@ async function renderDetailMap(result = null) {
       await waitForMapStyle(detailMapRuntime);
 
       detailMapMarkers = clearDetailMarkers(detailMapMarkers);
-      syncActualRiverLayer(detailMapRuntime, 'detail-actual-river-line', [riverContext.name], {
-        lineColor: routeLineColor(result),
-        lineWidth: 6,
-        lineOpacity: 0.42,
-      });
+      // The canonical route line is requested below. Keep the access-point
+      // fallback only while that static geometry is loading.
       syncAccessRouteLine(detailMapRuntime, 'detail-route-full-line', 'detail-route-full-line', fullRoutePoints, result, {
         lineWidth: 3,
         lineOpacity: 0.26,
       });
       syncAccessRouteLine(detailMapRuntime, 'detail-route-line', 'detail-route-line', points, result);
+      loadCanonicalRiverRouteLine(slug, fullRoutePoints, { stateName: riverContext.state })
+        .then((routeLine) => {
+          if (detailMapRuntime && routeLine && renderVersion === detailMapRenderVersion) {
+            syncRouteGeoJsonLine(detailMapRuntime, 'detail-route-full-line', 'detail-route-full-line', routeLine, result, {
+              lineWidth: 6,
+              lineOpacity: 0.3,
+            });
+          }
+        })
+        .catch((error) => console.warn('Canonical full-route river geometry unavailable.', error));
+      loadCanonicalRiverRouteLine(slug, points, { stateName: riverContext.state })
+        .then((routeLine) => {
+          if (detailMapRuntime && routeLine && renderVersion === detailMapRenderVersion) {
+            syncRouteGeoJsonLine(detailMapRuntime, 'detail-route-line', 'detail-route-line', routeLine, result);
+          }
+        })
+        .catch((error) => console.warn('Canonical selected river geometry unavailable.', error));
 
     const bounds = new maplibregl.LngLatBounds();
     for (const point of fullRoutePoints) {

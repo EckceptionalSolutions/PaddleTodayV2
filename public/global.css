@@ -2088,6 +2088,20 @@ body.site-search-open {
   font-size: 0.9rem;
 }
 
+.summary-map-legend__line {
+  width: 2.15rem;
+  height: 0;
+  border-top: 4px solid #16758a;
+  border-radius: 999px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.summary-map-legend__line--reach {
+  border-top-width: 6px;
+  border-top-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.92);
+}
+
 .summary-map-legend__marker,
 .score-map-marker {
   width: 2.3rem;
@@ -2146,6 +2160,26 @@ body.site-search-open {
 
 .score-map-marker {
   cursor: pointer;
+}
+
+.summary-map-shell--explore-workspace .score-map-marker--overview {
+  width: 1rem;
+  height: 1rem;
+  min-width: 1rem;
+  min-height: 1rem;
+  border-width: 2px;
+  box-shadow: 0 3px 10px rgba(16, 35, 45, 0.24);
+  font-size: 0;
+  opacity: 0.86;
+}
+
+.summary-map-shell--explore-workspace .score-map-marker--overview.score-map-marker--selected,
+.summary-map-shell--explore-workspace .score-map-marker--overview:focus-visible {
+  width: 1.35rem;
+  height: 1.35rem;
+  min-width: 1.35rem;
+  min-height: 1.35rem;
+  opacity: 1;
 }
 
 .score-map-marker--selected {
@@ -8161,6 +8195,19 @@ body.site-search-open {
   background: #9d4e38;
 }
 
+.state-map-legend__line {
+  width: 1.75rem;
+  height: 0;
+  border-top: 4px solid #16758a;
+  border-radius: 999px;
+}
+
+.state-map-legend__line--reach {
+  border-top-width: 5px;
+  border-top-style: solid;
+  border-top-color: #2f7185;
+}
+
 .state-region-chips .filter-chip {
   gap: 0.4rem;
 }
@@ -8708,8 +8755,22 @@ body.site-search-open {
   background: #9d4e38;
 }
 
-.state-map-marker--muted {
-  opacity: 0.18;
+.state-coverage__map .state-map-marker--muted {
+  opacity: 0.18 !important;
+}
+
+.state-coverage__map .state-map-marker--overview {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-width: 2px;
+  box-shadow: 0 3px 10px rgba(16, 35, 45, 0.24);
+  color: transparent;
+  font-size: 0;
+  opacity: 0.84 !important;
+}
+
+.state-coverage__map .state-map-marker--overview.state-map-marker--muted {
+  opacity: 0.12 !important;
 }
 
 .state-map-marker--fallback {
@@ -10275,8 +10336,21 @@ body.site-search-open {
 }
 
 .river-grid--explore-list .river-card--compact {
+  width: 100%;
+  min-width: 0;
   max-width: 20.5rem;
   justify-self: end;
+}
+
+.river-grid--explore-list .river-card__facts-section,
+.river-grid--explore-list .river-card__facts {
+  min-width: 0;
+}
+
+.river-grid--explore-list .river-card__fact {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 1100px) {

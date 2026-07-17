@@ -98,6 +98,7 @@ const featuredRegions = [...routesByRegion].sort((left, right) => right.routes.l
 const multiRouteRiverCount = routeGroupsByRiver.filter((group) => group.routes.length > 1).length;
 const stateMapRoutes = stateGroup.routes.map((route) => ({
   slug: route.slug,
+  riverId: route.riverId ?? route.slug,
   name: route.name,
   reach: route.reach,
   region: route.region,
@@ -120,6 +121,11 @@ const stateMapRoutes = stateGroup.routes.map((route) => ({
         name: route.takeOut.name,
       }
     : null,
+  accessPoints: (route.accessPoints ?? []).map((point) => ({
+    latitude: point.latitude,
+    longitude: point.longitude,
+    mileFromStart: point.mileFromStart,
+  })),
 }));
 const stateMapPoint = (route: (typeof stateMapRoutes)[number]) => route.putIn ?? { latitude: route.latitude, longitude: route.longitude };
 const stateMapPoints = stateMapRoutes
@@ -267,7 +273,7 @@ const structuredData = [
           </div>
         </div>
         <p class="muted state-coverage__map-status" data-state-map-status>
-          Showing route starts. Interactive map loading.
+          Loading supported rivers and route reaches.
         </p>
       </div>
       <div class="state-coverage__copy">
@@ -275,16 +281,24 @@ const structuredData = [
           <FeatureIcon name="map" size={16} />
           Coverage snapshot
         </p>
-        <h2 class="section-title" id="state-coverage-title">Where Paddle Today tracks {stateGroup.name}</h2>
+        <h2 class="section-title" id="state-coverage-title">Explore supported {stateGroup.name} rivers</h2>
         <p class="muted state-coverage__lede">
-          Use the map to scan route density, then start with beginner routes, planning routes, or the full directory below.
+          Scan the highlighted river network from above, then use the route guides and access markers to find a supported reach.
         </p>
         <div class="state-coverage__stats">
           <span class="stat-chip">{stateGroup.routeCount} route markers</span>
           <span class="stat-chip">{multiRouteRiverCount} multi-route rivers</span>
           <span class="stat-chip">{allBeginnerRoutes.length} beginner routes</span>
         </div>
-        <div class="state-map-legend" aria-label="Map difficulty key">
+        <div class="state-map-legend" aria-label="Map key">
+          <span class="state-map-legend__item">
+            <span class="state-map-legend__line state-map-legend__line--river"></span>
+            Supported river
+          </span>
+          <span class="state-map-legend__item">
+            <span class="state-map-legend__line state-map-legend__line--reach"></span>
+            Selected reach
+          </span>
           <span class="state-map-legend__item">
             <span class="state-map-legend__marker state-map-legend__marker--easy">E</span>
             Easy

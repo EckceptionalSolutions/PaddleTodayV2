@@ -11,7 +11,6 @@ import { bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
 import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { ratingVerdictLabel } from '@paddletoday/api-contract';
-import { buildRouteMapSegments } from '../lib/route-map-segments.ts';
 
 const root = document.querySelector('[data-river-group-page]');
 
@@ -648,18 +647,6 @@ async function renderGroupMap(routes, { preserveViewport = false } = {}) {
       rating: route.rating,
       coordinates: routeSpanCoordinates(route),
     }));
-    const features = buildRouteMapSegments(routeSpans, selectedSlug).map((segment) => ({
-      type: 'Feature',
-      properties: {
-        slug: segment.key,
-        rating: segment.rating,
-        selected: segment.selected,
-      },
-      geometry: {
-        type: 'LineString',
-        coordinates: segment.coordinates.map((point) => [point.longitude, point.latitude]),
-      },
-    }));
 
     for (const [routeIndex, route] of routes.entries()) {
       const routeCoordinates = routeSpans[routeIndex]?.coordinates ?? [];
@@ -708,42 +695,6 @@ async function renderGroupMap(routes, { preserveViewport = false } = {}) {
       mapMarkers.push(marker);
       bounds.extend([midpoint.longitude, midpoint.latitude]);
       hasBounds = true;
-    }
-
-    const sourceId = 'river-group-routes';
-    const data = {
-      type: 'FeatureCollection',
-      features,
-    };
-    const source = mapRuntime.getSource(sourceId);
-
-    if (source && typeof source.setData === 'function') {
-      source.setData(data);
-    } else if (!source) {
-      mapRuntime.addSource(sourceId, {
-        type: 'geojson',
-        data,
-      });
-      mapRuntime.addLayer({
-        id: 'river-group-routes-base',
-        type: 'line',
-        source: sourceId,
-        paint: {
-          'line-color': [
-            'match',
-            ['get', 'rating'],
-            'Strong',
-            '#2c8a54',
-            'Good',
-            '#2c8a54',
-            'Fair',
-            '#ad752c',
-            '#bb5840',
-          ],
-          'line-width': ['case', ['boolean', ['get', 'selected'], false], 4, 2.4],
-          'line-opacity': ['case', ['boolean', ['get', 'selected'], false], 0.92, 0.55],
-        },
-      });
     }
 
     if (hasBounds && !preserveViewport) {
