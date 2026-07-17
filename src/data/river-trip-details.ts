@@ -3728,6 +3728,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'sauk-river-horseshoe-lions-park': {
+    putIn: {
+      name: 'Horseshoe Lake Public Water Access Site',
+      latitude: 45.44278,
+      longitude: -94.5226614,
+    },
+    takeOut: {
+      name: 'Sauk River, Lions Park Public Water Access Site',
+      latitude: 45.4526002,
+      longitude: -94.4238972,
+    },
+    logistics: {
+      distanceLabel: 'About 7.6 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with lake wind, vegetation, or low water',
+      shuttle:
+        'Stage Lions Park in Cold Spring first and identify the take-out above Cold Spring Dam. Then drive back to the Horseshoe Lake access and make a wind and boat-traffic call before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey DNR, City of Cold Spring, and posted park rules.',
+      camping:
+        'Treat this as a day route. DNR Map 2 does not document an on-route camping plan between Horseshoe Lake and Lions Park.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Horseshoe Lake and take out at Lions Park for the Chain of Lakes continuation below Richmond. The route ends above Cold Spring Dam, so the take-out is part of the safety plan.',
+      accessCaveats: [
+        'Horseshoe Lake resolves as WAS01770 at river mile 29.9 and Lions Park resolves as WAS00438 at river mile 22.3 in Minnesota public-water-access GIS.',
+        'The St. Martin gauge is upstream of this route and should be treated as a same-map proxy. Local lake-chain wind, vegetation, and access depth can override a favorable reading.',
+        'Lions Park is the planned take-out before Cold Spring Dam. Do not drift into the dam or portage corridor unintentionally.',
+      ],
+      watchFor: [
+        'Cold Spring Dam just downstream of Lions Park; identify the take-out from shore before launching.',
+        'Wind, boat wakes, aquatic vegetation, snags, bridge approaches, and private shoreline through the Chain of Lakes.',
+        'High or rising water, storm debris, cold water, and low-water dragging near the DNR scrapable band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'horseshoe-lake-access',
+        name: 'Horseshoe Lake Public Water Access Site',
+        latitude: 45.44278,
+        longitude: -94.5226614,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default put-in; public-water-access GIS resolves the DNR-administered access as WAS01770 at DNR river mile 29.9.',
+      },
+      {
+        id: 'lions-park-cold-spring',
+        name: 'Sauk River, Lions Park Public Water Access Site',
+        latitude: 45.4526002,
+        longitude: -94.4238972,
+        mileFromStart: 7.6,
+        segmentKind: 'creek',
+        note: 'Default take-out above Cold Spring Dam; public-water-access GIS resolves it as WAS00438 at DNR river mile 22.3.',
+      },
+    ],
+  },
   'sauk-river-spring-hill-st-martin': {
     putIn: {
       name: 'Spring Hill County Park carry-in access',
@@ -30799,6 +30854,125 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 8.2,
         segmentKind: 'creek',
         note: 'Default take-out; resolves as WAS01297 at DNR river mile 905.5.',
+      },
+    ],
+  },
+  'mississippi-river-snuffies-montissippi': {
+    putIn: {
+      name: "Mississippi River, Snuffie's Landing Public Water Access Site",
+      latitude: 45.3837473,
+      longitude: -93.9148507,
+    },
+    takeOut: {
+      name: 'Mississippi River, Montissippi Park Public Water Access Site',
+      latitude: 45.3259685,
+      longitude: -93.8236798,
+    },
+    logistics: {
+      distanceLabel: 'About 6.7 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with wind, low water, or a campsite stop',
+      shuttle:
+        "Stage Montissippi County Park first, then drive back to Snuffie's Landing. Inspect the Montissippi landing before launch because it is the planned exit before the Monticello / Norin continuation.",
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey city, county, DNR, camping, and fishing rules.',
+      camping:
+        'DNR Map 8 identifies a no-fee watercraft campsite at Montissippi County Park. Treat it as a managed endpoint campsite only; do not assume private island or bank camping elsewhere.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Snuffie's Landing and take out at Montissippi County Park for the next Map 8 Mississippi connector below Clearwater. The St. Cloud gauge is upstream, so pair its official bands with local wind, riffle, and access checks.",
+      accessCaveats: [
+        "Snuffie's Landing resolves as WAS01297 at river mile 905.5 and Montissippi Park resolves as WAS01292 near river mile 898.8 in Minnesota public-water-access GIS.",
+        'The St. Cloud gauge is upstream of this route and should be treated as a same-map proxy, not an exact local measurement.',
+        'Take out at Montissippi for this card. Continuing toward Ellison, Norin, or Babcock needs a separate downstream shuttle plan.',
+      ],
+      watchFor: [
+        'Low-water riffles, shallow side channels, and slower progress when the upstream St. Cloud gauge is near the low band.',
+        'Fast current, floating wood, bridge approaches, wind on open bends, motorboats, anglers, cold water, and private banks.',
+        'Montissippi campsite and park rules if using the take-out as an overnight endpoint.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'snuffies-landing',
+        name: "Mississippi River, Snuffie's Landing Public Water Access Site",
+        latitude: 45.3837473,
+        longitude: -93.9148507,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01297 at DNR river mile 905.5.',
+      },
+      {
+        id: 'montissippi-park',
+        name: 'Mississippi River, Montissippi Park Public Water Access Site',
+        latitude: 45.3259685,
+        longitude: -93.8236798,
+        mileFromStart: 6.7,
+        segmentKind: 'creek',
+        note: 'Default take-out with park and watercraft-campsite context; resolves as WAS01292 near DNR river mile 898.8.',
+      },
+    ],
+  },
+  'mississippi-river-montissippi-norin': {
+    putIn: {
+      name: 'Mississippi River, Montissippi Park Public Water Access Site',
+      latitude: 45.3259685,
+      longitude: -93.8236798,
+    },
+    takeOut: {
+      name: 'Mississippi River, Norin Landing Public Water Access Site',
+      latitude: 45.3042771,
+      longitude: -93.683881,
+    },
+    logistics: {
+      distanceLabel: 'About 7.8 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with wind, island routing, or low water',
+      shuttle:
+        'Stage Norin Landing first, then drive back to Montissippi County Park. Ellison Park is the clearest public mid-route bailout if the wind, weather, or group pace changes.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey city, county, DNR, SNA, and fishing rules.',
+      camping:
+        'Treat this as a day route. Bridgeview Park camping is by permission only and Dimmick Island campsite is downstream of the Norin take-out, so this card does not assume on-route camping.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Montissippi County Park and take out at Norin Landing for the missing Map 8 connector above the already-live Norin-to-Babcock route. Use the St. Cloud gauge as an upstream same-map proxy.',
+      accessCaveats: [
+        'Montissippi Park resolves as WAS01292, Ellison Park resolves as WAS01310, and Norin Landing resolves as WAS02427 in Minnesota public-water-access GIS.',
+        'The St. Cloud gauge is upstream of this route and should be treated as a same-map proxy. Make a local visual check for island-channel depth and wind before launching.',
+        'Norin is the planned take-out for this card. The Norin-to-Babcock continuation is already modeled as a separate route.',
+      ],
+      watchFor: [
+        'Island channels, shallow bars, riffles, sweepers, and floating wood through the Mississippi River Islands corridor.',
+        'Wind on open bends, motorboat wake, anglers, bridge current, cold water, and private banks.',
+        'SNA and park rules. Use public accesses and legal public stops rather than improvising on islands or private shoreline.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'montissippi-park',
+        name: 'Mississippi River, Montissippi Park Public Water Access Site',
+        latitude: 45.3259685,
+        longitude: -93.8236798,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01292 near DNR river mile 898.8.',
+      },
+      {
+        id: 'ellison-park',
+        name: 'Mississippi River, Ellison Park Public Water Access Site',
+        latitude: 45.3035233,
+        longitude: -93.7820461,
+        mileFromStart: 2.6,
+        segmentKind: 'transition',
+        note: 'Public mid-route access at DNR river mile 896.2; resolves as WAS01310.',
+      },
+      {
+        id: 'norin-landing',
+        name: 'Mississippi River, Norin Landing Public Water Access Site',
+        latitude: 45.3042771,
+        longitude: -93.683881,
+        mileFromStart: 7.8,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02427 at DNR river mile 891.0.',
       },
     ],
   },

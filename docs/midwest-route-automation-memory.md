@@ -9,6 +9,15 @@
   - No route-gallery assets were added. Bounded WTG / WRT / Miles Paddled / county / DNR / AW / USGS / Commons / same-route image review found no clearly rights-clean exact-route paddling asset selected for local reuse.
   - Reviewed but did not add Bark River Prince's Point-to-Burnt Village or Sugar River Highway X-to-Attica because both are already live; Black Earth Creek Cross Plains-to-Salmo Pond remains obstruction-blocked; broader upper Chippewa / Wolf / WTG families remain mature and were not stronger than these three packages.
 
+- 2026-07-16 19:12 America/Chicago / 2026-07-17 00:12 UTC: Minnesota three-route implementation pass (`minnesota-route-additions-2`).
+  - Added three Minnesota slugs beyond the 205-route Minnesota baseline at run start: `mississippi-river-snuffies-montissippi`, `mississippi-river-montissippi-norin`, and `sauk-river-horseshoe-lions-park`, bringing Minnesota to 208 live routes.
+  - Qualification path: MN DNR Mississippi Map 8 plus public-water-access GIS document Snuffie's-to-Montissippi and Montissippi-to-Norin with upstream St. Cloud site `129`; MN DNR Sauk Map 2 plus public-water-access GIS document Horseshoe-to-Lions-Park with upstream St. Martin site `328`.
+  - Live gauge verification: St. Cloud returned `4,490 cfs` at 2026-07-16 04:45 PM in the official medium band; St. Martin returned `14.95 ft` at 2026-07-16 05:00 PM just below the official medium band.
+  - Implemented official DNR interpreted gauge models only: St. Cloud `2,000 / 3,000-9,000 / 12,000 cfs` and St. Martin `14 / 15-17 / 20 ft`, with explicit upstream same-map proxy caveats.
+  - Added camping and safety/logistics notes for Montissippi endpoint watercraft-campsite support, no-camping day-use on the other two cards, low-water riffles, island channels, SNA/park rules, wind, motorboat wake, lake-chain vegetation, strainers, private banks, cold water, and mandatory Lions Park take-out above Cold Spring Dam.
+  - No route-gallery assets were added. Bounded DNR / public-access / Commons / same-route image review found no clearly rights-clean exact-route paddling asset selected for local reuse.
+  - Reviewed but did not add Pike-Creek-to-Blanchard because the dam-complex landing was less clean for a mandatory take-out card than the accepted public-access gaps.
+
 - 2026-07-16 17:05 America/Chicago / 2026-07-16 22:05 UTC: Wisconsin three-route implementation pass (`wisconsin-route-additions`).
   - Added three Wisconsin slugs beyond the 177-route Wisconsin baseline at run start: `lemonweir-river-mauston-dam-19th-ave`, `hay-river-county-ff-highway-25`, and `badger-mill-creek-old-county-pb-highway-69`, bringing Wisconsin to 180 unique live routes.
   - Qualification path: Wisconsin River Trips documents Lemonweir Mauston-Dam-to-19th-Avenue with direct New Lisbon gauge support and 240 cfs good-depth evidence; Wisconsin River Trips documents Hay County-FF-to-Highway-25 with direct Wheeler gauge, 250 cfs / 4 ft route-day evidence, and deadfall/portage hazards; Miles Paddled documents Badger Mill Old-County-PB-to-Highway-69 with direct Verona gauge, endpoint GPS points, 4.75 ft / 20 cfs minimum, and 5 ft upper gate warning.
