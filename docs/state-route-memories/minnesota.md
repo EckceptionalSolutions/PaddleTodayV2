@@ -1,18 +1,27 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-16 20:15 America/Chicago.
+Last summarized: 2026-07-16 21:16 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 211 after the 2026-07-16 20:15 Minnesota route-addition run.
-- Top represented rivers: Mississippi River 40, Minnesota River 15, North Fork Crow River 9, Rum River 9, Sauk River 8, St. Croix River 8, St. Louis River 8, Root River 7, Big Fork River 6, Cannon River 6, Crow Wing River 6, Red Lake River 6, Zumbro River 6, Cloquet River 5, Red River of the North 5, Straight River 5, Cedar River 4, Cottonwood River 4, Little Fork River 4, Otter Tail River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, and Vermilion River.
-- Ledger candidates: 1058 total; 670 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 56 `research_later`, 30 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
+- Live routes: 214 after the 2026-07-16 21:16 Minnesota route-addition run.
+- Top represented rivers: Mississippi River 43, Minnesota River 15, Sauk River 10, North Fork Crow River 9, Rum River 9, St. Croix River 8, St. Louis River 8, Root River 7, Big Fork River 6, Cannon River 6, Crow Wing River 6, Red Lake River 6, Zumbro River 6, Cloquet River 5, Otter Tail River 5, Red River of the North 5, Straight River 5, Cedar River 4, Cottonwood River 4, Little Fork River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Chippewa River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, and Vermilion River.
+- Ledger candidates: 1064 total; 676 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 56 `research_later`, 30 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-16 21:16 America/Chicago / 2026-07-17 02:16 UTC: added `mississippi-river-blackberry-bridge-county-road-72`, `otter-tail-river-phelps-mill-west-lost-lake`, and `sauk-river-sauk-centre-dam-mill-pond`.
+- Baseline at run start was 211 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 214 and fill three official/public-access gaps: the lower half of the DNR Steamboat-to-County-Road-72 Mississippi planner, the short Phelps-Mill-to-West-Lost-Lake Otter Tail section, and the official upper-Sauk city-to-city day trip.
+- Qualification path: MN DNR recommended-one-way list, Mississippi Map 3, and public-water-access GIS document Blackberry Bridge-to-County-Road-72 with Grand Rapids site `124`; MN DNR Otter Tail Map 2, Otter Tail water-trail safety page, and public-water-access GIS document Phelps-Mill-to-West-Lost-Lake with Elizabeth site `159`; MN DNR Sauk segments page, Sauk Map 1, current Sauk alert page, and public-water-access GIS document Sauk-Centre-Dam-to-Mill-Pond with St. Martin site `328`.
+- Live gauge verification: Grand Rapids returned `251 cfs` at 2026-07-16 14:45 CDT in the official medium band; Elizabeth returned `359 cfs` at 2026-07-16 19:00 CDT in the official medium band; St. Martin returned `14.94 ft` at 2026-07-16 19:00 CDT in the official low band just below medium.
+- Implemented official DNR interpreted gauge models only: Grand Rapids `30 / 44-1410 / 1910 cfs`, Elizabeth `100 / 300-700 / 1200 cfs`, and St. Martin `14 / 15-17 / 20 ft`. No extra ideal ranges or upper cutoffs were invented; all three cards carry proxy or visual-check caveats where the gauge is not on the exact split.
+- Camping posture: all three are no-camping day routes. Safety posture includes Mississippi wind/debris/private banks, Otter Tail Phelps Mill dam/portage context and lake wind, Sauk below-dam launch discipline, mandatory Mill Pond take-out before the Melrose dam/portage boundary, the 2026 I-94 bridge-construction alert, low-water dragging, wood/strainers, cold water, private banks, long-mile fatigue, and limited exits.
+- Image posture: no new local gallery asset was added. The Otter Tail short route reuses the existing rights-clean Commons Phelps Mill endpoint image already present for the longer Otter Tail card; Mississippi and Sauk image-audit rows record bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected.
+- Reviewed but did not add the broader `mississippi-river-steamboat-county-road-72` because `mississippi-river-steamboat-blackberry-bridge` already covers the upstream half; the accepted Blackberry-to-County-Road-72 split avoids duplicating that existing card. Other Sauk/Mississippi full-planner combinations were weaker or more duplicative than the selected access pairs.
 
 - 2026-07-16 20:15 America/Chicago / 2026-07-17 01:15 UTC: added `cottonwood-river-highway-15-courtland`, `st-louis-river-zim-toivola`, and `cedar-river-lansing-ramsey-mill-pond`.
 - Baseline at run start was 208 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 211 and fill distinct DNR/public-access gaps: lower Cottonwood into the Minnesota River at Courtland, upper St. Louis between Zim and Toivola, and upper Cedar from Lansing / County Road 2 to Ramsey Mill Pond.
