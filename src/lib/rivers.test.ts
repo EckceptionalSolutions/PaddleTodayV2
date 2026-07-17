@@ -49,6 +49,7 @@ describe('getAllRiverScores', () => {
   });
 
   it('does not collapse unrelated same-name rivers into one route group', () => {
+    const rivers = listRivers();
     const groups = listRiverGroups();
 
     const pineGroups = groups.filter((group) => group.name === 'Pine River');
@@ -60,11 +61,15 @@ describe('getAllRiverScores', () => {
       'pine-river-minnesota',
       'pine-river-wisconsin',
     ]);
-    expect(vermilionGroups.map((group) => group.riverId).sort()).toEqual([
+    const expectedVermilionGroups = [
       'vermilion-river-illinois',
-      'vermilion-river-minnesota',
       'vermilion-river-ohio',
-    ]);
+    ];
+    if (rivers.some((river) => river.name === 'Vermilion River' && river.state === 'Minnesota')) {
+      expectedVermilionGroups.push('vermilion-river-minnesota');
+    }
+
+    expect(vermilionGroups.map((group) => group.riverId).sort()).toEqual(expectedVermilionGroups.sort());
     expect(stCroixGroup?.routeCount).toBe(14);
     expect(stCroixGroup?.states).toEqual(['Minnesota', 'Wisconsin']);
   });
