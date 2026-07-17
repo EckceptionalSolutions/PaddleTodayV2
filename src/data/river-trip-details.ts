@@ -3513,6 +3513,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'rum-river-highway-7-walbo': {
+    putIn: {
+      name: 'Rum River, Highway 7 Public Water Access Site',
+      latitude: 45.5297696,
+      longitude: -93.4392366,
+    },
+    takeOut: {
+      name: 'Rum River, Walbo Public Water Access Site',
+      latitude: 45.5791303,
+      longitude: -93.3228614,
+    },
+    logistics: {
+      distanceLabel: 'About 14.4 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6.5 hr, longer with low water, wood, or headwind',
+      shuttle:
+        'Stage the take-out at Walbo first, then drive back to the Highway 7 carry-in. This is a rural middle-Rum shuttle with limited clean public exits between the endpoints.',
+      permits:
+        'No route-specific paddling permit is known. Follow DNR public-access rules, Minnesota boating/PFD requirements, and all posted local parking signs.',
+      camping:
+        'Treat this as a day route. No on-route campsite is assumed for the Highway-7-to-Walbo connector, and private banks are not legal overnight stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Highway 7 and take out at Walbo for a middle-Rum connector below the current Princeton-area tree alert and above the already-live Walbo-to-Cambridge route.',
+      accessCaveats: [
+        'Highway 7 resolves as WAS00318 at Rum River mile 71.2, and Walbo resolves as WAS00274 at river mile 56.8 in Minnesota public-water-access GIS.',
+        'The St. Francis gauge is far downstream. Use it as an official same-river proxy, then make visual checks for actual depth and wood at Highway 7.',
+        'The current DNR tree alert is upstream between river miles 101 and 98. Do not extend this route upstream toward Princeton unless current DNR notices and local obstruction checks are clear.',
+      ],
+      watchFor: [
+        'Downed trees, snags, sweepers, and blind wooded bends.',
+        'Low-water scraping and slow travel while the St. Francis gauge is in the official low band.',
+        'Private banks, muddy exits, cold water, storm debris, and limited bailout options.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-7',
+        name: 'Rum River, Highway 7 Public Water Access Site',
+        latitude: 45.5297696,
+        longitude: -93.4392366,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00318 at Rum River mile 71.2.',
+      },
+      {
+        id: 'walbo',
+        name: 'Rum River, Walbo Public Water Access Site',
+        latitude: 45.5791303,
+        longitude: -93.3228614,
+        mileFromStart: 14.4,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00274 at Rum River mile 56.8.',
+      },
+    ],
+  },
   'rum-river-walbo-cambridge-west': {
     putIn: {
       name: 'Walbo carry-in access',
@@ -7927,6 +7982,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Strainers, sweepers, and cold-water exposure outside midsummer.',
       ],
     },
+  },
+  'kickapoo-river-highway-131-ontario': {
+    putIn: {
+      name: 'Highway 131 bridge south of Michigan Road',
+      latitude: 43.78467,
+      longitude: -90.55023,
+    },
+    takeOut: {
+      name: 'Landing 1 / Highway 33 and County Road P',
+      latitude: 43.72233,
+      longitude: -90.58747,
+    },
+    logistics: {
+      distanceLabel: '8.5 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr, longer if low and scrape-heavy',
+      shuttle:
+        'Use a two-car shuttle from Landing 1 in Ontario back north to the Highway 131 bridge south of Michigan Road. The source describes a roughly 6-mile road shuttle, mostly along Highway 131/133.',
+      permits:
+        'No route-specific paddling permit was confirmed for this upstream-of-Ontario reach. Follow Wisconsin boating rules, check KVR/Wildcat Mountain current river guidance, and account for any 2026 Highway 131 construction detours before leaving vehicles.',
+      camping:
+        'Treat this as a day trip. KVR river campsites are designated and limited, and the exact Highway-131-to-Ontario reach should not be assumed to have legal overnight stops on private banks.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Highway 131 bridge south of Michigan Road and take out at Ontario Landing 1 for a shallow, upper Kickapoo day above the classic Ontario-to-Rockton card. Use the direct Ontario gauge and do not launch below the published low-water floor unless you are prepared for dragging.',
+      accessCaveats: [
+        'The put-in is a bridge access, not a developed livery landing; confirm shoulder parking and footing before unloading.',
+        'Landing 1 is the start of the numbered upper Kickapoo access system and can be busy during peak season.',
+        'KVR notes 2026 Highway 131 construction in the area with local access allowed but possible intermittent bridge closures; check current route access before committing to the shuttle.',
+      ],
+      watchFor: [
+        'Shallow riffles, scraping, and dragging below the 93 cfs minimum published by Miles Paddled.',
+        'Class I current, a possible Class II set in the Oil City family, snags, strainers, and weedy bridge accesses.',
+        'Flash-flood potential after storms, cold spring-fed water, private banks, and limited rescue access between road bends.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-131-south-michigan-road',
+        name: 'Highway 131 bridge south of Michigan Road',
+        latitude: 43.78467,
+        longitude: -90.55023,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from Miles Paddled GPS point.',
+      },
+      {
+        id: 'ontario-landing-1',
+        name: 'Landing 1 / Highway 33 and County Road P',
+        latitude: 43.72233,
+        longitude: -90.58747,
+        mileFromStart: 8.5,
+        segmentKind: 'creek',
+        note: 'Default take-out at Ontario.',
+      },
+    ],
   },
   'kickapoo-river-readstown-soldiers-grove': {
     putIn: {
@@ -36643,6 +36753,70 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'sauk-river-mill-pond-oak-township': {
+    putIn: {
+      name: 'Sauk River, Mill Pond Public Water Access Site',
+      latitude: 45.6792109,
+      longitude: -94.8191468,
+    },
+    takeOut: {
+      name: 'Oak Township County Park canoe access',
+      latitude: 45.60927,
+      longitude: -94.75344,
+    },
+    logistics: {
+      distanceLabel: 'About 12 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, plus time for the Melrose Dam portage',
+      shuttle:
+        'Use a Melrose-to-Oak Township County Park shuttle. Walk the Mill Pond launch, Melrose Dam portage, and Oak take-out plan before committing because the dam comes almost immediately after launch.',
+      permits:
+        'No route-specific paddling permit is known. Follow DNR water-trail guidance, Stearns County park rules, Minnesota boating/PFD requirements, and posted parking rules.',
+      camping:
+        'DNR Map 1 marks camping/picnic context at Sauk River Park near Melrose and watercraft campsite context at Oak Township County Park. Use only designated county or mapped sites and confirm current rules before planning an overnight.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Mill Pond, portage left around Melrose Dam, and take out at Oak Township County Park for the upper-Sauk access gap above the existing Oak-to-Spring-Hill card.',
+      accessCaveats: [
+        'Mill Pond resolves as WAS02216 at Sauk River mile 78.8 in Minnesota public-water-access GIS.',
+        'Oak Township is the same Stearns County park endpoint used by the adjacent Oak-to-Spring-Hill route; DNR Map 1 places it at river mile 67.0 with watercraft campsite/rest/toilet context.',
+        'The St. Martin gauge is downstream of this route, so use it as a corridor check and make visual calls for upper-river depth, weeds, wood, and dam-portage safety.',
+      ],
+      watchFor: [
+        'Melrose Dam immediately below the start; portage left and do not run the dam.',
+        'Shallow riffles, aquatic vegetation, downed trees, sweepers, and low-water dragging.',
+        'Private banks, cold water, storm debris, and rural rescue spacing between the named public/county sites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mill-pond',
+        name: 'Sauk River, Mill Pond Public Water Access Site',
+        latitude: 45.6792109,
+        longitude: -94.8191468,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02216 at Sauk River mile 78.8.',
+      },
+      {
+        id: 'melrose-dam-portage',
+        name: 'Melrose Dam portage',
+        latitude: 45.67646,
+        longitude: -94.80843,
+        mileFromStart: 0.4,
+        segmentKind: 'creek',
+        note: 'DNR Map 1 marks Melrose Dam at river mile 78.5 with portage left.',
+      },
+      {
+        id: 'oak-township-county-park',
+        name: 'Oak Township County Park canoe access',
+        latitude: 45.60927,
+        longitude: -94.75344,
+        mileFromStart: 12,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR Map 1 river mile 67.0; county park access with watercraft campsite context.',
+      },
+    ],
+  },
   'sauk-river-oak-township-spring-hill': {
     putIn: {
       name: 'Oak Township County Park canoe access',
@@ -36823,6 +36997,70 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 26,
         segmentKind: 'creek',
         note: 'Default take-out; resolves as WAS01443 at Des Moines River mile 3.1 with DNR administration.',
+      },
+    ],
+  },
+  'des-moines-river-ashley-park-petersburg': {
+    putIn: {
+      name: 'Des Moines River, Ashley Park Public Water Access Site',
+      latitude: 43.6253796,
+      longitude: -94.9872012,
+    },
+    takeOut: {
+      name: 'Des Moines River, Petersburg Public Water Access Site',
+      latitude: 43.5263871,
+      longitude: -94.9189653,
+    },
+    logistics: {
+      distanceLabel: 'About 9.7 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, wood, or wire-hazard scouting',
+      shuttle:
+        'Stage Petersburg first, then drive back to Ashley Park. This is the shorter lower-Des-Moines option below Jackson, so do not assume you are committed to the full Christianna-to-Petersburg day.',
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR public accesses, follow Minnesota boating/PFD rules, and obey posted access and private-bank rules.',
+      camping:
+        'Treat this as a day route. Kilen Woods and Belmont camping context is upstream of this selected split; do not assume informal camping on private lower-river banks.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Ashley Park and take out at Petersburg for the short lower-Des-Moines split around the direct Jackson gauge and the DNR-mapped wire hazard.',
+      accessCaveats: [
+        'Ashley Park resolves as WAS02771 at Des Moines River mile 12.8, and Petersburg resolves as WAS01443 at river mile 3.1.',
+        'The Jackson DNR gauge sits inside the route near river mile 12.3, just below Ashley Park and the former Jackson Dam / high Class I rapid context.',
+        'DNR Map 1 marks a wire hazard near river mile 6.1 that may be impassable at high water. Confirm the hazard before launching if water is high, rising, or debris-laden.',
+      ],
+      watchFor: [
+        'Former Jackson Dam / high Class I rapid area, small riffles, and changing lines around debris.',
+        'Wire across the river near river mile 6.1, especially at high water.',
+        'Snags, fallen trees, muddy banks, private shoreline, fast rises after heavy rain, and limited public exits.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'ashley-park',
+        name: 'Des Moines River, Ashley Park Public Water Access Site',
+        latitude: 43.6253796,
+        longitude: -94.9872012,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02771 at Des Moines River mile 12.8.',
+      },
+      {
+        id: 'jackson-gauge-former-dam',
+        name: 'Jackson River Street gauge / former dam rapid',
+        latitude: 43.619376,
+        longitude: -94.984308,
+        mileFromStart: 0.5,
+        segmentKind: 'creek',
+        note: 'MN DNR site 259 sits at river mile 12.3 near the former Jackson Dam / high Class I rapid context.',
+      },
+      {
+        id: 'petersburg',
+        name: 'Des Moines River, Petersburg Public Water Access Site',
+        latitude: 43.5263871,
+        longitude: -94.9189653,
+        mileFromStart: 9.7,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS01443 at Des Moines River mile 3.1.',
       },
     ],
   },
@@ -37968,6 +38206,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 5.4,
         segmentKind: 'creek',
         note: 'Default take-out for the upper Dakota card.',
+      },
+    ],
+  },
+  'kickapoo-river-plum-creek-highway-60': {
+    putIn: {
+      name: 'Plum Creek Landing',
+      latitude: 43.08471,
+      longitude: -90.87906,
+    },
+    takeOut: {
+      name: 'Highway 60 Landing',
+      latitude: 43.101,
+      longitude: -90.8586,
+    },
+    logistics: {
+      distanceLabel: '6.6 mi',
+      estimatedPaddleTime: 'About 2 hr 30 min to 3 hr 30 min at normal lower-river stage',
+      shuttle:
+        'Use a two-car shuttle between Highway 60 Landing and Plum Creek Landing. WRT describes the bike shuttle as 4.7 miles with a significant hill north of Wauzeka.',
+      permits:
+        'No route-specific paddling permit was confirmed. Use the named public landings, obey posted parking rules, and check current lower-Kickapoo and weather conditions before leaving vehicles.',
+      camping:
+        'Treat this as a day trip. WRT mentions downstream and nearby access options, but no on-route campsite was confirmed for Plum Creek to Highway 60 during this audit.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Plum Creek Landing and finish at Highway 60 Landing for a lower Kickapoo day with fast current, wooded bluffs, and fewer crowds than the upper reserve corridor. The Steuben stage is directly tied by WRT to this route, but same-day visual checks still matter around strainers.',
+      accessCaveats: [
+        'Plum Creek Landing is the default public put-in and has better route support than informal bridge banks.',
+        'Highway 60 Landing is also called Wauzeka Boat Landing on some maps, but WRT warns that this name can be confusing because Wauzeka has another downstream landing.',
+        'Do not unintentionally continue toward Lowell Geitz Memorial Boat Landing, the Wisconsin River, Adiantum Woods, or Woodman Landing without a separate downstream plan.',
+      ],
+      watchFor: [
+        'Fast current pushing into deadfall and strainers, especially as stage rises above the WRT average bands.',
+        'Deep, turbid, cold water and limited emergency exits between the public landings.',
+        'High-water conditions at 7.5 ft and above on the Steuben gauge, where WRT says fast current and strainers can become dangerous.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'plum-creek-canoe-landing',
+        name: 'Plum Creek Landing',
+        latitude: 43.08471,
+        longitude: -90.87906,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in and public access.',
+      },
+      {
+        id: 'highway-60-kickapoo-landing',
+        name: 'Highway 60 Landing',
+        latitude: 43.101,
+        longitude: -90.8586,
+        mileFromStart: 6.6,
+        segmentKind: 'creek',
+        note: 'Default take-out; also labeled Wauzeka Boat Landing by some map sources.',
       },
     ],
   },
@@ -42289,6 +42582,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 6.9,
         segmentKind: 'creek',
         note: 'Default take-out and shared endpoint with the downstream Turtle Creek card.',
+      },
+    ],
+  },
+  'turtle-creek-town-of-turtle-milwaukee-road': {
+    putIn: {
+      name: 'Town of Turtle Canoe Launch',
+      latitude: 42.5507585,
+      longitude: -88.9925722,
+    },
+    takeOut: {
+      name: 'Turtle Creek Greenway Trail / Milwaukee Road',
+      latitude: 42.5129469,
+      longitude: -89.0094751,
+    },
+    logistics: {
+      distanceLabel: '4.9 mi',
+      estimatedPaddleTime: 'About 2 hr 30 min to 3 hr 15 min depending on riffles and take-out scouting',
+      shuttle:
+        'Run a short Beloit-area shuttle between the Turtle Creek Greenway / Milwaukee Road parking area and the Town of Turtle Canoe Launch. Scout the take-out trail from land before launching so you do not miss it from the creek.',
+      permits:
+        'No route-specific paddling permit was confirmed. Use public launch/greenway parking, follow posted Beloit and Town of Turtle rules, and obey Wisconsin boating/PFD requirements.',
+      camping:
+        'Treat this as a day trip. No legal on-route camping was confirmed for this urban-greenway reach, and banks along the corridor should be treated as private or day-use only unless clearly posted otherwise.',
+      campingClassification: 'none',
+      summary:
+        'Launch from the Town of Turtle Canoe Launch and take out at the Turtle Creek Greenway Trail above Milwaukee Road for the lower Beloit segment. The route is easy at normal water, but the greenway exit is hidden and high water makes strainers less forgiving.',
+      accessCaveats: [
+        'The Town of Turtle launch is public and has parking, but it is still a small access rather than a large outfitter landing.',
+        'The Turtle Creek Greenway take-out is hidden from the water, uses a dirt path and gravel/shallow exit, then requires roughly a 350-foot drag across grass to parking.',
+        'Milwaukee Road/Hwy 81 is the planned stop. Do not continue toward the Rock River confluence or Illinois access points unless that downstream route and shuttle are intentional.',
+      ],
+      watchFor: [
+        'Bumpy riffles and scraping at 80 cfs or lower on the Carvers Rock Road gauge.',
+        'Strainers, blind bends, and stronger current above 200 cfs; WRT reserves 301-400 cfs for experienced paddlers and 401+ as maybe too high.',
+        'Urban runoff after storms, private-feeling banks, anglers, and the hidden take-out path.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'town-of-turtle-canoe-launch',
+        name: 'Town of Turtle Canoe Launch',
+        latitude: 42.5507585,
+        longitude: -88.9925722,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in with WRT map/street-view coordinate support.',
+      },
+      {
+        id: 'turtle-creek-greenway-milwaukee-road',
+        name: 'Turtle Creek Greenway Trail / Milwaukee Road',
+        latitude: 42.5129469,
+        longitude: -89.0094751,
+        mileFromStart: 4.9,
+        segmentKind: 'creek',
+        note: 'Default take-out with WRT map/street-view coordinate support; scout the hidden trail before launching.',
       },
     ],
   },
