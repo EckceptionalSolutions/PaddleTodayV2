@@ -40279,6 +40279,403 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'eau-claire-river-east-branch-wayside-county-i': {
+    putIn: {
+      id: 'east-branch-eau-claire-wayside-park',
+      name: 'Wayside Park / Highway 45 access',
+      latitude: 45.234493,
+      longitude: -89.1508535,
+    },
+    takeOut: {
+      id: 'east-branch-eau-claire-county-i-dnr-access',
+      name: 'County Road I DNR access',
+      latitude: 45.2038261,
+      longitude: -89.2160091,
+    },
+    logistics: {
+      distanceLabel: 'About 5.1 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 3.5 hr, longer with logjam portages',
+      shuttle:
+        'Use the short Wayside Park-to-County-I shuttle. County B and Bluebell Road are practical shorter-route access options if you want to skip the snag-prone upper miles or focus on the better lower trout-stream section.',
+      permits:
+        'No route-specific paddling permit is known. Use the public wayside, DNR/bridge access pull-offs, and posted road-access areas; avoid private yards and farm banks.',
+      camping:
+        'No on-route public campsite was identified. Treat this as a day route and use nearby developed campgrounds or lodging only as off-route basecamps.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Wayside Park off Highway 45 and take out at the County Road I DNR access. Expect a narrow East Branch trout stream with clear water, alder dodging, light riffles, and several optional bridge exits.',
+      accessCaveats: [
+        'The County Road I take-out is a public DNR access and pull-off southeast of the bridge, but it is still a small fishing-style access rather than a large boat ramp.',
+        'County B and Bluebell Road are useful alternates if the upper reach looks too congested or shallow.',
+        'The Kelly gauge is far downstream; inspect actual depth and wood at the put-in before committing.',
+      ],
+      watchFor: [
+        'Logjams, low bridge clearance, alder gauntlets, and branch dodging upstream from County B.',
+        'Shallow riffles and wading when the downstream Kelly proxy is below the WRT average band.',
+        'Private banks, cold water, fresh post-storm wood, and fast localized rises not fully captured by the downstream gauge.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'east-branch-eau-claire-wayside-park',
+        name: 'Wayside Park / Highway 45 access',
+        latitude: 45.234493,
+        longitude: -89.1508535,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; WRT describes Wayside Park as a nice public wayside and put-in option.',
+      },
+      {
+        id: 'east-branch-eau-claire-county-b-access',
+        name: 'County Road B bridge access',
+        latitude: 45.2299617,
+        longitude: -89.1667767,
+        mileFromStart: 1.3,
+        segmentKind: 'creek',
+        note: 'Alternate access from WRT My Maps; useful if skipping the snag-prone upper section.',
+      },
+      {
+        id: 'east-branch-eau-claire-bluebell-road-access',
+        name: 'Bluebell Road bridge access',
+        latitude: 45.2195951,
+        longitude: -89.1897367,
+        mileFromStart: 3,
+        segmentKind: 'creek',
+        note: 'Alternate access; WRT calls this an excellent bridge access used by fishermen.',
+      },
+      {
+        id: 'east-branch-eau-claire-county-i-dnr-access',
+        name: 'County Road I DNR access',
+        latitude: 45.2038261,
+        longitude: -89.2160091,
+        mileFromStart: 5.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; WRT describes a public DNR access and pull-off southeast of the bridge.',
+      },
+    ],
+  },
+  'eau-claire-river-east-branch-county-i-highway-64': {
+    putIn: {
+      id: 'east-branch-eau-claire-county-i-dnr-access',
+      name: 'County Road I DNR access',
+      latitude: 45.2037556,
+      longitude: -89.2159535,
+    },
+    takeOut: {
+      id: 'east-branch-eau-claire-highway-64-access',
+      name: 'Highway 64 bridge access',
+      latitude: 45.1454554,
+      longitude: -89.245114,
+    },
+    logistics: {
+      distanceLabel: 'About 6.1 mi',
+      estimatedPaddleTime: 'About 3 hr, longer if portaging the boulder/logjam combo',
+      shuttle:
+        'Stage the Highway 64 take-out first, then launch from the County Road I DNR access. River Road, Highway H, and Spring Road make useful shorter-route or bailout options if the first half looks too brushy or low.',
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR/bridge/fishing accesses and respect nearby homes, farms, and private banks.',
+      camping:
+        'No on-route public campsite was identified. This is a day paddle; nearby developed campgrounds or county/forest recreation areas should be treated as off-route basecamps only.',
+      campingClassification: 'none',
+      summary:
+        'Launch at County Road I and finish at Highway 64 for the rockier downstream East Branch route. The Mills Recreation Area stretch supplies the best boulder gardens and Class I riffles, while the first half has more alders and logjam management.',
+      accessCaveats: [
+        'Highway 64 is a bridge take-out with a mowed bank and embankment drag, not a developed launch. Inspect it before paddling.',
+        'Spring Road can shorten the route and sits near Mills Recreation Area parking, but do not assume every bridge bank is suitable for a group take-out.',
+        'The Kelly gauge is downstream of the selected route; same-day visual checks at County I and Highway 64 control.',
+      ],
+      watchFor: [
+        'A hop-over snag near the put-in, a large pine logjam, and an additional boulder-field/logjam portage between Highway H and Spring Road.',
+        'Class I boulder gardens in Mills Recreation Area that can become Class II in higher water.',
+        'Shallow scraping below the WRT floor, private banks, cold water, and fast local rises after Langlade County rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'east-branch-eau-claire-county-i-dnr-access',
+        name: 'County Road I DNR access',
+        latitude: 45.2037556,
+        longitude: -89.2159535,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; WRT describes a public DNR access and pull-off southeast of the bridge.',
+      },
+      {
+        id: 'east-branch-eau-claire-river-road-access',
+        name: 'River Road bridge access',
+        latitude: 45.1940301,
+        longitude: -89.2212177,
+        mileFromStart: 1.1,
+        segmentKind: 'creek',
+        note: 'Alternate access popular with anglers; WRT notes the County I-to-River Road leg has one major logjam.',
+      },
+      {
+        id: 'east-branch-eau-claire-highway-h-access',
+        name: 'County Road H bridge access',
+        latitude: 45.1828233,
+        longitude: -89.2284102,
+        mileFromStart: 2.2,
+        segmentKind: 'creek',
+        note: 'Bridge access option from the WRT route map; inspect first because it is close to a home.',
+      },
+      {
+        id: 'east-branch-eau-claire-spring-road-access',
+        name: 'Spring Road / Mills Recreation Area access',
+        latitude: 45.1609467,
+        longitude: -89.2398626,
+        mileFromStart: 4.6,
+        segmentKind: 'creek',
+        note: 'Alternate take-out near Mills Recreation Area parking and the boulder-garden section.',
+      },
+      {
+        id: 'east-branch-eau-claire-highway-64-access',
+        name: 'Highway 64 bridge access',
+        latitude: 45.1454554,
+        longitude: -89.245114,
+        mileFromStart: 6.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; WRT describes a good mowed bridge access on the northwest bank.',
+      },
+    ],
+  },
+  'blue-river-highway-g-forest-road': {
+    putIn: {
+      id: 'blue-river-highway-g-bridge-access',
+      name: 'Highway G bridge access',
+      latitude: 43.1280924,
+      longitude: -90.5120914,
+    },
+    takeOut: {
+      id: 'blue-river-forest-road-bridge-access',
+      name: 'Forest Road bridge access',
+      latitude: 43.1747426,
+      longitude: -90.5057292,
+    },
+    logistics: {
+      distanceLabel: 'About 8.0 mi',
+      estimatedPaddleTime: 'About 4 hr',
+      shuttle:
+        'Use the paved Highway G-to-Forest Road shuttle. WRT measured the bike shuttle at about 5.5 miles with little climbing, but open-valley wind can make the ride harder than the elevation suggests.',
+      permits:
+        'No route-specific paddling permit is known. Use the named bridge corners only, avoid fenced or posted areas, and treat intervening banks as private unless clearly public.',
+      camping:
+        'No on-route public campsite was identified. Treat this as a day route; do not camp on pasture, farm, or private banks.',
+      campingClassification: 'none',
+      summary:
+        'Launch from the Highway G bridge and take out at Forest Road for a lower Blue River extension below Snow Bottom. It is more open and less scenic than the upstream Blue, but it has enough current, bluffs, and low-water resilience to be useful when the upper routes are too bony.',
+      accessCaveats: [
+        'Highway G is a bridge put-in, with WRT favoring the northwest side almost under the bridge.',
+        'Forest Road should be exited from the southeast corner with the make-shift pallet ramp; avoid the fenced north side.',
+        'Studnika Road is a no-access marker, not a bailout. WRT reports fencing, no-trespassing signs, and camera signage there.',
+      ],
+      watchFor: [
+        'One required logjam portage in the first mile, plus duckers and hoppers from downed trees.',
+        'Strainers in deceptively fast current, especially once the Platte proxy rises above the low target band.',
+        'Steep muddy banks, private pasture edges, wind in the open valley, and cold shoulder-season water.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'blue-river-highway-g-bridge-access',
+        name: 'Highway G bridge access',
+        latitude: 43.1280924,
+        longitude: -90.5120914,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; WRT calls the northwest side almost under the bridge the best launch option.',
+      },
+      {
+        id: 'blue-river-studnika-road-no-access',
+        name: 'Studnika Road bridge no-access marker',
+        latitude: 43.1399,
+        longitude: -90.5097,
+        mileFromStart: 1,
+        segmentKind: 'creek',
+        note: 'Navigation marker only; WRT says this is not a suitable public access.',
+      },
+      {
+        id: 'blue-river-forest-road-bridge-access',
+        name: 'Forest Road bridge access',
+        latitude: 43.1747426,
+        longitude: -90.5057292,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Default take-out; WRT says use the southeast corner and avoid the fenced north side.',
+      },
+    ],
+  },
+  'mississippi-river-blackberry-bridge-county-road-72': {
+    putIn: {
+      id: 'mississippi-river-blackberry-bridge-public-water-access-site',
+      name: 'Mississippi River, Blackberry Bridge Public Water Access Site',
+      latitude: 47.1736507,
+      longitude: -93.4186453,
+    },
+    takeOut: {
+      id: 'mississippi-river-co-rd-72-public-water-access-site',
+      name: 'Mississippi River, Co Rd 72 Public Water Access Site',
+      latitude: 47.1084087,
+      longitude: -93.3903507,
+    },
+    logistics: {
+      distanceLabel: 'About 9.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr depending on wind, level, and stops',
+      shuttle:
+        'Stage the take-out at the County Road 72 DNR access south of Blackberry, then drive upstream to Blackberry Bridge. This is the missing lower half of the DNR Steamboat-to-County-Road-72 planner outing, not a new full-corridor overlap.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted MN DNR public-water-access rules at Blackberry Bridge and County Road 72.',
+      camping:
+        'No established watercraft campsite is documented on this short split. Plan it as a day trip unless a legal off-route campground is independently reserved.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Blackberry Bridge and take out at County Road 72 for a 9.5-mile upper-Mississippi day section below Grand Rapids. Use the upstream Grand Rapids DNR gauge as a corridor check and make a same-day wind, debris, and shallow-riffle call.',
+      accessCaveats: [
+        'Blackberry Bridge is a DNR public access already used as the downstream endpoint of the existing Steamboat-to-Blackberry card.',
+        'County Road 72 resolves in the DNR public-water-access layer as a DNR-managed Mississippi River access at river mile 1161.4 with no restroom listed.',
+        'The Grand Rapids gauge is upstream of this split. It is official and same-corridor, but not a take-out reading.',
+      ],
+      watchFor: [
+        'Small riffles, exposed bars, and slower travel when the Grand Rapids gauge is near the low band.',
+        'Wind on open bends, floating debris, and cold-water exposure.',
+        'Private banks and limited clean intermediate exits between the two DNR accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mississippi-river-blackberry-bridge-public-water-access-site',
+        name: 'Mississippi River, Blackberry Bridge Public Water Access Site',
+        latitude: 47.1736507,
+        longitude: -93.4186453,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; DNR public access at river mile 1170.9.',
+      },
+      {
+        id: 'mississippi-river-co-rd-72-public-water-access-site',
+        name: 'Mississippi River, Co Rd 72 Public Water Access Site',
+        latitude: 47.1084087,
+        longitude: -93.3903507,
+        mileFromStart: 9.5,
+        segmentKind: 'creek',
+        note: 'Default take-out; DNR public access at river mile 1161.4.',
+      },
+    ],
+  },
+  'otter-tail-river-phelps-mill-west-lost-lake': {
+    putIn: {
+      id: 'otter-tail-river-phelps-mill-public-water-access-site',
+      name: 'Otter Tail River, Phelps Mill Public Water Access Site',
+      latitude: 46.3821667,
+      longitude: -95.8210176,
+    },
+    takeOut: {
+      id: 'west-lost-lake-public-water-access-site',
+      name: 'West Lost Lake Public Water Access Site',
+      latitude: 46.3814506,
+      longitude: -95.8622708,
+    },
+    logistics: {
+      distanceLabel: 'About 3.5 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr depending on wind and level',
+      shuttle:
+        'Use the short Otter Tail County shuttle between Phelps Mill County Park and the West Lost Lake DNR access. This card intentionally ends at West Lost Lake for a shorter official outing than the longer Phelps-Mill-to-West-Red-River-Lake route.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Otter Tail County park rules at Phelps Mill and MN DNR public-water-access rules at West Lost Lake.',
+      camping:
+        'No on-route watercraft campsite is documented for this short section. Treat it as a day trip; use legal nearby park or campground options only if separately confirmed.',
+      campingClassification: 'none',
+      summary:
+        'Launch from Phelps Mill County Park and take out at West Lost Lake for DNR Map 2’s short Otter Tail section. The route is gentle, but dam-portage context, low-water obstructions, and lake wind still need same-day checks.',
+      accessCaveats: [
+        'Phelps Mill is a county-administered public access below the Phelps Mill dam/portage context; do not run the dam or improvise above-dam launch choices.',
+        'West Lost Lake resolves as DNR access WAS02421 at river mile 81.4 with no restroom listed in the public-water-access record.',
+        'The Elizabeth gauge is downstream of this short route, so it is a corridor indicator rather than a direct reading at West Lost Lake.',
+      ],
+      watchFor: [
+        'Wind and boat wake on West Lost Lake near the take-out.',
+        'Low-water dragging, vegetation, shallow riffles, and bridge or culvert obstructions.',
+        'Private shorelines, cold water, and slower travel if the downstream gauge is near the low band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'otter-tail-river-phelps-mill-public-water-access-site',
+        name: 'Otter Tail River, Phelps Mill Public Water Access Site',
+        latitude: 46.3821667,
+        longitude: -95.8210176,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at Phelps Mill County Park and dam/portage area.',
+      },
+      {
+        id: 'west-lost-lake-public-water-access-site',
+        name: 'West Lost Lake Public Water Access Site',
+        latitude: 46.3814506,
+        longitude: -95.8622708,
+        mileFromStart: 3.5,
+        segmentKind: 'lake',
+        note: 'Default take-out; DNR public access at the West Lost Lake / Otter Tail River corridor.',
+      },
+    ],
+  },
+  'sauk-river-sauk-centre-dam-mill-pond': {
+    putIn: {
+      id: 'sauk-river-sauk-centre-dam-public-water-access-site',
+      name: 'Sauk River, Sauk Centre Dam Public Water Access Site',
+      latitude: 45.7403785,
+      longitude: -94.9495541,
+    },
+    takeOut: {
+      id: 'sauk-river-mill-pond-public-water-access-site',
+      name: 'Sauk River, Mill Pond Public Water Access Site',
+      latitude: 45.6792109,
+      longitude: -94.8191468,
+    },
+    logistics: {
+      distanceLabel: 'About 16.6 mi',
+      estimatedPaddleTime: 'About 5.5 hr to 8 hr; longer with low water, wind, or bridge-work delays',
+      shuttle:
+        'Run a full-day rural shuttle from Mill Pond in Melrose to the carry-in below Sauk Centre Dam. Confirm current DNR water-trail alerts before committing because the 2026 I-94 bridge work is inside this corridor.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted City of Sauk Centre, City of Melrose, and MN DNR water-trail rules at the public accesses.',
+      camping:
+        'No on-route watercraft campsite is documented for this day trip. Plan it as a long day paddle; use legal city or private campground options only if independently confirmed.',
+      campingClassification: 'none',
+      summary:
+        'Launch below Sauk Centre Dam and take out at Mill Pond for DNR’s long, easy upper-Sauk day trip to Melrose. The St. Martin gauge is an official downstream corridor check, but the route needs visual level, bridge-work, and mandatory-takeout confirmation.',
+      accessCaveats: [
+        'Use the carry-in below Sauk Centre Dam; do not run or approach the dam from upstream.',
+        'DNR posted a 2026 I-94 bridge-construction caution for this Sauk Centre-to-Melrose corridor. Check the current DNR alert and be prepared to cancel if work conditions make passage unsafe.',
+        'Mill Pond is the planned take-out before the Melrose dam/portage area. Continuing downstream requires a separate confirmed portage and route plan.',
+        'The St. Martin gauge is far downstream from this segment, so local rain, lake storage, and visual conditions at Sauk Centre and Melrose can override the gauge band.',
+      ],
+      watchFor: [
+        'Bridge construction zones, low bridges, and posted restrictions.',
+        'Shallow water, weeds, fallen trees, sweepers, and slow current through wetland and open-lowland bends.',
+        'Private banks, cold water, long-mile fatigue, and limited clean bailout points between cities.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'sauk-river-sauk-centre-dam-public-water-access-site',
+        name: 'Sauk River, Sauk Centre Dam Public Water Access Site',
+        latitude: 45.7403785,
+        longitude: -94.9495541,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; DNR public access/carry-in below Sauk Centre Dam at about river mile 95.6.',
+      },
+      {
+        id: 'sauk-river-mill-pond-public-water-access-site',
+        name: 'Sauk River, Mill Pond Public Water Access Site',
+        latitude: 45.6792109,
+        longitude: -94.8191468,
+        mileFromStart: 16.6,
+        segmentKind: 'creek',
+        note: 'Default take-out; DNR public access near river mile 79.0 before the downstream Melrose dam/portage boundary.',
+      },
+    ],
+  },
 };
 
 type WisconsinTripDetailsBackfill = {
