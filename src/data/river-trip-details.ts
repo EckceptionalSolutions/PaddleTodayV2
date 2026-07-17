@@ -1743,6 +1743,116 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       }
     ],
   },
+  'chippewa-river-swift-county-norby': {
+    putIn: {
+      name: 'Chippewa River, Swift County Public Water Access Site',
+      latitude: 45.3218192,
+      longitude: -95.6174738,
+    },
+    takeOut: {
+      name: 'Chippewa River, Norby Landing Public Water Access Site',
+      latitude: 45.2047915,
+      longitude: -95.6643308,
+    },
+    logistics: {
+      distanceLabel: '11.9 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr depending on level, wind, and wood',
+      shuttle:
+        'Set a rural two-car shuttle from Norby Landing back to the Benson-area Swift County access. Inspect Norby first because the take-out is a dedicated public access but the surrounding banks are private.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow posted MN DNR / local access rules, and check Minnesota boating and PFD requirements.',
+      camping:
+        'No established watercraft campsite is documented for this public-access gap. Plan it as a day trip and do not use private banks for informal camping.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Swift County public access and take out at Norby Landing for an 11.9-mile upper-Chippewa day above the existing Lentz-to-Watson route. The Benson DNR gauge is directly on this reach and publishes official paddling bands.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves the Swift County access as WAS01373 near Chippewa River mile 52.0 and Norby Landing as WAS01651 near river mile 40.1.',
+        'This is a rural access-to-access day with limited public bailout. Keep stops to clearly public landings unless you have permission.',
+        'The route is not a campground route; camping must be arranged separately off-route.',
+      ],
+      watchFor: [
+        'Low-water scraping and shallow riffles when Benson is below the official medium band.',
+        'Snags, fallen trees, and outside-bend wood, especially after rain or wind.',
+        'Open prairie wind, muddy banks, limited shade, and private shoreland.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'swift-county-public-water-access',
+        name: 'Chippewa River, Swift County Public Water Access Site',
+        latitude: 45.3218192,
+        longitude: -95.6174738,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public-water-access GIS resolves WAS01373 near Chippewa River mile 52.0.',
+      },
+      {
+        id: 'norby-landing-public-water-access',
+        name: 'Chippewa River, Norby Landing Public Water Access Site',
+        latitude: 45.2047915,
+        longitude: -95.6643308,
+        mileFromStart: 11.9,
+        segmentKind: 'creek',
+        note: 'Default take-out; public-water-access GIS resolves WAS01651 near Chippewa River mile 40.1.',
+      },
+    ],
+  },
+  'chippewa-river-norby-lentz': {
+    putIn: {
+      name: 'Chippewa River, Norby Landing Public Water Access Site',
+      latitude: 45.2047915,
+      longitude: -95.6643308,
+    },
+    takeOut: {
+      name: 'Lentz Landing Public Water Access Site',
+      latitude: 45.107814,
+      longitude: -95.7987081,
+    },
+    logistics: {
+      distanceLabel: '19.1 mi',
+      estimatedPaddleTime: 'About 7 hr to 10 hr; shorter only with strong current and an efficient group',
+      shuttle:
+        'Stage the take-out at Lentz Landing, then drive upstream to Norby Landing. Start early and bring enough daylight margin for wood, wind, shallow riffles, and the long rural shuttle.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow posted MN DNR access rules, and check Minnesota boating and PFD requirements.',
+      camping:
+        'No established watercraft campsite is documented for this 19.1-mile gap. Treat it as a long day route unless your group has separately arranged legal off-route lodging or camping.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Norby Landing and take out at Lentz Landing for the long missing public-access connector above the established Lentz-to-Watson Chippewa day trip. The Milan / MN 40 DNR gauge sits at the Lentz end of the reach and has official stage bands.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Norby Landing as WAS01651 near river mile 40.1 and Lentz Landing as WAS01687 near river mile 21.0.',
+        'This mileage is high for a casual day. Avoid starting late, paddling against strong wind, or committing when the gauge is high or rising.',
+        'Private banks and limited public exits make bailout planning more important than on the shorter DNR highlighted Lentz-to-Watson segment.',
+      ],
+      watchFor: [
+        'Snags, fallen trees, and light rapids called out by the Milan DNR river-level site.',
+        'Low-water channel picking when the Milan gauge falls toward the 1 ft scrapable floor.',
+        'Rural rescue spacing, fatigue, open-wind bends, muddy banks, and private shoreland.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'norby-landing-public-water-access',
+        name: 'Chippewa River, Norby Landing Public Water Access Site',
+        latitude: 45.2047915,
+        longitude: -95.6643308,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public-water-access GIS resolves WAS01651 near Chippewa River mile 40.1.',
+      },
+      {
+        id: 'lentz-landing-public-water-access-site',
+        name: 'Lentz Landing Public Water Access Site',
+        latitude: 45.107814,
+        longitude: -95.7987081,
+        mileFromStart: 19.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; public-water-access GIS resolves WAS01687 near Chippewa River mile 21.0.',
+      },
+    ],
+  },
   'chippewa-river-lentz-watson-lions-park': {
     putIn: {
       name: 'Lentz Landing Public Water Access Site',
@@ -1795,6 +1905,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         segmentKind: 'creek',
         note: "Default take-out for this route.",
       }
+    ],
+  },
+  'chippewa-river-watson-lagoon': {
+    putIn: {
+      name: 'Watson Sag Dam Public Water Access Site',
+      latitude: 45.0234918,
+      longitude: -95.7902702,
+    },
+    takeOut: {
+      name: 'Montevideo Chippewa / Lagoon Park Public Water Access Site',
+      latitude: 44.950253,
+      longitude: -95.7291569,
+    },
+    logistics: {
+      distanceLabel: '11.5 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr depending on level, wind, and lower-river current',
+      shuttle:
+        'Stage the take-out at Lagoon Park in Montevideo, then drive upstream to the Watson Sag Dam access. Inspect the put-in carefully and launch only from the safe public-access side of the dam area.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Watson, City of Montevideo, public-access, and Minnesota boating/PFD rules.',
+      camping:
+        'Lagoon Park has DNR-documented fee camping, toilets, and 10 campsites. Treat camping as an endpoint/basecamp plan under current city rules, not as informal riverbank camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Watson Sag Dam and take out at Lagoon Park for the lower-Chippewa connector between the existing Lentz-to-Watson and Lagoon-to-Prien\'s cards. The Watson DNR gauge is direct at the put-in corridor and publishes official discharge bands.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Watson Sag Dam as WAS01688 near river mile 12.7 and Lagoon Park / Montevideo Chippewa as WAS02654 near river mile 1.2.',
+        'Start only from a safe public launch position below or away from dam hydraulics. This route does not include dam play, dam portage, or any unplanned upstream/downstream dam maneuver.',
+        'Lagoon Park is the intended take-out. Continuing to Prien\'s Landing is a separate short connector with its own confluence and Minnesota River caveats.',
+      ],
+      watchFor: [
+        'Dam-area current and hydraulics at Watson; stay away from structures and scout before launching.',
+        'Low-water scraping when Watson is below the official medium band, plus muddy lower-bank exits.',
+        'Faster lower-river current, wind, strainers, private banks, and limited legal bailout as the river approaches Montevideo.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'watson-sag-dam-public-water-access-site',
+        name: 'Watson Sag Dam Public Water Access Site',
+        latitude: 45.0234918,
+        longitude: -95.7902702,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public-water-access GIS resolves WAS01688 near Chippewa River mile 12.7.',
+      },
+      {
+        id: 'lagoon-park-montevideo',
+        name: 'Montevideo Chippewa / Lagoon Park Public Water Access Site',
+        latitude: 44.950253,
+        longitude: -95.7291569,
+        mileFromStart: 11.5,
+        segmentKind: 'creek',
+        note: 'Default take-out; public-water-access GIS resolves WAS02654 near Chippewa River mile 1.2 and DNR identifies Lagoon Park camping/toilets.',
+      },
     ],
   },
   'chippewa-river-lagoon-priens': {
@@ -41360,6 +41525,216 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 9,
         segmentKind: 'creek',
         note: 'Default take-out; resolves as WAS00804 at GIS river mile 143.0.',
+      },
+    ],
+  },
+  'turtle-creek-school-section-east-creek': {
+    putIn: {
+      name: 'School Section Road bridge access',
+      latitude: 42.6829232,
+      longitude: -88.6877302,
+    },
+    takeOut: {
+      name: 'East Creek Road canoe launch area',
+      latitude: 42.6113321,
+      longitude: -88.7804249,
+    },
+    logistics: {
+      distanceLabel: '6.9 mi',
+      estimatedPaddleTime: 'About 3 hr 30 min, longer with weeds, wind, or wildlife-area stops',
+      shuttle:
+        'Run a short rural shuttle from East Creek Road back to School Section Road. The route source calls this an easy 4.8-mile bike shuttle with mostly quiet roads, but inspect the muddy East Creek carry-out before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use public road/access points, obey Wisconsin boating and PFD rules, and follow Wisconsin DNR Turtle Creek Wildlife Area signs.',
+      camping:
+        'Treat this as a day trip. Wisconsin DNR lists no campground at Turtle Creek Wildlife Area; do not assume marsh banks, wildlife-area edges, or private land are legal overnight stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch at School Section Road and take out at East Creek Road for the upper Turtle Creek Wildlife Area segment immediately upstream of the existing East-Creek-to-Highway-140 card. Use the direct Carvers Rock Road gauge and favor lower clear-water days without forcing blocked weed channels.',
+      accessCaveats: [
+        'School Section Road is a bridge access with shoulder parking and a trail rather than a developed concrete ramp.',
+        'East Creek Road has a canoe launch area west of the bridge, but the source warns the shoreline can be deep and muddy and requires about a 280-foot drag to parking.',
+        'DNR notes some Turtle Creek Wildlife Area portions are reachable only by water or across private land; keep stops to public access and clearly legal areas.',
+      ],
+      watchFor: [
+        'Late-season weed growth that narrows the channel, especially when the gauge is below the preferred band.',
+        'Wind across open marsh, cold spring water, and fresh strainers after storms despite the clean route report.',
+        'Wild rice corridors, beaver activity, anglers, shoulder parking, and the muddy East Creek carry-out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'school-section-road-turtle-creek',
+        name: 'School Section Road bridge access',
+        latitude: 42.6829232,
+        longitude: -88.6877302,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; WRT describes good bridge access with a trail and shoulder parking.',
+      },
+      {
+        id: 'highway-14-turtle-creek-bridge',
+        name: 'Highway 14 bridge access',
+        latitude: 42.6515,
+        longitude: -88.7169,
+        mileFromStart: 2.2,
+        segmentKind: 'creek',
+        note: 'Intermediate bridge-area access in the WRT subreach notes.',
+      },
+      {
+        id: 'highway-c-turtle-creek-bridge',
+        name: 'County Highway C bridge access',
+        latitude: 42.6271,
+        longitude: -88.7463,
+        mileFromStart: 4.6,
+        segmentKind: 'creek',
+        note: 'Intermediate access; WRT notes many paddlers were parked at Highway C.',
+      },
+      {
+        id: 'east-creek-road-public-pull-off',
+        name: 'East Creek Road canoe launch area',
+        latitude: 42.6113321,
+        longitude: -88.7804249,
+        mileFromStart: 6.9,
+        segmentKind: 'creek',
+        note: 'Default take-out and shared endpoint with the downstream Turtle Creek card.',
+      },
+    ],
+  },
+  'west-branch-white-river-cottonville-s-white-river': {
+    putIn: {
+      name: 'Cottonville Avenue DNR parking lot',
+      latitude: 44.0521929,
+      longitude: -89.3184764,
+    },
+    takeOut: {
+      name: 'South White River Road DNR pull-off',
+      latitude: 44.043544,
+      longitude: -89.278796,
+    },
+    logistics: {
+      distanceLabel: '4.8 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr depending on wood, portages, and clarity stops',
+      shuttle:
+        'Stage the take-out at the South White River Road DNR pull-off, then drive or bike back to Cottonville Avenue. The source reports a short 2.4-mile bike shuttle with little ascent.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR parking/pull-off areas, follow Wisconsin boating and PFD rules, and obey posted fishery-area or road-access signs.',
+      camping:
+        'Treat this as a day trip. No legal on-route campsite was confirmed on the West Branch or lower White River corridor during this run.',
+      campingClassification: 'none',
+      summary:
+        'Launch from the Cottonville Avenue DNR lot and take out at the South White River Road DNR pull-off for the cleaner West Branch White River option. Use the Chaffee Creek proxy cautiously and be ready for small-stream wood and low-bridge portages.',
+      accessCaveats: [
+        'Cottonville Avenue is a small DNR parking lot and hand-carry launch, not a developed boat ramp.',
+        'South White River Road has a DNR pull-off and roughly 150-foot trail to the water; the shoreline can be deep enough for a dock-style dismount.',
+        'Cottonville Lane bridge is an alternate take-out just upstream, but WRT recommends the South White River Road fishing access for better parking.',
+      ],
+      watchFor: [
+        'Three downed-tree duck/portage spots from the source report, plus any fresh storm wood.',
+        'Class I+ riffles under Highway 22 and a low trail bridge that needs an easy portage.',
+        'Proxy-gauge mismatch, cold spring-fed water, private banks, and the impounded reach below the take-out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cottonville-avenue-dnr-lot',
+        name: 'Cottonville Avenue DNR parking lot',
+        latitude: 44.0521929,
+        longitude: -89.3184764,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; WRT describes easy hand-carry access from the small DNR lot.',
+      },
+      {
+        id: 'highway-22-west-branch-white-river',
+        name: 'Highway 22 bridge / riffle corridor',
+        latitude: 44.0478,
+        longitude: -89.2969,
+        mileFromStart: 3,
+        segmentKind: 'creek',
+        note: 'Intermediate landmark near the route report Class I+ riffle and possible rough alternate access.',
+      },
+      {
+        id: 'south-white-river-road-dnr-pull-off',
+        name: 'South White River Road DNR pull-off',
+        latitude: 44.043544,
+        longitude: -89.278796,
+        mileFromStart: 4.8,
+        segmentKind: 'creek',
+        note: 'Default take-out; WRT describes a DNR pull-off and short trail to the water.',
+      },
+    ],
+  },
+  'pecatonica-river-mineral-point-ludden-north-oak': {
+    putIn: {
+      name: 'Ludden Lake Boat Ramp',
+      latitude: 42.8417955,
+      longitude: -90.2354632,
+    },
+    takeOut: {
+      name: 'North Oak Park Road bridge / VPA-area take-out',
+      latitude: 42.8788777,
+      longitude: -90.2017053,
+    },
+    logistics: {
+      distanceLabel: '4.8 mi',
+      estimatedPaddleTime: 'About 2 hr 30 min, longer with scouting, low water, or portages',
+      shuttle:
+        'Stage North Oak Park Road first and scout the fence/signage before launching from Ludden Lake. The bike shuttle is hilly and awkward; a two-car shuttle is cleaner.',
+      permits:
+        'No route-specific paddling permit is known. Use the Ludden Lake public boat landing, obey Wisconsin boating and PFD rules, and only use North Oak Park Road/VPA access where current signs make public travel lawful.',
+      camping:
+        'Treat this as a short day trip. No legal on-route campsite was confirmed, and private pasture banks should not be used for camping or casual stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Ludden Lake public boat ramp, portage Ludden Lake dam, and take out at North Oak Park Road for a short scenic Mineral Point Branch run. The Darlington gauge is a downstream proxy, so same-day visual and access checks are mandatory.',
+      accessCaveats: [
+        'Ludden Lake has a DNR-listed public boat landing, but the route immediately requires a dam portage below the lake.',
+        'North Oak Park Road is not a polished launch. WRT used it with fence and DNR voluntary-access context; verify current signs and do not cross private land beyond the lawful access corridor.',
+        'If the take-out looks questionable, S. Oak Park Road is a possible downstream bridge option, but that is a separate extension and should be scouted before launch.',
+      ],
+      watchFor: [
+        'Mandatory Ludden Lake dam portage and a late low bridge that acts like a small dam.',
+        'Low-water scraping below the 351 cfs Darlington proxy target, fast pushy current above the high bands, and rapid local changes after rain.',
+        'One logjam portage from the route report, fences, cattle, eroding banks, private banks, and cold spring-fed tributary water.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'ludden-lake-boat-ramp',
+        name: 'Ludden Lake Boat Ramp',
+        latitude: 42.8417955,
+        longitude: -90.2354632,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default put-in; Wisconsin DNR lists a public boat landing on Ludden Lake.',
+      },
+      {
+        id: 'ludden-lake-dam-portage',
+        name: 'Ludden Lake dam portage',
+        latitude: 42.8486,
+        longitude: -90.2296,
+        mileFromStart: 0.5,
+        segmentKind: 'transition',
+        note: 'Mandatory portage around the dam before the faster river section.',
+      },
+      {
+        id: 'highway-39-mineral-point-branch',
+        name: 'Highway 39 bridge',
+        latitude: 42.8534,
+        longitude: -90.2242,
+        mileFromStart: 1.2,
+        segmentKind: 'creek',
+        note: 'Intermediate bridge after the initial Class I riffles below Ludden Dam.',
+      },
+      {
+        id: 'north-oak-park-road-mineral-point-branch',
+        name: 'North Oak Park Road bridge / VPA-area take-out',
+        latitude: 42.8788777,
+        longitude: -90.2017053,
+        mileFromStart: 4.8,
+        segmentKind: 'creek',
+        note: 'Default take-out; rough fence/VPA/DOT access context requires same-day scouting.',
       },
     ],
   },
