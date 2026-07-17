@@ -4815,7 +4815,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   },
 
 
-
   'cottonwood-river-juenemann-springfield': {
     putIn: {
       name: 'Juenemann Landing / County Road 2 public water access',
@@ -43192,6 +43191,63 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'big-rib-river-lemke-highway-64': {
+    putIn: {
+      id: 'lemke-drive-big-rib-ford',
+      name: 'Lemke Drive Big Rib ford/access',
+      latitude: 45.1866,
+      longitude: -90.1273,
+    },
+    takeOut: {
+      id: 'highway-64-big-rib-access',
+      name: 'Highway 64 Big Rib access',
+      latitude: 45.1493,
+      longitude: -90.0591,
+    },
+    logistics: {
+      distanceLabel: '5.0 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr',
+      shuttle:
+        'Scout the Highway 64 take-out first, then stage at Lemke Drive. WRT describes the bike shuttle as short but mostly unpaved and hilly, so a car shuttle is cleaner.',
+      permits:
+        'No route-specific paddling permit is known. Use only the Lemke Drive road/ford corridor and legal Highway 64 parking; do not enter posted private woods near the launch.',
+      camping:
+        'No on-route camping is documented for this upper Big Rib reach. Treat it as a day route with separate nearby lodging or campgrounds if needed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Lemke Drive and take out at Highway 64 for the upper Big Rib segment immediately above the existing Rib Dells card. The direct Rib Falls gauge is currently below the practical target band.',
+      accessCaveats: [
+        'Lemke Drive is a ford/road-style access, not a developed landing. WRT says the road itself makes a workable launch but nearby forests are posted no trespassing.',
+        'Highway 64 requires dragging the boat about 150 feet over a grassy embankment to the vehicle.',
+        'This route ends at Highway 64; the downstream Highway-64-to-Greiner Rib Dells card is a separate whitewater route.',
+      ],
+      watchFor: [
+        'Low trees, blocked island channels, light rapids, and possible Class II current.',
+        'Logjams or snags that become harder to avoid in the high bands.',
+        'Cold water, private banks, low-water bumping, and fast rises after rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lemke-drive-big-rib-ford',
+        name: 'Lemke Drive Big Rib ford/access',
+        latitude: 45.1866,
+        longitude: -90.1273,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at WRT-documented road/ford access.',
+      },
+      {
+        id: 'highway-64-big-rib-access',
+        name: 'Highway 64 Big Rib access',
+        latitude: 45.1493,
+        longitude: -90.0591,
+        mileFromStart: 5,
+        segmentKind: 'creek',
+        note: 'Default take-out at Highway 64, shared as the downstream Rib Dells put-in.',
+      },
+    ],
+  },
   'big-rib-river-highway-64-greiner': {
     putIn: {
       id: 'highway-64-big-rib-access',
@@ -43246,6 +43302,120 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 2.5,
         segmentKind: 'creek',
         note: 'AW-listed take-out; verify road condition and legal parking before launch.',
+      },
+    ],
+  },
+  'big-rib-river-amco-park-highway-a': {
+    putIn: {
+      id: 'amco-park-big-rib-access',
+      name: 'Amco Park Big Rib River access',
+      latitude: 45.0832,
+      longitude: -90.0068,
+    },
+    takeOut: {
+      id: 'county-highway-a-big-rib-access',
+      name: 'County Highway A Big Rib bridge access',
+      latitude: 45.04691,
+      longitude: -89.95474,
+    },
+    logistics: {
+      distanceLabel: '4.3 mi',
+      estimatedPaddleTime: 'About 2 hr to 2.5 hr',
+      shuttle:
+        'Stage County Highway A first because parking is limited near the bridge, then return to Amco Park. The road shuttle is short by car but not especially pleasant by bike.',
+      permits:
+        'No route-specific paddling permit is known. Follow Marathon County park rules at Amco Park, use legal parking at Highway A, and avoid private-bank stops.',
+      camping:
+        'Treat this as a day trip. Amco Park has picnic and restroom facilities but no on-route river camping is documented for this segment.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch from Marathon County Amco Park and take out at County Highway A for an easier Big Rib segment below the Rib Dells. The direct Rib Falls gauge is currently below the selected low-water floor.',
+      accessCaveats: [
+        'Amco Park is a public Marathon County park with Big Rib River access, fishing access, picnic facilities, potable water, and vault toilets.',
+        'Highway A is a bridge-area take-out with a faded path and limited shoulder or snowmobile-drive parking. Confirm the pull-off before launching.',
+        'Do not turn this into an unplanned continuation toward Rib Falls; the downstream route requires a mandatory take-out above the falls.',
+      ],
+      watchFor: [
+        'Low branches and strainers in brisk Class I current.',
+        'Bumpy riffles below the selected low-water floor.',
+        'High or rising water that makes bridge access, snags, and private-bank exposure harder to manage.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'amco-park-big-rib-access',
+        name: 'Amco Park Big Rib River access',
+        latitude: 45.0832,
+        longitude: -90.0068,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at Marathon County Amco Park.',
+      },
+      {
+        id: 'county-highway-a-big-rib-access',
+        name: 'County Highway A Big Rib bridge access',
+        latitude: 45.04691,
+        longitude: -89.95474,
+        mileFromStart: 4.3,
+        segmentKind: 'creek',
+        note: 'Default take-out at the WRT-described Highway A bridge path.',
+      },
+    ],
+  },
+  'big-rib-river-highway-a-rib-falls': {
+    putIn: {
+      id: 'county-highway-a-big-rib-access',
+      name: 'County Highway A Big Rib bridge access',
+      latitude: 45.04691,
+      longitude: -89.95474,
+    },
+    takeOut: {
+      id: 'rib-falls-county-park-takeout',
+      name: 'Rib Falls County Park take-out above Big Rib Falls',
+      latitude: 44.97398,
+      longitude: -89.90792,
+    },
+    logistics: {
+      distanceLabel: '7.25 mi',
+      estimatedPaddleTime: 'About 2 hr to 4 hr, plus take-out scouting',
+      shuttle:
+        'Scout the Rib Falls County Park take-out before launching, then stage Highway A. The route must end above Big Rib Falls, and high water can make the last approach less forgiving.',
+      permits:
+        'No route-specific paddling permit is known. Use the Highway A bridge access only where parking is legal, follow Marathon County park rules at Rib Falls, and respect private banks.',
+      camping:
+        'No on-route river camping is assumed. Rib Falls Park is a developed county park for day use; confirm any separate nearby camping before relying on it.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at County Highway A and take out at Rib Falls County Park above Big Rib Falls. This is a scenic riffle-and-outcrop connector, not a falls-running recommendation.',
+      accessCaveats: [
+        'Miles Paddled gives GPS points for both endpoints and describes the Highway A launch as a small trail from the road.',
+        'The take-out above the falls may be steep or awkward; identify the gradual option and do not drift toward the brink tired or distracted.',
+        'Rib Falls County Park is a Marathon County park with trails, picnic amenities, and vault restrooms, but fishing is prohibited and posted rules should be checked.',
+      ],
+      watchFor: [
+        'Mandatory take-out above Class IV Big Rib Falls.',
+        'Island braids, shallow riffles, boulders, and occasional downed trees.',
+        'Fast rises after rain, cold water, limited public exits, and private banks.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-highway-a-big-rib-access',
+        name: 'County Highway A Big Rib bridge access',
+        latitude: 45.04691,
+        longitude: -89.95474,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from Miles Paddled GPS reporting.',
+      },
+      {
+        id: 'rib-falls-county-park-takeout',
+        name: 'Rib Falls County Park take-out above Big Rib Falls',
+        latitude: 44.97398,
+        longitude: -89.90792,
+        mileFromStart: 7.25,
+        segmentKind: 'creek',
+        note: 'Default take-out above Big Rib Falls; do not continue over the falls as part of this route.',
       },
     ],
   },

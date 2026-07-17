@@ -1,5 +1,14 @@
 # Midwest Route Automation Memory
 
+- 2026-07-17 08:17 America/Chicago / 2026-07-17 13:17 UTC: Wisconsin three-route implementation pass (`wisconsin-route-additions`).
+  - Added three Wisconsin slugs beyond the 210-route Wisconsin baseline at run start: `big-rib-river-lemke-highway-64`, `big-rib-river-amco-park-highway-a`, and `big-rib-river-highway-a-rib-falls`, bringing Wisconsin to 213 live routes.
+  - Qualification path: Wisconsin River Trips documents the exact Big Rib Lemke-to-Highway-64 and Amco-to-Highway-A routes with access, hazards, mileage, and direct Rib Falls gauge ladders; Miles Paddled documents Big Rib County-A-to-Rib-Falls with endpoint GPS and level notes; Marathon County pages corroborate public Amco Park and Rib Falls Park context.
+  - Live gauge verification: USGS Water Services returned Big Rib River at Rib Falls `05396000` at `47.9 cfs / 2.03 ft` at 2026-07-17 07:00 CDT. All three routes currently warn below selected practical target or low-water floors.
+  - Implemented only source-backed threshold models: Lemke WRT `101-325 cfs` practical target with `0 cfs` low-navigable floor and `501 cfs` high/casual no-go; Big Rib Amco WRT `201-300 cfs` target with `100 cfs` low and `501 cfs` high/casual no-go; Big Rib County-A-to-Rib-Falls mixed Miles/WRT conservative `298 cfs` floor and `501 cfs` casual no-go.
+  - Safety/logistics include Lemke ford/road-corridor launch and posted-private-woods caveats; Big Rib Amco low-branch/bridge-takeout/no-continuation caveats; and Big Rib Rib-Falls mandatory take-out above Class IV falls, steep park carry, private-bank, cold-water, and fast-rise caveats.
+  - No route-gallery assets were added. Bounded WRT / Miles Paddled / Marathon County / USGS / Commons / same-route image review found no clearly rights-clean exact-route paddling asset selected.
+  - Reviewed prompt/high-value holds: Bark and Sugar prompt examples are already live, Black Earth remains obstruction-blocked, Black Highway-H-to-Hill was rejected as contained by `black-river-willard-grand-avenue`, several WRT/Miles examples were already live or contained, and Waupaca / Little Wolf / Yellow / Oconomowoc-style variants remain gauge or threshold weak.
+
 - 2026-07-17 08:13 America/Chicago / 2026-07-17 13:13 UTC: Minnesota three-route implementation pass (`minnesota-route-additions-2`).
   - Added three Minnesota slugs beyond the 240-route Minnesota baseline at run start: `big-fork-river-highway-1-highway-6-south`, `crow-wing-river-old-wadena-green-oak`, and `crow-wing-river-green-oak-lake-placid`, bringing Minnesota to 243 live routes.
   - Qualification path: MN DNR Big Fork Map 1, Crow Wing Map 2, MN DNR river-level JSON, and Minnesota public-water-access GIS document the selected endpoints, intermediate accesses, route shapes, camping posture, portage/dam hazards, and threshold models.
