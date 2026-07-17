@@ -24,6 +24,7 @@ import { ratingVerdictLabel } from '@paddletoday/api-contract';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { loadCanonicalRiverGeometries } from '../lib/canonical-river-geometries.js';
 import { endpointSnappedRiverGeometry, stitchRiverLines } from '../lib/endpoint-snapped-river-geometry.js';
+import { classifyCamping, hasCampingSupport, hasOvernightCampingSupport } from '../lib/camping-classification.ts';
 
 const STORAGE_KEY = 'paddletoday:user-location';
 const STORAGE_RADIUS_KEY = 'paddletoday:recommendation-radius';
@@ -184,6 +185,7 @@ const filterState = document.querySelector('[data-filter-state]');
 const filterRating = document.querySelector('[data-filter-rating]');
 const filterDifficulty = document.querySelector('[data-filter-difficulty]');
 const filterRouteType = document.querySelector('[data-filter-route-type]');
+const filterCamping = document.querySelector('[data-filter-camping]');
 const filterDistance = document.querySelector('[data-filter-distance]');
 const filterPaddleTime = document.querySelector('[data-filter-paddle-time]');
 const sortSelect = document.querySelector('[data-sort-select]');
@@ -244,6 +246,7 @@ const activeFilters = {
   state: '',
   difficulty: '',
   routeType: 'non-whitewater',
+  camping: '',
   distance: '',
   paddleTime: '',
   sort: 'best-now',
@@ -2906,6 +2909,24 @@ function matchesRouteFilters(result) {
     return false;
   }
 
+  if (activeFilters.camping) {
+    const logistics = result?.river?.logistics;
+    const classification = logistics?.campingClassification ?? classifyCamping(logistics?.camping);
+
+    if (activeFilters.camping === 'any-support' && !hasCampingSupport(classification)) {
+      return false;
+    }
+    if (activeFilters.camping === 'overnight' && !hasOvernightCampingSupport(classification)) {
+      return false;
+    }
+    if (activeFilters.camping === 'endpoint' && classification !== 'endpoint_campground') {
+      return false;
+    }
+    if (activeFilters.camping === 'nearby' && classification !== 'nearby_basecamp') {
+      return false;
+    }
+  }
+
   if (activeFilters.distance) {
     if (!userLocation) {
       return false;
@@ -2958,6 +2979,7 @@ function resetExploreFilters({ rerender = true } = {}) {
   activeFilters.state = '';
   activeFilters.difficulty = '';
   activeFilters.routeType = 'non-whitewater';
+  activeFilters.camping = '';
   activeFilters.distance = '';
   activeFilters.paddleTime = '';
   activeFilters.sort = userLocationState === 'ready' && userLocation ? 'near-you' : 'best-now';
@@ -2977,6 +2999,9 @@ function resetExploreFilters({ rerender = true } = {}) {
   }
   if (filterRouteType instanceof HTMLSelectElement) {
     filterRouteType.value = activeFilters.routeType;
+  }
+  if (filterCamping instanceof HTMLSelectElement) {
+    filterCamping.value = '';
   }
   if (filterDistance instanceof HTMLSelectElement) {
     filterDistance.value = '';
@@ -3277,6 +3302,8 @@ function setNearbySortMode(value, { rerender = true } = {}) {
 }
 
 function updateFilterSummary(exploreItems) {
+  updateExploreFilterPills();
+
   if (!(filterSummary instanceof HTMLElement)) {
     return;
   }
@@ -3284,7 +3311,6 @@ function updateFilterSummary(exploreItems) {
   const sortLabel = exploreSortSummaryLabel();
   if (exploreItems.length === 0) {
     filterSummary.textContent = 'No results match these filters.';
-    updateExploreFilterPills();
     return;
   }
 
@@ -3294,7 +3320,6 @@ function updateFilterSummary(exploreItems) {
       : '';
   const ratingLabel = activeFilters.rating ? ` / ${ratingDisplayLabel(activeFilters.rating)} only` : '';
   filterSummary.textContent = formatMixedFilterSummary(exploreItems.length, { sortLabel, locationLabel, ratingLabel });
-  updateExploreFilterPills();
 }
 
 function exploreSortSummaryLabel() {
@@ -3388,6 +3413,19 @@ function buildExploreFilterPills() {
   } else if (activeFilters.routeType === 'all') {
     pills.push({
       label: 'All route types',
+      tone: 'filter',
+    });
+  }
+
+  if (activeFilters.camping) {
+    const campingLabels = {
+      'any-support': 'Camping available',
+      overnight: 'On-route or overnight',
+      endpoint: 'Endpoint campground',
+      nearby: 'Nearby basecamp',
+    };
+    pills.push({
+      label: campingLabels[activeFilters.camping] ?? 'Camping',
       tone: 'filter',
     });
   }
@@ -5621,6 +5659,15 @@ function setupFilters() {
     filterRouteType.value = activeFilters.routeType;
     filterRouteType.addEventListener('change', () => {
       activeFilters.routeType = filterRouteType.value || 'non-whitewater';
+      currentExplorePage = 1;
+      renderHomepage(latestResults);
+    });
+  }
+
+  if (filterCamping instanceof HTMLSelectElement && filterCamping.dataset.filterBound !== 'true') {
+    filterCamping.dataset.filterBound = 'true';
+    filterCamping.addEventListener('change', () => {
+      activeFilters.camping = filterCamping.value;
       currentExplorePage = 1;
       renderHomepage(latestResults);
     });

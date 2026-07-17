@@ -112,7 +112,7 @@ const trackedRiverCount = riverGroups.length;
               <details class="board-filters__advanced">
                 <summary>
                   <span>More filters</span>
-                  <span class="board-filters__advanced-note">State, difficulty, route type, distance, time, score</span>
+                  <span class="board-filters__advanced-note">State, difficulty, route type, camping, distance, time, score</span>
                 </summary>
                 <div class="board-filters__controls board-filters__controls--secondary">
                   <label class="filter-select">
@@ -137,6 +137,16 @@ const trackedRiverCount = riverGroups.length;
                       <option value="non-whitewater" selected>Non-whitewater routes</option>
                       <option value="whitewater">Whitewater only</option>
                       <option value="all">All route types</option>
+                    </select>
+                  </label>
+                  <label class="filter-select">
+                    <span class="sr-only">Filter by camping options</span>
+                    <select class="filter-select__input" data-filter-camping>
+                      <option value="">Any camping option</option>
+                      <option value="any-support">Camping available</option>
+                      <option value="overnight">On-route or overnight</option>
+                      <option value="endpoint">Endpoint campground</option>
+                      <option value="nearby">Nearby basecamp</option>
                     </select>
                   </label>
                   <label class="filter-select">
