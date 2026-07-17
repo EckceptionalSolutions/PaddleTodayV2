@@ -1,18 +1,28 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-07-17 02:09 America/Chicago.
+Last summarized: 2026-07-17 03:18 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 226 after the 2026-07-17 02:09 Minnesota route-addition run.
-- Top represented rivers: Mississippi River 45, Minnesota River 18, Sauk River 10, Crow Wing River 9, North Fork Crow River 9, Rum River 9, St. Louis River 9, St. Croix River 8, Root River 7, Big Fork River 6, Cannon River 6, Red Lake River 6, Zumbro River 6, Chippewa River 5, Cloquet River 5, Otter Tail River 5, Red River of the North 5, Straight River 5, Cedar River 4, Cottonwood River 4, Little Fork River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Watonwan River 3, Blue Earth River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, South Fork Zumbro, and Vermilion River.
-- Ledger candidates: 1082 total; 694 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 56 `research_later`, 30 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
+- Live routes: 229 after the 2026-07-17 03:18 Minnesota route-addition run.
+- Top represented rivers: Mississippi River 46, Minnesota River 18, Sauk River 10, Crow Wing River 9, North Fork Crow River 9, Rum River 9, St. Louis River 9, St. Croix River 8, Root River 7, Big Fork River 6, Cannon River 6, Red Lake River 6, Zumbro River 6, Chippewa River 5, Cloquet River 5, Otter Tail River 5, Red River of the North 5, Straight River 5, Cedar River 4, Cottonwood River 4, Little Fork River 4, Pine River 4, Pomme de Terre River 4, Snake River 4, Des Moines River 3, Kettle River 3, Long Prairie River 3, Redwood River 3, Vermilion River 3, Watonwan River 3, Blue Earth River 2, Shell Rock River 2, South Fork Crow River 2, Whitewater River 2, plus one each for Minnehaha Creek, North Fork Zumbro River, Rice Creek, South Branch Middle Fork Zumbro River, and South Fork Zumbro.
+- Ledger candidates: 1088 total; 700 `added`, 83 `implemented`, 99 `threshold_weak`, 82 `no_live_gauge`, 56 `research_later`, 30 `duplicate_corridor`, 14 `rejected`, 13 `blocked_until_date`, 11 `gauge_proxy_weak`.
 
 ## Status
 
 Minnesota still has the strongest official-source foundation and a broad existing inventory. Mississippi is now the densest Minnesota family, so future additions should avoid endpoint-combination clutter unless the route is an official DNR planner, a genuinely missing public access pair, or materially better sourced than an existing card.
 
 ## Latest Run
+
+- 2026-07-17 03:18 America/Chicago / 2026-07-17 08:18 UTC: added `vermilion-river-shively-eightmile`, `vermilion-river-eightmile-county-road-24`, and `mississippi-river-schoolcraft-number-10`.
+- Baseline at run start was 226 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 229 and fill two Vermilion whitewater/portage segments plus the official short Schoolcraft-to-#10 Mississippi access pair.
+- Qualification path: MN DNR recommended-one-way materials document Shively-to-Eightmile and Schoolcraft-to-#10; MN DNR Vermilion Map 1 documents Shively Falls, Liftover Falls, Everett Rapids, Table Rock Falls, County Road 24, watercraft campsites, and portages; MN DNR Mississippi Map 2 documents Schoolcraft, #10, the Days High Landing gauge, and Schoolcraft State Park context. Minnesota public-water-access GIS resolves Shively `WAS00595`, Eightmile `WAS00377`, County Road 24 `WAS00594`, Schoolcraft `WAS01351`, and #10 `WAS00988`.
+- Live gauge verification: Buyck site `342` returned `187 cfs` at 2026-07-17 01:45 CDT, in the official low band just below medium; Days High Landing site `116` returned `1273.57 ft` at 2026-07-17 01:30 CDT, in the official low band.
+- Implemented official DNR interpreted gauge models only: Buyck `70 / 200-1300 / 1600 cfs` for both Vermilion adds, and Days High Landing `1272.9 / 1273.8-1274.5 / 1275.0 ft` for Schoolcraft-to-#10. No extra ideal ranges or upper cutoffs were invented. Both Vermilion cards cap gauge confidence because Buyck is downstream and scouting/portage decisions must be local.
+- Camping posture: Shively-to-Eightmile and Eightmile-to-County-Road-24 are `on_route_campsite` only through mapped/designated DNR watercraft campsites; Schoolcraft-to-#10 is `endpoint_campground` via Schoolcraft State Park basecamp support. All three reject informal private-bank or riverbed camping.
+- Safety posture: Shively-to-Eightmile carries Class III/Class II/Class I-II rapid, long-portage, Eightmile mandatory-exit, remote, cold-water, and wind caveats. Eightmile-to-County-Road-24 is whitewater/portage-only with Table Rock Falls Class IV-VI, a 1,900-yard portage, canyon/ledge hazards, mandatory County Road 24 take-out, and rescue-exposure caveats. Schoolcraft-to-#10 carries low-water, strainers/wood, cold-water, private-bank, state-park-rule, and no-unplanned-continuation caveats.
+- Image posture: no route-gallery images were added. Image audit rows record bounded MN DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add `little-fork-river-samuelson-silverdale` because the ledger explicitly marks it `duplicate_corridor` represented inside `little-fork-river-highway-73-silverdale`. Other prompt leads reviewed as already-live, represented, or weaker include St. Louis CR4/95/Fond-du-Lac/Paupores, Red River sections, Des Moines Mayflower-to-Christianna, Kettle Musclewood, Minnesota River Kinney-to-Skalbekken, Snake Silver-Star-to-Lower-Falls, Watonwan CR32-to-Garden-City, and broader Mississippi Cass/Winnie/Schoolcraft/Sylvan combinations.
 
 - 2026-07-17 02:09 America/Chicago / 2026-07-17 07:09 UTC: added `st-louis-river-county-road-95-forbes`, `mississippi-river-leech-lake-schoolcraft`, and `mississippi-river-county-road-72-county-line`.
 - Baseline at run start was 223 live Minnesota routes from `src/data/rivers.ts`, with no missing Minnesota trip-detail records. The selected slugs bring the live Minnesota inventory to 226 and fill one upper St. Louis access gap plus two Mississippi Map 2/3 public-access connectors.

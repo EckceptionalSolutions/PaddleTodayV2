@@ -30393,6 +30393,125 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'vermilion-river-shively-eightmile': {
+    putIn: {
+      name: 'Vermilion River, Shively Falls Public Water Access Site',
+      latitude: 47.9698841,
+      longitude: -92.4661064,
+    },
+    takeOut: {
+      name: 'Vermilion River, 8 Mile Creek Public Water Access Site',
+      latitude: 48.0546146,
+      longitude: -92.4809237,
+    },
+    logistics: {
+      distanceLabel: '9.6 mi',
+      estimatedPaddleTime: 'About 4 hr to 6.5 hr depending on scouting, portages, wind, and level',
+      shuttle:
+        'Stage the remote Eightmile Creek take-out first, then drive to Shively Falls. Confirm road access, parking, daylight, and portage appetite before launching because there is no casual mid-route exit plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow DNR public-access rules, Kabetogama State Forest rules, Superior National Forest rules where applicable, and Minnesota boating/PFD requirements.',
+      camping:
+        'DNR Map 1 marks designated watercraft campsites near river miles 41.0, 39.3, and 36.1. Use only those mapped/designated sites or separately verified public-land camping rules; do not assume private-bank or riverbed camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Shively Falls, work through the upper falls-and-portage sequence, continue into the Chain of Lakes reach, and take out by paddling up Eightmile Creek. This is the advanced upstream extension of the easier Twomile-to-Eightmile day route.',
+      accessCaveats: [
+        'Shively Falls and Eightmile Creek are remote carry-in access sites, not full-service ramps.',
+        'The Buyck gauge is downstream of the route. Pair it with DNR map guidance, local visual checks, and scouting at each rapid.',
+        'Eightmile Creek is the planned exit. Missing it commits the group toward Table Rock Falls and a much more serious downstream hazard zone.',
+      ],
+      watchFor: [
+        'Shively Falls Class III, Liftover Falls Class II, Everett Rapids Class I-II, and long portages.',
+        'Low-band water that can make rocky approaches scrapey and slow.',
+        'Remote cold-water exposure, wind on wider water, fresh wood, and private-bank limits.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'shively-falls-access',
+        name: 'Vermilion River, Shively Falls Public Water Access Site',
+        latitude: 47.9698841,
+        longitude: -92.4661064,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the DNR carry-in access above the Shively Falls rapid/portage sequence.',
+      },
+      {
+        id: 'twomile-creek-reference',
+        name: 'Two Mile Creek Public Water Access Site',
+        latitude: 47.9885552,
+        longitude: -92.4675615,
+        mileFromStart: 3.8,
+        segmentKind: 'creek',
+        note: 'Intermediate access and split point where the easier already-live Twomile-to-Eightmile route begins.',
+      },
+      {
+        id: 'eightmile-creek-access',
+        name: 'Vermilion River, 8 Mile Creek Public Water Access Site',
+        latitude: 48.0546146,
+        longitude: -92.4809237,
+        mileFromStart: 9.6,
+        segmentKind: 'creek',
+        note: 'Default take-out; paddle up Eightmile Creek on river left and exit before Table Rock Falls.',
+      },
+    ],
+  },
+  'vermilion-river-eightmile-county-road-24': {
+    putIn: {
+      name: 'Vermilion River, 8 Mile Creek Public Water Access Site',
+      latitude: 48.0546146,
+      longitude: -92.4809237,
+    },
+    takeOut: {
+      name: 'Vermilion River, Co Rd 24 Public Water Access Site',
+      latitude: 48.0720504,
+      longitude: -92.4858626,
+    },
+    logistics: {
+      distanceLabel: '1.3 mi',
+      estimatedPaddleTime: 'Variable; plan around scout-and-portage time rather than mileage',
+      shuttle:
+        'Stage at County Road 24 / CCC campsite before launching from Eightmile Creek. This is a short-distance but high-consequence shuttle, so inspect the take-out and portage options from land first.',
+      permits:
+        'No route-specific paddling permit is known. Follow DNR public-access, watercraft-campsite, Kabetogama State Forest, Superior National Forest where applicable, and Minnesota boating/PFD rules.',
+      camping:
+        'DNR Map 1 marks watercraft campsites near Eightmile Creek and at County Road 24. Use only mapped/designated public sites with current confirmation; do not improvise on private banks or riverbed areas.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch from Eightmile Creek and descend only with a deliberate Table Rock Falls plan, then take out at County Road 24 / CCC campsite. For most paddlers, this card is a portage-and-scout segment rather than a runnable float.',
+      accessCaveats: [
+        'The Eightmile Creek launch requires creek access and a remote road approach.',
+        'County Road 24 / CCC campsite is the mandatory finish for this card. Scout it before launch so the group does not continue into unplanned lower-river rapids.',
+        'The Buyck gauge is downstream of the route and cannot substitute for scouting Table Rock Falls, portage landings, or canyon conditions.',
+      ],
+      watchFor: [
+        'Table Rock Falls Class IV-VI, a 1,900-yard portage, vertical ledges, and continuous canyon rapids.',
+        'Remote rescue exposure, slippery portage footing, cold water, and limited communication.',
+        'High water increasing consequence around the falls and low water making rocky approaches slow or hazardous.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'eightmile-creek-access',
+        name: 'Vermilion River, 8 Mile Creek Public Water Access Site',
+        latitude: 48.0546146,
+        longitude: -92.4809237,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in just upstream of Table Rock Falls and its portage/canyon hazard zone.',
+      },
+      {
+        id: 'county-road-24-access',
+        name: 'Vermilion River, Co Rd 24 Public Water Access Site',
+        latitude: 48.0720504,
+        longitude: -92.4858626,
+        mileFromStart: 1.3,
+        segmentKind: 'creek',
+        note: 'Default take-out at the DNR County Road 24 / CCC campsite access below Table Rock Falls.',
+      },
+    ],
+  },
   'vermilion-river-twomile-eightmile': {
     putIn: {
       name: 'Two Mile Creek Public Water Access Site',
@@ -33134,6 +33253,61 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 3.8,
         segmentKind: 'creek',
         note: 'Default take-out at DNR river mile 1273.9; resolves in the public-water-access GIS with carry-in access context.',
+      },
+    ],
+  },
+  'mississippi-river-schoolcraft-number-10': {
+    putIn: {
+      name: 'Mississippi River, Schoolcraft SPK Public Water Access Site',
+      latitude: 47.225074,
+      longitude: -93.8021304,
+    },
+    takeOut: {
+      name: 'Mississippi River, #10 Public Water Access Site',
+      latitude: 47.2253901,
+      longitude: -93.7611191,
+    },
+    logistics: {
+      distanceLabel: '4.1 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr depending on level, wood, and stops',
+      shuttle:
+        'Stage the vehicle at #10 Access first, then drive back to Schoolcraft State Park. Confirm the #10 road approach and parking before launch because it is the planned take-out, not just a bailout.',
+      permits:
+        'No route-specific paddling permit is known. Use DNR public accesses, follow Minnesota boating/PFD rules, and confirm Schoolcraft State Park vehicle fees, parking, and camping rules if using the park as a basecamp.',
+      camping:
+        'Schoolcraft State Park supports an endpoint/basecamp overnight plan with fee camping and drinking water. The 4.1-mile route itself should be treated as a day trip unless a separate legal overnight plan is confirmed.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Schoolcraft State Park and take out at #10 Access for the official 4.1-mile DNR short option on the upper Mississippi. This keeps the easy access pair separate from the longer Schoolcraft-to-Sylvan commitment.',
+      accessCaveats: [
+        'Schoolcraft State Park and #10 both resolve as public Mississippi River access sites in the Minnesota public-water-access GIS.',
+        'The Days High Landing gauge is just upstream of the short reach and should be paired with a visual check for low-water shallows and fresh wood.',
+        'Continuing below #10 becomes the longer Schoolcraft-to-Sylvan corridor and needs a separate shuttle, daylight, and stamina plan.',
+      ],
+      watchFor: [
+        'Low-water scraping, shallow bars, riffles, sweepers, and fresh strainers.',
+        'Cold water outside summer and limited informal exits even on a short route.',
+        'Private banks and state-park rules around stops, parking, and camping.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'schoolcraft-state-park',
+        name: 'Mississippi River, Schoolcraft SPK Public Water Access Site',
+        latitude: 47.225074,
+        longitude: -93.8021304,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 1198.8 with Schoolcraft State Park support nearby.',
+      },
+      {
+        id: 'number-10-access',
+        name: 'Mississippi River, #10 Public Water Access Site',
+        latitude: 47.2253901,
+        longitude: -93.7611191,
+        mileFromStart: 4.1,
+        segmentKind: 'creek',
+        note: 'Default take-out at the official short-route endpoint.',
       },
     ],
   },
