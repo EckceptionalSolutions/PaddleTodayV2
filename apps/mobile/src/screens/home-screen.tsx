@@ -19,7 +19,7 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverSummaryQuery } from '../api/queries';
-import { AppErrorState, AppLoadingState } from '../components/app-state';
+import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
 import { RatingPill } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { useStoredLocation } from '../hooks/use-stored-location';
@@ -182,6 +182,11 @@ export default function HomeScreen() {
       }
     >
       <View style={styles.headerStack}>
+        <AppRefreshNotice
+          isError={summaryQuery.isRefetchError}
+          dataUpdatedAt={summaryQuery.dataUpdatedAt}
+          onRetry={() => void summaryQuery.refetch()}
+        />
         <BoardHero
           mode={headlineMode}
           headline={headline}
@@ -363,15 +368,15 @@ function BoardHero({
             <View style={styles.heroContent}>
               <View style={styles.headlineCopy}>
                 <Text style={styles.headlineKicker}>
-                  {locationStatus === 'denied' ? 'Location is off' : 'Best paddle near you'}
+                  {locationStatus === 'denied' ? 'Location is off' : "Today's strongest routes"}
                 </Text>
                 <Text style={styles.headlineName}>
-                  {locationStatus === 'denied' ? 'Browse today, add nearby when ready' : 'Find a route worth driving to'}
+                  {locationStatus === 'denied' ? 'Browse today, add nearby when ready' : 'Start with a strong route today'}
                 </Text>
                 <Text style={styles.headlineText} numberOfLines={3}>
                   {locationStatus === 'denied'
                     ? 'Today still works across supported routes. Turn location on when you want drive-time ranking.'
-                    : 'Use your location to rank clean water, confidence, and drive time together.'}
+                    : 'Today works across supported routes. Add your location when you want drive-time ranking.'}
                 </Text>
               </View>
               <View style={styles.heroActionRow}>

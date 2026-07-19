@@ -606,6 +606,17 @@ export interface CreateRiverRequestResponse {
   storage?: 'local' | string;
 }
 
+export interface RiverGeometryResponse {
+  requestId: string;
+  routeId: string;
+  state: string | null;
+  source: string;
+  geometry: {
+    type: 'MultiLineString' | 'LineString';
+    coordinates: number[][][] | number[][];
+  };
+}
+
 export type AppFeedbackCategory =
   | 'route_coverage'
   | 'river_calls'

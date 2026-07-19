@@ -4,7 +4,7 @@ import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, FlatList, ImageBackground, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useRiverGroupQuery } from '../api/queries';
+import { useRiverGeometryQuery, useRiverGroupQuery } from '../api/queries';
 import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { SectionCard } from '../components/section-card';
@@ -12,6 +12,7 @@ import { StatusPill } from '../components/status-pill';
 import { normalizeApiText, verdictForRating } from '../lib/format';
 import { photoForRiver } from '../lib/route-photos';
 import { routePreviewFactLine } from '../lib/route-facts';
+import { endpointSnappedRouteCoordinates } from '../lib/river-geometry';
 import { androidBottomInset } from '../lib/safe-area';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, shadow, spacing } from '../theme/tokens';
@@ -37,6 +38,16 @@ export default function RiverHubScreen() {
   const bestRoute = useMemo(() => [...allRoutes].sort(compareBestRoute)[0] ?? null, [allRoutes]);
   const routes = useMemo(() => sortedRoutes(allRoutes, sortMode), [allRoutes, sortMode]);
   const routePoints = useMemo(() => routeMapPoints(allRoutes), [allRoutes]);
+  const selectedGeometryQuery = useRiverGeometryQuery(selectedRouteSlug ?? '');
+  const selectedRoute = allRoutes.find((route) => route.river.slug === selectedRouteSlug) ?? null;
+  const selectedCanonicalSpan = useMemo(
+    () => (selectedRoute ? endpointSnappedRouteCoordinates(selectedGeometryQuery.data, routeSpanCoordinates(selectedRoute)) : null),
+    [selectedGeometryQuery.data, selectedRoute]
+  );
+  const canonicalSpans = useMemo(
+    () => (selectedRouteSlug && selectedCanonicalSpan ? new Map([[selectedRouteSlug, selectedCanonicalSpan]]) : undefined),
+    [selectedCanonicalSpan, selectedRouteSlug]
+  );
 
   useEffect(() => {
     if (routes.length === 0) {
@@ -177,6 +188,7 @@ export default function RiverHubScreen() {
                   <RoutePlotMap
                     points={routePoints}
                     selectedId={selectedRouteSlug}
+                    canonicalSpans={canonicalSpans}
                     height={220}
                     fitToAllOnReady
                     fullBleed
@@ -540,19 +552,19 @@ function friendlyCapReason(reason: string) {
     return '';
   }
 
-  if (/Near-freezing air caps today at 70\./i.test(normalized)) {
+  if (/Near-freezing air caps today at 70\.|Cold air limits today's score to 70 or lower\./i.test(normalized)) {
     return 'Cold air keeps today from scoring higher, even if the river itself looks good.';
   }
 
-  if (/High wind caps today at 75\./i.test(normalized)) {
+  if (/High wind caps today at 75\.|Strong wind limits today's score to 75 or lower\./i.test(normalized)) {
     return 'Strong wind puts a ceiling on today, even if the gauge is in range.';
   }
 
-  if (/Imminent heavy rain caps today at 65\.|Heavy rain or storms likely soon limit the score to 65\./i.test(normalized)) {
+  if (/Imminent heavy rain caps today at 65\.|Heavy rain or storms likely soon limit the score to 65\.|Heavy rain or storms likely soon limit today's score to 65 or lower\./i.test(normalized)) {
     return 'Heavy rain or storms likely within 3 hours limit the score to 65.';
   }
 
-  if (/Minimum-only guidance caps the trip score at 74\./i.test(normalized)) {
+  if (/Minimum-only guidance caps the trip score at 74\.|This route has minimum-only gauge guidance, so today's score is limited to 74 or lower\./i.test(normalized)) {
     return 'This route only has a reliable low-water floor, so the score stops short of the top range.';
   }
 

@@ -1,6 +1,8 @@
 import Constants, { ExecutionEnvironment } from 'expo-constants';
-import type { ComponentType } from 'react';
+import { Component, createElement, type ComponentType, type ErrorInfo, type PropsWithChildren, type ReactNode } from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { recordFeedbackUsageEvent } from './feedback-usage';
+import { colors, radius, spacing } from '../theme/tokens';
 
 type EventProperties = Record<string, boolean | number | string | null | undefined>;
 type FirebaseBridge = {
@@ -21,7 +23,66 @@ export function initObservability() {
 }
 
 export function withObservability<P extends Record<string, unknown>>(component: ComponentType<P>) {
-  return component;
+  const componentName = component.displayName || component.name || 'screen';
+
+  function ObservedComponent(props: P) {
+    return createElement(RenderErrorBoundary, { componentName }, ComponentRenderer(component, props));
+  }
+
+  ObservedComponent.displayName = `withObservability(${componentName})`;
+  return ObservedComponent;
+}
+
+function ComponentRenderer<P extends Record<string, unknown>>(ComponentToRender: ComponentType<P>, props: P) {
+  return createElement(ComponentToRender, props);
+}
+
+class RenderErrorBoundary extends Component<
+  PropsWithChildren<{ componentName: string }>,
+  { hasError: boolean }
+> {
+  state = { hasError: false };
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    captureAppException(error, {
+      name: 'render_error',
+      extra: {
+        component: this.props.componentName,
+        componentStack: errorInfo.componentStack ?? 'unknown',
+      },
+    });
+  }
+
+  render(): ReactNode {
+    if (!this.state.hasError) {
+      return this.props.children;
+    }
+
+    return createElement(
+      View,
+      { style: styles.renderErrorState, accessibilityRole: 'alert' },
+      createElement(Text, { style: styles.renderErrorTitle }, 'This screen needs a reset'),
+      createElement(
+        Text,
+        { style: styles.renderErrorBody },
+        'PaddleToday hit an unexpected display error. You can return to Today and try again.'
+      ),
+      createElement(
+        Pressable,
+        {
+          style: styles.renderErrorButton,
+          onPress: () => this.setState({ hasError: false }),
+          accessibilityRole: 'button',
+          accessibilityLabel: 'Try this screen again',
+        },
+        createElement(Text, { style: styles.renderErrorButtonText }, 'Try again')
+      )
+    );
+  }
 }
 
 export function captureAppException(error: unknown, context?: { name?: string; extra?: EventProperties }) {
@@ -167,3 +228,40 @@ function toError(error: unknown) {
 
   return new Error(typeof error === 'string' ? error : JSON.stringify(error));
 }
+
+const styles = StyleSheet.create({
+  renderErrorState: {
+    flex: 1,
+    backgroundColor: colors.canvas,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: spacing.xl,
+    gap: spacing.sm,
+  },
+  renderErrorTitle: {
+    color: colors.text,
+    fontSize: 21,
+    fontWeight: '900',
+    textAlign: 'center',
+  },
+  renderErrorBody: {
+    color: colors.textMuted,
+    fontSize: 14,
+    lineHeight: 20,
+    textAlign: 'center',
+  },
+  renderErrorButton: {
+    minHeight: 44,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+    paddingHorizontal: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: spacing.sm,
+  },
+  renderErrorButtonText: {
+    color: colors.surfaceStrong,
+    fontSize: 14,
+    fontWeight: '900',
+  },
+});

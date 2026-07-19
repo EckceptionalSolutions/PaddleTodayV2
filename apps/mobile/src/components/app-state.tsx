@@ -53,6 +53,50 @@ export function AppErrorState({
   );
 }
 
+export function AppRefreshNotice({
+  label = 'Showing the last available call.',
+  isError,
+  dataUpdatedAt,
+  onRetry,
+}: {
+  label?: string;
+  isError: boolean;
+  dataUpdatedAt?: number;
+  onRetry: () => void;
+}) {
+  if (!isError) {
+    return null;
+  }
+
+  return (
+    <View style={styles.refreshNotice} accessibilityRole="alert">
+      <View style={styles.refreshNoticeCopy}>
+        <Text style={styles.refreshNoticeTitle}>Could not refresh</Text>
+        <Text style={styles.refreshNoticeBody}>
+          {label} {dataUpdatedAt ? `Updated ${formatRelativeTime(dataUpdatedAt)}.` : ''}
+        </Text>
+      </View>
+      <Pressable
+        style={styles.refreshNoticeButton}
+        onPress={onRetry}
+        accessibilityRole="button"
+        accessibilityLabel="Retry refresh"
+      >
+        <Text style={styles.refreshNoticeButtonText}>Retry</Text>
+      </Pressable>
+    </View>
+  );
+}
+
+function formatRelativeTime(timestamp: number) {
+  const elapsedMinutes = Math.max(0, Math.round((Date.now() - timestamp) / 60000));
+  if (elapsedMinutes < 1) return 'just now';
+  if (elapsedMinutes === 1) return '1 minute ago';
+  if (elapsedMinutes < 60) return `${elapsedMinutes} minutes ago`;
+  const elapsedHours = Math.round(elapsedMinutes / 60);
+  return elapsedHours === 1 ? '1 hour ago' : `${elapsedHours} hours ago`;
+}
+
 const styles = StyleSheet.create({
   centerState: {
     flex: 1,
@@ -104,6 +148,43 @@ const styles = StyleSheet.create({
   retryButtonText: {
     color: colors.surfaceStrong,
     fontSize: 14,
+    fontWeight: '900',
+  },
+  refreshNotice: {
+    borderRadius: radius.md,
+    backgroundColor: '#F3E8CC',
+    borderWidth: 1,
+    borderColor: '#D8C58E',
+    padding: spacing.md,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  refreshNoticeCopy: {
+    flex: 1,
+    gap: 2,
+  },
+  refreshNoticeTitle: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  refreshNoticeBody: {
+    color: colors.text,
+    fontSize: 12,
+    lineHeight: 17,
+  },
+  refreshNoticeButton: {
+    minHeight: 36,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+    paddingHorizontal: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  refreshNoticeButtonText: {
+    color: colors.surfaceStrong,
+    fontSize: 12,
     fontWeight: '900',
   },
 });

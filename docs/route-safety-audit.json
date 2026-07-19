@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-16T21:49:53.928Z",
-  "routeCount": 610,
-  "issueCount": 759,
+  "generatedAt": "2026-07-19T12:13:45.760Z",
+  "routeCount": 657,
+  "issueCount": 749,
   "summary": {
     "Critical": 7,
-    "High": 483,
-    "Medium": 269,
+    "High": 475,
+    "Medium": 267,
     "Low": 0
   },
   "issues": [
@@ -1386,17 +1386,6 @@
       "evidence": "as a longer big-river day with shifting sandbars, wind exposure, possible wood, private banks, and limited normal exits. Confidence is high for access and route shape: Friends of the Kaw documents Ogden at river mile 163.4, Manhattan K-177 / Fairmont at river"
     },
     {
-      "routeId": "barren-river-tailwater-vpa-3",
-      "slug": "barren-river-tailwater-vpa-3",
-      "name": "Barren River",
-      "reach": "Barren River Lake Tailwater to Barren River VPA #3",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "h straightforward route-finding, but the 13.3-mile length, open water, changing release, and private-bank limits make it more of a committed day than a casual city paddle. Confidence is high for a conservative Kentucky add: KDFWR lists Barren River Lake Tailwa"
-    },
-    {
       "routeId": "barren-river-vpa-3-martinsville",
       "slug": "barren-river-vpa-3-martinsville",
       "name": "Barren River",
@@ -1901,50 +1890,6 @@
       "category": "Missing safety profile",
       "message": "Hard route is missing safetyProfile.",
       "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "green-river-dennison-ferry-brownsville-city-park",
-      "slug": "green-river-dennison-ferry-brownsville-city-park",
-      "name": "Green River",
-      "reach": "Dennison Ferry to Brownsville City Park",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "green-river-dennison-ferry-brownsville-city-park",
-      "slug": "green-river-dennison-ferry-brownsville-city-park",
-      "name": "Green River",
-      "reach": "Dennison Ferry to Brownsville City Park",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "gal midpoint stop, and the Brownsville finish still carries the former Lock and Dam 6 rapid context plus private-land caution past the park boundary. NPS Dennison Ferry to Green River Ferry https://www.nps.gov/thingstodo/dennison-ferry-to-green-river-ferry.htm"
-    },
-    {
-      "routeId": "green-river-dennison-ferry-brownsville-city-park",
-      "slug": "green-river-dennison-ferry-brownsville-city-park",
-      "name": "Green River",
-      "reach": "Dennison Ferry to Brownsville City Park",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "ure. Camping and finish context Permit camping or Houchins support; Brownsville rapid near finish NPS says the Green River Ferry to Houchin stretch can support gravel-bar or low-bank camping with a valid riverside permit, Houchins Ferry Campground offers a cle"
-    },
-    {
-      "routeId": "green-river-dennison-ferry-brownsville-city-park",
-      "slug": "green-river-dennison-ferry-brownsville-city-park",
-      "name": "Green River",
-      "reach": "Dennison Ferry to Brownsville City Park",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "stage sits just above the broad 9 to 15-foot comfort band but below the 20-foot closure, so the route should ship with explicit experienced-water caution. Official route shape Dennison Ferry to Brownsville, about 23.6 mi NPS publishes Dennison Ferry to Green R"
     },
     {
       "routeId": "green-river-dennison-green-river-ferry",
@@ -2530,28 +2475,6 @@
       "evidence": "ssing put-in to daylight-only VPA bank access KDFWR says Russell Creek Road has parking pull-offs and a large gravel bar, while the Green River-Russell Creek VPA is a walk-in VPA site at the mouth with limited parking, no amenities, no camping, and daylight-ho"
     },
     {
-      "routeId": "south-fork-kentucky-river-cedar-valley-fish-creek",
-      "slug": "south-fork-kentucky-river-cedar-valley-fish-creek",
-      "name": "South Fork Kentucky River",
-      "reach": "Cedar Valley Road Access to Fish Creek Boat Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "Road Access to Upper Wolf Creek Ramp at 2.9 miles, Upper Wolf Creek Ramp to Kay Wood Road Access at 5.6 miles, and Kay Wood Road Access to Fish Creek Boat Ramp at 7.9 miles, supporting a 24.4-mile public float. KDFWR still publishes exact public endpoint coord"
-    },
-    {
-      "routeId": "south-fork-kentucky-river-oneida-fish-creek",
-      "slug": "south-fork-kentucky-river-oneida-fish-creek",
-      "name": "South Fork Kentucky River",
-      "reach": "Oneida Ramp to Fish Creek Boat Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "nd likely scrape-prone; above that is high and faster around shoals, bends, and wood. KDFWR describes the South Fork as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles. This route stays in the named public access ch"
-    },
-    {
       "routeId": "south-fork-kentucky-river-rocky-branch-fish-creek",
       "slug": "south-fork-kentucky-river-rocky-branch-fish-creek",
       "name": "South Fork Kentucky River",
@@ -2572,17 +2495,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "ng middle-to-lower South Fork continuation from Rocky Branch Road Access to Kay Wood Road Access. Current KDFWR guidance still supports this exact chained public float, but the Booneville gauge sat above the official good band during this run. Use the South Fo"
-    },
-    {
-      "routeId": "south-fork-kentucky-river-upper-wolf-creek-kay-wood",
-      "slug": "south-fork-kentucky-river-upper-wolf-creek-kay-wood",
-      "name": "South Fork Kentucky River",
-      "reach": "Upper Wolf Creek Ramp to Kay Wood Road Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "Lower South Fork Kentucky River split from Upper Wolf Creek Ramp to Kay Wood Road Access. Current KDFWR guidance still supports this exact public float, and the Booneville gauge sat just above the official good band during this run. Use the South Fork"
     },
     {
       "routeId": "tygarts-creek-olive-hill-carter-caves",
@@ -2682,28 +2594,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "ve low-water floor; below that, expect shallow fast turns, scraping, and harder wood avoidance. American Whitewater rates Edgetts to Lincoln Bridge Class I-II and describes shallow fast current, tight turns, occasional low Class II spots, and logs or stumps pi"
-    },
-    {
-      "routeId": "pine-river-lincoln-peterson",
-      "slug": "pine-river-lincoln-peterson",
-      "name": "Pine River",
-      "reach": "Lincoln Bridge to Peterson Bridge",
-      "state": "Michigan",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "pine-river-lincoln-peterson",
-      "slug": "pine-river-lincoln-peterson",
-      "name": "Pine River",
-      "reach": "Lincoln Bridge to Peterson Bridge",
-      "state": "Michigan",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "s is a long fast-current Pine River day, not a casual flatwater float. American Whitewater describes the broader reach as Class I-II, and local/federal sources emphasize swift current, light rapids, tight turns, logjams, and an experienced-paddler posture. Con"
     },
     {
       "routeId": "pine-river-peterson-low-bridge",
@@ -2904,6 +2794,17 @@
       "evidence": "3,060 cfs is scrapable and above 33,000 cfs is very high. This is not technical whitewater, but it is an 8-mile big-river split with current, islands, possible shallow bars, wind exposure, and a remote-feeling finish at Babcock. Confidence is good but intentio"
     },
     {
+      "routeId": "mississippi-river-schoolcraft-number-10",
+      "slug": "mississippi-river-schoolcraft-number-10",
+      "name": "Mississippi River",
+      "reach": "Schoolcraft State Park to #10 Access",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "or as gentle enough for beginners, but paddlers still need moving-water basics, wood avoidance, and a real shuttle plan for the remote public access finish. Confidence is high: MN DNR lists Schoolcraft State Park to #10 Access as a 4.1-mile recommended one-way"
+    },
+    {
       "routeId": "north-fork-crow-river-betty-mason-wildlife",
       "slug": "north-fork-crow-river-betty-mason-wildlife",
       "name": "North Fork Crow River",
@@ -2924,6 +2825,17 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "day recommendation. Not especially technical at sane levels, but 15-plus miles, wood, and a lower-river shuttle make this more of a committed river day than a casual park float. This route now has both official access support and official DNR level guidance fo"
+    },
+    {
+      "routeId": "otter-tail-river-phelps-mill-west-lost-lake",
+      "slug": "otter-tail-river-phelps-mill-west-lost-lake",
+      "name": "Otter Tail River",
+      "reach": "Phelps Mill County Park to West Lost Lake",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Dam",
+      "message": "Route text mentions dam, portage, hydro, or release hazards.",
+      "evidence": "-West Lost Lake section gentle and enjoyable for a couple of hours. Phelps Mill dam/portage discipline, low-water dragging, and wind on West Lost Lake remain the practical hazards. Confidence is high for the official route and endpoints: DNR Map 2 identifies P"
     },
     {
       "routeId": "pomme-de-terre-river-larson-appleton",
@@ -3331,17 +3243,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "us a workable official ladder, but this upstream segment also depends on fresh wood and real local read-the-river judgment. Treat 3.3 to 5.0 ft as the best window. Below 2.3 ft gets too scrapy, and above 6.3 ft is no longer the mellow family-style day this ro"
-    },
-    {
-      "routeId": "snake-river-county-road-9-snake-bit",
-      "slug": "snake-river-county-road-9-snake-bit",
-      "name": "Snake River",
-      "reach": "County Road 9 carry-in access to Snake Bit Access",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "make this more than a lazy flatwater shuttle even though it is not a technical whitewater run. MN DNR names this lower corridor directly, the Pine City gauge is on the route, and the low-water guidance is official. Remaining uncertainty comes from the take-ou"
     },
     {
       "routeId": "south-fork-zumbro-lake-zumbro",
@@ -5060,6 +4961,17 @@
       "evidence": "nd trailer turnaround at the Menominee confluence. Hazards Yellow Bridge Falls, private banks, boulder gardens Scout or portage Yellow Bridge Falls from river left while staying along the riverbank because nearby land is private. Expect 2- to 5-foot drops, a r"
     },
     {
+      "routeId": "pine-river-richland-center-canoe-port-1-port-4",
+      "slug": "pine-river-richland-center-canoe-port-1-port-4",
+      "name": "Pine River",
+      "reach": "Canoe Port 1 / Bowen's Mill to Canoe Port 4 / Seminary Street",
+      "state": "Wisconsin",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": "ly a short learning-friendly urban river trail, but the Pine still has riffles, wood, muddy banks, bridge corridors, and high-water speed that can surprise beginners. Confidence is moderate-good: Richland Center and Richland County publish the official canoe-p"
+    },
+    {
       "routeId": "pine-river-county-n-wepco-5",
       "slug": "pine-river-county-n-wepco-5",
       "name": "Pine River",
@@ -5874,17 +5786,6 @@
       "evidence": "Volney-to-Sixteen route, provides a detailed Ion-gauge ladder, and gives access/hazard notes. Iowa DNR confirms public access, picnic facilities, rustic restroom, and carry-down boat launch context at Volney, while independent map sources identify Bridge Sixte"
     },
     {
-      "routeId": "barren-river-tailwater-vpa-3",
-      "slug": "barren-river-tailwater-vpa-3",
-      "name": "Barren River",
-      "reach": "Barren River Lake Tailwater to Barren River VPA #3",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "oals or slow the day; above that is high and deserves extra current and landing caution. This is a broad Class I tailwater-style float with straightforward route-finding, but the 13.3-mile length, open water, changing release, and private-bank limits make it m"
-    },
-    {
       "routeId": "barren-river-vpa-3-martinsville",
       "slug": "barren-river-vpa-3-martinsville",
       "name": "Barren River",
@@ -6048,17 +5949,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "broader current, private-bank corridor, and steep Lynn Camp finish deserve more caution. The current stays recreational, but 34.9 miles, sparse legal exits after Glenview, private-bank limits, and the steep Lynn Camp finish make this a hard planning route rath"
-    },
-    {
-      "routeId": "green-river-dennison-ferry-brownsville-city-park",
-      "slug": "green-river-dennison-ferry-brownsville-city-park",
-      "name": "Green River",
-      "reach": "Dennison Ferry to Brownsville City Park",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "w the 20-foot closure, so the route should ship with explicit experienced-water caution. Official route shape Dennison Ferry to Brownsville, about 23.6 mi NPS publishes Dennison Ferry to Green River Ferry as 7.6 miles, Green River Ferry to Houchin Ferry as 12."
     },
     {
       "routeId": "green-river-dennison-green-river-ferry",
@@ -6400,17 +6290,6 @@
       "category": "Minimum-only hazard review",
       "message": "Minimum-only route has hazard language but no safetyProfile.",
       "evidence": "Upper Pine River moving-water day from Edgetts to Lincoln Bridge, above the federal permit corridor. American Whitewater documents the exact reach, and the Hoxeyville USGS gauge gi"
-    },
-    {
-      "routeId": "pine-river-lincoln-peterson",
-      "slug": "pine-river-lincoln-peterson",
-      "name": "Pine River",
-      "reach": "Lincoln Bridge to Peterson Bridge",
-      "state": "Michigan",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Long Pine National Scenic River day from Lincoln Bridge through Elm Flats and Dobson Bridge to Peterson Bridge. Official access records identify the landings, and the same Hoxeyvil"
     },
     {
       "routeId": "pine-river-peterson-low-bridge",
@@ -6796,17 +6675,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "the same official DNR park-to-park pair used on the lower Snake route. Primary caution Storm debris After storms or high water, expect new strainers and obstructions that the gauge alone cannot fully price in. MN DNR river levels https://www.dnr.state.mn.us/r"
-    },
-    {
-      "routeId": "snake-river-county-road-9-snake-bit",
-      "slug": "snake-river-county-road-9-snake-bit",
-      "name": "Snake River",
-      "reach": "County Road 9 carry-in access to Snake Bit Access",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Lower Snake run below Cross Lake where the main question is simple: is Pine City clearly above the official low-water floor for the rapids below County Road 9? This is a stronger t"
     },
     {
       "routeId": "south-fork-zumbro-lake-zumbro",
@@ -8182,6 +8050,28 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "nominee confluence. Hazards Yellow Bridge Falls, private banks, boulder gardens Scout or portage Yellow Bridge Falls from river left while staying along the riverbank because nearby land is private. Expect 2- to 5-foot drops, a rocky Class II runout, and a led"
+    },
+    {
+      "routeId": "pine-river-richland-center-canoe-port-1-port-4",
+      "slug": "pine-river-richland-center-canoe-port-1-port-4",
+      "name": "Pine River",
+      "reach": "Canoe Port 1 / Bowen's Mill to Canoe Port 4 / Seminary Street",
+      "state": "Wisconsin",
+      "severity": "Medium",
+      "category": "Conditions",
+      "message": "Route text mentions condition hazards that need explicit safety review.",
+      "evidence": "target; treat 350+ cfs as high-water caution. Mostly a short learning-friendly urban river trail, but the Pine still has riffles, wood, muddy banks, bridge corridors, and high-water speed that can surprise beginners. Confidence is moderate-good: Richland Cent"
+    },
+    {
+      "routeId": "pine-river-richland-center-canoe-port-1-port-4",
+      "slug": "pine-river-richland-center-canoe-port-1-port-4",
+      "name": "Pine River",
+      "reach": "Canoe Port 1 / Bowen's Mill to Canoe Port 4 / Seminary Street",
+      "state": "Wisconsin",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "r levels below about 180 cfs as the better target; treat 350+ cfs as high-water caution. Mostly a short learning-friendly urban river trail, but the Pine still has riffles, wood, muddy banks, bridge corridors, and high-water speed that can surprise beginners."
     },
     {
       "routeId": "pine-river-county-n-wepco-5",

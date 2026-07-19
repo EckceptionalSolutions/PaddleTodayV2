@@ -95,14 +95,12 @@ export default function ContributePhotoScreen() {
       }
 
       const result = source === 'camera'
-        ? await ImagePicker.launchCameraAsync({
-            base64: true,
+          ? await ImagePicker.launchCameraAsync({
             mediaTypes: ['images'],
             quality: 0.82,
           })
-        : await ImagePicker.launchImageLibraryAsync({
+          : await ImagePicker.launchImageLibraryAsync({
             allowsMultipleSelection: true,
-            base64: true,
             mediaTypes: ['images'],
             orderedSelection: true,
             quality: 0.82,
@@ -267,7 +265,12 @@ export default function ContributePhotoScreen() {
                 {photos.map((photo) => (
                   <View key={photo.id} style={styles.photoThumbCard}>
                     <Image source={{ uri: photo.uri }} style={styles.photoThumb} resizeMode="cover" />
-                    <Pressable style={styles.removeButton} onPress={() => removePhoto(photo.id)}>
+                    <Pressable
+                      style={styles.removeButton}
+                      onPress={() => removePhoto(photo.id)}
+                      accessibilityRole="button"
+                      accessibilityLabel={`Remove ${photo.name}`}
+                    >
                       <Text style={styles.removeButtonText}>Remove</Text>
                     </Pressable>
                   </View>
@@ -369,7 +372,13 @@ function ConsentRow({
   onPress: () => void;
 }) {
   return (
-    <Pressable style={styles.consentRow} onPress={onPress}>
+    <Pressable
+      style={styles.consentRow}
+      onPress={onPress}
+      accessibilityRole="checkbox"
+      accessibilityLabel={label}
+      accessibilityState={{ checked }}
+    >
       <View style={[styles.checkbox, checked ? styles.checkboxChecked : null]}>
         {checked ? <MaterialCommunityIcons name="check" color={colors.surfaceStrong} size={15} /> : null}
       </View>

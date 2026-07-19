@@ -1,7 +1,7 @@
 import { PaddleTodayApiError } from '@paddletoday/api-client';
 import { Stack } from 'expo-router';
 import { useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useCreateRiverRequestMutation } from '../api/queries';
 import { SectionCard } from '../components/section-card';
@@ -26,8 +26,8 @@ export default function RequestRouteScreen() {
     const cleanAccessPoints = accessPoints.trim();
     const cleanNotes = notes.trim();
 
-    if (cleanRiverName.length < 3 || cleanArea.length < 3 || cleanNotes.length < 12) {
-      setStatus('Add a river name, city/state or area, and at least a sentence of detail.');
+    if (cleanRiverName.length < 3 || cleanArea.length < 3) {
+      setStatus('Add a river name and city/state or general area.');
       return;
     }
 
@@ -71,16 +71,18 @@ export default function RequestRouteScreen() {
   return (
     <>
       <Stack.Screen options={{ title: 'Request route' }} />
-      <ScrollView
-        style={styles.screen}
-        contentContainerStyle={[
-          styles.content,
-          {
-            paddingTop: spacing.lg + insets.top,
-            paddingBottom: spacing.xl + bottomContentInset,
-          },
-        ]}
-      >
+      <KeyboardAvoidingView style={styles.keyboardWrap} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+        <ScrollView
+          style={styles.screen}
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={[
+            styles.content,
+            {
+              paddingTop: spacing.lg + insets.top,
+              paddingBottom: spacing.xl + bottomContentInset,
+            },
+          ]}
+        >
         <View style={styles.hero}>
           <Text style={styles.kicker}>Route request</Text>
           <Text style={styles.title}>Request a route</Text>
@@ -106,10 +108,10 @@ export default function RequestRouteScreen() {
               multiline
             />
             <Field
-              label="Notes *"
+              label="Notes"
               value={notes}
               onChangeText={setNotes}
-              placeholder="Distance, hazards, shuttle notes, gauge links, or local demand."
+              placeholder="Optional: distance, hazards, shuttle notes, gauge links, or local demand."
               multiline
             />
             <Field
@@ -131,7 +133,8 @@ export default function RequestRouteScreen() {
             <Text style={styles.statusText}>{status}</Text>
           </View>
         </SectionCard>
-      </ScrollView>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </>
   );
 }
@@ -162,6 +165,8 @@ function Field({
         onChangeText={onChangeText}
         placeholder={placeholder}
         placeholderTextColor={colors.textMuted}
+        accessibilityLabel={label.replace(' *', '')}
+        accessibilityHint={label.includes('*') ? 'Required field.' : undefined}
         multiline={multiline}
         textAlignVertical={multiline ? 'top' : 'center'}
         keyboardType={keyboardType}
@@ -173,6 +178,10 @@ function Field({
 }
 
 const styles = StyleSheet.create({
+  keyboardWrap: {
+    flex: 1,
+    backgroundColor: colors.canvas,
+  },
   screen: {
     flex: 1,
     backgroundColor: colors.canvas,

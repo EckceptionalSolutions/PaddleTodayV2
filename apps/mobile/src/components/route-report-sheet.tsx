@@ -133,6 +133,7 @@ export function RouteReportSheet({
                   placeholder="Name or paddling handle"
                   placeholderTextColor={colors.textMuted}
                   style={styles.reportInput}
+                  accessibilityLabel="Contributor name or paddling handle"
                   value={name}
                   onChangeText={onNameChange}
                   onFocus={() => scrollFocusedInputIntoView('name')}
@@ -145,6 +146,7 @@ export function RouteReportSheet({
                   placeholder="you@example.com"
                   placeholderTextColor={colors.textMuted}
                   style={styles.reportInput}
+                  accessibilityLabel="Email address"
                   value={email}
                   onChangeText={onEmailChange}
                   onFocus={() => scrollFocusedInputIntoView('email')}
@@ -155,6 +157,7 @@ export function RouteReportSheet({
                 placeholder="Trip date, optional"
                 placeholderTextColor={colors.textMuted}
                 style={styles.reportInput}
+                accessibilityLabel="Trip date, optional"
                 value={tripDate}
                 onChangeText={onTripDateChange}
                 onFocus={() => scrollFocusedInputIntoView('tripDate')}
@@ -166,6 +169,7 @@ export function RouteReportSheet({
                 placeholder="What did you see? Access, wood, level, crowding, pace, or anything useful."
                 placeholderTextColor={colors.textMuted}
                 style={[styles.reportInput, styles.reportTextArea]}
+                accessibilityLabel="Route report"
                 value={report}
                 onChangeText={onReportChange}
                 onFocus={() => scrollFocusedInputIntoView('report')}
@@ -177,6 +181,7 @@ export function RouteReportSheet({
                 placeholder="Extra notes, optional"
                 placeholderTextColor={colors.textMuted}
                 style={[styles.reportInput, styles.reportNotesArea]}
+                accessibilityLabel="Extra notes, optional"
                 value={notes}
                 onChangeText={onNotesChange}
                 onFocus={() => scrollFocusedInputIntoView('notes')}
@@ -217,7 +222,13 @@ export function RouteReportSheet({
                 )}
               </View>
               {photos.length > 0 ? (
-                <Pressable style={styles.reportConsentRow} onPress={onTogglePhotoRights}>
+                <Pressable
+                  style={styles.reportConsentRow}
+                  onPress={onTogglePhotoRights}
+                  accessibilityRole="checkbox"
+                  accessibilityLabel="I own these photos or have permission to share them with Paddle Today."
+                  accessibilityState={{ checked: photoRightsConfirmed }}
+                >
                   <View style={[styles.checkbox, photoRightsConfirmed ? styles.checkboxChecked : null]}>
                     {photoRightsConfirmed ? <Text style={styles.checkboxMark}>✓</Text> : null}
                   </View>
@@ -226,7 +237,13 @@ export function RouteReportSheet({
                   </Text>
                 </Pressable>
               ) : null}
-              <Pressable style={styles.reportConsentRow} onPress={onToggleContactConsent}>
+              <Pressable
+                style={styles.reportConsentRow}
+                onPress={onToggleContactConsent}
+                accessibilityRole="checkbox"
+                accessibilityLabel="It is okay to contact me if more detail is needed."
+                accessibilityState={{ checked: contactConsentConfirmed }}
+              >
                 <View style={[styles.checkbox, contactConsentConfirmed ? styles.checkboxChecked : null]}>
                   {contactConsentConfirmed ? <Text style={styles.checkboxMark}>✓</Text> : null}
                 </View>

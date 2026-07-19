@@ -3,10 +3,10 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { FlatList, Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useRiverSummaryQuery } from '../api/queries';
-import { AppErrorState, AppLoadingState } from '../components/app-state';
+import { useRiverGeometryQuery, useRiverSummaryQuery } from '../api/queries';
+import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
 import { ExploreSearchBar } from '../components/explore-controls';
 import {
   ExploreFilterSheet,
@@ -26,6 +26,7 @@ import {
   type MapSheetSnap,
 } from '../components/explore-route-drawer';
 import { RoutePlotMap, type RoutePlotMapHandle, type RoutePlotPoint } from '../components/route-plot-map';
+import { RiverCard } from '../components/river-card';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { resolveApiBaseUrl } from '../lib/api-base-url';
 import { androidBottomInset } from '../lib/safe-area';
@@ -39,6 +40,7 @@ import {
   type ExploreIntentId,
 } from '../lib/explore-intents';
 import { trackAppEvent } from '../lib/observability';
+import { endpointSnappedRouteCoordinates } from '../lib/river-geometry';
 import { buildRouteGroupMeta, routeGroupMetaForRoute } from '../lib/route-groups';
 import { isRecord, parseJson } from '../lib/storage';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
@@ -56,6 +58,7 @@ interface ExplorePreferences {
 
 type MapCoordinate = { latitude: number; longitude: number };
 type SummaryAccessPoint = NonNullable<RiverSummaryApiItem['river']['accessPoints']>[number];
+const MAX_MAP_POINTS = 200;
 
 const confidenceRank = {
   High: 3,
@@ -81,6 +84,7 @@ export default function ExploreScreen() {
   const [filters, setFilters] = useState<ExploreFilters>(defaultFilters);
   const [draftFilters, setDraftFilters] = useState<ExploreFilters>(defaultFilters);
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
   const [preferencesHydrated, setPreferencesHydrated] = useState(false);
   const appliedStoredLocationDefaultRef = useRef(false);
   const appliedIntentRef = useRef<string | null>(null);
@@ -203,9 +207,9 @@ export default function ExploreScreen() {
 
     void AsyncStorage.setItem(
       EXPLORE_PREFERENCES_STORAGE_KEY,
-      JSON.stringify({ filters, viewMode: 'map' })
+      JSON.stringify({ filters, viewMode })
     );
-  }, [filters, preferencesHydrated]);
+  }, [filters, preferencesHydrated, viewMode]);
 
   useEffect(() => {
     if (results.length === 0) {
@@ -259,6 +263,8 @@ export default function ExploreScreen() {
         activeFilterCount={activeFilterCount}
         filters={filters}
         requestedIntent={requestedIntent}
+        viewMode={viewMode}
+        onViewModeChange={setViewMode}
         mapHeight={windowHeight}
         results={results}
         selectedRiver={selectedRiver}
@@ -268,6 +274,9 @@ export default function ExploreScreen() {
         topInset={insets.top}
         userLocation={location}
         routeCounts={routeCounts}
+        isRefetchError={summaryQuery.isRefetchError}
+        dataUpdatedAt={summaryQuery.dataUpdatedAt}
+        onRetry={() => void summaryQuery.refetch()}
         onFilterPress={() => setFiltersOpen(true)}
         onContributePhotos={(slug) => {
           trackAppEvent('route_photo_contribution_started', { slug, source: 'explore_tray' });
@@ -308,6 +317,7 @@ export default function ExploreScreen() {
       const parsed = parseJson(await AsyncStorage.getItem(EXPLORE_PREFERENCES_STORAGE_KEY));
       if (isExplorePreferences(parsed) && !requestedIntent && !requestedReset && !requestedState) {
         setFilters(normalizeExploreFilters(parsed.filters));
+        setViewMode(parsed.viewMode ?? 'map');
       }
     } catch {
       // Leave the default Explore setup if local preferences are unavailable.
@@ -328,6 +338,8 @@ function FullScreenExploreMap({
   activeFilterCount,
   filters,
   requestedIntent,
+  viewMode,
+  onViewModeChange,
   mapHeight,
   results,
   selectedRiver,
@@ -337,6 +349,9 @@ function FullScreenExploreMap({
   topInset,
   userLocation,
   routeCounts,
+  isRefetchError,
+  dataUpdatedAt,
+  onRetry,
   onFilterPress,
   onFocusNearest,
   onContributePhotos,
@@ -352,6 +367,8 @@ function FullScreenExploreMap({
   activeFilterCount: number;
   filters: ExploreFilters;
   requestedIntent: ExploreIntentId | null;
+  viewMode: 'map' | 'list';
+  onViewModeChange: (mode: 'map' | 'list') => void;
   mapHeight: number;
   results: ExploreRiver[];
   selectedRiver: ExploreRiver | null;
@@ -361,6 +378,9 @@ function FullScreenExploreMap({
   topInset: number;
   userLocation: { latitude: number; longitude: number; label: string } | null;
   routeCounts: ReadonlyMap<string, number>;
+  isRefetchError: boolean;
+  dataUpdatedAt?: number;
+  onRetry: () => void;
   onFilterPress: () => void;
   onFocusNearest: () => void;
   onContributePhotos: (slug: string) => void;
@@ -375,7 +395,26 @@ function FullScreenExploreMap({
 }) {
   const [sheetSnap, setSheetSnap] = useState<MapSheetSnap>('half');
   const mapRef = useRef<RoutePlotMapHandle | null>(null);
-  const points = useExploreMapPoints(results, routeCounts);
+  const selectedGeometryQuery = useRiverGeometryQuery(selectedSlug ?? '');
+  const mapResults = useMemo(() => {
+    if (results.length <= MAX_MAP_POINTS) {
+      return results;
+    }
+
+    const withoutSelected = selectedRiver
+      ? results.filter((river) => river.river.slug !== selectedRiver.river.slug)
+      : results;
+    return (selectedRiver ? [selectedRiver, ...withoutSelected] : withoutSelected).slice(0, MAX_MAP_POINTS);
+  }, [results, selectedRiver]);
+  const points = useExploreMapPoints(mapResults, routeCounts);
+  const selectedCanonicalSpan = useMemo(
+    () => (selectedRiver ? endpointSnappedRouteCoordinates(selectedGeometryQuery.data, routeSpanCoordinatesForRiver(selectedRiver)) : null),
+    [selectedGeometryQuery.data, selectedRiver]
+  );
+  const canonicalSpans = useMemo(
+    () => (selectedSlug && selectedCanonicalSpan ? new Map([[selectedSlug, selectedCanonicalSpan]]) : undefined),
+    [selectedCanonicalSpan, selectedSlug]
+  );
   const requesting = status === 'requesting';
   const floatingControlBottom = (selectedRiver ? sheetHeightValue(sheetSnap) : 0) + spacing.md;
   const userOutOfRange = Boolean(userLocation && results.length === 0 && activeFilterCount === 0);
@@ -387,7 +426,7 @@ function FullScreenExploreMap({
         body: descriptionForExploreIntent(requestedIntent, Boolean(userLocation)),
       }
     : null;
-  const overlayTop = topInset + (intentBanner ? 222 : 154);
+  const overlayTop = topInset + (intentBanner ? 284 : 216);
 
   useEffect(() => {
     if (!filters.query.trim() || points.length === 0) {
@@ -421,6 +460,29 @@ function FullScreenExploreMap({
     onFocusNearest();
   }
 
+  if (viewMode === 'list') {
+    return (
+      <ExploreListView
+        activeFilterCount={activeFilterCount}
+        bottomInset={bottomInset}
+        dataUpdatedAt={dataUpdatedAt}
+        filters={filters}
+        isRefetchError={isRefetchError}
+        results={results}
+        routeCounts={routeCounts}
+        topInset={topInset}
+        onFilterPress={onFilterPress}
+        onSearchChange={onSearchChange}
+        onOpenRoute={onOpenRoute}
+        onOpenRiverRoutes={onOpenRiverRoutes}
+        onRetry={onRetry}
+        onToggleSaved={onToggleSaved}
+        onViewModeChange={onViewModeChange}
+        isSaved={isSaved}
+      />
+    );
+  }
+
   return (
     <View style={styles.fullMapScreen}>
       {results.length > 0 ? (
@@ -428,6 +490,7 @@ function FullScreenExploreMap({
           ref={mapRef}
           points={points}
           selectedId={selectedSlug}
+          canonicalSpans={canonicalSpans}
           userLocation={userLocation}
           onSelectPoint={(point) => {
             setSheetSnap('half');
@@ -446,6 +509,11 @@ function FullScreenExploreMap({
       )}
 
       <View style={[styles.fullMapTopControls, { paddingTop: topInset + spacing.md }]}>
+        <AppRefreshNotice
+          isError={isRefetchError}
+          dataUpdatedAt={dataUpdatedAt}
+          onRetry={onRetry}
+        />
         <ExploreSearchBar query={filters.query} onQueryChange={onSearchChange} />
         <View style={styles.mapUnderSearchRow}>
           <Pressable
@@ -471,13 +539,17 @@ function FullScreenExploreMap({
           <View
             style={styles.mapStatusChip}
             accessibilityRole="text"
-            accessibilityLabel={`${results.length} routes`}
-          >
-            <Text style={styles.mapStatusChipText} numberOfLines={1}>
-              {results.length} routes
-            </Text>
-          </View>
-        </View>
+             accessibilityLabel={`${mapResults.length} of ${results.length} routes shown on map`}
+           >
+             <Text style={styles.mapStatusChipText} numberOfLines={1}>
+               {mapResults.length === results.length ? `${results.length} routes` : `${mapResults.length} of ${results.length} routes`}
+             </Text>
+           </View>
+         </View>
+        <ExploreViewToggle mode={viewMode} onChange={onViewModeChange} />
+        {mapResults.length < results.length ? (
+          <Text style={styles.mapCoverageNote}>Showing the highest-ranked routes on the map. Use List for all results.</Text>
+        ) : null}
         {intentBanner ? (
           <View style={styles.intentBanner}>
             <View style={styles.intentBannerCopy}>
@@ -578,6 +650,145 @@ function FullScreenExploreMap({
           onToggleSaved={onToggleSaved}
         />
       ) : null}
+    </View>
+  );
+}
+
+function ExploreListView({
+  activeFilterCount,
+  bottomInset,
+  dataUpdatedAt,
+  filters,
+  isRefetchError,
+  results,
+  routeCounts,
+  topInset,
+  onFilterPress,
+  onOpenRoute,
+  onOpenRiverRoutes,
+  onRetry,
+  onSearchChange,
+  onToggleSaved,
+  onViewModeChange,
+  isSaved,
+}: {
+  activeFilterCount: number;
+  bottomInset: number;
+  dataUpdatedAt?: number;
+  filters: ExploreFilters;
+  isRefetchError: boolean;
+  results: ExploreRiver[];
+  routeCounts: ReadonlyMap<string, number>;
+  topInset: number;
+  onFilterPress: () => void;
+  onOpenRoute: (route: ExploreRiver) => void;
+  onOpenRiverRoutes: (route: ExploreRiver) => void;
+  onRetry: () => void;
+  onSearchChange: (query: string) => void;
+  onToggleSaved: (river: ExploreRiver) => void;
+  onViewModeChange: (mode: 'map' | 'list') => void;
+  isSaved: (slug: string) => boolean;
+}) {
+  function openRoute(route: ExploreRiver) {
+    if (route.river.riverId && routeGroupMetaForRoute(route, routeCounts).routeCount > 1) {
+      onOpenRiverRoutes(route);
+      return;
+    }
+
+    onOpenRoute(route);
+  }
+
+  return (
+    <View style={styles.exploreListScreen}>
+      <FlatList
+        data={results}
+        keyExtractor={(item) => item.river.slug}
+        contentContainerStyle={[
+          styles.exploreListContent,
+          { paddingTop: topInset + spacing.md, paddingBottom: spacing.xl + bottomInset },
+        ]}
+        ListHeaderComponent={(
+          <View style={styles.exploreListHeader}>
+            <AppRefreshNotice
+              isError={isRefetchError}
+              dataUpdatedAt={dataUpdatedAt}
+              onRetry={onRetry}
+            />
+            <View style={styles.exploreListTitleRow}>
+              <View style={styles.exploreListTitleCopy}>
+                <Text style={styles.exploreListTitle}>Explore routes</Text>
+                <Text style={styles.exploreListSubtitle}>{results.length} matching routes</Text>
+              </View>
+              <ExploreViewToggle mode="list" onChange={onViewModeChange} />
+            </View>
+            <ExploreSearchBar query={filters.query} onQueryChange={onSearchChange} />
+            <Pressable
+              style={[styles.listFilterButton, activeFilterCount > 0 ? styles.listFilterButtonActive : null]}
+              onPress={onFilterPress}
+              accessibilityRole="button"
+              accessibilityLabel={activeFilterCount > 0 ? `${activeFilterCount} active filters` : 'Filters'}
+            >
+              <MaterialCommunityIcons name="tune-variant" color={activeFilterCount > 0 ? colors.surfaceStrong : colors.accent} size={18} />
+              <Text style={[styles.listFilterButtonText, activeFilterCount > 0 ? styles.listFilterButtonTextActive : null]}>
+                {activeFilterCount > 0 ? `Filters ${activeFilterCount}` : 'Filters'}
+              </Text>
+            </Pressable>
+          </View>
+        )}
+        ListEmptyComponent={(
+          <View style={styles.exploreListEmpty}>
+            <MaterialCommunityIcons name="map-search-outline" color={colors.textMuted} size={32} />
+            <Text style={styles.mapEmptyTitle}>No matching routes</Text>
+            <Text style={styles.mapEmptyText}>Broaden filters or clear search.</Text>
+          </View>
+        )}
+        renderItem={({ item }) => (
+          <RiverCard
+            river={item}
+            travelLabel={item.travelLabel ?? undefined}
+            showPhoto
+            saved={isSaved(item.river.slug)}
+            onToggleSaved={() => onToggleSaved(item)}
+            onPress={() => openRoute(item)}
+          />
+        )}
+        ItemSeparatorComponent={() => <View style={styles.exploreListSeparator} />}
+      />
+    </View>
+  );
+}
+
+function ExploreViewToggle({
+  mode,
+  onChange,
+}: {
+  mode: 'map' | 'list';
+  onChange: (mode: 'map' | 'list') => void;
+}) {
+  return (
+    <View style={styles.viewModeToggle} accessibilityRole="tablist">
+      {(['map', 'list'] as const).map((option) => {
+        const selected = mode === option;
+        return (
+          <Pressable
+            key={option}
+            style={[styles.viewModeButton, selected ? styles.viewModeButtonSelected : null]}
+            onPress={() => onChange(option)}
+            accessibilityRole="tab"
+            accessibilityLabel={`${option} view`}
+            accessibilityState={{ selected }}
+          >
+            <MaterialCommunityIcons
+              name={option === 'map' ? 'map-outline' : 'format-list-bulleted'}
+              color={selected ? colors.surfaceStrong : colors.accent}
+              size={16}
+            />
+            <Text style={[styles.viewModeButtonText, selected ? styles.viewModeButtonTextSelected : null]}>
+              {option === 'map' ? 'Map' : 'List'}
+            </Text>
+          </Pressable>
+        );
+      })}
     </View>
   );
 }
@@ -905,6 +1116,109 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontSize: 12,
     fontWeight: '900',
+  },
+  mapCoverageNote: {
+    color: colors.surfaceStrong,
+    fontSize: 11,
+    lineHeight: 15,
+    fontWeight: '800',
+    textShadowColor: 'rgba(0, 0, 0, 0.35)',
+    textShadowRadius: 4,
+  },
+  viewModeToggle: {
+    alignSelf: 'flex-start',
+    flexDirection: 'row',
+    borderRadius: radius.pill,
+    backgroundColor: 'rgba(255, 255, 255, 0.96)',
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: 3,
+    gap: 3,
+    shadowColor: '#000',
+    shadowOpacity: 0.12,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+  viewModeButton: {
+    minHeight: 32,
+    borderRadius: radius.pill,
+    paddingHorizontal: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+  },
+  viewModeButtonSelected: {
+    backgroundColor: colors.accent,
+  },
+  viewModeButtonText: {
+    color: colors.accent,
+    fontSize: 11,
+    fontWeight: '900',
+  },
+  viewModeButtonTextSelected: {
+    color: colors.surfaceStrong,
+  },
+  exploreListScreen: {
+    flex: 1,
+    backgroundColor: colors.canvas,
+  },
+  exploreListContent: {
+    paddingHorizontal: spacing.md,
+  },
+  exploreListHeader: {
+    gap: spacing.sm,
+    marginBottom: spacing.md,
+  },
+  exploreListTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
+  exploreListTitleCopy: {
+    flex: 1,
+    gap: 3,
+  },
+  exploreListTitle: {
+    color: colors.text,
+    fontSize: 24,
+    fontWeight: '900',
+  },
+  exploreListSubtitle: {
+    color: colors.textMuted,
+    fontSize: 13,
+  },
+  listFilterButton: {
+    minHeight: 42,
+    alignSelf: 'flex-start',
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+    paddingHorizontal: 14,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 7,
+  },
+  listFilterButtonActive: {
+    backgroundColor: colors.accent,
+    borderColor: colors.accent,
+  },
+  listFilterButtonText: {
+    color: colors.accent,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  listFilterButtonTextActive: {
+    color: colors.surfaceStrong,
+  },
+  exploreListSeparator: {
+    height: spacing.md,
+  },
+  exploreListEmpty: {
+    alignItems: 'center',
+    gap: spacing.sm,
+    padding: spacing.xl,
   },
   intentBanner: {
     minHeight: 50,

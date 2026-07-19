@@ -1096,14 +1096,20 @@ function buildScoreBreakdown(args: {
   let finalScore = Math.round(args.rawTripScore);
   const capReasons: string[] = [];
 
+  const applyScoreLimit = (limit: number, reason: string) => {
+    if (finalScore <= limit) {
+      return;
+    }
+    finalScore = limit;
+    capReasons.push(reason);
+  };
+
   if (typeof args.weather?.temperatureF === 'number' && args.weather.temperatureF < 35) {
-    finalScore = Math.min(finalScore, 70);
-    capReasons.push('Near-freezing air caps today at 70.');
+    applyScoreLimit(70, "Cold air limits today's score to 70 or lower.");
   }
 
   if ((args.weather?.gustMph ?? 0) >= 30 || (args.weather?.next12hWindMphMax ?? 0) > 20) {
-    finalScore = Math.min(finalScore, 75);
-    capReasons.push('High wind caps today at 75.');
+    applyScoreLimit(75, "Strong wind limits today's score to 75 or lower.");
   }
 
   const rainOrStormsSoon =
@@ -1116,13 +1122,14 @@ function buildScoreBreakdown(args: {
     args.weather?.next12hStormRisk === true;
 
   if (rainOrStormsSoon && strongRainOrStormSignal) {
-    finalScore = Math.min(finalScore, 65);
-    capReasons.push('Heavy rain or storms likely soon limit the score to 65.');
+    applyScoreLimit(65, "Heavy rain or storms likely soon limit today's score to 65 or lower.");
   }
 
   if (args.river.profile.thresholdModel === 'minimum-only') {
-    finalScore = Math.min(finalScore, MINIMUM_ONLY_SCORE_CAP);
-    capReasons.push(`Minimum-only guidance caps the trip score at ${MINIMUM_ONLY_SCORE_CAP}.`);
+    applyScoreLimit(
+      MINIMUM_ONLY_SCORE_CAP,
+      `This route has minimum-only gauge guidance, so today's score is limited to ${MINIMUM_ONLY_SCORE_CAP} or lower.`
+    );
   }
 
   finalScore = clamp(finalScore, 0, 100);

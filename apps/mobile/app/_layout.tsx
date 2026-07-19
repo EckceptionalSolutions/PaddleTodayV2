@@ -4,7 +4,8 @@ import { StatusBar } from 'expo-status-bar';
 import { Stack, router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { usePathname } from 'expo-router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import 'react-native-reanimated';
 import {
   addNotificationResponseListener,
@@ -47,6 +48,7 @@ const navigationTheme = {
 
 function RootLayout() {
   const pathname = usePathname();
+  const [onboardingChecked, setOnboardingChecked] = useState(pathname === '/welcome');
 
   useEffect(() => {
     void migrateOnboardingStorage();
@@ -55,8 +57,15 @@ function RootLayout() {
   useEffect(() => {
     let active = true;
     void AsyncStorage.getItem(WELCOME_COMPLETED_STORAGE_KEY).then((completed) => {
-      if (active && completed !== '1' && pathname !== '/welcome') {
+      if (!active) return;
+      if (completed !== '1' && pathname !== '/welcome') {
         router.replace('/welcome');
+        return;
+      }
+      setOnboardingChecked(true);
+    }).catch(() => {
+      if (active) {
+        setOnboardingChecked(true);
       }
     });
 
@@ -120,10 +129,25 @@ function RootLayout() {
           <Stack.Screen name="terms" options={{ title: 'Terms' }} />
         </Stack>
         <FeedbackExperience pathname={pathname} />
+        {!onboardingChecked && pathname !== '/welcome' ? (
+          <View style={styles.onboardingGate} accessibilityLabel="Loading Paddle Today">
+            <ActivityIndicator color={colors.accent} />
+          </View>
+        ) : null}
       </ThemeProvider>
     </AppProviders>
   );
 }
+
+const styles = StyleSheet.create({
+  onboardingGate: {
+    ...StyleSheet.absoluteFillObject,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.canvas,
+    zIndex: 20,
+  },
+});
 
 function redirectFromNotification(data: unknown) {
   const url = notificationUrl(data);

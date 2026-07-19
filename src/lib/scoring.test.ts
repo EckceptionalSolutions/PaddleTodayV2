@@ -319,7 +319,7 @@ describe('scoreRiverCondition', () => {
     expect(breakdown.finalScore).toBe(65);
     expect(breakdown.finalScore - breakdown.rawTripScore).toBeLessThan(0);
     expect(displayedTotal).toBe(breakdown.finalScore);
-    expect(breakdown.capReasons).toContain('Heavy rain or storms likely soon limit the score to 65.');
+    expect(breakdown.capReasons).toContain("Heavy rain or storms likely soon limit today's score to 65 or lower.");
   });
 
   it('does not cap the score for low-probability rain merely because it starts soon', () => {
@@ -348,7 +348,37 @@ describe('scoreRiverCondition', () => {
     expect(result.score).toBe(result.scoreBreakdown.rawTripScore);
     expect(result.score).toBeGreaterThan(65);
     expect(result.scoreBreakdown.capReasons).not.toContain(
-      'Heavy rain or storms likely soon limit the score to 65.'
+      "Heavy rain or storms likely soon limit today's score to 65 or lower."
+    );
+  });
+
+  it('does not show a score limit reason when the score was already below that limit', () => {
+    const result = scoreRiverCondition({
+      river: baseRiver,
+      gauge: {
+        ...makeGauge(230, 'steady', 0),
+        observedAt: '2026-05-10T11:00:00Z',
+      },
+      weather: {
+        ...weather,
+        observedAt: '2026-05-10T11:15:00Z',
+        temperatureF: 72,
+        windMph: 4,
+        gustMph: 7,
+        next12hWindMphMax: 7,
+        next12hPrecipProbabilityMax: 80,
+        next12hPrecipitationIn: 0.35,
+        next12hPrecipStartsInHours: 1,
+        next12hStormRisk: false,
+        rainTimingLabel: 'Imminent',
+      },
+      now: new Date('2026-05-10T12:00:00Z'),
+    });
+
+    expect(result.scoreBreakdown.rawTripScore).toBeLessThanOrEqual(65);
+    expect(result.score).toBe(result.scoreBreakdown.rawTripScore);
+    expect(result.scoreBreakdown.capReasons).not.toContain(
+      "Heavy rain or storms likely soon limit today's score to 65 or lower."
     );
   });
 

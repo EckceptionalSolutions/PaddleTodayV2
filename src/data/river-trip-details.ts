@@ -3264,15 +3264,15 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No special permit is known for this Minnesota DNR water-trail segment. Follow posted public-access, state-forest, and parking rules at both ends.',
       camping:
-        'Treat this as a day trip, but Snake River Campground and River\'s End Campground are useful nearby campground/base-camp anchors if you want to stage the shuttle.',
+        'Treat this as a day trip. Snake River Campground and River\'s End Campground are nearby options if you want to stay close to the shuttle.',
       summary:
         'Put in at County Road 9 and finish near Snake Bit at the Snake/St. Croix confluence. This lower Snake route has a strong official low-water warning, so use the Pine City gauge first and do not expect a worthwhile run when it is hugging the floor.',
       accessCaveats: [
-        'County Road 9 is clearly named by MN DNR as a carry-in access with the gauge on the bridge, but it is still a bridge access rather than a polished park launch.',
-        'Snake Bit is clearly named on the MN DNR route map, but the saved finish coordinate is anchored by the nearby official Snake/St. Croix public-water-access record rather than a standalone Snake Bit facility page.',
+        'MN DNR marks County Road 9 as a carry-in access and puts the gauge on the bridge. Expect a simple bridge access, not a developed park launch.',
+        'MN DNR maps Snake Bit at the St. Croix confluence. Before launching, confirm the finish using the nearby official Snake/St. Croix public access and any posted signs at the landing.',
       ],
       watchFor: [
-        'Class I rapids and scrape-heavy shallow water immediately below County Road 9.',
+        'A manmade dam/drop immediately below County Road 9 after leaving Cross Lake. A July 18, 2026 paddler report described a large center grate in the drop, rocky current below it, and a portage around the feature; scout first and portage or skip if the line is not clearly safe.',
         'Fresh wood, strainers, and debris after storms or rapid snowmelt.',
         'Wind and wave exposure as you approach the St. Croix confluence.',
       ],

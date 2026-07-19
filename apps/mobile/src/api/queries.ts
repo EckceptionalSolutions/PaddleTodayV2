@@ -16,6 +16,7 @@ export const riverQueryKeys = {
   summary: ['river-summary'] as const,
   weekend: ['weekend-summary'] as const,
   detail: (slug: string) => ['river-detail', slug] as const,
+  geometry: (slug: string) => ['river-geometry', slug] as const,
   group: (riverId: string) => ['river-group', riverId] as const,
   history: (slug: string, days: number) => ['river-history', slug, days] as const,
   community: (slug: string) => ['river-community', slug] as const,
@@ -79,6 +80,17 @@ export function useRouteCommunityQuery(slug: string) {
 export function useCreateRiverAlertMutation() {
   return useMutation({
     mutationFn: (input: CreateRiverAlertRequest) => apiClient.createRiverAlert(input),
+  });
+}
+
+export function useRiverGeometryQuery(slug: string) {
+  return useQuery({
+    queryKey: riverQueryKeys.geometry(slug),
+    enabled: Boolean(slug),
+    queryFn: ({ signal }) => apiClient.getRiverGeometry(slug, { signal }),
+    staleTime: 24 * 60 * 60 * 1000,
+    gcTime: 7 * 24 * 60 * 60 * 1000,
+    retry: false,
   });
 }
 

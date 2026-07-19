@@ -48,7 +48,12 @@ export function RoutePhotoCard({
           </Text>
         </View>
       ) : null}
-      <Pressable style={[styles.contributeButton, compact ? styles.contributeButtonCompact : null]} onPress={onContributePhotos}>
+      <Pressable
+        style={[styles.contributeButton, compact ? styles.contributeButtonCompact : null]}
+        onPress={onContributePhotos}
+        accessibilityRole="button"
+        accessibilityLabel={`Contribute photos for ${river.reach ?? river.name ?? 'this route'}`}
+      >
         <MaterialCommunityIcons name="camera-plus" color={colors.surfaceStrong} size={compact ? 17 : 18} />
         <Text style={[styles.contributeText, compact ? styles.contributeTextCompact : null]}>
           Contribute Photos

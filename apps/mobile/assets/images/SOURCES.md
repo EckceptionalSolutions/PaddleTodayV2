@@ -1,5 +1,10 @@
 # Mobile image sources
 
+## `welcome-map-preview.png`
+
+- Source: User-provided screenshot of the Paddle Today Explore map preview, supplied in Codex on 2026-07-17.
+- Processing: Copied into the mobile bundle without edits.
+
 ## `welcome-river.jpg`
 
 - Title: Aerial Photography of a River and Forest

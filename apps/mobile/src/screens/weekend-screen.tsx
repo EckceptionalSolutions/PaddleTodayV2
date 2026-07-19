@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Pressable, RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useWeekendSummaryQuery } from '../api/queries';
-import { AppErrorState, AppLoadingState } from '../components/app-state';
+import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
 import { SectionCard } from '../components/section-card';
 import { WeekendRiverCard } from '../components/weekend-river-card';
 import { useStoredLocation } from '../hooks/use-stored-location';
@@ -127,6 +127,11 @@ export default function WeekendScreen() {
         />
       }
     >
+      <AppRefreshNotice
+        isError={weekendQuery.isRefetchError}
+        dataUpdatedAt={weekendQuery.dataUpdatedAt}
+        onRetry={() => void weekendQuery.refetch()}
+      />
       <View style={styles.hero}>
         <Text style={styles.title}>Plan the weekend</Text>
         <Text style={styles.subtitle}>

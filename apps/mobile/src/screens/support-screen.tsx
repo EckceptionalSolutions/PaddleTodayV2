@@ -150,6 +150,9 @@ export default function SupportScreen() {
                     key={state.state}
                     style={[styles.supportedStateChip, active ? styles.supportedStateChipActive : null]}
                     onPress={() => setSelectedSupportedState(state.state)}
+                    accessibilityRole="tab"
+                    accessibilityLabel={`${stateLabel(state.state)} supported rivers`}
+                    accessibilityState={{ selected: active }}
                     android_ripple={{ color: colors.canvasMuted }}
                   >
                     <Text style={[styles.supportedStateChipText, active ? styles.supportedStateChipTextActive : null]}>
@@ -174,6 +177,8 @@ export default function SupportScreen() {
                         style={styles.supportedRiverRow}
                         onPress={() => openSupportedRiver(router, river, routeCount)}
                         android_ripple={{ color: colors.canvasMuted }}
+                        accessibilityRole="button"
+                        accessibilityLabel={`Open ${river.river.name}, ${river.river.reach}`}
                       >
                         <View style={[styles.supportedScore, supportScoreTone(river.rating).score]}>
                           <Text style={[styles.supportedScoreText, supportScoreTone(river.rating).text]}>{river.score}</Text>
@@ -275,7 +280,7 @@ function ActionRow({
   onPress: () => void;
 }) {
   return (
-    <Pressable style={styles.actionRow} onPress={onPress}>
+    <Pressable style={styles.actionRow} onPress={onPress} accessibilityRole="button" accessibilityLabel={title}>
       <View style={styles.rowIcon}>
         <MaterialCommunityIcons name={icon} color={colors.accent} size={19} />
       </View>

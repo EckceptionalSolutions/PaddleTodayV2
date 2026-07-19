@@ -2,8 +2,9 @@ import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import type { Dispatch, SetStateAction } from 'react';
 import { useEffect, useMemo, useRef } from 'react';
-import { Animated, Linking, PanResponder, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { Animated, PanResponder, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { mapUrlForAccessPoint } from '../lib/maps';
+import { openExternalUrl } from '../lib/external-links';
 import { routeDecisionLine, routePreviewFactLine } from '../lib/route-facts';
 import { RoutePhotoCard } from './route-photo-card';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -118,7 +119,7 @@ export function ExploreRouteDrawer({
         <Pressable
           style={[styles.mapDirectionsButton, selectedDirectionsUrl ? null : styles.mapDirectionsButtonDisabled]}
           disabled={!selectedDirectionsUrl}
-          onPress={() => selectedDirectionsUrl ? void Linking.openURL(selectedDirectionsUrl) : undefined}
+          onPress={() => selectedDirectionsUrl ? void openExternalUrl(selectedDirectionsUrl, 'Directions') : undefined}
           accessibilityRole="button"
           accessibilityLabel={`Directions to ${selectedRiver.river.name} put-in`}
         >

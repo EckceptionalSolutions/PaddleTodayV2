@@ -36,6 +36,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   selectedId?: string | null;
   userLocation?: { latitude: number; longitude: number; label?: string | null } | null;
   backgroundSpanCoordinates?: RouteSpanCoordinate[] | null;
+  canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>;
   onSelectPoint?: (point: RoutePlotPoint) => void;
   height?: number;
   showFooter?: boolean;
@@ -47,6 +48,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   selectedId,
   userLocation,
   backgroundSpanCoordinates,
+  canonicalSpans,
   onSelectPoint,
   height = 290,
   showFooter = true,
@@ -55,7 +57,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   fitToAllOnReady = false,
 }, ref) {
   const backgroundSpan = finiteSpanCoordinates(backgroundSpanCoordinates);
-  const bounds = getBounds(points, userLocation, backgroundSpan);
+  const bounds = getBounds(points, userLocation, backgroundSpan, canonicalSpans);
   const visiblePoints = useMemo(() => points.filter(isFinitePoint), [points]);
   const nativeMarkerPoints = useMemo(
     () => [...visiblePoints].sort(compareMapPointIds),
@@ -66,15 +68,15 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     [selectedId, visiblePoints]
   );
   const selectedSpan = useMemo(
-    () => (selectedId && selectedPoint ? routeSpanCoordinates(selectedPoint) : []),
-    [selectedId, selectedPoint]
+    () => (selectedId && selectedPoint ? routeSpanCoordinates(selectedPoint, canonicalSpans) : []),
+    [canonicalSpans, selectedId, selectedPoint]
   );
   const nativeMaps = getNativeMaps();
   const mapRef = useRef<NativeMapView | null>(null);
   const previousSelectedIdRef = useRef<string | null | undefined>(selectedId);
   const previousPointSignatureRef = useRef<string | null>(null);
   const initialRegion = regionFromBounds(bounds);
-  const pointSignature = nativeMarkerPoints.map(mapPointSignature).join('|');
+  const pointSignature = nativeMarkerPoints.map((point) => mapPointSignature(point, canonicalSpans)).join('|');
   const hasUserLocation = Boolean(
     userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude)
   );
@@ -109,7 +111,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
     const coordinates = [
       ...backgroundSpan,
-      ...visiblePoints.flatMap((point) => routeSpanCoordinates(point)),
+      ...visiblePoints.flatMap((point) => routeSpanCoordinates(point, canonicalSpans)),
     ];
 
     if (userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude)) {
@@ -165,7 +167,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     });
   }
 
-  useImperativeHandle(ref, () => ({ focusSelected, focusAll, focusUserArea }), [height, selectedPoint, nativeMaps, visiblePoints, userLocation, showFooter]);
+  useImperativeHandle(ref, () => ({ focusSelected, focusAll, focusUserArea }), [canonicalSpans, height, selectedPoint, nativeMaps, visiblePoints, userLocation, showFooter]);
 
   useEffect(() => {
     const previousSelectedId = previousSelectedIdRef.current;
@@ -176,7 +178,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     }
 
     focusSelected();
-  }, [nativeMaps, selectedId, selectedPoint]);
+  }, [canonicalSpans, nativeMaps, selectedId, selectedPoint]);
 
   useEffect(() => {
     setRegionDelta({
@@ -194,7 +196,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     }
 
     focusAll();
-  }, [nativeMaps, pointSignature, userLocation]);
+  }, [canonicalSpans, nativeMaps, pointSignature, userLocation]);
 
   useEffect(() => {
     if (!nativeMaps) {
@@ -474,7 +476,12 @@ function isFiniteCoordinate(point: RouteSpanCoordinate) {
   return Number.isFinite(point.latitude) && Number.isFinite(point.longitude);
 }
 
-function routeSpanCoordinates(point: RoutePlotPoint): RouteSpanCoordinate[] {
+function routeSpanCoordinates(point: RoutePlotPoint, canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>): RouteSpanCoordinate[] {
+  const canonicalSpan = finiteSpanCoordinates(canonicalSpans?.get(point.id));
+  if (canonicalSpan.length >= 2) {
+    return canonicalSpan;
+  }
+
   const span = finiteSpanCoordinates(point.spanCoordinates);
   if (span.length >= 2) {
     return span;
@@ -491,24 +498,28 @@ function compareMapPointIds(left: RoutePlotPoint, right: RoutePlotPoint) {
   return left.id.localeCompare(right.id);
 }
 
-function mapPointSignature(point: RoutePlotPoint) {
+function mapPointSignature(point: RoutePlotPoint, canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>) {
   const spanSignature = finiteSpanCoordinates(point.spanCoordinates)
     .map((coordinate) => `${coordinate.latitude.toFixed(4)},${coordinate.longitude.toFixed(4)}`)
     .join(';');
+  const canonicalSignature = finiteSpanCoordinates(canonicalSpans?.get(point.id))
+    .map((coordinate) => `${coordinate.latitude.toFixed(4)},${coordinate.longitude.toFixed(4)}`)
+    .join(';');
 
-  return `${point.id}:${point.latitude.toFixed(4)},${point.longitude.toFixed(4)}:${spanSignature}`;
+  return `${point.id}:${point.latitude.toFixed(4)},${point.longitude.toFixed(4)}:${spanSignature}:${canonicalSignature}`;
 }
 
 function getBounds(
   points: RoutePlotPoint[],
   userLocation?: { latitude: number; longitude: number } | null,
-  extraCoordinates: RouteSpanCoordinate[] = []
+  extraCoordinates: RouteSpanCoordinate[] = [],
+  canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>
 ) {
   const coordinates = [
     ...extraCoordinates,
     ...points
       .filter(isFinitePoint)
-      .flatMap((point) => routeSpanCoordinates(point)),
+      .flatMap((point) => routeSpanCoordinates(point, canonicalSpans)),
   ];
 
   if (userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude)) {

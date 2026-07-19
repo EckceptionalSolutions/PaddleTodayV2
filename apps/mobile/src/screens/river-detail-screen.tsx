@@ -22,7 +22,6 @@ import * as ImagePicker from 'expo-image-picker';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Image,
-  Linking,
   Modal,
   Platform,
   Pressable,
@@ -38,6 +37,7 @@ import {
 import {
   useCreateRiverAlertMutation,
   useCreateRouteContributionMutation,
+  useRiverGeometryQuery,
   useRiverDetailQuery,
   useRiverGroupQuery,
   useRiverHistoryQuery,
@@ -49,6 +49,7 @@ import { AppErrorState, AppLoadingState } from '../components/app-state';
 import { RatingPill } from '../components/rating-pill';
 import { RoutePhotoCard } from '../components/route-photo-card';
 import { RouteReportSheet, type SelectedReportPhoto } from '../components/route-report-sheet';
+import { RouteDirectionActions } from '../components/route-direction-actions';
 import { RoutePlotMap, type RoutePlotPoint, type RouteSpanCoordinate } from '../components/route-plot-map';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { SectionCard } from '../components/section-card';
@@ -66,6 +67,8 @@ import {
   verdictForRating,
 } from '../lib/format';
 import { mapUrlForAccessPoint } from '../lib/maps';
+import { openExternalUrl } from '../lib/external-links';
+import { endpointSnappedRouteCoordinates } from '../lib/river-geometry';
 import { registerForRiverAlertPushNotifications } from '../lib/native-notifications';
 import { captureAppException, trackAppEvent } from '../lib/observability';
 import {
@@ -102,6 +105,7 @@ export default function RiverDetailScreen() {
   const bottomContentInset = androidBottomInset(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET);
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug ?? '';
   const detailQuery = useRiverDetailQuery(slug);
+  const geometryQuery = useRiverGeometryQuery(slug);
   const historyQuery = useRiverHistoryQuery(slug, 7);
   const communityQuery = useRouteCommunityQuery(slug);
   const createAlertMutation = useCreateRiverAlertMutation();
@@ -150,6 +154,14 @@ export default function RiverDetailScreen() {
   const routeBackgroundSpan = useMemo(
     () => (detail ? fullRouteSpanCoordinates(detail) : null),
     [detail]
+  );
+  const canonicalRouteSpan = useMemo(
+    () => (detail ? endpointSnappedRouteCoordinates(geometryQuery.data, routeBackgroundSpan) : null),
+    [detail, geometryQuery.data, routeBackgroundSpan]
+  );
+  const canonicalSelectedSpan = useMemo(
+    () => (detail ? endpointSnappedRouteCoordinates(geometryQuery.data, selectedSegmentSpanCoordinates(selectedPutIn, selectedTakeOut)) : null),
+    [detail, geometryQuery.data, selectedPutIn, selectedTakeOut]
   );
   const communityReports = community?.reports ?? [];
   const communityPhotos = community?.photos ?? [];
@@ -766,11 +778,12 @@ export default function RiverDetailScreen() {
               title="Access & logistics"
               subtitle="Access, shuttle, and route basics."
             >
-              {Platform.OS !== 'web' && routePlotPoints.length > 0 ? (
+              {routePlotPoints.length > 0 ? (
                 <RoutePlotMap
                   points={routePlotPoints}
                   selectedId={routePlotPoints[0]?.id ?? null}
-                  backgroundSpanCoordinates={routeBackgroundSpan}
+                  backgroundSpanCoordinates={canonicalRouteSpan ?? routeBackgroundSpan}
+                  canonicalSpans={canonicalSelectedSpan ? new Map([['put-in', canonicalSelectedSpan]]) : undefined}
                   height={220}
                   showFooter={false}
                   markerMode="pin"
@@ -1130,19 +1143,19 @@ function friendlyCapReason(reason: string) {
     return '';
   }
 
-  if (/Near-freezing air caps today at 70\./i.test(normalized)) {
+  if (/Near-freezing air caps today at 70\.|Cold air limits today's score to 70 or lower\./i.test(normalized)) {
     return 'Cold air keeps today from scoring higher.';
   }
 
-  if (/High wind caps today at 75\./i.test(normalized)) {
+  if (/High wind caps today at 75\.|Strong wind limits today's score to 75 or lower\./i.test(normalized)) {
     return 'Strong wind puts a ceiling on today.';
   }
 
-  if (/Imminent heavy rain caps today at 65\.|Heavy rain or storms likely soon limit the score to 65\./i.test(normalized)) {
+  if (/Imminent heavy rain caps today at 65\.|Heavy rain or storms likely soon limit the score to 65\.|Heavy rain or storms likely soon limit today's score to 65 or lower\./i.test(normalized)) {
     return 'Heavy rain or storms likely within 3 hours limit the score to 65.';
   }
 
-  if (/Minimum-only guidance caps the trip score at 74\./i.test(normalized)) {
+  if (/Minimum-only guidance caps the trip score at 74\.|This route has minimum-only gauge guidance, so today's score is limited to 74 or lower\./i.test(normalized)) {
     return 'This route has minimum-only gauge guidance.';
   }
 
@@ -1856,7 +1869,11 @@ function AccessCard({
           : 'Coordinates unavailable'}
       </Text>
       {url ? (
-        <Pressable onPress={() => void Linking.openURL(url)}>
+        <Pressable
+          onPress={() => void openExternalUrl(url, 'Map link')}
+          accessibilityRole="button"
+          accessibilityLabel="Open access point in maps"
+        >
           <Text style={styles.linkText}>Open in maps</Text>
         </Pressable>
       ) : null}
@@ -2014,42 +2031,6 @@ function AccessMetrics({
       <MetricPill label="Paddle time" value={paddleTime || detail.river.estimatedPaddleTime || 'Not tracked'} />
       <MetricPill label="Difficulty" value={capitalize(detail.river.profile.difficulty)} />
       <MetricPill label="Camping" value={shortLogisticsValue(detail.river.logistics?.camping)} />
-    </View>
-  );
-}
-
-function RouteDirectionActions({
-  putIn,
-  takeOut,
-}: {
-  putIn: RiverAccessPoint | undefined;
-  takeOut: RiverAccessPoint | undefined;
-}) {
-  if (!hasCoordinates(putIn) || !hasCoordinates(takeOut)) {
-    return null;
-  }
-
-  const origin = `${putIn.latitude},${putIn.longitude}`;
-  const destination = `${takeOut.latitude},${takeOut.longitude}`;
-  const appleUrl = `https://maps.apple.com/?saddr=${encodeURIComponent(origin)}&daddr=${encodeURIComponent(destination)}&dirflg=d`;
-  const googleUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}`;
-
-  return (
-    <View style={styles.directionsPanel}>
-      <View style={styles.directionsCopy}>
-        <Text style={styles.directionsTitle}>Shuttle directions</Text>
-        <Text style={styles.directionsText}>
-          Open driving directions from {putIn.name} to {takeOut.name}.
-        </Text>
-      </View>
-      <View style={styles.directionsActions}>
-        <Pressable style={styles.directionButton} onPress={() => void Linking.openURL(appleUrl)}>
-          <Text style={styles.directionButtonText}>Apple</Text>
-        </Pressable>
-        <Pressable style={styles.directionButton} onPress={() => void Linking.openURL(googleUrl)}>
-          <Text style={styles.directionButtonText}>Google</Text>
-        </Pressable>
-      </View>
     </View>
   );
 }
@@ -2241,7 +2222,7 @@ function openPrimaryDirections(
       slug: detail.river.slug,
       target: putIn ? 'put_in' : 'take_out',
     });
-    void Linking.openURL(url);
+    void openExternalUrl(url, 'Directions');
   }
 }
 
@@ -2251,7 +2232,7 @@ function openGaugeSource(detail: RiverDetailApiResult, url: string, target: 'det
     provider: detail.river.gaugeSource.provider,
     target,
   });
-  void Linking.openURL(url);
+  void openExternalUrl(url, target === 'detail' ? 'Gauge source' : 'Hydrograph');
 }
 
 async function shareRoute(detail: RiverDetailApiResult) {
@@ -2287,7 +2268,12 @@ function CommunityPhotoCard({ photo }: { photo: ApprovedCommunityPhoto }) {
   const imageUrl = resolveApiUrl(photo.src);
 
   return (
-    <Pressable style={styles.communityPhotoCard} onPress={() => void Linking.openURL(imageUrl)}>
+    <Pressable
+      style={styles.communityPhotoCard}
+      onPress={() => void openExternalUrl(imageUrl, 'Community photo')}
+      accessibilityRole="button"
+      accessibilityLabel="Open approved community photo"
+    >
       <Image source={{ uri: imageUrl }} style={styles.communityPhotoImage} resizeMode="cover" />
       <Text style={styles.communityPhotoCaption} numberOfLines={2}>
         {normalizeApiText(photo.caption || 'Approved route photo')}
@@ -3742,41 +3728,6 @@ const styles = StyleSheet.create({
     color: colors.accent,
     fontSize: 14,
     fontWeight: '700',
-  },
-  directionsPanel: {
-    backgroundColor: colors.accentSoft,
-    borderRadius: radius.md,
-    padding: spacing.md,
-    gap: spacing.sm,
-  },
-  directionsCopy: {
-    gap: 2,
-  },
-  directionsTitle: {
-    color: colors.accentDeep,
-    fontSize: 15,
-    fontWeight: '900',
-  },
-  directionsText: {
-    color: colors.text,
-    fontSize: 12,
-    lineHeight: 17,
-  },
-  directionsActions: {
-    flexDirection: 'row',
-    gap: spacing.sm,
-  },
-  directionButton: {
-    flex: 1,
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    paddingVertical: 10,
-    alignItems: 'center',
-  },
-  directionButtonText: {
-    color: colors.surfaceStrong,
-    fontSize: 13,
-    fontWeight: '900',
   },
   accessMeta: {
     flexDirection: 'row',

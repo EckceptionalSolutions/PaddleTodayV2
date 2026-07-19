@@ -23,7 +23,14 @@ export function WeekendRiverCard({
   const riskExplanation = cardRiskExplanation(river);
 
   return (
-    <Pressable style={styles.card} onPress={onPress} android_ripple={{ color: colors.canvasMuted }}>
+    <Pressable
+      style={styles.card}
+      onPress={onPress}
+      android_ripple={{ color: colors.canvasMuted }}
+      accessibilityRole="button"
+      accessibilityLabel={`${river.river.name}, ${river.river.reach}, score ${river.weekend.score}, ${river.weekend.rating}`}
+      accessibilityHint="Opens the weekend route details."
+    >
       <ImageBackground
         source={{ uri: photoForRiver(river.river) }}
         style={styles.media}

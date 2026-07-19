@@ -32,6 +32,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   selectedId?: string | null;
   userLocation?: { latitude: number; longitude: number; label?: string | null } | null;
   backgroundSpanCoordinates?: RouteSpanCoordinate[] | null;
+  canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>;
   onSelectPoint?: (point: RoutePlotPoint) => void;
   height?: number;
   showFooter?: boolean;
@@ -42,16 +43,17 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   selectedId,
   userLocation,
   backgroundSpanCoordinates,
+  canonicalSpans,
   onSelectPoint,
   height = 290,
   showFooter = true,
   fullBleed = false,
 }, ref) {
   const backgroundSpan = finiteSpanCoordinates(backgroundSpanCoordinates);
-  const bounds = getBounds(points, userLocation, backgroundSpan);
+  const bounds = getBounds(points, userLocation, backgroundSpan, canonicalSpans);
   const visiblePoints = points.filter(isFinitePoint);
   const selectedPoint = visiblePoints.find((point) => point.id === selectedId) ?? visiblePoints[0] ?? null;
-  const selectedSpan = selectedId && selectedPoint ? routeSpanCoordinates(selectedPoint) : [];
+  const selectedSpan = selectedId && selectedPoint ? routeSpanCoordinates(selectedPoint, canonicalSpans) : [];
 
   useImperativeHandle(ref, () => ({ focusSelected: () => undefined, focusAll: () => undefined, focusUserArea: () => undefined }), []);
 
@@ -211,7 +213,12 @@ function isFiniteCoordinate(point: RouteSpanCoordinate) {
   return Number.isFinite(point.latitude) && Number.isFinite(point.longitude);
 }
 
-function routeSpanCoordinates(point: RoutePlotPoint): RouteSpanCoordinate[] {
+function routeSpanCoordinates(point: RoutePlotPoint, canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>): RouteSpanCoordinate[] {
+  const canonicalSpan = finiteSpanCoordinates(canonicalSpans?.get(point.id));
+  if (canonicalSpan.length >= 2) {
+    return canonicalSpan;
+  }
+
   const span = finiteSpanCoordinates(point.spanCoordinates);
   if (span.length >= 2) {
     return span;
@@ -227,13 +234,14 @@ function finiteSpanCoordinates(coordinates: RouteSpanCoordinate[] | null | undef
 function getBounds(
   points: RoutePlotPoint[],
   userLocation?: { latitude: number; longitude: number } | null,
-  extraCoordinates: RouteSpanCoordinate[] = []
+  extraCoordinates: RouteSpanCoordinate[] = [],
+  canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>
 ) {
   const coordinates = [
     ...extraCoordinates,
     ...points
       .filter(isFinitePoint)
-      .flatMap((point) => routeSpanCoordinates(point)),
+      .flatMap((point) => routeSpanCoordinates(point, canonicalSpans)),
   ];
 
   if (userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude)) {

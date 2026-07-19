@@ -34,6 +34,7 @@ import {
   handleAdminStats,
 } from './routes/admin';
 import { handleRiverAlertCreate, handleRiverAlertUnsubscribe } from './routes/alerts';
+import { handleRiverGeometry } from './routes/river-geometry';
 import { handleHistorySnapshot, handleRiverSnapshotRefresh } from './routes/snapshots';
 
 const host = process.env.CANOE_API_HOST || '0.0.0.0';
@@ -102,6 +103,16 @@ const server = createServer(async (request, response) => {
         requestId,
         includeBody,
         decodeURIComponent(historyMatch[1] || '')
+      );
+    }
+
+    const geometryMatch = requestUrl.pathname.match(/^\/api\/rivers\/([^/]+)\/geometry\.json$/);
+    if (geometryMatch) {
+      return handleRiverGeometry(
+        response,
+        requestId,
+        includeBody,
+        decodeURIComponent(geometryMatch[1] || ''),
       );
     }
 

@@ -6,7 +6,7 @@ import { useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useCreateRiverAlertMutation, useRiverSummaryQuery } from '../api/queries';
-import { AppLoadingState } from '../components/app-state';
+import { AppLoadingState, AppRefreshNotice } from '../components/app-state';
 import { RiverCard } from '../components/river-card';
 import { SectionCard } from '../components/section-card';
 import { alertMutationMessage, alertThresholdLabel } from '../lib/alerts';
@@ -88,6 +88,12 @@ export default function SavedScreen() {
         },
       ]}
     >
+      <AppRefreshNotice
+        label="Your saved list is still available."
+        isError={summaryQuery.isRefetchError}
+        dataUpdatedAt={summaryQuery.dataUpdatedAt}
+        onRetry={() => void summaryQuery.refetch()}
+      />
       <Text style={styles.kicker}>Saved</Text>
       <Text style={styles.title}>Your saved routes</Text>
       <Text style={styles.subtitle}>

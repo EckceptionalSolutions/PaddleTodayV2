@@ -6,6 +6,7 @@ import {
   ActivityIndicator,
   Animated,
   Image,
+  ImageBackground,
   PanResponder,
   Platform,
   Pressable,
@@ -30,6 +31,7 @@ type Feature = {
 };
 
 const welcomeLogo = require('../../assets/images/welcome-logo.png');
+const welcomeRiverImage = require('../../assets/images/welcome-river.jpg');
 
 const scoreSignals: Feature[] = [
   { icon: 'waves', title: 'Water', label: 'Level, trend, and guidance' },
@@ -56,17 +58,43 @@ export default function WelcomeScreen() {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [carouselWidth, setCarouselWidth] = useState(0);
   const [saving, setSaving] = useState(false);
+  const [completionError, setCompletionError] = useState<string | null>(null);
   const rivers = summaryQuery.data?.rivers ?? [];
   const compactLayout = windowHeight < 740;
   const shortLayout = windowHeight < 680;
   const veryShortLayout = windowHeight < 620;
   const compactExplainer = windowHeight < 860;
   const slideWidth = carouselWidth || Math.max(280, windowWidth - 36);
-  const previewRoute = useMemo(
-    () => selectBestNowPicks(rivers, undefined, 1)[0] ?? null,
+  const bestPicks = useMemo(
+    () => selectBestNowPicks(rivers, undefined, 3),
     [rivers],
   );
-  const previewTone = scoreTone(previewRoute?.rating);
+  const previewRoute = useMemo(
+    () => bestPicks[0] ?? null,
+    [bestPicks],
+  );
+  const previewRating: ScoreRating = previewRoute?.rating ?? 'Good';
+  const previewTone = scoreTone(previewRating);
+  const previewRouteMeta = previewRoute
+    ? previewRoute.river.reach
+    : 'Nearby river route';
+  const previewAccessLabel = previewRoute
+    ? /multiple|intermediate|several/.test(previewRoute.river.logistics?.summary.toLowerCase() ?? '')
+      ? 'Multiple access options'
+      : previewRoute.river.accessPoints && previewRoute.river.accessPoints.length > 1
+        ? `${previewRoute.river.accessPoints.length} access points`
+        : 'Put-in + take-out'
+    : 'Access details on route page';
+  const previewFacts = [
+    { label: 'DISTANCE', value: previewRoute?.river.distanceLabel ?? '8.4 mi' },
+    { label: 'PADDLE TIME', value: previewRoute?.river.estimatedPaddleTime ?? 'Day paddle' },
+    {
+      label: 'DIFFICULTY',
+      value: previewRoute?.river.difficulty
+        ? `${previewRoute.river.difficulty[0].toUpperCase()}${previewRoute.river.difficulty.slice(1)}`
+        : 'Easy',
+    },
+  ];
   const previewBreakdown = previewRoute?.scoreBreakdown;
   const previewScoreFactors = [
     { label: 'Water', value: previewBreakdown?.riverQuality ?? 84 },
@@ -129,14 +157,18 @@ export default function WelcomeScreen() {
   async function finishOnboarding() {
     if (saving) return;
     setSaving(true);
+    setCompletionError(null);
     trackAppEvent('welcome_completed', {
       last_slide_viewed: carouselIndex + 1,
     });
-    await completeWelcome({ trackFirstRouteOpen: true });
-    router.replace({
-      pathname: '/explore',
-      params: { intent: 'clean-now', intentKey: Date.now().toString(), transientIntent: '1' },
-    });
+    try {
+      await completeWelcome({ trackFirstRouteOpen: true });
+      router.replace('/');
+    } catch {
+      trackAppEvent('welcome_completion_failed', {});
+      setSaving(false);
+      setCompletionError("Couldn't save your progress. Please try again.");
+    }
   }
 
   function viewBestPaddles() {
@@ -198,71 +230,87 @@ export default function WelcomeScreen() {
         >
         <View style={[styles.slide, { width: slideWidth }]}>
           <View
-            accessible
-            accessibilityLabel="A paddler following a river from the launch marker toward the finish"
             style={[
-              styles.welcomeHero,
-              compactLayout ? styles.welcomeHeroCompact : null,
-              shortLayout ? styles.welcomeHeroShort : null,
+              styles.slideHeading,
+              styles.welcomeHeading,
+              compactLayout ? styles.welcomeHeadingCompact : null,
             ]}
           >
-            <View style={styles.welcomeSun}>
-              <MaterialCommunityIcons name="weather-sunny" size={shortLayout ? 19 : 24} color="#D9A62E" />
-            </View>
-            <View style={styles.welcomeCloud}>
-              <MaterialCommunityIcons name="weather-cloudy" size={shortLayout ? 24 : 30} color="#FFFFFF" />
-            </View>
-
-            <View style={[styles.riverBand, styles.riverBandBack]} />
-            <View style={[styles.riverBand, styles.riverBandMiddle]} />
-            <View style={[styles.riverBand, styles.riverBandFront]} />
-
-            <View style={[styles.routeMarker, styles.routeMarkerStart]}>
-              <MaterialCommunityIcons name="map-marker" size={shortLayout ? 17 : 20} color={colors.surfaceStrong} />
-            </View>
-            <View style={[styles.routeMarker, styles.routeMarkerFinish]}>
-              <MaterialCommunityIcons name="flag-checkered" size={shortLayout ? 15 : 18} color={colors.surfaceStrong} />
-            </View>
-
-            <View style={[styles.paddlerHalo, shortLayout ? styles.paddlerHaloShort : null]}>
-              <MaterialCommunityIcons
-                name="kayaking"
-                size={shortLayout ? 39 : 54}
-                color={colors.accent}
-              />
-            </View>
-          </View>
-
-          <View style={[styles.slideHeading, compactLayout ? styles.slideHeadingCompact : null]}>
+            <Text style={styles.slideEyebrow}>WELCOME</Text>
             <Text style={[styles.title, compactLayout ? styles.titleCompact : null]}>
-              Let’s find a river worth paddling today
+              Welcome to Paddle Today
             </Text>
             <Text style={[styles.body, compactLayout ? styles.bodyCompact : null]}>
-              Compare routes using current water, weather, and practical trip details.
+              Let's find the best river route near you today.
             </Text>
           </View>
 
-          {!veryShortLayout ? (
-            <View style={[styles.welcomeBenefits, compactLayout ? styles.welcomeBenefitsCompact : null]}>
-              <View style={styles.welcomeBenefit}>
-                <MaterialCommunityIcons name="chart-timeline-variant" size={20} color={colors.accent} />
-                <Text style={styles.welcomeBenefitTitle}>Know today</Text>
-                {!veryShortLayout ? <Text style={styles.welcomeBenefitLabel}>Fresh water and weather</Text> : null}
+          <View
+            accessible
+            accessibilityLabel="A river route preview with an example paddle score"
+            style={[
+              styles.welcomePreview,
+              compactLayout ? styles.welcomePreviewCompact : null,
+            ]}
+          >
+            <ImageBackground
+              source={welcomeRiverImage}
+              resizeMode="stretch"
+              imageStyle={styles.riverScoreImageSource}
+              style={[
+                styles.riverScoreImage,
+                compactLayout ? styles.riverScoreImageCompact : null,
+                shortLayout ? styles.riverScoreImageShort : null,
+              ]}
+            >
+              <View style={styles.riverScoreShade} />
+              <View
+                style={[
+                  styles.routeScoreOrb,
+                  shortLayout ? styles.routeScoreOrbShort : null,
+                  { backgroundColor: previewTone.background, borderColor: previewTone.text },
+                ]}
+              >
+                <Text style={[styles.routeScoreValue, { color: previewTone.text }]}>
+                  {previewRoute?.score ?? 82}
+                </Text>
+                <Text style={[styles.routeScoreLabel, { color: previewTone.text }]}>
+                  {previewRating.toUpperCase()}
+                </Text>
               </View>
-              <View style={styles.welcomeBenefit}>
-                <MaterialCommunityIcons name="map-search-outline" size={20} color={colors.accent} />
-                <Text style={styles.welcomeBenefitTitle}>Compare routes</Text>
-                {!veryShortLayout ? <Text style={styles.welcomeBenefitLabel}>Find today’s best options</Text> : null}
+            </ImageBackground>
+            <View style={[styles.routeScoreCopy, shortLayout ? styles.routeScoreCopyShort : null]}>
+              <Text style={styles.routeScoreKicker}>ROUTE PREVIEW</Text>
+              <Text style={styles.routeScoreTitle} numberOfLines={1}>
+                {previewRoute?.river.name ?? 'Nearby river route'}
+              </Text>
+              <Text style={styles.routeScoreMeta} numberOfLines={1}>
+                {previewRouteMeta}
+              </Text>
+              <View style={styles.routeFactGrid}>
+                {previewFacts.map((fact) => (
+                  <View key={fact.label} style={styles.routeFact}>
+                    <Text style={styles.routeFactLabel}>{fact.label}</Text>
+                    <Text style={styles.routeFactValue} numberOfLines={1}>{fact.value}</Text>
+                  </View>
+                ))}
               </View>
-              <View style={styles.welcomeBenefit}>
-                <MaterialCommunityIcons name="chart-donut-variant" size={20} color={colors.accent} />
-                <Text style={styles.welcomeBenefitTitle}>See why</Text>
-                {!veryShortLayout ? <Text style={styles.welcomeBenefitLabel}>Understand every score</Text> : null}
+              <View style={styles.routeInfoGrid}>
+                <View style={styles.routeInfoPill}>
+                  <MaterialCommunityIcons name="waves" size={11} color={colors.accent} />
+                  <Text style={styles.routeInfoText} numberOfLines={1}>
+                    {previewRoute?.gaugeBandLabel ?? 'Stable flow'}
+                  </Text>
+                </View>
+                <View style={styles.routeInfoPill}>
+                  <MaterialCommunityIcons name="map-marker-path" size={11} color={colors.accent} />
+                  <Text style={styles.routeInfoText} numberOfLines={1}>{previewAccessLabel}</Text>
+                </View>
               </View>
             </View>
-          ) : null}
+          </View>
 
-          {!veryShortLayout ? (
+          {!shortLayout ? (
             <View style={styles.welcomeSwipeCue}>
               <MaterialCommunityIcons name="gesture-swipe-horizontal" size={17} color={colors.textMuted} />
               <Text style={styles.welcomeSwipeCueText}>Swipe to see how Paddle Today works</Text>
@@ -442,16 +490,21 @@ export default function WelcomeScreen() {
               <Pressable
                 key={index}
                 accessibilityRole="button"
-                accessibilityLabel={`Show welcome page ${index + 1}`}
+                accessibilityLabel={`Go to welcome page ${index + 1}`}
+                accessibilityState={{ selected: carouselIndex === index }}
                 onPress={() => showCarouselSlide(index)}
-                style={[styles.paginationDot, carouselIndex === index ? styles.paginationDotActive : null]}
-              />
+                style={styles.paginationDotButton}
+              >
+                <View
+                  style={[styles.paginationDot, carouselIndex === index ? styles.paginationDotActive : null]}
+                />
+              </Pressable>
             ))}
           </View>
           {carouselIndex < 2 ? (
             <Pressable
               accessibilityRole="button"
-              accessibilityLabel={`Show welcome page ${carouselIndex + 2}`}
+              accessibilityLabel="Next welcome page"
               onPress={() => showCarouselSlide(carouselIndex + 1)}
               style={styles.nextPageButton}
             >
@@ -470,9 +523,15 @@ export default function WelcomeScreen() {
           </Text>
         </View>
 
+        {completionError ? (
+          <Text accessibilityRole="alert" style={styles.completionError}>
+            {completionError}
+          </Text>
+        ) : null}
+
         <Pressable
           accessibilityRole="button"
-          accessibilityLabel="View today’s best paddles"
+          accessibilityLabel={carouselIndex < 2 ? "Skip to today's best routes" : "See today's best routes"}
           disabled={saving}
           onPress={viewBestPaddles}
           style={({ pressed }) => [
@@ -481,7 +540,9 @@ export default function WelcomeScreen() {
             pressed ? styles.primaryButtonPressed : null,
           ]}
         >
-          <Text style={styles.primaryButtonText}>View today’s best paddles</Text>
+          <Text style={styles.primaryButtonText}>
+            {carouselIndex < 2 ? "Skip to today's best routes" : "See today's best routes"}
+          </Text>
           <MaterialCommunityIcons name="arrow-right" size={20} color={colors.surfaceStrong} />
         </Pressable>
       </View>
@@ -588,86 +649,78 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     letterSpacing: 0.1,
   },
-  welcomeHero: {
+  welcomePreview: {
     position: 'relative',
-    minHeight: 285,
-    alignItems: 'center',
-    justifyContent: 'center',
     marginTop: spacing.md,
-    borderRadius: 24,
+  },
+  welcomePreviewCompact: { marginTop: spacing.sm },
+  riverScoreImage: {
+    position: 'relative',
+    aspectRatio: 1.5,
     overflow: 'hidden',
     borderWidth: 1,
-    borderColor: '#C9DDD3',
-    backgroundColor: '#DDEBE5',
+    borderColor: '#BFD2C9',
+    borderRadius: radius.lg,
+    backgroundColor: '#2F5D53',
   },
-  welcomeHeroCompact: { minHeight: 215, marginTop: spacing.sm },
-  welcomeHeroShort: { minHeight: 165, marginTop: spacing.sm },
-  welcomeSun: {
+  riverScoreImageCompact: { aspectRatio: 1.5 },
+  riverScoreImageShort: { aspectRatio: 1.75 },
+  riverScoreImageSource: {
+    width: '100%',
+    height: '100%',
+    borderRadius: radius.lg,
+  },
+  riverScoreShade: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(6, 32, 24, 0.08)',
+  },
+  routeScoreOrb: {
     position: 'absolute',
+    left: 16,
     top: 18,
-    right: 22,
-    width: 44,
-    height: 44,
+    width: 82,
+    height: 82,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 22,
-    backgroundColor: '#FFF4CB',
-  },
-  welcomeCloud: {
-    position: 'absolute',
-    top: 34,
-    left: 26,
-    opacity: 0.78,
-  },
-  riverBand: {
-    position: 'absolute',
-    left: -28,
-    right: -28,
-    borderRadius: radius.pill,
-    transform: [{ rotate: '-7deg' }],
-  },
-  riverBandBack: {
-    height: 80,
-    bottom: 38,
-    backgroundColor: '#A8D1CA',
-  },
-  riverBandMiddle: {
-    height: 62,
-    bottom: 16,
-    backgroundColor: '#69AEB0',
-  },
-  riverBandFront: {
-    height: 38,
-    bottom: -4,
-    backgroundColor: '#3F8791',
-  },
-  routeMarker: {
-    position: 'absolute',
-    zIndex: 2,
-    width: 34,
-    height: 34,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 17,
-    backgroundColor: colors.accent,
-    borderWidth: 2,
-    borderColor: colors.surfaceStrong,
-  },
-  routeMarkerStart: { left: 30, bottom: 42 },
-  routeMarkerFinish: { right: 28, bottom: 64 },
-  paddlerHalo: {
-    zIndex: 3,
-    width: 92,
-    height: 92,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: -20,
-    borderRadius: 46,
     borderWidth: 3,
-    borderColor: colors.surfaceStrong,
-    backgroundColor: '#EDF6F2',
   },
-  paddlerHaloShort: { width: 68, height: 68, marginTop: -16, borderRadius: 34 },
+  routeScoreOrbShort: { width: 68, height: 68, borderRadius: 18 },
+  routeScoreValue: { fontSize: 34, lineHeight: 36, fontWeight: '900' },
+  routeScoreLabel: { fontSize: 10.5, lineHeight: 13, fontWeight: '900', letterSpacing: 0.5 },
+  routeScoreCopy: {
+    position: 'relative',
+    marginHorizontal: 14,
+    marginTop: -20,
+    paddingVertical: 11,
+    paddingHorizontal: 12,
+    borderRadius: radius.md,
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+  },
+  routeScoreCopyShort: { marginHorizontal: 10, marginTop: -16, paddingVertical: 6, paddingHorizontal: 9 },
+  routeScoreKicker: { color: colors.accent, fontSize: 9, lineHeight: 12, fontWeight: '900', letterSpacing: 0.6 },
+  routeScoreTitle: { color: colors.text, fontSize: 15, lineHeight: 19, fontWeight: '900', marginTop: 2 },
+  routeScoreMeta: { color: colors.textMuted, fontSize: 10.5, lineHeight: 14, fontWeight: '700', marginTop: 1 },
+  routeFactGrid: { flexDirection: 'row', gap: 5, marginTop: 6 },
+  routeFact: { flex: 1, minWidth: 0, paddingVertical: 5, paddingHorizontal: 6, borderRadius: radius.sm, backgroundColor: colors.surfaceStrong },
+  routeFactLabel: { color: colors.textMuted, fontSize: 7.5, lineHeight: 10, fontWeight: '900', letterSpacing: 0.4 },
+  routeFactValue: { color: colors.text, fontSize: 9.5, lineHeight: 12, fontWeight: '800', marginTop: 1 },
+  routeInfoGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 5,
+    marginTop: 5,
+  },
+  routeInfoPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 3,
+    paddingVertical: 3,
+    paddingHorizontal: 6,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accentSoft,
+  },
+  routeInfoText: { color: colors.accentDeep, fontSize: 9, lineHeight: 12, fontWeight: '800' },
   scoreOrb: {
     width: 54,
     height: 54,
@@ -682,38 +735,8 @@ const styles = StyleSheet.create({
   titleCompact: { fontSize: 27, lineHeight: 31 },
   body: { color: colors.textMuted, fontSize: 16, lineHeight: 23, textAlign: 'center', marginTop: spacing.sm },
   bodyCompact: { fontSize: 14, lineHeight: 19 },
-  welcomeBenefits: {
-    flexDirection: 'row',
-    gap: spacing.sm,
-    marginTop: spacing.lg,
-  },
-  welcomeBenefitsCompact: { marginTop: spacing.md, gap: 6 },
-  welcomeBenefit: {
-    flex: 1,
-    minHeight: 76,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: spacing.sm,
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: radius.md,
-    backgroundColor: colors.surface,
-  },
-  welcomeBenefitTitle: {
-    color: colors.text,
-    fontSize: 11,
-    lineHeight: 14,
-    fontWeight: '900',
-    textAlign: 'center',
-    marginTop: 5,
-  },
-  welcomeBenefitLabel: {
-    color: colors.textMuted,
-    fontSize: 9,
-    lineHeight: 12,
-    textAlign: 'center',
-    marginTop: 2,
-  },
+  welcomeHeading: { marginTop: spacing.md },
+  welcomeHeadingCompact: { marginTop: spacing.sm },
   welcomeSwipeCue: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -864,6 +887,7 @@ const styles = StyleSheet.create({
   },
   paginationLabel: { width: 46, color: colors.textMuted, fontSize: 11, fontWeight: '800' },
   paginationDots: { flexDirection: 'row', alignItems: 'center', gap: 7 },
+  paginationDotButton: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
   paginationDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: colors.border },
   paginationDotActive: { width: 24, backgroundColor: colors.accent },
   swipeLabel: { width: 112, color: colors.textMuted, fontSize: 10, fontWeight: '700', textAlign: 'right' },
@@ -882,6 +906,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.sm,
   },
   safetyText: { flex: 1, color: colors.textMuted, fontSize: 10.5, lineHeight: 14, fontWeight: '600' },
+  completionError: { color: colors.noGo, fontSize: 11, lineHeight: 15, fontWeight: '700', textAlign: 'center' },
   primaryButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: spacing.sm, minHeight: 54, paddingHorizontal: spacing.lg, borderRadius: radius.md, backgroundColor: colors.accent },
   primaryButtonShort: { minHeight: 50 },
   primaryButtonPressed: { opacity: 0.8 },

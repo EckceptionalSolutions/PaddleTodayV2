@@ -12,6 +12,7 @@ import type {
   CreateRouteContributionResponse,
   RiverDetailResponse,
   RiverGroupResponse,
+  RiverGeometryResponse,
   RiverHistoryResponse,
   RouteCommunityResponse,
   RiverSummaryResponse,
@@ -51,6 +52,7 @@ export interface PaddleTodayApiClient {
   getWeekendSummary(options?: RequestOptions): Promise<WeekendSummaryResponse>;
   getRiverDetail(slug: string, options?: RequestOptions): Promise<RiverDetailResponse>;
   getRiverGroup(riverId: string, options?: RequestOptions): Promise<RiverGroupResponse>;
+  getRiverGeometry(slug: string, options?: RequestOptions): Promise<RiverGeometryResponse>;
   getRiverHistory(slug: string, options?: RiverHistoryRequestOptions): Promise<RiverHistoryResponse>;
   getRouteCommunity(slug: string, options?: RequestOptions): Promise<RouteCommunityResponse>;
   createRiverAlert(input: CreateRiverAlertRequest, options?: RequestOptions): Promise<CreateRiverAlertResponse>;
@@ -169,6 +171,12 @@ export function createPaddleTodayApiClient(args: {
         method: 'POST',
         body: input,
       });
+    },
+    getRiverGeometry(slug, options) {
+      return requestJson<RiverGeometryResponse>(
+        `/api/rivers/${encodeURIComponent(slug)}/geometry.json`,
+        options
+      );
     },
     createAppFeedback(input, options) {
       return requestJson<CreateAppFeedbackResponse>('/api/feedback', {
