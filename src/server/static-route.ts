@@ -2,11 +2,13 @@ import { createReadStream, existsSync, statSync } from 'node:fs';
 import { extname, resolve, sep } from 'node:path';
 import type { ServerResponse } from 'node:http';
 
+const PUBLIC_ASSET_EXTENSIONS = new Set(['.css', '.js', '.json', '.svg', '.png', '.jpg', '.jpeg', '.webp', '.woff2', '.ico']);
+
 export function sendStatic(response: ServerResponse, filePath: string, includeBody = true) {
   const stats = statSync(filePath);
   response.writeHead(200, {
     'content-type': contentTypeFor(filePath),
-    'cache-control': isAsset(filePath) ? 'public, max-age=31536000, immutable' : 'no-cache',
+    'cache-control': cacheControlFor(filePath),
     'content-length': stats.size,
     'access-control-allow-origin': '*',
   });
@@ -83,4 +85,25 @@ export function contentTypeFor(filePath: string): string {
 
 function isAsset(filePath: string): boolean {
   return filePath.includes(`${resolve(process.cwd(), 'dist')}${process.platform === 'win32' ? '\\' : '/'}_astro`);
+}
+
+function cacheControlFor(filePath: string): string {
+  if (isAsset(filePath)) {
+    return 'public, max-age=31536000, immutable';
+  }
+
+  const extension = extname(filePath).toLowerCase();
+  if (extension === '.html') {
+    return 'public, max-age=300, s-maxage=600, stale-while-revalidate=3600';
+  }
+
+  if (isPublicAssetExtension(extension)) {
+    return 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=2592000';
+  }
+
+  return 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800';
+}
+
+function isPublicAssetExtension(extension: string): boolean {
+  return PUBLIC_ASSET_EXTENSIONS.has(extension);
 }

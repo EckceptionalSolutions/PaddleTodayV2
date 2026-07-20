@@ -454,7 +454,8 @@ function renderApprovedRouteGallery() {
         class="route-gallery__image"
         src="${escapeHtml(lead.src)}"
         alt="${escapeHtml(lead.alt || lead.caption || `${riverContext.name} route photo`)}"
-        loading="eager"
+        loading="lazy"
+        decoding="async"
         data-route-gallery-image
       />
       <figcaption class="route-gallery__caption">

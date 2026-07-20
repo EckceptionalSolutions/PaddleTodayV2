@@ -22,6 +22,9 @@ import { parseQueryNumber } from '../request-parsers';
 import { resolveStaticFile } from '../static-route';
 
 const LIVE_SCORE_TIMEOUT_MS = 12_000;
+const LIVE_SUMMARY_CACHE_CONTROL = 'public, max-age=60, s-maxage=180, stale-while-revalidate=600';
+const ROUTE_DETAIL_CACHE_CONTROL = 'public, max-age=120, s-maxage=600, stale-while-revalidate=1800';
+const ROUTE_HISTORY_CACHE_CONTROL = 'public, max-age=300, s-maxage=900, stale-while-revalidate=3600';
 
 export function handleHealth(
   response: ServerResponse,
@@ -68,7 +71,7 @@ export async function handleRiverSummary(response: ServerResponse, requestId: st
       generatedAt: snapshot.generatedAt,
       riverCount: snapshot.riverCount,
       rivers: snapshot.rivers,
-    }, includeBody, 'no-store');
+    }, includeBody, LIVE_SUMMARY_CACHE_CONTROL);
   }
 
   const generatedAt = new Date().toISOString();
@@ -81,7 +84,7 @@ export async function handleRiverSummary(response: ServerResponse, requestId: st
     generatedAt,
     riverCount: rivers.length,
     rivers,
-  }, includeBody, 'no-store');
+  }, includeBody, LIVE_SUMMARY_CACHE_CONTROL);
 }
 
 export async function handleWeekendSummary(response: ServerResponse, requestId: string, includeBody: boolean) {
@@ -94,7 +97,7 @@ export async function handleWeekendSummary(response: ServerResponse, requestId: 
       riverCount: snapshot.riverCount,
       withheldCount: snapshot.withheldCount,
       rivers: snapshot.rivers,
-    }, includeBody, 'no-store');
+    }, includeBody, LIVE_SUMMARY_CACHE_CONTROL);
   }
 
   const generatedAt = new Date().toISOString();
@@ -113,7 +116,7 @@ export async function handleWeekendSummary(response: ServerResponse, requestId: 
     riverCount: rivers.length,
     withheldCount: Math.max(0, results.length - rivers.length),
     rivers,
-  }, includeBody, 'no-store');
+  }, includeBody, LIVE_SUMMARY_CACHE_CONTROL);
 }
 
 export async function handleRiverDetail(response: ServerResponse, requestId: string, includeBody: boolean, slug: string) {
@@ -123,7 +126,7 @@ export async function handleRiverDetail(response: ServerResponse, requestId: str
       requestId,
       generatedAt: snapshot.generatedAt,
       result: snapshot.result,
-    }, includeBody);
+    }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
   }
 
   const result = await withTimeout(getRiverScore(slug), LIVE_SCORE_TIMEOUT_MS, `river detail scoring for ${slug}`);
@@ -136,7 +139,7 @@ export async function handleRiverDetail(response: ServerResponse, requestId: str
     requestId,
     generatedAt,
     result: serializeDetailResult({ ...result, generatedAt }),
-  }, includeBody);
+  }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
 }
 
 export async function handleRiverHistory(
@@ -159,7 +162,7 @@ export async function handleRiverHistory(
     requestId,
     generatedAt: new Date().toISOString(),
     result: serializeRiverHistoryResult({ river, history }),
-  }, includeBody);
+  }, includeBody, ROUTE_HISTORY_CACHE_CONTROL);
 }
 
 export async function handleRiverGroup(response: ServerResponse, requestId: string, includeBody: boolean, riverId: string) {
@@ -169,7 +172,7 @@ export async function handleRiverGroup(response: ServerResponse, requestId: stri
       requestId,
       generatedAt: snapshot.generatedAt,
       result: snapshot.result,
-    }, includeBody);
+    }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
   }
 
   const results = await withTimeout(getRiverGroupScores(riverId), LIVE_SCORE_TIMEOUT_MS, `river group scoring for ${riverId}`);
@@ -185,5 +188,5 @@ export async function handleRiverGroup(response: ServerResponse, requestId: stri
       riverId,
       routes: results.map((route) => ({ ...route, generatedAt })),
     }),
-  }, includeBody);
+  }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
 }

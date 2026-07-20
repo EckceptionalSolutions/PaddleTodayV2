@@ -1275,7 +1275,8 @@ const routeFaqStructuredData = {
                   class="route-gallery__image"
                   src={approvedRoutePhotos[0].src}
                   alt={approvedRoutePhotos[0].alt}
-                  loading="eager"
+                  loading="lazy"
+                  decoding="async"
                   data-route-gallery-image
                 />
                 <figcaption class="route-gallery__caption">

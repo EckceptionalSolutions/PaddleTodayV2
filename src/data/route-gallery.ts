@@ -177,7 +177,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'little-fork-river-dentaybow-fiedler': [
     {
       id: 'little-fork-river-cook-rapids-dpla',
-      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.jpg',
+      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.webp',
       alt: 'The Little Fork River tumbles through a rocky rapid below tree-lined banks near Cook, Minnesota.',
       caption: 'Little Fork River below the rapids near Cook',
       credit: 'Minnesota State University Moorhead via DPLA/Wikimedia Commons',
@@ -187,7 +187,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'little-fork-river-dentaybow-devereaux': [
     {
       id: 'little-fork-river-cook-rapids-dpla',
-      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.jpg',
+      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.webp',
       alt: 'The Little Fork River tumbles through a rocky rapid below tree-lined banks near Cook, Minnesota.',
       caption: 'Little Fork River below the rapids near Cook',
       credit: 'Minnesota State University Moorhead via DPLA/Wikimedia Commons',
@@ -197,7 +197,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'little-fork-river-highway-73-samuelson': [
     {
       id: 'little-fork-river-cook-rapids-dpla',
-      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.jpg',
+      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.webp',
       alt: 'The Little Fork River tumbles through a rocky rapid below tree-lined banks near Cook, Minnesota.',
       caption: 'Little Fork River below the rapids near Cook',
       credit: 'Minnesota State University Moorhead via DPLA/Wikimedia Commons',
@@ -207,7 +207,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'little-fork-river-highway-73-silverdale': [
     {
       id: 'little-fork-river-cook-rapids-dpla',
-      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.jpg',
+      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.webp',
       alt: 'The Little Fork River tumbles through a rocky rapid below tree-lined banks near Cook, Minnesota.',
       caption: 'Little Fork River below the rapids near Cook',
       credit: 'Minnesota State University Moorhead via DPLA/Wikimedia Commons',
@@ -217,7 +217,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'little-beaver-creek-pioneer-village-sprucevale': [
     {
       id: 'little-beaver-creek-ohio-river-water-trail-commons',
-      src: '/gallery/little-beaver-creek-pioneer-village-sprucevale/little-beaver-creek-ohio-river-water-trail.jpg',
+      src: '/gallery/little-beaver-creek-pioneer-village-sprucevale/little-beaver-creek-ohio-river-water-trail.webp',
       alt: 'Kayakers paddle the Little Beaver Creek corridor near Ohioville with wooded banks and gentle current under a bright sky.',
       caption: 'Little Beaver Creek corridor near Ohioville',
       credit: 'Dr. Vincent Troia via Wikimedia Commons',
@@ -227,7 +227,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'little-beaver-creek-sprucevale-lock-57-park': [
     {
       id: 'little-beaver-creek-ohio-river-water-trail-commons',
-      src: '/gallery/little-beaver-creek-pioneer-village-sprucevale/little-beaver-creek-ohio-river-water-trail.jpg',
+      src: '/gallery/little-beaver-creek-pioneer-village-sprucevale/little-beaver-creek-ohio-river-water-trail.webp',
       alt: 'Kayakers paddle the Little Beaver Creek corridor near Ohioville with wooded banks and gentle current under a bright sky.',
       caption: 'Little Beaver Creek corridor near Ohioville',
       credit: 'Dr. Vincent Troia via Wikimedia Commons',
@@ -237,7 +237,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'little-beaver-creek-pioneer-village-lock-57-park': [
     {
       id: 'little-beaver-creek-ohio-river-water-trail-commons',
-      src: '/gallery/little-beaver-creek-pioneer-village-sprucevale/little-beaver-creek-ohio-river-water-trail.jpg',
+      src: '/gallery/little-beaver-creek-pioneer-village-sprucevale/little-beaver-creek-ohio-river-water-trail.webp',
       alt: 'Kayakers paddle the Little Beaver Creek corridor near Ohioville with wooded banks and gentle current under a bright sky.',
       caption: 'Little Beaver Creek corridor near Ohioville',
       credit: 'Dr. Vincent Troia via Wikimedia Commons',
@@ -247,7 +247,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'little-miami-river-rogers-ballpark-carl-rahe': [
     {
       id: 'little-miami-river-loveland-commons',
-      src: '/gallery/little-miami-river-rogers-ballpark-carl-rahe/little-miami-river-loveland-commons.jpg',
+      src: '/gallery/little-miami-river-rogers-ballpark-carl-rahe/little-miami-river-loveland-commons.webp',
       alt: 'Paddlers move down the Little Miami River near Loveland, Ohio, with wooded banks and a broad gravel bar under clear sky.',
       caption: 'Little Miami River near Loveland',
       credit: 'AndyHemmerCincinnati via Wikimedia Commons',
@@ -277,7 +277,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'chippewa-river-lentz-watson-lions-park': [
     {
       id: 'chippewa-river-commons',
-      src: '/gallery/chippewa-river-lentz-watson-lions-park/chippewa-river.jpg',
+      src: '/gallery/chippewa-river-lentz-watson-lions-park/chippewa-river.webp',
       alt: 'The Chippewa River winds through a broad grassy corridor under a bright sky.',
       caption: 'Chippewa River in Minnesota',
       credit: 'Wikideas1 via Wikimedia Commons',
@@ -287,7 +287,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'juniata-river-granville-mifflin': [
     {
       id: 'juniata-river-lewistown-commons',
-      src: '/gallery/juniata-river-granville-victory-park/juniata-river-lewistown.jpg',
+      src: '/gallery/juniata-river-granville-victory-park/juniata-river-lewistown.webp',
       alt: 'The Juniata River flows west of the Pennsylvania Route 103 bridge in Lewistown under a bright early-summer sky.',
       caption: 'Juniata River west of PA 103 in Lewistown',
       credit: 'Dough4872 via Wikimedia Commons',
@@ -527,7 +527,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'rice-creek-peltier-to-long-lake': [
     {
       id: 'rice-creek-user-photo-1',
-      src: '/gallery/rice-creek-peltier-to-long-lake/rice-creek-1.jpg',
+      src: '/gallery/rice-creek-peltier-to-long-lake/rice-creek-1.webp',
       alt: 'Rice Creek flowing under bright sun with sparkling water, grassy banks, and early spring trees along the channel.',
       caption: 'Open bend on Rice Creek',
       credit: 'Photo by user',
@@ -535,7 +535,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     },
     {
       id: 'rice-creek-user-photo-2',
-      src: '/gallery/rice-creek-peltier-to-long-lake/rice-creek-2.jpg',
+      src: '/gallery/rice-creek-peltier-to-long-lake/rice-creek-2.webp',
       alt: 'Rice Creek from kayak level with calm current, grassy banks, and leafless trees arching over the water.',
       caption: 'Kayak-level view on Rice Creek',
       credit: 'Photo by user',
@@ -563,7 +563,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'minnehaha-creek-grays-bay-longfellow-lagoon': [
     {
       id: 'minnehaha-creek-commons-2017',
-      src: '/gallery/minnehaha-creek-grays-bay-longfellow-lagoon/minnehaha-creek-oct-2017.jpg',
+      src: '/gallery/minnehaha-creek-grays-bay-longfellow-lagoon/minnehaha-creek-oct-2017.webp',
       alt: 'Minnehaha Creek flows through a wooded Minneapolis park corridor with autumn leaves along the banks.',
       caption: 'Autumn flow on Minnehaha Creek',
       credit: 'Thomson200 via Wikimedia Commons',
@@ -649,7 +649,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     },
     {
       id: 'st-croix-lower-lake',
-      src: '/gallery/st-croix-river-fox-highway-70/lower-lake.jpg',
+      src: '/gallery/st-croix-river-fox-highway-70/lower-lake.webp',
       alt: 'Emerging on the right side of the composition, the calm reflective river passes under trees on the opposite side of the bank and then bends away from the viewer on the left side, and once more to the left and disappears out of frame. Animal tracks can be seen in snow along the riverbank.',
       caption: 'Quiet bend on the St. Croix',
       credit: 'NPS / Pete Wintersteen',
@@ -669,7 +669,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'mississippi-river-east-river-flats-hidden-falls': [
     {
       id: 'mississippi-minneapolis-skyline',
-      src: '/gallery/mississippi-river-east-river-flats-hidden-falls/minneapolis-skyline.jpg',
+      src: '/gallery/mississippi-river-east-river-flats-hidden-falls/minneapolis-skyline.webp',
       alt: 'The Mississippi River curves through a wooded gorge with the Minneapolis skyline visible in the distance and a rail bridge crossing the river.',
       caption: 'Mississippi gorge view toward downtown Minneapolis',
       credit: 'Tom Koerner/USFWS',
@@ -829,7 +829,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'milwaukee-river-newburg-fredonia': [
     {
       id: 'milwaukee-river-january-2026-commons',
-      src: '/gallery/milwaukee-river-newburg-fredonia/milwaukee-river-january-2026.jpg',
+      src: '/gallery/milwaukee-river-newburg-fredonia/milwaukee-river-january-2026.webp',
       alt: 'The Milwaukee River flows through an urban winter corridor with snowy banks and bare trees.',
       caption: 'Winter view of the Milwaukee River',
       credit: 'Michael Barera via Wikimedia Commons',
@@ -1999,7 +1999,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'mulberry-river-redding-turner-bend': [
     {
       id: 'mulberry-river-bridge-commons',
-      src: '/gallery/mulberry-river-redding-turner-bend/mulberry-river-bridge.jpg',
+      src: '/gallery/mulberry-river-redding-turner-bend/mulberry-river-bridge.webp',
       alt: 'A steel truss bridge crosses the Mulberry River above a rocky channel lined with spring-green trees.',
       caption: 'Mulberry River bridge near Turner Bend',
       credit: 'Valis55 via Wikimedia Commons',
@@ -2009,7 +2009,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'ouachita-river-remmel-whitewater-park': [
     {
       id: 'remmel-dam-commons',
-      src: '/gallery/ouachita-river-remmel-whitewater-park/remmel-dam.jpg',
+      src: '/gallery/ouachita-river-remmel-whitewater-park/remmel-dam.webp',
       alt: 'Remmel Dam spans the Ouachita River with release water below the concrete spillway and wooded banks nearby.',
       caption: 'Remmel Dam on the Ouachita River',
       credit: 'Valis55 via Wikimedia Commons',
@@ -2379,7 +2379,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'big-south-fork-burnt-mill-leatherwood': [
     {
       id: 'big-south-fork-leatherwood-ford-commons',
-      src: '/gallery/big-south-fork-burnt-mill-leatherwood/big-south-fork-leatherwood-ford.jpg',
+      src: '/gallery/big-south-fork-burnt-mill-leatherwood/big-south-fork-leatherwood-ford.webp',
       alt: 'The Big South Fork flows through the wooded Leatherwood Ford gorge corridor in Tennessee.',
       caption: 'Big South Fork at Leatherwood Ford',
       credit: 'Brian Stansberry via Wikimedia Commons',
@@ -2389,7 +2389,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'big-south-fork-blue-heron-yamacraw': [
     {
       id: 'big-south-fork-leatherwood-ford-commons',
-      src: '/gallery/big-south-fork-blue-heron-yamacraw/big-south-fork-leatherwood-ford.jpg',
+      src: '/gallery/big-south-fork-blue-heron-yamacraw/big-south-fork-leatherwood-ford.webp',
       alt: 'The Big South Fork flows through a wooded gorge corridor with clear green water and rocky banks.',
       caption: 'Big South Fork corridor',
       credit: 'Brian Stansberry via Wikimedia Commons',
@@ -2399,7 +2399,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'big-south-fork-blue-heron-worley': [
     {
       id: 'big-south-fork-leatherwood-ford-commons',
-      src: '/gallery/big-south-fork-blue-heron-yamacraw/big-south-fork-leatherwood-ford.jpg',
+      src: '/gallery/big-south-fork-blue-heron-yamacraw/big-south-fork-leatherwood-ford.webp',
       alt: 'The Big South Fork flows through a wooded gorge corridor with clear green water and rocky banks.',
       caption: 'Big South Fork corridor',
       credit: 'Brian Stansberry via Wikimedia Commons',
@@ -2409,7 +2409,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'big-south-fork-yamacraw-alum-ford': [
     {
       id: 'big-south-fork-leatherwood-ford-commons',
-      src: '/gallery/big-south-fork-blue-heron-yamacraw/big-south-fork-leatherwood-ford.jpg',
+      src: '/gallery/big-south-fork-blue-heron-yamacraw/big-south-fork-leatherwood-ford.webp',
       alt: 'The Big South Fork flows through a wooded gorge corridor with clear green water and rocky banks.',
       caption: 'Big South Fork corridor',
       credit: 'Brian Stansberry via Wikimedia Commons',
@@ -2419,7 +2419,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'big-south-fork-blue-heron-alum-ford': [
     {
       id: 'big-south-fork-leatherwood-ford-commons',
-      src: '/gallery/big-south-fork-blue-heron-yamacraw/big-south-fork-leatherwood-ford.jpg',
+      src: '/gallery/big-south-fork-blue-heron-yamacraw/big-south-fork-leatherwood-ford.webp',
       alt: 'The Big South Fork flows through a wooded gorge corridor with clear green water and rocky banks.',
       caption: 'Big South Fork corridor',
       credit: 'Brian Stansberry via Wikimedia Commons',
@@ -2429,7 +2429,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'tradewater-river-bellville-montezuma': [
     {
       id: 'tradewater-river-commons',
-      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.webp',
       alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
       caption: 'Tradewater River near Dawson Springs',
       credit: 'Jomegat via Wikimedia Commons',
@@ -2439,7 +2439,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'tradewater-river-bellville-fishtrap': [
     {
       id: 'tradewater-river-commons',
-      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.webp',
       alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
       caption: 'Tradewater River near Dawson Springs',
       credit: 'Jomegat via Wikimedia Commons',
@@ -2449,7 +2449,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'tradewater-river-bellville-vfw-bridge': [
     {
       id: 'tradewater-river-commons',
-      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.webp',
       alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
       caption: 'Tradewater River near Dawson Springs',
       credit: 'Jomegat via Wikimedia Commons',
@@ -2459,7 +2459,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'tradewater-river-montezuma-fishtrap': [
     {
       id: 'tradewater-river-commons',
-      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.webp',
       alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
       caption: 'Tradewater River near Dawson Springs',
       credit: 'Jomegat via Wikimedia Commons',
@@ -2469,7 +2469,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'tradewater-river-fishtrap-vfw-bridge': [
     {
       id: 'tradewater-river-commons',
-      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.webp',
       alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
       caption: 'Tradewater River near Dawson Springs',
       credit: 'Jomegat via Wikimedia Commons',
@@ -2479,7 +2479,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'tradewater-river-vfw-bridge-granger-landing': [
     {
       id: 'tradewater-river-commons',
-      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.webp',
       alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
       caption: 'Tradewater River near Dawson Springs',
       credit: 'Jomegat via Wikimedia Commons',
@@ -2489,7 +2489,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'tradewater-river-montezuma-vfw-bridge': [
     {
       id: 'tradewater-river-commons',
-      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.webp',
       alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
       caption: 'Tradewater River near Dawson Springs',
       credit: 'Jomegat via Wikimedia Commons',
@@ -2499,7 +2499,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'tradewater-river-fishtrap-granger-landing': [
     {
       id: 'tradewater-river-commons',
-      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.webp',
       alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
       caption: 'Tradewater River near Dawson Springs',
       credit: 'Jomegat via Wikimedia Commons',
@@ -2509,7 +2509,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'tradewater-river-montezuma-granger-landing': [
     {
       id: 'tradewater-river-commons',
-      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.webp',
       alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
       caption: 'Tradewater River near Dawson Springs',
       credit: 'Jomegat via Wikimedia Commons',
@@ -2519,7 +2519,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'south-chickamauga-creek-shallowford-sterchi': [
     {
       id: 'south-chickamauga-audubon-acres-nps',
-      src: '/gallery/south-chickamauga-creek-shallowford-sterchi/south-chickamauga-audubon-acres.jpg',
+      src: '/gallery/south-chickamauga-creek-shallowford-sterchi/south-chickamauga-audubon-acres.webp',
       alt: 'South Chickamauga Creek runs through a leafy corridor at Audubon Acres in Chattanooga, Tennessee.',
       caption: 'South Chickamauga Creek at Audubon Acres',
       credit: 'National Trails Office/NPS via Wikimedia Commons',
@@ -2707,7 +2707,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'village-creek-fm418-sh327': [
     {
       id: 'village-creek-silsbee-commons',
-      src: '/gallery/village-creek-fm418-sh327/village-creek-near-silsbee.jpg',
+      src: '/gallery/village-creek-fm418-sh327/village-creek-near-silsbee.webp',
       alt: 'Village Creek runs through a sandy, wooded southeast Texas corridor near Silsbee.',
       caption: 'Village Creek near Silsbee',
       credit: 'Jill Carlson via Wikimedia Commons',
@@ -2717,7 +2717,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'guadalupe-river-fm766-sh72': [
     {
       id: 'guadalupe-river-cuero-bridge-commons',
-      src: '/gallery/guadalupe-river-fm766-sh72/guadalupe-river-cuero-bridge.jpg',
+      src: '/gallery/guadalupe-river-fm766-sh72/guadalupe-river-cuero-bridge.webp',
       alt: 'A historic bridge crosses the Guadalupe River southeast of Cuero, Texas, above the broad channel.',
       caption: 'Guadalupe River southeast of Cuero',
       credit: '25or6to4 via Wikimedia Commons',
