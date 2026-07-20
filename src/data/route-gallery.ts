@@ -244,6 +244,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
   ],
+  'little-miami-river-rogers-ballpark-carl-rahe': [
+    {
+      id: 'little-miami-river-loveland-commons',
+      src: '/gallery/little-miami-river-rogers-ballpark-carl-rahe/little-miami-river-loveland-commons.jpg',
+      alt: 'Paddlers move down the Little Miami River near Loveland, Ohio, with wooded banks and a broad gravel bar under clear sky.',
+      caption: 'Little Miami River near Loveland',
+      credit: 'AndyHemmerCincinnati via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
   'red-lake-river-smiley-bridge-centennial-park': [
     {
       id: 'red-lake-river-red-lake-falls-kiddle',
@@ -2774,4 +2784,3 @@ export function getRoutePreviewPhoto(route: RoutePhotoTarget): RoutePreviewPhoto
     isPlaceholder: true,
   };
 }
-

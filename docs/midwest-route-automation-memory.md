@@ -1,5 +1,13 @@
 # Midwest Route Automation Memory
 
+- 2026-07-19 15:59 America/Chicago / 2026-07-19 20:59 UTC: Ohio user-requested Little Miami implementation pass.
+  - Added `little-miami-river-rogers-ballpark-carl-rahe` from the submitted Paddle Today route request, keeping it distinct from the existing downstream Kelley-to-Milford whitewater/play route.
+  - Qualification path: Warren County Park District documented a public kayaking event with the exact shuttle from South Lebanon Roger's Ballpark Access to Carl A. Rahe Access; Buckeye United Fly Fishers listed Roger's Ball Park at river mile `33.4` and Carl A. Rahe at `27.9` with GPS/access context, supporting a `5.5` mile route; USGS `03245500` remains the product-supported lower Little Miami live gauge; RiverScout lists broad Little Miami `300-2,000 cfs` flow context; and CanWePaddle independently uses USGS `03245500` for the adjacent upstream Morrow-to-South-Lebanon Class I reach with an estimated `100-2,000 cfs` runnable range.
+  - Scoring posture: minimum-only at `300 cfs`, downstream proxy gauge, no ideal range and no high cutoff because no official Roger's-to-Rahe threshold ladder surfaced. Added a same-river Wikimedia Commons CC BY-SA 4.0 Little Miami near Loveland route-gallery image by AndyHemmerCincinnati.
+
+- 2026-07-19: Ohio Little Miami safety audit.
+  - Reviewed the other Little Miami-family pages after the user flagged high traffic and whitewater risk. `little-miami-river-kelley-milford` remains whitewater/advanced with AW Class I-II stage guidance and new Boathouse Rapid accident evidence. `east-fork-little-miami-river-williamsburg-tunnel-mill` is now marked `routeType: 'whitewater'` because AW is the threshold source and the reach has Class I-II rapids/strainers; trip details now include structured access points and camping classification.
+
 - 2026-07-16 15:30 America/Chicago / 2026-07-16 20:30 UTC: Kentucky three-route restoration pass (`3-new-routes-automation`).
   - Reused the current route queue after the Pennsylvania lower Juniata restore and stayed internet-first on the official KDFWR South Fork family because three source-backed South Fork slugs still had gallery wiring and ledger support but were absent from the live route array at run start.
   - Restored three internet-sourced Kentucky routes: `south-fork-kentucky-river-oneida-rocky-branch`, `south-fork-kentucky-river-oneida-cedar-valley`, and `south-fork-kentucky-river-cedar-valley-hacker-branch`.

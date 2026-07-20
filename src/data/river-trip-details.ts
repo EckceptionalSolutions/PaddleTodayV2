@@ -7902,6 +7902,62 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
+  'little-miami-river-rogers-ballpark-carl-rahe': {
+    putIn: {
+      name: "South Lebanon Roger's Ballpark Access",
+      latitude: 39.3676,
+      longitude: -84.215533,
+    },
+    takeOut: {
+      name: 'Carl A. Rahe Access',
+      latitude: 39.3182,
+      longitude: -84.2526,
+    },
+    logistics: {
+      distanceLabel: '5.5 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr depending on flow, stops, and wind',
+      shuttle:
+        "Use a two-car shuttle between Carl A. Rahe Access at Foster and South Lebanon Roger's Ballpark Access. Warren County used this exact pattern for a public kayaking event, staging vehicles at Rahe and shuttling paddlers upstream.",
+      permits:
+        'No route-specific paddling permit is known. Follow Ohio boating law, Little Miami State Park / scenic-river access rules, and any posted Warren County or local park restrictions.',
+      camping:
+        'No on-route camping assumed. Treat this as a short day route with public access at the endpoints only.',
+      campingClassification: 'none',
+      summary:
+        "Launch from Roger's Ballpark Access in South Lebanon and take out at Carl A. Rahe Access near Foster. This is the requested 5.5-mile scenic-river reach, separate from the downstream Kelley-to-Milford whitewater/play card.",
+      accessCaveats: [
+        "Roger's Ballpark and Carl A. Rahe are the planned public endpoints; nearby bridges in this corridor are emergency or non-launch context, not substitute access points.",
+        "Carl A. Rahe is the planned take-out. Continuing downstream changes the trip into the Foster-to-Loveland corridor and should be planned separately.",
+        'The scoring uses a downstream Milford gauge proxy and broad lower-Little-Miami flow guidance, so check local water clarity, recent rain, and posted access conditions before launch.',
+      ],
+      watchFor: [
+        'Fresh strainers, downed trees, bridge current, shallow gravel bars, and changing channels after storms.',
+        'Fast, muddy, or rising water after rain; this reach can feel much more consequential than a summer scenic float when the river is up.',
+        'Private banks outside the named public accesses, plus busy warm-weather traffic from liveries and anglers.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'south-lebanon-rogers-ballpark-access',
+        name: "South Lebanon Roger's Ballpark Access",
+        latitude: 39.3676,
+        longitude: -84.215533,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the requested South Lebanon-to-Rahe float.',
+      },
+      {
+        id: 'carl-a-rahe-access',
+        name: 'Carl A. Rahe Access',
+        latitude: 39.3182,
+        longitude: -84.2526,
+        mileFromStart: 5.5,
+        segmentKind: 'creek',
+        note: 'Default take-out at Foster, with parking and restroom context in the access sources.',
+      },
+    ],
+  },
+
   'little-miami-river-kelley-milford': {
     putIn: {
       name: 'Kelley Nature Preserve canoe/kayak access',
@@ -7922,6 +7978,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'No route-specific paddling permit is known. Follow Clermont County Parks, Milford, ODNR scenic-river, and posted access rules.',
       camping:
         'No on-route camping assumed. Treat this as a short day route.',
+      campingClassification: 'none',
       summary:
         'Launch at Kelley Nature Preserve and take out at Jim Terrell Park. This follows the AW Kelley-to-Milford reach and the ODNR Little Miami Scenic River access sequence.',
       accessCaveats: [
@@ -7935,6 +7992,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Strainers, floating debris after rain, and cold-water risk outside warm months.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'kelley-nature-preserve-canoe-kayak-access',
+        name: 'Kelley Nature Preserve canoe/kayak access',
+        latitude: 39.20997,
+        longitude: -84.30608,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the AW Kelley-to-Milford reach.',
+      },
+      {
+        id: 'jim-terrell-park-canoe-launch',
+        name: 'Jim Terrell Park canoe launch',
+        latitude: 39.17041,
+        longitude: -84.29856,
+        mileFromStart: 4.9,
+        segmentKind: 'creek',
+        note: 'Default take-out for the Kelley-to-Milford route; AW spells the park name Jim Tarrell, while ODNR/local references use Jim Terrell.',
+      },
+    ],
   },
 
   'east-fork-little-miami-river-williamsburg-tunnel-mill': {
@@ -7957,10 +8034,11 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'No route-specific paddling permit is known. Follow East Fork State Park, USACE, and posted local access rules at both ends.',
       camping:
         'Nearby basecamp is strong: East Fork State Park Campground is a large developed campground. Reserve separately if you want to turn this into a camp-and-paddle trip.',
+      campingClassification: 'nearby_basecamp',
       summary:
         'Launch at Williamsburg Community Park and take out at the Tunnel Mill / Twin Bridges Road launch above East Fork Lake. This keeps the route on the exact AW moving-water segment rather than turning it into a longer lake paddle.',
       accessCaveats: [
-        'The route uses American Whitewater’s exact endpoint coordinates, but the public-launch proof is stronger at the park/lake level than as a polished river-specific GIS launch record; verify the final shoreline path on arrival.',
+        "The route uses American Whitewater's exact endpoint coordinates, but the public-launch proof is stronger at the park/lake level than as a polished river-specific GIS launch record; verify the final shoreline path on arrival.",
         'The Tunnel Mill finish sits at the lake edge. Wind, lake chop, and nearby powerboat traffic matter more near the take-out than they do upstream.',
         'Continuing beyond the take-out changes the route into lake boating and should be treated as a separate trip plan.',
       ],
@@ -7970,6 +8048,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Pushier current, fresh wood, and changing eddies if the Williamsburg gauge rises quickly after rain.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'williamsburg-community-park',
+        name: 'Williamsburg Community Park',
+        latitude: 39.0519,
+        longitude: -84.0504,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the AW Williamsburg-to-Twin-Bridges reach.',
+      },
+      {
+        id: 'tunnel-mill-boat-ramp-twin-bridges-road',
+        name: 'Tunnel Mill Boat Ramp / Twin Bridges Road launch',
+        latitude: 39.0344,
+        longitude: -84.0682,
+        mileFromStart: 4.9,
+        segmentKind: 'lake',
+        note: 'Default take-out at the lake edge; stop here unless the group has a separate lake plan.',
+      },
+    ],
   },
 
   'cuyahoga-river-ira-lock-29': {

@@ -24,6 +24,8 @@ Use this file to continue Ohio expansion without re-researching already-added ro
 
 ## Early Targets
 
+- 2026-07-19: Added user-requested `little-miami-river-rogers-ballpark-carl-rahe` from South Lebanon Roger's Ballpark Access to Carl A. Rahe Access. Evidence: Warren County Park District documented the exact public event shuttle, Buckeye United Fly Fishers listed the two access river miles/GPS points, USGS `03245500` is the product-supported lower Little Miami gauge, and RiverScout / CanWePaddle provide numeric community lower-corridor context. Keep as minimum-only at `300 cfs`; no route-specific official band was found. A same-river Wikimedia Commons CC BY-SA 4.0 Little Miami near Loveland image is wired for gallery context.
+- 2026-07-19: Audited the other Little Miami-family pages because they are high-traffic and higher risk. Keep `little-miami-river-kelley-milford` as whitewater/advanced; AW documents 4.9 miles Class I-II, the 4.6-9.0 ft Milford stage ladder, Boathouse Rapid old low-head-dam remnants, and a 2021 near-drowning at the hydraulic. Mark `east-fork-little-miami-river-williamsburg-tunnel-mill` as `routeType: 'whitewater'`; AW is the threshold source for a Class I-II reach with rapids/strainers, and a May 2026 trip report around 400 cfs supports the app's conservative 350-900 cfs preferred window.
 - Continue from `docs/ohio-route-candidate-queue.md`.
 - Recheck Cuyahoga Lock 29-to-Station Road only after current NPS closure/hazard context clears and a defensible Jaite/Independence threshold model emerges.
 - Review Mahoning, Little Beaver, Tuscarawas, Maumee, Mohican/Kokosing, Mad/Stillwater, and Olentangy as gauge-first clusters.
