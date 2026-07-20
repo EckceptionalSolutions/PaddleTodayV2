@@ -1,8 +1,14 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { canonicalRiverRouteLineFromFeature } from './canonical-river-geometries.js';
 
 const assetPath = path.join(process.cwd(), 'public', 'data', 'canonical-river-geometries.json');
+
+function distanceMiles(left: [number, number], right: [number, number]) {
+  const latitudeScale = Math.cos(((left[1] + right[1]) * Math.PI) / 360);
+  return Math.hypot((left[0] - right[0]) * latitudeScale, left[1] - right[1]) * 69;
+}
 
 describe('canonical river geometry asset', () => {
   it('contains route-keyed multiline geometry for the Minnesota/St. Croix checks', () => {
@@ -50,5 +56,24 @@ describe('canonical river geometry asset', () => {
     expect(minnesota.scope).toBe('state');
     expect(minnesota.state).toBe('Minnesota');
     expect(minnesota.features?.length).toBeGreaterThan(100);
+  });
+
+  it('stitches the Little Miami Rogers to Rahe geometry across the full route', () => {
+    const asset = JSON.parse(readFileSync(assetPath, 'utf8')) as {
+      features: Array<{ properties?: { routeId?: string }; geometry?: { type?: string; coordinates?: unknown[] } }>;
+    };
+    const feature = asset.features.find(
+      (candidate) => candidate.properties?.routeId === 'little-miami-river-rogers-ballpark-carl-rahe',
+    );
+
+    const routeLine = canonicalRiverRouteLineFromFeature(feature, [
+      { longitude: -84.215533, latitude: 39.3676 },
+      { longitude: -84.2526, latitude: 39.3182 },
+    ]);
+
+    const coordinates = routeLine?.geometry.coordinates as [number, number][] | undefined;
+    expect(coordinates?.length).toBeGreaterThan(100);
+    expect(distanceMiles(coordinates?.[0] ?? [0, 0], [-84.215533, 39.3676])).toBeLessThan(0.05);
+    expect(distanceMiles(coordinates?.at(-1) ?? [0, 0], [-84.2526, 39.3182])).toBeLessThan(0.1);
   });
 });

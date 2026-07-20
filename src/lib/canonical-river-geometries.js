@@ -1,6 +1,9 @@
 import { endpointSnappedRiverGeometry, stitchRiverLines } from './endpoint-snapped-river-geometry.js';
 
 const canonicalGeometryPromises = new Map();
+const routeStitchTolerances = new Map([
+  ['little-miami-river-rogers-ballpark-carl-rahe', 0.0075],
+]);
 
 function slugifyState(value) {
   return String(value || '')
@@ -48,7 +51,8 @@ function flattenGeometry(geometry) {
 export function canonicalRiverRouteLineFromFeature(feature, routePoints) {
   if (!feature || !Array.isArray(routePoints) || routePoints.length < 2) return null;
 
-  const lines = stitchRiverLines(flattenGeometry(feature.geometry));
+  const stitchTolerance = routeStitchTolerances.get(feature.properties?.routeId);
+  const lines = stitchRiverLines(flattenGeometry(feature.geometry), stitchTolerance);
   const snapped = endpointSnappedRiverGeometry(lines, routePoints);
   if (!snapped) return null;
 
