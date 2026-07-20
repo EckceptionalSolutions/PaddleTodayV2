@@ -2378,8 +2378,8 @@ function weatherTimingModel(detail: RiverDetailApiResult) {
   if (firstRiskIndex === -1) {
     return {
       points,
-      title: 'No early weather block',
-      summary: 'No rain, storm, or wind spike is showing in the next few hours. Still re-check before launch.',
+      title: 'Good weather window',
+      summary: 'No rain, storms, or strong wind are showing in the next few hours. Still re-check conditions before launch.',
       badgeLabel: 'Open',
       badgeIcon: 'check-circle' as const,
       badgeStyle: styles.weatherDecisionBadgeGood,
@@ -2417,7 +2417,8 @@ function hourlyWeatherRisk(point: HourlyWeatherPoint): {
 } {
   const condition = point.conditionLabel ?? '';
   const rain = point.precipProbability ?? 0;
-  const wind = Math.max(point.windMph ?? 0, point.windGustMph ?? 0);
+  const sustainedWind = point.windMph ?? 0;
+  const gust = point.windGustMph ?? 0;
 
   if (/(storm|thunder)/i.test(condition)) {
     return { level: 'skip', kind: 'storm', icon: 'weather-lightning', color: colors.noGo };
@@ -2427,7 +2428,7 @@ function hourlyWeatherRisk(point: HourlyWeatherPoint): {
     return { level: 'skip', kind: 'rain', icon: 'weather-pouring', color: colors.noGo };
   }
 
-  if (wind >= 20) {
+  if (sustainedWind >= 22 || gust >= 30) {
     return { level: 'skip', kind: 'wind', icon: 'weather-windy', color: colors.noGo };
   }
 
@@ -2435,7 +2436,7 @@ function hourlyWeatherRisk(point: HourlyWeatherPoint): {
     return { level: 'watch', kind: 'rain', icon: 'weather-rainy', color: colors.fair };
   }
 
-  if (wind >= 14) {
+  if (sustainedWind >= 16 || gust >= 24) {
     return { level: 'watch', kind: 'wind', icon: 'weather-windy', color: colors.fair };
   }
 

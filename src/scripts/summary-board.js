@@ -1716,27 +1716,35 @@ function featuredMapCaptionText(item) {
   return `${point.kind === 'putIn' ? 'Put-in' : 'Take-out'}: ${point.name}`;
 }
 
-function syncFeaturedRouteLine(points, rating) {
+function featuredRouteFallbackFeature(points, item) {
+  if (points.length < 2) {
+    return null;
+  }
+
+  return {
+    type: 'Feature',
+    properties: { traced: false },
+    geometry: {
+      type: 'LineString',
+      coordinates: points.map((point) => [point.longitude, point.latitude]),
+    },
+  };
+}
+
+function syncFeaturedRouteLine(item, points = []) {
   if (!featuredMapRuntime) {
-    return;
+    return null;
   }
   if (!isFeaturedMapStyleReady()) {
-    return;
+    return null;
   }
 
   const sourceId = 'featured-route-line';
   const layerId = 'featured-route-line';
+  const rating = item?.cardRoute?.rating;
+  const routeLine = item ? summaryRiverTraceFeature(item) || featuredRouteFallbackFeature(points, item) : null;
 
-  if (points.length > 1) {
-    const routeLine = {
-      type: 'Feature',
-      properties: {},
-      geometry: {
-        type: 'LineString',
-        coordinates: points.map((point) => [point.longitude, point.latitude]),
-      },
-    };
-
+  if (routeLine) {
     if (featuredMapRuntime.getSource(sourceId)) {
       featuredMapRuntime.getSource(sourceId).setData(routeLine);
     } else {
@@ -1761,7 +1769,7 @@ function syncFeaturedRouteLine(points, rating) {
     }
 
     featuredMapRuntime.setPaintProperty(layerId, 'line-color', featuredRouteLineColor(rating));
-    return;
+    return routeLine;
   }
 
   if (featuredMapRuntime.getLayer(layerId)) {
@@ -1770,6 +1778,24 @@ function syncFeaturedRouteLine(points, rating) {
   if (featuredMapRuntime.getSource(sourceId)) {
     featuredMapRuntime.removeSource(sourceId);
   }
+  return null;
+}
+
+function featuredMapFocusPoints(item, accessPoints, routeLine) {
+  const tracedCoordinates = routeLine?.properties?.traced
+    ? flattenSummaryRiverGeometry(routeLine.geometry).flat()
+    : [];
+
+  if (tracedCoordinates.length > 1) {
+    return tracedCoordinates.map(([longitude, latitude]) => ({ longitude, latitude }));
+  }
+
+  if (accessPoints.length > 0) {
+    return accessPoints;
+  }
+
+  const river = item?.cardRoute?.river;
+  return Number.isFinite(river?.longitude) && Number.isFinite(river?.latitude) ? [river] : [];
 }
 
 function isFeaturedMapStyleReady() {
@@ -1828,7 +1854,7 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
 
   if (!visible || !item) {
     clearFeaturedMapMarkers();
-    syncFeaturedRouteLine([], item?.cardRoute?.rating);
+    syncFeaturedRouteLine(null);
     return;
   }
 
@@ -1838,7 +1864,7 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
 
   if (!hasCenterPoint && accessPoints.length === 0) {
     clearFeaturedMapMarkers();
-    syncFeaturedRouteLine([], item.cardRoute.rating);
+    syncFeaturedRouteLine(null);
     return;
   }
 
@@ -1873,9 +1899,14 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
       return;
     }
 
+    await ensureCanonicalRiverGeometries();
+    if (renderVersion !== featuredMapRenderVersion) {
+      return;
+    }
+
     featuredMapRuntime.resize();
     clearFeaturedMapMarkers();
-    syncFeaturedRouteLine(accessPoints, item.cardRoute.rating);
+    const routeLine = syncFeaturedRouteLine(item, accessPoints);
 
     if (accessPoints.length > 0) {
       const bounds = new maplibregl.LngLatBounds();
@@ -1893,10 +1924,14 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
           .addTo(featuredMapRuntime);
 
         featuredMapMarkers.push(marker);
+      }
+
+      const focusPoints = featuredMapFocusPoints(item, accessPoints, routeLine);
+      for (const point of focusPoints) {
         bounds.extend([point.longitude, point.latitude]);
       }
 
-      if (accessPoints.length > 1) {
+      if (focusPoints.length > 1) {
         featuredMapRuntime.fitBounds(bounds, {
           padding: { top: 34, right: 30, bottom: 34, left: 30 },
           maxZoom: 10.4,
@@ -1939,7 +1974,7 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
   } catch (error) {
     console.error('Failed to load featured map.', error);
     clearFeaturedMapMarkers();
-    syncFeaturedRouteLine([], item.cardRoute.rating);
+    syncFeaturedRouteLine(null);
     featuredMapShell.hidden = true;
     if (featuredMapStatus instanceof HTMLElement) {
       featuredMapStatus.textContent = '';

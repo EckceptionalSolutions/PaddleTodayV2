@@ -21,6 +21,7 @@ import { confidenceDisplayLabel, liveDataWarning, ratingDisplayLabel } from './u
 import { ratingVerdictLabel } from '@paddletoday/api-contract';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { getRoutePreviewPhoto } from '../data/route-gallery.ts';
+import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
 
 const STORAGE_KEY = 'paddletoday:user-location';
 const STORAGE_RADIUS_KEY = 'paddletoday:recommendation-radius';
@@ -1707,27 +1708,67 @@ function featuredMapCaptionText(item) {
   return `${point.kind === 'putIn' ? 'Put-in' : 'Take-out'}: ${point.name}`;
 }
 
-function syncFeaturedRouteLine(points, rating) {
+function featuredRouteFallbackFeature(points) {
+  if (points.length < 2) {
+    return null;
+  }
+
+  return {
+    type: 'Feature',
+    properties: { traced: false },
+    geometry: {
+      type: 'LineString',
+      coordinates: points.map((point) => [point.longitude, point.latitude]),
+    },
+  };
+}
+
+async function featuredRouteLineFeature(item, points) {
+  const route = item?.cardRoute?.river;
+  const routeId = route?.slug || route?.id;
+  if (routeId && points.length > 1) {
+    try {
+      const routeLine = await loadCanonicalRiverRouteLine(routeId, points, { stateName: route.state });
+      if (routeLine) {
+        return routeLine;
+      }
+    } catch (error) {
+      console.warn('Canonical river geometry unavailable for featured route; using access coordinates.', error);
+    }
+  }
+
+  return featuredRouteFallbackFeature(points);
+}
+
+function featuredMapFocusPoints(item, accessPoints, routeLine) {
+  const coordinates = routeLine?.properties?.traced && routeLine.geometry?.type === 'LineString'
+    ? routeLine.geometry.coordinates
+    : [];
+
+  if (coordinates.length > 1) {
+    return coordinates.map(([longitude, latitude]) => ({ longitude, latitude }));
+  }
+
+  if (accessPoints.length > 0) {
+    return accessPoints;
+  }
+
+  const river = item?.cardRoute?.river;
+  return Number.isFinite(river?.longitude) && Number.isFinite(river?.latitude) ? [river] : [];
+}
+
+function syncFeaturedRouteLine(routeLine, rating) {
   if (!featuredMapRuntime) {
-    return;
+    return null;
   }
   if (!isFeaturedMapStyleReady()) {
-    return;
+    return null;
   }
 
   const sourceId = 'featured-route-line';
   const layerId = 'featured-route-line';
 
-  if (points.length > 1) {
-    const routeLine = {
-      type: 'Feature',
-      properties: {},
-      geometry: {
-        type: 'LineString',
-        coordinates: points.map((point) => [point.longitude, point.latitude]),
-      },
-    };
-
+  if (routeLine) {
     if (featuredMapRuntime.getSource(sourceId)) {
       featuredMapRuntime.getSource(sourceId).setData(routeLine);
     } else {
@@ -1752,7 +1793,7 @@ function syncFeaturedRouteLine(points, rating) {
     }
 
     featuredMapRuntime.setPaintProperty(layerId, 'line-color', featuredRouteLineColor(rating));
-    return;
+    return routeLine;
   }
 
   if (featuredMapRuntime.getLayer(layerId)) {
@@ -1761,6 +1802,7 @@ function syncFeaturedRouteLine(points, rating) {
   if (featuredMapRuntime.getSource(sourceId)) {
     featuredMapRuntime.removeSource(sourceId);
   }
+  return null;
 }
 
 function isFeaturedMapStyleReady() {
@@ -1819,7 +1861,7 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
 
   if (!visible || !item) {
     clearFeaturedMapMarkers();
-    syncFeaturedRouteLine([], item?.cardRoute?.rating);
+    syncFeaturedRouteLine(null, item?.cardRoute?.rating);
     return;
   }
 
@@ -1829,7 +1871,7 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
 
   if (!hasCenterPoint && accessPoints.length === 0) {
     clearFeaturedMapMarkers();
-    syncFeaturedRouteLine([], item.cardRoute.rating);
+    syncFeaturedRouteLine(null, item.cardRoute.rating);
     return;
   }
 
@@ -1864,8 +1906,13 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
       return;
     }
 
+    const routeLine = await featuredRouteLineFeature(item, accessPoints);
+    if (renderVersion !== featuredMapRenderVersion) {
+      return;
+    }
+
     clearFeaturedMapMarkers();
-    syncFeaturedRouteLine(accessPoints, item.cardRoute.rating);
+    syncFeaturedRouteLine(routeLine, item.cardRoute.rating);
 
     if (accessPoints.length > 0) {
       const bounds = new maplibregl.LngLatBounds();
@@ -1883,10 +1930,14 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
           .addTo(featuredMapRuntime);
 
         featuredMapMarkers.push(marker);
+      }
+
+      const focusPoints = featuredMapFocusPoints(item, accessPoints, routeLine);
+      for (const point of focusPoints) {
         bounds.extend([point.longitude, point.latitude]);
       }
 
-      if (accessPoints.length > 1) {
+      if (focusPoints.length > 1) {
         featuredMapRuntime.fitBounds(bounds, {
           padding: { top: 26, right: 26, bottom: 26, left: 26 },
           maxZoom: 10.9,
@@ -1931,7 +1982,7 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
   } catch (error) {
     console.error('Failed to load featured map.', error);
     clearFeaturedMapMarkers();
-    syncFeaturedRouteLine([], item.cardRoute.rating);
+    syncFeaturedRouteLine(null, item.cardRoute.rating);
     featuredMapShell.hidden = true;
     if (featuredMapStatus instanceof HTMLElement) {
       featuredMapStatus.textContent = '';

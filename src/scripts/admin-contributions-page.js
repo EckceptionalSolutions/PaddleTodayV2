@@ -219,6 +219,15 @@ function escapeAttribute(value) {
   return escapeHtml(value);
 }
 
+function routeRequestStorageParam(storageKey) {
+  const bytes = new TextEncoder().encode(String(storageKey || ''));
+  let binary = '';
+  for (const byte of bytes) {
+    binary += String.fromCharCode(byte);
+  }
+  return `b64.${btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '')}`;
+}
+
 async function fetchSession() {
   const response = await fetch('/api/admin/session', { headers: { accept: 'application/json' } });
   const payload = await response.json().catch(() => ({}));
@@ -267,6 +276,7 @@ function bindRouteRequestReplyActions() {
     const status = card.querySelector('[data-route-request-reply-status]');
     const markRepliedButton = card.querySelector('[data-route-request-mark-replied]');
     const requestKey = card.dataset.routeRequestKey || '';
+    const requestParam = routeRequestStorageParam(requestKey);
     if (!requestKey) continue;
 
     if (markRepliedButton instanceof HTMLButtonElement) {
@@ -274,7 +284,7 @@ function bindRouteRequestReplyActions() {
         markRepliedButton.disabled = true;
         setStatus(status, 'Marking replied...');
         try {
-          const response = await fetch(`/api/admin/route-requests/${encodeURIComponent(requestKey)}/mark-replied`, {
+          const response = await fetch(`/api/admin/route-requests/${encodeURIComponent(requestParam)}/mark-replied`, {
             method: 'POST',
             headers: {
               accept: 'application/json',
@@ -307,7 +317,7 @@ function bindRouteRequestReplyActions() {
       if (submitButton instanceof HTMLButtonElement) submitButton.disabled = true;
       setStatus(status, 'Sending reply...');
       try {
-        const response = await fetch(`/api/admin/route-requests/${encodeURIComponent(requestKey)}/reply`, {
+        const response = await fetch(`/api/admin/route-requests/${encodeURIComponent(requestParam)}/reply`, {
           method: 'POST',
           headers: {
             accept: 'application/json',

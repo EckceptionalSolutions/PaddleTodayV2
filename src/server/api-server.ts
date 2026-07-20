@@ -36,6 +36,7 @@ import {
 import { handleRiverAlertCreate, handleRiverAlertUnsubscribe } from './routes/alerts';
 import { handleRiverGeometry } from './routes/river-geometry';
 import { handleHistorySnapshot, handleRiverSnapshotRefresh } from './routes/snapshots';
+import { decodeRouteRequestStorageKeyParam } from '../lib/route-request-storage-key';
 
 const host = process.env.CANOE_API_HOST || '0.0.0.0';
 const staticDirArg = readArgValue('--static');
@@ -252,7 +253,7 @@ async function handleWriteRoutes(
       response,
       requestId,
       includeBody,
-      decodeURIComponent(adminRouteRequestReplyMatch[1])
+      decodeRouteRequestStorageKeyParam(adminRouteRequestReplyMatch[1])
     );
   }
 
@@ -263,7 +264,7 @@ async function handleWriteRoutes(
       response,
       requestId,
       includeBody,
-      decodeURIComponent(adminRouteRequestMarkRepliedMatch[1])
+      decodeRouteRequestStorageKeyParam(adminRouteRequestMarkRepliedMatch[1])
     );
   }
 
