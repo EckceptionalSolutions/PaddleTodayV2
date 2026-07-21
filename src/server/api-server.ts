@@ -74,11 +74,11 @@ const server = createServer(async (request, response) => {
       return sendJson(response, 405, { requestId, error: 'method_not_allowed' }, includeBody);
     }
 
-    if (requestUrl.pathname === '/health') {
+    if (requestUrl.pathname === '/health' || requestUrl.pathname === '/api/health') {
       return handleHealth(response, requestId, includeBody, { staticDir, startedAt });
     }
 
-    if (requestUrl.pathname === '/health/ready') {
+    if (requestUrl.pathname === '/health/ready' || requestUrl.pathname === '/api/health/ready') {
       return handleReady(response, requestId, includeBody, staticDir);
     }
 

@@ -22,6 +22,10 @@ import { gaugeDisplayForSource } from './source-adapters';
 import type { GaugeBand, RiverGaugeSource, RiverScoreResult } from './types';
 
 const DEFAULT_SNAPSHOT_DIR = '.local';
+// Scheduled snapshots are expected every 30 minutes. Once the last successful
+// capture is more than two hours old, a stored "live" call is more misleading
+// than useful, so callers fall back to a fresh live read instead.
+const MAX_STORED_SNAPSHOT_AGE_MS = 2 * 60 * 60 * 1000;
 
 type BlobContainer = {
   base: string;
@@ -155,6 +159,9 @@ export async function getStoredRiverSummarySnapshot(): Promise<RiverSummarySnaps
   if (!snapshot) {
     return null;
   }
+  if (!isStoredSnapshotFresh(snapshot)) {
+    return null;
+  }
 
   return {
     ...snapshot,
@@ -179,6 +186,9 @@ export async function getStoredRiverDetailSnapshot(slug: string): Promise<RiverD
   if (!snapshot) {
     return null;
   }
+  if (!isStoredSnapshotFresh(snapshot)) {
+    return null;
+  }
 
   return {
     ...snapshot,
@@ -193,6 +203,9 @@ export async function getStoredWeekendSummarySnapshot(): Promise<WeekendSummaryS
   if (!snapshot) {
     return null;
   }
+  if (!isStoredSnapshotFresh(snapshot)) {
+    return null;
+  }
 
   return {
     ...snapshot,
@@ -205,6 +218,9 @@ export async function getStoredRiverGroupSnapshot(riverId: string): Promise<Rive
     (await snapshotStorage().readJson<RiverGroupSnapshot>(groupBlobName(riverId))) ??
     (await readSummaryGroupFallback(riverId));
   if (!snapshot) {
+    return null;
+  }
+  if (!isStoredSnapshotFresh(snapshot)) {
     return null;
   }
 
@@ -479,6 +495,11 @@ function normalizeSummarySnapshotItem(item: RiverSummaryApiItem): RiverSummaryAp
       logistics: item.river.logistics || river?.logistics,
     },
   };
+}
+
+function isStoredSnapshotFresh(snapshot: { generatedAt: string }) {
+  const generatedAt = Date.parse(snapshot.generatedAt);
+  return Number.isFinite(generatedAt) && Date.now() - generatedAt <= MAX_STORED_SNAPSHOT_AGE_MS;
 }
 
 function normalizeWeekendSnapshotItem(item: WeekendSummaryApiItem): WeekendSummaryApiItem {

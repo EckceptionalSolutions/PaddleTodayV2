@@ -1715,6 +1715,8 @@ function buildExplanation(args: {
   const lead =
     coldWeatherDriven
       ? `${args.river.name} is in shape, but rough weather makes it a tougher call today.`
+      : riceCreekWindTradeoff(args)
+        ? `${args.river.name} is paddleable today, but wind makes the full lake-and-creek route a bigger commitment.`
       : args.rating === 'Strong'
       ? `${args.river.name} looks good today.`
       : args.rating === 'Good'
@@ -1747,11 +1749,28 @@ function buildExplanation(args: {
     args.comfortAssessment.points < 0
       ? ` ${args.comfortAssessment.detail}`
       : '';
+  const routeTradeoffSentence = riceCreekWindTradeoff(args)
+    ? ' Consider starting at Baldwin Lake or another downstream access to skip the most exposed upper lake miles, and check the lake crossings before launch.'
+    : '';
 
-  return `${lead} ${gaugeSentence} ${trendSentence} ${args.weatherAssessment.detail} ${args.temperatureAssessment.detail}${freshnessSentence}${comfortSentence} ${confidenceSentence}`.replace(
+  return `${lead} ${gaugeSentence} ${trendSentence} ${args.weatherAssessment.detail} ${args.temperatureAssessment.detail}${freshnessSentence}${comfortSentence}${routeTradeoffSentence} ${confidenceSentence}`.replace(
     /\s+/g,
     ' '
   ).trim();
+}
+
+function riceCreekWindTradeoff(args: {
+  river: River;
+  rating: ScoreRating;
+  weather: WeatherSnapshot | null;
+}) {
+  if (args.river.slug !== 'rice-creek-peltier-to-long-lake' || args.rating !== 'Fair' || !args.weather) {
+    return false;
+  }
+
+  const sustainedWind = args.weather.next12hWindMphMax ?? args.weather.windMph ?? 0;
+  const gustWind = args.weather.gustMph ?? 0;
+  return sustainedWind >= 14 || gustWind >= 24;
 }
 
 function ratingFromScore(score: number): ScoreRating {

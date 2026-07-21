@@ -163,6 +163,7 @@ const featuredLink = document.querySelector('[data-featured-link]');
 const featuredJumpLink = document.querySelector('.home-featured__jump-link');
 const featuredConfidence = document.querySelector('[data-field="featured-confidence"]');
 const featuredDistance = document.querySelector('[data-field="featured-distance"]');
+const featuredSegment = document.querySelector('[data-field="featured-segment"]');
 const featuredReason = document.querySelector('[data-field="featured-reason"]');
 const featuredWeather = document.querySelector('[data-featured-weather]');
 const featuredWeatherIcon = document.querySelector('[data-featured-weather-icon]');
@@ -1767,6 +1768,156 @@ function featuredMapAccessPoints(item) {
   ].filter(Boolean);
 }
 
+function summaryMapRoutePoints(item) {
+  const river = item?.cardRoute?.river;
+  const putIn = river?.putIn;
+  const takeOut = river?.takeOut;
+  const points = [
+    Number.isFinite(putIn?.latitude) && Number.isFinite(putIn?.longitude)
+      ? { ...putIn, kind: 'putIn' }
+      : null,
+    Number.isFinite(takeOut?.latitude) && Number.isFinite(takeOut?.longitude)
+      ? { ...takeOut, kind: 'takeOut' }
+      : null,
+  ].filter(Boolean);
+
+  if (points.length >= 2 && (points[0].longitude !== points[1].longitude || points[0].latitude !== points[1].latitude)) {
+    return points;
+  }
+
+  return (Array.isArray(river?.accessPoints) ? river.accessPoints : [])
+    .map((point, index, accessPoints) => {
+      if (!Number.isFinite(point?.latitude) || !Number.isFinite(point?.longitude)) {
+        return null;
+      }
+
+      return {
+        ...point,
+        kind: index === 0 ? 'putIn' : index === accessPoints.length - 1 ? 'takeOut' : 'access',
+      };
+    })
+    .filter(Boolean)
+    .sort((left, right) => {
+      const leftMile = Number(left.mileFromStart);
+      const rightMile = Number(right.mileFromStart);
+      return (Number.isFinite(leftMile) ? leftMile : 0) - (Number.isFinite(rightMile) ? rightMile : 0);
+    });
+}
+
+function summaryMapFallbackRouteLine(item, points) {
+  if (points.length < 2) {
+    return null;
+  }
+
+  return {
+    type: 'Feature',
+    properties: {
+      key: item.key,
+      rating: item.cardRoute.rating,
+      traced: false,
+    },
+    geometry: {
+      type: 'LineString',
+      coordinates: points.map((point) => [point.longitude, point.latitude]),
+    },
+  };
+}
+
+async function summaryMapRouteLine(item) {
+  const points = summaryMapRoutePoints(item);
+  if (points.length < 2) {
+    return null;
+  }
+
+  const route = item?.cardRoute?.river;
+  const routeId = route?.slug || route?.id;
+  if (routeId) {
+    try {
+      const routeLine = await loadCanonicalRiverRouteLine(routeId, points, { stateName: route.state });
+      if (routeLine) {
+        return {
+          ...routeLine,
+          properties: {
+            ...routeLine.properties,
+            key: item.key,
+            rating: item.cardRoute.rating,
+          },
+        };
+      }
+    } catch (error) {
+      console.warn('Canonical river geometry unavailable for home result route; using access coordinates.', error);
+    }
+  }
+
+  return summaryMapFallbackRouteLine(item, points);
+}
+
+function isSummaryMapStyleReady() {
+  if (!mapRuntime) {
+    return false;
+  }
+
+  const mapLoaded = typeof mapRuntime.loaded !== 'function' || mapRuntime.loaded();
+  const styleLoaded = typeof mapRuntime.isStyleLoaded !== 'function' || mapRuntime.isStyleLoaded();
+  return mapLoaded && styleLoaded;
+}
+
+function syncSummaryMapRouteLines(data) {
+  if (!mapRuntime || !isSummaryMapStyleReady()) {
+    return;
+  }
+
+  const sourceId = 'home-summary-route-lines';
+  const casingLayerId = 'home-summary-route-lines-casing';
+  const layerId = 'home-summary-route-lines';
+
+  if (mapRuntime.getSource(sourceId)) {
+    mapRuntime.getSource(sourceId).setData(data);
+  } else {
+    mapRuntime.addSource(sourceId, { type: 'geojson', data });
+  }
+
+  if (!mapRuntime.getLayer(casingLayerId)) {
+    mapRuntime.addLayer({
+      id: casingLayerId,
+      type: 'line',
+      source: sourceId,
+      layout: { 'line-cap': 'round', 'line-join': 'round' },
+      paint: {
+        'line-color': '#ffffff',
+        'line-width': ['interpolate', ['linear'], ['zoom'], 3, 3.8, 8, 6.2, 12, 8],
+        'line-opacity': 0.72,
+      },
+    });
+  }
+
+  if (!mapRuntime.getLayer(layerId)) {
+    mapRuntime.addLayer({
+      id: layerId,
+      type: 'line',
+      source: sourceId,
+      layout: { 'line-cap': 'round', 'line-join': 'round' },
+      paint: {
+        'line-color': '#16758a',
+        'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1.8, 8, 3.4, 12, 4.8],
+        'line-opacity': 0.72,
+      },
+    });
+  }
+}
+
+async function renderSummaryMapRouteLines(items, renderVersion) {
+  const features = (await Promise.all(items.map((item) => summaryMapRouteLine(item)))).filter(Boolean);
+  if (renderVersion !== summaryMapRenderVersion || !mapRuntime) {
+    return;
+  }
+
+  syncSummaryMapRouteLines({
+    type: 'FeatureCollection',
+    features,
+  });
+}
+
 function featuredMapCaptionText(item) {
   const accessPoints = featuredMapAccessPoints(item);
   if (accessPoints.length === 0) {
@@ -2861,6 +3012,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     );
     setText(document, 'featured-facts-label', locationReady ? '' : 'Route facts');
     setText(document, 'featured-confidence', locationReady ? '' : 'Data confidence coming in');
+    setText(document, 'featured-segment', '');
     setText(
       document,
       'featured-distance',
@@ -2884,6 +3036,9 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     );
     if (featuredConfidence instanceof HTMLElement) {
       featuredConfidence.hidden = locationReady;
+    }
+    if (featuredSegment instanceof HTMLElement) {
+      featuredSegment.hidden = true;
     }
     if (featuredDistance instanceof HTMLElement) {
       featuredDistance.hidden = false;
@@ -2951,6 +3106,8 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   renderScoreBreakdownDisclosure(featuredPanel, item.cardRoute.scoreBreakdown);
   setText(document, 'featured-facts-label', isGroupedItem(item) ? 'River facts' : 'Route facts');
   setText(document, 'featured-confidence', confidenceLabel(item));
+  const featuredSegmentLabel = segmentLabelForItem(item);
+  setText(document, 'featured-segment', featuredSegmentLabel);
   setText(
     document,
     'featured-distance',
@@ -2982,6 +3139,9 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   }
   if (featuredConfidence instanceof HTMLElement) {
     featuredConfidence.hidden = false;
+  }
+  if (featuredSegment instanceof HTMLElement) {
+    featuredSegment.hidden = !featuredSegmentLabel;
   }
   if (featuredDistance instanceof HTMLElement) {
     featuredDistance.hidden = false;
@@ -4173,6 +4333,11 @@ async function renderRequestedSummaryMap(items) {
       mapMarkersByKey.set(item.key, marker);
       bounds.extend([item.cardRoute.river.longitude, item.cardRoute.river.latitude]);
       hasBounds = true;
+    }
+
+    await renderSummaryMapRouteLines(items, renderVersion);
+    if (renderVersion !== summaryMapRenderVersion) {
+      return;
     }
 
     if (hasBounds) {

@@ -49,3 +49,26 @@ jobs:
           fi
 
           npm run snapshots:refresh
+
+      - name: Verify production snapshot freshness
+        env:
+          SITE_URL: ${{ vars.SITE_URL || 'https://paddletoday.com' }}
+        run: |
+          node --input-type=module <<'NODE'
+          const siteUrl = process.env.SITE_URL.replace(/\/$/, '');
+          const url = `${siteUrl}/api/rivers/rice-creek-peltier-to-long-lake.json?snapshot_check=${Date.now()}`;
+          const response = await fetch(url, { headers: { accept: 'application/json' } });
+          if (!response.ok) {
+            throw new Error(`Production snapshot probe returned HTTP ${response.status}.`);
+          }
+
+          const payload = await response.json();
+          const generatedAt = Date.parse(payload.generatedAt || payload.result?.generatedAt || '');
+          const ageMinutes = Number.isFinite(generatedAt)
+            ? Math.round((Date.now() - generatedAt) / 60000)
+            : Infinity;
+          console.log(`Production snapshot generatedAt=${payload.generatedAt || payload.result?.generatedAt || 'unknown'} ageMinutes=${ageMinutes}`);
+          if (!Number.isFinite(generatedAt) || ageMinutes > 20) {
+            throw new Error('Production is not serving the snapshot just written by this run. Check the workflow SAS URL, blob prefix, and App Service settings.');
+          }
+          NODE

@@ -942,6 +942,34 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     expect(result.checklist.find((item) => item.label === 'Weather window')?.status).toBe('watch');
   });
 
+  it('keeps a windy Fair Rice Creek call paddleable and points to the downstream split', () => {
+    expect(riceCreek).toBeDefined();
+
+    const result = scoreRiverCondition({
+      river: riceCreek as River,
+      gauge: makeRiverGauge(riceCreek as River, 6.47, 'steady', 0.02),
+      weather: {
+        ...weather,
+        observedAt: '2026-07-21T11:00:00Z',
+        temperatureF: 90,
+        windMph: 15,
+        gustMph: 31,
+        next12hWindMphMax: 15,
+        next12hPrecipProbabilityMax: 20,
+        next12hPrecipitationIn: 0.08,
+        recentRain24hIn: 0.5,
+        recentRain72hIn: 0.7,
+      },
+      now: new Date('2026-07-21T12:00:00Z'),
+    });
+
+    expect(result.score).toBe(64);
+    expect(result.rating).toBe('Fair');
+    expect(result.explanation).toContain('paddleable today');
+    expect(result.explanation).toContain('Baldwin Lake');
+    expect(result.explanation).not.toContain('skip today');
+  });
+
   it('treats the lower Kettle inside the AW band as an in-play mixed-source call', () => {
     expect(kettle).toBeDefined();
 

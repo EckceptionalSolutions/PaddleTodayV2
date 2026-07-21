@@ -15921,7 +15921,7 @@ body.site-search-open {
     line-height: 1.1 !important;
   }
 
-  html body.page-home .home-featured .hero-call__meta--route-facts .pill:nth-child(n + 3) {
+  html body.page-home .home-featured .hero-call__meta--route-facts .pill:nth-child(n + 4) {
     display: none !important;
   }
 
