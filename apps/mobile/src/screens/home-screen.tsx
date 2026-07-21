@@ -1,4 +1,8 @@
-import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
+import {
+  formatRouteSegmentLabel,
+  routeSegmentSummary,
+  type RiverSummaryApiItem,
+} from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
@@ -509,6 +513,11 @@ function RiverImageCard({
             <Text style={styles.imageCardMeta} numberOfLines={1}>
               {[routeReachWithState(river), distanceLabelForRiver(river), routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - ')}
             </Text>
+            {routeSegmentSummary(river.river) ? (
+              <Text style={styles.imageCardSegment} numberOfLines={1}>
+                {formatRouteSegmentLabel(routeSegmentSummary(river.river), null)}
+              </Text>
+            ) : null}
           </View>
         </View>
       </ImageBackground>
@@ -594,6 +603,11 @@ function CompactRiverRow({
         <Text style={styles.quickMeta} numberOfLines={1}>
           {[routeReachWithState(river), distanceLabelForRiver(river), routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - ')}
         </Text>
+        {routeSegmentSummary(river.river) ? (
+          <Text style={styles.quickSegment} numberOfLines={1}>
+            {formatRouteSegmentLabel(routeSegmentSummary(river.river), null)}
+          </Text>
+        ) : null}
         <Text style={styles.quickReason} numberOfLines={1}>{homeFactLine(river)}</Text>
       </View>
       <View style={styles.quickActions}>
@@ -1931,6 +1945,11 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
   },
+  imageCardSegment: {
+    color: colors.accentSoft,
+    fontSize: 11,
+    fontWeight: '900',
+  },
   imageCardBody: {
     padding: spacing.md,
     gap: spacing.sm,
@@ -2015,6 +2034,11 @@ const styles = StyleSheet.create({
   quickMeta: {
     color: colors.textMuted,
     fontSize: 12,
+  },
+  quickSegment: {
+    color: colors.accentDeep,
+    fontSize: 11,
+    fontWeight: '900',
   },
   quickReason: {
     color: colors.text,

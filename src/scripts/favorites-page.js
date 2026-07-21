@@ -4,6 +4,7 @@ import { readFavorites, subscribeFavorites } from './favorites-store.js';
 import { MAP_STYLE_URL, bindMarkerPopup, ensureMapLibre, escapeHtml, markerClassForRating } from './map-runtime.js';
 import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
+import { formatRouteSegmentLabel, routeSegmentSummary } from '../lib/route-segments.ts';
 
 const SUMMARY_CACHE_KEY = 'river-summary:v2';
 const root = document.querySelector('[data-favorites-page]');
@@ -363,6 +364,12 @@ function renderFavoriteCard(favorite, current) {
   }
 
   setText(card, 'favorite-route', current?.river?.reach || favorite.reach || 'Route');
+  const segmentField = card.querySelector('[data-field="favorite-segment"]');
+  const segmentLabel = current?.river ? formatRouteSegmentLabel(routeSegmentSummary(current.river), null) : '';
+  if (segmentField instanceof HTMLElement) {
+    segmentField.textContent = segmentLabel;
+    segmentField.hidden = !segmentLabel;
+  }
   setText(
     card,
     'favorite-state',
@@ -427,6 +434,9 @@ function renderFavoriteCard(favorite, current) {
   const factsSection = card.querySelector('[data-field="favorite-facts-section"]');
   if (factsSection instanceof HTMLElement) {
     factsSection.hidden = true;
+  }
+  if (segmentField instanceof HTMLElement) {
+    segmentField.hidden = true;
   }
   if (link instanceof HTMLAnchorElement) {
     link.textContent = 'Open route';

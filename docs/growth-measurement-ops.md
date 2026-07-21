@@ -108,6 +108,9 @@ Common safe properties:
 | `Dismiss app download` | App prompt dismiss button click | `path`, `platform` | none | Any non-excluded mobile web page |
 | `Guide-to-route click` | Guide route link click | `path`, `guide`, `route`, `river`, `source_page` | `state`, `region`, `href` | Guide pages |
 | `Open route directions` | Google or Apple directions link click | `path`, `route`, `river`, `state`, `region`, `label`, `href` | none | Route detail access plan |
+| `Open route planner` | Discovery card opens a route with a selected access pair | `path`, `route`, `river`, `state`, `region`, `label`, `href` | none | Home or Explore |
+| `Route planner view` | Access planner initializes on a route detail page | `path`, `route`, `river`, `state`, `region` | `put_in_id`, `take_out_id`, `segment_distance_miles`, `source` | Route detail access plan |
+| `Select route segment` | Paddler changes the put-in or take-out | `path`, `route`, `river`, `state`, `region` | `put_in_id`, `take_out_id`, `segment_distance_miles`, `source` | Route detail access planner |
 | `Open site search` | Header search button click | `path` | `source_page` | Any page |
 | `Submit location search` | Homepage location search form submit | `path` | `source_page` | Homepage |
 | `Use current location` | Current-location button click | `path` | `source_page` | Homepage |
@@ -154,6 +157,10 @@ Do not build a dashboard unless the product adds an internal reporting surface. 
 
 - App opens.
 - Route opens.
+- `explore_filter_applied`.
+- `route_planner_opened_from_filter`.
+- `route_planner_viewed`.
+- `route_segment_selected`.
 - Saves.
 - Alerts.
 - Directions.
@@ -167,6 +174,14 @@ Do not build a dashboard unless the product adds an internal reporting surface. 
 - `/health` and `/health/ready`.
 - `/api/rivers/summary.json` and route-detail API health.
 - Mobile API diagnostic failures.
+
+### Planner funnel
+
+For the segment-aware discovery release, review this sequence weekly:
+
+`Open route planner` / `route_planner_opened_from_filter` -> `Route planner view` / `route_planner_viewed` -> `Select route segment` / `route_segment_selected` -> route save, directions, share, or alert.
+
+Use the web and mobile event names separately, then compare the rate of planner opens that reach directions or saves. A planner view without a manual segment change is a valid success path when the discovery card already supplied a deep link.
 
 ## Weekly Cadence
 

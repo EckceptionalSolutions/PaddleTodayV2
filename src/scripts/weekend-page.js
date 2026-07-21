@@ -3,10 +3,20 @@ import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-
 import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } from './favorites-ui.js';
 import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
-import { getRoutePreviewPhoto } from '../data/route-gallery.ts';
+import { formatRouteSegmentLabel, routeSegmentSummary } from '../lib/route-segments.ts';
 
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const WEEKEND_CACHE_KEY = 'weekend-summary:v1';
+const FALLBACK_ROUTE_PHOTOS = [
+  {
+    src: '/gallery/fallbacks/river-fallback-stream.jpg',
+    alt: 'A representative river scene used as a placeholder until a route photo is available.',
+  },
+  {
+    src: '/gallery/fallbacks/river-fallback-wide.jpg',
+    alt: 'A representative wide river scene used as a placeholder until a route photo is available.',
+  },
+];
 
 const snapshotLine = document.querySelector('[data-weekend-snapshot]');
 const weekendDates = document.querySelector('[data-weekend-dates]');
@@ -506,6 +516,11 @@ function updateFeaturedSummaryToggle(text) {
     : 'Details';
 }
 
+function fallbackRoutePhotoForSlug(slug = '') {
+  const index = Array.from(slug).reduce((sum, char) => sum + char.charCodeAt(0), 0) % FALLBACK_ROUTE_PHOTOS.length;
+  return FALLBACK_ROUTE_PHOTOS[index] || FALLBACK_ROUTE_PHOTOS[0];
+}
+
 function updateFeaturedGallery(item) {
   if (!(featuredGallery instanceof HTMLElement) || !(featuredGalleryImage instanceof HTMLImageElement)) {
     return;
@@ -522,12 +537,12 @@ function updateFeaturedGallery(item) {
     return;
   }
 
-  const photo = getRoutePreviewPhoto(river);
+  const photo = fallbackRoutePhotoForSlug(river.slug);
   featuredGallery.hidden = false;
   featuredGalleryImage.src = photo.src;
   featuredGalleryImage.alt = photo.alt || `${river.name} route photo`;
   if (featuredGalleryPlaceholder instanceof HTMLElement) {
-    featuredGalleryPlaceholder.hidden = !photo.isPlaceholder;
+    featuredGalleryPlaceholder.hidden = false;
   }
   if (featuredGalleryContribute instanceof HTMLAnchorElement) {
     featuredGalleryContribute.href = `/contribute/?riverSlug=${encodeURIComponent(river.slug)}`;
@@ -668,6 +683,12 @@ function createWeekendCard(item, index, options = {}) {
   setText(card.querySelector('[data-field="card-slot"]'), slotText);
   setText(card.querySelector('[data-field="state"]'), regionStateText(item));
   setText(card.querySelector('[data-field="route-label"]'), item.river.reach);
+  const segmentLabel = formatRouteSegmentLabel(routeSegmentSummary(item.river), null);
+  const segmentField = card.querySelector('[data-field="segment-label"]');
+  setText(segmentField, segmentLabel);
+  if (segmentField instanceof HTMLElement) {
+    segmentField.hidden = !segmentLabel;
+  }
   setText(card.querySelector('[data-field="card-verdict"]'), weekendVerdict(item));
   setText(card.querySelector('[data-field="score"]'), String(item.weekend.score));
   setText(card.querySelector('[data-field="rating"]'), ratingDisplayLabel(item.weekend.rating, { compact: true }));

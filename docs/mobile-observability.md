@@ -20,6 +20,10 @@ Preview/production native builds require:
 The app calls `trackAppEvent` for:
 
 - Route opened.
+- Explore filter applied, including paddle length.
+- Route planner viewed, with default or deep-link source.
+- Route planner opened from a filtered discovery card.
+- Route segment selected manually.
 - Saved river toggled.
 - Directions opened.
 - Route report started.

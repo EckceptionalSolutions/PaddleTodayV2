@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import FeatureIcon from '../../../components/FeatureIcon.astro';
 import FavoriteButton from '../../../components/FavoriteButton.astro';
 import { listRiverGroups } from '../../../lib/rivers';
+import { formatRouteSegmentLabel, routeSegmentSummary } from '../../../lib/route-segments';
 
 export function getStaticPaths() {
   return listRiverGroups()
@@ -152,6 +153,9 @@ const groupStructuredData = [
             <span class="route-choice__eyebrow">{route.state} | {route.region}</span>
             <strong class="route-choice__title">{route.reach}</strong>
             <span class="route-choice__verdict">Loading verdict</span>
+            {formatRouteSegmentLabel(routeSegmentSummary(route), null) ? (
+              <span class="route-choice__segment">{formatRouteSegmentLabel(routeSegmentSummary(route), null)}</span>
+            ) : null}
             <div class="route-choice__scoreline">
               <div class="score-orb route-choice__score-orb" aria-label="Route score">
                 <span class="score-orb__score">--</span>

@@ -1,4 +1,9 @@
-import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
+import {
+  formatRouteSegmentLabel,
+  type RiverSummaryApiItem,
+  type RouteSegment,
+  type RouteSegmentSummary,
+} from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import type { Dispatch, SetStateAction } from 'react';
 import { useEffect, useMemo, useRef } from 'react';
@@ -14,6 +19,8 @@ export type MapSheetSnap = 'peek' | 'half' | 'full';
 export interface ExploreDrawerRiver extends RiverSummaryApiItem {
   distanceMiles: number | null;
   travelLabel: string | null;
+  selectedSegment?: RouteSegment | null;
+  segmentSummary?: RouteSegmentSummary | null;
 }
 
 interface ExploreRouteDrawerProps {
@@ -27,7 +34,7 @@ interface ExploreRouteDrawerProps {
   onOpenRoute: () => void;
   onOpenRiverRoutes?: () => void;
   onContributePhotos: (slug: string) => void;
-  onToggleSaved: (river: ExploreDrawerRiver) => void;
+  onToggleSaved: (river: RiverSummaryApiItem) => void;
 }
 
 export function ExploreRouteDrawer({
@@ -48,6 +55,7 @@ export function ExploreRouteDrawer({
   const sheetGesture = useMapSheetPanResponder(sheetSnap, setSheetSnap, maxSheetHeight, onClose);
   const selectedDirectionsUrl = mapUrlForAccessPoint(selectedRiver.river.putIn);
   const full = sheetSnap === 'full';
+  const segmentLabel = formatRouteSegmentLabel(selectedRiver.segmentSummary ?? null, selectedRiver.selectedSegment ?? null);
 
   return (
     <Animated.View style={[styles.mapSheet, styles.fullMapSheet, { height: sheetGesture.animatedHeight }]}>
@@ -71,9 +79,16 @@ export function ExploreRouteDrawer({
             <Text style={styles.mapPreviewTitle} numberOfLines={1} selectable={false}>
               {selectedRiver.river.name}
             </Text>
-            <Text style={styles.mapPreviewMeta} numberOfLines={1} selectable={false}>
-              {[selectedRiver.river.reach, selectedRiver.travelLabel].filter(Boolean).join(' - ')}
+          <Text style={styles.mapPreviewMeta} numberOfLines={1} selectable={false}>
+            {[selectedRiver.river.reach, selectedRiver.travelLabel].filter(Boolean).join(' - ')}
+          </Text>
+          {segmentLabel ? (
+            <Text style={styles.mapPreviewSegment} numberOfLines={1} selectable={false}>
+              {selectedRiver.selectedSegment
+                ? `${segmentLabel} · ${selectedRiver.selectedSegment.putIn.name} → ${selectedRiver.selectedSegment.takeOut.name}`
+                : segmentLabel}
             </Text>
+          ) : null}
           </View>
         </View>
         <Pressable
@@ -146,6 +161,14 @@ export function ExploreRouteDrawer({
           <Text style={styles.mapPreviewReason}>
             {drawerDecisionLine(selectedRiver)}
           </Text>
+          {selectedRiver.selectedSegment ? (
+            <View style={styles.selectedNote}>
+              <Text style={styles.selectedNoteTitle}>Selected segment</Text>
+              <Text style={styles.selectedNoteText}>
+                {selectedRiver.selectedSegment.putIn.name} to {selectedRiver.selectedSegment.takeOut.name} · {selectedRiver.selectedSegment.distanceMiles.toFixed(1)} mi
+              </Text>
+            </View>
+          ) : null}
           <View style={styles.drawerDetailGrid}>
             <DrawerDetailItem
               icon="map-marker-distance"
@@ -171,7 +194,7 @@ export function ExploreRouteDrawer({
               </View>
             ))}
           </View>
-          {routeCount > 1 && onOpenRiverRoutes ? (
+          {routeCount > 1 && onOpenRiverRoutes && !selectedRiver.selectedSegment ? (
             <Pressable
               style={styles.drawerCompareButton}
               onPress={onOpenRiverRoutes}
@@ -419,6 +442,11 @@ const styles = StyleSheet.create({
   mapPreviewMeta: {
     color: colors.textMuted,
     fontSize: 12,
+  },
+  mapPreviewSegment: {
+    color: colors.accentDeep,
+    fontSize: 11,
+    fontWeight: '900',
   },
   mapPreviewSave: {
     width: 38,

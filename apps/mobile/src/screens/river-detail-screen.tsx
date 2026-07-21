@@ -99,11 +99,17 @@ type GaugeBandVisualModel = {
 };
 
 export default function RiverDetailScreen() {
-  const params = useLocalSearchParams<{ slug?: string | string[] }>();
+  const params = useLocalSearchParams<{
+    slug?: string | string[];
+    putin?: string | string[];
+    takeout?: string | string[];
+  }>();
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET);
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug ?? '';
+  const deepLinkPutInId = firstParamValue(params.putin);
+  const deepLinkTakeOutId = firstParamValue(params.takeout);
   const detailQuery = useRiverDetailQuery(slug);
   const geometryQuery = useRiverGeometryQuery(slug);
   const historyQuery = useRiverHistoryQuery(slug, 7);
@@ -178,14 +184,33 @@ export default function RiverDetailScreen() {
     }
 
     const points = routeAccessPoints(detail);
-    setSelectedPutInId(points[0]?.id ?? null);
-    setSelectedTakeOutId(points[points.length - 1]?.id ?? null);
+    const linkedPutIn = points.find((point) => point.id === deepLinkPutInId);
+    const linkedTakeOut = points.find((point) => point.id === deepLinkTakeOutId);
+    const validDeepLink = Boolean(
+      linkedPutIn &&
+      linkedTakeOut &&
+      linkedPutIn.mileFromStart < linkedTakeOut.mileFromStart,
+    );
+    const nextPutIn = validDeepLink ? linkedPutIn : points[0];
+    const nextTakeOut = validDeepLink ? linkedTakeOut : points[points.length - 1];
+    setSelectedPutInId(nextPutIn?.id ?? null);
+    setSelectedTakeOutId(nextTakeOut?.id ?? null);
 
     trackAppEvent('route_opened', {
       slug: detail.river.slug,
       riverId: detail.river.riverId,
       rating: detail.rating,
       score: detail.score,
+    });
+    trackAppEvent('route_planner_viewed', {
+      slug: detail.river.slug,
+      river_id: detail.river.riverId,
+      put_in_id: nextPutIn?.id,
+      take_out_id: nextTakeOut?.id,
+      segment_distance_miles: nextPutIn && nextTakeOut
+        ? Number((nextTakeOut.mileFromStart - nextPutIn.mileFromStart).toFixed(1))
+        : undefined,
+      source: validDeepLink ? 'deep_link' : 'default',
     });
   }, [detailSlug]);
 
@@ -233,6 +258,23 @@ export default function RiverDetailScreen() {
   }
 
   const riverSlug = detail.river.slug;
+  const riverId = detail.river.riverId;
+  function updatePlannerParams(putInId: string | null, takeOutId: string | null, distanceMiles: number | null) {
+    if (!putInId || !takeOutId) {
+      return;
+    }
+
+    router.setParams({ putin: putInId, takeout: takeOutId });
+    trackAppEvent('route_segment_selected', {
+      slug: riverSlug,
+      river_id: riverId,
+      put_in_id: putInId,
+      take_out_id: takeOutId,
+      segment_distance_miles: distanceMiles ?? undefined,
+      source: 'manual',
+    });
+  }
+
   async function submitNativeRiverAlert(threshold: RiverAlertThreshold) {
     setPendingThreshold(threshold);
     try {
@@ -289,6 +331,8 @@ export default function RiverDetailScreen() {
       slug: riverSlug,
       rating: detail.rating,
       score: detail.score,
+      put_in_id: selectedPutIn?.id,
+      take_out_id: selectedTakeOut?.id,
     });
     try {
       await Share.share({
@@ -796,13 +840,17 @@ export default function RiverDetailScreen() {
                   selectedPutInId={selectedPutInId}
                   selectedTakeOutId={selectedTakeOutId}
                   onPutInChange={(point) => {
+                    const nextTakeOut = selectedTakeOutAccess && point.mileFromStart < selectedTakeOutAccess.mileFromStart
+                      ? selectedTakeOutAccess
+                      : accessPoints.find((candidate) => candidate.mileFromStart > point.mileFromStart);
                     setSelectedPutInId(point.id);
-                    if (selectedTakeOutAccess && point.mileFromStart >= selectedTakeOutAccess.mileFromStart) {
-                      const nextTakeOut = accessPoints.find((candidate) => candidate.mileFromStart > point.mileFromStart);
-                      setSelectedTakeOutId(nextTakeOut?.id ?? point.id);
-                    }
+                    setSelectedTakeOutId(nextTakeOut?.id ?? null);
+                    updatePlannerParams(point.id, nextTakeOut?.id ?? null, nextTakeOut ? nextTakeOut.mileFromStart - point.mileFromStart : null);
                   }}
-                  onTakeOutChange={(point) => setSelectedTakeOutId(point.id)}
+                  onTakeOutChange={(point) => {
+                    setSelectedTakeOutId(point.id);
+                    updatePlannerParams(selectedPutIn?.id ?? null, point.id, selectedPutInAccess ? point.mileFromStart - selectedPutInAccess.mileFromStart : null);
+                  }}
                 />
                 <AccessCard label="Put-in" point={selectedPutIn} emptyLabel="Put-in not mapped yet." />
                 <AccessCard label="Take-out" point={selectedTakeOut} emptyLabel="Take-out not mapped yet." />
@@ -949,11 +997,17 @@ function buildRouteShareMessage(
 ) {
   const putInUrl = mapUrlForAccessPoint(putIn);
   const takeOutUrl = mapUrlForAccessPoint(takeOut);
+  const routeUrl = new URL(`https://paddletoday.com/rivers/${detail.river.slug}/`);
+  if (putIn?.id && takeOut?.id) {
+    routeUrl.searchParams.set('putin', putIn.id);
+    routeUrl.searchParams.set('takeout', takeOut.id);
+  }
   const lines = [
     `${detail.river.name} - ${detail.river.reach}`,
     `${detail.score} / ${detail.rating}: ${decisionStatement(detail)}`,
     normalizeApiText(detail.explanation),
     routeHeroLine(detail),
+    routeUrl.toString(),
     putInUrl ? `Put-in: ${putIn?.name ?? 'Open map'} ${putInUrl}` : null,
     takeOutUrl ? `Take-out: ${takeOut?.name ?? 'Open map'} ${takeOutUrl}` : null,
     'Confirm gauges, weather, access, and group fit before launching.',
@@ -2130,6 +2184,10 @@ function isRouteSpanCoordinate(coordinate: RouteSpanCoordinate | null): coordina
 
 function routeAccessPoints(detail: RiverDetailApiResult): RiverRouteAccessPoint[] {
   return (detail.river.accessPoints ?? []).slice().sort((left, right) => left.mileFromStart - right.mileFromStart);
+}
+
+function firstParamValue(value: string | string[] | undefined) {
+  return Array.isArray(value) ? value[0] : value;
 }
 
 function formatSegmentDistance(distance: number) {

@@ -1,4 +1,13 @@
-import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
+import {
+  buildRoutePlannerParams,
+  formatRouteSegmentLabel,
+  routeMatchesPaddleFilters,
+  routeSegmentSummary,
+  selectRouteSegment,
+  type RouteSegment,
+  type RouteSegmentSummary,
+  type RiverSummaryApiItem,
+} from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -49,6 +58,8 @@ import { colors, radius, spacing } from '../theme/tokens';
 interface ExploreRiver extends RiverSummaryApiItem {
   distanceMiles: number | null;
   travelLabel: string | null;
+  selectedSegment: RouteSegment | null;
+  segmentSummary: RouteSegmentSummary | null;
 }
 
 interface ExplorePreferences {
@@ -250,6 +261,11 @@ export default function ExploreScreen() {
       onApply={() => {
         setFilters(draftFilters);
         setFiltersOpen(false);
+        trackAppEvent('explore_filter_applied', {
+          paddle_length: draftFilters.paddleLength,
+          paddle_time: draftFilters.paddleTime,
+          active_filter_count: countActiveFilters(draftFilters),
+        });
       }}
       onChange={setDraftFilters}
       onReset={() => setDraftFilters(defaultFilters)}
@@ -283,7 +299,7 @@ export default function ExploreScreen() {
           router.push({ pathname: '/contribute-photo/[slug]', params: { slug } });
         }}
         onOpenRiverRoutes={openExploreRiverRoutes}
-        onOpenRoute={(route) => router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug } })}
+        onOpenRoute={openExploreRoute}
         onClearIntent={() => {
           setFilters(defaultFilters);
           setDraftFilters(defaultFilters);
@@ -327,10 +343,36 @@ export default function ExploreScreen() {
   }
 
   function openExploreRiverRoutes(route: ExploreRiver) {
+    if (route.selectedSegment) {
+      openExploreRoute(route);
+      return;
+    }
+
     const routeCount = routeGroupMetaForRoute(route, routeCounts).routeCount;
     if (route.river.riverId && routeCount > 1) {
       router.push({ pathname: '/river-hub/[riverId]', params: { riverId: route.river.riverId } });
     }
+  }
+
+  function openExploreRoute(route: ExploreRiver) {
+    if (route.selectedSegment) {
+      trackAppEvent('route_planner_opened_from_filter', {
+        slug: route.river.slug,
+        river_id: route.river.riverId,
+        put_in_id: route.selectedSegment.putIn.id,
+        take_out_id: route.selectedSegment.takeOut.id,
+        segment_distance_miles: route.selectedSegment.distanceMiles,
+        source: 'explore_card',
+      });
+    }
+
+    router.push({
+      pathname: '/river/[slug]',
+      params: {
+        slug: route.river.slug,
+        ...buildRoutePlannerParams(route.selectedSegment),
+      },
+    });
   }
 }
 
@@ -389,7 +431,7 @@ function FullScreenExploreMap({
   onClearIntent: () => void;
   onSearchChange: (query: string) => void;
   onSelectSlug: (slug: string | null) => void;
-  onToggleSaved: (river: ExploreRiver) => void;
+  onToggleSaved: (river: RiverSummaryApiItem) => void;
   onUseLocation: () => void;
   isSaved: (slug: string) => boolean;
 }) {
@@ -685,11 +727,16 @@ function ExploreListView({
   onOpenRiverRoutes: (route: ExploreRiver) => void;
   onRetry: () => void;
   onSearchChange: (query: string) => void;
-  onToggleSaved: (river: ExploreRiver) => void;
+  onToggleSaved: (river: RiverSummaryApiItem) => void;
   onViewModeChange: (mode: 'map' | 'list') => void;
   isSaved: (slug: string) => boolean;
 }) {
   function openRoute(route: ExploreRiver) {
+    if (route.selectedSegment) {
+      onOpenRoute(route);
+      return;
+    }
+
     if (route.river.riverId && routeGroupMetaForRoute(route, routeCounts).routeCount > 1) {
       onOpenRiverRoutes(route);
       return;
@@ -750,6 +797,8 @@ function ExploreListView({
             saved={isSaved(item.river.slug)}
             onToggleSaved={() => onToggleSaved(item)}
             onPress={() => openRoute(item)}
+            segmentLabel={formatRouteSegmentLabel(item.segmentSummary, item.selectedSegment)}
+            segmentEndpointLabel={segmentEndpointLabel(item.selectedSegment)}
           />
         )}
         ItemSeparatorComponent={() => <View style={styles.exploreListSeparator} />}
@@ -884,6 +933,10 @@ function applyExploreFilters(
 ): ExploreRiver[] {
   const query = filters.query.trim().toLowerCase();
   const distanceLimit = filters.distance === 'any' ? null : Number(filters.distance);
+  const segmentFilters = {
+    paddleLength: filters.paddleLength === 'any' ? '' : filters.paddleLength,
+    paddleTime: filters.paddleTime === 'any' || filters.paddleTime === 'full-day' ? '' : filters.paddleTime,
+  } as const;
 
   const sortedResults = rivers
     .map((river) => {
@@ -894,6 +947,8 @@ function applyExploreFilters(
         ...river,
         distanceMiles: miles,
         travelLabel: miles === null ? null : formatTravelTime(estimateDriveMinutes(miles)),
+        selectedSegment: selectRouteSegment(river, segmentFilters),
+        segmentSummary: routeSegmentSummary(river.river),
       };
     })
     .filter((river) => {
@@ -903,7 +958,11 @@ function applyExploreFilters(
       if (!routeTypeMatches(river.river.routeType, filters.routeType)) return false;
       if (!statusMatches(river.rating, filters.status)) return false;
       if (filters.rating !== 'any' && river.rating !== filters.rating) return false;
-      if (!paddleTimeMatches(river.river.estimatedPaddleTime, filters.paddleTime, river.river.logistics?.campingClassification)) return false;
+      if (filters.paddleTime === 'full-day') {
+        if (!paddleTimeMatches(river.river.estimatedPaddleTime, filters.paddleTime, river.river.logistics?.campingClassification)) return false;
+      } else if (!routeMatchesPaddleFilters(river, segmentFilters)) {
+        return false;
+      }
       if (!campingMatches(river.river.logistics?.campingClassification, filters.camping)) return false;
       if (distanceLimit !== null && (river.distanceMiles === null || river.distanceMiles > distanceLimit)) return false;
       return true;
@@ -911,6 +970,10 @@ function applyExploreFilters(
     .sort((left, right) => compareExploreRivers(left, right, filters.sort));
 
   return sortedResults;
+}
+
+function segmentEndpointLabel(segment: RouteSegment | null) {
+  return segment ? `${segment.putIn.name} → ${segment.takeOut.name}` : '';
 }
 
 function nearestStateForLocation(

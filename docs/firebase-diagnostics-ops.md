@@ -44,6 +44,10 @@ Product events currently emitted by the mobile app:
 
 - `app_opened`
 - `route_opened`
+- `explore_filter_applied`
+- `route_planner_opened_from_filter`
+- `route_planner_viewed`
+- `route_segment_selected`
 - `saved_river_toggled`
 - `directions_opened`
 - `gauge_source_opened`
@@ -79,10 +83,18 @@ Weekly checks after launch:
 
 1. Crash-free users and sessions.
 2. New Crashlytics issues by app version.
-3. `api_diagnostic_failed` count by version and environment.
-4. Route-report failure events.
-5. Alert creation failure events.
-6. Support-link opens after failed diagnostics.
+3. `route_planner_opened_from_filter` to `route_planner_viewed`, grouped by `source`.
+4. `route_segment_selected` count and median `segment_distance_miles`.
+5. `api_diagnostic_failed` count by version and environment.
+6. Route-report failure events.
+7. Alert creation failure events.
+8. Support-link opens after failed diagnostics.
+
+Planner funnel:
+
+`explore_filter_applied` -> `route_planner_opened_from_filter` -> `route_planner_viewed` -> `route_segment_selected`
+
+Treat the first two events as discovery intent and the latter two as planner usage. Compare the funnel by `source`, `paddle_length`, and `paddle_time` when those properties are present. Do not interpret a missing `route_segment_selected` as a failure: a deep-linked or default plan can be useful without a manual change.
 
 Launch-day checks:
 
@@ -126,4 +138,3 @@ Preferred event properties:
 - status code
 - elapsed milliseconds
 - coarse success or failure state
-

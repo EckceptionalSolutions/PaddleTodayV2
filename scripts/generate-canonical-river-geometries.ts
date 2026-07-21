@@ -65,6 +65,7 @@ function routeDataFingerprint(routes: River[]) {
 function normalizeName(value: string | null | undefined) {
   return (value ?? '')
     .toLowerCase()
+    .replace(/\bdeview\b/g, 'de view')
     .replace(/&/g, ' and ')
     .replace(/\bsaint\b/g, 'st')
     .replace(/[^a-z0-9]+/g, ' ')

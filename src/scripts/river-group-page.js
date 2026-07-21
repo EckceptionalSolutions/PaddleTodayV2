@@ -11,6 +11,7 @@ import { bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
 import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { ratingVerdictLabel } from '@paddletoday/api-contract';
+import { formatRouteSegmentLabel, routeSegmentSummary } from '../lib/route-segments.ts';
 
 const root = document.querySelector('[data-river-group-page]');
 
@@ -74,6 +75,10 @@ function ratingToneKey(rating) {
   if (rating === 'Strong') return 'great';
   if (rating === 'Fair') return 'marginal';
   return String(rating).toLowerCase().replace(/[^a-z]+/g, '-');
+}
+
+function segmentLabelForRoute(route) {
+  return formatRouteSegmentLabel(routeSegmentSummary(route), null);
 }
 
 function compareRoutes(left, right) {
@@ -784,6 +789,7 @@ function renderRouteList(routes) {
           <span class="route-choice__eyebrow">${route.state} | ${route.region}</span>
           <strong class="route-choice__title">${route.reach}</strong>
           <span class="route-choice__verdict">${decisionLabel(route.rating, route.score)}</span>
+          ${segmentLabelForRoute(route) ? `<span class="route-choice__segment">${escapeHtml(segmentLabelForRoute(route))}</span>` : ''}
           <div class="route-choice__scoreline">
             <div class="score-orb route-choice__score-orb score-orb--${ratingToneKey(route.rating)}" aria-label="Route score">
               <span class="score-orb__score">${route.score}</span>
@@ -876,6 +882,7 @@ function normalizeRoutes(routes) {
     liveData: route.liveData,
     putIn: route.river.putIn,
     takeOut: route.river.takeOut,
+    accessPoints: route.river.accessPoints,
     gauge: route.gauge,
     weather: route.weather,
   }));

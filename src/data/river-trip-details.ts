@@ -15344,8 +15344,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     takeOut: {
       id: 'bank-of-brinkley-access',
       name: 'Bank of Brinkley Access',
-      latitude: 34.80024,
-      longitude: -91.30049,
+      latitude: 34.810583,
+      longitude: -91.297333,
     },
     logistics: {
       distanceLabel: 'About 15.2 mi',
@@ -15422,8 +15422,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       {
         id: 'bank-of-brinkley-access',
         name: 'Bank of Brinkley Access',
-        latitude: 34.80024,
-        longitude: -91.30049,
+        latitude: 34.810583,
+        longitude: -91.297333,
         mileFromStart: 15.2,
         segmentKind: 'creek',
         note: 'Default downstream access for the full trail.',
@@ -15637,8 +15637,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     takeOut: {
       id: 'bank-of-brinkley-access',
       name: 'Bank of Brinkley Access',
-      latitude: 34.80024,
-      longitude: -91.30049,
+      latitude: 34.810583,
+      longitude: -91.297333,
     },
     logistics: {
       distanceLabel: 'About 4.3 mi',
@@ -15678,8 +15678,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       {
         id: 'bank-of-brinkley-access',
         name: 'Bank of Brinkley Access',
-        latitude: 34.80024,
-        longitude: -91.30049,
+        latitude: 34.810583,
+        longitude: -91.297333,
         mileFromStart: 4.3,
         segmentKind: 'creek',
         note: 'Default downstream access for this lower Bayou DeView split.',
@@ -15697,8 +15697,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     takeOut: {
       id: 'bank-of-brinkley-access',
       name: 'Bank of Brinkley Access',
-      latitude: 34.80024,
-      longitude: -91.30049,
+      latitude: 34.810583,
+      longitude: -91.297333,
     },
     logistics: {
       distanceLabel: 'About 8.7 mi',
@@ -15757,8 +15757,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       {
         id: 'bank-of-brinkley-access',
         name: 'Bank of Brinkley Access',
-        latitude: 34.80024,
-        longitude: -91.30049,
+        latitude: 34.810583,
+        longitude: -91.297333,
         mileFromStart: 8.7,
         segmentKind: 'creek',
         note: 'Default downstream access for this longer lower-half continuation.',
@@ -15846,8 +15846,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     takeOut: {
       id: 'bank-of-brinkley-access',
       name: 'Bank of Brinkley Access',
-      latitude: 34.80024,
-      longitude: -91.30049,
+      latitude: 34.810583,
+      longitude: -91.297333,
     },
     logistics: {
       distanceLabel: 'About 5.8 mi',
@@ -15897,8 +15897,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       {
         id: 'bank-of-brinkley-access',
         name: 'Bank of Brinkley Access',
-        latitude: 34.80024,
-        longitude: -91.30049,
+        latitude: 34.810583,
+        longitude: -91.297333,
         mileFromStart: 5.8,
         segmentKind: 'creek',
         note: 'Default downstream access for this lower continuation.',

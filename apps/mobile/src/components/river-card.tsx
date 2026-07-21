@@ -14,6 +14,8 @@ export function RiverCard({
   showPhoto = false,
   onToggleSaved,
   onPress,
+  segmentLabel,
+  segmentEndpointLabel,
 }: {
   river: RiverSummaryApiItem;
   travelLabel?: string;
@@ -21,6 +23,8 @@ export function RiverCard({
   showPhoto?: boolean;
   onToggleSaved?: () => void;
   onPress: () => void;
+  segmentLabel?: string;
+  segmentEndpointLabel?: string;
 }) {
   const facts = routePreviewFactItems(river.river, {
     includeNoCamping: true,
@@ -45,6 +49,12 @@ export function RiverCard({
             </View>
           </View>
           <Text style={styles.reach}>{river.river.reach}</Text>
+          {segmentLabel ? (
+            <View style={styles.segmentContext}>
+              <Text style={styles.segmentLabel}>{segmentLabel}</Text>
+              {segmentEndpointLabel ? <Text style={styles.segmentEndpoint} numberOfLines={2}>{segmentEndpointLabel}</Text> : null}
+            </View>
+          ) : null}
           <Text style={styles.explanation}>{routeDecisionLine(river.rating, river.summary.shortExplanation)}</Text>
         </View>
       </View>
@@ -183,6 +193,20 @@ const styles = StyleSheet.create({
   reach: {
     color: colors.textMuted,
     fontSize: 13,
+  },
+  segmentContext: {
+    gap: 2,
+    marginTop: 2,
+  },
+  segmentLabel: {
+    color: colors.accentDeep,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  segmentEndpoint: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 16,
   },
   explanation: {
     color: colors.text,

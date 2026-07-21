@@ -1,4 +1,5 @@
 import type { WeekendSummaryApiItem } from '@paddletoday/api-contract';
+import { formatRouteSegmentLabel, routeSegmentSummary } from '@paddletoday/api-contract';
 import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
 import { normalizeApiText } from '../lib/format';
 import { routePreviewFactItems } from '../lib/route-facts';
@@ -53,6 +54,11 @@ export function WeekendRiverCard({
             <Text style={styles.name}>{river.river.name}</Text>
           </View>
           <Text style={styles.reach}>{river.river.reach}</Text>
+          {routeSegmentSummary(river.river) ? (
+            <Text style={styles.segmentLabel} numberOfLines={1}>
+              {formatRouteSegmentLabel(routeSegmentSummary(river.river), null)}
+            </Text>
+          ) : null}
           {!riskExplanation ? <Text style={styles.summary}>{normalizeApiText(river.weekend.summary)}</Text> : null}
         </View>
       </View>
@@ -152,6 +158,11 @@ const styles = StyleSheet.create({
   reach: {
     color: colors.textMuted,
     fontSize: 14,
+  },
+  segmentLabel: {
+    color: colors.accentDeep,
+    fontSize: 12,
+    fontWeight: '800',
   },
   summary: {
     color: colors.text,

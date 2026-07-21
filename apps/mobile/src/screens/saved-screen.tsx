@@ -1,4 +1,9 @@
-import type { RiverAlertThreshold, RiverSummaryApiItem } from '@paddletoday/api-contract';
+import {
+  formatRouteSegmentLabel,
+  routeSegmentSummary,
+  type RiverAlertThreshold,
+  type RiverSummaryApiItem,
+} from '@paddletoday/api-contract';
 import { PaddleTodayApiError } from '@paddletoday/api-client';
 import { useRouter } from 'expo-router';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
@@ -394,6 +399,7 @@ function SavedRouteGroup({
                 })
               }
               onPress={() => onOpen(river.river.slug)}
+              segmentLabel={formatRouteSegmentLabel(routeSegmentSummary(river.river), null)}
             />
           ))}
         </View>

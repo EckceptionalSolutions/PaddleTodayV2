@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type PropsWithChildren } from 'react';
-import type { RouteType, ScoreRating } from '@paddletoday/api-contract';
+import type { PaddleLengthFilter as SharedPaddleLengthFilter, RouteType, ScoreRating } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Animated, Modal, PanResponder, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -14,6 +14,7 @@ export type StatusFilter = 'any' | 'clean' | 'watch' | 'skip';
 export type RatingFilter = 'any' | ScoreRating;
 export type DistanceFilter = 'any' | '50' | '100' | '150' | '200';
 export type PaddleTimeFilter = 'any' | 'up-to-3' | '3-to-5' | '5-to-7' | 'full-day' | '7-plus';
+export type PaddleLengthFilter = 'any' | Exclude<SharedPaddleLengthFilter, ''>;
 export type CampingFilter = 'any' | 'supported' | 'overnight';
 
 export interface ExploreFilters {
@@ -26,6 +27,7 @@ export interface ExploreFilters {
   rating: RatingFilter;
   distance: DistanceFilter;
   paddleTime: PaddleTimeFilter;
+  paddleLength: PaddleLengthFilter;
   camping: CampingFilter;
 }
 
@@ -39,6 +41,7 @@ export const defaultFilters: ExploreFilters = {
   rating: 'any',
   distance: 'any',
   paddleTime: 'any',
+  paddleLength: 'any',
   camping: 'any',
 };
 
@@ -86,6 +89,13 @@ const paddleTimeOptions: Array<{ value: PaddleTimeFilter; label: string }> = [
   { value: '5-to-7', label: '5-7h' },
   { value: 'full-day', label: 'Full day' },
   { value: '7-plus', label: '7h+' },
+];
+
+const paddleLengthOptions: Array<{ value: PaddleLengthFilter; label: string }> = [
+  { value: 'any', label: 'Any length' },
+  { value: 'under-5', label: 'Under 5 mi' },
+  { value: '5-to-10', label: '5–10 mi' },
+  { value: '10-plus', label: '10+ mi' },
 ];
 
 const campingOptions: Array<{ value: CampingFilter; label: string }> = [
@@ -371,6 +381,17 @@ function FilterPanel({
         ))}
       </FilterGroup>
 
+      <FilterGroup title="Paddle length">
+        {paddleLengthOptions.map((option) => (
+          <ChoiceChip
+            key={option.value}
+            label={option.label}
+            selected={filters.paddleLength === option.value}
+            onPress={() => onChange({ ...filters, paddleLength: option.value })}
+          />
+        ))}
+      </FilterGroup>
+
       <FilterGroup title="State" wrap={false}>
         <Pressable
           style={({ pressed }) => [styles.selectorRow, pressed ? styles.selectorRowPressed : null]}
@@ -589,6 +610,7 @@ export function countActiveFilters(filters: ExploreFilters) {
     filters.rating !== defaultFilters.rating,
     filters.distance !== defaultFilters.distance,
     filters.paddleTime !== defaultFilters.paddleTime,
+    filters.paddleLength !== defaultFilters.paddleLength,
     filters.camping !== defaultFilters.camping,
   ].filter(Boolean).length;
 }
@@ -610,6 +632,9 @@ export function activeFilterLabels(filters: ExploreFilters, locationReady: boole
   if (filters.paddleTime !== 'any') {
     labels.push(paddleTimeOptions.find((option) => option.value === filters.paddleTime)?.label ?? 'Paddle time');
   }
+  if (filters.paddleLength !== 'any') {
+    labels.push(paddleLengthOptions.find((option) => option.value === filters.paddleLength)?.label ?? 'Paddle length');
+  }
   if (filters.camping === 'supported') labels.push('Camping');
   if (filters.camping === 'overnight') labels.push('Overnight');
   if (locationReady && filters.distance !== 'any') labels.push(`Within ${filters.distance} mi`);
@@ -628,6 +653,7 @@ export function isExploreFilters(value: unknown): value is ExploreFilters {
     isRatingFilter(value.rating) &&
     isDistanceFilter(value.distance) &&
     isPaddleTimeFilter(value.paddleTime) &&
+    (value.paddleLength === undefined || isPaddleLengthFilter(value.paddleLength)) &&
     (value.camping === undefined || isCampingFilter(value.camping))
   );
 }
@@ -700,6 +726,10 @@ function isDistanceFilter(value: unknown): value is DistanceFilter {
 
 function isPaddleTimeFilter(value: unknown): value is PaddleTimeFilter {
   return paddleTimeOptions.some((option) => option.value === value);
+}
+
+function isPaddleLengthFilter(value: unknown): value is PaddleLengthFilter {
+  return paddleLengthOptions.some((option) => option.value === value);
 }
 
 function isCampingFilter(value: unknown): value is CampingFilter {

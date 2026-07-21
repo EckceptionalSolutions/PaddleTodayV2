@@ -1,6 +1,7 @@
 import { escapeHtml } from './map-runtime.js';
 import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } from './favorites-ui.js';
 import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
+import { formatRouteSegmentLabel, routeSegmentSummary } from '../lib/route-segments.ts';
 
 const statusLine = document.querySelector('[data-guide-weekend-status]');
 const noteLine = document.querySelector('[data-guide-weekend-note]');
@@ -104,6 +105,12 @@ function createCard(item, index) {
   setText(card.querySelector('[data-field="card-slot"]'), slotLabel(index));
   setText(card.querySelector('[data-field="state"]'), regionStateText(item));
   setText(card.querySelector('[data-field="route-label"]'), item.river.reach);
+  const segmentField = card.querySelector('[data-field="segment-label"]');
+  const segmentLabel = formatRouteSegmentLabel(routeSegmentSummary(item.river), null);
+  if (segmentField instanceof HTMLElement) {
+    segmentField.textContent = segmentLabel;
+    segmentField.hidden = !segmentLabel;
+  }
   setText(card.querySelector('[data-field="card-verdict"]'), weekendVerdict(item));
   setText(card.querySelector('[data-field="score"]'), String(item.weekend.score));
   setText(card.querySelector('[data-field="rating"]'), ratingDisplayLabel(item.weekend.rating, { compact: true }));

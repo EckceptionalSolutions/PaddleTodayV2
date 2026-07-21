@@ -9956,6 +9956,24 @@ body.site-search-open {
   line-height: 1.25;
 }
 
+.route-choice__segment {
+  color: var(--color-accent-deep, #246b5d);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.river-card__segment {
+  margin: 0.22rem 0 0;
+  color: var(--river-deep);
+  font-size: 0.74rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.river-card__segment[hidden] {
+  display: none;
+}
+
 .river-card__meta-line {
   margin: 0;
   color: var(--ink-soft);

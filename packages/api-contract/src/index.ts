@@ -386,6 +386,9 @@ export interface WeekendSummaryApiItem {
     difficulty: 'easy' | 'moderate' | 'hard';
     routeType: RouteType;
     safetyProfile?: RouteSafetyProfile;
+    putIn?: RiverAccessPoint;
+    takeOut?: RiverAccessPoint;
+    accessPoints?: RiverRouteAccessPoint[];
     logistics?: RiverRouteLogistics;
   };
   current: {
@@ -412,6 +415,8 @@ export interface WeekendSummaryApiItem {
   };
   generatedAt: string;
 }
+
+export * from './route-planning';
 
 export interface RiverDetailApiResult {
   river: {

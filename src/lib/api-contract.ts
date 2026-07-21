@@ -102,6 +102,9 @@ export function serializeWeekendSummaryResult(result: RiverScoreResult): Weekend
       difficulty: result.river.profile.difficulty,
       routeType: result.river.routeType ?? 'recreational',
       safetyProfile: result.river.safetyProfile,
+      putIn: result.river.putIn,
+      takeOut: result.river.takeOut,
+      accessPoints: result.river.accessPoints,
       logistics: serializeLogistics(result.river.logistics),
     },
     current: {

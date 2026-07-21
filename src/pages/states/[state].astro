@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FeatureIcon from '../../components/FeatureIcon.astro';
 import { getRoutePreviewPhoto } from '../../data/route-gallery';
 import { listRiverGroups, listRiverStateGroups } from '../../lib/rivers';
+import { formatRouteSegmentLabel, routeSegmentSummary } from '../../lib/route-segments';
 import type { River } from '../../lib/types';
 
 export function getStaticPaths() {
@@ -37,6 +38,7 @@ const routeFacts = (route: River) =>
     .filter(Boolean)
     .join(' | ');
 const routeCardSummary = (route: River) => route.logistics?.summary || route.summary;
+const shorterOptionsLabel = (route: River) => formatRouteSegmentLabel(routeSegmentSummary(route), null);
 const shortRouteSummary = (route: River) => {
   const summary = routeCardSummary(route);
   return summary.length > 155 ? `${summary.slice(0, 152).trim()}...` : summary;
@@ -381,6 +383,7 @@ const structuredData = [
               <span class="route-choice__eyebrow">{route.region}</span>
               <strong class="route-choice__title">{route.name}</strong>
               <span class="route-choice__verdict">{route.reach}</span>
+              {shorterOptionsLabel(route) ? <span class="route-choice__segment">{shorterOptionsLabel(route)}</span> : null}
               <span class="route-choice__summary">{shortRouteSummary(route)}</span>
             </div>
             <div class="route-choice__facts-section">

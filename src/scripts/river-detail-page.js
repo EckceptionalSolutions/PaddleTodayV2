@@ -73,6 +73,7 @@ const alertCtaCopy = root.querySelector('[data-alert-cta-copy]');
 const shareCopyButton = root.querySelector('[data-share-copy]');
 const shareNativeButton = root.querySelector('[data-share-native]');
 const shareXLink = root.querySelector('[data-share-x]');
+const shareFacebookLink = root.querySelector('[data-share-facebook]');
 const routeActionStatus = root.querySelector('[data-route-action-status]');
 const routeActionMenus = Array.from(root.querySelectorAll('[data-route-action-menu]'));
 const routeActionBar = root.querySelector('.route-action-bar');
@@ -164,9 +165,15 @@ let detailHeroMapRuntime = null;
 let detailHeroMapMarkers = [];
 let detailMapRenderVersion = 0;
 let detailHeroMapRenderVersion = 0;
+let pendingAccessMapResult = null;
+let detailMapRequested = false;
+let detailHeroMapRequested = false;
+let approvedCommunityRequested = false;
+let contributionControlsBound = false;
 let currentChartWindowHours = 72;
 let latestResult = null;
 let plannerAccessPoints = [];
+let plannerViewTracked = false;
 let activeAccessContext = {
   putIn: riverContext.putIn,
   takeOut: riverContext.takeOut,
@@ -204,6 +211,16 @@ function routeAnalyticsProperties(extra = {}) {
     region: riverContext.region,
     ...extra,
   };
+}
+
+function plannerAnalyticsProperties(extra = {}) {
+  const distanceMatch = String(activeAccessContext.distanceLabel || '').match(/(\d+(?:\.\d+)?)/);
+  return routeAnalyticsProperties({
+    put_in_id: activeAccessContext.putIn?.id,
+    take_out_id: activeAccessContext.takeOut?.id,
+    segment_distance_miles: distanceMatch ? distanceMatch[1] : undefined,
+    ...extra,
+  });
 }
 
 function setText(field, value) {
@@ -728,6 +745,61 @@ async function loadApprovedCommunity() {
     }
   } catch (error) {
     console.warn('Could not load approved community content.', error);
+  }
+}
+
+function requestApprovedCommunity() {
+  if (approvedCommunityRequested) {
+    return;
+  }
+
+  approvedCommunityRequested = true;
+  loadApprovedCommunity();
+}
+
+function initializeContributionControls() {
+  if (contributionControlsBound) {
+    return;
+  }
+
+  contributionControlsBound = true;
+  bindRouteContributeTabs();
+  bindRoutePhotoForm();
+  bindRouteReportForm();
+}
+
+function setupLazyCommunityContent() {
+  const lazyTargets = [routeCommunity, document.getElementById('share-trip')]
+    .filter((target) => target instanceof HTMLElement);
+
+  if (lazyTargets.length === 0) {
+    return;
+  }
+
+  if (!('IntersectionObserver' in window)) {
+    requestApprovedCommunity();
+    initializeContributionControls();
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) {
+        return;
+      }
+
+      requestApprovedCommunity();
+      initializeContributionControls();
+      observer.disconnect();
+    },
+    {
+      rootMargin: '720px 0px',
+      threshold: 0.01,
+    }
+  );
+
+  for (const target of lazyTargets) {
+    observer.observe(target);
   }
 }
 
@@ -1291,6 +1363,7 @@ function bindRouteContributeTabs() {
 }
 
 function activateRouteReportPane() {
+  initializeContributionControls();
   setActiveRouteContributeTab('report');
   const shareTripSection = document.getElementById('share-trip');
   if (shareTripSection instanceof HTMLElement) {
@@ -1730,7 +1803,7 @@ function closeRouteActionMenus() {
 
 function routeShareUrl() {
   try {
-    const url = new URL(window.location.pathname, window.location.origin);
+    const url = new URL(window.location.href);
     url.searchParams.set('utm_source', 'share_card');
     url.searchParams.set('utm_medium', 'user_share');
     return url.href;
@@ -1816,6 +1889,10 @@ function updateShareActions(result = latestResult) {
   if (shareNativeButton instanceof HTMLButtonElement) {
     const payload = nativeSharePayload(result);
     shareNativeButton.hidden = !(navigator.share && (!navigator.canShare || navigator.canShare(payload)));
+  }
+
+  if (shareFacebookLink instanceof HTMLAnchorElement) {
+    shareFacebookLink.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(routeShareUrl())}`;
   }
 }
 
@@ -3335,6 +3412,20 @@ function initializeAccessPlanner() {
     return;
   }
 
+  const initialParams = new URL(window.location.href).searchParams;
+  const deepLinkPutIn = initialParams.get('putin');
+  const deepLinkTakeOut = initialParams.get('takeout');
+  const deepLinkPutInIndex = plannerAccessPoints.findIndex((point) => point.id === deepLinkPutIn);
+  const deepLinkTakeOutIndex = plannerAccessPoints.findIndex((point) => point.id === deepLinkTakeOut);
+  const hasValidDeepLink =
+    deepLinkPutInIndex >= 0 &&
+    deepLinkTakeOutIndex > deepLinkPutInIndex;
+
+  if (hasValidDeepLink) {
+    accessPutInSelect.value = deepLinkPutIn;
+    accessTakeOutSelect.value = deepLinkTakeOut;
+  }
+
   const syncTakeOutOptions = () => {
     const putInIndex = plannerAccessPoints.findIndex((point) => point.id === accessPutInSelect.value);
     for (const option of Array.from(accessTakeOutSelect.options)) {
@@ -3351,7 +3442,7 @@ function initializeAccessPlanner() {
     }
   };
 
-  const updatePlanner = () => {
+  const updatePlanner = ({ source = 'manual' } = {}) => {
     const start = plannerAccessPoints.find((point) => point.id === accessPutInSelect.value);
     const end = plannerAccessPoints.find((point) => point.id === accessTakeOutSelect.value);
     if (!start || !end) {
@@ -3400,16 +3491,38 @@ function initializeAccessPlanner() {
     };
     renderActiveAccessContext();
     renderAccessMaps(latestResult);
+
+    const fullRoute =
+      start.id === plannerAccessPoints[0]?.id &&
+      end.id === plannerAccessPoints[plannerAccessPoints.length - 1]?.id;
+    const nextUrl = new URL(window.location.href);
+    if (fullRoute) {
+      nextUrl.searchParams.delete('putin');
+      nextUrl.searchParams.delete('takeout');
+    } else {
+      nextUrl.searchParams.set('putin', start.id);
+      nextUrl.searchParams.set('takeout', end.id);
+    }
+    window.history.replaceState({}, '', `${nextUrl.pathname}${nextUrl.search}${nextUrl.hash}`);
+
+    if (!plannerViewTracked) {
+      plannerViewTracked = true;
+      trackEvent('Route planner view', plannerAnalyticsProperties({
+        source: hasValidDeepLink ? 'deep_link' : 'default',
+      }));
+    } else if (source === 'manual') {
+      trackEvent('Select route segment', plannerAnalyticsProperties({ source: 'manual' }));
+    }
   };
 
   accessPutInSelect.addEventListener('change', () => {
     syncTakeOutOptions();
-    updatePlanner();
+    updatePlanner({ source: 'manual' });
   });
-  accessTakeOutSelect.addEventListener('change', updatePlanner);
+  accessTakeOutSelect.addEventListener('change', () => updatePlanner({ source: 'manual' }));
 
   syncTakeOutOptions();
-  updatePlanner();
+  updatePlanner({ source: hasValidDeepLink ? 'deep_link' : 'default' });
 }
 
 function setElementText(element, value) {
@@ -3750,8 +3863,79 @@ async function renderDetailMap(result = null) {
 }
 
 function renderAccessMaps(result = null) {
-  renderDetailHeroMap(result);
-  renderDetailMap(result);
+  pendingAccessMapResult = result;
+
+  if (detailHeroMapRequested) {
+    renderDetailHeroMap(result);
+  }
+
+  if (detailMapRequested) {
+    renderDetailMap(result);
+  }
+}
+
+function requestDetailHeroMapRender() {
+  if (detailHeroMapRequested) {
+    renderDetailHeroMap(pendingAccessMapResult);
+    return;
+  }
+
+  detailHeroMapRequested = true;
+  renderDetailHeroMap(pendingAccessMapResult);
+}
+
+function requestDetailMapRender() {
+  if (detailMapRequested) {
+    renderDetailMap(pendingAccessMapResult);
+    return;
+  }
+
+  detailMapRequested = true;
+  renderDetailMap(pendingAccessMapResult);
+}
+
+function setupLazyAccessMaps() {
+  const lazyMapTargets = [
+    { shell: detailHeroMapShell, request: requestDetailHeroMapRender },
+    { shell: detailMapShell, request: requestDetailMapRender },
+  ].filter(({ shell }) => shell instanceof HTMLElement);
+
+  if (lazyMapTargets.length === 0) {
+    return;
+  }
+
+  if (!('IntersectionObserver' in window)) {
+    for (const target of lazyMapTargets) {
+      target.request();
+    }
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) {
+          continue;
+        }
+
+        const target = lazyMapTargets.find((candidate) => candidate.shell === entry.target);
+        if (!target) {
+          continue;
+        }
+
+        target.request();
+        observer.unobserve(entry.target);
+      }
+    },
+    {
+      rootMargin: '640px 0px',
+      threshold: 0.01,
+    }
+  );
+
+  for (const { shell } of lazyMapTargets) {
+    observer.observe(shell);
+  }
 }
 
 function parseChartSamples(result) {
@@ -4846,20 +5030,18 @@ bindCopyCoordinateButtons();
 initializeAccessPlanner();
 renderActiveAccessContext();
 updateChartButtonStates();
+setupLazyAccessMaps();
+setupLazyCommunityContent();
 renderAccessMaps(null);
 renderApprovedRouteGallery();
 updateApprovedRoutePhoto(0);
 bindApprovedRouteGallery();
-loadApprovedCommunity();
 setupDetailSectionNav();
 setupDetailJumpLinks();
 bindAlertForm();
 bindRouteActions();
-bindRouteContributeTabs();
 bindRouteReportCtas();
 bindScoreFeedbackButtons();
-bindRoutePhotoForm();
-bindRouteReportForm();
 trackEvent('Route view', routeAnalyticsProperties());
 bindFavoriteButtons(document, {
   onToggle({ saved }) {
@@ -4879,6 +5061,9 @@ if (detailFetchRetryButton instanceof HTMLButtonElement) {
 if (detailMapToggle instanceof HTMLButtonElement) {
   detailMapToggle.addEventListener('click', () => {
     detailMapCollapsed = !detailMapCollapsed;
+    if (!detailMapCollapsed) {
+      requestDetailMapRender();
+    }
     updateDetailMapToggle();
   });
 }

@@ -25,6 +25,13 @@ import { createRequestGuard, isAbortError } from './request-guard.js';
 import { loadCanonicalRiverGeometries } from '../lib/canonical-river-geometries.js';
 import { endpointSnappedRiverGeometry, stitchRiverLines } from '../lib/endpoint-snapped-river-geometry.js';
 import { classifyCamping, hasCampingSupport, hasOvernightCampingSupport } from '../lib/camping-classification.ts';
+import {
+  buildRoutePlannerHref,
+  formatRouteSegmentLabel,
+  routeMatchesPaddleFilters,
+  routeSegmentSummary,
+  selectRouteSegment,
+} from '../lib/route-segments.ts';
 
 const STORAGE_KEY = 'paddletoday:user-location';
 const STORAGE_RADIUS_KEY = 'paddletoday:recommendation-radius';
@@ -188,6 +195,7 @@ const filterRouteType = document.querySelector('[data-filter-route-type]');
 const filterCamping = document.querySelector('[data-filter-camping]');
 const filterDistance = document.querySelector('[data-filter-distance]');
 const filterPaddleTime = document.querySelector('[data-filter-paddle-time]');
+const filterPaddleLength = document.querySelector('[data-filter-paddle-length]');
 const sortSelect = document.querySelector('[data-sort-select]');
 const explorePagination = document.querySelector('[data-explore-pagination]');
 const explorePaginationSummary = document.querySelector('[data-explore-pagination-summary]');
@@ -249,6 +257,7 @@ const activeFilters = {
   camping: '',
   distance: '',
   paddleTime: '',
+  paddleLength: '',
   sort: 'best-now',
 };
 
@@ -954,6 +963,10 @@ function buildDisplayItems(allResults, filteredResults, selectionMode = 'best-no
     const cardRoute = representative.route;
     if (!cardRoute) continue;
 
+    const segmentFilters = options.segmentFilters ?? null;
+    const selectedSegment = segmentFilters ? selectRouteSegment(cardRoute, segmentFilters) : null;
+    const segmentSummary = routeSegmentSummary(cardRoute.river);
+
     const totalRouteCount = allByRiver.get(riverId)?.length ?? routes.length;
     const distanceMilesValue = distanceForResult(cardRoute);
     const travelMinutes = estimateTravelMinutes(distanceMilesValue);
@@ -971,17 +984,23 @@ function buildDisplayItems(allResults, filteredResults, selectionMode = 'best-no
       travelMinutes,
       effectiveScore,
       distanceBucket: distanceBucketLabel(travelMinutes),
+      segmentSummary,
+      selectedSegment,
     });
   }
 
   for (const item of items) {
-    item.link = item.kind === 'group' ? buildGroupedRiverLink(item) : `/rivers/${item.cardRoute.river.slug}/`;
+    item.link = item.selectedSegment
+      ? buildRoutePlannerHref(item.cardRoute.river.slug, item.selectedSegment)
+      : item.kind === 'group'
+        ? buildGroupedRiverLink(item)
+        : `/rivers/${item.cardRoute.river.slug}/`;
   }
 
   return items;
 }
 
-function buildRouteMapItems(allResults, filteredResults) {
+function buildRouteMapItems(allResults, filteredResults, options = {}) {
   const allByRiver = groupResultsByRiverId(allResults);
 
   return filteredResults
@@ -994,6 +1013,8 @@ function buildRouteMapItems(allResults, filteredResults) {
       const totalRouteCount = allByRiver.get(cardRoute.river.riverId || cardRoute.river.slug)?.length ?? 1;
       const distanceMilesValue = distanceForResult(cardRoute);
       const travelMinutes = estimateTravelMinutes(distanceMilesValue);
+      const segmentFilters = options.segmentFilters ?? null;
+      const selectedSegment = segmentFilters ? selectRouteSegment(cardRoute, segmentFilters) : null;
 
       return {
         key: cardRoute.river.slug,
@@ -1006,7 +1027,9 @@ function buildRouteMapItems(allResults, filteredResults) {
         travelMinutes,
         effectiveScore: cardRoute.score - distancePenalty(travelMinutes),
         distanceBucket: distanceBucketLabel(travelMinutes),
-        link: `/rivers/${cardRoute.river.slug}/`,
+        segmentSummary: routeSegmentSummary(cardRoute.river),
+        selectedSegment,
+        link: buildRoutePlannerHref(cardRoute.river.slug, selectedSegment),
       };
     });
 }
@@ -1073,6 +1096,10 @@ function routeLabelForItem(item) {
   }
 
   return item.cardRoute.river.reach;
+}
+
+function segmentLabelForItem(item) {
+  return formatRouteSegmentLabel(item.segmentSummary, item.selectedSegment);
 }
 
 function featuredRouteLabelForItem(item) {
@@ -2191,6 +2218,12 @@ function recommendationTagLabels(item, index, nearbyReady) {
   const tags = [];
   const summary = cardSummary(item).toLowerCase();
 
+  if (item.selectedSegment) {
+    tags.push(`Selected segment: ${item.selectedSegment.distanceMiles.toFixed(1)} mi`);
+  } else if (item.segmentSummary) {
+    tags.push('Shorter segments available');
+  }
+
   if (item.cardRoute.confidence.label === 'High') {
     tags.push('High data confidence');
   }
@@ -2405,12 +2438,24 @@ function createRecommendationCard(item, index, nearbyReady) {
   if (link instanceof HTMLAnchorElement) {
     link.href = item.link;
     link.textContent = cardLinkLabel(item);
+    link.dataset.analyticsEvent = item.selectedSegment ? 'Open route planner' : 'Open route';
+    link.dataset.analyticsLabel = item.selectedSegment ? 'segment-filter' : item.kind === 'group' ? 'river' : 'route';
+    link.dataset.analyticsRoute = item.cardRoute.river.slug;
+    link.dataset.analyticsRiver = item.cardRoute.river.name;
+    link.dataset.analyticsState = item.cardRoute.river.state;
+    link.dataset.analyticsRegion = item.cardRoute.river.region;
   }
 
   const titleLink = card.querySelector('[data-field="recommendation-title-link"]');
   if (titleLink instanceof HTMLAnchorElement) {
     titleLink.href = item.link;
     titleLink.textContent = item.cardRoute.river.name;
+    titleLink.dataset.analyticsEvent = item.selectedSegment ? 'Open route planner' : 'Open route';
+    titleLink.dataset.analyticsLabel = item.selectedSegment ? 'segment-filter' : item.kind === 'group' ? 'river' : 'route';
+    titleLink.dataset.analyticsRoute = item.cardRoute.river.slug;
+    titleLink.dataset.analyticsRiver = item.cardRoute.river.name;
+    titleLink.dataset.analyticsState = item.cardRoute.river.state;
+    titleLink.dataset.analyticsRegion = item.cardRoute.river.region;
   }
 
   decorateFavoriteButton(card.querySelector('[data-favorite-button]'), favoriteRecordForItem(item));
@@ -2454,6 +2499,11 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
   setText(card, 'card-kind', item.kind === 'group' ? 'River' : 'Route');
   setText(card, 'state', regionStateText(item));
   setText(card, 'route-label', routeLabelForItem(item));
+  setText(card, 'segment-label', segmentLabelForItem(item));
+  const segmentLabel = card.querySelector('[data-field="segment-label"]');
+  if (segmentLabel instanceof HTMLElement) {
+    segmentLabel.hidden = !segmentLabelForItem(item);
+  }
   setText(card, 'score', String(item.cardRoute.score));
   setText(card, 'rating', ratingDisplayLabel(item.cardRoute.rating, { liveData: item.cardRoute.liveData, compact: true }));
   setText(card, 'card-verdict', recommendationVerdict(item));
@@ -2508,12 +2558,24 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
   if (link instanceof HTMLAnchorElement) {
     link.href = item.link;
     link.textContent = cardLinkLabel(item);
+    link.dataset.analyticsEvent = item.selectedSegment ? 'Open route planner' : 'Open route';
+    link.dataset.analyticsLabel = item.selectedSegment ? 'segment-filter' : item.kind === 'group' ? 'river' : 'route';
+    link.dataset.analyticsRoute = item.cardRoute.river.slug;
+    link.dataset.analyticsRiver = item.cardRoute.river.name;
+    link.dataset.analyticsState = item.cardRoute.river.state;
+    link.dataset.analyticsRegion = item.cardRoute.river.region;
   }
 
   const titleLink = card.querySelector('[data-field="card-title-link"]');
   if (titleLink instanceof HTMLAnchorElement) {
     titleLink.href = item.link;
     titleLink.textContent = item.cardRoute.river.name;
+    titleLink.dataset.analyticsEvent = item.selectedSegment ? 'Open route planner' : 'Open route';
+    titleLink.dataset.analyticsLabel = item.selectedSegment ? 'segment-filter' : item.kind === 'group' ? 'river' : 'route';
+    titleLink.dataset.analyticsRoute = item.cardRoute.river.slug;
+    titleLink.dataset.analyticsRiver = item.cardRoute.river.name;
+    titleLink.dataset.analyticsState = item.cardRoute.river.state;
+    titleLink.dataset.analyticsRegion = item.cardRoute.river.region;
   }
 
   decorateFavoriteButton(card.querySelector('[data-favorite-button]'), favoriteRecordForItem(item));
@@ -2973,9 +3035,11 @@ function matchesRouteFilters(result) {
     }
   }
 
-  if (activeFilters.paddleTime) {
-    const bucket = paddleTimeBucketForLabel(result?.river?.estimatedPaddleTime ?? '');
-    if (bucket !== activeFilters.paddleTime) {
+  if (activeFilters.paddleTime || activeFilters.paddleLength) {
+    if (!routeMatchesPaddleFilters(result, {
+      paddleTime: activeFilters.paddleTime,
+      paddleLength: activeFilters.paddleLength,
+    })) {
       return false;
     }
   }
@@ -3017,6 +3081,7 @@ function resetExploreFilters({ rerender = true } = {}) {
   activeFilters.camping = '';
   activeFilters.distance = '';
   activeFilters.paddleTime = '';
+  activeFilters.paddleLength = '';
   activeFilters.sort = userLocationState === 'ready' && userLocation ? 'near-you' : 'best-now';
   currentExplorePage = 1;
 
@@ -3043,6 +3108,9 @@ function resetExploreFilters({ rerender = true } = {}) {
   }
   if (filterPaddleTime instanceof HTMLSelectElement) {
     filterPaddleTime.value = '';
+  }
+  if (filterPaddleLength instanceof HTMLSelectElement) {
+    filterPaddleLength.value = '';
   }
   if (sortSelect instanceof HTMLSelectElement) {
     sortSelect.value = activeFilters.sort;
@@ -3475,6 +3543,18 @@ function buildExploreFilterPills() {
   if (activeFilters.paddleTime) {
     pills.push({
       label: paddleTimePreferenceLabel(activeFilters.paddleTime),
+      tone: 'filter',
+    });
+  }
+
+  if (activeFilters.paddleLength) {
+    const labels = {
+      'under-5': 'Under 5 mi',
+      '5-to-10': '5–10 mi',
+      '10-plus': '10+ mi',
+    };
+    pills.push({
+      label: labels[activeFilters.paddleLength] ?? 'Paddle length',
       tone: 'filter',
     });
   }
@@ -5008,7 +5088,15 @@ function renderHomepage(results) {
 
   const filteredRoutes = getFilteredResults(results);
   const normalizedSortMode = normalizeSortMode();
-  const exploreItems = sortItems(buildRouteMapItems(results, filteredRoutes), normalizedSortMode);
+  const exploreItems = sortItems(
+    buildRouteMapItems(results, filteredRoutes, {
+      segmentFilters: {
+        paddleLength: activeFilters.paddleLength,
+        paddleTime: activeFilters.paddleTime,
+      },
+    }),
+    normalizedSortMode,
+  );
   lastExploreItems = exploreItems;
   const summaryMapItems = isNearbySummaryMapMode()
     ? (locationReady ? nearbyItems : [])
@@ -5721,6 +5809,15 @@ function setupFilters() {
     filterPaddleTime.dataset.filterBound = 'true';
     filterPaddleTime.addEventListener('change', () => {
       activeFilters.paddleTime = filterPaddleTime.value;
+      currentExplorePage = 1;
+      renderHomepage(latestResults);
+    });
+  }
+
+  if (filterPaddleLength instanceof HTMLSelectElement && filterPaddleLength.dataset.filterBound !== 'true') {
+    filterPaddleLength.dataset.filterBound = 'true';
+    filterPaddleLength.addEventListener('change', () => {
+      activeFilters.paddleLength = filterPaddleLength.value;
       currentExplorePage = 1;
       renderHomepage(latestResults);
     });
