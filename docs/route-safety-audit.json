@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-19T12:13:45.760Z",
-  "routeCount": 657,
-  "issueCount": 749,
+  "generatedAt": "2026-07-21T13:04:18.958Z",
+  "routeCount": 658,
+  "issueCount": 738,
   "summary": {
-    "Critical": 7,
-    "High": 475,
-    "Medium": 267,
+    "Critical": 4,
+    "High": 468,
+    "Medium": 266,
     "Low": 0
   },
   "issues": [
@@ -31,39 +31,6 @@
       "category": "Dam",
       "message": "Route text suggests a dam or mandatory take-out with high consequence if missed.",
       "evidence": "oad valleys, riffles, sandbars, and a campground finish that avoids the Elkader dam take-out logistics. Use the Turkey River above French Hollow Creek at Elkader gauge as a downstream same-river proxy. Treat about 250 cfs / 5.5 ft as the conservative low-water"
-    },
-    {
-      "routeId": "goose-creek-jacks-dump-hollow",
-      "slug": "goose-creek-jacks-dump-hollow",
-      "name": "Goose Creek",
-      "reach": "Jacks / Bowling Branch Bridge Access to Dump Hollow Ford",
-      "state": "Kentucky",
-      "severity": "Critical",
-      "category": "Dam",
-      "message": "Route text suggests a dam or mandatory take-out with high consequence if missed.",
-      "evidence": "cleanly into a 3.0-mile downstream route below the Rawlings / Stinson low-head-dam warning. KDFWR also publishes official Manchester cfs and stage bands and source-backed endpoint coordinates. Same-day USGS Water Services returned 191 cfs and 7.32 ft at 2026-"
-    },
-    {
-      "routeId": "goose-creek-jacks-laurel-branch",
-      "slug": "goose-creek-jacks-laurel-branch",
-      "name": "Goose Creek",
-      "reach": "Jacks / Bowling Branch Bridge Access to Laurel Branch Road Access",
-      "state": "Kentucky",
-      "severity": "Critical",
-      "category": "Dam",
-      "message": "Route text suggests a dam or mandatory take-out with high consequence if missed.",
-      "evidence": "a narrow-creek caution. This lower-Goose segment avoids the Manchester low-head-dam problem upstream, but it is still a narrow shallow creek with rock bars, ford access, wood, and limited parking. Treat it as an easy moving-water creek only in the official goo"
-    },
-    {
-      "routeId": "goose-creek-jacks-tobacco-road",
-      "slug": "goose-creek-jacks-tobacco-road",
-      "name": "Goose Creek",
-      "reach": "Jacks / Bowling Branch Bridge Access to Tobacco Road Bridge Ramp",
-      "state": "Kentucky",
-      "severity": "Critical",
-      "category": "Dam",
-      "message": "Route text suggests a dam or mandatory take-out with high consequence if missed.",
-      "evidence": "Branch as a year-round carry-down access with unpaved parking and no amenities. Take-out access Tobacco Road Bridge Ramp, 37.2163, -83.7175 KDFWR identifies Tobacco Road Bridge Access as a year-round carry-down access under the bridge with unpaved parking and"
     },
     {
       "routeId": "green-river-houchins-ferry-brownsville-city-park",
@@ -1802,83 +1769,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "identifies Dump Hollow Ford Road as a year-round carry-down access with unpaved parking and no amenities. Take-out access Laurel Branch Road Access, 37.2370, -83.6703 KDFWR identifies Laurel Branch Road as a year-round carry-down access with limited parking, n"
-    },
-    {
-      "routeId": "goose-creek-jacks-dump-hollow",
-      "slug": "goose-creek-jacks-dump-hollow",
-      "name": "Goose Creek",
-      "reach": "Jacks / Bowling Branch Bridge Access to Dump Hollow Ford",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "cleanly into a 3.0-mile downstream route below the Rawlings / Stinson low-head-dam warning. KDFWR also publishes official Manchester cfs and stage bands and source-backed endpoint coordinates. Same-day USGS Water Services returned 191 cfs and 7.32 ft at 2026-"
-    },
-    {
-      "routeId": "goose-creek-jacks-dump-hollow",
-      "slug": "goose-creek-jacks-dump-hollow",
-      "name": "Goose Creek",
-      "reach": "Jacks / Bowling Branch Bridge Access to Dump Hollow Ford",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "-ford creek float, but it is still narrow, shallow, and sensitive to low water, wood, and quick rises. Confidence is high for a conservative split add: KDFWR documents the Jacks/Bowling Branch to Tobacco Road segment at 2.2 miles and Tobacco Road to Dump Hollo"
-    },
-    {
-      "routeId": "goose-creek-jacks-laurel-branch",
-      "slug": "goose-creek-jacks-laurel-branch",
-      "name": "Goose Creek",
-      "reach": "Jacks / Bowling Branch Bridge Access to Laurel Branch Road Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "a narrow-creek caution. This lower-Goose segment avoids the Manchester low-head-dam problem upstream, but it is still a narrow shallow creek with rock bars, ford access, wood, and limited parking. Treat it as an easy moving-water creek only in the official goo"
-    },
-    {
-      "routeId": "goose-creek-jacks-laurel-branch",
-      "slug": "goose-creek-jacks-laurel-branch",
-      "name": "Goose Creek",
-      "reach": "Jacks / Bowling Branch Bridge Access to Laurel Branch Road Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "m upstream, but it is still a narrow shallow creek with rock bars, ford access, wood, and limited parking. Treat it as an easy moving-water creek only in the official good band. Confidence is good for a conservative Kentucky add: KDFWR documents the Jacks/Bowl"
-    },
-    {
-      "routeId": "goose-creek-jacks-laurel-branch",
-      "slug": "goose-creek-jacks-laurel-branch",
-      "name": "Goose Creek",
-      "reach": "Jacks / Bowling Branch Bridge Access to Laurel Branch Road Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "is still a narrow shallow creek with rock bars, ford access, wood, and limited parking. Treat it as an easy moving-water creek only in the official good band. Confidence is good for a conservative Kentucky add: KDFWR documents the Jacks/Bowling Branch to Toba"
-    },
-    {
-      "routeId": "goose-creek-jacks-tobacco-road",
-      "slug": "goose-creek-jacks-tobacco-road",
-      "name": "Goose Creek",
-      "reach": "Jacks / Bowling Branch Bridge Access to Tobacco Road Bridge Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "d score low today. Route character Short shallow creek split below the upstream dam warning KDFWR's Goose Creek page describes a relatively shallow stream with riffles, pools, and rock bars. Starting at Jacks keeps this split below the Rawlings/Stinson low-hea"
-    },
-    {
-      "routeId": "goose-creek-jacks-tobacco-road",
-      "slug": "goose-creek-jacks-tobacco-road",
-      "name": "Goose Creek",
-      "reach": "Jacks / Bowling Branch Bridge Access to Tobacco Road Bridge Ramp",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ridge creek float, but it is still narrow, shallow, and sensitive to low water, wood, and quick rises. Confidence is high for a conservative split add: KDFWR publishes this exact 2.2-mile Jacks-to-Tobacco segment, gives official Manchester cfs and stage bands,"
     },
     {
       "routeId": "green-river-american-legion-lynn-camp-creek",
@@ -5894,17 +5784,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "igh bands. The Parklands safety sheet and the route PDF add specific downstream hazard context. Official level band 50-300 cfs / 1.3-2.5 ft KDFWR rates Floyds Fork near Fisherville as Low below 50 cfs or 1.3 ft, Good from 50 to 300 cfs or 1.3 to 2.5 ft, and Hi"
-    },
-    {
-      "routeId": "goose-creek-jacks-laurel-branch",
-      "slug": "goose-creek-jacks-laurel-branch",
-      "name": "Goose Creek",
-      "reach": "Jacks / Bowling Branch Bridge Access to Laurel Branch Road Access",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "o mean scraping or dragging; above that is high and deserves extra narrow-creek caution. This lower-Goose segment avoids the Manchester low-head-dam problem upstream, but it is still a narrow shallow creek with rock bars, ford access, wood, and limited parking"
     },
     {
       "routeId": "goose-creek-tobacco-road-dump-hollow",

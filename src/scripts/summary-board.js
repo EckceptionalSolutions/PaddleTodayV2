@@ -4992,7 +4992,7 @@ async function renderSummaryMap(items) {
 function setBoardRefreshState(state, detail = '') {
   if (boardRefreshButton instanceof HTMLButtonElement) {
     boardRefreshButton.disabled = state === 'loading';
-    boardRefreshButton.textContent = state === 'loading' ? 'Refreshing...' : 'Refresh board';
+    boardRefreshButton.textContent = state === 'loading' ? 'Refreshing...' : 'Refresh data';
   }
 
   if (boardRefreshNote instanceof HTMLElement) {

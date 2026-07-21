@@ -55,8 +55,8 @@ const safetyHeading = routeSafetyLevelLabels[safetyLevel];
 const safetySummary = routeSafetySummary(safetyProfile);
 const safetyNotes =
   safetyProfile?.safetyNotes && safetyProfile.safetyNotes.length > 0
-    ? safetyProfile.safetyNotes
-    : [safetySummary];
+    ? safetyProfile.safetyNotes.filter((note) => note !== safetySummary)
+    : [];
 const safetyHazards = safetyProfile?.hazards ?? [];
 const putInMapsUrl =
   typeof putIn?.latitude === 'number' && typeof putIn?.longitude === 'number'
@@ -379,31 +379,14 @@ const routeFaqStructuredData = {
               <p class="river-detail__hero-map-status muted" data-detail-hero-map-status data-skeleton>
                 Loading the route snapshot. This usually takes a few seconds.
               </p>
+              </div>
             </div>
           </div>
-        </div>
 
       </div>
       <div class="river-detail__hero-side river-detail__hero-side--sticky">
       <section class="route-action-bar route-action-bar--rail" aria-label="Route actions">
         <div class="route-action-bar__row">
-          <button
-            class="route-action-button route-action-button--primary"
-            type="button"
-            data-alert-open
-            data-analytics-event="Open route alert"
-          >
-            <span class="route-action-button__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path
-                  d="M12 22a2.6 2.6 0 0 1-2.43-1.69h4.86A2.6 2.6 0 0 1 12 22Zm7-3.25H5v-1.5l1.65-1.48v-4.11a5.35 5.35 0 0 1 4.1-5.23V5.6a1.25 1.25 0 1 1 2.5 0v.83a5.35 5.35 0 0 1 4.1 5.23v4.11L19 17.25v1.5Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-            <span class="route-action-button__label">Alerts</span>
-          </button>
-
           <button
             class="route-action-button route-action-button--save"
             type="button"
@@ -685,27 +668,6 @@ const routeFaqStructuredData = {
         </div>
       </dialog>
 
-      <nav class="river-detail__section-nav river-detail__section-nav--mobile" aria-label="River page chapters">
-        <div class="river-detail__section-nav-inner">
-        <p class="river-detail__section-nav-label">Chapters</p>
-        <a class="river-detail__section-link" href="#todays-score" data-detail-nav-link="today" data-detail-nav-target="todays-score">
-          Today
-        </a>
-        <a class="river-detail__section-link" href="#river-conditions" data-detail-nav-link="conditions" data-detail-nav-target="river-conditions">
-          Conditions
-        </a>
-        <a class="river-detail__section-link" href="#access-plan" data-detail-nav-link="plan" data-detail-nav-target="access-plan">
-          Plan
-        </a>
-        <a class="river-detail__section-link" href="#why-this-call" data-detail-nav-link="sources" data-detail-nav-target="why-this-call">
-          Sources
-        </a>
-        <a class="river-detail__section-link" href="#route-gallery" data-detail-nav-link="reports" data-detail-nav-target="route-gallery">
-          Reports
-        </a>
-      </div>
-    </nav>
-
     <section class="status-banner status-banner--offline status-banner--hidden" data-detail-fetch-banner aria-live="polite" hidden>
       <div class="status-banner__eyebrow">Refresh failed</div>
       <div class="status-banner__body">
@@ -758,7 +720,9 @@ const routeFaqStructuredData = {
         </article>
       </div>
 
-      <div class="river-why-panel__visuals">
+      <details class="river-detail__conditions-details">
+          <summary>Open trend and weather detail</summary>
+          <div class="river-why-panel__visuals">
         <section class="river-visual-panel river-visual-panel--gauge">
           <div class="river-why-panel__section-head">
             <div>
@@ -968,8 +932,8 @@ const routeFaqStructuredData = {
             </section>
           </div>
         </section>
-
-      </div>
+          </div>
+        </details>
     </section>
 
     <section class="river-detail__panel river-quick-facts" id="quick-facts" data-detail-section="quick-facts" data-detail-nav-group="conditions">
@@ -1081,6 +1045,11 @@ const routeFaqStructuredData = {
       </div>
 
       {hasAccessPlanner ? (
+        <details class="river-access-planner-disclosure">
+          <summary>
+            <span>Plan a shorter segment</span>
+            <span class="river-detail__disclosure-hint">Optional</span>
+          </summary>
         <section class="river-access-planner" data-access-planner>
           <div class="river-why-panel__section-head">
             <div>
@@ -1138,6 +1107,7 @@ const routeFaqStructuredData = {
 
           <script type="application/json" data-access-points set:html={accessPlannerPointsJson}></script>
         </section>
+        </details>
       ) : null}
 
       <div class="river-launch-plan__body">
@@ -1223,6 +1193,8 @@ const routeFaqStructuredData = {
           </div>
         </div>
 
+        <details class="river-launch-plan__support-disclosure">
+          <summary>Access caveats and watch for</summary>
         <div class="river-launch-plan__support">
           <section class="river-logistics__notes">
             <h3 class="river-logistics__title">Access caveats</h3>
@@ -1242,6 +1214,7 @@ const routeFaqStructuredData = {
             </ul>
           </section>
         </div>
+        </details>
       </div>
     </section>
 
@@ -1312,9 +1285,7 @@ const routeFaqStructuredData = {
           ) : (
             <div class="route-gallery__empty" data-route-gallery-empty>
               <div class="route-gallery__empty-art" aria-hidden="true">
-                <img src="/gallery/fallbacks/river-fallback-wide.jpg" alt="" loading="lazy" />
-                <img src="/gallery/fallbacks/river-fallback-stream.jpg" alt="" loading="lazy" />
-                <img src="/gallery/fallbacks/river-fallback-marsh.jpg" alt="" loading="lazy" />
+                <img src="/gallery/fallbacks/river-fallback-wide.jpg" alt="" loading="lazy" decoding="async" />
               </div>
               <div class="route-gallery__empty-copy">
                 <h3 class="route-gallery__empty-title">No approved route photos yet</h3>

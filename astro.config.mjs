@@ -17,7 +17,10 @@ export default defineConfig({
   site,
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/admin/') && !page.includes('/alerts/unsubscribe/'),
+      filter: (page) =>
+        !page.includes('/admin/') &&
+        !page.includes('/alerts/unsubscribe/') &&
+        !page.includes('/favorites/'),
     }),
   ],
   vite: {

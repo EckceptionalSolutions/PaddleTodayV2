@@ -446,9 +446,7 @@ function renderApprovedRouteGallery() {
     routeGalleryViewer.innerHTML = `
       <div class="route-gallery__empty" data-route-gallery-empty>
         <div class="route-gallery__empty-art" aria-hidden="true">
-          <img src="/gallery/fallbacks/river-fallback-wide.jpg" alt="" loading="lazy" />
-          <img src="/gallery/fallbacks/river-fallback-stream.jpg" alt="" loading="lazy" />
-          <img src="/gallery/fallbacks/river-fallback-marsh.jpg" alt="" loading="lazy" />
+          <img src="/gallery/fallbacks/river-fallback-wide.jpg" alt="" loading="lazy" decoding="async" />
         </div>
         <div class="route-gallery__empty-copy">
           <h3 class="route-gallery__empty-title">No approved route photos yet</h3>
@@ -1654,8 +1652,8 @@ function weatherSkipReason(result) {
   const stormy = Boolean(weather?.next12hStormRisk);
   const rainy = (weather?.next12hPrecipProbabilityMax ?? 0) > 60;
 
-  if (stormy && cold) return 'storms and cold weather';
-  if (stormy) return 'storms';
+  if (stormy && cold) return 'storm risk and cold weather';
+  if (stormy) return 'storm risk';
   if (cold) return 'cold weather';
   if (rainy) return 'heavy rain risk';
   return 'weather';
@@ -5067,6 +5065,7 @@ if (detailMapToggle instanceof HTMLButtonElement) {
     updateDetailMapToggle();
   });
 }
+
 window.addEventListener('resize', () => {
   updateDetailMapToggle();
 });

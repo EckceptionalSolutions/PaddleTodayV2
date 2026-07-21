@@ -311,6 +311,57 @@ a {
   gap: 0.5rem 0.7rem;
 }
 
+.site-header__app-promo {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.28rem 0.42rem;
+  min-height: 2.1rem;
+  padding: 0.24rem 0.34rem 0.24rem 0.58rem;
+  border: 1px solid rgba(30, 115, 151, 0.16);
+  border-radius: 999px;
+  background: rgba(233, 245, 250, 0.7);
+  color: var(--river-deep);
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.site-header__app-promo[hidden],
+.site-header__app-promo-link[hidden] {
+  display: none;
+}
+
+.site-header__app-promo-badge {
+  color: var(--river);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-header__app-promo-label {
+  color: var(--ink);
+}
+
+.site-header__app-promo-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.55rem;
+  padding: 0.18rem 0.54rem;
+  border: 1px solid rgba(16, 74, 104, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.84);
+  color: var(--river-deep);
+  text-decoration: none;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.site-header__app-promo-link:hover {
+  background: #fff;
+  border-color: rgba(30, 115, 151, 0.28);
+}
+
 .site-header__nav {
   display: inline-flex;
   flex-wrap: wrap;
@@ -919,6 +970,9 @@ body.site-search-open {
 }
 
 @media (max-width: 760px) {
+  .site-header__app-promo {
+    display: none !important;
+  }
 
   .page-home .home-location-bar {
     max-width: none;
@@ -2086,6 +2140,203 @@ body.site-search-open {
   gap: 0.55rem;
   color: var(--ink-soft);
   font-size: 0.9rem;
+}
+
+/* Route detail hierarchy: keep the current call visible and disclose supporting detail on demand. */
+.river-detail__route-context,
+.river-detail__conditions-details,
+.river-access-planner-disclosure,
+.river-launch-plan__support-disclosure {
+  display: grid;
+  gap: 0.62rem;
+}
+
+.river-detail__route-context > summary,
+.river-detail__conditions-details > summary,
+.river-access-planner-disclosure > summary,
+.river-launch-plan__support-disclosure > summary,
+.river-detail__hero-map-disclosure > summary,
+.river-detail__gauge-note > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 2.15rem;
+  padding: 0.38rem 0.62rem;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.66);
+  color: var(--river-deep);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 800;
+  list-style: none;
+}
+
+.river-detail__route-context > summary::-webkit-details-marker,
+.river-detail__conditions-details > summary::-webkit-details-marker,
+.river-access-planner-disclosure > summary::-webkit-details-marker,
+.river-launch-plan__support-disclosure > summary::-webkit-details-marker,
+.river-detail__hero-map-disclosure > summary::-webkit-details-marker,
+.river-detail__gauge-note > summary::-webkit-details-marker {
+  display: none;
+}
+
+.river-detail__route-context > summary::after,
+.river-detail__conditions-details > summary::after,
+.river-access-planner-disclosure > summary::after,
+.river-launch-plan__support-disclosure > summary::after,
+.river-detail__hero-map-disclosure > summary::after,
+.river-detail__gauge-note > summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  width: 1.35rem;
+  height: 1.35rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 999px;
+  font-size: 0.92rem;
+  line-height: 1;
+}
+
+.river-detail__route-context[open] > summary::after,
+.river-detail__conditions-details[open] > summary::after,
+.river-access-planner-disclosure[open] > summary::after,
+.river-launch-plan__support-disclosure[open] > summary::after,
+.river-detail__hero-map-disclosure[open] > summary::after,
+.river-detail__gauge-note[open] > summary::after {
+  content: "−";
+}
+
+.river-detail__route-context .route-seo-intro {
+  margin: 0;
+  max-width: 62ch;
+}
+
+.river-detail__disclosure-hint {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.river-detail__conditions-details,
+.river-access-planner-disclosure,
+.river-launch-plan__support-disclosure {
+  padding: 0.62rem;
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  border-radius: 18px;
+  background: rgba(248, 251, 252, 0.52);
+}
+
+.river-detail__conditions-details[open],
+.river-access-planner-disclosure[open],
+.river-launch-plan__support-disclosure[open] {
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.river-detail__conditions-details .river-why-panel__visuals {
+  margin-top: 0;
+}
+
+@media (min-width: 761px) {
+  .river-detail__section-nav-inner {
+    gap: 0.24rem;
+    padding: 0.62rem;
+    border-radius: 18px;
+  }
+
+  .river-detail__section-nav-label {
+    margin-bottom: 0.05rem;
+    font-size: 0.65rem;
+  }
+
+  .river-detail__section-link {
+    min-height: 2rem;
+    padding: 0.38rem 0.54rem;
+    font-size: 0.78rem;
+  }
+
+  .route-conversion-card {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.65rem;
+    align-items: center;
+    padding: 0.62rem 0.7rem;
+  }
+
+  .route-conversion-card__button {
+    width: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 760px) {
+  .river-detail__route-context {
+    display: none;
+  }
+
+  .river-detail__conditions-details,
+  .river-access-planner-disclosure,
+  .river-launch-plan__support-disclosure {
+    padding: 0.48rem;
+  }
+}
+
+@media (max-width: 760px) {
+  html body [data-river-detail] .river-detail__section-nav--desktop {
+    position: static !important;
+    top: auto !important;
+    z-index: auto !important;
+    display: block !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  html body [data-river-detail] .river-detail__section-nav--desktop .river-detail__section-nav-inner {
+    display: flex !important;
+    gap: 0.3rem !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    scrollbar-width: none;
+  }
+
+  html body [data-river-detail] .river-detail__section-nav--desktop .river-detail__section-nav-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  html body [data-river-detail] .river-detail__section-nav--desktop .river-detail__section-nav-label {
+    display: none !important;
+  }
+
+  html body [data-river-detail] .river-detail__section-nav--desktop .river-detail__section-link {
+    flex: 0 0 auto;
+    min-height: 2.2rem !important;
+    padding: 0.34rem 0.56rem !important;
+    font-size: 0.76rem !important;
+  }
+
+  html body [data-river-detail] .river-detail__hero-map-disclosure[open] > summary::after {
+    content: '−';
+  }
+
+  html body [data-river-detail] .route-gallery__empty-art {
+    grid-template-columns: 1fr;
+    min-height: 11rem;
+  }
+
+  html body [data-river-detail] .route-gallery__empty-art img {
+    min-height: 11rem;
+  }
+}
+
+@media (min-width: 761px) {
+  .river-detail__hero-map-disclosure > summary {
+    display: none;
+  }
 }
 
 .summary-map-legend__line {
@@ -13831,6 +14082,83 @@ body.site-search-open {
   transform: translateY(-2px);
 }
 
+/* Desktop UX simplification: keep the homepage focused on route discovery. */
+@media (min-width: 761px) {
+  .page-home .brand__title {
+    display: none;
+  }
+
+  .home-hero__trust--below-fold {
+    margin-top: 1rem;
+  }
+
+  .explore-page .board-filters__workspace {
+    grid-template-columns: minmax(18rem, 0.78fr) minmax(0, 1.22fr);
+    align-items: start;
+    gap: 0.65rem;
+  }
+
+  .explore-page .board-filters__group {
+    height: 100%;
+  }
+
+  .explore-page .board-filters__group--location {
+    align-self: start;
+    height: auto;
+    min-height: 9.5rem;
+  }
+
+  .explore-page .board-filters__group--location .board-filters__group-title {
+    font-size: 1.08rem;
+    letter-spacing: -0.01em;
+  }
+
+  .explore-page .home-location-bar--embedded {
+    gap: 0.55rem;
+    padding: 0.12rem 0.08rem 0.02rem;
+  }
+
+  .explore-page .home-location-bar--embedded .home-location-bar__form {
+    gap: 0.5rem;
+  }
+
+  .explore-page .home-location-bar--embedded .home-location-bar__use,
+  .explore-page .home-location-bar--embedded .home-location-bar__search-input,
+  .explore-page .home-location-bar--embedded .home-location-bar__search-button,
+  .explore-page .home-location-bar--embedded .home-location-bar__clear {
+    min-height: 2.46rem;
+  }
+
+  .explore-page .home-location-bar--embedded .home-location-bar__use {
+    min-width: 2.42rem;
+    width: 2.42rem;
+    padding-inline: 0.48rem;
+    box-shadow: 0 10px 20px rgba(16, 74, 104, 0.18);
+  }
+
+  .explore-page .home-location-bar--embedded .home-location-bar__search-input {
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 4px 10px rgba(16, 35, 45, 0.04);
+  }
+
+  .explore-page .home-location-bar--embedded .home-location-bar__search-button {
+    padding-inline: 0.82rem;
+  }
+
+  .explore-page .home-location-bar--embedded .home-location-bar__clear {
+    padding-inline: 0.58rem;
+  }
+
+  .explore-page .board-filters__group--controls {
+    gap: 0.52rem;
+  }
+
+  .explore-page .board-filters__actions {
+    justify-content: flex-start;
+  }
+}
+
 .river-grid--explore-list .river-card--map-active {
   border-color: rgba(37, 99, 235, 0.72);
   background:
@@ -19425,5 +19753,149 @@ body.site-search-open {
 
   html body.page-home .home-featured--locked .home-featured__lock-copy {
     font-size: 0.68rem !important;
+  }
+}
+
+/* Final route-page priority overrides. Keep these after the legacy detail rules above. */
+html body [data-river-detail] .river-detail__route-context,
+html body [data-river-detail] .river-detail__conditions-details,
+html body [data-river-detail] .river-access-planner-disclosure,
+html body [data-river-detail] .river-launch-plan__support-disclosure {
+  display: grid;
+  gap: 0.62rem;
+}
+
+html body [data-river-detail] .river-detail__route-context > summary,
+html body [data-river-detail] .river-detail__conditions-details > summary,
+html body [data-river-detail] .river-access-planner-disclosure > summary,
+html body [data-river-detail] .river-launch-plan__support-disclosure > summary,
+html body [data-river-detail] .river-detail__hero-map-disclosure > summary,
+html body [data-river-detail] .river-detail__gauge-note > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 2.15rem;
+  padding: 0.38rem 0.62rem;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.66);
+  color: var(--river-deep);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 800;
+  list-style: none;
+}
+
+html body [data-river-detail] .river-detail__route-context > summary::-webkit-details-marker,
+html body [data-river-detail] .river-detail__conditions-details > summary::-webkit-details-marker,
+html body [data-river-detail] .river-access-planner-disclosure > summary::-webkit-details-marker,
+html body [data-river-detail] .river-launch-plan__support-disclosure > summary::-webkit-details-marker,
+html body [data-river-detail] .river-detail__hero-map-disclosure > summary::-webkit-details-marker,
+html body [data-river-detail] .river-detail__gauge-note > summary::-webkit-details-marker {
+  display: none;
+}
+
+html body [data-river-detail] .river-detail__route-context > summary::after,
+html body [data-river-detail] .river-detail__conditions-details > summary::after,
+html body [data-river-detail] .river-access-planner-disclosure > summary::after,
+html body [data-river-detail] .river-launch-plan__support-disclosure > summary::after,
+html body [data-river-detail] .river-detail__hero-map-disclosure > summary::after,
+html body [data-river-detail] .river-detail__gauge-note > summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  width: 1.35rem;
+  height: 1.35rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 999px;
+  font-size: 0.92rem;
+  line-height: 1;
+}
+
+html body [data-river-detail] .river-detail__route-context[open] > summary::after,
+html body [data-river-detail] .river-detail__conditions-details[open] > summary::after,
+html body [data-river-detail] .river-access-planner-disclosure[open] > summary::after,
+html body [data-river-detail] .river-launch-plan__support-disclosure[open] > summary::after,
+html body [data-river-detail] .river-detail__hero-map-disclosure[open] > summary::after,
+html body [data-river-detail] .river-detail__gauge-note[open] > summary::after {
+  content: "-";
+}
+
+html body [data-river-detail] .river-detail__route-context .route-seo-intro {
+  margin: 0;
+  max-width: 62ch;
+}
+
+html body [data-river-detail] .river-detail__disclosure-hint {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+html body [data-river-detail] .river-detail__conditions-details,
+html body [data-river-detail] .river-access-planner-disclosure,
+html body [data-river-detail] .river-launch-plan__support-disclosure {
+  padding: 0.62rem;
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  border-radius: 18px;
+  background: rgba(248, 251, 252, 0.52);
+}
+
+html body [data-river-detail] .river-detail__conditions-details .river-why-panel__visuals {
+  margin-top: 0;
+}
+
+html body [data-river-detail] .river-detail__decision-summary {
+  display: grid;
+  gap: 0.52rem;
+}
+
+html body [data-river-detail] .river-detail__decision-summary > p {
+  margin: 0;
+}
+
+@media (min-width: 761px) {
+  html body [data-river-detail] .river-detail__section-nav-inner {
+    gap: 0.24rem !important;
+    padding: 0.62rem !important;
+    border-radius: 18px !important;
+  }
+
+  html body [data-river-detail] .river-detail__section-nav-label {
+    margin-bottom: 0.05rem !important;
+    font-size: 0.65rem !important;
+  }
+
+  html body [data-river-detail] .river-detail__section-link {
+    min-height: 2rem !important;
+    padding: 0.38rem 0.54rem !important;
+    font-size: 0.78rem !important;
+  }
+
+  html body [data-river-detail] .route-conversion-card {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.65rem;
+    align-items: center;
+    padding: 0.62rem 0.7rem;
+  }
+
+  html body [data-river-detail] .route-conversion-card__button {
+    width: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 760px) {
+  html body [data-river-detail] .river-detail__route-context {
+    display: none;
+  }
+
+  html body [data-river-detail] .river-detail__conditions-details,
+  html body [data-river-detail] .river-access-planner-disclosure,
+  html body [data-river-detail] .river-launch-plan__support-disclosure {
+    padding: 0.48rem;
   }
 }
