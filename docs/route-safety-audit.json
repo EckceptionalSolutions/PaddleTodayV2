@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-21T13:04:18.958Z",
+  "generatedAt": "2026-07-22T13:07:35.948Z",
   "routeCount": 658,
-  "issueCount": 738,
+  "issueCount": 730,
   "summary": {
-    "Critical": 4,
-    "High": 468,
+    "Critical": 3,
+    "High": 461,
     "Medium": 266,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "north-fork-maquoketa-river-cascade-d61",
-      "slug": "north-fork-maquoketa-river-cascade-d61",
-      "name": "North Fork Maquoketa River",
-      "reach": "Cascade Historic Limestone Silo to D61 Access",
-      "state": "Iowa",
-      "severity": "Critical",
-      "category": "Dam",
-      "message": "Route text suggests a dam or mandatory take-out with high consequence if missed.",
-      "evidence": "Class I moving water at normal levels, but the launch sits just below Cascade’s dam zone, the route has many riffles and outside-bend boulders, and the D61 exit requires attention at the Whitewater Creek mouth. Confidence is good for a guarded Iowa add: the Ci"
-    },
     {
       "routeId": "turkey-river-gilbertson-big-spring",
       "slug": "turkey-river-gilbertson-big-spring",
@@ -988,83 +977,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "ge, with timbered valleys, open pasture, scattered riffles, chutes, and a shale ledge above the P53 bridge. Use the Middle River near Indianola gauge as the official planning signal. Treat 600 to 900 cfs as the optimum Adair / Madison County window, and be con"
-    },
-    {
-      "routeId": "north-fork-maquoketa-river-cascade-caven",
-      "slug": "north-fork-maquoketa-river-cascade-caven",
-      "name": "North Fork Maquoketa River",
-      "reach": "Cascade Historic Limestone Silo to Caven Bridge Access",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "north-fork-maquoketa-river-cascade-caven",
-      "slug": "north-fork-maquoketa-river-cascade-caven",
-      "name": "North Fork Maquoketa River",
-      "reach": "Cascade Historic Limestone Silo to Caven Bridge Access",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "he historic limestone silo, Dubuque County still lists D61 Access as the public Whitewater Creek bridge exit, Jackson County still lists Ozark Bridge and Caven Bridge Access on the same water trail, Wisconsin River Trips still documents the component Cascade-t"
-    },
-    {
-      "routeId": "north-fork-maquoketa-river-cascade-d61",
-      "slug": "north-fork-maquoketa-river-cascade-d61",
-      "name": "North Fork Maquoketa River",
-      "reach": "Cascade Historic Limestone Silo to D61 Access",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "Class I moving water at normal levels, but the launch sits just below Cascade’s dam zone, the route has many riffles and outside-bend boulders, and the D61 exit requires attention at the Whitewater Creek mouth. Confidence is good for a guarded Iowa add: the Ci"
-    },
-    {
-      "routeId": "north-fork-maquoketa-river-cascade-d61",
-      "slug": "north-fork-maquoketa-river-cascade-d61",
-      "name": "North Fork Maquoketa River",
-      "reach": "Cascade Historic Limestone Silo to D61 Access",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "less North Fork float from Cascade’s concrete launch below the old falls to the Whitewater Creek D61 access, with bluffs, boulders, riffles, and a direct Fulton gauge ladder. Use the North Fork Maquoketa near Fulton gauge. Treat 231 to 400 cfs as the broad tar"
-    },
-    {
-      "routeId": "north-fork-maquoketa-river-cascade-ozark",
-      "slug": "north-fork-maquoketa-river-cascade-ozark",
-      "name": "North Fork Maquoketa River",
-      "reach": "Cascade Historic Limestone Silo to Ozark Bridge / 21st Ave",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "north-fork-maquoketa-river-cascade-ozark",
-      "slug": "north-fork-maquoketa-river-cascade-ozark",
-      "name": "North Fork Maquoketa River",
-      "reach": "Cascade Historic Limestone Silo to Ozark Bridge / 21st Ave",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "bes the practical concrete-ramp launch by the historic limestone silo below the dam. Official long-corridor support Cascade to Ozark / Caven wilderness stretch, about 18 mi Jones County describes about 18 miles between Cascade and the Jackson County Ozark Brid"
-    },
-    {
-      "routeId": "north-fork-maquoketa-river-cascade-ozark",
-      "slug": "north-fork-maquoketa-river-cascade-ozark",
-      "name": "North Fork Maquoketa River",
-      "reach": "Cascade Historic Limestone Silo to Ozark Bridge / 21st Ave",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "too shallow, and 701+ cfs as beyond the normal recreational recommendation. The whitewater is mostly easy at normal levels, but this is a committed near-20-mile day with no reliable intermediate public exit once you pass the Whitewater Creek mouth and enter th"
     },
     {
       "routeId": "north-fork-maquoketa-river-d61-caven",
