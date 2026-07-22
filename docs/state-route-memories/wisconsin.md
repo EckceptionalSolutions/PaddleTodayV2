@@ -1,5 +1,9 @@
 # Wisconsin Route Memory
 
+- 2026-07-22 17:10 America/Chicago / 2026-07-22 22:10 UTC: current-baseline implementation pass added `fox-river-princeton-locks-city-landing`, `fox-river-princeton-white-river-locks`, and `sheboygan-river-rochester-esslingen`, bringing this checkout from 107 to 110 Wisconsin routes. Older memory/ledger notes mentioned these families from prior automation history, but all three selected slugs were absent from the run-start repo state.
+- Source posture: the Fox Princeton pair uses Wisconsin River Trips route reports, Wisconsin DNR Princeton Lock and Dam / White River Lock and Dam public-access and no-camping rules, City/Princeton launch context, and direct USGS `04073365`. Sheboygan Rochester-to-Esslingen uses Wisconsin River Trips Kohler route, Sheboygan River Water Trail safety/access planning, Wisconsin DNR lower-river access context, public access listings, and downstream same-river USGS `04086000`.
+- Live gauge verification: USGS Water Services returned Fox River at Princeton `520 cfs / 3.88 ft` and Sheboygan River at Sheboygan `58.4 cfs / 1.88 ft` at 2026-07-22 16:00 CDT. No route-gallery assets were added; image audit rows record bounded no-image outcomes for all three slugs.
+
 - 2026-07-22 16:13 America/Chicago / 2026-07-22 21:13 UTC: current-baseline implementation pass added `wolf-river-pearson-lily`, `peshtigo-river-burnt-bridge-goodman-park`, and `fox-river-swan-lake-portage`, bringing this checkout from 104 to 107 Wisconsin routes. Historical ledger notes already mentioned the Wolf/Peshtigo/Fox slugs from older automation passes, but they were absent from the run-start repo state, so this run reintroduced them as new current-baseline additions.
 - Source posture: Wolf uses Langlade County access support plus Wisconsin Trail Guide W1, Miles Paddled, American Whitewater, and USGS `04074950`; Peshtigo uses Wisconsin Trail Guide P3, Miles Paddled, American Whitewater, and USGS `04067958`; Fox uses Wisconsin River Trips, Wisconsin DNR Swan Lake Wildlife Area, Portage Parks Fox River Landing, and USGS `04073365`.
 - Live gauge verification: USGS Water Services returned Wolf River at Langlade `229 cfs / 7.59 ft`, Peshtigo River near Wabeno `190 cfs / 3.84 ft`, and Fox River at Princeton `516 cfs / 3.87 ft` at 2026-07-22 15:00 CDT. No route-gallery assets were added; image audit rows record bounded no-image outcomes for all three slugs.
@@ -8,11 +12,11 @@
 - Source posture: Brule B1/B3 use Wisconsin Trail Guide exact pages plus GPX endpoint coordinates, route mileage, camping/no-camping notes, hazards, and the direct Highway-2 gauge minimum of `220 cfs / 3.5 ft`; Pine Island uses Wisconsin River Trips, Miles Paddled GPS/gauge context, Wisconsin DNR Pine Island access/no-camping rules, and USGS `05404000`.
 - Live gauge verification: USGS Water Services returned Brule `04060993` at `205 cfs / 3.56 ft` and Wisconsin Dells `05404000` at `2720 cfs / 2.01 ft` during this run. No route-gallery image was added; image audit rows record bounded no-image outcomes.
 
-Last summarized: 2026-07-22 16:13 America/Chicago / 2026-07-22 21:13 UTC.
+Last summarized: 2026-07-22 17:10 America/Chicago / 2026-07-22 22:10 UTC.
 
 ## Current Inventory
 
-- Live routes: 107 after the 2026-07-22 16:13 implementation pass.
+- Live routes: 110 after the 2026-07-22 17:10 implementation pass.
 - Top represented rivers: Wisconsin River 12, Milwaukee River 6, Wolf River 5, Bark River 4, Big Rib River 4, Bois Brule River 4, Chippewa River 4, Kickapoo River 4, Peshtigo River 4, Baraboo River 3, Brule River 3, Pine River 3, Sugar River 3, Turtle Creek 3, Badfish Creek 2, Eau Claire River - East Branch 2, Flambeau River 2, Pecatonica River 2, Pike River 2, Red Cedar River 2.
 - Ledger candidates: 24 Wisconsin candidates tracked in the current compact ledger slice; 23 added/implemented and 1 `duplicate_corridor`.
 
