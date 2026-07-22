@@ -2470,7 +2470,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Launch at the Germanium / Brookview Park access and finish at Rum River South County Park for a shorter lower-Rum continuation above the Anoka dam. The live level check comes from the upstream St. Francis gauge, so stay conservative when that proxy is near scrape territory.',
       accessCaveats: [
         'South County Park has posted park hours, so settle the vehicle plan before launching if your day could run late.',
-        'The normal take-out is safely above the Rum River dam, but only if you actually finish at South County Park rather than drifting past it.',
+        'South County Park is the required take-out for this route. Identify the landing before launch and do not drift past it toward the Rum River dam corridor.',
         'Do not over-read the St. Francis gauge. It is a useful same-river proxy, but it is still upstream of this lower route.',
       ],
       watchFor: [
@@ -8880,7 +8880,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Gilbertson Park has modern campground facilities near Elgin, and Big Spring Campground has primitive riverside sites at the take-out. Treat overnight use as a separate campground plan rather than an automatic part of the paddle.',
       campingClassification: 'endpoint_campground',
       summary:
-        'Launch from the Gilbertson Park / Elgin access corridor and take out at Big Spring Campground for the long upper-middle Turkey River day that stays above the Elkader dam pool. This is the cleaner all-day public route for paddlers who want a longer Driftless float without finishing in town.',
+        'Launch from the Gilbertson Park / Elgin access corridor and take out at Big Spring Campground for the long upper-middle Turkey River day well upstream of Elkader. This is the cleaner all-day public route for paddlers who want a longer Driftless float without finishing in town.',
       accessCaveats: [
         'The practical Elgin launch is the Highway B64 bridge corridor by Gilbertson Park rather than a polished ramp. Walk the bank before unloading if you have not used the access before.',
         'Big Spring Campground is the official Water Trail Access #47 take-out. Frieden Park is another official access about a half mile farther downstream, but use it only if you intentionally want the extra mileage and rougher finish.',
@@ -24545,7 +24545,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       accessCaveats: [
         'Houchins Ferry is the clean public launch and still provides the best legal pre-trip camping support in this corridor.',
         'Brownsville City Park is the intended public take-out. NPS says private land begins after the park boundary, so do not improvise extra stops or a longer continuation without fresh access research.',
-        'The route is short enough to look easy on paper, but the lower end deserves deliberate boat spacing and scouting if the group is unfamiliar with the old lock-and-dam rapid near Brownsville.',
+        'The route is short enough to look easy on paper, but the lower end deserves deliberate boat spacing and scouting if the group is unfamiliar with the former Lock and Dam 6 rapid near Brownsville.',
         'Ferry, road, and river conditions can change without notice. Check current Mammoth Cave conditions before the shuttle.',
       ],
       watchFor: [

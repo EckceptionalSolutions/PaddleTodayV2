@@ -1,48 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-22T13:07:35.948Z",
+  "generatedAt": "2026-07-22T15:20:12.739Z",
   "routeCount": 658,
-  "issueCount": 730,
+  "issueCount": 718,
   "summary": {
-    "Critical": 3,
-    "High": 461,
-    "Medium": 266,
+    "Critical": 0,
+    "High": 455,
+    "Medium": 263,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "turkey-river-gilbertson-big-spring",
-      "slug": "turkey-river-gilbertson-big-spring",
-      "name": "Turkey River",
-      "reach": "Gilbertson Park / Elgin to Big Spring Campground",
-      "state": "Iowa",
-      "severity": "Critical",
-      "category": "Dam",
-      "message": "Route text suggests a dam or mandatory take-out with high consequence if missed.",
-      "evidence": "oad valleys, riffles, sandbars, and a campground finish that avoids the Elkader dam take-out logistics. Use the Turkey River above French Hollow Creek at Elkader gauge as a downstream same-river proxy. Treat about 250 cfs / 5.5 ft as the conservative low-water"
-    },
-    {
-      "routeId": "green-river-houchins-ferry-brownsville-city-park",
-      "slug": "green-river-houchins-ferry-brownsville-city-park",
-      "name": "Green River",
-      "reach": "Houchins Ferry to Brownsville City Park",
-      "state": "Kentucky",
-      "severity": "Critical",
-      "category": "Dam",
-      "message": "Route text suggests a dam or mandatory take-out with high consequence if missed.",
-      "evidence": "rrent, ferry-side launch logistics, the class 2 rapid left from former Lock and Dam 6 near Brownsville, and private land after the park boundary make it a cautious finish segment rather than a novice pond shuttle. Confidence is good for a conservative new add:"
-    },
-    {
-      "routeId": "rum-river-germanium-south-county-park",
-      "slug": "rum-river-germanium-south-county-park",
-      "name": "Rum River",
-      "reach": "Germanium to South County Park",
-      "state": "Minnesota",
-      "severity": "Critical",
-      "category": "Dam",
-      "message": "Route text suggests a dam or mandatory take-out with high consequence if missed.",
-      "evidence": "itself stays friendly, but the lower-corridor finish deserves a more deliberate take-out plan than the easy rating implies. There is no direct lower-route gauge here, so Paddle Today uses the upstream St. Francis gauge as a conservative same-river proxy. Below"
-    },
     {
       "routeId": "buffalo-river-erbie-ozark",
       "slug": "buffalo-river-erbie-ozark",
@@ -1067,17 +1034,6 @@
       "evidence": "The downstream run is mostly Class I riffles at normal levels, but the optional whitewater-park ledges at the start are more consequential and should be scouted or bypassed by casual paddlers. Confidence is good for an Iowa community-source add: the Iowa DNR-b"
     },
     {
-      "routeId": "turkey-river-gilbertson-big-spring",
-      "slug": "turkey-river-gilbertson-big-spring",
-      "name": "Turkey River",
-      "reach": "Gilbertson Park / Elgin to Big Spring Campground",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "oad valleys, riffles, sandbars, and a campground finish that avoids the Elkader dam take-out logistics. Use the Turkey River above French Hollow Creek at Elkader gauge as a downstream same-river proxy. Treat about 250 cfs / 5.5 ft as the conservative low-water"
-    },
-    {
       "routeId": "upper-iowa-river-cattle-creek-bluffton",
       "slug": "upper-iowa-river-cattle-creek-bluffton",
       "name": "Upper Iowa River",
@@ -1892,39 +1848,6 @@
       "evidence": "stable in the KDFWR good band; high water, wind, boat traffic, ramp drops, and private banks can make landings less forgiving. Confidence is high for a conservative Kentucky restore: KDFWR lists H.H. Wilson Park Ramp to Stovall Park Ramp as a 3.6-mile Green R"
     },
     {
-      "routeId": "green-river-houchins-ferry-brownsville-city-park",
-      "slug": "green-river-houchins-ferry-brownsville-city-park",
-      "name": "Green River",
-      "reach": "Houchins Ferry to Brownsville City Park",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "rrent, ferry-side launch logistics, the class 2 rapid left from former Lock and Dam 6 near Brownsville, and private land after the park boundary make it a cautious finish segment rather than a novice pond shuttle. Confidence is good for a conservative new add:"
-    },
-    {
-      "routeId": "green-river-houchins-ferry-brownsville-city-park",
-      "slug": "green-river-houchins-ferry-brownsville-city-park",
-      "name": "Green River",
-      "reach": "Houchins Ferry to Brownsville City Park",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "not a throwaway float. Swift current, ferry-side launch logistics, the class 2 rapid left from former Lock and Dam 6 near Brownsville, and private land after the park boundary make it a cautious finish segment rather than a novice pond shuttle. Confidence is"
-    },
-    {
-      "routeId": "green-river-houchins-ferry-brownsville-city-park",
-      "slug": "green-river-houchins-ferry-brownsville-city-park",
-      "name": "Green River",
-      "reach": "Houchins Ferry to Brownsville City Park",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "026 values of 3950 cfs and 16.15 ft. That stage is below the NPS 20-foot launch closure but above the park's broad beginner-friendly 9 to 15-foot band, so the route should ship with explicit above-band caution and a strong downstream-hazard note at Brownsville"
-    },
-    {
       "routeId": "green-river-lynn-camp-creek-hh-wilson-park",
       "slug": "green-river-lynn-camp-creek-hh-wilson-park",
       "name": "Green River",
@@ -2693,28 +2616,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "e published preferred band without recent rain turning a pretty easy run into a wood-and-current check? Around 8.25 ft at Pilot Mound is the low-water marker. A report near 8.7 ft described a strong day, but the source guidance does not define a full low-to-hi"
-    },
-    {
-      "routeId": "rum-river-germanium-south-county-park",
-      "slug": "rum-river-germanium-south-county-park",
-      "name": "Rum River",
-      "reach": "Germanium to South County Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "s Brookview / Germanium access to the South County Park landing above the Anoka dam. The river itself stays friendly, but the lower-corridor finish deserves a more deliberate take-out plan than the easy rating implies. There is no direct lower-route gauge here"
-    },
-    {
-      "routeId": "rum-river-germanium-south-county-park",
-      "slug": "rum-river-germanium-south-county-park",
-      "name": "Rum River",
-      "reach": "Germanium to South County Park",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "manageable for many paddlers, but this lower finish still requires attention to wood, take-out timing, and the downstream dam corridor in Anoka. The route itself is well documented by DNR Map 3 and official park pages. Confidence is slightly lower than the ups"
     },
     {
       "routeId": "rum-river-north-county-central",
@@ -5445,17 +5346,6 @@
       "evidence": "Full lower Turkey River day from Elkader to Garber, combining the whitewater-park / Motor Mill section with the long remote canyon run to Garber under one direct lower-river gauge."
     },
     {
-      "routeId": "turkey-river-gilbertson-big-spring",
-      "slug": "turkey-river-gilbertson-big-spring",
-      "name": "Turkey River",
-      "reach": "Gilbertson Park / Elgin to Big Spring Campground",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Long upper-middle Turkey River water-trail day from Elgin to Big Spring Campground, with broad valleys, riffles, sandbars, and a campground finish that avoids the Elkader dam take-"
-    },
-    {
       "routeId": "upper-iowa-river-cattle-creek-bluffton",
       "slug": "upper-iowa-river-cattle-creek-bluffton",
       "name": "Upper Iowa River",
@@ -5839,17 +5729,6 @@
       "category": "General hazard",
       "message": "Route text includes general hazard language.",
       "evidence": "expose shoals or ramp edges; above that is high and deserves extra broad-river caution around current, wood, and landings. This is a short KDFWR public-ramp segment on a broad Class I river corridor. Treat it as easy only when the Munfordville gauge is stable"
-    },
-    {
-      "routeId": "green-river-houchins-ferry-brownsville-city-park",
-      "slug": "green-river-houchins-ferry-brownsville-city-park",
-      "name": "Green River",
-      "reach": "Houchins Ferry to Brownsville City Park",
-      "state": "Kentucky",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "r-friendly 9 to 15-foot band, so the route should ship with explicit above-band caution and a strong downstream-hazard note at Brownsville. Official route segment Houchins Ferry to Brownsville, about 3.6 mi NPS publishes Houchin Ferry to Brownsville as a 3.6-m"
     },
     {
       "routeId": "green-river-lynn-camp-creek-hh-wilson-park",
@@ -6290,17 +6169,6 @@
       "category": "Minimum-only hazard review",
       "message": "Minimum-only route has hazard language but no safetyProfile.",
       "evidence": "Upper North Branch Driftless day with riffles, bluffs, and a cleaner gauge question than most small rivers: is Pilot Mound at or above the lower edge of the published preferred ban"
-    },
-    {
-      "routeId": "rum-river-germanium-south-county-park",
-      "slug": "rum-river-germanium-south-county-park",
-      "name": "Rum River",
-      "reach": "Germanium to South County Park",
-      "state": "Minnesota",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Shorter metro-edge Rum continuation from Ramsey's Brookview / Germanium access to the South County Park landing above the Anoka dam. The river itself stays friendly, but the lower-"
     },
     {
       "routeId": "rum-river-martins-north-county-park",
