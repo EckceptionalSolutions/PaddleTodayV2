@@ -1,136 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-22T17:20:10.346Z",
+  "generatedAt": "2026-07-22T19:23:02.329Z",
   "routeCount": 658,
-  "issueCount": 709,
+  "issueCount": 695,
   "summary": {
     "Critical": 0,
-    "High": 448,
-    "Medium": 261,
+    "High": 437,
+    "Medium": 258,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "buffalo-river-kyles-landing-erbie",
-      "slug": "buffalo-river-kyles-landing-erbie",
-      "name": "Buffalo River",
-      "reach": "Kyle's Landing to Erbie",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "buffalo-river-kyles-landing-erbie",
-      "slug": "buffalo-river-kyles-landing-erbie",
-      "name": "Buffalo River",
-      "reach": "Kyle's Landing to Erbie",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "buffalo-river-kyles-landing-erbie",
-      "slug": "buffalo-river-kyles-landing-erbie",
-      "name": "Buffalo River",
-      "reach": "Kyle's Landing to Erbie",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Short upper Buffalo National River whitewater day from Kyle's Landing to Erbie through one of the park's rough-road upper-district access corridors. NPS documents the exact trip, access pair, and mileage, and the Pr"
-    },
-    {
-      "routeId": "buffalo-river-kyles-landing-ozark",
-      "slug": "buffalo-river-kyles-landing-ozark",
-      "name": "Buffalo River",
-      "reach": "Kyle's Landing to Ozark",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "buffalo-river-kyles-landing-ozark",
-      "slug": "buffalo-river-kyles-landing-ozark",
-      "name": "Buffalo River",
-      "reach": "Kyle's Landing to Ozark",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "buffalo-river-kyles-landing-ozark",
-      "slug": "buffalo-river-kyles-landing-ozark",
-      "name": "Buffalo River",
-      "reach": "Kyle's Landing to Ozark",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "ft current, rough-road logistics, wood, and cold-water swims keep it behind the whitewater route type. Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Kyle's Landing to Erbie and Erbie to Ozark, the Buffalo access mil"
-    },
-    {
-      "routeId": "buffalo-river-kyles-landing-ozark",
-      "slug": "buffalo-river-kyles-landing-ozark",
-      "name": "Buffalo River",
-      "reach": "Kyle's Landing to Ozark",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ground-to-campground half day below Erbie. Swift current, rough-road logistics, wood, and cold-water swims keep it behind the whitewater route type. Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Kyle's Landing to Er"
-    },
-    {
-      "routeId": "buffalo-river-kyles-landing-pruitt",
-      "slug": "buffalo-river-kyles-landing-pruitt",
-      "name": "Buffalo River",
-      "reach": "Kyle's Landing to Pruitt",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "buffalo-river-kyles-landing-pruitt",
-      "slug": "buffalo-river-kyles-landing-pruitt",
-      "name": "Buffalo River",
-      "reach": "Kyle's Landing to Pruitt",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "buffalo-river-kyles-landing-pruitt",
-      "slug": "buffalo-river-kyles-landing-pruitt",
-      "name": "Buffalo River",
-      "reach": "Kyle's Landing to Pruitt",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "itt as very low. NPS says levels above 2,000 cfs at Pruitt are unsafe. American Whitewater lists Kyle's to Pruitt as Class I-II. The route is longer than the common Ponca-to-Kyle's and Pruitt-to-Hasty day trips, includes remote gravel-road access at Kyle's, Er"
-    },
-    {
-      "routeId": "buffalo-river-kyles-landing-pruitt",
-      "slug": "buffalo-river-kyles-landing-pruitt",
-      "name": "Buffalo River",
-      "reach": "Kyle's Landing to Pruitt",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "nd Ozark, and should stay behind the whitewater route type because swift water, wood, rough shuttles, and quick rises are first-class decisions. Confidence is good for a guarded Arkansas add: NPS identifies Kyle's Landing, Erbie, Ozark, and Pruitt in the offic"
-    },
     {
       "routeId": "buffalo-river-ponca-hasty",
       "slug": "buffalo-river-ponca-hasty",
@@ -4937,39 +4816,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "der gardens, clear water, and quiet forested banks; this is a beginner-friendly whitewater route only for paddlers ready to read rapids and swim safely. Use the Wolf River at Langlade gauge. The most broadly useful window is 250 to 500 cfs. From 150 to 250 cfs"
-    },
-    {
-      "routeId": "buffalo-river-kyles-landing-erbie",
-      "slug": "buffalo-river-kyles-landing-erbie",
-      "name": "Buffalo River",
-      "reach": "Kyle's Landing to Erbie",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Short upper Buffalo National River whitewater day from Kyle's Landing to Erbie through one of the park's rough-road upper-district access corridors. NPS documents the exact trip, a"
-    },
-    {
-      "routeId": "buffalo-river-kyles-landing-ozark",
-      "slug": "buffalo-river-kyles-landing-ozark",
-      "name": "Buffalo River",
-      "reach": "Kyle's Landing to Ozark",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Long upper Buffalo National River day from Kyle's Landing to Ozark, linking the exact NPS Kyles-to-Erbie and Erbie-to-Ozark paddles into one bluff-lined corridor. The Pruitt gauge"
-    },
-    {
-      "routeId": "buffalo-river-kyles-landing-pruitt",
-      "slug": "buffalo-river-kyles-landing-pruitt",
-      "name": "Buffalo River",
-      "reach": "Kyle's Landing to Pruitt",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Long upper Buffalo National River day from Kyle's Landing to Pruitt, linking the Erbie and Ozark access corridor before the Highway 7 take-out. NPS supports the access chain and mi"
     },
     {
       "routeId": "buffalo-river-ponca-hasty",
