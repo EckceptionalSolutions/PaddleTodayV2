@@ -5294,6 +5294,174 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
+  'upper-iowa-river-cattle-creek-chimney-rock': {
+    putIn: {
+      name: 'Cattle Creek Road / Daley Bridge canoe access area',
+      latitude: 43.4149,
+      longitude: -91.95874,
+    },
+    takeOut: {
+      name: 'Chimney Rock Road bridge / Chimney Rock Park access',
+      latitude: 43.42156,
+      longitude: -91.93467,
+    },
+    logistics: {
+      distanceLabel: 'About 4.5 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer with low water or bluff stops',
+      shuttle:
+        'Use a short car or outfitter shuttle between Cattle Creek Road and Chimney Rock Park Access. Confirm both parking areas before unloading because summer demand and changed bridge/access conditions can affect staging.',
+      permits:
+        'No route-specific paddling permit is known. Iowa registration rules can apply to longer boats; follow posted county-road, park, and private-land rules.',
+      camping:
+        'Treat this as a day route. Nearby private campgrounds and liveries can support a separate base-camp plan, but no public watercraft campsite is assumed on this short split.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Cattle Creek Road / Daley Bridge and take out at Chimney Rock Park Access for a short scenic Upper Iowa split with clear riffles, springs, and the first major Bluffton-area bluffs.',
+      accessCaveats: [
+        'The Cattle Creek bridge/access area has changed since older reports. Check current parking, bank condition, and any posted signs before unloading.',
+        'Chimney Rock has private campground and livery activity nearby. Use the public bridge/park access and avoid assuming private launches are open to noncustomers.',
+        'This is a split of the broader Cattle-to-Bluffton corridor, added for shorter high-use access-pair planning rather than a separate hydrologic model.',
+      ],
+      watchFor: [
+        'Scraping in riffles near or below 150 cfs at the Bluffton gauge.',
+        'Pushy current around 700 cfs and above, especially with storm wood or crowded landings.',
+        'Class I riffles, strainers, cold shoulder-season water, and private-bank boundaries.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cattle-creek-road-daley-bridge',
+        name: 'Cattle Creek Road / Daley Bridge canoe access area',
+        latitude: 43.4149,
+        longitude: -91.95874,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the short Cattle-to-Chimney split.',
+      },
+      {
+        id: 'chimney-rock-park-access',
+        name: 'Chimney Rock Road bridge / Chimney Rock Park access',
+        latitude: 43.42156,
+        longitude: -91.93467,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Default take-out and a common access in the Bluffton scenic corridor.',
+      },
+    ],
+  },
+
+  'upper-iowa-river-chimney-rock-bluffton': {
+    putIn: {
+      name: 'Chimney Rock Road bridge / Chimney Rock Park access',
+      latitude: 43.42156,
+      longitude: -91.93467,
+    },
+    takeOut: {
+      name: 'Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp',
+      latitude: 43.3996,
+      longitude: -91.8884,
+    },
+    logistics: {
+      distanceLabel: 'About 5.3 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with bluff stops or summer traffic',
+      shuttle:
+        'Use a car or outfitter shuttle between Chimney Rock Park Access and the Bluffton Fir Stand / W20 landing. Scout the Bluffton finish first on busy weekends so the take-out and parking are unambiguous.',
+      permits:
+        'No route-specific paddling permit is known. Iowa registration rules can apply to longer boats; follow posted park, access, county-road, and private campground rules.',
+      camping:
+        'Nearby private Bluffton campgrounds can support a separate base-camp plan, but this short route does not assume a public watercraft campsite.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Chimney Rock and paddle through the classic Bluffton bluffs to the public Bluffton Fir Stand / W20 access. This is the short highlight version of the longer Chimney-to-Malanaphy day.',
+      accessCaveats: [
+        'Use the public Chimney Rock bridge/park access rather than private campground launches unless you have permission or are using an outfitter.',
+        'The route finishes at Bluffton Fir Stand / W20 so paddlers avoid treating private Bluffton campground landings as public take-outs.',
+        'This split overlaps existing longer Upper Iowa cards; its value is a shorter official access-pair option in the busiest scenic core.',
+      ],
+      watchFor: [
+        'Scraping in riffles near or below 150 cfs at the Bluffton gauge.',
+        'Pushy current around 700 cfs and above, especially through bends, bridge approaches, and crowded landings.',
+        'Class I riffles, strainers after storms, cold water outside midsummer, and private-bank boundaries.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'chimney-rock-park-access',
+        name: 'Chimney Rock Road bridge / Chimney Rock Park access',
+        latitude: 43.42156,
+        longitude: -91.93467,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the short Bluffton highlight run.',
+      },
+      {
+        id: 'bluffton-fir-stand-access',
+        name: 'Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp',
+        latitude: 43.3996,
+        longitude: -91.8884,
+        mileFromStart: 5.3,
+        segmentKind: 'creek',
+        note: 'Public W20 take-out used instead of nearby private campground landings.',
+      },
+    ],
+  },
+
+  'upper-iowa-river-bluffton-malanaphy': {
+    putIn: {
+      name: 'Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp',
+      latitude: 43.3996,
+      longitude: -91.8884,
+    },
+    takeOut: {
+      name: 'Malanaphy Springs / Bluffton Road bridge access',
+      latitude: 43.34508,
+      longitude: -91.843,
+    },
+    logistics: {
+      distanceLabel: 'About 8.4 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low water or spring stops',
+      shuttle:
+        'Use a car or outfitter shuttle from Malanaphy Springs / Bluffton Road back to Bluffton Fir Stand. Inspect the Malanaphy parking and landing before launching because it is more limited than a developed county ramp.',
+      permits:
+        'No route-specific paddling permit is known. Iowa registration rules can apply to longer boats; follow posted state-preserve, county-road, and private-land rules.',
+      camping:
+        'Treat this as a day route. Private campground and Decorah-area lodging options are separate from the paddling route; no public on-route watercraft campsite is assumed.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Bluffton Fir Stand / W20 and paddle the downstream Upper Iowa split to Malanaphy Springs, keeping the trip shorter than the full Chimney-to-Malanaphy route while preserving the spring-and-riffle corridor.',
+      accessCaveats: [
+        'Bluffton Fir Stand is the public put-in; do not stage from adjacent private campground launches without permission.',
+        'Malanaphy Springs has limited access and can conflict with hikers or full parking. Have a fallback plan before committing to the shuttle.',
+        'This route uses minimum-only scoring because the best exact-corridor source supports a low-water floor and observed adequate level, not a complete high-water ladder.',
+      ],
+      watchFor: [
+        'Scraping and dragging in riffles near or below 150 cfs at the Bluffton gauge.',
+        'Storm wood, bridge approaches, shallow rock, and faster push after rain.',
+        'Cold spring inflows, private banks, and limited bailout options between public accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'bluffton-fir-stand-access',
+        name: 'Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp',
+        latitude: 43.3996,
+        longitude: -91.8884,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default public put-in for the downstream Bluffton-to-Malanaphy split.',
+      },
+      {
+        id: 'malanaphy-springs-access',
+        name: 'Malanaphy Springs / Bluffton Road bridge access',
+        latitude: 43.34508,
+        longitude: -91.843,
+        mileFromStart: 8.4,
+        segmentKind: 'creek',
+        note: 'Default take-out; inspect parking and landing conditions before launch.',
+      },
+    ],
+  },
+
   'upper-iowa-river-malanaphy-trout-run': {
     putIn: {
       name: 'Malanaphy Springs / Bluffton Road bridge access',

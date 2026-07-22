@@ -1,16 +1,24 @@
 # Iowa Route Memory
 
-Last summarized: 2026-07-06.
+Last summarized: 2026-07-22.
 
 ## Current Inventory
 
-- Live routes: 36.
-- Top represented rivers: Turkey River 6, Upper Iowa River 5, South Skunk River 4, Maquoketa River 3, North Fork Maquoketa River 3, Volga River 3, Black Hawk Creek 2, Middle River 2, Yellow River 2.
-- Ledger candidates: 46 total; 37 added, 2 `no_live_gauge`, 2 `gauge_proxy_weak`, 2 `research_later`, 2 `rejected`, 1 `threshold_weak`.
+- Live routes: 42 after the 2026-07-22 Upper Iowa split pass.
+- Top represented rivers: Upper Iowa River 8, Turkey River 6, North Fork Maquoketa River 6, South Skunk River 4, Maquoketa River 4, Volga River 3, Black Hawk Creek 2, Middle River 2, Yellow River 2.
+- Ledger candidates: 49 total after the 2026-07-22 pass; 42 added, 2 `no_live_gauge`, 2 `gauge_proxy_weak`, 2 `research_later`, 2 `rejected`, 1 `threshold_weak`.
 
 ## Status
 
-Iowa remains mature overall, but the live tree still had room for one mixed continuation pass after fresh same-day source checks confirmed one longer Turkey River bridge-to-town segment and two public North Fork Maquoketa continuations out of Cascade.
+Iowa remains mature overall. The 2026-07-22 run added only because the Upper Iowa guide and WRT/Miles Paddled evidence supported shorter high-use public access pairs inside already modeled long cards, and the task required three fresh Iowa slugs beyond the current checkout baseline.
+
+## 2026-07-22 Upper Iowa split pass
+
+- Baseline at run start: 39 Iowa live routes.
+- Added `upper-iowa-river-cattle-creek-chimney-rock`, `upper-iowa-river-chimney-rock-bluffton`, and `upper-iowa-river-bluffton-malanaphy`, bringing Iowa to 42 live routes in this checkout.
+- Qualification path: Upper Iowa River Paddler's Guide mileposts support Cattle Creek Road, Chimney Rock Park Access, Bluffton Fir Stand Access, and Malanaphy Springs Access; Wisconsin River Trips supports the Cattle-to-Chimney and Chimney-to-Bluffton scenic splits plus the accepted `150 / 200-500 / 700 cfs` Bluffton-gauge ladder for the upper two cards; Miles Paddled Upper Iowa IV supports the 150 cfs minimum and 375 cfs adequate observed level for the Bluffton-to-Malanaphy card; USGS Water Services returned `871 cfs / 4.69 ft` at `2026-07-22 14:45 CDT` for direct gauge `05387440`.
+- Overlap posture: these are intentional contained access-pair splits in the high-use Bluffton corridor. Do not continue adding more Upper Iowa split cards unless product policy explicitly wants more planner-card granularity or a materially stronger official threshold/source package appears.
+- Camping remains `nearby_basecamp` for all three because nearby private campgrounds/liveries exist, but no public on-route watercraft campsite was confirmed for these short day splits. Bounded image review stayed negative, so no gallery asset was added.
 
 ## 2026-07-06 North Fork Maquoketa continuation pass
 
