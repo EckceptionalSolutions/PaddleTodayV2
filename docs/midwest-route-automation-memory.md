@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-22 18:15 America/Chicago / 2026-07-22 23:15 UTC: Minnesota Kettle/Red/St. Louis implementation pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 136-route Minnesota baseline: `kettle-river-musclewood-1`, `red-river-highway-25-halstad`, and `st-louis-river-county-road-4-95`, bringing this checkout to 139 Minnesota routes.
+  - Qualification path: MN DNR Kettle Map 1 plus public-water-access GIS support Musclewood-to-#1; MN DNR Red River Map 3 plus public-water-access GIS support Highway-25/Hendrum-to-Halstad; MN DNR St. Louis Map 1 plus the St. Louis segments page support County Road 4-to-County Road 95, with County Road 95 resolved in public-water-access GIS.
+  - Gauge posture: MN DNR river-level feed returned Kettle Willow River / Long Lake Road `76.9 ft`, Red River Halstad `4.41 ft`, and St. Louis Forbes `2.79 ft` during the run. All three are below official scrapable floors, so the new cards currently score as too low; the St. Louis card documents Forbes as a downstream same-map proxy requiring visual checks.
+  - No route-gallery assets were added after bounded DNR / public-access / Commons / same-route image review. Des Moines Mayflower-to-Christianna remained blocked by a weak route-specific gauge proxy.
+
 - 2026-07-22 18:06 America/Chicago / 2026-07-22 23:06 UTC: Wisconsin upper Pine implementation pass (`wisconsin-route-additions`).
   - Added three Wisconsin route slugs beyond the current 110-route Wisconsin baseline: `pine-river-highway-55-stevens-lake`, `pine-river-stevens-lake-chipmunk-rapids`, and `pine-river-chipmunk-rapids-bull-falls`, bringing this checkout to 113 Wisconsin routes.
   - Qualification path: American Whitewater Pine A/B/C pages document exact reaches, lengths, difficulty, detailed hazard sequences, coordinate-backed access points, and USGS `04064500` stage correlations; Wisconsin DNR supports Pine-Popple Wild Rivers season, water-level, rapids/falls, and portage safety context; and USFS confirms Chipmunk Rapids Recreation Area carry-in canoe access plus campground amenities.

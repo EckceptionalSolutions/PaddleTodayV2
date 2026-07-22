@@ -29557,6 +29557,118 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'kettle-river-musclewood-1': {
+    putIn: {
+      name: 'Musclewood Lake Public Water Access Site',
+      latitude: 46.3612199,
+      longitude: -92.8437237,
+    },
+    takeOut: {
+      name: 'Kettle River #1 Public Water Access Site',
+      latitude: 46.1802972,
+      longitude: -92.832115,
+    },
+    logistics: {
+      distanceLabel: 'About 16.5 mi',
+      estimatedPaddleTime: 'About 6 hr to 9 hr depending on level, scouting, and low-water dragging',
+      shuttle:
+        'Stage the #1 take-out west of Askov first, then drive upstream to Musclewood Lake. This is a full-day one-way; start early and do not continue into Banning State Park whitewater unless that separate plan is intentional.',
+      permits:
+        'No route-specific paddling permit is known. Follow DNR public-water-access rules, Minnesota boating/PFD requirements, and posted parking or public-land rules.',
+      camping:
+        'DNR Kettle maps support watercraft camping and public-land camping rules on the broader trail, but this card should be planned as a long day unless a legal designated or public-land overnight stop is separately confirmed.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Musclewood Lake and take out at Kettle River #1 for the official DNR 16.5-mile day trip. The Willow River / Long Lake Road gauge was below the official scrapable floor during this run, so low-water dragging is the default assumption today.',
+      accessCaveats: [
+        'Musclewood Lake resolves in Minnesota public-water-access GIS as WAS00898 at DNR river mile 46.2. DNR route text places the put-in at river mile 46.3.',
+        '#1 resolves in Minnesota public-water-access GIS as WAS00904 near river mile 29.8 west of Askov.',
+        'The Kettle is runoff-driven and can change quickly. Confirm the gauge and visually inspect the put-in before committing to the full-day distance.',
+      ],
+      watchFor: [
+        'Class I-II rapids between river miles 33.5 and 32, plus shallow rocks and scraping below the official 78 ft scrapable floor.',
+        'Fresh wood, fast rain-driven rises, cold water, private banks, and limited road exits over a long day.',
+        'Accidentally extending downstream into Banning State Park whitewater without helmets, portage scouting, and rescue planning.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'kettle-musclewood',
+        name: 'Musclewood Lake Public Water Access Site',
+        latitude: 46.3612199,
+        longitude: -92.8437237,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00898 at DNR river mile 46.2.',
+      },
+      {
+        id: 'kettle-number-one',
+        name: 'Kettle River #1 Public Water Access Site',
+        latitude: 46.1802972,
+        longitude: -92.832115,
+        mileFromStart: 16.5,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00904 near DNR river mile 29.8.',
+      },
+    ],
+  },
+
+  'red-river-highway-25-halstad': {
+    putIn: {
+      name: 'Red River, Hendrum Public Water Access Site',
+      latitude: 47.2669747,
+      longitude: -96.8338196,
+    },
+    takeOut: {
+      name: 'Red River, Halstad Landing Public Water Access Site',
+      latitude: 47.3532666,
+      longitude: -96.8401799,
+    },
+    logistics: {
+      distanceLabel: 'About 11.2 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr depending on current, wind, and landing conditions',
+      shuttle:
+        'Stage Halstad Landing first, then drive south to the Highway 25 / Hendrum public access. Check both muddy banks before unloading, because very low water can make either landing awkward even when access is public.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, Red River state-water-trail guidance, and all posted local access rules.',
+      camping:
+        'Treat this as a day trip. No on-route watercraft campsite was confirmed for the County Road 25-to-Halstad reach, and private banks should not be used for informal camping.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Highway 25 / Hendrum public access and take out at Halstad Landing for the official DNR 11.2-mile Map 3 day trip. The Halstad gauge was below the official scrapable floor during this run, so this is not a good low-water call today.',
+      accessCaveats: [
+        'The Hendrum public access resolves in Minnesota public-water-access GIS as WAS00548 at DNR river mile 392.7, matching the DNR County Road 25 / Canning Landing trip start.',
+        'Halstad Landing resolves as WAS00536 at DNR river mile 381.5 near the Halstad DNR gauge.',
+        'The Red River is a border river with muddy banks and limited mid-route exits. Use public landings and confirm parking, slope, and water depth at both ends.',
+      ],
+      watchFor: [
+        'Low-water mud, shallow bars, snags, hidden wood, and poor underwater visibility.',
+        'Flooding, fast rises, strong current, wind on open bends, motorboats, and cold water.',
+        'Private shoreline and long rural response times if a boat pins, capsizes, or misses the take-out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'red-river-hendrum-highway-25',
+        name: 'Red River, Hendrum Public Water Access Site',
+        latitude: 47.2669747,
+        longitude: -96.8338196,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00548 at DNR river mile 392.7.',
+      },
+      {
+        id: 'red-river-halstad-landing',
+        name: 'Red River, Halstad Landing Public Water Access Site',
+        latitude: 47.3532666,
+        longitude: -96.8401799,
+        mileFromStart: 11.2,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00536 at DNR river mile 381.5.',
+      },
+    ],
+  },
+
   'kettle-river-number-4-number-5': {
     putIn: {
       name: 'Kettle River #4 Public Water Access Site',
@@ -29609,6 +29721,62 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 8.5,
         segmentKind: 'creek',
         note: 'Default take-out at DNR river mile 15.1; resolves as WAS00910.',
+      },
+    ],
+  },
+
+  'st-louis-river-county-road-4-95': {
+    putIn: {
+      name: 'County Road 4 bridge carry-in',
+      latitude: 47.429,
+      longitude: -92.255,
+    },
+    takeOut: {
+      name: 'St. Louis River, County Rd 95 Public Water Access Site',
+      latitude: 47.4009308,
+      longitude: -92.3775989,
+    },
+    logistics: {
+      distanceLabel: 'About 7.3 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr depending on level, scouting, and shallow sections',
+      shuttle:
+        'Stage County Road 95 first, then drive upstream to the County Road 4 bridge. Confirm legal roadside parking and carry in on the downstream side of the bridge before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Use legal public right-of-way or DNR public access only, follow Minnesota boating/PFD rules, and check current St. Louis River water-trail alerts.',
+      camping:
+        'Treat this as a day trip. DNR discusses dispersed camping rules for the broader Superior National Forest corridor, but no designated on-route campsite was confirmed between County Road 4 and County Road 95.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch from the undeveloped County Road 4 bridge carry-in and take out at the County Road 95 public access for the official DNR 7.3-mile upper St. Louis day trip. The downstream Forbes gauge was below the official scrapable floor during this run, so visual low-water checks are essential.',
+      accessCaveats: [
+        'County Road 4 is a DNR-recommended undeveloped bridge carry-in at river mile 151.9, not a formal public-water-access-layer record.',
+        'County Road 95 resolves in Minnesota public-water-access GIS as WAS02152 at DNR river mile 144.5 / 144.6.',
+        'The Forbes gauge is downstream of this trip. Use it as a conservative corridor proxy and confirm depth at both endpoints before launching.',
+      ],
+      watchFor: [
+        'Shallow sandy sections on the recommended route and difficult boulder-bed conditions nearby at medium-low water.',
+        'Wood, strainers, cold water, remote banks, limited services, and the logjam-prone upper-river context shown upstream on DNR Map 1.',
+        'Private shoreland and unclear roadside parking at the undeveloped County Road 4 bridge put-in.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'st-louis-county-road-4-bridge',
+        name: 'County Road 4 bridge carry-in',
+        latitude: 47.429,
+        longitude: -92.255,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'DNR-recommended undeveloped put-in at river mile 151.9; coordinate is map/bridge-derived and requires same-day legal launch confirmation.',
+      },
+      {
+        id: 'st-louis-county-road-95',
+        name: 'St. Louis River, County Rd 95 Public Water Access Site',
+        latitude: 47.4009308,
+        longitude: -92.3775989,
+        mileFromStart: 7.3,
+        segmentKind: 'creek',
+        note: 'Default take-out; public-water-access GIS resolves WAS02152 at river mile 144.5.',
       },
     ],
   },

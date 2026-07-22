@@ -1,5 +1,16 @@
 # Minnesota Route Memory
 
+## 2026-07-22 18:15 America/Chicago / 2026-07-22 23:15 UTC Minnesota implementation pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `136` to `139` route slugs by adding `kettle-river-musclewood-1`, `red-river-highway-25-halstad`, and `st-louis-river-county-road-4-95`.
+- Qualification path: current MN DNR Kettle Map 1 / segments page and public-water-access GIS resolve Musclewood Lake `WAS00898` to Kettle River #1 `WAS00904`; current MN DNR Red River Map 3 / segments page and public-water-access GIS resolve Highway 25 / Hendrum `WAS00548` to Halstad Landing `WAS00536`; and current MN DNR St. Louis Map 1 / segments page documents County Road 4 bridge to County Road 95, with County Road 95 resolved as `WAS02152`.
+- Live gauge verification: MN DNR Willow River / Long Lake Road site `293` returned `76.9 ft` at `2026-07-22 16:45 CDT`, below the official `78 ft` scrapable floor; MN DNR Halstad site `186` returned `4.41 ft` at `2026-07-22 16:30 CDT`, below the official `6 ft` scrapable floor; and MN DNR Forbes site `244` returned `2.79 ft` at `2026-07-22 16:45 CDT`, below the official `3 ft` scrapable floor.
+- Implemented official DNR interpreted gauge models only: Kettle Willow River / Long Lake Road `78 / 80-82 / 84 ft`, Red River Halstad `6 / 12-18 / 25 ft`, and St. Louis Forbes `3.0 / 3.7-7.6 / 8.0 ft`. The St. Louis County Road 4-to-95 route keeps Forbes as a conservative downstream same-map proxy and requires visual endpoint checks.
+- Camping posture: Kettle Musclewood-to-#1 and St. Louis County-Road-4-to-95 are `nearby_basecamp` day-route cards; Red River Highway-25-to-Halstad is `none` for on-route camping. All three reject informal private-bank or riverbed camping.
+- Safety posture: Kettle carries Class I-II rapids, runoff/fast-rise, shallow-rock, wood, cold-water, and Banning-continuation caveats. Red River carries low-water mud, snags, flood/high-water, wind, motorboats, private-bank, and rural-response caveats. St. Louis carries undeveloped bridge access, shallow sandy sections, boulder-bed/medium-low-water, wood/logjam, cold-water, remote-bank, and downstream proxy-gauge caveats.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Commons / same-route searches with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add Des Moines Mayflower-to-Christianna because the downstream Jackson gauge remains too weak as a route-specific proxy for the Windom/Christianna segment.
+
 ## 2026-07-22 17:07 America/Chicago / 2026-07-22 22:07 UTC Minnesota implementation pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `133` to `136` route slugs by adding `zumbro-river-hammond-theilman`, `red-lake-river-st-hilaire-sportsmans`, and `red-lake-river-huot-crookston`.
