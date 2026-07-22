@@ -1,5 +1,10 @@
 # Midwest Route Automation Memory
 
+- 2026-07-22 15:24 America/Chicago / 2026-07-22 20:24 UTC: Wisconsin Brule/Pine Island implementation pass (`wisconsin-route-additions`).
+  - Added three Wisconsin route slugs beyond the current 101-route Wisconsin baseline: `brule-river-campground-highway-139`, `brule-river-forest-road-2150-flowage`, and `wisconsin-river-pine-island-portage`, bringing this checkout to 104 Wisconsin routes.
+  - Qualification path: Wisconsin Trail Guide exact Brule B1/B3 pages plus GPX files document endpoints, mileage, route character, rapids, camping/no-camping, and the US Highway 2 gauge minimum; Wisconsin River Trips / Miles Paddled document the Pine Island-to-Hwy-33 route and Dells gauge context; Wisconsin DNR Pine Island Wildlife Area confirms the Levee Road launch/canoeing and prohibits camping on the property including Wisconsin River islands and sandbars.
+  - Gauge posture: USGS `04060993` Brule River at US Highway 2 returned `205 cfs / 3.56 ft`, below the selected `220 cfs` minimum. USGS `05404000` Wisconsin River near Wisconsin Dells returned `2720 cfs / 2.01 ft`, above the low floor but below the selected target shoulder.
+  - No route-gallery assets were added; image audit rows record bounded WTG / WRT / Miles Paddled / Wisconsin DNR / USGS / Commons / same-route searches with no clearly rights-clean exact-route asset selected.
 
 - 2026-07-22 15:05 America/Chicago / 2026-07-22 20:05 UTC: Minnesota Mississippi Aitkin County implementation pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 127-route Minnesota baseline: `mississippi-river-palisade-waldeck`, `mississippi-river-waldeck-kimball`, and `mississippi-river-kimball-aitkin-campground`, bringing this checkout to 130 Minnesota routes.

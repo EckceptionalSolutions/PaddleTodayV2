@@ -1,5 +1,9 @@
 # Wisconsin Route Memory
 
+- 2026-07-22 15:24 America/Chicago / 2026-07-22 20:24 UTC: current-baseline implementation pass added `brule-river-campground-highway-139`, `brule-river-forest-road-2150-flowage`, and `wisconsin-river-pine-island-portage`, bringing this checkout from 101 to 104 Wisconsin routes. This is a fresh add for the current repo state; the older 2026-07-14 note did not count because these slugs were absent at run start.
+- Source posture: Brule B1/B3 use Wisconsin Trail Guide exact pages plus GPX endpoint coordinates, route mileage, camping/no-camping notes, hazards, and the direct Highway-2 gauge minimum of `220 cfs / 3.5 ft`; Pine Island uses Wisconsin River Trips, Miles Paddled GPS/gauge context, Wisconsin DNR Pine Island access/no-camping rules, and USGS `05404000`.
+- Live gauge verification: USGS Water Services returned Brule `04060993` at `205 cfs / 3.56 ft` and Wisconsin Dells `05404000` at `2720 cfs / 2.01 ft` during this run. No route-gallery image was added; image audit rows record bounded no-image outcomes.
+
 Last summarized: 2026-07-17 08:17 America/Chicago / 2026-07-17 13:17 UTC.
 
 ## Current Inventory
