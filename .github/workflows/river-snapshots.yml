@@ -57,7 +57,12 @@ jobs:
           node --input-type=module <<'NODE'
           const siteUrl = process.env.SITE_URL.replace(/\/$/, '');
           const url = `${siteUrl}/api/rivers/rice-creek-peltier-to-long-lake.json?snapshot_check=${Date.now()}`;
-          const response = await fetch(url, { headers: { accept: 'application/json' } });
+          const response = await fetch(url, {
+            headers: {
+              accept: 'application/json',
+              'user-agent': 'PaddleToday-GitHubActions/1.0 (+https://github.com/EckceptionalSolutions/PaddleTodayV2)',
+            },
+          });
           if (!response.ok) {
             throw new Error(`Production snapshot probe returned HTTP ${response.status}.`);
           }
