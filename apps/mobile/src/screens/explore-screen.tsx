@@ -506,6 +506,15 @@ function FullScreenExploreMap({
     return () => clearTimeout(timeout);
   }, [activeFilterCount, points.length, userLocation]);
 
+  useEffect(() => {
+    if (!selectedSlug || !selectedRiver) {
+      return;
+    }
+
+    const timeout = setTimeout(() => mapRef.current?.focusSelected(), 120);
+    return () => clearTimeout(timeout);
+  }, [selectedRiver, selectedSlug]);
+
   function handleGpsFocus() {
     if (userLocation) {
       mapRef.current?.focusUserArea();
@@ -540,11 +549,12 @@ function FullScreenExploreMap({
   return (
     <View style={styles.fullMapScreen}>
       {results.length > 0 ? (
-        <RoutePlotMap
-          ref={mapRef}
-          points={points}
-          selectedId={selectedSlug}
-          canonicalSpans={canonicalSpans}
+          <RoutePlotMap
+            ref={mapRef}
+            points={points}
+            selectedId={selectedSlug}
+            canonicalSpans={canonicalSpans}
+            selectedFocusBottomInset={selectedRiver ? sheetHeightValue('half') + bottomInset : 0}
           userLocation={userLocation}
           onSelectPoint={(point) => {
             setSheetSnap('half');

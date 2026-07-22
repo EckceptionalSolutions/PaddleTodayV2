@@ -46,7 +46,7 @@ import {
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HistoryBars } from '../components/history-bars';
 import { AppErrorState, AppLoadingState } from '../components/app-state';
-import { RatingPill } from '../components/rating-pill';
+import { RatingPill, ratingColors } from '../components/rating-pill';
 import { RoutePhotoCard } from '../components/route-photo-card';
 import { RouteReportSheet, type SelectedReportPhoto } from '../components/route-report-sheet';
 import { RouteDirectionActions } from '../components/route-direction-actions';
@@ -550,8 +550,8 @@ export default function RiverDetailScreen() {
 
         <View style={styles.hero}>
           <View style={styles.heroHeader}>
-            <View style={styles.heroScore}>
-              <Text style={styles.scoreValue}>{detail.score}</Text>
+            <View style={[styles.heroScore, { backgroundColor: ratingColors(detail.rating).backgroundColor }]}>
+              <Text style={[styles.scoreValue, { color: ratingColors(detail.rating).textColor }]}>{detail.score}</Text>
             </View>
             <View style={styles.heroCopy}>
               <View style={styles.heroTitleRow}>
@@ -613,13 +613,13 @@ export default function RiverDetailScreen() {
         </View>
 
         <View
-          collapsable={false}
-          renderToHardwareTextureAndroid
-          style={styles.sectionTabsSticky}
-          onLayout={(event) => {
-            sectionTabsYRef.current = event.nativeEvent.layout.y;
-            sectionTabsHeightRef.current = event.nativeEvent.layout.height;
-          }}
+            pointerEvents="box-none"
+            collapsable={false}
+            style={styles.sectionTabsSticky}
+            onLayout={(event) => {
+              sectionTabsYRef.current = event.nativeEvent.layout.y;
+              sectionTabsHeightRef.current = event.nativeEvent.layout.height;
+            }}
         >
           <DetailSectionTabs activeSection={activeSection} onSelect={showSection} />
         </View>
@@ -753,6 +753,7 @@ export default function RiverDetailScreen() {
 
         {activeSection === 'More' ? (
           <View
+            style={styles.moreSectionStack}
             onLayout={(event) => {
               sectionContentYRef.current = event.nativeEvent.layout.y;
             }}
@@ -1109,7 +1110,7 @@ function DecisionSummary({ detail }: { detail: RiverDetailApiResult }) {
     <View style={styles.decisionSummary}>
       <View style={styles.decisionSummaryHeader}>
         <Text style={styles.decisionSummaryLabel}>Today's call</Text>
-        <Text style={styles.decisionSummaryScore}>{detail.score} / {detail.rating}</Text>
+        <Text style={[styles.decisionSummaryScore, { color: ratingColors(detail.rating).textColor }]}>{detail.score} / {detail.rating}</Text>
       </View>
       <Text style={styles.decisionSummaryTitle}>{decisionStatement(detail)}</Text>
       <View style={styles.decisionBulletList}>
@@ -1631,8 +1632,8 @@ function OutlookRows({ outlooks }: { outlooks: RiverOutlook[] }) {
               </Text>
             </View>
             <View style={[styles.outlookScore, outlook.rating ? ratingBackground(outlook.rating) : styles.outlookScoreMuted]}>
-              <Text style={styles.outlookScoreValue}>{outlook.score ?? '--'}</Text>
-              <Text style={styles.outlookScoreLabel}>{outlook.rating ?? 'No call'}</Text>
+              <Text style={[styles.outlookScoreValue, outlook.rating ? { color: ratingColors(outlook.rating).textColor } : null]}>{outlook.score ?? '--'}</Text>
+              <Text style={[styles.outlookScoreLabel, outlook.rating ? { color: ratingColors(outlook.rating).textColor } : null]}>{outlook.rating ?? 'No call'}</Text>
             </View>
           </View>
           <Text style={styles.outlookText}>{normalizeApiText(outlook.explanation)}</Text>
@@ -2693,6 +2694,10 @@ function shortLogisticsValue(value: string | null | undefined) {
     return 'None noted';
   }
 
+  if (/day trip|day route|day float|not (?:an? )?campground/i.test(normalized)) {
+    return 'Day trip';
+  }
+
   if (normalized.length <= 34) {
     return normalized;
   }
@@ -2711,10 +2716,7 @@ function logisticsIconName(title: string) {
 }
 
 function ratingBackground(rating: string) {
-  if (rating === 'Strong') return { backgroundColor: '#E0EFE9' };
-  if (rating === 'Good') return { backgroundColor: '#E8EFD9' };
-  if (rating === 'Fair') return { backgroundColor: '#F3E8CC' };
-  return { backgroundColor: '#F2DDD6' };
+  return { backgroundColor: ratingColors(rating).backgroundColor };
 }
 
 function checklistTone(status: DecisionChecklistItem['status']) {
@@ -3076,7 +3078,7 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.xs,
     zIndex: 30,
     elevation: 24,
-    overflow: 'hidden',
+    overflow: 'visible',
   },
   sectionTabs: {
     flexDirection: 'row',
@@ -3091,6 +3093,9 @@ const styles = StyleSheet.create({
     shadowRadius: 18,
     shadowOffset: { width: 0, height: 8 },
     elevation: 12,
+  },
+  moreSectionStack: {
+    gap: spacing.md,
   },
   sectionTab: {
     flex: 1,

@@ -3196,6 +3196,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted city and county access rules.',
       camping:
         'Treat this as a day trip. Heims Mill has picnic and restroom amenities but is not a campground.',
+      campingClassification: 'none',
       summary:
         'Put in at Knights of Columbus Park and finish at Heims Mill for the short lower-Sauk route that includes the DNR-noted Class I-II finish into the Mississippi corridor.',
       accessCaveats: [

@@ -471,12 +471,13 @@ function PlanLane({ label, value, active, onPress }: { label: string; value: num
     <Pressable
       style={[styles.planLane, active ? styles.planLaneActive : null]}
       onPress={onPress}
+      android_ripple={{ color: colors.canvasMuted }}
       accessibilityRole="tab"
       accessibilityState={{ selected: active }}
       accessibilityLabel={`${label}, ${value} routes`}
     >
-      <Text style={styles.planLaneValue}>{value}</Text>
-      <Text style={styles.planLaneLabel}>{label}</Text>
+      <Text style={[styles.planLaneValue, active ? styles.planLaneValueActive : null]}>{value}</Text>
+      <Text style={[styles.planLaneLabel, active ? styles.planLaneLabelActive : null]}>{label}</Text>
     </Pressable>
   );
 }
@@ -873,19 +874,30 @@ const styles = StyleSheet.create({
     flexBasis: '22%',
     minWidth: 64,
     minHeight: 70,
-    borderRadius: radius.md,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
     backgroundColor: colors.surface,
     padding: spacing.sm,
     justifyContent: 'center',
     gap: 3,
+    elevation: 1,
+    shadowColor: '#0F172A',
+    shadowOpacity: 0.08,
+    shadowRadius: 4,
+    shadowOffset: { width: 0, height: 2 },
   },
   planLaneActive: {
     backgroundColor: '#F3E8CC',
+    borderColor: colors.fair,
   },
   planLaneValue: {
     color: colors.text,
     fontSize: 20,
     fontWeight: '900',
+  },
+  planLaneValueActive: {
+    color: colors.fair,
   },
   planLaneLabel: {
     color: colors.textMuted,
@@ -894,6 +906,9 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     textTransform: 'uppercase',
     letterSpacing: 0.25,
+  },
+  planLaneLabelActive: {
+    color: colors.fair,
   },
   requestCallout: {
     backgroundColor: colors.surfaceStrong,

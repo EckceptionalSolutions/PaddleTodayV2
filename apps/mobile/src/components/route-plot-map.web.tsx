@@ -38,6 +38,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   showFooter?: boolean;
   fullBleed?: boolean;
   markerMode?: 'score' | 'pin';
+  selectedFocusBottomInset?: number;
 }>(function RoutePlotMap({
   points,
   selectedId,
@@ -48,6 +49,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   height = 290,
   showFooter = true,
   fullBleed = false,
+  selectedFocusBottomInset: _selectedFocusBottomInset = 0,
 }, ref) {
   const backgroundSpan = finiteSpanCoordinates(backgroundSpanCoordinates);
   const bounds = getBounds(points, userLocation, backgroundSpan, canonicalSpans);

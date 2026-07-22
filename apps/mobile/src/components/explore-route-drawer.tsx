@@ -12,6 +12,7 @@ import { mapUrlForAccessPoint } from '../lib/maps';
 import { openExternalUrl } from '../lib/external-links';
 import { routeDecisionLine } from '../lib/route-facts';
 import { RoutePhotoCard } from './route-photo-card';
+import { ratingColors } from './rating-pill';
 import { colors, radius, spacing } from '../theme/tokens';
 
 export type MapSheetSnap = 'peek' | 'half' | 'full';
@@ -71,8 +72,8 @@ export function ExploreRouteDrawer({
       </View>
       <View style={styles.mapPreviewHeader}>
         <View style={styles.mapPreviewDragRegion} collapsable={false} {...sheetGesture.panHandlers}>
-          <View style={styles.mapPreviewScore}>
-            <Text style={styles.mapPreviewScoreText} selectable={false}>{selectedRiver.score}</Text>
+          <View style={[styles.mapPreviewScore, { backgroundColor: ratingColors(selectedRiver.rating).backgroundColor }]}>
+            <Text style={[styles.mapPreviewScoreText, { color: ratingColors(selectedRiver.rating).textColor }]} selectable={false}>{selectedRiver.score}</Text>
           </View>
           <View style={styles.mapPreviewCopy}>
             <Text style={styles.mapPreviewLabel} selectable={false}>{selectedRiver.rating}</Text>

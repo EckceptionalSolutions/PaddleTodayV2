@@ -5,7 +5,8 @@ describe('classifyCamping', () => {
   it('keeps no-camping and unknown prose out of camping filters', () => {
     expect(classifyCamping('No established camping documented for this segment.')).toBe('none');
     expect(classifyCamping('Treat this as a day trip. Do not plan to camp at either endpoint.')).toBe('none');
-    expect(classifyCamping('Treat this as a day route unless camping is separately confirmed.')).toBe('none');
+  expect(classifyCamping('Treat this as a day route unless camping is separately confirmed.')).toBe('none');
+  expect(classifyCamping('Treat this as a day trip. Heims Mill has picnic and restroom amenities but is not a campground.')).toBe('none');
     expect(classifyCamping('Do not assume sandbar camping is legal or practical on this reach without separate confirmation.')).toBe('none');
     expect(classifyCamping('')).toBe('unknown');
   });

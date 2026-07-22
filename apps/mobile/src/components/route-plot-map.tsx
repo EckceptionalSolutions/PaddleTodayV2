@@ -43,6 +43,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   fullBleed?: boolean;
   markerMode?: 'score' | 'pin';
   fitToAllOnReady?: boolean;
+  selectedFocusBottomInset?: number;
 }>(function RoutePlotMap({
   points,
   selectedId,
@@ -55,6 +56,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   fullBleed = false,
   markerMode = 'score',
   fitToAllOnReady = false,
+  selectedFocusBottomInset = 0,
 }, ref) {
   const backgroundSpan = finiteSpanCoordinates(backgroundSpanCoordinates);
   const bounds = getBounds(points, userLocation, backgroundSpan, canonicalSpans);
@@ -97,12 +99,12 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     if (selectedSpan.length >= 2) {
       mapRef.current?.fitToCoordinates?.(selectedSpan, {
         animated: true,
-        edgePadding: mapEdgePadding(height, showFooter, 'selected'),
+        edgePadding: mapEdgePadding(height, showFooter, 'selected', selectedFocusBottomInset),
       });
       return;
     }
 
-    mapRef.current?.animateToRegion?.(regionAroundPoint(selectedPoint), 260);
+    mapRef.current?.animateToRegion?.(regionAroundPoint(selectedPoint, selectedFocusBottomInset, height), 260);
   }
 
   function focusAll() {
@@ -168,7 +170,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     });
   }
 
-  useImperativeHandle(ref, () => ({ focusSelected, focusAll, focusUserArea }), [canonicalSpans, height, selectedPoint, nativeMaps, visiblePoints, userLocation, showFooter]);
+  useImperativeHandle(ref, () => ({ focusSelected, focusAll, focusUserArea }), [canonicalSpans, height, selectedFocusBottomInset, selectedPoint, nativeMaps, visiblePoints, userLocation, showFooter]);
 
   useEffect(() => {
     setRegionDelta({
@@ -577,23 +579,24 @@ function regionFromBounds(bounds: { minLat: number; maxLat: number; minLon: numb
   };
 }
 
-function regionAroundPoint(point: RoutePlotPoint) {
+function regionAroundPoint(point: RoutePlotPoint, bottomInset = 0, height = 0) {
+  const latitudeDelta = 0.35;
   return {
-    latitude: point.latitude,
+    latitude: point.latitude + latitudeDelta * Math.min(Math.max(bottomInset / Math.max(height, 1), 0), 0.32),
     longitude: point.longitude,
-    latitudeDelta: 0.35,
+    latitudeDelta,
     longitudeDelta: 0.35,
   };
 }
 
-function mapEdgePadding(height: number, showFooter: boolean, mode: 'selected' | 'all' | 'user') {
+function mapEdgePadding(height: number, showFooter: boolean, mode: 'selected' | 'all' | 'user', selectedFocusBottomInset = 0) {
   const compact = height <= 230;
 
   if (compact) {
     return {
       top: mode === 'user' ? 40 : 32,
       right: 34,
-      bottom: showFooter ? 92 : 32,
+      bottom: (showFooter ? 92 : 32) + (mode === 'selected' ? selectedFocusBottomInset : 0),
       left: 34,
     };
   }
@@ -601,7 +604,7 @@ function mapEdgePadding(height: number, showFooter: boolean, mode: 'selected' | 
   return {
     top: mode === 'user' ? 108 : mode === 'selected' ? 96 : 88,
     right: mode === 'user' ? 74 : mode === 'selected' ? 72 : 64,
-    bottom: showFooter ? (mode === 'all' ? 140 : 150) : 64,
+    bottom: (showFooter ? (mode === 'all' ? 140 : 150) : 64) + (mode === 'selected' ? selectedFocusBottomInset : 0),
     left: mode === 'user' ? 74 : mode === 'selected' ? 72 : 64,
   };
 }

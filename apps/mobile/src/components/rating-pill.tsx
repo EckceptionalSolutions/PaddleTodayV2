@@ -3,40 +3,40 @@ import { StyleSheet, Text, View } from 'react-native';
 import { colors, radius } from '../theme/tokens';
 
 export function RatingPill({ rating }: { rating: ScoreRating }) {
-  const tone = ratingTone(rating);
+  const tone = ratingColors(rating);
 
   return (
-    <View style={[styles.pill, tone.pill]}>
-      <Text style={[styles.label, tone.label]}>{rating}</Text>
+    <View style={[styles.pill, { backgroundColor: tone.backgroundColor }]}>
+      <Text style={[styles.label, { color: tone.textColor }]}>{rating}</Text>
     </View>
   );
 }
 
-function ratingTone(rating: ScoreRating) {
+export function ratingColors(rating: string | null | undefined) {
   if (rating === 'Strong') {
     return {
-      pill: { backgroundColor: '#E0EFE9' },
-      label: { color: colors.strong },
+      backgroundColor: '#E0EFE9',
+      textColor: colors.strong,
     };
   }
 
   if (rating === 'Good') {
     return {
-      pill: { backgroundColor: '#E8EFD9' },
-      label: { color: colors.good },
+      backgroundColor: '#E8EFD9',
+      textColor: colors.good,
     };
   }
 
   if (rating === 'Fair') {
     return {
-      pill: { backgroundColor: '#F3E8CC' },
-      label: { color: colors.fair },
+      backgroundColor: '#F3E8CC',
+      textColor: colors.fair,
     };
   }
 
   return {
-    pill: { backgroundColor: '#F2DDD6' },
-    label: { color: colors.noGo },
+    backgroundColor: '#F2DDD6',
+    textColor: colors.noGo,
   };
 }
 

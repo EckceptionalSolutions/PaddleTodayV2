@@ -24,7 +24,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
-import { RatingPill } from '../components/rating-pill';
+import { RatingPill, ratingColors } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { resolveApiBaseUrl } from '../lib/api-base-url';
@@ -402,9 +402,9 @@ function BoardHero({
           ) : headline ? (
             <Pressable style={styles.heroContent} onPress={onOpen} android_ripple={{ color: 'rgba(255,255,255,0.16)' }}>
               <View style={styles.heroScoreRow}>
-                <View style={styles.scoreOrb}>
-                  <Text style={styles.scoreValue}>{headline.score}</Text>
-                  <Text style={styles.scoreLabel}>{headline.rating}</Text>
+                <View style={[styles.scoreOrb, { backgroundColor: ratingColors(headline.rating).backgroundColor }]}>
+                  <Text style={[styles.scoreValue, { color: ratingColors(headline.rating).textColor }]}>{headline.score}</Text>
+                  <Text style={[styles.scoreLabel, { color: ratingColors(headline.rating).textColor }]}>{headline.rating}</Text>
                 </View>
                 {onToggleSaved ? <SaveToggleButton compact saved={saved} onPress={onToggleSaved} /> : null}
               </View>

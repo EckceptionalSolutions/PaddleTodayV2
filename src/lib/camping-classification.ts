@@ -1,7 +1,7 @@
 import type { CampingClassification } from './types';
 
 const noCampingPattern =
-  /^(none|n\/a)|^no camping\b|no established camping|no on-route camping|no camping noted|no camping is known|no camping is assumed|no camping is part|no camping plan is assumed|no public camping is known|no route camping is indicated|no legal (?:on-route )?(?:camping plan|campsite) is assumed|no on-route legal campsite is assumed|no route-specific river camping is assumed|no on-route overnight plan is assumed|no dependable on-route camping|no simple on-route camping assumption|do not plan (?:on river camping|on camping|to camp)|do not camp|do not assume .*camping|not an overnight route|not tracked yet|not documented|day-use run|daylight (?:day trip|water-trail run)|treat this as (?:a |an )?(?:short |long )?day (?:trip|run|route|float|paddle) unless (?:you )?(?:have|separately|independently)|camping is prohibited|unauthorized camping|no overnight parking/i;
+  /^(none|n\/a)|^no camping\b|no established camping|no on-route camping|no camping noted|no camping is known|no camping is assumed|no camping is part|no camping plan is assumed|no public camping is known|no route camping is indicated|no legal (?:on-route )?(?:camping plan|campsite) is assumed|no on-route legal campsite is assumed|no route-specific river camping is assumed|no on-route overnight plan is assumed|no dependable on-route camping|no simple on-route camping assumption|do not plan (?:on river camping|on camping|to camp)|do not camp|do not assume .*camping|not (?:an? )?campground|not an overnight route|not tracked yet|not documented|day-use run|daylight (?:day trip|water-trail run)|treat this as (?:a |an )?(?:short |long )?day (?:trip|run|route|float|paddle) unless (?:you )?(?:have|separately|independently)|camping is prohibited|unauthorized camping|no overnight parking/i;
 
 const overnightCapablePattern =
   /overnight-capable|best planned as an overnight|split as an overnight|multi-day|two-day|long day or light overnight|natural overnight/i;
@@ -27,7 +27,7 @@ export function classifyCamping(camping: string | null | undefined): CampingClas
     return 'unknown';
   }
 
-  if (explicitNoCampingPattern.test(text)) {
+  if (explicitNoCampingPattern.test(text) || noCampingPattern.test(text)) {
     return 'none';
   }
 
