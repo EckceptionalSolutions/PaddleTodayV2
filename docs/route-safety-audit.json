@@ -1,59 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-22T15:20:12.739Z",
+  "generatedAt": "2026-07-22T17:20:10.346Z",
   "routeCount": 658,
-  "issueCount": 718,
+  "issueCount": 709,
   "summary": {
     "Critical": 0,
-    "High": 455,
-    "Medium": 263,
+    "High": 448,
+    "Medium": 261,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "buffalo-river-erbie-ozark",
-      "slug": "buffalo-river-erbie-ozark",
-      "name": "Buffalo River",
-      "reach": "Erbie to Ozark",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "buffalo-river-erbie-ozark",
-      "slug": "buffalo-river-erbie-ozark",
-      "name": "Buffalo River",
-      "reach": "Erbie to Ozark",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Buffalo National River reach from Erbie to Ozark with bluff-lined pools, light whitewater, and official NPS route, mileage, and campground support at both ends. The Pruitt gauge remains the nearest official downstream check for a guarded low-water floor. Use"
-    },
-    {
-      "routeId": "buffalo-river-erbie-ozark",
-      "slug": "buffalo-river-erbie-ozark",
-      "name": "Buffalo River",
-      "reach": "Erbie to Ozark",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ffles, bluffs, and shallow pools. It is still an upper Buffalo decision because wood, fast rises, and cold-water swims remain first-class concerns even when the whitewater is modest. Confidence is good for a guarded Arkansas add: NPS publishes the exact Erbie-"
-    },
-    {
-      "routeId": "buffalo-river-erbie-pruitt",
-      "slug": "buffalo-river-erbie-pruitt",
-      "name": "Buffalo River",
-      "reach": "Erbie to Pruitt",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
     {
       "routeId": "buffalo-river-kyles-landing-erbie",
       "slug": "buffalo-river-kyles-landing-erbie",
@@ -174,39 +130,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "nd Ozark, and should stay behind the whitewater route type because swift water, wood, rough shuttles, and quick rises are first-class decisions. Confidence is good for a guarded Arkansas add: NPS identifies Kyle's Landing, Erbie, Ozark, and Pruitt in the offic"
-    },
-    {
-      "routeId": "buffalo-river-ozark-pruitt",
-      "slug": "buffalo-river-ozark-pruitt",
-      "name": "Buffalo River",
-      "reach": "Ozark to Pruitt",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "buffalo-river-ozark-pruitt",
-      "slug": "buffalo-river-ozark-pruitt",
-      "name": "Buffalo River",
-      "reach": "Ozark to Pruitt",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "r-district route with bouncy riffles and long pools. It still belongs under the whitewater route type because swift current, wood, and rain-driven changes matter more than on a casual flatwater trail. Confidence is good for a guarded Arkansas add: NPS publishe"
-    },
-    {
-      "routeId": "buffalo-river-ozark-pruitt",
-      "slug": "buffalo-river-ozark-pruitt",
-      "name": "Buffalo River",
-      "reach": "Ozark to Pruitt",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "pools. It still belongs under the whitewater route type because swift current, wood, and rain-driven changes matter more than on a casual flatwater trail. Confidence is good for a guarded Arkansas add: NPS publishes the exact Ozark-to-Pruitt trip page, NPS ac"
     },
     {
       "routeId": "buffalo-river-ponca-hasty",
@@ -5016,17 +4939,6 @@
       "evidence": "der gardens, clear water, and quiet forested banks; this is a beginner-friendly whitewater route only for paddlers ready to read rapids and swim safely. Use the Wolf River at Langlade gauge. The most broadly useful window is 250 to 500 cfs. From 150 to 250 cfs"
     },
     {
-      "routeId": "buffalo-river-erbie-ozark",
-      "slug": "buffalo-river-erbie-ozark",
-      "name": "Buffalo River",
-      "reach": "Erbie to Ozark",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Compact upper Buffalo National River reach from Erbie to Ozark with bluff-lined pools, light whitewater, and official NPS route, mileage, and campground support at both ends. The P"
-    },
-    {
       "routeId": "buffalo-river-kyles-landing-erbie",
       "slug": "buffalo-river-kyles-landing-erbie",
       "name": "Buffalo River",
@@ -5058,17 +4970,6 @@
       "category": "Minimum-only hazard review",
       "message": "Minimum-only route has hazard language but no safetyProfile.",
       "evidence": "Long upper Buffalo National River day from Kyle's Landing to Pruitt, linking the Erbie and Ozark access corridor before the Highway 7 take-out. NPS supports the access chain and mi"
-    },
-    {
-      "routeId": "buffalo-river-ozark-pruitt",
-      "slug": "buffalo-river-ozark-pruitt",
-      "name": "Buffalo River",
-      "reach": "Ozark to Pruitt",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Short upper Buffalo National River run from Ozark to Pruitt with riffles, pools, and the natural tunnel corridor described by NPS. The Pruitt gauge is the direct same-corridor offi"
     },
     {
       "routeId": "buffalo-river-ponca-hasty",
