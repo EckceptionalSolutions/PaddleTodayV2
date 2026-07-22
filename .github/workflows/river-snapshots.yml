@@ -52,11 +52,14 @@ jobs:
 
       - name: Verify production snapshot freshness
         env:
-          SITE_URL: ${{ vars.SITE_URL || 'https://paddletoday.com' }}
+          # Verify the API origin directly. The public hostname is protected by
+          # Cloudflare and can reject GitHub-hosted runner traffic with HTTP 403
+          # even when the App Service and Blob snapshot are healthy.
+          API_ORIGIN: ${{ vars.API_ORIGIN || 'https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net' }}
         run: |
           node --input-type=module <<'NODE'
-          const siteUrl = process.env.SITE_URL.replace(/\/$/, '');
-          const url = `${siteUrl}/api/rivers/rice-creek-peltier-to-long-lake.json?snapshot_check=${Date.now()}`;
+          const apiOrigin = process.env.API_ORIGIN.replace(/\/$/, '');
+          const url = `${apiOrigin}/api/rivers/rice-creek-peltier-to-long-lake.json?snapshot_check=${Date.now()}`;
           const response = await fetch(url, {
             headers: {
               accept: 'application/json',
