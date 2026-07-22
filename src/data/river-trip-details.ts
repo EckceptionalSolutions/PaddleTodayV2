@@ -2030,6 +2030,118 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
+  'wolf-river-pearson-lily': {
+    putIn: {
+      name: 'County Highway A access near Pearson',
+      latitude: 45.34899,
+      longitude: -88.99474,
+    },
+    takeOut: {
+      name: 'Highway 52 bridge access in Lily',
+      latitude: 45.30765,
+      longitude: -88.85806,
+    },
+    logistics: {
+      distanceLabel: 'About 10.6 to 11 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr depending on scouting, level, and group speed',
+      shuttle:
+        'Stage the take-out at the Highway 52 bridge in Lily, then drive back to the County Highway A access near Pearson. The shuttle is rural and access is simple, but inspect the take-out before launch because Miles Paddled notes a carry from the river to parking.',
+      permits:
+        'No route-specific paddling permit is known. Use the public roadside access points, follow Wisconsin boating and PFD rules, and respect posted Langlade County, DNR, and private-bank boundaries.',
+      camping:
+        'Treat this as a day route. Langlade County and the route reports support the public access chain, but no legal on-route campsite is assumed for County A to Lily.',
+      campingClassification: 'none',
+      summary:
+        'Launch at County Highway A near Pearson and take out at Highway 52 in Lily for the upper Wolf Section 1 run. The route starts with Wendigo Rapids and then eases into Class I and flatwater before the Lily bridge.',
+      accessCaveats: [
+        'The card uses the cleaner public County Highway A-to-Lily segment supported by Langlade County and Miles Paddled, while Wisconsin Trail Guide\'s W1 family also describes a longer Pearson-to-Lily option.',
+        'The Highway 52 take-out is before the downstream Lily-to-Hollister route. Do not drift past it unless you intentionally planned the next Wolf segment.',
+        'The Langlade gauge is downstream of Lily and should be paired with a visual check at County A, especially after isolated rain or during low summer water.',
+      ],
+      watchFor: [
+        'Wendigo Rapids, Strauss Rapids, Overton Rapids, shallow boulder gardens, and cold-water swims.',
+        'Scrapey rocks below about 250 cfs and pushier hydraulics as the Langlade gauge rises above the novice target window.',
+        'Strainers, deadfall, bridge approaches, private banks, and limited casual bailout options.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'wolf-county-a-pearson-access',
+        name: 'County Highway A access near Pearson',
+        latitude: 45.34899,
+        longitude: -88.99474,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default public put-in for the app route.',
+      },
+      {
+        id: 'wolf-highway-52-lily-access',
+        name: 'Highway 52 bridge access in Lily',
+        latitude: 45.30765,
+        longitude: -88.85806,
+        mileFromStart: 10.6,
+        segmentKind: 'creek',
+        note: 'Default take-out before the Lily-to-Hollister segment.',
+      },
+    ],
+  },
+
+  'fox-river-swan-lake-portage': {
+    putIn: {
+      name: 'Swan Lake boat landing off South Shore Drive',
+      latitude: 43.54482,
+      longitude: -89.35549,
+    },
+    takeOut: {
+      name: 'Fox River Landing / Highway 33 Portage',
+      latitude: 43.5548,
+      longitude: -89.43395,
+    },
+    logistics: {
+      distanceLabel: 'About 5.8 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with wind, weeds, or low current',
+      shuttle:
+        'Stage the Highway 33 / Fox River Landing take-out in Portage, then drive to the Swan Lake boat landing off South Shore Drive. A short bike shuttle is possible, but a vehicle shuttle is simpler when wind or heat is part of the forecast.',
+      permits:
+        'No route-specific paddling permit is known. Use public launches, follow Wisconsin boating and PFD rules, and obey Swan Lake Wildlife Area and Portage landing parking hours and posted rules.',
+      camping:
+        'Treat this as a day trip. Wisconsin DNR says Swan Lake Wildlife Area has no campground, and no legal on-route overnight stop is assumed along the marsh or private banks.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Swan Lake, cross the lake, and follow the Upper Fox River marsh channel west to the Highway 33 Fox River Landing in Portage. The route is short and easy in current, but wind and slow water can dominate the day.',
+      accessCaveats: [
+        'WRT describes Swan Lake as a public boat landing with parking, outhouses, and no launch fee, but it is still a lake launch shared with motorized users.',
+        'Portage Fox River Landing is the planned take-out. Confirm current hours and parking, especially if arriving early or finishing late.',
+        'The Princeton gauge is a downstream proxy chosen by WRT; if Swan Lake is wind-bound or the launch channel looks too weedy or shallow, skip the route even when the gauge looks acceptable.',
+      ],
+      watchFor: [
+        'Headwinds on Swan Lake and exposed marsh bends.',
+        'Shallow or weedy summer channel edges, slow current, and possible dragging in side channels.',
+        'Storms, heat, powerboats near the launch, strainers, private banks, and limited legal mid-route exits.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'swan-lake-boat-landing',
+        name: 'Swan Lake boat landing off South Shore Drive',
+        latitude: 43.54482,
+        longitude: -89.35549,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default public put-in and lake-crossing start.',
+      },
+      {
+        id: 'portage-fox-river-landing-highway-33',
+        name: 'Fox River Landing / Highway 33 Portage',
+        latitude: 43.5548,
+        longitude: -89.43395,
+        mileFromStart: 5.8,
+        segmentKind: 'creek',
+        note: 'Default take-out at the Portage Highway 33 river landing.',
+      },
+    ],
+  },
+
   'wolf-river-lily-hollister': {
     putIn: {
       name: 'Hwy 52 access (Lily)',
@@ -6463,6 +6575,63 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'The Wabeno gauge is about 26 miles downstream, so pair the gauge with recent rainfall, trend, and visual checks at the put-in.',
       ],
     },
+  },
+
+  'peshtigo-river-burnt-bridge-goodman-park': {
+    putIn: {
+      name: 'Burnt Bridge Landing / Forest Road 2134',
+      latitude: 45.56205,
+      longitude: -88.4953,
+    },
+    takeOut: {
+      name: 'Goodman Park Access',
+      latitude: 45.51839,
+      longitude: -88.3408,
+    },
+    logistics: {
+      distanceLabel: '12.5 mi',
+      estimatedPaddleTime: 'About 5 hr to 6 hr, plus scouting, portaging, and safety setup time',
+      shuttle:
+        'Use a remote national-forest shuttle between Burnt Bridge Landing on Forest Road 2134 / Michigan Rapids Road and Goodman Park. Inspect Goodman Park first because the finish is immediately after the Strong Falls area and the next downstream section is a separate, easier route.',
+      permits:
+        'No route-specific paddling permit is known. Follow Chequamegon-Nicolet National Forest, Marinette County park, and Wisconsin boating/PFD rules; confirm any campground, day-use, parking, or access fees before relying on the endpoints.',
+      camping:
+        'Endpoint camping is plausible but must be planned. Wisconsin Trail Guide identifies two rustic campsites at Burnt Bridge Landing and frames Goodman Park as the first overnight stop on an advanced P3-P5 trip; reserve or verify all county/forest rules before counting on a campsite.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Burnt Bridge and take out at Goodman Park for the advanced P3 Peshtigo whitewater day. The route includes Michigan Rapids, Upper Dells, Dells Rapids, Taylor Falls, and Strong Falls, and should be treated as a scout-and-portage whitewater run.',
+      accessCaveats: [
+        'Burnt Bridge is a remote forest landing rather than a staffed launch. Check road condition, parking space, and campsite status before leaving a vehicle.',
+        'Goodman Park is a county-park endpoint below Strong Falls. Confirm park rules, fees, campground access, and take-out approach before launching.',
+        'Do not continue into the Goodman-Park-to-Farm-Dam section unless your group intentionally planned the extra mileage and logistics.',
+      ],
+      watchFor: [
+        'Michigan Rapids, Upper Dells, Dells Rapids, Taylor Falls, Strong Falls, boulder drops, holes, and complex lines.',
+        'Mandatory scouting or portaging at major rapids and any location with obstructing wood.',
+        'Low-water rock abuse below 4.5 to 5.0 ft and pushy, advanced-only current as Wabeno rises above about 6.5 ft.',
+        'Remote rescue exposure, cold water, strainers, fast rises after rain, and the downstream-gauge estimate caveat.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'burnt-bridge-landing',
+        name: 'Burnt Bridge Landing / Forest Road 2134',
+        latitude: 45.56205,
+        longitude: -88.4953,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default WTG P3 put-in with rustic campsite context.',
+      },
+      {
+        id: 'goodman-park-access',
+        name: 'Goodman Park Access',
+        latitude: 45.51839,
+        longitude: -88.3408,
+        mileFromStart: 12.5,
+        segmentKind: 'creek',
+        note: 'Default P3 take-out and endpoint campground/basecamp area.',
+      },
+    ],
   },
 
   'peshtigo-river-goodman-park-farm-dam': {
