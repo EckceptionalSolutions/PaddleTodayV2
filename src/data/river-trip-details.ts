@@ -8970,6 +8970,206 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
+  'pine-river-highway-55-stevens-lake': {
+    putIn: {
+      name: 'Highway 55 bridge put-in',
+      latitude: 45.9088,
+      longitude: -88.8213,
+    },
+    takeOut: {
+      name: 'Stevens Lake Road bridge take-out',
+      latitude: 45.87403,
+      longitude: -88.68587,
+    },
+    logistics: {
+      distanceLabel: 'About 12.8 to 13.4 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, scouting, or wood',
+      shuttle:
+        'Run a remote Florence County shuttle from the Highway 55 bridge to Stevens Lake Road. Both endpoints are roadside shoulder-style accesses, so inspect parking, launch slots, and road conditions before committing vehicles.',
+      permits:
+        'No route-specific paddling permit is known. Use only the named roadside access corridor, respect USFS and Pine-Popple Wild Rivers rules, and keep scouting or breaks on public land or clearly legal riverbank areas.',
+      camping:
+        'American Whitewater notes common tent camping on USFS land near the end of CCC Rapids and elsewhere on USFS land, but this app card treats the route primarily as a long day trip. Confirm current national forest rules, fire restrictions, and private-bank boundaries before any overnight plan.',
+      campingClassification: 'overnight_capable',
+      summary:
+        'Launch below the Highway 55 bridge and take out at Stevens Lake Road for the upper Pine A whitewater reach. Use the live Pine powerplant gauge plus the Highway 55 visual rock check, and skip the run when the gauge is below the AW floor or the launch rock says the upper rapids are under-watered.',
+      accessCaveats: [
+        'Highway 55 parking is roadside only; AW describes a river-left launch below the bridge with a large staging area but a narrow slot to the water.',
+        'Stevens Lake Road parking is roadside only and the take-out is on river left just upstream from the bridge.',
+        'The selected USGS gauge is far downstream and below dam influence. AW explicitly says the Highway 55 visual rock check is critical for this upper rocky reach.',
+        'Do not rely on private cabins, tree-farm areas, or marshy banks as legal exit points unless a land manager separately confirms access.',
+      ],
+      watchFor: [
+        'Multiple long Class I-II rock gardens, including a Class II+ old-dam channel.',
+        'Old Dam Rapids left-channel metal spikes, lodged trees, and a tight right-channel line that should be scouted.',
+        'Alder tangles, sweepers, strainers, cold water, marshy scouting, and slow rescue response.',
+        'Low water below 3.3 ft at USGS 04064500, when the upper rapids become scrapey and the Highway 55 rock check may reject the run even before the app score does.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-55-bridge',
+        name: 'Highway 55 bridge put-in',
+        latitude: 45.9088,
+        longitude: -88.8213,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default Pine A put-in below the Highway 55 bridge.',
+      },
+      {
+        id: 'stevens-lake-road',
+        name: 'Stevens Lake Road bridge access',
+        latitude: 45.87403,
+        longitude: -88.68587,
+        mileFromStart: 12.8,
+        segmentKind: 'creek',
+        note: 'Default Pine A take-out and Pine B put-in.',
+      },
+    ],
+  },
+
+  'pine-river-stevens-lake-chipmunk-rapids': {
+    putIn: {
+      name: 'Stevens Lake Road bridge put-in',
+      latitude: 45.87403,
+      longitude: -88.68587,
+    },
+    takeOut: {
+      name: 'Chipmunk Rapids Recreation Area landing',
+      latitude: 45.89334,
+      longitude: -88.55771,
+    },
+    logistics: {
+      distanceLabel: 'About 9.9 to 10.1 mi',
+      estimatedPaddleTime: 'About 4 hr, longer with low water or access delays',
+      shuttle:
+        'Stage the take-out at Chipmunk Rapids Recreation Area, then shuttle back to Stevens Lake Road. Highway 139 and Fay Lake Road are optional exits, but they are roadside or undeveloped and should be inspected before counting on them.',
+      permits:
+        'No route-specific paddling permit is known. Use the accepted road and USFS access points, follow posted campground rules at Chipmunk Rapids, and keep stops off private banks near the first Chipmunk Rapids drop.',
+      camping:
+        'Chipmunk Rapids Recreation Area has six fee campsites, potable water, and a vault toilet, making this an endpoint-campground route when the campground is open and space is available.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Stevens Lake Road and take out at the USFS Chipmunk Rapids landing. The reach is mostly flowing flatwater with Class I-II rapids and useful intermediate access checks at Highway 139 and Fay Lake Road.',
+      accessCaveats: [
+        'Stevens Lake Road parking is along the road only.',
+        'The Highway 139 optional take-out is river left below the bridge with swift current; be set up early if using it.',
+        'Fay Lake Road is an undeveloped optional exit with roadside parking, not a polished public launch.',
+        'At Chipmunk Rapids, use the landing 150 feet below the bridge and the path to the USFS parking/campground area.',
+      ],
+      watchFor: [
+        'Stevens Creek Rapids, long Class I swifts toward Highway 139, and Class II Chipmunk Rapids near the finish.',
+        'Private land along the first Chipmunk Rapids drop before the channel re-enters USFS land.',
+        'Low-water scraping below 2 ft, stronger bridge eddies at higher water, strainers, cold water, and remote road logistics.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'stevens-lake-road',
+        name: 'Stevens Lake Road bridge access',
+        latitude: 45.87403,
+        longitude: -88.68587,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default Pine B put-in.',
+      },
+      {
+        id: 'highway-139',
+        name: 'Highway 139 bridge optional access',
+        latitude: 45.890345,
+        longitude: -88.654807,
+        mileFromStart: 2.7,
+        segmentKind: 'creek',
+        note: 'Optional roadside exit or shorter-run access described by AW.',
+      },
+      {
+        id: 'fay-lake-road',
+        name: 'Fay Lake Road bridge optional access',
+        latitude: 45.8825,
+        longitude: -88.630831,
+        mileFromStart: 4.3,
+        segmentKind: 'creek',
+        note: 'Undeveloped optional access with roadside parking.',
+      },
+      {
+        id: 'chipmunk-rapids',
+        name: 'Chipmunk Rapids Recreation Area landing',
+        latitude: 45.89334,
+        longitude: -88.55771,
+        mileFromStart: 9.9,
+        segmentKind: 'creek',
+        note: 'Default Pine B take-out and campground-backed Pine C put-in.',
+      },
+    ],
+  },
+
+  'pine-river-chipmunk-rapids-bull-falls': {
+    putIn: {
+      name: 'Chipmunk Rapids Recreation Area landing',
+      latitude: 45.89334,
+      longitude: -88.55771,
+    },
+    takeOut: {
+      name: 'Bull Falls access / portage trail',
+      latitude: 45.89811,
+      longitude: -88.41106,
+    },
+    logistics: {
+      distanceLabel: 'About 10.4 to 10.5 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, including scouting and portages',
+      shuttle:
+        'Stage vehicles at the Bull Falls access, then drive forest roads back to Chipmunk Rapids Recreation Area. Early spring gravel-road conditions can be rough or closed by frost and mud, so confirm road access before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the USFS Chipmunk access, signed/accepted portage trails, and legal public access corridors; do not expand portages through private camps or banks.',
+      camping:
+        'Chipmunk Rapids Recreation Area is an endpoint campground with six fee campsites, potable water, and a vault toilet. Treat the river run itself as a technical day route unless a separate legal overnight plan is confirmed.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Chipmunk Rapids and run the Pine C whitewater sequence to Bull Falls. This route is for skilled whitewater paddlers who are prepared to scout or portage Upper Snaketail Rapids, Myers Falls, and Bull Falls.',
+      accessCaveats: [
+        'The Chipmunk landing is reached by a short path from the USFS parking/campground area past the artesian spring.',
+        'AW describes Goodman Grade as an easier intermediate take-out but warns the landing is tucked in and can be overshot in swift current.',
+        'Bull Falls has south and north access options with steep or awkward carries. Identify the chosen landing and parking before launching.',
+        'Missing Bull Falls or choosing to continue downstream changes the trip into a longer fast-swift route toward Rochon Landing or Highway 101.',
+      ],
+      watchFor: [
+        'Upper Snaketail Rapids, where AW recommends scouting and notes a public-use portage on private land.',
+        'Myers Falls, a fast three-drop Class III feature with signed high-water and low-water take-outs.',
+        'Bull Falls, where a swim can be hard to recover from and immediate downstream current remains fast.',
+        'Wood blockages, private-bank limits, cold water, remote rescue exposure, and low-water boulder dodging below 2 ft.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'chipmunk-rapids',
+        name: 'Chipmunk Rapids Recreation Area landing',
+        latitude: 45.89334,
+        longitude: -88.55771,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default Pine C put-in with USFS campground support.',
+      },
+      {
+        id: 'goodman-grade',
+        name: 'Goodman Grade access',
+        latitude: 45.903021,
+        longitude: -88.420655,
+        mileFromStart: 9.5,
+        segmentKind: 'creek',
+        note: 'Intermediate take-out below Myers Falls and before Bull Falls.',
+      },
+      {
+        id: 'bull-falls',
+        name: 'Bull Falls access / portage trail',
+        latitude: 45.89811,
+        longitude: -88.41106,
+        mileFromStart: 10.4,
+        segmentKind: 'creek',
+        note: 'Default take-out at the Bull Falls portage/access zone.',
+      },
+    ],
+  },
+
   'menominee-river-piers-gorge': {
     putIn: {
       name: 'Niagara Mill Street Landing',

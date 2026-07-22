@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-22 18:06 America/Chicago / 2026-07-22 23:06 UTC: Wisconsin upper Pine implementation pass (`wisconsin-route-additions`).
+  - Added three Wisconsin route slugs beyond the current 110-route Wisconsin baseline: `pine-river-highway-55-stevens-lake`, `pine-river-stevens-lake-chipmunk-rapids`, and `pine-river-chipmunk-rapids-bull-falls`, bringing this checkout to 113 Wisconsin routes.
+  - Qualification path: American Whitewater Pine A/B/C pages document exact reaches, lengths, difficulty, detailed hazard sequences, coordinate-backed access points, and USGS `04064500` stage correlations; Wisconsin DNR supports Pine-Popple Wild Rivers season, water-level, rapids/falls, and portage safety context; and USFS confirms Chipmunk Rapids Recreation Area carry-in canoe access plus campground amenities.
+  - Gauge posture: USGS Water Services returned Pine River below Pine River Powerplant `177 cfs / 1.88 ft` at 2026-07-22 17:00 CDT. Pine A uses AW's `3.3-10 ft` runnable stage band; Pine B/C use AW's `2-10 ft` runnable stage bands. All three currently score below the runnable floor.
+  - No route-gallery assets were added after bounded AW / DNR / USFS / Miles Paddled / Commons / same-route image review.
+
 - 2026-07-22 17:45 America/Chicago / 2026-07-22 22:45 UTC: Iowa Wapsipinicon/Raccoon implementation pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 45-route Iowa baseline: `wapsipinicon-river-independence-quasqueton`, `raccoon-river-van-meter-walnut-woods`, and `north-raccoon-river-eureka-henderson`, bringing this checkout to 48 Iowa routes.
   - Qualification path: Buchanan County / Iowa DNR Wapsipinicon water-trail materials plus direct USGS `05421000` support Independence-to-Quasqueton; Iowa DNR Raccoon River guide plus ICON/Walnut Woods and direct USGS `05484500` support Van-Meter-to-Walnut-Woods; Iowa DNR Greene County North Raccoon guide plus Greene County public-access pages and direct USGS `05482500` support Eureka-to-Henderson.

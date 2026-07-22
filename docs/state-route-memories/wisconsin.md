@@ -1,5 +1,9 @@
 # Wisconsin Route Memory
 
+- 2026-07-22 18:06 America/Chicago / 2026-07-22 23:06 UTC: current-baseline implementation pass added `pine-river-highway-55-stevens-lake`, `pine-river-stevens-lake-chipmunk-rapids`, and `pine-river-chipmunk-rapids-bull-falls`, bringing this checkout from 110 to 113 Wisconsin routes. These upper Florence County Pine River slugs were absent from the run-start inventory even though older memory referenced a previous automation pass.
+- Source posture: all three use American Whitewater Pine A/B/C exact reach pages for geometry, difficulty, endpoint coordinates, hazards, and USGS `04064500` stage correlations; Wisconsin DNR Pine-Popple Wild Rivers guidance for water-level, season, rapids/falls, and portage safety; USFS Chipmunk Rapids Recreation Area for endpoint carry-in/camping support; plus Miles Paddled context for practical route character.
+- Live gauge verification: USGS Water Services returned Pine River below Pine River Powerplant `04064500` at `177 cfs / 1.88 ft` at 2026-07-22 17:00 CDT. All three cards ship below their AW low-runnable floors (`3.3 ft` for Pine A; `2.0 ft` for Pine B/C). No route-gallery assets were added; image audit rows record bounded no-image outcomes for all three slugs.
+
 - 2026-07-22 17:10 America/Chicago / 2026-07-22 22:10 UTC: current-baseline implementation pass added `fox-river-princeton-locks-city-landing`, `fox-river-princeton-white-river-locks`, and `sheboygan-river-rochester-esslingen`, bringing this checkout from 107 to 110 Wisconsin routes. Older memory/ledger notes mentioned these families from prior automation history, but all three selected slugs were absent from the run-start repo state.
 - Source posture: the Fox Princeton pair uses Wisconsin River Trips route reports, Wisconsin DNR Princeton Lock and Dam / White River Lock and Dam public-access and no-camping rules, City/Princeton launch context, and direct USGS `04073365`. Sheboygan Rochester-to-Esslingen uses Wisconsin River Trips Kohler route, Sheboygan River Water Trail safety/access planning, Wisconsin DNR lower-river access context, public access listings, and downstream same-river USGS `04086000`.
 - Live gauge verification: USGS Water Services returned Fox River at Princeton `520 cfs / 3.88 ft` and Sheboygan River at Sheboygan `58.4 cfs / 1.88 ft` at 2026-07-22 16:00 CDT. No route-gallery assets were added; image audit rows record bounded no-image outcomes for all three slugs.
@@ -16,8 +20,8 @@ Last summarized: 2026-07-22 17:10 America/Chicago / 2026-07-22 22:10 UTC.
 
 ## Current Inventory
 
-- Live routes: 110 after the 2026-07-22 17:10 implementation pass.
-- Top represented rivers: Wisconsin River 12, Milwaukee River 6, Wolf River 5, Bark River 4, Big Rib River 4, Bois Brule River 4, Chippewa River 4, Kickapoo River 4, Peshtigo River 4, Baraboo River 3, Brule River 3, Pine River 3, Sugar River 3, Turtle Creek 3, Badfish Creek 2, Eau Claire River - East Branch 2, Flambeau River 2, Pecatonica River 2, Pike River 2, Red Cedar River 2.
+- Live routes: 113 after the 2026-07-22 18:06 implementation pass.
+- Top represented rivers: Wisconsin River 12, Milwaukee River 6, Pine River 6, Wolf River 5, Bark River 4, Big Rib River 4, Bois Brule River 4, Chippewa River 4, Kickapoo River 4, Peshtigo River 4, Baraboo River 3, Brule River 3, Sugar River 3, Turtle Creek 3, Badfish Creek 2, Eau Claire River - East Branch 2, Flambeau River 2, Pecatonica River 2, Pike River 2, Red Cedar River 2.
 - Ledger candidates: 24 Wisconsin candidates tracked in the current compact ledger slice; 23 added/implemented and 1 `duplicate_corridor`.
 
 ## Status
