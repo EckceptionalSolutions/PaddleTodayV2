@@ -73,10 +73,11 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   );
   const nativeMaps = getNativeMaps();
   const mapRef = useRef<NativeMapView | null>(null);
-  const previousSelectedIdRef = useRef<string | null | undefined>(selectedId);
   const previousPointSignatureRef = useRef<string | null>(null);
   const initialRegion = regionFromBounds(bounds);
-  const pointSignature = nativeMarkerPoints.map((point) => mapPointSignature(point, canonicalSpans)).join('|');
+  // Route geometry can arrive after the summary markers. Updating that overlay
+  // should not change the user's camera position.
+  const pointSignature = nativeMarkerPoints.map(mapPointSignature).join('|');
   const hasUserLocation = Boolean(
     userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude)
   );
@@ -170,17 +171,6 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   useImperativeHandle(ref, () => ({ focusSelected, focusAll, focusUserArea }), [canonicalSpans, height, selectedPoint, nativeMaps, visiblePoints, userLocation, showFooter]);
 
   useEffect(() => {
-    const previousSelectedId = previousSelectedIdRef.current;
-    previousSelectedIdRef.current = selectedId;
-
-    if (!previousSelectedId || !selectedId || previousSelectedId === selectedId) {
-      return;
-    }
-
-    focusSelected();
-  }, [canonicalSpans, nativeMaps, selectedId, selectedPoint]);
-
-  useEffect(() => {
     setRegionDelta({
       latitudeDelta: initialRegion.latitudeDelta,
       longitudeDelta: initialRegion.longitudeDelta,
@@ -196,7 +186,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     }
 
     focusAll();
-  }, [canonicalSpans, nativeMaps, pointSignature, userLocation]);
+  }, [nativeMaps, pointSignature, userLocation]);
 
   useEffect(() => {
     if (!nativeMaps) {
@@ -498,15 +488,12 @@ function compareMapPointIds(left: RoutePlotPoint, right: RoutePlotPoint) {
   return left.id.localeCompare(right.id);
 }
 
-function mapPointSignature(point: RoutePlotPoint, canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>) {
+function mapPointSignature(point: RoutePlotPoint) {
   const spanSignature = finiteSpanCoordinates(point.spanCoordinates)
     .map((coordinate) => `${coordinate.latitude.toFixed(4)},${coordinate.longitude.toFixed(4)}`)
     .join(';');
-  const canonicalSignature = finiteSpanCoordinates(canonicalSpans?.get(point.id))
-    .map((coordinate) => `${coordinate.latitude.toFixed(4)},${coordinate.longitude.toFixed(4)}`)
-    .join(';');
 
-  return `${point.id}:${point.latitude.toFixed(4)},${point.longitude.toFixed(4)}:${spanSignature}:${canonicalSignature}`;
+  return `${point.id}:${point.latitude.toFixed(4)},${point.longitude.toFixed(4)}:${spanSignature}`;
 }
 
 function getBounds(

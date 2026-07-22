@@ -216,6 +216,7 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
       accessPoints: result.river.accessPoints,
       logistics: serializeLogistics(result.river.logistics),
     },
+    sources: summarySourceBadges(result),
     score: result.score,
     rating: result.rating,
     gaugeBand: result.gaugeBand,

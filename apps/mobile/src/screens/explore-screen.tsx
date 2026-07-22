@@ -461,7 +461,19 @@ function FullScreenExploreMap({
   const floatingControlBottom = (selectedRiver ? sheetHeightValue(sheetSnap) : 0) + spacing.md;
   const userOutOfRange = Boolean(userLocation && results.length === 0 && activeFilterCount === 0);
   const selectedRouteCount = selectedRiver ? routeGroupMetaForRoute(selectedRiver, routeCounts).routeCount : 0;
-  const searchResultSignature = points.map((point) => point.id).join('|');
+  const filterFocusSignature = [
+    filters.query,
+    filters.state,
+    filters.difficulty,
+    filters.routeType,
+    filters.status,
+    filters.rating,
+    filters.paddleTime,
+    filters.paddleLength,
+    filters.distance,
+    filters.camping,
+    filters.sort,
+  ].join('|');
   const intentBanner = requestedIntent
     ? {
         title: labelForExploreIntent(requestedIntent),
@@ -471,7 +483,7 @@ function FullScreenExploreMap({
   const overlayTop = topInset + (intentBanner ? 284 : 216);
 
   useEffect(() => {
-    if (!filters.query.trim() || points.length === 0) {
+    if (activeFilterCount === 0 || points.length === 0) {
       return;
     }
 
@@ -480,10 +492,10 @@ function FullScreenExploreMap({
     }, 500);
 
     return () => clearTimeout(timeout);
-  }, [filters.query, points.length, searchResultSignature]);
+  }, [activeFilterCount, filterFocusSignature, points.length]);
 
   useEffect(() => {
-    if (!userLocation || points.length === 0 || filters.query.trim()) {
+    if (!userLocation || points.length === 0 || activeFilterCount > 0) {
       return;
     }
 
@@ -492,7 +504,7 @@ function FullScreenExploreMap({
     }, 500);
 
     return () => clearTimeout(timeout);
-  }, [filters.query, points.length, searchResultSignature, userLocation]);
+  }, [activeFilterCount, points.length, userLocation]);
 
   function handleGpsFocus() {
     if (userLocation) {
@@ -589,9 +601,6 @@ function FullScreenExploreMap({
            </View>
          </View>
         <ExploreViewToggle mode={viewMode} onChange={onViewModeChange} />
-        {mapResults.length < results.length ? (
-          <Text style={styles.mapCoverageNote}>Showing the highest-ranked routes on the map. Use List for all results.</Text>
-        ) : null}
         {intentBanner ? (
           <View style={styles.intentBanner}>
             <View style={styles.intentBannerCopy}>
@@ -1179,14 +1188,6 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontSize: 12,
     fontWeight: '900',
-  },
-  mapCoverageNote: {
-    color: colors.surfaceStrong,
-    fontSize: 11,
-    lineHeight: 15,
-    fontWeight: '800',
-    textShadowColor: 'rgba(0, 0, 0, 0.35)',
-    textShadowRadius: 4,
   },
   viewModeToggle: {
     alignSelf: 'flex-start',

@@ -222,7 +222,7 @@ export default function RiverDetailScreen() {
     const timeout = setTimeout(() => {
       scrollToSectionTop();
       pendingSectionScrollRef.current = null;
-    }, 0);
+    }, 80);
 
     return () => clearTimeout(timeout);
   }, [activeSection]);
@@ -420,6 +420,9 @@ export default function RiverDetailScreen() {
 
   function showSection(section: DetailSection) {
     pendingSectionScrollRef.current = section;
+    if (section !== activeSection) {
+      sectionContentYRef.current = 0;
+    }
     setActiveSection(section);
     if (section === activeSection) {
       scrollToSectionTop();
@@ -673,6 +676,7 @@ export default function RiverDetailScreen() {
 
         {activeSection === 'Reports' ? (
           <View
+            style={styles.reportSectionStack}
             onLayout={(event) => {
               sectionContentYRef.current = event.nativeEvent.layout.y;
             }}
@@ -773,6 +777,23 @@ export default function RiverDetailScreen() {
                 </Pressable>
               </SectionCard>
             ) : null}
+
+            <SectionCard
+              title="Sources"
+              subtitle="Key sources used for the route call and planning context."
+            >
+              <View style={styles.sourceList}>
+                {routeSourceLabels(detail).map((source) => (
+                  <View key={source} style={styles.sourceRow}>
+                    <MaterialCommunityIcons name="source-branch" color={colors.accent} size={18} />
+                    <Text style={styles.sourceRowText}>{source}</Text>
+                  </View>
+                ))}
+                <Text style={styles.sourceNote}>
+                  Open the gauge source in Today for the live reading and hydrograph.
+                </Text>
+              </View>
+            </SectionCard>
 
             <SectionCard
               title="Outlooks"
@@ -1002,15 +1023,17 @@ function buildRouteShareMessage(
     routeUrl.searchParams.set('putin', putIn.id);
     routeUrl.searchParams.set('takeout', takeOut.id);
   }
+  const appUrl = `paddletoday://river/${encodeURIComponent(detail.river.slug)}`;
   const lines = [
-    `${detail.river.name} - ${detail.river.reach}`,
-    `${detail.score} / ${detail.rating}: ${decisionStatement(detail)}`,
-    normalizeApiText(detail.explanation),
+    `PaddleToday - ${detail.river.name}`,
+    `${detail.river.reach}`,
+    `${detail.score} / ${detail.rating} - ${decisionStatement(detail)}`,
     routeHeroLine(detail),
-    routeUrl.toString(),
+    `Open in app: ${appUrl}`,
+    `Web link: ${routeUrl.toString()}`,
     putInUrl ? `Put-in: ${putIn?.name ?? 'Open map'} ${putInUrl}` : null,
     takeOutUrl ? `Take-out: ${takeOut?.name ?? 'Open map'} ${takeOutUrl}` : null,
-    'Confirm gauges, weather, access, and group fit before launching.',
+    'Check gauges, weather, access, and group fit before launching.',
   ];
 
   return lines.filter(Boolean).join('\n');
@@ -1172,6 +1195,19 @@ function scoreBreakdownRows(breakdown: ScoreBreakdown) {
   }
 
   return rows;
+}
+
+function dedupeSourceLabels(sources: RiverDetailApiResult['sources'] = []) {
+  return [...new Set(sources.map((source) => source.label).filter(Boolean))];
+}
+
+function routeSourceLabels(detail: RiverDetailApiResult) {
+  const labels = dedupeSourceLabels(detail.sources ?? []);
+  if (labels.length > 0) {
+    return labels;
+  }
+
+  return [detail.river.gaugeSource.display.shortLabel || detail.river.gaugeSource.display.label];
 }
 
 function signedPoints(value: number) {
@@ -3035,11 +3071,12 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   sectionTabsSticky: {
+    position: 'relative',
     backgroundColor: colors.canvas,
     paddingVertical: spacing.xs,
     zIndex: 30,
-    elevation: 16,
-    overflow: 'visible',
+    elevation: 24,
+    overflow: 'hidden',
   },
   sectionTabs: {
     flexDirection: 'row',
@@ -3980,6 +4017,31 @@ const styles = StyleSheet.create({
   },
   communityReportList: {
     gap: spacing.md,
+  },
+  reportSectionStack: {
+    gap: spacing.md,
+  },
+  sourceList: {
+    gap: spacing.sm,
+  },
+  sourceRow: {
+    minHeight: 42,
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    paddingHorizontal: spacing.sm,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  sourceRowText: {
+    color: colors.text,
+    fontSize: 14,
+    fontWeight: '800',
+  },
+  sourceNote: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 17,
   },
   communityReportCard: {
     backgroundColor: colors.surface,

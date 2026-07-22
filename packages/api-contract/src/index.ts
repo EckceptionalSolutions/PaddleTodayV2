@@ -454,6 +454,7 @@ export interface RiverDetailApiResult {
     accessPoints?: RiverRouteAccessPoint[];
     logistics?: RiverRouteLogistics;
   };
+  sources?: RiverSummaryApiItem['sources'];
   score: number;
   rating: ScoreRating;
   gaugeBand: GaugeBand;

@@ -23,6 +23,8 @@ interface WeekendRoute extends WeekendSummaryApiItem {
   weekendRank: number;
 }
 
+type WeekendFilter = 'all' | 'day-trips' | 'camping' | 'rechecks';
+
 const weekendConfidenceRank = {
   High: 3,
   Medium: 2,
@@ -49,6 +51,7 @@ export default function WeekendScreen() {
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [distanceLimit, setDistanceLimit] = useState<number | null>(DEFAULT_WEEKEND_DISTANCE_LIMIT);
   const [distanceHydrated, setDistanceHydrated] = useState(false);
+  const [weekendFilter, setWeekendFilter] = useState<WeekendFilter>('all');
 
   const rivers = useMemo(
     () => rankWeekendRoutes(weekendQuery.data?.rivers ?? [], location),
@@ -179,7 +182,7 @@ export default function WeekendScreen() {
               <Text style={styles.featuredReach}>{featured.river.reach}</Text>
               <View style={styles.featuredFacts}>
                 {weekendFacts(featured).map((fact) => (
-                  <Text key={fact} style={styles.featuredFact}>{fact}</Text>
+                  <Text key={fact} style={styles.featuredFact} numberOfLines={1}>{fact}</Text>
                 ))}
               </View>
               <Text style={styles.featuredSummary}>{weekendHeroSummary(featured)}</Text>
@@ -195,7 +198,7 @@ export default function WeekendScreen() {
               <Text style={styles.featuredReach}>{featured.river.reach}</Text>
               <View style={styles.featuredFacts}>
                 {weekendFacts(featured).map((fact) => (
-                  <Text key={fact} style={styles.featuredFact}>{fact}</Text>
+                  <Text key={fact} style={styles.featuredFact} numberOfLines={1}>{fact}</Text>
                 ))}
               </View>
               <Text style={styles.featuredSummary}>
@@ -217,11 +220,12 @@ export default function WeekendScreen() {
           dayTrips={topPicks.length + lowerCommitment.length}
           campingRoutes={campingFriendlyRoutes.length}
           rechecks={watchList.length}
-          hasWeekendPlan={hasWeekendPlan}
+          selected={weekendFilter}
+          onSelect={setWeekendFilter}
         />
       ) : null}
 
-      {topPicks.length > 0 ? (
+      {(weekendFilter === 'all' || weekendFilter === 'day-trips') && topPicks.length > 0 ? (
         <SectionCard
           title={location ? 'Best near you' : 'Best weekend'}
           subtitle={location ? 'Good weekend calls with drive time included.' : 'Good options if the forecast holds.'}
@@ -248,7 +252,7 @@ export default function WeekendScreen() {
         </SectionCard>
       ) : null}
 
-      {lowerCommitment.length > 0 ? (
+      {(weekendFilter === 'all' || weekendFilter === 'day-trips') && lowerCommitment.length > 0 ? (
         <SectionCard
           title="Lower commitment"
           subtitle={location ? 'Easier or shorter options after the top nearby picks.' : 'Shorter, easier routes.'}
@@ -259,7 +263,7 @@ export default function WeekendScreen() {
         </SectionCard>
       ) : null}
 
-      {!hasWeekendPlan && nearbyWatch.length > 0 ? (
+      {(weekendFilter === 'all' || weekendFilter === 'rechecks') && !hasWeekendPlan && nearbyWatch.length > 0 ? (
         <SectionCard
           title={location ? 'Worth watching nearby' : 'Worth watching'}
           subtitle="Fair calls inside your selected range."
@@ -270,7 +274,7 @@ export default function WeekendScreen() {
         </SectionCard>
       ) : null}
 
-      {expandedPicks.length > 0 ? (
+      {(weekendFilter === 'all' || weekendFilter === 'day-trips') && expandedPicks.length > 0 ? (
         <SectionCard
           title="Expand the drive"
           subtitle={`No Good routes inside ${rangeFreshnessLabel(distanceLimit)}. These are farther options.`}
@@ -281,7 +285,7 @@ export default function WeekendScreen() {
         </SectionCard>
       ) : null}
 
-      {campingFriendlyRoutes.length > 0 ? (
+      {(weekendFilter === 'all' || weekendFilter === 'camping') && campingFriendlyRoutes.length > 0 ? (
         <SectionCard
           title="Camping-friendly"
           subtitle="Good weekend calls with campground, base-camp, or overnight support."
@@ -292,24 +296,26 @@ export default function WeekendScreen() {
         </SectionCard>
       ) : null}
 
-      <SectionCard
-        title="Watch list"
-        subtitle={
-          watchList.length > 0
-            ? 'Possible options to re-check as the forecast settles.'
-            : 'No watch-list routes right now.'
-        }
-      >
-        {watchList.length > 0 ? (
-          <View style={styles.list}>
-            {watchList.map((river) => (
-              renderWeekendCard(river)
-            ))}
-          </View>
-        ) : (
-          <Text style={styles.emptyText}>No weekend routes are in the maybe range right now.</Text>
-        )}
-      </SectionCard>
+      {weekendFilter === 'all' || weekendFilter === 'rechecks' ? (
+        <SectionCard
+          title="Watch list"
+          subtitle={
+            watchList.length > 0
+              ? 'Possible options to re-check as the forecast settles.'
+              : 'No watch-list routes right now.'
+          }
+        >
+          {watchList.length > 0 ? (
+            <View style={styles.list}>
+              {watchList.map((river) => (
+                renderWeekendCard(river)
+              ))}
+            </View>
+          ) : (
+            <Text style={styles.emptyText}>No weekend routes are in the maybe range right now.</Text>
+          )}
+        </SectionCard>
+      ) : null}
 
     </ScrollView>
   );
@@ -437,31 +443,41 @@ function WeekendPlanLanes({
   dayTrips,
   campingRoutes,
   rechecks,
-  hasWeekendPlan,
+  selected,
+  onSelect,
 }: {
   dayTrips: number;
   campingRoutes: number;
   rechecks: number;
-  hasWeekendPlan: boolean;
+  selected: WeekendFilter;
+  onSelect: (filter: WeekendFilter) => void;
 }) {
   return (
     <View style={styles.planLanes}>
-      <Text style={styles.planLanesTitle}>Plan lanes</Text>
+      <Text style={styles.planLanesTitle}>Filter weekend routes</Text>
+      <Text style={styles.planLanesHint}>Choose what you want to see first.</Text>
       <View style={styles.planLaneGrid}>
-        <PlanLane label="Day trips" value={dayTrips} active={dayTrips > 0} />
-        <PlanLane label="Camping" value={campingRoutes} active={campingRoutes > 0} />
-        <PlanLane label={hasWeekendPlan ? 'Rechecks' : 'Recheck later'} value={rechecks} active={!hasWeekendPlan || rechecks > 0} />
+        <PlanLane label="All" value={dayTrips + campingRoutes + rechecks} active={selected === 'all'} onPress={() => onSelect('all')} />
+        <PlanLane label="Day trips" value={dayTrips} active={selected === 'day-trips'} onPress={() => onSelect('day-trips')} />
+        <PlanLane label="Camping" value={campingRoutes} active={selected === 'camping'} onPress={() => onSelect('camping')} />
+        <PlanLane label="Rechecks" value={rechecks} active={selected === 'rechecks'} onPress={() => onSelect('rechecks')} />
       </View>
     </View>
   );
 }
 
-function PlanLane({ label, value, active }: { label: string; value: number; active: boolean }) {
+function PlanLane({ label, value, active, onPress }: { label: string; value: number; active: boolean; onPress: () => void }) {
   return (
-    <View style={[styles.planLane, active ? styles.planLaneActive : null]}>
+    <Pressable
+      style={[styles.planLane, active ? styles.planLaneActive : null]}
+      onPress={onPress}
+      accessibilityRole="tab"
+      accessibilityState={{ selected: active }}
+      accessibilityLabel={`${label}, ${value} routes`}
+    >
       <Text style={styles.planLaneValue}>{value}</Text>
       <Text style={styles.planLaneLabel}>{label}</Text>
-    </View>
+    </Pressable>
   );
 }
 
@@ -810,9 +826,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.canvasMuted,
     color: colors.text,
     fontSize: 11,
+    lineHeight: 15,
     fontWeight: '800',
     paddingHorizontal: 9,
-    paddingVertical: 5,
+    paddingVertical: 4,
+    flexShrink: 1,
   },
   featuredSummary: {
     color: colors.textMuted,
@@ -840,12 +858,20 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '900',
   },
+  planLanesHint: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 17,
+  },
   planLaneGrid: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: spacing.sm,
   },
   planLane: {
-    flex: 1,
+    flexGrow: 1,
+    flexBasis: '22%',
+    minWidth: 64,
     minHeight: 70,
     borderRadius: radius.md,
     backgroundColor: colors.surface,

@@ -10,7 +10,7 @@ import { useEffect, useMemo, useRef } from 'react';
 import { Animated, PanResponder, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { mapUrlForAccessPoint } from '../lib/maps';
 import { openExternalUrl } from '../lib/external-links';
-import { routeDecisionLine, routePreviewFactLine } from '../lib/route-facts';
+import { routeDecisionLine } from '../lib/route-facts';
 import { RoutePhotoCard } from './route-photo-card';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -155,7 +155,8 @@ export function ExploreRouteDrawer({
       {full ? (
         <ScrollView
           style={styles.drawerContentScroll}
-          showsVerticalScrollIndicator={false}
+          showsVerticalScrollIndicator
+          persistentScrollbar
           contentContainerStyle={[styles.drawerContent, { paddingBottom: spacing.sm + bottomInset }]}
         >
           <Text style={styles.mapPreviewReason}>
@@ -205,10 +206,6 @@ export function ExploreRouteDrawer({
               <Text style={styles.drawerCompareText} numberOfLines={1}>Compare {routeCount} routes</Text>
             </Pressable>
           ) : null}
-          <View style={styles.selectedNote}>
-            <Text style={styles.selectedNoteTitle}>Route context</Text>
-            <Text style={styles.selectedNoteText}>{drawerFactLine(selectedRiver)}</Text>
-          </View>
         </ScrollView>
       ) : (
         <Text style={styles.mapPreviewReason} numberOfLines={2}>
@@ -331,18 +328,6 @@ function clampSheetHeight(height: number, maxSheetHeight: number) {
   return Math.min(sheetHeightValue('full', maxSheetHeight), Math.max(sheetHeightValue('peek', maxSheetHeight), height));
 }
 
-function drawerFactLine(river: ExploreDrawerRiver) {
-  const base = routePreviewFactLine(river.river, {
-    includeNoCamping: true,
-  });
-
-  if (river.travelLabel) {
-    return [base, river.travelLabel].filter(Boolean).join(' - ');
-  }
-
-  return base;
-}
-
 function drawerDecisionLine(river: ExploreDrawerRiver) {
   return routeDecisionLine(river.rating, river.summary.shortExplanation);
 }
@@ -383,8 +368,10 @@ const styles = StyleSheet.create({
   mapSheetHandleWrap: {
     alignItems: 'center',
     paddingTop: 9,
-    paddingBottom: 4,
+    paddingBottom: 8,
     minHeight: 18,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
   },
   mapSheetHandleButton: {
     minWidth: 72,

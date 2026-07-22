@@ -17,6 +17,14 @@ import { colors, radius, spacing } from '../theme/tokens';
 
 type DiagnosticState = 'idle' | 'checking' | 'ok' | 'error';
 
+const FREQUENT_SOURCES = [
+  { label: 'USGS Water Data', detail: 'River gauges and water observations.', url: 'https://waterdata.usgs.gov/' },
+  { label: 'National Weather Service', detail: 'Forecasts, warnings, and radar context.', url: 'https://www.weather.gov/' },
+  { label: 'Minnesota DNR', detail: 'Water trails, access, and state guidance.', url: 'https://www.dnr.state.mn.us/' },
+  { label: 'Wisconsin DNR', detail: 'Access, regulations, and paddling resources.', url: 'https://dnr.wisconsin.gov/' },
+  { label: 'Iowa DNR', detail: 'Water trails, access, and state guidance.', url: 'https://naturalresources.iowa.gov/' },
+];
+
 export default function SupportScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -29,6 +37,7 @@ export default function SupportScreen() {
   const routeCounts = useMemo(() => buildRouteGroupMeta(rivers), [rivers]);
   const supportedStates = useMemo(() => supportedRiverStates(rivers), [rivers]);
   const activeSupportedState = supportedStates.find((state) => state.state === selectedSupportedState) ?? supportedStates[0] ?? null;
+  const showReleaseDiagnostics = observabilityStatus().environment !== 'production';
 
   useEffect(() => {
     if (!activeSupportedState || selectedSupportedState === activeSupportedState.state) {
@@ -122,7 +131,9 @@ export default function SupportScreen() {
           <ActionRow icon="information-outline" title="How PaddleToday works" body="Replay the short guide to scores, conditions, and route details." onPress={() => replayWelcome(router)} />
           <ActionRow icon="message-text-outline" title="Send feedback" body="Share an idea, issue, or missing feature." onPress={openManualFeedback} />
           <ActionRow icon="email-outline" title="Email support" body="hello@paddletoday.com" onPress={() => openUrl('mailto:hello@paddletoday.com')} />
-          <ActionRow icon="bug-outline" title="Email app diagnostics" body="Send build, connection, and environment details." onPress={() => openUrl(buildDiagnosticsEmailUrl())} />
+          {showReleaseDiagnostics ? (
+            <ActionRow icon="bug-outline" title="Email app diagnostics" body="Send build, connection, and environment details." onPress={() => openUrl(buildDiagnosticsEmailUrl())} />
+          ) : null}
           <ActionRow icon="plus-circle-outline" title="Request a route" body="Send river, area, access, and notes." onPress={() => router.push('/request-route')} />
           <ActionRow icon="shield-check-outline" title="Privacy policy" body="How app and route information is handled." onPress={() => router.push('/privacy')} />
           <ActionRow icon="file-document-outline" title="Terms and safety" body="Use, safety, and submission terms." onPress={() => router.push('/terms')} />
@@ -200,6 +211,26 @@ export default function SupportScreen() {
         )}
       </SectionCard>
 
+      <SectionCard title="Frequently used sources" subtitle="Official places to verify conditions before a trip.">
+        <View style={styles.sourceList}>
+          {FREQUENT_SOURCES.map((source) => (
+            <Pressable
+              key={source.label}
+              style={styles.sourceRow}
+              onPress={() => openUrl(source.url)}
+              accessibilityRole="button"
+              accessibilityLabel={`Open ${source.label}`}
+            >
+              <View style={styles.sourceCopy}>
+                <Text style={styles.sourceTitle}>{source.label}</Text>
+                <Text style={styles.sourceDetail}>{source.detail}</Text>
+              </View>
+              <MaterialCommunityIcons name="open-in-new" color={colors.accent} size={19} />
+            </Pressable>
+          ))}
+        </View>
+      </SectionCard>
+
       <SectionCard title="Connection check" subtitle="Use this when routes do not load.">
         <View style={styles.diagnosticCard}>
           <View style={[styles.diagnosticIcon, diagnosticTone(diagnosticState)]}>
@@ -220,7 +251,8 @@ export default function SupportScreen() {
         </Pressable>
       </SectionCard>
 
-      <SectionCard title="Observability" subtitle="Release diagnostics are not configured yet.">
+      {showReleaseDiagnostics ? (
+        <SectionCard title="Observability" subtitle="Release diagnostics are not configured yet.">
         <View style={styles.observabilityCard}>
           <Text style={styles.observabilityLabel}>Status</Text>
           <Text style={styles.observabilityValue}>
@@ -230,9 +262,11 @@ export default function SupportScreen() {
             {observabilityStatus().environment} · {observabilityStatus().release}
           </Text>
         </View>
-      </SectionCard>
+        </SectionCard>
+      ) : null}
 
-      <SectionCard title="Build details" subtitle="Share these values when a TestFlight or Play test build has an issue.">
+      {showReleaseDiagnostics ? (
+        <SectionCard title="Build details" subtitle="Share these values when a TestFlight or Play test build has an issue.">
         <View style={styles.diagnosticTable}>
           {appDiagnosticRows().map((row) => (
             <View key={row.label} style={styles.diagnosticRow}>
@@ -241,7 +275,8 @@ export default function SupportScreen() {
             </View>
           ))}
         </View>
-      </SectionCard>
+        </SectionCard>
+      ) : null}
     </ScrollView>
   );
 }
@@ -583,6 +618,33 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: spacing.sm,
     padding: spacing.md,
+  },
+  sourceList: {
+    gap: spacing.sm,
+  },
+  sourceRow: {
+    minHeight: 58,
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  sourceCopy: {
+    flex: 1,
+    gap: 2,
+  },
+  sourceTitle: {
+    color: colors.text,
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  sourceDetail: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 17,
   },
   rowIcon: {
     width: 34,

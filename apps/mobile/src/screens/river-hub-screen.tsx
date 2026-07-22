@@ -349,16 +349,37 @@ function MetricPill({ label, value }: { label: string; value: string }) {
 }
 
 function routeMapPoints(routes: RiverDetailApiResult[]): RoutePlotPoint[] {
-  return routes.map((route) => ({
-    id: route.river.slug,
-    label: route.river.reach,
+  return routes.map((route) => {
+    const spanCoordinates = routeSpanCoordinates(route);
+    const markerCoordinate = mapMarkerCoordinate(route, spanCoordinates);
+
+    return {
+      id: route.river.slug,
+      label: route.river.reach,
+      latitude: markerCoordinate.latitude,
+      longitude: markerCoordinate.longitude,
+      score: route.score,
+      rating: route.rating,
+      spanCoordinates,
+      meta: [accessPointCountLabel(route), `${route.score} ${route.rating}`].filter(Boolean).join(' - '),
+    };
+  });
+}
+
+function mapMarkerCoordinate(route: RiverDetailApiResult, spanCoordinates: MapCoordinate[] | null): MapCoordinate {
+  if (spanCoordinates && spanCoordinates.length >= 2) {
+    const start = spanCoordinates[0];
+    const end = spanCoordinates[spanCoordinates.length - 1];
+    return {
+      latitude: (start.latitude + end.latitude) / 2,
+      longitude: (start.longitude + end.longitude) / 2,
+    };
+  }
+
+  return {
     latitude: route.river.latitude,
     longitude: route.river.longitude,
-    score: route.score,
-    rating: route.rating,
-    spanCoordinates: routeSpanCoordinates(route),
-    meta: [accessPointCountLabel(route), `${route.score} ${route.rating}`].filter(Boolean).join(' - '),
-  }));
+  };
 }
 
 function routeSpanCoordinates(route: RiverDetailApiResult): MapCoordinate[] | null {
