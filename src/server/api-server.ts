@@ -92,7 +92,13 @@ const server = createServer(async (request, response) => {
 
     const detailMatch = requestUrl.pathname.match(/^\/api\/rivers\/([^/]+)\.json$/);
     if (detailMatch) {
-      return handleRiverDetail(response, requestId, includeBody, decodeURIComponent(detailMatch[1] || ''));
+      return handleRiverDetail(
+        response,
+        requestId,
+        includeBody,
+        decodeURIComponent(detailMatch[1] || ''),
+        requestUrl.searchParams.has('snapshot_check'),
+      );
     }
 
     const historyMatch = requestUrl.pathname.match(/^\/api\/rivers\/([^/]+)\/history\.json$/);

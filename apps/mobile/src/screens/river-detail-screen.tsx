@@ -138,6 +138,7 @@ export default function RiverDetailScreen() {
   const [reportStatus, setReportStatus] = useState('Reports are reviewed before they appear on Paddle Today.');
   const [shareStatus, setShareStatus] = useState('');
   const [activeSection, setActiveSection] = useState<DetailSection>('Today');
+  const [sectionTabsFloating, setSectionTabsFloating] = useState(false);
   const [reportSheetVisible, setReportSheetVisible] = useState(false);
   const [alertSheetVisible, setAlertSheetVisible] = useState(false);
   const [selectedPutInId, setSelectedPutInId] = useState<string | null>(null);
@@ -412,6 +413,16 @@ export default function RiverDetailScreen() {
     });
   }
 
+  function handleDetailScroll(event: { nativeEvent: { contentOffset: { y: number } } }) {
+    const tabsTop = sectionTabsYRef.current;
+    if (tabsTop <= 0) {
+      return;
+    }
+
+    const nextFloating = event.nativeEvent.contentOffset.y >= tabsTop;
+    setSectionTabsFloating((current) => (current === nextFloating ? current : nextFloating));
+  }
+
   function scrollToSectionTop() {
     const sectionTop = sectionContentYRef.current || sectionTabsYRef.current;
     const stickyOffset = sectionTabsHeightRef.current + spacing.sm;
@@ -525,11 +536,12 @@ export default function RiverDetailScreen() {
         style={styles.screen}
         keyboardShouldPersistTaps="handled"
         removeClippedSubviews={false}
+        onScroll={handleDetailScroll}
+        scrollEventThrottle={16}
         contentContainerStyle={[
           styles.content,
           { paddingBottom: spacing.xl + bottomContentInset },
         ]}
-        stickyHeaderIndices={[2]}
         refreshControl={
           <RefreshControl
             tintColor={colors.accent}
@@ -613,13 +625,12 @@ export default function RiverDetailScreen() {
         </View>
 
         <View
-            pointerEvents="box-none"
-            collapsable={false}
-            style={styles.sectionTabsSticky}
-            onLayout={(event) => {
-              sectionTabsYRef.current = event.nativeEvent.layout.y;
-              sectionTabsHeightRef.current = event.nativeEvent.layout.height;
-            }}
+          collapsable={false}
+          style={styles.sectionTabsSticky}
+          onLayout={(event) => {
+            sectionTabsYRef.current = event.nativeEvent.layout.y;
+            sectionTabsHeightRef.current = event.nativeEvent.layout.height;
+          }}
         >
           <DetailSectionTabs activeSection={activeSection} onSelect={showSection} />
         </View>
@@ -921,6 +932,12 @@ export default function RiverDetailScreen() {
           </View>
         ) : null}
       </ScrollView>
+
+      {sectionTabsFloating ? (
+        <View style={styles.floatingSectionTabs} pointerEvents="box-none">
+          <DetailSectionTabs activeSection={activeSection} onSelect={showSection} />
+        </View>
+      ) : null}
 
       <RouteReportSheet
         visible={reportSheetVisible}
@@ -1428,7 +1445,9 @@ function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
       {profile?.hazards && profile.hazards.length > 0 ? (
         <View style={styles.safetyChipRow}>
           {profile.hazards.map((hazard) => (
-            <Text key={hazard} style={styles.safetyChip}>{routeHazardLabels[hazard]}</Text>
+            <View key={hazard} style={[styles.safetyChip, caution ? styles.safetyChipCaution : null]}>
+              <Text style={[styles.safetyChipText, caution ? styles.safetyChipTextCaution : null]}>{routeHazardLabels[hazard]}</Text>
+            </View>
           ))}
         </View>
       ) : null}
@@ -3076,9 +3095,22 @@ const styles = StyleSheet.create({
     position: 'relative',
     backgroundColor: colors.canvas,
     paddingVertical: spacing.xs,
-    zIndex: 30,
-    elevation: 24,
     overflow: 'visible',
+  },
+  floatingSectionTabs: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: colors.canvas,
+    paddingVertical: spacing.xs,
+    paddingHorizontal: spacing.md,
+    zIndex: 100,
+    elevation: 32,
+    shadowColor: '#0F172A',
+    shadowOpacity: 0.18,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 6 },
   },
   sectionTabs: {
     flexDirection: 'row',
@@ -3412,19 +3444,31 @@ const styles = StyleSheet.create({
   safetyChipRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: spacing.xs,
+    columnGap: spacing.xs,
+    rowGap: spacing.xs,
+    paddingVertical: 2,
   },
   safetyChip: {
+    alignSelf: 'flex-start',
     borderRadius: 999,
     borderWidth: 1,
     borderColor: colors.border,
     backgroundColor: colors.surface,
     paddingHorizontal: spacing.sm,
     paddingVertical: 5,
+  },
+  safetyChipCaution: {
+    borderColor: '#D8A45E',
+    backgroundColor: '#FFF9EF',
+  },
+  safetyChipText: {
     color: colors.text,
     fontSize: 11,
     lineHeight: 15,
     fontWeight: '900',
+  },
+  safetyChipTextCaution: {
+    color: '#7A5319',
   },
   safetyNote: {
     color: colors.textMuted,

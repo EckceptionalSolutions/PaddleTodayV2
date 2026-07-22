@@ -119,7 +119,13 @@ export async function handleWeekendSummary(response: ServerResponse, requestId: 
   }, includeBody, LIVE_SUMMARY_CACHE_CONTROL);
 }
 
-export async function handleRiverDetail(response: ServerResponse, requestId: string, includeBody: boolean, slug: string) {
+export async function handleRiverDetail(
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean,
+  slug: string,
+  snapshotOnly = false,
+) {
   const snapshot = await getStoredRiverDetailSnapshot(slug).catch(() => null);
   if (snapshot) {
     return sendJson(response, 200, {
@@ -127,6 +133,20 @@ export async function handleRiverDetail(response: ServerResponse, requestId: str
       generatedAt: snapshot.generatedAt,
       result: snapshot.result,
     }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
+  }
+
+  if (snapshotOnly) {
+    return sendJson(
+      response,
+      503,
+      {
+        requestId,
+        error: 'snapshot_unavailable',
+        message: 'A stored river snapshot is not available.',
+      },
+      includeBody,
+      'no-store',
+    );
   }
 
   const result = await withTimeout(getRiverScore(slug), LIVE_SCORE_TIMEOUT_MS, `river detail scoring for ${slug}`);

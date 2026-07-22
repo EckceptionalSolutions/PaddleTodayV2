@@ -60,23 +60,47 @@ jobs:
           node --input-type=module <<'NODE'
           const apiOrigin = process.env.API_ORIGIN.replace(/\/$/, '');
           const url = `${apiOrigin}/api/rivers/rice-creek-peltier-to-long-lake.json?snapshot_check=${Date.now()}`;
-          const response = await fetch(url, {
-            headers: {
-              accept: 'application/json',
-              'user-agent': 'PaddleToday-GitHubActions/1.0 (+https://github.com/EckceptionalSolutions/PaddleTodayV2)',
-            },
-          });
-          if (!response.ok) {
-            throw new Error(`Production snapshot probe returned HTTP ${response.status}.`);
+          const headers = {
+            accept: 'application/json',
+            'user-agent': 'PaddleToday-GitHubActions/1.0 (+https://github.com/EckceptionalSolutions/PaddleTodayV2)',
+          };
+          const maxAttempts = 4;
+          let lastError;
+
+          for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+            try {
+              const response = await fetch(url, {
+                headers,
+                signal: AbortSignal.timeout(30_000),
+              });
+              if (!response.ok) {
+                const body = await response.text();
+                throw new Error(`HTTP ${response.status}: ${body.slice(0, 240)}`);
+              }
+
+              const payload = await response.json();
+              const generatedAtValue = payload.generatedAt || payload.result?.generatedAt || '';
+              const generatedAt = Date.parse(generatedAtValue);
+              const ageMinutes = Number.isFinite(generatedAt)
+                ? Math.round((Date.now() - generatedAt) / 60000)
+                : Infinity;
+              console.log(`Production snapshot generatedAt=${generatedAtValue || 'unknown'} ageMinutes=${ageMinutes}`);
+              if (!Number.isFinite(generatedAt) || ageMinutes > 20) {
+                throw new Error('Production is not serving the snapshot just written by this run. Check the workflow SAS URL, blob prefix, and App Service settings.');
+              }
+
+              process.exit(0);
+            } catch (error) {
+              lastError = error;
+              if (attempt === maxAttempts) {
+                break;
+              }
+
+              const message = error instanceof Error ? error.message : String(error);
+              console.warn(`Snapshot probe attempt ${attempt}/${maxAttempts} failed: ${message}. Retrying...`);
+              await new Promise((resolve) => setTimeout(resolve, attempt * 5_000));
+            }
           }
 
-          const payload = await response.json();
-          const generatedAt = Date.parse(payload.generatedAt || payload.result?.generatedAt || '');
-          const ageMinutes = Number.isFinite(generatedAt)
-            ? Math.round((Date.now() - generatedAt) / 60000)
-            : Infinity;
-          console.log(`Production snapshot generatedAt=${payload.generatedAt || payload.result?.generatedAt || 'unknown'} ageMinutes=${ageMinutes}`);
-          if (!Number.isFinite(generatedAt) || ageMinutes > 20) {
-            throw new Error('Production is not serving the snapshot just written by this run. Check the workflow SAS URL, blob prefix, and App Service settings.');
-          }
+          throw new Error(`Production snapshot verification failed after ${maxAttempts} attempts: ${lastError instanceof Error ? lastError.message : String(lastError)}`);
           NODE
