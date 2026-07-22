@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-22 17:45 America/Chicago / 2026-07-22 22:45 UTC: Iowa Wapsipinicon/Raccoon implementation pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 45-route Iowa baseline: `wapsipinicon-river-independence-quasqueton`, `raccoon-river-van-meter-walnut-woods`, and `north-raccoon-river-eureka-henderson`, bringing this checkout to 48 Iowa routes.
+  - Qualification path: Buchanan County / Iowa DNR Wapsipinicon water-trail materials plus direct USGS `05421000` support Independence-to-Quasqueton; Iowa DNR Raccoon River guide plus ICON/Walnut Woods and direct USGS `05484500` support Van-Meter-to-Walnut-Woods; Iowa DNR Greene County North Raccoon guide plus Greene County public-access pages and direct USGS `05482500` support Eureka-to-Henderson.
+  - Gauge posture: USGS Water Services returned Wapsipinicon Independence `1,160 cfs / 5.90 ft`, Raccoon Van Meter `745 cfs / 3.28 ft`, and North Raccoon Jefferson `248 cfs / 5.18 ft` during the run. Thresholds are guarded community/estimated ranges, with the North Raccoon card explicitly marked route-adjacent and visual-check oriented.
+  - No route-gallery assets were added after bounded official / local / USGS / Commons / same-route image review.
+
 - 2026-07-22 17:10 America/Chicago / 2026-07-22 22:10 UTC: Wisconsin current-baseline Princeton/Sheboygan implementation pass (`wisconsin-route-additions`).
   - Added three Wisconsin route slugs beyond the current 107-route Wisconsin baseline: `fox-river-princeton-locks-city-landing`, `fox-river-princeton-white-river-locks`, and `sheboygan-river-rochester-esslingen`, bringing this checkout to 110 Wisconsin routes.
   - Qualification path: Wisconsin River Trips plus Wisconsin DNR / City of Princeton support the two Upper Fox access pairs, dam/wind/no-camping caveats, direct Princeton gauge `04073365`, and conservative minimum-only scoring. Wisconsin River Trips plus Sheboygan River Water Trail / DNR access context support Rochester Park to Esslingen Park, two dam portages, downstream same-river Sheboygan gauge `04086000`, and WRT's two-sided gauge ladder.

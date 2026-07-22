@@ -33282,4 +33282,192 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'wapsipinicon-river-independence-quasqueton': {
+    putIn: {
+      id: 'knotts-landing-independence',
+      name: 'Knott\'s Landing / Three Elms launch corridor',
+      latitude: 42.4576,
+      longitude: -91.8948,
+    },
+    takeOut: {
+      id: 'quasqueton-campground-access',
+      name: 'Quasqueton Campground / Wapsipinicon River access',
+      latitude: 42.3956,
+      longitude: -91.7587,
+    },
+    logistics: {
+      distanceLabel: 'About 9 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, sandbar stops, or wind',
+      shuttle:
+        'Stage the take-out in Quasqueton, then drive back to the Independence launch corridor. Knott\'s Landing and Three Elms are both below the Independence dam complex; use same-day signs and ramp conditions to choose the cleaner put-in.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Iowa boating and PFD rules, and respect local park hours and parking signs.',
+      camping:
+        'Quasqueton has campground/river-access support and the guide notes camping in Independence or nearby county parks, so this works as a base-camp day route. Do not imply private-bank camping; use public campgrounds or legal sandbar stops only where conditions and Iowa meandered-stream rules allow.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch below Independence and take out at Quasqueton for the most popular Buchanan County Wapsi canoeing stretch. Use the direct Independence gauge and avoid quickly rising or flood-stage water.',
+      accessCaveats: [
+        'This route starts below the Independence dam complex. Do not drift through or launch above the dams as part of this card.',
+        'Iron Bridge Access is a source-backed midway split point if the group wants a shorter trip or needs a bailout.',
+        'The route uses practical map anchors for the Independence and Quasqueton launch corridors. On-site signs, current ramps, and park rules control the exact launch and landing.',
+        'Powerboats and jet skis can appear near Independence, especially around the wider reservoir-style water above town.',
+      ],
+      watchFor: [
+        'Quick rises, flood-stage water, logs, cutbank strainers, rocks just below the surface, and shifting sandbars.',
+        'Private banks outside public access points, public lands, or legal sandbar stops.',
+        'Low water below about 150 cfs at Independence, when bony shallows and dragging become likely.',
+        'High water above about 2,000 cfs at Independence, when the published range says the river becomes pushy and then dangerous.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'knotts-landing-independence',
+        name: 'Knott\'s Landing / Three Elms launch corridor',
+        latitude: 42.4576,
+        longitude: -91.8948,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in corridor below the Independence dams; the guide also names Three Elms as a downstream launch option.',
+      },
+      {
+        id: 'iron-bridge-access',
+        name: 'Iron Bridge Access',
+        latitude: 42.4238,
+        longitude: -91.8162,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Official shorter-trip split point with parking and a concrete ramp.',
+      },
+      {
+        id: 'quasqueton-campground-access',
+        name: 'Quasqueton Campground / Wapsipinicon River access',
+        latitude: 42.3956,
+        longitude: -91.7587,
+        mileFromStart: 9,
+        segmentKind: 'creek',
+        note: 'Default take-out in the Quasqueton campground and city river-access corridor.',
+      },
+    ],
+  },
+
+  'raccoon-river-van-meter-walnut-woods': {
+    putIn: {
+      id: 'van-meter-access',
+      name: 'Van Meter Access',
+      latitude: 41.5355,
+      longitude: -93.9557,
+    },
+    takeOut: {
+      id: 'walnut-woods-state-park-ramp',
+      name: 'Walnut Woods State Park boat ramp',
+      latitude: 41.53808,
+      longitude: -93.74811,
+    },
+    logistics: {
+      distanceLabel: 'About 10 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, wind, or ledge scouting',
+      shuttle:
+        'Stage the take-out at the west-end Walnut Woods boat ramp, then drive back to Van Meter. Inspect Commerce Ledges and the Walnut Woods landing plan before launching when the Van Meter gauge is rising or above moderate levels.',
+      permits:
+        'No route-specific paddling permit is known. Follow Iowa boating and PFD rules, use the named public access points, and obey state-park and city parking rules.',
+      camping:
+        'Walnut Woods State Park has a campground at the take-out park, making this an endpoint-campground day route. Do not continue downstream toward Water Works as a camping or casual extension; that is a separate urban dam corridor.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Van Meter and take out at Walnut Woods for a lower-Raccoon greenbelt route above the Water Works dam corridor. The direct Van Meter gauge controls the score.',
+      accessCaveats: [
+        'Take out at Walnut Woods for this route. Downstream Water Works and Scott Street dam handling is not included.',
+        'Commerce Ledges at Walnut Woods can be challenging at moderate to high water and may require a river-right portage.',
+        'Walnut Woods is a state park; use the west-end ramp and current park parking rules rather than landing on informal banks.',
+        'The Van Meter put-in coordinate is a practical access anchor for the city access corridor and should be checked against current local signage.',
+      ],
+      watchFor: [
+        'Commerce Ledges waves, exposed ledges at lower water, strainers, bridge current, fishing lines, and fast urban-watershed rises.',
+        'Low water below about 300 cfs at Van Meter, when shallow spots and slow scraping become likely.',
+        'High water above about 5,000 cfs at Van Meter, when the published range becomes pushy and the ledges and eddies get less forgiving.',
+        'Private banks and a mandatory route end above downstream dam infrastructure.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'van-meter-access',
+        name: 'Van Meter Access',
+        latitude: 41.5355,
+        longitude: -93.9557,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default lower-Raccoon put-in in the Van Meter access corridor.',
+      },
+      {
+        id: 'walnut-woods-state-park-ramp',
+        name: 'Walnut Woods State Park boat ramp',
+        latitude: 41.53808,
+        longitude: -93.74811,
+        mileFromStart: 10,
+        segmentKind: 'creek',
+        note: 'Default take-out at the state-park ramp above the more urban Water Works corridor.',
+      },
+    ],
+  },
+
+  'north-raccoon-river-eureka-henderson': {
+    putIn: {
+      id: 'eureka-bridge-access',
+      name: 'Eureka Bridge Access',
+      latitude: 42.0156,
+      longitude: -94.4384,
+    },
+    takeOut: {
+      id: 'henderson-park-access',
+      name: 'Henderson Park Access',
+      latitude: 41.9698,
+      longitude: -94.3766,
+    },
+    logistics: {
+      distanceLabel: 'About 4.5 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with low water, wood, or scouting',
+      shuttle:
+        'Stage the take-out at Henderson Park south of Jefferson, then drive back to Eureka Bridge Access west of Jefferson. Make a visual gauge check at Eureka because the numeric range is for the broader Jefferson corridor rather than this exact short split.',
+      permits:
+        'No route-specific paddling permit is known. Use the Greene County public accesses, follow Iowa boating and PFD rules, and observe posted county park hours and ramp rules.',
+      camping:
+        'Treat this as a day route. Nearby Greene County and Whiterock-area camping can support a base-camp trip, but the normal Eureka-to-Henderson paddle does not include an on-route campsite.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Eureka Bridge Access and take out at Henderson Park for the shorter half of the official McMahon-to-Henderson North Raccoon water-trail section. Use the Jefferson gauge conservatively and scout wood and the Henderson rock-dam area.',
+      accessCaveats: [
+        'Greene County says Eureka Bridge is 4.5 miles upstream of Henderson Park, matching the short split from the DNR guide.',
+        'The DNR guide warns about a rock dam above Henderson Park Access. Identify the take-out and any required carry before relaxing near the finish.',
+        'The threshold range is route-adjacent rather than exact. Make a same-day visual call for wood, depth, and current at Eureka.',
+        'Most banks are private outside public accesses; do not use farm banks as routine stops.',
+      ],
+      watchFor: [
+        'Downed trees and log piles at sharp bends, especially when current is up.',
+        'Rock-dam current near Henderson Park, riffles, shallow bony lines, and bank-swallows/bluff erosion zones.',
+        'Low water below about 150 cfs at Jefferson, when dragging and bony riffles become likely.',
+        'High water above about 2,000 cfs at Jefferson, when the broader published range becomes pushy and rescue margins shrink.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'eureka-bridge-access',
+        name: 'Eureka Bridge Access',
+        latitude: 42.0156,
+        longitude: -94.4384,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Greene County identifies this as a public boating access on the North Raccoon.',
+      },
+      {
+        id: 'henderson-park-access',
+        name: 'Henderson Park Access',
+        latitude: 41.9698,
+        longitude: -94.3766,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Default take-out at the county park ramp south of Jefferson.',
+      },
+    ],
+  },
 };

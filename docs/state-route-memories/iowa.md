@@ -4,13 +4,22 @@ Last summarized: 2026-07-22.
 
 ## Current Inventory
 
-- Live routes: 45 after the 2026-07-22 Cedar River flatwater pass.
+- Live routes: 48 after the 2026-07-22 Wapsipinicon/Raccoon pass.
 - Top represented rivers: Upper Iowa River 8, Turkey River 6, North Fork Maquoketa River 6, Cedar River 4, South Skunk River 4, Maquoketa River 4, Volga River 3, Black Hawk Creek 2, Middle River 2, Yellow River 2.
 - Ledger candidates: 52 total after the 2026-07-22 Cedar pass; 45 added, 2 `no_live_gauge`, 2 `gauge_proxy_weak`, 2 `research_later`, 2 `rejected`, 1 `threshold_weak`.
 
 ## Status
 
 Iowa remains mature overall. The 2026-07-22 run added only because the Upper Iowa guide and WRT/Miles Paddled evidence supported shorter high-use public access pairs inside already modeled long cards, and the task required three fresh Iowa slugs beyond the current checkout baseline.
+
+## 2026-07-22 Wapsipinicon/Raccoon pass
+
+- Baseline at run start: 45 Iowa live routes.
+- Added `wapsipinicon-river-independence-quasqueton`, `raccoon-river-van-meter-walnut-woods`, and `north-raccoon-river-eureka-henderson`, bringing Iowa to 48 live routes in this checkout.
+- Qualification path: Buchanan County / Iowa DNR Wapsipinicon material supports the Independence-to-Quasqueton access chain, Iron Bridge split, camping context, and dam/rising-water/log safety; Iowa DNR Raccoon guide plus ICON/Walnut Woods support the Van Meter-to-Walnut Woods access chain, Commerce Ledges caution, endpoint campground, and downstream dam boundary; Iowa DNR Greene County guide plus Greene County MyCountyParks support Eureka Bridge to Henderson as the short 4.5-mile split inside McMahon-to-Henderson with wood and rock-dam hazards.
+- Gauge posture: USGS Water Services returned Wapsipinicon Independence `05421000` at `1,160 cfs / 5.90 ft` at 2026-07-22 17:30 CDT, Raccoon Van Meter `05484500` at `745 cfs / 3.28 ft` at 17:00 CDT, and North Raccoon Jefferson `05482500` at `248 cfs / 5.18 ft` at 17:15 CDT.
+- Scoring posture is guarded community evidence: CanWePaddle publishes route-specific estimated ranges for Independence-to-Quasqueton (`150-2,000 cfs`) and Van-Meter-to-Walnut-Woods (`300-5,000 cfs`); North Raccoon uses the broader Jefferson-to-Cooper `150-2,000 cfs` range against a source-strong Eureka-to-Henderson access pair, so its copy explicitly requires a visual check at Eureka.
+- No route-gallery assets were added after bounded official / local / USGS / Commons / same-route review.
 
 ## 2026-07-22 Cedar River flatwater pass
 
