@@ -31885,4 +31885,328 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'mississippi-river-palisade-waldeck': {
+    putIn: {
+      name: 'Mississippi River, Palisade Public Water Access Site',
+      latitude: 46.709611,
+      longitude: -93.485152,
+    },
+    takeOut: {
+      name: 'Mississippi River, Hwy 169 / Waldeck Public Water Access Site',
+      latitude: 46.651684,
+      longitude: -93.61233,
+    },
+    logistics: {
+      distanceLabel: '12.3 mi',
+      estimatedPaddleTime: 'About 4 hr, longer with low water, wind, wood, or long breaks',
+      shuttle:
+        'Stage the Hwy 169 / Waldeck take-out first, then drive back to Palisade. Confirm the signed Aitkin County access, parking, and river level before unloading because public exits are limited between endpoints.',
+      permits:
+        'No route-specific paddling permit is known. Use signed public accesses, follow Minnesota boating/PFD rules, and obey posted Aitkin County, DNR water-trail, and campsite rules.',
+      camping:
+        'MHB / Aitkin County route mapping shows campground and watercraft-campsite context on this corridor, but treat overnight use as planned and rule-checked rather than a guaranteed stop.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Palisade and take out at the Hwy 169 / Waldeck access for a signed MHB/Aitkin County Mississippi River day trip. Use the Aitkin DNR gauge as the official downstream same-corridor check and make a visual call at Palisade.',
+      accessCaveats: [
+        'Palisade resolves as WAS01038 at river mile 1086.4, and Hwy 169 / Waldeck resolves as WAS02311 at river mile 1074.1 in the Minnesota public-water-access GIS.',
+        'The Aitkin DNR gauge is downstream of this reach. Pair its official bands with a visual check for depth, wood, and landing conditions at Palisade.',
+        'The route is signed as a Mississippi Headwaters Board / Aitkin County excursion, but intervening banks are not assumed public. Stay with mapped public accesses, public land, or confirmed campsite stops.',
+      ],
+      watchFor: [
+        'Snags, downed trees, oxbows, dead-end side channels, and shallow inside bars in the floodplain corridor.',
+        'Private banks and limited bailout options between Palisade and Waldeck.',
+        'Cold water, storms, rising water, and debris after rain or upstream flow changes.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'palisade-access',
+        name: 'Mississippi River, Palisade Public Water Access Site',
+        latitude: 46.709611,
+        longitude: -93.485152,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at public-water-access GIS river mile 1086.4; resolves as WAS01038.',
+      },
+      {
+        id: 'hwy-169-waldeck-access',
+        name: 'Mississippi River, Hwy 169 / Waldeck Public Water Access Site',
+        latitude: 46.651684,
+        longitude: -93.61233,
+        mileFromStart: 12.3,
+        segmentKind: 'creek',
+        note: 'Default take-out at public-water-access GIS river mile 1074.1; resolves as WAS02311 and matches MHB Waldeck directions.',
+      },
+    ],
+  },
+  'mississippi-river-waldeck-kimball': {
+    putIn: {
+      name: 'Mississippi River, Hwy 169 / Waldeck Public Water Access Site',
+      latitude: 46.651684,
+      longitude: -93.61233,
+    },
+    takeOut: {
+      name: 'Mississippi River, Kimball Public Water Access Site',
+      latitude: 46.57967,
+      longitude: -93.660697,
+    },
+    logistics: {
+      distanceLabel: 'About 11.5 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr depending on current, wood, wind, and stops',
+      shuttle:
+        'Stage Kimball first, then drive back to the Hwy 169 / Waldeck access. Inspect both Aitkin County landings because river height, mud, and wood can change usable landing angles.',
+      permits:
+        'No route-specific paddling permit is known. Use signed public accesses, follow Minnesota boating/PFD rules, and obey Aitkin County and DNR water-trail rules.',
+      camping:
+        'Treat this as a day route unless a specific watercraft campsite or public-land overnight stop is confirmed for the date of travel. Do not assume private floodplain banks are available for camping.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Hwy 169 / Waldeck access and finish at Kimball for the signed MHB/Aitkin County Map 4 excursion. The Aitkin DNR gauge is downstream but direct to the same corridor.',
+      accessCaveats: [
+        'Hwy 169 / Waldeck and Kimball both resolve in Minnesota public-water-access GIS with Aitkin County administration, directions, river-mile records, and coordinates.',
+        'MHB publishes this as a signed excursion, but the route still depends on same-day access visibility and a clean take-out at Kimball.',
+        'The Aitkin gauge is downstream of the route; do not use it as a substitute for checking local wood, bars, and landing conditions at Waldeck.',
+      ],
+      watchFor: [
+        'Long meanders, oxbows, sweepers, floodplain wood, shallow bars, and slow progress at lower flows.',
+        'Limited public exits between Waldeck and Kimball; commit only with daylight and weather margin.',
+        'Private banks, cold water, fishing traffic, storms, and faster current after rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hwy-169-waldeck-access',
+        name: 'Mississippi River, Hwy 169 / Waldeck Public Water Access Site',
+        latitude: 46.651684,
+        longitude: -93.61233,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at public-water-access GIS river mile 1074.1; resolves as WAS02311.',
+      },
+      {
+        id: 'kimball-access',
+        name: 'Mississippi River, Kimball Public Water Access Site',
+        latitude: 46.57967,
+        longitude: -93.660697,
+        mileFromStart: 11.5,
+        segmentKind: 'creek',
+        note: 'Default take-out at public-water-access GIS river mile 1062.6; resolves as WAS01037.',
+      },
+    ],
+  },
+  'mississippi-river-kimball-aitkin-campground': {
+    putIn: {
+      name: 'Mississippi River, Kimball Public Water Access Site',
+      latitude: 46.57967,
+      longitude: -93.660697,
+    },
+    takeOut: {
+      name: 'Mississippi River, Aitkin Public Water Access Site / Aitkin Campground',
+      latitude: 46.542399,
+      longitude: -93.713071,
+    },
+    logistics: {
+      distanceLabel: 'About 6.9 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 3.5 hr depending on level, wood, and take-out traffic',
+      shuttle:
+        'Stage the Aitkin Campground / Mississippi River boat access first, then drive back to Kimball. Confirm campground parking, access, camping, fee, and one-way traffic rules before relying on the finish.',
+      permits:
+        'No route-specific paddling permit is known. Use signed public accesses, follow Minnesota boating/PFD rules, and obey Aitkin County campground, parking, and boat-landing rules.',
+      camping:
+        'Aitkin County documents campground facilities at the take-out, including campsites, showers, drinking water, picnic tables, and boat access. Treat camping as a managed endpoint reservation or fee-based plan.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Kimball and take out at the Aitkin Campground / Mississippi River boat access for the short signed MHB/Aitkin County excursion. The Aitkin DNR gauge is near the finish and has official DNR interpretation bands.',
+      accessCaveats: [
+        'Kimball resolves as WAS01037 at river mile 1062.6, and Aitkin resolves as WAS01042 at river mile 1055.7 in Minnesota public-water-access GIS.',
+        'Aitkin County lists the campground at 814 4th Ave NW with Mississippi River boat access and campground amenities; check current fees and rules before counting on camping or overnight parking.',
+        'DNR Map 4 warns about the Rice River diversion channel and diversion dam near Aitkin during high flow. Stay with the signed Mississippi route and planned campground take-out.',
+      ],
+      watchFor: [
+        'Rice River diversion-channel and dam context near Aitkin, especially at high water.',
+        'Snags, downed trees, private banks, shallow bars, fishing traffic, and campground landing congestion.',
+        'Cold water, storms, rising water, and debris after rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'kimball-access',
+        name: 'Mississippi River, Kimball Public Water Access Site',
+        latitude: 46.57967,
+        longitude: -93.660697,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at public-water-access GIS river mile 1062.6; resolves as WAS01037.',
+      },
+      {
+        id: 'aitkin-campground-access',
+        name: 'Mississippi River, Aitkin Public Water Access Site / Aitkin Campground',
+        latitude: 46.542399,
+        longitude: -93.713071,
+        mileFromStart: 6.9,
+        segmentKind: 'creek',
+        note: 'Default take-out at public-water-access GIS river mile 1055.7; resolves as WAS01042 and matches the Aitkin campground/boat-access corridor.',
+      },
+    ],
+  },
+  'brule-river-campground-highway-139': {
+    putIn: { name: 'Brule River Campground Landing', latitude: 46.02746, longitude: -88.79757 },
+    takeOut: { name: 'Highway 139/189 Landing', latitude: 45.98768, longitude: -88.6524 },
+    logistics: {
+      distanceLabel: '14.5 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr depending on flow, wood, and island-channel routefinding',
+      shuttle:
+        'Stage the Highway 139/189 take-out first, then drive forest roads to the old Brule River Campground landing. Download maps before leaving service and confirm that the former campground landing is open for day use before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Use only public/signed access points, follow Wisconsin boating and PFD rules, and obey posted campground, forest-road, and border-river restrictions.',
+      camping:
+        'Wisconsin Trail Guide notes one primitive campsite near Brule River Drive, while the old Brule River Campground has been closed to camping since 2015. Treat any overnight plan as site-specific and rule-checked.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Paddle the upper Brule B1 reach from the old campground landing to Highway 139/189 for a remote marsh-and-forest day with Class I current and a WTG minimum of 220 cfs on the Highway 2 gauge.',
+      accessCaveats: [
+        'The old Brule River Campground is not an active campground. WTG reports the landing remains open, but signs and access status should be checked before relying on it.',
+        'Forest Road 2454 and Brule River Drive can serve as intermediate access points, but this card is built around the full 14.5-mile B1 route.',
+        'The Highway 2 gauge is downstream of the reach but is the specific gauge WTG ties to this route. Pair it with a visual check at the put-in.',
+      ],
+      watchFor: [
+        'Marsh channels, wooded islands, sweepers, shallow gravel, and routefinding delays at low flow.',
+        'Cold water, remote road access, limited bailout options, and slow rescue response.',
+        'Private banks and campsite assumptions; use only named public access/campsite points that are open and legal.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'brule-river-campground-landing',
+        name: 'Brule River Campground Landing',
+        latitude: 46.02746,
+        longitude: -88.79757,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'WTG B1 GPX waypoint for the default put-in.',
+      },
+      {
+        id: 'brule-river-drive-campsite',
+        name: 'Brule River Drive primitive campsite / landing',
+        latitude: 46.00885,
+        longitude: -88.67604,
+        mileFromStart: 8.3,
+        segmentKind: 'creek',
+        note: 'WTG B1 GPX waypoint for the route primitive campsite and access.',
+      },
+      {
+        id: 'highway-139-189-brule-landing',
+        name: 'Highway 139/189 Landing',
+        latitude: 45.98768,
+        longitude: -88.6524,
+        mileFromStart: 14.5,
+        segmentKind: 'creek',
+        note: 'WTG B1 GPX waypoint for the default take-out.',
+      },
+    ],
+  },
+  'brule-river-forest-road-2150-flowage': {
+    putIn: { name: 'Forest Road 2150 Landing', latitude: 45.99013, longitude: -88.45012 },
+    takeOut: { name: 'WEPCO Recreation Area #28 Landing', latitude: 45.96359, longitude: -88.25001 },
+    logistics: {
+      distanceLabel: '14.3 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr, longer with scouting, low water, or flowage wind',
+      shuttle:
+        'Stage the WEPCO Recreation Area #28 take-out above Brule River Flowage, then return to Forest Road 2150. Confirm forest-road conditions, Carney Dam/Highway 2 bailouts, and the final take-out before committing to the full remote reach.',
+      permits:
+        'No route-specific paddling permit is known. Use signed/known public landings, follow Wisconsin boating and PFD rules, and respect posted WEPCO, forest-road, and private-bank restrictions.',
+      camping:
+        'Wisconsin Trail Guide says there are no riverside canoe/kayak campsites on this segment. Plan it as a long day route and use separate area lodging or campgrounds if needed.',
+      campingClassification: 'none',
+      summary:
+        'Run Brule B3 from Forest Road 2150 to the WEPCO #28 landing before Brule River Flowage. The route is mostly quiet forest current but includes Class I-II La Chapelle Rapids and WTG minimum-only gauge guidance.',
+      accessCaveats: [
+        'Forest Road 2150 is a remote landing. Confirm road condition, parking, and water level before unloading.',
+        'Carney Dam Landing and Highway 2 Landing are useful intermediate exits, but this route expects the full 14.3-mile run to WEPCO #28.',
+        'Take out before the river opens into Brule River Flowage unless you have a separate lake/flowage plan and weather margin.',
+      ],
+      watchFor: [
+        'Class I-II La Chapelle Rapids, riffles near McGovern Creek, and wood in faster bends.',
+        'Cold water, remote rescue exposure, limited cell service, and long shuttle time.',
+        'Flowage wind, motorboat exposure, and missed-takeout consequences near the finish.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'forest-road-2150-brule-landing',
+        name: 'Forest Road 2150 Landing',
+        latitude: 45.99013,
+        longitude: -88.45012,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'WTG B3 GPX waypoint for the default put-in.',
+      },
+      {
+        id: 'highway-2-brule-landing',
+        name: 'Highway 2 Landing',
+        latitude: 45.96076,
+        longitude: -88.31589,
+        mileFromStart: 9.8,
+        segmentKind: 'creek',
+        note: 'WTG B3 GPX waypoint for the Highway 2 landing near the gauge corridor.',
+      },
+      {
+        id: 'wepco-28-brule-flowage-landing',
+        name: 'WEPCO Recreation Area #28 Landing',
+        latitude: 45.96359,
+        longitude: -88.25001,
+        mileFromStart: 14.3,
+        segmentKind: 'creek',
+        note: 'WTG B3 GPX waypoint for the default take-out before Brule River Flowage.',
+      },
+    ],
+  },
+  'wisconsin-river-pine-island-portage': {
+    putIn: { name: 'Pine Island Boat Ramp off Levee Road', latitude: 43.54304, longitude: -89.58245 },
+    takeOut: { name: 'Highway 33 Landing / Portage access', latitude: 43.53563, longitude: -89.47351 },
+    logistics: {
+      distanceLabel: '6.0 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr depending on flow, wind, sandbar stops, and route choice',
+      shuttle:
+        'Stage the Highway 33 / Portage take-out first, or use Sunset Park as an easier alternate if the carry-in landing is awkward. Then drive back to Pine Island Boat Ramp on Levee Road and verify the DNR wildlife-area rules before launch.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules, use legal public accesses, and obey all Pine Island Wildlife Area camping, parking, and public-use restrictions.',
+      camping:
+        'Wisconsin DNR prohibits camping and overnight parking in Pine Island Wildlife Area, including Wisconsin River islands and sandbars. Treat this card as a day trip.',
+      campingClassification: 'none',
+      summary:
+        'Paddle the Wisconsin River from Pine Island Boat Ramp to the Highway 33 / Portage access for a short sandbar, island, and side-slough day route. Use the Wisconsin Dells gauge and avoid assuming any island camping is legal.',
+      accessCaveats: [
+        'Pine Island Boat Ramp is the DNR-supported Levee Road launch for the wildlife area; confirm current access, road condition, and parking rules before unloading.',
+        'The Highway 33 access is a carry-in style Portage landing in the WRT/Miles Paddled route context; Sunset Park may be easier depending on water level and group needs.',
+        'Do not camp on Pine Island Wildlife Area lands, Wisconsin River islands, or sandbars within the property boundary.',
+      ],
+      watchFor: [
+        'Braided side sloughs, shallow sandbars, island strainers, and dead-end channels.',
+        'High water covering bars and speeding island currents; low water forcing long drags.',
+        'Wind, motorboat traffic near Portage, private banks, cold water, and storms on the open lower Wisconsin corridor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'pine-island-boat-ramp',
+        name: 'Pine Island Boat Ramp off Levee Road',
+        latitude: 43.54304,
+        longitude: -89.58245,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Miles Paddled GPS point and Wisconsin DNR Pine Island Wildlife Area launch context for the put-in.',
+      },
+      {
+        id: 'highway-33-portage-landing',
+        name: 'Highway 33 Landing / Portage access',
+        latitude: 43.53563,
+        longitude: -89.47351,
+        mileFromStart: 6,
+        segmentKind: 'creek',
+        note: 'WRT and Miles Paddled take-out; Sunset Park is noted as an easier alternate.',
+      },
+    ],
+  },
 };

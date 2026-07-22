@@ -1,5 +1,12 @@
 # Midwest Route Automation Memory
 
+
+- 2026-07-22 15:05 America/Chicago / 2026-07-22 20:05 UTC: Minnesota Mississippi Aitkin County implementation pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 127-route Minnesota baseline: `mississippi-river-palisade-waldeck`, `mississippi-river-waldeck-kimball`, and `mississippi-river-kimball-aitkin-campground`, bringing this checkout to 130 Minnesota routes.
+  - Qualification path: current MN DNR Mississippi River Map 4 / segments page plus Mississippi Headwaters Board Aitkin County excursions support the three route shapes; Minnesota public-water-access GIS resolves Palisade `WAS01038`, Hwy 169/Waldeck `WAS02311`, Kimball `WAS01037`, and Aitkin `WAS01042`; Aitkin County documents the endpoint campground.
+  - Gauge posture: MN DNR Aitkin site `120` returned `681 cfs` at 2026-07-22 13:30 CDT, below the official `712.3 cfs` scrapable floor. The routes use only the official DNR bands: `712.3 / 1500-6000 / 8000 cfs`, so they ship as too low until flows recover.
+  - No route-gallery assets were added; image audit rows record bounded DNR / MHB / Aitkin County / Commons / same-route searches with no clearly rights-clean exact-route asset selected.
+
 - 2026-07-19 15:59 America/Chicago / 2026-07-19 20:59 UTC: Ohio user-requested Little Miami implementation pass.
   - Added `little-miami-river-rogers-ballpark-carl-rahe` from the submitted Paddle Today route request, keeping it distinct from the existing downstream Kelley-to-Milford whitewater/play route.
   - Qualification path: Warren County Park District documented a public kayaking event with the exact shuttle from South Lebanon Roger's Ballpark Access to Carl A. Rahe Access; Buckeye United Fly Fishers listed Roger's Ball Park at river mile `33.4` and Carl A. Rahe at `27.9` with GPS/access context, supporting a `5.5` mile route; USGS `03245500` remains the product-supported lower Little Miami live gauge; RiverScout lists broad Little Miami `300-2,000 cfs` flow context; and CanWePaddle independently uses USGS `03245500` for the adjacent upstream Morrow-to-South-Lebanon Class I reach with an estimated `100-2,000 cfs` runnable range.

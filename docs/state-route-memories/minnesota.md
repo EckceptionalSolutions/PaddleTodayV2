@@ -1,5 +1,15 @@
 # Minnesota Route Memory
 
+## 2026-07-22 15:05 America/Chicago / 2026-07-22 20:05 UTC Minnesota implementation pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `127` to `130` live route slugs by adding `mississippi-river-palisade-waldeck`, `mississippi-river-waldeck-kimball`, and `mississippi-river-kimball-aitkin-campground`.
+- Qualification path: current MN DNR Mississippi River Map 4 / segments page refers paddlers to Mississippi Headwaters Board Aitkin County excursions; MHB documents Palisade-to-Waldeck, Waldeck-to-Kimball, and Kimball-to-Aitkin County Campground; Minnesota public-water-access GIS resolves Palisade `WAS01038`, Hwy 169/Waldeck `WAS02311`, Kimball `WAS01037`, and Aitkin `WAS01042`; Aitkin County documents the endpoint campground and Mississippi boat access.
+- Live gauge verification: MN DNR river-level site `120` (`Mississippi River at Aitkin, MN`) returned `681 cfs` at `2026-07-22 13:30 CDT`, below the official scrapable floor. Implemented the official DNR interpreted bands only: scrapable below `712.3 cfs`, Low `712.3-1500 cfs`, Medium `1500-6000 cfs`, High `6000-8000 cfs`, and Very High above `8000 cfs`.
+- Camping posture: Palisade-to-Waldeck is `on_route_campsite` only through mapped campground/watercraft-campsite context; Waldeck-to-Kimball is a no-camping day route; Kimball-to-Aitkin is `endpoint_campground` through Aitkin County Campground. All three reject informal private-bank camping.
+- Safety posture: all three carry current low-water/scrapable scoring, downstream proxy-gauge caveats where applicable, floodplain oxbows, snags/downed trees, shallow inside bars, private banks, limited exits, cold water, storms/rising water, and visual-check requirements. Kimball-to-Aitkin adds Rice River diversion-channel / diversion-dam caveats and endpoint campground-rule checks.
+- Image posture: no route-gallery images were added. `docs/river-image-source-audit.csv` records bounded MN DNR / MHB / Aitkin County / Commons / same-route searches with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add threshold-weak prompt blockers including Chippewa Lentz-to-Watson, Des Moines Mayflower-to-Christianna, Kettle Musclewood, Minnesota River Kinney-to-Skalbekken, Red River segments, Zumbro Village-Park-to-Theilman, Snake Silver-Star-to-Lower-Falls, St. Louis CR4/95/Fond-du-Lac/Paupores, Otter Tail Phelps/Wannigan/Riverside, Mississippi Itasca/Coffee-Pot/Cass/Winnie variants, Vermilion Twomile-to-Eightmile, and Watonwan CR32-to-Garden-City. The accepted Aitkin County Mississippi trio had the cleanest current official access/gauge package against this checkout.
+
 Last summarized: 2026-07-16 10:30 America/Chicago.
 
 ## Current Inventory
