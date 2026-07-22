@@ -9620,6 +9620,173 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
+  'cedar-river-road-t38-idlewild': {
+    putIn: {
+      name: 'Road T38 Access',
+      latitude: 43.253006,
+      longitude: -92.811759,
+    },
+    takeOut: {
+      name: 'Idlewild Park Access',
+      latitude: 43.1633388,
+      longitude: -92.7540921,
+    },
+    logistics: {
+      distanceLabel: '10.1 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer with wind, low water, or scouting',
+      shuttle:
+        'Use a rural two-car shuttle between Road T38 south of Osage and Idlewild Park north of Floyd. Scout Idlewild before launch because the landing is a county-park access rather than a downtown ramp.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted city, county, Iowa DNR, and Iowa boating/PFD rules at public accesses.',
+      camping:
+        'Treat this as a day trip. Idlewild is a public park access, but no legal on-route watercraft campsite was confirmed for this exact leg; Mitchell County says adjacent land is private and sandbar camping is not permitted.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Road T38 south of Osage and take out at Idlewild Park north of Floyd for a longer free-flowing Cedar River leg above Charles City. Use the Charles City gauge only as a conservative corridor signal and make a same-day visual call at the put-in.',
+      accessCaveats: [
+        'Road T38 and Idlewild coordinates come from the Cedar River Paddling Trips guide; follow posted access signs and parking limits rather than broad bridge shoulders.',
+        'The Charles City gauge is downstream of this segment. Tributary inflow and local storms can make the upstream leg differ from the gauge reading.',
+        'This is private-bank country between named public accesses. Do not assume shore stops or camping are legal away from public areas.',
+      ],
+      watchFor: [
+        'Faster current below Road T38, bridge eddies, outside-bend wood, and shallow riffles if the gauge approaches the 200 cfs floor.',
+        'High or rising water that makes landings faster and reduces reaction time around strainers.',
+        'Cold shoulder-season water, limited bailouts, agricultural runoff after storms, and long rural shuttle exposure.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'road-t38-access',
+        name: 'Road T38 Access',
+        latitude: 43.253006,
+        longitude: -92.811759,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this Cedar River segment.',
+      },
+      {
+        id: 'idlewild-park-access',
+        name: 'Idlewild Park Access',
+        latitude: 43.1633388,
+        longitude: -92.7540921,
+        mileFromStart: 10.1,
+        segmentKind: 'creek',
+        note: 'Default take-out for this Cedar River segment.',
+      },
+    ],
+  },
+
+  'cedar-river-idlewild-rotary': {
+    putIn: {
+      name: 'Idlewild Park Access',
+      latitude: 43.1633388,
+      longitude: -92.7540921,
+    },
+    takeOut: {
+      name: 'Rotary Park Access',
+      latitude: 43.1164289,
+      longitude: -92.706542,
+    },
+    logistics: {
+      distanceLabel: '5.6 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with low water or stops',
+      shuttle:
+        'Use a short rural two-car shuttle between Idlewild Park north of Floyd and Rotary Park east/south of Floyd. Check both landings before unloading because access roads and parking can be muddy after rain.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted city, county, Iowa DNR, and Iowa boating/PFD rules at public accesses.',
+      camping:
+        'No on-route campsite was confirmed for this short day leg. Treat nearby county or city campground options as separate base-camp planning, not river-camping permission.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Idlewild Park and take out at Rotary Park for a compact Floyd County Cedar River day with limestone-country scenery above Charles City. The app uses the downstream Charles City gauge as a conservative minimum-only signal.',
+      accessCaveats: [
+        'Both endpoints are named in the Cedar River Paddling Trips guide with coordinates, but same-day access conditions and parking remain local/posted decisions.',
+        'The Charles City gauge is downstream of the route, so use the score as a corridor check and inspect depth/current at Idlewild before launching.',
+        'Private banks dominate outside public accesses. Keep stops to legal public areas unless landowner permission is explicit.',
+      ],
+      watchFor: [
+        'Outside-bend strainers, bridge current near Floyd, shallow gravel at low water, and faster landings after rain.',
+        'Wildlife/fishing use, bank anglers, and limited mid-route exit options.',
+        'Rising water above the guide-published better range, especially if local storms are still moving through the watershed.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'idlewild-park-access',
+        name: 'Idlewild Park Access',
+        latitude: 43.1633388,
+        longitude: -92.7540921,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this Cedar River segment.',
+      },
+      {
+        id: 'rotary-park-access',
+        name: 'Rotary Park Access',
+        latitude: 43.1164289,
+        longitude: -92.706542,
+        mileFromStart: 5.6,
+        segmentKind: 'creek',
+        note: 'Default take-out for this Cedar River segment.',
+      },
+    ],
+  },
+
+  'cedar-river-rotary-charles-city-dock': {
+    putIn: {
+      name: 'Rotary Park Access',
+      latitude: 43.1164289,
+      longitude: -92.706542,
+    },
+    takeOut: {
+      name: 'Charles City Dock above Main Street Dam',
+      latitude: 43.0663169,
+      longitude: -92.6811147,
+    },
+    logistics: {
+      distanceLabel: '6.6 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 3.5 hr, longer with low water or wind',
+      shuttle:
+        'Stage the downtown Charles City vehicle first and identify the river-right dock above Main Street Dam before driving to Rotary Park. The take-out is mandatory for this flatwater route unless the group has a separate whitewater/portage plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted city, county, Iowa DNR, and Iowa boating/PFD rules at public accesses.',
+      camping:
+        'Treat this as a day trip. Downtown Charles City has services nearby, but no on-route legal camping was confirmed and the route ends in an urban dam/whitewater corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Rotary Park and finish at the Charles City Dock above Main Street Dam for the last flatwater Cedar River leg into town. This card intentionally ends before the dam and before the existing Charles City whitewater route.',
+      accessCaveats: [
+        'Take out on river right above Main Street Dam. Do not drift past the dock toward the dam unless intentionally portaging with current local guidance.',
+        'The guide notes the whitewater course below the dam, but that is represented separately in the app as a whitewater route.',
+        'Downtown events, parking, or construction can affect the dock area; inspect the take-out before launching from Rotary Park.',
+      ],
+      watchFor: [
+        'Mandatory take-out timing above Main Street Dam, especially when the Charles City gauge is above the guide-published better range.',
+        'Outside-bend wood, bridge traffic/current, anglers and downtown river users, and stronger current after storms.',
+        'Low water below 200 cfs that can make riffles draggy and high/rising water that narrows recovery options near the finish.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rotary-park-access',
+        name: 'Rotary Park Access',
+        latitude: 43.1164289,
+        longitude: -92.706542,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for this Cedar River segment.',
+      },
+      {
+        id: 'charles-city-dock-above-main-street-dam',
+        name: 'Charles City Dock above Main Street Dam',
+        latitude: 43.0663169,
+        longitude: -92.6811147,
+        mileFromStart: 6.6,
+        segmentKind: 'creek',
+        note: 'Default take-out for this Cedar River segment.',
+      },
+    ],
+  },
   'cedar-river-charles-city-whitewater': {
     putIn: {
       name: 'Charles City Whitewater Park put-in / Riverside Park',

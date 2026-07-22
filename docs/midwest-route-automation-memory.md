@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-22 16:34 America/Chicago / 2026-07-22 21:34 UTC: Iowa Cedar River flatwater implementation pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 42-route Iowa baseline: `cedar-river-road-t38-idlewild`, `cedar-river-idlewild-rotary`, and `cedar-river-rotary-charles-city-dock`, bringing this checkout to 45 Iowa routes.
+  - Qualification path: Cedar River Paddling Trips guide PDF plus Mitchell County Conservation / Iowa DNR / City of Nashua support the public access chain, route mileages, coordinates, private-bank/no-camping posture, dam/take-out cautions, and Charles City gauge guidance.
+  - Gauge posture: USGS Water Services returned Cedar River at Charles City `05457700` at `1,820 cfs / 4.56 ft` at 2026-07-22 16:15 CDT. The routes use minimum-only `200 cfs`; the source's `400-600 cfs` better range is noted but no high cutoff was inferred. No route-gallery assets were added after bounded image review.
+
+
 - 2026-07-22 16:13 America/Chicago / 2026-07-22 21:13 UTC: Wisconsin current-baseline restoration/addition pass (`wisconsin-route-additions`).
   - Added three Wisconsin route slugs beyond the current 104-route Wisconsin baseline: `wolf-river-pearson-lily`, `peshtigo-river-burnt-bridge-goodman-park`, and `fox-river-swan-lake-portage`, bringing this checkout to 107 Wisconsin routes. Older ledger notes had claimed these slugs in previous automation passes, but the current repo state did not contain them at run start.
   - Qualification path: Wolf County-A-to-Lily uses Langlade County public-access documentation, Wisconsin Trail Guide W1 threshold bands, Miles Paddled GPS endpoints, American Whitewater reach corroboration, and USGS `04074950`; Peshtigo Burnt-Bridge-to-Goodman uses Wisconsin Trail Guide P3, Miles Paddled, American Whitewater, and USGS `04067958`; Fox Swan-Lake-to-Portage uses Wisconsin River Trips, Wisconsin DNR Swan Lake Wildlife Area, Portage Parks Fox River Landing, and USGS `04073365`.

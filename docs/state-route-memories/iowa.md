@@ -4,13 +4,20 @@ Last summarized: 2026-07-22.
 
 ## Current Inventory
 
-- Live routes: 42 after the 2026-07-22 Upper Iowa split pass.
-- Top represented rivers: Upper Iowa River 8, Turkey River 6, North Fork Maquoketa River 6, South Skunk River 4, Maquoketa River 4, Volga River 3, Black Hawk Creek 2, Middle River 2, Yellow River 2.
-- Ledger candidates: 49 total after the 2026-07-22 pass; 42 added, 2 `no_live_gauge`, 2 `gauge_proxy_weak`, 2 `research_later`, 2 `rejected`, 1 `threshold_weak`.
+- Live routes: 45 after the 2026-07-22 Cedar River flatwater pass.
+- Top represented rivers: Upper Iowa River 8, Turkey River 6, North Fork Maquoketa River 6, Cedar River 4, South Skunk River 4, Maquoketa River 4, Volga River 3, Black Hawk Creek 2, Middle River 2, Yellow River 2.
+- Ledger candidates: 52 total after the 2026-07-22 Cedar pass; 45 added, 2 `no_live_gauge`, 2 `gauge_proxy_weak`, 2 `research_later`, 2 `rejected`, 1 `threshold_weak`.
 
 ## Status
 
 Iowa remains mature overall. The 2026-07-22 run added only because the Upper Iowa guide and WRT/Miles Paddled evidence supported shorter high-use public access pairs inside already modeled long cards, and the task required three fresh Iowa slugs beyond the current checkout baseline.
+
+## 2026-07-22 Cedar River flatwater pass
+
+- Baseline at run start: 42 Iowa live routes.
+- Added `cedar-river-road-t38-idlewild`, `cedar-river-idlewild-rotary`, and `cedar-river-rotary-charles-city-dock`, bringing Iowa to 45 live routes in this checkout.
+- Qualification path: Cedar River Paddling Trips documents the Road T38, Idlewild Park, Rotary Park, and Charles City Dock access chain with mileages and GPS coordinates, directs paddlers to USGS `05457700`, and gives `200 cfs` as the adequate-water floor with `400-600 cfs` as a better range. Mitchell County Conservation and Iowa DNR corroborate water-trail/public-access context, and City of Nashua corroborates the downstream public access chain. USGS Water Services returned `1,820 cfs / 4.56 ft` at `2026-07-22 16:15 CDT`.
+- Scoring stays minimum-only because no source publishes a flatwater high cutoff; current conditions are therefore treated with high/pushy caveats instead of an invented upper band. No route-gallery assets were added after bounded guide / local-agency / USGS / Commons review.
 
 ## 2026-07-22 Upper Iowa split pass
 
