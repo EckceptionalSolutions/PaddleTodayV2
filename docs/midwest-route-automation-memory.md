@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-22 18:40 America/Chicago / 2026-07-22 23:40 UTC: Iowa lower Boone implementation pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 48-route Iowa baseline: `boone-river-albright-tunnel-mill`, `boone-river-tunnel-mill-bells-mill`, and `boone-river-bells-mill-boone-forks`, bringing this checkout to 51 Iowa routes.
+  - Qualification path: Hamilton County Boone River touring information plus Iowa DNR Boone River guide document the lower water-trail access chain, route mileages, public/private access posture, Class I-II/Tunnel Mill Dam-remains hazards, Bell's Mill endpoint campground support, and Boone Forks hidden/no-downstream-take-out warning; MyCountyParks supports Albright, Tunnel Mill, and Bell's Mill public access context; Iowa DNR Boone Forks ramp plans publish exact final take-out coordinates.
+  - Gauge posture: USGS Water Services returned Boone River near Webster City `05481000` at `147 cfs / 2.12 ft` at 2026-07-22 18:00 CDT. CanWePaddle publishes the broader Webster-City-to-Stratford `120-1,500 cfs` range, combined with Hamilton County's `<=1,100 cfs` novice and `1,500+ cfs` advanced-only guidance.
+  - Reused the existing approved Boone River near Albright Commons image for same-river route-gallery context. Reviewed but did not duplicate the already-live Riverside-to-Albright or deferred Riverside-to-Briggs-only segment.
+
 - 2026-07-22 18:15 America/Chicago / 2026-07-22 23:15 UTC: Minnesota Kettle/Red/St. Louis implementation pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 136-route Minnesota baseline: `kettle-river-musclewood-1`, `red-river-highway-25-halstad`, and `st-louis-river-county-road-4-95`, bringing this checkout to 139 Minnesota routes.
   - Qualification path: MN DNR Kettle Map 1 plus public-water-access GIS support Musclewood-to-#1; MN DNR Red River Map 3 plus public-water-access GIS support Highway-25/Hendrum-to-Halstad; MN DNR St. Louis Map 1 plus the St. Louis segments page support County Road 4-to-County Road 95, with County Road 95 resolved in public-water-access GIS.

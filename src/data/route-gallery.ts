@@ -164,6 +164,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
     },
   ],
+  'boone-river-albright-tunnel-mill': [
+    {
+      id: 'boone-river-iowa-commons',
+      src: '/gallery/boone-river-riverside-albright/boone-river-iowa.jpg',
+      alt: 'The Boone River bends below a wooded bank near Albright canoe access in Hamilton County, Iowa.',
+      caption: 'Boone River near Albright canoe access',
+      credit: 'Tim Kiser via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
+    },
+  ],
+  'boone-river-tunnel-mill-bells-mill': [
+    {
+      id: 'boone-river-iowa-commons',
+      src: '/gallery/boone-river-riverside-albright/boone-river-iowa.jpg',
+      alt: 'The Boone River bends below a wooded bank near Albright canoe access in Hamilton County, Iowa.',
+      caption: 'Boone River near Albright canoe access',
+      credit: 'Tim Kiser via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
+    },
+  ],
+  'boone-river-bells-mill-boone-forks': [
+    {
+      id: 'boone-river-iowa-commons',
+      src: '/gallery/boone-river-riverside-albright/boone-river-iowa.jpg',
+      alt: 'The Boone River bends below a wooded bank near Albright canoe access in Hamilton County, Iowa.',
+      caption: 'Boone River near Albright canoe access',
+      credit: 'Tim Kiser via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
+    },
+  ],
   'big-fork-river-highway-6-south-north': [
     {
       id: 'big-fork-boat-launch-commons',

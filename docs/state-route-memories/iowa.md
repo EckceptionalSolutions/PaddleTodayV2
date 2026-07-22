@@ -4,13 +4,22 @@ Last summarized: 2026-07-22.
 
 ## Current Inventory
 
-- Live routes: 48 after the 2026-07-22 Wapsipinicon/Raccoon pass.
+- Live routes: 51 after the 2026-07-22 lower Boone pass.
 - Top represented rivers: Upper Iowa River 8, Turkey River 6, North Fork Maquoketa River 6, Cedar River 4, South Skunk River 4, Maquoketa River 4, Volga River 3, Black Hawk Creek 2, Middle River 2, Yellow River 2.
 - Ledger candidates: 52 total after the 2026-07-22 Cedar pass; 45 added, 2 `no_live_gauge`, 2 `gauge_proxy_weak`, 2 `research_later`, 2 `rejected`, 1 `threshold_weak`.
 
 ## Status
 
-Iowa remains mature overall. The 2026-07-22 run added only because the Upper Iowa guide and WRT/Miles Paddled evidence supported shorter high-use public access pairs inside already modeled long cards, and the task required three fresh Iowa slugs beyond the current checkout baseline.
+Iowa remains mature overall. The latest 2026-07-22 run added lower Boone because it extends beyond the existing Riverside-to-Albright card into distinct official Hamilton County water-trail segments with route-specific access, hazard, camping, and no-downstream-take-out evidence.
+
+## 2026-07-22 lower Boone pass
+
+- Baseline at run start: 48 Iowa live routes.
+- Added `boone-river-albright-tunnel-mill`, `boone-river-tunnel-mill-bells-mill`, and `boone-river-bells-mill-boone-forks`, bringing Iowa to 51 live routes in this checkout.
+- Qualification path: Hamilton County Boone River touring information and Iowa DNR Boone River guide support the lower water-trail access chain, segment mileages, cfs guidance, Bevers Bridge private-access caveat, Class I-II/Tunnel Mill Dam-remains hazards, Bell's Mill campground/ramp context, and Boone Forks hidden/no-downstream-take-out warning. MyCountyParks supports Albright, Tunnel Mill, and Bell's Mill public access context; Iowa DNR Boone Forks ramp project plans publish exact Boone Forks ramp coordinates.
+- Gauge posture: USGS Water Services returned Boone River near Webster City `05481000` at `147 cfs / 2.12 ft` at 2026-07-22 18:00 CDT. CanWePaddle publishes the broader Webster-City-to-Stratford `120-1,500 cfs` estimated range, while Hamilton County says `1,100 cfs` or below is good for inexperienced canoeists and `1,500 cfs` and above is advanced-only.
+- Overlap posture: these are not Riverside-to-Briggs duplicates. They extend downstream of the existing Riverside-to-Albright card and model materially different lower access pairs, including the remote Albright/Tunnel gradient section and the final Boone Forks mandatory take-out boundary.
+- Reused the existing approved CC BY-SA 2.5 Boone River near Albright image for same-river context; no new image file was added.
 
 ## 2026-07-22 Wapsipinicon/Raccoon pass
 

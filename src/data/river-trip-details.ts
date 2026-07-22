@@ -10023,6 +10023,188 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
+  'boone-river-albright-tunnel-mill': {
+    putIn: {
+      id: 'albrights-canoe-access',
+      name: "Albright's Canoe Access",
+      latitude: 42.4054,
+      longitude: -93.8099,
+    },
+    takeOut: {
+      id: 'tunnel-mill-canoe-access',
+      name: 'Tunnel Mill Canoe Access',
+      latitude: 42.3537,
+      longitude: -93.8189,
+    },
+    logistics: {
+      distanceLabel: 'About 7.5 mi',
+      estimatedPaddleTime: 'About 3.5 hr, longer with low water, scouting, wood, or portage delays',
+      shuttle:
+        "Stage the take-out at Tunnel Mill Canoe Access before driving back to Albright's Canoe Access. Do not plan to use Bevers Bridge as a normal bailout because Hamilton County notes that access is on private property.",
+      permits:
+        'No route-specific paddling permit is known. Use public water-trail accesses, follow Iowa boating/PFD rules, and respect posted hunting, parking, and wildlife-area rules.',
+      camping:
+        "Treat this as a day route. Bell's Mill Park downstream has campground context for a base-camp trip, but no legal on-route campsite was confirmed between Albright and Tunnel Mill.",
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Launch at Albright's Canoe Access and take out at Tunnel Mill for the remote, faster-gradient lower-Boone continuation. Use the Webster City gauge conservatively, avoid private Bevers Bridge access, and be ready for Class I-II rapids, boulders, wood, and the Tunnel Mill Dam remains.",
+      accessCaveats: [
+        "Albright's Canoe Access is an Iowa DNR-owned / Hamilton County-managed canoe access. Inspect the landing before launch because this route begins immediately in a faster-gradient section.",
+        'Tunnel Mill provides river access and parking for vehicles and canoe trailers, but it is a rural wildlife-management access rather than a staffed park.',
+        'Bevers Bridge is not a routine access for this route. Hamilton County specifically notes that its canoe access is private property.',
+        'The selected gauge is direct and same-river but upstream of this lower segment. Make a visual call for depth and wood before leaving Albright.',
+      ],
+      watchFor: [
+        'Class I-II rapids, boulder gardens, outside-bend strainers, and fast current during the first two miles below Albright.',
+        'The abrupt shallow drop and old Tunnel Mill Dam remains near the lower part of the route. Scout or carry if the line is not obvious.',
+        'Low water below about 120 cfs at Webster City, when bony riffles and the Tunnel Mill drop become more likely.',
+        'High water around or above 1,500 cfs at Webster City, when Hamilton County recommends the river only for advanced canoeists.',
+        'Private banks, limited exits, cold water, and delayed rescue in the remote valley.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'albrights-canoe-access',
+        name: "Albright's Canoe Access",
+        latitude: 42.4054,
+        longitude: -93.8099,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the lower-Boone continuation below Webster City.',
+      },
+      {
+        id: 'tunnel-mill-canoe-access',
+        name: 'Tunnel Mill Canoe Access',
+        latitude: 42.3537,
+        longitude: -93.8189,
+        mileFromStart: 7.5,
+        segmentKind: 'creek',
+        note: 'Default take-out at the Iowa DNR-owned Tunnel Mill wildlife-management access.',
+      },
+    ],
+  },
+
+  'boone-river-tunnel-mill-bells-mill': {
+    putIn: {
+      id: 'tunnel-mill-canoe-access',
+      name: 'Tunnel Mill Canoe Access',
+      latitude: 42.3537,
+      longitude: -93.8189,
+    },
+    takeOut: {
+      id: 'bells-mill-park',
+      name: "Bell's Mill Park",
+      latitude: 42.3464,
+      longitude: -93.8847,
+    },
+    logistics: {
+      distanceLabel: 'About 5.1 mi',
+      estimatedPaddleTime: 'About 2.5 hr, longer with low water, wood, or relaxed stops',
+      shuttle:
+        "Stage the take-out at Bell's Mill Park, then drive back to Tunnel Mill. Both endpoints are rural Hamilton County access points, so confirm road, parking, and ramp conditions before unloading.",
+      permits:
+        'No route-specific paddling permit is known. Use public access areas, follow Iowa boating/PFD rules, and obey county park and wildlife-area postings.',
+      camping:
+        "Bell's Mill Park has endpoint campground context with restrooms and a concrete ramp, making this a base-camp-friendly day route. Do not assume informal riverbank camping between endpoints.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Tunnel Mill and take out at Bell's Mill Park for a short remote Boone River day through dense hardwood banks. The route is calmer than Albright-to-Tunnel Mill but still requires wood, low-water, and private-bank judgment.",
+      accessCaveats: [
+        'Tunnel Mill is a rural wildlife-management access with parking for vehicles and canoe trailers, not a full-service launch park.',
+        "Bell's Mill has a concrete boat ramp, parking, restrooms, and campground context, but it is reached by gravel-road park access. Inspect the ramp before launch.",
+        'The selected Webster City gauge is upstream of this lower segment. Use it as the product gauge, then make a same-day visual check for wood and depth.',
+        'Stay with public accesses and marked public land. The surrounding Boone River corridor includes private banks.',
+      ],
+      watchFor: [
+        'Downed trees, tight wooded bends, and flood-deposited debris in a remote section with limited exits.',
+        'Low water below about 120 cfs at Webster City, when sandy shallows and shallow riffles slow the route.',
+        'High or rising water near or above 1,500 cfs at Webster City, when reaction time around strainers shrinks.',
+        'Cold water, insects, rural-road shuttle delays, and weak cell coverage.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'tunnel-mill-canoe-access',
+        name: 'Tunnel Mill Canoe Access',
+        latitude: 42.3537,
+        longitude: -93.8189,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the Iowa DNR-owned Tunnel Mill access.',
+      },
+      {
+        id: 'bells-mill-park',
+        name: "Bell's Mill Park",
+        latitude: 42.3464,
+        longitude: -93.8847,
+        mileFromStart: 5.1,
+        segmentKind: 'creek',
+        note: 'Default take-out with county park ramp, restroom, and campground context.',
+      },
+    ],
+  },
+
+  'boone-river-bells-mill-boone-forks': {
+    putIn: {
+      id: 'bells-mill-park',
+      name: "Bell's Mill Park",
+      latitude: 42.3464,
+      longitude: -93.8847,
+    },
+    takeOut: {
+      id: 'boone-forks-canoe-ramp',
+      name: 'Boone Forks Wildlife Area Canoe Ramp',
+      latitude: 42.312497,
+      longitude: -93.933272,
+    },
+    logistics: {
+      distanceLabel: 'About 5.1 mi',
+      estimatedPaddleTime: 'About 2.5 hr, longer with low water, wood, or take-out scouting',
+      shuttle:
+        "Stage the take-out at Boone Forks Wildlife Area before launching at Bell's Mill. Walk down to identify the ramp and landing from shore because Iowa DNR warns the take-out can be hidden by vegetation or dead wood.",
+      permits:
+        'No route-specific paddling permit is known. Use public county/DNR accesses, follow Iowa boating/PFD rules, and respect wildlife-area and park postings.',
+      camping:
+        "Bell's Mill Park has endpoint campground context, but the paddle itself should be treated as a day route. Do not plan improvised camping on private banks or below Boone Forks.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Bell's Mill Park and take out at Boone Forks Wildlife Area for the final Boone water-trail segment above the Des Moines River. The take-out discipline matters: there are no take-out opportunities after Boone Forks for this route.",
+      accessCaveats: [
+        "Bell's Mill is the campground-backed put-in with a concrete boat ramp and restrooms.",
+        'Boone Forks is a walk-down canoe ramp with DNR-published project coordinates, but Iowa DNR says vegetation or dead wood can hide the take-out.',
+        'The route ends at Boone Forks. Do not continue toward the Des Moines River confluence unless the group has a separate downstream plan.',
+        'The selected Webster City gauge is upstream of this lower finish. Make a visual call for wood, water level, and landing visibility before committing.',
+      ],
+      watchFor: [
+        'Strainers and flood-deposited wood in sandy-bottom bends, especially after rain.',
+        'Missing Boone Forks take-out; there are no take-out opportunities after it according to Iowa DNR.',
+        'Low water below about 120 cfs at Webster City, when dragging and sandy shallows become more likely.',
+        'High water around or above 1,500 cfs at Webster City, when the hidden take-out and wood become more consequential.',
+        'Private banks, limited rescue access, and the nearby Des Moines River confluence beyond the planned exit.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'bells-mill-park',
+        name: "Bell's Mill Park",
+        latitude: 42.3464,
+        longitude: -93.8847,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in with county park ramp, restroom, and campground context.',
+      },
+      {
+        id: 'boone-forks-canoe-ramp',
+        name: 'Boone Forks Wildlife Area Canoe Ramp',
+        latitude: 42.312497,
+        longitude: -93.933272,
+        mileFromStart: 5.1,
+        segmentKind: 'creek',
+        note: 'Required take-out before the Des Moines River confluence; DNR warns no take-outs follow this point.',
+      },
+    ],
+  },
+
   'cedar-river-road-t38-idlewild': {
     putIn: {
       name: 'Road T38 Access',
