@@ -2142,6 +2142,209 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'fox-river-princeton-locks-city-landing': {
+    putIn: {
+      id: 'princeton-lock-dam-lock-road',
+      name: 'Princeton Lock and Dam / Lock Road landing',
+      latitude: 43.82682,
+      longitude: -89.15854,
+    },
+    takeOut: {
+      id: 'princeton-hiestand-park-landing',
+      name: 'Princeton Jefferson Street / Hiestand Park Landing',
+      latitude: 43.8512,
+      longitude: -89.1289,
+    },
+    logistics: {
+      distanceLabel: 'About 3.6 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer with wind or high water',
+      shuttle:
+        'Stage the Hiestand Park / Jefferson Street city landing first, then return to Princeton Lock and Dam on Lock Road. Confirm you are launching below the dam and fish-barrier area, not above it.',
+      permits:
+        'No route-specific paddling permit is known. Use the public DNR and city landings, follow Wisconsin boating and PFD rules, and obey posted Lock Road, Hiestand Park, and downtown parking rules.',
+      camping:
+        'No on-route camping is allowed or documented. Wisconsin DNR says Upper Fox River Public Access properties prohibit open fires and camping, so treat this as a short day trip.',
+      campingClassification: 'none',
+      summary:
+        'Launch below Princeton Lock and Dam and paddle north to the city landing in Princeton for a short Upper Fox route. The direct Princeton gauge is useful, but the dam-adjacent start and wind exposure deserve same-day checks.',
+      accessCaveats: [
+        'Princeton Lock and Dam has a dangerous low-head dam and electric fish barrier. Launch below the structure and do not approach it from upstream or downstream.',
+        'The Lock Road side has DNR public boat launches, parking, and seasonal restroom support; the Oxbow Trail side is not the normal boat-launch side for this card.',
+        'The city landing is the planned take-out. Downtown events, fishing use, or local parking rules can affect staging.',
+        'The route uses minimum-only scoring because WRT gives a low-water/high-water heuristic rather than a formal two-sided paddling ladder.',
+      ],
+      watchFor: [
+        'Low-head dam and electric fish-barrier hazards at the put-in area.',
+        'Wind on the broad Upper Fox, slow current, dirty high water, and floating debris after rain.',
+        'Private shoreline, bridge approaches, fishing lines, and limited legal exits between endpoints.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'princeton-lock-dam-lock-road',
+        name: 'Princeton Lock and Dam / Lock Road landing',
+        latitude: 43.82682,
+        longitude: -89.15854,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below the dam and fish barrier.',
+      },
+      {
+        id: 'princeton-hiestand-park-landing',
+        name: 'Princeton Jefferson Street / Hiestand Park Landing',
+        latitude: 43.8512,
+        longitude: -89.1289,
+        mileFromStart: 3.58,
+        segmentKind: 'creek',
+        note: 'Default public city take-out.',
+      },
+    ],
+  },
+
+  'fox-river-princeton-white-river-locks': {
+    putIn: {
+      id: 'princeton-hiestand-park-landing',
+      name: 'Princeton Jefferson Street / Hiestand Park Landing',
+      latitude: 43.8512,
+      longitude: -89.1289,
+    },
+    takeOut: {
+      id: 'white-river-lock-dam-landing',
+      name: 'White River Lock and Dam landing',
+      latitude: 43.89997,
+      longitude: -89.08402,
+    },
+    logistics: {
+      distanceLabel: 'About 6.0 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr depending on wind and current',
+      shuttle:
+        'Stage the White River Lock and Dam take-out on Lock Road, then return to Princeton / Hiestand Park. Old St. Marie Road is a short-route bailout if the group only wants the first 1.9 miles.',
+      permits:
+        'No route-specific paddling permit is known. Use public DNR and city landings, follow Wisconsin boating and PFD rules, and obey Upper Fox Public Access posted rules.',
+      camping:
+        'No on-route camping is allowed or documented. Wisconsin DNR says Upper Fox River Public Access properties prohibit open fires and camping, so use this as a day trip only.',
+      campingClassification: 'none',
+      summary:
+        'Launch in Princeton and take out at White River Lock and Dam for the six-mile Upper Fox continuation. The first section has wooded banks and an old swing bridge, then the river broadens and slows toward the DNR take-out.',
+      accessCaveats: [
+        'Princeton / Hiestand Park is the public city launch. Check downtown parking, events, and fishing pressure before leaving a vehicle.',
+        'White River Lock and Dam is the planned public take-out with refurbished DNR access, parking, and a no-fee launch. Do not improvise a private-bank exit if wind slows the day.',
+        'The Princeton gauge is direct to the route corridor, but the route is flat enough that wind, weeds, heat, and high-water turbidity can matter more than small flow changes.',
+      ],
+      watchFor: [
+        'Wind and slow current on the broad lower half of the route.',
+        'Private banks, fishing lines, occasional motorboats, and limited public bailouts.',
+        'High spring water that reduces clarity and can carry debris even though this is not a rapids route.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'princeton-hiestand-park-landing',
+        name: 'Princeton Jefferson Street / Hiestand Park Landing',
+        latitude: 43.8512,
+        longitude: -89.1289,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default public city put-in.',
+      },
+      {
+        id: 'old-st-marie-road-landing',
+        name: 'Old St. Marie Road Landing',
+        latitude: 43.8629,
+        longitude: -89.1129,
+        mileFromStart: 1.9,
+        segmentKind: 'creek',
+        note: 'WRT-identified public short-trip take-out near the historic swing bridge.',
+      },
+      {
+        id: 'white-river-lock-dam-landing',
+        name: 'White River Lock and Dam landing',
+        latitude: 43.89997,
+        longitude: -89.08402,
+        mileFromStart: 6,
+        segmentKind: 'creek',
+        note: 'Default DNR take-out at the refurbished White River Lock and Dam access.',
+      },
+    ],
+  },
+
+  'sheboygan-river-rochester-esslingen': {
+    putIn: {
+      id: 'rochester-park-sheboygan-river',
+      name: 'Rochester Park river access',
+      latitude: 43.7266,
+      longitude: -87.8166,
+    },
+    takeOut: {
+      id: 'esslingen-park-sheboygan-river',
+      name: 'Esslingen Park canoe access',
+      latitude: 43.741,
+      longitude: -87.75046,
+    },
+    logistics: {
+      distanceLabel: 'About 9.8 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr, longer with dam portages, low water, or salmon-season crowds',
+      shuttle:
+        'Stage Esslingen Park first, then drive back to Rochester Park. A bike shuttle is possible through Kohler/Sheboygan-area paths and streets, but two vehicles are simpler with portage gear.',
+      permits:
+        'No route-specific paddling permit is known. Use the public park accesses, follow Wisconsin boating and PFD rules, and obey posted city, county, and park parking rules.',
+      camping:
+        'No on-route public campsite is documented. Treat this as a day route through park, golf-course, and private-bank corridors.',
+      campingClassification: 'none',
+      summary:
+        'Paddle the Kohler reach from Rochester Park to Esslingen Park. The route starts slow, requires two dam portages, then improves below Walderhaus Dam with rocky banks, Class I riffles, fall color, and salmon-run context.',
+      accessCaveats: [
+        'Rochester Park is a public park access with a carry to the water rather than a polished ramp. Inspect the launch path and water level before unloading.',
+        'Esslingen Park is the planned public take-out. Do not continue into the lower urban Sheboygan route unless that separate itinerary is planned.',
+        'River Wildlife / Kohler-area landings along the route are private or permission-based and should not be used as casual bailouts.',
+        'The Sheboygan gauge is downstream in town. Pair it with a same-day visual call at Rochester and the dam portages.',
+      ],
+      watchFor: [
+        'River Bend Dam and Walderhaus Dam portages; do not run the dams as part of the normal route.',
+        'Low-water scraping below about 100 cfs and higher-water push or poorer clarity above WRT target levels.',
+        'Class I riffles, strainers, bridge approaches, cold water, private banks, salmon-season anglers, and lower-river water-quality concerns.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rochester-park-sheboygan-river',
+        name: 'Rochester Park river access',
+        latitude: 43.7266,
+        longitude: -87.8166,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default public put-in in Rochester Park.',
+      },
+      {
+        id: 'river-bend-dam-sheboygan',
+        name: 'River Bend Dam portage',
+        latitude: 43.7287,
+        longitude: -87.7865,
+        mileFromStart: 2.5,
+        segmentKind: 'transition',
+        note: 'First marked dam portage.',
+      },
+      {
+        id: 'walderhaus-dam-sheboygan',
+        name: 'Walderhaus Dam portage',
+        latitude: 43.7308,
+        longitude: -87.7735,
+        mileFromStart: 3.7,
+        segmentKind: 'transition',
+        note: 'Second dam portage before the better riffle corridor.',
+      },
+      {
+        id: 'esslingen-park-sheboygan-river',
+        name: 'Esslingen Park canoe access',
+        latitude: 43.741,
+        longitude: -87.75046,
+        mileFromStart: 9.8,
+        segmentKind: 'creek',
+        note: 'Default public take-out at Esslingen Park / Sheboygan River Natural Area.',
+      },
+    ],
+  },
+
   'wolf-river-lily-hollister': {
     putIn: {
       name: 'Hwy 52 access (Lily)',
@@ -32893,6 +33096,189 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 11.4,
         segmentKind: 'creek',
         note: 'Default take-out at DNR Map 7 river mile 942.2 / GIS river mile 942.3; resolves as WAS01283.',
+      },
+    ],
+  },
+  'zumbro-river-hammond-theilman': {
+    putIn: {
+      name: 'Zumbro River, Hammond Village Park Public Water Access Site',
+      latitude: 44.2212366,
+      longitude: -92.3690609,
+    },
+    takeOut: {
+      name: 'Zumbro River, Theilman Public Water Access Site',
+      latitude: 44.2867032,
+      longitude: -92.1868526,
+    },
+    logistics: {
+      distanceLabel: 'About 16.0 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, wood scouting, or campsite stops',
+      shuttle:
+        'Stage the Theilman take-out first, then drive back to Hammond Village Park. This is a long enough southeast Minnesota day that low water, recent storms, and daylight should be checked before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, posted access rules, and current DNR watercraft-campsite or public-land restrictions.',
+      camping:
+        'DNR Map 2 identifies watercraft campsite support on this corridor. Treat camping as designated-site use only; verify current availability and do not camp on private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Hammond Village Park and take out at Theilman for the missing Zumbro Map 2 connector above the existing Theilman-to-Kruger card. The Zumbro Falls DNR gauge is current and official, but today it is below the preferred medium band.',
+      accessCaveats: [
+        'Hammond Village Park resolves as WAS00253 at river mile 38.2 in public-water-access GIS, while DNR Map 2 labels the Hammond/Village Park access at about river mile 39.0.',
+        'Theilman resolves as WAS02185 at river mile 23.0 and is the planned finish; do not drift downstream into the existing Theilman-to-Kruger reach unless that extra route is staged.',
+        'Use mapped public accesses and designated campsites only. Private banks, farm crossings, and unmanaged roads are not assumed legal exits.',
+      ],
+      watchFor: [
+        'Hammond Rapids, lively current, snags, logs, and fresh strainers after storms.',
+        'Flash-flood response after heavy rain; a stable gauge trend and local visual check matter more than the number alone.',
+        'Low-water scraping when the Zumbro Falls gauge is in the official low band, cold water in shoulder seasons, and limited mid-route services.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hammond-village-park-zumbro',
+        name: 'Zumbro River, Hammond Village Park Public Water Access Site',
+        latitude: 44.2212366,
+        longitude: -92.3690609,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00253 in Minnesota public-water-access GIS.',
+      },
+      {
+        id: 'theilman-zumbro',
+        name: 'Zumbro River, Theilman Public Water Access Site',
+        latitude: 44.2867032,
+        longitude: -92.1868526,
+        mileFromStart: 16,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR Map 2 river mile 23.0; resolves as WAS02185.',
+      },
+    ],
+  },
+  'red-lake-river-st-hilaire-sportsmans': {
+    putIn: {
+      name: 'Red Lake River, St. Hilaire City Park Public Water Access Site',
+      latitude: 48.0092108,
+      longitude: -96.2088527,
+    },
+    takeOut: {
+      name: "Red Lake River, Sportsman's Park / Red Lake Falls trailer access",
+      latitude: 47.8939989,
+      longitude: -96.2820976,
+    },
+    logistics: {
+      distanceLabel: 'About 21.8 mi',
+      estimatedPaddleTime: 'About 7 hr to 10 hr, longer with low water, tuber traffic, or wood scouting',
+      shuttle:
+        'Stage Sportsman\'s Park in Red Lake Falls first, then drive upstream to St. Hilaire City Park. This is a long rural shuttle and should be shortened or postponed if the group cannot launch early.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules plus posted St. Hilaire, Red Lake Falls, access, campground, and parking rules.',
+      camping:
+        'DNR Map 2 maps camping/rest-area support at St. Hilaire and campsites/drinking water at Sportsman\'s Park. Treat this as endpoint campground support, not permission to camp on private riverbanks.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Put in at St. Hilaire City Park and take out at Sportsman\'s Park for the missing Red Lake River connector between the existing Highway-1-to-St.-Hilaire and Sportsman\'s-to-Huot cards. The Red Lake Falls gauge is current and in the official medium band.',
+      accessCaveats: [
+        'St. Hilaire City Park resolves as WAS00808 at river mile 114.8 in Minnesota public-water-access GIS.',
+        'The Sportsman\'s Park access is represented in public-water-access GIS by the Clearwater River / Sportsman Park record at the confluence area; DNR Map 2 names it as the Red Lake River trailer access at river mile 93.0.',
+        'The CR 13 gauge is near the lower end of the route. Make a visual check at St. Hilaire before committing the upstream miles to that reading.',
+      ],
+      watchFor: [
+        'Intermittent Class I-II rapids, boulder fields, riffles, low-water scraping, and strainers between St. Hilaire and Red Lake Falls.',
+        'High tuber frequency around river miles 96.5 to 93.9 near Red Lake Falls in season.',
+        'Long mileage, private banks, cold water, limited exits, and faster current after rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'st-hilaire-red-lake',
+        name: 'Red Lake River, St. Hilaire City Park Public Water Access Site',
+        latitude: 48.0092108,
+        longitude: -96.2088527,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR Map 2 river mile 114.8; resolves as WAS00808.',
+      },
+      {
+        id: 'voyageurs-view-red-lake',
+        name: "Voyageur's View / County Road 13 carry-in access",
+        latitude: 47.8977123,
+        longitude: -96.2741376,
+        mileFromStart: 20.9,
+        segmentKind: 'creek',
+        note: 'DNR Map 2 maps this carry-in access and river-level gauge at river mile 93.9; resolves as WAS00552.',
+      },
+      {
+        id: 'sportsmans-park-red-lake',
+        name: "Red Lake River, Sportsman's Park / Red Lake Falls trailer access",
+        latitude: 47.8939989,
+        longitude: -96.2820976,
+        mileFromStart: 21.8,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR Map 2 river mile 93.0; public-access GIS resolves the confluence-area Sportsman Park access as WAS01943.',
+      },
+    ],
+  },
+  'red-lake-river-huot-crookston': {
+    putIn: {
+      name: 'Red Lake River, Huot Park Public Water Access Site',
+      latitude: 47.8610626,
+      longitude: -96.4249999,
+    },
+    takeOut: {
+      name: 'Red Lake River, Central Park Public Water Access Site',
+      latitude: 47.7728904,
+      longitude: -96.6013775,
+    },
+    logistics: {
+      distanceLabel: 'About 24.0 mi',
+      estimatedPaddleTime: 'About 8 hr to 11 hr, longer with low water, wind, or wood scouting',
+      shuttle:
+        'Stage Central Park in Crookston first, then drive upstream to Huot Park. This is a long lower-river day; launch early and keep a hard daylight cutoff.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, Huot Park access rules, City of Crookston park/campground rules, and posted parking instructions.',
+      camping:
+        'DNR Map 2 identifies Central Park with trailer access, rest area, and campsites. Treat camping as endpoint campground support controlled by current City of Crookston rules.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Huot Park and take out at Crookston Central Park for a long lower Red Lake River connector. The Crookston DNR gauge is nearby and official but downstream of the take-out, and today it is only in the low band.',
+      accessCaveats: [
+        'Huot Park resolves as WAS02137 at river mile 79.5 and Central Park resolves as WAS00549 at river mile 55.5 in Minnesota public-water-access GIS.',
+        'The Crookston DNR gauge is downstream of Central Park and below additional bridge/rapid context, so use it as a near-downstream proxy and make visual checks at both endpoints.',
+        'Take out at Central Park for this card. DNR Map 2 maps constructed rock rapids downstream in Crookston; do not continue without a separate scouted plan.',
+      ],
+      watchFor: [
+        'Long mileage, low-water scraping, boulder fields, shallow bends, wood, and private banks.',
+        'Constructed rapids downstream of the planned Central Park finish; missing the take-out changes the hazard profile.',
+        'Wind across open farmland bends, cold water, farm runoff after storms, rising water, and sparse rescue access.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'huot-park-red-lake',
+        name: 'Red Lake River, Huot Park Public Water Access Site',
+        latitude: 47.8610626,
+        longitude: -96.4249999,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR Map 2 river mile 79.5; resolves as WAS02137.',
+      },
+      {
+        id: 'crookston-red-lake',
+        name: 'Red Lake River, Crookston carry-in access',
+        latitude: 47.7598975,
+        longitude: -96.5671255,
+        mileFromStart: 20.4,
+        segmentKind: 'creek',
+        note: 'DNR Map 2 maps a Crookston carry-in access at river mile 59.1; GIS resolves Crookston access as WAS03055.',
+      },
+      {
+        id: 'central-park-crookston-red-lake',
+        name: 'Red Lake River, Central Park Public Water Access Site',
+        latitude: 47.7728904,
+        longitude: -96.6013775,
+        mileFromStart: 24,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR Map 2 river mile 55.5; resolves as WAS00549 and keeps this card above the downstream constructed rapids.',
       },
     ],
   },

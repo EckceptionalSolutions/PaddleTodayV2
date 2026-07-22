@@ -1,5 +1,18 @@
 # Midwest Route Automation Memory
 
+- 2026-07-22 17:10 America/Chicago / 2026-07-22 22:10 UTC: Wisconsin current-baseline Princeton/Sheboygan implementation pass (`wisconsin-route-additions`).
+  - Added three Wisconsin route slugs beyond the current 107-route Wisconsin baseline: `fox-river-princeton-locks-city-landing`, `fox-river-princeton-white-river-locks`, and `sheboygan-river-rochester-esslingen`, bringing this checkout to 110 Wisconsin routes.
+  - Qualification path: Wisconsin River Trips plus Wisconsin DNR / City of Princeton support the two Upper Fox access pairs, dam/wind/no-camping caveats, direct Princeton gauge `04073365`, and conservative minimum-only scoring. Wisconsin River Trips plus Sheboygan River Water Trail / DNR access context support Rochester Park to Esslingen Park, two dam portages, downstream same-river Sheboygan gauge `04086000`, and WRT's two-sided gauge ladder.
+  - Gauge posture: USGS Water Services returned Fox River at Princeton `520 cfs / 3.88 ft` and Sheboygan River at Sheboygan `58.4 cfs / 1.88 ft` at 2026-07-22 16:00 CDT. The Fox routes were above their conservative floors; Sheboygan was below WRT's 101 cfs target and ships as shallow/too-low.
+  - No route-gallery assets were added after bounded WRT / DNR / local / USGS / Commons / same-route image review.
+
+- 2026-07-22 17:07 America/Chicago / 2026-07-22 22:07 UTC: Minnesota Zumbro/Red Lake implementation pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 133-route Minnesota baseline: `zumbro-river-hammond-theilman`, `red-lake-river-st-hilaire-sportsmans`, and `red-lake-river-huot-crookston`, bringing this checkout to 136 Minnesota routes.
+  - Qualification path: MN DNR Zumbro Map 2, MN DNR Red Lake Map 2, Minnesota public-water-access GIS, and MN DNR interpreted river-level feeds. Hammond/Theilman resolve as `WAS00253`/`WAS02185`; St. Hilaire/Sportsman's use `WAS00808` plus confluence-area `WAS01943` with DNR Map 2 naming Sportsman's Park as the Red Lake River access; Huot/Central Park resolve as `WAS02137`/`WAS00549`.
+  - Gauge posture: Zumbro Falls site `267` returned `5.93 ft` at 2026-07-22 15:30 CDT, in the official low band; Red Lake Falls / CR13 site `180` returned `9.97 ft` at 2026-07-22 15:30 CDT, in the official medium band; Crookston site `172` returned `3.67 ft` at 2026-07-22 15:00 CDT, in the official low band. The cards use only DNR interpreted bands.
+  - Safety/camping posture: Hammond-to-Theilman uses mapped watercraft-campsite support and carries flash-flood/Hammond-Rapids/wood caveats; St. Hilaire-to-Sportsman's and Huot-to-Crookston use endpoint campground support and carry long-mile, Class I-II/riffle, tuber-zone, low-water, private-bank, and Crookston constructed-rapid take-out discipline caveats.
+  - No route-gallery assets were added; image audit rows record bounded DNR / public-access / watershed-local / Commons / same-route searches with no clearly rights-clean exact-route asset selected.
+
 - 2026-07-22 16:34 America/Chicago / 2026-07-22 21:34 UTC: Iowa Cedar River flatwater implementation pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 42-route Iowa baseline: `cedar-river-road-t38-idlewild`, `cedar-river-idlewild-rotary`, and `cedar-river-rotary-charles-city-dock`, bringing this checkout to 45 Iowa routes.
   - Qualification path: Cedar River Paddling Trips guide PDF plus Mitchell County Conservation / Iowa DNR / City of Nashua support the public access chain, route mileages, coordinates, private-bank/no-camping posture, dam/take-out cautions, and Charles City gauge guidance.

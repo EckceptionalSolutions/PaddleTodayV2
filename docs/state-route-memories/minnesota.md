@@ -1,5 +1,15 @@
 # Minnesota Route Memory
 
+## 2026-07-22 17:07 America/Chicago / 2026-07-22 22:07 UTC Minnesota implementation pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `133` to `136` route slugs by adding `zumbro-river-hammond-theilman`, `red-lake-river-st-hilaire-sportsmans`, and `red-lake-river-huot-crookston`.
+- Qualification path: current MN DNR Zumbro Map 2 / segments page and public-water-access GIS resolve Hammond Village Park `WAS00253` and Theilman `WAS02185`; current MN DNR Red Lake Map 2 / segments page and public-water-access GIS resolve St. Hilaire `WAS00808`, Sportsman Park confluence access `WAS01943`, Huot Park `WAS02137`, Crookston `WAS03055`, and Central Park `WAS00549`.
+- Live gauge verification: MN DNR Zumbro Falls site `267` returned `5.93 ft` at `2026-07-22 15:30 CDT`, in the official low band below medium; MN DNR Red Lake Falls / CR13 site `180` returned `9.97 ft` at `2026-07-22 15:30 CDT`, in the official medium band; MN DNR Crookston site `172` returned `3.67 ft` at `2026-07-22 15:00 CDT`, in the official low band.
+- Implemented official DNR interpreted gauge models only: Zumbro Falls `5.2 / 7.0-9.0 / 10.5 ft`, Red Lake Falls `5 / 8-11 / 15 ft`, and Crookston `3 / 5-8 / 12 ft`. No extra ideal ranges or upper cutoffs were invented.
+- Camping posture: Hammond-to-Theilman is `on_route_campsite` through DNR-mapped watercraft-campsite context; St. Hilaire-to-Sportsman's and Huot-to-Crookston are `endpoint_campground` through mapped city/park campground support. All three reject informal private-bank camping.
+- Safety posture: Hammond-to-Theilman carries lively-current, Hammond Rapids, flash-flood, wood/strainer, private-bank, and low-water caveats. St. Hilaire-to-Sportsman's carries long-mile, intermittent Class I-II, boulder/riffle, tuber-zone, private-bank, cold-water, and local-visual-check caveats. Huot-to-Crookston carries long-mile, low-water, limited-exit, private-bank, cold-water, and mandatory Central Park take-out wording before the downstream Crookston constructed rapids.
+- Image posture: no route-gallery images were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / watershed-local / Commons / same-route searches with no clearly rights-clean exact-route paddling asset selected for local reuse.
+
 ## 2026-07-22 16:20 America/Chicago / 2026-07-22 21:20 UTC Minnesota implementation pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `130` to `133` route slugs by adding `mississippi-river-highway-6-trommald`, `mississippi-river-kiwanis-crow-wing-state-park`, and `mississippi-river-royalton-stearns-county-park`.
