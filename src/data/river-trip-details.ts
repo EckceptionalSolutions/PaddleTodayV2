@@ -32377,4 +32377,187 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'mississippi-river-highway-6-trommald': {
+    putIn: {
+      name: 'Mississippi River, Hwy 6 Public Water Access Site',
+      latitude: 46.5435051,
+      longitude: -93.9564174,
+    },
+    takeOut: {
+      name: 'Mississippi River, Trommald Public Water Access Site',
+      latitude: 46.5149237,
+      longitude: -94.0696772,
+    },
+    logistics: {
+      distanceLabel: '11.7 mi',
+      estimatedPaddleTime: 'About 4 hr to 5.5 hr, longer with wind, fishing stops, or strong current',
+      shuttle:
+        'Stage the take-out at Trommald, then drive back to the Highway 6 access north of Crosby. Inspect both ramps before leaving the shuttle vehicle because broad-river wind, high-water cleanup, and launch crowding can change same-day usability.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR public accesses, follow Minnesota boating/PFD requirements, and respect posted parking, fishing, and access rules.',
+      camping:
+        'Treat this as a day route. DNR Map 5 marks Lone Pine watercraft campsite upstream of the put-in and points to Crow Wing State Park camping farther downstream, but neither is part of the normal Highway-6-to-Trommald plan.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Highway 6 and take out at Trommald for MN DNR / MHB recommended broad Mississippi water above Brainerd. Use the Brainerd DNR gauge as the official downstream corridor proxy and make visual checks at both ramps.',
+      accessCaveats: [
+        'Highway 6 resolves as WAS00999 at river mile 1030.0, and Trommald resolves as WAS02294 at river mile 1018.3 in Minnesota public-water-access GIS.',
+        'The Brainerd gauge is downstream of the take-out and below the Pine River confluence, so it is a conservative corridor proxy rather than an exact put-in reading.',
+        'Finish at Trommald for this route. Do not drift toward Brainerd, French Rapids, Potlatch Dam, or any portage corridor without a separate plan.',
+      ],
+      watchFor: [
+        'Stronger current after rain, especially with Pine River inflow midway through the trip.',
+        'Motorboats, fishing traffic, wind, and wake on the wide river.',
+        'Floating wood, cold water, private banks, and downstream dam-corridor complacency after an easy first half.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hwy-6-mississippi',
+        name: 'Mississippi River, Hwy 6 Public Water Access Site',
+        latitude: 46.5435051,
+        longitude: -93.9564174,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at public-water-access GIS river mile 1030.0; resolves as WAS00999.',
+      },
+      {
+        id: 'trommald-access',
+        name: 'Mississippi River, Trommald Public Water Access Site',
+        latitude: 46.5149237,
+        longitude: -94.0696772,
+        mileFromStart: 11.7,
+        segmentKind: 'creek',
+        note: 'Default take-out at public-water-access GIS river mile 1018.3; resolves as WAS02294.',
+      },
+    ],
+  },
+  'mississippi-river-kiwanis-crow-wing-state-park': {
+    putIn: {
+      name: 'Mississippi River, Kiwanis Park Public Water Access Site',
+      latitude: 46.3465461,
+      longitude: -94.2072231,
+    },
+    takeOut: {
+      name: 'Mississippi River, Crow Wing State Park Public Water Access Site',
+      latitude: 46.26827,
+      longitude: -94.3431079,
+    },
+    logistics: {
+      distanceLabel: '10.7 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr depending on wind, stops, and current',
+      shuttle:
+        'Stage the Crow Wing State Park take-out first, then drive back to Kiwanis Park in Brainerd. Confirm current state-park entry, parking, launch, and vehicle rules before leaving a car.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, City of Brainerd park rules, DNR public-access rules, and Crow Wing State Park entry, parking, and camping rules.',
+      camping:
+        'Crow Wing State Park can support endpoint base-camping when separately reserved or allowed under current park rules. Do not assume informal riverbank camping between Kiwanis and the state park.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Kiwanis Park and take out at Crow Wing State Park for the Mississippi Headwaters Board / DNR-linked Brainerd day route. Use the Brainerd DNR gauge as the official near-upstream corridor check.',
+      accessCaveats: [
+        'Kiwanis Park resolves in Minnesota public-water-access GIS as a Brainerd city access at river mile 1001.1.',
+        'Use the Crow Wing State Park Mississippi River access as the planned finish; the nearby Crow Wing public access is a different record and should not replace the state-park plan without checking signs.',
+        'The Brainerd gauge is upstream of the put-in, so pair the official bands with visual checks for wind, landing condition, and post-rain debris.',
+      ],
+      watchFor: [
+        'Wind and motorboat wake on broad Mississippi bends.',
+        'Faster current, floating debris, cold water, and harder landings after rain or rising water.',
+        'Private banks, state-park rules, and extending downstream without a separate longer-route plan.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'kiwanis-park',
+        name: 'Mississippi River, Kiwanis Park Public Water Access Site',
+        latitude: 46.3465461,
+        longitude: -94.2072231,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default city put-in at public-water-access GIS river mile 1001.1; resolves as WAS01003.',
+      },
+      {
+        id: 'riverview-park',
+        name: 'Mississippi River, Riverview Park Public Water Access Site',
+        latitude: 46.317285,
+        longitude: -94.260598,
+        mileFromStart: 4.1,
+        segmentKind: 'creek',
+        note: 'Intermediate public access at river mile 997.3; useful bailout if wind, wake, or current slows the trip.',
+      },
+      {
+        id: 'crow-wing-public-access',
+        name: 'Mississippi River, Crow Wing Public Water Access Site',
+        latitude: 46.2792155,
+        longitude: -94.3322834,
+        mileFromStart: 8.8,
+        segmentKind: 'creek',
+        note: 'Nearby downstream access record before the state-park finish; use signs and current rules to avoid confusing access points.',
+      },
+      {
+        id: 'crow-wing-state-park',
+        name: 'Mississippi River, Crow Wing State Park Public Water Access Site',
+        latitude: 46.26827,
+        longitude: -94.3431079,
+        mileFromStart: 10.7,
+        segmentKind: 'creek',
+        note: 'MHB/DNR-linked downstream finish at Crow Wing State Park; confirm state-park parking and access rules.',
+      },
+    ],
+  },
+  'mississippi-river-royalton-stearns-county-park': {
+    putIn: {
+      name: "Mississippi River, Royalton Sportsman's Club Public Water Access Site",
+      latitude: 45.8297201,
+      longitude: -94.3506845,
+    },
+    takeOut: {
+      name: 'Mississippi River County Park / Stearns County Park Public Water Access Site',
+      latitude: 45.7265772,
+      longitude: -94.2228602,
+    },
+    logistics: {
+      distanceLabel: '11.4 mi',
+      estimatedPaddleTime: 'About 3 hr 45 min to 5 hr 30 min depending on level, wind, and stops',
+      shuttle:
+        'Stage the take-out at Mississippi River County Park / Stearns County Park first, then drive upstream to the Royalton Sportsman\'s Club access. The put-in is club-administered and may require a fee.',
+      permits:
+        'No route-specific paddling permit is known. Follow Royalton Sportsman\'s Club access rules, Stearns County park rules, Minnesota boating requirements, and any posted fee or parking instructions.',
+      camping:
+        'DNR identifies Seven Islands Campsite as a possible overnight or picnic stop if unoccupied, and notes a private campground halfway through the route. Treat camping as first-come or separately arranged rather than guaranteed.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at the Royalton Sportsman\'s Club and take out at Mississippi River County Park for MN DNR\'s 11.4-mile central-Mississippi day trip. The Royalton gauge is direct and officially interpreted, but the route still needs a same-day low-water and private-bank check.',
+      accessCaveats: [
+        'Royalton Sportsman\'s Club resolves as WAS00463 at river mile 953.6 and is administered by the club; confirm fee and parking conditions before staging.',
+        'Mississippi River County Park / Stearns County Park resolves as WAS01283 at river mile 942.3 in Minnesota public-water-access GIS.',
+        'This route is upstream of Sartell Dam; do not extend downstream toward Walleye Road or Sartell without a separate plan and dam-portage awareness.',
+      ],
+      watchFor: [
+        'Rocky riffles and channel picking when the Royalton gauge is in the low band.',
+        'Private islands and shorelines; use only legal public stops or the DNR-noted campsite when available.',
+        'Wind on open bends, floating wood after storms, anglers, cold water, and changing island channels.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'royalton-sportsmans-club',
+        name: "Mississippi River, Royalton Sportsman's Club Public Water Access Site",
+        latitude: 45.8297201,
+        longitude: -94.3506845,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR Map 7 river mile 953.6; resolves as WAS00463 and may require a club fee.',
+      },
+      {
+        id: 'mississippi-county-park',
+        name: 'Mississippi River County Park / Stearns County Park Public Water Access Site',
+        latitude: 45.7265772,
+        longitude: -94.2228602,
+        mileFromStart: 11.4,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR Map 7 river mile 942.2 / GIS river mile 942.3; resolves as WAS01283.',
+      },
+    ],
+  },
 };
