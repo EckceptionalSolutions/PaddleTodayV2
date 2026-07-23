@@ -1,5 +1,17 @@
 # Minnesota Route Memory
 
+## 2026-07-23 15:10 America/Chicago / 2026-07-23 20:10 UTC Minnesota current-baseline gap reintroduction pass
+
+- Treated the dirty current checkout as the run-start baseline and expanded Minnesota from `196` to `199` live route slugs by adding `cloquet-river-bachelor-road-highway-53`, `whitewater-river-highway-74-us-61`, and `mississippi-river-clearwater-snuffies`.
+- These slugs appeared in older ledger history but were absent from the current `src/data/rivers.ts` baseline, so this run reintroduced them as current-checkout additions rather than counting prior commits.
+- Qualification path: MN DNR Cloquet Map 1 plus public-water-access GIS support Bachelor Road `WAS01627` to Highway 53 Wayside `WAS02744`; MN DNR Zumbro/Whitewater Map 2 plus public-water-access GIS support Beaver `WAS02183` to Highway 61 `WAS00260`; MN DNR Mississippi Map 8 plus public-water-access GIS support Clearwater `WAS01309` to Snuffie's Landing `WAS01297`.
+- Live gauge verification: MN DNR river-level feed returned Cloquet Burnett site `38` at `215 cfs` at `2026-07-23 12:15 CDT`, Whitewater Beaver site `265` at `693.26 ft` at `2026-07-23 12:45 CDT`, and Mississippi St. Cloud site `129` at `2,340 cfs` at `2026-07-23 11:45 CDT`.
+- Implemented official DNR interpreted bands only: Cloquet Burnett `139.6 / 500-2200 / 2500 cfs`, Whitewater Beaver `690 / 692.3-697 / 698 ft`, and Mississippi St. Cloud `2000 / 3000-9000 / 12000 cfs`. Cloquet and Mississippi carry explicit downstream/upstream proxy and same-day visual-check caveats; Whitewater uses the direct Beaver gauge.
+- Camping posture: Cloquet is `on_route_campsite` through DNR-mapped MCC / Old Mule / Three Island watercraft campsites; Whitewater is `none` because DNR says no campsites or rest areas in the WMA corridor; Mississippi Clearwater-to-Snuffie's is `on_route_campsite` through the DNR-mapped Oak Island watercraft campsite.
+- Safety posture: Cloquet flags Class I rapids, shallow-rock low water, dam-release changes, fresh wood, private banks, and no casual downstream continuation. Whitewater is whitewater-filtered and flags constructed rock rapids, non-novice lower-river wood/logjam exposure, cold water, WMA sensitivity, and limited exits. Mississippi flags low-water riffles, wind, motorboats, floating wood, private islands/banks, and avoiding unplanned continuation below Snuffie's.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add: Red River Belmont/Lincoln-style follow-ons remained dam-adjacent/urban and already represented by current North-Dam/M.B.-Johnson and Lincoln/LaFave cards; St. Louis Fond du Lac/Oldenburg stayed out because the official trip is a reservoir out-and-back with weaker route-specific gauge fit than the selected gaps; Des Moines Mayflower-to-Christianna remains proxy weak.
+
 ## 2026-07-23 14:12 America/Chicago / 2026-07-23 19:12 UTC Minnesota Sauk / Otter Tail / Shell Rock current-baseline pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `194` to `197` live route slugs by adding `sauk-river-oak-township-spring-hill`, `otter-tail-river-friberg-hwy-210`, and `shell-rock-river-frank-hall-st-nicholas`.

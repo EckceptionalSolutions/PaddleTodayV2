@@ -40324,6 +40324,177 @@ const retainedRiverTripDetails = Object.fromEntries(
 
 export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...retainedRiverTripDetails,
+  'cloquet-river-bachelor-road-highway-53': {
+    putIn: {
+      id: 'bachelor-road-cloquet',
+      name: 'Cloquet River, Bachelor Road Public Water Access Site',
+      latitude: 46.9524154,
+      longitude: -92.327051,
+    },
+    takeOut: {
+      id: 'highway-53-wayside-cloquet',
+      name: 'Cloquet River, Highway 53 Wayside Rest Public Water Access Site',
+      latitude: 46.9595303,
+      longitude: -92.4600367,
+    },
+    logistics: {
+      distanceLabel: 'About 10.3 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with low water, scouting, or campsite stops',
+      shuttle:
+        'Stage the Highway 53 wayside first, then drive back to Bachelor Road. Inspect both landings before launch because low release levels can make this connector slower than the mileage suggests.',
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR public accesses, follow Minnesota boating/PFD rules, and obey posted watercraft-campsite and access rules.',
+      camping:
+        'DNR Map 1 shows designated watercraft campsites between Bachelor Road and Highway 53, including MCC, Old Mule, and Three Island. Treat them as rustic first-come sites and do not use private banks or informal riverbed camps.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Bachelor Road and take out at the Highway 53 wayside for the middle lower-Cloquet connector. The downstream Burnett gauge is the official interpreted screen, but same-day depth, dam releases, and visible rock at Bachelor Road still decide marginal days.',
+      accessCaveats: [
+        'Bachelor Road resolves as WAS01627 at river mile 20.5; Highway 53 Wayside Rest resolves as WAS02744 at river mile 10.2 in Minnesota public-water-access GIS.',
+        'The Burnett gauge is downstream of this route near Highway 7, so it is a conservative corridor proxy rather than an exact route gauge.',
+        'This card ends at Highway 53. Any continuation toward Burnett or Highway 7 needs a separate downstream route plan.',
+      ],
+      watchFor: [
+        'Repeated Class I rapid reaches, shallow rock, and possible scraping when Burnett is in the official low band.',
+        'Dam-release changes from Island Lake, fast rises after rain, fresh strainers, bridge approaches, cold water, and private banks.',
+        'No casual continuation below Highway 53 unless the group deliberately chooses a downstream plan and conditions fit.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'bachelor-road-cloquet',
+        name: 'Bachelor Road Public Water Access Site',
+        latitude: 46.9524154,
+        longitude: -92.327051,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01627 at DNR river mile 20.5.',
+      },
+      {
+        id: 'highway-53-wayside-cloquet',
+        name: 'Cloquet River, Highway 53 Wayside Rest Public Water Access Site',
+        latitude: 46.9595303,
+        longitude: -92.4600367,
+        mileFromStart: 10.3,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02744 at DNR river mile 10.2.',
+      },
+    ],
+  },
+  'whitewater-river-highway-74-us-61': {
+    putIn: {
+      id: 'whitewater-beaver-highway-74',
+      name: 'Whitewater River, Beaver Public Water Access Site',
+      latitude: 44.1496762,
+      longitude: -92.005621,
+    },
+    takeOut: {
+      id: 'whitewater-highway-61',
+      name: 'Whitewater River, Highway 61 Public Water Access Site',
+      latitude: 44.2083885,
+      longitude: -91.9230759,
+    },
+    logistics: {
+      distanceLabel: 'About 9.8 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with wood, scouting, or low water',
+      shuttle:
+        'Stage the Highway 61 access first, then drive back to the Beaver / Highway 74 access. Confirm both small parking areas and the exact take-out before launch because this lower WMA reach has few friendly exit options.',
+      permits:
+        'No special paddling permit is known for the Minnesota DNR Whitewater River State Water Trail. Use the named public accesses, follow Minnesota boating/PFD rules, and obey WMA and parking rules.',
+      camping:
+        'No camping is assumed on this route. MN DNR says there are no campsites or rest areas in the ecologically sensitive Whitewater Wildlife Management Area.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Beaver / Highway 74 access and take out at Highway 61 near Weaver. The Beaver gauge is direct and currently in the official medium band, but DNR warns this lower corridor is not novice-friendly because trees and occasional log jams can block the channel.',
+      accessCaveats: [
+        'Beaver resolves as WAS02183 at river mile 10.3 and Highway 61 resolves as WAS00260 at river mile 0.5 in Minnesota public-water-access GIS.',
+        'These are small carry-in accesses with limited parking and no restroom listed in the public-water-access records.',
+        'Do not use informal WMA banks, private banks, or agricultural edges as routine stops; plan the shuttle around the two named public accesses.',
+      ],
+      watchFor: [
+        'Many trees, occasional log jams, deadfall, strainers, and tight maneuvering below Beaver.',
+        'Constructed rock rapids at and below Beaver, including drops shown on DNR Map 2 near river miles 10.2, 6.4, and 4.2.',
+        'Flashy rain response, cold water, poor summer visibility, soft banks, and scraping if the Beaver gauge drops below the medium band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'whitewater-beaver-highway-74',
+        name: 'Whitewater River, Beaver Public Water Access Site',
+        latitude: 44.1496762,
+        longitude: -92.005621,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02183 at DNR river mile 10.3.',
+      },
+      {
+        id: 'whitewater-highway-61',
+        name: 'Whitewater River, Highway 61 Public Water Access Site',
+        latitude: 44.2083885,
+        longitude: -91.9230759,
+        mileFromStart: 9.8,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00260 at DNR river mile 0.5.',
+      },
+    ],
+  },
+  'mississippi-river-clearwater-snuffies': {
+    putIn: {
+      id: 'clearwater-mississippi',
+      name: 'Mississippi River, Clearwater Public Water Access Site',
+      latitude: 45.4194636,
+      longitude: -94.0423392,
+    },
+    takeOut: {
+      id: 'snuffies-landing',
+      name: "Mississippi River, Snuffie's Landing Public Water Access Site",
+      latitude: 45.3837473,
+      longitude: -93.9148507,
+    },
+    logistics: {
+      distanceLabel: 'About 8.2 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with wind, low water, or campsite stops',
+      shuttle:
+        "Stage Snuffie's Landing first, then drive back to Clearwater. Inspect the take-out before launch because the landing is tucked into the lower end of the route and the river continues into the Norin / Babcock corridor.",
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey city, DNR, camping, and fishing rules.',
+      camping:
+        'DNR Map 8 identifies Oak Island at river mile 906 as a no-fee watercraft campsite. Treat camping as designated-site only; do not assume private island, sandbar, or bank camping elsewhere.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        "Launch at Clearwater and finish at Snuffie's Landing for a shorter Map 8 Mississippi connector below the existing Beaver-Island-to-Clearwater route. The St. Cloud gauge is upstream, so pair the official bands with local wind, riffle, and access checks.",
+      accessCaveats: [
+        "Clearwater resolves as WAS01309 at river mile 913.7 and Snuffie's Landing resolves as WAS01297 at river mile 905.5 in Minnesota public-water-access GIS.",
+        'The St. Cloud gauge is upstream of this route and should be treated as a same-map proxy, not an exact local measurement.',
+        "Take out at Snuffie's for this card. Do not drift into the downstream Norin and Babcock corridor without a separate shuttle plan.",
+      ],
+      watchFor: [
+        'Low-water riffles, shallow side channels, and slower progress when the upstream St. Cloud gauge is near the low band.',
+        'Fast current, floating wood, bridge approaches, wind on open bends, motorboats, anglers, cold water, and private banks.',
+        "Finding Snuffie's Landing from the water before the final bends and avoiding unplanned downstream continuation.",
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'clearwater-mississippi',
+        name: 'Mississippi River, Clearwater Public Water Access Site',
+        latitude: 45.4194636,
+        longitude: -94.0423392,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01309 at DNR river mile 913.7.',
+      },
+      {
+        id: 'snuffies-landing',
+        name: "Snuffie's Landing Public Water Access Site",
+        latitude: 45.3837473,
+        longitude: -93.9148507,
+        mileFromStart: 8.2,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS01297 at DNR river mile 905.5.',
+      },
+    ],
+  },
   'pomme-de-terre-river-koosman-larson': {
     putIn: {
       id: 'pomme-de-terre-koosman',
@@ -44726,6 +44897,189 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 3,
         segmentKind: 'creek',
         note: 'Default take-out beside the direct Ames USGS gauge corridor.',
+      },
+    ],
+  },
+
+  'yahara-river-highway-n-highway-59': {
+    putIn: {
+      id: 'highway-n-dunkirk-yahara',
+      name: 'Highway N bridge access below Dunkirk Dam',
+      latitude: 42.8788522,
+      longitude: -89.210117,
+    },
+    takeOut: {
+      id: 'highway-59-fulton-yahara-gauge',
+      name: 'Highway 59 / Yahara River near Fulton gauge access',
+      latitude: 42.82638889,
+      longitude: -89.1719444,
+    },
+    logistics: {
+      distanceLabel: 'About 6.9 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer in low water',
+      shuttle:
+        'Stage Highway 59 first, then return to Highway N below Dunkirk. A vehicle shuttle is cleaner than relying on narrow rural shoulders, and Highway 59 also gives a same-day look at the selected gauge corridor.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, avoid blocking bridge shoulders or farm access, and obey any posted bridge, dam, or construction restrictions.',
+      camping:
+        'Treat this as a day route. No on-route camping is documented, and banks outside public bridge/access areas should be treated as private unless clearly signed otherwise.',
+      campingClassification: 'none',
+      summary:
+        'Launch from Highway N below Dunkirk Dam and continue through the Stebbinsville recovery reach to Highway 59. This avoids using Stebbinsville as a default endpoint while preserving the best lower-Yahara riffles and boulder gardens.',
+      accessCaveats: [
+        'Highway N is the planned launch because WRT describes it as better than starting at Dunkirk Dam. Stay downstream of the dam/intake unless a separate scout and portage plan is intentional.',
+        'Stebbinsville Road is an intermediate reference only. Do not plan it as the routine take-out because recent sources document private-property conflict and signage there.',
+        'Highway 59 is the planned take-out and the live Fulton gauge location. Confirm bank footing, traffic, parking, and any posted access limits from land before launching.',
+      ],
+      watchFor: [
+        'Shallow riffles and boulder gardens below the WRT 201-400 cfs target range.',
+        'Hidden rocks, faster current, and reduced recovery room when the Fulton gauge moves into WRT high or very-high ranges.',
+        'Wood, strainers, storm debris, private banks, cold shoulder-season water, and water-quality concerns after rain or Badfish/MMSD flow changes.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-n-dunkirk-yahara',
+        name: 'Highway N bridge access below Dunkirk Dam',
+        latitude: 42.8788522,
+        longitude: -89.210117,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from WRT; stay below the Dunkirk Dam boundary.',
+      },
+      {
+        id: 'west-stebbinsville-road-yahara-reference',
+        name: 'West Stebbinsville Road reference access',
+        latitude: 42.8436573,
+        longitude: -89.1731816,
+        mileFromStart: 4.8,
+        segmentKind: 'creek',
+        note: 'Intermediate reference only; not the planned endpoint because of private-property conflict reports.',
+      },
+      {
+        id: 'highway-59-fulton-yahara-gauge',
+        name: 'Highway 59 / Yahara River near Fulton gauge access',
+        latitude: 42.82638889,
+        longitude: -89.1719444,
+        mileFromStart: 6.9,
+        segmentKind: 'creek',
+        note: 'Default take-out at the USGS Fulton gauge / Highway 59 bridge corridor.',
+      },
+    ],
+  },
+
+  'yahara-river-highway-59-murwin-park': {
+    putIn: {
+      id: 'highway-59-fulton-yahara-gauge',
+      name: 'Highway 59 / Yahara River near Fulton gauge access',
+      latitude: 42.82638889,
+      longitude: -89.1719444,
+    },
+    takeOut: {
+      id: 'murwin-county-park-yahara',
+      name: 'Murwin County Park Yahara River access',
+      latitude: 42.81095,
+      longitude: -89.12807,
+    },
+    logistics: {
+      distanceLabel: 'About 4.4 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr',
+      shuttle:
+        'Stage Murwin County Park first, then return to Highway 59. Check both the park landing and the Highway 59 bridge/gauge corridor before unloading because debris and bank footing can change after storms.',
+      permits:
+        'No route-specific paddling permit is known. Follow Rock County park rules, Wisconsin boating/PFD rules, and any posted access, storm-debris, or water-quality advisories.',
+      camping:
+        'No on-route camping is documented for this short lower-Yahara split. Use separate legal campground or lodging plans if needed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Highway 59 gauge bridge and take out at Murwin County Park for the popular lower-Yahara continuation below Badfish Creek. The card intentionally avoids Stebbinsville as a default access and stops before a Rock River extension.',
+      accessCaveats: [
+        'Highway 59 is the selected put-in because it is documented by WRT as a public access and coincides with the live Fulton gauge corridor.',
+        'Murwin County Park is the planned take-out. Identify the access from shore before launching and do not continue toward the Rock River unless that separate shuttle is deliberate.',
+        'Private banks line much of the lower route; use named public access points for routine stops and treat other landings as emergency-only.',
+      ],
+      watchFor: [
+        'High or rising water, especially above the lower-Yahara target range, when strainers and bridge currents become more serious.',
+        'Post-storm debris in the Yahara/Badfish corridor, including the 2024 tornado-debris concern documented in WRT comments.',
+        'Low-water shallows, slow water below the scenic target, water-quality issues after rain, and cold water outside summer.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-59-fulton-yahara-gauge',
+        name: 'Highway 59 / Yahara River near Fulton gauge access',
+        latitude: 42.82638889,
+        longitude: -89.1719444,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the USGS Fulton gauge / Highway 59 bridge corridor.',
+      },
+      {
+        id: 'murwin-county-park-yahara',
+        name: 'Murwin County Park Yahara River access',
+        latitude: 42.81095,
+        longitude: -89.12807,
+        mileFromStart: 4.4,
+        segmentKind: 'creek',
+        note: 'Default take-out at the county park canoe/kayak access.',
+      },
+    ],
+  },
+
+  'sugar-river-albany-brodhead': {
+    putIn: {
+      id: 'bowman-park-albany-sugar',
+      name: 'Bowman Park / South Water Street access',
+      latitude: 42.70709,
+      longitude: -89.43801,
+    },
+    takeOut: {
+      id: 'head-gates-park-brodhead-sugar',
+      name: 'Head Gates Park / Brodhead access',
+      latitude: 42.64437,
+      longitude: -89.39743,
+    },
+    logistics: {
+      distanceLabel: 'About 7.25 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with low water or Decatur Lake wind',
+      shuttle:
+        'Stage Head Gates Park first and inspect the dam/take-out boundary, then return to Bowman Park in Albany. Tubing-season traffic can complicate parking and loading, so build in extra time on busy summer weekends.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, Albany/Brodhead park rules, and any posted dam, tubing, parking, or water-quality notices.',
+      camping:
+        'No on-route public watercraft campsite is documented. Travel Wisconsin lists nearby private campground options such as Sweet Minihaha and Crazy Horse; reserve separately and do not assume riverbank camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch from public Bowman Park and take out at Head Gates Park for the lower Sugar River Albany-to-Brodhead day route. The route is beginner flatwater, but the Brodhead dam boundary and low-water floor are non-negotiable.',
+      accessCaveats: [
+        'Bowman Park is documented by Miles Paddled as public even though private tubing operations may be nearby. Use only public park access and posted parking.',
+        'Head Gates Park is the mandatory take-out before the Brodhead/Decatur Dam hazard. Identify the exit before entering the final lake/dam approach.',
+        'Sweet Minihaha and other private facilities are not assumed public access or campsites for this card unless the paddler has separate permission/reservation.',
+      ],
+      watchFor: [
+        'Below 60 cfs on the Verona gauge, when Miles Paddled says the route becomes very shallow and frustrating.',
+        'Decatur Lake route choices, lake wind, tubing congestion, private banks, strainers, and slow current.',
+        'The Brodhead/Decatur Dam boundary, small or hard-to-see dam warning signs, and any dam-portage/repair changes around Head Gates Park.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'bowman-park-albany-sugar',
+        name: 'Bowman Park / South Water Street access',
+        latitude: 42.70709,
+        longitude: -89.43801,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default public put-in documented by Miles Paddled.',
+      },
+      {
+        id: 'head-gates-park-brodhead-sugar',
+        name: 'Head Gates Park / Brodhead access',
+        latitude: 42.64437,
+        longitude: -89.39743,
+        mileFromStart: 7.25,
+        segmentKind: 'creek',
+        note: 'Default take-out before the Brodhead/Decatur Dam boundary.',
       },
     ],
   },
