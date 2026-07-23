@@ -2625,6 +2625,201 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
+  'st-croix-river-riverside-thayers': {
+    putIn: {
+      name: 'Riverside Landing',
+      latitude: 46.076,
+      longitude: -92.246002,
+    },
+    takeOut: {
+      name: 'Thayers Landing',
+      latitude: 46.0123699903488,
+      longitude: -92.4438199996948,
+    },
+    logistics: {
+      distanceLabel: '13.4 mi',
+      estimatedPaddleTime: 'About 6 hr to 7 hr, longer with low water, wind, or campsite stops',
+      shuttle:
+        'Stage Thayers Landing at the Wisconsin end of the Highway 48/77 bridge, then drive back to Riverside. Check the NPS Map 5 landings, current Danbury reading, and wind forecast before committing to the full middle-river day.',
+      permits:
+        'No route-specific day-paddling permit is known. Follow St. Croix National Scenic Riverway rules, Wisconsin/Minnesota boating and PFD rules, and all posted landing, campsite, glass-container, pet, sanitation, and quiet-hour restrictions.',
+      camping:
+        'NPS/WTG support two individual and two group Riverway campsites in the SC3 corridor. Use only designated first-come Riverway campsites, respect the three-night limit, and do not treat private banks or unsigned islands as camping options.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Riverside Landing and take out at Thayers Landing for the missing SC3 link below the existing Gordon-to-Riverside card. This is a long scenic St. Croix day with one Class I-II rapid area, official campsite support, and a currently low Danbury gauge.',
+      accessCaveats: [
+        'The Danbury DNR gauge is at the put-in corridor and is the product gauge, but several tributaries enter before Thayers. Make same-day visual and wind checks rather than trusting the number alone.',
+        'NPS says river conditions vary along the 255-mile Riverway and tells paddlers to check USGS/river levels or contact a ranger before launching.',
+        'Use Riverside and Thayers as the planned public endpoints. Do not improvise on private banks except for true emergencies.',
+      ],
+      watchFor: [
+        'State Line Rapids, shallow rock-dodging below the official scrapable floor, and slower island-channel choices.',
+        'Fallen trees and strainers, cold water, ticks, poison ivy, and limited remote rescue.',
+        'Wind on the wider lower half and long-day fatigue if the group treats this as a casual float.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'st-croix-riverside-landing',
+        name: 'Riverside Landing',
+        latitude: 46.076,
+        longitude: -92.246002,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream endpoint at the Danbury gauge corridor.',
+      },
+      {
+        id: 'st-croix-thayers-landing',
+        name: 'Thayers Landing',
+        latitude: 46.0123699903488,
+        longitude: -92.4438199996948,
+        mileFromStart: 13.4,
+        segmentKind: 'creek',
+        note: 'Default downstream endpoint at the Wisconsin end of the Highway 48/77 bridge.',
+      },
+    ],
+  },
+
+  'st-croix-river-thayers-norway-point': {
+    putIn: {
+      name: 'Thayers Landing',
+      latitude: 46.0123699903488,
+      longitude: -92.4438199996948,
+    },
+    takeOut: {
+      name: 'Norway Point Landing',
+      latitude: 45.9240200519562,
+      longitude: -92.6399600505829,
+    },
+    logistics: {
+      distanceLabel: '14.3 mi',
+      estimatedPaddleTime: 'About 6 hr, longer with wind, low water, or campsite stops',
+      shuttle:
+        'Stage Norway Point first, then drive back to Thayers. Confirm whether Little Yellow Banks, St. Croix State Park Landing, or Sand Creek are backup access/campsite points before launching because this is a broad, protected but remote corridor.',
+      permits:
+        'No route-specific day-paddling permit is known. Follow St. Croix National Scenic Riverway rules, Minnesota/Wisconsin boating and PFD rules, and posted state-park or landing rules if using any Minnesota-side access.',
+      camping:
+        'WTG says SC4 has four individual and two group NPS campsites, and St. Croix State Park also provides direct river access and campground context. Use only designated/legal sites and do not camp on private banks or unsigned islands.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Thayers Landing and take out at Norway Point for the quietwater SC4 link. It is easier than the downstream rapid split, but it still needs a Danbury gauge check, wind judgment, and precise landing navigation.',
+      accessCaveats: [
+        'Danbury is upstream of this route and should be treated as a corridor proxy once tributary inflow and wind affect the broad lower water.',
+        'NPS Map 5 warns that the St. Croix State Park main landing sits behind an island on river right and is easy to miss.',
+        'Norway Point is the planned Wisconsin take-out. Do not drift into the SC5 rapid corridor unless your group has planned that separate route.',
+      ],
+      watchFor: [
+        'Wide-channel wind, slow progress, sandbars in low water, wooded island channels, and missed landings.',
+        'Fallen trees, strainers, cold water, ticks, poison ivy, and limited remote rescue.',
+        'Private banks and campsite capacity/rule limits on busy summer weekends.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'st-croix-thayers-landing',
+        name: 'Thayers Landing',
+        latitude: 46.0123699903488,
+        longitude: -92.4438199996948,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream endpoint at the Wisconsin end of the Highway 48/77 bridge.',
+      },
+      {
+        id: 'st-croix-little-yellow-banks',
+        name: 'Little Yellow Banks Landing',
+        latitude: 45.975319981575,
+        longitude: -92.5411800146103,
+        mileFromStart: 5.1,
+        segmentKind: 'creek',
+        note: 'Intermediate access/campsite context from WTG GPX and NPS map materials.',
+      },
+      {
+        id: 'st-croix-state-park-landing',
+        name: 'St. Croix State Park Landing',
+        latitude: 45.9499399662018,
+        longitude: -92.5681400299072,
+        mileFromStart: 8.4,
+        segmentKind: 'creek',
+        note: 'Minnesota-side state-park landing; verify current park access and camping rules if using it.',
+      },
+      {
+        id: 'st-croix-sand-creek-landing',
+        name: 'Sand Creek Landing',
+        latitude: 45.9329299926758,
+        longitude: -92.6403000354767,
+        mileFromStart: 13.1,
+        segmentKind: 'creek',
+        note: 'Downstream backup landing just above Norway Point.',
+      },
+      {
+        id: 'st-croix-norway-point-landing',
+        name: 'Norway Point Landing',
+        latitude: 45.9240200519562,
+        longitude: -92.6399600505829,
+        mileFromStart: 14.3,
+        segmentKind: 'creek',
+        note: 'Default take-out on the Wisconsin side before the SC5 rapid corridor.',
+      },
+    ],
+  },
+
+  'st-croix-river-norway-point-fox': {
+    putIn: {
+      name: 'Norway Point Landing',
+      latitude: 45.9240200519562,
+      longitude: -92.6399600505829,
+    },
+    takeOut: {
+      name: 'Fox Landing',
+      latitude: 45.89030603,
+      longitude: -92.71283975,
+    },
+    logistics: {
+      distanceLabel: 'About 4.6 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with scouting or a low-water main-channel line',
+      shuttle:
+        'Stage Fox Landing first, then return to Norway Point. Make the channel decision before launch: the left main channel keeps Fox as the exit, while the right Kettle River Slough misses Fox and needs a separate downstream plan.',
+      permits:
+        'No route-specific day-paddling permit is known. Follow St. Croix National Scenic Riverway rules, Wisconsin/Minnesota boating and PFD rules, and posted landing/campsite restrictions.',
+      camping:
+        'Norway Point has NPS campsite context, and the broader SC5 corridor has extensive designated Riverway campsites. This short split is usually a day route; use only designated legal campsites if folding it into an overnight.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Norway Point and take out at Fox Landing for the upper SC5 rapid split. The route exists to expose the Head of the Rapids decision without forcing the full Fox-to-Highway-70 continuation.',
+      accessCaveats: [
+        'Danbury is the product gauge, but WTG says the Norway Point local gauge controls the Kettle River Slough decision. Check both when possible.',
+        'If Fox is your take-out, stay with the left main channel. NPS Map 6 explicitly warns that the Kettle River Slough route misses Fox Landing.',
+        'Fox Landing has a rougher approach road and should be inspected before launching, especially with low-clearance vehicles or wet conditions.',
+      ],
+      watchFor: [
+        'Head of the Rapids channel decision, Big Beef Rapids, August Olsen Rapids downstream of the confluence, and ledges around the Slough return.',
+        'Low water below the official DNR scrapable band, when rocky rapids and the Slough can become too shallow.',
+        'High local Norway readings above 8 ft, when WTG says the Slough becomes pushy; above 10 ft is flood-stage with harder conditions.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'st-croix-norway-point-landing',
+        name: 'Norway Point Landing',
+        latitude: 45.9240200519562,
+        longitude: -92.6399600505829,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the developed Wisconsin landing before the SC5 rapid corridor.',
+      },
+      {
+        id: 'st-croix-fox-landing',
+        name: 'Fox Landing',
+        latitude: 45.89030603,
+        longitude: -92.71283975,
+        mileFromStart: 4.6,
+        segmentKind: 'creek',
+        note: 'Default take-out on the left main channel. Taking the Kettle River Slough bypasses this landing.',
+      },
+    ],
+  },
+
   'st-croix-river-interstate-osceola': {
     putIn: {
       name: 'Minnesota Interstate State Park landing',
@@ -34413,6 +34608,194 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 11.8,
         segmentKind: 'lake',
         note: 'Default take-out; DNR public access at the official longer-route finish.',
+      },
+    ],
+  },
+
+  'mississippi-river-steamboat-blackberry-bridge': {
+    putIn: {
+      id: 'mississippi-river-steamboat-landing-public-water-access-site',
+      name: 'Mississippi River, Steamboat Landing Public Water Access Site',
+      latitude: 47.2325351,
+      longitude: -93.522906,
+    },
+    takeOut: {
+      id: 'mississippi-river-blackberry-bridge-public-water-access-site',
+      name: 'Mississippi River, Blackberry Bridge Public Water Access Site',
+      latitude: 47.1736507,
+      longitude: -93.4186453,
+    },
+    logistics: {
+      distanceLabel: 'About 8.0 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low water, wind, or a campsite stop',
+      shuttle:
+        'Stage Blackberry Bridge first, then drive back to Steamboat Landing in Grand Rapids. This route starts below the Blandin dam corridor and should be treated as the upper half of the DNR Steamboat-to-County-Road-72 Map 3 trip chain, not as a reason to continue past the planned take-out.',
+      permits:
+        'No route-specific paddling permit is known. Use the named MN DNR public-water-access sites, follow posted city and access rules, and check Minnesota PFD, invasive-species, and boating requirements before launch.',
+      camping:
+        'DNR Map 3 shows Sucher\'s watercraft campsite between Steamboat and Blackberry Bridge. Treat it as a designated water-trail campsite only; do not assume private banks, gravel bars, or developed access parking are legal overnight sites.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Steamboat Landing in Grand Rapids and take out at Blackberry Bridge for DNR\'s 8-mile upper Map 3 day trip. The Grand Rapids DNR river-level site is in the launch corridor and provides official interpreted bands for the route.',
+      accessCaveats: [
+        'Steamboat Landing resolves as WAS00984 at river mile 1178.9; Blackberry Bridge resolves as WAS02539 at river mile 1170.9.',
+        'Start below the Blandin dam/Grand Rapids control corridor and do not improvise launch choices at the dam or mill area.',
+        'Sucher\'s campsite is the only documented on-route overnight option in this short reach; confirm availability, water-trail rules, and weather before planning an overnight.',
+        'The DNR trip description calls the reach easy but notes small riffles during low water, so make a same-day visual call at Steamboat even when the gauge is above the scrapable floor.',
+      ],
+      watchFor: [
+        'Shallow riffles and scraping when Grand Rapids flow falls toward the low band.',
+        'Wind on broader bends, cold water, floating wood, strainers, and bank debris below Grand Rapids.',
+        'Private banks and homes; stay with public accesses and designated water-trail campsite use.',
+        'Fast current, debris, and reduced rescue margin when the DNR site pushes into high or very-high bands.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mississippi-river-steamboat-landing-public-water-access-site',
+        name: 'Mississippi River, Steamboat Landing Public Water Access Site',
+        latitude: 47.2325351,
+        longitude: -93.522906,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; MN public-water-access GIS lists this as WAS00984 at river mile 1178.9 behind River Grand Senior Living Community.',
+      },
+      {
+        id: 'mississippi-river-blackberry-bridge-public-water-access-site',
+        name: 'Mississippi River, Blackberry Bridge Public Water Access Site',
+        latitude: 47.1736507,
+        longitude: -93.4186453,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Default take-out; MN public-water-access GIS lists this as WAS02539 at river mile 1170.9.',
+      },
+    ],
+  },
+
+  'mississippi-river-trommald-lum-park': {
+    putIn: {
+      id: 'mississippi-river-trommald-public-water-access-site',
+      name: 'Mississippi River, Trommald Public Water Access Site',
+      latitude: 46.5149237,
+      longitude: -94.0696772,
+    },
+    takeOut: {
+      id: 'rice-lake-lum-park-public-water-access-site',
+      name: 'Rice Lake / Lum Park Public Water Access Site',
+      latitude: 46.370838,
+      longitude: -94.1659805,
+    },
+    logistics: {
+      distanceLabel: 'About 13.6 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 7 hr, longer with low water, wind, or campsite scouting',
+      shuttle:
+        'Stage Lum Park in Brainerd first, then drive back to Trommald. This route intentionally stops above Potlatch Dam; do not continue downstream toward Kiwanis Park unless you have a separate current portage and dam plan.',
+      permits:
+        'No route-specific paddling permit is known. Use the named MN DNR public-water-access sites, follow City of Brainerd park rules at Lum Park, and check Minnesota PFD, invasive-species, and boating requirements.',
+      camping:
+        'DNR Map 5 shows Half-Moon watercraft campsite shortly below Trommald. Treat it as the documented water-trail overnight option and confirm current DNR campsite rules before building an overnight itinerary.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Trommald and take out at Lum Park on Rice Lake for a 13.6-mile Brainerd-lakes reach above Potlatch Dam. The app uses the DNR Brainerd interpreted site at Potlatch Dam because it is the same Map 5 corridor gauge just below the planned finish.',
+      accessCaveats: [
+        'Trommald resolves as WAS02294 at river mile 1018.3; Lum Park / Rice Lake resolves as WAS00357 at river mile 1004.7.',
+        'Lum Park is the required finish for this route. Potlatch Dam and the Brainerd gauge are just downstream; do not drift past the park into dam approach water.',
+        'Half-Moon campsite is mapped near river mile 1017.0, but campsite conditions and occupancy must be checked before assuming an overnight.',
+        'The Brainerd gauge is slightly downstream of the route and below Rice Lake influence, so verify flow, wind, and lake approach conditions at Lum Park before launching.',
+      ],
+      watchFor: [
+        'French Rapids area current, shallow riffles, and rocky/gravel bars when the Brainerd site is in the low band.',
+        'Wind and boat traffic on the Rice Lake / Lum Park approach.',
+        'Floating wood, strainers, cold water, private banks, and limited mid-route exits.',
+        'Potlatch Dam downstream of Lum Park; missing the planned take-out changes the risk profile immediately.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mississippi-river-trommald-public-water-access-site',
+        name: 'Mississippi River, Trommald Public Water Access Site',
+        latitude: 46.5149237,
+        longitude: -94.0696772,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; MN public-water-access GIS lists this as WAS02294 at river mile 1018.3.',
+      },
+      {
+        id: 'mississippi-river-french-rapids-public-water-access-site',
+        name: 'Mississippi River, French Rapids Public Water Access Site',
+        latitude: 46.4037437,
+        longitude: -94.1586897,
+        mileFromStart: 11.8,
+        segmentKind: 'transition',
+        note: 'Intermediate public access near river mile 1006.5; useful bailout/scout context before the Lum Park finish.',
+      },
+      {
+        id: 'rice-lake-lum-park-public-water-access-site',
+        name: 'Rice Lake / Lum Park Public Water Access Site',
+        latitude: 46.370838,
+        longitude: -94.1659805,
+        mileFromStart: 13.6,
+        segmentKind: 'lake',
+        note: 'Default take-out above Potlatch Dam; MN public-water-access GIS lists this as WAS00357 at river mile 1004.7.',
+      },
+    ],
+  },
+
+  'mississippi-river-beaver-island-clearwater': {
+    putIn: {
+      id: 'mississippi-river-beaver-island-trail-public-water-access-site',
+      name: 'Mississippi River, Beaver Island Trail Public Water Access Site',
+      latitude: 45.5441689,
+      longitude: -94.1488508,
+    },
+    takeOut: {
+      id: 'mississippi-river-clearwater-public-water-access-site',
+      name: 'Mississippi River, Clearwater Public Water Access Site',
+      latitude: 45.4194636,
+      longitude: -94.0423392,
+    },
+    logistics: {
+      distanceLabel: 'About 12.1 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with island-channel scouting or low water',
+      shuttle:
+        'Stage Clearwater first, then drive back to Beaver Island Trail Access in St. Cloud. Pick a main-channel plan before launching because side channels, islands, and private land can make informal exits confusing.',
+      permits:
+        'No route-specific paddling permit is known. Use the named MN DNR public-water-access sites, follow local park and access rules, and check Minnesota PFD, invasive-species, and boating requirements.',
+      camping:
+        'DNR Map 8 shows primitive watercraft campsites in the island corridor and farther downstream, but public and private islands are intermixed. Use only mapped/public campsites and confirm current DNR water-trail rules before relying on an overnight.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Beaver Island Trail Access and take out at Clearwater for DNR\'s 12.1-mile Map 8 day trip. The St. Cloud DNR river-level site is at the launch corridor and provides official interpreted bands for this island-channel reach.',
+      accessCaveats: [
+        'Beaver Island Trail Access resolves as WAS01281 at river mile 925.8; Clearwater resolves as WAS01309 at river mile 913.7.',
+        'The DNR map notes both public and private islands in this reach. Confirm campsite identity before landing or camping.',
+        'The St. Cloud gauge is just upstream in the launch corridor; use it for flow screening, then make a visual call at Beaver Island before committing to side channels.',
+      ],
+      watchFor: [
+        'Riffles and exposed gravel when the St. Cloud site is in the low band.',
+        'Fast-moving water, debris, and stronger eddies around islands when the DNR site is high or rising.',
+        'Private islands and banks, confusing side channels, cold water, strainers, fishing traffic, and weather exposure on wider bends.',
+        'Longer rescue time if a group splits channels or misses the Clearwater landing.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mississippi-river-beaver-island-trail-public-water-access-site',
+        name: 'Mississippi River, Beaver Island Trail Public Water Access Site',
+        latitude: 45.5441689,
+        longitude: -94.1488508,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; MN public-water-access GIS lists this as WAS01281 at river mile 925.8.',
+      },
+      {
+        id: 'mississippi-river-clearwater-public-water-access-site',
+        name: 'Mississippi River, Clearwater Public Water Access Site',
+        latitude: 45.4194636,
+        longitude: -94.0423392,
+        mileFromStart: 12.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; MN public-water-access GIS lists this as WAS01309 at river mile 913.7.',
       },
     ],
   },
