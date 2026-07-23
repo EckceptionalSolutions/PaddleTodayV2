@@ -37979,6 +37979,196 @@ const retainedRiverTripDetails = Object.fromEntries(
 
 export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...retainedRiverTripDetails,
+  'mississippi-river-iron-bridge-county-road-12-dam': {
+    putIn: {
+      id: 'mississippi-river-iron-bridge',
+      name: 'Mississippi River, Iron Bridge Public Water Access Site',
+      latitude: 47.43547995293871,
+      longitude: -94.99941150842695,
+    },
+    takeOut: {
+      id: 'mississippi-river-county-road-12-dam',
+      name: 'Mississippi River, County Road 12 Public Water Access Site',
+      latitude: 47.48371925901912,
+      longitude: -94.72834186733037,
+    },
+    logistics: {
+      distanceLabel: 'About 22.9 mi',
+      estimatedPaddleTime: 'Full day or overnight; add time for lake wind, city bridges, and access checks',
+      shuttle:
+        'Stage County Road 12 first and inspect the dam/portage boundary from shore, then drive back to Iron Bridge. This is a long shuttle and a long paddle; confirm wind, daylight, Wilton, and Stump Lake readings before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, use DNR public accesses, and obey posted water-trail, dam, portage, city, and campsite rules.',
+      camping:
+        'DNR Map 1 includes watercraft-campsite and broader water-trail camping rules for this headwaters corridor. Treat overnight use as designated/legal campsite use only; do not assume private-bank or riverbed camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Iron Bridge and finish at the County Road 12 access beside the Stump Lake gauge and dam/portage boundary. This fills the Map 1 gap between the Iron Bridge card and the existing County-Road-12-to-25 card, but the long lake-transition mileage makes it a serious plan.',
+      accessCaveats: [
+        'Iron Bridge resolves in Minnesota public-water-access GIS as WAS00519 at river mile 1300.6 beside the Wilton gauge.',
+        'County Road 12 resolves as WAS00096 at river mile 1277.7 beside the Stump Lake gauge and dam/portage boundary.',
+        'The route uses Stump Lake as the primary direct finish gauge and Wilton as an upstream same-map context check. If the two readings disagree, make the more conservative same-day call.',
+        'County Road 12 is the selected finish. Do not drift into the dam approach or turn this into the downstream County-Road-12-to-25 route unless that separate shuttle and hazard plan is intentional.',
+      ],
+      watchFor: [
+        'Wind and waves on Lake Irving, Lake Bemidji, and Stump Lake; stay close to shore where practical and do not cross big open water in unsafe wind.',
+        'Long-route fatigue, city bridges, motorboat wakes, cold water, strainers, floating debris, and private banks.',
+        'Low Stump Lake readings below 1.8 ft, or high/rising water above the official medium band when the dam finish and bridge current become less forgiving.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mississippi-river-iron-bridge',
+        name: 'Mississippi River, Iron Bridge Public Water Access Site',
+        latitude: 47.43547995293871,
+        longitude: -94.99941150842695,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR river mile 1300.6 beside the Wilton gauge.',
+      },
+      {
+        id: 'mississippi-river-county-road-12-dam',
+        name: 'Mississippi River, County Road 12 Public Water Access Site',
+        latitude: 47.48371925901912,
+        longitude: -94.72834186733037,
+        mileFromStart: 22.9,
+        segmentKind: 'creek',
+        note: 'Default take-out at the Stump Lake gauge and County Road 12 dam/portage boundary.',
+      },
+    ],
+  },
+  'kettle-river-number-1-number-4': {
+    putIn: {
+      id: 'kettle-number-one',
+      name: 'Kettle River, #1 Public Water Access Site',
+      latitude: 46.180297166482895,
+      longitude: -92.83211495888368,
+    },
+    takeOut: {
+      id: 'kettle-river-four',
+      name: 'Kettle River, #4 Public Water Access Site',
+      latitude: 46.10792047828404,
+      longitude: -92.8637229545714,
+    },
+    logistics: {
+      distanceLabel: 'About 6.2 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr for skilled groups; longer with portages or low water',
+      shuttle:
+        'Stage #4 first, then drive back to the Highway 23 #1 access. Walk the #4 take-out and review the Banning portage plan before launching because this route is intentionally whitewater-filtered.',
+      permits:
+        'No route-specific paddling permit is known. Banning State Park vehicle permits and posted park rules may apply at park accesses; follow Minnesota boating/PFD rules and current DNR access signs.',
+      camping:
+        'Banning State Park and DNR Map 1 document canoe-in/watercraft campsite context in this corridor. Use only legal reservable or designated sites and do not treat informal banks or ledges as campsites.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Kettle River #1 and take out at #4 for the advanced Banning / Sandstone corridor. The Sandstone DNR gauge was far below the official scrapable floor during this run, so this is not a current broad-audience go call.',
+      accessCaveats: [
+        '#1, #2, Sandstone, and #4 all resolve in Minnesota public-water-access GIS with DNR river-mile records.',
+        'The Sandstone gauge is in the downstream half of the route near the main hazard corridor. It cannot replace scouting the portages, falls, ledges, and wood.',
+        'Use #4 as the planned finish below the main Banning hazard corridor. Do not continue downstream unless intentionally using the separate #4-to-#5 card.',
+      ],
+      watchFor: [
+        'Banning Rapids, Big Spring Falls, Sandstone Rapids, undercut-wall current, ledges, cold water, and difficult rescue terrain.',
+        'Low water below 800 cfs at Sandstone, when rock contact and dragging dominate and DNR bands score the route below scrapable.',
+        'High or rising runoff, when holes, eddies, portage landings, and rescue margins can change quickly.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'kettle-number-one',
+        name: 'Kettle River, #1 Public Water Access Site',
+        latitude: 46.180297166482895,
+        longitude: -92.83211495888368,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at Highway 23 and DNR river mile 29.8.',
+      },
+      {
+        id: 'kettle-number-two',
+        name: 'Kettle River, #2 Public Water Access Site',
+        latitude: 46.16449698847569,
+        longitude: -92.83430247537184,
+        mileFromStart: 1.4,
+        segmentKind: 'creek',
+        note: 'Banning State Park access and portage/campsite context at DNR river mile 28.4.',
+      },
+      {
+        id: 'kettle-sandstone',
+        name: 'Kettle River, Sandstone Public Water Access Site',
+        latitude: 46.13311270792839,
+        longitude: -92.85737935445832,
+        mileFromStart: 4.3,
+        segmentKind: 'creek',
+        note: 'Intermediate access in Sandstone above the Big Spring Falls / Sandstone hazard context.',
+      },
+      {
+        id: 'kettle-river-four',
+        name: 'Kettle River, #4 Public Water Access Site',
+        latitude: 46.10792047828404,
+        longitude: -92.8637229545714,
+        mileFromStart: 6.2,
+        segmentKind: 'creek',
+        note: 'Default take-out below the main Banning / Sandstone rapids corridor at DNR river mile 23.6.',
+      },
+    ],
+  },
+  'mississippi-river-coon-rapids-riverfront': {
+    putIn: {
+      id: 'mississippi-river-coon-rapids-dam-access',
+      name: 'Mississippi River, Coon Rapids Dam Public Water Access Site',
+      latitude: 45.14702279327111,
+      longitude: -93.31072313786683,
+    },
+    takeOut: {
+      id: 'mississippi-river-riverfront-regional-park',
+      name: 'Mississippi River, Anoka County Riverfront Regional Park Public Water Access Site',
+      latitude: 45.06766074908424,
+      longitude: -93.28104994120092,
+    },
+    logistics: {
+      distanceLabel: '6.1 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with low water, wind, or island scouting',
+      shuttle:
+        'Stage Riverfront Regional Park first, then drive back to Coon Rapids Dam Regional Park. Confirm the below-dam launch, Hwy 610 reading, and Riverfront take-out before putting on.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules and posted Anoka County park, dam, launch, parking, and river-use rules.',
+      camping:
+        'Treat this as a day route. No on-route camping plan is assumed between Coon Rapids Dam Regional Park and Riverfront Regional Park.',
+      campingClassification: 'none',
+      summary:
+        'Launch below Coon Rapids Dam and take out at Anoka County Riverfront Regional Park for the official DNR Map 9 metro Mississippi day trip. The Hwy 610 DNR gauge is inside the reach and was in the official low band during this run.',
+      accessCaveats: [
+        'Coon Rapids Dam resolves in Minnesota public-water-access GIS as WAS02630 at river mile 863.0. Launch below the dam and obey posted dam-area restrictions.',
+        'Riverfront Regional Park resolves as WAS01210 at river mile 860.3 and is the planned take-out before the downstream North Mississippi / Minneapolis corridor.',
+        'The Hwy 610 gauge is direct for this reach, but it cannot show same-day debris, bridge turbulence, wake traffic, or water quality after storms.',
+      ],
+      watchFor: [
+        'Swift current below Coon Rapids Dam, bridge approaches, motorboat wakes, floating debris, and urban stormwater after rain.',
+        'Durnam Island Rapids Class I near the lower end of the route, especially at low or high water.',
+        'Private banks, fishing lines, cold water, and complacency on a short but still pushy metro river reach.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mississippi-river-coon-rapids-dam-access',
+        name: 'Mississippi River, Coon Rapids Dam Public Water Access Site',
+        latitude: 45.14702279327111,
+        longitude: -93.31072313786683,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default below-dam put-in; Minnesota public-water-access GIS resolves WAS02630 at river mile 863.0.',
+      },
+      {
+        id: 'mississippi-river-riverfront-regional-park',
+        name: 'Mississippi River, Anoka County Riverfront Regional Park Public Water Access Site',
+        latitude: 45.06766074908424,
+        longitude: -93.28104994120092,
+        mileFromStart: 6.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; Minnesota public-water-access GIS resolves WAS01210 at river mile 860.3.',
+      },
+    ],
+  },
   'cloquet-river-indian-lake-bear-lake-road': {
     putIn: {
       id: 'cloquet-river-indian-lake-access',
@@ -39103,6 +39293,234 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 7.75,
         segmentKind: 'creek',
         note: 'Default take-out before the river becomes impounded toward Lake Delhi.',
+      },
+    ],
+  },
+
+  'sheboygan-river-johnsonville-dassow': {
+    putIn: {
+      id: 'johnsonville-fire-station-sheboygan',
+      name: 'Johnsonville Fire Department / Highway JM access',
+      latitude: 43.7847,
+      longitude: -87.9578,
+    },
+    takeOut: {
+      id: 'dassow-park-sheboygan-river',
+      name: 'Dassow Park river access',
+      latitude: 43.76766,
+      longitude: -87.89384,
+    },
+    logistics: {
+      distanceLabel: '6.4 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 4 hr, longer with scraping or scouting below the dam',
+      shuttle:
+        'Stage Dassow Park first, then drive back to the public parking lot by the Johnsonville fire station. WRT notes a hilly but practical 3-mile bike shuttle with light traffic.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public access points, follow Wisconsin boating and PFD rules, and obey any posted fire-station, road-shoulder, or park parking signs.',
+      camping:
+        'Treat this as a day route. No legal on-route public campsite was verified between Johnsonville and Dassow Park, and private or farm banks are not assumed legal overnight options.',
+      campingClassification: 'none',
+      summary:
+        'Launch below the Johnsonville low-head dam and take out at Dassow Park for a clear upper-Sheboygan riffle day with wooded banks, gravel shallows, and a conservative downstream Sheboygan gauge floor.',
+      accessCaveats: [
+        'Do not launch above or run the Johnsonville low-head dam. Carry below it from the fire-station parking area and inspect the smaller downstream ledge before launching.',
+        'Highway J and Highway M are WRT-listed alternate access points, but parking and bank conditions are less formal than Dassow Park. Verify before using them as bailouts.',
+        'Neither endpoint has a full-service outfitter or facilities. Set the shuttle and backup contact before launching.',
+      ],
+      watchFor: [
+        'Bumpy shallow riffles and possible wading at or below about 85 cfs on the downstream Sheboygan gauge.',
+        'High or rising water at the launch ledges, strainers in bends, cold clear water, bridge current, and private or farm-bank limitations.',
+        'Factory, farm, and water-quality context near Johnsonville; avoid contact after spills, storms, or visible contamination.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'johnsonville-fire-station-sheboygan',
+        name: 'Johnsonville Fire Department / Highway JM access',
+        latitude: 43.7847,
+        longitude: -87.9578,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default WRT put-in; carry below the Johnsonville low-head dam before launching.',
+      },
+      {
+        id: 'highway-j-sheboygan-river',
+        name: 'Highway J bridge access',
+        latitude: 43.781,
+        longitude: -87.9325,
+        mileFromStart: 2.4,
+        segmentKind: 'creek',
+        note: 'Alternate access from the WRT overview; verify parking and bank conditions.',
+      },
+      {
+        id: 'highway-m-sheboygan-river',
+        name: 'Highway M bridge access',
+        latitude: 43.7749,
+        longitude: -87.9105,
+        mileFromStart: 4.6,
+        segmentKind: 'creek',
+        note: 'Alternate access and low-water bailout near the shallow middle riffles.',
+      },
+      {
+        id: 'dassow-park-sheboygan-river',
+        name: 'Dassow Park river access',
+        latitude: 43.76766,
+        longitude: -87.89384,
+        mileFromStart: 6.4,
+        segmentKind: 'creek',
+        note: 'Default public take-out with parking.',
+      },
+    ],
+  },
+
+  'sheboygan-river-dassow-river-park': {
+    putIn: {
+      id: 'dassow-park-sheboygan-river',
+      name: 'Dassow Park river access',
+      latitude: 43.76766,
+      longitude: -87.89384,
+    },
+    takeOut: {
+      id: 'river-park-sheboygan-falls',
+      name: 'River Park canoe ramp',
+      latitude: 43.72924,
+      longitude: -87.81406,
+    },
+    logistics: {
+      distanceLabel: 'About 10 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, depending on riffles, stops, and low-water scraping',
+      shuttle:
+        'Stage River Park in Sheboygan Falls first, then drive back to Dassow Park. Confirm the downstream take-out before launch because the route finishes above the Sheboygan Falls / dam hazard area.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules plus posted city, county, and park parking instructions at Dassow Park and River Park.',
+      camping:
+        'Treat this as a day route. No public on-route campsite was verified between Dassow Park and River Park, and private or urban banks are not assumed legal stopping places.',
+      campingClassification: 'none',
+      summary:
+        'Continue downstream from Dassow Park toward Sheboygan Falls and exit at River Park for a longer middle-river day with steady riffles, shallow boulders, and a clear mandatory-takeout plan before the falls and dam corridor.',
+      accessCaveats: [
+        'River Park is the selected public take-out before the Sheboygan Falls / dam sequence. Do not continue downstream casually.',
+        'Highway TT and Highway C are corridor references rather than fully confirmed primary landings; scout before using either as a bailout.',
+        'Dassow Park is a clean public start, but low water can make the first miles slow and scratchy.',
+      ],
+      watchFor: [
+        'Scraping below 170 cfs and a better-moving window around 200 to 300 cfs on the downstream Sheboygan gauge.',
+        'Pushier current, hidden boulders, and more consequential bridge approaches around 400 cfs or on a rising hydrograph.',
+        'Strainers, cold water, private banks, urban water-quality concerns, and the downstream falls/dam hazard if the take-out is missed.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'dassow-park-sheboygan-river',
+        name: 'Dassow Park river access',
+        latitude: 43.76766,
+        longitude: -87.89384,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default public put-in and shared endpoint with the Johnsonville-to-Dassow card.',
+      },
+      {
+        id: 'highway-tt-sheboygan-river',
+        name: 'Highway TT bridge access',
+        latitude: 43.7509,
+        longitude: -87.8619,
+        mileFromStart: 5,
+        segmentKind: 'creek',
+        note: 'Possible midpoint access from the WRT lower-Sheboygan overview; verify roadside legality and landing condition.',
+      },
+      {
+        id: 'highway-c-sheboygan-river',
+        name: 'Highway C bridge access',
+        latitude: 43.7383,
+        longitude: -87.8341,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Late-route bridge reference before Sheboygan Falls; scout before relying on it as a take-out.',
+      },
+      {
+        id: 'river-park-sheboygan-falls',
+        name: 'River Park canoe ramp',
+        latitude: 43.72924,
+        longitude: -87.81406,
+        mileFromStart: 10,
+        segmentKind: 'creek',
+        note: 'Default public take-out with parking before the Sheboygan Falls / dam hazard sequence.',
+      },
+    ],
+  },
+
+  'kickapoo-river-highway-b-highway-s': {
+    putIn: {
+      id: 'highway-b-kickapoo-canoe-landing',
+      name: 'County Highway B Canoe Landing',
+      latitude: 43.35219,
+      longitude: -90.8408,
+    },
+    takeOut: {
+      id: 'highway-s-kickapoo-canoe-landing',
+      name: 'County Highway S Canoe Landing',
+      latitude: 43.27417,
+      longitude: -90.84119,
+    },
+    logistics: {
+      distanceLabel: '8.6 mi',
+      estimatedPaddleTime: 'About 4 hr, longer with the Gays Mills dam portage or muddy landings',
+      shuttle:
+        'Stage County Highway S first, then drive back to County Highway B. WRT notes the bike shuttle is pleasant; the two landing coordinates come from its route-shuttle map and named public accesses.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating and PFD rules, Crawford County landing signs, and any posted Gays Mills park, portage, or parking rules.',
+      camping:
+        'Treat this as a day route. Lower Kickapoo town or private campground options may support a separate base-camp plan, but no legal on-route public campsite is selected between Highway B and Highway S.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the County Highway B public canoe landing, portage the Gays Mills low-head dam, and finish at County Highway S for a Lower Kickapoo day with fast current, bluffs, strainers, muddy banks, and a direct Steuben stage ladder.',
+      accessCaveats: [
+        'The Highway B and Highway S landings are public but can be muddy. Inspect the exit at Highway S before launching.',
+        'Robb Park below the Gays Mills dam can split the route, but this card includes the full Highway B-to-Highway S day and mandatory portage.',
+        'Do not continue below Highway S unless a separate lower-Kickapoo route, shuttle, and high-water decision are planned.',
+      ],
+      watchFor: [
+        'The Gays Mills low-head dam is a mandatory portage on the east-bank path. Do not run the dam.',
+        'Fast current and submerged logs, especially in the first two miles and when the Steuben stage is rising.',
+        'High water above the WRT 7.5 ft caution, muddy banks, cold water, remote bailout spacing, pasture edges, and private land away from public accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-b-kickapoo-canoe-landing',
+        name: 'County Highway B Canoe Landing',
+        latitude: 43.35219,
+        longitude: -90.8408,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default public put-in south/downstream of the Highway B bridge.',
+      },
+      {
+        id: 'gays-mills-dam-portage',
+        name: 'Gays Mills low-head dam portage',
+        latitude: 43.3144,
+        longitude: -90.8485,
+        mileFromStart: 4,
+        segmentKind: 'transition',
+        note: 'Mandatory east-bank portage around the dangerous low-head dam.',
+      },
+      {
+        id: 'robb-park-gays-mills',
+        name: 'Robb Park canoe landing',
+        latitude: 43.313,
+        longitude: -90.8492,
+        mileFromStart: 4.2,
+        segmentKind: 'creek',
+        note: 'Public alternate put-in below the dam or bailout after the portage.',
+      },
+      {
+        id: 'highway-s-kickapoo-canoe-landing',
+        name: 'County Highway S Canoe Landing',
+        latitude: 43.27417,
+        longitude: -90.84119,
+        mileFromStart: 8.6,
+        segmentKind: 'creek',
+        note: 'Default public take-out east/upstream of the Highway S bridge.',
       },
     ],
   },
