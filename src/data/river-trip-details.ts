@@ -39707,6 +39707,372 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'east-branch-pecatonica-gordon-creek-river-road': {
+    putIn: {
+      id: 'gordon-creek-boat-ramp',
+      name: 'Gordon Creek Boat Ramp',
+      latitude: 42.810246,
+      longitude: -89.864127,
+    },
+    takeOut: {
+      id: 'river-road-thunder-bridge-landing',
+      name: 'River Road / Thunder Bridge Landing',
+      latitude: 42.75567,
+      longitude: -89.88728,
+    },
+    logistics: {
+      distanceLabel: 'About 9.5 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer with wood scouting or a muddy take-out',
+      shuttle:
+        'Stage at the River Road / Thunder Bridge landing north of Argyle, then launch from Gordon Creek Boat Ramp below Blanchardville. Use Highway 78 only as a gauge/visual checkpoint unless your group has independently confirmed parking and access.',
+      permits:
+        'No route-specific paddling permit is known. Use public or customary landings only, follow Wisconsin boating/PFD rules, and respect private banks, pasture edges, and bridge approaches.',
+      camping:
+        'Treat this as a day trip. Blackhawk Memorial Park and Yellowstone Lake State Park can support nearby base-camp planning, but no legal on-route camping was verified between Blanchardville and River Road.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch below Blanchardville at Gordon Creek Boat Ramp and paddle the lower East Branch Pecatonica through the Highway 78 gauge corridor to River Road. The best scenery is below Highway 78; the main practical calls are level, wood, mud, and staying off private banks.',
+      accessCaveats: [
+        'Gordon Creek is the public/default start below the Blanchardville dam area. Do not launch above the dam for this route.',
+        'Highway 78 is retained as a direct gauge and visual checkpoint, but it is not the default launch because access and parking are weaker than Gordon Creek.',
+        'River Road / Thunder Bridge has a muddy landing. Scout it from land before launching so the exit is obvious from the river.',
+      ],
+      watchFor: [
+        'Deadfall and possible portages in the Highway 78-to-River Road split, especially after storms or high water.',
+        'Low-water riffles below about 90 cfs and pushier wood consequences near or above the 360 cfs highest-recommended source level.',
+        'Private pasture banks, farm-field edges, bridge debris, cold water outside summer, and a rural rescue setting.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'gordon-creek-boat-ramp',
+        name: 'Gordon Creek Boat Ramp',
+        latitude: 42.810246,
+        longitude: -89.864127,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default public put-in just downstream from Blanchardville.',
+      },
+      {
+        id: 'highway-78-blanchardville-gauge',
+        name: 'Highway 78 bridge / Blanchardville USGS gauge',
+        latitude: 42.78557,
+        longitude: -89.86146,
+        mileFromStart: 3.5,
+        segmentKind: 'creek',
+        note: 'Direct USGS gauge and intermediate visual checkpoint; not the default launch because access and parking are weaker.',
+      },
+      {
+        id: 'river-road-thunder-bridge-landing',
+        name: 'River Road / Thunder Bridge Landing',
+        latitude: 42.75567,
+        longitude: -89.88728,
+        mileFromStart: 9.5,
+        segmentKind: 'creek',
+        note: 'Default take-out north of Argyle; expect mud and confirm the landing before launching.',
+      },
+    ],
+  },
+
+  'east-branch-pecatonica-river-road-argyle': {
+    putIn: {
+      id: 'river-road-thunder-bridge-landing',
+      name: 'River Road / Thunder Bridge Landing',
+      latitude: 42.75567,
+      longitude: -89.88728,
+    },
+    takeOut: {
+      id: 'argyle-highway-81-boat-launch',
+      name: 'Argyle Highway 81 Boat Launch',
+      latitude: 42.70186,
+      longitude: -89.8707,
+    },
+    logistics: {
+      distanceLabel: 'About 7 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, slower when low or windy near Argyle',
+      shuttle:
+        'Stage the take-out at the Argyle boat launch before driving back to River Road / Thunder Bridge. Confirm you are using the upstream/above-dam landing for this route and not setting up an accidental dam approach.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Village of Argyle landing rules, Wisconsin boating/PFD rules, and private-property limits along the farms and golf-course corridor.',
+      camping:
+        'Treat this as a day trip. Blackhawk Memorial Park and Yellowstone Lake State Park are nearby base-camp options, but no on-route camping is assumed between River Road and Argyle.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at River Road / Thunder Bridge and paddle the popular lower East Branch split to the Argyle boat launch. It is generally gentle, but the final mile slows near the village dam influence, so the planned take-out matters.',
+      accessCaveats: [
+        'River Road is a public/customary paddling landing but can be muddy. Walk the take-out/put-in zone before unloading.',
+        'The Argyle finish is the required take-out for this route. Do not continue downstream into the village dam corridor unless you have a separate below-dam route plan.',
+        'Stay off golf-course, pasture, and residential banks except in an emergency.',
+      ],
+      watchFor: [
+        'Deadfall that is usually passable but can become a strainer or portage after storms.',
+        'Low-water mud and riffles below about 90 cfs at Blanchardville.',
+        'Dam-influenced slack water near Argyle, occasional small-motorboat use, private banks, and cold water outside summer.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'river-road-thunder-bridge-landing',
+        name: 'River Road / Thunder Bridge Landing',
+        latitude: 42.75567,
+        longitude: -89.88728,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default public/customary put-in north of Argyle.',
+      },
+      {
+        id: 'argyle-highway-81-boat-launch',
+        name: 'Argyle Highway 81 Boat Launch',
+        latitude: 42.70186,
+        longitude: -89.8707,
+        mileFromStart: 7,
+        segmentKind: 'creek',
+        note: 'Default take-out above the village dam corridor.',
+      },
+    ],
+  },
+
+  'east-branch-pecatonica-argyle-blackhawk': {
+    putIn: {
+      id: 'argyle-river-street-landing',
+      name: 'Argyle River Street Landing',
+      latitude: 42.69974,
+      longitude: -89.86967,
+    },
+    takeOut: {
+      id: 'blackhawk-memorial-park-landing',
+      name: 'Blackhawk Memorial Park Landing',
+      latitude: 42.65683,
+      longitude: -89.87819,
+    },
+    logistics: {
+      distanceLabel: 'About 7.8 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water or wood scouting',
+      shuttle:
+        'Stage at Blackhawk Memorial Park / Woodford, then launch from the correct below-dam Argyle landing for this downstream route. Walk the Argyle riverfront first so the dam boundary and launch side are unambiguous.',
+      permits:
+        'No route-specific paddling permit is known. Follow Village of Argyle and Blackhawk Memorial Park rules, Wisconsin boating/PFD rules, and private-bank limits.',
+      camping:
+        'Blackhawk Memorial Park has primitive camping at the take-out area and is the cleanest overnight support for this route. Do not assume legal camping on private banks or bars between Argyle and Blackhawk.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch below the Argyle dam corridor and paddle a short lower-East-Branch day to Blackhawk Memorial Park. This is a campground-friendly route when the Blanchardville gauge is at or above the conservative floor, but it still needs wood and private-bank discipline.',
+      accessCaveats: [
+        'Confirm the below-dam Argyle landing. The upstream Argyle launch serves the River Road-to-Argyle route, while this route starts below the village dam corridor.',
+        'Blackhawk Memorial Park is the planned endpoint and campground support. Identify the landing from land before shuttling because the lower banks can be muddy and vegetated.',
+        'Do not casually continue below Blackhawk / Woodford; source notes warn that farther downstream can add frustrating deadfall.',
+      ],
+      watchFor: [
+        'The Argyle low-head-dam boundary and choosing the correct launch side.',
+        'Strainers, partial logjams, low-water mud, and steep private banks.',
+        'Cold water, rural rescue exposure, and changing conditions after rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'argyle-river-street-landing',
+        name: 'Argyle River Street Landing',
+        latitude: 42.69974,
+        longitude: -89.86967,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default below-dam put-in for the downstream Blackhawk route.',
+      },
+      {
+        id: 'blackhawk-memorial-park-landing',
+        name: 'Blackhawk Memorial Park Landing',
+        latitude: 42.65683,
+        longitude: -89.87819,
+        mileFromStart: 7.8,
+        segmentKind: 'creek',
+        note: 'Default take-out and endpoint campground support near Woodford.',
+      },
+    ],
+  },
+
+  'red-river-north-dam-mb-johnson': {
+    putIn: {
+      id: 'red-river-north-dam-carry-in',
+      name: 'North Dam carry-in access / re-entry',
+      latitude: 46.8919,
+      longitude: -96.785,
+    },
+    takeOut: {
+      id: 'red-river-mb-johnson-park',
+      name: 'M.B. Johnson Park trailer access',
+      latitude: 46.91389,
+      longitude: -96.7577,
+    },
+    logistics: {
+      distanceLabel: '3.1 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, depending on current, wind, and dam-area launch discipline',
+      shuttle:
+        'Stage M.B. Johnson Park first, then return to the North Dam carry-in/re-entry. Confirm the Fargo DNR gauge and walk the launch area before unloading because the route begins around a dam/constructed-rock-rapids context.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota and North Dakota boating/PFD rules, posted Fargo-Moorhead park and launch rules, and current border-river regulations.',
+      camping:
+        'Treat this as a day route. M.B. Johnson Park provides route support, but no on-route public overnight campsite is selected for this short Fargo-Moorhead segment.',
+      campingClassification: 'none',
+      summary:
+        'Launch below the Fargo North Dam carry-in/re-entry and take out at M.B. Johnson Park for the official short DNR Map 2 Red River trip. The direct Fargo DNR gauge was in the official medium band during this run.',
+      accessCaveats: [
+        'North Dam is a DNR-mapped carry-in/re-entry by river mile rather than a Minnesota public-water-access GIS record; use posted signs and the legal launch path on arrival.',
+        'M.B. Johnson Park is the planned finish. Do not continue casually toward downstream dams or private banks without a separate route plan.',
+        'The Fargo gauge is direct for the metro reach, but it cannot show same-day snags, muddy landing slope, urban stormwater, or dam-area turbulence.',
+      ],
+      watchFor: [
+        'The North Dam / constructed rock-slopeway context; portage or avoid dam hydraulics unless the group has appropriate whitewater skill and current local guidance.',
+        'Snags, muddy banks, poor underwater visibility, bridge current, and faster water after rain or flood releases.',
+        'Border-river rules, private banks, cold water, and urban water quality after storms.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'red-river-north-dam-carry-in',
+        name: 'North Dam carry-in access / re-entry',
+        latitude: 46.8919,
+        longitude: -96.785,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'DNR Map 2 names the carry-in/re-entry at river mile 455.2; coordinate is a practical map anchor for the named access.',
+      },
+      {
+        id: 'red-river-mb-johnson-park',
+        name: 'M.B. Johnson Park trailer access',
+        latitude: 46.91389,
+        longitude: -96.7577,
+        mileFromStart: 3.1,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR Map 2 river mile 452.1 with public park boat-ramp context.',
+      },
+    ],
+  },
+
+  'red-river-lincoln-drive-lafave': {
+    putIn: {
+      id: 'red-river-lincoln-drive-park-landing',
+      name: 'Lincoln Drive Park Landing',
+      latitude: 47.9137,
+      longitude: -97.0497,
+    },
+    takeOut: {
+      id: 'red-river-lafave-park',
+      name: 'Red River, LaFave Park Public Water Access Site',
+      latitude: 47.92502184090726,
+      longitude: -97.02456598825147,
+    },
+    logistics: {
+      distanceLabel: '2.0 mi',
+      estimatedPaddleTime: 'About 45 min to 2 hr, depending on current, wind, and landing conditions',
+      shuttle:
+        'Stage LaFave Park in East Grand Forks first, then return to Lincoln Drive Park Landing. Because this is short, inspect both muddy-bank exits and the Grand Forks DNR gauge before putting on.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota and North Dakota boating/PFD rules plus posted Grand Forks, East Grand Forks, Greenway, and launch rules.',
+      camping:
+        'Treat this as a day route. Red River State Recreation Area and nearby campgrounds can support a separate basecamp plan, but this two-mile card does not assume an on-route overnight.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Lincoln Drive Park Landing and take out at LaFave Park for the official DNR Map 4 Grand Forks / East Grand Forks connector. The direct Grand Forks DNR gauge was in the official medium band during this run.',
+      accessCaveats: [
+        'Lincoln Drive Park Landing is DNR-mapped and corroborated by Grand Forks park/visitor sources, but it is on the North Dakota bank and not represented in Minnesota public-water-access GIS.',
+        'LaFave Park resolves in Minnesota public-water-access GIS as WAS00545 and is the selected downstream finish.',
+        'Do not substitute steep Greenway banks or private edges for the planned take-out, especially when the Red is high, muddy, or recently flooded.',
+      ],
+      watchFor: [
+        'Snags, flood debris, muddy bank footing, poor underwater visibility, bridge current, and fast rises after rain.',
+        'Urban water quality after storms and colder-than-expected big-river water in shoulder seasons.',
+        'Border-river rules and the need to keep the short route from turning into an unplanned downstream extension.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'red-river-lincoln-drive-park-landing',
+        name: 'Lincoln Drive Park Landing',
+        latitude: 47.9137,
+        longitude: -97.0497,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'DNR Map 4 names the trailer access at river mile 304.1; local park/visitor sources corroborate the boat-ramp context.',
+      },
+      {
+        id: 'red-river-lafave-park',
+        name: 'Red River, LaFave Park Public Water Access Site',
+        latitude: 47.92502184090726,
+        longitude: -97.02456598825147,
+        mileFromStart: 2,
+        segmentKind: 'creek',
+        note: 'Default take-out; Minnesota public-water-access GIS resolves WAS00545 at LaFave Park.',
+      },
+    ],
+  },
+
+  'minnesota-river-kinney-skalbekken': {
+    putIn: {
+      id: 'minnesota-river-kinney-access',
+      name: 'Minnesota River, Kinney Public Water Access Site',
+      latitude: 44.77412842638547,
+      longitude: -95.53125591590408,
+    },
+    takeOut: {
+      id: 'minnesota-river-skalbekken-access',
+      name: 'Minnesota River, Skalbekken Public Water Access Site',
+      latitude: 44.73173490904201,
+      longitude: -95.41945341268442,
+    },
+    logistics: {
+      distanceLabel: '9.2 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, wind, campsite stops, or wood scouting',
+      shuttle:
+        'Stage Skalbekken County Park first, then drive back to Kinney Access. Confirm the Morton DNR gauge, walk the Skalbekken take-out, and decide whether Fredrickson is a bailout before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use DNR public accesses, follow Minnesota boating/PFD rules, and obey county park, water-trail, and campsite rules.',
+      camping:
+        'DNR Map 3 identifies Knutson Island watercraft campsite on the route and rustic camping at Skalbekken County Park. Use only legal designated or currently allowed sites and do not assume private-bank camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Kinney and take out at Skalbekken County Park for MN DNR Map 3 recommended mileage above the Vicksburg rapid sequence. The downstream Morton DNR gauge was in the official low band, just below medium, during this run.',
+      accessCaveats: [
+        'Kinney, Fredrickson, and Skalbekken all resolve in Minnesota public-water-access GIS with source-backed coordinates and river-mile records.',
+        'The Morton gauge is downstream of the selected route. It is the official interpreted same-map gauge, but local tributary inflow, mud, wind, and wood still need same-day checks.',
+        'Skalbekken is the selected finish. Do not continue toward Vicksburg or Morton without a separate rapid/campsite/distance plan.',
+      ],
+      watchFor: [
+        'Low-water shoals and muddy exits when the Morton gauge is low or near the scrapable floor.',
+        'Floating wood, strainers, faster current around the Yellow Medicine River and Hawk Creek confluences, private banks, and rural rescue spacing.',
+        'Occupied or unavailable designated campsites; keep an overnight backup rather than camping informally on private shore.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'minnesota-river-kinney-access',
+        name: 'Minnesota River, Kinney Public Water Access Site',
+        latitude: 44.77412842638547,
+        longitude: -95.53125591590408,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Minnesota public-water-access GIS resolves WAS00694 at DNR river mile 233.7.',
+      },
+      {
+        id: 'minnesota-river-fredrickson-access',
+        name: 'Minnesota River, Fredrickson Public Water Access Site',
+        latitude: 44.768186746779094,
+        longitude: -95.49319939569725,
+        mileFromStart: 3.1,
+        segmentKind: 'creek',
+        note: 'Intermediate public access and bailout; Minnesota public-water-access GIS resolves WAS01021 near DNR river mile 230.6.',
+      },
+      {
+        id: 'minnesota-river-skalbekken-access',
+        name: 'Minnesota River, Skalbekken Public Water Access Site',
+        latitude: 44.73173490904201,
+        longitude: -95.41945341268442,
+        mileFromStart: 9.2,
+        segmentKind: 'creek',
+        note: 'Default take-out at Skalbekken County Park; Minnesota public-water-access GIS resolves WAS00685 near DNR river mile 224.4.',
+      },
+    ],
+  },
+
   'upper-iowa-river-cattle-creek-malanaphy': consolidatedUpperIowaDetails,
   'crow-wing-river-frames-landing-cottingham': consolidatedCrowWingDetails,
 };

@@ -1,5 +1,15 @@
 # Minnesota Route Memory
 
+## 2026-07-23 05:14 America/Chicago / 2026-07-23 10:14 UTC Minnesota Red River / Minnesota River implementation pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `169` to `172` route slugs by adding `red-river-north-dam-mb-johnson`, `red-river-lincoln-drive-lafave`, and `minnesota-river-kinney-skalbekken`.
+- Qualification path: MN DNR Red River Maps 2/4 and the segments page support Fargo-North-Dam-to-M.B.-Johnson and Lincoln-Drive-to-LaFave with official route mileage, access names, dam/flood/snag caveats, and direct Fargo/Grand Forks interpreted gauge bands. RiverKeepers, M.B. Johnson Park context, Grand Forks Park District, Visit Grand Forks, and Minnesota public-water-access GIS corroborate access details where endpoints fall outside or inside Minnesota GIS. MN DNR Minnesota River Map 3 / segments page and public-water-access GIS support Kinney-to-Skalbekken with Kinney, Fredrickson, Skalbekken, Knutson Island campsite, and Skalbekken rustic camping context.
+- Live gauge verification: MN DNR river-level feed returned Red River Fargo site `184` at `511 cfs` at `2026-07-23 02:15 CDT`, Red River Grand Forks site `185` at `1340 cfs` at `2026-07-23 01:45 CDT`, and Minnesota River Morton site `107` at `1310 cfs` at `2026-07-23 02:00 CDT`.
+- Implemented official DNR interpreted bands only: Fargo `364 / 425-1110 / 3240 cfs`, Grand Forks `320 / 881-12000 / 16200 cfs`, and Morton `307 / 1330-3750 / 10900 cfs`. Kinney-to-Skalbekken uses Morton as a downstream same-map proxy with explicit caveats; no extra ideal ranges or upper cutoffs were inferred.
+- Camping posture: both Red River routes are short day routes with no on-route campsite selected; Lincoln-to-LaFave notes nearby-basecamp context only. Kinney-to-Skalbekken is `on_route_campsite` capable only through DNR-mapped Knutson Island watercraft campsite / Skalbekken County Park rustic camping context and requires legal designated-site use.
+- Safety posture: Fargo North Dam-to-M.B. Johnson carries dam/constructed-rock-rapids, snag, muddy-bank, flood/low-water, urban-water-quality, border-river, and cold-water caveats. Lincoln-to-LaFave carries muddy-bank, snag, flood/low-water, bridge/current, urban-water-quality, border-river, and no-unplanned-continuation caveats. Kinney-to-Skalbekken carries downstream proxy-gauge, low-water shoal, tributary current, wood/strainer, private-bank, campsite-availability, and no-continuation-toward-Vicksburg caveats.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / RiverKeepers / local park / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+
 ## 2026-07-23 04:12 America/Chicago / 2026-07-23 09:12 UTC Minnesota Mississippi/Kettle implementation pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `164` to `167` route slugs by adding `mississippi-river-iron-bridge-county-road-12-dam`, `kettle-river-number-1-number-4`, and `mississippi-river-coon-rapids-riverfront`.
