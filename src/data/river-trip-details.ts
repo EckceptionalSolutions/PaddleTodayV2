@@ -1,6 +1,6 @@
 import type { RiverTripDetails } from '../lib/types';
 
-export const riverTripDetails: Record<string, RiverTripDetails> = {
+const baseRiverTripDetails: Record<string, RiverTripDetails> = {
 
 
   'kansas-river-lecompton-lawrence-riverfront': {
@@ -5574,6 +5574,137 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
+  'south-skunk-river-river-valley-cj-shreck': {
+    putIn: {
+      name: 'River Valley Park access, Ames',
+      latitude: 42.03535,
+      longitude: -93.59895,
+    },
+    takeOut: {
+      name: 'C.J. Shreck Access',
+      latitude: 41.9053,
+      longitude: -93.5314,
+    },
+    logistics: {
+      distanceLabel: 'About 13 mi',
+      estimatedPaddleTime: 'About 4 hr 30 min to 6 hr, longer with low water, portages, or wood scouting',
+      shuttle:
+        'Use a vehicle shuttle from C.J. Shreck Access on Highway 210 back to River Valley Park in Ames. Inspect C.J. Shreck first because the lower access is a simple county water-trail landing and 2026 access work may affect parking or the carry path.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Ames, Story County Conservation, and posted South Skunk River Water Trail access rules.',
+      camping:
+        'Treat this as a day trip. Story County lists the lower water-trail accesses as day-use access points, and no on-route camping is assumed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at River Valley Park and take out at C.J. Shreck for the lower Ames-to-Cambridge South Skunk run. This route uses the direct Ames gauge, but dams, constructed riffles, private banks, and fresh wood still drive the safety call.',
+      accessCaveats: [
+        'River Valley Park is also the 13th Street play-feature area. Start below or downstream of the feature unless your group has intentionally scouted and chosen the whitewater line.',
+        'The lower route passes the South 16th Street, 265th Street, and Askew Bridge / Cambridge Pond access chain; use signed public access points only.',
+        'C.J. Shreck is on the north side of Highway 210 at the Skunk River. Confirm current parking, construction, and shoreline conditions before committing to the shuttle.',
+        'The South Skunk is non-meandered here. Do not treat banks outside signed public access and park areas as public land.',
+      ],
+      watchFor: [
+        'Ames dam and rock-riffle features, especially around River Valley Park and the lower city corridor.',
+        'Sharp turns, fresh sweepers, logjams, and muddy banks after storms.',
+        'Low-water scraping below the CanWePaddle floor and faster, colder, debris-laden current above the selected high-water ceiling.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'river-valley-park',
+        name: 'River Valley Park access, Ames',
+        latitude: 42.03535,
+        longitude: -93.59895,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in and the upstream end of the lower Ames route.',
+      },
+      {
+        id: 'south-16th-street',
+        name: 'South 16th Street access',
+        latitude: 42.0106,
+        longitude: -93.5818,
+        mileFromStart: 3,
+        segmentKind: 'creek',
+        note: 'Intermediate Story County water-trail access; verify same-day signage and parking.',
+      },
+      {
+        id: 'askew-bridge-cambridge-pond',
+        name: 'Askew Bridge / Cambridge Pond access',
+        latitude: 41.9278,
+        longitude: -93.5436,
+        mileFromStart: 9,
+        segmentKind: 'creek',
+        note: 'Intermediate public access near Cambridge Pond.',
+      },
+      {
+        id: 'cj-shreck-access',
+        name: 'C.J. Shreck Access',
+        latitude: 41.9053,
+        longitude: -93.5314,
+        mileFromStart: 13,
+        segmentKind: 'creek',
+        note: 'Default take-out on Highway 210 south of Cambridge.',
+      },
+    ],
+  },
+
+  'north-raccoon-river-squirrel-hollow-adkins': {
+    putIn: {
+      name: 'Squirrel Hollow Park boat ramp',
+      latitude: 41.9822,
+      longitude: -94.3192,
+    },
+    takeOut: {
+      name: 'Adkins Bridge Access',
+      latitude: 41.9596,
+      longitude: -94.2676,
+    },
+    logistics: {
+      distanceLabel: 'About 3.8 mi',
+      estimatedPaddleTime: 'About 1 hr 30 min to 2 hr 30 min, longer with low water or wood scouting',
+      shuttle:
+        'Short Greene County shuttle. Stage Adkins Bridge first, then launch from Squirrel Hollow Park. Confirm the take-out before launching because the route is short but private banks limit improvising.',
+      permits:
+        'No route-specific paddling permit is known. Follow Greene County Conservation access rules, Iowa boating/PFD requirements, and any posted park or hunting-season restrictions.',
+      camping:
+        'Squirrel Hollow Park has county park camping near the put-in, so it can support a base-camp trip. Do not assume riverbank camping along the route.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Squirrel Hollow Park and take out at Adkins Bridge for a short North Raccoon bluff-country split. The route is accessible, but DNR non-meandered-stream rules, wood, and rock-dam-style riffles keep it from being a casual no-check float.',
+      accessCaveats: [
+        'Use the Squirrel Hollow public boat ramp / park access, not informal wildlife-area banks.',
+        'Adkins Bridge is the planned take-out 3.8 miles downstream; verify it before launching because missing it turns a short trip into a longer private-bank problem.',
+        'The North Raccoon is non-meandered in this corridor. Stay with public accesses and marked public areas.',
+      ],
+      watchFor: [
+        'Downed trees and log piles, especially on sharp wooded bends.',
+        'Fishing riffles or rock-dam remnants that may need scouting or portaging at some levels.',
+        'Fast rises after rain and colder, pushier water when the Jefferson gauge climbs toward the upper end of the selected band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'squirrel-hollow-park',
+        name: 'Squirrel Hollow Park boat ramp',
+        latitude: 41.9822,
+        longitude: -94.3192,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in with county park camping and public river access.',
+      },
+      {
+        id: 'adkins-bridge-access',
+        name: 'Adkins Bridge Access',
+        latitude: 41.9596,
+        longitude: -94.2676,
+        mileFromStart: 3.8,
+        segmentKind: 'creek',
+        note: 'Default take-out 3.8 miles downstream of Squirrel Hollow.',
+      },
+    ],
+  },
+
   'middle-river-forest-park-schildberg': {
     putIn: {
       name: 'Middle River Forest Park Access #89',
@@ -10993,6 +11124,71 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Shallow feature impacts at low levels, fast rises after rain, tubers and spectators in warm weather, and aging feature performance noted by American Whitewater.',
       ],
     },
+  },
+
+  'cedar-river-charles-city-nashua': {
+    putIn: {
+      name: 'Charles City Dock / Riverside Park',
+      latitude: 43.064968,
+      longitude: -92.677829,
+    },
+    takeOut: {
+      name: 'Nashua Access / Cedar Lake Park',
+      latitude: 42.95638,
+      longitude: -92.535427,
+    },
+    logistics: {
+      distanceLabel: 'About 12 mi',
+      estimatedPaddleTime: 'About 5 hr to 6 hr 30 min, longer with low water or Cedar Lake wind',
+      shuttle:
+        'Stage the take-out at Nashua Access / Cedar Lake Park before launching from downtown Charles City. Inspect the Nashua dam area and the intended above-dam exit first; do not rely on a rushed landing at the end of the day.',
+      permits:
+        'No route-specific paddling permit is known. Follow Charles City, Chickasaw County, Nashua, and Iowa boating/PFD rules at public accesses.',
+      camping:
+        'Howard Woods Recreation Area has primitive camping near the downstream end of the route, and Nashua has local park amenities nearby. Treat this as base-camp support rather than an assumed mid-route overnight.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch from the downtown Charles City riverfront and take out at Nashua Access above the dam. The route continues the Cedar flatwater corridor downstream of the whitewater park, then slows into the Nashua impoundment.',
+      accessCaveats: [
+        'The whitewater course and upstream dam corridor sit immediately above the put-in area; use the normal flatwater launch below that corridor unless your group is intentionally paddling whitewater.',
+        'Take out at Nashua Access / Cedar Lake Park on river left above the Nashua dam. Do not drift into the dam or treat the below-dam access as part of this route.',
+        'Howard Woods is a useful late-route access / primitive-camping context point, but this route is scored to the Nashua above-dam take-out.',
+      ],
+      watchFor: [
+        'Mandatory Nashua dam take-out discipline.',
+        'Wind and slower current on the Cedar Lake / Nashua impoundment approach.',
+        'Fresh wood, bridge current, private banks, low-water gravel, and fast rises after storms.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'charles-city-dock',
+        name: 'Charles City Dock / Riverside Park',
+        latitude: 43.064968,
+        longitude: -92.677829,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below the downtown whitewater-course context.',
+      },
+      {
+        id: 'howard-woods',
+        name: 'Howard Woods Recreation Area',
+        latitude: 42.983259,
+        longitude: -92.56122,
+        mileFromStart: 10,
+        segmentKind: 'creek',
+        note: 'Intermediate access and primitive-camping context about 2.5 miles above Nashua Access.',
+      },
+      {
+        id: 'nashua-access',
+        name: 'Nashua Access / Cedar Lake Park',
+        latitude: 42.95638,
+        longitude: -92.535427,
+        mileFromStart: 12.5,
+        segmentKind: 'creek',
+        note: 'Default take-out above the Nashua dam; portage left if continuing on a separate downstream plan.',
+      },
+    ],
   },
 
   'maquoketa-river-manchester-whitewater': {
@@ -35948,4 +36144,169 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+};
+
+const retiredSplitDetailIds = new Set([
+  'upper-iowa-river-cattle-creek-chimney-rock',
+  'upper-iowa-river-chimney-rock-bluffton',
+  'upper-iowa-river-bluffton-malanaphy',
+  'crow-wing-river-frames-landing-little-white-dog',
+  'crow-wing-river-little-white-dog-knob-hill',
+  'crow-wing-river-knob-hill-cottingham',
+]);
+
+const upperIowaDetailsSeed = baseRiverTripDetails['upper-iowa-river-cattle-creek-chimney-rock']!;
+const crowWingDetailsSeed = baseRiverTripDetails['crow-wing-river-frames-landing-little-white-dog']!;
+
+const consolidatedUpperIowaDetails: RiverTripDetails = {
+  ...upperIowaDetailsSeed,
+  putIn: {
+    name: 'Cattle Creek Road / Daley Bridge canoe access area',
+    latitude: 43.4149,
+    longitude: -91.95874,
+  },
+  takeOut: {
+    name: 'Malanaphy Springs / Bluffton Road bridge access',
+    latitude: 43.34508,
+    longitude: -91.843,
+  },
+  logistics: {
+    ...upperIowaDetailsSeed.logistics,
+    distanceLabel: 'About 18.2 mi',
+    estimatedPaddleTime: 'About 6.5 hr to 10 hr; plan a full day and add time for low water, bluffs, or access stops',
+    shuttle:
+      'Stage Malanaphy Springs / Bluffton Road first, then run the longer shuttle to Cattle Creek Road / Daley Bridge. Confirm the Bluffton Fir Stand and Malanaphy landings before committing because both can be limited or crowded.',
+    summary:
+      'Launch at Cattle Creek Road / Daley Bridge and take out at Malanaphy Springs, with Chimney Rock Park and Bluffton Fir Stand as named intermediate access and bailout points. This family card replaces three overlapping short cards.',
+    accessCaveats: [
+      'Cattle Creek access conditions have changed over time; confirm parking, bank condition, and posted signs before unloading.',
+      'Chimney Rock and Bluffton Fir Stand are useful intermediate access points, but nearby private campground or livery launches are not automatically public.',
+      'Malanaphy Springs has limited parking and landing space. Inspect the take-out and keep a fallback shuttle plan before launch.',
+      'The direct Bluffton gauge supports a low-water floor but not a trusted upper ceiling for the complete family route. Pair the gauge with same-day visual checks and local guidance.',
+    ],
+    watchFor: [
+      'Scraping and dragging in riffles near or below 150 cfs at the Bluffton gauge.',
+      'Storm wood, strainers, bridge approaches, shallow rock, and faster current on rising water.',
+      'Cold spring inflows, private banks, long-route fatigue, and limited clean bailouts between the named access points.',
+    ],
+  },
+  accessPoints: [
+    {
+      id: 'cattle-creek-road-daley-bridge',
+      name: 'Cattle Creek Road / Daley Bridge canoe access area',
+      latitude: 43.4149,
+      longitude: -91.95874,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Default put-in for the consolidated family route.',
+    },
+    {
+      id: 'chimney-rock-park-access',
+      name: 'Chimney Rock Road bridge / Chimney Rock Park access',
+      latitude: 43.42156,
+      longitude: -91.93467,
+      mileFromStart: 4.5,
+      segmentKind: 'creek',
+      note: 'Intermediate access or bailout after the first scenic bluff reach.',
+    },
+    {
+      id: 'bluffton-fir-stand-access',
+      name: 'Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp',
+      latitude: 43.3996,
+      longitude: -91.8884,
+      mileFromStart: 9.8,
+      segmentKind: 'creek',
+      note: 'Intermediate public access before the downstream spring corridor.',
+    },
+    {
+      id: 'malanaphy-springs-access',
+      name: 'Malanaphy Springs / Bluffton Road bridge access',
+      latitude: 43.34508,
+      longitude: -91.843,
+      mileFromStart: 18.2,
+      segmentKind: 'creek',
+      note: 'Default take-out; inspect parking and landing conditions before launch.',
+    },
+  ],
+};
+
+const consolidatedCrowWingDetails: RiverTripDetails = {
+  ...crowWingDetailsSeed,
+  putIn: {
+    name: "Frame's Landing public water access",
+    latitude: 46.629663080692076,
+    longitude: -94.86925421200144,
+  },
+  takeOut: {
+    name: 'Cottingham County Park #11 carry-in access',
+    latitude: 46.505529851247346,
+    longitude: -94.80738952007682,
+  },
+  logistics: {
+    ...crowWingDetailsSeed.logistics,
+    distanceLabel: 'About 14.9 mi',
+    estimatedPaddleTime: 'About 5.5 hr to 8.5 hr; plan a full day and add time for low water, tubing traffic, or campground stops',
+    shuttle:
+      "Stage Cottingham County Park first, then run the longer shuttle to Frame's Landing. Little White Dog and Knob Hill remain named intermediate bailouts or overnight options under posted Wadena County rules.",
+    summary:
+      "Launch at Frame's Landing and take out at Cottingham County Park, using Little White Dog and Knob Hill as the two intermediate county-park access points. This family card replaces three overlapping campground-to-campground cards.",
+    accessCaveats: [
+      "Frame's Landing, Little White Dog, Knob Hill, and Cottingham are the named public county-park access chain; do not substitute private banks or informal riverbed campsites.",
+      'The Nimrod gauge is upstream of the full route. Make a launch-site depth and wood check, especially when the reading is below 300 cfs or after local rain.',
+      'Knob Hill and Cottingham can be busy with tubing, swimming, and campground traffic. Keep the downstream take-out plan explicit and do not drift past it without a separate route review.',
+    ],
+    watchFor: [
+      'Low-water scraping and long slow stretches when the Nimrod gauge is near or below 300 cfs.',
+      'Fresh wood, strainers, stronger current after storms, and private-bank boundaries.',
+      'Summer tubing and swimmer traffic near Knob Hill and Cottingham, plus long-route fatigue and cold-water exposure.',
+    ],
+  },
+  accessPoints: [
+    {
+      id: 'frames-landing',
+      name: "Frame's Landing public water access",
+      latitude: 46.629663080692076,
+      longitude: -94.86925421200144,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Default put-in for the consolidated lower Crow Wing family route.',
+    },
+    {
+      id: 'little-white-dog',
+      name: 'Little White Dog County Park #9 carry-in access',
+      latitude: 46.586984884675736,
+      longitude: -94.82261571200662,
+      mileFromStart: 5.1,
+      segmentKind: 'creek',
+      note: 'Intermediate campground and public-access bailout.',
+    },
+    {
+      id: 'knob-hill',
+      name: 'Knob Hill County Park #10 carry-in access',
+      latitude: 46.533855996511825,
+      longitude: -94.81849257299048,
+      mileFromStart: 11.4,
+      segmentKind: 'creek',
+      note: 'Intermediate campground/tubing access before the final stretch.',
+    },
+    {
+      id: 'cottingham-county-park',
+      name: 'Cottingham County Park #11 carry-in access',
+      latitude: 46.505529851247346,
+      longitude: -94.80738952007682,
+      mileFromStart: 14.9,
+      segmentKind: 'creek',
+      note: 'Default downstream finish for the family route.',
+    },
+  ],
+};
+
+const retainedRiverTripDetails = Object.fromEntries(
+  Object.entries(baseRiverTripDetails).filter(([id]) => !retiredSplitDetailIds.has(id)),
+) as Record<string, RiverTripDetails>;
+
+export const riverTripDetails: Record<string, RiverTripDetails> = {
+  ...retainedRiverTripDetails,
+  'upper-iowa-river-cattle-creek-malanaphy': consolidatedUpperIowaDetails,
+  'crow-wing-river-frames-landing-cottingham': consolidatedCrowWingDetails,
 };

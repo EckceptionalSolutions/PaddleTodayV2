@@ -1,5 +1,12 @@
 # Midwest Route Automation Memory
 
+- 2026-07-22 22:49 America/Chicago / 2026-07-23 03:49 UTC: Iowa Cedar / South Skunk / North Raccoon implementation pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 60-route Iowa baseline: `cedar-river-charles-city-nashua`, `south-skunk-river-river-valley-cj-shreck`, and `north-raccoon-river-squirrel-hollow-adkins`.
+  - Qualification path: CanWePaddle direct route pages plus official/local public-access pages support all three selected corridors; Cedar is backed by the Cedar River flatwater guide and Nashua city float guidance, South Skunk by Story County water-trail and C.J. Shreck access pages, and North Raccoon by Squirrel Hollow park documentation plus Iowa DNR Raccoon River guide context.
+  - Gauge posture: USGS Water Services returned Charles City `05457700` at `1,680 cfs / 4.37 ft`, Ames `05470000` at `223 cfs / 3.85 ft`, and Jefferson `05482500` at `243 cfs / 5.17 ft` during the run.
+  - Threshold posture: all three routes use direct-gauge CanWePaddle estimated bands: Cedar `200-2,500 cfs`, South Skunk `100-1,500 cfs`, and North Raccoon `150-2,000 cfs`. No route-gallery assets were added after bounded official / local / USGS / Commons / same-route image review.
+  - Current imported Iowa count is `61`, not `63`, because pre-existing dirty Upper Iowa consolidation in this checkout replaces three split cards with one combined Cattle-Creek-to-Malanaphy slug; the three new slugs are present beyond the run baseline.
+
 - 2026-07-22 23:05 America/Chicago / 2026-07-23 04:05 UTC: Minnesota upper/central Mississippi implementation pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 148-route Minnesota baseline: `mississippi-river-steamboat-blackberry-bridge`, `mississippi-river-trommald-lum-park`, and `mississippi-river-beaver-island-clearwater`, bringing this checkout to 151 Minnesota routes.
   - Qualification path: MN DNR Mississippi River segments plus Maps 3/5/8 support the exact public water-trail corridors, mileage, campsites, low/high-water warnings, and dam/island/private-land caveats; Minnesota public-water-access GIS resolves all six endpoints; MN DNR sites `124`, `121`, and `129` provide official interpreted bands.

@@ -4,13 +4,25 @@ Last summarized: 2026-07-22.
 
 ## Current Inventory
 
-- Live routes: 60 after the 2026-07-22 Brookwood / Little Sioux / Winnebago pass.
+- Live routes: 60 at the start of the 2026-07-22 late Cedar / South Skunk / North Raccoon pass, based on `src/data/rivers.ts` imported with `tsx`.
+- This checkout also has pre-existing dirty consolidation code that retires three Upper Iowa split cards and emits one family card, so the post-edit imported Iowa count is 61 even though this run added three new Iowa slugs beyond the 60-route baseline.
 - Top represented rivers: Upper Iowa River 8, Turkey River 6, North Fork Maquoketa River 6, Cedar River 6, Maquoketa River 5, South Skunk River 4, Des Moines River 2, Iowa River 2, Volga River 3.
 - Ledger candidates: updated by the 2026-07-22 Brookwood / Little Sioux / Winnebago pass; latest additions are marked `added`.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-22 run added three more distinct corridors with direct USGS gauges and CanWePaddle route ranges: Cedar River Brookwood-to-Janesville, Little Sioux River Linn-Grove-to-Peterson, and Winnebago River Fertile-to-Mason-City.
+Iowa remains mature overall. The latest 2026-07-22 late run added three more distinct corridors with direct USGS gauges and CanWePaddle route ranges: Cedar River Charles-City-to-Nashua, South Skunk River River-Valley-to-C.J.-Shreck, and North Raccoon River Squirrel-Hollow-to-Adkins.
+
+## 2026-07-22 Cedar / South Skunk / North Raccoon pass
+
+- Baseline at run start: 60 Iowa live routes, verified from `src/data/rivers.ts` with `tsx`.
+- Added `cedar-river-charles-city-nashua`, `south-skunk-river-river-valley-cj-shreck`, and `north-raccoon-river-squirrel-hollow-adkins` beyond that baseline.
+- Count caveat: the checkout already had unrelated dirty consolidation code in `src/data/rivers.ts` / `src/data/river-trip-details.ts` that retires `upper-iowa-river-cattle-creek-chimney-rock`, `upper-iowa-river-chimney-rock-bluffton`, and `upper-iowa-river-bluffton-malanaphy` and emits `upper-iowa-river-cattle-creek-malanaphy`; current imported Iowa count after this run is therefore 61, not 63.
+- Qualification path: CanWePaddle and USGS support all three direct-gauge threshold models. Cedar is reinforced by Cedar River Paddling Trips guide mileage/coordinates, City of Nashua float context, and a Nashua above-dam mandatory take-out. South Skunk is reinforced by Story County's state water-trail access chain and MyCountyParks C.J. Shreck public access. North Raccoon is reinforced by Greene County / MyCountyParks Squirrel Hollow access/camping and Iowa DNR Greene County North Raccoon guide context for Squirrel Hollow-to-Adkins.
+- Gauge posture: USGS Water Services returned Cedar River at Charles City `05457700` at `1,680 cfs / 4.37 ft` at 2026-07-22 22:15 CDT, South Skunk River near Ames `05470000` at `223 cfs / 3.85 ft` at 2026-07-22 22:00 CDT, and North Raccoon River near Jefferson `05482500` at `243 cfs / 5.17 ft` at 2026-07-22 22:15 CDT.
+- Threshold posture: all three use conservative route/corridor CanWePaddle bands tied to direct same-river USGS gauges: Cedar `200-2,500 cfs`, South Skunk `100-1,500 cfs`, and North Raccoon `150-2,000 cfs`.
+- Caveat posture: Cedar requires above-dam Nashua take-out discipline and keeps the whitewater course separate; South Skunk emphasizes Ames dam/rock-riffle decisions, private non-meandered banks, and C.J. Shreck same-day access checks; North Raccoon emphasizes Adkins take-out verification, non-meandered private-bank restrictions, wood/log piles, and rock-dam/fishing-riffle caution.
+- No route-gallery assets were added after bounded CanWePaddle / official-local / USGS / Commons / same-route image review.
 
 ## 2026-07-22 Brookwood / Little Sioux / Winnebago pass
 
