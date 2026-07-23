@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-23T15:26:05.322Z",
+  "generatedAt": "2026-07-23T15:28:45.291Z",
   "routeCount": 823,
-  "issueCount": 622,
+  "issueCount": 615,
   "summary": {
     "Critical": 0,
-    "High": 378,
-    "Medium": 244,
+    "High": 374,
+    "Medium": 241,
     "Low": 0
   },
   "issues": [
@@ -44,39 +44,6 @@
       "evidence": "l. The current is usually mellow, but the route still needs attention for wood, private banks, and the simpler earthen Hale finish once you enter the Bluffton corridor. Confidence is good for a conservative Indiana add: Wells County Trails supports the route b"
     },
     {
-      "routeId": "black-hawk-creek-ranchero-hope-martin",
-      "slug": "black-hawk-creek-ranchero-hope-martin",
-      "name": "Black Hawk Creek",
-      "reach": "Ranchero Road to Hope Martin Park",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "black-hawk-creek-ranchero-hope-martin",
-      "slug": "black-hawk-creek-ranchero-hope-martin",
-      "name": "Black Hawk Creek",
-      "reach": "Ranchero Road to Hope Martin Park",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "ative A good Hudson reading does not remove the need to scout blind corners and portage around fresh wood. Iowa DNR Black Hawk Creek Water Trail brochure https://www.iowadnr.gov/media/8882/download?inline USGS 05463500 monitoring location https://waterdata.usg"
-    },
-    {
-      "routeId": "black-hawk-creek-ranchero-hope-martin",
-      "slug": "black-hawk-creek-ranchero-hope-martin",
-      "name": "Black Hawk Creek",
-      "reach": "Ranchero Road to Hope Martin Park",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "official Hudson gauge band as the upstream segment. Good flow is necessary, but wood and portages still decide the day. Only consider this when Hudson is inside the official 100 to 500 cfs band. Even in range, expect deadfalls, scoutable bends, and possible po"
-    },
-    {
       "routeId": "boone-river-riverside-albright",
       "slug": "boone-river-riverside-albright",
       "name": "Boone River",
@@ -108,17 +75,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "City launch to county ramp Iowa City lists Sturgis Ferry Park with a boat ramp, parking, restrooms, and a 2024 renovation, while Johnson County says Hills Access has a boat ramp, parking, water, restrooms, playground, and camping. Observed working levels Offic"
-    },
-    {
-      "routeId": "little-turkey-river-gouldsburg-eldorado",
-      "slug": "little-turkey-river-gouldsburg-eldorado",
-      "name": "Little Turkey River",
-      "reach": "Gouldsburg Park to Eldorado Bridge Access",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "nces and wires near Gouldsburg Park and cites Paddling Iowa warnings; scout and portage rather than forcing a line under wire. Take-out support Eldorado / Highway 150 bridge access The official water-trail guide names Eldorado Access #86, and Miles Paddled doc"
     },
     {
       "routeId": "middle-river-schildberg-roseman",
@@ -4169,17 +4125,6 @@
       "evidence": "der gardens, clear water, and quiet forested banks; this is a beginner-friendly whitewater route only for paddlers ready to read rapids and swim safely. Use the Wolf River at Langlade gauge. The most broadly useful window is 250 to 500 cfs. From 150 to 250 cfs"
     },
     {
-      "routeId": "black-hawk-creek-ranchero-hope-martin",
-      "slug": "black-hawk-creek-ranchero-hope-martin",
-      "name": "Black Hawk Creek",
-      "reach": "Ranchero Road to Hope Martin Park",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "k run The downstream Waterloo reach still carries portages, deadfalls, and wood-hazard decisions even though the mileage is shorter. Primary hazards Deadfalls, sweepers, and ford hazards Hope Martin is easier to stage than longer creek runs, but the water-trai"
-    },
-    {
       "routeId": "boone-river-riverside-albright",
       "slug": "boone-river-riverside-albright",
       "name": "Boone River",
@@ -4211,28 +4156,6 @@
       "category": "Conditions",
       "message": "Route text mentions condition hazards that need explicit safety review.",
       "evidence": "cfs only as a conservative floor, not as a claimed sweet spot. Route character Urban edge into bottomland forest Johnson County describes the first half as light industry and cabin-lined banks, with longer forested bottomland miles in the latter half. Take-ou"
-    },
-    {
-      "routeId": "little-turkey-river-gouldsburg-eldorado",
-      "slug": "little-turkey-river-gouldsburg-eldorado",
-      "name": "Little Turkey River",
-      "reach": "Gouldsburg Park to Eldorado Bridge Access",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Official upper Turkey River Water Trail starter section from Gouldsburg Park down the Little Turkey to Eldorado. This is a pretty Driftless riffle run, but seasonal fences, wires,"
-    },
-    {
-      "routeId": "little-turkey-river-gouldsburg-eldorado",
-      "slug": "little-turkey-river-gouldsburg-eldorado",
-      "name": "Little Turkey River",
-      "reach": "Gouldsburg Park to Eldorado Bridge Access",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "easonal fences and wires near Gouldsburg Park and cites Paddling Iowa warnings; scout and portage rather than forcing a line under wire. Take-out support Eldorado / Highway 150 bridge access The official water-trail guide names Eldorado Access #86, and Miles P"
     },
     {
       "routeId": "maquoketa-river-canton-royertown",
