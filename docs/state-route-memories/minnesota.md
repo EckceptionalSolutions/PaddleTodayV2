@@ -1,5 +1,15 @@
 # Minnesota Route Memory
 
+## 2026-07-23 03:10 America/Chicago / 2026-07-23 08:10 UTC Minnesota Mississippi Map 1 implementation pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `161` to `164` route slugs by adding `mississippi-river-coffee-pot-bear-den`, `mississippi-river-bear-den-iron-bridge`, and `mississippi-river-county-road-12-dam-county-road-25`.
+- Qualification path: MN DNR Mississippi Map 1 / segments page documents the Coffee Pot, Bear Den, Iron Bridge, County Road 12 Dam, County Road 25, wetland obstruction, Class I rapid, dam/portage, watercraft campsite, and private-bank/camping-rule context. Minnesota public-water-access GIS resolves Coffee Pot `WAS00730`, Bear Den `WAS02254`, Pine Point `WAS00728`, Iron Bridge `WAS00519`, County Road 12 `WAS00096`, and County Road 25 `WAS00729` with coordinates and river-mile records.
+- Live gauge verification: MN DNR river-level feed returned Wilton site `155` at `41.69 ft` at `2026-07-23 01:30 CDT`, in official medium, and Stump Lake / County Road 12 site `341` at `2.99 ft` at `2026-07-23 01:30 CDT`, in official medium.
+- Implemented official DNR interpreted bands only: Wilton `39.1 / 40.0-42.5 / 45.0 ft` and Stump Lake `1.8 / 2.8-3.6 / 5.0 ft`. Coffee-Pot-to-Bear-Den uses Wilton as a downstream same-map proxy; Bear-Den-to-Iron-Bridge and County-Road-12-to-County-Road-25 use direct route-end gauges.
+- Camping posture: all three are `on_route_campsite` capable only through mapped/designated watercraft campsite context. The cards require legal designated sites and reject riverbed camping next to private property.
+- Safety posture: Coffee-Pot-to-Bear-Den carries wetland-channel, vegetation, Stumphges Rapids Class I, wood/strainer, private-bank, cold-water, and proxy-gauge caveats. Bear-Den-to-Iron-Bridge carries wetland/vegetation, Pine Point optional-access, Iron Bridge mandatory-finish, private-bank, and cold-water caveats. County-Road-12-to-County-Road-25 carries dam/portage-boundary, Island Point Rapids Class I, mandatory take-out, bridge/current, private-bank, and high-water caveats.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+
 ## 2026-07-23 02:14 America/Chicago / 2026-07-23 07:14 UTC Minnesota Zumbro/Mississippi implementation pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `158` to `161` route slugs by adding `zumbro-river-zumbro-falls-hammond`, `mississippi-river-fort-ripley-fletcher-creek`, and `mississippi-river-sandy-lake-wolds-ferry`.

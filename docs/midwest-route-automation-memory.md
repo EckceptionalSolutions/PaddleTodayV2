@@ -1,5 +1,17 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 03:10 America/Chicago / 2026-07-23 08:10 UTC: Minnesota Mississippi Map 1 implementation pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 161-route Minnesota baseline: `mississippi-river-coffee-pot-bear-den`, `mississippi-river-bear-den-iron-bridge`, and `mississippi-river-county-road-12-dam-county-road-25`, bringing Minnesota to 164 live routes.
+  - Qualification path: MN DNR Mississippi Map 1 plus current segments page support the Coffee Pot / Bear Den / Iron Bridge / County Road 12 / County Road 25 access chain, wetland obstructions, Stumphges Rapids Class I, Island Point Rapids Class I, County Road 12 dam/portage boundary, watercraft-campsite-only overnight posture, and private-bank/camping rules. Minnesota public-water-access GIS resolves all endpoints plus Pine Point as an intermediate access/campsite.
+  - Gauge posture: MN DNR feed returned Wilton site `155` at `41.69 ft` and Stump Lake site `341` at `2.99 ft` at 2026-07-23 01:30 CDT, both in official medium.
+  - Threshold posture: all three use official DNR interpreted bands only. Wilton uses `39.1 / 40.0-42.5 / 45.0 ft` and Stump Lake uses `1.8 / 2.8-3.6 / 5.0 ft`. No route-gallery assets were added after bounded DNR / public-access / Commons / same-route image review.
+
+- 2026-07-23 03:04 America/Chicago / 2026-07-23 08:04 UTC: Wisconsin Popple / Sugar implementation pass (`wisconsin-route-additions`).
+  - Added three Wisconsin route slugs beyond the current 137-route Wisconsin baseline: `popple-river-fr-2398-morgan-lake`, `popple-river-highway-101-white-ash`, and `sugar-river-attica-albany`, bringing Wisconsin to 140 live routes.
+  - Qualification path: Wisconsin DNR supports the two Popple travel-time segments; Wisconsin Trail Guide PO1/PO2 provides endpoint coordinates, access notes, mileages, whitewater hazards, campsite context, and Popple `04063700` gauge ladders; Florence County corroborates the expert-only lower-PO2 warning; Miles Paddled supports Attica-to-Albany with exact coordinates, 9-mile route shape, and a 60 cfs Verona-gauge minimum; and Village of Albany corroborates river-shore boat-launch context.
+  - Gauge posture: USGS Water Services returned Popple River near Fence `36.6 cfs / 2.00 ft` at 2026-07-23 02:45 CDT and Sugar River near Verona `40.4 cfs / 2.92 ft` at 2026-07-23 02:00 CDT.
+  - Threshold posture: Popple FR2398-to-Morgan uses WTG PO1 `150 / 250-500 / 800 cfs`; Popple Highway-101-to-White-Ash uses WTG PO2 `150 / 250-600 / 800 cfs` with upstream proxy caveats; Sugar Attica-to-Albany uses minimum-only `60 cfs`. No route-gallery assets were added after bounded official/community/Commons/same-route image review.
+
 - 2026-07-23 02:47 America/Chicago / 2026-07-23 07:47 UTC: Iowa Lizard Creek implementation pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 70-route Iowa baseline: `lizard-creek-lentsch-cunningham`, `lizard-creek-cunningham-rasch`, and `lizard-creek-rasch-phinney`, bringing Iowa to 73 live routes.
   - Qualification path: Iowa DNR / Webster County's Lizard Creek Water Trail brochure documents the designated North Fork Lizard Creek access chain, segment distances, private non-meandered-bank/no-camping limits, fast-water/boulder/rapid hazards, electric fences, railroad bridge debris, and intermediate/advanced classifications; American Whitewater documents the same Lentsch-to-Phinney reach, access coordinates, Class I-II rating, and direct USGS `05480080` stage range.

@@ -6932,6 +6932,65 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
+  'sugar-river-attica-albany': {
+    putIn: {
+      id: 'attica-highway-c-access',
+      name: 'Attica Highway C Access',
+      latitude: 42.77021,
+      longitude: -89.47913,
+    },
+    takeOut: {
+      id: 'albany-public-boat-launch',
+      name: 'Albany Public Boat Launch / Legion Park',
+      latitude: 42.71007,
+      longitude: -89.43966,
+    },
+    logistics: {
+      distanceLabel: '9 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer below the Verona floor',
+      shuttle:
+        'Use a rural two-car shuttle from Albany back to the Attica County Road C access. Scout the Albany take-out before launching because the dam corridor and tube traffic can make the final approach busier than the upstream miles.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Green County, Attica, and Albany park or launch rules, and keep vehicles in legal parking areas.',
+      camping:
+        'No on-route camping is documented for this lower-Sugar day route. Treat Albany-area parks, private campgrounds, or lodging as separate base-camp planning rather than river-camping permission.',
+      campingClassification: 'none',
+      summary:
+        'Launch from the Attica Highway C access and take out at the public Albany launch near Madison Street / Legion Park. This fills the downstream continuation below Highway X-to-Attica with easy current, low-water sensitivity, private-bank limits, and a conservative minimum-only Verona gauge model.',
+      accessCaveats: [
+        'Miles Paddled publishes both endpoint coordinates and describes the Albany finish as a public boat launch off Madison Street.',
+        'The Village of Albany says Legion Park sits on the river shore and offers a boat launch, but same-day parking, tube traffic, or local events can still affect staging.',
+        'The Verona gauge is upstream of this route, so it is useful as a low-water floor rather than a complete high-water decision model.',
+      ],
+      watchFor: [
+        'Very shallow and frustrating conditions below 60 cfs on the Verona gauge.',
+        'Strainers, downed trees, muddy banks, and faster push after storms.',
+        'Private banks and warm-weather user traffic near Albany.',
+        'The Albany dam and millrace corridor downstream of the take-out; finish at the public launch unless intentionally following a separate local plan.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'attica-highway-c-access',
+        name: 'Attica Highway C Access',
+        latitude: 42.77021,
+        longitude: -89.47913,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the County Road C / Attica bridge corridor.',
+      },
+      {
+        id: 'albany-public-boat-launch',
+        name: 'Albany Public Boat Launch / Legion Park',
+        latitude: 42.71007,
+        longitude: -89.43966,
+        mileFromStart: 9,
+        segmentKind: 'creek',
+        note: 'Default take-out at the Madison Street / Albany public launch corridor.',
+      },
+    ],
+  },
+
 
   'black-hawk-creek-ranchero-hope-martin': {
     putIn: {
@@ -9959,6 +10018,74 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
+  'popple-river-fr-2398-morgan-lake': {
+    putIn: {
+      id: 'fr-2398-bridge-landing',
+      name: 'Forest Road 2398 Bridge Landing',
+      latitude: 45.7663,
+      longitude: -88.60577,
+    },
+    takeOut: {
+      id: 'morgan-lake-road-landing',
+      name: 'Morgan Lake Road Bridge Landing',
+      latitude: 45.76343,
+      longitude: -88.46304,
+    },
+    logistics: {
+      distanceLabel: '11 mi',
+      estimatedPaddleTime: 'About 5 hr to 6 hr, plus scouting, low-water, or camp time',
+      shuttle:
+        'Run a remote Chequamegon-Nicolet / Florence County shuttle between FR 2398 and Morgan Lake Road. Download maps, inspect both bridge landings, and confirm the Morgan Lake Road gauge trend before committing.',
+      permits:
+        'No route-specific paddling permit is known. Use the named bridge landings and follow Wisconsin DNR Pine-Popple Wild Rivers, national forest, and posted road-access rules.',
+      camping:
+        'WTG documents a primitive canoe/kayak campsite at FR 2159 Bridge Landing within this route and says Popple canoe/kayak campsites are free, first-come, primitive, and limited to one night. Confirm current DNR/forest rules and fire restrictions before planning an overnight.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at FR 2398 Bridge Landing and take out at Morgan Lake Road Bridge Landing for Popple PO1. The route mixes quiet marsh, narrow forest current, Class I-II boulder gardens, Burnt Dam Rapids, a mid-route primitive campsite, and the direct in-route Popple gauge.',
+      accessCaveats: [
+        'FR 2398 is a hand-carry roadside bridge landing with roadside parking, not a developed livery launch.',
+        'FR 2159 / Newald Tower Road is an intermediate bridge landing and primitive campsite, but campsite availability is first-come and should not be assumed.',
+        'Morgan Lake Road is also the USGS gauge corridor and the take-out for this card. Identify the bridge landing before launching because continuing downstream starts the harder PO2 whitewater.',
+      ],
+      watchFor: [
+        'First Rapids, boulder gardens, the remains of Podunk Dam, and two pitches of Burnt Dam Rapids.',
+        'Low water below 150 cfs, when rapids become bony and scraping increases.',
+        'High water above 500 cfs, when WTG says novice paddlers should avoid the river and strainers or deadfall become more hazardous.',
+        'Cold water, limited cell service, private or unclear banks, and long rescue times.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'fr-2398-bridge-landing',
+        name: 'Forest Road 2398 Bridge Landing',
+        latitude: 45.7663,
+        longitude: -88.60577,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default PO1 put-in at the FR 2398 bridge.',
+      },
+      {
+        id: 'fr-2159-bridge-landing',
+        name: 'FR 2159 Bridge Landing / primitive campsite',
+        latitude: 45.7577,
+        longitude: -88.52758,
+        mileFromStart: 6.3,
+        segmentKind: 'creek',
+        note: 'WTG intermediate landing and primitive campsite near the direct gauge corridor.',
+      },
+      {
+        id: 'morgan-lake-road-landing',
+        name: 'Morgan Lake Road Bridge Landing',
+        latitude: 45.76343,
+        longitude: -88.46304,
+        mileFromStart: 11,
+        segmentKind: 'creek',
+        note: 'Default PO1 take-out and start of the harder PO2 whitewater.',
+      },
+    ],
+  },
+
   'popple-river-morgan-lake-highway-101': {
     putIn: {
       name: 'Morgan Lake Road / Forest Service Road 2159 bridge access',
@@ -9993,6 +10120,83 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
         'High water, sticky holes, strainers, deadfall, spring ice shelves, cold water, and limited road exits in the Wild River corridor.',
       ],
     },
+  },
+
+  'popple-river-highway-101-white-ash': {
+    putIn: {
+      id: 'highway-101-wayside-landing',
+      name: 'Highway 101 Wayside Landing',
+      latitude: 45.80005,
+      longitude: -88.39733,
+    },
+    takeOut: {
+      id: 'white-ash-white-birch-road-landing',
+      name: 'White Ash / White Birch Road Landing',
+      latitude: 45.83957,
+      longitude: -88.3389,
+    },
+    logistics: {
+      distanceLabel: 'About 6 to 6.3 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, plus mandatory scouting and portage time',
+      shuttle:
+        'Stage the take-out at the White Ash / White Birch Road landing before launching from Highway 101. WTG notes White Ash Road can be rough and sometimes has a shallow flooded section, so confirm vehicle access before leaving the put-in.',
+      permits:
+        'No route-specific paddling permit is known. Use signed Pine-Popple Wild Rivers access points, stay on accepted scout/portage routes, and obey Wisconsin DNR / Florence County access rules.',
+      camping:
+        'No normal campsite is assumed on this lower PO2 split. WTG documents a primitive campsite upstream near Nine Day Rapids on the full Morgan-to-Pine route; treat this Highway-101-to-Pine split as a technical day route unless separately planning a legal Wild River overnight.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Highway 101 Wayside and take out on the Pine River just below the Popple confluence at the White Ash / White Birch Road landing. This is the downstream PO2 split with boulder gardens, Washburn Falls, Jennings Falls, rugged portages, and a proxy gauge upstream at Morgan Lake Road.',
+      accessCaveats: [
+        'Highway 101 Wayside has a short trail from parking to a small gravel beach downstream of the bridge.',
+        'The take-out is on the Pine River about 30 yards below the confluence, reached from White Ash Road / White Birch Road. Confirm road and landing condition before launching.',
+        'The selected USGS gauge is upstream in PO1. Use it as a corridor proxy and make a visual decision at Highway 101 before committing to the falls.',
+      ],
+      watchFor: [
+        'Nearly continuous Class I-II boulder gardens shortly below Highway 101.',
+        'Washburn Falls, where WTG warns paddlers may not recognize the falls until they are committed if they miss the right-bank portage sign.',
+        'Jennings Falls / Popple Rapids, sharp bends, granite walls, ledges, sticky holes, and no developed portage.',
+        'Strainers, deadfall, cold water, remote rescue exposure, and a missed take-out into the Pine River corridor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-101-wayside-landing',
+        name: 'Highway 101 Wayside Landing',
+        latitude: 45.80005,
+        longitude: -88.39733,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the Highway 101 wayside landing.',
+      },
+      {
+        id: 'washburn-falls',
+        name: 'Washburn Falls',
+        latitude: 45.81138,
+        longitude: -88.36517,
+        mileFromStart: 2.4,
+        segmentKind: 'creek',
+        note: 'Class III falls with a rugged right-bank scout/portage.',
+      },
+      {
+        id: 'jennings-falls-popple-rapids',
+        name: "Jennings Falls / Popple Rapids",
+        latitude: 45.83693,
+        longitude: -88.36399,
+        mileFromStart: 4.9,
+        segmentKind: 'creek',
+        note: 'Class III ledge sequence near the lower end of PO2.',
+      },
+      {
+        id: 'white-ash-white-birch-road-landing',
+        name: 'White Ash / White Birch Road Landing',
+        latitude: 45.83957,
+        longitude: -88.3389,
+        mileFromStart: 6.3,
+        segmentKind: 'creek',
+        note: 'Default take-out on the Pine River just below the Popple confluence.',
+      },
+    ],
   },
 
   'pine-river-county-n-wepco-5': {
@@ -38435,6 +38639,186 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 9.5,
         segmentKind: 'creek',
         note: "Default take-out; Minnesota public-water-access GIS resolves WAS02563 at DNR river mile 1096.0.",
+      },
+    ],
+  },
+  'mississippi-river-coffee-pot-bear-den': {
+    putIn: {
+      id: 'mississippi-river-coffee-pot-landing',
+      name: 'Mississippi River, Coffee Pot Landing Public Water Access Site',
+      latitude: 47.34922231604911,
+      longitude: -95.18306240194006,
+    },
+    takeOut: {
+      id: 'mississippi-river-bear-den',
+      name: 'Mississippi River, Bear Den Public Water Access Site',
+      latitude: 47.42347904252798,
+      longitude: -95.10360401440907,
+    },
+    logistics: {
+      distanceLabel: '14.8 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, vegetation, or campsite stops',
+      shuttle:
+        'Stage Bear Den first, then drive back to Coffee Pot Landing. Identify Bear Den from the DNR access road before launching because public exits are sparse between the named landings.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, use MN DNR water-trail accesses, and obey posted campsite and access rules.',
+      camping:
+        'Coffee Pot Landing and Brownie are mapped DNR watercraft campsite options in this corridor. Use only legal designated sites, confirm availability, and do not camp on riverbed areas next to private property.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Coffee Pot Landing and finish at Bear Den for a long upper-Mississippi headwaters day through wetland channels and Stumphges Rapids. Use Wilton as a downstream same-map DNR gauge proxy and make same-day vegetation and wood checks.',
+      accessCaveats: [
+        'Coffee Pot and Bear Den are both DNR-administered public accesses in the Minnesota public-water-access layer, but the landings are rural and should be checked before the shuttle is committed.',
+        'The reach passes through a large wetland area where vegetation can obscure the best channel. Do not shortcut across private banks or side channels just because the river looks braided.',
+        'Bear Den is the planned finish. Continuing to Iron Bridge is a separate route with a different shuttle and gauge relationship.',
+      ],
+      watchFor: [
+        'Aquatic vegetation obstructions, log jams, dense wetland channels, cold water, and private shoreland.',
+        'Stumphges Rapids Class I in low or wood-affected conditions.',
+        'High or rising water, when finding the main channel and landing cleanly can become harder.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mississippi-river-coffee-pot-landing',
+        name: 'Mississippi River, Coffee Pot Landing Public Water Access Site',
+        latitude: 47.34922231604911,
+        longitude: -95.18306240194006,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Minnesota public-water-access GIS resolves WAS00730 at DNR river mile 1326.2.',
+      },
+      {
+        id: 'mississippi-river-bear-den',
+        name: 'Mississippi River, Bear Den Public Water Access Site',
+        latitude: 47.42347904252798,
+        longitude: -95.10360401440907,
+        mileFromStart: 14.8,
+        segmentKind: 'creek',
+        note: 'Default take-out; Minnesota public-water-access GIS resolves WAS02254 at DNR river mile 1311.4.',
+      },
+    ],
+  },
+  'mississippi-river-bear-den-iron-bridge': {
+    putIn: {
+      id: 'mississippi-river-bear-den',
+      name: 'Mississippi River, Bear Den Public Water Access Site',
+      latitude: 47.42347904252798,
+      longitude: -95.10360401440907,
+    },
+    takeOut: {
+      id: 'mississippi-river-iron-bridge',
+      name: 'Mississippi River, Iron Bridge Public Water Access Site',
+      latitude: 47.43547995293871,
+      longitude: -94.99941150842695,
+    },
+    logistics: {
+      distanceLabel: '10.8 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with wind, low water, or campsite stops',
+      shuttle:
+        'Stage Iron Bridge first, then drive back to Bear Den. Confirm the bridge/gauge take-out and parking before committing because downstream continuation enters different Bemidji-area water-trail planning.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, use MN DNR public accesses, and obey posted access and watercraft-campsite rules.',
+      camping:
+        'Fox Trap, Pine Point, and Iron Bridge are mapped watercraft campsite contexts on or near this connector. Use only legal designated sites if available, and keep the normal plan as a day trip unless camping is confirmed.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Bear Den and take out at Iron Bridge for the lower Map 1 headwaters connector to the Wilton DNR gauge. This is mostly easy water, but wetland vegetation, wood, private banks, and the mandatory bridge take-out still matter.',
+      accessCaveats: [
+        'Bear Den and Iron Bridge are DNR-administered public accesses in the Minnesota public-water-access layer.',
+        'Pine Point is a mapped intermediate carry-in/campsite access, but use it only if current signs, landing condition, and site availability are clear.',
+        'Iron Bridge is the planned finish at the gauge. Do not turn this into a lake-transition or Bemidji route without separate route review.',
+      ],
+      watchFor: [
+        'Aquatic vegetation obstructions from the lower wetland reach into Iron Bridge.',
+        'Fresh strainers, cold water, bridge current, and private shoreland outside named public access or campsite areas.',
+        'High water above the official Wilton medium band, when landing and wood avoidance become less forgiving.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mississippi-river-bear-den',
+        name: 'Mississippi River, Bear Den Public Water Access Site',
+        latitude: 47.42347904252798,
+        longitude: -95.10360401440907,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Minnesota public-water-access GIS resolves WAS02254 at DNR river mile 1311.4.',
+      },
+      {
+        id: 'mississippi-river-pine-point',
+        name: 'Mississippi River, Pine Point Landing Public Water Access Site',
+        latitude: 47.42846977411731,
+        longitude: -95.06990663377715,
+        mileFromStart: 3.6,
+        segmentKind: 'creek',
+        note: 'Mapped DNR carry-in and watercraft campsite area near river mile 1307.8.',
+      },
+      {
+        id: 'mississippi-river-iron-bridge',
+        name: 'Mississippi River, Iron Bridge Public Water Access Site',
+        latitude: 47.43547995293871,
+        longitude: -94.99941150842695,
+        mileFromStart: 10.8,
+        segmentKind: 'creek',
+        note: 'Default take-out; Minnesota public-water-access GIS resolves WAS00519 at DNR river mile 1300.6 beside the Wilton gauge.',
+      },
+    ],
+  },
+  'mississippi-river-county-road-12-dam-county-road-25': {
+    putIn: {
+      id: 'mississippi-river-county-road-12-dam',
+      name: 'Mississippi River, County Road 12 Public Water Access Site',
+      latitude: 47.48371925901912,
+      longitude: -94.72834186733037,
+    },
+    takeOut: {
+      id: 'mississippi-river-county-road-25',
+      name: 'Mississippi River, County Road 25 Public Water Access Site',
+      latitude: 47.44696630535304,
+      longitude: -94.71763994813507,
+    },
+    logistics: {
+      distanceLabel: '3.8 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer with scouting, low water, or campsite use',
+      shuttle:
+        'Stage County Road 25 first, then return to the County Road 12 access. Launch below the dam/portage boundary and confirm the short take-out before putting on.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, use MN DNR public accesses, and obey posted dam, portage, and campsite rules.',
+      camping:
+        'Island Point is a mapped watercraft campsite inside this short reach, but this should usually be treated as a short day trip. Use the campsite only if legal, available, and appropriate for a confirmed overnight plan.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch below the County Road 12 Dam and take out at County Road 25 for a compact Map 1 Mississippi headwaters route. The direct Stump Lake gauge is current and in medium, but dam discipline and Island Point Rapids scouting are the go/no-go details.',
+      accessCaveats: [
+        'The put-in is at the County Road 12 Dam access and gauge. Do not launch upstream of the dam or treat the portage approach as casual water.',
+        'County Road 25 is the required take-out for this card. Missing it changes the route into a separate downstream lake/river transition plan.',
+        'Both endpoints resolve as DNR-administered public accesses, but parking and landing condition should still be checked before leaving the shuttle vehicle.',
+      ],
+      watchFor: [
+        'Dam-adjacent current and wrong-side launch choices at County Road 12.',
+        'Island Point Rapids Class I, shallow rock at low water, bridge current, fresh wood, cold water, and private banks.',
+        'High or rising Stump Lake readings, when the dam boundary and short take-out become less forgiving.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mississippi-river-county-road-12-dam',
+        name: 'Mississippi River, County Road 12 Public Water Access Site',
+        latitude: 47.48371925901912,
+        longitude: -94.72834186733037,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the DNR access, gauge, and dam portage boundary; launch below the hazard.',
+      },
+      {
+        id: 'mississippi-river-county-road-25',
+        name: 'Mississippi River, County Road 25 Public Water Access Site',
+        latitude: 47.44696630535304,
+        longitude: -94.71763994813507,
+        mileFromStart: 3.8,
+        segmentKind: 'creek',
+        note: 'Default take-out; Minnesota public-water-access GIS resolves WAS00729 at DNR river mile 1273.9.',
       },
     ],
   },
