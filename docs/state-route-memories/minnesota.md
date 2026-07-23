@@ -1,5 +1,26 @@
 # Minnesota Route Memory
 
+## 2026-07-23 01:12 America/Chicago / 2026-07-23 06:12 UTC Minnesota headwaters/northwest implementation pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `155` to `158` route slugs by adding `cloquet-river-indian-lake-bear-lake-road`, `mississippi-river-itasca-coffee-pot-landing`, and `red-river-golden-grain-hilltop`.
+- Qualification path: MN DNR Cloquet Map 2 / segments page documents Indian Lake to Bear Lake Road, Camp G Rapids Class II, portage option, primitive watercraft campsites, and public access mileage; MN DNR Mississippi Map 1 / segments page documents Lake Itasca to Coffee Pot Landing, headwaters channel hazards, optional Gulsvig access context, and Coffee Pot take-out; MN DNR Red River Map 6 / segments page documents Golden Grain to Hilltop, slow meanders, muddy banks, snags, flood/low-water caveats, and public trailer accesses. Minnesota public-water-access GIS resolves all endpoints and supporting access IDs.
+- Live gauge verification: MN DNR river-level feed returned Brimson site `288` at `1486.05 ft` at `2026-07-22 23:45 CDT`, Vern site `305` at `84.82 ft` at `2026-07-22 23:00 CDT`, and Drayton site `191` at `12.21 ft` at `2026-07-22 23:45 CDT`.
+- Implemented official DNR interpreted bands only: Brimson `1485 / 1487-1489.5 / 1491 ft`, Vern `84.2 / 84.2-85 / 87 ft`, and Drayton `6 / 10-14 / 18 ft`. Cloquet and Mississippi use direct corridor gauges; Red River uses Drayton as an upstream same-map proxy with explicit caveats.
+- Camping posture: Cloquet is `on_route_campsite` through DNR-mapped primitive watercraft campsite context; Mississippi is `nearby_basecamp` through Itasca State Park support only and does not assume on-route camping; Red River is a no-camping day route despite broader nearby Map 6 camping/picnic context.
+- Safety posture: Cloquet carries Class I-II/Camp G Rapids, portage, fast-rise, cold-water, strainer, remote, and private-bank caveats. Mississippi carries log jams, beaver dams, culverts, Vekin's Dam, Class I challenge points, cold water, and private-bank caveats. Red River carries mud, snags, flood/low-water, wind, rural rescue, border-river, private-bank, and proxy-gauge caveats.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add weaker or duplicative prompt leads including Crow Wing Huntersville-to-Mary-Brown (Nimrod proxy remains too far upstream for a fresh new split), overlapping Big Fork-style combinations, and Red Lake/Fisher variants with lower product value than the accepted official DNR gap routes.
+
+## 2026-07-23 00:09 America/Chicago / 2026-07-23 05:09 UTC Minnesota St. Louis gap-fill implementation pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `152` to `155` route slugs by adding `st-louis-river-toivola-county-road-29`, `st-louis-river-county-road-29-floodwood`, and `st-louis-river-floodwood-paupores`.
+- Qualification path: MN DNR St. Louis Maps 1 and 2 plus the St. Louis segments page document Toivola, County Road 29, Floodwood, Class I-II rapid sections, the island split, Paupores, watercraft-campsite context, and private-bank/safety rules. Minnesota public-water-access GIS resolves Toivola `WAS00615`, County Road 29 `WAS02129`, Floodwood River access `WAS01940`, and Paupores `WAS00609`.
+- Live gauge verification: MN DNR river-level feed returned Floodwood site `338` at `23.26 ft` at `2026-07-22 22:45 CDT`, below the official `24.4 ft` scrapable floor.
+- Implemented official DNR interpreted bands only for Floodwood: `24.4 / 28-37 / 42 ft`. Toivola-to-County-Road-29 documents Floodwood as a downstream same-corridor proxy; County-Road-29-to-Floodwood and Floodwood-to-Paupores use it as a direct corridor gauge.
+- Camping posture: Toivola-to-County-Road-29 is `on_route_campsite` through the DNR-mapped watercraft campsite near RM 90.8; County-Road-29-to-Floodwood and Floodwood-to-Paupores are no-camping day routes. The cards reject informal private-bank or riverbed camping.
+- Safety posture: all three routes carry low-water/no-go scoring today, cold-water and private-bank caveats, limited rescue exposure, fresh wood/strainers, and high/rising-water caution. Floodwood-to-Paupores adds explicit Class I-II rapid, island-channel, and no-unplanned-continuation wording before the already-live Paupores-to-Brookston route.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+
 ## 2026-07-22 23:12 America/Chicago / 2026-07-23 04:12 UTC Minnesota gap-repair implementation pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `149` to `152` route slugs by adding `mississippi-river-county-line-jacobson`, `mississippi-river-little-falls-pike-creek`, and `vermilion-river-twomile-eightmile`.

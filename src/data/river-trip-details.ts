@@ -36817,6 +36817,216 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'namekagon-river-stinnett-springbrook': {
+    putIn: {
+      id: 'stinnett-landing-namekagon',
+      name: 'Stinnett Landing',
+      latitude: 45.98378,
+      longitude: -91.58901,
+    },
+    takeOut: {
+      id: 'springbrook-landing-namekagon',
+      name: 'Springbrook Landing',
+      latitude: 45.95392,
+      longitude: -91.68622,
+    },
+    logistics: {
+      distanceLabel: 'About 7.9 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with scouting, scraping, fishing, or campsite stops',
+      shuttle:
+        'Stage Springbrook Landing first, then drive back upstream to Stinnett Landing. Groat and North Springbrook are useful intermediate checks, but the default card runs the whole Stinnett-to-Springbrook connector.',
+      permits:
+        'No route-specific paddling permit is known for private boats. Follow Wisconsin boating/PFD rules and St. Croix National Scenic Riverway rules, including no glass and designated-campsite-only camping.',
+      camping:
+        'WTG and NPS show designated Riverway campsites in the broader Hayward-to-Springbrook corridor. Use only signed first-come Riverway sites, respect group-size limits, and do not assume private banks or islands are legal overnight stops.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Stinnett for the faster upper-middle Namekagon connector through Groat, Chippanazie Rapids, North Springbrook, and Springbrook. This is a compact Class I-II day with public Riverway access at both ends.',
+      accessCaveats: [
+        'Stinnett sits just above a tight wavy chute formed by old bridge remains; launch with room to organize before the constriction.',
+        'Groat and North Springbrook can shorten the day if water, wood, weather, or group skill makes the full connector too committed.',
+        'Springbrook is the planned take-out. Continuing downstream to Big Bend or Trego overlaps separate route cards and changes the shuttle.',
+      ],
+      watchFor: [
+        'Rocky Class I-II riffles, Chippanazie Rapids, shallow boulder gardens, wave trains, and scrape-prone lines below the selected floor.',
+        'Strainers, downed trees, island-channel decisions, wooded outside bends, cold water, and quick rises after rain.',
+        'Private or restricted banks outside signed Riverway access and campsite areas.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'stinnett-landing-namekagon',
+        name: 'Stinnett Landing',
+        latitude: 45.98378,
+        longitude: -91.58901,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from WTG N2 GPX and NPS Map 2. WTG notes a hand-carry access, parking, rustic toilets, picnic area, and the old-bridge chute just downstream.',
+      },
+      {
+        id: 'groat-landing-namekagon',
+        name: 'Groat Landing / Brickman Lake Road',
+        latitude: 45.99605,
+        longitude: -91.6345,
+        mileFromStart: 3,
+        segmentKind: 'creek',
+        note: 'Intermediate landing above Chippanazie Rapids and the WRT exact Groat-to-Springbrook rapid split.',
+      },
+      {
+        id: 'north-springbrook-landing-namekagon',
+        name: 'North Springbrook Landing',
+        latitude: 45.97612,
+        longitude: -91.65528,
+        mileFromStart: 5.4,
+        segmentKind: 'creek',
+        note: 'Intermediate WTG/NPS access below the wooded island and rapid section.',
+      },
+      {
+        id: 'springbrook-landing-namekagon',
+        name: 'Springbrook Landing',
+        latitude: 45.95392,
+        longitude: -91.68622,
+        mileFromStart: 7.9,
+        segmentKind: 'creek',
+        note: 'Default take-out from WTG N2/N3 coordinates and WRT Groat-to-Springbrook route context.',
+      },
+    ],
+  },
+
+  'namekagon-river-springbrook-big-bend': {
+    putIn: {
+      id: 'springbrook-landing-namekagon',
+      name: 'Springbrook Landing',
+      latitude: 45.95392,
+      longitude: -91.68622,
+    },
+    takeOut: {
+      id: 'big-bend-landing-namekagon',
+      name: 'Big Bend Landing / POW Road',
+      latitude: 45.93224,
+      longitude: -91.75011,
+    },
+    logistics: {
+      distanceLabel: 'About 5.2 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with low water, fishing, or campsite stops',
+      shuttle:
+        'Stage Big Bend Landing first, then return to Springbrook Landing. This short card intentionally stops above the already-live Big-Bend-to-Trego route.',
+      permits:
+        'No route-specific paddling permit is known for private boats. Follow Wisconsin boating/PFD rules and St. Croix National Scenic Riverway rules, including no glass and designated-campsite-only camping.',
+      camping:
+        'WTG lists designated Riverway campsites in the broader Springbrook-to-Trego N3 corridor. Treat camping as signed, first-come Riverway sites only; do not use private banks, islands, or sandbars by default.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'A short scenic Namekagon link from Springbrook to Big Bend, with light rapids, grassy islands, wooded banks, and easy public Riverway access at both ends.',
+      accessCaveats: [
+        'Springbrook is the intended put-in; launching upstream overlaps the Stinnett-to-Springbrook rapid connector.',
+        'Big Bend is the planned take-out. Earl Park and Trego are downstream alternatives covered by the existing Big-Bend-to-Trego card.',
+        'The route is short but still remote enough that wood, low water, or cold-water conditions can turn it into a committed outing.',
+      ],
+      watchFor: [
+        'Light Class I riffles below Springbrook, shallow side channels, grassy island splits, and overhanging wood.',
+        'Low-water scraping near the conservative floor and faster current after rain.',
+        'Private or restricted banks outside signed Riverway access and campsite areas.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'springbrook-landing-namekagon',
+        name: 'Springbrook Landing',
+        latitude: 45.95392,
+        longitude: -91.68622,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from WTG N2/N3 coordinates with hand-carry access, parking, and toilets.',
+      },
+      {
+        id: 'big-bend-landing-namekagon',
+        name: 'Big Bend Landing / POW Road',
+        latitude: 45.93224,
+        longitude: -91.75011,
+        mileFromStart: 5.2,
+        segmentKind: 'creek',
+        note: 'Default take-out above the existing Big-Bend-to-Trego card; WTG lists hand-carry access, parking, picnic table, and fire pit.',
+      },
+    ],
+  },
+
+  'namekagon-river-fritz-riverside': {
+    putIn: {
+      id: 'fritz-landing-namekagon',
+      name: 'Fritz Landing',
+      latitude: 46.04282,
+      longitude: -92.0458,
+    },
+    takeOut: {
+      id: 'riverside-landing-st-croix',
+      name: 'Riverside Landing / St. Croix River',
+      latitude: 46.0765,
+      longitude: -92.24559,
+    },
+    logistics: {
+      distanceLabel: 'About 17.5 mi',
+      estimatedPaddleTime: 'About 7 hr to 9 hr as a long day, or split with designated Riverway campsites',
+      shuttle:
+        'Stage Riverside Landing on the St. Croix first, then drive back to Fritz Landing. McDowell Bridge and Namekagon Trail are intermediate landings if the group wants a shorter lower-Namekagon split.',
+      permits:
+        'No route-specific paddling permit is known for private boats. Follow Wisconsin boating/PFD rules and St. Croix National Scenic Riverway rules, including no glass and designated-campsite-only camping.',
+      camping:
+        'WTG says the N5 Fritz-to-Riverside reach has extensive Riverway campsite support, including individual and group options. Camps are first-come, signed sites only; verify availability and Riverway limits before building an overnight plan.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'A lower Namekagon day or overnight route from Fritz through McDowell, Namekagon Trail, the St. Croix confluence, and Big Island channels to Riverside Landing.',
+      accessCaveats: [
+        'The Leonards gauge is far upstream for this route; near the floor, call the Namekagon visitor center or make a local visual check before launching.',
+        'Riverside Landing is on the St. Croix below the Namekagon confluence. Missing the take-out extends the trip onto a larger river corridor.',
+        'Use only public Riverway landings and signed campsites; do not assume private banks, islands, or sandbars are legal overnight stops.',
+      ],
+      watchFor: [
+        'Long mileage, remote shoreline, limited rescue options, wind on wider pools, cold water, and quick rises after rain.',
+        'Strainers, wooded islands, shallow riffles, confluence current, and Big Island channel choices.',
+        'Private or restricted banks outside signed Riverway access and campsite areas.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'fritz-landing-namekagon',
+        name: 'Fritz Landing',
+        latitude: 46.04282,
+        longitude: -92.0458,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from WTG N5 GPX and NPS Riverway map context.',
+      },
+      {
+        id: 'mcdowell-bridge-landing-namekagon',
+        name: 'McDowell Bridge Landing',
+        latitude: 46.05809,
+        longitude: -92.06563,
+        mileFromStart: 2.7,
+        segmentKind: 'creek',
+        note: 'Intermediate landing with hand-carry access, parking, rustic toilet, picnic table, and fire pit per WTG N5.',
+      },
+      {
+        id: 'namekagon-trail-landing',
+        name: 'Namekagon Trail Landing',
+        latitude: 46.08375,
+        longitude: -92.11386,
+        mileFromStart: 8.9,
+        segmentKind: 'creek',
+        note: 'Intermediate lower-Namekagon landing downstream of the Totogatic confluence.',
+      },
+      {
+        id: 'riverside-landing-st-croix',
+        name: 'Riverside Landing / St. Croix River',
+        latitude: 46.0765,
+        longitude: -92.24559,
+        mileFromStart: 17.5,
+        segmentKind: 'creek',
+        note: 'Default take-out on the St. Croix; WTG describes trailer access, parking, picnic area, rustic toilets, and group campsite.',
+      },
+    ],
+  },
+
   'cedar-river-brookwood-janesville': {
     putIn: {
       id: 'brookwood-park-waverly',
@@ -37211,6 +37421,186 @@ const retainedRiverTripDetails = Object.fromEntries(
 
 export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...retainedRiverTripDetails,
+  'cloquet-river-indian-lake-bear-lake-road': {
+    putIn: {
+      id: 'cloquet-river-indian-lake-access',
+      name: 'Cloquet River, Indian Lake Public Water Access Site',
+      latitude: 47.2713978,
+      longitude: -91.8507597,
+    },
+    takeOut: {
+      id: 'cloquet-river-bear-lake-road',
+      name: 'Cloquet River, Severson Landing / Bear Lake Road Public Water Access Site',
+      latitude: 47.2079219,
+      longitude: -91.9398991,
+    },
+    logistics: {
+      distanceLabel: 'About 10.3 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with scouting, portaging, low water, or campsite stops',
+      shuttle:
+        'Stage Bear Lake Road first, then drive back to Indian Lake Access. Confirm the Brimson DNR gauge, Camp G Rapids scouting comfort, and any campsite plan before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Use DNR public accesses, follow Minnesota boating/PFD rules, and obey state water-trail, forest, campsite, and posted access rules.',
+      camping:
+        'DNR Map 2 and the Cloquet segments page identify primitive first-come watercraft campsites on this corridor. Use only designated/legal public sites and do not assume private-bank camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Indian Lake and take out at Bear Lake Road for the official DNR Map 2 day trip. The Brimson DNR gauge was in the official low band during this run, below preferred medium water, so expect shallow rock in places.',
+      accessCaveats: [
+        'Indian Lake resolves in Minnesota public-water-access GIS as WAS01629 at DNR river mile 71.8.',
+        'Severson Landing / Bear Lake Road resolves as WAS01633 at DNR river mile 61.5.',
+        'Camp G Rapids is mapped as Class II with a portage option; inspect from shore and portage if the line, wood, or level is not appropriate for the group.',
+      ],
+      watchFor: [
+        'Class I-II rapids, Camp G Rapids, portages, exposed rocks, and shallow riffles at low Brimson stages.',
+        'Fast rises after rain, fresh wood, strainers, cold water, and limited road access between landings.',
+        'Private shoreland away from DNR accesses and designated/legal watercraft campsites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cloquet-river-indian-lake-access',
+        name: 'Cloquet River, Indian Lake Public Water Access Site',
+        latitude: 47.2713978,
+        longitude: -91.8507597,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01629 at DNR river mile 71.8.',
+      },
+      {
+        id: 'cloquet-river-bear-lake-road',
+        name: 'Cloquet River, Severson Landing / Bear Lake Road Public Water Access Site',
+        latitude: 47.2079219,
+        longitude: -91.9398991,
+        mileFromStart: 10.3,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS01633 at DNR river mile 61.5.',
+      },
+    ],
+  },
+  'mississippi-river-itasca-coffee-pot-landing': {
+    putIn: {
+      id: 'lake-itasca-public-water-access',
+      name: 'Lake Itasca Public Water Access Site',
+      latitude: 47.2337901,
+      longitude: -95.1983589,
+    },
+    takeOut: {
+      id: 'mississippi-river-coffee-pot-landing',
+      name: 'Mississippi River, Coffee Pot Landing Public Water Access Site',
+      latitude: 47.3492223,
+      longitude: -95.1830624,
+    },
+    logistics: {
+      distanceLabel: 'About 15.4 mi',
+      estimatedPaddleTime: 'About 5 hr to 8 hr depending on current, wind, wood, and headwaters obstacles',
+      shuttle:
+        'Stage Coffee Pot Landing first, then return to Lake Itasca. Decide before launch whether Gulsvig Landing is an early alternate start or bailout, and inspect low bridge, culvert, and wood conditions when water is high or storm-driven.',
+      permits:
+        'No route-specific paddling permit is known. Follow Itasca State Park, MN DNR public-water-access, and Minnesota boating/PFD rules, including any park vehicle or launch requirements.',
+      camping:
+        'Treat this as a long day route with nearby basecamp options, not an assumed on-route overnight. Itasca State Park camping can support a trip plan if separately reserved or permitted; do not camp on private banks or rest stops unless current rules explicitly allow it.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Lake Itasca and take out at Coffee Pot Landing for the official DNR headwaters day. The Vern gauge sits inside the route and was in the official medium band during this run.',
+      accessCaveats: [
+        'Lake Itasca resolves in Minnesota public-water-access GIS as WAS02379 at DNR river mile 1341.6.',
+        'Gulsvig Landing resolves as WAS02375 at river mile 1340.4 and can be a practical early access check, but this card follows the DNR Lake Itasca-to-Coffee-Pot recommendation.',
+        'Coffee Pot Landing resolves as WAS00730 at DNR river mile 1326.2; confirm parking and landing conditions before committing to the long headwaters shuttle.',
+      ],
+      watchFor: [
+        'Log jams, beaver dams, shallow riffles, and route-finding in the narrow headwaters channel.',
+        'Road culverts at high water, Vekin\'s Dam, County Road Two Class I challenge points, and cold-water exposure.',
+        'Private banks and limited bailout options between public accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lake-itasca-public-water-access',
+        name: 'Lake Itasca Public Water Access Site',
+        latitude: 47.2337901,
+        longitude: -95.1983589,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default put-in; resolves as WAS02379 at DNR river mile 1341.6.',
+      },
+      {
+        id: 'mississippi-river-gulsvig-landing',
+        name: 'Mississippi River, Gulsvig Landing Public Water Access Site',
+        latitude: 47.2537044,
+        longitude: -95.2252208,
+        mileFromStart: 1.2,
+        segmentKind: 'creek',
+        note: 'Optional early access; resolves as WAS02375 at DNR river mile 1340.4.',
+      },
+      {
+        id: 'mississippi-river-coffee-pot-landing',
+        name: 'Mississippi River, Coffee Pot Landing Public Water Access Site',
+        latitude: 47.3492223,
+        longitude: -95.1830624,
+        mileFromStart: 15.4,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00730 at DNR river mile 1326.2.',
+      },
+    ],
+  },
+  'red-river-golden-grain-hilltop': {
+    putIn: {
+      id: 'red-river-golden-grain',
+      name: 'Red River, Golden Grain Public Water Access Site',
+      latitude: 48.7878739,
+      longitude: -97.1570258,
+    },
+    takeOut: {
+      id: 'red-river-hilltop',
+      name: 'Red River, Hilltop Public Water Access Site',
+      latitude: 48.8427795,
+      longitude: -97.1738549,
+    },
+    logistics: {
+      distanceLabel: 'About 9 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr depending on current, wind, and muddy landing conditions',
+      shuttle:
+        'Stage Hilltop first, then drive south to Golden Grain. Confirm both trailer accesses and the Drayton DNR gauge before unloading, because low water can make the Red too shallow and high water can make banks difficult.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, Red River state-water-trail guidance, posted local access rules, and current border-river regulations.',
+      camping:
+        'Treat this as a day trip. DNR notes nearby camping and picnic options on the broader Map 6 corridor, but no on-route public overnight site was selected for Golden Grain to Hilltop.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Golden Grain and take out at Hilltop for the official DNR 9-mile Map 6 day trip. The upstream Drayton DNR gauge was in the official medium band during this run.',
+      accessCaveats: [
+        'Golden Grain resolves in Minnesota public-water-access GIS as WAS00531 at DNR river mile 180.2.',
+        'Hilltop resolves as WAS03009 near DNR river mile 171.2; DNR web guidance lists Hilltop as the take-out for the 9-mile trip.',
+        'The Drayton gauge is upstream of the route. Treat it as same-map official guidance, then verify muddy bank slope, wind, and landing depth at both endpoints.',
+      ],
+      watchFor: [
+        'Snags, muddy banks, poor underwater visibility, shallow bars at low water, and difficult landings during high water.',
+        'Flooding, fast rises, strong current around outside bends, wind exposure, and cold water.',
+        'Private shoreline, rural rescue exposure, and border-river rules if plans extend beyond the mapped day route.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'red-river-golden-grain',
+        name: 'Red River, Golden Grain Public Water Access Site',
+        latitude: 48.7878739,
+        longitude: -97.1570258,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00531 at DNR river mile 180.2.',
+      },
+      {
+        id: 'red-river-hilltop',
+        name: 'Red River, Hilltop Public Water Access Site',
+        latitude: 48.8427795,
+        longitude: -97.1738549,
+        mileFromStart: 9,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS03009 near DNR river mile 171.2.',
+      },
+    ],
+  },
   'turkey-river-clermont-gilbertson': {
     putIn: {
       id: 'clermont-canoe-access',
