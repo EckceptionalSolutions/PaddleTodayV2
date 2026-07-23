@@ -39589,6 +39589,546 @@ const retainedRiverTripDetails = Object.fromEntries(
 
 export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...retainedRiverTripDetails,
+  'pomme-de-terre-river-koosman-larson': {
+    putIn: {
+      id: 'pomme-de-terre-koosman',
+      name: 'Pomme de Terre River, Koosman Public Water Access Site',
+      latitude: 45.3399435,
+      longitude: -95.9737205,
+    },
+    takeOut: {
+      id: 'pomme-de-terre-larson',
+      name: 'Pomme de Terre River, Larson Landing Public Water Access Site',
+      latitude: 45.2393301,
+      longitude: -95.9850983,
+    },
+    logistics: {
+      distanceLabel: 'About 12.7 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6.5 hr, longer with low water, wood, or campsite stops',
+      shuttle:
+        'Stage Larson Landing first, then drive back to Koosman. Check the Pomme #1 access/campsite and Larson take-out from land because the Appleton gauge is downstream of this split.',
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR public accesses, follow Minnesota boating/PFD rules, and obey posted campsite, access, and private-bank rules.',
+      camping:
+        'DNR Map 1 identifies Pomme de Terre #1 as a rest area and watercraft campsite at river mile 19.1. Use only legal designated camping and current posted rules; do not camp on private farm banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Koosman and paddle downstream past the Pomme de Terre #1 campsite to Larson Landing. This fills the upper public-access half above the existing Larson-to-Appleton card while keeping the Appleton DNR gauge caveat explicit.',
+      accessCaveats: [
+        'Koosman, Pomme #1, and Larson resolve in Minnesota public-water-access GIS with official coordinates and water-trail river miles.',
+        'Koosman and Larson are carry-in accesses, not full-service ramps. Confirm parking, mud, and bank condition before unloading.',
+        'The Appleton gauge is downstream of Larson and cannot show local fences, woody debris, or low-water riffles on this upstream split.',
+      ],
+      watchFor: [
+        'Fallen trees, farm fences, shallow sandy riffles, and strainers on blind bends.',
+        'Fast rises after rain, cold water outside midsummer, and private farm banks.',
+        'Campsite availability and current posted rules at Pomme #1 if using this as an overnight-capable connector.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'pomme-de-terre-koosman',
+        name: 'Pomme de Terre River, Koosman Public Water Access Site',
+        latitude: 45.3399435,
+        longitude: -95.9737205,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public-water-access GIS resolves WAS00180 near DNR Map 1 river mile 27.3/27.5.',
+      },
+      {
+        id: 'pomme-de-terre-number-1',
+        name: 'Pomme de Terre River, #1 / Highway 12 Public Water Access Site',
+        latitude: 45.283686,
+        longitude: -95.9793669,
+        mileFromStart: 8.2,
+        segmentKind: 'creek',
+        note: 'DNR-mapped rest area and watercraft campsite; public-water-access GIS resolves WAS02176 at river mile 19.1.',
+      },
+      {
+        id: 'pomme-de-terre-larson',
+        name: 'Pomme de Terre River, Larson Landing Public Water Access Site',
+        latitude: 45.2393301,
+        longitude: -95.9850983,
+        mileFromStart: 12.7,
+        segmentKind: 'creek',
+        note: 'Default take-out; public-water-access GIS resolves WAS00046 at river mile 14.8.',
+      },
+    ],
+  },
+
+  'red-lake-river-crookston-highway-75-bypass': {
+    putIn: {
+      id: 'red-lake-crookston-carry-in',
+      name: 'Red Lake River, Crookston Public Water Access Site',
+      latitude: 47.7598975,
+      longitude: -96.5671255,
+    },
+    takeOut: {
+      id: 'red-lake-highway-75-bypass',
+      name: 'Red Lake River, Highway 75 Bypass Public Water Access Site',
+      latitude: 47.7783856,
+      longitude: -96.6308629,
+    },
+    logistics: {
+      distanceLabel: 'About 8.1 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, plus scouting or portaging the constructed rapid zone',
+      shuttle:
+        'Stage Highway 75 Bypass first, then launch at the Crookston carry-in. Walk the Central Park and constructed-rapid area before committing, and be ready to use the DNR-mapped right-bank portage.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules plus posted City of Crookston, DNR access, portage, and parking rules.',
+      camping:
+        'DNR Map 2 identifies Central Park with campsites, rest area, and trailer access inside the route corridor. Use only current city-managed camping and park rules; this short card does not assume informal river camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Crookston and finish at Highway 75 Bypass for the short city gap upstream of the already-live Highway-75-to-Fisher route. The main decision is whether to portage or avoid the constructed rock rapid zone.',
+      accessCaveats: [
+        'Crookston and Highway 75 Bypass resolve as public-water-access sites, and Central Park is a mapped public access/camping stop inside the city corridor.',
+        'The constructed rock rapids are not optional background scenery. Scout from shore and use the mapped 160-yard right-bank portage unless the group is prepared for the current level and feature.',
+        'Take out at Highway 75 Bypass if following this card. Continuing to Fisher is a separate long lower-river route already represented in the app.',
+      ],
+      watchFor: [
+        'Constructed rock rapids that DNR maps as Class I-III depending on flow, with a right-bank 160-yard portage.',
+        'Urban debris, bridge current, strainers, cold water, and stormwater or water-quality concerns after rain.',
+        'Low-water scraping while the Crookston gauge is below medium, and pushier consequences if the gauge rises toward high water.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'red-lake-crookston-carry-in',
+        name: 'Red Lake River, Crookston Public Water Access Site',
+        latitude: 47.7598975,
+        longitude: -96.5671255,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public-water-access GIS resolves WAS03055, and DNR Map 2 places Crookston carry-in at river mile 59.1.',
+      },
+      {
+        id: 'central-park-crookston-red-lake',
+        name: 'Red Lake River, Central Park Public Water Access Site',
+        latitude: 47.7728904,
+        longitude: -96.6013775,
+        mileFromStart: 3.6,
+        segmentKind: 'creek',
+        note: 'Mapped trailer access, rest area, and campsite zone in Crookston before the constructed rapid/portage area.',
+      },
+      {
+        id: 'red-lake-highway-75-bypass',
+        name: 'Red Lake River, Highway 75 Bypass Public Water Access Site',
+        latitude: 47.7783856,
+        longitude: -96.6308629,
+        mileFromStart: 8.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; public-water-access GIS resolves WAS00550 at DNR Map 2 river mile 51.0, below the Crookston constructed-rapid zone.',
+      },
+    ],
+  },
+
+  'root-river-peterson-rushford': {
+    putIn: {
+      id: 'root-river-peterson-access',
+      name: 'Root River, Peterson Public Water Access Site',
+      latitude: 43.7864446,
+      longitude: -91.8274722,
+    },
+    takeOut: {
+      id: 'root-river-rushford-access',
+      name: 'Root River, Rushford Public Water Access Site',
+      latitude: 43.8030062,
+      longitude: -91.7603553,
+    },
+    logistics: {
+      distanceLabel: 'About 5.1 mi by DNR Map 1',
+      estimatedPaddleTime: 'About 1.75 hr to 3 hr, longer with low-water riffles or wood checks',
+      shuttle:
+        'Stage Rushford first, then drive back to Peterson. This is a short town-to-town connector; bike shuttle may be practical when road and trail conditions line up, but confirm the actual river access and parking first.',
+      permits:
+        'No route-specific paddling permit is known. Follow DNR public-access rules, Minnesota boating/PFD requirements, and posted Peterson/Rushford parking rules.',
+      camping:
+        'Treat this as a day route. DNR notes Root River trail towns including Peterson and Rushford have lodging and amenities; use only separately confirmed campgrounds or lodging and do not camp on private banks.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Peterson and take out at Rushford to fill the short Root River access-chain gap between the existing Lanesboro-Peterson and Rushford-Houston cards. The Houston gauge is downstream, so local visual checks remain important.',
+      accessCaveats: [
+        'Peterson and Rushford both resolve in Minnesota public-water-access GIS, but DNR Map 1 and the access GIS differ slightly on Rushford river-mile metadata. The route mileage follows DNR Map 1.',
+        'Peterson is currently subject to a DNR state-water-trail alert for Mill Street Bridge reconstruction and portage needs once overhead work begins; confirm the access is usable before launching.',
+        'Use only the named public accesses and legal trail-town parking. Do not assume private or trail-adjacent banks are routine exits.',
+      ],
+      watchFor: [
+        'Submerged-dam caution areas mapped upstream of Rushford, bridge current, and old structure debris.',
+        'Fresh wood, strainers, and fast rises after bluff-country rain.',
+        'Cold water outside midsummer, low-water riffles, and private shoreland.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'root-river-peterson-access',
+        name: 'Root River, Peterson Public Water Access Site',
+        latitude: 43.7864446,
+        longitude: -91.8274722,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public-water-access GIS resolves WAS00265 at Peterson, and DNR Map 1 places Peterson carry-in at river mile 38.9.',
+      },
+      {
+        id: 'root-river-rushford-access',
+        name: 'Root River, Rushford Public Water Access Site',
+        latitude: 43.8030062,
+        longitude: -91.7603553,
+        mileFromStart: 5.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; public-water-access GIS resolves WAS00264, while DNR Map 1 places Rushford carry-in downstream of Peterson near river mile 33.8.',
+      },
+    ],
+  },
+
+  'crawfish-river-columbus-astico': {
+    putIn: {
+      id: 'udey-street-dam-columbus',
+      name: 'Udey Street Dam / Campbell Street access',
+      latitude: 43.33718,
+      longitude: -89.01019,
+    },
+    takeOut: {
+      id: 'astico-park-crawfish-launch',
+      name: 'Astico Park canoe/kayak launch',
+      latitude: 43.32613,
+      longitude: -88.94934,
+    },
+    logistics: {
+      distanceLabel: 'About 8.5 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4.5 hr, longer with portages, wind, or fishing stops',
+      shuttle:
+        'Stage Astico Park first, then drive back to the Columbus access. Check Udey Dam outflow, the wastewater-plant alternate landing, and the Astico take-out before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Astico Park camping or vehicle rules may apply at the take-out; follow posted city, county, and Wisconsin boating/PFD rules.',
+      camping:
+        'Astico Park has endpoint campground support with campsites, showers, restrooms, potable water, and a dump station. Do not assume legal camping on private banks between Columbus and Astico.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch below Udey Dam in Columbus and paddle the livelier upper Crawfish split to Astico Park. Low to moderate water shows riffles and boulders best, but wood and the downstream gauge lag require visual checks.',
+      accessCaveats: [
+        'Udey Dam is not the place to improvise. Launch below dam influence only when the outflow and banks are manageable.',
+        'Wisconsin River Trips says most paddlers in Columbus use the wastewater plant landing; use that lower start if the dam-adjacent start is too pushy or woody.',
+        'Astico Park has a launch, rentals, and campground context, but confirm seasonal access, fees, and park rules before relying on it for overnight support.',
+      ],
+      watchFor: [
+        'Two minor logjams below Udey and a more serious logjam below the wastewater plant that may require portaging.',
+        'Fast current just below the dam and in the wooded south-of-Tiedt Road section.',
+        'Open-river wind, muddy high water, wastewater-plant water-quality context, private banks, and downstream Danville Dam if you miss the planned park exit.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'udey-street-dam-columbus',
+        name: 'Udey Street Dam / Campbell Street access',
+        latitude: 43.33718,
+        longitude: -89.01019,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from Miles Paddled GPS; launch below dam influence only after a same-day outflow check.',
+      },
+      {
+        id: 'astico-park-crawfish-launch',
+        name: 'Astico Park canoe/kayak launch',
+        latitude: 43.32613,
+        longitude: -88.94934,
+        mileFromStart: 8.5,
+        segmentKind: 'creek',
+        note: 'Default take-out and campground support at Dodge County Astico Park.',
+      },
+    ],
+  },
+
+  'crawfish-river-county-i-county-g': {
+    putIn: {
+      id: 'county-road-i-crawfish-landing',
+      name: 'County Road I Glacial Heritage Area landing',
+      latitude: 43.25623,
+      longitude: -88.93943,
+    },
+    takeOut: {
+      id: 'county-road-g-crawfish-landing',
+      name: 'County Road G Glacial Heritage Area landing',
+      latitude: 43.2343,
+      longitude: -88.88654,
+    },
+    logistics: {
+      distanceLabel: 'About 6.75 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, slower into a headwind',
+      shuttle:
+        'Stage County Road G first, then return to County Road I. Confirm signed Glacial Heritage / wildlife-area access and parking before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, DNR wildlife-area postings, hunting-season visibility needs, and private-property limits.',
+      camping:
+        'No on-route camping is documented for this short wildlife-area float. Treat it as a day route and do not camp on private banks, farm edges, or wildlife-area land unless separately posted and legal.',
+      campingClassification: 'none',
+      summary:
+        'Float the quieter middle Crawfish from County Road I to County Road G through Glacial Heritage Area and Waterloo Wildlife Area context. This is beginner flatwater, but wind and muddy banks still matter.',
+      accessCaveats: [
+        'Miles Paddled identifies both endpoints as official Glacial Heritage Area landings, with designated parking at the take-out.',
+        'Expect scattered public parcels rather than continuous public shoreline. Stop only where legal and clearly appropriate.',
+        'The Milford gauge is downstream. Use it for broad low-water context, then make a local wind and bank-condition call.',
+      ],
+      watchFor: [
+        'Headwind on slow open water, soft banks, and silty landings.',
+        'Private agricultural frontage and hunting-season visibility around wildlife-area parcels.',
+        'Backwaters and side channels that can distract from the main route if the group is not navigating deliberately.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-road-i-crawfish-landing',
+        name: 'County Road I Glacial Heritage Area landing',
+        latitude: 43.25623,
+        longitude: -88.93943,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Miles Paddled lists this GPS point and official Glacial Heritage Area landing context.',
+      },
+      {
+        id: 'county-road-g-crawfish-landing',
+        name: 'County Road G Glacial Heritage Area landing',
+        latitude: 43.2343,
+        longitude: -88.88654,
+        mileFromStart: 6.75,
+        segmentKind: 'creek',
+        note: 'Default take-out with designated parking in Waterloo Wildlife Area context.',
+      },
+    ],
+  },
+
+  'crawfish-river-aztalan-riverfront': {
+    putIn: {
+      id: 'aztalan-state-park-crawfish-launch',
+      name: 'Aztalan State Park Crawfish River launch',
+      latitude: 43.0736,
+      longitude: -88.8647,
+    },
+    takeOut: {
+      id: 'riverfront-park-jefferson-carry-in',
+      name: 'Riverfront Park Jefferson carry-in',
+      latitude: 43.00194,
+      longitude: -88.81361,
+    },
+    logistics: {
+      distanceLabel: 'About 7.4 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, longer with wind or Goat Island side exploration',
+      shuttle:
+        'Stage Riverfront Park in Jefferson first, then launch from Aztalan State Park. Use the park trail to the river and identify the best launch spot before carrying boats down.',
+      permits:
+        'No route-specific paddling permit is known. A Wisconsin state park vehicle admission sticker or fee may apply at Aztalan; follow DNR, City of Jefferson, and Wisconsin boating/PFD rules.',
+      camping:
+        'Treat this as a day route. Aztalan State Park is day-use/picnic context for this paddle, and no on-route campsite was verified between Aztalan and Riverfront Park.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Aztalan State Park and take out at Riverfront Park in Jefferson for the lower Crawfish boulder-garden and confluence route. The route is easy, but finish discipline matters near the Rock River and Jefferson dam context.',
+      accessCaveats: [
+        'WRT says the obvious end of the Aztalan trail can be shallow and partly blocked; use the better nearby side-trail launch if conditions match that report.',
+        'Riverfront Park is the planned take-out. Do not continue around the Jefferson dam, fish-passage, or Rock River structures without a separate route plan.',
+        'Check wind direction; this open lower Crawfish reach can be slow into a headwind.',
+      ],
+      watchFor: [
+        'Shallow spots, boulder gardens, muddy high water, and wind on broad sections.',
+        'Private banks and developed riverfront edges approaching Jefferson.',
+        'The Crawfish/Rock confluence, Goat Island side trip temptation, and nearby dam context at the finish.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'aztalan-state-park-crawfish-launch',
+        name: 'Aztalan State Park Crawfish River launch',
+        latitude: 43.0736,
+        longitude: -88.8647,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in in DNR Aztalan State Park; use the signed parking and river-access trail.',
+      },
+      {
+        id: 'riverfront-park-jefferson-carry-in',
+        name: 'Riverfront Park Jefferson carry-in',
+        latitude: 43.00194,
+        longitude: -88.81361,
+        mileFromStart: 7.4,
+        segmentKind: 'creek',
+        note: 'Default take-out at the Crawfish/Rock confluence with parking per Rock River Trail access documentation.',
+      },
+    ],
+  },
+
+  'des-moines-river-lehigh-deception-hollow': {
+    putIn: {
+      id: 'lehigh-access',
+      name: 'Lehigh Access',
+      latitude: 42.3605,
+      longitude: -94.0478,
+    },
+    takeOut: {
+      id: 'deception-hollow-access',
+      name: 'Deception Hollow carry-down access',
+      latitude: 42.3273,
+      longitude: -94.0206,
+    },
+    logistics: {
+      distanceLabel: 'About 3 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with low water or scouting',
+      shuttle:
+        'Stage the take-out at Deception Hollow, then launch from Lehigh Access. Both are mapped water-trail accesses, but verify the signed carry-downs and parking before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Use public access points, follow Iowa boating/PFD rules, and obey posted Webster County or Iowa DNR restrictions.',
+      camping:
+        'Treat this short split as a day route. Dolliver State Park campground is nearby in the same corridor, and Iowa DNR notes beach-camping context on the meandered Webster County river, but this route does not assume an overnight stop.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Lehigh and paddle the short intermediate water-trail split to Deception Hollow. The route is useful as a low-commitment downstream continuation below the existing Fort Dodge-to-Lehigh card, with the Stratford gauge used as the downstream corridor check.',
+      accessCaveats: [
+        'Lehigh and Deception Hollow are practical access anchors from Iowa DNR / Webster County water-trail mapping; confirm the exact signed landing from land.',
+        'The Stratford gauge is downstream of this short reach. It is same-river and current, but it cannot replace a visual check for local wood, bank condition, or launch depth.',
+        'Do not continue into the long Deception-to-Skillet reach unless the group has planned that separate 15.5-mile day.',
+      ],
+      watchFor: [
+        'Boulders, old bridge debris, woody strainers, and riffles that scrape at lower flows.',
+        'Fast current, covered beaches, floating debris, and harder exits during high or rising water.',
+        'Private uplands above legal river beaches and limited public exits between named accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lehigh-access',
+        name: 'Lehigh Access',
+        latitude: 42.3605,
+        longitude: -94.0478,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; shown as Lehigh Access on the Webster County Des Moines River water-trail map.',
+      },
+      {
+        id: 'deception-hollow-access',
+        name: 'Deception Hollow carry-down access',
+        latitude: 42.3273,
+        longitude: -94.0206,
+        mileFromStart: 3,
+        segmentKind: 'creek',
+        note: 'Default take-out; DNR names the downstream reach from here and access-directory context resolves the Deception Hollow coordinates.',
+      },
+    ],
+  },
+
+  'des-moines-river-deception-hollow-skillet': {
+    putIn: {
+      id: 'deception-hollow-access',
+      name: 'Deception Hollow carry-down access',
+      latitude: 42.3273,
+      longitude: -94.0206,
+    },
+    takeOut: {
+      id: 'skillet-creek-access',
+      name: 'Skillet Creek Access',
+      latitude: 42.2523,
+      longitude: -93.9975,
+    },
+    logistics: {
+      distanceLabel: 'About 15.5 mi',
+      estimatedPaddleTime: 'Long day; plan 5 hr to 8 hr depending on wind, level, and stops',
+      shuttle:
+        'Stage Skillet Creek Access first, then drive back to Deception Hollow. This is a long rural day, so confirm take-out visibility, weather, and the Stratford gauge trend before committing.',
+      permits:
+        'No route-specific paddling permit is known. Follow Iowa boating/PFD rules, use mapped public accesses, and keep stops legal on the meandered river without trespassing on adjacent private land.',
+      camping:
+        'Iowa DNR says the meandered Webster County Des Moines River has abundant beaches suitable for en-route beach camping, but private uplands remain off limits. Use only legal beaches, avoid high water, pack out all trash, and do not assume developed facilities between Deception Hollow and Skillet.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch at Deception Hollow for the long downstream Webster County water-trail reach to Skillet Creek Access. This is an advanced-by-length flatwater day with beaches, wooded bends, limited exits, and same-day access checks.',
+      accessCaveats: [
+        'Deception Hollow and Skillet Creek are mapped carry-down accesses, not full-service ramps. Walk both before launch.',
+        'The Stratford gauge is direct for the lower corridor but does not show sandbar availability, wood, or bank steepness.',
+        'Because this reach is long, a late start, headwind, rising water, or missed take-out can materially increase exposure.',
+      ],
+      watchFor: [
+        'Long bends with wind exposure, woody debris, bridge current, and private banks.',
+        'Beaches that may be usable at moderate levels but disappear or become unsafe at higher water.',
+        'Fast rises after rain, cold-water swims in shoulder season, and limited rescue access.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'deception-hollow-access',
+        name: 'Deception Hollow carry-down access',
+        latitude: 42.3273,
+        longitude: -94.0206,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in for the DNR-named Deception Hollow-to-Skillet Creek reach.',
+      },
+      {
+        id: 'skillet-creek-access',
+        name: 'Skillet Creek Access',
+        latitude: 42.2523,
+        longitude: -93.9975,
+        mileFromStart: 15.5,
+        segmentKind: 'creek',
+        note: 'Default take-out; shown on the Webster County Des Moines River water-trail map near the Stratford gauge corridor.',
+      },
+    ],
+  },
+
+  'des-moines-river-skillet-north-fraser': {
+    putIn: {
+      id: 'skillet-creek-access',
+      name: 'Skillet Creek Access',
+      latitude: 42.2523,
+      longitude: -93.9975,
+    },
+    takeOut: {
+      id: 'north-fraser-ramp',
+      name: 'North Fraser Ramp',
+      latitude: 42.161,
+      longitude: -93.968,
+    },
+    logistics: {
+      distanceLabel: 'About 11.4 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with headwind, low water, or fishing stops',
+      shuttle:
+        'Stage North Fraser Ramp first, then drive back to Skillet Creek Access. Confirm both landings and do not continue downstream toward the Boone dam sequence unless that separate route is planned.',
+      permits:
+        'No route-specific paddling permit is known. Use the signed public accesses, follow Iowa boating/PFD rules, and obey Boone County, Webster County, or Corps access postings.',
+      camping:
+        'Treat this as a day route. Boone County and Webster County mapping support public access but no on-route campsite was verified for this exact Skillet-to-North-Fraser split.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Skillet Creek Access and paddle into the Boone County Des Moines River water-trail chain to North Fraser Ramp. Terrain360 documents the route and ties it to the direct Stratford gauge, while official maps support both endpoint names.',
+      accessCaveats: [
+        'Skillet Creek Access is a Webster County mapped carry-down; North Fraser is a Boone County mapped ramp. Confirm current road, parking, and bank conditions at both.',
+        'The saved North Fraser coordinate is a practical ramp-area anchor from official map context; use local signage and current maps for the exact landing.',
+        'Downstream Boone Waterworks and Fort Dodge Hydro dam/portage context belongs to other Boone County segments. Do not drift past the intended take-out without a plan.',
+      ],
+      watchFor: [
+        'Rural strainers, floating logs, private banks, and stronger current during rises.',
+        'Longer open bends where wind can slow canoes and loaded kayaks.',
+        'Access-road mud or flood impacts after rain, especially at less-developed landings.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'skillet-creek-access',
+        name: 'Skillet Creek Access',
+        latitude: 42.2523,
+        longitude: -93.9975,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; mapped by Webster County and used by the Terrain360 Skillet-to-North-Fraser route.',
+      },
+      {
+        id: 'north-fraser-ramp',
+        name: 'North Fraser Ramp',
+        latitude: 42.161,
+        longitude: -93.968,
+        mileFromStart: 11.4,
+        segmentKind: 'creek',
+        note: 'Default take-out; shown on the Boone County Des Moines River Water Trail map.',
+      },
+    ],
+  },
+
   'straight-river-county-road-45-medford': {
     putIn: {
       id: 'county-road-45-straight-river',

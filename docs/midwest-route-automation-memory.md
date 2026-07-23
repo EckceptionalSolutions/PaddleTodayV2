@@ -1,5 +1,17 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 10:14 America/Chicago / 2026-07-23 15:14 UTC: Minnesota Pomme / Red Lake / Root gap pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 182-route exported Minnesota baseline: `pomme-de-terre-river-koosman-larson`, `red-lake-river-crookston-highway-75-bypass`, and `root-river-peterson-rushford`, bringing Minnesota to 185 live routes.
+  - Qualification path: MN DNR Pomme de Terre / Minnesota River Map 1 plus public-water-access GIS support Koosman-to-Larson with Appleton site `168`; MN DNR Red Lake Map 2 plus public-water-access GIS support Crookston-to-Highway-75-Bypass with constructed-rock-rapids and direct Crookston site `172`; MN DNR Root River Map 1 plus public-water-access GIS support Peterson-to-Rushford with downstream Houston site `197` and Peterson bridge-alert context.
+  - Gauge posture: MN DNR feed returned Appleton `4.88 ft`, Crookston `3.60 ft`, and Houston `4.67 ft` on 2026-07-23 morning CDT.
+  - Threshold posture: all three use official DNR interpreted bands only: Appleton `3.5 / 4.5-6.0 / 7.5 ft`, Crookston `3 / 5-8 / 12 ft`, and Houston `3 / 4-5 / 7 ft`; no route-gallery assets were added after bounded DNR / public-access / Commons / same-route image review.
+
+- 2026-07-23 10:25 America/Chicago / 2026-07-23 15:25 UTC: Wisconsin Crawfish River implementation pass (`wisconsin-route-additions`).
+  - Added three Wisconsin route slugs beyond the current 158-route Wisconsin baseline: `crawfish-river-columbus-astico`, `crawfish-river-county-i-county-g`, and `crawfish-river-aztalan-riverfront`, bringing Wisconsin to 161 live routes.
+  - Qualification path: Wisconsin River Trips / Miles Paddled / Dodge County / Jefferson County / Wisconsin DNR / Rock River Trail / USGS sources support the absent Crawfish access chain. Columbus-to-Astico uses WRT/Miles exact route and Astico endpoint campground support; County-I-to-County-G uses exact Miles Paddled GPS plus Glacial Heritage / Waterloo Wildlife Area context; Aztalan-to-Riverfront uses WRT exact Goat Island guidance, DNR Aztalan paddling support, and Riverfront Park carry-in records.
+  - Gauge posture: USGS Water Services returned Crawfish River at Milford `05426000` at `111 cfs / 1.94 ft` at 2026-07-23 09:00 CDT.
+  - Threshold posture: Columbus-to-Astico uses WRT `0-200 cfs` target with `1401+ cfs` maybe too high; County-I-to-County-G is minimum-only at `60 cfs`; Aztalan-to-Riverfront uses WRT `121-250 cfs` target with `60 cfs` low and `1401+ cfs` maybe too high. No route-gallery assets were added after bounded WRT / Miles Paddled / official-local / USGS / Commons / same-route image review.
+
 - 2026-07-23 10:55 America/Chicago / 2026-07-23 15:55 UTC: Minnesota Straight / Watonwan / Root implementation pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 179-route exported Minnesota baseline: `straight-river-county-road-45-medford`, `watonwan-river-madelia-county-road-32`, and `root-river-preston-lanesboro`, bringing Minnesota to 182 live routes.
   - Qualification path: MN DNR Cannon/Straight Map 1 plus public-water-access GIS support County-Road-45-to-Medford with downstream same-corridor Faribault site `247`; MN DNR Blue Earth/Watonwan map plus public-water-access GIS support Madelia-to-County-Road-32 with downstream Garden City site `254`; MN DNR Root River Map 1 plus public-water-access GIS support Preston-to-Lanesboro with direct Lanesboro site `204`.

@@ -1,5 +1,16 @@
 # Minnesota Route Memory
 
+## 2026-07-23 10:14 America/Chicago / 2026-07-23 15:14 UTC Minnesota Pomme / Red Lake / Root gap pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `182` to `185` live route slugs by adding `pomme-de-terre-river-koosman-larson`, `red-lake-river-crookston-highway-75-bypass`, and `root-river-peterson-rushford`.
+- Qualification path: MN DNR Pomme de Terre / Minnesota River Map 1 plus public-water-access GIS support Koosman-to-Larson with on-route Pomme #1 campsite and downstream Appleton site `168`; MN DNR Red Lake Map 2 plus public-water-access GIS support Crookston-to-Highway-75-Bypass with Central Park camping, constructed rock rapids, and direct Crookston site `172`; MN DNR Root River Map 1 plus public-water-access GIS support Peterson-to-Rushford with downstream Houston site `197` and explicit Peterson bridge-alert context.
+- Live gauge verification: MN DNR feed returned Pomme de Terre at Appleton site `168` at `4.88 ft` at `2026-07-23 08:00 CDT`, Red Lake at Crookston site `172` at `3.60 ft` at `2026-07-23 08:00 CDT`, and Root at Houston site `197` at `4.67 ft` at `2026-07-23 08:45 CDT`.
+- Implemented official DNR interpreted bands only: Appleton `3.5 / 4.5-6.0 / 7.5 ft`, Crookston `3 / 5-8 / 12 ft`, and Houston `3 / 4-5 / 7 ft`. Pomme uses a downstream same-water-trail proxy, Root uses a downstream same-water-trail proxy, and Red Lake uses a direct local gauge; no inferred upper cutoffs were added.
+- Camping posture: Pomme Koosman-to-Larson is `on_route_campsite` capable only through the DNR-mapped Pomme #1 watercraft campsite; Red Lake Crookston-to-Highway-75-Bypass is `on_route_campsite` capable only through Central Park / city campsite context; Root Peterson-to-Rushford is `nearby_basecamp` only through trail-town support and does not imply riverbank camping.
+- Safety posture: Pomme carries fences, logjams, strainers, private-bank, fast-rise, and low-water caveats; Red Lake is whitewater-filtered with constructed rock rapids, a 160-yard right-bank portage, urban water, flood/low-water, and no-continuation caveats; Root carries Peterson bridge-work closure/portage alert, submerged-dam warnings, PWA/DNR river-mile mismatch, downstream gauge, private-bank, and fast-rise caveats.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add: Des Moines Mayflower-to-Christianna remains proxy weak because Jackson is downstream of the needed Windom/Christianna corridor; Root Whalan-to-Peterson was skipped as contained in existing Lanesboro-to-Peterson coverage; several prompt leads were already live or lower source value than the accepted DNR access gaps.
+
 ## 2026-07-23 10:55 America/Chicago / 2026-07-23 15:55 UTC Minnesota Straight / Watonwan / Root implementation pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `179` to `182` live route slugs by adding `straight-river-county-road-45-medford`, `watonwan-river-madelia-county-road-32`, and `root-river-preston-lanesboro`.
