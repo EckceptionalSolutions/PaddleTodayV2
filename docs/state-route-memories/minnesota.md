@@ -1,5 +1,16 @@
 # Minnesota Route Memory
 
+## 2026-07-22 19:35 America/Chicago / 2026-07-23 00:35 UTC Minnesota implementation pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `139` to `142` route slugs by adding `red-river-kidder-brushvale`, `st-louis-river-paupores-brookston`, and `watonwan-river-county-road-32-garden-city`.
+- Qualification path: MN DNR Red River Map 1 / segments page documents Kidder Recreation Area to Brushvale Bridge Recreation Area as a `10.4` mile recommended day trip with the RR1 interpreted gauge at the Brushvale take-out. MN DNR St. Louis Map 2 / segments page plus public-water-access GIS document Paupores to Brookston with Class I-II rapids, mapped watercraft campsites, and Floodwood as the same-map DNR proxy. MN DNR Watonwan / Blue Earth map plus public-water-access GIS document County Road 32, County Road 20, Highway 169, and Garden City inside the broader Madelia-to-Garden-City corridor with the Garden City gauge.
+- Live gauge verification: MN DNR RR1 site `318` returned `4.47 ft` at `2026-07-22 17:30 CDT`, inside the official medium band; MN DNR Floodwood site `338` returned `23.25 ft` at `2026-07-22 17:45 CDT`, below the official `24.4 ft` scrapable floor; and MN DNR Garden City site `254` returned `1.17 ft` at `2026-07-22 17:30 CDT`, below the official `2.0 ft` scrapable floor.
+- Implemented official DNR interpreted gauge models only: RR1 `3.8 / 4.0-9.0 / 9.5 ft`, Floodwood `24.4 / 28-37 / 42 ft` as an upstream same-map proxy for Paupores-to-Brookston, and Garden City `2.0 / 3.5-4.5 / 5.2 ft`.
+- Camping posture: Kidder-to-Brushvale is `endpoint_campground` through the named recreation-area endpoints; Paupores-to-Brookston is `on_route_campsite` through mapped DNR watercraft-campsite context; Watonwan County-Road-32-to-Garden-City is `none` and assumes no informal private-bank camping.
+- Safety posture: Red River carries Kidder Dam, fluctuating level, flood, low-water mud, snag, private-bank, remote, and two-state-rule caveats. St. Louis carries Class I-II, low-water rock, high-water danger, wood, cold-water, remote-bank, and proxy-gauge caveats. Watonwan carries low-water scraping, floodplain snags, no-major-rapid-but-wood, private-bank, agricultural runoff, and limited-exit caveats.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Commons / same-route searches with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add Des Moines Mayflower-to-Christianna, Minnesota River Kinney-to-Skalbekken, Snake Silver-Star-to-Lower-Falls, Fond-du-Lac/Oldenburg, Mississippi headwaters lake-transition routes, or Cloquet Indian-Lake variants because route-specific gauge, access, duplication, or day-route-strength issues were weaker than the accepted three.
+
 ## 2026-07-22 18:15 America/Chicago / 2026-07-22 23:15 UTC Minnesota implementation pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `136` to `139` route slugs by adding `kettle-river-musclewood-1`, `red-river-highway-25-halstad`, and `st-louis-river-county-road-4-95`.
