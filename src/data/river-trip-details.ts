@@ -8102,12 +8102,12 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
         'Launch at Trout Run Park and finish at the Lower Dam access below Decorah. This is a scenic beginner-friendly Upper Iowa day, but the 13-mile length, low-water scraping risk, and the marked dam portage still make it a real commitment.',
       accessCaveats: [
         'Decorah park materials show canoe access in the Trout Run corridor, but the park is still big enough that you should locate the launch before unloading.',
-        'Iowa DNR treats Lower Dam as a real public access, but it is still more primitive than the city-side put-in and deserves a same-day look.',
+        'Iowa DNR treats Lower Dam as a real public access, but Miles Paddled reports weak signage and a rougher take-out approach, so identify the exit before committing.',
         'Treat this as a full-day shuttle-and-portage plan, not a casual quick float.',
       ],
       watchFor: [
         'Heavy scraping in riffles below about 150 cfs at the Decorah gauge.',
-        'Dam safety and the marked carry around the Upper Dam, roughly a 600-foot portage.',
+        'Dam safety, the marked river-right carry around Upper Dam, and the mandatory Lower Dam take-out before the dam face.',
         'Strainers, logjams, long-day fatigue, and cold water outside midsummer.',
       ],
     },

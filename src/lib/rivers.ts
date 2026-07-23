@@ -5,12 +5,14 @@ import { scoreRiverCondition } from './scoring';
 import { remember } from './server-cache';
 import { fetchGaugeReading } from './gauges';
 import { fetchWeatherSnapshot } from './weather';
+import { mapWithConcurrency } from './async-concurrency';
 import type { River, RiverAccessPoint, RiverScoreResult } from './types';
 
 const GAUGE_CACHE_TTL_MS = 5 * 60 * 1000;
 const WEATHER_CACHE_TTL_MS = 10 * 60 * 1000;
 const STALE_WHILE_ERROR_MS = 30 * 60 * 1000;
 const INFERRED_RIVER_SPLIT_DISTANCE_MILES = 150;
+const ALL_RIVER_SCORE_CONCURRENCY = 12;
 
 const inferredRiverIdsBySlug = buildInferredRiverIds();
 
@@ -50,8 +52,13 @@ export async function getRiverScore(slug: string): Promise<RiverScoreResult | nu
   return scoreRiver(river);
 }
 
-export async function getAllRiverScores(): Promise<RiverScoreResult[]> {
-  return Promise.all(listRivers().map((river) => scoreRiver(river)));
+export async function getAllRiverScores(options?: { concurrency?: number }): Promise<RiverScoreResult[]> {
+  const routes = listRivers();
+  return mapWithConcurrency(
+    routes,
+    options?.concurrency ?? ALL_RIVER_SCORE_CONCURRENCY,
+    (river) => scoreRiver(river),
+  );
 }
 
 export function getRiversByRiverId(riverId: string): River[] {

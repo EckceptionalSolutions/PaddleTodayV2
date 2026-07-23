@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-23T21:26:47.380Z",
+  "generatedAt": "2026-07-23T21:29:51.957Z",
   "routeCount": 869,
-  "issueCount": 607,
+  "issueCount": 604,
   "summary": {
     "Critical": 0,
-    "High": 368,
-    "Medium": 239,
+    "High": 367,
+    "Medium": 237,
     "Low": 0
   },
   "issues": [
@@ -141,17 +141,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "sible levels, but the 11-mile distance, shallow ledges, city bridge approaches, private banks, and cold spring inflows make it more than a lazy park float. Confidence is good for a guarded Iowa minimum-only add: Miles Paddled documents the exact Malanaphy Spri"
-    },
-    {
-      "routeId": "upper-iowa-river-trout-run-lower-dam",
-      "slug": "upper-iowa-river-trout-run-lower-dam",
-      "name": "Upper Iowa River",
-      "reach": "Trout Run Park to Lower Dam",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "Generally beginner-friendly at workable levels, but distance, riffles, and the dam portage still make this a real day rather than a park float. The only clear numeric threshold here is a low-water floor from paddler reports. The route itself is friendly, but"
     },
     {
       "routeId": "volga-river-klocks-island-heron-road",
@@ -4156,28 +4145,6 @@
       "category": "Minimum-only hazard review",
       "message": "Minimum-only route has hazard language but no safetyProfile.",
       "evidence": "Country-to-Decorah Upper Iowa day from the Malanaphy Springs / Bluffton Road access to Trout Run Park, with riffles, springs, city bluffs, and a direct Bluffton gauge low-water flo"
-    },
-    {
-      "routeId": "upper-iowa-river-trout-run-lower-dam",
-      "slug": "upper-iowa-river-trout-run-lower-dam",
-      "name": "Upper Iowa River",
-      "reach": "Trout Run Park to Lower Dam",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Long Decorah-area Upper Iowa day where the main decision is still low water. This stays scenic and approachable above its floor, but the high side of the range is still not well de"
-    },
-    {
-      "routeId": "upper-iowa-river-trout-run-lower-dam",
-      "slug": "upper-iowa-river-trout-run-lower-dam",
-      "name": "Upper Iowa River",
-      "reach": "Trout Run Park to Lower Dam",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "dam portage change the decision more than a score alone might suggest. Primary hazard Upper Dam portage Treat the Lower Dam finish as a dam-safety route, not just a long scenic float. Never approach the dam face in current. Trout Run launch support Decorah pa"
     },
     {
       "routeId": "volga-river-klocks-island-heron-road",

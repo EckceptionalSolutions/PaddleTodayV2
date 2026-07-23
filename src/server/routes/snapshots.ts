@@ -134,7 +134,7 @@ export async function handleRiverSnapshotRefresh(
 }
 
 async function captureProductionRiverSnapshots(): Promise<RiverSnapshotCapture> {
-  const results = await getAllRiverScores();
+  const results = await getAllRiverScores({ concurrency: 12 });
   const captured = await captureRiverSnapshots({ results });
 
   if (captured.storage !== 'blob') {

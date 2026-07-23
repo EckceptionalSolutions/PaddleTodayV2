@@ -19,6 +19,7 @@ import {
 } from './api-contract';
 import { getRiverBySlug, listRiverGroups } from './rivers';
 import { gaugeDisplayForSource } from './source-adapters';
+import { mapWithConcurrency } from './async-concurrency';
 import type { GaugeBand, RiverGaugeSource, RiverScoreResult } from './types';
 
 const DEFAULT_SNAPSHOT_DIR = '.local';
@@ -135,13 +136,17 @@ export async function captureRiverSnapshots(args: {
   const detailSnapshots = buildDetailSnapshots(args.results, generatedAt);
   const groupSnapshots = buildGroupSnapshots(args.results, generatedAt);
 
+  const routeBlobs = [
+    ...detailSnapshots.map(({ slug, payload }) => ({ name: detailBlobName(slug), payload })),
+    ...groupSnapshots.map(({ riverId, payload }) => ({ name: groupBlobName(riverId), payload })),
+  ];
+
+  // Keep upstream/storage fan-out bounded so a refresh cannot starve normal API
+  // traffic. Publish the summary manifests last, after every route blob exists.
+  await mapWithConcurrency(routeBlobs, 12, ({ name, payload }) => storage.writeJson(name, payload));
   await Promise.all([
     storage.writeJson(summaryBlobName(), summary),
     storage.writeJson(weekendSummaryBlobName(), weekendSummary),
-  ]);
-  await Promise.all([
-    ...detailSnapshots.map(({ slug, payload }) => storage.writeJson(detailBlobName(slug), payload)),
-    ...groupSnapshots.map(({ riverId, payload }) => storage.writeJson(groupBlobName(riverId), payload)),
   ]);
 
   return {
