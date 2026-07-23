@@ -4,13 +4,23 @@ Last summarized: 2026-07-22.
 
 ## Current Inventory
 
-- Live routes: 54 after the 2026-07-22 Maquoketa/South Raccoon/Shell Rock pass.
-- Top represented rivers: Upper Iowa River 8, Turkey River 6, North Fork Maquoketa River 6, Maquoketa River 5, Cedar River 4, South Skunk River 4, Volga River 3, Black Hawk Creek 2, Middle River 2, Yellow River 2.
-- Ledger candidates: 59 total after the 2026-07-22 Maquoketa/South Raccoon/Shell Rock pass; 49 added, 3 `no_live_gauge`, 2 `gauge_proxy_weak`, 2 `research_later`, 2 `rejected`, 1 `threshold_weak`.
+- Live routes: 57 after the 2026-07-22 Fort Dodge / Marengo / Cedar Rapids pass.
+- Top represented rivers: Upper Iowa River 8, Turkey River 6, North Fork Maquoketa River 6, Maquoketa River 5, Cedar River 5, South Skunk River 4, Des Moines River 2, Iowa River 2, Volga River 3.
+- Ledger candidates: 62 total after the 2026-07-22 Fort Dodge / Marengo / Cedar Rapids pass; 52 added, 3 `no_live_gauge`, 2 `gauge_proxy_weak`, 2 `research_later`, 2 `rejected`, 1 `threshold_weak`.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-22 run added three distinct corridors rather than more tiny splits: a Delaware County Maquoketa day into Manchester, the South Raccoon Redfield-to-Van-Meter reach above the existing lower-Raccoon card, and Butler County's short Shell Rock Renning-to-Shell-Rock float.
+Iowa remains mature overall. The latest 2026-07-22 run added three more distinct corridors with direct USGS gauges and CanWePaddle route ranges: Des Moines River Fort Dodge-to-Lehigh, Iowa River Marengo-to-Amana, and Cedar River Chain-Lakes/Palo-to-Ellis-Harbor.
+
+## 2026-07-22 Fort Dodge / Marengo / Cedar Rapids pass
+
+- Baseline at run start: 54 Iowa live routes.
+- Added `des-moines-river-fort-dodge-lehigh`, `iowa-river-marengo-amana`, and `cedar-river-chain-lakes-ellis-harbor`, bringing Iowa to 57 live routes in this checkout.
+- Qualification path: Iowa DNR Des Moines River guide, Visit Fort Dodge, CanWePaddle, and USGS support Fort Dodge-to-Lehigh with South River District / Dolliver / Lehigh water-trail context, intermediate classification, boulders, riffles, old bridge remains, Dolliver camping context, and direct gauge `05480500`. CanWePaddle, Iowa County access pages, the Iowa River guide, and USGS support Marengo-to-Amana with direct gauge `05453100`, Gateway/Big Bend river access context, long-rural-day caveats, and Amana dam/canal discipline. CanWePaddle, Linn County, Iowa DOT, Cedar Rapids, and USGS support Chain Lakes / Palo to Ellis Harbor with direct gauge `05464500`, Chain Lakes boat-landing context, Ellis Harbor public launch/restrooms, and a hard stop before the Cedar Rapids downtown dam corridor.
+- Gauge posture: USGS Water Services returned Des Moines at Fort Dodge `966 cfs / 4.25 ft`, Iowa River at Marengo `2,120 cfs / 8.88 ft`, and Cedar River at Cedar Rapids `8,400 cfs / 5.87 ft` at 2026-07-22 20:00 CDT.
+- Threshold posture: all three use conservative CanWePaddle route-specific estimated bands tied to direct same-river USGS gauges: Des Moines `400-8,000 cfs`, Iowa River `300-5,000 cfs`, and Cedar `500-8,000 cfs`. Cedar currently scores above the selected high-water ceiling.
+- Caveat posture: endpoint coordinates are practical access-corridor anchors, not surveyed ramp points. The route copy requires same-day access confirmation, especially for the Amana take-out and high-water Cedar Rapids ramp closures.
+- No route-gallery assets were added after bounded official / local / USGS / Commons / same-route image review.
 
 ## 2026-07-22 Maquoketa/South Raccoon/Shell Rock pass
 

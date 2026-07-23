@@ -1,5 +1,12 @@
 # Midwest Route Automation Memory
 
+- 2026-07-22 20:55 America/Chicago / 2026-07-23 01:55 UTC: Iowa Fort Dodge / Marengo / Cedar Rapids implementation pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 54-route Iowa baseline: `des-moines-river-fort-dodge-lehigh`, `iowa-river-marengo-amana`, and `cedar-river-chain-lakes-ellis-harbor`, bringing this checkout to 57 Iowa routes.
+  - Qualification path: Iowa DNR / Visit Fort Dodge / CanWePaddle / USGS support Des Moines River Fort Dodge-to-Lehigh; CanWePaddle / Iowa County / Iowa River guide / USGS support Iowa River Marengo-to-Amana; and CanWePaddle / Linn County / Iowa DOT / Cedar Rapids / USGS support Cedar River Chain-Lakes-to-Ellis-Harbor.
+  - Gauge posture: USGS Water Services returned Des Moines at Fort Dodge `05480500` at `966 cfs / 4.25 ft`, Iowa River at Marengo `05453100` at `2,120 cfs / 8.88 ft`, and Cedar River at Cedar Rapids `05464500` at `8,400 cfs / 5.87 ft` at 2026-07-22 20:00 CDT.
+  - Threshold posture: all three routes use direct-gauge CanWePaddle estimated bands: Des Moines `400-8,000 cfs`, Iowa River `300-5,000 cfs`, and Cedar `500-8,000 cfs`. Cedar currently scores above the selected high-water ceiling.
+  - No route-gallery assets were added after bounded official / local / USGS / Commons / same-route image review.
+
 - 2026-07-22 20:20 America/Chicago / 2026-07-23 01:20 UTC: Wisconsin South Fork Jump / upper St. Croix implementation pass (`wisconsin-route-additions`).
   - Added three Wisconsin route slugs beyond the current 116-route Wisconsin baseline: `jump-south-fork-county-line-little-falls`, `jump-south-fork-little-falls-big-falls`, and `st-croix-river-gordon-dam-riverside`, bringing this checkout to 119 Wisconsin routes.
   - Qualification path: American Whitewater exact reach pages support both South Fork Jump routes with coordinates, route shape, hazards, difficulty, and USGS `05362000` route-specific runnable bands; Price County / Travel Wisconsin corroborate Big Falls County Park campground context; NPS Map 4 and AW support the exact Gordon Dam-to-Riverside St. Croix reach with landings, campsites, rapids, Coppermine Dam portage/scout warning, and USGS `05333500` threshold range.

@@ -34840,4 +34840,186 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'des-moines-river-fort-dodge-lehigh': {
+    putIn: {
+      id: 'south-river-district-access',
+      name: 'South River District Access',
+      latitude: 42.4892,
+      longitude: -94.1856,
+    },
+    takeOut: {
+      id: 'lehigh-des-moines-river-access',
+      name: 'Lehigh Des Moines River access',
+      latitude: 42.3583,
+      longitude: -94.0525,
+    },
+    logistics: {
+      distanceLabel: 'About 14 to 15 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, riffle scouting, or bluff stops',
+      shuttle:
+        'Stage the Lehigh take-out first, then drive back to South River District Access in Fort Dodge. Check Dolliver State Park as a mid-route contingency during the shuttle if your group may need to shorten the day.',
+      permits:
+        'No route-specific paddling permit is known. Use the named Iowa DNR / Webster County water-trail accesses, follow Iowa boating and PFD rules, and obey posted state-park, county, and city access rules.',
+      camping:
+        'Dolliver Memorial State Park provides nearby corridor camping, but this selected route should be treated as a long day trip unless the group separately reserves and plans a state-park overnight.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at South River District Access and paddle the Webster County Des Moines River water-trail corridor toward Lehigh. Use the Fort Dodge gauge, leave daylight margin, and expect rocky riffles, boulders, wooded banks, and limited public exits.',
+      accessCaveats: [
+        'Iowa DNR maps South River District Access, Dolliver State Park, and Lehigh in this water-trail corridor, but the saved endpoints are practical access-area anchors rather than ramp-survey coordinates.',
+        'The official map uses river-mile access numbers; do not improvise private farm-bank exits just because the road is nearby.',
+        'High water can affect access roads and campgrounds between Fort Dodge and Lehigh, so confirm ramp and road conditions before committing.',
+      ],
+      watchFor: [
+        'Rocky riffles, glacial boulders, old bridge remains, and wood in current.',
+        'Fast rises after storms, cold water in spring, muddy launches, and strainers on wooded bends.',
+        'Long-day fatigue and limited legal bailout options if the group underestimates the 14- to 15-mile paddle.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'south-river-district-access',
+        name: 'South River District Access',
+        latitude: 42.4892,
+        longitude: -94.1856,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default Fort Dodge put-in for the selected water-trail day; practical access-area coordinate.',
+      },
+      {
+        id: 'dolliver-state-park',
+        name: 'Dolliver Memorial State Park river access',
+        latitude: 42.3887,
+        longitude: -94.0817,
+        mileFromStart: 15,
+        segmentKind: 'creek',
+        note: 'Iowa DNR map names Dolliver State Park in the access chain; use as a corridor campground or contingency only after confirming access.',
+      },
+      {
+        id: 'lehigh-des-moines-river-access',
+        name: 'Lehigh Des Moines River access',
+        latitude: 42.3583,
+        longitude: -94.0525,
+        mileFromStart: 15,
+        segmentKind: 'creek',
+        note: 'Default downstream staging area for this Fort Dodge-to-Lehigh planning card; confirm exact ramp and parking on arrival.',
+      },
+    ],
+  },
+
+  'iowa-river-marengo-amana': {
+    putIn: {
+      id: 'marengo-gateway-big-bend-access',
+      name: 'Marengo / Gateway Park Iowa River access corridor',
+      latitude: 41.813,
+      longitude: -92.065,
+    },
+    takeOut: {
+      id: 'amana-iowa-river-access',
+      name: 'Amana-area Iowa River access',
+      latitude: 41.7884,
+      longitude: -91.8798,
+    },
+    logistics: {
+      distanceLabel: 'About 18 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr, longer with low water, headwind, or take-out scouting',
+      shuttle:
+        'Stage the Amana-area take-out first, then drive back to the Marengo access corridor. Confirm the exact Amana landing and parking before launching because this is a long rural day with limited public exits.',
+      permits:
+        'No route-specific paddling permit is known. Use public access points only, follow Iowa boating/PFD rules, and respect Amana, county, WMA, and private-bank postings.',
+      camping:
+        'Treat this as a long day trip. No on-route public watercraft campsite was confirmed for the selected Marengo-to-Amana segment; do not camp on private banks or canal property.',
+      campingClassification: 'none',
+      summary:
+        'Launch from the Marengo Iowa River access corridor and take out in the Amana area for a long rural Iowa River day. The Marengo gauge is direct, but the route needs conservative take-out planning around private banks and Amana dam/canal context.',
+      accessCaveats: [
+        'Gateway Park and Big Bend support public Iowa River access near Marengo, but flooding can affect roads and access quality.',
+        'The Amana take-out is modeled as a named public-access corridor rather than a ramp-survey point; verify the landing before putting on.',
+        'Older Iowa River guide material notes the Amana society dam and canal system downstream of Marengo. Do not extend casually into dam, diversion, or private canal infrastructure.',
+      ],
+      watchFor: [
+        'Shallow bars and scraping when the Marengo gauge drops toward the 300 cfs floor.',
+        'Pushy current, covered bars, floating debris, and fewer stops above the selected 5,000 cfs ceiling.',
+        'Private banks, soft mud, sweepers, strainers, and the need to identify the Amana take-out early.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'marengo-gateway-big-bend-access',
+        name: 'Marengo / Gateway Park Iowa River access corridor',
+        latitude: 41.813,
+        longitude: -92.065,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in corridor near the Marengo gauge; use the public river access that is open and practical on arrival.',
+      },
+      {
+        id: 'amana-iowa-river-access',
+        name: 'Amana-area Iowa River access',
+        latitude: 41.7884,
+        longitude: -91.8798,
+        mileFromStart: 18,
+        segmentKind: 'creek',
+        note: 'Default take-out corridor; confirm exact legal landing before launching from Marengo.',
+      },
+    ],
+  },
+
+  'cedar-river-chain-lakes-ellis-harbor': {
+    putIn: {
+      id: 'chain-lakes-boat-landing',
+      name: 'Chain Lakes / Palo boat landing',
+      latitude: 42.074,
+      longitude: -91.803,
+    },
+    takeOut: {
+      id: 'ellis-harbor-boat-launch',
+      name: 'Ellis Harbor public boat launch',
+      latitude: 41.9944,
+      longitude: -91.7086,
+    },
+    logistics: {
+      distanceLabel: 'About 14 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6.5 hr, longer with wind, high water, or motorboat traffic',
+      shuttle:
+        'Stage Ellis Harbor first, then drive back to Chain Lakes / Palo. Check Cedar Rapids ramp status before launching because city boat ramps can close during high water.',
+      permits:
+        'No route-specific paddling permit is known. Use public ramps only, follow Iowa boating/PFD rules, and obey Linn County and Cedar Rapids park, harbor, and high-water closure postings.',
+      camping:
+        'Treat this as a day route. No on-route campsite is assumed between Chain Lakes and Ellis Harbor, and the Cedar Rapids finish is a public ramp/harbor rather than an overnight stop.',
+      campingClassification: 'none',
+      summary:
+        'Launch from the Chain Lakes / Palo access corridor and take out at Ellis Harbor for a lower Cedar River run into Cedar Rapids. Use the Cedar Rapids gauge and keep the finish disciplined before the downstream urban dam corridor.',
+      accessCaveats: [
+        'Chain Lakes Natural Area and the Chain Lakes Bridge corridor support the Palo-area public boat-landing context, but same-day water depth near Chain Lakes can vary.',
+        'Ellis Harbor is a City of Cedar Rapids public boat launch with restrooms, but closures can occur during high-water events.',
+        'This route intentionally ends at Ellis Harbor. Do not continue toward downtown dams or flood-control work without a separate local plan.',
+      ],
+      watchFor: [
+        'High water above the selected 8,000 cfs ceiling, which CanWePaddle flags as high-caution for this reach.',
+        'Motorboat wakes, wind on broad bends, bridge current, floating wood, and fewer safe stops at high water.',
+        'Urban ramp closures, debris after storms, and the need to make the Ellis Harbor take-out cleanly.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'chain-lakes-boat-landing',
+        name: 'Chain Lakes / Palo boat landing',
+        latitude: 42.074,
+        longitude: -91.803,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in near Palo; practical access-area coordinate for the Chain Lakes boat-landing corridor.',
+      },
+      {
+        id: 'ellis-harbor-boat-launch',
+        name: 'Ellis Harbor public boat launch',
+        latitude: 41.9944,
+        longitude: -91.7086,
+        mileFromStart: 14,
+        segmentKind: 'creek',
+        note: 'Default Cedar Rapids take-out; City of Cedar Rapids documents a public boat launch and restrooms at Ellis Harbor.',
+      },
+    ],
+  },
 };
