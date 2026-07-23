@@ -35736,6 +35736,189 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'mecan-river-mecan-springs-9th-ave': {
+    putIn: {
+      id: 'mecan-springs-boat-ramp',
+      name: 'Mecan Springs Boat Ramp',
+      latitude: 44.0556796,
+      longitude: -89.4703342,
+    },
+    takeOut: {
+      id: 'mecan-9th-avenue-access',
+      name: '9th Avenue bridge access',
+      latitude: 44.0453276,
+      longitude: -89.4462094,
+    },
+    logistics: {
+      distanceLabel: 'About 3.9 mi with spring-bay exploration; about 2.1 mi if paddled directly',
+      estimatedPaddleTime: 'About 2 hr for a direct route; longer if exploring Mecan Springs bays',
+      shuttle:
+        'Stage 9th Avenue first, staying tight to the bridge/right-of-way area, then drive back to the Mecan Springs boat ramp. Inspect 9th Avenue before launching because parking is tight and adjacent land is posted private.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR/SNA access responsibly, follow Wisconsin boating/PFD rules, obey posted state natural area rules, and avoid blocking narrow road shoulders.',
+      camping:
+        'No camping is allowed at Mecan Springs State Natural Area, and no on-route camping is documented for this short headwaters route. Treat it as a day trip.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Mecan Springs Boat Ramp, explore the spring-fed headwater lake if conditions are calm, then continue past Highway GG to the 9th Avenue bridge access. The app uses Chaffee Creek as a rough proxy and keeps the route conservative because the river is shallow and woody.',
+      accessCaveats: [
+        'Mecan Springs is a DNR-owned State Natural Area with limited facilities and specific public-use rules; camping and campfires are prohibited.',
+        'WRT notes the 9th Avenue take-out is usable but small, with tight parking and No Trespassing signs on adjacent properties. Keep the exit within the right-of-way/access area.',
+        'The Chaffee Creek gauge is a tributary proxy, not a direct Mecan gauge. Same-day visual checks at Mecan Springs, Highway GG, and 9th Avenue override the score.',
+      ],
+      watchFor: [
+        'Soft/quicksand-style spring-bottom areas in Mecan Springs; avoid wading the spring boils or shallow lake margins.',
+        'Downed trees, duck-unders, shallow riffles, and the partially obstructed 9th Avenue culvert approach.',
+        'Cold spring water, low-water scraping, wind across the spring basin, and private banks near the take-out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mecan-springs-boat-ramp',
+        name: 'Mecan Springs Boat Ramp',
+        latitude: 44.0556796,
+        longitude: -89.4703342,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the DNR-owned Mecan Springs State Natural Area boat ramp.',
+      },
+      {
+        id: 'mecan-highway-gg-bridge',
+        name: 'Highway GG bridge access',
+        latitude: 44.0510306,
+        longitude: -89.4639907,
+        mileFromStart: 0.6,
+        segmentKind: 'creek',
+        note: 'Optional access where the spring basin transitions into the river.',
+      },
+      {
+        id: 'mecan-9th-avenue-access',
+        name: '9th Avenue bridge access',
+        latitude: 44.0453276,
+        longitude: -89.4462094,
+        mileFromStart: 3.9,
+        segmentKind: 'creek',
+        note: 'Default take-out; stay within the right-of-way/access area.',
+      },
+    ],
+  },
+
+  'mecan-river-cumberland-11th-road': {
+    putIn: {
+      id: 'cumberland-road-mecan-access',
+      name: 'Cumberland Road bridge access',
+      latitude: 44.0222228,
+      longitude: -89.4266698,
+    },
+    takeOut: {
+      id: 'mecan-11th-road-access',
+      name: '11th Road bridge access',
+      latitude: 44.0074675,
+      longitude: -89.3914993,
+    },
+    logistics: {
+      distanceLabel: 'About 3.9 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 3.5 hr, longer with low branches, short portages, or stops',
+      shuttle:
+        'Stage 11th Road first, using the nearby public fishing parking noted by WRT, then drive back to Cumberland Road. Prefer launching immediately above the Cumberland Road culvert rather than from the snaggy upstream parking-lot approach.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, keep bridge/parking areas clear, and use only legal public access space.',
+      camping:
+        'No on-route camping is documented. Treat this as a short day route; use any Waushara County campground or private campground separately from the river plan.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Cumberland Road and take out at 11th Road for a fast, narrow, clear upper-Mecan spring-creek run. Chaffee Creek is only a rough proxy, so bridge visuals and recent wood reports control the final go/no-go call.',
+      accessCaveats: [
+        'WRT no longer recommends the upstream pre-Cumberland approach because the first 500 feet can be congested; use the direct bridge-side launch if footing and current are manageable.',
+        '11th Road has a bridge take-out and nearby public fishing parking, but check shoulder space, mud, vegetation, and other users before leaving a vehicle.',
+        'The Chaffee Creek proxy can miss exact upper-Mecan water level. Treat marginal scores as a reason to scout, not as permission to force the run.',
+      ],
+      watchFor: [
+        'Low branches, slide-overs, and short easy portages, especially in the faster first mile.',
+        'Cold water, narrow blind bends, shallow riffles, and fresh wood after storms or wind events.',
+        'Private banks and tight rural-road parking along the access chain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cumberland-road-mecan-access',
+        name: 'Cumberland Road bridge access',
+        latitude: 44.0222228,
+        longitude: -89.4266698,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in immediately above the Cumberland Road culvert.',
+      },
+      {
+        id: 'mecan-11th-road-access',
+        name: '11th Road bridge access',
+        latitude: 44.0074675,
+        longitude: -89.3914993,
+        mileFromStart: 3.9,
+        segmentKind: 'creek',
+        note: 'Default take-out, with nearby public fishing parking noted by WRT.',
+      },
+    ],
+  },
+
+  'mecan-river-11th-road-dakota': {
+    putIn: {
+      id: 'mecan-11th-road-access',
+      name: '11th Road bridge access',
+      latitude: 44.00744,
+      longitude: -89.391529,
+    },
+    takeOut: {
+      id: 'dakota-highway-y-jj-bridge',
+      name: 'Dakota / Highway Y-JJ bridge access',
+      latitude: 43.988693,
+      longitude: -89.358252,
+    },
+    logistics: {
+      distanceLabel: 'About 3.7 mi',
+      estimatedPaddleTime: 'About 2 hr to 2.5 hr, longer with wood maneuvering or low water',
+      shuttle:
+        'Stage Dakota / Highway Y-JJ first, using the same public/scenic access as the downstream Dakota-to-Dixie card, then drive back to 11th Road. Confirm both small access points before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, use only legal bridge/public access space, and keep private banks off the trip plan.',
+      camping:
+        'No on-route camping is documented. Treat this as a short day route with separate base-camp planning if needed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at 11th Road and take out at Dakota / Highway Y-JJ for WRT’s favorite upper-Mecan segment. The app uses Chaffee Creek as a cautious minimum-only proxy because WRT’s original Silver Creek reference is not accurate enough for product scoring.',
+      accessCaveats: [
+        'Use the 11th Road bridge access and public parking north of the bridge; avoid trampling banks or blocking rural-road traffic.',
+        'At Dakota, use the established access area shared with the downstream card. WRT comments warn against using upstream private property around the culvert.',
+        'Because the selected gauge is proxy-only and the threshold is based on later route comments, same-day depth, clarity, current, and wood checks matter more than the score near the floor.',
+      ],
+      watchFor: [
+        'Low trees, slide-overs, tight bends, and narrow current that can be awkward for longer boats.',
+        'Cold clear water, low-water scraping, fresh wood, and private banks.',
+        'The Chaffee Creek proxy reading sitting below the conservative same-route comment floor, which should trigger extra caution or a visual stand-down.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mecan-11th-road-access',
+        name: '11th Road bridge access',
+        latitude: 44.00744,
+        longitude: -89.391529,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in with public parking north of the bridge.',
+      },
+      {
+        id: 'dakota-highway-y-jj-bridge',
+        name: 'Dakota / Highway Y-JJ bridge access',
+        latitude: 43.988693,
+        longitude: -89.358252,
+        mileFromStart: 3.7,
+        segmentKind: 'creek',
+        note: 'Default take-out and shared downstream Mecan access point.',
+      },
+    ],
+  },
+
   'mecan-river-dakota-dixie': {
     putIn: {
       name: 'Dakota / Highway Y-JJ bridge access',
