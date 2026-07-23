@@ -40448,6 +40448,207 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'mississippi-river-knutson-dam-west-winnie': {
+    putIn: {
+      id: 'mississippi-knutson-dam-access',
+      name: 'Mississippi River, Knutson Dam Public Water Access Site',
+      latitude: 47.449798598206435,
+      longitude: -94.48297431425372,
+    },
+    takeOut: {
+      id: 'lake-winnibigoshish-west-access',
+      name: 'Lake Winnibigoshish (W) Public Water Access Site / West Winnie Campground',
+      latitude: 47.42741895314589,
+      longitude: -94.3153374059751,
+    },
+    logistics: {
+      distanceLabel: '11.8 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with wind, shoreline holds, or campsite stops',
+      shuttle:
+        'Stage West Winnie first, then drive to Bimijiwan / Knutson Dam Recreation Area. Check the Days High Landing DNR gauge and the same-day wind forecast before launching because the finish includes a Lake Winnibigoshish shoreline leg.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR public accesses, follow Minnesota boating/PFD rules, and obey Chippewa National Forest / campground / water-trail signage.',
+      camping:
+        'DNR Map 2 shows West Winnie Campground and nearby designated camping context. Use only designated or otherwise legal sites and do not assume private-bank or lakeshore camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch below Bimijiwan / Knutson Dam and paddle the official DNR day trip through Mississippi Meadows to West Winnie Campground. The route links quiet headwaters channel with big-lake edge exposure, so wind and dam context matter as much as gauge height.',
+      accessCaveats: [
+        'Knutson Dam resolves in Minnesota public-water-access GIS as WAS02961 at DNR river mile 1258.1.',
+        'Big Fish access is an optional intermediate / bailout point, not the default take-out.',
+        'West Winnie resolves in Minnesota public-water-access GIS as WAS00969 at river mile 1246.4 and is the planned finish.',
+      ],
+      watchFor: [
+        'Dam and former-dam / short-rapid context around the upstream recreation areas.',
+        'Wind, waves, cold water, and poor visibility on Lake Winnibigoshish; stay close to shore and avoid crossings.',
+        'Strainers, private shoreline, occupied campsites, and remote rescue spacing.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mississippi-knutson-dam-access',
+        name: 'Mississippi River, Knutson Dam Public Water Access Site',
+        latitude: 47.449798598206435,
+        longitude: -94.48297431425372,
+        mileFromStart: 0,
+        segmentKind: 'transition',
+        note: 'Default put-in at the DNR/USFS Bimijiwan-Knutson Dam access area below the dam context.',
+      },
+      {
+        id: 'mississippi-big-fish-access',
+        name: 'Mississippi River, Big Fish Public Water Access Site',
+        latitude: 47.44394111320414,
+        longitude: -94.42536631657191,
+        mileFromStart: 3.4,
+        segmentKind: 'creek',
+        note: 'Optional intermediate access and bailout shown in Minnesota public-water-access GIS at river mile 1254.7.',
+      },
+      {
+        id: 'lake-winnibigoshish-west-access',
+        name: 'Lake Winnibigoshish (W) Public Water Access Site / West Winnie Campground',
+        latitude: 47.42741895314589,
+        longitude: -94.3153374059751,
+        mileFromStart: 11.8,
+        segmentKind: 'lake',
+        note: 'Default take-out at West Winnie Campground / public access on the west shore of Lake Winnibigoshish.',
+      },
+    ],
+  },
+
+  'rum-river-wayside-milaca': {
+    putIn: {
+      id: 'rum-river-wayside-landing',
+      name: 'Rum River, Wayside Landing Public Water Access Site',
+      latitude: 45.925791078659124,
+      longitude: -93.66458446097236,
+    },
+    takeOut: {
+      id: 'rum-river-milaca-dam-site',
+      name: 'Rum River, Milaca Dam Site Public Water Access Site',
+      latitude: 45.75443967001732,
+      longitude: -93.66018017081554,
+    },
+    logistics: {
+      distanceLabel: '16.2 mi',
+      estimatedPaddleTime: 'Full day; plan 6 hr to 8 hr plus scouting and low-water delays',
+      shuttle:
+        'Stage Milaca Dam Site first, then drive to the Highway 169 Wayside Landing north of Milaca. Check the Onamia DNR gauge and identify the Milaca take-out from land because the route must end above the dam.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted rest-area, city-park, dam, and private-property signs.',
+      camping:
+        'No on-route campsite is selected for this day trip. Use separate legal lodging or campground plans rather than camping on private banks or islands.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Wayside Landing and paddle the official DNR full-day Rum River trip to Milaca Dam Site. This upper-Rum section can be narrow, shallow, and rocky, with Old Whitney Log Dam and the Milaca Dam boundary driving the safety plan.',
+      accessCaveats: [
+        'Wayside Landing resolves in Minnesota public-water-access GIS as WAS00462 inside the Highway 169 wayside rest area about 10 miles north of Milaca.',
+        'Milaca Dam Site resolves as WAS00461 above Milaca Dam and is the mandatory take-out for this card.',
+        'The Onamia gauge is upstream of the trip. Pair it with a visual check for local rocks, strainers, and enough depth at the launch.',
+      ],
+      watchFor: [
+        'Old Whitney Log Dam roughly halfway through the DNR day trip.',
+        'Shallow rocky water, pilings, rock weirs, dams, strainers, and low-water dragging.',
+        'Fast rises after rain, private banks, cold water, and the mandatory Milaca Dam finish.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rum-river-wayside-landing',
+        name: 'Rum River, Wayside Landing Public Water Access Site',
+        latitude: 45.925791078659124,
+        longitude: -93.66458446097236,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public-water-access GIS resolves WAS00462 at DNR river mile 128.7.',
+      },
+      {
+        id: 'rum-river-old-whitney-log-dam',
+        name: 'Old Whitney Log Dam area',
+        latitude: 45.842,
+        longitude: -93.665,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Approximate mid-route hazard landmark from the DNR recommended-trip warning; scout/portage as conditions require.',
+      },
+      {
+        id: 'rum-river-milaca-dam-site',
+        name: 'Rum River, Milaca Dam Site Public Water Access Site',
+        latitude: 45.75443967001732,
+        longitude: -93.66018017081554,
+        mileFromStart: 16.2,
+        segmentKind: 'creek',
+        note: 'Default take-out above Milaca Dam; public-water-access GIS resolves WAS00461 at DNR river mile 112.4.',
+      },
+    ],
+  },
+
+  'cedar-river-riverwood-state-line': {
+    putIn: {
+      id: 'cedar-river-riverwood-landing',
+      name: 'Cedar River, Riverwood Landing Public Water Access Site',
+      latitude: 43.61597195224321,
+      longitude: -92.97826759705886,
+    },
+    takeOut: {
+      id: 'cedar-river-state-line-road',
+      name: 'State Line Road carry-in access',
+      latitude: 43.5002,
+      longitude: -92.9424,
+    },
+    logistics: {
+      distanceLabel: '11.8 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, strainers, or shuttle delays',
+      shuttle:
+        'Stage a legal driver pickup for State Line Road before launching because DNR says the take-out has no parking lot. Launch from Riverwood Landing after checking the Austin DNR gauge and current flood/debris conditions.',
+      permits:
+        'No route-specific paddling permit is known. Use DNR-mapped access points, follow Minnesota boating/PFD rules, and respect WMA, road-right-of-way, and private-property limits.',
+      camping:
+        'Treat this as a day route. DNR does not document an on-route watercraft campsite on the Riverwood-to-State-Line trip, and the State Line Road finish has no parking lot.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Riverwood Landing and paddle the official DNR 11.8-mile Cedar River day trip to State Line Road. The route is moderate-flow beginner water in normal conditions, but the no-parking take-out, private banks, snags, and fast rises need a deliberate shuttle plan.',
+      accessCaveats: [
+        'Riverwood Landing resolves in Minnesota public-water-access GIS as WAS02650 at DNR river mile 11.8.',
+        'State Line Road is an official DNR carry-in access at river mile 0, river right, but DNR says there is no parking at this location.',
+        'The State Line Road coordinate is an approximate map anchor for the named DNR access at the Minnesota/Iowa border; confirm the legal pickup spot before launching.',
+      ],
+      watchFor: [
+        'Snags, overhanging trees, and fast rises after rain or during spring flood conditions.',
+        'Private farm banks, WMA boundaries, and limited bailout options below Orchard Creek.',
+        'The no-parking State Line Road finish; do not start without a practical legal shuttle solution.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cedar-river-riverwood-landing',
+        name: 'Cedar River, Riverwood Landing Public Water Access Site',
+        latitude: 43.61597195224321,
+        longitude: -92.97826759705886,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public-water-access GIS resolves WAS02650 at DNR river mile 11.8.',
+      },
+      {
+        id: 'cedar-river-orchard-creek-access',
+        name: 'Orchard Creek trailer access',
+        latitude: 43.578,
+        longitude: -92.963,
+        mileFromStart: 3.9,
+        segmentKind: 'creek',
+        note: 'DNR-mapped intermediate access at river mile 7.9; use only if current access and parking are legal.',
+      },
+      {
+        id: 'cedar-river-state-line-road',
+        name: 'State Line Road carry-in access',
+        latitude: 43.5002,
+        longitude: -92.9424,
+        mileFromStart: 11.8,
+        segmentKind: 'creek',
+        note: 'Official DNR take-out at river mile 0, river right, with no parking at the access.',
+      },
+    ],
+  },
+
   'upper-iowa-river-cattle-creek-malanaphy': consolidatedUpperIowaDetails,
   'crow-wing-river-frames-landing-cottingham': consolidatedCrowWingDetails,
 };

@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 06:40 America/Chicago / 2026-07-23 11:40 UTC: Minnesota Mississippi / Rum / Cedar implementation pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 170-route Minnesota baseline: `mississippi-river-knutson-dam-west-winnie`, `rum-river-wayside-milaca`, and `cedar-river-riverwood-state-line`, bringing Minnesota to 173 live routes.
+  - Qualification path: MN DNR Mississippi Map 2 supports Knutson/Bimijiwan-to-West-Winnie with public-access, dam, big-lake, campground, and campsite-rule context; MN DNR Rum River segments page supports Wayside-to-Milaca with exact mileage, shallow/rocky water, Old Whitney Log Dam, and Milaca Dam context; MN DNR Cedar River segments/map supports Riverwood-to-State-Line with exact mileage, Riverwood PWA, State Line Road carry-in, and no-parking caveat.
+  - Gauge posture: MN DNR feed returned Days High Landing `1273.49 ft`, Rum Onamia `10.2 ft`, and Cedar Austin `438 cfs` on 2026-07-23 early morning CDT.
+  - Threshold posture: all three use official DNR interpreted bands only: Days High `1272.9 / 1273.8-1274.5 / 1275 ft`, Onamia `10 / 10.5-11.5 / 12.5 ft`, and Austin `50 / 117-1290 / 1670 cfs`; no route-gallery assets were added after bounded DNR / public-access / Commons / same-route image review.
+
 - 2026-07-23 05:55 America/Chicago / 2026-07-23 10:55 UTC: Iowa Middle Raccoon implementation pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 79-route Iowa baseline: `middle-raccoon-river-lenon-mill-p28`, `middle-raccoon-river-p28-cowles`, and `middle-raccoon-river-cowles-redfield-dam`, bringing Iowa to 82 live routes.
   - Qualification path: Iowa DNR documents the Lenon Mill / P-28 / Middle Raccoon River Access / Cowles / Shearer / Redfield Dam Upper Access chain as official Middle Raccoon protected-water-area water-trail sections with distances, public ramps, riffles, boulders, sweepers, private-bank limits, and Redfield Dam context; Guthrie County confirms Route A access order and access spacing; Dallas County confirms Redfield Dam / low-head-dam context; Iowa Parklands plus Paddling Iowa provide the 400 cfs pleasant-ride floor and an exact P-28-to-Cowles 600 cfs trip report; and USGS `05483600` returned current data.
