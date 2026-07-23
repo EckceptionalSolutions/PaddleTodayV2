@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-23T15:28:45.291Z",
-  "routeCount": 823,
-  "issueCount": 615,
+  "generatedAt": "2026-07-23T17:27:49.326Z",
+  "routeCount": 838,
+  "issueCount": 612,
   "summary": {
     "Critical": 0,
-    "High": 374,
+    "High": 371,
     "Medium": 241,
     "Low": 0
   },
@@ -317,39 +317,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": ", the Romanza ford hydraulic, strainers, and any red-flag or posted park/access closure. Warren County and local blueway material frame Romanza Johnson Park to Phil Moore Park as a common six-mile recreational float. It is generally approachable at ordinary le"
-    },
-    {
-      "routeId": "elkhorn-creek-vpa-3-aw-access",
-      "slug": "elkhorn-creek-vpa-3-aw-access",
-      "name": "Elkhorn Creek",
-      "reach": "Elkhorn Creek VPA #3 to American Whitewater Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "elkhorn-creek-vpa-3-aw-access",
-      "slug": "elkhorn-creek-vpa-3-aw-access",
-      "name": "Elkhorn Creek",
-      "reach": "Elkhorn Creek VPA #3 to American Whitewater Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": ". KDFWR gives an official level band for the Frankfort gauge, but this is swift Class II water with private-property rules at the accesses. Use the Elkhorn Creek near Frankfort gauge. KDFWR rates 100 to 600 cfs, or 2.5 to 4.0 ft, as good for boating and fishin"
-    },
-    {
-      "routeId": "elkhorn-creek-vpa-3-aw-access",
-      "slug": "elkhorn-creek-vpa-3-aw-access",
-      "name": "Elkhorn Creek",
-      "reach": "Elkhorn Creek VPA #3 to American Whitewater Access",
-      "state": "Kentucky",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "38.2517, -84.8158 KDFWR identifies VPA #3 as a Voluntary Public Access site on private property with daylight-hours-only rules, unpaved limited parking, bank access, and canoe/kayak access. Take-out access American Whitewater / Elkhorn Acres Access, 38.2676,"
     },
     {
       "routeId": "floyds-fork-broad-run-valley-cliffside",

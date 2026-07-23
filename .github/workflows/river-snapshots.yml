@@ -41,7 +41,10 @@ jobs:
       - name: Build river snapshots
         env:
           RIVER_SNAPSHOT_CONTAINER_SAS_URL: ${{ secrets.RIVER_SNAPSHOT_CONTAINER_SAS_URL }}
-          RIVER_SNAPSHOT_BLOB_PREFIX: ${{ vars.RIVER_SNAPSHOT_BLOB_PREFIX || 'river-snapshots' }}
+          # Keep the writer target identical to the App Service reader. This is
+          # intentionally fixed here so a stale repository variable cannot
+          # silently redirect refreshes to a different virtual folder.
+          RIVER_SNAPSHOT_BLOB_PREFIX: river-snapshots
         run: |
           if [ -z "$RIVER_SNAPSHOT_CONTAINER_SAS_URL" ]; then
             echo "RIVER_SNAPSHOT_CONTAINER_SAS_URL is not configured."

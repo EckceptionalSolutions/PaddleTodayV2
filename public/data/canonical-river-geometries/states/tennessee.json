@@ -3,14 +3,14 @@
   "source": "USGS NHD Flowline",
   "scope": "state",
   "state": "Tennessee",
-  "routeCount": 847,
-  "matchedRouteCount": 844,
+  "routeCount": 853,
+  "matchedRouteCount": 850,
   "unmatchedRouteIds": [
     "eau-claire-river-east-branch-wayside-county-i",
     "bad-axe-north-fork-duck-egg-hwy-o",
     "embarrass-south-branch-hwy-45-county-m"
   ],
-  "routeDataFingerprint": "afef59ee851ec280cddfc19be3eaae684c54dd7d4176094cd58e62dd489edcb1",
+  "routeDataFingerprint": "fa9e75dd67dc40b9c9f4adaf0f2bcbbe1e987f03e327df983881079461262351",
   "features": [
     {
       "type": "Feature",

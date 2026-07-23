@@ -78,13 +78,8 @@ Configure this GitHub repository secret:
 
 - `RIVER_SNAPSHOT_CONTAINER_SAS_URL`
 
-Optional GitHub repository variable:
-
-- `RIVER_SNAPSHOT_BLOB_PREFIX`
-
-Recommended variable value:
-
-- `river-snapshots`
+The scheduled workflow uses the fixed `river-snapshots` blob prefix. Keep the
+App Service `RIVER_SNAPSHOT_BLOB_PREFIX` setting set to the same value.
 
 This avoids long-running HTTP refresh requests, which can hit gateway timeouts.
 

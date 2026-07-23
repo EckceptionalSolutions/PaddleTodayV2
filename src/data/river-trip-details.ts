@@ -40114,6 +40114,189 @@ baseRiverTripDetails['mukwonago-river-rainbow-springs-beulah-road'] = {
   ],
 };
 
+baseRiverTripDetails['eau-claire-river-clubhouse-county-j'] = {
+  putIn: {
+    id: 'eau-claire-clubhouse-road-edwins-park',
+    name: "Edwin's Park / Club House Road launch",
+    latitude: 44.9064421,
+    longitude: -89.4586068,
+  },
+  takeOut: {
+    id: 'eau-claire-county-j-landing',
+    name: 'County Highway J Landing',
+    latitude: 44.9014989,
+    longitude: -89.5057011,
+  },
+  logistics: {
+    distanceLabel: 'About 4.1 mi',
+    estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer with low water, wood, or rapid scouting',
+    shuttle:
+      'Stage the County J bridge landing first, then launch from the public park context at Club House Road. The Mountain-Bay State Trail pull-off is an alternate access in the source map, but this card uses Club House Road to County J as the planned public-access pair.',
+    permits:
+      'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, Village of Weston and county access postings, road-shoulder limits, and private-bank boundaries.',
+    camping:
+      'Treat this as a day route. No designated on-route campsite is selected between Club House Road and County J; use separate legal camping or lodging away from the route if needed.',
+    campingClassification: 'none',
+    summary:
+      'Launch at Edwin\'s Park / Club House Road and finish at County J for the first lower Eau Claire water-trail split below the county park corridor. Expect shallow boulder gardens, a few small rapids, and a downstream same-corridor stage gauge that must be paired with a visual check.',
+    accessCaveats: [
+      'The Club House Road launch is a public park/grassy launch context with limited services and shoulder parking notes in WRT materials.',
+      'County J is a bridge landing rather than a full-service ramp; confirm the faint trail, bank footing, and parking before unloading.',
+      'The Kelly/Ross gauge is downstream of this split. Use Weston stage guidance as a screen, then inspect the actual water at both endpoints.',
+    ],
+    watchFor: [
+      'Boulder gardens, Class I-II riffles, shallow ledges, and channel splits that can force walking below the 0.5 ft floor.',
+      'Fresh strainers, downed trees, bridge debris, and faster current after rain.',
+      'Private banks, limited legal bailout options, and cold water outside summer.',
+    ],
+  },
+  accessPoints: [
+    {
+      id: 'eau-claire-clubhouse-road-edwins-park',
+      name: "Edwin's Park / Club House Road launch",
+      latitude: 44.9064421,
+      longitude: -89.4586068,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Default put-in from the WRT overview KML; the source describes a public park northwest of the bridge with a grassy launch.',
+    },
+    {
+      id: 'eau-claire-mountain-bay-pull-off',
+      name: 'Mountain-Bay State Trail pull-off alternate',
+      latitude: 44.896749,
+      longitude: -89.4788173,
+      mileFromStart: 2.1,
+      segmentKind: 'creek',
+      note: 'Optional alternate access in the WRT KML; use only if current parking and public access are clear.',
+    },
+    {
+      id: 'eau-claire-county-j-landing',
+      name: 'County Highway J Landing',
+      latitude: 44.9014989,
+      longitude: -89.5057011,
+      mileFromStart: 4.1,
+      segmentKind: 'creek',
+      note: 'Default take-out from the WRT overview KML; WRT describes a popular bridge access southeast of the bridge.',
+    },
+  ],
+};
+
+baseRiverTripDetails['eau-claire-river-county-j-ross-avenue'] = {
+  putIn: {
+    id: 'eau-claire-county-j-landing',
+    name: 'County Highway J Landing',
+    latitude: 44.9014989,
+    longitude: -89.5057011,
+  },
+  takeOut: {
+    id: 'eau-claire-ross-avenue-access',
+    name: 'Ross Avenue River Access',
+    latitude: 44.9183349,
+    longitude: -89.5518243,
+  },
+  logistics: {
+    distanceLabel: 'About 3.7 mi',
+    estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer with low water or rapid scouting',
+    shuttle:
+      'Stage Ross Avenue first, then return to County J. Walk the Ross landing before launching because WRT guest notes warn the current can make the bridge-area take-out tricky around good-water levels.',
+    permits:
+      'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, Village of Weston access postings, road-shoulder limits at County J, and private-bank boundaries.',
+    camping:
+      'Treat this as a day route. No designated campsite is selected between County J and Ross Avenue, and residential/private banks should not be used for informal stops.',
+    campingClassification: 'none',
+    summary:
+      'Run the liveliest lower Eau Claire water-trail split from County J to the developed Ross Avenue access. The route is short but not casual: WRT documents boulder gardens, a Class II drop, nearly continuous rapids below County J, and a fast final approach to Ross when water is up.',
+    accessCaveats: [
+      'County J is a bridge landing and should be checked for current bank, parking, and traffic conditions before launching.',
+      'Ross Avenue is the planned take-out and a developed water-trail access; move left early above the bridges and do not drift past the intended landing.',
+      'The Weston stage thresholds use gage height. Do not convert the WRT guest cfs comments into a separate app range without a current rating curve.',
+    ],
+    watchFor: [
+      'Class I-II boulder gardens, one Class II drop in WRT photo notes, and nearly continuous rapids for roughly a half mile below County J.',
+      'Fast current and a tricky river-left take-out at Ross when levels are near the guest-review good-water band.',
+      'Strainers, wrong-channel choices through islands, private banks, and cold-water exposure.',
+    ],
+  },
+  accessPoints: [
+    {
+      id: 'eau-claire-county-j-landing',
+      name: 'County Highway J Landing',
+      latitude: 44.9014989,
+      longitude: -89.5057011,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Default put-in from the WRT overview KML; use the bridge landing only after confirming parking and bank condition.',
+    },
+    {
+      id: 'eau-claire-ross-avenue-access',
+      name: 'Ross Avenue River Access',
+      latitude: 44.9183349,
+      longitude: -89.5518243,
+      mileFromStart: 3.7,
+      segmentKind: 'creek',
+      note: 'Default take-out from Weston and WRT KML; Weston lists the Ross access and WRT describes it as a strong landing for paddlers and bike shuttles.',
+    },
+  ],
+};
+
+baseRiverTripDetails['eau-claire-river-ross-avenue-yellow-banks'] = {
+  putIn: {
+    id: 'eau-claire-ross-avenue-access',
+    name: 'Ross Avenue River Access',
+    latitude: 44.9183349,
+    longitude: -89.5518243,
+  },
+  takeOut: {
+    id: 'eau-claire-yellow-banks-park',
+    name: 'Yellow Banks Park Launch',
+    latitude: 44.9281782,
+    longitude: -89.5740223,
+  },
+  logistics: {
+    distanceLabel: 'About 2.7 mi',
+    estimatedPaddleTime: 'About 1 hr to 2 hr, longer with low water, debris, or access scouting',
+    shuttle:
+      'Stage Yellow Banks Park first, then launch from Ross Avenue. Confirm the Yellow Banks landing from land before committing because this downstream split has less detailed practical reporting than the Club House-to-Ross route.',
+    permits:
+      'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, Village of Weston park and launch postings, and private-bank boundaries.',
+    camping:
+      'Treat this as a day route. No on-route camping is selected between Ross and Yellow Banks; use separate legal camping or lodging instead of informal riverbank sites.',
+    campingClassification: 'none',
+    summary:
+      'Continue from Ross Avenue to Yellow Banks Park for a short lower Eau Claire water-trail segment with public endpoints and a direct same-corridor stage gauge. The route is useful but source coverage is thinner below Ross, so scout for debris, snags, low-water side channels, and the Yellow Banks landing before launching.',
+    accessCaveats: [
+      'Ross Avenue is a developed access with gauge and trail context; still check the landing for high current and crowding before launching.',
+      'Yellow Banks Park is the selected take-out. Weston lists Yellow Banks Launch at 3903 Northwestern Avenue and local sources document recent launch improvements, but paddlers should verify the current launch condition.',
+      'Do not continue downstream toward the Eau Claire River Conservancy, flowage, Drott Street, or Brooks & Ross Dam without a separate route plan and portage/take-out decision.',
+    ],
+    watchFor: [
+      'Possible rapids, debris, snags, and shallow or side-channel route choices below Ross.',
+      'Low-water walking below the Weston 0.5 ft floor and pushier water above the 2 ft experienced-paddler threshold.',
+      'Private banks, limited bailout choices, cold water, and increased exposure if the group misses Yellow Banks.',
+    ],
+  },
+  accessPoints: [
+    {
+      id: 'eau-claire-ross-avenue-access',
+      name: 'Ross Avenue River Access',
+      latitude: 44.9183349,
+      longitude: -89.5518243,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Default put-in from Weston and WRT KML.',
+    },
+    {
+      id: 'eau-claire-yellow-banks-park',
+      name: 'Yellow Banks Park Launch',
+      latitude: 44.9281782,
+      longitude: -89.5740223,
+      mileFromStart: 2.7,
+      segmentKind: 'creek',
+      note: 'Default take-out from Weston launch listing and WRT overview KML; verify current landing condition before launching.',
+    },
+  ],
+};
+
 const retainedRiverTripDetails = Object.fromEntries(
   Object.entries(baseRiverTripDetails).filter(([id]) => !retiredSplitDetailIds.has(id)),
 ) as Record<string, RiverTripDetails>;
@@ -44219,6 +44402,189 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 7.1,
         segmentKind: 'creek',
         note: 'Default take-out; DNR recommended one-way list identifies Henderson trailer access as the downstream endpoint, and the interpreted gauge is at Henderson.',
+      },
+    ],
+  },
+
+  'sauk-river-oak-township-spring-hill': {
+    putIn: {
+      id: 'sauk-river-oak-township-county-park',
+      name: 'Oak Township County Park carry-in access',
+      latitude: 45.60927,
+      longitude: -94.75344,
+    },
+    takeOut: {
+      id: 'sauk-river-spring-hill-county-park',
+      name: 'Spring Hill County Park carry-in access',
+      latitude: 45.529026,
+      longitude: -94.776531,
+    },
+    logistics: {
+      distanceLabel: 'About 10.8 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, vegetation, or fishing stops',
+      shuttle:
+        'Stage Spring Hill County Park first, then launch from Oak Township County Park. Check the St. Martin DNR gauge and inspect both county-park accesses because the gauge is downstream of this route.',
+      permits:
+        'No route-specific paddling permit is known. Use the county-park and DNR water-trail accesses, follow Minnesota boating/PFD rules, and obey posted county-park, campsite, and private-property rules.',
+      camping:
+        'DNR maps watercraft campsites at both Oak Township County Park and Spring Hill County Park. Treat camping as designated-site or county-park-rule dependent only; do not camp on riverbeds next to private property.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Paddle the DNR-recommended Oak Township-to-Spring Hill Sauk River day through open lowlands and wooded bends. It is generally easy at normal water, but current low-band readings can make it slow, shallow, or weedy.',
+      accessCaveats: [
+        'DNR Map 1 places Oak Township County Park at river mile 67.0 and Spring Hill County Park at river mile 56.2/56.1 with campsite and restroom context.',
+        'The St. Martin gauge is downstream of the take-out. Use it as the official interpreted corridor check, not a substitute for same-day depth and wood inspection.',
+        'Most shoreland away from public accesses and designated campsites should be treated as private or not available for casual stops.',
+      ],
+      watchFor: [
+        'Shallow, weedy, or slow travel when the St. Martin gauge is below the official medium band.',
+        'Fallen trees, bridge debris, and fresh strainers after storm rises.',
+        'Private banks, occupied campsites, and county-park rules at both endpoints.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'sauk-river-oak-township-county-park',
+        name: 'Oak Township County Park carry-in access',
+        latitude: 45.60927,
+        longitude: -94.75344,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; DNR Map 1 lists Oak Township County Park at Sauk river mile 67.0 with carry-in access, watercraft campsite, rest area, and toilets.',
+      },
+      {
+        id: 'sauk-river-spring-hill-county-park',
+        name: 'Spring Hill County Park carry-in access',
+        latitude: 45.529026,
+        longitude: -94.776531,
+        mileFromStart: 10.8,
+        segmentKind: 'creek',
+        note: 'Default take-out; DNR Map 1 lists Spring Hill County Park at river mile 56.2/56.1 with carry-in access, watercraft campsite, toilet, rest area, and drinking water.',
+      },
+    ],
+  },
+
+  'otter-tail-river-friberg-hwy-210': {
+    putIn: {
+      id: 'otter-tail-river-friberg-taplin-gorge-dam',
+      name: 'Taplin Gorge / Friberg Dam public access',
+      latitude: 46.3826273,
+      longitude: -96.0206276,
+    },
+    takeOut: {
+      id: 'otter-tail-river-highway-210-access',
+      name: 'Highway 210 public access',
+      latitude: 46.2807577,
+      longitude: -95.9809894,
+    },
+    logistics: {
+      distanceLabel: 'About 15.5 mi',
+      estimatedPaddleTime: 'About 5 hr to 7.5 hr, longer with portage checks, wind, or low-water scraping',
+      shuttle:
+        'Stage the Highway 210 take-out first, then launch from the Taplin Gorge / Friberg Dam public access. Walk the dam-access area and confirm any posted portage or closed-area signs before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey Otter Tail Power, DNR, road-right-of-way, and private-property postings.',
+      camping:
+        'Treat this as a committed day route. No designated on-route campsite was verified between Taplin Gorge / Friberg Dam and Highway 210; use separate legal campground or lodging plans.',
+      campingClassification: 'none',
+      summary:
+        'Run the DNR-recommended Otter Tail section from Taplin Gorge / Friberg Dam to Highway 210 with the Elizabeth gauge inside the route corridor. Dam discipline and limited public exits matter as much as flow.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Taplin Gorge / Friberg Dam, Highway 1, and Highway 210 with source-backed coordinates.',
+        'The Elizabeth gauge is inside the route corridor and gives an official DNR band, but it cannot show local dam signage, culvert clearance, or new wood.',
+        'Highway 210 is the selected finish. Continuing downstream changes the dam, rapid, and shuttle plan.',
+      ],
+      watchFor: [
+        'Dam works, diversion channels, mandatory portages, and posted closed areas near the put-in or downstream structures.',
+        'Rocky or scrape-heavy travel near the official low band and pushier current above the medium band.',
+        'Culverts, low-clearance bridges, strainers, private banks, and cold water.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'otter-tail-river-friberg-taplin-gorge-dam',
+        name: 'Taplin Gorge / Friberg Dam public access',
+        latitude: 46.3826273,
+        longitude: -96.0206276,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public-water-access GIS resolves WAS00558 at the Taplin Gorge / Friberg Dam parking area near DNR river mile 71.3.',
+      },
+      {
+        id: 'otter-tail-river-highway-1-access',
+        name: 'Highway 1 public access',
+        latitude: 46.3099103,
+        longitude: -96.0096102,
+        mileFromStart: 9.1,
+        segmentKind: 'creek',
+        note: 'Intermediate public access and possible bailout; public-water-access GIS resolves WAS01317 near Otter Tail river mile 62.4.',
+      },
+      {
+        id: 'otter-tail-river-highway-210-access',
+        name: 'Highway 210 public access',
+        latitude: 46.2807577,
+        longitude: -95.9809894,
+        mileFromStart: 15.5,
+        segmentKind: 'creek',
+        note: 'Default take-out; DNR recommended one-way data identifies Highway 210 as the downstream endpoint and public-water-access GIS resolves WAS01465 at river mile 56.0.',
+      },
+    ],
+  },
+
+  'shell-rock-river-frank-hall-st-nicholas': {
+    putIn: {
+      id: 'shell-rock-river-frank-hall-park',
+      name: 'Frank Hall Park public access',
+      latitude: 43.6428912,
+      longitude: -93.3595382,
+    },
+    takeOut: {
+      id: 'shell-rock-river-st-nicholas-landing',
+      name: 'St. Nicholas Landing public access',
+      latitude: 43.6122566,
+      longitude: -93.3130901,
+    },
+    logistics: {
+      distanceLabel: 'About 3.2 lake mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer with wind, fishing, or state-park stops',
+      shuttle:
+        'Stage at St. Nicholas Landing, then launch from Frank Hall Park. Because this route is on Albert Lea Lake, check wind, thunderstorms, and water quality in addition to the downstream Shell Rock gauge.',
+      permits:
+        'No route-specific paddling permit is known. Use the public trailer accesses, follow Minnesota boating/PFD rules, and obey Albert Lea city, Myre-Big Island State Park, DNR, and private-shoreline postings.',
+      camping:
+        'Myre-Big Island State Park sits on the route corridor and DNR Shell Rock materials identify park camping and amenities. Use reserved or currently open designated state-park campsites only; do not treat private shoreline as camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Use Frank Hall Park and St. Nicholas Landing for the DNR-recommended Albert Lea Lake option on the Shell Rock water trail. This is a lake paddle, so wind and weather can override the gauge score.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Frank Hall Park and St. Nicholas Landing with coordinates, launch type, parking, and water-trail metadata.',
+        'The Gordonsville gauge is downstream on the Shell Rock corridor, so treat it as a proxy for water-trail level context rather than a lake-wave forecast.',
+        'Do not continue upstream into the Bridge Avenue Dam portage or downstream past St. Nicholas without separate route planning.',
+      ],
+      watchFor: [
+        'Open-water wind, waves, thunderstorms, cold water, and algae or water-quality concerns on Albert Lea Lake.',
+        'Bridge Avenue Dam upstream of Frank Hall and low-bridge / constructed-rapid hazards downstream of St. Nicholas on the river trail.',
+        'Private shoreline and state-park rules around Myre-Big Island.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'shell-rock-river-frank-hall-park',
+        name: 'Frank Hall Park public access',
+        latitude: 43.6428912,
+        longitude: -93.3595382,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default put-in; DNR map labels Frank Hall Park at river mile 16.8 and public-water-access GIS resolves WAS01395.',
+      },
+      {
+        id: 'shell-rock-river-st-nicholas-landing',
+        name: 'St. Nicholas Landing public access',
+        latitude: 43.6122566,
+        longitude: -93.3130901,
+        mileFromStart: 3.2,
+        segmentKind: 'lake',
+        note: 'Default take-out; DNR map labels St. Nicholas Landing at river mile 13.6 and public-water-access GIS resolves WAS01392.',
       },
     ],
   },

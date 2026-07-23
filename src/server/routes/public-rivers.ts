@@ -126,7 +126,17 @@ export async function handleRiverDetail(
   slug: string,
   snapshotOnly = false,
 ) {
-  const snapshot = await getStoredRiverDetailSnapshot(slug).catch(() => null);
+  let snapshot: Awaited<ReturnType<typeof getStoredRiverDetailSnapshot>> = null;
+  try {
+    snapshot = await getStoredRiverDetailSnapshot(slug);
+  } catch (error) {
+    console.error('[snapshots] detail read failed', {
+      requestId,
+      slug,
+      error: error instanceof Error ? error.message : String(error),
+    });
+  }
+
   if (snapshot) {
     return sendJson(response, 200, {
       requestId,

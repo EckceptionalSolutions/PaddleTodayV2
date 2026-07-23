@@ -666,7 +666,12 @@ function snapshotStorage():
       readJson<T>(blobName: string): Promise<T | null>;
       writeJson(blobName: string, value: unknown): Promise<void>;
     } {
-  const container = parseContainerSas(process.env.RIVER_SNAPSHOT_CONTAINER_SAS_URL ?? '');
+  const configuredContainerSasUrl = process.env.RIVER_SNAPSHOT_CONTAINER_SAS_URL?.trim() ?? '';
+  const container = parseContainerSas(configuredContainerSasUrl);
+  if (configuredContainerSasUrl && !container) {
+    throw new Error('RIVER_SNAPSHOT_CONTAINER_SAS_URL must be a valid container SAS URL.');
+  }
+
   if (container) {
     return {
       kind: 'blob',
