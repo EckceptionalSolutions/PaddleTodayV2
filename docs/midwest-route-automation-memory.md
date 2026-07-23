@@ -13,6 +13,7 @@
   - Gauge posture: MN DNR feed returned Sauk St. Martin site `328` at `14.58 ft`, Otter Tail Elizabeth site `159` at `326 cfs`, and Shell Rock Gordonsville site `329` at `86.94 ft` at 2026-07-23 midday CDT.
   - Threshold posture: all three use official DNR interpreted bands only: Sauk `14 / 15-17 / 20 ft`, Otter Tail `100 / 300-700 / 1200 cfs`, and Shell Rock `86 / 86.5-89.5 / 90 ft`; no inferred ideal ranges or upper cutoffs were added.
   - Safety/image posture: Sauk carries downstream proxy and private-bank/campsite caveats, Otter Tail carries dam/portage/culvert/no-continuation caveats, Shell Rock is explicitly lake-only with wind/weather caveats, and no route-gallery assets were added after bounded DNR / public-access / Commons / same-route image review.
+  - Validation: route import/count confirmed 197 Minnesota routes; ledger JSON parse passed; `routes:audit`, `routes:audit:overlap`, canonical geometry regeneration/audit, `typecheck`, `build`, `test`, and `git diff --check` passed.
 
 - 2026-07-23 13:55 America/Chicago / 2026-07-23 18:55 UTC: Iowa Lower Des Moines Van Buren completion pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 92-route exported Iowa baseline: `des-moines-river-austin-park-keosauqua`, `des-moines-river-bonaparte-des-moines-access`, and `des-moines-river-access-farmington`, bringing Iowa to 95 live routes.
