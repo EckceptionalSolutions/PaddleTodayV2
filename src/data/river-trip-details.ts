@@ -36678,6 +36678,208 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'namekagon-river-namekagon-dam-hwy-63': {
+    putIn: {
+      id: 'namekagon-dam-landing',
+      name: 'Namekagon Dam Landing',
+      latitude: 46.22438,
+      longitude: -91.14934,
+    },
+    takeOut: {
+      id: 'cable-wayside-landing',
+      name: 'Highway 63 / Cable Wayside Landing',
+      latitude: 46.18772,
+      longitude: -91.32037,
+    },
+    logistics: {
+      distanceLabel: 'About 14.7 mi',
+      estimatedPaddleTime: 'About 5 hr to 6.5 hr, longer with low water, beaver dams, or portages',
+      shuttle:
+        'Stage the take-out at Cable Wayside / Highway 63 first, then drive back to Namekagon Dam Landing. Inspect low bridges and visible riffles from the road-crossing accesses when the Leonards gauge is near or below the floor.',
+      permits:
+        'No route-specific paddling permit is known for private boats. Follow Wisconsin boating/PFD rules and St. Croix National Scenic Riverway rules, including no glass and designated-campsite-only camping.',
+      camping:
+        'NPS/WTG identify one individual Riverway canoe campsite in this N1 segment, about 1.5 miles above Cable Wayside. Use only designated first-come Riverway campsites and follow the three-night, group-size, fire, trash, and no-glass rules.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Namekagon Dam Landing and take out at Cable Wayside / Highway 63 for the upper Namekagon N1 corridor. This is a scenic but shallow, rocky, and isolated Riverway day with Class I-II ledges and beaver-dam/wood exposure.',
+      accessCaveats: [
+        'Namekagon Dam Landing is the start. Do not treat the upstream flowage or dam structure as part of this route.',
+        'NPS warns the first ten miles are isolated and can become extremely low or impassable during dry conditions.',
+        'Cable Wayside is the planned exit just beyond the Highway 63 bridge; identify the take-out before the shuttle feels committed.',
+        'Riverway camping is limited to designated sites; do not improvise on islands, marsh banks, or private/restricted land.',
+      ],
+      watchFor: [
+        'Shallow rocky Class I-II rapids below the 170 cfs floor, where boats can pin or grind on ledges.',
+        'Beaver dams, downed trees, low bridges, strainers, cold water, poison ivy, ticks, and remote rescue exposure.',
+        'Fast rises or storm debris after rain; the Leonards gauge cannot show individual new obstructions.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'namekagon-dam-landing',
+        name: 'Namekagon Dam Landing',
+        latitude: 46.22438,
+        longitude: -91.14934,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from WTG N1 GPX; described as canoe/kayak access with county park and campground context.',
+      },
+      {
+        id: 'county-m-landing',
+        name: 'County Road M Landing',
+        latitude: 46.2063,
+        longitude: -91.22785,
+        mileFromStart: 7.2,
+        segmentKind: 'creek',
+        note: 'Intermediate WTG/NPS access and practical bailout.',
+      },
+      {
+        id: 'phillipi-bridge-landing',
+        name: 'Phillipi Bridge Landing',
+        latitude: 46.19798,
+        longitude: -91.29063,
+        mileFromStart: 11.8,
+        segmentKind: 'creek',
+        note: 'Intermediate WTG/NPS landing above the final Cable Wayside stretch.',
+      },
+      {
+        id: 'cable-wayside-landing',
+        name: 'Highway 63 / Cable Wayside Landing',
+        latitude: 46.18772,
+        longitude: -91.32037,
+        mileFromStart: 14.7,
+        segmentKind: 'creek',
+        note: 'Default take-out at the Highway 63 wayside / Cable Wayside landing.',
+      },
+    ],
+  },
+
+  'namekagon-river-hayward-stinnett': {
+    putIn: {
+      id: 'hayward-landing-namekagon',
+      name: 'Hayward Landing',
+      latitude: 46.0035,
+      longitude: -91.48906,
+    },
+    takeOut: {
+      id: 'stinnett-landing-namekagon',
+      name: 'Stinnett Landing',
+      latitude: 45.98378,
+      longitude: -91.58901,
+    },
+    logistics: {
+      distanceLabel: 'About 9.1 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, scouting, or campsite stops',
+      shuttle:
+        'Stage Stinnett Landing first, then return to Hayward Landing. Confirm the Hayward launch you plan to use because the dam-adjacent launch and the downstream Hayward Landing are separate choices.',
+      permits:
+        'No route-specific paddling permit is known for private boats. Follow Wisconsin boating/PFD rules and St. Croix National Scenic Riverway rules, including no glass and designated-campsite-only camping.',
+      camping:
+        'WRT and WTG/NPS document designated Riverway canoe campsites in the broader N2 corridor. Camp only at signed first-come Riverway sites and do not assume informal bank or island camping is allowed.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Use Hayward Landing to Stinnett for the short upper-middle Namekagon day route. The reach starts fast and rocky, then alternates clearer main channel, islands, sloughs, and calmer stretches before Stinnett.',
+      accessCaveats: [
+        'This card starts at Hayward Landing. If launching at the dam landing upstream, scout the dam-adjacent current and the known first-mile strainer before committing.',
+        'Stinnett is the planned take-out. Continuing to Groat or Springbrook adds more rapids and should be treated as a separate route decision.',
+        'Use Riverway landings and designated campsites only; private banks and side channels are not assumed bailout points.',
+      ],
+      watchFor: [
+        'Fast first miles below Hayward, Warder Rapids, Fox Slough riffles, a known tricky strainer below the dam landing, and shallow or blocked side channels.',
+        'Low water near the 50 cfs floor, when light craft may still pass but loaded canoes can scrape or require channel picking.',
+        'Cold water, floating wood, fast post-rain rises, tubing traffic near Hayward, and private or restricted banks.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hayward-landing-namekagon',
+        name: 'Hayward Landing',
+        latitude: 46.0035,
+        longitude: -91.48906,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from WTG N2 GPX and NPS Map 2.',
+      },
+      {
+        id: 'west-river-landing-namekagon',
+        name: 'West River Landing',
+        latitude: 45.97808,
+        longitude: -91.57632,
+        mileFromStart: 7.8,
+        segmentKind: 'creek',
+        note: 'Intermediate access from WTG N2 GPX before Stinnett.',
+      },
+      {
+        id: 'stinnett-landing-namekagon',
+        name: 'Stinnett Landing',
+        latitude: 45.98378,
+        longitude: -91.58901,
+        mileFromStart: 9.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; WRT describes parking and bathrooms here.',
+      },
+    ],
+  },
+
+  'namekagon-river-county-k-whispering-pines': {
+    putIn: {
+      id: 'county-k-landing-namekagon',
+      name: 'County Road K Landing',
+      latitude: 45.95324,
+      longitude: -91.89136,
+    },
+    takeOut: {
+      id: 'whispering-pines-landing-namekagon',
+      name: 'Whispering Pines Landing',
+      latitude: 46.00925,
+      longitude: -91.98117,
+    },
+    logistics: {
+      distanceLabel: 'About 11.0 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, fishing, or campsite stops',
+      shuttle:
+        'Stage Whispering Pines Landing first, then return to County Road K Landing below the Trego Dam corridor. Verify both Riverway landings before launching because this is a secluded lower Namekagon reach with limited exits.',
+      permits:
+        'No route-specific paddling permit is known for private boats. Follow Wisconsin boating/PFD rules and St. Croix National Scenic Riverway rules, including no glass and designated-campsite-only camping.',
+      camping:
+        'WTG says the broader County K-to-Fritz N4 segment has fourteen Riverway canoe campsites, and the lower Namekagon-to-Riverside reach has extensive designated campsite support. Use only signed first-come Riverway campsites and follow NPS limits.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch below Trego at County Road K and paddle to Whispering Pines for a secluded lower Namekagon day. The route has mostly easy current, several Class I riffles, wooded banks, islands, and strong Riverway camping context.',
+      accessCaveats: [
+        'Start at County Road K Landing below the Trego Dam/flowage corridor. Do not fold the upstream dam portage into this card.',
+        'Whispering Pines is the default exit. Howell, Fritz, McDowell, and Riverside are separate downstream planning choices.',
+        'Riverway camps are first-come and designated only; do not assume private banks, islands, or sandbars are legal overnight stops.',
+      ],
+      watchFor: [
+        'Shallow riffles below the 155 cfs floor, island-channel splits, overhanging trees, sweepers, and strainers.',
+        'Remote shoreline with limited intermediate exits and slower rescue response.',
+        'Cold water, post-rain rises, ticks, poison ivy, and private or restricted banks outside signed Riverway sites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-k-landing-namekagon',
+        name: 'County Road K Landing',
+        latitude: 45.95324,
+        longitude: -91.89136,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from WTG N4 GPX and NPS Map 3.',
+      },
+      {
+        id: 'whispering-pines-landing-namekagon',
+        name: 'Whispering Pines Landing',
+        latitude: 46.00925,
+        longitude: -91.98117,
+        mileFromStart: 11,
+        segmentKind: 'creek',
+        note: 'Default take-out for the WRT exact route; also an intermediate landing on WTG N4.',
+      },
+    ],
+  },
+
 };
 
 const retiredSplitDetailIds = new Set([
@@ -36833,6 +37035,9 @@ const consolidatedCrowWingDetails: RiverTripDetails = {
       note: 'Default downstream finish for the family route.',
     },
   ],
+
+
+
 };
 
 const retainedRiverTripDetails = Object.fromEntries(
