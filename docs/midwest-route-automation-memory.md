@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 17:54 America/Chicago / 2026-07-23 22:54 UTC: Iowa upper Cedar Osage current-baseline implementation pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 103-route exported Iowa baseline: `cedar-river-interstate-bennett`, `cedar-river-bennett-highway-9`, and `cedar-river-highway-9-osage-spring`, bringing Iowa to 106 live routes.
+  - Qualification path: Cedar River Paddling Trips supplied the exact Interstate / Bennett / Highway 9 / Osage Spring access chain, mileages, endpoint coordinates, 200 cfs floor with 400-600 cfs better guidance, Mitchell dam relaunch context, Bennett-to-Highway-9 riffles, and the Osage Spring Park fish-riffle crossing note. Mitchell County corroborated the Cedar River Water Trail context.
+  - Gauge posture: USGS Water Services returned Cedar River at Charles City `05457700` at `1,260 cfs / 3.85 ft` at 2026-07-23 17:30 CDT. Osage `05457505` remains rejected as stale from the prior run, so these cards use Charles City as a downstream same-guide-corridor proxy with local visual-check caveats.
+  - Image posture: no route-gallery image was selected after bounded guide / Mitchell County / USGS / Commons / same-route review.
+
 - 2026-07-23 16:57 America/Chicago / 2026-07-23 21:57 UTC: Iowa upper Cedar Mitchell current-baseline implementation pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 100-route exported Iowa baseline: `cedar-river-otranto-acorn`, `cedar-river-acorn-halvorson`, and `cedar-river-halvorson-interstate`, bringing Iowa to 103 live routes.
   - Qualification path: Cedar River Paddling Trips Otranto-to-Janesville guide supplied exact mileages, endpoint coordinates, route-family `200 cfs` adequate-water floor with `400-600 cfs` better range, and dam/portage details for Otranto, Acorn, Halvorson, and Interstate/Mitchell. Mitchell County and Iowa DNR corroborated the Cedar River Water Trail context.

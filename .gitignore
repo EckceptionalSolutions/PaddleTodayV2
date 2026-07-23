@@ -9,6 +9,16 @@ tmp/
 *.log
 *.err.log
 tmp-*.png
+tmp-*.html
+tmp-*.json
+tmp-*.pdf
+tmp-*.zip
+tmp_*.png
+!tmp-summary.json
+*.bak
+.codex-*-pass.png
+.mobile-visual-qa/
+codex_sandbox_test.txt
 Thumbs.db
 .DS_Store
 .local

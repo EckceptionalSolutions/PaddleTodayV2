@@ -45717,5 +45717,101 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'cedar-river-interstate-bennett': {
+    putIn: { id: 'interstate-park-mitchell', name: 'Interstate Park / Mitchell', latitude: 43.319134, longitude: -92.879648 },
+    takeOut: { id: 'bennett-access', name: 'Bennett Access', latitude: 43.30228, longitude: -92.871666 },
+    logistics: {
+      distanceLabel: 'About 1.3 mi',
+      estimatedPaddleTime: 'Short connector; allow extra time for Mitchell dam portage/relaunch checks',
+      shuttle:
+        'Stage at Bennett Access on River Road, then confirm the Interstate Park dam-portage and below-dam relaunch area before unloading at Mitchell.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Mitchell County Conservation and Iowa boating/PFD rules, and use public access areas only.',
+      camping:
+        'Interstate Park has camping and picnic-table context in the Cedar River guide. Bennett is treated as a day-use access; do not assume legal bank camping on this one-mile connector.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch only below the Mitchell dam after the Interstate Park portage/relaunch decision and paddle the short connector to Bennett Access.',
+      accessCaveats: [
+        'Do not run the Mitchell power dam. This route begins after the left-bank portage/relaunch described by the guide.',
+        'The route is short, so confirm Bennett from land before launching and avoid drifting into the next riffle-heavy section without that plan.',
+        'USGS 05457700 at Charles City is a downstream proxy; inspect local depth and current below Mitchell.',
+      ],
+      watchFor: [
+        'Mitchell dam/relaunch discipline, shoreline debris, fast rises, and private banks.',
+        'Short mileage that can make the Bennett take-out arrive quickly.',
+        'Low-water shallows below the dam and post-rain wood.',
+      ],
+    },
+    accessPoints: [
+      { id: 'interstate-park-mitchell', name: 'Interstate Park / Mitchell', latitude: 43.319134, longitude: -92.879648, mileFromStart: 0, segmentKind: 'creek', note: 'Default put-in after the Mitchell dam portage/relaunch boundary; the guide identifies camping at Interstate Park.' },
+      { id: 'bennett-access', name: 'Bennett Access', latitude: 43.30228, longitude: -92.871666, mileFromStart: 1, segmentKind: 'creek', note: 'Default take-out at 3791 River Road, Osage, per the Cedar River guide.' },
+    ],
+  },
+
+  'cedar-river-bennett-highway-9': {
+    putIn: { id: 'bennett-access', name: 'Bennett Access', latitude: 43.30228, longitude: -92.871666 },
+    takeOut: { id: 'highway-9-bridge-osage', name: 'Highway 9 Bridge access', latitude: 43.28395372212963, longitude: -92.85249710083008 },
+    logistics: {
+      distanceLabel: '2.7 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with low-water riffle walking',
+      shuttle:
+        'Stage at the Highway 9 Bridge access west of Osage, then launch from Bennett Access on River Road. Confirm parking and take-out footing at both ends.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mitchell County and Iowa boating/PFD rules, and keep stops to public access areas.',
+      camping:
+        'No on-route camping is assumed. Use nearby county or city camping only if separately confirmed; do not camp on private banks or bars along this short reach.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Bennett Access and paddle the riffle-heavy upper Cedar section past Iron Springs and Falk Wildlife Area to the Highway 9 Bridge.',
+      accessCaveats: [
+        'The guide identifies Bennett and Highway 9 as access-pair anchors, but the Charles City gauge is downstream and must be paired with a local visual check.',
+        'Highway 9 is a bridge access west of Osage. Confirm the practical landing and parking before launch.',
+        'Do not continue to Osage Spring Park unless that downstream shuttle and fish-riffle plan are also staged.',
+      ],
+      watchFor: [
+        'Frequent riffles, shallow rock, and possible scraping below the guide floor.',
+        'Wood, bridge debris, faster current after rain, and private banks.',
+        'Bluff bends around Iron Springs and Falk Wildlife Area where strainers can be consequential.',
+      ],
+    },
+    accessPoints: [
+      { id: 'bennett-access', name: 'Bennett Access', latitude: 43.30228, longitude: -92.871666, mileFromStart: 0, segmentKind: 'creek', note: 'Default put-in at 3791 River Road, Osage, per the Cedar River guide.' },
+      { id: 'highway-9-bridge-osage', name: 'Highway 9 Bridge access', latitude: 43.28395372212963, longitude: -92.85249710083008, mileFromStart: 2.7, segmentKind: 'creek', note: 'Default take-out about one mile west of Osage on Highway 9.' },
+    ],
+  },
+
+  'cedar-river-highway-9-osage-spring': {
+    putIn: { id: 'highway-9-bridge-osage', name: 'Highway 9 Bridge access', latitude: 43.28395372212963, longitude: -92.85249710083008 },
+    takeOut: { id: 'osage-spring-park', name: 'Osage Spring Park', latitude: 43.275409, longitude: -92.849622 },
+    logistics: {
+      distanceLabel: '1.9 mi',
+      estimatedPaddleTime: 'About 1 hr, longer if the fish riffle needs scouting or walking',
+      shuttle:
+        'Stage at Osage Spring Park on Spring Park Road, then launch from the Highway 9 Bridge access west of Osage. Walk the park take-out and riffle approach first.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted city/county park rules and Iowa boating/PFD requirements.',
+      camping:
+        'Treat this as a short day run. No verified on-route or endpoint camping was selected for this access pair.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Highway 9 and paddle the short limestone-outcrop reach to Osage Spring Park, using the guide-described extreme-right line at the fish riffle just above the take-out.',
+      accessCaveats: [
+        'The fish riffle crosses the river just before Osage Spring Park; scout from shore or portage if the extreme-right route is not obvious or appropriate.',
+        'The Charles City gauge is a downstream same-guide-corridor proxy and does not remove the need for local depth checks at Highway 9.',
+        'Osage Spring Park is the planned take-out. Do not continue toward the low pontoon footbridge below Spring Park without staging the T38 route.',
+      ],
+      watchFor: [
+        'Fish riffle above Osage Spring Park, shallow rocks, and potential pinning or scraping at low water.',
+        'Limestone outcrops, wood, faster current after rain, and private banks.',
+        'Take-out discipline before continuing into the Spring-Park-to-T38 low-footbridge section.',
+      ],
+    },
+    accessPoints: [
+      { id: 'highway-9-bridge-osage', name: 'Highway 9 Bridge access', latitude: 43.28395372212963, longitude: -92.85249710083008, mileFromStart: 0, segmentKind: 'creek', note: 'Default put-in about one mile west of Osage on Highway 9.' },
+      { id: 'osage-spring-park', name: 'Osage Spring Park', latitude: 43.275409, longitude: -92.849622, mileFromStart: 1.9, segmentKind: 'creek', note: 'Default take-out at 3540 Spring Park Road, Osage; fish riffle immediately above the park requires attention.' },
+    ],
+  },
+
   'upper-iowa-river-cattle-creek-malanaphy': consolidatedUpperIowaDetails,
 };
