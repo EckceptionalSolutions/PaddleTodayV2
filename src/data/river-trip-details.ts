@@ -37799,6 +37799,195 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'east-nishnabotna-river-red-oak-essex': {
+    putIn: {
+      id: 'coolbaugh-street-red-oak',
+      name: 'Coolbaugh Street / Red Oak access corridor',
+      latitude: 41.0082,
+      longitude: -95.2418,
+    },
+    takeOut: {
+      id: 'essex-bridge-access',
+      name: 'Essex Bridge Access',
+      latitude: 40.8288,
+      longitude: -95.3047,
+    },
+    logistics: {
+      distanceLabel: 'About 12 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6 hr, longer with low water, wind, wood, or muddy landings',
+      shuttle:
+        'Stage the Essex Bridge take-out first, then return to the Red Oak / Coolbaugh Street access corridor. Inspect both banks before committing because this is a muddy rural river with limited developed exits.',
+      permits:
+        'No route-specific paddling permit is known. Use public access corridors, follow Iowa boating/PFD rules, and obey posted city, county, and bridge-access parking limits.',
+      camping:
+        'No on-route public campsite is documented for this Red Oak-to-Essex section. Montgomery County notes camping is not permitted at river access points such as Bonds Landing, so treat this as a day trip.',
+      campingClassification: 'none',
+      summary:
+        'Launch from the Red Oak / Coolbaugh Street corridor and take out at Essex Bridge for a 12-mile East Nishnabotna day. Use the direct Red Oak gauge and stand down quickly when the river is rising or muddy banks look unsafe.',
+      accessCaveats: [
+        'The put-in coordinate is a practical Red Oak / Coolbaugh Street access anchor near the USGS gauge. Confirm the legal launch and parking area on arrival.',
+        'The Essex Bridge coordinate is an access-corridor anchor from paddling/access directories and DNR map context. Verify signs, bank slope, and parking before leaving the shuttle vehicle.',
+        'The East Nishnabotna has few clean public exits on this reach. Do not treat bridge rights-of-way, farm fields, or muddy private banks as routine bailout points.',
+      ],
+      watchFor: [
+        'Low water below about 100 cfs at Red Oak, when shallow bars and dragging become likely.',
+        'High or fast-rising water above about 1,500 cfs at Red Oak, especially after thunderstorms or snowmelt.',
+        'Muddy banks, sweepers, logjams, floating debris, agricultural runoff, bridge current, and poor water clarity.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'coolbaugh-street-red-oak',
+        name: 'Coolbaugh Street / Red Oak access corridor',
+        latitude: 41.0082,
+        longitude: -95.2418,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in near the direct Red Oak USGS gauge; verify current public launch signs and parking.',
+      },
+      {
+        id: 'essex-bridge-access',
+        name: 'Essex Bridge Access',
+        latitude: 40.8288,
+        longitude: -95.3047,
+        mileFromStart: 12,
+        segmentKind: 'creek',
+        note: 'Default take-out corridor; confirm bank condition and legal parking before launching upstream.',
+      },
+    ],
+  },
+  'maquoketa-river-pictured-rocks-ebys-mill': {
+    putIn: {
+      id: 'pictured-rocks-access',
+      name: 'Pictured Rocks Park Access',
+      latitude: 42.17256,
+      longitude: -91.10471,
+    },
+    takeOut: {
+      id: 'ebys-mill-access',
+      name: "Eby's Mill Access",
+      latitude: 42.19804,
+      longitude: -91.05659,
+    },
+    logistics: {
+      distanceLabel: 'About 6 to 6.5 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, wind, or bluff stops',
+      shuttle:
+        "Stage Eby's Mill first, then drive back to Pictured Rocks Park. This shortens the official Pictured-Rocks-to-Highway-136 section to the strongest public take-out and avoids relying on Supples Bridge.",
+      permits:
+        'No route-specific paddling permit is known. Use Jones County public accesses, follow Iowa boating/PFD rules, and obey Pictured Rocks and Eby’s Mill posted rules.',
+      camping:
+        'Treat this as a day trip. Pictured Rocks and nearby Jones County facilities can support separate base-camp planning, but no on-route overnight site is selected for this short section.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Launch from Pictured Rocks and take out at the rebuilt Eby's Mill ramp for a compact scenic Maquoketa day through the public-land bluff corridor. The Manchester gauge supports a low-water floor but not a high-water ceiling.",
+      accessCaveats: [
+        'This card starts below the Mon-Maq/Monticello dam corridor. Do not include any upstream dam approach as part of the route.',
+        "Eby's Mill is the planned take-out. The downstream Supples Bridge access is explicitly weaker in the Iowa DNR/Jones County guide and is not used as the default finish.",
+        'Use public park and access lands only. Pictured Rocks has public land along the river, but adjacent downstream banks can still be private.',
+      ],
+      watchFor: [
+        'Scraping below the Manchester-gauge floor, wind across broad sandy reaches, and shallow gravel bars.',
+        'Overhanging trees, logjams, bridge abutments, big rocks, and strainers called out in the Iowa DNR/Jones County guide.',
+        'Cold water, fishing pressure, and faster current after upstream rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'pictured-rocks-access',
+        name: 'Pictured Rocks Park Access',
+        latitude: 42.17256,
+        longitude: -91.10471,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the county park ramp in the scenic public-land corridor.',
+      },
+      {
+        id: 'ebys-mill-access',
+        name: "Eby's Mill Access",
+        latitude: 42.19804,
+        longitude: -91.05659,
+        mileFromStart: 6.3,
+        segmentKind: 'creek',
+        note: 'Default take-out at the rebuilt Jones County hard-surface ramp.',
+      },
+    ],
+  },
+  'upper-iowa-river-lower-dam-iverson-bridge': {
+    putIn: {
+      id: 'lower-dam-access',
+      name: 'Lower Dam Access',
+      latitude: 43.33998,
+      longitude: -91.64203,
+    },
+    takeOut: {
+      id: 'iverson-bridge-access',
+      name: 'Iverson Bridge Access',
+      latitude: 43.41256,
+      longitude: -91.5769,
+    },
+    logistics: {
+      distanceLabel: '15.75 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr, longer with low water, wind, or access stops',
+      shuttle:
+        'Stage Iverson Bridge first, then drive back to Lower Dam Access. Decide before launch whether Canoe Creek or Iverson Bottoms are acceptable bailout points for the group.',
+      permits:
+        'No route-specific paddling permit is known. Use the Upper Iowa River guide accesses, follow Iowa boating/PFD rules, and respect posted county, city, and private-property boundaries.',
+      camping:
+        'Treat this as a long day trip with nearby private campground or livery base-camp options. No public on-route campsite is selected for Lower Dam to Iverson Bridge.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch below Lower Dam and take out at Iverson Bridge for the downstream Upper Iowa continuation east of Decorah. Use the direct Decorah gauge as a low-water check and avoid rising-water wood exposure.',
+      accessCaveats: [
+        'Use the Lower Dam Access below the dam. Do not launch upstream or include the dam portage in this route.',
+        'Canoe Creek and Iverson Bottoms are mapped intermediate accesses, but verify current road, parking, and bank condition before relying on either as a bailout.',
+        'The route is long enough that wind, low-water scraping, and daylight can matter more than the Class I rating suggests.',
+      ],
+      watchFor: [
+        'Scraping around 245 cfs and below on the Decorah gauge; 300 to 400 cfs was the published smoother target, not a high-water ceiling.',
+        'Fresh wood, strainers, bridge current, private banks, cold spring-fed water, and fast rises after rain.',
+        'Dam-adjacent hazards at the start if the group launches in the wrong place or paddles upstream toward Lower Dam.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lower-dam-access',
+        name: 'Lower Dam Access',
+        latitude: 43.33998,
+        longitude: -91.64203,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below the Lower Dam hazard; verify signed access and launch below the structure.',
+      },
+      {
+        id: 'canoe-creek-access',
+        name: 'Canoe Creek Access',
+        latitude: 43.3673,
+        longitude: -91.6189,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Mapped intermediate access in the Upper Iowa guide; verify current landing conditions before relying on it.',
+      },
+      {
+        id: 'iverson-bottoms-access',
+        name: 'Iverson Bottoms Access',
+        latitude: 43.4038,
+        longitude: -91.5884,
+        mileFromStart: 14.2,
+        segmentKind: 'creek',
+        note: 'Mapped late-route access/bailout before the Iverson Bridge finish.',
+      },
+      {
+        id: 'iverson-bridge-access',
+        name: 'Iverson Bridge Access',
+        latitude: 43.41256,
+        longitude: -91.5769,
+        mileFromStart: 15.75,
+        segmentKind: 'creek',
+        note: 'Default take-out documented by Miles Paddled and the Upper Iowa guide.',
+      },
+    ],
+  },
   'upper-iowa-river-cattle-creek-malanaphy': consolidatedUpperIowaDetails,
   'crow-wing-river-frames-landing-cottingham': consolidatedCrowWingDetails,
 };

@@ -11,7 +11,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-23 00:48 run added three more guarded direct-gauge Iowa routes beyond the current 64-route baseline: Turkey River Clermont-to-Gilbertson, Maquoketa River Monmouth-to-Maquoketa, and West Nishnabotna River Oakland-to-Macedonia.
+Iowa remains mature overall. The latest 2026-07-23 01:52 run added three more guarded Iowa routes beyond the current 67-route baseline: East Nishnabotna River Red-Oak-to-Essex, Maquoketa River Pictured-Rocks-to-Eby's-Mill, and Upper Iowa River Lower-Dam-to-Iverson-Bridge.
+
+## 2026-07-23 01:52 East Nishnabotna / Maquoketa / Upper Iowa pass
+
+- Baseline at run start: 67 Iowa live routes, verified from `src/data/rivers.ts` with `tsx`.
+- Added `east-nishnabotna-river-red-oak-essex`, `maquoketa-river-pictured-rocks-ebys-mill`, and `upper-iowa-river-lower-dam-iverson-bridge`, bringing the imported Iowa count to 70 live routes.
+- Qualification path: East Nishnabotna uses CanWePaddle's exact Red-Oak-to-Essex range, direct USGS `06809500`, Iowa DNR East Nishnabotna map context, Montgomery County access context, and public access-directory corroboration. Maquoketa uses the Jones County / Iowa DNR water-trail guide, Jones County's rebuilt Eby's Mill ramp page, Miles Paddled Manchester-gauge guidance, and USGS `05416900`. Upper Iowa uses Miles Paddled Lower-Dam-to-Iverson route evidence, the Upper Iowa Paddler's Guide access chain, Iowa DNR dam context, and direct USGS `05387500`.
+- Gauge posture: USGS Water Services returned East Nishnabotna at Red Oak `06809500` at `200 cfs / 5.86 ft` at 2026-07-23 01:00 CDT, Maquoketa at Manchester `05416900` at `414 cfs / 5.16 ft` at 2026-07-23 01:15 CDT, and Upper Iowa at Decorah `05387500` at `981 cfs / 2.80 ft` at 2026-07-23 00:45 CDT.
+- Threshold posture: East Nishnabotna uses the CanWePaddle community estimated range `100-1,500 cfs`. Maquoketa is minimum-only from Miles Paddled's `155 cfs` minimal / `200-250 cfs` better Manchester-gauge note and does not infer a high cutoff. Upper Iowa is minimum-only from Miles Paddled's `245 cfs` observed-with-scraping / `300-400 cfs` smoother Decorah-gauge note and does not infer a high cutoff.
+- Caveat posture: East Nishnabotna has practical access-anchor coordinates and strong muddy-bank/fast-rise/private-bank caveats. Maquoketa intentionally stops at Eby's Mill rather than Supples Bridge because the Iowa DNR/Jones County guide calls Supples less desirable and harder to see. Upper Iowa is a prompted downstream continuation, not another Bluffton split; it ships with below-dam launch discipline, long-day exposure, and no upper threshold.
+- Reviewed but not added: Wapsipinicon Anamosa-to-Oxford Junction remains blocked because USGS Water Services for `05421760` still returned `268 cfs / 2.87 ft` from 2017-10-02 despite current-looking CanWePaddle display. North Raccoon Jefferson-to-Cooper was skipped as a long card that would overlap the existing Eureka/Henderson and Squirrel/Adkins split-card pattern. Iowa River Coralville-Dam-to-Iowa-City remained dam-adjacent and weaker on official access-start support than the selected set.
+- No route-gallery assets were added after bounded official / local / USGS / Commons / same-route image review.
 
 ## 2026-07-23 00:48 Turkey / Maquoketa / West Nishnabotna pass
 
