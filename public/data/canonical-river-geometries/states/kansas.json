@@ -3,14 +3,14 @@
   "source": "USGS NHD Flowline",
   "scope": "state",
   "state": "Kansas",
-  "routeCount": 768,
-  "matchedRouteCount": 765,
+  "routeCount": 771,
+  "matchedRouteCount": 768,
   "unmatchedRouteIds": [
     "eau-claire-river-east-branch-wayside-county-i",
     "bad-axe-north-fork-duck-egg-hwy-o",
     "embarrass-south-branch-hwy-45-county-m"
   ],
-  "routeDataFingerprint": "6a10db59e31805279119b80d47a1bdb8fe02b0532f642615c3830dfdcd2e4a85",
+  "routeDataFingerprint": "1152c280b0766da94da61d18b6cb6a0967e73f8daecf82fc045f8c57b579efa3",
   "features": [
     {
       "type": "Feature",

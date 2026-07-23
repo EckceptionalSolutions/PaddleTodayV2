@@ -11,7 +11,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-23 02:47 run added three whitewater-filtered Lizard Creek routes beyond the current 70-route baseline: Lentsch-to-Cunningham, Cunningham-to-Rasch, and Rasch-to-Phinney.
+Iowa remains mature overall. The latest 2026-07-23 03:50 run added three routes beyond the current 73-route baseline: `maquoketa-river-ebys-mill-supples-bridge`, `maquoketa-river-backbone-dundee`, and `maquoketa-river-quaker-mill-baileys-ford`.
+
+## 2026-07-23 03:50 Lower / upper Maquoketa pass
+
+- Baseline at run start: 73 Iowa live routes, verified from `src/data/rivers.ts` with `tsx`.
+- Added `maquoketa-river-ebys-mill-supples-bridge`, `maquoketa-river-backbone-dundee`, and `maquoketa-river-quaker-mill-baileys-ford`, bringing the imported Iowa count to 76 live routes.
+- Qualification path: Eby's-Mill-to-Supples uses Miles Paddled's exact route report, endpoint coordinates, Manchester-gauge minimum recommendation, Iowa DNR/Jones County lower-Maquoketa water-trail access context, and direct USGS `05416900`. Backbone-to-Dundee uses Delaware County Tourism's just-below-Backbone-dam water-trail start, Iowa DNR Delaware County Maquoketa guide caveats, Wisconsin River Trips' Backbone gauge ladder and below-dam hazards, and direct USGS `05416900`. Quaker-Mill-to-Bailey's-Ford uses Miles Paddled's exact route report, Delaware County/Iowa DNR water-trail access and Delhi Dam boundary context, and direct USGS `05416900`.
+- Gauge posture: USGS Water Services returned Maquoketa River at Manchester `05416900` at `399 cfs / 5.10 ft` at 2026-07-23 03:15 CDT.
+- Threshold posture: Eby's-Mill-to-Supples is minimum-only at `150 cfs / 4.2 ft`, using Miles Paddled's exact-route `78 cfs / 3.9 ft` low trip and minimum recommendation. Backbone-to-Dundee uses WRT's Backbone ladder as a guarded two-sided model: floor `51 cfs`, broad target `51-250 cfs`, and `451+ cfs` too high for broad use. Quaker-Mill-to-Bailey's-Ford is minimum-only at `195 cfs`, with `250 cfs` documented as closer to ideal but no upper cutoff inferred.
+- Caveat posture: Quaker-Mill-to-Bailey's-Ford is `routeType: whitewater`. Eby's-Mill-to-Supples foregrounds the weaker sandy Supples Bridge exit, rural exposure, wind, wood, low-water scraping, and no on-route camping assumption. Backbone is scoped below the dam only, excluding private-permission upstream water and dam running. Quaker-Mill-to-Bailey's-Ford foregrounds Class I-II/Class II features, portage/bypass decisions, private banks, and the Bailey's Ford stop before Lake Delhi / Delhi Dam logistics.
+- Reviewed but not added: Wapsipinicon Anamosa-to-Oxford Junction remains blocked by stale `05421760` Water Services data; Cedar Valley Paddlers Trail remains max-only threshold evidence without a supported low-water model; Volga Littleport-to-Garber stayed weaker than the selected routes on exact route-level threshold support.
+- No route-gallery assets were added after bounded WRT / Miles Paddled / Iowa DNR / Delaware County / Commons / same-route image review.
 
 ## 2026-07-23 02:47 Lizard Creek pass
 

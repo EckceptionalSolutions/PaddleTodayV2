@@ -38897,6 +38897,216 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'maquoketa-river-ebys-mill-supples-bridge': {
+    putIn: {
+      id: 'ebys-mill-access',
+      name: "Eby's Mill Access",
+      latitude: 42.19803,
+      longitude: -91.0566,
+    },
+    takeOut: {
+      id: 'supples-bridge-access',
+      name: 'Supples Bridge Access / Temple Hill Road',
+      latitude: 42.18482,
+      longitude: -90.9769,
+    },
+    logistics: {
+      distanceLabel: 'About 8.25 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr depending on wind, water, and stops',
+      shuttle:
+        "Stage Supples Bridge / Temple Hill Road first, then drive back to Eby's Mill. Most shuttle roads are paved, but verify the sandy downstream access and parking before leaving a vehicle.",
+      permits:
+        'No route-specific paddling permit is known. Follow Iowa boating/PFD rules and posted Jones County Conservation / Iowa DNR water-trail rules at both accesses and public wildlife areas.',
+      camping:
+        "Treat this as a day route. Nearby Jones County parks can support separate base-camp planning, but no legal on-route river campsite is selected between Eby's Mill and Supples Bridge.",
+      campingClassification: 'none',
+      summary:
+        "Launch from the rebuilt Eby's Mill ramp and take out at Supples Bridge / Temple Hill Road for a quiet lower-Maquoketa connector with good wildlife, broad sand-lined water, and fewer bluffs than the Pictured Rocks section.",
+      accessCaveats: [
+        "Eby's Mill was rebuilt after earlier construction closures, but access status can still change after high water, grading, or road work.",
+        'Supples Bridge access sits downstream of the bridge on river right and is mostly sandy rather than a full-service ramp; confirm exit visibility from the road before launching.',
+        'This route starts well below Mon-Maq Dam and does not include any dam approach or portage.',
+      ],
+      watchFor: [
+        'Wide shallow channel, sandbars, and gravel grounding near the 150 cfs floor.',
+        'Wind on open bends, outside-bend wood, tree-debris obstacle courses, and stronger bridge current after storms.',
+        'Private banks outside public wildlife areas and limited bailout options between the two rural access points.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'ebys-mill-access',
+        name: "Eby's Mill Access",
+        latitude: 42.19803,
+        longitude: -91.0566,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the improved Jones County lower-Maquoketa ramp.',
+      },
+      {
+        id: 'highway-136-access',
+        name: 'Highway 136 access',
+        latitude: 42.1895,
+        longitude: -91.0097,
+        mileFromStart: 5.5,
+        segmentKind: 'creek',
+        note: 'Rougher intermediate access noted in lower-Maquoketa route descriptions; verify current bank and parking conditions before relying on it.',
+      },
+      {
+        id: 'supples-bridge-access',
+        name: 'Supples Bridge Access / Temple Hill Road',
+        latitude: 42.18482,
+        longitude: -90.9769,
+        mileFromStart: 8.25,
+        segmentKind: 'creek',
+        note: 'Default take-out; Miles Paddled describes it as legitimate, mostly flat, and sandy.',
+      },
+    ],
+  },
+
+  'maquoketa-river-backbone-dundee': {
+    putIn: {
+      id: 'backbone-lake-dam-landing',
+      name: 'Backbone Lake Dam Landing',
+      latitude: 42.600692,
+      longitude: -91.536757,
+    },
+    takeOut: {
+      id: 'dundee-access',
+      name: 'Dundee Access',
+      latitude: 42.57831,
+      longitude: -91.54375,
+    },
+    logistics: {
+      distanceLabel: 'About 1.8 to 2.1 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with scouting, wood, or low water',
+      shuttle:
+        'Use a short shuttle from Dundee Access back to the Backbone dam corridor. Confirm park road and gate status before staging, because the app route starts below the dam and does not include private upstream access or dam passage.',
+      permits:
+        'No route-specific paddling permit is known. Follow Backbone State Park, Delaware County water-trail, and Iowa boating/PFD rules, plus any posted park gate, parking, or lake-area instructions.',
+      camping:
+        'Backbone State Park camping, water, and restrooms can support this short route as a base-camp outing. No on-route river campsite is assumed between the dam and Dundee.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch below Backbone Lake Dam and take out at Dundee for the short official upper Maquoketa water-trail opener. The route is scenic but intentionally dam-aware and scout-heavy.',
+      accessCaveats: [
+        'Do not launch above Backbone Lake Dam for this card. The optional upstream reach in DNR guide material requires private permission and is outside this route.',
+        'The exact below-dam launch can be controlled by park roads, gates, water level, and same-day signage. Walk the carry before unloading.',
+        'Dundee is the default take-out before the longer Dundee-to-Manchester water-trail chain.',
+      ],
+      watchFor: [
+        'Split below-dam channels, low branches, a two-foot ledge below 129th Street, and wood that can force scouting or portage.',
+        'Bumpy low water near the 51 cfs floor and pushy strainers when the Manchester gauge climbs toward 451 cfs or higher.',
+        'Cold water, park gate changes, algae/bacteria caveats in the lake area, and private banks away from public access points.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'backbone-lake-dam-landing',
+        name: 'Backbone Lake Dam Landing',
+        latitude: 42.600692,
+        longitude: -91.536757,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default below-dam put-in; do not include the dam or private upstream reach.',
+      },
+      {
+        id: 'dundee-access',
+        name: 'Dundee Access',
+        latitude: 42.57831,
+        longitude: -91.54375,
+        mileFromStart: 1.8,
+        segmentKind: 'creek',
+        note: 'Default take-out for the Backbone-to-Dundee water-trail opener.',
+      },
+    ],
+  },
+
+  'maquoketa-river-quaker-mill-baileys-ford': {
+    putIn: {
+      id: 'quaker-mill-dam',
+      name: 'Quaker Mill Dam / 195th Street',
+      latitude: 42.50796,
+      longitude: -91.47395,
+    },
+    takeOut: {
+      id: 'baileys-ford-access',
+      name: "Bailey's Ford Access",
+      latitude: 42.44239,
+      longitude: -91.4085,
+    },
+    logistics: {
+      distanceLabel: 'About 7.75 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with whitewater scouting, low-water scraping, or fishing stops',
+      shuttle:
+        "Stage Bailey's Ford first, then drive back to the Quaker Mill / Manchester corridor. Decide before launching whether the group will run, portage, or bypass the Manchester whitewater features.",
+      permits:
+        'No route-specific paddling permit is known. Follow Delaware County water-trail guidance, Manchester park rules, Iowa boating/PFD rules, and posted access instructions at Quaker Mill and Bailey\'s Ford.',
+      camping:
+        'Treat this as a day route. No legal on-route camping plan was verified between Manchester and Bailey\'s Ford, and the lower corridor approaches private Lake Delhi frontage.',
+      campingClassification: 'none',
+      summary:
+        "Launch at Quaker Mill Dam and take out at Bailey's Ford for a Manchester-area Maquoketa day that includes the whitewater park, Schram/Pine Oak corridor, and the final river-focused take-out before Lake Delhi influence.",
+      accessCaveats: [
+        'Quaker Mill and Manchester whitewater features require a deliberate line or portage decision. This route is whitewater-filtered because the normal source route includes those features.',
+        'Schram Park and Pin Oak Park are official downstream access/bailout points, but use them only when current signs, parking, and bank conditions are clear.',
+        "Bailey's Ford is the planned finish. Delaware County warns the river below Bailey's Ford begins to become impounded by Delhi Dam and recommends ending or restarting trips around that dam boundary.",
+      ],
+      watchFor: [
+        'Class I-II rapids at the put-in, Class II Manchester whitewater-park features, bridge current, shallow riffles, and scraping near or below 195 cfs.',
+        'Fast rises, woody debris, cattle/pasture edges, bait-container litter, and private banks away from public access points.',
+        'Lake Delhi stillwater influence and no-portage Delhi Dam logistics downstream of Bailey\'s Ford.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'quaker-mill-dam',
+        name: 'Quaker Mill Dam / 195th Street',
+        latitude: 42.50796,
+        longitude: -91.47395,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from the exact Miles Paddled route; scout dam-remnant and rapid behavior before launching.',
+      },
+      {
+        id: 'manchester-whitewater-park',
+        name: 'Manchester Whitewater Park',
+        latitude: 42.482137,
+        longitude: -91.458424,
+        mileFromStart: 2.4,
+        segmentKind: 'creek',
+        note: 'Whitewater feature corridor; run only with appropriate skill and gear or portage/bypass.',
+      },
+      {
+        id: 'schram-park',
+        name: 'Schram Park',
+        latitude: 42.4679,
+        longitude: -91.4448,
+        mileFromStart: 3.5,
+        segmentKind: 'creek',
+        note: 'Official alternate access shortly downstream of Manchester; verify current landing conditions.',
+      },
+      {
+        id: 'pin-oak-park',
+        name: 'Pin Oak Park Access',
+        latitude: 42.4564,
+        longitude: -91.4256,
+        mileFromStart: 5.5,
+        segmentKind: 'creek',
+        note: 'Official downstream access and practical bailout before the Bailey\'s Ford finish.',
+      },
+      {
+        id: 'baileys-ford-access',
+        name: "Bailey's Ford Access",
+        latitude: 42.44239,
+        longitude: -91.4085,
+        mileFromStart: 7.75,
+        segmentKind: 'creek',
+        note: 'Default take-out before the river becomes impounded toward Lake Delhi.',
+      },
+    ],
+  },
+
   'upper-iowa-river-cattle-creek-malanaphy': consolidatedUpperIowaDetails,
   'crow-wing-river-frames-landing-cottingham': consolidatedCrowWingDetails,
 };
