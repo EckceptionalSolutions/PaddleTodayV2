@@ -1,5 +1,12 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 13:11 America/Chicago / 2026-07-23 18:11 UTC: Minnesota Cannon / Straight / Minnesota River recommended one-way pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 191-route exported Minnesota baseline: `cannon-river-wilderness-northfield`, `straight-river-medford-kroghs`, and `minnesota-river-le-sueur-henderson`, bringing Minnesota to 194 live routes.
+  - Qualification path: MN DNR recommended one-way list plus Cannon/Straight Map 1, Cannon Map 2, Minnesota River Map 5, and Minnesota public-water-access GIS support the exact endpoint pairs, route mileage, campsites, dams/rapids/hazards, and access coordinates.
+  - Gauge posture: MN DNR feed returned Cannon Northfield site `16` at `855 cfs`, Straight Faribault site `247` at `559 cfs`, and Minnesota River Henderson site `94` at `715.87 ft` on 2026-07-23 late morning CDT.
+  - Threshold posture: all three use official DNR interpreted bands only: Cannon `88 / 202-2730 / 3710 cfs`, Straight `182 / 220-1370 / 1640 cfs`, and Minnesota River Henderson `675 / 710-725 / 728 ft`; no inferred ideal ranges or upper cutoffs were added.
+  - Safety/image posture: Cannon ends above the no-developed-portage Northfield Dam, Straight flags the former Walcott Mill Dam Class I-II feature, Minnesota River flags wind/floodplain debris exposure, and no route-gallery assets were added after bounded DNR / public-access / Commons / same-route image review.
+
 - 2026-07-23 12:53 America/Chicago / 2026-07-23 17:53 UTC: Iowa Cedar River Waverly dam-portage gap pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 89-route exported Iowa baseline: `cedar-river-cedar-bend-three-rivers`, `cedar-river-three-rivers-kohlmann`, and `cedar-river-kohlmann-brookwood`, bringing Iowa to 92 live routes.
   - Qualification path: the Cedar River Paddling Trips guide supports the Cedar Bend / Three Rivers / Kohlmann / Brookwood access chain with exact mileages, endpoint coordinates, Three Rivers ramp/dock context, Kohlmann dam-portage take-out context, Brookwood downstream access context, and the Waverly-gauge floor. Bremer County and City of Waverly corroborate Cedar Bend and Brookwood park/access details.

@@ -43866,6 +43866,189 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'cannon-river-wilderness-northfield': {
+    putIn: {
+      id: 'cannon-river-wilderness-area-access',
+      name: 'Cannon River Wilderness Area carry-in',
+      latitude: 44.3690392,
+      longitude: -93.231922,
+    },
+    takeOut: {
+      id: 'cannon-river-riverside-city-park-northfield',
+      name: 'Riverside City Park / Highway 3 access',
+      latitude: 44.4531293,
+      longitude: -93.1647835,
+    },
+    logistics: {
+      distanceLabel: 'About 8.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low-water scraping or fishing stops',
+      shuttle:
+        'Stage at Riverside City Park in Northfield, then launch from the Cannon River Wilderness Area carry-in. Confirm the take-out before launch because the Northfield dam is immediately downstream of the park.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey city, county, DNR, and private-property postings.',
+      camping:
+        'DNR maps show Wilderness-area watercraft campsites and amenities, but camping must stay in designated sites. Do not use private banks or riverbed bars next to private property for informal overnight stops.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Paddle the DNR-recommended Wilderness Area to Northfield day trip with a direct interpreted gauge at the take-out. The trip must end at Riverside City Park before the 10-foot Northfield dam, which DNR maps as having no developed portage.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves the Wilderness Area carry-in and Riverside City Park / Highway 3 access with river-mile records.',
+        'The route ends just above the Northfield dam. Treat Riverside City Park as the mandatory take-out, not an optional stop.',
+        'DNR warns that public route maps do not imply permission to use private banks; stay on public accesses and designated campsites.',
+      ],
+      watchFor: [
+        'Shallow rocky water in dry periods, especially below the official medium band.',
+        'Flooding, fast current, and new trees or snags after heavy rain.',
+        'The Northfield dam corridor immediately below the take-out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cannon-river-wilderness-area-access',
+        name: 'Cannon River Wilderness Area carry-in',
+        latitude: 44.3690392,
+        longitude: -93.231922,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; DNR recommends this access for the 8.5-mile one-way to Northfield and public-water-access GIS resolves the site as WAS01381.',
+      },
+      {
+        id: 'cannon-river-riverside-city-park-northfield',
+        name: 'Riverside City Park / Highway 3 access',
+        latitude: 44.4531293,
+        longitude: -93.1647835,
+        mileFromStart: 8.5,
+        segmentKind: 'creek',
+        note: 'Default take-out; DNR maps the Northfield gauge and Riverside City Park access just upstream of the Northfield dam.',
+      },
+    ],
+  },
+
+  'straight-river-medford-kroghs': {
+    putIn: {
+      id: 'straight-river-medford-city-park',
+      name: 'Medford City Park access',
+      latitude: 44.1775975,
+      longitude: -93.2490711,
+    },
+    takeOut: {
+      id: 'straight-river-kroghs-landing',
+      name: 'Kroghs Landing',
+      latitude: 44.2427413,
+      longitude: -93.2401518,
+    },
+    logistics: {
+      distanceLabel: 'About 7.0 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water or scouting',
+      shuttle:
+        'Stage at Kroghs Landing, then launch from Medford City Park. This selected route starts below Clinton Falls, but the former Walcott Mill Dam rapid sits just above the take-out and should be scouted before committing.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey city, DNR, road-shoulder, and private-property postings.',
+      camping:
+        'Treat this as a day trip. No designated campsite is selected between Medford and Kroghs Landing; use separate campground or lodging plans rather than informal private-bank camping.',
+      campingClassification: 'none',
+      summary:
+        'Run the DNR-recommended Medford-to-Kroghs section of the Straight River with a nearby downstream interpreted gauge. Expect a narrow rocky channel, changing wood, and a Class I-II former dam feature near the finish.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Medford and Kroghs Landing with river-mile records and source-backed coordinates.',
+        'The Faribault gauge is downstream of the take-out, so pair it with a same-day depth and obstruction check at Medford.',
+        'Do not count on informal exits through private banks or farm fields between the two public accesses.',
+      ],
+      watchFor: [
+        'Former Walcott Mill Dam Class I-II ledge hydraulics just above Kroghs Landing.',
+        'Rocky shallows, narrow bends, and trees or snags, especially after high water.',
+        'Very low July flows; DNR says the Straight is often too low by midsummer.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'straight-river-medford-city-park',
+        name: 'Medford City Park access',
+        latitude: 44.1775975,
+        longitude: -93.2490711,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; DNR recommends Medford City Park to Kroghs Landing and public-water-access GIS resolves Medford as WAS02042.',
+      },
+      {
+        id: 'straight-river-kroghs-landing',
+        name: 'Kroghs Landing',
+        latitude: 44.2427413,
+        longitude: -93.2401518,
+        mileFromStart: 7,
+        segmentKind: 'creek',
+        note: 'Default take-out; public-water-access GIS resolves Kroghs Landing as WAS00186, just upstream of the Faribault gauge corridor.',
+      },
+    ],
+  },
+
+  'minnesota-river-le-sueur-henderson': {
+    putIn: {
+      id: 'minnesota-river-le-sueur-access',
+      name: 'Le Sueur public access',
+      latitude: 44.4632749,
+      longitude: -93.9176049,
+    },
+    takeOut: {
+      id: 'minnesota-river-henderson-access',
+      name: 'Henderson public access',
+      latitude: 44.5299631,
+      longitude: -93.9019182,
+    },
+    logistics: {
+      distanceLabel: 'About 7.1 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with wind, fishing, or low exposed bars',
+      shuttle:
+        'Stage at Henderson, then launch from Le Sueur. Henderson Station is a useful final-mile landmark, but the planned take-out is the Henderson trailer access by the DNR gauge.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and check city, county, DNR, and campsite permit postings before overnight use.',
+      camping:
+        'DNR Map 5 shows a watercraft campsite at Le Sueur with a permit required. Treat it as endpoint support only; use designated sites and do not camp on riverbeds next to private property.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Paddle the short DNR-recommended Le Sueur-to-Henderson Minnesota River section with the direct Henderson interpreted gauge. The reach is generally gentle and wide, but wind, floodplain current, floating debris, and private banks require conservative go/no-go judgment.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Le Sueur, Henderson Station, and Henderson with river-mile records and coordinates.',
+        'The Henderson gauge is at the take-out, so high or rising readings should be treated as route-local warnings.',
+        'DNR says designated campsites only; do not treat exposed bars by private property as legal camps.',
+      ],
+      watchFor: [
+        'Wind and small waves on a wide open river valley.',
+        'Floating trees, snags, muddy banks, and stronger current after rain or during high water.',
+        'Private-bank constraints and limited practical exits between mapped public accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'minnesota-river-le-sueur-access',
+        name: 'Le Sueur public access',
+        latitude: 44.4632749,
+        longitude: -93.9176049,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; DNR recommends Le Sueur to Henderson and Map 5 lists Le Sueur with watercraft-campsite and rest-area context.',
+      },
+      {
+        id: 'minnesota-river-henderson-station-access',
+        name: 'Henderson Station access',
+        latitude: 44.5244255,
+        longitude: -93.8862878,
+        mileFromStart: 6.2,
+        segmentKind: 'creek',
+        note: 'Intermediate landmark and possible access; DNR Map 5 and public-water-access GIS place Henderson Station upstream of the Henderson trailer access.',
+      },
+      {
+        id: 'minnesota-river-henderson-access',
+        name: 'Henderson public access',
+        latitude: 44.5299631,
+        longitude: -93.9019182,
+        mileFromStart: 7.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; DNR recommended one-way list identifies Henderson trailer access as the downstream endpoint, and the interpreted gauge is at Henderson.',
+      },
+    ],
+  },
+
   'upper-iowa-river-cattle-creek-malanaphy': consolidatedUpperIowaDetails,
   'crow-wing-river-frames-landing-cottingham': consolidatedCrowWingDetails,
 };

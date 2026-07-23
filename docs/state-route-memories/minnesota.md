@@ -1,5 +1,16 @@
 # Minnesota Route Memory
 
+## 2026-07-23 13:11 America/Chicago / 2026-07-23 18:11 UTC Minnesota Cannon / Straight / Minnesota recommended one-way pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `191` to `194` live route slugs by adding `cannon-river-wilderness-northfield`, `straight-river-medford-kroghs`, and `minnesota-river-le-sueur-henderson`.
+- Qualification path: MN DNR recommended one-way list plus Cannon/Straight Map 1, Cannon Map 2, Minnesota River Map 5, public-water-access GIS, and the DNR river-level feed support all endpoints, route shapes, safety caveats, camping posture, and thresholds.
+- Live gauge verification: MN DNR feed returned Cannon Northfield site `16` at `855 cfs` at `2026-07-23 10:45 CDT`, Straight Faribault site `247` at `559 cfs` at `2026-07-23 10:15 CDT`, and Minnesota River Henderson site `94` at `715.87 ft` at `2026-07-23 10:30 CDT`.
+- Implemented official DNR interpreted bands only: Cannon Northfield `88 / 202-2730 / 3710 cfs`, Straight Faribault `182 / 220-1370 / 1640 cfs`, and Minnesota River Henderson `675 / 710-725 / 728 ft`. Straight uses a downstream same-corridor proxy with explicit visual-check caveats; Cannon and Minnesota River use direct take-out gauges.
+- Camping posture: Cannon Wilderness-to-Northfield is `on_route_campsite` through the DNR-mapped Wilderness watercraft-campsite area; Straight Medford-to-Kroghs is `none`; Minnesota River Le-Sueur-to-Henderson is `endpoint_campground` only through the permit-dependent Le Sueur watercraft campsite. All copy says designated sites only and no private-bank or private-riverbed camping.
+- Safety posture: Cannon requires a mandatory Riverside City Park take-out before the 10-foot Northfield Dam with no developed portage, plus low-water rock, flood/wood, private-bank, and cold-water caveats. Straight starts below Clinton Falls but flags the former Walcott Mill Dam Class I-II feature, narrow rocky channel, July low-water risk, strainers, and private banks. Minnesota River flags wide-river wind, floodplain current, snags/floating debris, muddy banks, and limited exits.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add: Watonwan County-Road-20-to-Garden-City was reconciled as contained in existing County-Road-32-to-Garden-City coverage; Des Moines Mayflower-to-Christianna remains proxy weak; Blue Earth lower Rapidan-area candidates remain dam/hazard blocked; prompt leads including Kettle, St. Louis, Cloquet, Otter Tail, Mississippi Itasca/Coffee Pot, Vermilion, and Watonwan CR32 were already live.
+
 ## 2026-07-23 12:10 America/Chicago / 2026-07-23 17:10 UTC Minnesota Big Fork / Mississippi / Rum gap pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `188` to `191` live route slugs by adding `big-fork-river-highway-6-north-johnson`, `mississippi-river-lum-park-kiwanis`, and `rum-river-princeton-highway-7`.
