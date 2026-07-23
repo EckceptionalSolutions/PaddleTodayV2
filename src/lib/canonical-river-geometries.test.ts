@@ -49,8 +49,8 @@ describe('canonical river geometry asset', () => {
       readFileSync(path.join(process.cwd(), 'public', 'data', 'canonical-river-geometries', 'states', 'minnesota.json'), 'utf8'),
     ) as { scope?: string; state?: string; features?: unknown[] };
 
-    expect(asset.routeCount).toBe(826);
-    expect(asset.matchedRouteCount).toBe(823);
+    expect(asset.routeCount).toBe(832);
+    expect(asset.matchedRouteCount).toBe(829);
     expect(asset.unmatchedRouteIds).toHaveLength(3);
     expect(asset.routeDataFingerprint).toMatch(/^[a-f0-9]{64}$/);
     expect(minnesota.scope).toBe('state');

@@ -42969,6 +42969,372 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'cottonwood-river-highway-4-county-road-10': {
+    putIn: {
+      id: 'cottonwood-highway-4-pwa',
+      name: 'Cottonwood River, Hwy 4 Public Water Access Site',
+      latitude: 44.2352134,
+      longitude: -94.7256361,
+    },
+    takeOut: {
+      id: 'cottonwood-county-road-10-pwa',
+      name: 'Cottonwood River, Co Rd 10 Public Water Access Site',
+      latitude: 44.282165,
+      longitude: -94.679581,
+    },
+    logistics: {
+      distanceLabel: 'About 8.1 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low water, fishing, or wood scouting',
+      shuttle:
+        'Stage County Road 10 / Marti Landing first, then drive back to the Highway 4 access south of Sleepy Eye. Theden’s landing is a useful intermediate check but not the selected take-out.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey DNR, county, and private-property postings.',
+      camping:
+        'Treat this as a day route. DNR trip-planning guidance says to camp only in designated campsites, and no designated campsite is selected on the Highway 4-to-County Road 10 reach.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Highway 4 and take out at County Road 10 / Marti Landing for an official lower Cottonwood River water-trail day inside DNR’s maintained focal corridor. The Leavenworth DNR gauge was just inside the official medium band during this run, but local depth and wood checks still matter.',
+      accessCaveats: [
+        'MN DNR Map 4 places Highway 4 at river mile 31.6, Theden’s at river mile 29.0, and County Road 10 at river mile 23.5.',
+        'Minnesota public-water-access GIS resolves Highway 4 as WAS02675 and County Road 10 as WAS01423, both carry-in natural launches with parking and no restroom.',
+        'The selected Leavenworth / County Road 8 gauge is upstream of the reach. Use it as an official interpreted same-river proxy, not a substitute for visual checks at the put-in and take-out.',
+      ],
+      watchFor: [
+        'Low-water scraping below the DNR medium band, especially through inside bars and shallow bends.',
+        'Strainers, fresh wood, muddy banks, bridge debris, fast rises after rain, and cold-water exposure outside summer.',
+        'Private banks away from public accesses; do not assume informal field edges or gravel bars are legal landing or camping spots.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cottonwood-highway-4-pwa',
+        name: 'Cottonwood River, Hwy 4 Public Water Access Site',
+        latitude: 44.2352134,
+        longitude: -94.7256361,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Minnesota public-water-access GIS lists WAS02675 at Cottonwood river mile 31.4 with carry-in launch and parking.',
+      },
+      {
+        id: 'cottonwood-thedens-landing',
+        name: "Theden's Landing",
+        latitude: 44.2432332,
+        longitude: -94.6970342,
+        mileFromStart: 2.6,
+        segmentKind: 'creek',
+        note: 'Intermediate public landing shown by MN DNR Map 4 at river mile 29.0 and listed by Brown County.',
+      },
+      {
+        id: 'cottonwood-county-road-10-pwa',
+        name: 'Cottonwood River, Co Rd 10 Public Water Access Site',
+        latitude: 44.282165,
+        longitude: -94.679581,
+        mileFromStart: 8.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; Minnesota public-water-access GIS lists WAS01423 at river mile 23.5 with carry-in launch and parking.',
+      },
+    ],
+  },
+
+  'cottonwood-river-county-road-10-county-road-11': {
+    putIn: {
+      id: 'cottonwood-county-road-10-pwa',
+      name: 'Cottonwood River, Co Rd 10 Public Water Access Site',
+      latitude: 44.282165,
+      longitude: -94.679581,
+    },
+    takeOut: {
+      id: 'cottonwood-county-road-11-pwa',
+      name: 'Cottonwood River, Co Rd 11 Public Water Access Site',
+      latitude: 44.2788449,
+      longitude: -94.592992,
+    },
+    logistics: {
+      distanceLabel: 'About 6.7 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with low water, fishing, or strainers',
+      shuttle:
+        'Stage the County Road 11 take-out first, then launch from County Road 10 / Marti Landing. This is a short rural shuttle but still needs a take-out scout because muddy banks and wood can change after high water.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and respect Brown County, DNR, and private-property postings.',
+      camping:
+        'Treat this as a day route. DNR trip-planning guidance says to camp only in designated campsites, and no designated campsite is selected between County Road 10 and County Road 11.',
+      campingClassification: 'none',
+      summary:
+        'Launch at County Road 10 / Marti Landing and take out at County Road 11 for a short maintained-corridor Cottonwood River connector. The route is straightforward at official medium levels, but low water, fresh wood, and private banks are the main constraints.',
+      accessCaveats: [
+        'MN DNR Map 4 places County Road 10 at river mile 23.5 and County Road 11 at river mile 16.8.',
+        'Minnesota public-water-access GIS resolves County Road 10 as WAS01423 and County Road 11 as WAS01424, both carry-in natural launches with parking and no restroom.',
+        'Brown County lists both County Road 10 / Marti Landing and County Road 11 as public canoe landings with put-in areas and parking.',
+      ],
+      watchFor: [
+        'Scraping and dragging if the Leavenworth DNR gauge falls below the official medium band or approaches the scrapable floor.',
+        'Strainers, fresh wood, bridge debris, muddy banks, and quick rises after rain.',
+        'Private shoreland and limited legal bailout options away from the two public endpoints.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cottonwood-county-road-10-pwa',
+        name: 'Cottonwood River, Co Rd 10 Public Water Access Site',
+        latitude: 44.282165,
+        longitude: -94.679581,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Minnesota public-water-access GIS lists WAS01423 at river mile 23.5 with carry-in launch and parking.',
+      },
+      {
+        id: 'cottonwood-county-road-11-pwa',
+        name: 'Cottonwood River, Co Rd 11 Public Water Access Site',
+        latitude: 44.2788449,
+        longitude: -94.592992,
+        mileFromStart: 6.7,
+        segmentKind: 'creek',
+        note: 'Default take-out; Minnesota public-water-access GIS lists WAS01424 at river mile 16.8 with carry-in launch and parking.',
+      },
+    ],
+  },
+
+  'cottonwood-river-county-road-11-flandrau': {
+    putIn: {
+      id: 'cottonwood-county-road-11-pwa',
+      name: 'Cottonwood River, Co Rd 11 Public Water Access Site',
+      latitude: 44.2788449,
+      longitude: -94.592992,
+    },
+    takeOut: {
+      id: 'cottonwood-flandrau-state-park-pwa',
+      name: 'Cottonwood River, Flandrau State Park Public Water Access Site',
+      latitude: 44.2914246,
+      longitude: -94.4690871,
+    },
+    logistics: {
+      distanceLabel: 'About 11.1 mi',
+      estimatedPaddleTime: 'About 4 hr to 5.5 hr, longer with low water, wood scouting, fishing, or park access delays',
+      shuttle:
+        'Stage the Flandrau State Park access first, confirm current park entry and parking rules, then launch from County Road 11. Set a conservative turn-back decision at the put-in because formal exits are sparse before the park.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules and obey all Flandrau State Park permits, camping reservations, watercraft-campsite rules, and posted closures.',
+      camping:
+        'Flandrau State Park is the selected overnight support. MN DNR Map 4 shows park camping, water, toilets, and a watercraft campsite at river mile 5.7; use designated sites only and confirm current park availability before counting on an overnight.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at County Road 11 and finish at Flandrau State Park for the lower Cottonwood reach immediately above New Ulm. The New Ulm DNR gauge was below the official scrapable floor during this run, so current conditions may require waiting for rain-fed recovery.',
+      accessCaveats: [
+        'MN DNR Map 4 places County Road 11 at river mile 16.8 and Flandrau State Park camping/access context from river mile 6.5 to 4.0, with a watercraft campsite at river mile 5.7.',
+        'Minnesota public-water-access GIS resolves County Road 11 as WAS01424 and Flandrau State Park as WAS02651; the Flandrau access lists carry-in launch, parking, and restroom context.',
+        'The New Ulm DNR gauge is downstream near the lower Cottonwood corridor. Use it as the closest official interpreted lower-river check, then verify depth and access footing at County Road 11 and Flandrau.',
+      ],
+      watchFor: [
+        'Scrapable low water when the New Ulm gauge is below 150 cfs, plus shallow bars and possible dragging before the park.',
+        'Strainers, fresh wood, muddy banks, private shoreland, and fast rises after thunderstorms.',
+        'State-park rule changes, campsite availability, high-water closures, and limited legal bailout options before the Flandrau access.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cottonwood-county-road-11-pwa',
+        name: 'Cottonwood River, Co Rd 11 Public Water Access Site',
+        latitude: 44.2788449,
+        longitude: -94.592992,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Minnesota public-water-access GIS lists WAS01424 at river mile 16.8 with carry-in launch and parking.',
+      },
+      {
+        id: 'cottonwood-flandrau-state-park-pwa',
+        name: 'Cottonwood River, Flandrau State Park Public Water Access Site',
+        latitude: 44.2914246,
+        longitude: -94.4690871,
+        mileFromStart: 11.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; Minnesota public-water-access GIS lists WAS02651 near the Flandrau State Park watercraft campsite with carry-in launch, parking, and restroom context.',
+      },
+    ],
+  },
+
+  'manitowoc-river-clark-mills-county-s': {
+    putIn: {
+      id: 'clarks-mills-dam-carry-in',
+      name: 'Clarks Mills Dam carry-in below dam',
+      latitude: 44.0909,
+      longitude: -87.8617,
+    },
+    takeOut: {
+      id: 'manitowoc-county-road-s-game-protection-site',
+      name: 'County Road S / Manitowoc County Game Protection Site',
+      latitude: 44.09895,
+      longitude: -87.82211,
+    },
+    logistics: {
+      distanceLabel: 'About 2.7 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer if scouting or portaging Lower Cato Falls',
+      shuttle:
+        'Stage the County Road S / Game Protection Site take-out first, then launch only from the carry-in below Clarks Mills Dam. Walk the take-out and scout Lower Cato Falls from Lower Cato Falls County Park before committing.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public water-trail accesses, follow Wisconsin boating/PFD rules, and respect county, dam, and private-property postings.',
+      camping:
+        'Treat this as a day route. No designated on-route campsite is selected between Clarks Mills Dam and County Road S; use separate Manitowoc-area or state-forest camping only if independently reserved and current.',
+      campingClassification: 'none',
+      summary:
+        'Launch below Clarks Mills Dam for the short ledgy upper-Manitowoc segment to County Road S. The reach is compact but not casual: Lower Cato Falls, boulder gardens, private banks, and water-quality issues after rain all need a conservative scout.',
+      accessCaveats: [
+        'MRW lists the Clarks Mills site as a carry-in just below the dam with adjacent parking; do not launch upstream of the dam.',
+        'Lower Cato Falls County Park provides the scout/portage context, but MRW describes its river access as difficult because of steep slopes.',
+        'County Road S / Game Protection Site is the selected take-out; verify parking and footing before launching because flows and mud can change access quality.',
+      ],
+      watchFor: [
+        'Clarks Mills Dam exposure at the put-in; stay downstream and away from dam hydraulics.',
+        'Lower Cato Falls, boulder ledges, fast current, strainers, and pushier water above the WRT recreational window.',
+        'Manure runoff or other water-quality concerns after rain, plus private banks and limited legal bailout choices.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'clarks-mills-dam-carry-in',
+        name: 'Clarks Mills Dam carry-in below dam',
+        latitude: 44.0909,
+        longitude: -87.8617,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; MRW identifies a carry-in just below Clarks Mills Dam on the north side with adjacent parking.',
+      },
+      {
+        id: 'lower-cato-falls-county-park',
+        name: 'Lower Cato Falls County Park',
+        latitude: 44.0903,
+        longitude: -87.8439,
+        mileFromStart: 1.2,
+        segmentKind: 'creek',
+        note: 'Scout and possible portage context for Lower Cato Falls; MRW warns the carry-in is difficult because of steep slopes.',
+      },
+      {
+        id: 'manitowoc-county-road-s-game-protection-site',
+        name: 'County Road S / Manitowoc County Game Protection Site',
+        latitude: 44.09895,
+        longitude: -87.82211,
+        mileFromStart: 2.7,
+        segmentKind: 'creek',
+        note: 'Default take-out; MRW lists this as the Manitowoc County Park and Game Protection Site, and route sources use County Road S as the public access.',
+      },
+    ],
+  },
+
+  'manitowoc-river-county-s-north-union': {
+    putIn: {
+      id: 'manitowoc-county-road-s-game-protection-site',
+      name: 'County Road S / Manitowoc County Game Protection Site',
+      latitude: 44.09895,
+      longitude: -87.82211,
+    },
+    takeOut: {
+      id: 'manitowoc-north-union-road-access',
+      name: 'North Union Road access',
+      latitude: 44.1007,
+      longitude: -87.7657,
+    },
+    logistics: {
+      distanceLabel: 'About 3.5 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer with low water or wood scouting',
+      shuttle:
+        'Stage at North Union Road, then launch from the County Road S / Game Protection Site. This is a short rural shuttle, but both accesses should be checked from land because roadside parking and muddy footing are limited.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public water-trail accesses, follow Wisconsin boating/PFD rules, and respect Manitowoc River water-trail, county, road-shoulder, and private-property postings.',
+      camping:
+        'Treat this as a day route. No designated on-route campsite is selected between County Road S and North Union Road, and private banks should not be used for camping or casual exits.',
+      campingClassification: 'none',
+      summary:
+        'Continue from County Road S to North Union Road for a short Manitowoc water-trail run below the Cato ledges. The route is useful as its own half-day paddle or as a connector, but shallow ledges, strainers, fast rises, and private banks keep it in a caution profile.',
+      accessCaveats: [
+        'MRW lists County Road S, County Road H, and North Union Road as consecutive public water-trail access sites.',
+        'North Union Road has limited roadside parking in the official access inventory; stage compactly and leave room for local traffic.',
+        'County Road S and North Union coordinates are access anchors, not promises that every water level creates an easy bank landing.',
+      ],
+      watchFor: [
+        'Riffles, boulder gardens, strainers, and bridge debris after rain.',
+        'Low-water scraping below the WRT useful band and pushy, dirty water above the high/whitewater-only range.',
+        'Private banks and few public bailout options between the named access points.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'manitowoc-county-road-s-game-protection-site',
+        name: 'County Road S / Manitowoc County Game Protection Site',
+        latitude: 44.09895,
+        longitude: -87.82211,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; MRW and route sources identify County Road S as a public Manitowoc water-trail access.',
+      },
+      {
+        id: 'manitowoc-north-union-road-access',
+        name: 'North Union Road access',
+        latitude: 44.1007,
+        longitude: -87.7657,
+        mileFromStart: 3.5,
+        segmentKind: 'creek',
+        note: 'Default take-out; MRW lists North Union Road as a water-trail access with limited roadside parking.',
+      },
+    ],
+  },
+
+  'manitowoc-river-north-union-mill-road': {
+    putIn: {
+      id: 'manitowoc-north-union-road-access',
+      name: 'North Union Road access',
+      latitude: 44.1007,
+      longitude: -87.7657,
+    },
+    takeOut: {
+      id: 'manitowoc-river-public-access-mill-road',
+      name: 'Manitowoc River Public Access / Mill Road',
+      latitude: 44.09673,
+      longitude: -87.70258,
+    },
+    logistics: {
+      distanceLabel: 'About 11.3 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, fishing, or rapid scouting',
+      shuttle:
+        'Stage at Manitowoc River Public Access near Mill Road/North Rapids Road, then launch from North Union Road. Scout the take-out first because sources warn the public access can be difficult or impossible at some levels.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Wisconsin boating/PFD rules, and obey county park, road-shoulder, and private-property postings.',
+      camping:
+        'Treat this as a long day route. No designated on-route campsite is selected between North Union and the public access; use separate Manitowoc-area lodging or campground reservations rather than informal bank camping.',
+      campingClassification: 'none',
+      summary:
+        'Paddle the longer lower-Manitowoc continuation from North Union Road to the Mill Road public access. This is a committed day with the I-43 rapid complex, boulder gardens, private banks, water-quality caveats, and a direct-gauge floor rather than an invented upper cutoff.',
+      accessCaveats: [
+        'MRW lists North Union Road and Manitowoc River Public Access as downstream water-trail sites, and Manitowoc County identifies the river access west of the County R bridge.',
+        'Miles Paddled publishes GPS for the Mill Road public access and cautions that the lower access can be poor depending on water level.',
+        'North Union has limited roadside parking; the Mill Road access has park-style support but should still be checked before the shuttle.',
+      ],
+      watchFor: [
+        'A nearly mile-long Class I-II rapid and boulder-garden area around I-43, especially at higher whitewater flows.',
+        'Low-water scraping below the selected 250 cfs floor, fresh strainers, bridge debris, and fast rises after rain.',
+        'Private banks, limited exits, cold spring water, and manure-runoff water-quality concerns after storms.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'manitowoc-north-union-road-access',
+        name: 'North Union Road access',
+        latitude: 44.1007,
+        longitude: -87.7657,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; MRW lists North Union Road as a water-trail access with limited roadside parking.',
+      },
+      {
+        id: 'manitowoc-river-public-access-mill-road',
+        name: 'Manitowoc River Public Access / Mill Road',
+        latitude: 44.09673,
+        longitude: -87.70258,
+        mileFromStart: 11.3,
+        segmentKind: 'creek',
+        note: 'Default take-out; MRW and Manitowoc County identify this as a public access, and Miles Paddled publishes the access GPS.',
+      },
+    ],
+  },
+
   'upper-iowa-river-cattle-creek-malanaphy': consolidatedUpperIowaDetails,
   'crow-wing-river-frames-landing-cottingham': consolidatedCrowWingDetails,
 };

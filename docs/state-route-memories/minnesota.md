@@ -1,5 +1,17 @@
 # Minnesota Route Memory
 
+## 2026-07-23 11:12 America/Chicago / 2026-07-23 16:12 UTC Minnesota Cottonwood maintained-corridor pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `185` to `188` live route slugs by adding `cottonwood-river-highway-4-county-road-10`, `cottonwood-river-county-road-10-county-road-11`, and `cottonwood-river-county-road-11-flandrau`.
+- Qualification path: MN DNR Cottonwood segments page / Minnesota River Map 4 plus public-water-access GIS and Brown County canoe-landing context support the Highway 4 / Theden's / County Road 10 / County Road 11 / Flandrau access chain. These fill lower-Cottonwood gaps without duplicating existing `cottonwood-river-highway-15-courtland`.
+- Live gauge verification: MN DNR river-level feed returned Cottonwood Leavenworth site `289` at `967.04 ft` at `2026-07-23 08:15 CDT` and Cottonwood New Ulm site `39` at `122 cfs` at `2026-07-23 08:00 CDT`.
+- Implemented official DNR interpreted bands only: Leavenworth `963 / 967-971 / 974 ft` for the two upstream segments, and New Ulm `150 / 250-870 / 2190 cfs` for County-Road-11-to-Flandrau. The Flandrau segment currently carries a below-scrapable warning.
+- Camping posture: Highway-4-to-County-Road-10 and County-Road-10-to-County-Road-11 are no-camping day routes. County-Road-11-to-Flandrau is `endpoint_campground` only through Flandrau State Park / mapped watercraft-campsite context; all copy says to use designated sites and current park rules only.
+- Safety posture: all three carry low-water scraping, strainers/fresh wood, fast-rise, muddy-bank, private-bank, cold-water, and proxy-gauge visual-check caveats. The Flandrau reach also emphasizes sparse formal exits and current scrapable conditions.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Brown County / Flandrau / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Validation closeout: passed route import/count confirmation (`188` Minnesota routes), ledger JSON parse, `npm.cmd run routes:audit` (`832` routes after concurrent Manitowoc Wisconsin route objects were made complete), `npm.cmd run routes:geometries:generate` / geometry audit (`829/832` matched), `npm.cmd run typecheck`, `npm.cmd run build` (`996` pages; `SITE_URL` fallback warning only), `npm.cmd test` (`17` files / `98` tests), and `git diff --check` with line-ending warnings only.
+- Reviewed but did not add: prompt leads such as Chippewa Lentz-to-Watson, Kettle Musclewood, Minnesota River Kinney-to-Skalbekken, Watonwan CR32-to-Garden City, St. Louis CR4/95, St. Louis Paupores/Brookston, Cloquet Indian-Lake-to-Bear-Lake-Road, and Mississippi Itasca/Coffee-Pot were reconciled as already live; Des Moines Mayflower-to-Christianna remains proxy weak; Cannon Waterville/Upper-Sakatah-to-Morristown was rejected because Lower Sakatah Lake Dam has no developed portage; Cannon Morristown-to-South-Alexander stayed lower priority because the Cottonwood gaps had cleaner DNR access/gauge support.
+
 ## 2026-07-23 10:14 America/Chicago / 2026-07-23 15:14 UTC Minnesota Pomme / Red Lake / Root gap pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `182` to `185` live route slugs by adding `pomme-de-terre-river-koosman-larson`, `red-lake-river-crookston-highway-75-bypass`, and `root-river-peterson-rushford`.

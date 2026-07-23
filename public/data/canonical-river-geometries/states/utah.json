@@ -3,14 +3,14 @@
   "source": "USGS NHD Flowline",
   "scope": "state",
   "state": "Utah",
-  "routeCount": 826,
-  "matchedRouteCount": 823,
+  "routeCount": 832,
+  "matchedRouteCount": 829,
   "unmatchedRouteIds": [
     "eau-claire-river-east-branch-wayside-county-i",
     "bad-axe-north-fork-duck-egg-hwy-o",
     "embarrass-south-branch-hwy-45-county-m"
   ],
-  "routeDataFingerprint": "fd893c620e7dc9407ee7252730935889e98f6c510c2dfc2c6b938b542233539f",
+  "routeDataFingerprint": "770c92f422f8cf984403f3730663792987570eeac2e3d572be9764168709d920",
   "features": [
     {
       "type": "Feature",
