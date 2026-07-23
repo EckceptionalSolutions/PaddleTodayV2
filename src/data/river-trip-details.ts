@@ -9388,7 +9388,6 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-
   'la-crosse-river-fishermans-hammer': {
     putIn: {
       id: 'fishermans-park-sparta',
@@ -38091,6 +38090,177 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 6.3,
         segmentKind: 'creek',
         note: 'Default take-out at the rebuilt Jones County hard-surface ramp.',
+      },
+    ],
+  },
+  'zumbro-river-zumbro-falls-hammond': {
+    putIn: {
+      id: 'zumbro-falls-access',
+      name: 'Zumbro River, Zumbro Falls Public Water Access Site',
+      latitude: 44.27977688739134,
+      longitude: -92.42343276302006,
+    },
+    takeOut: {
+      id: 'hammond-village-park',
+      name: 'Zumbro River, Hammond Village Park Public Water Access Site',
+      latitude: 44.22123656225855,
+      longitude: -92.36906091069403,
+    },
+    logistics: {
+      distanceLabel: '7.0 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water or wood scouting',
+      shuttle:
+        'Stage Hammond Village Park first, then drive back to the Zumbro Falls public access. The highway parallels the route, but use only signed public accesses or legal stops.',
+      permits:
+        'No route-specific paddling permit is known. Use the MN DNR water-trail accesses, follow Minnesota boating/PFD rules, and obey posted city or DNR access rules.',
+      camping:
+        'Treat this as a day trip. DNR points to Kruger and Zumbro Bottoms campground units farther downstream, but this Zumbro Falls-to-Hammond split does not include an on-route campsite.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Zumbro Falls and finish at Hammond Village Park for the missing upper half of the DNR Map 2 Zumbro day-trip chain. The direct Zumbro Falls DNR gauge is current, but today is below the preferred medium band.',
+      accessCaveats: [
+        'Zumbro Falls and Hammond are both source-backed public accesses, but same-day parking, ramp, and storm-cleanup conditions still matter.',
+        'Do not use roadside shoulders, farm banks, or private crossings as assumed exits just because the highway follows the river.',
+        'This is upstream of the existing Hammond-to-Theilman card; do not continue downstream without daylight, shuttle, and gauge margin for the longer route.',
+      ],
+      watchFor: [
+        'Low-water scraping below the official medium band on the Zumbro Falls gauge.',
+        'Fast rises, fresh strainers, logs, snags, and pushier riffles after thunderstorms.',
+        'Cold water in shoulder seasons and private banks between the named public accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'zumbro-falls-access',
+        name: 'Zumbro River, Zumbro Falls Public Water Access Site',
+        latitude: 44.27977688739134,
+        longitude: -92.42343276302006,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Minnesota public-water-access GIS resolves WAS02916 at DNR river mile 46.1.',
+      },
+      {
+        id: 'hammond-village-park',
+        name: 'Zumbro River, Hammond Village Park Public Water Access Site',
+        latitude: 44.22123656225855,
+        longitude: -92.36906091069403,
+        mileFromStart: 7,
+        segmentKind: 'creek',
+        note: 'Default take-out; Minnesota public-water-access GIS resolves WAS00253 at DNR river mile 38.2.',
+      },
+    ],
+  },
+  'mississippi-river-fort-ripley-fletcher-creek': {
+    putIn: {
+      id: 'fort-ripley-landing',
+      name: 'Mississippi River, Fort Ripley Landing Public Water Access Site',
+      latitude: 46.1794922958068,
+      longitude: -94.36486833176791,
+    },
+    takeOut: {
+      id: 'fletcher-creek-trailer-access',
+      name: 'Fletcher Creek Trailer Access',
+      latitude: 46.0651,
+      longitude: -94.3363,
+    },
+    logistics: {
+      distanceLabel: '9.6 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low water, wind, or island-channel checks',
+      shuttle:
+        'Stage Fletcher Creek first and confirm the take-out before driving back to Fort Ripley Landing. Do not launch if the Fletcher Creek landing, parking, or signage cannot be verified on arrival.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR-supported public accesses, follow Minnesota boating/PFD rules, and respect Camp Ripley, private-bank, and posted access restrictions.',
+      camping:
+        'Treat this as a day trip. Crow Wing State Park and other nearby campgrounds can support a basecamp, but no on-route camping is assumed between Fort Ripley and Fletcher Creek.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Fort Ripley and take out at Fletcher Creek for MN DNR Map 6 recommended central-Mississippi mileage below Camp Ripley. The route uses the Brainerd interpreted gauge as an upstream same-corridor proxy plus same-day landing checks.',
+      accessCaveats: [
+        'Fort Ripley resolves in Minnesota public-water-access GIS. Fletcher Creek is named by DNR water-trail and county public-access materials, but the coordinate used here is from a paddling-access directory rather than the current GIS feature-service query.',
+        'Camp Ripley Training Center access is not allowed from the Mississippi or Crow Wing rivers; do not treat military shoreline as a bailout or stop.',
+        'Do not extend toward Little Falls without a separate route plan and dam review.',
+      ],
+      watchFor: [
+        'Late-summer shallows and slow riffles when the Brainerd gauge is low.',
+        'Islands, backwaters, wind, floating wood, storm debris, cold water, and private banks.',
+        'Proxy-gauge mismatch from local rain, tributary inflow, or access changes between Brainerd, Fort Ripley, and Fletcher Creek.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'fort-ripley-landing',
+        name: 'Mississippi River, Fort Ripley Landing Public Water Access Site',
+        latitude: 46.1794922958068,
+        longitude: -94.36486833176791,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Minnesota public-water-access GIS resolves WAS01026 at DNR river mile 982.3.',
+      },
+      {
+        id: 'fletcher-creek-trailer-access',
+        name: 'Fletcher Creek Trailer Access',
+        latitude: 46.0651,
+        longitude: -94.3363,
+        mileFromStart: 9.6,
+        segmentKind: 'creek',
+        note: 'Default take-out named by MN DNR Map 6; verify signage and parking because coordinates are from a paddling-access directory.',
+      },
+    ],
+  },
+  'mississippi-river-sandy-lake-wolds-ferry': {
+    putIn: {
+      id: 'sandy-river-dam-access',
+      name: 'Sandy River Dam / Sandy Lake Recreation Area Public Water Access Site',
+      latitude: 46.78631874695744,
+      longitude: -93.32156252290518,
+    },
+    takeOut: {
+      id: 'wolds-ferry-crossing',
+      name: "Mississippi River, Wold's Ferry Crossing Public Water Access Site",
+      latitude: 46.74673080617531,
+      longitude: -93.39734256533568,
+    },
+    logistics: {
+      distanceLabel: '9.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low water, wind, or campsite stops',
+      shuttle:
+        "Stage Wold's Ferry Crossing first, then drive back to Sandy Lake Recreation Area / Sandy River Dam. Expect about one mile from the launch to the Mississippi before the main river mileage begins.",
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, Sandy Lake Recreation Area rules, DNR water-trail access rules, and any posted camping or day-use requirements.',
+      camping:
+        "Sandy Lake Recreation Area offers fee camping, and DNR identifies Scott's Rapid Campsite on the route if unoccupied. Use only legal designated sites and do not camp on private banks or riverbed areas next to private property.",
+      campingClassification: 'on_route_campsite',
+      summary:
+        "Launch from Sandy River Dam / Sandy Lake Recreation Area and take out at Wold's Ferry for the DNR Map 4 recommended headwaters day trip. Current Aitkin-gauge scoring is below scrapable, so same-day visual checks should control.",
+      accessCaveats: [
+        'The put-in is on the Sandy River at Sandy Lake Recreation Area, not directly on the Mississippi mainstem.',
+        "Wold's Ferry is the planned finish. Do not continue toward downstream diversion-channel or Aitkin hazards unless using a separate, reviewed route.",
+        "Scott's Rapid Campsite is first-come / availability-dependent context, not a guarantee that an overnight plan will work.",
+      ],
+      watchFor: [
+        'Very low water below the Aitkin scrapable floor, especially in the Sandy River lead-in and riffle zones.',
+        'Snags, downed trees, private banks, floating debris, high or rising water, cold water, and wind on wider bends.',
+        'Campground and launch crowding at Sandy Lake Recreation Area during peak summer weekends.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'sandy-river-dam-access',
+        name: 'Sandy River Dam / Sandy Lake Recreation Area Public Water Access Site',
+        latitude: 46.78631874695744,
+        longitude: -93.32156252290518,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Minnesota public-water-access GIS resolves WAS02110 at DNR Mississippi river mile 1105.3.',
+      },
+      {
+        id: 'wolds-ferry-crossing',
+        name: "Mississippi River, Wold's Ferry Crossing Public Water Access Site",
+        latitude: 46.74673080617531,
+        longitude: -93.39734256533568,
+        mileFromStart: 9.5,
+        segmentKind: 'creek',
+        note: "Default take-out; Minnesota public-water-access GIS resolves WAS02563 at DNR river mile 1096.0.",
       },
     ],
   },

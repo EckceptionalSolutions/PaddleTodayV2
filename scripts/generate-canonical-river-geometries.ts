@@ -264,7 +264,7 @@ async function main() {
   await mkdir(path.dirname(outputPath), { recursive: true });
   await writeFile(
     outputPath,
-    `${JSON.stringify({ type: 'FeatureCollection', source: 'USGS NHD Flowline', ...metadata, features })}\n`,
+    `${JSON.stringify({ type: 'FeatureCollection', source: 'USGS NHD Flowline', ...metadata, features }, null, 2)}\n`,
     'utf8',
   );
   await mkdir(stateOutputDir, { recursive: true });
@@ -279,7 +279,7 @@ async function main() {
     [...stateGroups.entries()].map(([slug, stateFeatures]) =>
       writeFile(
         path.join(stateOutputDir, `${slug}.json`),
-        `${JSON.stringify({ type: 'FeatureCollection', source: 'USGS NHD Flowline', scope: 'state', state: stateFeatures[0]?.properties.state ?? '', ...metadata, features: stateFeatures })}\n`,
+        `${JSON.stringify({ type: 'FeatureCollection', source: 'USGS NHD Flowline', scope: 'state', state: stateFeatures[0]?.properties.state ?? '', ...metadata, features: stateFeatures }, null, 2)}\n`,
         'utf8',
       ),
     ),

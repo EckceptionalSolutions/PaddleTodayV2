@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 02:14 America/Chicago / 2026-07-23 07:14 UTC: Minnesota Zumbro/Mississippi implementation pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 158-route Minnesota baseline: `zumbro-river-zumbro-falls-hammond`, `mississippi-river-fort-ripley-fletcher-creek`, and `mississippi-river-sandy-lake-wolds-ferry`, bringing Minnesota to 161 live routes.
+  - Qualification path: MN DNR Zumbro Map 2 plus public-water-access GIS supports Zumbro Falls-to-Hammond with direct Zumbro Falls site `267`; MN DNR Mississippi Map 6, Morrison County public-access mapping, The Paddling Hub coordinate corroboration, public-water-access GIS, and USGS `05261000` support Fort Ripley-to-Fletcher Creek with Brainerd site `121` as an upstream same-corridor DNR threshold proxy; MN DNR Mississippi Map 4 plus public-water-access GIS and Sandy Lake Recreation Area support Sandy-Lake-to-Wold's-Ferry with Aitkin site `120` as a downstream same-map proxy.
+  - Gauge posture: MN DNR feed returned Zumbro Falls `5.68 ft`, Brainerd `960 cfs`, and Aitkin `664 cfs` at 2026-07-23 around 00:30 CDT. Zumbro and Brainerd were official low; Aitkin was below the official scrapable floor.
+  - Threshold posture: all three use official DNR interpreted bands only: Zumbro Falls `5.2 / 7-9 / 10.5 ft`, Brainerd `908 / 1800-7000 / 10000 cfs`, and Aitkin `712.3 / 1500-6000 / 8000 cfs`. No route-gallery assets were added after bounded DNR / public-access / Commons / same-route review.
+
 - 2026-07-23 02:10 America/Chicago / 2026-07-23 07:10 UTC: Wisconsin La Crosse / Trempealeau implementation pass (`wisconsin-route-additions`).
   - Added three Wisconsin route slugs beyond the current 134-route Wisconsin baseline: `la-crosse-river-fishermans-hammer`, `la-crosse-river-highway-108-veterans`, and `trempealeau-river-whitehall-independence`, bringing this checkout to 137 Wisconsin routes.
   - Qualification path: Wisconsin River Trips / Miles Paddled / Travel Wisconsin support Fisherman's Park-to-Hammer Road with direct USGS `05382325` Sparta data; Wisconsin River Trips / Miles Paddled / La Crosse County support Highway-108-to-Veterans with direct USGS `05383075` lower La Crosse data; and Miles Paddled supports Whitehall-to-Independence with USGS `05379500` Dodge as a downstream same-river proxy.
