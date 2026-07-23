@@ -461,7 +461,7 @@ function weekendSummaryText(result: RiverScoreResult, rating: WeekendSummaryApiI
     if (weatherRisk) {
       return 'River shape is workable, but forecast risk still matters.';
     }
-    return 'Worth keeping on the shortlist if the forecast holds.';
+    return 'Worth watching.';
   }
 
   if (rating === 'Fair') {
@@ -469,9 +469,9 @@ function weekendSummaryText(result: RiverScoreResult, rating: WeekendSummaryApiI
       return 'Needs more gauge movement before this becomes a cleaner weekend call.';
     }
     if (weatherRisk) {
-      return 'Possible, but rain, wind, or storms could change the plan.';
+      return 'Possible; watch rain, wind, and storms.';
     }
-    return 'Possible, but re-check it before planning around it.';
+    return 'Possible; recheck before planning.';
   }
 
   if (poorFlow) {

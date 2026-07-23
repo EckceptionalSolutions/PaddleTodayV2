@@ -19,7 +19,7 @@ type DiagnosticState = 'idle' | 'checking' | 'ok' | 'error';
 
 const FREQUENT_SOURCES = [
   { label: 'USGS Water Data', detail: 'River gauges and water observations.', url: 'https://waterdata.usgs.gov/' },
-  { label: 'National Weather Service', detail: 'Forecasts, warnings, and radar context.', url: 'https://www.weather.gov/' },
+  { label: 'National Weather Service', detail: 'Forecasts, warnings, and radar.', url: 'https://www.weather.gov/' },
   { label: 'Minnesota DNR', detail: 'Water trails, access, and state guidance.', url: 'https://www.dnr.state.mn.us/' },
   { label: 'Wisconsin DNR', detail: 'Access, regulations, and paddling resources.', url: 'https://dnr.wisconsin.gov/' },
   { label: 'Iowa DNR', detail: 'Water trails, access, and state guidance.', url: 'https://naturalresources.iowa.gov/' },
@@ -112,13 +112,13 @@ export default function SupportScreen() {
     >
       <View style={styles.hero}>
         <Text style={styles.kicker}>More</Text>
-        <Text style={styles.title}>Safety, support, and app checks</Text>
+        <Text style={styles.title}>Safety and app help</Text>
         <Text style={styles.subtitle}>
-          Key safety notes, feedback links, and troubleshooting stay out of the main paddling flow.
+          Safety notes, feedback, and troubleshooting.
         </Text>
       </View>
 
-      <SectionCard title="Before you launch" subtitle="PaddleToday is a planning aid. Conditions still need a field check.">
+      <SectionCard title="Before you launch" subtitle="Use PaddleToday to plan. Check conditions at the launch.">
         <View style={styles.list}>
           <SafetyRow icon="waves" title="Check official sources" body="Confirm gauges, weather, closures, and access status before launching." />
           <SafetyRow icon="weather-lightning" title="Conditions change fast" body="Strainers, storms, construction, and water levels can change after the app refreshes." />
@@ -126,7 +126,7 @@ export default function SupportScreen() {
         </View>
       </SectionCard>
 
-      <SectionCard title="Support" subtitle="Fast links for feedback, route requests, and release paperwork.">
+      <SectionCard title="Support" subtitle="Fast links for feedback, route requests, and app help.">
         <View style={styles.actionList}>
           <ActionRow icon="information-outline" title="How PaddleToday works" body="Replay the short guide to scores, conditions, and route details." onPress={() => replayWelcome(router)} />
           <ActionRow icon="message-text-outline" title="Send feedback" body="Share an idea, issue, or missing feature." onPress={openManualFeedback} />
@@ -140,7 +140,7 @@ export default function SupportScreen() {
         </View>
       </SectionCard>
 
-      <SectionCard title="Supported rivers" subtitle="Browse PaddleToday coverage by state.">
+      <SectionCard title="Supported rivers" subtitle="Browse rivers by state.">
         {summaryQuery.isLoading && rivers.length === 0 ? (
           <Text style={styles.supportedEmptyText}>Loading supported rivers.</Text>
         ) : summaryQuery.isError && rivers.length === 0 ? (
@@ -150,7 +150,7 @@ export default function SupportScreen() {
             <View style={styles.supportedSummary}>
               <Text style={styles.supportedSummaryValue}>{rivers.length}</Text>
               <Text style={styles.supportedSummaryText}>
-                live route calls across {supportedStates.length} supported states
+                route updates across {supportedStates.length} states
               </Text>
             </View>
             <View style={styles.supportedStateChips}>

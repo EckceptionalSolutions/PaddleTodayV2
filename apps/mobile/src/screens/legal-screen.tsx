@@ -47,7 +47,7 @@ const legalCopy = {
       'PaddleToday is a planning aid. Paddling has inherent risks, and the app does not replace official gauges, forecasts, closures, local knowledge, or judgment at the launch.',
     sections: [
       {
-        title: 'Use of route calls',
+        title: 'How route scores work',
         body:
           'Scores, ratings, forecasts, warnings, access points, and explanations are informational only. They are not safety advice, professional instruction, or a guarantee that a route is safe, legal to access, current, or suitable for your group.',
       },

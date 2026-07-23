@@ -4,7 +4,7 @@ import { colors, spacing } from '../theme/tokens';
 
 export function HistoryBars({ days }: { days: RiverHistoryDaySummary[] }) {
   if (days.length === 0) {
-    return <Text style={styles.empty}>History is still building for this route.</Text>;
+    return <Text style={styles.empty}>Not enough history yet.</Text>;
   }
 
   const recentDays = days.slice(-7);

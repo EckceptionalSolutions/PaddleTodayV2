@@ -98,7 +98,7 @@ export default function HomeScreen() {
   const scopedRoutes = location ? nearbyPicks : rivers;
   const snapshotRoutes = scopedRoutes;
   const snapshot = buildBoardSnapshot(snapshotRoutes);
-  const snapshotContext = location ? `In range near ${location.label}` : 'Across supported routes';
+  const snapshotContext = location ? `In range near ${location.label}` : 'Across available routes';
   const bestPicks = useMemo(
     () => selectBestNowPicks(scopedRoutes, undefined, 24),
     [scopedRoutes]
@@ -150,7 +150,7 @@ export default function HomeScreen() {
 
   if (summaryQuery.isLoading && rivers.length === 0) {
     return (
-      <AppLoadingState title="Loading today’s routes" body="Checking launch calls." />
+      <AppLoadingState title="Loading today’s routes" body="Checking river conditions." />
     );
   }
 
@@ -361,7 +361,7 @@ function BoardHero({
           <View style={styles.topBar}>
             <View>
               <Text style={styles.appName}>Today</Text>
-              <Text style={styles.freshness}>Score, confidence, drive time</Text>
+              <Text style={styles.freshness}>Score, reliability, and drive time</Text>
             </View>
             <View style={styles.liveBadge}>
               <Text style={styles.liveBadgeText}>{snapshot.paddleable} ready</Text>
@@ -379,8 +379,8 @@ function BoardHero({
                 </Text>
                 <Text style={styles.headlineText} numberOfLines={3}>
                   {locationStatus === 'denied'
-                    ? 'Today still works across supported routes. Turn location on when you want drive-time ranking.'
-                    : 'Today works across supported routes. Add your location when you want drive-time ranking.'}
+                    ? 'Today still works without location. Turn it on to see nearby routes first.'
+                    : 'Add your location to see nearby routes first.'}
                 </Text>
               </View>
               <View style={styles.heroActionRow}>
@@ -665,7 +665,7 @@ function ExploreActionStrip({
     <View style={styles.exploreActions}>
       <View style={styles.exploreActionsHeader}>
         <Text style={styles.exploreActionsTitle}>Plan a paddle</Text>
-        <Text style={styles.exploreActionsSubtitle}>Jump into the views people use most.</Text>
+        <Text style={styles.exploreActionsSubtitle}>Choose a view.</Text>
       </View>
       <View style={styles.exploreActionGrid}>
         <ExploreActionChip
@@ -763,7 +763,7 @@ function RouteSearchModal({
           <View style={styles.searchModalHeader}>
             <View>
               <Text style={styles.searchModalTitle}>Find a route</Text>
-              <Text style={styles.searchModalSubtitle}>Search supported rivers, reaches, states, and access points.</Text>
+              <Text style={styles.searchModalSubtitle}>Search rivers, reaches, states, and access points.</Text>
             </View>
             <Pressable style={styles.searchModalClose} onPress={onClose} accessibilityRole="button" accessibilityLabel="Close route search">
               <MaterialCommunityIcons name="close" color={colors.accent} size={20} />
@@ -857,8 +857,8 @@ function RouteSearchModal({
               </View>
             ) : (
               <View style={styles.knownSearchEmpty}>
-                <Text style={styles.knownSearchEmptyTitle}>No supported route found</Text>
-                <Text style={styles.searchModalEmptyText}>Open Explore to browse the full supported map.</Text>
+                <Text style={styles.knownSearchEmptyTitle}>No route found</Text>
+                <Text style={styles.searchModalEmptyText}>Open Explore to browse all rivers.</Text>
                 <Pressable onPress={onExplore}>
                   <Text style={styles.knownSearchEmptyAction}>Open Explore map</Text>
                 </Pressable>
@@ -910,7 +910,7 @@ function ModeTabs({
 }) {
   return (
     <View style={styles.previewSortCard}>
-      <Text style={styles.previewSortLabel}>Sort Today's Calls</Text>
+      <Text style={styles.previewSortLabel}>Sort today’s routes</Text>
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -956,7 +956,7 @@ function EmptyMode({
         ? locationStatus === 'requesting'
           ? 'Finding nearby routes.'
           : locationStatus === 'denied'
-            ? 'Location is off. You can still use Recommended, Score ranking, or Confidence first.'
+            ? 'Location is off. You can still use Recommended, Score, or Most reliable first.'
             : 'Allow location to show nearby routes.'
         : 'No routes match this view.';
 
@@ -979,16 +979,16 @@ function OutOfRangeState({
 }) {
   return (
     <View style={styles.outOfRangeCard}>
-      <Text style={styles.emptyTitle}>No supported routes near {locationLabel}</Text>
+      <Text style={styles.emptyTitle}>No routes near {locationLabel}</Text>
       <Text style={styles.emptyText}>
-        PaddleToday supports select Midwest rivers. Browse the list or request one near you.
+        PaddleToday covers selected Midwest rivers. Browse the list or request one near you.
       </Text>
       <View style={styles.emptyActions}>
         <Pressable style={styles.emptyPrimaryButton} onPress={onRequestRoute}>
           <Text style={styles.emptyPrimaryButtonText}>Request a Route</Text>
         </Pressable>
         <Pressable style={styles.emptySecondaryButton} onPress={onBrowseRoutes}>
-          <Text style={styles.emptySecondaryButtonText}>Browse Supported Rivers</Text>
+          <Text style={styles.emptySecondaryButtonText}>Browse all rivers</Text>
         </Pressable>
       </View>
     </View>
@@ -1161,31 +1161,31 @@ function searchRank(river: RiverSummaryApiItem, query: string) {
 function sectionSubtitleForMode(mode: BoardMode) {
   if (mode === 'closest') return 'Shortest drives first.';
   if (mode === 'score') return 'Rivers ordered by score.';
-  if (mode === 'certain') return 'High-confidence calls first, then score.';
-  return 'Best current calls. Skips stay visible for rechecks.';
+  if (mode === 'certain') return 'Most reliable routes first, then score.';
+  return 'Best routes first. Routes to skip stay visible to check again later.';
 }
 
 function headlineLabelForMode(mode: BoardMode, headline: BoardItem | null) {
   if (!headline) return 'Today';
   if (headline.rating === 'No-go') return isNearbyPick(headline) ? 'Best recheck nearby' : 'Best recheck today';
-  if (headline.rating === 'Fair') return isNearbyPick(headline) ? 'Maybe nearby with caution' : 'Maybe with caution';
+  if (headline.rating === 'Fair') return isNearbyPick(headline) ? 'Watch nearby' : 'Watch closely';
   if (mode === 'closest') return 'Best nearby';
   if (mode === 'score') return 'Best conditions';
-  if (mode === 'certain') return 'Confidence pick';
+  if (mode === 'certain') return 'Most reliable pick';
   return isNearbyPick(headline) ? 'Best mix today' : 'Best conditions today';
 }
 
 function quickScanSubtitleForMode(mode: BoardMode) {
   if (mode === 'closest') return 'Nearby routes with key trip facts.';
   if (mode === 'score') return 'Rivers ordered by score.';
-  if (mode === 'certain') return 'High-confidence calls first, then score.';
-  return 'Compact calls for today, including skips worth rechecking.';
+  if (mode === 'certain') return 'Most reliable routes first, then score.';
+  return 'Today\'s routes, including ones to check again.';
 }
 
 function boardIntroTitleForMode(mode: BoardMode) {
   if (mode === 'closest') return 'Closest routes';
   if (mode === 'score') return 'Rivers ordered by score';
-  if (mode === 'certain') return 'Highest-confidence calls';
+  if (mode === 'certain') return 'Most reliable routes';
   return 'Today\'s Calls';
 }
 

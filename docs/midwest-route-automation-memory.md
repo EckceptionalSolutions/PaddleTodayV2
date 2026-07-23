@@ -1,5 +1,17 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 08:11 America/Chicago / 2026-07-23 13:11 UTC: Minnesota St. Louis / Cannon / Cedar implementation pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 176-route exported Minnesota baseline: `st-louis-river-forbes-zim`, `cannon-river-riverside-miesville`, and `cedar-river-ramsey-austin-mill-pond`, bringing Minnesota to 179 live routes.
+  - Qualification path: MN DNR St. Louis Map 1 plus public-water-access GIS support Forbes-to-Zim with direct Forbes site `244`; MN DNR Cannon River map/segments plus public-water-access GIS support Riverside-to-Miesville with downstream Welch site `13`; MN DNR Cedar River map/segments plus public-water-access GIS support Ramsey-to-Austin-Mill-Pond with upstream Lansing site `287`.
+  - Gauge posture: MN DNR feed returned Forbes `2.77 ft`, Welch `1070 cfs`, and Lansing `69.8 cfs` on 2026-07-23 morning CDT.
+  - Threshold posture: all three use official DNR interpreted bands only: Forbes `3 / 3.7-7.6 / 8 ft`, Welch `231 / 300-1540 / 3000 cfs`, and Lansing `8.9 / 15.2-429.5 / 513.4 cfs`; no route-gallery assets were added after bounded DNR / public-access / Commons / same-route image review.
+
+- 2026-07-23 08:11 America/Chicago / 2026-07-23 13:11 UTC: Wisconsin Black River implementation pass (`wisconsin-route-additions`).
+  - Added three Wisconsin route slugs beyond the current 152-route Wisconsin baseline: `black-river-cormican-irving`, `black-river-irving-melrose`, and `black-river-wayside-reese`, bringing Wisconsin to 155 live routes.
+  - Qualification path: Wisconsin Trail Guide BK2/BK3 plus GPX support Cormican-to-Irving and Irving-to-Melrose with WGS84 access waypoints, mileages, Black River Falls gauge ladder, DNR canoe campsite context, and lower-Black sandbar-camping caveats; Wisconsin DNR corroborates public-access maintenance context; Wisconsin River Trips supports Wayside-to-Reese with shuttle coordinates, rapids inventory, Hemlock Rapids scout/portage guidance, and Neillsville gauge bands; Clark County reinforces low/high-water safety warnings.
+  - Gauge posture: USGS Water Services returned Black River Falls `236 cfs / 35.69 ft` and Neillsville `75.4 cfs / 2.86 ft` at 2026-07-23 07:00 CDT.
+  - Threshold posture: lower Black cards use WTG `200-3000 cfs`; Wayside-to-Reese uses WRT `301-405 cfs` good, `200 cfs` too-low, and `751 cfs` too-high / whitewater-only. No route-gallery assets were added after bounded WTG / DNR / WRT / Miles Paddled / USGS / Commons / same-route image review.
+
 - 2026-07-23 07:15 America/Chicago / 2026-07-23 12:15 UTC: Minnesota Pine / Root / South Fork Crow implementation pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 173-route Minnesota baseline: `pine-river-cross-lake-rock-dam`, `root-river-houston-mound-prairie`, and `south-fork-crow-river-otter-lake-masonic`, bringing Minnesota to 176 live routes.
   - Qualification path: MN DNR Pine River map / segments page plus public-water-access GIS support Cross-Lake-to-Rock-Dam with Cross Lake `WAS01002`, Rock Dam `WAS02986`, and Jenkins site `316` bands; MN DNR Root River Map 2 plus public-water-access GIS support Houston-to-Mound-Prairie with Houston `WAS02188`, Mound Prairie `WAS00062`, and direct site `200` bands; MN DNR South Fork Crow Map 1 / segments page plus public-water-access GIS support Otter-Lake-West-to-Western-Masonic with Otter Lake West `WAS00650`, Otter Lake East `WAS00651`, the dam at RM 66.7, and Hutchinson site `52` bands.

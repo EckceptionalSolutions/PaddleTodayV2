@@ -1,499 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-22T19:23:02.329Z",
-  "routeCount": 658,
-  "issueCount": 695,
+  "generatedAt": "2026-07-23T13:26:33.847Z",
+  "routeCount": 805,
+  "issueCount": 626,
   "summary": {
     "Critical": 0,
-    "High": 437,
-    "Medium": 258,
+    "High": 381,
+    "Medium": 245,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "buffalo-river-ponca-hasty",
-      "slug": "buffalo-river-ponca-hasty",
-      "name": "Buffalo River",
-      "reach": "Ponca to Hasty",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "buffalo-river-ponca-hasty",
-      "slug": "buffalo-river-ponca-hasty",
-      "name": "Buffalo River",
-      "reach": "Ponca to Hasty",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "buffalo-river-ponca-hasty",
-      "slug": "buffalo-river-ponca-hasty",
-      "name": "Buffalo River",
-      "reach": "Ponca to Hasty",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "only low-water floor and high-water caveat. The miles stack up into a very long whitewater-ish moving-water day with repeated riffles, bluff bends, rough-road shuttles, remote rescue exposure, and the Little Buffalo speed-up below Pruitt. Treat this as an adva"
-    },
-    {
-      "routeId": "buffalo-river-ponca-kyles-landing",
-      "slug": "buffalo-river-ponca-kyles-landing",
-      "name": "Buffalo River",
-      "reach": "Ponca to Kyle's Landing",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "buffalo-river-ponca-kyles-landing",
-      "slug": "buffalo-river-ponca-kyles-landing",
-      "name": "Buffalo River",
-      "reach": "Ponca to Kyle's Landing",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "buffalo-river-ponca-kyles-landing",
-      "slug": "buffalo-river-ponca-kyles-landing",
-      "name": "Buffalo River",
-      "reach": "Ponca to Kyle's Landing",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "cess chain and USGS operates the direct Ponca gauge, but this is rain-dependent Class II water with remote shuttle and wood risk. Use the Buffalo River at Ponca gauge. Around 130 cfs is the conservative low-water floor for this route; below that, expect scrapi"
-    },
-    {
-      "routeId": "buffalo-river-ponca-kyles-landing",
-      "slug": "buffalo-river-ponca-kyles-landing",
-      "name": "Buffalo River",
-      "reach": "Ponca to Kyle's Landing",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "Ponca gauge, but this is rain-dependent Class II water with remote shuttle and wood risk. Use the Buffalo River at Ponca gauge. Around 130 cfs is the conservative low-water floor for this route; below that, expect scraping, dragging, and missed lines. NPS say"
-    },
-    {
-      "routeId": "buffalo-river-ponca-ozark",
-      "slug": "buffalo-river-ponca-ozark",
-      "name": "Buffalo River",
-      "reach": "Ponca to Ozark",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "buffalo-river-ponca-ozark",
-      "slug": "buffalo-river-ponca-ozark",
-      "name": "Buffalo River",
-      "reach": "Ponca to Ozark",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "buffalo-river-ponca-ozark",
-      "slug": "buffalo-river-ponca-ozark",
-      "name": "Buffalo River",
-      "reach": "Ponca to Ozark",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "le's rapids, the Erbie corridor, and the bluff-lined Ozark finish into one long whitewater-ish moving-water day. Treat it as an advanced planning route rather than a casual scenic float. Confidence is good for a conservative Arkansas add: NPS still publishes t"
-    },
-    {
-      "routeId": "buffalo-river-ponca-steel-creek",
-      "slug": "buffalo-river-ponca-steel-creek",
-      "name": "Buffalo River",
-      "reach": "Ponca to Steel Creek",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "buffalo-river-ponca-steel-creek",
-      "slug": "buffalo-river-ponca-steel-creek",
-      "name": "Buffalo River",
-      "reach": "Ponca to Steel Creek",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "buffalo-river-ponca-steel-creek",
-      "slug": "buffalo-river-ponca-steel-creek",
-      "name": "Buffalo River",
-      "reach": "Ponca to Steel Creek",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Short upper Buffalo National River whitewater day from Ponca to Steel Creek beneath Roark Bluff. NPS documents the exact 2.5-mile trip and the direct Ponca gauge is live, but this is still rain-dependent swift water"
-    },
-    {
-      "routeId": "buffalo-river-ponca-steel-creek",
-      "slug": "buffalo-river-ponca-steel-creek",
-      "name": "Buffalo River",
-      "reach": "Ponca to Steel Creek",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "Ponca gauge is live, but this is still rain-dependent swift water with chutes, wood, and quick-rising conditions. Use the Buffalo River at Ponca gauge. Around 130 cfs is the conservative low-water floor for this route; below that, expect scraping, dragging, a"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-erbie",
-      "slug": "buffalo-river-steel-creek-erbie",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Erbie",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-erbie",
-      "slug": "buffalo-river-steel-creek-erbie",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Erbie",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-erbie",
-      "slug": "buffalo-river-steel-creek-erbie",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Erbie",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "o-Erbie continuation into one committed upper-district day. It stays behind the whitewater route type because swift current, wood, rough-road shuttles, and quick rises are first-class decisions. Confidence is good for a guarded Arkansas add: NPS still publishe"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-erbie",
-      "slug": "buffalo-river-steel-creek-erbie",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Erbie",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "-district day. It stays behind the whitewater route type because swift current, wood, rough-road shuttles, and quick rises are first-class decisions. Confidence is good for a guarded Arkansas add: NPS still publishes exact current route pages for Steel Creek t"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-hasty",
-      "slug": "buffalo-river-steel-creek-hasty",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Hasty",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-hasty",
-      "slug": "buffalo-river-steel-creek-hasty",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Hasty",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-hasty",
-      "slug": "buffalo-river-steel-creek-hasty",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Hasty",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "rent, wood, rough-road shuttles, and cold-water consequences keep it behind the whitewater route type. Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Steel Creek to Kyle's Landing, Kyle's Landing to Erbie, Erbie to O"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-hasty",
-      "slug": "buffalo-river-steel-creek-hasty",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Hasty",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "-to-Hasty fallback into one very long upper-district commitment. Swift current, wood, rough-road shuttles, and cold-water consequences keep it behind the whitewater route type. Confidence is good for a guarded Arkansas add: NPS publishes exact current route pa"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-kyles-landing",
-      "slug": "buffalo-river-steel-creek-kyles-landing",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Kyle's Landing",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-kyles-landing",
-      "slug": "buffalo-river-steel-creek-kyles-landing",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Kyle's Landing",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-kyles-landing",
-      "slug": "buffalo-river-steel-creek-kyles-landing",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Kyle's Landing",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "out road at Kyle's Landing is a major practical constraint. It stays behind the whitewater route type because swift current, wood, and shuttle risk matter even when the lines are friendly. Confidence is good for a guarded Arkansas add: NPS publishes the exact"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-kyles-landing",
-      "slug": "buffalo-river-steel-creek-kyles-landing",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Kyle's Landing",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "t this remains rainfall-dependent moving water with rapids, rough-road shuttle, wood, and crowding constraints. Use the Buffalo River at Ponca gauge as the nearest upstream corridor check. Around 130 cfs is the conservative low-water floor for this upper-Buffa"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-ozark",
-      "slug": "buffalo-river-steel-creek-ozark",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Ozark",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-ozark",
-      "slug": "buffalo-river-steel-creek-ozark",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Ozark",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-ozark",
-      "slug": "buffalo-river-steel-creek-ozark",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Ozark",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "t current, wood, rough shuttles, and cold-water consequences keep it behind the whitewater route type. Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Steel Creek to Kyle's Landing, Kyle's Landing to Erbie, and Erbie"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-ozark",
-      "slug": "buffalo-river-steel-creek-ozark",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Ozark",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "orridor, and the Ozark campground finish into one committed day. Swift current, wood, rough shuttles, and cold-water consequences keep it behind the whitewater route type. Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages f"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-pruitt",
-      "slug": "buffalo-river-steel-creek-pruitt",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Pruitt",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-pruitt",
-      "slug": "buffalo-river-steel-creek-pruitt",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Pruitt",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-pruitt",
-      "slug": "buffalo-river-steel-creek-pruitt",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Pruitt",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "wood, rough-road shuttles, and cold-water consequences, so it stays behind the whitewater route type. Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Steel Creek to Kyle's Landing, Kyle's Landing to Erbie, Erbie to O"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-pruitt",
-      "slug": "buffalo-river-steel-creek-pruitt",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Pruitt",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "7 finish at Pruitt. It is a long upper-district commitment with swift current, wood, rough-road shuttles, and cold-water consequences, so it stays behind the whitewater route type. Confidence is good for a guarded Arkansas add: NPS publishes exact current rou"
-    },
-    {
-      "routeId": "buffalo-river-tyler-bend-gilbert",
-      "slug": "buffalo-river-tyler-bend-gilbert",
-      "name": "Buffalo River",
-      "reach": "Tyler Bend to Gilbert",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "buffalo-river-tyler-bend-gilbert",
-      "slug": "buffalo-river-tyler-bend-gilbert",
-      "name": "Buffalo River",
-      "reach": "Tyler Bend to Gilbert",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "buffalo-river-tyler-bend-gilbert",
-      "slug": "buffalo-river-tyler-bend-gilbert",
-      "name": "Buffalo River",
-      "reach": "Tyler Bend to Gilbert",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "float and describes Tyler Bend to Grinder's Ferry as mostly flat, but American Whitewater rates the full Tyler Bend-to-Gilbert reach I-II. The route is marked whitewater so casual discovery does not hide the swiftwater and high-stage hazards. Confidence is go"
-    },
-    {
-      "routeId": "buffalo-river-tyler-bend-gilbert",
-      "slug": "buffalo-river-tyler-bend-gilbert",
-      "name": "Buffalo River",
-      "reach": "Tyler Bend to Gilbert",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "e, but this is still rain-sensitive Ozark moving water with swift I-II current, wood, and high-water judgment. Use the Buffalo River near St. Joe gauge. Around 120 cfs is the conservative low-water floor; below that, expect dragging and shortened float plans."
-    },
-    {
-      "routeId": "buffalo-river-tyler-bend-grinders-ferry",
-      "slug": "buffalo-river-tyler-bend-grinders-ferry",
-      "name": "Buffalo River",
-      "reach": "Tyler Bend to Grinder's Ferry",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "buffalo-river-tyler-bend-grinders-ferry",
-      "slug": "buffalo-river-tyler-bend-grinders-ferry",
-      "name": "Buffalo River",
-      "reach": "Tyler Bend to Grinder's Ferry",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "rrent that can change quickly with rain. The route stays in the guarded Buffalo whitewater family so rising water, wood, and poor judgment are not hidden. Confidence is good for a guarded Arkansas add: NPS publishes the exact Tyler-Bend-to-Grinder's-Ferry rout"
-    },
-    {
-      "routeId": "buffalo-river-tyler-bend-grinders-ferry",
-      "slug": "buffalo-river-tyler-bend-grinders-ferry",
-      "name": "Buffalo River",
-      "reach": "Tyler Bend to Grinder's Ferry",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "rain. The route stays in the guarded Buffalo whitewater family so rising water, wood, and poor judgment are not hidden. Confidence is good for a guarded Arkansas add: NPS publishes the exact Tyler-Bend-to-Grinder's-Ferry route page, the access mileage chart, o"
-    },
-    {
-      "routeId": "cossatot-river-ed-banks-highway-278",
-      "slug": "cossatot-river-ed-banks-highway-278",
-      "name": "Cossatot River",
-      "reach": "Ed Banks Access to Highway 278 Access",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "cossatot-river-ed-banks-highway-278",
-      "slug": "cossatot-river-ed-banks-highway-278",
-      "name": "Cossatot River",
-      "reach": "Ed Banks Access to Highway 278 Access",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "cossatot-river-ed-banks-highway-278",
-      "slug": "cossatot-river-ed-banks-highway-278",
-      "name": "Cossatot River",
-      "reach": "Ed Banks Access to Highway 278 Access",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "sas State Parks publishes a stage table for the direct USGS gauge, and American Whitewater matches the exact reach, but this is remote Class III-IV+ water with low-water bridges, sieves, holes, and difficult rescue. Use the Cossatot River near Vandervoort gaug"
-    },
     {
       "routeId": "kings-river-rockhouse-trigger-gap",
       "slug": "kings-river-rockhouse-trigger-gap",
@@ -528,50 +44,6 @@
       "evidence": "low gravel riffles, occasional rapids, a low-water bridge portage near the end, private banks, and a private fee take-out. Confidence is good for a conservative minimum-only Arkansas add: AGFC identifies Rockhouse to Trigger Gap / Arkansas Highway 221 as a pop"
     },
     {
-      "routeId": "mulberry-river-redding-turner-bend",
-      "slug": "mulberry-river-redding-turner-bend",
-      "name": "Mulberry River",
-      "reach": "Redding Recreation Area to Turner Bend",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "mulberry-river-redding-turner-bend",
-      "slug": "mulberry-river-redding-turner-bend",
-      "name": "Mulberry River",
-      "reach": "Redding Recreation Area to Turner Bend",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "mulberry-river-redding-turner-bend",
-      "slug": "mulberry-river-redding-turner-bend",
-      "name": "Mulberry River",
-      "reach": "Redding Recreation Area to Turner Bend",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "ervice Redding Recreation Area to the private-fee Turner Bend landing. American Whitewater ties the exact reach to the USGS Mulberry gauge, but this is rain-sensitive Class I-III water with fast rises and fee-access logistics. Use the Mulberry River near Mulbe"
-    },
-    {
-      "routeId": "mulberry-river-redding-turner-bend",
-      "slug": "mulberry-river-redding-turner-bend",
-      "name": "Mulberry River",
-      "reach": "Redding Recreation Area to Turner Bend",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "e warnings; and Turner Bend documents private-boater shuttle, access wristband, parking, and local level hazards. Confidence is intentionally limited because the high-quality detailed local gauge ladder is Turner Bend staff-gauge based, while Paddle Today scor"
-    },
-    {
       "routeId": "kishwaukee-river-hickory-bills-distillery",
       "slug": "kishwaukee-river-hickory-bills-distillery",
       "name": "Kishwaukee River",
@@ -581,39 +53,6 @@
       "category": "Access",
       "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
       "evidence": "ss package as the public-use authority and does not imply permission to land on private banks. Water-trail segment 4.35 to 4.7 miles The BCCD/Openlands Kishwaukee water-trail map lists Hickory Bills Island to Distillery Road as a 4.35-mile trip, while Wisconsi"
-    },
-    {
-      "routeId": "vermilion-river-lowell-oglesby",
-      "slug": "vermilion-river-lowell-oglesby",
-      "name": "Vermilion River",
-      "reach": "Lowell to Oglesby Boat Launch",
-      "state": "Illinois",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "vermilion-river-lowell-oglesby",
-      "slug": "vermilion-river-lowell-oglesby",
-      "name": "Vermilion River",
-      "reach": "Lowell to Oglesby Boat Launch",
-      "state": "Illinois",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "vermilion-river-lowell-oglesby",
-      "slug": "vermilion-river-lowell-oglesby",
-      "name": "Vermilion River",
-      "reach": "Lowell to Oglesby Boat Launch",
-      "state": "Illinois",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Illinois whitewater run from the Lowell / N.2249th Road rafting put-in to the Oglesby boat launch below Ed Hand Highway. This is a real II-III route with Wildcat and other named rapids, not"
     },
     {
       "routeId": "wabash-river-vera-cruz-hale-street",
@@ -715,28 +154,6 @@
       "evidence": "nces and wires near Gouldsburg Park and cites Paddling Iowa warnings; scout and portage rather than forcing a line under wire. Take-out support Eldorado / Highway 150 bridge access The official water-trail guide names Eldorado Access #86, and Miles Paddled doc"
     },
     {
-      "routeId": "maquoketa-river-manchester-whitewater",
-      "slug": "maquoketa-river-manchester-whitewater",
-      "name": "Maquoketa River",
-      "reach": "Manchester Whitewater Park",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Whitewater route is missing safetyProfile.",
-      "evidence": "routeType=whitewater"
-    },
-    {
-      "routeId": "maquoketa-river-manchester-whitewater",
-      "slug": "maquoketa-river-manchester-whitewater",
-      "name": "Maquoketa River",
-      "reach": "Manchester Whitewater Park",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Downtown Manchester whitewater-play course on the Maquoketa River, with six constructed drops, public city access, a walk-back trail, and a direct Manchester gauge. Use the Maquoketa River at Manchest"
-    },
-    {
       "routeId": "middle-river-schildberg-roseman",
       "slug": "middle-river-schildberg-roseman",
       "name": "Middle River",
@@ -746,50 +163,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "ge, with timbered valleys, open pasture, scattered riffles, chutes, and a shale ledge above the P53 bridge. Use the Middle River near Indianola gauge as the official planning signal. Treat 600 to 900 cfs as the optimum Adair / Madison County window, and be con"
-    },
-    {
-      "routeId": "north-fork-maquoketa-river-d61-caven",
-      "slug": "north-fork-maquoketa-river-d61-caven",
-      "name": "North Fork Maquoketa River",
-      "reach": "D61 Access / Whitewater Creek to Caven Bridge Access",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "north-fork-maquoketa-river-d61-caven",
-      "slug": "north-fork-maquoketa-river-d61-caven",
-      "name": "North Fork Maquoketa River",
-      "reach": "D61 Access / Whitewater Creek to Caven Bridge Access",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Long North Fork continuation from the Whitewater Creek D61 access to Caven Bridge, combining the isolated Ozark wilderness corridor with the short lower Ozark Wildlife Area finish under one direct Fulton gauge. Use the"
-    },
-    {
-      "routeId": "north-fork-maquoketa-river-d61-ozark",
-      "slug": "north-fork-maquoketa-river-d61-ozark",
-      "name": "North Fork Maquoketa River",
-      "reach": "D61 Access / Whitewater Creek to Ozark Bridge / 21st Ave",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Missing safety profile",
-      "message": "Hard route is missing safetyProfile.",
-      "evidence": "difficulty=hard"
-    },
-    {
-      "routeId": "north-fork-maquoketa-river-d61-ozark",
-      "slug": "north-fork-maquoketa-river-d61-ozark",
-      "name": "North Fork Maquoketa River",
-      "reach": "D61 Access / Whitewater Creek to Ozark Bridge / 21st Ave",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Remote Driftless continuation from the Whitewater Creek D61 access to Ozark Bridge, with bluff-lined bends, riffles, and a direct Fulton gauge on a corridor with very few clean exits. Use the North Fork Maquoketa near F"
     },
     {
       "routeId": "south-skunk-river-lekwa-sopers-mill",
@@ -834,39 +207,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "The downstream run is mostly Class I riffles at normal levels, but the optional whitewater-park ledges at the start are more consequential and should be scouted or bypassed by casual paddlers. Confidence is good for an Iowa community-source add: the Iowa DNR-b"
-    },
-    {
-      "routeId": "upper-iowa-river-cattle-creek-bluffton",
-      "slug": "upper-iowa-river-cattle-creek-bluffton",
-      "name": "Upper Iowa River",
-      "reach": "Cattle Creek Road to Bluffton Fir Stand Access",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "er flows, cold water, crowded accesses, private campground traffic, and any new wood as the main decision points. Confidence is good for an Iowa community-source add: the Upper Iowa River Paddler's Guide, developed with Iowa DNR Fisheries Bureau input, names C"
-    },
-    {
-      "routeId": "upper-iowa-river-chimney-rock-malanaphy",
-      "slug": "upper-iowa-river-chimney-rock-malanaphy",
-      "name": "Upper Iowa River",
-      "reach": "Chimney Rock Road to Malanaphy Springs",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "stance, crowded summer corridor, private banks, cold springs, and storm-changed wood make it a real day trip. Confidence is good for a guarded Iowa minimum-only add: Miles Paddled documents the exact Chimney Rock Road-to-Malanaphy Springs route, endpoint GPS p"
-    },
-    {
-      "routeId": "upper-iowa-river-chimney-rock-malanaphy",
-      "slug": "upper-iowa-river-chimney-rock-malanaphy",
-      "name": "Upper Iowa River",
-      "reach": "Chimney Rock Road to Malanaphy Springs",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "ffles at sensible levels, but the 13.75-mile distance, crowded summer corridor, private banks, cold springs, and storm-changed wood make it a real day trip. Confidence is good for a guarded Iowa minimum-only add: Miles Paddled documents the exact Chimney Rock"
     },
     {
       "routeId": "upper-iowa-river-kendallville-bluffton",
@@ -2299,6 +1639,17 @@
       "evidence": "cfs is scrapable, and above 33,000 cfs is very high. The route is not technical whitewater, but it is a 12-mile big-river day with current, islands, wind exposure, motorboat wakes, and a busy Anoka finish near the Rum River confluence. Confidence is good for a"
     },
     {
+      "routeId": "mississippi-river-county-line-jacobson",
+      "slug": "mississippi-river-county-line-jacobson",
+      "name": "Mississippi River",
+      "reach": "County Line Access to Jacobson Campground",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Access",
+      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
+      "evidence": "nded day trip. It is short and generally gentle, but limited exits, cold water, private banks, and changing debris still require a planned shuttle. Confidence is high for route shape and access: DNR recommended-one-way materials list County Line to Jacobson Ca"
+    },
+    {
       "routeId": "mississippi-river-hidden-falls-harriet-island",
       "slug": "mississippi-river-hidden-falls-harriet-island",
       "name": "Mississippi River",
@@ -2332,6 +1683,28 @@
       "evidence": "or as gentle enough for beginners, but paddlers still need moving-water basics, wood avoidance, and a real shuttle plan for the remote public access finish. Confidence is high: MN DNR lists Schoolcraft State Park to #10 Access as a 4.1-mile recommended one-way"
     },
     {
+      "routeId": "mississippi-river-steamboat-blackberry-bridge",
+      "slug": "mississippi-river-steamboat-blackberry-bridge",
+      "name": "Mississippi River",
+      "reach": "Steamboat Landing to Blackberry Bridge",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Dam",
+      "message": "Route text mentions dam, portage, hydro, or release hazards.",
+      "evidence": "ay trip from Steamboat Landing to Blackberry Bridge, starting below the Blandin dam/portage zone and using the nearby Grand Rapids interpreted gauge. Use the Grand Rapids DNR gauge just upstream of the put-in: 44 to 1,410 cfs is the official medium band. Below"
+    },
+    {
+      "routeId": "mississippi-river-steamboat-blackberry-bridge",
+      "slug": "mississippi-river-steamboat-blackberry-bridge",
+      "name": "Mississippi River",
+      "reach": "Steamboat Landing to Blackberry Bridge",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Obstruction",
+      "message": "Route text mentions wood or obstruction hazards.",
+      "evidence": ", but the route starts just below the Grand Rapids dam corridor and still needs wood, private-bank, and low-water checks. Confidence is high: MN DNR recommends Steamboat Landing to Blackberry Bridge with exact river miles, Map 3 places the Grand Rapids gauge i"
+    },
+    {
       "routeId": "north-fork-crow-river-betty-mason-wildlife",
       "slug": "north-fork-crow-river-betty-mason-wildlife",
       "name": "North Fork Crow River",
@@ -2363,6 +1736,17 @@
       "category": "Dam",
       "message": "Route text mentions dam, portage, hydro, or release hazards.",
       "evidence": "-West Lost Lake section gentle and enjoyable for a couple of hours. Phelps Mill dam/portage discipline, low-water dragging, and wind on West Lost Lake remain the practical hazards. Confidence is high for the official route and endpoints: DNR Map 2 identifies P"
+    },
+    {
+      "routeId": "otter-tail-river-phelps-mill-west-red-river-lake",
+      "slug": "otter-tail-river-phelps-mill-west-red-river-lake",
+      "name": "Otter Tail River",
+      "reach": "Phelps Mill County Park to West Red River Lake",
+      "state": "Minnesota",
+      "severity": "High",
+      "category": "Dam",
+      "message": "Route text mentions dam, portage, hydro, or release hazards.",
+      "evidence": "downstream Elizabeth gauge in the official medium band during this run. Hazards Dam/portage, bridges, obstructions, lake wind DNR Otter Tail materials warn paddlers to review dam, culvert, bridge, obstruction, low-water, and windy-lake conditions before paddli"
     },
     {
       "routeId": "pomme-de-terre-river-larson-appleton",
@@ -4818,138 +4202,6 @@
       "evidence": "der gardens, clear water, and quiet forested banks; this is a beginner-friendly whitewater route only for paddlers ready to read rapids and swim safely. Use the Wolf River at Langlade gauge. The most broadly useful window is 250 to 500 cfs. From 150 to 250 cfs"
     },
     {
-      "routeId": "buffalo-river-ponca-hasty",
-      "slug": "buffalo-river-ponca-hasty",
-      "name": "Buffalo River",
-      "reach": "Ponca to Hasty",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Full upper Buffalo continuation from Ponca to Hasty through Steel Creek, Kyle's Landing, Erbie, Ozark, and Pruitt. NPS still publishes the current access ladder and mileage chart,"
-    },
-    {
-      "routeId": "buffalo-river-ponca-kyles-landing",
-      "slug": "buffalo-river-ponca-kyles-landing",
-      "name": "Buffalo River",
-      "reach": "Ponca to Kyle's Landing",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Classic upper Buffalo National River day from Ponca to Kyle's Landing through the Ponca Wilderness. NPS documents the access chain and USGS operates the direct Ponca gauge, but thi"
-    },
-    {
-      "routeId": "buffalo-river-ponca-kyles-landing",
-      "slug": "buffalo-river-ponca-kyles-landing",
-      "name": "Buffalo River",
-      "reach": "Ponca to Kyle's Landing",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "levels greater than 1,600 cfs at the Ponca gage are unsafe. Use that as a hard caution even though this route ships as minimum-only scoring. Access coordinates Ponca 36.0225, -93.354722; Kyle's Landing 36.055756, -93.2813 USGS station metadata places the Ponc"
-    },
-    {
-      "routeId": "buffalo-river-ponca-ozark",
-      "slug": "buffalo-river-ponca-ozark",
-      "name": "Buffalo River",
-      "reach": "Ponca to Ozark",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Long upper Buffalo continuation from Ponca to Ozark through Steel Creek, Kyle's Landing, and Erbie before the developed Ozark take-out. NPS still publishes the current access ladde"
-    },
-    {
-      "routeId": "buffalo-river-ponca-steel-creek",
-      "slug": "buffalo-river-ponca-steel-creek",
-      "name": "Buffalo River",
-      "reach": "Ponca to Steel Creek",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Short upper Buffalo National River whitewater day from Ponca to Steel Creek beneath Roark Bluff. NPS documents the exact 2.5-mile trip and the direct Ponca gauge is live, but this"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-erbie",
-      "slug": "buffalo-river-steel-creek-erbie",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Erbie",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Long upper Buffalo day from Steel Creek to Erbie, linking the classic Steel-Creek-to-Kyle's section with the Erbie continuation into one campground-backed trip. The direct Pruitt g"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-hasty",
-      "slug": "buffalo-river-steel-creek-hasty",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Hasty",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Full upper Buffalo continuation from Steel Creek to Hasty, linking the exact Steel-Creek-to-Kyle's, Kyle's-to-Erbie, Erbie-to-Ozark, Ozark-to-Pruitt, and Pruitt-to-Hasty paddles in"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-kyles-landing",
-      "slug": "buffalo-river-steel-creek-kyles-landing",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Kyle's Landing",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Beloved upper Buffalo National River day from Steel Creek to Kyle's Landing through the Ponca Wilderness. NPS publishes the exact 8-mile trip and both public access points, but thi"
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-ozark",
-      "slug": "buffalo-river-steel-creek-ozark",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Ozark",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Long upper Buffalo National River day from Steel Creek to Ozark, linking the exact Steel-Creek-to-Kyle's, Kyle's-to-Erbie, and Erbie-to-Ozark paddles into one guarded continuation."
-    },
-    {
-      "routeId": "buffalo-river-steel-creek-pruitt",
-      "slug": "buffalo-river-steel-creek-pruitt",
-      "name": "Buffalo River",
-      "reach": "Steel Creek to Pruitt",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Full upper Buffalo National River continuation from Steel Creek to Pruitt, linking the exact Steel-Creek-to-Kyle's, Kyle's-to-Erbie, Erbie-to-Ozark, and Ozark-to-Pruitt paddles int"
-    },
-    {
-      "routeId": "buffalo-river-tyler-bend-gilbert",
-      "slug": "buffalo-river-tyler-bend-gilbert",
-      "name": "Buffalo River",
-      "reach": "Tyler Bend to Gilbert",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Popular middle Buffalo National River day from Tyler Bend to Gilbert, with Grinder's Ferry as an optional short take-out. NPS supports the route and the direct St. Joe gauge is liv"
-    },
-    {
-      "routeId": "buffalo-river-tyler-bend-grinders-ferry",
-      "slug": "buffalo-river-tyler-bend-grinders-ferry",
-      "name": "Buffalo River",
-      "reach": "Tyler Bend to Grinder's Ferry",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Short middle Buffalo National River float from Tyler Bend to Grinder's Ferry. NPS documents the exact 1.1-mile route and the direct St. Joe gauge is live, but even this mostly flat"
-    },
-    {
       "routeId": "kings-river-rockhouse-trigger-gap",
       "slug": "kings-river-rockhouse-trigger-gap",
       "name": "Kings River",
@@ -4959,17 +4211,6 @@
       "category": "Minimum-only hazard review",
       "message": "Minimum-only route has hazard language but no safetyProfile.",
       "evidence": "Clear Ozark day float from AGFC-owned Rockhouse Access through the Kings River Preserve corridor to the private fee access at Trigger Gap. Use this as a conservative stage check, n"
-    },
-    {
-      "routeId": "mulberry-river-redding-turner-bend",
-      "slug": "mulberry-river-redding-turner-bend",
-      "name": "Mulberry River",
-      "reach": "Redding Recreation Area to Turner Bend",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ading landing, and the requirement to buy access for use of its landings. Local hazard context Fast rises, technical water, and beginner limits National Rivers Project warns that heavy rain can quickly transform the Mulberry into a rampaging torrent. Turner Be"
     },
     {
       "routeId": "black-hawk-creek-ranchero-hope-martin",
@@ -5091,28 +4332,6 @@
       "category": "Minimum-only hazard review",
       "message": "Minimum-only route has hazard language but no safetyProfile.",
       "evidence": "Full lower Turkey River day from Elkader to Garber, combining the whitewater-park / Motor Mill section with the long remote canyon run to Garber under one direct lower-river gauge."
-    },
-    {
-      "routeId": "upper-iowa-river-cattle-creek-bluffton",
-      "slug": "upper-iowa-river-cattle-creek-bluffton",
-      "name": "Upper Iowa River",
-      "reach": "Cattle Creek Road to Bluffton Fir Stand Access",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "Conditions",
-      "message": "Route text mentions condition hazards that need explicit safety review.",
-      "evidence": "on. Mostly easy riffles and swift current at normal levels. Treat higher flows, cold water, crowded accesses, private campground traffic, and any new wood as the main decision points. Confidence is good for an Iowa community-source add: the Upper Iowa River Pa"
-    },
-    {
-      "routeId": "upper-iowa-river-chimney-rock-malanaphy",
-      "slug": "upper-iowa-river-chimney-rock-malanaphy",
-      "name": "Upper Iowa River",
-      "reach": "Chimney Rock Road to Malanaphy Springs",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Long Bluffton-to-Decorah-area Upper Iowa day with limestone palisades, riffles, springs, and a direct Bluffton gauge minimum from a same-route trip report. Use the Upper Iowa River"
     },
     {
       "routeId": "upper-iowa-river-kendallville-bluffton",
@@ -5830,6 +5049,17 @@
       "evidence": "Urban Minnehaha Creek corridor with many designated landings, but it only works when the Hiawatha gauge is inside the MCWD paddling band. Low water means scraping and portaging; hi"
     },
     {
+      "routeId": "mississippi-river-county-line-jacobson",
+      "slug": "mississippi-river-county-line-jacobson",
+      "name": "Mississippi River",
+      "reach": "County Line Access to Jacobson Campground",
+      "state": "Minnesota",
+      "severity": "Medium",
+      "category": "Conditions",
+      "message": "Route text mentions condition hazards that need explicit safety review.",
+      "evidence": "mile recommended day trip. It is short and generally gentle, but limited exits, cold water, private banks, and changing debris still require a planned shuttle. Confidence is high for route shape and access: DNR recommended-one-way materials list County Line to"
+    },
+    {
       "routeId": "mississippi-river-hidden-falls-harriet-island",
       "slug": "mississippi-river-hidden-falls-harriet-island",
       "name": "Mississippi River",
@@ -5839,6 +5069,17 @@
       "category": "Conditions",
       "message": "Route text mentions condition hazards that need explicit safety review.",
       "evidence": "aul gauge is best from 6,000 to 30,000 cfs. Below 2,000 cfs is too low for this urban route, and above 40,000 cfs is too high for a general recommendation. This is urban big-river paddling rather than technical whitewater. Swift current, barge wakes, bridge pi"
+    },
+    {
+      "routeId": "mississippi-river-steamboat-blackberry-bridge",
+      "slug": "mississippi-river-steamboat-blackberry-bridge",
+      "name": "Mississippi River",
+      "reach": "Steamboat Landing to Blackberry Bridge",
+      "state": "Minnesota",
+      "severity": "Medium",
+      "category": "General hazard",
+      "message": "Route text includes general hazard language.",
+      "evidence": "ed placed Grand Rapids in the official medium band during this run. Camping and hazard context Sucher's campsite; Grand Rapids dam corridor upstream MN DNR Map 3 places Sucher's watercraft campsite between the endpoints and maps the Blandin dam/portage upstrea"
     },
     {
       "routeId": "north-fork-crow-river-riverside-dayton",

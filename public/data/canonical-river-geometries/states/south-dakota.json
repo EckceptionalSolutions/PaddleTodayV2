@@ -3,14 +3,14 @@
   "source": "USGS NHD Flowline",
   "scope": "state",
   "state": "South Dakota",
-  "routeCount": 801,
-  "matchedRouteCount": 798,
+  "routeCount": 805,
+  "matchedRouteCount": 802,
   "unmatchedRouteIds": [
     "eau-claire-river-east-branch-wayside-county-i",
     "bad-axe-north-fork-duck-egg-hwy-o",
     "embarrass-south-branch-hwy-45-county-m"
   ],
-  "routeDataFingerprint": "7846c164ca411c280a10530c4507ef7d0314980300623c309b34b3e1e627ab43",
+  "routeDataFingerprint": "f7f8496127c1f3e9f194931485016462a53953ffb8a870967cbd454f8ea46e5e",
   "features": [
     {
       "type": "Feature",

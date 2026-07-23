@@ -135,7 +135,7 @@ export default function RiverDetailScreen() {
   const [reportPhotos, setReportPhotos] = useState<SelectedReportPhoto[]>([]);
   const [reportPhotoRights, setReportPhotoRights] = useState(false);
   const [reportConsent, setReportConsent] = useState(false);
-  const [reportStatus, setReportStatus] = useState('Reports are reviewed before they appear on Paddle Today.');
+  const [reportStatus, setReportStatus] = useState('We review reports before publishing.');
   const [shareStatus, setShareStatus] = useState('');
   const [activeSection, setActiveSection] = useState<DetailSection>('Today');
   const [sectionTabsFloating, setSectionTabsFloating] = useState(false);
@@ -239,14 +239,14 @@ export default function RiverDetailScreen() {
 
   if (detailQuery.isLoading && !detail) {
     return (
-      <AppLoadingState title="Loading river detail" body="Pulling the latest river call and score history." />
+      <AppLoadingState title="Loading route" body="Getting the latest route score and history." />
     );
   }
 
   if (detailQuery.isError && !detail) {
     return (
       <AppErrorState
-        title="This river call did not load"
+        title="We couldn't load this route"
         body="Check your connection, then try again."
         detail={resolveApiUrl(`/api/rivers/${slug}.json`)}
         onRetry={() => detailQuery.refetch()}
@@ -654,7 +654,7 @@ export default function RiverDetailScreen() {
                     icon="waves"
                     label={detail.river.gaugeSource.display.primaryMetricLabel || 'Gauge'}
                     value={detail.gauge ? formatGaugeValue(detail.gauge.current, detail.gauge.unit) : detail.gaugeBandLabel}
-                    subvalue={detail.gauge ? detail.gaugeBandLabel : 'Current reading unavailable'}
+                    subvalue={detail.gauge ? detail.gaugeBandLabel : 'No current reading'}
                     detail={normalizeApiText(detail.liveData.gauge.detail)}
                     tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Gauge window'))}
                   />
@@ -696,7 +696,7 @@ export default function RiverDetailScreen() {
               title="Community reports"
               subtitle={
                 communityReports.length > 0
-                  ? `${communityReports.length} approved reports for route context and access reality checks.`
+                  ? `${communityReports.length} approved reports about the route and access.`
                   : communityQuery.isLoading
                     ? 'Loading approved paddler reports.'
                     : 'No approved reports yet.'
@@ -746,7 +746,7 @@ export default function RiverDetailScreen() {
               <View style={styles.reportCtaCopy}>
                 <Text style={styles.reportCtaTitle}>Add a full report</Text>
                 <Text style={styles.reportCtaText}>
-                  Send access notes, wood, pace, level context, or optional photos. Reports are reviewed before anything appears publicly.
+                  Send access notes, wood, pace, water level, or optional photos. We review reports before publishing.
                 </Text>
               </View>
               <Pressable
@@ -792,7 +792,7 @@ export default function RiverDetailScreen() {
 
             <SectionCard
               title="Sources"
-              subtitle="Key sources used for the route call and planning context."
+              subtitle="Sources for this route's score and trip details."
             >
               <View style={styles.sourceList}>
                 {routeSourceLabels(detail).map((source) => (
@@ -809,7 +809,7 @@ export default function RiverDetailScreen() {
 
             <SectionCard
               title="Outlooks"
-              subtitle="Forecast calls stay cautious."
+              subtitle="Weekend forecasts are more cautious."
             >
               <OutlookRows outlooks={detail.outlooks} />
             </SectionCard>
@@ -1073,18 +1073,18 @@ function compactPaddleTime(value: string) {
 
 function decisionStatement(detail: RiverDetailApiResult) {
   if (detail.rating === 'Strong') {
-    return 'Good to go if it fits your group.';
+    return 'Good to go.';
   }
 
   if (detail.rating === 'Good') {
-    return 'Good with normal checks.';
+    return 'Good to paddle.';
   }
 
   if (detail.rating === 'Fair') {
-    return 'Possible paddle with caution.';
+    return 'Watch closely.';
   }
 
-  return 'Skip today unless sources changed.';
+  return 'Skip today.';
 }
 
 function checklistStatusForLabel(checklist: DecisionChecklistItem[], label: string) {
@@ -1252,11 +1252,11 @@ function friendlyCapReason(reason: string) {
   }
 
   if (/Near-freezing air caps today at 70\.|Cold air limits today's score to 70 or lower\./i.test(normalized)) {
-    return 'Cold air keeps today from scoring higher.';
+    return 'Cold air lowered the score.';
   }
 
   if (/High wind caps today at 75\.|Strong wind limits today's score to 75 or lower\./i.test(normalized)) {
-    return 'Strong wind puts a ceiling on today.';
+    return 'Strong wind lowered the score.';
   }
 
   if (/Imminent heavy rain caps today at 65\.|Heavy rain or storms likely soon limit the score to 65\.|Heavy rain or storms likely soon limit today's score to 65 or lower\./i.test(normalized)) {
@@ -1636,7 +1636,7 @@ function TripPlanningCard({ detail }: { detail: RiverDetailApiResult }) {
 
 function OutlookRows({ outlooks }: { outlooks: RiverOutlook[] }) {
   if (outlooks.length === 0) {
-    return <Text style={styles.emptyText}>No forward outlooks are available for this route yet.</Text>;
+    return <Text style={styles.emptyText}>No forecasts are available for this route yet.</Text>;
   }
 
   return (
@@ -1652,12 +1652,12 @@ function OutlookRows({ outlooks }: { outlooks: RiverOutlook[] }) {
             </View>
             <View style={[styles.outlookScore, outlook.rating ? ratingBackground(outlook.rating) : styles.outlookScoreMuted]}>
               <Text style={[styles.outlookScoreValue, outlook.rating ? { color: ratingColors(outlook.rating).textColor } : null]}>{outlook.score ?? '--'}</Text>
-              <Text style={[styles.outlookScoreLabel, outlook.rating ? { color: ratingColors(outlook.rating).textColor } : null]}>{outlook.rating ?? 'No call'}</Text>
+              <Text style={[styles.outlookScoreLabel, outlook.rating ? { color: ratingColors(outlook.rating).textColor } : null]}>{outlook.rating ?? 'No forecast yet'}</Text>
             </View>
           </View>
           <Text style={styles.outlookText}>{normalizeApiText(outlook.explanation)}</Text>
           {outlook.confidence ? (
-            <Text style={styles.outlookMeta}>{outlook.confidence} confidence</Text>
+            <Text style={styles.outlookMeta}>Forecast confidence: {outlook.confidence}</Text>
           ) : null}
         </View>
       ))}
@@ -2021,7 +2021,7 @@ function AccessPlanner({
     <View style={styles.accessPlanner}>
       <View style={styles.accessPlannerHeader}>
         <View style={styles.accessPlannerTitleWrap}>
-          <Text style={styles.accessPlannerKicker}>Access planner</Text>
+          <Text style={styles.accessPlannerKicker}>Shorten your trip</Text>
           <Text style={styles.accessPlannerTitle}>Pick a shorter segment</Text>
         </View>
         <View style={styles.accessPlannerDistance}>
@@ -2030,7 +2030,7 @@ function AccessPlanner({
         </View>
       </View>
       <Text style={styles.accessPlannerText}>
-        This changes launch and take-out logistics, not today's river score.
+        This changes the distance and access, not the river score.
       </Text>
       <AccessPointSelector
         label="Put-in"

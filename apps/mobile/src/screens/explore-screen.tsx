@@ -243,7 +243,7 @@ export default function ExploreScreen() {
     return (
       <AppErrorState
         title="Explore did not load"
-        body="The map needs current calls."
+        body="The map needs the latest route updates."
         detail={errorDetailForExploreQuery(summaryQuery.error)}
         onRetry={() => summaryQuery.refetch()}
       />
@@ -628,7 +628,7 @@ function FullScreenExploreMap({
         <View style={[styles.coverageBanner, { top: overlayTop }]}>
           <MaterialCommunityIcons name="map-marker-distance" color={colors.accent} size={18} />
           <Text style={styles.coverageBannerText}>
-            PaddleToday supports select Midwest rivers.
+            PaddleToday covers selected Midwest rivers.
           </Text>
         </View>
       ) : null}

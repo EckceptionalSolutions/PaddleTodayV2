@@ -54,7 +54,7 @@ export function AppErrorState({
 }
 
 export function AppRefreshNotice({
-  label = 'Showing the last available call.',
+  label = 'Showing the last available update.',
   isError,
   dataUpdatedAt,
   onRetry,

@@ -46,7 +46,7 @@ const appFeatures: Feature[] = [
   { icon: 'calendar-weekend-outline', title: 'Weekend picks', label: 'Compare the best upcoming options' },
   { icon: 'heart-outline', title: 'Save favorites', label: 'Keep your regular rivers close' },
   { icon: 'bell-outline', title: 'Get alerts', label: 'Know when conditions improve' },
-  { icon: 'chart-donut-variant', title: 'Understand scores', label: 'See what shaped every call' },
+  { icon: 'chart-donut-variant', title: 'Understand scores', label: 'See why each route scored that way' },
 ];
 
 export default function WelcomeScreen() {
@@ -334,7 +334,7 @@ export default function WelcomeScreen() {
                 veryShortLayout ? styles.slideTitleShort : null,
               ]}
             >
-              A practical score for every route
+              A score for every route
             </Text>
             <Text
               style={[
@@ -343,7 +343,7 @@ export default function WelcomeScreen() {
                 veryShortLayout ? styles.slideIntroShort : null,
               ]}
             >
-              Paddle Today compares live water and weather with route-specific guidance, then turns the result into a clear call.
+              We check water and weather, then score each route.
             </Text>
           </View>
 
@@ -439,7 +439,7 @@ export default function WelcomeScreen() {
                 veryShortLayout ? styles.slideTitleShort : null,
               ]}
             >
-              Everything you need to plan
+              Plan your next paddle
             </Text>
             <Text
               style={[
@@ -448,7 +448,7 @@ export default function WelcomeScreen() {
                 veryShortLayout ? styles.slideIntroShort : null,
               ]}
             >
-              Explore today, look ahead to the weekend, and keep track of the rivers you care about.
+              See today’s routes, weekend options, and saved rivers.
             </Text>
           </View>
 

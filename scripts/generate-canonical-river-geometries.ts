@@ -1,4 +1,4 @@
-import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, rename, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { listRivers } from '../src/lib/rivers';
@@ -262,11 +262,10 @@ async function main() {
   };
 
   await mkdir(path.dirname(outputPath), { recursive: true });
-  await writeFile(
-    outputPath,
-    `${JSON.stringify({ type: 'FeatureCollection', source: 'USGS NHD Flowline', ...metadata, features }, null, 2)}\n`,
-    'utf8',
-  );
+  const outputText = `${JSON.stringify({ type: 'FeatureCollection', source: 'USGS NHD Flowline', ...metadata, features }, null, 2)}\n`;
+  const temporaryOutputPath = `${outputPath}.tmp-${process.pid}`;
+  await writeFile(temporaryOutputPath, outputText, 'utf8');
+  await rename(temporaryOutputPath, outputPath);
   await mkdir(stateOutputDir, { recursive: true });
   const stateGroups = new Map<string, CanonicalFeature[]>();
   for (const feature of features) {
@@ -276,13 +275,16 @@ async function main() {
     stateGroups.set(key, group);
   }
   await Promise.all(
-    [...stateGroups.entries()].map(([slug, stateFeatures]) =>
-      writeFile(
-        path.join(stateOutputDir, `${slug}.json`),
+    [...stateGroups.entries()].map(async ([slug, stateFeatures]) => {
+      const stateOutputPath = path.join(stateOutputDir, `${slug}.json`);
+      const stateTemporaryOutputPath = `${stateOutputPath}.tmp-${process.pid}`;
+      await writeFile(
+        stateTemporaryOutputPath,
         `${JSON.stringify({ type: 'FeatureCollection', source: 'USGS NHD Flowline', scope: 'state', state: stateFeatures[0]?.properties.state ?? '', ...metadata, features: stateFeatures }, null, 2)}\n`,
         'utf8',
-      ),
-    ),
+      );
+      await rename(stateTemporaryOutputPath, stateOutputPath);
+    }),
   );
   console.log(`Wrote ${features.length} canonical route geometries (${matchedRoutes}/${routes.length} routes matched) to ${path.relative(root, outputPath)}`);
   console.log(`Wrote ${stateGroups.size} state-scoped geometry assets to ${path.relative(root, stateOutputDir)}`);

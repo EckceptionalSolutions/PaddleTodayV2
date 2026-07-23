@@ -10347,6 +10347,222 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
+  'black-river-cormican-irving': {
+    putIn: {
+      id: 'bruce-cormican-landing',
+      name: 'Bruce Cormican Landing',
+      latitude: 44.2878700494766,
+      longitude: -90.8510199785233,
+    },
+    takeOut: {
+      id: 'david-hansen-memorial-landing-irving',
+      name: 'David Hansen Memorial Landing / Irving',
+      latitude: 44.1876100301743,
+      longitude: -90.8989200592041,
+    },
+    logistics: {
+      distanceLabel: '12.1 mi',
+      estimatedPaddleTime: 'About 5 hr, longer with campsite stops or low water',
+      shuttle:
+        'Stage a vehicle at David Hansen Memorial Landing near Irving, then drive upstream to Bruce Cormican Landing at Black River Falls. Confirm the take-out before launching because continuing downstream changes this into the separate Irving-to-Melrose trip.',
+      permits:
+        'No route-specific paddling permit is known. Use public landings, follow Black River State Forest and Wisconsin boating rules, and respect posted parking, fire, and campsite limits.',
+      camping:
+        'Wisconsin Trail Guide maps a small Black River State Forest primitive canoe/kayak campsite between Mason Landing and Irving, with two first-come sites, a picnic table, fire ring, and shared toilet. Treat it as one-night-only, weather-dependent support rather than guaranteed capacity.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Bruce Cormican Landing and paddle the upper lower-Black corridor to David Hansen Memorial Landing at Irving. This is an easy sandbar-and-forest run below Black River Falls, with optional intermediate landings and a direct Black River Falls gauge ladder.',
+      accessCaveats: [
+        'Wisconsin Trail Guide publishes GPX waypoints for Bruce Cormican Landing, Perry Creek Landing, Mason Landing, the DNR campsite, and David Hansen Memorial Landing.',
+        'Wisconsin DNR describes Black River canoeing and kayaking as a major use and confirms a mixed public-access network maintained by DNR, DOT, counties, and municipalities.',
+        'Intermediate landings are useful bailout or shortened-trip options, but parking and landing condition should be checked before relying on them for a shuttle.',
+        'Banks outside public landings and legal campsites may be private; do not use informal yards, farm fields, or signed banks for breaks.',
+      ],
+      watchFor: [
+        'Shallow island channels and possible scraping below the 200 cfs Trail Guide floor at Black River Falls.',
+        'Fast rises after rain, colder spring water, and stronger current near wood or outside bends.',
+        'Strainers and changing sandbars, especially after storms or higher spring flows.',
+        'Missing David Hansen Memorial Landing and unintentionally committing to the longer Irving-to-Melrose reach.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'bruce-cormican-landing',
+        name: 'Bruce Cormican Landing',
+        latitude: 44.2878700494766,
+        longitude: -90.8510199785233,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from Wisconsin Trail Guide BLACK2 GPX; use the signed/public landing rather than informal bank access.',
+      },
+      {
+        id: 'perry-creek-landing',
+        name: 'Perry Creek Landing',
+        latitude: 44.2677999734879,
+        longitude: -90.8599599599838,
+        mileFromStart: 2.7,
+        segmentKind: 'creek',
+        note: 'Intermediate landing from Wisconsin Trail Guide GPX; verify parking and landing condition before counting on it as a bailout.',
+      },
+      {
+        id: 'masons-landing-black-river',
+        name: 'Mason Landing',
+        latitude: 44.254909992218,
+        longitude: -90.8801699876785,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Intermediate landing from Wisconsin Trail Guide GPX and a practical checkpoint before the state-forest campsite reach.',
+      },
+      {
+        id: 'black-river-dnr-canoe-campsite',
+        name: 'Black River State Forest canoe campsite',
+        latitude: 44.2352800369263,
+        longitude: -90.8825199604034,
+        mileFromStart: 6.2,
+        segmentKind: 'creek',
+        note: 'Mapped primitive canoe/kayak campsite; capacity and rules must be confirmed before treating it as an overnight plan.',
+      },
+      {
+        id: 'david-hansen-memorial-landing-irving',
+        name: 'David Hansen Memorial Landing / Irving',
+        latitude: 44.1876100301743,
+        longitude: -90.8989200592041,
+        mileFromStart: 12.1,
+        segmentKind: 'creek',
+        note: 'Default take-out from Wisconsin Trail Guide BLACK2 GPX at Irving.',
+      },
+    ],
+  },
+
+  'black-river-irving-melrose': {
+    putIn: {
+      id: 'david-hansen-memorial-landing-irving',
+      name: 'David Hansen Memorial Landing / Irving',
+      latitude: 44.1876100301743,
+      longitude: -90.8989200592041,
+    },
+    takeOut: {
+      id: 'melrose-public-landing',
+      name: 'Melrose Public Landing',
+      latitude: 44.1087900400162,
+      longitude: -90.99626994133,
+    },
+    logistics: {
+      distanceLabel: '11.8 mi',
+      estimatedPaddleTime: 'About 5 hr for most groups, longer with sandbar stops',
+      shuttle:
+        'Stage Melrose Public Landing first, then launch from David Hansen Memorial Landing at Irving. The route is long enough that a bike shuttle is indirect; most groups should use staged vehicles or a local shuttle.',
+      permits:
+        'No route-specific paddling permit is known. Use public landings, obey posted parking rules, and confirm any private campground landing before using it as anything other than a paid/permission access.',
+      camping:
+        'Wisconsin Trail Guide describes frequent lower-Black sandbar or beach camping, but this should be treated as conditional river camping. Confirm current water levels, weather, land ownership, and one-night-use expectations before planning an overnight.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch at David Hansen Memorial Landing in Irving and paddle the sandy lower Black River to Melrose. This is an easy current trip with islands, beaches, and a direct Black River Falls gauge ladder, but it still needs wood, water-level, and private-bank discipline.',
+      accessCaveats: [
+        'Wisconsin Trail Guide publishes GPX waypoints for Irving, a private Lost Falls Campground landing, Linde Landing, and the DNR landing at Melrose.',
+        'The private campground landing is not a default public access for this app route; use it only with permission or paid campground arrangements.',
+        'Wisconsin DNR says it owns and maintains Black River access at Melrose and North Bend, and the Trail Guide marks Melrose as the default downstream landing for this segment.',
+        'Sand beaches shift with water level and may disappear at higher flows; do not assume every exposed bar is legal or suitable for camping.',
+      ],
+      watchFor: [
+        'Shallow island channels and walking risk near the 200 cfs lower floor at Black River Falls.',
+        'Faster current, covered sandbars, and harder eddy service as the river climbs through the Trail Guide range.',
+        'Fresh strainers, outside-bend wood, motorboat wake in summer, and cold spring water.',
+        'Private banks, campground boundaries, and the commitment of missing Melrose and extending toward North Bend.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'david-hansen-memorial-landing-irving',
+        name: 'David Hansen Memorial Landing / Irving',
+        latitude: 44.1876100301743,
+        longitude: -90.8989200592041,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from Wisconsin Trail Guide BLACK3 GPX.',
+      },
+      {
+        id: 'linde-landing-black-river',
+        name: 'Linde Landing',
+        latitude: 44.1366200447083,
+        longitude: -90.9662100076675,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Intermediate landing from Wisconsin Trail Guide GPX; confirm public access, parking, and road condition before using it as a bailout.',
+      },
+      {
+        id: 'melrose-public-landing',
+        name: 'Melrose Public Landing',
+        latitude: 44.1087900400162,
+        longitude: -90.99626994133,
+        mileFromStart: 11.8,
+        segmentKind: 'creek',
+        note: 'Default take-out from Wisconsin Trail Guide BLACK3 GPX at the DNR Melrose landing.',
+      },
+    ],
+  },
+
+  'black-river-wayside-reese': {
+    putIn: {
+      id: 'wayside-park-popple-river',
+      name: 'Wayside Park / Popple River access',
+      latitude: 44.8366357,
+      longitude: -90.5984395,
+    },
+    takeOut: {
+      id: 'reese-avenue-bridge-access',
+      name: 'Reese Avenue bridge access',
+      latitude: 44.7687732,
+      longitude: -90.6041106,
+    },
+    logistics: {
+      distanceLabel: '6.8 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, longer with scouting or portaging',
+      shuttle:
+        'Stage Reese Avenue first, then launch from Wayside Park on the Popple River for the short lead-in to the Black River. Confirm take-out parking and bridge access from the road before putting on.',
+      permits:
+        'No route-specific paddling permit is known. Use public park or road-right-of-way access only, obey local parking signs, and do not trespass on private riverbanks.',
+      camping:
+        'No on-route public camping is documented for this short whitewater day run. Treat it as a day trip and use off-route campgrounds only under their normal rules.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Wayside Park, paddle the Popple River lead-in, then run the upper Black River to Reese Avenue. Wisconsin River Trips describes a compact whitewater day with many Class I rapids, several Class II rapids, and scoutable or portable Class III Hemlock Rapids.',
+      accessCaveats: [
+        'Wisconsin River Trips maps the 6.8-mile Wayside-to-Reese route and provides shuttle coordinates for Wayside Park and Reese Avenue.',
+        'The route begins on the Popple River before joining the Black; make sure the saved put-in matches the park access and not an informal Black River bank.',
+        'Reese Avenue is the default take-out. Continuing downstream commits to a different upper-Black plan with more access and hazard questions.',
+        'Clark County guidance for nearby Black River paddling warns that low Neillsville flows are difficult and high flows are dangerous for novice paddlers.',
+      ],
+      watchFor: [
+        'Hemlock Rapids, a Class III feature near Warner Drive that should be scouted and can be portaged when it exceeds the group skill level.',
+        'Multiple Class I-II rapids, sharp rocks, shallow ledges, and pinning hazards below the 301 cfs good-flow range.',
+        'Pushy current and rescue exposure as the Neillsville gauge climbs above the recreational window, with 751 cfs and higher reserved for whitewater paddlers.',
+        'Strainers, private banks, remote road spacing, cold water, and fast rises after rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'wayside-park-popple-river',
+        name: 'Wayside Park / Popple River access',
+        latitude: 44.8366357,
+        longitude: -90.5984395,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from Wisconsin River Trips shuttle coordinates; this is a Popple River launch for the upper Black River route.',
+      },
+      {
+        id: 'reese-avenue-bridge-access',
+        name: 'Reese Avenue bridge access',
+        latitude: 44.7687732,
+        longitude: -90.6041106,
+        mileFromStart: 6.8,
+        segmentKind: 'creek',
+        note: 'Default take-out from Wisconsin River Trips shuttle coordinates at Reese Avenue.',
+      },
+    ],
+  },
+
   'black-river-melrose-north-bend': {
     putIn: {
       name: 'Melrose Public Landing',
@@ -38465,6 +38681,8 @@ const retiredSplitDetailIds = new Set([
   'upper-iowa-river-cattle-creek-chimney-rock',
   'upper-iowa-river-chimney-rock-bluffton',
   'upper-iowa-river-bluffton-malanaphy',
+  'upper-iowa-river-cattle-creek-bluffton',
+  'upper-iowa-river-chimney-rock-malanaphy',
   'crow-wing-river-frames-landing-little-white-dog',
   'crow-wing-river-little-white-dog-knob-hill',
   'crow-wing-river-knob-hill-cottingham',
@@ -38804,6 +39022,390 @@ const consolidatedCrowWingDetails: RiverTripDetails = {
       mileFromStart: 14.9,
       segmentKind: 'creek',
       note: 'Default downstream finish for the family route.',
+    },
+  ],
+};
+
+baseRiverTripDetails['black-river-cormican-irving'] = {
+  putIn: {
+    id: 'black-river-bruce-cormican-landing',
+    name: 'Bruce Cormican Landing',
+    latitude: 44.28787,
+    longitude: -90.85102,
+  },
+  takeOut: {
+    id: 'black-river-david-hansen-irving',
+    name: 'David Hansen Memorial Landing / Irving',
+    latitude: 44.18761,
+    longitude: -90.89892,
+  },
+  logistics: {
+    distanceLabel: 'About 12.1 mi',
+    estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, wood, or scouting',
+    shuttle:
+      'Stage the David Hansen Memorial Landing at Irving first, then drive back to Bruce Cormican Landing. Confirm both landings and the long rural shuttle before launching.',
+    permits:
+      'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, state-forest and county access signs, and posted campsite restrictions.',
+    camping:
+      'Wisconsin Trail Guide maps a small Black River State Forest primitive canoe/kayak campsite between Mason Landing and Irving, with two first-come sites, a picnic table, fire ring, and shared toilet. Treat it as one-night-only, weather-dependent support rather than guaranteed capacity.',
+    campingClassification: 'on_route_campsite',
+    summary:
+      'Launch at Bruce Cormican Landing and finish at the David Hansen Memorial Landing in Irving. This is a long lower-Black connector with quietwater, shallow riffles, split channels, and remote shoreline.',
+    accessCaveats: [
+      'The route starts below the Black River Falls dam corridor; do not improvise an upstream launch or dam passage.',
+      'Hawk Island and shallow split channels can become bony at low water. Walk the landing and inspect the first channel before committing.',
+      'Use the signed Irving landing as the planned finish and do not substitute private campground access without permission.',
+    ],
+    watchFor: [
+      'Low-water scraping, exposed sandbars, split channels, and fresh wood after storms.',
+      'Cold water, strainers, rising current, and fatigue on the 12-mile commitment.',
+      'Remote shoreline and limited legal bailout options outside the named landings and campsite context.',
+    ],
+  },
+  accessPoints: [
+    {
+      id: 'black-river-bruce-cormican-landing',
+      name: 'Bruce Cormican Landing',
+      latitude: 44.28787,
+      longitude: -90.85102,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Default put-in below the Black River Falls dam corridor.',
+    },
+    {
+      id: 'black-river-perry-creek-landing',
+      name: 'Perry Creek Landing',
+      latitude: 44.2677999734879,
+      longitude: -90.8599599599838,
+      mileFromStart: 2.7,
+      segmentKind: 'creek',
+      note: 'Intermediate landing from Wisconsin Trail Guide GPX; verify parking and landing condition before counting on it as a bailout.',
+    },
+    {
+      id: 'black-river-masons-landing',
+      name: 'Mason Landing',
+      latitude: 44.254909992218,
+      longitude: -90.8801699876785,
+      mileFromStart: 4.5,
+      segmentKind: 'creek',
+      note: 'Intermediate landing from Wisconsin Trail Guide GPX and a practical checkpoint before the state-forest campsite reach.',
+    },
+    {
+      id: 'black-river-state-forest-canoe-campsite',
+      name: 'Black River State Forest canoe campsite',
+      latitude: 44.2352800369263,
+      longitude: -90.8825199604034,
+      mileFromStart: 6.2,
+      segmentKind: 'creek',
+      note: 'Mapped primitive canoe/kayak campsite; capacity and current rules must be confirmed before treating it as an overnight plan.',
+    },
+    {
+      id: 'black-river-david-hansen-irving',
+      name: 'David Hansen Memorial Landing / Irving',
+      latitude: 44.18761,
+      longitude: -90.89892,
+      mileFromStart: 12.1,
+      segmentKind: 'creek',
+      note: 'Default downstream finish and shuttle staging point.',
+    },
+  ],
+};
+
+baseRiverTripDetails['black-river-irving-melrose'] = {
+  putIn: {
+    id: 'black-river-david-hansen-irving',
+    name: 'David Hansen Memorial Landing / Irving',
+    latitude: 44.18761,
+    longitude: -90.89892,
+  },
+  takeOut: {
+    id: 'black-river-melrose-landing',
+    name: 'Melrose Landing',
+    latitude: 44.10879,
+    longitude: -90.99627,
+  },
+  logistics: {
+    distanceLabel: 'About 11.8 mi',
+    estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, wood, or scouting',
+    shuttle:
+      'Stage Melrose Landing first, then return to the David Hansen Memorial Landing at Irving. Leave daylight for the island channels and the rural shuttle.',
+    permits:
+      'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules and posted access, campground, and parking instructions.',
+    camping:
+      'Wisconsin Trail Guide describes frequent lower-Black sandbar or beach camping, but this should be treated as conditional river camping. Confirm current water levels, weather, land ownership, and one-night-use expectations before planning an overnight.',
+    campingClassification: 'sandbar_or_gravel_bar',
+    summary:
+      'Launch at Irving and finish at Melrose for the popular lower-Black sandbar and bluff segment. It is mostly quietwater with riffles, but the distance, island channels, and private-bank limits require a real shuttle plan.',
+    accessCaveats: [
+      'Use the named Irving and Melrose landings; Lost Falls Campground and other private landings are not default public stops.',
+      'Low water can force wading or boat dragging around islands, while high water covers sandbars and increases strainer consequences.',
+      'Do not continue below Melrose unless the separate Melrose-to-North Bend route and shuttle are intentional.',
+    ],
+    watchFor: [
+      'Shallow island channels, sandbars, strainers, and changing current after rain.',
+      'Cold water and long-route fatigue before the Melrose finish.',
+      'Private banks, campground traffic, and limited legal emergency exits.',
+    ],
+  },
+  accessPoints: [
+    {
+      id: 'black-river-david-hansen-irving',
+      name: 'David Hansen Memorial Landing / Irving',
+      latitude: 44.18761,
+      longitude: -90.89892,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Default put-in and public landing at the upstream end of BK3.',
+    },
+    {
+      id: 'black-river-linde-landing',
+      name: 'Linde Landing',
+      latitude: 44.1366200447083,
+      longitude: -90.9662100076675,
+      mileFromStart: 8,
+      segmentKind: 'creek',
+      note: 'Intermediate landing from Wisconsin Trail Guide GPX; confirm public access, parking, and road condition before using it as a bailout.',
+    },
+    {
+      id: 'black-river-melrose-landing',
+      name: 'Melrose Landing',
+      latitude: 44.10879,
+      longitude: -90.99627,
+      mileFromStart: 11.8,
+      segmentKind: 'creek',
+      note: 'Default downstream finish; do not assume nearby private campground access is public.',
+    },
+  ],
+};
+
+baseRiverTripDetails['black-river-wayside-reese'] = {
+  putIn: {
+    id: 'black-river-wayside-park',
+    name: 'Wayside Park / Popple River access',
+    latitude: 44.83664,
+    longitude: -90.59844,
+  },
+  takeOut: {
+    id: 'black-river-reese-avenue',
+    name: 'Reese Avenue canoe launch',
+    latitude: 44.7687732,
+    longitude: -90.6041106,
+  },
+  logistics: {
+    distanceLabel: 'About 6.8 mi',
+    estimatedPaddleTime: 'About 3 hr to 5 hr, longer with scouting or portages',
+    shuttle:
+      'Stage Reese Avenue first, then return to Wayside Park. The rural shuttle is short but the water is whitewater-filtered and should not be rushed.',
+    permits:
+      'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, local park signs, and posted roadside access instructions.',
+    camping:
+      'No on-route public camping is documented for this short whitewater day run. Treat it as a day trip and use off-route campgrounds only under their normal rules.',
+    campingClassification: 'none',
+    summary:
+      'Launch at Wayside Park on the Popple River and finish at Reese Avenue after the Popple-to-Black connector. Expect frequent Class I-II rapids, Hemlock Rapids, Giles Rapids, scout-or-portage decisions, and limited clean bailouts.',
+    accessCaveats: [
+      'Wayside Park is the named public start on the Popple; do not substitute an informal bridge shoulder without confirming legal access.',
+      'Reese Avenue is a small, somewhat hidden canoe launch near Greenwood. Walk the trail and confirm parking before staging the shuttle vehicle.',
+      'The route enters the Black River at the Popple confluence. Use Reese Avenue as the planned take-out and do not continue downstream into a separate Greenwood plan.',
+    ],
+    watchFor: [
+      'Hemlock Rapids, a Class III feature near Warner Drive that should be scouted and can be portaged when it exceeds the group skill level.',
+      'Frequent Class I-II rapids, low-water rock contact, high-water push, cold water, fresh wood, and limited emergency landings.',
+      'Remote or private banks outside the named Wayside and Reese access areas.',
+    ],
+  },
+  accessPoints: [
+    {
+      id: 'black-river-wayside-park',
+      name: 'Wayside Park / Popple River access',
+      latitude: 44.83664,
+      longitude: -90.59844,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Default put-in on the Popple River before the Black River confluence.',
+    },
+    {
+      id: 'black-river-reese-avenue',
+      name: 'Reese Avenue canoe launch',
+      latitude: 44.7687732,
+      longitude: -90.6041106,
+      mileFromStart: 6.8,
+      segmentKind: 'creek',
+      note: 'Planned finish near Greenwood; confirm the hidden trail and shoulder parking before launch.',
+    },
+  ],
+};
+
+baseRiverTripDetails['st-louis-river-forbes-zim'] = {
+  putIn: {
+    id: 'st-louis-forbes',
+    name: 'St. Louis River, Forbes Public Water Access Site',
+    latitude: 47.362165673829445,
+    longitude: -92.6007600922704,
+  },
+  takeOut: {
+    id: 'st-louis-zim',
+    name: 'St. Louis River, Zim Public Water Access Site',
+    latitude: 47.30593877598574,
+    longitude: -92.65953182883595,
+  },
+  logistics: {
+    distanceLabel: 'About 12.9 mi',
+    estimatedPaddleTime: 'About 5 hr to 8 hr, longer with low water, wood, or portage scouting',
+    shuttle:
+      'Stage the Zim public access first, then return to Forbes. Confirm the dam-aware Forbes launch and the remote Zim finish before committing to the shuttle.',
+    permits:
+      'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR access signs, and any dam or portage postings.',
+    camping:
+      'No on-route campsite is assumed for this connector. Use only mapped designated sites or nearby developed basecamp options.',
+    campingClassification: 'nearby_basecamp',
+    summary:
+      'Launch at Forbes and finish at Zim for the upper St. Louis access-pair connector. Expect Class I-II moving water, dam context, cold remote miles, wood, and limited bailout spacing.',
+    accessCaveats: [
+      'Start below the Forbes dam context and do not improvise around dam infrastructure.',
+      'Use only the named Forbes and Zim public accesses; private banks and informal pull-offs are not assumed legal.',
+      'The Forbes gauge is inside the corridor but cannot replace a same-day visual check for wood, depth, and access conditions.',
+    ],
+    watchFor: [
+      'Low-water rock exposure and dragging below the official floor.',
+      'Fresh wood, rising water, cold exposure, and long rescue spacing.',
+      'Dam approach and portage decisions near Forbes, plus private-bank limits downstream.',
+    ],
+  },
+  accessPoints: [
+    {
+      id: 'st-louis-forbes',
+      name: 'St. Louis River, Forbes Public Water Access Site',
+      latitude: 47.362165673829445,
+      longitude: -92.6007600922704,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Default put-in at DNR river mile 125.9 below the Forbes dam context.',
+    },
+    {
+      id: 'st-louis-zim',
+      name: 'St. Louis River, Zim Public Water Access Site',
+      latitude: 47.30593877598574,
+      longitude: -92.65953182883595,
+      mileFromStart: 12.9,
+      segmentKind: 'creek',
+      note: 'Default take-out at DNR river mile 113.0.',
+    },
+  ],
+};
+
+baseRiverTripDetails['cannon-river-riverside-miesville'] = {
+  putIn: {
+    id: 'cannon-riverside-park',
+    name: 'Cannon River, Riverside Park Public Water Access Site',
+    latitude: 44.51191316068156,
+    longitude: -92.90681548046199,
+  },
+  takeOut: {
+    id: 'cannon-miesville-ravine',
+    name: 'Cannon River, Miesville Ravine County Park Public Water Access Site',
+    latitude: 44.54305655093129,
+    longitude: -92.80084157065109,
+  },
+  logistics: {
+    distanceLabel: 'About 6.9 mi',
+    estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, wood, or high current',
+    shuttle:
+      'Stage Miesville Ravine County Park first, then return to Riverside Park in Cannon Falls. Walk both public landings and confirm parking before launch.',
+    permits:
+      'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, county-park rules, and posted access restrictions.',
+    camping:
+      'No on-route campsite is assumed. Treat Riverside Park and Miesville Ravine as day-route endpoints or nearby basecamp context only.',
+    campingClassification: 'nearby_basecamp',
+    summary:
+      'Launch at Riverside Park and finish at Miesville Ravine County Park for the short lower-Cannon day. It is approachable moving water, but proxy-gauge distance, strainers, riffles, and private banks still require a deliberate plan.',
+    accessCaveats: [
+      'Welch is downstream of this reach, so pair the official band with visual checks at both endpoints.',
+      'Use only the named public parks and legal stops; do not assume private banks or gravel bars are available.',
+      'Confirm the Miesville landing and parking before launching because the route finish is outside Cannon Falls.',
+    ],
+    watchFor: [
+      'Strainers, bridge current, riffles, and rising water after storms.',
+      'Cold water outside the warmest season and low-water shallows near the official scrapable floor.',
+      'Private shoreline and limited exits between the two county/public accesses.',
+    ],
+  },
+  accessPoints: [
+    {
+      id: 'cannon-riverside-park',
+      name: 'Cannon River, Riverside Park Public Water Access Site',
+      latitude: 44.51191316068156,
+      longitude: -92.90681548046199,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Default put-in at DNR river mile 25.5.',
+    },
+    {
+      id: 'cannon-miesville-ravine',
+      name: 'Cannon River, Miesville Ravine County Park Public Water Access Site',
+      latitude: 44.54305655093129,
+      longitude: -92.80084157065109,
+      mileFromStart: 6.9,
+      segmentKind: 'creek',
+      note: 'Default take-out at DNR river mile 18.5.',
+    },
+  ],
+};
+
+baseRiverTripDetails['cedar-river-ramsey-austin-mill-pond'] = {
+  putIn: {
+    id: 'cedar-river-ramsey-mill-pond',
+    name: 'Cedar River, Ramsey Mill Pond Public Water Access Site',
+    latitude: 43.70648117215681,
+    longitude: -92.95951811749727,
+  },
+  takeOut: {
+    id: 'cedar-river-austin-mill-pond',
+    name: 'Austin Mill Pond Public Water Access Site',
+    latitude: 43.674039181636296,
+    longitude: -92.97327961720995,
+  },
+  logistics: {
+    distanceLabel: 'About 3.7 mi',
+    estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer with low water, wood, or scouting',
+    shuttle:
+      'Stage Austin Mill Pond first, then return to Ramsey Mill Pond. Identify the Austin landing from land before launch so the short city reach ends where intended.',
+    permits:
+      'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, city/park access signs, and all dam or mill-pond postings.',
+    camping:
+      'No on-route campsite is assumed. Treat the Austin-area parks and ponds as day-route or nearby basecamp context only.',
+    campingClassification: 'nearby_basecamp',
+    summary:
+      'Launch at Ramsey Mill Pond and finish at Austin Mill Pond for the short Austin-area Cedar connector. The route is compact, but low-head-dam boundaries, urban debris, fast rises, and a proxy gauge keep it in the caution tier.',
+    accessCaveats: [
+      'Start below the Ramsey Mill Pond dam context and do not continue through dam or mill-pond structures without a separate portage plan.',
+      'The Lansing gauge is upstream; inspect actual depth, snags, and bridge current at Ramsey before committing.',
+      'Austin Mill Pond is the planned finish. Do not let the route drift into an unplanned downstream dam problem.',
+    ],
+    watchFor: [
+      'Dam rubble, mandatory take-out discipline, snags, overhanging trees, and city-bridge current.',
+      'Low-water debris exposure and storm-driven rises.',
+      'Private banks and posted urban access boundaries outside the two named public sites.',
+    ],
+  },
+  accessPoints: [
+    {
+      id: 'cedar-river-ramsey-mill-pond',
+      name: 'Cedar River, Ramsey Mill Pond Public Water Access Site',
+      latitude: 43.70648117215681,
+      longitude: -92.95951811749727,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Default put-in at DNR river mile 21.2 below the Ramsey Mill Pond dam context.',
+    },
+    {
+      id: 'cedar-river-austin-mill-pond',
+      name: 'Austin Mill Pond Public Water Access Site',
+      latitude: 43.674039181636296,
+      longitude: -92.97327961720995,
+      mileFromStart: 3.7,
+      segmentKind: 'creek',
+      note: 'Default take-out at DNR river mile 17.5.',
     },
   ],
 };
@@ -39998,9 +40600,9 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     takeOut: {
       id: 'dundee-access',
-      name: 'Dundee Access',
-      latitude: 42.57831,
-      longitude: -91.54375,
+      name: 'Dundee Access / Dundee Wildlife Area',
+      latitude: 42.5816,
+      longitude: -91.5461,
     },
     logistics: {
       distanceLabel: 'About 1.8 to 2.1 mi',
@@ -40035,11 +40637,11 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         segmentKind: 'creek',
         note: 'Default below-dam put-in; do not include the dam or private upstream reach.',
       },
-      {
-        id: 'dundee-access',
-        name: 'Dundee Access',
-        latitude: 42.57831,
-        longitude: -91.54375,
+        {
+          id: 'dundee-access',
+          name: 'Dundee Access / Dundee Wildlife Area',
+          latitude: 42.5816,
+          longitude: -91.5461,
         mileFromStart: 1.8,
         segmentKind: 'creek',
         note: 'Default take-out for the Backbone-to-Dundee water-trail opener.',
@@ -40923,6 +41525,180 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 11.8,
         segmentKind: 'creek',
         note: 'Official DNR take-out at river mile 0, river right, with no parking at the access.',
+      },
+    ],
+  },
+
+  'st-louis-river-forbes-zim': {
+    putIn: {
+      id: 'st-louis-forbes',
+      name: 'St. Louis River, Forbes Public Water Access Site',
+      latitude: 47.362165673829445,
+      longitude: -92.6007600922704,
+    },
+    takeOut: {
+      id: 'st-louis-zim',
+      name: 'St. Louis River, Zim Public Water Access Site',
+      latitude: 47.30593877598574,
+      longitude: -92.65953182883595,
+    },
+    logistics: {
+      distanceLabel: '12.9 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low-water dragging, scouting, or wood',
+      shuttle:
+        'Stage Zim first, then drive back to Forbes. Check the Forbes DNR gauge and walk both carry-in accesses before launching because the current run-start reading was below the official scrapable floor.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR public accesses, follow Minnesota boating/PFD rules, and check current St. Louis River water-trail alerts.',
+      camping:
+        'Treat this as a day trip. No designated on-route campsite was verified between Forbes and Zim; use only separately confirmed public or private campground options off route.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Forbes DNR public access and take out at Zim for the missing upper-St. Louis connector between the County-Road-95-to-Forbes and Zim-to-Toivola cards. The route uses the direct Forbes DNR gauge and carries low-water, dam, cold-water, and remote-rescue caveats.',
+      accessCaveats: [
+        'Forbes resolves in Minnesota public-water-access GIS as WAS00614 near DNR river mile 125.9.',
+        'Zim resolves in Minnesota public-water-access GIS as WAS00613 near DNR river mile 113.0.',
+        'Keep the trip framed from public access to public access. Do not use private banks or dam infrastructure for routine stops.',
+      ],
+      watchFor: [
+        'Below-scrapable Forbes readings, exposed boulder beds, rocky shallows, and possible dragging.',
+        'Class I-II current, fresh wood, strainers, cold water, remote banks, and limited services.',
+        'Forbes dam/portage context at the upstream boundary and private-property limits throughout the corridor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'st-louis-forbes',
+        name: 'St. Louis River, Forbes Public Water Access Site',
+        latitude: 47.362165673829445,
+        longitude: -92.6007600922704,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public-water-access GIS resolves WAS00614 at river mile 125.9.',
+      },
+      {
+        id: 'st-louis-zim',
+        name: 'St. Louis River, Zim Public Water Access Site',
+        latitude: 47.30593877598574,
+        longitude: -92.65953182883595,
+        mileFromStart: 12.9,
+        segmentKind: 'creek',
+        note: 'Default take-out; public-water-access GIS resolves WAS00613 at river mile 113.0.',
+      },
+    ],
+  },
+
+  'cannon-river-riverside-miesville': {
+    putIn: {
+      id: 'cannon-riverside-park',
+      name: 'Cannon River, Riverside Park Public Water Access Site',
+      latitude: 44.51191316068156,
+      longitude: -92.90681548046199,
+    },
+    takeOut: {
+      id: 'cannon-miesville-ravine',
+      name: 'Cannon River, Miesville Ravine County Park Public Water Access Site',
+      latitude: 44.54305655093129,
+      longitude: -92.80084157065109,
+    },
+    logistics: {
+      distanceLabel: 'About 6.9 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with fishing stops, low water, or wood',
+      shuttle:
+        'Stage Miesville Ravine County Park first, then launch from Riverside Park in Cannon Falls. Check the Welch DNR gauge trend and inspect both park landings before committing.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules and obey Cannon Falls, Dakota County park, DNR water-trail, and private-property postings.',
+      camping:
+        'Treat this as a day trip. No on-route campsite was verified between Riverside Park and Miesville Ravine; use nearby campgrounds or park lodging only if separately confirmed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Cannon Falls Riverside Park and take out at Miesville Ravine County Park for a short lower-Cannon public-access day. The downstream Welch DNR gauge was in the official medium band during this run, but wood, riffles, and private banks still need same-day judgment.',
+      accessCaveats: [
+        'Riverside Park resolves in Minnesota public-water-access GIS as WAS01692 at DNR river mile 25.5.',
+        'Miesville Ravine County Park resolves in Minnesota public-water-access GIS as WAS01694 at DNR river mile 18.5.',
+        'Welch is downstream of this pair. Use the official bands as lower-Cannon context and confirm local depth at launch.',
+      ],
+      watchFor: [
+        'Strainers, downed trees, bridge current, shallow riffles, cold water, and faster current after rain.',
+        'Private banks and limited legal stopping options outside the public park accesses.',
+        'Wind and fatigue are minor compared with wood and current, but still matter for novice groups.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cannon-riverside-park',
+        name: 'Cannon River, Riverside Park Public Water Access Site',
+        latitude: 44.51191316068156,
+        longitude: -92.90681548046199,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at Cannon Falls; public-water-access GIS resolves WAS01692 at river mile 25.5.',
+      },
+      {
+        id: 'cannon-miesville-ravine',
+        name: 'Cannon River, Miesville Ravine County Park Public Water Access Site',
+        latitude: 44.54305655093129,
+        longitude: -92.80084157065109,
+        mileFromStart: 6.9,
+        segmentKind: 'creek',
+        note: 'Default take-out; public-water-access GIS resolves WAS01694 at river mile 18.5.',
+      },
+    ],
+  },
+
+  'cedar-river-ramsey-austin-mill-pond': {
+    putIn: {
+      id: 'cedar-river-ramsey-mill-pond',
+      name: 'Cedar River, Ramsey Mill Pond Public Water Access Site',
+      latitude: 43.70648117215681,
+      longitude: -92.95951811749727,
+    },
+    takeOut: {
+      id: 'cedar-river-austin-mill-pond',
+      name: 'Austin Mill Pond Public Water Access Site',
+      latitude: 43.674039181636296,
+      longitude: -92.97327961720995,
+    },
+    logistics: {
+      distanceLabel: 'About 3.7 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer with low water, debris, or dam-area scouting',
+      shuttle:
+        'Stage Austin Mill Pond first, then drive back to Ramsey Mill Pond. Walk the Austin landing before launch so the short city finish is clear.',
+      permits:
+        'No route-specific paddling permit is known. Use the public accesses, follow Minnesota boating/PFD rules, and obey posted city, DNR, dam, and private-property restrictions.',
+      camping:
+        'Treat this as a short day route. DNR does not document an on-route campsite between Ramsey and Austin Mill Pond, and private-bank camping should not be assumed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Ramsey Mill Pond and take out at Austin Mill Pond for the short Cedar River connector above the existing Riverwood-to-State-Line card. Dam boundaries, snags, and the upstream Lansing proxy gauge are the main planning caveats.',
+      accessCaveats: [
+        'Ramsey Mill Pond resolves in Minnesota public-water-access GIS as WAS01376 at DNR river mile 21.2.',
+        'Austin Mill Pond resolves in Minnesota public-water-access GIS as WAS01390 at DNR river mile 17.5.',
+        'The Lansing gauge is upstream of the route. Pair it with local visual checks and avoid extending through dam or mill-pond structures unless separately planned.',
+      ],
+      watchFor: [
+        'Low-head dam and mill-pond boundary hazards at the route edges.',
+        'Snags, overhanging trees, bridge current, urban debris, private banks, and fast rises after rain.',
+        'Low-water scraping or dragging when the Lansing gauge falls toward the official low and scrapable bands.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cedar-river-ramsey-mill-pond',
+        name: 'Cedar River, Ramsey Mill Pond Public Water Access Site',
+        latitude: 43.70648117215681,
+        longitude: -92.95951811749727,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public-water-access GIS resolves WAS01376 at river mile 21.2.',
+      },
+      {
+        id: 'cedar-river-austin-mill-pond',
+        name: 'Austin Mill Pond Public Water Access Site',
+        latitude: 43.674039181636296,
+        longitude: -92.97327961720995,
+        mileFromStart: 3.7,
+        segmentKind: 'creek',
+        note: 'Default take-out; public-water-access GIS resolves WAS01390 at river mile 17.5.',
       },
     ],
   },

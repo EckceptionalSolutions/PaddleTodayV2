@@ -272,7 +272,7 @@ export function ExploreFilterSheet({
           <View style={styles.sheetHeader} {...panResponder.panHandlers}>
             <View style={styles.sheetTitleCopy}>
               <Text style={styles.sheetTitle}>Filters</Text>
-              <Text style={styles.sheetSubtitle}>{matchCount} routes match this setup</Text>
+            <Text style={styles.sheetSubtitle}>{matchCount} routes match these filters</Text>
             </View>
             <Pressable style={styles.sheetCancelButton} onPress={onDismiss}>
               <Text style={styles.sheetCancelText}>Cancel</Text>
@@ -586,7 +586,7 @@ function PresetChip({ label, selected, onPress }: { label: string; selected: boo
 export function ActiveFilterStrip({ filters, locationReady }: { filters: ExploreFilters; locationReady: boolean }) {
   const active = activeFilterLabels(filters, locationReady);
   if (active.length === 0) {
-    return <Text style={styles.filterHint}>Default view shows every route and ranks good picks first.</Text>;
+    return <Text style={styles.filterHint}>Default view shows every route. Routes are sorted by score.</Text>;
   }
 
   return (

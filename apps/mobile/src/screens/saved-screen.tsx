@@ -156,7 +156,7 @@ export default function SavedScreen() {
           />
           <SavedRouteGroup
             title="Watch closely"
-            subtitle="Saved routes that may improve or need extra judgment."
+            subtitle="Saved routes that need a closer look."
             rivers={savedGroups.watch}
             empty="No saved route is in the maybe range."
             isSaved={isSaved}

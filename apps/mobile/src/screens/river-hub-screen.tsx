@@ -177,7 +177,7 @@ export default function RiverHubScreen() {
               <Text style={styles.subtitle}>{hubStatusLine(summary, result.group.routeCount)}</Text>
               <View style={styles.heroMeta}>
                 <MetricPill label="Routes" value={String(result.group.routeCount)} />
-                <MetricPill label="Paddleable" value={String(summary.paddleable)} />
+                <MetricPill label="Good for paddling today" value={String(summary.paddleable)} />
                 <MetricPill label="Skip" value={String(summary.skip)} />
               </View>
             </View>
@@ -219,7 +219,7 @@ export default function RiverHubScreen() {
                 <PlanningStat label="Best score" value={planningStats.bestScoreLabel} />
                 <PlanningStat label="Shortest" value={planningStats.shortestLabel} />
                 <PlanningStat label="Easiest" value={planningStats.easyCountLabel} />
-                <PlanningStat label="Paddleable" value={planningStats.paddleableLabel} />
+                <PlanningStat label="Good for paddling today" value={planningStats.paddleableLabel} />
               </View>
             </View>
           </>
@@ -454,15 +454,15 @@ function routeStatusSummary(routes: RiverDetailApiResult[]) {
 }
 
 function hubStatusLine(summary: { paddleable: number; skip: number }, total: number) {
-  const paddleable = `${summary.paddleable} of ${total} paddleable today`;
+  const paddleable = `${summary.paddleable} of ${total} good for paddling today`;
   const skips = `${summary.skip} skip${summary.skip === 1 ? '' : 's'}`;
   return [paddleable, skips].join(' - ');
 }
 
 function comparisonSubtitle(summary: { paddleable: number; skip: number }) {
-  const paddleableLabel = `${summary.paddleable} paddleable`;
+  const paddleableLabel = `${summary.paddleable} good for paddling today`;
   const skipLabel = `${summary.skip} skip${summary.skip === 1 ? '' : 's'}`;
-  return `${paddleableLabel}, ${skipLabel}. Ranked by today's score.`;
+  return `${paddleableLabel}, ${skipLabel}. Sorted by today's score.`;
 }
 
 function compareBestRoute(left: RiverDetailApiResult, right: RiverDetailApiResult) {
@@ -521,10 +521,10 @@ function sortIcon(sortMode: SortMode) {
 
 function sourceStrengthLabel(route: RiverDetailApiResult) {
   const strength = route.river.profile.thresholdSourceStrength;
-  if (strength === 'official') return 'Official thresholds';
+  if (strength === 'official') return 'Official water levels';
   if (strength === 'mixed') return 'Mixed sources';
-  if (strength === 'derived') return 'Derived thresholds';
-  return 'Community thresholds';
+  if (strength === 'derived') return 'Calculated water levels';
+  return 'Paddler-reported levels';
 }
 
 function routeMetaLine(route: RiverDetailApiResult) {
@@ -574,11 +574,11 @@ function friendlyCapReason(reason: string) {
   }
 
   if (/Near-freezing air caps today at 70\.|Cold air limits today's score to 70 or lower\./i.test(normalized)) {
-    return 'Cold air keeps today from scoring higher, even if the river itself looks good.';
+    return 'Cold air lowered the score.';
   }
 
   if (/High wind caps today at 75\.|Strong wind limits today's score to 75 or lower\./i.test(normalized)) {
-    return 'Strong wind puts a ceiling on today, even if the gauge is in range.';
+    return 'Strong wind lowered the score.';
   }
 
   if (/Imminent heavy rain caps today at 65\.|Heavy rain or storms likely soon limit the score to 65\.|Heavy rain or storms likely soon limit today's score to 65 or lower\./i.test(normalized)) {

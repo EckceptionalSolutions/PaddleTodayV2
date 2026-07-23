@@ -118,10 +118,10 @@ export function labelForExploreIntent(intent: ExploreIntentId) {
 export function descriptionForExploreIntent(intent: ExploreIntentId, locationReady: boolean) {
   const suffix = locationReady ? ' near you' : '';
   if (intent === 'best-nearby') return `Nearby routes sorted by drive time${suffix}.`;
-  if (intent === 'clean-now') return `Strong and Good route calls${suffix}.`;
-  if (intent === 'watch') return `Fair calls worth monitoring${suffix}.`;
-  if (intent === 'skip') return `No-go calls grouped for rechecks${suffix}.`;
-  if (intent === 'quick-float') return `Easy or moderate rec routes under three hours${suffix}.`;
+  if (intent === 'clean-now') return `Strong and Good routes${suffix}.`;
+  if (intent === 'watch') return `Routes to watch${suffix}.`;
+  if (intent === 'skip') return `No-go routes to check again later${suffix}.`;
+  if (intent === 'quick-float') return `Easy or moderate routes under three hours${suffix}.`;
   if (intent === 'camping') return `Routes with camping support${suffix}.`;
   return 'Full-day single-day routes sorted by score.';
 }

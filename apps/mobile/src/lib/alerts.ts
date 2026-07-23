@@ -24,7 +24,7 @@ export function alertMutationMessage(
   }
 
   if (deliveryMethod === 'push') {
-    return `${thresholdLabel} phone alert is on. You will get notified when this route crosses that call.`;
+    return `${thresholdLabel} phone alert is on. You will get notified when this route reaches ${thresholdLabel}.`;
   }
 
   return `Alert saved. You will get emailed on the next ${thresholdLabel} crossing, with an unsubscribe link in the email.`;

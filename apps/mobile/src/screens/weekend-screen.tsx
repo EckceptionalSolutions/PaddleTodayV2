@@ -139,8 +139,8 @@ export default function WeekendScreen() {
         <Text style={styles.title}>Plan the weekend</Text>
         <Text style={styles.subtitle}>
           {location
-            ? 'Ranked by forecast, river shape, confidence, and drive time.'
-            : 'Add location to rank realistic drives first.'}
+            ? 'Sorted by forecast, river conditions, and drive time.'
+            : 'Add your location to sort by drive time.'}
         </Text>
 
         <WeekendLocationStrip
@@ -160,9 +160,9 @@ export default function WeekendScreen() {
         <View style={styles.heroPanel}>
           <View style={styles.heroHeader}>
             <Text style={styles.heroLabel} numberOfLines={1}>
-              {location ? `Near ${location.label}` : hasWeekendPlan ? (weekendQuery.data?.label ?? 'Weekend outlook') : 'Across supported routes'}
+              {location ? `Near ${location.label}` : hasWeekendPlan ? (weekendQuery.data?.label ?? 'Weekend outlook') : 'Across available routes'}
             </Text>
-            <Text style={styles.heroFreshness}>{location ? rangeFreshnessLabel(distanceLimit) : hasWeekendPlan ? 'Forecast-aware' : 'No clean plan'}</Text>
+            <Text style={styles.heroFreshness}>{location ? rangeFreshnessLabel(distanceLimit) : hasWeekendPlan ? 'Forecast included' : 'No clean plan'}</Text>
           </View>
 
           <View style={styles.snapshotRow}>
@@ -177,7 +177,7 @@ export default function WeekendScreen() {
               onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: featured.river.slug } })}
               android_ripple={{ color: colors.canvasMuted }}
             >
-              <Text style={styles.featuredLabel}>{location ? 'Top nearby weekend pick' : 'Top weekend pick'}</Text>
+              <Text style={styles.featuredLabel}>{location ? 'Best nearby' : 'Best weekend option'}</Text>
               <Text style={styles.featuredName}>{featured.river.name}</Text>
               <Text style={styles.featuredReach}>{featured.river.reach}</Text>
               <View style={styles.featuredFacts}>
@@ -193,7 +193,7 @@ export default function WeekendScreen() {
               onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: featured.river.slug } })}
               android_ripple={{ color: colors.canvasMuted }}
             >
-              <Text style={styles.featuredLabel}>{expandedPicks.length > 0 ? 'Nearest expanded option' : 'No clean weekend plan'}</Text>
+              <Text style={styles.featuredLabel}>{expandedPicks.length > 0 ? 'Next closest option' : 'No clean weekend plan'}</Text>
               <Text style={styles.featuredName}>{featured.river.name}</Text>
               <Text style={styles.featuredReach}>{featured.river.reach}</Text>
               <View style={styles.featuredFacts}>
@@ -209,7 +209,7 @@ export default function WeekendScreen() {
             </Pressable>
           ) : (
             <Text style={styles.emptyText}>
-              No strong weekend picks are available right now. Use Today or Explore for current route calls and check back as the forecast changes.
+              No strong weekend options right now. Check Today or Explore for current routes.
             </Text>
           )}
         </View>
@@ -228,7 +228,7 @@ export default function WeekendScreen() {
       {(weekendFilter === 'all' || weekendFilter === 'day-trips') && topPicks.length > 0 ? (
         <SectionCard
           title={location ? 'Best near you' : 'Best weekend'}
-          subtitle={location ? 'Good weekend calls with drive time included.' : 'Good options if the forecast holds.'}
+          subtitle={location ? 'Good weekend calls with drive time included.' : 'Good weekend options.'}
         >
           <View style={styles.list}>
             {topPicks.map((river) => (
@@ -254,7 +254,7 @@ export default function WeekendScreen() {
 
       {(weekendFilter === 'all' || weekendFilter === 'day-trips') && lowerCommitment.length > 0 ? (
         <SectionCard
-          title="Lower commitment"
+          title="Shorter or easier routes"
           subtitle={location ? 'Easier or shorter options after the top nearby picks.' : 'Shorter, easier routes.'}
         >
           <View style={styles.list}>
@@ -266,7 +266,7 @@ export default function WeekendScreen() {
       {(weekendFilter === 'all' || weekendFilter === 'rechecks') && !hasWeekendPlan && nearbyWatch.length > 0 ? (
         <SectionCard
           title={location ? 'Worth watching nearby' : 'Worth watching'}
-          subtitle="Fair calls inside your selected range."
+          subtitle="Routes to watch within your range."
         >
           <View style={styles.list}>
             {nearbyWatch.map((river) => renderWeekendCard(river))}
@@ -288,7 +288,7 @@ export default function WeekendScreen() {
       {(weekendFilter === 'all' || weekendFilter === 'camping') && campingFriendlyRoutes.length > 0 ? (
         <SectionCard
           title="Camping-friendly"
-          subtitle="Good weekend calls with campground, base-camp, or overnight support."
+          subtitle="Good weekend routes with camping nearby or along the way."
         >
           <View style={styles.list}>
             {campingFriendlyRoutes.map((river) => renderWeekendCard(river))}
@@ -301,7 +301,7 @@ export default function WeekendScreen() {
           title="Watch list"
           subtitle={
             watchList.length > 0
-              ? 'Possible options to re-check as the forecast settles.'
+              ? 'Watch routes as the forecast settles.'
               : 'No watch-list routes right now.'
           }
         >
@@ -376,7 +376,7 @@ function WeekendLocationStrip({
           {locationLabel ? `Planning from ${locationLabel}` : 'Plan from your location'}
         </Text>
         <Text style={styles.locationHint}>
-          {locationLabel ? 'Drive times included.' : 'Use location for drive-aware picks.'}
+          {locationLabel ? 'Drive times included.' : 'Use your location to sort by drive time.'}
         </Text>
       </View>
       <Pressable

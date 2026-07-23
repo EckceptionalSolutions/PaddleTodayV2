@@ -69,10 +69,10 @@ export function ratingVerdictLabel(
 }
 
 export function ratingDetailMessage(rating: ScoreRating) {
-  if (rating === 'Strong') return 'Conditions line up well.';
-  if (rating === 'Good') return 'Good with normal checks.';
-  if (rating === 'Fair') return 'Possible paddle with caution.';
-  return 'Not a clean yes today.';
+  if (rating === 'Strong') return 'Good to go.';
+  if (rating === 'Good') return 'Good to paddle.';
+  if (rating === 'Fair') return 'Watch closely.';
+  return 'Skip today.';
 }
 
 export function buildTodayBoardSnapshot(rivers: TodayBoardItem[]): TodayBoardSnapshot {

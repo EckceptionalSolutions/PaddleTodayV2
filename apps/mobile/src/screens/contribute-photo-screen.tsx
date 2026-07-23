@@ -329,7 +329,7 @@ export default function ContributePhotoScreen() {
             />
             <ConsentRow
               checked={contactConsent}
-              label="It is okay to contact me if more detail is needed."
+              label="I agree to follow-up questions."
               onPress={() => setContactConsent((current) => !current)}
             />
 

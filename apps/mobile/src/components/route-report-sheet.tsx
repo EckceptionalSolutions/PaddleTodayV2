@@ -241,14 +241,14 @@ export function RouteReportSheet({
                 style={styles.reportConsentRow}
                 onPress={onToggleContactConsent}
                 accessibilityRole="checkbox"
-                accessibilityLabel="It is okay to contact me if more detail is needed."
+                accessibilityLabel="I agree to follow-up questions."
                 accessibilityState={{ checked: contactConsentConfirmed }}
               >
                 <View style={[styles.checkbox, contactConsentConfirmed ? styles.checkboxChecked : null]}>
                   {contactConsentConfirmed ? <Text style={styles.checkboxMark}>✓</Text> : null}
                 </View>
                 <Text style={styles.reportConsentText}>
-                  It is okay to contact me if more detail is needed.
+                  I agree to follow-up questions.
                 </Text>
               </Pressable>
               <Pressable

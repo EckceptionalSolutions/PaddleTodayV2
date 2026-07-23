@@ -1,5 +1,15 @@
 # Minnesota Route Memory
 
+## 2026-07-23 08:11 America/Chicago / 2026-07-23 13:11 UTC Minnesota St. Louis / Cannon / Cedar implementation pass
+
+- Treated the current exported route inventory as the run-start baseline and expanded Minnesota from `176` to `179` live route slugs by adding `st-louis-river-forbes-zim`, `cannon-river-riverside-miesville`, and `cedar-river-ramsey-austin-mill-pond`.
+- Qualification path: MN DNR St. Louis Map 1 plus public-water-access GIS support Forbes-to-Zim with Forbes `WAS00614`, Zim `WAS00613`, and direct Forbes site `244`; MN DNR Cannon segments/map plus public-water-access GIS support Riverside-Park-to-Miesville with Riverside `WAS01692`, Miesville `WAS01694`, and downstream Welch site `13`; MN DNR Cedar map plus public-water-access GIS support Ramsey-Mill-Pond-to-Austin-Mill-Pond with Ramsey `WAS01376`, Austin Mill Pond `WAS01390`, and upstream Lansing site `287`.
+- Live gauge verification: MN DNR river-level feed returned Forbes site `244` at `2.77 ft` at `2026-07-23 05:45 CDT`, Cannon Welch site `13` at `1070 cfs` at `2026-07-23 05:00 CDT`, and Cedar Lansing site `287` at `69.8 cfs` at `2026-07-23 05:30 CDT`.
+- Implemented official DNR interpreted gauge models only: Forbes `3 / 3.7-7.6 / 8 ft`, Welch `231 / 300-1540 / 3000 cfs`, and Lansing `8.9 / 15.2-429.5 / 513.4 cfs`. No inferred ideal ranges or upper cutoffs were added.
+- Camping posture: all three are no-camping day routes. Forbes-to-Zim fills a St. Louis access-chain gap and carries whitewater, dam/portage, cold-water, low-water, remote-rescue, and private-bank caveats. Riverside-to-Miesville carries downstream-gauge, riffle, strainer, fast-rise, cold-water, and private-bank caveats. Ramsey-to-Austin carries low-head-dam boundary, mandatory take-out, upstream-proxy-gauge, snag, fast-rise, and urban/debris caveats.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add: `mississippi-river-cass-lake-winnibigoshish` was reconciled as already represented by current `mississippi-river-knutson-dam-west-winnie`, and Fond-du-Lac-to-Oldenburg stayed out because the reservoir/falls gauge tie remains less direct than the selected public-access gaps.
+
 ## 2026-07-23 07:15 America/Chicago / 2026-07-23 12:15 UTC Minnesota Pine/Root/South Fork Crow implementation pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `173` to `176` route slugs by adding `pine-river-cross-lake-rock-dam`, `root-river-houston-mound-prairie`, and `south-fork-crow-river-otter-lake-masonic`.
