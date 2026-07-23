@@ -11,7 +11,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-23 03:50 run added three routes beyond the current 73-route baseline: `maquoketa-river-ebys-mill-supples-bridge`, `maquoketa-river-backbone-dundee`, and `maquoketa-river-quaker-mill-baileys-ford`.
+Iowa remains mature overall. The latest 2026-07-23 04:58 run added three routes beyond the current 76-route baseline: `north-raccoon-river-rainbow-bend-richey`, `iowa-river-tailwater-east-sturgis-ferry`, and `shell-rock-river-strand-wilkinson`.
+
+## 2026-07-23 04:58 North Raccoon / Iowa River / Shell Rock pass
+
+- Baseline at run start: 76 Iowa live routes, verified from `src/data/rivers.ts` with `tsx`.
+- Added `north-raccoon-river-rainbow-bend-richey`, `iowa-river-tailwater-east-sturgis-ferry`, and `shell-rock-river-strand-wilkinson`, bringing the imported Iowa count to 79 live routes.
+- Qualification path: North Raccoon uses the Iowa DNR Calhoun/Carroll/Sac guide exact Rainbow-Bend-to-Richey segment, official Lanesboro/Jefferson gauge guidance, public access/camping notes, and current USGS data. Iowa River uses CanWePaddle's Coralville-Dam-to-Iowa-City range, USACE Tailwater East ramp/status/camping sources, Sturgis Ferry take-out context, and direct USGS `05454500`. Shell Rock uses Cerro Gordo/Visit Mason City access support, Iowa DNR county recreation context, prior Paddling.com route-specific Shell Rock flow note, and restored-current USGS `05462000`.
+- Gauge posture: USGS Water Services returned North Raccoon Lanesboro `7.69 ft` and Jefferson `238 cfs / 5.16 ft` at 2026-07-23 04:15 CDT, Iowa River at Iowa City `2,260 cfs / 11.83 ft` at 04:00 CDT, and Shell Rock River at Shell Rock `2,090 cfs / 9.19 ft` at 03:45 CDT.
+- Threshold posture: North Raccoon uses DNR's official Lanesboro `11 ft` ceiling with Jefferson `around 1,000 cfs` target documented separately because the app does not support a pure maximum-only model. Iowa River uses CanWePaddle's exact `300-6,000 cfs` estimated Coralville-Dam-to-Iowa-City range. Shell Rock is minimum-only at `1,000 cfs`, with the prior Paddling.com `1,000-1,500 cfs` optimum note documented but no upper cutoff inferred.
+- Caveat posture: North Raccoon foregrounds unsigned/difficult accesses, Hobbs/Merritt riprap, Richey's hard-to-see take-out, non-meandered private banks, endpoint camping, and high-water wood exposure. Iowa River is scoped below Coralville Dam only, with USACE ramp status, no-courtesy-dock, dam-release, cold-water, and firm Sturgis take-out caveats. Shell Rock foregrounds the downstream proxy gauge, low-water scraping/wading, strainers, private banks, and Wilkinson campground support.
+- Reviewed but not added: Wapsipinicon Anamosa-to-Oxford Junction remains blocked by stale `05421760` Water Services data; Cedar Palo-to-Cedar-Rapids, Cedar Waverly-to-Janesville, Turkey Clermont/Elgin/Elkader, and Upper Iowa Bluffton-to-Decorah are already represented by current V2 route splits; Des Moines Webster/Boone continuations lacked route-level numeric threshold support beyond already-live cards.
+- No route-gallery assets were added after bounded Iowa DNR / USACE / CanWePaddle / county / Commons / same-route image review.
 
 ## 2026-07-23 03:50 Lower / upper Maquoketa pass
 

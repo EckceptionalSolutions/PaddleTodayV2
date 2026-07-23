@@ -2,6 +2,188 @@ import type { RiverTripDetails } from '../lib/types';
 
 const baseRiverTripDetails: Record<string, RiverTripDetails> = {
 
+  'north-raccoon-river-rainbow-bend-richey': {
+    putIn: {
+      id: 'rainbow-bend-access',
+      name: 'Rainbow Bend Access',
+      latitude: 42.22859,
+      longitude: -94.75616,
+    },
+    takeOut: {
+      id: 'richey-access',
+      name: 'Richey Access',
+      latitude: 42.09136,
+      longitude: -94.62949,
+    },
+    logistics: {
+      distanceLabel: 'About 18.1 mi',
+      estimatedPaddleTime: 'Long day; plan 6 hr to 8 hr plus scouting and access carries',
+      shuttle:
+        'Stage the take-out at Richey Access north of Ralston, then drive back to Rainbow Bend south of Lake City. Confirm the take-out from land because DNR says it is difficult to see from the river.',
+      permits:
+        'No route-specific paddling permit is known. Use the marked public accesses only, follow Iowa boating/PFD rules, and respect non-meandered-stream private-property limits.',
+      camping:
+        'Endpoint camping support is available at Rainbow Bend and Richey Access according to the DNR guide, with toilets noted at both. Do not assume legal sandbar or bank camping between accesses.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Rainbow Bend and paddle the long upper North Raccoon stretch through Hobbs, North Raccoon River, and Merritt access context to Richey. This is a scenic but committed water-trail day with wood, riffles, unsigned accesses, and private-bank limits.',
+      accessCaveats: [
+        'Rainbow Bend no longer has the older ramp; DNR says paddlers should carry a short distance to the sand/silt beach.',
+        'Hobbs and Merritt are heavily riprapped with cement waste and are difficult for entry or exit; do not plan them as easy bailout points.',
+        'North Raccoon River Access has the best ramp/eddy in the middle of the route, but Richey is hard to spot from the water and its mowed path ends in a vertical drop.',
+      ],
+      watchFor: [
+        'Numerous downed trees, especially when the current is high and swift.',
+        'Riffles, rock-dam context, unsigned accesses, and private banks outside public areas.',
+        'Long mileage, rural rescue exposure, and no easy alternate take-out if you miss Richey.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rainbow-bend-access',
+        name: 'Rainbow Bend Access',
+        latitude: 42.22859,
+        longitude: -94.75616,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; DNR says camping and toilets are available but the old ramp is gone and boats must be carried to the sand/silt beach.',
+      },
+      {
+        id: 'north-raccoon-river-access-carroll',
+        name: 'North Raccoon River Access',
+        latitude: 42.159,
+        longitude: -94.692,
+        mileFromStart: 9,
+        segmentKind: 'creek',
+        note: 'Intermediate access named by DNR as excellent, with a protected eddy to the cement ramp; mileage is approximate within the 18.1-mile section.',
+      },
+      {
+        id: 'richey-access',
+        name: 'Richey Access',
+        latitude: 42.09136,
+        longitude: -94.62949,
+        mileFromStart: 18.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; DNR says camping and toilets are available, but the access is difficult to see from the river.',
+      },
+    ],
+  },
+
+  'iowa-river-tailwater-east-sturgis-ferry': {
+    putIn: {
+      id: 'tailwater-east-public-boat-ramp',
+      name: 'Tailwater East public boat ramp below Coralville Dam',
+      latitude: 41.7249,
+      longitude: -91.5257,
+    },
+    takeOut: {
+      id: 'sturgis-ferry-park',
+      name: 'Sturgis Ferry Park boat ramp',
+      latitude: 41.64132,
+      longitude: -91.53877,
+    },
+    logistics: {
+      distanceLabel: 'About 7 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, faster with higher releases',
+      shuttle:
+        'Stage at Sturgis Ferry Park in Iowa City, then launch only from the Tailwater East ramp below Coralville Dam. Check USACE recreation status and current releases before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Tailwater East may require Corps day-use or camping fees; follow USACE postings, Iowa City park rules, and Iowa boating/PFD requirements.',
+      camping:
+        'Tailwater East Campground has campsites, restrooms, showers, and the boat ramp near the put-in. Treat the Sturgis Ferry finish as day-use; do not assume on-route camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at the public Corps ramp below Coralville Dam and take out at Sturgis Ferry Park before the longer Johnson County water-trail segment. Keep this framed as a below-dam connector with release checks and a firm downstream take-out.',
+      accessCaveats: [
+        'Do not launch above the dam or paddle upstream toward the dam tailwater. Use only the public ramp below the dam.',
+        'USACE recreation status lists the Tailwater East public boat ramp open but notes no courtesy dock; expect a practical ramp launch rather than a dock launch.',
+        'Sturgis Ferry is a city park boat-ramp take-out; orient inside the park because the saved point is an access-area anchor.',
+      ],
+      watchFor: [
+        'Changing dam releases, cold water, debris, and stronger current after rain or reservoir operations.',
+        'Urban bridges and developed river edges approaching Iowa City.',
+        'Missing Sturgis Ferry and unintentionally continuing into the longer Sturgis-to-Hills segment.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'tailwater-east-public-boat-ramp',
+        name: 'Tailwater East public boat ramp below Coralville Dam',
+        latitude: 41.7249,
+        longitude: -91.5257,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Public Corps ramp for the Iowa River below Coralville Dam; no courtesy dock per USACE status.',
+      },
+      {
+        id: 'sturgis-ferry-park',
+        name: 'Sturgis Ferry Park boat ramp',
+        latitude: 41.64132,
+        longitude: -91.53877,
+        mileFromStart: 7,
+        segmentKind: 'creek',
+        note: 'Default take-out before the existing Sturgis Ferry to Hills Access route.',
+      },
+    ],
+  },
+
+  'shell-rock-river-strand-wilkinson': {
+    putIn: {
+      id: 'strand-park-canoe-access',
+      name: 'Strand Park canoe access',
+      latitude: 43.2541296,
+      longitude: -93.1218702,
+    },
+    takeOut: {
+      id: 'wilkinson-pioneer-park-launch',
+      name: 'Wilkinson Pioneer Park canoe/kayak launch',
+      latitude: 43.1916328,
+      longitude: -93.0668688,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, longer if low-water riffles require wading',
+      shuttle:
+        'Stage at Wilkinson Pioneer Park near Rock Falls, then drive back to Strand Park north of Plymouth. Check both county park access points before launching because the gauge is downstream at Shell Rock.',
+      permits:
+        'No route-specific paddling permit is known. Follow Cerro Gordo County park rules, Iowa boating/PFD requirements, and private-property boundaries along the river.',
+      camping:
+        'Wilkinson Pioneer Park has campground support near the take-out, and the broader Shellrock River Greenbelt has primitive camping areas. Do not assume legal camping on private banks between parks.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Strand Park and paddle through the upper Shellrock River Greenbelt corridor to Wilkinson Pioneer Park. This is a county-access day run with limestone scenery, shallow ledges at lower flows, and same-day wood checks.',
+      accessCaveats: [
+        'Strand Park and Wilkinson Pioneer Park are named public access areas, but the Shell Rock gauge is far downstream and should be treated as a same-river proxy.',
+        'Wilkinson has campground and canoe/kayak launch context; confirm current campground rules and seasonal reservation requirements before relying on overnight support.',
+        'Use public parks and signed access corridors only; avoid informal bank exits on private land.',
+      ],
+      watchFor: [
+        'Scraping and short wades when the Shell Rock gauge is below the 1,000 cfs low-water floor from prior route guidance.',
+        'Downed trees, bridge debris, and faster current after rain.',
+        'Limestone shelves, cobble shallows, and limited public exits between Strand and Wilkinson.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'strand-park-canoe-access',
+        name: 'Strand Park canoe access',
+        latitude: 43.2541296,
+        longitude: -93.1218702,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default public put-in north of Plymouth on the Shellrock River.',
+      },
+      {
+        id: 'wilkinson-pioneer-park-launch',
+        name: 'Wilkinson Pioneer Park canoe/kayak launch',
+        latitude: 43.1916328,
+        longitude: -93.0668688,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Default take-out and campground support area near Rock Falls.',
+      },
+    ],
+  },
 
   'lizard-creek-lentsch-cunningham': {
     putIn: {
