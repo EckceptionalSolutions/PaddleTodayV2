@@ -42795,6 +42795,180 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'des-moines-river-eldon-shidepoke': {
+    putIn: {
+      id: 'eldon-water-street-ramp',
+      name: 'Eldon Water Street boat ramp',
+      latitude: 40.92085,
+      longitude: -92.2299,
+    },
+    takeOut: {
+      id: 'shidepoke-access',
+      name: 'Shidepoke Access / Selma boat ramp',
+      latitude: 40.86891,
+      longitude: -92.15889,
+    },
+    logistics: {
+      distanceLabel: 'About 5.2 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer with low water, wind, or higher Red Rock releases',
+      shuttle:
+        'Stage the Shidepoke / Selma access first, then launch from the cement ramp on Water Street in Eldon. Confirm the Keosauqua gauge trend and inspect the Shidepoke landing before putting on.',
+      permits:
+        'No route-specific paddling permit is known. Use the public ramps, follow Iowa boating/PFD rules, and respect Lower Des Moines River water-trail, county, city, and private-property postings.',
+      camping:
+        'Treat this as a day route. Iowa DNR says sandbar camping is allowed on this meandered Lower Des Moines corridor below the ordinary high-water mark, but this short starter reach should not need an overnight stop.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch at Eldon and take out at Shidepoke for the first short Lower Des Moines River water-trail segment. The route is beginner-friendly only at normal release-controlled levels; silver carp, steep banks, bridge current, and fast or low water still need same-day judgment.',
+      accessCaveats: [
+        'Iowa DNR identifies the Eldon put-in as the cement boat ramp on Water Street and the Shidepoke take-out as a signed cement ramp with a protected eddy downstream near Selma. The DNR guide labels the segment 4.5 miles, but source-backed access coordinates put the endpoints about 5.1 miles apart straight-line, so the app uses a conservative 5.2-mile planning label.',
+        'The Keosauqua USGS gauge is downstream on the same Lower Des Moines water-trail corridor. Use it as a conservative proxy and confirm local depth and current at Eldon before committing.',
+        'Sandbars may be legal below the ordinary high-water mark, but upland banks are private unless otherwise posted or managed as public access.',
+      ],
+      watchFor: [
+        'Release changes from Red Rock Dam, low-water dragging, high/fast water, steep muddy banks, and exposed bridge or shoreline debris.',
+        'Silver carp that can leap into boats or paddlers, especially when startled by noise or motor traffic.',
+        'Private banks and limited mid-route bailout options despite the short mileage.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'eldon-water-street-ramp',
+        name: 'Eldon Water Street boat ramp',
+        latitude: 40.92085,
+        longitude: -92.2299,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Iowa DNR identifies the Lower Des Moines trail start as the cement ramp on Water Street in Eldon.',
+      },
+      {
+        id: 'shidepoke-access',
+        name: 'Shidepoke Access / Selma boat ramp',
+        latitude: 40.86891,
+        longitude: -92.15889,
+        mileFromStart: 5.2,
+        segmentKind: 'creek',
+        note: 'Default take-out; Iowa DNR describes a signed cement ramp with a protected eddy near Shidepoke.',
+      },
+    ],
+  },
+
+  'des-moines-river-shidepoke-douds': {
+    putIn: {
+      id: 'shidepoke-access',
+      name: 'Shidepoke Access / Selma boat ramp',
+      latitude: 40.86891,
+      longitude: -92.15889,
+    },
+    takeOut: {
+      id: 'douds-des-moines-river-access',
+      name: 'Douds County Park & Des Moines River Access',
+      latitude: 40.83613,
+      longitude: -92.08879,
+    },
+    logistics: {
+      distanceLabel: 'About 4.6 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer with low water, wind, fishing, or release-driven current',
+      shuttle:
+        'Stage Douds County Park / Des Moines River Access first, then launch at Shidepoke. Walk the Douds ramp and parking area before launch because the river bends and bridge area can change with debris.',
+      permits:
+        'No route-specific paddling permit is known. Use the signed public accesses, follow Iowa boating/PFD rules, and obey Lower Des Moines River water-trail, county-park, bridge, pipeline, and private-property postings.',
+      camping:
+        'Douds County Park lists two gravel campsites with electric hookups near the access. Sandbar camping is also generally allowed on the meandered Lower Des Moines below the ordinary high-water mark, but confirm current county rules before planning an overnight.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Shidepoke and take out at Douds for a short Lower Des Moines connector between two public water-trail accesses. The main route-specific cautions are bridge pilings, logs, pipeline no-docking signs, release-driven current, and silver carp.',
+      accessCaveats: [
+        'Iowa DNR maps Shidepoke as the upstream access and Douds as the next downstream access at about 4.6 miles.',
+        'Villages of Van Buren lists Douds County Park / Des Moines River Access at 14367 Walnut Street with boat ramp and limited camping context.',
+        'The Keosauqua USGS gauge is downstream on the same corridor, so pair the proxy reading with a visual check at Shidepoke and Douds.',
+      ],
+      watchFor: [
+        'Bridge pilings and log/debris piles near the Douds-area bridges.',
+        'Pipeline no-docking signs, private banks, and limited legal stopping options away from public access or legal sandbars.',
+        'Release changes from Red Rock Dam, high/fast water, low-water bars, and jumping silver carp.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'shidepoke-access',
+        name: 'Shidepoke Access / Selma boat ramp',
+        latitude: 40.86891,
+        longitude: -92.15889,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; signed cement Lower Des Moines water-trail ramp near Selma.',
+      },
+      {
+        id: 'douds-des-moines-river-access',
+        name: 'Douds County Park & Des Moines River Access',
+        latitude: 40.83613,
+        longitude: -92.08879,
+        mileFromStart: 4.6,
+        segmentKind: 'creek',
+        note: 'Default take-out; public county-park river access with boat ramp and limited camping context.',
+      },
+    ],
+  },
+
+  'des-moines-river-douds-austin-park': {
+    putIn: {
+      id: 'douds-des-moines-river-access',
+      name: 'Douds County Park & Des Moines River Access',
+      latitude: 40.83613,
+      longitude: -92.08879,
+    },
+    takeOut: {
+      id: 'austin-park-access',
+      name: 'Austin Park boat access',
+      latitude: 40.7715,
+      longitude: -91.976,
+    },
+    logistics: {
+      distanceLabel: 'About 9.75 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, headwind, fishing stops, or slow release conditions',
+      shuttle:
+        'Stage Austin Park first, then launch from Douds County Park. This is the first longer reach in the Eldon-to-Keosauqua sequence, so set a firm turn-back decision before leaving Douds.',
+      permits:
+        'No route-specific paddling permit is known. Use the public access areas, follow Iowa boating/PFD rules, and obey county-park, water-trail, campsite, and private-property rules.',
+      camping:
+        'Douds County Park has limited electric campsite context and Iowa DNR / Villages of Van Buren materials identify Austin Park as a river access with campground amenities. Confirm current reservations, seasonal services, and flood cleanup status before using either endpoint overnight.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Douds and take out at Austin Park for a longer Lower Des Moines River day through wooded bends and bluff-country scenery. Iowa DNR describes few special hazards on this reach, but the distance, release-controlled levels, private banks, and rescue exposure make it less forgiving than the two upstream starter segments.',
+      accessCaveats: [
+        'Iowa DNR gives Douds to Austin Park as about 9.75 miles and lists Austin Park as the next downstream access before Keosauqua.',
+        'Austin Park is described by local water-trail materials as about two miles northeast of Pittsburg with boat access and campground amenities; verify the exact ramp and parking condition before leaving a shuttle vehicle.',
+        'The Keosauqua USGS gauge is downstream of Austin Park on the same Lower Des Moines corridor. Use it as a proxy with same-day visual checks at Douds and Austin Park.',
+      ],
+      watchFor: [
+        'Longer mileage, headwind, fewer easy exits, and slower rescue response than the shorter Eldon-to-Douds segments.',
+        'Release changes from Red Rock Dam, high/fast water, low-water bars, muddy banks, and jumping silver carp.',
+        'Wood on outside bends, bridge current, private banks, and overnight assumptions that depend on current county or park rules.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'douds-des-moines-river-access',
+        name: 'Douds County Park & Des Moines River Access',
+        latitude: 40.83613,
+        longitude: -92.08879,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public county-park access on the Lower Des Moines River.',
+      },
+      {
+        id: 'austin-park-access',
+        name: 'Austin Park boat access',
+        latitude: 40.7715,
+        longitude: -91.976,
+        mileFromStart: 9.75,
+        segmentKind: 'creek',
+        note: 'Default take-out; public river access and campground context in the Villages of Van Buren / Iowa DNR water-trail materials.',
+      },
+    ],
+  },
+
   'upper-iowa-river-cattle-creek-malanaphy': consolidatedUpperIowaDetails,
   'crow-wing-river-frames-landing-cottingham': consolidatedCrowWingDetails,
 };

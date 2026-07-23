@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 11:00 America/Chicago / 2026-07-23 16:00 UTC: Iowa Lower Des Moines River implementation pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 86-route exported Iowa baseline: `des-moines-river-eldon-shidepoke`, `des-moines-river-shidepoke-douds`, and `des-moines-river-douds-austin-park`, bringing Iowa to 89 live routes.
+  - Qualification path: Iowa DNR Lower Des Moines River guide supports the Eldon / Shidepoke / Douds / Austin Park access chain with official segment mileage, public access names, release-controlled level caveats, meandered-stream sandbar camping context, bridge-piling and pipeline hazards, silver-carp warning, and beginner/long-mileage suitability notes; Fish Iowa and Villages of Van Buren corroborate lower-river ramp and campground context.
+  - Gauge posture: USGS Water Services returned Des Moines River at Keosauqua `05490500` at `5,060 cfs / 11.84 ft` at 2026-07-23 10:00 CDT. Keosauqua is downstream on the same Lower Des Moines corridor and is documented as a proxy.
+  - Threshold posture: all three reuse the accepted lower Des Moines Keosauqua-gauge community model from the adjacent V2 family: `800 cfs` too low, `3,000-4,500 cfs` ideal, and `6,000 cfs` too high. No route-gallery assets were added after bounded official/local/Commons/same-route image review. Wapsipinicon Anamosa-to-Oxford Junction remains blocked by stale Oxford Mills data.
+
 - 2026-07-23 10:14 America/Chicago / 2026-07-23 15:14 UTC: Minnesota Pomme / Red Lake / Root gap pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 182-route exported Minnesota baseline: `pomme-de-terre-river-koosman-larson`, `red-lake-river-crookston-highway-75-bypass`, and `root-river-peterson-rushford`, bringing Minnesota to 185 live routes.
   - Qualification path: MN DNR Pomme de Terre / Minnesota River Map 1 plus public-water-access GIS support Koosman-to-Larson with Appleton site `168`; MN DNR Red Lake Map 2 plus public-water-access GIS support Crookston-to-Highway-75-Bypass with constructed-rock-rapids and direct Crookston site `172`; MN DNR Root River Map 1 plus public-water-access GIS support Peterson-to-Rushford with downstream Houston site `197` and Peterson bridge-alert context.

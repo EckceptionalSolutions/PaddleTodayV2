@@ -4,6 +4,7 @@ Last summarized: 2026-07-23.
 
 ## Current Inventory
 
+- 2026-07-23 11:00 CDT update: live exported Iowa routes were 86 at the start of the Lower Des Moines pass and 89 after adding the three new slugs listed below.
 - Live routes: 60 at the start of the 2026-07-22 late Cedar / South Skunk / North Raccoon pass, based on `src/data/rivers.ts` imported with `tsx`.
 - This checkout also has pre-existing dirty consolidation code that retires three Upper Iowa split cards and emits one family card, so the post-edit imported Iowa count is 61 even though this run added three new Iowa slugs beyond the 60-route baseline.
 - Top represented rivers: Upper Iowa River 8, Turkey River 6, North Fork Maquoketa River 6, Cedar River 6, Maquoketa River 5, South Skunk River 4, Des Moines River 2, Iowa River 2, Volga River 3.
@@ -11,7 +12,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-23 08:52 run added three routes beyond the current 80-route baseline: `cedar-river-nashua-pearl-rock`, `cedar-river-pearl-rock-north-cedar`, and `cedar-river-north-cedar-cedar-bend`.
+Iowa remains mature overall. The latest 2026-07-23 11:00 run added three routes beyond the current 86-route baseline: `des-moines-river-eldon-shidepoke`, `des-moines-river-shidepoke-douds`, and `des-moines-river-douds-austin-park`.
+
+## 2026-07-23 11:00 Lower Des Moines River Eldon / Douds gap pass
+
+- Baseline at run start: 86 Iowa live routes, verified from `src/data/rivers.ts` with `tsx` after duplicate reconciliation.
+- Added `des-moines-river-eldon-shidepoke`, `des-moines-river-shidepoke-douds`, and `des-moines-river-douds-austin-park`, bringing the imported Iowa count to 89 live routes.
+- Qualification path: Iowa DNR's Lower Des Moines River guide documents the Eldon / Shidepoke / Douds / Austin Park access chain, official segment mileages, public ramp names, Red Rock release caveat, meandered-stream sandbar camping rule, bridge-piling and gas-pipeline hazards, silver-carp warning, and beginner/long-mileage suitability notes. Fish Iowa corroborates the Ottumwa-to-Farmington ramp corridor, Villages of Van Buren corroborates Douds and Austin Park access/camping context, and USGS `05490500` returned current Keosauqua data.
+- Gauge posture: USGS Water Services returned Des Moines River at Keosauqua `05490500` at `5,060 cfs / 11.84 ft` at 2026-07-23 10:00 CDT. Keosauqua is downstream on the same Lower Des Moines River corridor and is treated as a same-corridor proxy, not as a direct segment gauge.
+- Threshold posture: all three routes reuse the accepted lower Des Moines Keosauqua-gauge community model from the adjacent V2 route family: too low `800 cfs`, ideal `3,000-4,500 cfs`, and too high `6,000 cfs`. The model is explicitly caveated as community/proxy evidence; no new segment-specific ideal range or upper cutoff was invented.
+- Caveat posture: Eldon-to-Shidepoke foregrounds short beginner mileage only at normal release-controlled levels, steep banks, private uplands, legal sandbar limits, and silver carp. Shidepoke-to-Douds foregrounds bridge pilings, log/debris piles, gas-pipeline no-docking signs, endpoint camping support, and proxy-gauge limits. Douds-to-Austin foregrounds the DNR 9.75-mile beginner-length caveat, wooded bends, fewer exits, endpoint campground assumptions, private banks, and longer rescue exposure.
+- Reviewed but not added: Wapsipinicon Anamosa-to-Oxford Junction remains blocked because USGS `05421760` Water Services still returns stale 2017 data; Iowa River Hills-to-River-Junction has strong Johnson County access/camping support but only weaker upstream cleanup/minimum threshold evidence; Yellow River Volney-to-Ion / Ion-to-Highway-76 stayed duplicate-prone over the existing Volney-to-Sixteen and Sixteen-to-Highway-76 cards; Cedar Bend-to-Waverly / Three Rivers still needs a dam-portage-specific pass.
+- No route-gallery assets were added after bounded Iowa DNR / Villages of Van Buren / Meet Ottumwa / Fish Iowa / Commons / same-route image review.
 
 ## 2026-07-23 08:52 Cedar River Nashua / Bremer County gap pass
 

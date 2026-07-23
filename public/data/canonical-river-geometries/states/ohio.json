@@ -3,14 +3,14 @@
   "source": "USGS NHD Flowline",
   "scope": "state",
   "state": "Ohio",
-  "routeCount": 823,
-  "matchedRouteCount": 820,
+  "routeCount": 826,
+  "matchedRouteCount": 823,
   "unmatchedRouteIds": [
     "eau-claire-river-east-branch-wayside-county-i",
     "bad-axe-north-fork-duck-egg-hwy-o",
     "embarrass-south-branch-hwy-45-county-m"
   ],
-  "routeDataFingerprint": "94f0a057cc54f470c5e0cd36e1e5b448071f61c1014407a76b9cc794bda7ddcc",
+  "routeDataFingerprint": "fd893c620e7dc9407ee7252730935889e98f6c510c2dfc2c6b938b542233539f",
   "features": [
     {
       "type": "Feature",
