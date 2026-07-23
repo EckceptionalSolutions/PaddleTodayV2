@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-22 21:49 America/Chicago / 2026-07-23 02:49 UTC: Iowa Brookwood / Little Sioux / Winnebago implementation pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 57-route Iowa baseline: `cedar-river-brookwood-janesville`, `little-sioux-river-linn-grove-peterson`, and `winnebago-river-fertile-mason-city`, bringing this checkout to 60 Iowa routes.
+  - Qualification path: CanWePaddle plus direct USGS gauges support all three selected ranges; Cedar uses the Cedar Valley Brookwood-to-Janesville paddling map and City of Waverly Brookwood Park public ramp notes; Little Sioux uses Iowa DNR corridor context plus Buena Vista County Linn Grove Dam Area and Clay County Riverside Little Sioux Access pages; Winnebago uses City of Fertile park documentation plus regional Winnebago River water-trail context with a guarded Mason City endpoint caveat.
+  - Gauge posture: USGS Water Services returned Janesville `05458500` at `2,540 cfs / 3.23 ft`, Linn Grove `06605850` at `264 cfs / 5.65 ft`, and Mason City `05459500` at `168 cfs / 5.12 ft` during the run.
+  - Threshold posture: direct-gauge CanWePaddle estimated bands are Cedar `250-3,000 cfs`, Little Sioux `100-1,500 cfs`, and Winnebago `100-1,500 cfs`. No route-gallery assets were added after bounded official / local / USGS / Commons / same-route review.
+
 - 2026-07-22 21:08 America/Chicago / 2026-07-23 02:08 UTC: Minnesota Des Moines / Red Lake / Otter Tail implementation pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 145-route Minnesota baseline: `des-moines-river-christiania-ashley-park`, `red-lake-river-highway-75-bypass-fisher`, and `otter-tail-river-phelps-mill-west-red-river-lake`, bringing this checkout to 148 Minnesota routes.
   - Qualification path: MN DNR Des Moines Map 1 plus public-water-access GIS support Christiania-to-Ashley with Jackson site `259`; MN DNR Red Lake Map 2 plus public-water-access GIS support Highway-75-Bypass-to-Fisher with direct Fisher site `175`; and MN DNR Otter Tail segments / Map 2 plus public-water-access GIS support the official Phelps-Mill-to-West-Red-River-Lake trip with Elizabeth site `159`.

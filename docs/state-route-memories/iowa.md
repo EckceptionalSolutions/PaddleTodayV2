@@ -4,13 +4,22 @@ Last summarized: 2026-07-22.
 
 ## Current Inventory
 
-- Live routes: 57 after the 2026-07-22 Fort Dodge / Marengo / Cedar Rapids pass.
-- Top represented rivers: Upper Iowa River 8, Turkey River 6, North Fork Maquoketa River 6, Maquoketa River 5, Cedar River 5, South Skunk River 4, Des Moines River 2, Iowa River 2, Volga River 3.
-- Ledger candidates: 62 total after the 2026-07-22 Fort Dodge / Marengo / Cedar Rapids pass; 52 added, 3 `no_live_gauge`, 2 `gauge_proxy_weak`, 2 `research_later`, 2 `rejected`, 1 `threshold_weak`.
+- Live routes: 60 after the 2026-07-22 Brookwood / Little Sioux / Winnebago pass.
+- Top represented rivers: Upper Iowa River 8, Turkey River 6, North Fork Maquoketa River 6, Cedar River 6, Maquoketa River 5, South Skunk River 4, Des Moines River 2, Iowa River 2, Volga River 3.
+- Ledger candidates: updated by the 2026-07-22 Brookwood / Little Sioux / Winnebago pass; latest additions are marked `added`.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-22 run added three more distinct corridors with direct USGS gauges and CanWePaddle route ranges: Des Moines River Fort Dodge-to-Lehigh, Iowa River Marengo-to-Amana, and Cedar River Chain-Lakes/Palo-to-Ellis-Harbor.
+Iowa remains mature overall. The latest 2026-07-22 run added three more distinct corridors with direct USGS gauges and CanWePaddle route ranges: Cedar River Brookwood-to-Janesville, Little Sioux River Linn-Grove-to-Peterson, and Winnebago River Fertile-to-Mason-City.
+
+## 2026-07-22 Brookwood / Little Sioux / Winnebago pass
+
+- Baseline at run start: 57 Iowa live routes.
+- Added `cedar-river-brookwood-janesville`, `little-sioux-river-linn-grove-peterson`, and `winnebago-river-fertile-mason-city`, bringing Iowa to 60 live routes in this checkout.
+- Qualification path: CanWePaddle and USGS support all three direct-gauge threshold models. Cedar is reinforced by the Cedar Valley Brookwood-to-Janesville paddling map and City of Waverly Brookwood Park access notes. Little Sioux is reinforced by Iowa DNR Fish Iowa/map context plus Buena Vista County Linn Grove Dam Area and Clay County Riverside Little Sioux Access pages. Winnebago is reinforced by City of Fertile park documentation and Winnebago River water-trail context, but ships with stronger same-day endpoint verification caveats.
+- Gauge posture: USGS Water Services returned Cedar River at Janesville `2,540 cfs / 3.23 ft` at 2026-07-22 20:45 CDT, Little Sioux River at Linn Grove `264 cfs / 5.65 ft` at 2026-07-22 21:00 CDT, and Winnebago River at Mason City `168 cfs / 5.12 ft` at 2026-07-22 21:15 CDT.
+- Threshold posture: all three use conservative CanWePaddle route-specific estimated bands tied to direct same-river USGS gauges: Cedar `250-3,000 cfs`, Little Sioux `100-1,500 cfs`, and Winnebago `100-1,500 cfs`.
+- Caveat posture: Cedar and Little Sioux have stronger public endpoint evidence; Little Sioux requires below-dam launch discipline at Linn Grove. Winnebago is useful but more guarded because the Mason City endpoint is a practical corridor anchor requiring same-day access confirmation. No route-gallery assets were added after bounded official / local / USGS / Commons / same-route image review.
 
 ## 2026-07-22 Fort Dodge / Marengo / Cedar Rapids pass
 

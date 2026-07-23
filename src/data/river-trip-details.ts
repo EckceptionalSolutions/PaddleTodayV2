@@ -35334,6 +35334,180 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'cedar-river-brookwood-janesville': {
+    putIn: {
+      id: 'brookwood-park-waverly',
+      name: 'Brookwood Park non-motorized boat ramp',
+      latitude: 42.720963,
+      longitude: -92.464754,
+    },
+    takeOut: {
+      id: 'janesville-city-park',
+      name: 'Janesville City Park / Janesville access',
+      latitude: 42.64831667,
+      longitude: -92.4651861,
+    },
+    logistics: {
+      distanceLabel: 'About 10.1 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer in wind or low water',
+      shuttle:
+        'Stage a vehicle at Janesville City Park or the signed Janesville access corridor, then drive back to Brookwood Park in Waverly. Verify local ramp and park status before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use public park accesses only, follow Iowa boating/PFD rules, and obey Waverly/Janesville park postings.',
+      camping:
+        'Treat this as a day route. No on-route camping is assumed between Brookwood Park and Janesville City Park.',
+      campingClassification: 'none',
+      summary:
+        'Launch from Brookwood Park in Waverly and paddle the Cedar River downstream to Janesville. The Janesville gauge is direct for this reach, but same-day wood and bridge conditions still matter.',
+      accessCaveats: [
+        'Brookwood Park is downstream of Waverly dam exposure; do not launch above the dam or paddle upstream toward dam hydraulics.',
+        'The Janesville coordinate is anchored to the Janesville USGS / city-park access corridor because a surveyed ramp point was not published in the sources reviewed.',
+        'Use only signed public accesses and respect private banks between towns.',
+      ],
+      watchFor: [
+        'High or fast-rising water above the 3,000 cfs range top.',
+        'Bridge current, sweepers, floating wood, shallow gravel at low water, and cold spring flows.',
+        'Changing take-out conditions around Janesville after storms.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'brookwood-park-waverly',
+        name: 'Brookwood Park non-motorized boat ramp',
+        latitude: 42.720963,
+        longitude: -92.464754,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default Waverly-area put-in; City of Waverly documents the park, parking, and non-motorized boat ramp.',
+      },
+      {
+        id: 'janesville-city-park',
+        name: 'Janesville City Park / Janesville access',
+        latitude: 42.64831667,
+        longitude: -92.4651861,
+        mileFromStart: 10.1,
+        segmentKind: 'creek',
+        note: 'Default downstream take-out corridor; coordinate anchored to the Janesville gauge/city-park access area.',
+      },
+    ],
+  },
+
+  'little-sioux-river-linn-grove-peterson': {
+    putIn: {
+      id: 'linn-grove-dam-area',
+      name: 'Linn Grove Dam Area below-dam launch',
+      latitude: 42.89630556,
+      longitude: -95.243,
+    },
+    takeOut: {
+      id: 'riverside-little-sioux-access',
+      name: 'Riverside Little Sioux Access',
+      latitude: 42.9205,
+      longitude: -95.343,
+    },
+    logistics: {
+      distanceLabel: 'About 9 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer in low water or headwind',
+      shuttle:
+        'Stage a vehicle at Riverside Little Sioux Access on the west edge of Peterson, then return to Linn Grove. Launch only from a confirmed below-dam point at Linn Grove Dam Area.',
+      permits:
+        'No route-specific paddling permit is known. Use public county accesses only, follow Iowa boating/PFD rules, and obey county park and camping rules.',
+      camping:
+        'Endpoint camping is available at Linn Grove Dam Area according to Buena Vista County. Do not assume camping at Peterson unless separately reserved or posted.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Paddle the Little Sioux River from Linn Grove to Peterson using the direct Linn Grove gauge. The route starts beside a documented low-head dam area, so below-dam launch discipline is mandatory.',
+      accessCaveats: [
+        'The Linn Grove Dam Area includes a low-head dam. Never approach the dam from upstream and do not launch where current feeds toward the dam.',
+        'The Peterson take-out coordinate is an address/park-area anchor for Riverside Little Sioux Access, not a surveyed ramp point.',
+        'Respect private banks and use public access areas only.',
+      ],
+      watchFor: [
+        'Low-head dam hydraulics at Linn Grove, especially during higher water.',
+        'Fast rises after rain, floating wood, cutbank strainers, shallow riffles near the low end of the range, and cold spring water.',
+        'Remote-feeling bends where road access and rescue options are limited.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'linn-grove-dam-area',
+        name: 'Linn Grove Dam Area below-dam launch',
+        latitude: 42.89630556,
+        longitude: -95.243,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Put-in area anchored to the Linn Grove gauge and county park address; launch only below the low-head dam.',
+      },
+      {
+        id: 'riverside-little-sioux-access',
+        name: 'Riverside Little Sioux Access',
+        latitude: 42.9205,
+        longitude: -95.343,
+        mileFromStart: 9,
+        segmentKind: 'creek',
+        note: 'Clay County documents canoe/kayak access and parking at Riverside Little Sioux Access near Peterson.',
+      },
+    ],
+  },
+
+  'winnebago-river-fertile-mason-city': {
+    putIn: {
+      id: 'william-rhodes-island-park',
+      name: 'William Rhodes Island Park below-dam access',
+      latitude: 43.266,
+      longitude: -93.424,
+    },
+    takeOut: {
+      id: 'mason-city-east-park',
+      name: 'Mason City East Park / Winnebago River corridor',
+      latitude: 43.1546609,
+      longitude: -93.1832896,
+    },
+    logistics: {
+      distanceLabel: 'About 15 mi by the mapped endpoint anchors; CanWePaddle lists the nominal town-to-town reach as 13 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6 hr, longer with low water, wind, or wood',
+      shuttle:
+        'Stage the Mason City vehicle first, then return to Fertile. Confirm the exact Mason City take-out and parking status before launching because this card uses a practical East Park corridor anchor.',
+      permits:
+        'No route-specific paddling permit is known. Follow Iowa boating/PFD rules and use only public, signed access points.',
+      camping:
+        'Treat this as a day route. No on-route camping is assumed between Fertile and Mason City.',
+      campingClassification: 'none',
+      summary:
+        'Paddle the Winnebago River from Fertile toward Mason City using the direct Mason City gauge. Dam proximity at Fertile and take-out verification at Mason City are the key planning controls.',
+      accessCaveats: [
+        'William Rhodes Island Park is at the Fertile Dam. Launch only from a confirmed safe below-dam location and avoid dam hydraulics.',
+        'Mason City endpoint access should be verified locally on the day of the trip; East Park is used as the practical endpoint anchor from available public mapping.',
+        'Private banks, wood, and shallow riffles can limit emergency exits.',
+      ],
+      watchFor: [
+        'Fast water or dam turbulence around Fertile after rain.',
+        'Strainers, cutbanks, shallow gravel below the 100 cfs floor, and cold spring flows.',
+        'Urban debris, bridges, and take-out uncertainty near Mason City.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'william-rhodes-island-park',
+        name: 'William Rhodes Island Park below-dam access',
+        latitude: 43.266,
+        longitude: -93.424,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'City of Fertile documents William Rhodes Island Park along the Winnebago River at the Fertile Dam; use only safe below-dam access.',
+      },
+      {
+        id: 'mason-city-east-park',
+        name: 'Mason City East Park / Winnebago River corridor',
+        latitude: 43.1546609,
+        longitude: -93.1832896,
+        mileFromStart: 13,
+        segmentKind: 'creek',
+        note: 'Practical Mason City endpoint anchor; verify exact public landing and access status before launching.',
+      },
+    ],
+  },
+
   'cedar-river-chain-lakes-ellis-harbor': {
     putIn: {
       id: 'chain-lakes-boat-landing',
