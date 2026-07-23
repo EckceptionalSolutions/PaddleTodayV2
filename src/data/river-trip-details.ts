@@ -38009,6 +38009,198 @@ const retiredSplitDetailIds = new Set([
   'crow-wing-river-knob-hill-cottingham',
 ]);
 
+baseRiverTripDetails['middle-raccoon-river-lenon-mill-p28'] = {
+  putIn: {
+    id: 'lenon-mill-park-access',
+    name: 'Lenon Mill Park Access',
+    latitude: 41.6867975,
+    longitude: -94.3692621,
+  },
+  takeOut: {
+    id: 'p28-access',
+    name: 'P-28 Access',
+    latitude: 41.6675,
+    longitude: -94.3569,
+  },
+  logistics: {
+    distanceLabel: 'About 2.1 mi',
+    estimatedPaddleTime: 'About 45 min to 1.5 hr, longer if low-water riffles require walking',
+    shuttle:
+      'Stage the take-out at P-28 Access, then launch from Lenon Mill Park below the dam in Panora. Check the Panora gauge and walk the P-28 take-out before launching.',
+    permits:
+      'No route-specific paddling permit is known. Follow Guthrie County park rules, Iowa boating/PFD requirements, and non-meandered-stream private-property limits.',
+    camping:
+      'Lenon Mill Park has primitive and RV camping, restrooms, water, and picnic facilities at the put-in. Do not assume camping is legal on private banks between Lenon and P-28.',
+    campingClassification: 'endpoint_campground',
+    summary:
+      'Launch below Lenon Mill Dam and take out at P-28 for the short first Middle Raccoon Route A split. The distance is beginner-sized, but riffles, sweepers, a below-dam start, and today-low water require a cautious moving-water plan.',
+    accessCaveats: [
+      'Use the Lenon Mill public access below the dam only; do not launch above the dam or linger in dam-influenced current.',
+      'P-28 is a named public access in the DNR/Guthrie County access chain. Confirm the ramp, eddy, and parking before leaving the shuttle vehicle.',
+      'The Panora gauge is direct and just upstream, but it cannot show fresh wood, boulder exposure, or bank access condition at P-28.',
+    ],
+    watchFor: [
+      'Low water below 400 cfs, when riffles become scrape-prone and may require walking.',
+      'Sweepers, boulders, sandstone blocks, bridge current, and rock wing dams below P-28 if continuing downstream.',
+      'Private banks and cold-water exposure outside warm summer conditions.',
+    ],
+  },
+  accessPoints: [
+    {
+      id: 'lenon-mill-park-access',
+      name: 'Lenon Mill Park Access',
+      latitude: 41.6867975,
+      longitude: -94.3692621,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Default put-in below Lenon Mill Dam; endpoint campground support is at the park.',
+    },
+    {
+      id: 'p28-access',
+      name: 'P-28 Access',
+      latitude: 41.6675,
+      longitude: -94.3569,
+      mileFromStart: 2.1,
+      segmentKind: 'creek',
+      note: 'Default take-out and second official Route A access downstream of Lenon Mill.',
+    },
+  ],
+};
+
+baseRiverTripDetails['middle-raccoon-river-p28-cowles'] = {
+  putIn: {
+    id: 'p28-access',
+    name: 'P-28 Access',
+    latitude: 41.6675,
+    longitude: -94.3569,
+  },
+  takeOut: {
+    id: 'cowles-river-access',
+    name: 'Cowles River Access',
+    latitude: 41.6196,
+    longitude: -94.2869,
+  },
+  logistics: {
+    distanceLabel: 'About 6.6 mi',
+    estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water or wood scouting',
+    shuttle:
+      'Stage Cowles River Access first, then drive back to P-28. Treat the 248th Street / Middle Raccoon River Access as an intermediate public access only after confirming it from land.',
+    permits:
+      'No route-specific paddling permit is known. Use the named public accesses, follow Iowa boating/PFD requirements, and respect private banks outside marked public areas.',
+    camping:
+      'No on-route camping is assumed between P-28 and Cowles. Lenon Mill upstream has campground support if used as a nearby basecamp, but this route itself is a day trip.',
+    campingClassification: 'nearby_basecamp',
+    summary:
+      'Launch at P-28 and take out at Cowles for a compact protected Middle Raccoon day through riffles, boulders, sandstone bluffs, public-land bends, and the 248th Street access corridor.',
+    accessCaveats: [
+      'P-28 and Cowles are named public ramps in the DNR/Guthrie County access chain, but the middle 248th Street access should be verified before being counted on as a bailout.',
+      'The selected P-28 and Cowles coordinates come from paddling/boat-ramp indexes matched against DNR/Guthrie County access names; use posted signs and ramps on arrival.',
+      'At low flow, the route may be slower and shallower than the mileage suggests. At high/rising flow, riffle sweepers and bridge debris become more consequential.',
+    ],
+    watchFor: [
+      'Tree sweepers in riffles, constructed rock wing dams below P-28, and boulders or sandstone blocks in the channel.',
+      'Sharp bends with wood, exposed riffles below the 400 cfs floor, and cold-water exposure in shoulder seasons.',
+      'Private-bank limits; stop only at public accesses or where clearly legal.',
+    ],
+  },
+  accessPoints: [
+    {
+      id: 'p28-access',
+      name: 'P-28 Access',
+      latitude: 41.6675,
+      longitude: -94.3569,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Default put-in and second official Route A access downstream of Lenon Mill.',
+    },
+    {
+      id: 'middle-raccoon-river-access-248th',
+      name: 'Middle Raccoon River Access / 248th Trail',
+      latitude: 41.641,
+      longitude: -94.321,
+      mileFromStart: 3.2,
+      segmentKind: 'creek',
+      note: 'Intermediate DNR/Guthrie County access; coordinates are a practical corridor anchor and should be verified from land before relying on it.',
+    },
+    {
+      id: 'cowles-river-access',
+      name: 'Cowles River Access',
+      latitude: 41.6196,
+      longitude: -94.2869,
+      mileFromStart: 6.6,
+      segmentKind: 'creek',
+      note: 'Default take-out at the fourth official Route A access.',
+    },
+  ],
+};
+
+baseRiverTripDetails['middle-raccoon-river-cowles-redfield-dam'] = {
+  putIn: {
+    id: 'cowles-river-access',
+    name: 'Cowles River Access',
+    latitude: 41.6196,
+    longitude: -94.2869,
+  },
+  takeOut: {
+    id: 'redfield-dam-upper-access',
+    name: 'Redfield Dam Upper Access',
+    latitude: 41.5904,
+    longitude: -94.2034,
+  },
+  logistics: {
+    distanceLabel: 'About 7.8 mi',
+    estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, wood, or take-out scouting',
+    shuttle:
+      'Stage the Redfield Dam Upper Access take-out first and confirm the above-dam landing before driving back to Cowles. This is a mandatory stop before the low-head dam.',
+    permits:
+      'No route-specific paddling permit is known. Follow county/DNR access rules, Iowa boating/PFD requirements, and posted Redfield Dam access instructions.',
+    camping:
+      'Treat this as a day trip. No legal on-route camping was verified between Cowles and Redfield Dam, and private banks should not be used for overnight stops.',
+    campingClassification: 'none',
+    summary:
+      'Launch at Cowles and take out at Redfield Dam Upper Access for the lower protected Middle Raccoon section. The finish must be treated as an above-dam take-out, not an optional waypoint.',
+    accessCaveats: [
+      'Identify the Redfield Dam Upper Access from land before launching. Missing the take-out creates low-head-dam exposure.',
+      'Cowles, Shearer, and Redfield Dam Upper Access are DNR-named public ramps, but same-day mud, high water, or debris can affect ramp usability.',
+      'The Panora gauge is upstream of this split. It is the best direct same-river gauge, but it should be paired with local checks for wood and dam-area conditions.',
+    ],
+    watchFor: [
+      'The Redfield low-head dam at the finish corridor; take out above it and do not paddle into the dam zone.',
+      'Numerous rock riffles, sweepers, sharp-bend logs, and places where trees may partially block the river.',
+      'Low-water dragging below 400 cfs, high/rising-water wood exposure, rural rescue spacing, and private-bank limits.',
+    ],
+  },
+  accessPoints: [
+    {
+      id: 'cowles-river-access',
+      name: 'Cowles River Access',
+      latitude: 41.6196,
+      longitude: -94.2869,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Default put-in at the fourth official Route A access.',
+    },
+    {
+      id: 'shearer-access',
+      name: 'Shearer Access',
+      latitude: 41.602,
+      longitude: -94.245,
+      mileFromStart: 4.3,
+      segmentKind: 'creek',
+      note: 'DNR-named intermediate cement-ramp access; coordinates are a practical corridor anchor and should be verified from land.',
+    },
+    {
+      id: 'redfield-dam-upper-access',
+      name: 'Redfield Dam Upper Access',
+      latitude: 41.5904,
+      longitude: -94.2034,
+      mileFromStart: 7.8,
+      segmentKind: 'creek',
+      note: 'Mandatory take-out above Redfield Dam; confirm the landing before launching from Cowles.',
+    },
+  ],
+};
+
 const upperIowaDetailsSeed = baseRiverTripDetails['upper-iowa-river-cattle-creek-chimney-rock']!;
 const crowWingDetailsSeed = baseRiverTripDetails['crow-wing-river-frames-landing-little-white-dog']!;
 

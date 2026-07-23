@@ -11,7 +11,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-23 04:58 run added three routes beyond the current 76-route baseline: `north-raccoon-river-rainbow-bend-richey`, `iowa-river-tailwater-east-sturgis-ferry`, and `shell-rock-river-strand-wilkinson`.
+Iowa remains mature overall. The latest 2026-07-23 05:55 run added three routes beyond the current 79-route baseline: `middle-raccoon-river-lenon-mill-p28`, `middle-raccoon-river-p28-cowles`, and `middle-raccoon-river-cowles-redfield-dam`.
+
+## 2026-07-23 05:55 Middle Raccoon protected-water-area pass
+
+- Baseline at run start: 79 Iowa live routes, verified from `src/data/rivers.ts` with `tsx`.
+- Added `middle-raccoon-river-lenon-mill-p28`, `middle-raccoon-river-p28-cowles`, and `middle-raccoon-river-cowles-redfield-dam`, bringing the imported Iowa count to 82 live routes.
+- Qualification path: Iowa DNR documents Lenon Mill Park Access to P-28 Access to Middle Raccoon River Access to Cowles Access as a 9-mile protected-water-area water-trail section, then Cowles to Shearer to Redfield Dam Upper Access as a 7.8-mile continuation. Guthrie County confirms the Route A access order and distances for Lenon, P-28, Middle Raccoon River Access, and Cowles; MyCountyParks confirms Lenon Mill camping and canoe access; Dallas County confirms Redfield Dam Access and low-head-dam context; Paddling Hub / BoatRampMap provide practical coordinate support for P-28, Cowles, and Redfield; and USGS `05483600` is direct and current at Panora.
+- Gauge posture: USGS Water Services returned Middle Raccoon River at Panora `76.1 cfs / 4.24 ft` at 2026-07-23 05:15 CDT, well below the selected route floor.
+- Threshold posture: all three routes are conservative `minimum-only` at `400 cfs`, using Iowa Parklands' quotation of Nate Hoogeveen's *Paddling Iowa* note that 400 cfs is a pleasant Middle Raccoon ride. `middle-raccoon-river-p28-cowles` also documents Iowa Parklands' exact P-28-to-Cowles trip at `600 cfs` with minimal scraping. No high cutoff or ideal range was inferred.
+- Caveat posture: Lenon-to-P-28 foregrounds below-dam launch discipline and Lenon endpoint camping. P-28-to-Cowles foregrounds riffle sweepers, rock wing dams, boulders, and private-bank limits. Cowles-to-Redfield foregrounds Redfield Dam Upper Access as a mandatory above-dam take-out, numerous riffles, sharp-bend logs, and no camping. Intermediate 248th / Shearer coordinates are explicitly marked as practical corridor anchors requiring land verification.
+- Reviewed but not added: Wapsipinicon Anamosa-to-Oxford Junction remains blocked because USGS `05421760` still returns stale 2017 data; Yellow River Volney-to-Ion was not added as a long duplicate over existing Volney-to-Sixteen and Sixteen-to-Highway-76 cards; Black Hawk Creek had only one plausible downstream gap and stayed lower value than the official Middle Raccoon protected-water-area package.
+- No route-gallery assets were added after bounded Iowa DNR / Guthrie County / Dallas County / Iowa Parklands / Paddling Hub / Commons / same-route image review.
 
 ## 2026-07-23 04:58 North Raccoon / Iowa River / Shell Rock pass
 
