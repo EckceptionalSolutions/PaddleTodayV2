@@ -1,5 +1,16 @@
 # Minnesota Route Memory
 
+## 2026-07-22 23:12 America/Chicago / 2026-07-23 04:12 UTC Minnesota gap-repair implementation pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `149` to `152` route slugs by adding `mississippi-river-county-line-jacobson`, `mississippi-river-little-falls-pike-creek`, and `vermilion-river-twomile-eightmile`.
+- Qualification path: MN DNR recommended-one-way materials plus Mississippi Maps 3/4 support County Line to Jacobson Campground; MN DNR Mississippi Map 7 and Little-Falls-to-Saint-Cloud notes support Little Falls Dam to Pike Creek; MN DNR Vermilion segments page and Map 1 support Twomile Creek to Eightmile Creek. Minnesota public-water-access GIS resolves all six endpoints.
+- Live gauge verification: MN DNR river-level feed returned Grand Rapids site `124` at `224 cfs` at `2026-07-22 20:45 CDT`, Royalton site `149` at `1930 cfs` at `2026-07-22 21:15 CDT`, and Buyck site `342` at `154 cfs` at `2026-07-22 21:45 CDT`.
+- Implemented official DNR interpreted bands only: Grand Rapids `30 / 44-1410 / 1910 cfs`, Royalton `2000 / 3000-9000 / 12000 cfs`, and Buyck `70 / 200-1300 / 1600 cfs`. No extra ideal ranges or upper cutoffs were inferred.
+- Camping posture: County-Line-to-Jacobson is `endpoint_campground` through Jacobson Campground access; Little-Falls-to-Pike-Creek is nearby-basecamp/day-use only despite Pike Creek campsite context; Twomile-to-Eightmile is `on_route_campsite` only through mapped/designated DNR watercraft campsite context.
+- Safety posture: County-Line-to-Jacobson carries upstream-proxy gauge, low-water bars, private-bank, cold-water, and campground-rule caveats. Little-Falls-to-Pike-Creek requires launching below Little Falls Dam and finishing at Pike Creek before the separate Blanchard Dam portage corridor. Twomile-to-Eightmile treats Eightmile Creek as the mandatory exit before Table Rock Falls, with remote access, wind, cold-water, and downstream-proxy caveats.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not promote already-live or weaker prompt leads including Chippewa Lentz-to-Watson, Kettle Musclewood, Otter Tail Phelps/Wannigan/Riverside, St. Louis CR4/95 and Paupores/Brookston, Watonwan CR32-to-Garden-City, Des Moines Mayflower-to-Christianna, Minnesota River Kinney-to-Skalbekken, Snake Silver-Star-to-Lower-Falls, and headwaters Mississippi lake-transition variants. The accepted three were current-baseline gaps with stronger official DNR access/gauge support or adjacent-card consistency value.
+
 ## 2026-07-22 23:05 America/Chicago / 2026-07-23 04:05 UTC Minnesota implementation pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `148` to `151` route slugs by adding `mississippi-river-steamboat-blackberry-bridge`, `mississippi-river-trommald-lum-park`, and `mississippi-river-beaver-island-clearwater`.

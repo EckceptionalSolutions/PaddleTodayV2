@@ -30151,6 +30151,64 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'mississippi-river-little-falls-pike-creek': {
+    putIn: {
+      id: 'little-falls-dam-public-water-access-site',
+      name: 'Mississippi River, Little Falls Dam Public Water Access Site',
+      latitude: 45.974272,
+      longitude: -94.365486,
+    },
+    takeOut: {
+      id: 'pike-creek-landing',
+      name: 'Mississippi River, Pike Creek Public Water Access Site',
+      latitude: 45.9527854,
+      longitude: -94.3914773,
+    },
+    logistics: {
+      distanceLabel: 'About 1.8 mi',
+      estimatedPaddleTime: 'About 45 min to 1.5 hr, longer with low water or scouting',
+      shuttle:
+        'Stage Pike Creek Landing first, then drive back to the Little Falls Dam public access below the dam. Keep this as a short staged route; continuing past Pike Creek enters the separate Blanchard Dam portage corridor.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted City of Little Falls, Morrison County, and MN DNR public-water-access rules.',
+      camping:
+        'Pike Creek has mapped watercraft-campsite context nearby, but this short card should be treated as a day trip unless a specific public campsite plan is separately confirmed. Do not camp on private banks.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch below Little Falls Dam and take out at Pike Creek for the short Map 7 connector above the existing Pike-Creek-to-Royalton route. The downstream Royalton DNR gauge is official but proxy-framed; dam-boundary and visual checks matter.',
+      accessCaveats: [
+        'Use only the public access below Little Falls Dam for this route. Do not launch upstream of the dam or improvise around dam structures.',
+        'Pike Creek resolves in Minnesota public-water-access GIS as WAS01279 at DNR river mile 963.3.',
+        'The Royalton gauge is downstream of Pike Creek and below the Blanchard Dam corridor, so local water at Little Falls and Pike Creek can override the gauge band.',
+      ],
+      watchFor: [
+        'Dam-influenced current below Little Falls, cold water, floating debris, and faster current when Royalton is high or rising.',
+        'A firm Pike Creek finish. Continuing downstream requires the separate Blanchard Dam portage route and scouting plan.',
+        'Private banks, limited legal bailout, and access rules near Lindbergh State Park and Pike Creek.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'little-falls-dam-public-water-access-site',
+        name: 'Mississippi River, Little Falls Dam Public Water Access Site',
+        latitude: 45.974272,
+        longitude: -94.365486,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below Little Falls Dam; DNR public-water-access GIS resolves WAS01280 at river mile 965.1.',
+      },
+      {
+        id: 'pike-creek-landing',
+        name: 'Mississippi River, Pike Creek Public Water Access Site',
+        latitude: 45.9527854,
+        longitude: -94.3914773,
+        mileFromStart: 1.8,
+        segmentKind: 'creek',
+        note: 'Default take-out before the separate Blanchard Dam portage corridor; DNR public-water-access GIS resolves WAS01279 at river mile 963.3.',
+      },
+    ],
+  },
+
   'mississippi-river-pike-creek-royalton': {
     putIn: {
       name: 'Mississippi River, Pike Creek Public Water Access Site',
@@ -30221,6 +30279,64 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 9.7,
         segmentKind: 'creek',
         note: 'Default take-out at DNR river mile 953.6 and direct Royalton gauge corridor.',
+      },
+    ],
+  },
+
+  'vermilion-river-twomile-eightmile': {
+    putIn: {
+      id: 'twomile-creek-access',
+      name: 'Two Mile Creek Public Water Access Site',
+      latitude: 47.9885552,
+      longitude: -92.4675615,
+    },
+    takeOut: {
+      id: 'eightmile-creek-access',
+      name: 'Vermilion River, 8 Mile Creek Public Water Access Site',
+      latitude: 48.0546146,
+      longitude: -92.4809237,
+    },
+    logistics: {
+      distanceLabel: 'About 7 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr depending on wind, level, and route-finding',
+      shuttle:
+        'Stage the remote Eightmile Creek take-out first, then drive to Two Mile Creek. Confirm both access roads, daylight, weather, and the creek exit before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow DNR public-access rules, Kabetogama State Forest rules, Superior National Forest rules where applicable, and Minnesota boating/PFD requirements.',
+      camping:
+        'DNR Map 1 marks designated watercraft campsites in the broader corridor. Use only mapped/designated sites or separately verified public-land camping rules; do not assume private-bank or riverbed camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Two Mile Creek for DNR’s easier Vermilion recommended day through the Chain of Lakes reach, then take out by paddling up Eightmile Creek before Table Rock Falls. The Buyck gauge is downstream and must be paired with local visual checks.',
+      accessCaveats: [
+        'Two Mile Creek and Eightmile Creek are remote carry-in access sites, not full-service ramps.',
+        'Eightmile Creek is the planned exit. Missing it commits the group toward Table Rock Falls and a much more serious downstream hazard zone.',
+        'The Buyck gauge is downstream of the route. Pair it with DNR map guidance, local visual checks, and wind conditions on wider water.',
+      ],
+      watchFor: [
+        'Wind on wider Chain of Lakes water, low-band scraping, cold water, fresh wood, and remote rescue exposure.',
+        'Private-bank limits and designated-campsite-only assumptions.',
+        'The mandatory Eightmile Creek exit before Table Rock Falls and the County Road 24 whitewater/portage corridor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'twomile-creek-access',
+        name: 'Two Mile Creek Public Water Access Site',
+        latitude: 47.9885552,
+        longitude: -92.4675615,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; DNR public-water-access GIS resolves Two Mile Creek as WAS02075.',
+      },
+      {
+        id: 'eightmile-creek-access',
+        name: 'Vermilion River, 8 Mile Creek Public Water Access Site',
+        latitude: 48.0546146,
+        longitude: -92.4809237,
+        mileFromStart: 7,
+        segmentKind: 'creek',
+        note: 'Default take-out; paddle up Eightmile Creek and exit before Table Rock Falls.',
       },
     ],
   },
@@ -32195,6 +32311,64 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 15.9,
         segmentKind: 'creek',
         note: 'Default take-out; DNR public-water-access GIS resolves WAS01336 at river mile 1145.5.',
+      },
+    ],
+  },
+
+  'mississippi-river-county-line-jacobson': {
+    putIn: {
+      id: 'mississippi-river-county-line-public-water-access-site',
+      name: 'Mississippi River, County Line Public Water Access Site',
+      latitude: 47.0343553,
+      longitude: -93.3229605,
+    },
+    takeOut: {
+      id: 'mississippi-river-jacobson-campground-public-water-access-site',
+      name: 'Mississippi River, Jacobson Campground Public Water Access Site',
+      latitude: 47.0236587,
+      longitude: -93.2762605,
+    },
+    logistics: {
+      distanceLabel: 'About 4.9 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr depending on wind, level, and campground stops',
+      shuttle:
+        'Stage Jacobson Campground first, then drive back to County Line. Confirm campground access, parking, and any current Aitkin County rules before counting on the endpoint as more than a take-out.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted MN DNR public-water-access rules at County Line and Aitkin County campground/access rules at Jacobson.',
+      camping:
+        'Jacobson Campground is endpoint-campground support, not permission to camp on private banks along the route. Confirm current county campground rules, fees, and availability before planning an overnight.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at County Line and take out at Jacobson Campground for DNR recommended Map 3/4 short trip. Use the upstream Grand Rapids DNR gauge as an official corridor check, then make the same-day call from local depth, wind, and debris.',
+      accessCaveats: [
+        'County Line resolves in Minnesota public-water-access GIS as WAS01336 at DNR river mile 1145.5.',
+        'Jacobson Campground resolves in Minnesota public-water-access GIS as WAS02564 at DNR river mile 1140.6 with Aitkin County administration.',
+        'The Grand Rapids gauge is upstream of this split. It is official same-corridor evidence, not a take-out reading at Jacobson.',
+      ],
+      watchFor: [
+        'Low-water riffles, shallow bars, floating debris, and slow current below the Grand Rapids gauge.',
+        'Cold water, private banks, and limited bailout options even on a short 4.9-mile trip.',
+        'Campground and access rules at Jacobson; use the endpoint campground only under current posted rules.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'mississippi-river-county-line-public-water-access-site',
+        name: 'Mississippi River, County Line Public Water Access Site',
+        latitude: 47.0343553,
+        longitude: -93.3229605,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; DNR public-water-access GIS resolves WAS01336 at river mile 1145.5.',
+      },
+      {
+        id: 'mississippi-river-jacobson-campground-public-water-access-site',
+        name: 'Mississippi River, Jacobson Campground Public Water Access Site',
+        latitude: 47.0236587,
+        longitude: -93.2762605,
+        mileFromStart: 4.9,
+        segmentKind: 'creek',
+        note: 'Default take-out and endpoint campground access; DNR public-water-access GIS resolves WAS02564 at river mile 1140.6.',
       },
     ],
   },
