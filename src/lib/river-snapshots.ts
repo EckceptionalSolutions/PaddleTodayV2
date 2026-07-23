@@ -123,6 +123,7 @@ export interface RiverGroupSnapshot {
 export async function captureRiverSnapshots(args: {
   results: RiverScoreResult[];
   generatedAt?: string;
+  writeConcurrency?: number;
 }): Promise<{
   generatedAt: string;
   routeCount: number;
@@ -143,7 +144,7 @@ export async function captureRiverSnapshots(args: {
 
   // Keep upstream/storage fan-out bounded so a refresh cannot starve normal API
   // traffic. Publish the summary manifests last, after every route blob exists.
-  await mapWithConcurrency(routeBlobs, 12, ({ name, payload }) => storage.writeJson(name, payload));
+  await mapWithConcurrency(routeBlobs, args.writeConcurrency ?? 12, ({ name, payload }) => storage.writeJson(name, payload));
   await Promise.all([
     storage.writeJson(summaryBlobName(), summary),
     storage.writeJson(weekendSummaryBlobName(), weekendSummary),

@@ -137,7 +137,7 @@ export async function handleRiverDetail(
     });
   }
 
-  if (snapshot) {
+  if (snapshot && (snapshotOnly || snapshot.result.liveData.overall !== 'offline')) {
     return sendJson(response, 200, {
       requestId,
       generatedAt: snapshot.generatedAt,
@@ -159,9 +159,35 @@ export async function handleRiverDetail(
     );
   }
 
-  const result = await withTimeout(getRiverScore(slug), LIVE_SCORE_TIMEOUT_MS, `river detail scoring for ${slug}`);
+  let result: Awaited<ReturnType<typeof getRiverScore>>;
+  try {
+    result = await withTimeout(getRiverScore(slug), LIVE_SCORE_TIMEOUT_MS, `river detail scoring for ${slug}`);
+  } catch (error) {
+    if (snapshot) {
+      console.warn('[snapshots] live retry failed; serving stored offline detail', {
+        requestId,
+        slug,
+        error: error instanceof Error ? error.message : String(error),
+      });
+      return sendJson(response, 200, {
+        requestId,
+        generatedAt: snapshot.generatedAt,
+        result: snapshot.result,
+      }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
+    }
+    throw error;
+  }
+
   if (!result) {
     return sendJson(response, 404, { requestId, error: 'not_found' }, includeBody);
+  }
+
+  if (snapshot && result.liveData.overall === 'offline') {
+    return sendJson(response, 200, {
+      requestId,
+      generatedAt: snapshot.generatedAt,
+      result: snapshot.result,
+    }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
   }
 
   const generatedAt = new Date().toISOString();

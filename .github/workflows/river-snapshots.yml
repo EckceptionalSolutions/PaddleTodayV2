@@ -20,69 +20,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Refresh production river snapshots
-        id: refresh
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.12.0'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and store river snapshots
+        id: capture
         env:
-          API_ORIGIN: ${{ vars.API_ORIGIN || 'https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net' }}
-          SNAPSHOT_REFRESH_TOKEN: ${{ secrets.SNAPSHOT_REFRESH_TOKEN }}
+          RIVER_SNAPSHOT_CONTAINER_SAS_URL: ${{ secrets.RIVER_SNAPSHOT_CONTAINER_SAS_URL }}
+          RIVER_SNAPSHOT_BLOB_PREFIX: river-snapshots
+          RIVER_SCORE_CONCURRENCY: '24'
+          RIVER_SNAPSHOT_WRITE_CONCURRENCY: '24'
         run: |
-          node --input-type=module <<'NODE'
-          import { appendFileSync } from 'node:fs';
-          const apiOrigin = process.env.API_ORIGIN.replace(/\/$/, '');
-          const refreshUrl = `${apiOrigin}/api/snapshots/refresh?async=1`;
-          const headers = {
-            accept: 'application/json',
-            'user-agent': 'PaddleToday-GitHubActions/1.0 (+https://github.com/EckceptionalSolutions/PaddleTodayV2)',
-          };
-          if (process.env.SNAPSHOT_REFRESH_TOKEN) {
-            headers.authorization = `Bearer ${process.env.SNAPSHOT_REFRESH_TOKEN}`;
-          }
+          if [ -z "$RIVER_SNAPSHOT_CONTAINER_SAS_URL" ]; then
+            echo "RIVER_SNAPSHOT_CONTAINER_SAS_URL is not configured."
+            exit 1
+          fi
 
-          const maxReadyAttempts = 18;
-          let ready = false;
-          let lastReadyError;
-          for (let attempt = 1; attempt <= maxReadyAttempts; attempt += 1) {
-            try {
-              const response = await fetch(`${apiOrigin}/health/ready?check=${Date.now()}`, {
-                headers,
-                signal: AbortSignal.timeout(30_000),
-              });
-              if (!response.ok) {
-                throw new Error(`HTTP ${response.status}: ${(await response.text()).slice(0, 240)}`);
-              }
-              ready = true;
-              break;
-            } catch (error) {
-              lastReadyError = error;
-              if (attempt === maxReadyAttempts) break;
-              const message = error instanceof Error ? error.message : String(error);
-              console.warn(`API readiness attempt ${attempt}/${maxReadyAttempts} failed: ${message}. Retrying...`);
-              await new Promise((resolve) => setTimeout(resolve, 10_000));
-            }
-          }
-          if (!ready) {
-            throw lastReadyError ?? new Error('Production API did not become ready.');
-          }
-
-          const response = await fetch(refreshUrl, {
-            method: 'POST',
-            headers,
-            signal: AbortSignal.timeout(180_000),
-          });
-          const body = await response.text();
-          if (!response.ok) {
-            throw new Error(`Production snapshot refresh returned HTTP ${response.status}: ${body.slice(0, 400)}`);
-          }
-
-          const payload = JSON.parse(body);
-          if (response.status !== 202 || payload.ok !== true || !payload.startedAt) {
-            throw new Error('Production snapshot refresh did not start asynchronously. Check App Service snapshot settings.');
-          }
-          if (process.env.GITHUB_OUTPUT) {
-            appendFileSync(process.env.GITHUB_OUTPUT, `started_at=${payload.startedAt}\n`);
-          }
-          console.log(`Production snapshot refresh started at ${payload.startedAt}; waiting for the completed Blob snapshot.`);
-          NODE
+          npm run snapshots:refresh
 
       - name: Verify production snapshot freshness
         env:
@@ -90,42 +55,48 @@ jobs:
           # Cloudflare and can reject GitHub-hosted runner traffic with HTTP 403
           # even when the App Service and Blob snapshot are healthy.
           API_ORIGIN: ${{ vars.API_ORIGIN || 'https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net' }}
-          REFRESH_STARTED_AT: ${{ steps.refresh.outputs.started_at }}
+          CAPTURED_GENERATED_AT: ${{ steps.capture.outputs.generated_at }}
+          CAPTURED_ROUTE_COUNT: ${{ steps.capture.outputs.route_count }}
         run: |
           node --input-type=module <<'NODE'
           const apiOrigin = process.env.API_ORIGIN.replace(/\/$/, '');
-          const refreshStartedAt = Date.parse(process.env.REFRESH_STARTED_AT || '');
-          if (!Number.isFinite(refreshStartedAt)) {
-            throw new Error('Production snapshot refresh did not provide a valid start timestamp.');
+          const capturedGeneratedAt = process.env.CAPTURED_GENERATED_AT || '';
+          const capturedRouteCount = Number(process.env.CAPTURED_ROUTE_COUNT);
+          if (!Number.isFinite(Date.parse(capturedGeneratedAt)) || !Number.isInteger(capturedRouteCount)) {
+            throw new Error('Snapshot capture did not provide valid verification outputs.');
           }
           const headers = {
             accept: 'application/json',
             'user-agent': 'PaddleToday-GitHubActions/1.0 (+https://github.com/EckceptionalSolutions/PaddleTodayV2)',
           };
-          const maxAttempts = 20;
+          const maxAttempts = 6;
           let lastError;
 
           for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
             try {
-              const url = `${apiOrigin}/api/rivers/rice-creek-peltier-to-long-lake.json?snapshot_check=${Date.now()}`;
-              const response = await fetch(url, {
-                headers,
-                signal: AbortSignal.timeout(30_000),
-              });
-              if (!response.ok) {
-                const body = await response.text();
-                throw new Error(`HTTP ${response.status}: ${body.slice(0, 240)}`);
+              const cacheBuster = Date.now();
+              const [detailResponse, summaryResponse] = await Promise.all([
+                fetch(`${apiOrigin}/api/rivers/rice-creek-peltier-to-long-lake.json?snapshot_check=${cacheBuster}`, {
+                  headers,
+                  signal: AbortSignal.timeout(30_000),
+                }),
+                fetch(`${apiOrigin}/api/rivers/summary.json?snapshot_check=${cacheBuster}`, {
+                  headers,
+                  signal: AbortSignal.timeout(30_000),
+                }),
+              ]);
+              if (!detailResponse.ok || !summaryResponse.ok) {
+                throw new Error(`Production verification returned detail HTTP ${detailResponse.status}, summary HTTP ${summaryResponse.status}.`);
               }
 
-              const payload = await response.json();
-              const generatedAtValue = payload.generatedAt || payload.result?.generatedAt || '';
-              const generatedAt = Date.parse(generatedAtValue);
-              const ageMinutes = Number.isFinite(generatedAt)
-                ? Math.round((Date.now() - generatedAt) / 60000)
-                : Infinity;
-              console.log(`Production snapshot generatedAt=${generatedAtValue || 'unknown'} ageMinutes=${ageMinutes}`);
-              if (!Number.isFinite(generatedAt) || generatedAt + 5_000 < refreshStartedAt || ageMinutes > 20) {
-                throw new Error('Production has not served the newly started snapshot yet. Check the API refresh response and App Service Blob Storage settings.');
+              const [detail, summary] = await Promise.all([detailResponse.json(), summaryResponse.json()]);
+              console.log(`Production detail generatedAt=${detail.generatedAt || 'unknown'}; summary generatedAt=${summary.generatedAt || 'unknown'} routeCount=${summary.riverCount ?? 'unknown'}`);
+              if (
+                detail.generatedAt !== capturedGeneratedAt ||
+                summary.generatedAt !== capturedGeneratedAt ||
+                summary.riverCount !== capturedRouteCount
+              ) {
+                throw new Error('Production is not reading the exact snapshot written by this run. Check that the GitHub and App Service SAS URLs target the same container and prefix.');
               }
 
               process.exit(0);
@@ -137,7 +108,7 @@ jobs:
 
               const message = error instanceof Error ? error.message : String(error);
               console.warn(`Snapshot probe attempt ${attempt}/${maxAttempts} failed: ${message}. Retrying...`);
-              await new Promise((resolve) => setTimeout(resolve, Math.min(attempt * 5_000, 30_000)));
+              await new Promise((resolve) => setTimeout(resolve, 10_000));
             }
           }
 

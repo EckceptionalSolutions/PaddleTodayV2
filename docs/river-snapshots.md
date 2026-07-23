@@ -72,16 +72,18 @@ The scheduled workflow is:
 
 - `.github/workflows/river-snapshots.yml`
 
-It runs every 30 minutes and refreshes snapshots through the production API. It also runs after a successful API deployment, so the writer and reader use the same App Service storage settings.
+It runs every 30 minutes and after a successful API deployment. GitHub Actions owns the complete scoring and Blob write operation, so production web traffic is not used as a background-job runner.
 
-If `SNAPSHOT_REFRESH_TOKEN` is configured in App Service, configure the matching GitHub repository secret:
+Configure this GitHub repository secret:
 
-- `SNAPSHOT_REFRESH_TOKEN`
+- `RIVER_SNAPSHOT_CONTAINER_SAS_URL`
 
-The workflow waits for `/health/ready`, calls `POST /api/snapshots/refresh?async=1`, and then verifies that the Rice Creek detail snapshot is fresh. The API enforces Blob Storage output. The App Service must retain these settings:
+The workflow verifies its Blob write directly, then requires production to serve the exact generated timestamp and route count written by that run. The GitHub secret and App Service setting must target the same container, and both use the fixed `river-snapshots` prefix. The App Service must retain these settings:
 
 - `RIVER_SNAPSHOT_CONTAINER_SAS_URL`
 - `RIVER_SNAPSHOT_BLOB_PREFIX=river-snapshots`
+
+Before writing, the runner rejects broadly degraded captures so a large upstream outage cannot replace the last usable production snapshot.
 
 ## Manual refresh endpoint
 
