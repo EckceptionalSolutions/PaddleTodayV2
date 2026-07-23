@@ -1,5 +1,16 @@
 # Minnesota Route Memory
 
+## 2026-07-22 23:05 America/Chicago / 2026-07-23 04:05 UTC Minnesota implementation pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `148` to `151` route slugs by adding `mississippi-river-steamboat-blackberry-bridge`, `mississippi-river-trommald-lum-park`, and `mississippi-river-beaver-island-clearwater`.
+- Qualification path: MN DNR Mississippi River Maps 3, 5, and 8 plus the DNR segments page document the official or practical public water-trail corridors, mileage, campsites, low-water riffles, high-water fast-current warnings, Potlatch Dam / dam-area caution, and island/private-land context. Minnesota public-water-access GIS resolves Steamboat Landing `WAS00984`, Blackberry Bridge `WAS02539`, Trommald `WAS02294`, Lum Park / Rice Lake `WAS00357`, Beaver Island Trail `WAS01281`, and Clearwater `WAS01309`.
+- Live gauge verification: MN DNR river-level feed returned Grand Rapids site `124` at `224 cfs` at `2026-07-22 18:45 CDT`, in the official medium band; Brainerd site `121` at `960 cfs` at `2026-07-22 20:30 CDT`, in the official low band; and St. Cloud site `129` at `2850 cfs` at `2026-07-22 19:45 CDT`, in the official low band.
+- Implemented official DNR interpreted bands only: Grand Rapids `30 / 44-1410 / 1910 cfs`, Brainerd `908 / 1800-7000 / 10000 cfs`, and St. Cloud `2000 / 3000-9000 / 12000 cfs`. No extra ideal ranges or upper cutoffs were inferred beyond DNR ratings.
+- Camping posture: all three are `on_route_campsite` through mapped DNR watercraft/primitive campsite context, but the cards require designated/public campsite use only. Steamboat-to-Blackberry notes Sucher's campsite, Trommald-to-Lum notes Half-Moon campsite, and Beaver-Island-to-Clearwater notes public/private island separation before any primitive campsite assumption.
+- Safety posture: Steamboat-to-Blackberry carries Blandin dam-area launch discipline, low-water riffles, debris/strainers, cold water, and private-bank limits. Trommald-to-Lum carries French Rapids / low-water riffles, Rice Lake wind/wake, mandatory Lum Park take-out above Potlatch Dam, downstream-gauge visual-check caveats, and private-bank limits. Beaver-Island-to-Clearwater carries island-channel confusion, low-water riffles, high-water fast current, private islands, cold water, strainers, and rescue-exposure caveats.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Commons / same-route searches with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not need to expand beyond Mississippi water-trail targets because these three current-baseline gaps had stronger official access/gauge support than weaker prompt leads such as Mayflower-to-Christianna, Minnesota River Kinney-to-Skalbekken, Snake Silver-Star-to-Lower-Falls, and headwaters lake-transition variants.
+
 ## 2026-07-22 21:08 America/Chicago / 2026-07-23 02:08 UTC Minnesota implementation pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `145` to `148` route slugs by adding `des-moines-river-christiania-ashley-park`, `red-lake-river-highway-75-bypass-fisher`, and `otter-tail-river-phelps-mill-west-red-river-lake`.
