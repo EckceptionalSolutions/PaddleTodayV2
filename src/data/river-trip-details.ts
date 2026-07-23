@@ -7080,6 +7080,189 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
+  'baraboo-river-rock-springs-north-freedom': {
+    putIn: {
+      id: 'rock-springs-firemens-park-canoe-landing',
+      name: "Rock Springs Firemen's Park canoe landing",
+      latitude: 43.4779,
+      longitude: -89.9143,
+    },
+    takeOut: {
+      id: 'north-freedom-canoe-launch',
+      name: 'North Freedom Canoe Launch / Firemen\'s Park',
+      latitude: 43.4569,
+      longitude: -89.86326,
+    },
+    logistics: {
+      distanceLabel: 'About 7 mi from Firemen\'s Park; 8.2 mi from the upstream Highway 136 gorge put-in',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, plus time for any logjam scouting',
+      shuttle:
+        'Stage a car at the North Freedom Canoe Launch, then launch from the Rock Springs landing off County Road DD south of the Highway 136 bridge. The longer Wisconsin River Trips version starts upstream near Ableman Gorge, but this card defaults to the official Rock Springs landing.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Rock Springs and North Freedom park or launch rules, and keep vehicles clear of the landings.',
+      camping:
+        'No on-route camping is documented. Treat this as a day trip unless separately arranging lodging or a legal campground away from the river corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Rock Springs public landing and paddle the Baraboo toward North Freedom. This reach has gentle current, quartzite-bluff scenery, railroad bridges, muddy banks, and enough deadfall history that the Reedsburg gauge and same-day wood conditions both matter.',
+      accessCaveats: [
+        'The Baraboo River map places the Rock Springs landing and parking off County Road DD just south of the Highway 136 bridge, with restrooms in the park across the street.',
+        'Wisconsin River Trips calls Firemen\'s Park the official Rock Springs canoe launch but notes the launch can be muddy and awkward; the upstream Highway 136 / Ableman Gorge put-in is scenic but less formal.',
+        'North Freedom has a public canoe launch with parking, restrooms, picnic tables, and a kayak dock, but a small launch fee may be posted.',
+      ],
+      watchFor: [
+        'Minor logjams between Rock Springs and North Freedom that may require portage.',
+        'Strainers, muddy banks, and poor footing when entering, landing, or scouting.',
+        'Higher water above the WRT target range, when the river gets pushier and wood avoidance becomes less forgiving.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rock-springs-firemens-park-canoe-landing',
+        name: "Rock Springs Firemen's Park canoe landing",
+        latitude: 43.4779,
+        longitude: -89.9143,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default public put-in off County Road DD just south of the Highway 136 bridge.',
+      },
+      {
+        id: 'north-freedom-canoe-launch',
+        name: 'North Freedom Canoe Launch / Firemen\'s Park',
+        latitude: 43.4569,
+        longitude: -89.86326,
+        mileFromStart: 7,
+        segmentKind: 'creek',
+        note: 'Default take-out in North Freedom; Wisconsin River Trips describes this as an excellent public launch with a kayak dock.',
+      },
+    ],
+  },
+
+  'baraboo-river-north-freedom-giese': {
+    putIn: {
+      id: 'north-freedom-canoe-launch',
+      name: 'North Freedom Canoe Launch / Firemen\'s Park',
+      latitude: 43.4569,
+      longitude: -89.86326,
+    },
+    takeOut: {
+      id: 'giese-park-canoe-launch',
+      name: 'Giese Park canoe launch',
+      latitude: 43.4629,
+      longitude: -89.8042,
+    },
+    logistics: {
+      distanceLabel: '7.4 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr',
+      shuttle:
+        'Use a short Sauk County car shuttle between North Freedom Firemen\'s Park and Giese Park on Hatchery Road. Wisconsin River Trips lists a practical bike shuttle, but rural roads and launch timing should still be planned.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted launch, parking, and park-hour rules at North Freedom and Giese Park.',
+      camping:
+        'No on-route camping is documented. Town of Baraboo specifically says Giese Park has no overnight camping, so use this as a day route.',
+      campingClassification: 'none',
+      summary:
+        'Put in at North Freedom and paddle to Giese Park through a mostly quiet Baraboo River corridor with sandstone outcrops, an artesian-well area, railroad bridges, one easy Class I riffle, muddy banks, and generally cleared but still relevant wood.',
+      accessCaveats: [
+        'North Freedom is a public launch with parking, restrooms, picnic tables, and a floating kayak dock; check for any current local launch fee or signage.',
+        'Giese Park is a Town of Baraboo river-access park at Hatchery Road and Rock Hill Road with summer portable restrooms and no overnight camping.',
+        'The route has few good informal stops because banks are muddy and often private.',
+      ],
+      watchFor: [
+        'The easy Class I riffle under Kohlmeyer Road, especially if water is high or debris has shifted.',
+        'Downed trees and strainers along banks; stay away from wood at higher water.',
+        'Mud at landings, private banks, and cold-water exposure outside summer.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'north-freedom-canoe-launch',
+        name: 'North Freedom Canoe Launch / Firemen\'s Park',
+        latitude: 43.4569,
+        longitude: -89.86326,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default public put-in in North Freedom.',
+      },
+      {
+        id: 'kohlmeyer-road-bridge',
+        name: 'Kohlmeyer Road bridge',
+        latitude: 43.4862,
+        longitude: -89.8333,
+        mileFromStart: 4.3,
+        segmentKind: 'creek',
+        note: 'Bridge landmark near the route\'s easy Class I riffle; not the default access.',
+      },
+      {
+        id: 'giese-park-canoe-launch',
+        name: 'Giese Park canoe launch',
+        latitude: 43.4629,
+        longitude: -89.8042,
+        mileFromStart: 7.4,
+        segmentKind: 'creek',
+        note: 'Default take-out at the Town of Baraboo river-access park on Hatchery Road.',
+      },
+    ],
+  },
+
+  'baraboo-river-giese-haskins': {
+    putIn: {
+      id: 'giese-park-canoe-launch',
+      name: 'Giese Park canoe launch',
+      latitude: 43.4629,
+      longitude: -89.8042,
+    },
+    takeOut: {
+      id: 'haskins-park-ada-kayak-launch',
+      name: 'Haskins Park ADA kayak launch',
+      latitude: 43.46997,
+      longitude: -89.76158,
+    },
+    logistics: {
+      distanceLabel: 'About 3.5 mi',
+      estimatedPaddleTime: 'About 1 hr to 1 hr 45 min',
+      shuttle:
+        'Stage the take-out at Haskins Park in West Baraboo, then launch at Giese Park on Hatchery Road. This short leg is often combined with downstream Baraboo paddling, but Haskins is the planned finish for this route card.',
+      permits:
+        'No route-specific paddling permit is known. Follow Town of Baraboo park hours at Giese Park and City of Baraboo / West Baraboo signage at Haskins Park.',
+      camping:
+        'No on-route camping. Town of Baraboo says Giese Park has no overnight camping, and Haskins is an urban day-use landing.',
+      campingClassification: 'none',
+      summary:
+        'Launch from Giese Park and paddle into West Baraboo to the Haskins Park ADA kayak launch. The leg is short and mostly straightforward, but it sits immediately above the Baraboo Rapids corridor, so take out at Haskins unless you intentionally planned the separate downstream route.',
+      accessCaveats: [
+        'Giese Park has river access and seasonal portable restrooms but no overnight camping.',
+        'Haskins Park is the cleaner public take-out and start for the downstream Baraboo Rapids card.',
+        'The Baraboo map treats Giese-to-Glenville as a larger corridor with exposed-rock difficulty below 250 cfs; this card uses that as the conservative low-water floor.',
+      ],
+      watchFor: [
+        'Exposed rocks and slower passage when the Baraboo gauge drops below the official 250 cfs floor.',
+        'Strainers, muddy banks, and private shoreline before West Baraboo.',
+        'The downstream Haskins-to-Glenville riffles and Class I ledges if you miss or skip the planned take-out.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'giese-park-canoe-launch',
+        name: 'Giese Park canoe launch',
+        latitude: 43.4629,
+        longitude: -89.8042,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the Town of Baraboo river-access park.',
+      },
+      {
+        id: 'haskins-park-ada-kayak-launch',
+        name: 'Haskins Park ADA kayak launch',
+        latitude: 43.46997,
+        longitude: -89.76158,
+        mileFromStart: 3.5,
+        segmentKind: 'creek',
+        note: 'Default take-out and the start of the separate downstream Baraboo Rapids route.',
+      },
+    ],
+  },
+
   'sugar-river-highway-x-attica': {
     putIn: {
       name: 'Highway X public access',
