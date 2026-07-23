@@ -34225,6 +34225,198 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'des-moines-river-christiania-ashley-park': {
+    putIn: {
+      id: 'christiania-bridge',
+      name: 'Des Moines River, Christiania Bridge / Chris Public Water Access Site',
+      latitude: 43.7928244,
+      longitude: -95.0919226,
+    },
+    takeOut: {
+      id: 'ashley-park',
+      name: 'Des Moines River, Ashley Park Public Water Access Site',
+      latitude: 43.6253796,
+      longitude: -94.9872012,
+    },
+    logistics: {
+      distanceLabel: 'About 16.3 mi',
+      estimatedPaddleTime: 'About 5.5 hr to 8 hr, longer with low water, wood, or campsite stops',
+      shuttle:
+        'Stage Ashley Park in Jackson first, then drive back to Christiania Bridge. This route ends just above the Jackson former-dam rapid area, so confirm the Ashley take-out before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR public accesses, follow Minnesota boating/PFD rules, and obey posted county, state park, watercraft campsite, and private-bank rules.',
+      camping:
+        'Kilen Woods State Park, the Kilen Woods watercraft campsite, and Belmont County Park watercraft campsite are mapped in this corridor. Use only designated campsites and current park rules; do not camp on private riverbanks or riverbed areas.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Christiania Bridge and take out at Ashley Park for a 16.3-mile Des Moines River connector through Kilen Woods and Belmont. The Jackson gauge is just downstream of the finish, so use it with same-day visual checks at both endpoints.',
+      accessCaveats: [
+        'Christiania / Chris resolves as WAS01445 at river mile 29.1, and Ashley Park resolves as WAS02771 at river mile 12.8.',
+        'The Jackson DNR gauge sits just downstream of Ashley near the former Jackson Dam / high Class I rapid. Do not miss Ashley or casually continue downstream without a scouted plan.',
+        'Kilen Woods State Park and Belmont County Park camping access depends on current posted rules, fees, reservations, and campsite availability.',
+      ],
+      watchFor: [
+        'Small Class I rapids near Kilen Woods, Belmont, and Jackson; lines can change with low water or debris.',
+        'Snags, fallen trees, fast rises after rain, cold water, and muddy banks.',
+        'Private shoreline and designated-campsite-only overnight rules.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'christiania-bridge',
+        name: 'Des Moines River, Christiania Bridge / Chris Public Water Access Site',
+        latitude: 43.7928244,
+        longitude: -95.0919226,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01445 at Des Moines River mile 29.1.',
+      },
+      {
+        id: 'kilen-woods-county-road-19',
+        name: 'Kilen Woods State Park / County Road 19 access',
+        latitude: 43.7243078,
+        longitude: -95.0547436,
+        mileFromStart: 6.3,
+        segmentKind: 'creek',
+        note: 'DNR Map 1 marks the County Road 19 bridge/trailer access near Kilen Woods at river mile 22.8; public-access GIS resolves WAS01444.',
+      },
+      {
+        id: 'ashley-park',
+        name: 'Des Moines River, Ashley Park Public Water Access Site',
+        latitude: 43.6253796,
+        longitude: -94.9872012,
+        mileFromStart: 16.3,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02771 at Des Moines River mile 12.8, just upstream of the Jackson gauge/former dam rapid context.',
+      },
+    ],
+  },
+
+  'red-lake-river-highway-75-bypass-fisher': {
+    putIn: {
+      id: 'red-lake-highway-75-bypass',
+      name: 'Red Lake River, Highway 75 Bypass Public Water Access Site',
+      latitude: 47.7783856,
+      longitude: -96.6308629,
+    },
+    takeOut: {
+      id: 'fisher-landing-red-lake',
+      name: 'Red Lake River, Fisher Landing Public Water Access Site',
+      latitude: 47.8007512,
+      longitude: -96.8090097,
+    },
+    logistics: {
+      distanceLabel: 'About 23.1 mi',
+      estimatedPaddleTime: 'About 7.5 hr to 10.5 hr, longer with low water, wind, or wood scouting',
+      shuttle:
+        'Stage Fisher Landing first, then drive back to the Highway 75 Bypass access west of Crookston. Start below the Crookston constructed-rapid and portage zone rather than improvising an upstream launch.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules plus posted Crookston, Fisher, DNR access, and parking rules.',
+      camping:
+        'No on-route campsite is documented for this lower Red Lake River day. Treat it as a long day trip and use only legal town or campground options if separately confirmed.',
+      campingClassification: 'none',
+      summary:
+        'Put in at the Highway 75 Bypass access below Crookston and take out at Fisher Landing. The Fisher gauge is direct at the finish and barely in the official medium band during this run.',
+      accessCaveats: [
+        'Highway 75 Bypass resolves as WAS00550 at river mile 51.0, below the DNR-mapped Crookston constructed rock rapids and portage zone.',
+        'Fisher Landing resolves as WAS02138 at river mile 27.9 beside the County Road 15 bridge and the Fisher river-level gauge.',
+        'This is a long lower-river reach with sparse public exits; do not assume private banks or road crossings are legal bailout points.',
+      ],
+      watchFor: [
+        'Low-water scraping, shallow bends, strainers, fresh flood debris, and slow travel if the gauge falls back below medium.',
+        'Wind across open farmland bends, storms, cold water, private banks, and limited rescue exposure.',
+        'Starting upstream of Highway 75 Bypass would reintroduce Crookston rapids and portage hazards that this card intentionally avoids.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'red-lake-highway-75-bypass',
+        name: 'Red Lake River, Highway 75 Bypass Public Water Access Site',
+        latitude: 47.7783856,
+        longitude: -96.6308629,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR Map 2 river mile 51.0, below the Crookston constructed-rapid zone.',
+      },
+      {
+        id: 'fisher-landing-red-lake',
+        name: 'Red Lake River, Fisher Landing Public Water Access Site',
+        latitude: 47.8007512,
+        longitude: -96.8090097,
+        mileFromStart: 23.1,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR Map 2 river mile 27.9; resolves as WAS02138 and shares the Fisher gauge corridor.',
+      },
+    ],
+  },
+
+  'otter-tail-river-phelps-mill-west-red-river-lake': {
+    putIn: {
+      id: 'otter-tail-river-phelps-mill-public-water-access-site',
+      name: 'Otter Tail River, Phelps Mill Public Water Access Site',
+      latitude: 46.3821667,
+      longitude: -95.8210176,
+    },
+    takeOut: {
+      id: 'west-red-river-lake-public-water-access-site',
+      name: 'West Red River Lake Public Water Access Site',
+      latitude: 46.3886343,
+      longitude: -95.9911976,
+    },
+    logistics: {
+      distanceLabel: 'About 11.8 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with wind, low water, or lake traffic',
+      shuttle:
+        'Stage West Red River Lake first, then drive back to Phelps Mill County Park. This is the longer official Phelps Mill day; groups wanting the shorter outing should use the West Lost Lake card instead.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Otter Tail County park rules at Phelps Mill and MN DNR public-water-access rules at West Lost Lake and West Red River Lake.',
+      camping:
+        'No on-route watercraft campsite is documented for this lake-influenced section. Treat it as a day trip; use legal nearby campground or park options only if separately confirmed.',
+      campingClassification: 'none',
+      summary:
+        'Launch from Phelps Mill County Park and take out at West Red River Lake for the official 11.8-mile Otter Tail River day trip. The Elizabeth gauge is downstream, so wind, lake conditions, and visual level checks remain part of the decision.',
+      accessCaveats: [
+        'Phelps Mill is a county-administered public access below the Phelps Mill dam/portage context; do not run the dam or improvise above-dam launch choices.',
+        'West Lost Lake is the midpoint public access and shorter-route take-out; West Red River Lake resolves as WAS00822 near river mile 73.3 for the longer day.',
+        'The Elizabeth gauge is downstream of this route, so it is a corridor indicator rather than a direct reading at West Red River Lake.',
+      ],
+      watchFor: [
+        'Wind and boat wake on West Lost Lake and West Red River Lake near the access points.',
+        'Low-water dragging, vegetation, shallow riffles, culvert/bridge obstructions, and low headroom.',
+        'Private shorelines, cold water, and slower travel if the downstream gauge falls toward the low band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'otter-tail-river-phelps-mill-public-water-access-site',
+        name: 'Otter Tail River, Phelps Mill Public Water Access Site',
+        latitude: 46.3821667,
+        longitude: -95.8210176,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at Phelps Mill County Park and dam/portage area.',
+      },
+      {
+        id: 'west-lost-lake-public-water-access-site',
+        name: 'West Lost Lake Public Water Access Site',
+        latitude: 46.3814506,
+        longitude: -95.8622708,
+        mileFromStart: 3.5,
+        segmentKind: 'lake',
+        note: 'Mid-route public access and the finish for the existing shorter Phelps Mill-to-West-Lost-Lake card.',
+      },
+      {
+        id: 'west-red-river-lake-public-water-access-site',
+        name: 'West Red River Lake Public Water Access Site',
+        latitude: 46.3886343,
+        longitude: -95.9911976,
+        mileFromStart: 11.8,
+        segmentKind: 'lake',
+        note: 'Default take-out; DNR public access at the official longer-route finish.',
+      },
+    ],
+  },
+
   'wapsipinicon-river-independence-quasqueton': {
     putIn: {
       id: 'knotts-landing-independence',
@@ -34961,6 +35153,183 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 18,
         segmentKind: 'creek',
         note: 'Default take-out corridor; confirm exact legal landing before launching from Marengo.',
+      },
+    ],
+  },
+
+  'mecan-river-dakota-dixie': {
+    putIn: {
+      name: 'Dakota / Highway Y-JJ bridge access',
+      latitude: 43.9886026,
+      longitude: -89.3584275,
+    },
+    takeOut: {
+      name: 'Dixie Avenue bridge access',
+      latitude: 43.9522342,
+      longitude: -89.325844,
+    },
+    logistics: {
+      distanceLabel: 'About 5.4 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer if branches or bridge obstructions require short carries',
+      shuttle:
+        'Stage Dixie Avenue first, then drive back to the Dakota / Highway Y-JJ bridge. Check both bridge approaches before unloading because the route depends on small public carry-in style access rather than a staffed launch.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, use only legal bridge/public access space, and avoid blocking road shoulders or private driveways.',
+      camping:
+        'No on-route camping is documented for this upper Mecan day route. Treat any Waushara County or private campground plan as separate base-camp planning away from the river corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Dakota / Highway Y-JJ bridge and take out at Dixie Avenue for a clear spring-fed upper Mecan route. The app uses Chaffee Creek at I-39 as a rough tributary proxy because WRT ties this exact route family to that gauge, but same-day bridge visuals still control.',
+      accessCaveats: [
+        'WRT describes the Dakota bridge as public and scenic and Dixie Avenue as a nice carry-in landing, but both are small access points where shoulder, mud, and bank conditions matter.',
+        'The Chaffee Creek gauge is a rough analog, not a direct Mecan gauge. If the bridge visual check disagrees with the score, trust the visual check.',
+        'Stay off private banks except in emergencies. The route is short enough to avoid casual trespass stops.',
+      ],
+      watchFor: [
+        'Low branches, fresh wood, and low private bridges that may require a short portage or careful duck-under.',
+        'Cold spring-fed water, especially in shoulder seasons.',
+        'Local storms, drought, or vegetation changes that can make the Chaffee proxy misleading for the exact route.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'dakota-highway-y-jj-bridge',
+        name: 'Dakota / Highway Y-JJ bridge access',
+        latitude: 43.9886026,
+        longitude: -89.3584275,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; WRT describes this as a public and scenic bridge access.',
+      },
+      {
+        id: 'dixie-avenue-mecan-access',
+        name: 'Dixie Avenue bridge access',
+        latitude: 43.9522342,
+        longitude: -89.325844,
+        mileFromStart: 5.4,
+        segmentKind: 'creek',
+        note: 'Default take-out for the upper Dakota card.',
+      },
+    ],
+  },
+
+  'mecan-river-dixie-highway-22': {
+    putIn: {
+      name: 'Dixie Avenue bridge access',
+      latitude: 43.9521817,
+      longitude: -89.3258795,
+    },
+    takeOut: {
+      name: 'Highway 22 Mecan River access',
+      latitude: 43.915876,
+      longitude: -89.3122539,
+    },
+    logistics: {
+      distanceLabel: 'About 4.5 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, depending on current, branches, and stops',
+      shuttle:
+        'Stage the Highway 22 take-out first, then drive back to Dixie Avenue. Inspect the Highway 22 access from land because parking and bank footing are the main practical constraints.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, use legal public access space, and respect posted bridge-area parking limits.',
+      camping:
+        'No on-route camping is documented. Treat this as a short day route with separate base-camp planning if needed.',
+      campingClassification: 'none',
+      summary:
+        'Use Dixie Avenue to Highway 22 for the middle Mecan card. WRT reports no rapids and consistently fast current, while the app scores the route from the Chaffee Creek proxy with explicit same-day visual-check caveats.',
+      accessCaveats: [
+        'Dixie Avenue is the same public carry-in used as the upstream route take-out; stage courteously and keep the bridge area clear.',
+        'Highway 22 has public access northeast of the bridge, but footing, mud, shoulder parking, and vegetation should be checked before leaving a shuttle vehicle.',
+        'The Chaffee Creek proxy can miss exact Mecan conditions. Same-day water visibility, bridge clearance, and local storm history should override a marginal score.',
+      ],
+      watchFor: [
+        'Fast current pushing into low branches, bridge edges, and any fresh downed tree.',
+        'Cold water, especially in spring and fall.',
+        'Private banks between the bridge accesses; avoid unplanned stops unless safety requires them.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'dixie-avenue-mecan-access',
+        name: 'Dixie Avenue bridge access',
+        latitude: 43.9521817,
+        longitude: -89.3258795,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; WRT describes this as a great put-in with public parking.',
+      },
+      {
+        id: 'highway-22-mecan-access',
+        name: 'Highway 22 Mecan River access',
+        latitude: 43.915876,
+        longitude: -89.3122539,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Default take-out northeast of the bridge.',
+      },
+    ],
+  },
+
+  'mecan-river-highway-22-germania': {
+    putIn: {
+      name: 'Highway 22 Mecan River access',
+      latitude: 43.9161263,
+      longitude: -89.3126352,
+    },
+    takeOut: {
+      name: 'Germania Marsh Dam access',
+      latitude: 43.8917924,
+      longitude: -89.2522052,
+    },
+    logistics: {
+      distanceLabel: 'About 5.8 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with wind, marsh navigation, or a barrier portage',
+      shuttle:
+        'Stage Germania Marsh Dam first and confirm that the ramp/gate/access setup is usable that day. Consider marking the Duck Creek / fish barrier alternate take-out before launching from Highway 22.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, obey fish-barrier and dam signs, and use only public access areas for staging.',
+      camping:
+        'No on-route camping is documented. The marsh-and-dam route should be treated as a day paddle with a firm take-out plan before the dam.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Highway 22 and paddle downstream through the Germania Marsh corridor to the dam access. This route is short on paper but carries more logistics than the upstream Mecan cards because of marsh navigation, wind exposure, fish-barrier signs, and the mandatory dam stop.',
+      accessCaveats: [
+        'The Highway 22 launch is public but small; inspect parking, footing, and bridge clearance before committing.',
+        'WRT notes an electric fish barrier warning and an alternate take-out near Duck Creek about 1.1 miles above the dam. Treat that as a real decision point if signs or conditions warrant stopping early.',
+        'The Germania Marsh Dam take-out must be confirmed before launch, including seasonal gate or ramp access. Do not drift into the dam corridor.',
+      ],
+      watchFor: [
+        'Open-marsh wind, confusing channels, low bridge clearance, and the need for GPS or a reliable map.',
+        'Electric fish barrier signage, overgrown portage/access paths, and quicksand or soft-bottom wading risk.',
+        'Cold water, private banks, storms, and any mismatch between Chaffee proxy levels and visible Mecan conditions.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-22-mecan-access',
+        name: 'Highway 22 Mecan River access',
+        latitude: 43.9161263,
+        longitude: -89.3126352,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in on the north side of the bridge.',
+      },
+      {
+        id: 'duck-creek-fish-barrier',
+        name: 'Duck Creek / fish barrier alternate take-out',
+        latitude: 43.8948365,
+        longitude: -89.2593652,
+        mileFromStart: 4.7,
+        segmentKind: 'creek',
+        note: 'Optional early take-out if barrier signs, wind, or marsh conditions make the dam continuation unwise.',
+      },
+      {
+        id: 'germania-marsh-dam-access',
+        name: 'Germania Marsh Dam access',
+        latitude: 43.8917924,
+        longitude: -89.2522052,
+        mileFromStart: 5.8,
+        segmentKind: 'creek',
+        note: 'Default take-out before the dam; confirm same-day access before launching.',
       },
     ],
   },

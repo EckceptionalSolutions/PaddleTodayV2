@@ -2774,6 +2774,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
+  'otter-tail-river-phelps-mill-west-red-river-lake': [
+    {
+      id: 'phelps-mill-otter-tail-river-commons',
+      src: '/gallery/otter-tail-river-phelps-mill-west-red-river-lake/phelps-mill-otter-tail-river.jpg',
+      alt: 'The Otter Tail River flows past the historic Phelps Mill under fall trees.',
+      caption: 'Otter Tail River at Phelps Mill',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
 };
 
 export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {

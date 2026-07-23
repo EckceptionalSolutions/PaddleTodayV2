@@ -1,5 +1,17 @@
 # Midwest Route Automation Memory
 
+- 2026-07-22 21:08 America/Chicago / 2026-07-23 02:08 UTC: Minnesota Des Moines / Red Lake / Otter Tail implementation pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 145-route Minnesota baseline: `des-moines-river-christiania-ashley-park`, `red-lake-river-highway-75-bypass-fisher`, and `otter-tail-river-phelps-mill-west-red-river-lake`, bringing this checkout to 148 Minnesota routes.
+  - Qualification path: MN DNR Des Moines Map 1 plus public-water-access GIS support Christiania-to-Ashley with Jackson site `259`; MN DNR Red Lake Map 2 plus public-water-access GIS support Highway-75-Bypass-to-Fisher with direct Fisher site `175`; and MN DNR Otter Tail segments / Map 2 plus public-water-access GIS support the official Phelps-Mill-to-West-Red-River-Lake trip with Elizabeth site `159`.
+  - Gauge posture: MN DNR feed checks returned Jackson `113 cfs` at 2026-07-22 18:00 CDT in the official low band, Fisher `244 cfs` at 2026-07-22 19:30 CDT barely inside medium, and Elizabeth `324 cfs` at 2026-07-22 19:00 CDT in medium. Cards use official DNR interpreted bands only.
+  - Reused the existing rights-clean Phelps Mill Commons image for the longer Otter Tail route. Des Moines and Red Lake have bounded no-image audit rows after DNR / public-access / Commons / same-route review.
+
+- 2026-07-22 21:09 America/Chicago / 2026-07-23 02:09 UTC: Wisconsin Mecan implementation pass (`wisconsin-route-additions`).
+  - Added three Wisconsin route slugs beyond the current 119-route Wisconsin baseline: `mecan-river-dakota-dixie`, `mecan-river-dixie-highway-22`, and `mecan-river-highway-22-germania`, bringing this checkout to 122 Wisconsin routes.
+  - Qualification path: Wisconsin River Trips exact Mecan Dakota, Dixie Avenue, and Highway 22 pages provide access pairs, mileage, hazard notes, and the Chaffee Creek stage ladder; Wisconsin DNR supports the Mecan River Fishery Area, canoeing context, parking areas, and Chaffee Creek tributary relationship; USGS `04073240` provides live proxy data.
+  - Gauge posture: USGS Water Services returned Chaffee Creek at I-39 near Coloma `04073240` at `11.6 cfs / 3.62 ft` at 2026-07-22 20:00 CDT, inside WRT's `3.61-3.68 ft` useful band. All three cards are marked mixed-strength proxy routes and require same-day bridge/access visual checks.
+  - No route-gallery assets were added after bounded WRT / Wisconsin DNR / USGS / Commons / same-route image review. Bark and Sugar prompt leads were already live; Black Earth remains obstruction-blocked; Waupaca / Little Wolf / Yellow-style variants remain weaker on gauge or threshold trust.
+
 - 2026-07-22 20:55 America/Chicago / 2026-07-23 01:55 UTC: Iowa Fort Dodge / Marengo / Cedar Rapids implementation pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 54-route Iowa baseline: `des-moines-river-fort-dodge-lehigh`, `iowa-river-marengo-amana`, and `cedar-river-chain-lakes-ellis-harbor`, bringing this checkout to 57 Iowa routes.
   - Qualification path: Iowa DNR / Visit Fort Dodge / CanWePaddle / USGS support Des Moines River Fort Dodge-to-Lehigh; CanWePaddle / Iowa County / Iowa River guide / USGS support Iowa River Marengo-to-Amana; and CanWePaddle / Linn County / Iowa DOT / Cedar Rapids / USGS support Cedar River Chain-Lakes-to-Ellis-Harbor.
