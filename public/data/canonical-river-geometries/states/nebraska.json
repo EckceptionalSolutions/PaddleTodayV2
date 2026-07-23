@@ -3,14 +3,14 @@
   "source": "USGS NHD Flowline",
   "scope": "state",
   "state": "Nebraska",
-  "routeCount": 759,
-  "matchedRouteCount": 756,
+  "routeCount": 762,
+  "matchedRouteCount": 759,
   "unmatchedRouteIds": [
     "eau-claire-river-east-branch-wayside-county-i",
     "bad-axe-north-fork-duck-egg-hwy-o",
     "embarrass-south-branch-hwy-45-county-m"
   ],
-  "routeDataFingerprint": "d5cf8a7df7ff0b2e18a65c776da399fa73d418d7abe2f9676d38ec733a6e3783",
+  "routeDataFingerprint": "74cc1264e830cd7c8f24eea2d40350881602e21f48bf380237b5dbcc9662dde7",
   "features": [
     {
       "type": "Feature",

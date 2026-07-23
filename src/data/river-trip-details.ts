@@ -3,6 +3,180 @@ import type { RiverTripDetails } from '../lib/types';
 const baseRiverTripDetails: Record<string, RiverTripDetails> = {
 
 
+  'lizard-creek-lentsch-cunningham': {
+    putIn: {
+      id: 'lentsch-access',
+      name: 'Lentsch Access',
+      latitude: 42.53987,
+      longitude: -94.34342,
+    },
+    takeOut: {
+      id: 'cunningham-access',
+      name: 'Cunningham Access',
+      latitude: 42.53134,
+      longitude: -94.30474,
+    },
+    logistics: {
+      distanceLabel: 'About 3.1 mi',
+      estimatedPaddleTime: 'Short run; allow extra time for scouting, bony riffles, and access carries',
+      shuttle:
+        'Stage the take-out at Cunningham Access on Hayes Avenue, then drive back to Lentsch Access at Fairbanks Avenue and 175th Street. Inspect both gravel trails and the gauge trend before unloading because Lizard Creek can rise or drop quickly.',
+      permits:
+        'No route-specific paddling permit is known. Use only the public water-trail accesses, follow Iowa boating and PFD rules, and obey posted Webster County / Iowa DNR access rules.',
+      camping:
+        'No on-route camping. Iowa DNR says Lizard Creek is non-meandered and adjacent land and streambed outside public areas are private; do not camp or picnic on banks or bars between accesses.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Lentsch Access and take out three miles downstream at Cunningham Access. This is the shortest Lizard Creek split, but Iowa DNR still describes it as fast, rocky, and not for beginners.',
+      accessCaveats: [
+        'Both Lentsch and Cunningham are well-marked public water-trail accesses with parking and graveled trails, but same-day mud, debris, or high-water damage can still affect usability.',
+        'The Fort Dodge gauge is direct but located downstream near Rasch / Johnson Avenue, so make a visual check at Lentsch before committing.',
+        'Do not use private banks for routine scouting, breaks, or camping. The DNR brochure explicitly says Lizard Creek is non-meandered and private outside public accesses.',
+      ],
+      watchFor: [
+        'Low stages below 5 ft, when boulders and riffles can scrape, pin boats, or require short carries.',
+        'Fast rises after rain, hidden boulders at higher water, strainers, overhanging trees, cold water, and abrupt bends.',
+        'Large glacial erratics, shallow ledges, 4- to 5-foot holes, and limited legal exits between the named public accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lentsch-access',
+        name: 'Lentsch Access',
+        latitude: 42.53987,
+        longitude: -94.34342,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at Fairbanks Avenue and 175th Street.',
+      },
+      {
+        id: 'cunningham-access',
+        name: 'Cunningham Access',
+        latitude: 42.53134,
+        longitude: -94.30474,
+        mileFromStart: 3.1,
+        segmentKind: 'creek',
+        note: 'Default take-out downstream of the Hayes Avenue bridge.',
+      },
+    ],
+  },
+
+  'lizard-creek-cunningham-rasch': {
+    putIn: {
+      id: 'cunningham-access',
+      name: 'Cunningham Access',
+      latitude: 42.53134,
+      longitude: -94.30474,
+    },
+    takeOut: {
+      id: 'rasch-access',
+      name: 'Rasch Access',
+      latitude: 42.529,
+      longitude: -94.25635,
+    },
+    logistics: {
+      distanceLabel: 'About 5.2 to 5.5 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with fence scouting, low water, or wood',
+      shuttle:
+        'Stage the take-out at Rasch Access on Johnson Avenue, then drive back to Cunningham Access on Hayes Avenue. Identify the take-out before launching because the creek is twisty and private banks limit informal exits.',
+      permits:
+        'No route-specific paddling permit is known. Use only the public water-trail accesses, follow Iowa boating and PFD rules, and obey posted Webster County / Iowa DNR access rules.',
+      camping:
+        'No on-route camping. Iowa DNR says Lizard Creek is non-meandered and adjacent land and streambed outside public areas are private; do not camp or stop on pasture banks or bars except in an emergency.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Cunningham Access and take out at Rasch Access for the middle Lizard Creek split. This reach has swift riffles, electric-fence hazards, a debris-prone railroad bridge, cattle-pasture water-quality caveats, and private-bank constraints.',
+      accessCaveats: [
+        'Cunningham and Rasch are both documented public accesses with parking, signage, and graveled paths, but same-day access condition still controls.',
+        'The DNR brochure says there are marked and unmarked electric fences downstream of Cunningham. Be prepared to stop safely where legal and portage or duck only when conditions are clearly safe.',
+        'The selected USGS gauge is at the downstream Johnson Avenue / Rasch corridor, so it is direct for the take-out area but cannot show fence clearance, logs, or cattle in the creek.',
+      ],
+      watchFor: [
+        'Electric fences over the stream, rocky riffles, a sharp bend, and a railroad bridge with brush and logs piled against supports.',
+        'Low stages below 5 ft, when riffles become bony, and high/rising water, when fences, bridge piers, and strainers become harder to avoid.',
+        'Cattle in the creek, warmer or more turbid water below pasture, private banks, cold-water exposure, and limited legal exits.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cunningham-access',
+        name: 'Cunningham Access',
+        latitude: 42.53134,
+        longitude: -94.30474,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in downstream of Hayes Avenue.',
+      },
+      {
+        id: 'rasch-access',
+        name: 'Rasch Access',
+        latitude: 42.529,
+        longitude: -94.25635,
+        mileFromStart: 5.2,
+        segmentKind: 'creek',
+        note: 'Default take-out at Johnson Avenue and the direct USGS gauge corridor.',
+      },
+    ],
+  },
+
+  'lizard-creek-rasch-phinney': {
+    putIn: {
+      id: 'rasch-access',
+      name: 'Rasch Access',
+      latitude: 42.529,
+      longitude: -94.25635,
+    },
+    takeOut: {
+      id: 'phinney-park',
+      name: 'Phinney Park',
+      latitude: 42.51154,
+      longitude: -94.20464,
+    },
+    logistics: {
+      distanceLabel: 'About 5.6 to 6 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, scouting, or portages',
+      shuttle:
+        'Stage the take-out at Phinney Park off Phinney Park Drive, then drive back to Rasch Access on Johnson Avenue. Treat Phinney as the planned finish just above the Des Moines River confluence unless your group has a separate lower-river plan.',
+      permits:
+        'No route-specific paddling permit is known. Use only the public water-trail accesses, follow Iowa boating and PFD rules, and obey posted Webster County / Iowa DNR access rules.',
+      camping:
+        'No on-route camping. Iowa DNR says Lizard Creek is non-meandered and private outside public areas, and this lower reach finishes in the Fort Dodge corridor rather than a camping corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Rasch Access and take out at Phinney Park for the hardest Lizard Creek split. Iowa DNR rates this reach advanced, with at least 25 rocky riffles or rapids and a final approach just above the Des Moines River.',
+      accessCaveats: [
+        'Rasch is the preferred put-in for the lower challenge reach and sits near the selected direct USGS gauge. Confirm the gauge trend and the creek visually before launching.',
+        'Phinney Park is on river right a few hundred yards above the Des Moines River confluence. Identify the landing and do not drift past it unless intentionally continuing on a separate Des Moines River plan.',
+        'The lower corridor passes highway bridges and an industrial Fort Dodge zone. Expect more debris and water-quality uncertainty than the upper wooded reaches.',
+      ],
+      watchFor: [
+        'At least 25 rocky riffles or rapids, including Class 2-style features in the final mile noted by American Whitewater.',
+        'Fallen trees, sweepers, bridge abutments, rock gardens, hidden boulders, and fast post-rain rises.',
+        'Low stages below 5 ft, when carries and pinning risk increase, and stages above 8 ft, when AW guidance no longer supports a normal app recommendation.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rasch-access',
+        name: 'Rasch Access',
+        latitude: 42.529,
+        longitude: -94.25635,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at Johnson Avenue and the direct USGS gauge corridor.',
+      },
+      {
+        id: 'phinney-park',
+        name: 'Phinney Park',
+        latitude: 42.51154,
+        longitude: -94.20464,
+        mileFromStart: 5.6,
+        segmentKind: 'creek',
+        note: 'Default river-right take-out just above the Des Moines River confluence.',
+      },
+    ],
+  },
+
   'kansas-river-lecompton-lawrence-riverfront': {
     putIn: {
       name: 'Lecompton / Rising Sun Access Ramp',

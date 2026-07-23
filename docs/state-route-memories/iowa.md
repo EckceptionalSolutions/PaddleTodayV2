@@ -11,7 +11,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-23 01:52 run added three more guarded Iowa routes beyond the current 67-route baseline: East Nishnabotna River Red-Oak-to-Essex, Maquoketa River Pictured-Rocks-to-Eby's-Mill, and Upper Iowa River Lower-Dam-to-Iverson-Bridge.
+Iowa remains mature overall. The latest 2026-07-23 02:47 run added three whitewater-filtered Lizard Creek routes beyond the current 70-route baseline: Lentsch-to-Cunningham, Cunningham-to-Rasch, and Rasch-to-Phinney.
+
+## 2026-07-23 02:47 Lizard Creek pass
+
+- Baseline at run start: 70 Iowa live routes, verified from `src/data/rivers.ts` with `tsx`.
+- Added `lizard-creek-lentsch-cunningham`, `lizard-creek-cunningham-rasch`, and `lizard-creek-rasch-phinney`, bringing the imported Iowa count to 73 live routes.
+- Qualification path: Iowa DNR / Webster County's Lizard Creek Water Trail brochure documents the North Fork Lizard Creek designated water-trail corridor, public access sequence, segment distances, non-meandered private-bank/no-camping limits, fast-water/boulder/rapid hazards, electric fences, railroad debris, and intermediate/advanced classifications. American Whitewater documents the same Lentsch-to-Phinney reach, access-point coordinates, Class I-II rating, and 5-8 ft optimum range tied to the Lizard Creek near Fort Dodge gauge.
+- Gauge posture: USGS Water Services returned Lizard Creek near Fort Dodge `05480080` at `4.56 ft` at 2026-07-23 02:15 CDT. The latest request returned stage but not current discharge, so all three cards score `gage_height_ft` only.
+- Threshold posture: all three routes use American Whitewater's direct same-reach 5-8 ft optimum stage window as a guarded two-sided model; no cfs thresholds were invented.
+- Caveat posture: all three are `routeType: whitewater`. Lentsch-to-Cunningham is DNR intermediate/not-for-beginners; Cunningham-to-Rasch carries the strongest electric-fence, pasture, railroad-log, and private-bank warnings; Rasch-to-Phinney is DNR advanced with at least 25 rocky riffles/rapids and a Phinney finish just above the Des Moines River confluence.
+- Reviewed but not added in this run: Wapsipinicon Anamosa-to-Oxford Junction remains blocked by stale USGS `05421760` instantaneous values from prior checks; Boone Webster-City-to-Stratford was skipped as a long card overlapping the existing Boone split chain; Iowa River Coralville-Dam-to-Iowa-City remains dam-adjacent and weaker than the selected official/AW Lizard package.
+- No route-gallery assets were added after bounded American Whitewater / DNR-Webster / Travel Iowa / Webster County / Commons / same-route image review.
 
 ## 2026-07-23 01:52 East Nishnabotna / Maquoketa / Upper Iowa pass
 
