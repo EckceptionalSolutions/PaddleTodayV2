@@ -45543,5 +45543,179 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'cedar-river-otranto-acorn': {
+    putIn: {
+      id: 'otranto-park-below-dam',
+      name: 'Otranto Park below-dam access',
+      latitude: 43.458242,
+      longitude: -92.97915,
+    },
+    takeOut: {
+      id: 'acorn-park',
+      name: 'Acorn Park',
+      latitude: 43.388574,
+      longitude: -92.938811,
+    },
+    logistics: {
+      distanceLabel: '6.6 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with dam scouting or low water',
+      shuttle:
+        'Stage at Acorn Park near St. Ansgar, then launch from the signed Otranto Park below-dam access. Identify the Acorn broken-dam area from land before launch and treat the park as the planned exit unless a separate downstream portage plan is staged.',
+      permits:
+        'No route-specific paddling permit is known. Use only public park/access areas, follow posted county and Iowa boating/PFD rules, and avoid private banks.',
+      camping:
+        'No on-route campsite was confirmed for this short leg. Use nearby public campground options only if current park rules allow them, and do not assume bank or gravel-bar camping.',
+      campingClassification: 'none',
+      summary:
+        'Launch below the Otranto dam and paddle the upper Cedar River to Acorn Park. This is a source-backed Mitchell County access pair, but the broken-dam finish and stale Osage gauge require conservative same-day judgment.',
+      accessCaveats: [
+        'Otranto launch discipline matters: put in below the dam only and stay out of dam hydraulics.',
+        'The guide says the Acorn broken dam may be runnable for experienced paddlers after scouting, but also warns it is fast water with little margin for error and old metal can be exposed at low water. Treat Acorn as the planned take-out/portage boundary.',
+        'USGS 05457505 at Osage returned stale 2017 Water Services data during this run, so the app uses downstream USGS 05457700 at Charles City plus a required visual check at Otranto.',
+      ],
+      watchFor: [
+        'Broken-dam current, exposed metal or rock at low water, old dumpsite debris, and shallow riffles.',
+        'Strainers, outside-bend wood, private banks, agricultural runoff after storms, and limited mid-route exits.',
+        'Fast rises after rain, cold shoulder-season water, and the consequence of missing the Acorn boundary.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'otranto-park-below-dam',
+        name: 'Otranto Park below-dam access',
+        latitude: 43.458242,
+        longitude: -92.97915,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in on the east bank below the Otranto dam; coordinate published in the Cedar River Paddling Trips guide.',
+      },
+      {
+        id: 'acorn-park',
+        name: 'Acorn Park',
+        latitude: 43.388574,
+        longitude: -92.938811,
+        mileFromStart: 6.6,
+        segmentKind: 'creek',
+        note: 'Default take-out and broken-dam scout/portage boundary near St. Ansgar.',
+      },
+    ],
+  },
+
+  'cedar-river-acorn-halvorson': {
+    putIn: {
+      id: 'acorn-park',
+      name: 'Acorn Park',
+      latitude: 43.388574,
+      longitude: -92.938811,
+    },
+    takeOut: {
+      id: 'halvorson-park',
+      name: 'Halvorson Park',
+      latitude: 43.356685,
+      longitude: -92.925215,
+    },
+    logistics: {
+      distanceLabel: '2.8 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, plus dam take-out/portage scouting',
+      shuttle:
+        'Stage at Halvorson Park south of St. Ansgar and identify the river-right St. Ansgar dam portage/take-out zone before launching from Acorn Park.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Mitchell County and Iowa boating/PFD rules, and keep routine landings to public access areas.',
+      camping:
+        'Halvorson County Park has camping according to the Cedar River guide, so this can support endpoint campground staging. Do not assume camping on private banks between Acorn and Halvorson.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Acorn Park and paddle the short St. Ansgar-area Cedar River connector to Halvorson Park, ending before the St. Ansgar dam portage.',
+      accessCaveats: [
+        'The guide says the St. Ansgar dam must be carried around and identifies the best portage on river right about 50 yards above the dam.',
+        'This route should stop at Halvorson unless the downstream dam-portage plan is staged and conditions are clearly appropriate.',
+        'The Charles City gauge is downstream and route-family-level. Inspect current and depth at Acorn before committing.',
+      ],
+      watchFor: [
+        'The St. Ansgar dam approach, faster current near the take-out, and low-water scrape points.',
+        'Wood, strainers, private banks, and bridge or access debris after rain.',
+        'Endpoint campground rules and seasonal park conditions at Halvorson.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'acorn-park',
+        name: 'Acorn Park',
+        latitude: 43.388574,
+        longitude: -92.938811,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below the Acorn broken-dam boundary.',
+      },
+      {
+        id: 'halvorson-park',
+        name: 'Halvorson Park',
+        latitude: 43.356685,
+        longitude: -92.925215,
+        mileFromStart: 2.8,
+        segmentKind: 'creek',
+        note: 'Default take-out and campground-supported county park above the St. Ansgar dam portage.',
+      },
+    ],
+  },
+
+  'cedar-river-halvorson-interstate': {
+    putIn: {
+      id: 'halvorson-park',
+      name: 'Halvorson Park',
+      latitude: 43.356685,
+      longitude: -92.925215,
+    },
+    takeOut: {
+      id: 'interstate-park-mitchell',
+      name: 'Interstate Park / Mitchell',
+      latitude: 43.319134,
+      longitude: -92.879648,
+    },
+    logistics: {
+      distanceLabel: '4.7 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with wind or dam-portage scouting',
+      shuttle:
+        'Stage at Interstate Park on the west edge of Mitchell and confirm the left-bank power-dam portage area before launching from Halvorson Park.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Mitchell County Conservation and Iowa boating/PFD rules, and use public areas only.',
+      camping:
+        'The Cedar River guide identifies camping at both Halvorson County Park and Interstate Park, making this an endpoint-campground staging route rather than a bank-camping route.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Halvorson Park and paddle the impounded upper Cedar River toward Interstate Park at Mitchell, stopping before the Mitchell power-dam portage.',
+      accessCaveats: [
+        'The Interstate Power dam at Mitchell is the route boundary. The guide says the portage is about 100 yards on river left, starting near the powerhouse and ending above the Mitchell Bridge.',
+        'Wind can matter on the more lake-like impounded water above Mitchell, and higher water increases dam-approach consequence.',
+        'USGS 05457700 at Charles City is a downstream proxy for this upper leg; verify local current, depth, wind, and access conditions at Halvorson.',
+      ],
+      watchFor: [
+        'Mitchell dam approach, wind on impounded water, shoreline debris, and private banks.',
+        'Low-water shallows and high/rising water that shortens decision time above the portage.',
+        'Seasonal campground/access rules at both endpoint parks.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'halvorson-park',
+        name: 'Halvorson Park',
+        latitude: 43.356685,
+        longitude: -92.925215,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in and campground-supported county park south of St. Ansgar.',
+      },
+      {
+        id: 'interstate-park-mitchell',
+        name: 'Interstate Park / Mitchell',
+        latitude: 43.319134,
+        longitude: -92.879648,
+        mileFromStart: 4.7,
+        segmentKind: 'creek',
+        note: 'Default take-out and Mitchell dam portage boundary with campground/picnic context.',
+      },
+    ],
+  },
+
   'upper-iowa-river-cattle-creek-malanaphy': consolidatedUpperIowaDetails,
 };

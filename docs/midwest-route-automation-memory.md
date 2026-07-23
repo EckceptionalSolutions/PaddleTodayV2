@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 16:57 America/Chicago / 2026-07-23 21:57 UTC: Iowa upper Cedar Mitchell current-baseline implementation pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 100-route exported Iowa baseline: `cedar-river-otranto-acorn`, `cedar-river-acorn-halvorson`, and `cedar-river-halvorson-interstate`, bringing Iowa to 103 live routes.
+  - Qualification path: Cedar River Paddling Trips Otranto-to-Janesville guide supplied exact mileages, endpoint coordinates, route-family `200 cfs` adequate-water floor with `400-600 cfs` better range, and dam/portage details for Otranto, Acorn, Halvorson, and Interstate/Mitchell. Mitchell County and Iowa DNR corroborated the Cedar River Water Trail context.
+  - Gauge posture: USGS Water Services returned Cedar River at Charles City `05457700` at `1,270 cfs / 3.86 ft` at 2026-07-23 16:30 CDT. USGS `05457505` at Osage returned stale 2017 values and was rejected, so the new routes use the downstream Charles City guide-corridor gauge with visual-check caveats.
+  - Image posture: no route-gallery image was selected after bounded guide / Mitchell County / Iowa DNR / Commons / same-route review.
+
 - 2026-07-23 16:01 America/Chicago / 2026-07-23 21:01 UTC: Iowa Greene County North Raccoon gap implementation pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 97-route exported Iowa baseline: `north-raccoon-river-richey-hyde-park`, `north-raccoon-river-hyde-park-mcmahon`, and `north-raccoon-river-henderson-squirrel-hollow`, bringing Iowa to 100 live routes.
   - Qualification path: Iowa DNR's Greene County North Raccoon guide supports the Richey / Hyde / Brown Bridge / McMahon / Henderson / Squirrel Hollow access chain, exact segment mileages, endpoint amenities, rock dams, Squirrel Hollow portage, private-bank limits, and safety guidance.

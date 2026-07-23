@@ -4,6 +4,7 @@ Last summarized: 2026-07-23.
 
 ## Current Inventory
 
+- 2026-07-23 16:57 CDT update: live exported Iowa routes were 100 at the start of the upper Cedar Mitchell pass and 103 after adding `cedar-river-otranto-acorn`, `cedar-river-acorn-halvorson`, and `cedar-river-halvorson-interstate`.
 - 2026-07-23 16:01 CDT update: live exported Iowa routes were 97 at the start of the Greene County North Raccoon gap pass and 100 after adding `north-raccoon-river-richey-hyde-park`, `north-raccoon-river-hyde-park-mcmahon`, and `north-raccoon-river-henderson-squirrel-hollow`.
 - 2026-07-23 12:53 CDT update: live exported Iowa routes were 89 at the start of the Waverly Cedar gap pass and 92 after adding the three new slugs listed below.
 - 2026-07-23 11:00 CDT update: live exported Iowa routes were 86 at the start of the Lower Des Moines pass and 89 after adding the three new slugs listed below.
@@ -14,7 +15,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-23 16:01 run added three routes beyond the current 97-route baseline: `north-raccoon-river-richey-hyde-park`, `north-raccoon-river-hyde-park-mcmahon`, and `north-raccoon-river-henderson-squirrel-hollow`.
+Iowa remains mature overall. The latest 2026-07-23 16:57 run added three routes beyond the current 100-route baseline: `cedar-river-otranto-acorn`, `cedar-river-acorn-halvorson`, and `cedar-river-halvorson-interstate`.
+
+## 2026-07-23 16:57 Upper Cedar Mitchell gap pass
+
+- Baseline at run start: 100 Iowa live routes, verified from the current `src/data/rivers.ts` export with `tsx`.
+- Added `cedar-river-otranto-acorn`, `cedar-river-acorn-halvorson`, and `cedar-river-halvorson-interstate`, bringing the imported Iowa count to 103 live routes.
+- Qualification path: the Cedar River Paddling Trips Otranto-to-Janesville guide documents Otranto Park, Acorn Park, Halvorson Park, and Interstate Park as a contiguous upper Cedar access chain with exact mileages, endpoint coordinates, dam/portage details, camping context, and route-family level guidance. Mitchell County and Iowa DNR corroborate the Cedar River Water Trail context.
+- Gauge posture: USGS Water Services returned Cedar River at Charles City `05457700` at `1,270 cfs / 3.86 ft` at 2026-07-23 16:30 CDT. USGS `05457505` at Osage returned stale `2017-10-02` values and was explicitly rejected as the live gauge. All three new routes use Charles City as a downstream same-guide-corridor proxy with visual-check caveats.
+- Threshold posture: all three routes are conservative `minimum-only` at `200 cfs`, using the guide's statement that 200 cfs is preferable for adequate water and documenting the guide's `400-600 cfs` better range without inferring a high cutoff.
+- Caveat posture: Otranto-to-Acorn foregrounds below-dam launch discipline, the Acorn broken-dam scout/portage boundary, old metal/debris exposure at low water, and no camping. Acorn-to-Halvorson foregrounds the St. Ansgar dam river-right portage and Halvorson endpoint campground support. Halvorson-to-Interstate foregrounds impounded wind exposure, the Mitchell power-dam left-bank portage, endpoint campground support, and no unplanned continuation.
+- Reviewed but not added: USGS Osage `05457505` was stale; Wapsipinicon Anamosa-to-Oxford Junction remains blocked by stale `05421760`; existing downstream Cedar T38-to-Janesville and Cedar Valley cards were reconciled as already represented or still threshold-thin.
+- No route-gallery assets were added after bounded Cedar guide / Mitchell County / Iowa DNR / Commons / same-route image review.
 
 ## 2026-07-23 16:01 Greene County North Raccoon gap pass
 
