@@ -4,6 +4,7 @@ Last summarized: 2026-07-23.
 
 ## Current Inventory
 
+- 2026-07-23 16:01 CDT update: live exported Iowa routes were 97 at the start of the Greene County North Raccoon gap pass and 100 after adding `north-raccoon-river-richey-hyde-park`, `north-raccoon-river-hyde-park-mcmahon`, and `north-raccoon-river-henderson-squirrel-hollow`.
 - 2026-07-23 12:53 CDT update: live exported Iowa routes were 89 at the start of the Waverly Cedar gap pass and 92 after adding the three new slugs listed below.
 - 2026-07-23 11:00 CDT update: live exported Iowa routes were 86 at the start of the Lower Des Moines pass and 89 after adding the three new slugs listed below.
 - Live routes: 60 at the start of the 2026-07-22 late Cedar / South Skunk / North Raccoon pass, based on `src/data/rivers.ts` imported with `tsx`.
@@ -13,7 +14,17 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-23 14:59 run added three routes beyond the current 94-route baseline: `upper-iowa-river-kendallville-bluffton`, `iowa-river-hills-river-junction`, and `south-skunk-river-peterson-park-sleepy-hollow`.
+Iowa remains mature overall. The latest 2026-07-23 16:01 run added three routes beyond the current 97-route baseline: `north-raccoon-river-richey-hyde-park`, `north-raccoon-river-hyde-park-mcmahon`, and `north-raccoon-river-henderson-squirrel-hollow`.
+
+## 2026-07-23 16:01 Greene County North Raccoon gap pass
+
+- Baseline at run start: 97 Iowa live routes, verified from the current `src/data/rivers.ts` export with `tsx`.
+- Added `north-raccoon-river-richey-hyde-park`, `north-raccoon-river-hyde-park-mcmahon`, and `north-raccoon-river-henderson-squirrel-hollow`, bringing the imported Iowa count to 100 live routes.
+- Sources: Iowa DNR Greene County North Raccoon guide, CanWePaddle North Raccoon Jefferson-to-Cooper, USGS `05482500`, Greene County / MyCountyParks access pages, and Paddle Guide access-coordinate context.
+- Gauge/threshold posture: USGS Water Services returned Jefferson `228 cfs / 5.14 ft` at 2026-07-23 15:15 CDT. All three routes use CanWePaddle's `150-2,000 cfs` community range tied to USGS `05482500`; upstream splits explicitly treat Jefferson as a same-corridor proxy.
+- Caveats: rock dams at Hyde/Brown/McMahon, signed river-left portage above Squirrel Hollow, dead trees/log piles, unsigned accesses, non-meandered private banks, endpoint-only campground assumptions, and no unplanned continuation to existing adjacent cards.
+- Reviewed but not added: Wapsipinicon Anamosa-to-Oxford Junction remains stale-gauge blocked; Boone / Yellow / West Nishnabotna leads stayed duplicate-prone over existing V2 routes.
+- No route-gallery asset was selected after bounded official/local/Commons/same-route review.
 
 ## 2026-07-23 14:59 Iowa River / South Skunk / Upper Iowa gap pass
 

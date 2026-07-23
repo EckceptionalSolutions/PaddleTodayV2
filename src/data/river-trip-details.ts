@@ -2,6 +2,90 @@ import type { RiverTripDetails } from '../lib/types';
 
 const baseRiverTripDetails: Record<string, RiverTripDetails> = {
 
+  'north-raccoon-river-richey-hyde-park': {
+    putIn: { id: 'richey-access', name: 'Richey Access', latitude: 42.09136, longitude: -94.62949 },
+    takeOut: { id: 'hyde-park-access', name: 'Hyde Park Access', latitude: 42.1112, longitude: -94.5758 },
+    logistics: {
+      distanceLabel: 'About 7.3 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, longer with wood or low-water scouting',
+      shuttle:
+        'Stage at Hyde Park Access and confirm the rock-dam boundary from land, then launch from Richey Access. Use Wright Access only after confirming it from land.',
+      permits:
+        'No route-specific paddling permit is known. Use marked public accesses only, follow Iowa boating/PFD rules, and respect non-meandered-stream private-property limits.',
+      camping:
+        'DNR describes both Richey and Hyde Park as campground-supported endpoints. Do not assume legal bank or sandbar camping between public areas.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Richey Access and paddle the Greene County North Raccoon through the Wright Access area to Hyde Park, ending before the rock dam.',
+      accessCaveats: [
+        'Hyde Park is the planned take-out because DNR says paddlers should exit there to avoid the rock dam.',
+        'The North Raccoon is non-meandered. Stay within public access areas and avoid informal exits on private banks.',
+      ],
+      watchFor: ['Downed trees and strainers.', 'Low-water riffles or scraping.', 'The Hyde Park rock-dam boundary.'],
+    },
+    accessPoints: [
+      { id: 'richey-access', name: 'Richey Access', latitude: 42.09136, longitude: -94.62949, mileFromStart: 0, segmentKind: 'creek', note: 'Default put-in; DNR identifies Richey as campground-supported public access.' },
+      { id: 'hyde-park-access', name: 'Hyde Park Access', latitude: 42.1112, longitude: -94.5758, mileFromStart: 7.3, segmentKind: 'creek', note: 'Default take-out before the rock dam; DNR describes a cement ramp and campground support.' },
+    ],
+  },
+
+  'north-raccoon-river-hyde-park-mcmahon': {
+    putIn: { id: 'hyde-park-access', name: 'Hyde Park Access', latitude: 42.1112, longitude: -94.5758 },
+    takeOut: { id: 'mcmahon-access', name: 'McMahon Access', latitude: 42.022803252, longitude: -94.4732312045 },
+    logistics: {
+      distanceLabel: 'About 13.5 mi',
+      estimatedPaddleTime: 'Long day; plan 5 hr to 7 hr plus rock-dam and wood scouting',
+      shuttle:
+        'Stage at McMahon Access east of Scranton on 230th Street, then launch from Hyde Park. Confirm Brown Bridge from land if using it as a bail-out.',
+      permits:
+        'No route-specific paddling permit is known. Use marked public accesses only, follow Iowa boating/PFD rules, and respect non-meandered-stream private-property limits.',
+      camping:
+        'Hyde Park provides endpoint campground support at the put-in. McMahon is documented as a day-use boat-ramp and fishing-riffle access.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Hyde Park and paddle the longer Greene County North Raccoon split through Brown Bridge to McMahon Access.',
+      accessCaveats: [
+        'Start below or otherwise avoid the Hyde Park rock dam unless a land scout and skill assessment make conditions clearly appropriate.',
+        'Brown Bridge is an official intermediate access and rock-dam area; confirm current public access from land.',
+        'DNR places McMahon below another rock dam and notes no obvious portage on the map.',
+      ],
+      watchFor: ['Rock dams at Hyde Park, Brown Bridge, and near McMahon.', 'Downed trees and log piles.', 'Long rural mileage and limited alternate exits.'],
+    },
+    accessPoints: [
+      { id: 'hyde-park-access', name: 'Hyde Park Access', latitude: 42.1112, longitude: -94.5758, mileFromStart: 0, segmentKind: 'creek', note: 'Default put-in; DNR describes a cement ramp and campground support.' },
+      { id: 'brown-bridge-access', name: 'Brown Bridge Access', latitude: 42.0673, longitude: -94.5383, mileFromStart: 6.7, segmentKind: 'creek', note: 'Intermediate access and rock-dam area named by DNR.' },
+      { id: 'mcmahon-access', name: 'McMahon Access', latitude: 42.022803252, longitude: -94.4732312045, mileFromStart: 13.5, segmentKind: 'creek', note: 'Default take-out; MyCountyParks and Paddle Guide document McMahon as a public concrete boat ramp.' },
+    ],
+  },
+
+  'north-raccoon-river-henderson-squirrel-hollow': {
+    putIn: { id: 'henderson-park-access', name: 'Henderson Park Access', latitude: 41.9698, longitude: -94.3766 },
+    takeOut: { id: 'squirrel-hollow-park', name: 'Squirrel Hollow Park', latitude: 41.9822, longitude: -94.3192 },
+    logistics: {
+      distanceLabel: 'About 8.2 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer if the Squirrel Hollow portage or wood needs scouting',
+      shuttle:
+        'Stage at Squirrel Hollow Park and identify the river-left portage/take-out corridor before launching from Henderson Park.',
+      permits:
+        'No route-specific paddling permit is known. Use marked public accesses only, follow Iowa boating/PFD rules, and respect non-meandered-stream private-property limits.',
+      camping:
+        'Squirrel Hollow Park has county park camping context near the take-out. Treat this as a day run unless current county rules confirm an overnight plan.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Henderson Park and paddle the missing Greene County North Raccoon connector to Squirrel Hollow Park.',
+      accessCaveats: [
+        'DNR says no access signs are visible from the river; confirm Squirrel Hollow from land before launch.',
+        'A rock dam sits above Squirrel Hollow with a signed river-left portage trail.',
+        'Do not continue toward Adkins Bridge unless that downstream shuttle is also staged.',
+      ],
+      watchFor: ['The Squirrel Hollow rock dam and signed portage.', 'Downed trees and log piles.', 'Unsigned public accesses and private banks.'],
+    },
+    accessPoints: [
+      { id: 'henderson-park-access', name: 'Henderson Park Access', latitude: 41.9698, longitude: -94.3766, mileFromStart: 0, segmentKind: 'creek', note: 'Default put-in; DNR describes Henderson as a maintained public access with a cement ramp and large parking area.' },
+      { id: 'squirrel-hollow-park', name: 'Squirrel Hollow Park', latitude: 41.9822, longitude: -94.3192, mileFromStart: 8.2, segmentKind: 'creek', note: 'Default take-out; DNR says a rock dam above the park has a signed portage trail on river left.' },
+    ],
+  },
+
   'north-raccoon-river-rainbow-bend-richey': {
     putIn: {
       id: 'rainbow-bend-access',
@@ -45080,6 +45164,381 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 7.25,
         segmentKind: 'creek',
         note: 'Default take-out before the Brodhead/Decatur Dam boundary.',
+      },
+    ],
+  },
+
+  'ashippun-river-druid-lake-highway-o': {
+    putIn: {
+      id: 'druid-lake-boat-ramp',
+      name: 'Druid Lake Boat Ramp / Clearwater Beach Road',
+      latitude: 43.2811283,
+      longitude: -88.4090687,
+    },
+    takeOut: {
+      id: 'highway-o-ashippun-bridge',
+      name: 'Highway O bridge access',
+      latitude: 43.2524995,
+      longitude: -88.399331,
+    },
+    logistics: {
+      distanceLabel: 'About 3.3 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with lake wind, low bridges, or logjam portages',
+      shuttle:
+        'Stage Highway O first, confirming shoulder parking and bank footing from land, then return to the Druid Lake public boat landing on Clearwater Beach Road. The WRT bike-shuttle coordinate pair anchors both endpoints.',
+      permits:
+        'No route-specific paddling permit is known. Druid Lake may have local landing rules or fees; check posted boating ordinances at the public landing and follow Wisconsin boating/PFD rules.',
+      camping:
+        'Treat this as a short day route. No on-route public campsite is documented, and private lake/river banks should not be used for routine stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch from the DNR-supported Druid Lake public landing, cross the north end of the lake, then follow the Ashippun outlet to the Highway O bridge. This short route is mostly protected once off the lake, but wood and low bridges make portage readiness mandatory.',
+      accessCaveats: [
+        'Druid Lake is the only confirmed developed/public launch for the selected route; use posted public landing areas rather than private lake lots.',
+        'Highway O is a bridge/shoulder take-out, not a developed ramp. Keep vehicles clear of traffic and do not block driveways or farm access.',
+        'The Bark River at Delafield gauge is only a WRT-selected proxy, so a same-day visual check at the outlet and take-out is required.',
+      ],
+      watchFor: [
+        'Five WRT-documented logjam portages and two low bridges that may require portaging.',
+        'Open-water Druid Lake wind, motorboat traffic, and cold water before the river narrows.',
+        'Private banks, soft shoulders, high/rising water above the proxy high band, and shallow riffles below the WRT floor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'druid-lake-boat-ramp',
+        name: 'Druid Lake Boat Ramp / Clearwater Beach Road',
+        latitude: 43.2811283,
+        longitude: -88.4090687,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default put-in; Wisconsin DNR lists Druid Lake as having one public boat landing.',
+      },
+      {
+        id: 'highway-o-ashippun-bridge',
+        name: 'Highway O bridge access',
+        latitude: 43.2524995,
+        longitude: -88.399331,
+        mileFromStart: 3.3,
+        segmentKind: 'creek',
+        note: 'Default take-out; WRT describes this as a steep shoulder/bridge exit rather than an ideal landing.',
+      },
+    ],
+  },
+
+  'west-branch-sugar-river-fritz-pb': {
+    putIn: {
+      id: 'fritz-road-west-branch-sugar',
+      name: 'Fritz Road bridge access',
+      latitude: 42.90312,
+      longitude: -89.59752,
+    },
+    takeOut: {
+      id: 'county-road-pb-west-branch-sugar',
+      name: 'County Road PB bridge access',
+      latitude: 42.87922,
+      longitude: -89.55877,
+    },
+    logistics: {
+      distanceLabel: 'About 5.2 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with deadfall scouting',
+      shuttle:
+        'Stage County Road PB first, leaving room for traffic and farm access, then return to Fritz Road. WRT recommends the west-side bike shuttle over busier PB when riding.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules and use only public bridge right-of-way or clearly permitted access points.',
+      camping:
+        'Treat this as a day route. No public on-route camping is documented, and adjoining farm/pasture banks should be treated as private unless clearly signed otherwise.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Fritz Road and paddle the quiet West Branch Sugar wet-grass corridor to County Road PB. The route is low-gradient and scenic, but it is not a groomed water trail and requires attention to fresh wood, blind bends, and bridge exits.',
+      accessCaveats: [
+        'Fritz Road is a bridge launch with grass/ditch footing rather than a formal ramp; inspect footing at both sides of the bridge before unloading.',
+        'County Road PB is a so-so bridge take-out with a steep bank/shoulder and nearby farm access. Do not block the field entrance noted by WRT.',
+        'The Sugar River near Verona gauge is a basin proxy, not a direct West Branch gauge, so visual depth and wood checks at both bridges control the final go/no-go.',
+      ],
+      watchFor: [
+        'Downed trees, tight blind corners, and pushy current around deadfall after rain.',
+        'Open wet-grass wind, private banks, cattle/farm runoff context, and poor water quality after storms.',
+        'Bankfull or spreading water near and above the WRT 300 cfs caution band.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'fritz-road-west-branch-sugar',
+        name: 'Fritz Road bridge access',
+        latitude: 42.90312,
+        longitude: -89.59752,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Miles Paddled publishes the GPS point and WRT calls Fritz Road very good bridge access.',
+      },
+      {
+        id: 'county-road-pb-west-branch-sugar',
+        name: 'County Road PB bridge access',
+        latitude: 42.87922,
+        longitude: -89.55877,
+        mileFromStart: 5.2,
+        segmentKind: 'creek',
+        note: 'Default take-out; Miles Paddled and WRT both document this bridge exit, with steep/traffic/farm-access caveats.',
+      },
+    ],
+  },
+
+  'little-sugar-river-tin-can-american-legion': {
+    putIn: {
+      id: 'tin-can-road-little-sugar',
+      name: 'Tin Can Road bridge access',
+      latitude: 42.7247902,
+      longitude: -89.4670582,
+    },
+    takeOut: {
+      id: 'american-legion-park-albany',
+      name: 'American Legion Park Landing',
+      latitude: 42.710068,
+      longitude: -89.4396594,
+    },
+    logistics: {
+      distanceLabel: 'About 3.2 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with wind on the final impoundment',
+      shuttle:
+        'Stage American Legion Park in Albany first, then return to Tin Can Road. WRT notes the Sugar River State Trail makes the bike shuttle straightforward but also passes hunting-open trail corridor in season.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, Village of Albany park rules, and posted Sugar River State Trail / Albany Wildlife Area restrictions.',
+      camping:
+        'Treat this as a short day route. No on-route public campsite is documented; use separate legal campground or lodging plans if pairing with a longer Sugar River trip.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Tin Can Road and follow the lower Little Sugar through Albany Wildlife Area context, joining the impounded lower Sugar and taking out at American Legion Park above Albany Dam. The selected route intentionally avoids the logjam-heavy upstream approach.',
+      accessCaveats: [
+        'Tin Can Road is a bridge/trail launch, not a developed ramp. WRT says the small trail and launch are northwest of the bridge.',
+        'American Legion Park is the mandatory take-out for this card. It is upstream of Albany Dam; do not continue into dam water unless a separate portage plan has been scouted.',
+        'The Verona gauge is a proxy for the Little Sugar, so confirm actual depth, wind, and water quality before leaving Tin Can Road.',
+      ],
+      watchFor: [
+        'Albany Dam downstream of the take-out, slow impounded water, and wind on the final Sugar River approach.',
+        'Private banks, hunting-season trail/wildlife-area use, cold water, and post-storm water-quality concerns.',
+        'Fresh wood even though WRT reports the selected lower reach was clear of logjams.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'tin-can-road-little-sugar',
+        name: 'Tin Can Road bridge access',
+        latitude: 42.7247902,
+        longitude: -89.4670582,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; WRT documents a small trail/launch northwest of the bridge and excludes upstream approaches for logjam reasons.',
+      },
+      {
+        id: 'american-legion-park-albany',
+        name: 'American Legion Park Landing',
+        latitude: 42.710068,
+        longitude: -89.4396594,
+        mileFromStart: 3.2,
+        segmentKind: 'creek',
+        note: 'Default take-out; Village of Albany and WRT both support this as a public boat-launch area above Albany Dam.',
+      },
+    ],
+  },
+
+  'cannon-river-byllesby-highway-61': {
+    putIn: {
+      id: 'lake-byllesby-east-cannon',
+      name: 'Cannon River, Lake Byllesby (E) Public Water Access Site',
+      latitude: 44.5092447,
+      longitude: -92.9424047,
+    },
+    takeOut: {
+      id: 'highway-61-cannon',
+      name: 'Cannon River, Highway 61 Public Water Access Site',
+      latitude: 44.5811188,
+      longitude: -92.6553127,
+    },
+    logistics: {
+      distanceLabel: 'About 20.8 mi',
+      estimatedPaddleTime: 'About 7 hr to 10 hr, longer with wind, low water, or bailout stops',
+      shuttle:
+        'Stage Highway 61 first, then drive back to the Lake Byllesby east carry-in below the dam. Treat Riverside Park and Miesville Ravine as public intermediate exits if the full lower-Cannon day is too long.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey Lake Byllesby, county park, and DNR water-trail rules.',
+      camping:
+        'No on-route watercraft campsite is assumed for this long lower-Cannon day. Use nearby county/state/private campground lodging separately, and do not camp on private banks or gravel bars.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch below Lake Byllesby Dam and paddle the full DNR-recommended lower-Cannon section to Highway 61. The Welch gauge is direct for the lower corridor, but dam releases, daylight, and public bailout timing matter.',
+      accessCaveats: [
+        'Byllesby East resolves as WAS02800 and Highway 61 resolves as WAS01112 in Minnesota public-water-access GIS.',
+        'Riverside Park and Miesville Ravine are public intermediate exits; confirm parking and park hours before relying on them.',
+        'Do not approach dam infrastructure or use private banks as routine stops.',
+      ],
+      watchFor: [
+        'Lake Byllesby Dam release effects, riffles, strainers, bridge current, and cold water.',
+        'Long mileage, changing daylight, storms, and fatigue between public exits.',
+        'Very high water above the official Welch high band and shallow scraping below the low floor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'lake-byllesby-east-cannon',
+        name: 'Cannon River, Lake Byllesby (E) Public Water Access Site',
+        latitude: 44.5092447,
+        longitude: -92.9424047,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below Lake Byllesby Dam; resolves as WAS02800 at DNR river mile 27.9.',
+      },
+      {
+        id: 'cannon-riverside-park',
+        name: 'Cannon River, Riverside Park Public Water Access Site',
+        latitude: 44.5119132,
+        longitude: -92.9068155,
+        mileFromStart: 2.4,
+        segmentKind: 'creek',
+        note: 'Public intermediate access at Cannon Falls for bailout or shorter-trip planning.',
+      },
+      {
+        id: 'cannon-miesville-ravine',
+        name: 'Cannon River, Miesville Ravine County Park Public Water Access Site',
+        latitude: 44.5430566,
+        longitude: -92.8008416,
+        mileFromStart: 9.4,
+        segmentKind: 'creek',
+        note: 'Public intermediate access before committing to the final Highway 61 leg.',
+      },
+      {
+        id: 'highway-61-cannon',
+        name: 'Cannon River, Highway 61 Public Water Access Site',
+        latitude: 44.5811188,
+        longitude: -92.6553127,
+        mileFromStart: 20.8,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS01112 near DNR river mile 6.8.',
+      },
+    ],
+  },
+
+  'north-fork-crow-river-forest-city-kingston': {
+    putIn: {
+      id: 'forest-city-north-fork-crow',
+      name: 'North Fork Crow River, Forest City Public Water Access Site',
+      latitude: 45.2095748,
+      longitude: -94.4657051,
+    },
+    takeOut: {
+      id: 'kingston-north-fork-crow',
+      name: 'North Fork Crow River, Kingston Public Water Access Site',
+      latitude: 45.1950363,
+      longitude: -94.3272284,
+    },
+    logistics: {
+      distanceLabel: 'About 12.0 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, wood, or scouting',
+      shuttle:
+        'Stage Kingston first, then drive back to Forest City. Confirm both accesses from land because the Highway 22 DNR gauge is upstream and cannot show local tree or low-bridge conditions.',
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR public accesses, follow Minnesota boating/PFD rules, and respect private banks and posted local rules.',
+      camping:
+        'No on-route public watercraft campsite is documented for this Forest City-to-Kingston section. Plan it as a day trip or reserve lodging/camping away from the river.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Forest City and take out at Kingston for the DNR-recommended 12-mile upper North Fork Crow section. Use the Highway 22 gauge as a conservative floor, then make local visual checks for wood, low bridges, and depth.',
+      accessCaveats: [
+        'Forest City resolves as WAS02367 at river mile 106.2 and Kingston resolves as WAS00687 at river mile 94.2 in Minnesota public-water-access GIS.',
+        'The selected gauge is upstream of the route and has no separate DNR very-high cutoff, so avoid high or rising water even if the card can only model a low-water floor.',
+        'Use only named public accesses or confirmed public land for stops.',
+      ],
+      watchFor: [
+        'Easy rapids, shallow gravel, underwater branches, overhanging trees, and low bridge clearance.',
+        'Fallen trees, possible farm fences, private banks, cold water, and fresh obstruction after storms.',
+        'Low water when the Highway 22 gauge drops below the official 80.5 ft floor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'forest-city-north-fork-crow',
+        name: 'North Fork Crow River, Forest City Public Water Access Site',
+        latitude: 45.2095748,
+        longitude: -94.4657051,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02367 at DNR river mile 106.2.',
+      },
+      {
+        id: 'kingston-north-fork-crow',
+        name: 'North Fork Crow River, Kingston Public Water Access Site',
+        latitude: 45.1950363,
+        longitude: -94.3272284,
+        mileFromStart: 12,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00687 at DNR river mile 94.2.',
+      },
+    ],
+  },
+
+  'pomme-de-terre-river-pomme-1-appleton': {
+    putIn: {
+      id: 'pomme-de-terre-pomme-1',
+      name: 'Pomme De Terre River, Pomme De Terre #1 Public Water Access Site',
+      latitude: 45.283686,
+      longitude: -95.9793669,
+    },
+    takeOut: {
+      id: 'appleton-pomme-de-terre',
+      name: 'Pomme De Terre River, Appleton Public Water Access Site',
+      latitude: 45.203145,
+      longitude: -96.0209066,
+    },
+    logistics: {
+      distanceLabel: 'About 10.3 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with low water, wood, or campsite use',
+      shuttle:
+        'Stage Appleton first, then drive back to Pomme de Terre #1 / Highway 12. Larson Landing is an intermediate public access and a shorter alternate take-out if conditions deteriorate.',
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR public accesses, follow Minnesota boating/PFD rules, and obey any posted campsite, park, and access rules.',
+      camping:
+        'DNR Map 1 identifies Pomme de Terre #1 as a rest area and watercraft campsite. Treat overnight use as designated-site only, and do not camp on private farm banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Pomme de Terre #1 and paddle past Larson Landing to Appleton for the DNR-recommended lower Pomme day. The Appleton gauge is direct for the finish, but wood, farm fences, and low-water scraping still need visual checks.',
+      accessCaveats: [
+        'Pomme #1, Larson, and Appleton resolve in Minnesota public-water-access GIS with official coordinates and water-trail river miles.',
+        'The route overlaps the already-live Larson-to-Appleton split; Larson is included here as an intermediate exit, not a duplicate endpoint.',
+        'Confirm the Appleton landing and man-made rapid context before launch.',
+      ],
+      watchFor: [
+        'Fallen trees, farm fences, strainers, sandy shallows, and low-water scraping.',
+        'Fast rises after rain, cold water outside midsummer, private banks, and agricultural-edge hazards.',
+        'Campsite availability and current posted rules at Pomme #1.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'pomme-de-terre-pomme-1',
+        name: 'Pomme De Terre River, Pomme De Terre #1 Public Water Access Site',
+        latitude: 45.283686,
+        longitude: -95.9793669,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in and DNR-mapped watercraft campsite/rest area; resolves as WAS02176 at river mile 19.1.',
+      },
+      {
+        id: 'pomme-de-terre-larson',
+        name: 'Pomme de Terre River, Larson Landing Public Water Access Site',
+        latitude: 45.2393301,
+        longitude: -95.9850983,
+        mileFromStart: 4.3,
+        segmentKind: 'creek',
+        note: 'Intermediate public access and shorter-route exit; resolves as WAS00046 at DNR river mile 14.8.',
+      },
+      {
+        id: 'appleton-pomme-de-terre',
+        name: 'Pomme De Terre River, Appleton Public Water Access Site',
+        latitude: 45.203145,
+        longitude: -96.0209066,
+        mileFromStart: 10.3,
+        segmentKind: 'creek',
+        note: 'Default take-out near the Appleton DNR gauge; resolves as WAS00050 at river mile 8.8.',
       },
     ],
   },

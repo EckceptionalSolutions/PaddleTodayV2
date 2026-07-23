@@ -1,5 +1,15 @@
 # Minnesota Route Memory
 
+## 2026-07-23 16:16 America/Chicago / 2026-07-23 21:16 UTC Minnesota DNR recommended-section gap pass
+
+- Treated the dirty current checkout as the run-start baseline and expanded Minnesota from `202` to `205` live route slugs by adding `cannon-river-byllesby-highway-61`, `north-fork-crow-river-forest-city-kingston`, and `pomme-de-terre-river-pomme-1-appleton`.
+- Qualification path: MN DNR statewide recommended one-way sections, Cannon Map 2, North Fork Crow Map 1, Pomme de Terre / Minnesota Map 1 context, MN DNR river-level site JSON, and Minnesota public-water-access GIS. Endpoint records resolve Byllesby East `WAS02800`, Highway 61 `WAS01112`, Forest City `WAS02367`, Kingston `WAS00687`, Pomme #1 `WAS02176`, Larson `WAS00046`, and Appleton `WAS00050`.
+- Live gauge verification: MN DNR feed returned Cannon River at Welch site `13` at `1,000 cfs` at `2026-07-23 14:00 CDT`, North Fork Crow Highway 22 site `47` at `80.78 ft` at `2026-07-23 14:30 CDT`, and Pomme de Terre Appleton site `168` at `4.83 ft` at `2026-07-23 14:00 CDT`.
+- Threshold posture: Cannon and Pomme use official DNR interpreted bands only: Welch `231 / 300-1540 / 3000 cfs` and Appleton `3.5 / 4.5-6.0 / 7.5 ft`. North Fork Crow uses the official Highway 22 `80.5 ft` floor as a conservative minimum-only model because the DNR feed publishes medium `80.5-82 ft` and high above `82 ft` but no separate very-high cutoff.
+- Safety/camping posture: Cannon flags the Lake Byllesby dam start, long-mileage exposure, light rapids, strainers, private banks, public intermediate exits, and nearby-basecamp rather than on-route camping. North Fork Crow flags upstream proxy-gauge limits, low-water rapids, low bridges, snags, private banks, and no camping. Pomme flags overlap with shorter Larson/Appleton splits, designated-site-only Pomme #1 campsite context, snags, low-water scraping, and private-bank limits.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected.
+- Reviewed but did not add: Blue Earth County-Road-90-to-Sibley stayed out because the current DNR map text flags dangerous paddling conditions from the Rapidan Dam failure downstream of RM 3.7; current DNR page-featured routes such as Cannon Riverside-to-Miesville, North Fork Crow Betty-to-Wildlife, Long Prairie-to-Browerville, and Pomme Larson-to-Appleton were reconciled as already live.
+
 ## 2026-07-23 15:10 America/Chicago / 2026-07-23 20:10 UTC Minnesota current-baseline gap reintroduction pass
 
 - Treated the dirty current checkout as the run-start baseline and expanded Minnesota from `196` to `199` live route slugs by adding `cloquet-river-bachelor-road-highway-53`, `whitewater-river-highway-74-us-61`, and `mississippi-river-clearwater-snuffies`.

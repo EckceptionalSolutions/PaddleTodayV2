@@ -3,14 +3,14 @@
   "source": "USGS NHD Flowline",
   "scope": "state",
   "state": "Texas",
-  "routeCount": 860,
-  "matchedRouteCount": 857,
+  "routeCount": 866,
+  "matchedRouteCount": 863,
   "unmatchedRouteIds": [
     "eau-claire-river-east-branch-wayside-county-i",
     "bad-axe-north-fork-duck-egg-hwy-o",
     "embarrass-south-branch-hwy-45-county-m"
   ],
-  "routeDataFingerprint": "d2097f8b70955594b2c4139558564987d09319fcf1c31dc0cf4fe0c40e54dc06",
+  "routeDataFingerprint": "d33fa482087cda67905485fe66bd5bf75b6dbbd17c312cf32e15a4a6e547c2a3",
   "features": [
     {
       "type": "Feature",
