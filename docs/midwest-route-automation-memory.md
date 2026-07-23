@@ -1,5 +1,12 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 13:55 America/Chicago / 2026-07-23 18:55 UTC: Iowa Lower Des Moines Van Buren completion pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 92-route exported Iowa baseline: `des-moines-river-austin-park-keosauqua`, `des-moines-river-bonaparte-des-moines-access`, and `des-moines-river-access-farmington`, bringing Iowa to 95 live routes.
+  - Qualification path: Iowa DNR's Lower Des Moines River guide supports the missing Austin Park / Keosauqua / Bonaparte / Des Moines River Access / Farmington access-chain splits with official mileage, hazards, public access names, Lacey-Keosauqua and endpoint camping context, meandered-stream/private-upland rules, Red Rock release caveats, and safety guidance. Villages of Van Buren, Fish Iowa, and Snoflo corroborate lower-river access/camping/coordinate context.
+  - Gauge posture: USGS Water Services returned Des Moines River at Keosauqua `05490500` at `8,110 cfs / 12.87 ft` at 2026-07-23 13:15 CDT. Keosauqua is direct for Austin-to-Keosauqua and an upstream same-corridor proxy for the two downstream short reaches.
+  - Threshold posture: all three reuse the accepted lower Des Moines Keosauqua-gauge community model from adjacent V2 cards: `800 cfs` too low, `3,000-4,500 cfs` ideal, and `6,000 cfs` too high. No route-gallery assets were added after bounded official/local/Commons/same-route image review.
+  - Reviewed but not added: Wapsipinicon Anamosa-to-Oxford Junction remains stale-gauge blocked; longer lower-Des-Moines through-cards were avoided as duplicate concatenations; already-live Cedar/Turkey/Maquoketa targets stayed out.
+
 - 2026-07-23 13:11 America/Chicago / 2026-07-23 18:11 UTC: Minnesota Cannon / Straight / Minnesota River recommended one-way pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 191-route exported Minnesota baseline: `cannon-river-wilderness-northfield`, `straight-river-medford-kroghs`, and `minnesota-river-le-sueur-henderson`, bringing Minnesota to 194 live routes.
   - Qualification path: MN DNR recommended one-way list plus Cannon/Straight Map 1, Cannon Map 2, Minnesota River Map 5, and Minnesota public-water-access GIS support the exact endpoint pairs, route mileage, campsites, dams/rapids/hazards, and access coordinates.

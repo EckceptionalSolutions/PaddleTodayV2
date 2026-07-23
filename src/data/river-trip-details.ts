@@ -43500,6 +43500,180 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'des-moines-river-austin-park-keosauqua': {
+    putIn: {
+      id: 'austin-park-access',
+      name: 'Austin Park boat access',
+      latitude: 40.7715,
+      longitude: -91.976,
+    },
+    takeOut: {
+      id: 'keosauqua-boat-ramp',
+      name: 'Keosauqua Boat Ramp',
+      latitude: 40.7291,
+      longitude: -91.962,
+    },
+    logistics: {
+      distanceLabel: 'About 5.8 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with low water, wind, or state-park stops',
+      shuttle:
+        'Stage at the Keosauqua riverfront boat ramp near Hotel Manning, then drive back to Austin Park northeast of Pittsburg. Walk both ramps before launching because release-driven levels can change ramp edge conditions.',
+      permits:
+        'No route-specific paddling permit is known. Use the public water-trail accesses, follow Iowa boating/PFD rules, and obey county, city, state-park, and private-property boundaries.',
+      camping:
+        'Austin Park and Keosauqua / Lacey-Keosauqua have endpoint camping and lodging support in the local water-trail brochure. Treat reservations, state-park rules, and seasonal services as separate trip planning.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Austin Park and paddle the official Lower Des Moines River Water Trail around the Lacey-Keosauqua bend to the Keosauqua boat ramp. The reach is beginner-appropriate only at normal levels and still deserves bridge, release, and private-bank checks.',
+      accessCaveats: [
+        'Austin Park is a named water-trail access with camping context, but the saved coordinate is a practical access-area anchor; verify the ramp and parking from land before leaving a vehicle.',
+        'Keosauqua is the named public boat-ramp finish near Hotel Manning and the direct USGS gauge town.',
+        'The Lower Des Moines is meandered, but private property begins at the high-water mark. Keep breaks to legal bars, riverbed, and clearly public lands.',
+      ],
+      watchFor: [
+        'Bridge pilings at Pittsburg and Keosauqua, especially when releases make current faster.',
+        'Red Rock release changes, low-water bars, muddy banks, wind, cold water, floating debris, and jumping silver carp.',
+        'Residential/private banks between Austin Park and Keosauqua; do not assume informal exits are legal.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'austin-park-access',
+        name: 'Austin Park boat access',
+        latitude: 40.7715,
+        longitude: -91.976,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public river access and campground context in Iowa DNR / Villages of Van Buren water-trail materials.',
+      },
+      {
+        id: 'keosauqua-boat-ramp',
+        name: 'Keosauqua Boat Ramp',
+        latitude: 40.7291,
+        longitude: -91.962,
+        mileFromStart: 5.8,
+        segmentKind: 'creek',
+        note: 'Default take-out; public Lower Des Moines water-trail ramp near Hotel Manning and the direct USGS gauge town.',
+      },
+    ],
+  },
+
+  'des-moines-river-bonaparte-des-moines-access': {
+    putIn: {
+      id: 'bonaparte-boat-ramp',
+      name: 'Bonaparte Riverfront Park / Bonaparte Boat Ramp',
+      latitude: 40.69785,
+      longitude: -91.80552,
+    },
+    takeOut: {
+      id: 'des-moines-river-access-van-buren',
+      name: 'Des Moines River Access',
+      latitude: 40.6712974,
+      longitude: -91.7580091,
+    },
+    logistics: {
+      distanceLabel: 'About 3.4 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with low-water scouting below Bonaparte',
+      shuttle:
+        'Stage the county Des Moines River Access south/east of Bonaparte, then launch from Bonaparte Riverfront Park. Confirm the old-dam line below Bonaparte before committing from the ramp.',
+      permits:
+        'No route-specific paddling permit is known. Follow city, county, water-trail, and Iowa boating/PFD rules, and keep routine stops to public access land or legal river bars.',
+      camping:
+        'Des Moines River Access has primitive camping and a boat ramp according to Villages of Van Buren. Confirm current county rules, flood cleanup, and seasonal service status before relying on it overnight.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Bonaparte and paddle the short official Lower Des Moines River Water Trail reach to the county Des Moines River Access. The first half-mile below Bonaparte carries the main decision: old dam remains and cross-current can be hazardous when low or pushy.',
+      accessCaveats: [
+        'Bonaparte Riverfront Park is the same public ramp used by the upstream Bentonsport card; use posted local signs for parking and ramp approach.',
+        'The Des Moines River Access coordinate comes from the named launch record and should be treated as a practical access coordinate, not a surveyed ramp point.',
+        'This short segment starts below old dam remains. Do not launch if the group cannot safely make the DNR-described move away from the put-in side.',
+      ],
+      watchFor: [
+        'Old dam remains, rough water, and shallow rock immediately below Bonaparte.',
+        'Fast release-driven current, floating debris, strainers, bridge or bank turbulence, and jumping silver carp.',
+        'Private cabins, agricultural banks, and limited legal exits between the public endpoints.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'bonaparte-boat-ramp',
+        name: 'Bonaparte Riverfront Park / Bonaparte Boat Ramp',
+        latitude: 40.69785,
+        longitude: -91.80552,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public riverfront park ramp just above the old-dam-remnant hazard zone.',
+      },
+      {
+        id: 'des-moines-river-access-van-buren',
+        name: 'Des Moines River Access',
+        latitude: 40.6712974,
+        longitude: -91.7580091,
+        mileFromStart: 3.4,
+        segmentKind: 'creek',
+        note: 'Default take-out; county-maintained cement boat ramp with primitive camping context. Coordinate is a practical launch anchor.',
+      },
+    ],
+  },
+
+  'des-moines-river-access-farmington': {
+    putIn: {
+      id: 'des-moines-river-access-van-buren',
+      name: 'Des Moines River Access',
+      latitude: 40.6712974,
+      longitude: -91.7580091,
+    },
+    takeOut: {
+      id: 'farmington-access',
+      name: 'Farmington Access',
+      latitude: 40.6387977,
+      longitude: -91.7438861,
+    },
+    logistics: {
+      distanceLabel: 'About 3 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, faster with high releases',
+      shuttle:
+        'Stage at Farmington Access below the Highway 2 bridge, then drive back to Des Moines River Access. Identify the take-out from land because continuing downstream leaves the Iowa water-trail finish and requires a separate plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow Van Buren County, Farmington, and Iowa boating/PFD rules, and use only public accesses or legal river bars for stops.',
+      camping:
+        'The county Des Moines River Access has primitive camping, while Farmington is listed with camping, cabins, restrooms, water, food, kiosk, and shelter. Confirm current local rules and seasonal availability before using either endpoint overnight.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Finish the Van Buren County Lower Des Moines water-trail chain by paddling from Des Moines River Access to Farmington Access. It is a short, straight reach, but high releases, debris, private banks, and missing the town take-out can still turn it into a bigger problem.',
+      accessCaveats: [
+        'Des Moines River Access and Farmington Access are named public water-trail launches; saved coordinates are practical launch records and should be verified against posted signs.',
+        'Farmington Access is below the Highway 2 bridge on river left/east side in the Iowa DNR guide.',
+        'Treat adjacent residential and agricultural banks as private unless clearly posted public.',
+      ],
+      watchFor: [
+        'High, fast, or debris-laden water from Red Rock release management or upstream storms.',
+        'Strainers, bridge current near Farmington, cold-water exposure, wind, motorboats, and jumping silver carp.',
+        'Drifting past Farmington without a downstream shuttle or Missouri/Lee County access plan.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'des-moines-river-access-van-buren',
+        name: 'Des Moines River Access',
+        latitude: 40.6712974,
+        longitude: -91.7580091,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; county-maintained Lower Des Moines access with primitive camping context.',
+      },
+      {
+        id: 'farmington-access',
+        name: 'Farmington Access',
+        latitude: 40.6387977,
+        longitude: -91.7438861,
+        mileFromStart: 3,
+        segmentKind: 'creek',
+        note: 'Default take-out; Farmington boat launch below the Highway 2 bridge on the east side of the river.',
+      },
+    ],
+  },
+
   'cottonwood-river-highway-4-county-road-10': {
     putIn: {
       id: 'cottonwood-highway-4-pwa',

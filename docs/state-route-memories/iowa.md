@@ -13,7 +13,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-23 12:53 run added three routes beyond the current 89-route baseline: `cedar-river-cedar-bend-three-rivers`, `cedar-river-three-rivers-kohlmann`, and `cedar-river-kohlmann-brookwood`.
+Iowa remains mature overall. The latest 2026-07-23 13:55 run added three routes beyond the current 92-route baseline: `des-moines-river-austin-park-keosauqua`, `des-moines-river-bonaparte-des-moines-access`, and `des-moines-river-access-farmington`.
+
+## 2026-07-23 13:55 Lower Des Moines River Van Buren completion pass
+
+- Baseline at run start: 92 Iowa live routes, verified from `src/data/rivers.ts` with `tsx` after duplicate reconciliation.
+- Added `des-moines-river-austin-park-keosauqua`, `des-moines-river-bonaparte-des-moines-access`, and `des-moines-river-access-farmington`, bringing the imported Iowa count to 95 live routes.
+- Qualification path: Iowa DNR's Lower Des Moines River guide documents the Austin Park / Keosauqua / Bonaparte / Des Moines River Access / Farmington access chain, exact missing segment mileages, bridge-piling hazards, old-dam-remnant hazards below Bonaparte, Lacey-Keosauqua state-park camping context, meandered-stream sandbar/private-upland rules, Red Rock release variability, silver carp, and general safety guidance. Villages of Van Buren corroborates the eight-access Van Buren County chain and endpoint camping/amenity context; Fish Iowa corroborates the Ottumwa-to-Farmington ramp corridor; Snoflo launch records provide practical coordinates for Des Moines River Access and Farmington.
+- Gauge posture: USGS Water Services returned Des Moines River at Keosauqua `05490500` at `8,110 cfs / 12.87 ft` at 2026-07-23 13:15 CDT. Keosauqua is direct for Austin-to-Keosauqua and an upstream same-corridor proxy for the two downstream short reaches.
+- Threshold posture: all three routes reuse the accepted lower Des Moines Keosauqua-gauge community model from adjacent V2 cards: too low `800 cfs`, ideal `3,000-4,500 cfs`, and too high `6,000 cfs`. No new segment-specific ideal range or upper cutoff was invented; all three currently show high-water caution above the selected ceiling.
+- Caveat posture: Austin-to-Keosauqua foregrounds normal-level-only beginner suitability, Pittsburg/Keosauqua bridge-piling hazards, endpoint camping, and private uplands. Bonaparte-to-Des-Moines-Access foregrounds old dam remains immediately below Bonaparte and DNR's cross-river move warning. Des-Moines-Access-to-Farmington foregrounds the final Farmington take-out below Highway 2 and the consequence of drifting past the town access without a downstream plan.
+- Reviewed but not added: Wapsipinicon Anamosa-to-Oxford Junction remains stale-gauge blocked; further lower Des Moines through-cards were avoided because the split cards now represent the official access chain without concatenating existing cards; remaining Cedar / Turkey / Maquoketa prompt targets were reconciled as already represented or lower value than closing this official Van Buren chain gap.
+- No route-gallery assets were added after bounded Iowa DNR / Villages of Van Buren / Fish Iowa / Snoflo / Commons / same-route image review.
 
 ## 2026-07-23 12:53 Cedar River Waverly dam-portage gap pass
 
