@@ -1,4 +1,4 @@
-import { mkdir, readFile, readdir, rename, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, rename, unlink, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { listRivers } from '../src/lib/rivers';
@@ -37,6 +37,7 @@ const root = process.cwd();
 const cacheDir = path.join(root, 'node_modules', '.cache', 'route-coordinate-river-audit');
 const outputPath = path.join(root, 'public', 'data', 'canonical-river-geometries.json');
 const stateOutputDir = path.join(root, 'public', 'data', 'canonical-river-geometries', 'states');
+const routeOutputDir = path.join(root, 'public', 'data', 'canonical-river-geometries', 'routes');
 
 function stateSlug(value: string) {
   return value
@@ -261,15 +262,8 @@ async function main() {
     routeDataFingerprint: sourceFingerprint,
   };
 
-  await mkdir(path.dirname(outputPath), { recursive: true });
-  // These assets contain hundreds of thousands of coordinate pairs. Pretty
-  // printing triples their on-disk and deployment size without helping the
-  // browser, so keep generated public data compact.
-  const outputText = `${JSON.stringify({ type: 'FeatureCollection', source: 'USGS NHD Flowline', ...metadata, features })}\n`;
-  const temporaryOutputPath = `${outputPath}.tmp-${process.pid}`;
-  await writeFile(temporaryOutputPath, outputText, 'utf8');
-  await rename(temporaryOutputPath, outputPath);
   await mkdir(stateOutputDir, { recursive: true });
+  await mkdir(routeOutputDir, { recursive: true });
   const stateGroups = new Map<string, CanonicalFeature[]>();
   for (const feature of features) {
     const key = stateSlug(feature.properties.state);
@@ -289,8 +283,47 @@ async function main() {
       await rename(stateTemporaryOutputPath, stateOutputPath);
     }),
   );
-  console.log(`Wrote ${features.length} canonical route geometries (${matchedRoutes}/${routes.length} routes matched) to ${path.relative(root, outputPath)}`);
+
+  const expectedRouteFiles = new Set(features.map((feature) => `${feature.properties.routeId}.json`));
+  await Promise.all(
+    (await readdir(routeOutputDir))
+      .filter((fileName) => fileName.endsWith('.json') && !expectedRouteFiles.has(fileName))
+      .map((fileName) => unlink(path.join(routeOutputDir, fileName))),
+  );
+  await Promise.all(
+    features.map(async (feature) => {
+      const routeOutputPath = path.join(routeOutputDir, `${feature.properties.routeId}.json`);
+      const routeTemporaryOutputPath = `${routeOutputPath}.tmp-${process.pid}`;
+      await writeFile(routeTemporaryOutputPath, `${JSON.stringify(feature)}\n`, 'utf8');
+      await rename(routeTemporaryOutputPath, routeOutputPath);
+    }),
+  );
+
+  const states = [...stateGroups.entries()]
+    .map(([slug, stateFeatures]) => ({
+      slug,
+      state: stateFeatures[0]?.properties.state ?? '',
+      routeCount: stateFeatures.length,
+      path: `/data/canonical-river-geometries/states/${slug}.json`,
+    }))
+    .sort((left, right) => left.state.localeCompare(right.state));
+  await mkdir(path.dirname(outputPath), { recursive: true });
+  // The root asset is deliberately only a manifest. Route detail requests use
+  // route-scoped files, while state and national maps opt into state bundles.
+  const outputText = `${JSON.stringify({
+    type: 'CanonicalGeometryManifest',
+    source: 'USGS NHD Flowline',
+    ...metadata,
+    states,
+    routePathTemplate: '/data/canonical-river-geometries/routes/{routeId}.json',
+  })}\n`;
+  const temporaryOutputPath = `${outputPath}.tmp-${process.pid}`;
+  await writeFile(temporaryOutputPath, outputText, 'utf8');
+  await rename(temporaryOutputPath, outputPath);
+
+  console.log(`Wrote a canonical geometry manifest for ${features.length} matched routes to ${path.relative(root, outputPath)}`);
   console.log(`Wrote ${stateGroups.size} state-scoped geometry assets to ${path.relative(root, stateOutputDir)}`);
+  console.log(`Wrote ${features.length} route-scoped geometry assets to ${path.relative(root, routeOutputDir)}`);
 }
 
 main().catch((error) => {

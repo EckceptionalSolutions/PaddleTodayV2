@@ -1,5 +1,12 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 18:13 America/Chicago / 2026-07-23 23:13 UTC: Minnesota Cedar / Little Fork / Rum connector pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 202-route exported Minnesota baseline: `cedar-river-marcusen-riverwood`, `little-fork-river-lofgren-kuttes`, and `rum-river-cambridge-martins`, bringing Minnesota to 205 live routes.
+  - Qualification path: MN DNR Cedar, Little Fork, and Rum water-trail pages/map PDFs plus MN DNR interpreted river-level JSON and Minnesota public-water-access GIS for the Marcusen/Riverwood, Lofgren/Kuttes, and Cambridge/Martin's endpoint chains.
+  - Gauge posture: MN DNR feed returned Cedar Austin site `286` at `367 cfs`, Little Fork at Little Fork site `81` at `86.5 cfs`, and Rum St. Francis site `211` at `303 cfs` on 2026-07-23 late afternoon CDT. Cedar is direct and in medium; Little Fork is direct and below scrapable; Rum is a downstream same-river proxy and below scrapable.
+  - Safety/image posture: cards carry Cedar dam/snags/private-bank cautions, Little Fork Highway-217-rapids/remoteness/Rainy-River exposure, Rum downstream-proxy/logjam/snags/dam-alert checks, conservative camping classifications, and no selected gallery images after bounded DNR / public-access / Commons / same-route review.
+  - Validation: route import/count confirmed 205 Minnesota routes; ledger JSON parse, routes audit, geometry generation/audit, typecheck, build, tests, overlap audit, and diff check passed. Build emitted only the existing `SITE_URL` fallback warning; diff check emitted CRLF warnings only.
+
 - 2026-07-23 17:54 America/Chicago / 2026-07-23 22:54 UTC: Iowa upper Cedar Osage current-baseline implementation pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 103-route exported Iowa baseline: `cedar-river-interstate-bennett`, `cedar-river-bennett-highway-9`, and `cedar-river-highway-9-osage-spring`, bringing Iowa to 106 live routes.
   - Qualification path: Cedar River Paddling Trips supplied the exact Interstate / Bennett / Highway 9 / Osage Spring access chain, mileages, endpoint coordinates, 200 cfs floor with 400-600 cfs better guidance, Mitchell dam relaunch context, Bennett-to-Highway-9 riffles, and the Osage Spring Park fish-riffle crossing note. Mitchell County corroborated the Cedar River Water Trail context.

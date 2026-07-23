@@ -1,6 +1,7 @@
 import { endpointSnappedRiverGeometry, stitchRiverLines } from './endpoint-snapped-river-geometry.js';
 
 const canonicalGeometryPromises = new Map();
+const canonicalRouteGeometryPromises = new Map();
 const routeStitchTolerances = new Map([
   ['little-miami-river-rogers-ballpark-carl-rahe', 0.0075],
 ]);
@@ -18,11 +19,29 @@ export function loadCanonicalRiverGeometries({ stateName = '' } = {}) {
   const existing = canonicalGeometryPromises.get(scope);
   if (existing) return existing;
 
-  const assetPath = stateName
-    ? `/data/canonical-river-geometries/states/${slugifyState(stateName)}.json`
-    : '/data/canonical-river-geometries.json';
+  const promise = stateName
+    ? loadGeometryCollection(`/data/canonical-river-geometries/states/${slugifyState(stateName)}.json`)
+    : fetch('/data/canonical-river-geometries.json', { cache: 'force-cache' })
+    .then((response) => {
+      if (!response.ok) throw new Error(`Canonical river geometry manifest request failed (${response.status})`);
+      return response.json();
+    })
+    .then(async (manifest) => {
+      const states = Array.isArray(manifest?.states) ? manifest.states : [];
+      const stateMaps = await Promise.all(
+        states
+          .filter((state) => typeof state?.state === 'string')
+          .map((state) => loadCanonicalRiverGeometries({ stateName: state.state })),
+      );
+      return new Map(stateMaps.flatMap((stateMap) => [...stateMap.entries()]));
+    });
 
-  const promise = fetch(assetPath, { cache: 'force-cache' })
+  canonicalGeometryPromises.set(scope, promise);
+  return promise;
+}
+
+function loadGeometryCollection(assetPath) {
+  return fetch(assetPath, { cache: 'force-cache' })
     .then((response) => {
       if (!response.ok) throw new Error(`Canonical river geometry request failed (${response.status})`);
       return response.json();
@@ -35,9 +54,6 @@ export function loadCanonicalRiverGeometries({ stateName = '' } = {}) {
           .map((feature) => [feature.properties.routeId, feature]),
       );
     });
-
-  canonicalGeometryPromises.set(scope, promise);
-  return promise;
 }
 
 function flattenGeometry(geometry) {
@@ -71,6 +87,18 @@ export function canonicalRiverRouteLineFromFeature(feature, routePoints) {
 
 /** Return a route-specific river section snapped to the supplied access points. */
 export async function loadCanonicalRiverRouteLine(routeId, routePoints, options = {}) {
-  const geometries = await loadCanonicalRiverGeometries(options);
-  return canonicalRiverRouteLineFromFeature(geometries.get(routeId), routePoints);
+  const existing = canonicalRouteGeometryPromises.get(routeId);
+  const featurePromise = existing ?? fetch(
+    `/data/canonical-river-geometries/routes/${encodeURIComponent(routeId)}.json`,
+    { cache: 'force-cache' },
+  )
+    .then((response) => {
+      if (response.status === 404) return null;
+      if (!response.ok) throw new Error(`Canonical route geometry request failed (${response.status})`);
+      return response.json();
+    });
+  if (!existing) canonicalRouteGeometryPromises.set(routeId, featurePromise);
+
+  const feature = await featurePromise;
+  return canonicalRiverRouteLineFromFeature(feature, routePoints);
 }

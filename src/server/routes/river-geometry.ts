@@ -15,7 +15,7 @@ type CanonicalGeometryFeature = {
   };
 };
 
-let geometryIndexPromise: Promise<Map<string, CanonicalGeometryFeature>> | null = null;
+const geometryPromises = new Map<string, Promise<CanonicalGeometryFeature | null>>();
 
 export async function handleRiverGeometry(
   response: ServerResponse,
@@ -23,8 +23,7 @@ export async function handleRiverGeometry(
   includeBody: boolean,
   slug: string,
 ) {
-  const geometryIndex = await loadGeometryIndex();
-  const feature = geometryIndex.get(slug);
+  const feature = await loadRouteGeometry(slug);
   const geometry = feature?.geometry;
 
   if (!feature || !geometry || !isSupportedGeometry(geometry)) {
@@ -43,27 +42,42 @@ export async function handleRiverGeometry(
   }, includeBody, 'public, max-age=86400, stale-while-revalidate=604800');
 }
 
-async function loadGeometryIndex() {
-  if (geometryIndexPromise) return geometryIndexPromise;
+async function loadRouteGeometry(slug: string) {
+  if (!/^[a-z0-9-]+$/.test(slug)) return null;
+  const existing = geometryPromises.get(slug);
+  if (existing) return existing;
 
-  geometryIndexPromise = readFile(
-    resolve(process.cwd(), 'public/data/canonical-river-geometries.json'),
-    'utf8',
-  ).then((raw) => {
-    const payload = JSON.parse(raw) as { features?: CanonicalGeometryFeature[] };
-    return new Map(
-      (payload.features ?? [])
-        .filter((feature) => typeof feature.properties?.routeId === 'string')
-        .map((feature) => [feature.properties?.routeId as string, feature]),
-    );
-  });
-
+  const geometryPromise = readFirstRouteGeometry(slug)
+    .then((raw) => JSON.parse(raw) as CanonicalGeometryFeature)
+    .catch((error: NodeJS.ErrnoException) => {
+      if (error.code === 'ENOENT') return null;
+      throw error;
+    });
+  geometryPromises.set(slug, geometryPromise);
   try {
-    return await geometryIndexPromise;
+    return await geometryPromise;
   } catch (error) {
-    geometryIndexPromise = null;
+    geometryPromises.delete(slug);
     throw error;
   }
+}
+
+async function readFirstRouteGeometry(slug: string) {
+  const candidates = [
+    resolve(process.cwd(), 'dist', 'data', 'canonical-river-geometries', 'routes', `${slug}.json`),
+    resolve(process.cwd(), 'public', 'data', 'canonical-river-geometries', 'routes', `${slug}.json`),
+  ];
+  let lastError: NodeJS.ErrnoException | null = null;
+  for (const candidate of candidates) {
+    try {
+      return await readFile(candidate, 'utf8');
+    } catch (error) {
+      const fileError = error as NodeJS.ErrnoException;
+      if (fileError.code !== 'ENOENT') throw error;
+      lastError = fileError;
+    }
+  }
+  throw lastError ?? Object.assign(new Error(`Geometry not found for ${slug}.`), { code: 'ENOENT' });
 }
 
 function isSupportedGeometry(

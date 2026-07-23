@@ -45813,5 +45813,131 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'cedar-river-marcusen-riverwood': {
+    putIn: {
+      id: 'marcusen-park-cedar',
+      name: 'Cedar River, Marcusen Park Public Water Access Site',
+      latitude: 43.6569447,
+      longitude: -92.9743545,
+    },
+    takeOut: {
+      id: 'riverwood-landing-cedar',
+      name: 'Cedar River, Riverwood Landing Public Water Access Site',
+      latitude: 43.615972,
+      longitude: -92.9782676,
+    },
+    logistics: {
+      distanceLabel: 'About 3.8 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer with low water or wood scouting',
+      shuttle:
+        'Stage Riverwood Landing first, then drive back to Marcusen Park in Austin. Walk both landings and check the County Road 28 gauge bridge area before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted City of Austin and DNR water-trail rules.',
+      camping:
+        'No on-route public watercraft campsite is documented for this short Austin connector. Plan it as a day trip and do not camp on private banks or bars.',
+      campingClassification: 'none',
+      summary:
+        'Launch from Marcusen Park and take out at Riverwood Landing for a short Cedar River section with an on-route DNR gauge, no major rapids, and recurring snag/overhanging-tree caveats.',
+      accessCaveats: [
+        'Marcusen Park resolves as WAS03076 at DNR river mile 15.6 and Riverwood Landing resolves as WAS02650 at river mile 11.8 in Minnesota public-water-access GIS.',
+        'The County Road 28 bridge and river-level gauge sit inside the route at about river mile 13.4.',
+        'Do not continue past Riverwood Landing unless the downstream state-line route and access limits are separately staged.',
+      ],
+      watchFor: [
+        'Austin dam context upstream, bridge current, strainers, snags, and overhanging trees.',
+        'Scraping below the official 50 cfs floor and powerful current or new wood above the high band.',
+        'Private banks and limited routine exits between the two public accesses.',
+      ],
+    },
+    accessPoints: [
+      { id: 'marcusen-park-cedar', name: 'Cedar River, Marcusen Park Public Water Access Site', latitude: 43.6569447, longitude: -92.9743545, mileFromStart: 0, segmentKind: 'creek', note: 'Default put-in; resolves as WAS03076 at DNR river mile 15.6 behind Marcusen Stadium in Austin.' },
+      { id: 'riverwood-landing-cedar', name: 'Cedar River, Riverwood Landing Public Water Access Site', latitude: 43.615972, longitude: -92.9782676, mileFromStart: 3.8, segmentKind: 'creek', note: 'Default take-out; resolves as WAS02650 at DNR river mile 11.8.' },
+    ],
+  },
+
+  'little-fork-river-lofgren-kuttes': {
+    putIn: {
+      id: 'lofgren-park-little-fork',
+      name: 'Little Fork River, Lofgren Park Public Water Access Site',
+      latitude: 48.4002431,
+      longitude: -93.564833,
+    },
+    takeOut: {
+      id: 'kuttes-rainy-river',
+      name: 'Rainy River, Kuttes Public Water Access Site',
+      latitude: 48.5268734,
+      longitude: -93.5702231,
+    },
+    logistics: {
+      distanceLabel: 'About 21.8 mi',
+      estimatedPaddleTime: 'About 7 hr to 10 hr, longer with low water, wind, scouting, or overnight gear',
+      shuttle:
+        'Stage Kuttes Landing near Pelland first, then drive back to Lofgren Park in Littlefork. Build in time for the Rainy River finish and for checking Highway 217 rapids before committing.',
+      permits:
+        'No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, use only public or permissioned stops, and obey City of Littlefork campground rules if camping at Lofgren Park.',
+      camping:
+        'Lofgren Park is documented by DNR as a city campground with trailer access, toilets, drinking water, picnic shelter, and a camping fee. No intermediate public campsite is assumed on the lower run.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch from Lofgren Park and paddle the lower Little Fork to the Rainy River confluence, then finish at Kuttes Landing. This is a long, remote-feeling route that depends on the direct Little Fork DNR gauge and local rapid checks.',
+      accessCaveats: [
+        'Lofgren Park resolves as WAS02245 near DNR river mile 21 and Kuttes resolves as WAS02155 on the Rainy River in Pelland.',
+        'DNR Map 2 places rapids and the river-level gauge near the Highway 217 bridge just upstream of the main lower route commitment.',
+        'The take-out is not at the Little Fork mouth itself; plan the extra Rainy River travel to Kuttes Landing and account for wind or motorboat traffic.',
+      ],
+      watchFor: [
+        'Rapids near Highway 217, rapidly changing levels, strainers, cold water, and remote rescue exposure.',
+        'Scrapable conditions below the official 400 cfs floor; DNR notes summer rapids may be impassable without recent rain.',
+        'Rainy River wind, current, motor traffic, border-water exposure, and long mileage fatigue.',
+      ],
+    },
+    accessPoints: [
+      { id: 'lofgren-park-little-fork', name: 'Little Fork River, Lofgren Park Public Water Access Site', latitude: 48.4002431, longitude: -93.564833, mileFromStart: 0, segmentKind: 'creek', note: 'Default put-in at the City of Littlefork park and campground; resolves as WAS02245 near DNR river mile 21.' },
+      { id: 'kuttes-rainy-river', name: 'Rainy River, Kuttes Public Water Access Site', latitude: 48.5268734, longitude: -93.5702231, mileFromStart: 21.8, segmentKind: 'creek', note: 'Default take-out about one mile east of the Little Fork confluence on the Rainy River; resolves as WAS02155 in Pelland.' },
+    ],
+  },
+
+  'rum-river-cambridge-martins': {
+    putIn: {
+      id: 'cambridge-west-park-rum',
+      name: 'Rum River, Cambridge Public Water Access Site',
+      latitude: 45.5723504,
+      longitude: -93.2357162,
+    },
+    takeOut: {
+      id: 'martins-landing-rum',
+      name: "Rum River, Martin's Public Water Access Site",
+      latitude: 45.4883322,
+      longitude: -93.2667511,
+    },
+    logistics: {
+      distanceLabel: 'About 7.7 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, wood, or wind',
+      shuttle:
+        "Stage Martin's Landing first, then drive back to Cambridge West Park. Check local depth and wood at Cambridge because the DNR gauge is downstream at St. Francis.",
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted city, county, and DNR water-trail rules.',
+      camping:
+        "No campsite is assumed for this short connector. DNR notes some Rum River parks may offer watercraft campsites, but none was selected as a verified on-route campsite for Cambridge-to-Martin's.",
+      campingClassification: 'none',
+      summary:
+        "Launch at Cambridge West Park and take out at Martin's Landing for the missing Rum River connector between established upstream and downstream routes, using St. Francis as a conservative downstream gauge proxy.",
+      accessCaveats: [
+        "Cambridge resolves as WAS00285 at DNR river mile 42.4 and Martin's resolves as WAS02197 at river mile 34.7 in Minnesota public-water-access GIS.",
+        'The St. Francis gauge is downstream of this reach, so use it for broad water-level posture and still inspect the actual Cambridge launch.',
+        "Do not continue below Martin's Landing unless the downstream Isanti/North County Park mileage, dams, and shuttle are separately planned.",
+      ],
+      watchFor: [
+        'Downed trees, snags, possible log jams, bridge current, cold water, and private banks.',
+        'Low water when the St. Francis proxy drops below the official 600 cfs floor.',
+        'Current DNR alerts elsewhere on the Rum River, even if a listed obstruction is outside this exact reach.',
+      ],
+    },
+    accessPoints: [
+      { id: 'cambridge-west-park-rum', name: 'Rum River, Cambridge Public Water Access Site', latitude: 45.5723504, longitude: -93.2357162, mileFromStart: 0, segmentKind: 'creek', note: 'Default put-in at Cambridge West Park; resolves as WAS00285 at DNR river mile 42.4.' },
+      { id: 'martins-landing-rum', name: "Rum River, Martin's Public Water Access Site", latitude: 45.4883322, longitude: -93.2667511, mileFromStart: 7.7, segmentKind: 'creek', note: "Default take-out on the east bank near Isanti; resolves as WAS02197 at DNR river mile 34.7." },
+    ],
+  },
+
   'upper-iowa-river-cattle-creek-malanaphy': consolidatedUpperIowaDetails,
 };
