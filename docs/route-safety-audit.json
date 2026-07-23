@@ -1,48 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-23T13:26:33.847Z",
+  "generatedAt": "2026-07-23T13:28:16.320Z",
   "routeCount": 805,
-  "issueCount": 626,
+  "issueCount": 622,
   "summary": {
     "Critical": 0,
-    "High": 381,
-    "Medium": 245,
+    "High": 378,
+    "Medium": 244,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "kings-river-rockhouse-trigger-gap",
-      "slug": "kings-river-rockhouse-trigger-gap",
-      "name": "Kings River",
-      "reach": "Rockhouse Access to Trigger Gap",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "k stream day with shallow gravel riffles, occasional rapids, a low-water bridge portage near the end, private banks, and a private fee take-out. Confidence is good for a conservative minimum-only Arkansas add: AGFC identifies Rockhouse to Trigger Gap / Arkansa"
-    },
-    {
-      "routeId": "kings-river-rockhouse-trigger-gap",
-      "slug": "kings-river-rockhouse-trigger-gap",
-      "name": "Kings River",
-      "reach": "Rockhouse Access to Trigger Gap",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "torm-fed water can change this private-bank reach quickly. This is not advanced whitewater, but it is a seven-plus-mile Ozark stream day with shallow gravel riffles, occasional rapids, a low-water bridge portage near the end, private banks, and a private fee t"
-    },
-    {
-      "routeId": "kings-river-rockhouse-trigger-gap",
-      "slug": "kings-river-rockhouse-trigger-gap",
-      "name": "Kings River",
-      "reach": "Rockhouse Access to Trigger Gap",
-      "state": "Arkansas",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "low gravel riffles, occasional rapids, a low-water bridge portage near the end, private banks, and a private fee take-out. Confidence is good for a conservative minimum-only Arkansas add: AGFC identifies Rockhouse to Trigger Gap / Arkansas Highway 221 as a pop"
-    },
     {
       "routeId": "kishwaukee-river-hickory-bills-distillery",
       "slug": "kishwaukee-river-hickory-bills-distillery",
@@ -4200,17 +4167,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "der gardens, clear water, and quiet forested banks; this is a beginner-friendly whitewater route only for paddlers ready to read rapids and swim safely. Use the Wolf River at Langlade gauge. The most broadly useful window is 250 to 500 cfs. From 150 to 250 cfs"
-    },
-    {
-      "routeId": "kings-river-rockhouse-trigger-gap",
-      "slug": "kings-river-rockhouse-trigger-gap",
-      "name": "Kings River",
-      "reach": "Rockhouse Access to Trigger Gap",
-      "state": "Arkansas",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Clear Ozark day float from AGFC-owned Rockhouse Access through the Kings River Preserve corridor to the private fee access at Trigger Gap. Use this as a conservative stage check, n"
     },
     {
       "routeId": "black-hawk-creek-ranchero-hope-martin",

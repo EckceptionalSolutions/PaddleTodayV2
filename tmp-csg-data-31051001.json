@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <style>
+      pre {
+        white-space: pre-wrap;       /* css-3 */
+        white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+        white-space: -pre-wrap;      /* Opera 4-6 */
+        white-space: -o-pre-wrap;    /* Opera 7 */
+        word-wrap: break-word;       /* Internet Explorer 5.5+ */
+        width: 99%;
+      }
+    </style>
+    <title>Year End Summary for 31051001</title>
+  </head>
+  <body>
+    <p><b>Year End Summary for 2004</b></p>
+
+    <pre>
+********************************************************************************
+MPCA/DNR Cooperative Stream Gaging Year End Summary Report
+Station: E31051001 - Watonwan River nr Garden City, CSAH13
+Year: 2004
+
+Prepared By:
+Eileen Campbell (ecampbe)
+EILEEN.CAMPBELL@STATE.MN.US
+
+Approved By:
+Wade Gillingham (wgillin)
+1-507-537-7163 (WADE.GILLINGHAM@STATE.MN.US)
+********************************************************************************
+
+Water Quality Data Summary
+--------------------------------------------------------------------------------
+Water quality samples were taken for the Watonwan CWP by Maple River CWP staff.
+67 samples were collected at this site during the monitoring season.  
+Sample distribution on Hydrograph:  Sample coverage was very good.  More rising limb samples and less baseline samples were needed.
+TSS, TP, PO4, NO2+NO3-N, TKN, FC, Turbidity were analyzed using a laboratory.  
+transparency tube were analyzed using field meter(s).  
+
+--------------------------------------------------------------------------------
+Data Quality for Calendar Year 2004
+--------------------------------------------------------------------------------
+Flow   = Unknown External Data (QQC=48)
+Precip = NA (PQC=0)
+-------------------------------------------------------------------------------- - EnteredBy - YESAPP
+
+    </pre>
+
+</body>
+</html>

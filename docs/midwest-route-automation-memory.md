@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 10:25 America/Chicago / 2026-07-23 15:25 UTC: Wisconsin Cedar Creek / Root River / Beaver Dam implementation pass (`wisconsin-route-additions`).
+  - Added three Wisconsin route slugs beyond the current 155-route Wisconsin baseline: `cedar-creek-covered-bridge-lions`, `root-river-five-mile-horlick`, and `beaver-dam-river-county-s-lowell`, bringing Wisconsin to 158 live routes.
+  - Qualification path: WRT / Treasures of Oz / Ozaukee County / Grafton support Cedar Creek Covered-Bridge-to-Lions with direct Cedarburg gauge posture; AW / Miles Paddled / Racine County support Root Five-Mile-to-Horlick with direct W. Eight Mile Road gauge posture; Miles Paddled / WRT / Dodge County support Beaver Dam County-S-to-Lowell with direct Beaver Dam gauge posture.
+  - Gauge posture: legacy USGS RDB returned Cedar Creek `11.8 cfs / 5.23 ft`, Root River `21.5 cfs / 4.52 ft`, and Beaver Dam River `19.0 cfs / 838.87 ft` on 2026-07-23 morning CDT; all three currently warn below selected floors/windows.
+  - Threshold posture: Cedar uses Treasures of Oz `5.5-6.5 ft`; Root uses AW minimum-only `100 cfs` from the `100-3000 cfs` route range; Beaver Dam uses WRT `30-140 cfs` with Miles Paddled 130-cfs corroboration. No route-gallery assets were added after bounded source / Commons / same-route image review.
+
 - 2026-07-23 08:52 America/Chicago / 2026-07-23 13:52 UTC: Iowa Cedar River Nashua / Bremer County gap pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 80-route Iowa baseline: `cedar-river-nashua-pearl-rock`, `cedar-river-pearl-rock-north-cedar`, and `cedar-river-north-cedar-cedar-bend`, bringing Iowa to 83 live routes.
   - Qualification path: the Cedar River Paddling Trips guide supports the Nashua / Pearl Rock / North Cedar Park / Cedar Bend Park chain with exact mileage, coordinates, Nashua dam portage context, Pearl Rock small-lot warning, North Cedar campground/boat-ramp context, Cedar Bend amenities, and Cedar River gauge guidance; City of Nashua, Iowa DNR Fish Iowa, and Bremer County / MyCountyParks corroborate public corridor and endpoint support.

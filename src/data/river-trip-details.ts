@@ -39589,6 +39589,204 @@ const retainedRiverTripDetails = Object.fromEntries(
 
 export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...retainedRiverTripDetails,
+  'cedar-creek-covered-bridge-lions': {
+    putIn: {
+      id: 'covered-bridge-park-cedar-creek',
+      name: 'Covered Bridge Park Cedar Creek access',
+      latitude: 43.3152,
+      longitude: -88.0024,
+    },
+    takeOut: {
+      id: 'grafton-lions-park-cedar-creek',
+      name: 'Grafton Lions Park Cedar Creek access',
+      latitude: 43.3153,
+      longitude: -87.9537,
+    },
+    logistics: {
+      distanceLabel: 'About 3.6 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr',
+      shuttle:
+        'Stage Grafton Lions Park first, then drive back to Covered Bridge Park. Robin Court can split the route, but treat it as a neighborhood access that needs same-day parking and sign checks.',
+      permits:
+        'No route-specific paddling permit is known. Follow Ozaukee County and Grafton park rules, Wisconsin boating/PFD rules, and any posted access or water-quality advisories.',
+      camping:
+        'No on-route camping is documented for this short Cedar Creek day route. Use separate campground or lodging plans if needed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Covered Bridge Park and take out at Grafton Lions Park for the short Cedar Creek route above the more urban Cedarburg/dam corridor. The Cedarburg gauge is direct, but local rock, wood, and rain response still decide marginal days.',
+      accessCaveats: [
+        'Covered Bridge Park is the clean start with county-listed kayak/canoe launch context; still verify current park hours and posted rules.',
+        'Grafton Lions Park is the planned finish. Do not drift into the downstream Cedarburg/urban/dam-affected sections unless you have a separate route plan.',
+        'Robin Court is useful only as a split or bailout if parking, signage, neighborhood access, and bank footing are clearly acceptable.',
+      ],
+      watchFor: [
+        'Shallow rocks, scraping, and awkward footing near the lower end of the selected stage window.',
+        'Fast current and less recovery room above the high-water caution around 6.5 ft.',
+        'Strainers, slick limestone, storm runoff, private banks, urban water-quality concerns, and cold water outside summer.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'covered-bridge-park-cedar-creek',
+        name: 'Covered Bridge Park Cedar Creek access',
+        latitude: 43.3152,
+        longitude: -88.0024,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at the county-listed park launch.',
+      },
+      {
+        id: 'robin-court-cedar-creek-access',
+        name: 'Robin Court Cedar Creek access',
+        latitude: 43.3115,
+        longitude: -87.9684,
+        mileFromStart: 2.4,
+        segmentKind: 'creek',
+        note: 'Optional split / bailout access; verify parking and signs first.',
+      },
+      {
+        id: 'grafton-lions-park-cedar-creek',
+        name: 'Grafton Lions Park Cedar Creek access',
+        latitude: 43.3153,
+        longitude: -87.9537,
+        mileFromStart: 3.6,
+        segmentKind: 'creek',
+        note: 'Default take-out at the Village of Grafton kayak-access park.',
+      },
+    ],
+  },
+  'root-river-five-mile-horlick': {
+    putIn: {
+      id: 'five-mile-road-linwood-park-root',
+      name: '5 Mile Road / Linwood Park Root River access',
+      latitude: 42.79984,
+      longitude: -87.87081,
+    },
+    takeOut: {
+      id: 'horlick-park-rapids-court-root',
+      name: 'Horlick Park / Rapids Court canoe and kayak launch',
+      latitude: 42.7538,
+      longitude: -87.82322,
+    },
+    logistics: {
+      distanceLabel: 'About 7.7 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer in low water',
+      shuttle:
+        'Stage Horlick Park / Rapids Court first, then return to the 5 Mile Road / Linwood Park access. A bike shuttle is possible only if the group is comfortable with Racine-area traffic and urban crossings.',
+      permits:
+        'No route-specific paddling permit is known. Follow Racine County park rules, Wisconsin boating/PFD rules, and any Horlick Park construction, dam-removal, or launch notices.',
+      camping:
+        'No on-route camping is documented for this urban/suburban Root River reach. Treat it as a day paddle and use separate lodging or campground plans.',
+      campingClassification: 'none',
+      summary:
+        'Launch at 5 Mile Road / Linwood Park and take out at Horlick Park for the AW-listed Root River reach. The W. Eight Mile Road gauge currently runs below the selected minimum, so low-water scraping and a same-day visual check matter.',
+      accessCaveats: [
+        'The 5 Mile Road access is source-backed by Miles Paddled and the AW reach name, but parking, bank footing, and park rules should be checked before unloading.',
+        'Horlick Park is the take-out boundary. Do not continue into the Horlick dam-removal / downstream rapid corridor without a separate safety and access plan.',
+        'Middle accesses around Highway 31 or Armstrong Park should be treated as bailouts only after confirming legal parking, bank footing, and any local construction restrictions.',
+      ],
+      watchFor: [
+        'Shallow riffles, shoals, and dragging below the AW minimum flow.',
+        'Fresh strainers, bridge debris, and pushier bends after Racine-area rain.',
+        'Urban water-quality concerns, private/golf-course banks, cold shoulder-season water, and dam/no-continuation hazards near Horlick.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'five-mile-road-linwood-park-root',
+        name: '5 Mile Road / Linwood Park Root River access',
+        latitude: 42.79984,
+        longitude: -87.87081,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from Miles Paddled and the AW reach name.',
+      },
+      {
+        id: 'highway-31-ole-davidson-root',
+        name: 'Highway 31 / Ole Davidson Road Root River access',
+        latitude: 42.7742,
+        longitude: -87.8461,
+        mileFromStart: 4.6,
+        segmentKind: 'creek',
+        note: 'Possible mid-route bailout near the WRT-described boulder-garden section.',
+      },
+      {
+        id: 'horlick-park-rapids-court-root',
+        name: 'Horlick Park / Rapids Court canoe and kayak launch',
+        latitude: 42.7538,
+        longitude: -87.82322,
+        mileFromStart: 7.7,
+        segmentKind: 'creek',
+        note: 'Default take-out above the dam-removal / downstream rapid corridor.',
+      },
+    ],
+  },
+  'beaver-dam-river-county-s-lowell': {
+    putIn: {
+      id: 'county-road-s-leipsig-beaver-dam',
+      name: 'County Road S / Leipsig Beaver Dam River access',
+      latitude: 43.40072,
+      longitude: -88.8661,
+    },
+    takeOut: {
+      id: 'river-street-dam-lowell-beaver-dam',
+      name: 'River Street Dam / Lowell take-out',
+      latitude: 43.34018,
+      longitude: -88.81961,
+    },
+    logistics: {
+      distanceLabel: 'About 11.25 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer with low water or wind',
+      shuttle:
+        'Stage the River Street Dam / Lowell take-out first, then drive back to County Road S near Leipsig. County Road G is the direct shuttle spine but can carry fast traffic, so a vehicle shuttle is cleaner than a bike shuttle.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, Dodge County/local access signs, and do not block bridge shoulders, farm lanes, gates, or dam-area access.',
+      camping:
+        'No on-route camping is documented for the County-S-to-Lowell segment. Treat this as a long day paddle unless a separate legal campground or lodging plan is confirmed.',
+      campingClassification: 'none',
+      summary:
+        'Launch at County Road S and finish at River Street Dam / Lowell for the lower Beaver Dam River day route. It is slower and less rapid-focused than the existing Cotton Mill-to-County-J card, but still depends on the same erratic direct gauge and same-day access checks.',
+      accessCaveats: [
+        'County Road S is a practical bridge/access from Miles Paddled and WRT, not a staffed park. Confirm parking, road-shoulder safety, and bank footing before launching.',
+        'River Street Dam is the mandatory take-out boundary. Identify the exit line before the impoundment/dam area and do not continue around the dam casually.',
+        'Meadow Road and other bridge options can shorten the route, but each needs same-day clearance, shoulder, and water-depth checks.',
+      ],
+      watchFor: [
+        'Low water, dragging, and slow impoundment-style paddling when the Beaver Dam gauge is below the selected floor.',
+        'Erratic upstream dam releases, rising water, wood, low Meadow Road clearance, farm debris, and private banks.',
+        'Wind on wider water, algae or water-quality concerns, cold water, and fatigue over an 11-mile day.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-road-s-leipsig-beaver-dam',
+        name: 'County Road S / Leipsig Beaver Dam River access',
+        latitude: 43.40072,
+        longitude: -88.8661,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from Miles Paddled; road-adjacent access checks required.',
+      },
+      {
+        id: 'meadow-road-beaver-dam-river',
+        name: 'Meadow Road bridge access',
+        latitude: 43.3755,
+        longitude: -88.8492,
+        mileFromStart: 3.4,
+        segmentKind: 'creek',
+        note: 'Possible shorter-route access from Miles Paddled; verify bridge clearance and parking.',
+      },
+      {
+        id: 'river-street-dam-lowell-beaver-dam',
+        name: 'River Street Dam / Lowell take-out',
+        latitude: 43.34018,
+        longitude: -88.81961,
+        mileFromStart: 11.25,
+        segmentKind: 'creek',
+        note: 'Default take-out at Lowell before dam-adjacent water.',
+      },
+    ],
+  },
   'mississippi-river-iron-bridge-county-road-12-dam': {
     putIn: {
       id: 'mississippi-river-iron-bridge',
