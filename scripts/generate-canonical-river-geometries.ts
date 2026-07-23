@@ -262,7 +262,10 @@ async function main() {
   };
 
   await mkdir(path.dirname(outputPath), { recursive: true });
-  const outputText = `${JSON.stringify({ type: 'FeatureCollection', source: 'USGS NHD Flowline', ...metadata, features }, null, 2)}\n`;
+  // These assets contain hundreds of thousands of coordinate pairs. Pretty
+  // printing triples their on-disk and deployment size without helping the
+  // browser, so keep generated public data compact.
+  const outputText = `${JSON.stringify({ type: 'FeatureCollection', source: 'USGS NHD Flowline', ...metadata, features })}\n`;
   const temporaryOutputPath = `${outputPath}.tmp-${process.pid}`;
   await writeFile(temporaryOutputPath, outputText, 'utf8');
   await rename(temporaryOutputPath, outputPath);
@@ -280,7 +283,7 @@ async function main() {
       const stateTemporaryOutputPath = `${stateOutputPath}.tmp-${process.pid}`;
       await writeFile(
         stateTemporaryOutputPath,
-        `${JSON.stringify({ type: 'FeatureCollection', source: 'USGS NHD Flowline', scope: 'state', state: stateFeatures[0]?.properties.state ?? '', ...metadata, features: stateFeatures }, null, 2)}\n`,
+        `${JSON.stringify({ type: 'FeatureCollection', source: 'USGS NHD Flowline', scope: 'state', state: stateFeatures[0]?.properties.state ?? '', ...metadata, features: stateFeatures })}\n`,
         'utf8',
       );
       await rename(stateTemporaryOutputPath, stateOutputPath);

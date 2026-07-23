@@ -15,6 +15,7 @@ const INFERRED_RIVER_SPLIT_DISTANCE_MILES = 150;
 const ALL_RIVER_SCORE_CONCURRENCY = 12;
 
 const inferredRiverIdsBySlug = buildInferredRiverIds();
+let routeIndexes: RouteIndexes | null = null;
 
 export interface RiverGroup {
   riverId: string;
@@ -34,13 +35,22 @@ export interface RiverStateGroup {
   routes: River[];
 }
 
+interface RouteIndexes {
+  routes: River[];
+  bySlug: Map<string, River>;
+  routesByRiverId: Map<string, River[]>;
+  riverGroups: RiverGroup[];
+  riverGroupById: Map<string, RiverGroup>;
+  stateGroups: RiverStateGroup[];
+  stateGroupBySlug: Map<string, RiverStateGroup>;
+}
+
 export function listRivers(): River[] {
-  return rivers.map(enrichRiver);
+  return [...getRouteIndexes().routes];
 }
 
 export function getRiverBySlug(slug: string): River | undefined {
-  const river = rivers.find((candidate) => candidate.slug === slug);
-  return river ? enrichRiver(river) : undefined;
+  return getRouteIndexes().bySlug.get(slug);
 }
 
 export async function getRiverScore(slug: string): Promise<RiverScoreResult | null> {
@@ -62,47 +72,60 @@ export async function getAllRiverScores(options?: { concurrency?: number }): Pro
 }
 
 export function getRiversByRiverId(riverId: string): River[] {
-  return listRivers().filter((river) => river.riverId === riverId);
+  return [...(getRouteIndexes().routesByRiverId.get(riverId) ?? [])];
 }
 
 export function listRiverGroups(): RiverGroup[] {
-  const grouped = new Map<string, River[]>();
-
-  for (const river of listRivers()) {
-    const riverId = river.riverId;
-    if (!riverId) continue;
-    const bucket = grouped.get(riverId) ?? [];
-    bucket.push(river);
-    grouped.set(riverId, bucket);
-  }
-
-  return [...grouped.entries()]
-    .map(([riverId, routes]) => {
-      const first = routes[0];
-      return {
-        riverId,
-        name: first?.name ?? riverId,
-        routeCount: routes.length,
-        states: [...new Set(routes.map((route) => route.state))].sort(),
-        regions: [...new Set(routes.map((route) => route.region))].sort(),
-        routes: [...routes].sort((left, right) => left.reach.localeCompare(right.reach)),
-      };
-    })
-    .sort((left, right) => left.name.localeCompare(right.name));
+  return [...getRouteIndexes().riverGroups];
 }
 
 export function listRiverStateGroups(): RiverStateGroup[] {
-  const grouped = new Map<string, River[]>();
+  return [...getRouteIndexes().stateGroups];
+}
 
-  for (const river of listRivers()) {
-    const bucket = grouped.get(river.state) ?? [];
-    bucket.push(river);
-    grouped.set(river.state, bucket);
+export function getRiverStateGroupBySlug(slug: string): RiverStateGroup | undefined {
+  return getRouteIndexes().stateGroupBySlug.get(slug);
+}
+
+export function getRiverGroupById(riverId: string): RiverGroup | undefined {
+  return getRouteIndexes().riverGroupById.get(riverId);
+}
+
+function getRouteIndexes(): RouteIndexes {
+  if (routeIndexes) return routeIndexes;
+
+  const indexedRoutes = rivers.map(enrichRiver);
+  const bySlug = new Map(indexedRoutes.map((river) => [river.slug, river]));
+  const routesByRiverId = new Map<string, River[]>();
+  const routesByState = new Map<string, River[]>();
+
+  for (const river of indexedRoutes) {
+    const riverBucket = routesByRiverId.get(river.riverId) ?? [];
+    riverBucket.push(river);
+    routesByRiverId.set(river.riverId, riverBucket);
+
+    const stateBucket = routesByState.get(river.state) ?? [];
+    stateBucket.push(river);
+    routesByState.set(river.state, stateBucket);
   }
 
-  return [...grouped.entries()]
-    .map(([state, routes]) => {
-      const sortedRoutes = [...routes].sort((left, right) => {
+  const riverGroups = [...routesByRiverId.entries()]
+    .map(([riverId, groupedRoutes]) => {
+      const sortedRoutes = [...groupedRoutes].sort((left, right) => left.reach.localeCompare(right.reach));
+      return {
+        riverId,
+        name: sortedRoutes[0]?.name ?? riverId,
+        routeCount: sortedRoutes.length,
+        states: [...new Set(sortedRoutes.map((route) => route.state))].sort(),
+        regions: [...new Set(sortedRoutes.map((route) => route.region))].sort(),
+        routes: sortedRoutes,
+      };
+    })
+    .sort((left, right) => left.name.localeCompare(right.name));
+
+  const stateGroups = [...routesByState.entries()]
+    .map(([state, groupedRoutes]) => {
+      const sortedRoutes = [...groupedRoutes].sort((left, right) => {
         const nameSort = left.name.localeCompare(right.name);
         return nameSort === 0 ? left.reach.localeCompare(right.reach) : nameSort;
       });
@@ -117,14 +140,17 @@ export function listRiverStateGroups(): RiverStateGroup[] {
       };
     })
     .sort((left, right) => left.name.localeCompare(right.name));
-}
 
-export function getRiverStateGroupBySlug(slug: string): RiverStateGroup | undefined {
-  return listRiverStateGroups().find((group) => group.slug === slug);
-}
-
-export function getRiverGroupById(riverId: string): RiverGroup | undefined {
-  return listRiverGroups().find((group) => group.riverId === riverId);
+  routeIndexes = {
+    routes: indexedRoutes,
+    bySlug,
+    routesByRiverId,
+    riverGroups,
+    riverGroupById: new Map(riverGroups.map((group) => [group.riverId, group])),
+    stateGroups,
+    stateGroupBySlug: new Map(stateGroups.map((group) => [group.slug, group])),
+  };
+  return routeIndexes;
 }
 
 export async function getRiverGroupScores(riverId: string): Promise<RiverScoreResult[] | null> {
