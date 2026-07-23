@@ -5432,6 +5432,65 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
+  'des-moines-river-keosauqua-bentonsport': {
+    putIn: {
+      id: 'keosauqua-boat-ramp',
+      name: 'Keosauqua Boat Ramp',
+      latitude: 40.7291,
+      longitude: -91.962,
+    },
+    takeOut: {
+      id: 'bentonsport-boat-ramp',
+      name: 'Bentonsport Park / Bentonsport Boat Ramp',
+      latitude: 40.72454,
+      longitude: -91.85125,
+    },
+    logistics: {
+      distanceLabel: '8.6 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with sandbar stops or low water',
+      shuttle:
+        'Stage the take-out at Bentonsport Park, then drive back to the Keosauqua riverfront boat ramp near Hotel Manning. Inspect the Keosauqua launch first because rock and old dam remains just downstream can change the start line.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Keosauqua, Van Buren County, and Lower Des Moines River Water Trail access rules, and carry required Iowa boating safety gear.',
+      camping:
+        'Iowa DNR says sandbar camping is allowed on meandered streams such as the Lower Des Moines, and Lacey-Keosauqua/Bentonsport park camping can support a basecamp. Keep any river camping below the high-water mark and away from private uplands.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch at Keosauqua and paddle the official Lower Des Moines River Water Trail around the 8.6-mile horseshoe bend to Bentonsport. The reach has bluff and rock scenery, but release-driven flow, old dam remains, and private uplands require a current gauge and landing check.',
+      accessCaveats: [
+        'Keosauqua is the named public boat-ramp start in the Iowa DNR guide; the saved coordinate is a practical access-area anchor near the riverfront ramp rather than a survey point.',
+        'Bentonsport Park is the same county water-trail access used by the existing downstream Bentonsport-to-Bonaparte card.',
+        'Use legal sandbars and public land only. Iowa DNR says private property begins at the high-water mark on the Lower Des Moines.',
+      ],
+      watchFor: [
+        'Old dam remains, rough water, and rock obstructions just below Keosauqua, especially at lower water.',
+        'High or fast water from Red Rock release management; current can change without local rainfall.',
+        'Bridge pilings, floating wood, silver carp, muddy landings, wind, and cold-water exposure.',
+        'The current model is borrowed from adjacent lower-river Keosauqua-gauge guidance, so make a same-day visual call before launching.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'keosauqua-boat-ramp',
+        name: 'Keosauqua Boat Ramp',
+        latitude: 40.7291,
+        longitude: -91.962,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Official Lower Des Moines water-trail put-in near Hotel Manning.',
+      },
+      {
+        id: 'bentonsport-boat-ramp',
+        name: 'Bentonsport Park / Bentonsport Boat Ramp',
+        latitude: 40.72454,
+        longitude: -91.85125,
+        mileFromStart: 8.6,
+        segmentKind: 'creek',
+        note: 'County park and Lower Des Moines River Water Trail access.',
+      },
+    ],
+  },
+
   'south-skunk-river-lekwa-sopers-mill': {
     putIn: {
       name: 'Lekwa Access #242',
@@ -5862,6 +5921,65 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 5,
         segmentKind: 'creek',
         note: 'Take-out park with seasonal campground support; identify the ramp before the dam corridor.',
+      },
+    ],
+  },
+
+  'shell-rock-river-heery-woods-renning': {
+    putIn: {
+      id: 'heery-woods-below-dam',
+      name: 'Heery Woods State Park below-dam launch',
+      latitude: 42.7718,
+      longitude: -92.67323,
+    },
+    takeOut: {
+      id: 'rennings-landing',
+      name: "Renning's Landing",
+      latitude: 42.6996,
+      longitude: -92.6487,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with wood scouting or low water',
+      shuttle:
+        "Stage Renning's Landing first, then drive back to Heery Woods North Side near Clarksville. Confirm a below-dam launch or portage setup at Heery Woods before unloading boats; do not launch above the dam for this route.",
+      permits:
+        'No route-specific paddling permit is known. Follow Butler County Conservation park hours, access signs, Iowa boating/PFD rules, and any same-day closure notices.',
+      camping:
+        'Heery Woods has campground facilities at the put-in park, so this can work as an endpoint-basecamp day route. No on-route gravel-bar camping is assumed between Heery and Renning.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch only after confirming a safe below-dam Heery Woods start, then paddle the missing Shell Rock connector to Renning's Landing. This keeps the existing Renning-to-Shell-Rock card as the downstream continuation rather than duplicating it.",
+      accessCaveats: [
+        'Heery Woods has a boat ramp above the dam and dam-adjacent access. This app route depends on a confirmed safe below-dam launch line or portage setup.',
+        "Renning's Landing is the planned take-out and the start of the existing downstream Shell Rock card.",
+        'The Shell Rock gauge is downstream in Shell Rock, so combine it with same-day visual checks for wood, ramp condition, and dam separation at Heery Woods.',
+      ],
+      watchFor: [
+        'The Heery Woods low-head dam and any boulder-riffle or dam-remnant current near the launch area.',
+        'Sweepers, downed trees, bridge current, and private banks between public access points.',
+        'High or rising water above the 2,000 cfs corridor ceiling, when the short connector can become pushy.',
+        'Low-water dragging below about 150 cfs on the direct Shell Rock gauge.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'heery-woods-below-dam',
+        name: 'Heery Woods State Park below-dam launch',
+        latitude: 42.7718,
+        longitude: -92.67323,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Use only a confirmed below-dam launch or portage setup; do not launch above the dam.',
+      },
+      {
+        id: 'rennings-landing',
+        name: "Renning's Landing",
+        latitude: 42.6996,
+        longitude: -92.6487,
+        mileFromStart: 6,
+        segmentKind: 'creek',
+        note: 'Butler County boat ramp and canoe access; downstream continuation starts here.',
       },
     ],
   },
@@ -11225,6 +11343,65 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
         'Tubers, swimmers, SUPs, anglers, spectators, rocks, and changing feature hydraulics in a busy downtown river park.',
       ],
     },
+  },
+
+  'north-skunk-river-delta-sigourney': {
+    putIn: {
+      id: 'delta-north-skunk-access',
+      name: 'Delta / North Skunk River access',
+      latitude: 41.323,
+      longitude: -92.329,
+    },
+    takeOut: {
+      id: 'sigourney-skunk-river-access',
+      name: 'Sigourney / South Skunk River Access corridor',
+      latitude: 41.3008,
+      longitude: -92.2046,
+    },
+    logistics: {
+      distanceLabel: 'About 10 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer with wood or low water',
+      shuttle:
+        'Stage the Sigourney take-out corridor first, then drive back to Delta. Confirm the exact signed access and parking at both ends before launching because the app uses access-corridor coordinates from DNR map and gauge context.',
+      permits:
+        'No route-specific paddling permit is known. Use only signed public access areas, follow Iowa boating/PFD requirements, and respect local parking or conservation-area rules.',
+      camping:
+        'Treat this as a day trip. No verified on-route campground or legal bank-camping plan was found for the Delta-to-Sigourney reach; adjoining rural banks should be treated as private unless posted public.',
+      campingClassification: 'none',
+      summary:
+        'Launch near Delta and paddle the North Skunk toward the Sigourney access corridor. The direct Sigourney gauge and CanWePaddle range make this scoreable, but endpoint signs, wood, and rural private-bank boundaries need same-day confirmation.',
+      accessCaveats: [
+        'Endpoint coordinates are practical access-corridor anchors, not surveyed ramp points. Use posted access signs and current local conditions.',
+        'The DNR Skunk River map shows the North Skunk / Skunk River access corridor and Sigourney access context, but the exact launch/landing line should be verified before boats are unloaded.',
+        'Do not improvise private-bank take-outs between Delta and Sigourney unless there is clear public access or landowner permission.',
+      ],
+      watchFor: [
+        'Fresh logjams, sweepers, and blocked bridge openings after rain.',
+        'Low-water dragging below about 100 cfs on the North Skunk near Sigourney gauge.',
+        'Fast, muddy, debris-laden water above about 1,500 cfs or on a rising hydrograph.',
+        'Rural shuttle exposure, limited bailout options, private banks, and cold-water conditions outside summer.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'delta-north-skunk-access',
+        name: 'Delta / North Skunk River access',
+        latitude: 41.323,
+        longitude: -92.329,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Practical Delta access-corridor anchor; verify the signed launch before committing.',
+      },
+      {
+        id: 'sigourney-skunk-river-access',
+        name: 'Sigourney / South Skunk River Access corridor',
+        latitude: 41.3008,
+        longitude: -92.2046,
+        mileFromStart: 10,
+        segmentKind: 'creek',
+        note: 'Take-out corridor near the direct North Skunk at Sigourney gauge; verify posted access.',
+      },
+    ],
   },
 
   'yellow-river-volney-sixteen-bridge': {

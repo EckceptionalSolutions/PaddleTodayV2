@@ -11,7 +11,18 @@ Last summarized: 2026-07-22.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-22 late run added three more distinct corridors with direct USGS gauges and CanWePaddle route ranges: Cedar River Charles-City-to-Nashua, South Skunk River River-Valley-to-C.J.-Shreck, and North Raccoon River Squirrel-Hollow-to-Adkins.
+Iowa remains mature overall. The latest 2026-07-22 23:46 run added three more guarded direct-gauge Iowa routes beyond the current 61-route baseline: Des Moines River Keosauqua-to-Bentonsport, Shell Rock River Heery-Woods-to-Renning, and North Skunk River Delta-to-Sigourney.
+
+## 2026-07-22 23:46 Lower Des Moines / Shell Rock / North Skunk pass
+
+- Baseline at run start: 61 Iowa live routes, verified from `src/data/rivers.ts` with `tsx`.
+- Added `des-moines-river-keosauqua-bentonsport`, `shell-rock-river-heery-woods-renning`, and `north-skunk-river-delta-sigourney`, bringing the imported Iowa count to 64 live routes in this checkout.
+- Qualification path: Iowa DNR's Lower Des Moines guide supports the exact Keosauqua-to-Bentonsport reach, sandbar-camping/private-upland rules, release variability, old dam remains, and direct Keosauqua gauge context; Butler County / MyCountyParks plus CanWePaddle support the Shell Rock Heery-to-Renning connector with direct Shell Rock gauge range and explicit below-dam launch discipline; CanWePaddle plus Iowa DNR Skunk River map support North Skunk Delta-to-Sigourney with direct Sigourney gauge range and access-corridor caveats.
+- Gauge posture: USGS Water Services returned Des Moines at Keosauqua `05490500` at `7,230 cfs / 12.62 ft` at 2026-07-22 23:15 CDT, Shell Rock at Shell Rock `05462000` at `2,180 cfs / 9.25 ft` at 2026-07-22 22:45 CDT, and North Skunk near Sigourney `05472500` at `272 cfs / 5.07 ft` at 2026-07-22 23:30 CDT.
+- Threshold posture: Des Moines uses the existing lower-river Keosauqua-gauge community model of `800 / 3,000-4,500 / 6,000 cfs`, applied conservatively to the official upstream reach; Shell Rock uses CanWePaddle's broader Clarksville-to-Shell-Rock `150-2,000 cfs` direct-gauge range for the shorter Heery-to-Renning connector; North Skunk uses CanWePaddle's exact Delta-to-Sigourney `100-1,500 cfs` range.
+- Caveat posture: Des Moines currently scores above the conservative high-water ceiling and emphasizes Red Rock release speed, old dam/rock obstructions, silver carp, legal sandbar camping, and private uplands. Shell Rock currently scores just above the broad ceiling and requires a confirmed below-dam Heery Woods start. North Skunk has guarded access-coordinate confidence and requires signed-access verification at Delta/Sigourney.
+- Reviewed but not added: Iowa River Coralville-Dam-to-Iowa-City was deferred because official Iowa River Water Trail sources start the lower trail at Sturgis Ferry rather than the dam; West Nishnabotna Oakland-to-Randolph and East Nishnabotna Red-Oak-to-Essex stayed weaker on public endpoint certainty than the selected set.
+- No route-gallery assets were added after bounded official / local / USGS / Commons / same-route image review.
 
 ## 2026-07-22 Cedar / South Skunk / North Raccoon pass
 
