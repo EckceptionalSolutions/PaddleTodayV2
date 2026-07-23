@@ -2589,6 +2589,42 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
+  'st-croix-river-gordon-dam-riverside': {
+    putIn: {
+      name: 'Gordon Dam Landing',
+      latitude: 46.2536,
+      longitude: -91.92809,
+    },
+    takeOut: {
+      name: 'Riverside Landing',
+      latitude: 46.076,
+      longitude: -92.246002,
+    },
+    logistics: {
+      distanceLabel: '23.4 mi',
+      estimatedPaddleTime: 'Full day or overnight; many groups split it with Riverway campsites',
+      shuttle:
+        'Long upper-Riverway shuttle from Gordon Dam Landing to Riverside Landing. Use NPS Map 4 to plan intermediate landings such as County Road T, Schoen Park, Dry Landing, and CCC Bridge before committing to the full 23-plus miles.',
+      permits:
+        'Follow St. Croix National Scenic Riverway rules. No day-paddling permit is assumed here, but camping, glass-container, pet, quiet-hour, and park-specific rules apply on Riverway lands.',
+      camping:
+        'This is the strongest overnight candidate among the three adds. NPS Map 4 and American Whitewater document designated river campsites along the reach, but summer weekends can fill; plan small or large campsite capacity, water, and legal campsite spacing before launching.',
+      summary:
+        'Launch at Gordon Dam Landing and finish at Riverside Landing after the Namekagon confluence corridor. The route is a long Wild and Scenic Riverway paddle with boulder-bed Class I-II rapids, public landing options, and enough remoteness that conservative groups should plan it as an overnight.',
+      accessCaveats: [
+        'Do not start the full reach unless the shuttle, campsite plan, and daylight plan are realistic for a 23.4-mile trip.',
+        'Intermediate landings make shorter sections possible, but each landing and campsite should be verified on the latest NPS map before use.',
+        'Bring drinking water or treatment; NPS warns river water is not safe to drink unless purified.',
+      ],
+      watchFor: [
+        'Low-water rock dodging and possible wading through boulder-bed rapids.',
+        'Class I-II rapids before Scott Bridge, Fish Trap Rapids with no portage, and more rapids near Big Island and Riverside.',
+        'Coppermine Dam / sluice hazards; scout the chute or use the right-side portage.',
+        'Fallen trees, cold water, ticks, poison ivy, and slow rescue response in the upper Riverway.',
+      ],
+    },
+  },
+
   'st-croix-river-interstate-osceola': {
     putIn: {
       name: 'Minnesota Interstate State Park landing',
@@ -3992,6 +4028,174 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 6.4,
         segmentKind: 'creek',
         note: 'Campground-supported downstream finish for the shortest lower-corridor route.',
+      },
+    ],
+  },
+
+  'crow-wing-river-frames-landing-little-white-dog': {
+    putIn: {
+      name: "Frame's Landing public water access",
+      latitude: 46.629663080692076,
+      longitude: -94.86925421200144,
+    },
+    takeOut: {
+      name: 'Little White Dog County Park #9 carry-in access',
+      latitude: 46.586984884675736,
+      longitude: -94.82261571200662,
+    },
+    logistics: {
+      distanceLabel: '5.1 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer at low water',
+      shuttle:
+        "Short Wadena County shuttle from Frame's Landing to Little White Dog. Stage the Little White Dog take-out first because it is the downstream campground finish and easiest place to confirm parking before launch.",
+      permits:
+        'No special paddling permit is known. Follow Minnesota boating/PFD requirements and posted Wadena County campground, day-use, and parking rules.',
+      camping:
+        "Frame's Landing and Little White Dog both have mapped primitive campground context. Treat overnight use as posted county-campground use only, not informal shoreline camping.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Frame's Landing and finish at Little White Dog for a short lower Crow Wing campground-to-campground connector. The Nimrod gauge is upstream, so local depth checks matter when the official reading is low.",
+      accessCaveats: [
+        'The Nimrod DNR gauge is upstream of the route; use it as an official corridor check and make a same-day visual call at the launch.',
+        "Frame's Landing is a county campground access with posted-use rules rather than a polished city ramp.",
+        'Little White Dog is the intended take-out and campground base. Do not assume private banks between the parks are legal stops.',
+      ],
+      watchFor: [
+        'Low-water scraping and slow travel while Nimrod is below 300 cfs.',
+        'Fresh wood, sweepers, and outside-bend strainers after storms.',
+        'Private banks and designated-site-only camping rules along the corridor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'frames-landing',
+        name: "Frame's Landing public water access",
+        latitude: 46.629663080692076,
+        longitude: -94.86925421200144,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Wadena County campground-supported put-in at DNR Map 2 river mile 64.4.',
+      },
+      {
+        id: 'little-white-dog',
+        name: 'Little White Dog County Park #9 carry-in access',
+        latitude: 46.586984884675736,
+        longitude: -94.82261571200662,
+        mileFromStart: 5.1,
+        segmentKind: 'creek',
+        note: 'Wadena County campground-supported take-out at DNR Map 2 river mile 59.3.',
+      },
+    ],
+  },
+
+  'crow-wing-river-little-white-dog-knob-hill': {
+    putIn: {
+      name: 'Little White Dog County Park #9 carry-in access',
+      latitude: 46.586984884675736,
+      longitude: -94.82261571200662,
+    },
+    takeOut: {
+      name: 'Knob Hill County Park #10 carry-in access',
+      latitude: 46.533855996511825,
+      longitude: -94.81849257299048,
+    },
+    logistics: {
+      distanceLabel: '6.3 mi',
+      estimatedPaddleTime: 'About 2 hr 15 min to 3 hr 30 min, longer at low water',
+      shuttle:
+        'Stage Knob Hill first, then drive back to Little White Dog. Both endpoints are Wadena County campground accesses, so confirm posted day-use, camping, and parking expectations before leaving vehicles.',
+      permits:
+        'No special paddling permit is known. Follow Minnesota boating/PFD requirements and posted Wadena County campground, day-use, and parking rules.',
+      camping:
+        'Little White Dog and Knob Hill both have mapped primitive campground context. Use only posted county campsites and do not assume informal riverbank camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Little White Dog and finish at Knob Hill for the shorter upper half of the DNR Map 2 Little-White-Dog-to-Cottingham day trip. The route is straightforward, but current low water and wood still need a launch check.',
+      accessCaveats: [
+        'The Nimrod DNR gauge is upstream of the route; use it as an official corridor check and make a same-day visual call at Little White Dog.',
+        'Knob Hill is a popular tubing put-in and campground, so the finish can be busier in warm weather than the mileage suggests.',
+        'Private shoreland dominates outside the designated county landings and campsites.',
+      ],
+      watchFor: [
+        'Shallow sandbars and slow current when the upstream Nimrod gauge is below 300 cfs.',
+        'Fresh wood, strainers, and blind outside bends after local rain.',
+        'Summer tubing traffic and landing congestion at Knob Hill.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'little-white-dog',
+        name: 'Little White Dog County Park #9 carry-in access',
+        latitude: 46.586984884675736,
+        longitude: -94.82261571200662,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Wadena County campground-supported put-in at DNR Map 2 river mile 59.3.',
+      },
+      {
+        id: 'knob-hill',
+        name: 'Knob Hill County Park #10 carry-in access',
+        latitude: 46.533855996511825,
+        longitude: -94.81849257299048,
+        mileFromStart: 6.3,
+        segmentKind: 'creek',
+        note: 'Wadena County campground-supported take-out at DNR Map 2 river mile 53.0.',
+      },
+    ],
+  },
+
+  'crow-wing-river-knob-hill-cottingham': {
+    putIn: {
+      name: 'Knob Hill County Park #10 carry-in access',
+      latitude: 46.533855996511825,
+      longitude: -94.81849257299048,
+    },
+    takeOut: {
+      name: 'Cottingham County Park #11 carry-in access',
+      latitude: 46.505529851247346,
+      longitude: -94.80738952007682,
+    },
+    logistics: {
+      distanceLabel: '3.5 mi',
+      estimatedPaddleTime: 'About 1 hr 15 min to 2 hr, longer at low water',
+      shuttle:
+        'Stage Cottingham first, then drive back to Knob Hill. This is a short shuttle, but both parks can be busy during summer tubing, swimming, and campground use.',
+      permits:
+        'No special paddling permit is known. Follow Minnesota boating/PFD requirements and posted Wadena County campground, day-use, and parking rules.',
+      camping:
+        'Knob Hill and Cottingham both have mapped primitive campground context. Use only posted county campsites and do not assume informal riverbank camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Knob Hill and take out at Cottingham for the shortest cleanly supported lower Crow Wing county-park split. It is flexible, but low water, wood, and busy warm-weather parks still need attention.',
+      accessCaveats: [
+        'The Nimrod DNR gauge is upstream of the route; use it as an official corridor check and make a same-day visual call at Knob Hill.',
+        'Cottingham is the intended take-out. Continuing downstream turns this into a different lower Crow Wing plan with additional county-park and confluence considerations.',
+        'Expect more summer recreation traffic than on upstream Crow Wing reaches.',
+      ],
+      watchFor: [
+        'Shallow sandbars and slow current when the upstream Nimrod gauge is below 300 cfs.',
+        'Fresh wood, strainers, and blind outside bends after local rain.',
+        'Tubers, swimmers, and crowded take-out conditions near Cottingham on warm weekends.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'knob-hill',
+        name: 'Knob Hill County Park #10 carry-in access',
+        latitude: 46.533855996511825,
+        longitude: -94.81849257299048,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Wadena County campground-supported put-in at DNR Map 2 river mile 53.0.',
+      },
+      {
+        id: 'cottingham-county-park',
+        name: 'Cottingham County Park #11 carry-in access',
+        latitude: 46.505529851247346,
+        longitude: -94.80738952007682,
+        mileFromStart: 3.5,
+        segmentKind: 'creek',
+        note: 'Wadena County campground-supported take-out at DNR Map 2 river mile 49.5.',
       },
     ],
   },
@@ -9333,6 +9537,77 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fast current and stronger Class I-II wave trains when the Sheldon gauge is high or rising after rain.',
         'Wind on more open stretches, cold water in spring, and changing wood or strainers after high water.',
         'Do not use the 2200 cfs Sheldon Canoe Race observation as normal recreational guidance; that is extreme, fast water for this app audience.',
+      ],
+    },
+  },
+
+  'jump-south-fork-county-line-little-falls': {
+    putIn: {
+      name: 'County Line Road picnic-area put-in',
+      latitude: 45.3787,
+      longitude: -90.5338,
+    },
+    takeOut: {
+      name: 'Little Falls access',
+      latitude: 45.399899,
+      longitude: -90.603897,
+    },
+    logistics: {
+      distanceLabel: '5.7 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr plus scouting at Little Falls',
+      shuttle:
+        'Use a short rural shuttle between the County Line Road picnic-area access and Little Falls. Stage the take-out first so the group can identify whether the landing plan is above Little Falls or below it after a scout.',
+      permits:
+        'No route-specific paddling permit is known from the sources checked. Use only the named access points and stay off private banks while scouting or taking breaks.',
+      camping:
+        'No on-route campsite is documented for this short reach. Treat it as a day trip; Big Falls County Campground downstream is a separate first-come Price County base-camp option, not permission to camp along this section.',
+      summary:
+        'Launch at the County Line Road picnic-area put-in and paddle the milder upper South Fork Jump boulder gardens to the Little Falls access. This is the gentler South Fork card, but the finish is still a decision point because Little Falls belongs to the next, harder reach.',
+      accessCaveats: [
+        'American Whitewater says the take-out can be either at the head of Little Falls or at the end of Little Falls; choose only after scouting.',
+        'The AW gauge correlation uses the downstream Jump River at Sheldon gauge, so combine the live number with recent rain, trend, and a visual check at the put-in.',
+        'This is a rural corridor with limited formal bailout information between endpoints.',
+      ],
+      watchFor: [
+        'Low-water scraping in boulder gardens when the Sheldon gauge is below the AW runnable floor.',
+        'Little Falls getting bony below about 1,000 cfs and developing holes above about 1,000 cfs.',
+        'Changing strainers, cold water in spring, and rock impacts in shallow riffles.',
+      ],
+    },
+  },
+
+  'jump-south-fork-little-falls-big-falls': {
+    putIn: {
+      name: 'Little Falls roadside access',
+      latitude: 45.400001525879,
+      longitude: -90.602996826172,
+    },
+    takeOut: {
+      name: 'Big Falls County Park access',
+      latitude: 45.40299987793,
+      longitude: -90.638000488281,
+    },
+    logistics: {
+      distanceLabel: '2.7 mi',
+      estimatedPaddleTime: 'Short run, but plan extra time for scouting, laps, and carries',
+      shuttle:
+        'Very short shuttle between Little Falls, the County N bridge corridor, and Big Falls County Park. Many experienced paddlers treat either falls as park-and-play rather than as a normal downriver shuttle.',
+      permits:
+        'No route-specific paddling permit is known from the sources checked. Follow Price County park rules at Big Falls and avoid informal private-bank scouting access.',
+      camping:
+        'Big Falls County Campground and Park has six first-come, non-electric campsites, vault toilets, hand-pump water, and picnic facilities on the South Fork Jump. Campsites cannot be reserved and should be treated as base-camp support, not guaranteed shuttle staging.',
+      summary:
+        'Put in at Little Falls and finish at Big Falls County Park, or use the named falls as park-and-play objectives. This is a short advanced whitewater card with a misleadingly quiet middle at County N and a serious Big Falls finish.',
+      accessCaveats: [
+        'Scout Little Falls and Big Falls from shore before committing; the route is not adequately assessed from the County N bridge.',
+        'Big Falls County Park is a real public park and campground, but use the posted park access and rules rather than inventing informal carry routes.',
+        'Poison ivy is specifically called out by American Whitewater around the falls areas.',
+      ],
+      watchFor: [
+        'Little Falls Class II+ technical water with sticky features around roughly 1,000 to 2,000 cfs.',
+        'Big Falls Class III-IV technical action, waterfall/ledge hazards, holes, and portage decisions.',
+        'Scraping below the AW runnable floor and pushier expert-only consequences near the upper part of the band.',
+        'Fast-rising post-rain water, cold-water swims, and wood in the runout.',
       ],
     },
   },

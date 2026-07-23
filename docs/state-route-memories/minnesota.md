@@ -1,5 +1,15 @@
 # Minnesota Route Memory
 
+## 2026-07-22 20:15 America/Chicago / 2026-07-23 01:15 UTC Minnesota implementation pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `142` to `145` route slugs by adding `crow-wing-river-frames-landing-little-white-dog`, `crow-wing-river-little-white-dog-knob-hill`, and `crow-wing-river-knob-hill-cottingham`. Older Minnesota memory already mentioned these slugs, but they were absent from the current checkout at baseline, so this pass reintroduced them as current-baseline additions rather than counting a prior automation commit.
+- Qualification path: current MN DNR Crow Wing Map 2 / segments page documents the lower county-park chain, public mileposts, designated campground posture, private-bank limits, and water-level safety language. Minnesota public-water-access GIS resolves Frame's Landing `WAS01538`, Little White Dog `WAS01527`, Knob Hill `WAS01324`, and Cottingham `WAS01325` with coordinates and Wadena County administration. Wadena County pages corroborate campground/recreation support at all four endpoints.
+- Live gauge verification: MN DNR river-level feed returned Crow Wing River at Nimrod site `55` at `158 cfs` at `2026-07-22 18:00 CDT`, below the official `300 cfs` scrapable floor. Implemented official DNR interpreted bands only: `300 / 400-800 / 1,100 cfs`, with all three cards warning low/scrapable until flows recover.
+- Camping posture: all three routes are `endpoint_campground` through DNR/Wadena County campground support at the endpoint parks. All three reject informal private-bank or riverbed camping.
+- Safety posture: all three carry upstream-proxy gauge caveats, low-water scraping, fresh wood/strainers, fast-rise, cold-water, private-bank, designated-campsite-only, and warm-weather tubing/swimming traffic caveats near the lower parks.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Wadena County / Commons / same-route searches with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add unresolved prompt leads such as Cloquet Indian-Lake-to-Bear-Lake-Road, Minnesota River Kinney-to-Skalbekken, Des Moines Mayflower-to-Christianna, Snake Silver-Star-to-Lower-Falls, St. Louis Fond-du-Lac/Oldenburg, Crow Wing Huntersville-to-Mary-Brown, and headwaters Mississippi lake-transition routes because the Crow Wing Map 2 access splits had stronger current official access/gauge support in this checkout.
+
 ## 2026-07-22 19:35 America/Chicago / 2026-07-23 00:35 UTC Minnesota implementation pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `139` to `142` route slugs by adding `red-river-kidder-brushvale`, `st-louis-river-paupores-brookston`, and `watonwan-river-county-road-32-garden-city`.
