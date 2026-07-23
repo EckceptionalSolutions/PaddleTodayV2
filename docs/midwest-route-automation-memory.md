@@ -1,5 +1,12 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 12:53 America/Chicago / 2026-07-23 17:53 UTC: Iowa Cedar River Waverly dam-portage gap pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 89-route exported Iowa baseline: `cedar-river-cedar-bend-three-rivers`, `cedar-river-three-rivers-kohlmann`, and `cedar-river-kohlmann-brookwood`, bringing Iowa to 92 live routes.
+  - Qualification path: the Cedar River Paddling Trips guide supports the Cedar Bend / Three Rivers / Kohlmann / Brookwood access chain with exact mileages, endpoint coordinates, Three Rivers ramp/dock context, Kohlmann dam-portage take-out context, Brookwood downstream access context, and the Waverly-gauge floor. Bremer County and City of Waverly corroborate Cedar Bend and Brookwood park/access details.
+  - Gauge posture: USGS Water Services returned Cedar River at Waverly `05458300` at `2,400 cfs / 5.08 ft` at 2026-07-23 12:15 CDT.
+  - Threshold posture: all three use conservative minimum-only `200 cfs` from the guide's adequate-water floor, documenting the `400-600 cfs` better range without inventing an upper cutoff. No route-gallery assets were added after bounded official/local/Commons/same-route image review.
+  - Reviewed but not added: Wapsipinicon Anamosa-to-Oxford Junction remains stale-gauge blocked; a single Cedar Bend-to-Brookwood through-card was avoided because the Waverly dam/portage boundary is safer as split cards; lower Des Moines continuations were lower value than the official Waverly access-chain gap.
+
 - 2026-07-23 12:10 America/Chicago / 2026-07-23 17:10 UTC: Minnesota Big Fork / Mississippi / Rum gap pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 188-route exported Minnesota baseline: `big-fork-river-highway-6-north-johnson`, `mississippi-river-lum-park-kiwanis`, and `rum-river-princeton-highway-7`, bringing Minnesota to 191 live routes.
   - Qualification path: MN DNR Big Fork Map 2 / Mississippi Map 6 / Rum Map 2 plus Minnesota public-water-access GIS support all endpoints. DNR river-level feed returned Big Fork Craigsville `4.76 ft`, Mississippi Brainerd `886 cfs`, and Rum St. Francis `310 cfs` on 2026-07-23 morning CDT.

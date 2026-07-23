@@ -12953,6 +12953,180 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'cedar-river-cedar-bend-three-rivers': {
+    putIn: {
+      id: 'cedar-bend-park',
+      name: 'Cedar Bend Park access',
+      latitude: 42.760425,
+      longitude: -92.493585,
+    },
+    takeOut: {
+      id: 'three-rivers-park',
+      name: 'Three Rivers Park boat ramp',
+      latitude: 42.73722,
+      longitude: -92.469794,
+    },
+    logistics: {
+      distanceLabel: '4.2 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer with wind, low water, or scouting',
+      shuttle:
+        'Stage at Three Rivers Park on the north edge of Waverly, then launch from Cedar Bend Park. Confirm Cedar Bend gate and vehicle access before unloading, especially outside the May-through-October park season.',
+      permits:
+        'No route-specific paddling permit is known. Follow Bremer County and City of Waverly park rules, Iowa DNR rules, and Iowa boating/PFD requirements.',
+      camping:
+        'Cedar Bend Park has campground support near the put-in, but this route is a short day connector. Use campground reservations or county rules rather than assuming on-river overnight use.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Paddle the short Cedar Bend-to-Three Rivers connector into Waverly and take out before the dam-portage corridor. This fills the official guide gap between the North Cedar/Cedar Bend cards and the Waverly/Brookwood downstream card.',
+      accessCaveats: [
+        'Cedar Bend and Three Rivers coordinates come from the Cedar River Paddling Trips guide; use posted park/ramp signs for final boat handling.',
+        'Three Rivers Park has a double boat ramp and dock according to the guide, and is the required take-out for this card.',
+        'Do not continue into the Waverly dam sequence unless your group separately plans the Kohlmann portage and below-dam relaunch.',
+      ],
+      watchFor: [
+        'Waverly dam approach discipline after Three Rivers Park.',
+        'Outside-bend wood, bridge debris, faster current after rain, and cold shoulder-season water.',
+        'Private banks outside public parks and public land boundaries.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'cedar-bend-park',
+        name: 'Cedar Bend Park access',
+        latitude: 42.760425,
+        longitude: -92.493585,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at Bremer County Cedar Bend Park; confirm seasonal gate and campground status.',
+      },
+      {
+        id: 'three-rivers-park',
+        name: 'Three Rivers Park boat ramp',
+        latitude: 42.73722,
+        longitude: -92.469794,
+        mileFromStart: 4.2,
+        segmentKind: 'creek',
+        note: 'Default take-out before the Waverly dam-portage corridor; guide notes double ramp and dock.',
+      },
+    ],
+  },
+
+  'cedar-river-three-rivers-kohlmann': {
+    putIn: {
+      id: 'three-rivers-park',
+      name: 'Three Rivers Park boat ramp',
+      latitude: 42.73722,
+      longitude: -92.469794,
+    },
+    takeOut: {
+      id: 'kohlmann-park-portage',
+      name: 'Kohlmann Park portage take-out',
+      latitude: 42.726601,
+      longitude: -92.47203,
+    },
+    logistics: {
+      distanceLabel: '1.3 mi',
+      estimatedPaddleTime: 'Short connector; allow extra time to scout and execute the dam portage',
+      shuttle:
+        'Stage a vehicle or carry plan at Kohlmann Park before launching at Three Rivers Park. Walk the Kohlmann landing first because the guide says it is commonly used for the dam portage but is not an official access.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Waverly park rules, Iowa DNR rules, and Iowa boating/PFD requirements.',
+      camping:
+        'No on-route camping. This is a short Waverly dam-portage connector through city-park context.',
+      campingClassification: 'none',
+      summary:
+        'Use this as the upstream approach from Three Rivers Park to the Kohlmann Park portage take-out above the Waverly dam. It is short, but the take-out is mandatory and should be scouted from land.',
+      accessCaveats: [
+        'Kohlmann Park is described by the guide as the common dam-portage take-out, not an official access. Confirm the landing, current, and carry path before launching.',
+        'Do not pass the Kohlmann take-out or paddle toward the dam. Stand down if high water, debris, or crowding makes the landing uncertain.',
+        'Three Rivers has a double ramp and dock, but the downstream endpoint is a portage landing rather than a routine ramp take-out.',
+      ],
+      watchFor: [
+        'Mandatory take-out above the Waverly dam on river right.',
+        'Short decision window, urban debris, slippery banks, and fast current at higher stages.',
+        'Pedestrian and park traffic around downtown Waverly.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'three-rivers-park',
+        name: 'Three Rivers Park boat ramp',
+        latitude: 42.73722,
+        longitude: -92.469794,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in with guide-documented double ramp and dock.',
+      },
+      {
+        id: 'kohlmann-park-portage',
+        name: 'Kohlmann Park portage take-out',
+        latitude: 42.726601,
+        longitude: -92.47203,
+        mileFromStart: 1.3,
+        segmentKind: 'creek',
+        note: 'Mandatory river-right portage take-out above the Waverly dam; commonly used but not an official access per the guide.',
+      },
+    ],
+  },
+
+  'cedar-river-kohlmann-brookwood': {
+    putIn: {
+      id: 'kohlmann-park-below-dam-relaunch',
+      name: 'Kohlmann Park below-dam relaunch corridor',
+      latitude: 42.726601,
+      longitude: -92.47203,
+    },
+    takeOut: {
+      id: 'brookwood-park',
+      name: 'Brookwood Park non-motorized boat ramp',
+      latitude: 42.720963,
+      longitude: -92.464754,
+    },
+    logistics: {
+      distanceLabel: '1.1 mi',
+      estimatedPaddleTime: 'Short connector; plan more time for the dam portage than for paddling',
+      shuttle:
+        'Complete the Waverly dam portage and relaunch only below the dam from the Kohlmann corridor, then take out at Brookwood Park south of the Green Bridge. Identify the Brookwood non-motorized ramp before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Waverly park rules, Iowa DNR rules, and Iowa boating/PFD requirements.',
+      camping:
+        'No on-route camping. This is a short downtown Waverly connector between city parks.',
+      campingClassification: 'none',
+      summary:
+        'Relaunch below the Waverly dam after the Kohlmann portage and paddle the short downtown connector to Brookwood Park. This card keeps the dam run out of scope and uses Brookwood as the first normal downstream take-out.',
+      accessCaveats: [
+        'Do not run the Waverly dam. This route begins only after a completed portage and below-dam relaunch.',
+        'Brookwood Park has a City of Waverly non-motorized boat ramp and paved parking; use the signed park access rather than informal banks.',
+        'Because the route is short, missed take-out or high-water errors compound quickly into the longer Brookwood-to-Janesville route.',
+      ],
+      watchFor: [
+        'Dam hydraulics and turbulent current near the below-dam relaunch corridor.',
+        'Urban debris, bridge current, strainers, and cold water.',
+        'Brookwood take-out timing before unintentionally continuing downstream.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'kohlmann-park-below-dam-relaunch',
+        name: 'Kohlmann Park below-dam relaunch corridor',
+        latitude: 42.726601,
+        longitude: -92.47203,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Relaunch only below the Waverly dam after completing the portage; verify the safe relaunch point locally.',
+      },
+      {
+        id: 'brookwood-park',
+        name: 'Brookwood Park non-motorized boat ramp',
+        latitude: 42.720963,
+        longitude: -92.464754,
+        mileFromStart: 1.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; City of Waverly documents a non-motorized boat ramp and paved parking.',
+      },
+    ],
+  },
+
   'yellow-river-sixteen-bridge-highway-76': {
     putIn: {
       name: 'Bridge Sixteen Canoe Access',

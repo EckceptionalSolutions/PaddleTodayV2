@@ -4,6 +4,7 @@ Last summarized: 2026-07-23.
 
 ## Current Inventory
 
+- 2026-07-23 12:53 CDT update: live exported Iowa routes were 89 at the start of the Waverly Cedar gap pass and 92 after adding the three new slugs listed below.
 - 2026-07-23 11:00 CDT update: live exported Iowa routes were 86 at the start of the Lower Des Moines pass and 89 after adding the three new slugs listed below.
 - Live routes: 60 at the start of the 2026-07-22 late Cedar / South Skunk / North Raccoon pass, based on `src/data/rivers.ts` imported with `tsx`.
 - This checkout also has pre-existing dirty consolidation code that retires three Upper Iowa split cards and emits one family card, so the post-edit imported Iowa count is 61 even though this run added three new Iowa slugs beyond the 60-route baseline.
@@ -12,7 +13,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-23 11:00 run added three routes beyond the current 86-route baseline: `des-moines-river-eldon-shidepoke`, `des-moines-river-shidepoke-douds`, and `des-moines-river-douds-austin-park`.
+Iowa remains mature overall. The latest 2026-07-23 12:53 run added three routes beyond the current 89-route baseline: `cedar-river-cedar-bend-three-rivers`, `cedar-river-three-rivers-kohlmann`, and `cedar-river-kohlmann-brookwood`.
+
+## 2026-07-23 12:53 Cedar River Waverly dam-portage gap pass
+
+- Baseline at run start: 89 Iowa live routes, verified from `src/data/rivers.ts` with `tsx` after duplicate reconciliation.
+- Added `cedar-river-cedar-bend-three-rivers`, `cedar-river-three-rivers-kohlmann`, and `cedar-river-kohlmann-brookwood`, bringing the imported Iowa count to 92 live routes.
+- Qualification path: the Cedar River Paddling Trips guide documents the Cedar Bend / Three Rivers / Kohlmann / Brookwood chain, exact segment mileages, endpoint coordinates, Three Rivers double ramp and dock, Kohlmann as the commonly used dam-portage take-out, Brookwood as the downstream Waverly park access, and the Cedar River gauge floor for the broader trip family. Bremer County corroborates Cedar Bend campground/seasonal access context, and City of Waverly corroborates Brookwood's non-motorized boat ramp and parking.
+- Gauge posture: USGS Water Services returned Cedar River at Waverly `05458300` at `2,400 cfs / 5.08 ft` at 2026-07-23 12:15 CDT. The returned stage series also included a second method value of `5.14 ft`; the app records discharge as the scoring metric.
+- Threshold posture: all three routes are conservative `minimum-only` at `200 cfs`, using the Cedar River Paddling Trips guide's adequate-water floor and documenting the `400-600 cfs` better range without inferring a high cutoff.
+- Caveat posture: Cedar-Bend-to-Three-Rivers foregrounds stopping before the Waverly dam sequence and Cedar Bend seasonal gate checks. Three-Rivers-to-Kohlmann foregrounds a mandatory river-right portage take-out above the dam and the guide's warning that Kohlmann is commonly used but not an official access. Kohlmann-to-Brookwood foregrounds below-dam relaunch discipline, explicitly excludes running the dam, and uses Brookwood as the first normal downstream take-out.
+- Reviewed but not added: Wapsipinicon Anamosa-to-Oxford Junction remains blocked by stale `05421760` data; Cedar Bend-to-Brookwood as one through-card was avoided because the Waverly dam/portage boundary is better represented as split cards; lower Des Moines Austin-to-Keosauqua and Bonaparte/Farmington continuations were lower value than closing the official Waverly access-chain gap in this run.
+- No route-gallery assets were added after bounded Cedar guide / City of Waverly / Bremer County / Iowa DNR / Commons / same-route image review.
 
 ## 2026-07-23 11:00 Lower Des Moines River Eldon / Douds gap pass
 
