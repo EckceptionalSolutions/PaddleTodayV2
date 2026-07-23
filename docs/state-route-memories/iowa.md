@@ -4,13 +4,23 @@ Last summarized: 2026-07-22.
 
 ## Current Inventory
 
-- Live routes: 51 after the 2026-07-22 lower Boone pass.
-- Top represented rivers: Upper Iowa River 8, Turkey River 6, North Fork Maquoketa River 6, Cedar River 4, South Skunk River 4, Maquoketa River 4, Volga River 3, Black Hawk Creek 2, Middle River 2, Yellow River 2.
-- Ledger candidates: 52 total after the 2026-07-22 Cedar pass; 45 added, 2 `no_live_gauge`, 2 `gauge_proxy_weak`, 2 `research_later`, 2 `rejected`, 1 `threshold_weak`.
+- Live routes: 54 after the 2026-07-22 Maquoketa/South Raccoon/Shell Rock pass.
+- Top represented rivers: Upper Iowa River 8, Turkey River 6, North Fork Maquoketa River 6, Maquoketa River 5, Cedar River 4, South Skunk River 4, Volga River 3, Black Hawk Creek 2, Middle River 2, Yellow River 2.
+- Ledger candidates: 59 total after the 2026-07-22 Maquoketa/South Raccoon/Shell Rock pass; 49 added, 3 `no_live_gauge`, 2 `gauge_proxy_weak`, 2 `research_later`, 2 `rejected`, 1 `threshold_weak`.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-22 run added lower Boone because it extends beyond the existing Riverside-to-Albright card into distinct official Hamilton County water-trail segments with route-specific access, hazard, camping, and no-downstream-take-out evidence.
+Iowa remains mature overall. The latest 2026-07-22 run added three distinct corridors rather than more tiny splits: a Delaware County Maquoketa day into Manchester, the South Raccoon Redfield-to-Van-Meter reach above the existing lower-Raccoon card, and Butler County's short Shell Rock Renning-to-Shell-Rock float.
+
+## 2026-07-22 Maquoketa/South Raccoon/Shell Rock pass
+
+- Baseline at run start: 51 Iowa live routes.
+- Added `maquoketa-river-dundee-manchester`, `south-raccoon-river-redfield-van-meter`, and `shell-rock-river-renning-shell-rock`, bringing Iowa to 54 live routes in this checkout.
+- Qualification path: Iowa DNR's Maquoketa Delaware County guide, Delaware County Tourism, Manchester, CanWePaddle, and USGS support Dundee-to-Manchester with public endpoints, 11.8 miles, riffles/wood, Quaker Mill dam-remnant handling, and Manchester whitewater-park finish caveats. Dallas County, Iowa DNR, Travel Iowa, CanWePaddle, and USGS support South Raccoon Redfield-to-Van-Meter with a public carry-down access corridor, Van Meter take-out boundary, sweepers/fast-rise hazards, and no on-route camping. Butler County / MyCountyParks, CanWePaddle, Iowa Whitewater, and USGS support Renning's Landing to Shell Rock Recreation Area as a five-mile public float with endpoint campground support and a strict Shell Rock dam take-out caveat.
+- Gauge posture: USGS Water Services returned Maquoketa at Manchester `05416900` at `463 cfs / 5.35 ft` at 2026-07-22 19:15 CDT, South Raccoon at Redfield `05484000` at `150 cfs / 2.57 ft` at 2026-07-22 18:45 CDT, and Shell Rock at Shell Rock `05462000` at `2,250 cfs / 9.29 ft` at 2026-07-22 18:45 CDT.
+- Threshold posture: all three use conservative CanWePaddle route/corridor bands tied to direct same-river USGS gauges: Maquoketa `120-1,500 cfs`, South Raccoon `150-2,500 cfs`, and Shell Rock `150-2,000 cfs`. Shell Rock currently scores above the selected high-water ceiling.
+- Reviewed but blocked `wapsipinicon-river-anamosa-oxford-junction`: CanWePaddle has a promising exact-route `200-2,800 cfs` range, but the associated Oxford Mills gauge `05421760` returned stale 2017 instantaneous values; the current Anamosa gauge was not substituted without stronger source linkage.
+- No route-gallery assets were added after bounded official / local / USGS / Commons / same-route image review.
 
 ## 2026-07-22 lower Boone pass
 

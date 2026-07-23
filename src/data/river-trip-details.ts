@@ -5277,6 +5277,65 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
+  'shell-rock-river-renning-shell-rock': {
+    putIn: {
+      id: 'rennings-landing',
+      name: "Renning's Landing",
+      latitude: 42.6996,
+      longitude: -92.6487,
+    },
+    takeOut: {
+      id: 'shell-rock-recreation-area',
+      name: 'Shell Rock Recreation Area boat ramp',
+      latitude: 42.711884,
+      longitude: -92.582209,
+    },
+    logistics: {
+      distanceLabel: 'About 5 mi',
+      estimatedPaddleTime: 'About 1 hr 30 min to 3 hr by canoe or kayak',
+      shuttle:
+        "Use a short Butler County road shuttle between Renning's Landing and Shell Rock Recreation Area. Scout the Shell Rock take-out before launching because the county float finishes near the city dam corridor.",
+      permits:
+        'No route-specific paddling permit is known. Follow Butler County Conservation rules at both parks, posted park hours, Iowa boating/PFD rules, and any same-day closure signs.',
+      camping:
+        'Shell Rock Recreation Area has seasonal campground support at the take-out park, so this works as an endpoint-campground day route. Do not assume gravel bars or private banks are legal campsites.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Renning's Landing and paddle the county-described five-mile float to Shell Rock Recreation Area. The Shell Rock USGS gauge is direct but the county route still needs a visual check for wood, ramp usability, and dam separation at the finish.",
+      accessCaveats: [
+        "Renning's Landing is a Butler County boat-ramp and canoe/kayak access on 205th Street; use the park access rather than road-shoulder bank routes.",
+        'Shell Rock Recreation Area is the planned take-out. Identify the ramp and stay clear of the Shell Rock low-head dam area downstream or adjacent to the park corridor.',
+        'Butler County lists this as a popular Renning-to-Shell Rock float, but fresh wood, high water, or park closures can change whether the short route is appropriate.',
+      ],
+      watchFor: [
+        'The Shell Rock dam at the finish corridor; take out at the park ramp and do not drift into the dam hydraulic.',
+        'Fast current, bridge current, sweepers, and newly fallen trees, especially when the Shell Rock gauge is above the published 2,000 cfs ceiling.',
+        'Low-water scraping and walking risk below about 150 cfs on the direct Shell Rock gauge.',
+        'Private banks outside county access areas and cold-water exposure outside summer conditions.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rennings-landing',
+        name: "Renning's Landing",
+        latitude: 42.6996,
+        longitude: -92.6487,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Butler County put-in for the five-mile float to Shell Rock Recreation Area.',
+      },
+      {
+        id: 'shell-rock-recreation-area',
+        name: 'Shell Rock Recreation Area boat ramp',
+        latitude: 42.711884,
+        longitude: -92.582209,
+        mileFromStart: 5,
+        segmentKind: 'creek',
+        note: 'Take-out park with seasonal campground support; identify the ramp before the dam corridor.',
+      },
+    ],
+  },
+
   'rice-creek-peltier-to-long-lake': {
     putIn: {
       id: 'peltier-lake',
@@ -9384,6 +9443,65 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Pushier, dirtier water above about 2,000 cfs, especially around outside bends, bridge landings, and strainers after storms.',
       ],
     },
+  },
+
+  'maquoketa-river-dundee-manchester': {
+    putIn: {
+      id: 'dundee-access',
+      name: 'Dundee Access / Dundee Wildlife Area',
+      latitude: 42.5816,
+      longitude: -91.5461,
+    },
+    takeOut: {
+      id: 'manchester-whitewater-park',
+      name: 'Manchester Whitewater Park / Tirrill Park finish',
+      latitude: 42.482137,
+      longitude: -91.458424,
+    },
+    logistics: {
+      distanceLabel: 'About 11.8 mi',
+      estimatedPaddleTime: 'About 4 hr 30 min to 6 hr, longer with low water, wood, or scouting',
+      shuttle:
+        'Use a two-car shuttle between Dundee and the Manchester Whitewater Park / Tirrill Park finish. Scout the Manchester finish and the Quaker Mill dam-remnant area before launching if the Manchester gauge is rising or outside the normal recreational band.',
+      permits:
+        'No route-specific paddling permit is known. Use designated Delaware County and city access points, follow Iowa boating/PFD rules, and obey posted park and whitewater-park rules.',
+      camping:
+        'No on-route river campsite is assumed for this day route. Nearby Dundee, Backbone-area, and Manchester lodging or camping should be planned separately rather than treated as river-corridor camping.',
+      summary:
+        'Launch at the Dundee access and paddle the Delaware County Maquoketa water trail to Manchester. This longer moving-water day uses the direct Manchester USGS gauge and includes riffles, wood, the Quaker Mill dam-remnant decision, and the whitewater-park finish.',
+      accessCaveats: [
+        'Dundee is the clean upstream public access for this route. Do not substitute dam-adjacent Backbone launches unless separately scouting that shorter segment.',
+        'Delaware County describes Lindsey Bridge and Tirrill Park as intermediate public accesses, making them practical bailout or shortened-trip options if level, weather, or time deteriorates.',
+        'The Quaker Mill dam has a breached/passable route at some levels, but local guidance still calls for scouting and a south-bank portage option when conditions or skill make the line inappropriate.',
+        'The finish enters the Manchester whitewater-park corridor. Beginners should decide in advance whether to take out before features or run only the features that match their skill.',
+      ],
+      watchFor: [
+        'Riffles, shallow gravel, and possible dragging below about 120 cfs on the Manchester gauge.',
+        'Pushy current, reduced eddies, and more consequential wood above about 1,500 cfs on the Manchester gauge.',
+        'Downed trees, outside-bend strainers, bridge current, private banks, and cold shoulder-season water.',
+        'Quaker Mill dam remnants and whitewater-park features near Manchester that require scouting rather than blind floating.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'dundee-access',
+        name: 'Dundee Access / Dundee Wildlife Area',
+        latitude: 42.5816,
+        longitude: -91.5461,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Upper Delaware County public access for the Dundee-to-Manchester day section.',
+      },
+      {
+        id: 'manchester-whitewater-park',
+        name: 'Manchester Whitewater Park / Tirrill Park finish',
+        latitude: 42.482137,
+        longitude: -91.458424,
+        mileFromStart: 11.8,
+        segmentKind: 'creek',
+        note: 'Planned finish at the city whitewater-park corridor; scout take-out and feature choice before committing.',
+      },
+    ],
   },
 
   'volga-river-osborne-mederville': {
@@ -33957,6 +34075,65 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 10,
         segmentKind: 'creek',
         note: 'Default take-out at the state-park ramp above the more urban Water Works corridor.',
+      },
+    ],
+  },
+
+  'south-raccoon-river-redfield-van-meter': {
+    putIn: {
+      id: 'south-raccoon-river-access-redfield',
+      name: 'South Raccoon River Access / Redfield corridor',
+      latitude: 41.58944,
+      longitude: -94.15111,
+    },
+    takeOut: {
+      id: 'van-meter-access',
+      name: 'Van Meter Access',
+      latitude: 41.5355,
+      longitude: -93.9557,
+    },
+    logistics: {
+      distanceLabel: 'About 13 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, wind, or wood scouting',
+      shuttle:
+        'Use a two-car shuttle between the South Raccoon River Access south of Redfield and Van Meter Access. Check the Van Meter gauge and make a visual call at the put-in because the Dallas County corridor can rise quickly after rain.',
+      permits:
+        'No route-specific paddling permit is known. Use the public Dallas County and Van Meter accesses, follow Iowa boating/PFD rules, and respect posted parking or park-hour limits.',
+      camping:
+        'No on-route public campsite is documented for this Redfield-to-Van Meter day section. Treat nearby parks or lodging as separate base-camp planning, not river-corridor camping.',
+      summary:
+        'Launch from the Dallas County South Raccoon River Access near Redfield and paddle the South Raccoon to Van Meter before the lower Raccoon greenbelt route begins. The direct Van Meter gauge controls the score, with the conservative floor set at the route-specific 150 cfs minimum.',
+      accessCaveats: [
+        'Dallas County describes the South Raccoon River Access as a small gravel carry-down access south of Redfield near the F-60 corridor. Confirm the signed access and parking before unloading.',
+        'Van Meter Access is the required take-out for this route. Continuing to Walnut Woods is a separate lower-Raccoon route with additional ledge and urban-water hazards.',
+        'Pleasant Valley and Earlham Bridge are useful official corridor names for shortening or bailout planning, but the default app route uses Redfield-to-Van Meter endpoints.',
+        'Most banks are private outside public access points. Do not assume sandbars, farm banks, or bridge rights-of-way are legal stops.',
+      ],
+      watchFor: [
+        'Shallow riffles and dragging below about 150 cfs on the Van Meter gauge.',
+        'Fast current, fewer recovery eddies, wood, and harder bridge approaches above about 2,500 cfs on the Van Meter gauge.',
+        'Sweepers, logjams, strainers, fishing lines, confluence currents, and rapidly changing water after thunderstorms.',
+        'Commerce Ledges and downstream dam corridors are not part of this route; take out at Van Meter as planned.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'south-raccoon-river-access-redfield',
+        name: 'South Raccoon River Access / Redfield corridor',
+        latitude: 41.58944,
+        longitude: -94.15111,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Dallas County carry-down access south of Redfield in the South Raccoon water-trail corridor.',
+      },
+      {
+        id: 'van-meter-access',
+        name: 'Van Meter Access',
+        latitude: 41.5355,
+        longitude: -93.9557,
+        mileFromStart: 13,
+        segmentKind: 'creek',
+        note: 'Planned take-out before the separate Van Meter-to-Walnut Woods lower-Raccoon route.',
       },
     ],
   },

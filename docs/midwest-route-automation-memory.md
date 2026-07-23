@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-22 19:46 America/Chicago / 2026-07-23 00:46 UTC: Iowa Maquoketa/South-Raccoon/Shell-Rock implementation pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 51-route Iowa baseline: `maquoketa-river-dundee-manchester`, `south-raccoon-river-redfield-van-meter`, and `shell-rock-river-renning-shell-rock`, bringing this checkout to 54 Iowa routes.
+  - Qualification path: Iowa DNR / Delaware County / Manchester / CanWePaddle support Maquoketa Dundee-to-Manchester; Dallas County / Iowa DNR / Travel Iowa / CanWePaddle support South Raccoon Redfield-to-Van-Meter; Butler County / CanWePaddle / Iowa Whitewater support Renning's Landing to Shell Rock Recreation Area.
+  - Gauge posture: USGS Water Services returned Maquoketa Manchester `463 cfs / 5.35 ft`, South Raccoon Redfield `150 cfs / 2.57 ft`, and Shell Rock at Shell Rock `2,250 cfs / 9.29 ft` during the run. The route cards use direct-gauge CanWePaddle bands of `120-1,500`, `150-2,500`, and `150-2,000 cfs` respectively.
+  - No route-gallery assets were added after bounded official / local / USGS / Commons / same-route image review. Wapsipinicon Anamosa-to-Oxford-Junction remained blocked because route-specific Oxford Mills gauge `05421760` returned stale 2017 instantaneous values.
+
 - 2026-07-22 19:35 America/Chicago / 2026-07-23 00:35 UTC: Minnesota Red/St. Louis/Watonwan implementation pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 139-route Minnesota baseline: `red-river-kidder-brushvale`, `st-louis-river-paupores-brookston`, and `watonwan-river-county-road-32-garden-city`, bringing this checkout to 142 Minnesota routes.
   - Qualification path: MN DNR Red River Map 1 documents Kidder-to-Brushvale with a direct RR1 interpreted gauge at the take-out; MN DNR St. Louis Map 2 plus public-water-access GIS document Paupores-to-Brookston with Class I-II and campsite context; MN DNR Watonwan / Blue Earth map plus public-water-access GIS document County-Road-32-to-Garden-City inside the official Madelia-to-Garden-City corridor.
