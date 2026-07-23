@@ -2316,6 +2316,42 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
+  'root-river-houston-mound-prairie': {
+    putIn: {
+      name: 'Root River, Houston Public Water Access Site',
+      latitude: 43.769008,
+      longitude: -91.571222,
+    },
+    takeOut: {
+      name: 'Root River, Mound Prairie Public Water Access Site',
+      latitude: 43.781541,
+      longitude: -91.446585,
+    },
+    logistics: {
+      distanceLabel: '6.7 mi',
+      estimatedPaddleTime: 'About 2 hr 15 min to 3 hr 30 min',
+      shuttle:
+        'Simple two-car shuttle east of Houston. Stage the take-out at Mound Prairie first and check the ramp/parking area because the DNR gauge is effectively at the finish.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted DNR public-access rules at Houston and Mound Prairie and any wildlife-management-area restrictions near the lower endpoint.',
+      camping:
+        'No on-route campsite is assumed. Houston-area camping and trail-town lodging can support a base-camp trip, but this segment should be planned as a day route.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch from the Houston public access and finish at Mound Prairie for a lower Root day with the interpreted DNR gauge at the take-out. Expect riffles, private banks, and rainfall-sensitive Driftless conditions.',
+      accessCaveats: [
+        'Houston and Mound Prairie are official Minnesota public-water-access sites with parking in the public-access record, but neither record lists a restroom.',
+        'This exact segment is official-map supported rather than a highlighted DNR recommended day trip, so confirm the take-out and shuttle plan before launching.',
+        'Do not extend downstream toward the Mississippi or stop on private banks without a separate legal access plan.',
+      ],
+      watchFor: [
+        'Shallow riffles and scraping as the Mound Prairie gauge falls toward the low band.',
+        'Fresh wood and fast current after bluff-country rain.',
+        'Cold-water exposure outside midsummer and private shoreland throughout the short lower segment.',
+      ],
+    },
+  },
+
   'root-river-parsley-moens': {
     putIn: {
       name: 'Parsley Bridge carry-in access',
@@ -4908,6 +4944,42 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 
+  'pine-river-cross-lake-rock-dam': {
+    putIn: {
+      name: 'Pine River, Cross Lake Public Water Access Site',
+      latitude: 46.668515,
+      longitude: -94.112831,
+    },
+    takeOut: {
+      name: 'Pine River, Rock Dam Public Water Access Site',
+      latitude: 46.635762,
+      longitude: -94.092075,
+    },
+    logistics: {
+      distanceLabel: '4.5 mi',
+      estimatedPaddleTime: 'About 1 hr 30 min to 2 hr 30 min',
+      shuttle:
+        'Short two-car shuttle between the USACE Cross Lake access and Rock Dam. Check the Cross Lake dam/outflow area before launching because the gauge is upstream of the reservoir system.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted USACE rules at Cross Lake and DNR Forestry public-access rules at Rock Dam.',
+      camping:
+        'Treat this as a short day route, not an overnight plan. Nearby Crosslake-area campgrounds are separate base-camp decisions and are not on-route river campsites.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at the Cross Lake public access and finish at Rock Dam for the short below-Cross-Lake Pine River connector. The app uses DNR Jenkins bands as an official same-water-trail proxy and flags very low readings conservatively.',
+      accessCaveats: [
+        'Cross Lake is an official public-water-access site administered by the U.S. Army Corps of Engineers; Rock Dam is an official DNR Forestry public-water-access site.',
+        'The route begins below the Cross Lake dam system, so do not treat the upstream Jenkins gauge as a perfect launch-depth reading.',
+        'Rock Dam has parking but no restroom in the public-access record; check take-out conditions before staging a vehicle.',
+      ],
+      watchFor: [
+        'Scraping and exposed rock when Jenkins is below the 35 cfs scrapable floor.',
+        'Dam, spillway, or rock-control infrastructure around Cross Lake and Rock Dam.',
+        'Wood, strainers, and private banks on the wooded river channel.',
+      ],
+    },
+  },
+
   'minnesota-river-judson-land-of-memories': {
     putIn: {
       name: 'Judson public water access',
@@ -5465,6 +5537,42 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
         'Fallen trees, submerged snags, and overhanging branches on wooded bends.',
         'Faster current after significant rainfall even when the river is usually gentle.',
         'Private shoreland; stop only at public landings or clearly legal sites.',
+      ],
+    },
+  },
+
+  'south-fork-crow-river-otter-lake-masonic': {
+    putIn: {
+      name: 'Otter Lake West public water access',
+      latitude: 44.878408,
+      longitude: -94.413719,
+    },
+    takeOut: {
+      name: 'Otter Lake East / Western-Masonic City Park public water access',
+      latitude: 44.892686,
+      longitude: -94.389966,
+    },
+    logistics: {
+      distanceLabel: '1.6 mi',
+      estimatedPaddleTime: 'About 45 min to 1 hr 30 min',
+      shuttle:
+        'Use a short city shuttle or arrange a pickup at Western / Masonic City Park. Scout the take-out before launch because the DNR map places the Hutchinson dam just downstream.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Hutchinson public-access and park rules, and check any posted parking or event restrictions.',
+      camping:
+        'Western / Masonic City Park has DNR-mapped camping and restroom/drinking-water context, but this route is too short to assume as an on-river overnight. Treat camping as a separate endpoint decision.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Otter Lake West and take out at Western / Masonic City Park for the short Hutchinson South Fork Crow segment. The route is compact, but the dam below the take-out makes the endpoint non-negotiable.',
+      accessCaveats: [
+        'Both endpoints are official Minnesota public-water-access sites administered by the City of Hutchinson.',
+        'The Otter Lake West access has restroom support in the public-access record; Otter Lake East / Western-Masonic has parking but no restroom listed in that record.',
+        'The Hutchinson gauge is downstream of the route and below the dam boundary, so use it as a same-corridor reading and still inspect local depth and current.',
+      ],
+      watchFor: [
+        'Mandatory take-out discipline above the dam at river mile 66.7.',
+        'Logjams, submerged snags, overhanging trees, and faster current after significant rainfall.',
+        'Wind, shallow lake margins, and local access traffic around Otter Lake.',
       ],
     },
   },
@@ -8279,6 +8387,42 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
         'Bony rapids below about 200 cfs and paddling not recommended below 125 cfs.',
         'Falls Rapids, Big Twin, Wildcat, Station, and other class I features; scout or portage anything that exceeds group comfort.',
         'Strainers, fallen trees, cold spring-fed water, and faster constricted current as flows rise.',
+      ],
+    },
+  },
+
+  'bois-brule-river-winneboujou-bois-brule': {
+    putIn: {
+      name: 'Winneboujou Landing',
+      latitude: 46.5133,
+      longitude: -91.6022,
+    },
+    takeOut: {
+      name: 'Bois Brule Landing / Bois Brule Campground canoe landing',
+      latitude: 46.54042,
+      longitude: -91.59408,
+    },
+    logistics: {
+      distanceLabel: 'About 2.6 to 2.8 mi',
+      estimatedPaddleTime: 'About 45 min to 1.5 hr, depending on water level and stops',
+      shuttle:
+        'Use a short two-car state-forest shuttle between Winneboujou Landing near County Highway B and the Bois Brule campground landing on South Ranger Road. Do not assume informal exits are legal between the designated landings.',
+      permits:
+        'No route-specific paddling permit is known, but Wisconsin DNR Brule River rules apply: launch and land only at allowed designated canoe landings, carry wearable PFDs, secure containers and trash, and follow posted state-forest rules.',
+      camping:
+        'Bois Brule Campground is at the take-out, but camping is allowed only at state-designated campgrounds. Treat this short reach as a day trip unless you have a legal campground reservation or base-camp plan.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Winneboujou Landing and take out at Bois Brule Landing for the short public-access connector below the classic Stone\'s-to-Winneboujou run. It is a compact cold-water Brule trip with class I riffles, designated-landing rules, and little room for casual private-bank exits.',
+      accessCaveats: [
+        'Wisconsin DNR requires launching and landing only at allowed designated canoe landings on the Brule.',
+        'Winneboujou is a hand-carry landing with parking, pit toilets, water, and trailer turnaround according to Wisconsin Trail Guide.',
+        'Bois Brule Landing is a developed campground landing with a gravel ramp, parking, pit toilets, picnic area, and drinking water according to Wisconsin Trail Guide.',
+      ],
+      watchFor: [
+        'Bony riffles below about 200 cfs and paddling not recommended below 125 cfs.',
+        'Class I current, cold spring-fed water, strainers, and faster constricted bends as flows rise.',
+        'A downstream commitment change: continuing past Bois Brule Landing turns this into a much longer Pine Tree shuttle with additional named rapids.',
       ],
     },
   },
@@ -35231,6 +35375,140 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 7.2,
         segmentKind: 'creek',
         note: 'AW-listed take-out below the Wren Falls runout.',
+      },
+    ],
+  },
+
+  'eau-galle-river-50th-avenue-boston-road': {
+    putIn: {
+      id: '50th-avenue-eau-galle-access',
+      name: '50th Avenue bridge access',
+      latitude: 44.93,
+      longitude: -92.262,
+    },
+    takeOut: {
+      id: 'boston-road-eau-galle-access',
+      name: 'Boston Road bridge access',
+      latitude: 44.867,
+      longitude: -92.252,
+    },
+    logistics: {
+      distanceLabel: 'About 7.2 to 7.35 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr when water is high enough, longer with scouting or low-water walking',
+      shuttle:
+        'Use a two-car bridge-access shuttle between 50th Avenue and Boston Road. Confirm roadside parking, posted restrictions, and landowner boundaries before unloading because the corridor is mostly private-bank creek country.',
+      permits:
+        'No route-specific paddling permit is known. Use public bridge access and public-road rights-of-way only where legal, and do not trespass on private banks for scouting, breaks, or take-outs.',
+      camping:
+        'No on-route camping was verified. Treat this as a day run and arrange any campground or base-camp plan away from the bridge accesses.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the 50th Avenue bridge and take out at Boston Road for American Whitewater\'s Eau Galle Section A. This is a rare-flow Class I-II creek route with shallow shoals, minor rapids, wood risk, private banks, and a Spring Valley gauge floor that was far above the same-run reading.',
+      accessCaveats: [
+        'American Whitewater publishes coordinates for 50th Avenue, County Highway N, and Boston Road, but bridge access still requires same-day checks for legal parking and posted restrictions.',
+        'The Spring Valley gauge is downstream on the same small river and is the gauge American Whitewater ties to this exact reach.',
+        'Avoid private-bank landings except for emergencies; do not count on intermediate exits being legal or practical.',
+      ],
+      watchFor: [
+        'Low-water scraping and walking below the 200 cfs AW floor.',
+        'Fast rises after rain, strainers, small ledges and shoals, and cold-water exposure during spring or shoulder-season runoff.',
+        'Private banks and limited rescue access between bridge crossings.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: '50th-avenue-eau-galle-access',
+        name: '50th Avenue bridge access',
+        latitude: 44.93,
+        longitude: -92.262,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'American Whitewater put-in coordinate for Eau Galle Section A; confirm legal parking and posted bridge access before unloading.',
+      },
+      {
+        id: 'county-highway-n-eau-galle',
+        name: 'County Highway N bridge',
+        latitude: 44.904998779296875,
+        longitude: -92.26499938964844,
+        mileFromStart: 1.95,
+        segmentKind: 'creek',
+        note: 'American Whitewater waypoint and possible scout/reset point inside the upper run.',
+      },
+      {
+        id: 'boston-road-eau-galle-access',
+        name: 'Boston Road bridge access',
+        latitude: 44.867,
+        longitude: -92.252,
+        mileFromStart: 7.35,
+        segmentKind: 'creek',
+        note: 'American Whitewater take-out coordinate for the 7.35-mile upper Eau Galle run.',
+      },
+    ],
+  },
+
+  'eau-galle-river-foote-avenue-770th-avenue': {
+    putIn: {
+      id: 'foote-avenue-eau-galle-access',
+      name: 'Foote Avenue bridge access',
+      latitude: 44.855,
+      longitude: -92.238,
+    },
+    takeOut: {
+      id: '770th-avenue-eau-galle-access',
+      name: '770th Avenue bridge access',
+      latitude: 44.813,
+      longitude: -92.208,
+    },
+    logistics: {
+      distanceLabel: 'About 4.3 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr when water is high enough',
+      shuttle:
+        'Use a short two-car bridge-access shuttle from Foote Avenue below Spring Valley to 770th Avenue. Confirm parking and posted access at both bridges before staging vehicles.',
+      permits:
+        'No route-specific paddling permit is known. Stay within legal public access at road crossings and do not use private banks for routine scouting or stops.',
+      camping:
+        'No on-route camping was verified. Plan this as a day run; any overnight plan should be arranged at a separate legal campground or lodging base.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Foote Avenue and take out at 770th Avenue for the shorter American Whitewater / Miles Paddled Eau Galle run below Spring Valley. The reach is scenic but usually low, with dam context upstream, a flagged low bridge near Eau Galle Road and Sabin Avenue, and private banks.',
+      accessCaveats: [
+        'American Whitewater places the put-in just below the Spring Valley flood-control dam corridor; do not paddle near dam infrastructure or assume release patterns.',
+        'Scout the low ORV/snowmobile bridge near Eau Galle Road and Sabin Avenue when water or debris makes clearance uncertain.',
+        'Miles Paddled corroborates the 770th Avenue take-out coordinates, but legal parking and posted conditions still need same-day confirmation.',
+      ],
+      watchFor: [
+        'Low-water walking below the 100 cfs AW floor and quickly changing runoff after rain.',
+        'The low ORV/snowmobile bridge, strainers, shallow riffles, and small ledges.',
+        'Private banks, limited rescue access, cold water, and flood-control dam context upstream of the put-in.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'foote-avenue-eau-galle-access',
+        name: 'Foote Avenue bridge access',
+        latitude: 44.855,
+        longitude: -92.238,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'American Whitewater put-in coordinate just below Spring Valley and the flood-control dam corridor.',
+      },
+      {
+        id: 'eau-galle-road-sabin-bridge',
+        name: 'Eau Galle Road / Sabin Avenue low bridge',
+        latitude: 44.84199905395508,
+        longitude: -92.23699951171875,
+        mileFromStart: 0.91,
+        segmentKind: 'creek',
+        note: 'American Whitewater flags a low ORV/snowmobile bridge here; scout before committing when flow or debris is high.',
+      },
+      {
+        id: '770th-avenue-eau-galle-access',
+        name: '770th Avenue bridge access',
+        latitude: 44.813,
+        longitude: -92.208,
+        mileFromStart: 4.3,
+        segmentKind: 'creek',
+        note: 'American Whitewater take-out for the recommended short route; Miles Paddled independently reports nearly identical GPS coordinates.',
       },
     ],
   },
