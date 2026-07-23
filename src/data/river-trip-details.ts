@@ -39428,7 +39428,7 @@ const consolidatedUpperIowaDetails: RiverTripDetails = {
       'Cattle Creek access conditions have changed over time; confirm parking, bank condition, and posted signs before unloading.',
       'Chimney Rock and Bluffton Fir Stand are useful intermediate access points, but nearby private campground or livery launches are not automatically public.',
       'Malanaphy Springs has limited parking and landing space. Inspect the take-out and keep a fallback shuttle plan before launch.',
-      'The direct Bluffton gauge supports a low-water floor but not a trusted upper ceiling for the complete family route. Pair the gauge with same-day visual checks and local guidance.',
+      'Use the Bluffton corridor guidance conservatively: about 150 cfs is scrape-prone, 200 to 500 cfs is the broad target, and 700+ cfs is too pushy for a normal recreational recommendation. Pair the gauge with same-day visual checks and local guidance.',
     ],
     watchFor: [
       'Scraping and dragging in riffles near or below 150 cfs at the Bluffton gauge.',
@@ -41183,6 +41183,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Launch at County Road S and finish at River Street Dam / Lowell for the lower Beaver Dam River day route. It is slower and less rapid-focused than the existing Cotton Mill-to-County-J card, but still depends on the same erratic direct gauge and same-day access checks.',
       accessCaveats: [
         'County Road S is a practical bridge/access from Miles Paddled and WRT, not a staffed park. Confirm parking, road-shoulder safety, and bank footing before launching.',
+        'This starts just upstream of the existing Cotton Mill Park-to-County Road J route. Treat County Road J as an intermediate access/route boundary and do not assume the two cards are one uninterrupted published trip without checking current access and water conditions.',
         'River Street Dam is the mandatory take-out boundary. Identify the exit line before the impoundment/dam area and do not continue around the dam casually.',
         'Meadow Road and other bridge options can shorten the route, but each needs same-day clearance, shoulder, and water-depth checks.',
       ],
@@ -44491,6 +44492,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Run the DNR-recommended Otter Tail section from Taplin Gorge / Friberg Dam to Highway 210 with the Elizabeth gauge inside the route corridor. Dam discipline and limited public exits matter as much as flow.',
       accessCaveats: [
         'Minnesota public-water-access GIS resolves Taplin Gorge / Friberg Dam, Highway 1, and Highway 210 with source-backed coordinates.',
+        'The Highway 210 coordinate is the official DNR public-access parking/launch anchor, not a river-centerline point. Keep it as published even though a centerline-only NHD audit places the access several miles from the named flowline.',
         'The Elizabeth gauge is inside the route corridor and gives an official DNR band, but it cannot show local dam signage, culvert clearance, or new wood.',
         'Highway 210 is the selected finish. Continuing downstream changes the dam, rapid, and shuttle plan.',
       ],
@@ -44590,5 +44592,4 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   },
 
   'upper-iowa-river-cattle-creek-malanaphy': consolidatedUpperIowaDetails,
-  'crow-wing-river-frames-landing-cottingham': consolidatedCrowWingDetails,
 };

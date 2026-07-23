@@ -816,7 +816,7 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
   const riceCreek = rivers.find((river) => river.slug === 'rice-creek-peltier-to-long-lake');
   const kettle = rivers.find((river) => river.slug === 'kettle-river-lower-kettle-5-to-6');
   const southForkZumbro = rivers.find((river) => river.slug === 'south-fork-zumbro-lake-zumbro');
-  const upperIowa = rivers.find((river) => river.slug === 'upper-iowa-river-kendallville-bluffton');
+  const upperIowa = rivers.find((river) => river.slug === 'upper-iowa-river-cattle-creek-malanaphy');
   const sugarRiver = rivers.find((river) => river.slug === 'sugar-river-belleville-county-x');
   const sugarRiverCountyEe = rivers.find((river) => river.slug === 'sugar-river-county-road-x-county-road-ee');
   const blackHawkDownstream = rivers.find((river) => river.slug === 'black-hawk-creek-ranchero-hope-martin');
@@ -1007,7 +1007,7 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     expect(result.confidence.label).toBe('Medium');
   });
 
-  it('treats Upper Iowa above 200 cfs as a minimum-met call rather than a fully calibrated ideal band', () => {
+  it('treats the consolidated Upper Iowa family route around 290 cfs as an ideal-band call', () => {
     expect(upperIowa).toBeDefined();
 
     const result = scoreRiverCondition({
@@ -1020,9 +1020,8 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
       now,
     });
 
-    expect(result.gaugeBand).toBe('minimum-met');
-    expect(result.rating).toBe('Good');
-    expect(result.score).toBeLessThanOrEqual(82);
+    expect(result.gaugeBand).toBe('ideal');
+    expect(result.rating === 'Good' || result.rating === 'Strong').toBe(true);
     expect(result.confidence.label).toBe('Medium');
   });
 

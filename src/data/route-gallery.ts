@@ -104,16 +104,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
     },
   ],
-  'upper-iowa-river-kendallville-bluffton': [
-    {
-      id: 'upper-iowa-river-new-albin-commons',
-      src: '/gallery/upper-iowa-river-kendallville-bluffton/upper-iowa-river-new-albin.jpg',
-      alt: 'An aerial view looks down at the Upper Iowa River winding between wooded bluffs and farm fields.',
-      caption: 'Upper Iowa River bluff-country corridor',
-      credit: 'Wikideas1 via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC0',
-    },
-  ],
   'upper-iowa-river-chimney-rock-malanaphy': [
     {
       id: 'upper-iowa-river-new-albin-commons',

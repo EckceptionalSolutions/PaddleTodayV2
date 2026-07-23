@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-23T19:28:14.809Z",
-  "routeCount": 853,
-  "issueCount": 610,
+  "generatedAt": "2026-07-23T19:48:14.883Z",
+  "routeCount": 851,
+  "issueCount": 607,
   "summary": {
     "Critical": 0,
-    "High": 369,
-    "Medium": 241,
+    "High": 368,
+    "Medium": 239,
     "Low": 0
   },
   "issues": [
@@ -130,17 +130,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "The downstream run is mostly Class I riffles at normal levels, but the optional whitewater-park ledges at the start are more consequential and should be scouted or bypassed by casual paddlers. Confidence is good for an Iowa community-source add: the Iowa DNR-b"
-    },
-    {
-      "routeId": "upper-iowa-river-kendallville-bluffton",
-      "slug": "upper-iowa-river-kendallville-bluffton",
-      "name": "Upper Iowa River",
-      "reach": "Kendallville Park to Bluffton Fir Stand Access",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "am end of this segment. Flood caution Rain matters quickly Fast rises and fresh wood after storms lower confidence because the high end is still not well defined. Difficulty Easy Easy current at normal levels, but still a real river day rather than a guarantee"
     },
     {
       "routeId": "upper-iowa-river-malanaphy-trout-run",
@@ -4156,28 +4145,6 @@
       "category": "Minimum-only hazard review",
       "message": "Minimum-only route has hazard language but no safetyProfile.",
       "evidence": "Full lower Turkey River day from Elkader to Garber, combining the whitewater-park / Motor Mill section with the long remote canyon run to Garber under one direct lower-river gauge."
-    },
-    {
-      "routeId": "upper-iowa-river-kendallville-bluffton",
-      "slug": "upper-iowa-river-kendallville-bluffton",
-      "name": "Upper Iowa River",
-      "reach": "Kendallville Park to Bluffton Fir Stand Access",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Classic Driftless float with clear water and bluff scenery. The big question here is simple: is there enough water to make it worth the drive? Use the Bluffton gauge and treat 200"
-    },
-    {
-      "routeId": "upper-iowa-river-kendallville-bluffton",
-      "slug": "upper-iowa-river-kendallville-bluffton",
-      "name": "Upper Iowa River",
-      "reach": "Kendallville Park to Bluffton Fir Stand Access",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "General hazard",
-      "message": "Route text includes general hazard language.",
-      "evidence": "ir Stand Access as a public access at the downstream end of this segment. Flood caution Rain matters quickly Fast rises and fresh wood after storms lower confidence because the high end is still not well defined. Difficulty Easy Easy current at normal levels,"
     },
     {
       "routeId": "upper-iowa-river-malanaphy-trout-run",
