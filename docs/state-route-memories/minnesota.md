@@ -1,5 +1,16 @@
 # Minnesota Route Memory
 
+## 2026-07-23 12:10 America/Chicago / 2026-07-23 17:10 UTC Minnesota Big Fork / Mississippi / Rum gap pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `188` to `191` live route slugs by adding `big-fork-river-highway-6-north-johnson`, `mississippi-river-lum-park-kiwanis`, and `rum-river-princeton-highway-7`.
+- Qualification path: MN DNR Big Fork Map 2 plus public-water-access GIS support Highway 6 North / Johnson with Craigsville site `281`; MN DNR Mississippi Map 6 plus public-water-access GIS support Lum Park / Potlatch Dam / Kiwanis with direct Brainerd site `121`; MN DNR Rum Map 2 plus current Rum alert page and public-water-access GIS support Princeton / Highway 7 with downstream St. Francis site `211`.
+- Live gauge verification: MN DNR river-level feed returned Big Fork Craigsville site `281` at `4.76 ft` at `2026-07-23 09:00 CDT`, Mississippi Brainerd site `121` at `886 cfs` at `2026-07-23 09:30 CDT`, and Rum St. Francis site `211` at `310 cfs` at `2026-07-23 09:00 CDT`.
+- Implemented official DNR interpreted bands only: Big Fork Craigsville `4.0 / 4.5-8.5 / 9.5 ft`, Mississippi Brainerd `908 / 1800-7000 / 10000 cfs`, and Rum St. Francis `600 / 1000-2000 / 3000 cfs`. Mississippi and Rum currently score below their official scrapable floors.
+- Camping posture: Big Fork Highway-6-North-to-Johnson is `on_route_campsite` through Johnson Landing watercraft-campsite context; Mississippi Lum-to-Kiwanis is `endpoint_campground` only through Lum Park RV camping and has no on-route campsite; Rum Princeton-to-Highway-7 is `on_route_campsite` only through the DNR-mapped Cook watercraft campsites.
+- Safety posture: Big Fork carries upstream proxy-gauge, low-water rock, strainers, remote/cold-water, private-bank, and no-unplanned-Big-Falls-continuation caveats. Mississippi carries mandatory 201-yard Potlatch Dam portage, below-scrapable current, urban bridge/current, cold-water, and private-bank caveats. Rum starts downstream of the active RM 101-98 tree alert but carries the DNR-mapped RM 95-85 logjam zone, old-rock-dam, downstream proxy-gauge, low-water, private-bank, and long-day caveats.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add: prompt targets such as Chippewa Lentz-to-Watson, Kettle Musclewood, Minnesota River Kinney-to-Skalbekken, St. Louis CR4/95, St. Louis Paupores/Brookston, Cloquet Indian-Lake-to-Bear-Lake-Road, Mississippi Itasca/Coffee-Pot, Vermilion Twomile-to-Eightmile, Watonwan CR32-to-Garden-City, and Otter Tail Phelps/Wannigan/Riverside were reconciled as already live. Des Moines Mayflower-to-Christianna remains proxy weak, and Rum Milaca/County-Road-4-to-Princeton variants remain blocked by the current upstream tree alert.
+
 ## 2026-07-23 11:12 America/Chicago / 2026-07-23 16:12 UTC Minnesota Cottonwood maintained-corridor pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `185` to `188` live route slugs by adding `cottonwood-river-highway-4-county-road-10`, `cottonwood-river-county-road-10-county-road-11`, and `cottonwood-river-county-road-11-flandrau`.

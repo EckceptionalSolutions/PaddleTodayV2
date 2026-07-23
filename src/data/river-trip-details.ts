@@ -1459,6 +1459,64 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'big-fork-river-highway-6-north-johnson': {
+    putIn: {
+      id: 'big-fork-highway-6-north',
+      name: 'Big Fork River, State Hwy 6 (S) / Highway 6 North Public Water Access Site',
+      latitude: 48.034694214683626,
+      longitude: -93.74155634703675,
+    },
+    takeOut: {
+      id: 'big-fork-johnson',
+      name: 'Big Fork River, Johnson Public Water Access Site',
+      latitude: 48.0886283542472,
+      longitude: -93.68169266740433,
+    },
+    logistics: {
+      distanceLabel: 'About 8.3 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low-water scraping or campsite stops',
+      shuttle:
+        'Stage Johnson Landing first, then drive back to the Highway 6 North carry-in. Confirm the Johnson landing from land before launching because public exits are sparse in this remote forest corridor.',
+      permits:
+        'No route-specific paddling permit is known. Follow DNR water-trail, state-forest, public-access, watercraft-registration, and PFD rules at both landings and any campsite.',
+      camping:
+        'Johnson Landing has a DNR-mapped watercraft campsite and rest area at the take-out. Treat camping as designated-site only; do not assume private-bank or informal island camping between accesses.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Highway 6 North and paddle the upper part of Big Fork Map 2 to Johnson Landing. This fills the public-access gap above the existing Johnson-to-Big-Falls route without adding the downstream falls take-out consequence.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS labels the put-in as State Hwy 6 (S), while DNR route/map copy calls it Highway 6 North; use the river-mile 75.8 record and coordinates to avoid confusing it with the upstream Highway 6 South access.',
+        'The Craigsville gauge is upstream of the route, so check actual depth and wood at Highway 6 North before committing.',
+        'Do not casually continue below Johnson toward Big Falls unless the group planned the separate full-day Johnson-to-Big-Falls route and mandatory take-out above the falls.',
+      ],
+      watchFor: [
+        'Low-water rock, shallow riffles, and possible scraping when the upstream gauge is near the floor.',
+        'Strainers, fresh storm wood, cold water, private banks, and limited rescue exposure on a remote northern river.',
+        'Reilly Brook and Reilly Creek confluence current, beaver activity, and long gaps between public road crossings.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'big-fork-highway-6-north',
+        name: 'Big Fork River, State Hwy 6 (S) / Highway 6 North Public Water Access Site',
+        latitude: 48.034694214683626,
+        longitude: -93.74155634703675,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR/public-access GIS river mile 75.8; DNR map labels this Highway 6 North.',
+      },
+      {
+        id: 'big-fork-johnson',
+        name: 'Big Fork River, Johnson Public Water Access Site',
+        latitude: 48.0886283542472,
+        longitude: -93.68169266740433,
+        mileFromStart: 8.3,
+        segmentKind: 'creek',
+        note: 'Default take-out and DNR-mapped watercraft campsite/rest area at river mile 67.5.',
+      },
+    ],
+  },
+
   'big-fork-river-big-falls-west-kueffners': {
     putIn: {
       name: 'Big Falls West / Cody Landing Public Water Access Site',
@@ -31110,6 +31168,64 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'rum-river-princeton-highway-7': {
+    putIn: {
+      id: 'rum-river-princeton-public-water-access-site',
+      name: 'Rum River, Princeton Public Water Access Site',
+      latitude: 45.572793312220064,
+      longitude: -93.5786234028956,
+    },
+    takeOut: {
+      id: 'rum-river-highway-7-public-water-access-site',
+      name: 'Rum River, Highway 7 Public Water Access Site',
+      latitude: 45.52976957804125,
+      longitude: -93.43923657162249,
+    },
+    logistics: {
+      distanceLabel: 'About 16.6 mi',
+      estimatedPaddleTime: 'Long day; plan 6 hr to 8 hr plus wood scouting and low-water delays',
+      shuttle:
+        'Stage the Highway 7 take-out first, then drive back to Princeton Riverside Municipal Park. Confirm both landings and the St. Francis gauge trend before launching because the first miles below Princeton are wood-prone.',
+      permits:
+        'No route-specific paddling permit is known. Follow DNR water-trail rules, City of Princeton and public-access parking rules, Minnesota boating/PFD requirements, and invasive-species rules.',
+      camping:
+        'DNR Map 2 maps two Cook watercraft campsites at river mile 76.6 between Princeton and Highway 7. Treat camping as designated-site only, first-come where applicable, and do not camp on private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Princeton and paddle downstream to the Highway 7 access. This fills the middle-Rum gap above the existing Highway-7-to-Walbo card while staying downstream of the current RM 101-98 tree-alert reach.',
+      accessCaveats: [
+        'Princeton resolves in Minnesota public-water-access GIS as WAS00459 at Riverside Municipal Park near river mile 87.8. DNR Map 2 also notes an old rock dam at river mile 87.8; use caution immediately after launch.',
+        'Highway 7 resolves as WAS00318 at river mile 71.2 near the confluence with Spencer Brook.',
+        'The St. Francis gauge is far downstream, so do not treat it as a substitute for visual checks at Princeton, logjam scouting, and recent-storm review.',
+      ],
+      watchFor: [
+        'Numerous logjams in the DNR-mapped river-mile 95-to-85 zone near Princeton, including the first miles of this route.',
+        'Old Rock Dam caution at Princeton, downed trees, snags, cold water, private banks, and long mileage.',
+        'The active DNR large-tree alert between river miles 101 and 98 is upstream of this route; do not extend upstream toward County Road 12 unless that alert has cleared.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rum-river-princeton-public-water-access-site',
+        name: 'Rum River, Princeton Public Water Access Site',
+        latitude: 45.572793312220064,
+        longitude: -93.5786234028956,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at Princeton Riverside Municipal Park; public-water-access GIS lists WAS00459 at river mile 87.8.',
+      },
+      {
+        id: 'rum-river-highway-7-public-water-access-site',
+        name: 'Rum River, Highway 7 Public Water Access Site',
+        latitude: 45.52976957804125,
+        longitude: -93.43923657162249,
+        mileFromStart: 16.6,
+        segmentKind: 'creek',
+        note: 'Default take-out near Spencer Brook; public-water-access GIS lists WAS00318 at river mile 71.2.',
+      },
+    ],
+  },
+
   'rum-river-highway-7-walbo': {
     putIn: {
       name: 'Rum River, Highway 7 Public Water Access Site',
@@ -37046,6 +37162,64 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'mississippi-river-lum-park-kiwanis': {
+    putIn: {
+      id: 'rice-lake-lum-park-public-water-access-site',
+      name: 'Rice Lake / Lum Park Public Water Access Site',
+      latitude: 46.3708379856475,
+      longitude: -94.16598052360733,
+    },
+    takeOut: {
+      id: 'mississippi-river-kiwanis-park-public-water-access-site',
+      name: 'Mississippi River, Kiwanis Park Public Water Access Site',
+      latitude: 46.346546055567686,
+      longitude: -94.20722309254398,
+    },
+    logistics: {
+      distanceLabel: 'About 3.5 mi plus 201-yard portage',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr including the dam carry',
+      shuttle:
+        'Stage Kiwanis Park first, then launch at Lum Park. Walk or scout the Potlatch Dam portage before committing; if the carry or landing is not clearly usable, do not launch this connector.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Brainerd park rules, DNR public-access rules, portage signage, Minnesota boating/PFD requirements, and invasive-species rules.',
+      camping:
+        'Lum Park has RV camping only per the DNR map; this short connector has no on-route campsite. Do not treat Kiwanis, Evergreen, Lyman P. White, or private banks as overnight sites.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Lum Park, portage Potlatch Dam on river right, and finish at Kiwanis Park. This is a short Brainerd connector for groups that intentionally want the dam carry, not a casual no-portage float.',
+      accessCaveats: [
+        'Potlatch Dam is the central hazard. Portage river right for 201 yards exactly as mapped by DNR and stay out of restricted or unsafe dam water.',
+        'Lum Park resolves in public-water-access GIS as a Rice Lake access at river mile 1004.7, immediately above the dam corridor.',
+        'Kiwanis Park resolves as WAS01003 at river mile 1001.1. Confirm city park parking and landing condition before leaving the take-out vehicle.',
+      ],
+      watchFor: [
+        'Dam hydraulics and any posted restrictions at the Potlatch Dam portage.',
+        'Low-water scraping and awkward landings while the Brainerd gauge is below the official scrapable floor.',
+        'Urban bridges, cold water, floating debris, wind, boat wake, private banks, and short-route complacency.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rice-lake-lum-park-public-water-access-site',
+        name: 'Rice Lake / Lum Park Public Water Access Site',
+        latitude: 46.3708379856475,
+        longitude: -94.16598052360733,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Default put-in above Potlatch Dam; MN public-water-access GIS lists this as WAS00357 at river mile 1004.7.',
+      },
+      {
+        id: 'mississippi-river-kiwanis-park-public-water-access-site',
+        name: 'Mississippi River, Kiwanis Park Public Water Access Site',
+        latitude: 46.346546055567686,
+        longitude: -94.20722309254398,
+        mileFromStart: 3.5,
+        segmentKind: 'creek',
+        note: 'Default take-out; MN public-water-access GIS lists this as WAS01003 at river mile 1001.1.',
+      },
+    ],
+  },
+
   'mississippi-river-beaver-island-clearwater': {
     putIn: {
       id: 'mississippi-river-beaver-island-trail-public-water-access-site',
@@ -39579,6 +39753,189 @@ baseRiverTripDetails['cedar-river-ramsey-austin-mill-pond'] = {
       mileFromStart: 3.7,
       segmentKind: 'creek',
       note: 'Default take-out at DNR river mile 17.5.',
+    },
+  ],
+};
+
+baseRiverTripDetails['allen-creek-highway-59-old-highway-92'] = {
+  putIn: {
+    id: 'allen-creek-highway-59-213',
+    name: 'Allen Creek Highway 59 / 213 bridge access',
+    latitude: 42.751048,
+    longitude: -89.2989184,
+  },
+  takeOut: {
+    id: 'allen-creek-old-highway-92',
+    name: 'Allen Creek Old Highway 92 bridge access',
+    latitude: 42.7448101,
+    longitude: -89.3226152,
+  },
+  logistics: {
+    distanceLabel: 'About 2.5 mi',
+    estimatedPaddleTime: 'About 1 hr to 2 hr, longer with low water, grass, or the easy logjam portage',
+    shuttle:
+      'Stage Old Highway 92 first, then return to the Highway 59 / 213 bridge near the Evansville Wildlife Area parking context. Walk both bridge banks before unloading because this is a small seasonal creek rather than a developed launch-to-ramp trip.',
+    permits:
+      'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, posted DNR wildlife-area rules, road-shoulder parking limits, and private-bank boundaries.',
+    camping:
+      'No on-route camping. Treat this as a short day paddle through wildlife-area and agricultural frontage; use separate nearby camping or lodging if needed.',
+    campingClassification: 'none',
+    summary:
+      'Launch from the Highway 59 / 213 bridge and take out at Old Highway 92 for Wisconsin River Trips\' short Allen Creek route. It is compact and scenic when water is up, but the Sugar River gauge is only a proxy and the creek still needs same-day checks for wood, grass, and bridge-bank access.',
+    accessCaveats: [
+      'Wisconsin River Trips describes the Highway 59 / 213 launch as the default put-in with nearby Evansville Wildlife Area parking context; still verify posted parking and bank condition before carrying down.',
+      'Old Highway 92 is a bridge take-out rather than a full-service launch. Late-season weeds or low water can make the landing less practical.',
+      'The Sugar River near Verona gauge does not measure Allen Creek directly. Use the 31 cfs floor as a screening tool, then decide from the actual creek.',
+    ],
+    watchFor: [
+      'One documented easy logjam portage, plus fresh strainers after wind or spring floods.',
+      'Shallow riffles, summer grass, and muddy bridge banks when the creek is low.',
+      'Private banks, cold shoulder-season water, and quick rises after local rain.',
+    ],
+  },
+  accessPoints: [
+    {
+      id: 'allen-creek-highway-59-213',
+      name: 'Allen Creek Highway 59 / 213 bridge access',
+      latitude: 42.751048,
+      longitude: -89.2989184,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Default put-in from the Wisconsin River Trips route KML and access description.',
+    },
+    {
+      id: 'allen-creek-old-highway-92',
+      name: 'Allen Creek Old Highway 92 bridge access',
+      latitude: 42.7448101,
+      longitude: -89.3226152,
+      mileFromStart: 2.5,
+      segmentKind: 'creek',
+      note: 'Default take-out from the Wisconsin River Trips route KML and access description.',
+    },
+  ],
+};
+
+baseRiverTripDetails['honey-creek-carver-school-bell-school'] = {
+  putIn: {
+    id: 'honey-creek-carver-school-road',
+    name: 'Honey Creek Carver School Road bridge access',
+    latitude: 42.7883704,
+    longitude: -88.3665717,
+  },
+  takeOut: {
+    id: 'honey-creek-bell-school-road',
+    name: 'Honey Creek Bell School Road bridge access',
+    latitude: 42.7952252,
+    longitude: -88.3212889,
+  },
+  logistics: {
+    distanceLabel: 'About 3.7 mi',
+    estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer with mud, low water, or portage scouting',
+    shuttle:
+      'Stage Bell School Road first, then return to Carver School Road. Inspect both bridge shoulders and the Highway 20 alternate before launching because parking is limited and Wisconsin River Trips calls the default Carver School put-in poor.',
+    permits:
+      'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, posted streambank-protection-area rules, road-shoulder limits, and private-bank boundaries.',
+    camping:
+      'No on-route camping. Treat the Honey Creek Streambank corridor and roadside bridges as day-use context only; do not assume legal bank or bar camping.',
+    campingClassification: 'none',
+    summary:
+      'Launch at Carver School Road and take out at Bell School Road for the short Honey Creek route documented by Wisconsin River Trips. The creek can be clear and intimate when water is right, but the default launch, dam/mud portage, tight take-out parking, and proxy gauge all need deliberate same-day review.',
+    accessCaveats: [
+      'Carver School Road is the default route put-in, but Wisconsin River Trips says it is a poor access. Highway 20 can shorten the route if the default launch is not appropriate.',
+      'Bell School Road has workable bridge access but tight shoulder parking. Stage without blocking road traffic, driveways, or maintenance access.',
+      'The Mukwonago gauge is a nearby proxy and WRT cautions it may not represent Honey Creek perfectly. Scout for actual depth and wood before committing.',
+    ],
+    watchFor: [
+      'The early mud/dam portage identified by Wisconsin River Trips, plus changing banks after rain.',
+      'Low-water wading below the 28 cfs proxy floor and faster bridge current after storms.',
+      'Private banks, cold water outside summer, and roadside access limits at both endpoints.',
+    ],
+  },
+  accessPoints: [
+    {
+      id: 'honey-creek-carver-school-road',
+      name: 'Honey Creek Carver School Road bridge access',
+      latitude: 42.7883704,
+      longitude: -88.3665717,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Default put-in from the Wisconsin River Trips route KML; WRT rates access as poor.',
+    },
+    {
+      id: 'honey-creek-highway-20',
+      name: 'Honey Creek Highway 20 bridge alternate access',
+      latitude: 42.7885024,
+      longitude: -88.3543983,
+      mileFromStart: 0.9,
+      segmentKind: 'creek',
+      note: 'Optional shorter-route access from the Wisconsin River Trips KML and route overview.',
+    },
+    {
+      id: 'honey-creek-bell-school-road',
+      name: 'Honey Creek Bell School Road bridge access',
+      latitude: 42.7952252,
+      longitude: -88.3212889,
+      mileFromStart: 3.7,
+      segmentKind: 'creek',
+      note: 'Default take-out from the Wisconsin River Trips route KML; WRT notes tight but workable roadside parking.',
+    },
+  ],
+};
+
+baseRiverTripDetails['mukwonago-river-rainbow-springs-beulah-road'] = {
+  putIn: {
+    id: 'mukwonago-rainbow-springs-golf-resort-road',
+    name: 'Mukwonago River Rainbow Springs Golf Resort Road walk-in',
+    latitude: 42.8556365,
+    longitude: -88.4180921,
+  },
+  takeOut: {
+    id: 'mukwonago-beulah-road',
+    name: 'Mukwonago River Beulah Road bridge access',
+    latitude: 42.8543604,
+    longitude: -88.395001,
+  },
+  logistics: {
+    distanceLabel: 'About 2.4 mi',
+    estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer with low limbs, scouting, or the carry-in',
+    shuttle:
+      'Stage Beulah Road first, then return to the Highway LO / Rainbow Springs parking context. Expect a walk-in carry from the public parking area to the old bridge put-in and confirm current DNR property signs before unloading.',
+    permits:
+      'No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules, Kettle Moraine State Forest / Mukwonago River Unit rules, posted closures, and private-bank boundaries.',
+    camping:
+      'No on-route camping. Treat this short state-forest creek route as a day paddle; use separate legal camping or lodging elsewhere if needed.',
+    campingClassification: 'none',
+    summary:
+      'Launch from the Rainbow Springs / Highway LO walk-in context and take out at Beulah Road for the short upper Mukwonago split. This keeps the route above the downstream wild-rice navigation problem while preserving the clearwater creek character documented by Wisconsin River Trips.',
+    accessCaveats: [
+      'The put-in is a carry from public parking to the old bridge area, not a drive-up ramp. Follow current Mukwonago River Unit signs and avoid private or closed property.',
+      'Beulah Road is the planned take-out for this card. Missing it changes the trip into the downstream wild-rice section that WRT warns can hide the channel.',
+      'The Mukwonago gauge is same-river but downstream of the route. Pair the 29 cfs floor with a visual check at Rainbow Springs.',
+    ],
+    watchFor: [
+      'Low limbs, low bridge clearance, possible portages at higher water, and fresh strainers.',
+      'Low-water scraping below the 29 cfs floor and cold shoulder-season water.',
+      'Wild rice and lost-channel risk downstream of Beulah Road if the planned take-out is missed.',
+    ],
+  },
+  accessPoints: [
+    {
+      id: 'mukwonago-rainbow-springs-golf-resort-road',
+      name: 'Mukwonago River Rainbow Springs Golf Resort Road walk-in',
+      latitude: 42.8556365,
+      longitude: -88.4180921,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Default river put-in from the Wisconsin River Trips route KML; public parking is a separate short carry from the river.',
+    },
+    {
+      id: 'mukwonago-beulah-road',
+      name: 'Mukwonago River Beulah Road bridge access',
+      latitude: 42.8543604,
+      longitude: -88.395001,
+      mileFromStart: 2.4,
+      segmentKind: 'creek',
+      note: 'Default take-out from the Wisconsin River Trips KML and route overview, before the downstream wild-rice section.',
     },
   ],
 };
