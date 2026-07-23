@@ -5,6 +5,13 @@ import { captureHistorySnapshotForResults } from '../../lib/history';
 import { captureRiverSnapshots } from '../../lib/river-snapshots';
 import { getAllRiverScores } from '../../lib/rivers';
 
+type RiverSnapshotCapture = Awaited<ReturnType<typeof captureRiverSnapshots>>;
+
+let activeRiverSnapshotRefresh: {
+  startedAt: string;
+  promise: Promise<RiverSnapshotCapture>;
+} | null = null;
+
 export async function handleHistorySnapshot(
   request: ApiRequest,
   response: ServerResponse,
@@ -62,8 +69,56 @@ export async function handleRiverSnapshotRefresh(
     );
   }
 
-  const results = await getAllRiverScores();
-  const captured = await captureRiverSnapshots({ results });
+  const isAsync = new URL(request.url || '/', 'http://localhost').searchParams.get('async') === '1';
+  if (isAsync) {
+    const existing = activeRiverSnapshotRefresh;
+    if (existing) {
+      return sendJson(
+        response,
+        202,
+        {
+          requestId,
+          ok: true,
+          status: 'running',
+          startedAt: existing.startedAt,
+        },
+        includeBody,
+        'no-store'
+      );
+    }
+
+    const startedAt = new Date().toISOString();
+    const state = {
+      startedAt,
+      promise: captureProductionRiverSnapshots(),
+    };
+    activeRiverSnapshotRefresh = state;
+    void state.promise.then(
+      (captured) => {
+        console.log(`[snapshots] async refresh completed at ${captured.generatedAt} using ${captured.storage} storage`);
+        if (activeRiverSnapshotRefresh === state) activeRiverSnapshotRefresh = null;
+      },
+      (error: unknown) => {
+        console.error('[snapshots] async refresh failed', error);
+        if (activeRiverSnapshotRefresh === state) activeRiverSnapshotRefresh = null;
+      }
+    );
+
+    return sendJson(
+      response,
+      202,
+      {
+        requestId,
+        ok: true,
+        status: 'started',
+        startedAt,
+      },
+      includeBody,
+      'no-store'
+    );
+  }
+
+  const captured = await captureProductionRiverSnapshots();
 
   return sendJson(
     response,
@@ -78,6 +133,16 @@ export async function handleRiverSnapshotRefresh(
   );
 }
 
+async function captureProductionRiverSnapshots(): Promise<RiverSnapshotCapture> {
+  const results = await getAllRiverScores();
+  const captured = await captureRiverSnapshots({ results });
+
+  if (captured.storage !== 'blob') {
+    throw new Error('Production snapshot refresh requires Blob Storage configuration.');
+  }
+
+  return captured;
+}
 
 function requestHasRefreshToken(
   request: ApiRequest,
