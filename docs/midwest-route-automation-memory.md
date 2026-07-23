@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 14:59 America/Chicago / 2026-07-23 19:59 UTC: Iowa current-baseline gap implementation pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 94-route exported Iowa baseline: `upper-iowa-river-kendallville-bluffton`, `iowa-river-hills-river-junction`, and `south-skunk-river-peterson-park-sleepy-hollow`, bringing Iowa to 97 live routes.
+  - Qualification path: CanWePaddle / USGS / Upper Iowa guide support reactivating Kendallville-to-Bluffton with a current Bluffton-gauge range; Johnson County supports the official Hills-to-River-Junction Iowa River segment, endpoint campgrounds, River Junction coordinate, and closure caveat; Story County / CanWePaddle / Skunk River Paddlers support the missing Peterson-to-Sleepy-Hollow South Skunk connector.
+  - Gauge posture: USGS checks returned Upper Iowa Bluffton `702 cfs / 4.42 ft`, Iowa City `2,200 cfs / 11.77 ft`, and South Skunk Ames `204 cfs / 3.77 ft` on 2026-07-23 early afternoon CDT.
+  - Threshold posture: Upper Iowa uses CanWePaddle `100-1,200 cfs`; Iowa River remains minimum-only at the existing derived `200 cfs` floor with high-water closure caveats; South Skunk uses CanWePaddle `100-1,500 cfs` plus the local `125 cfs` above-Ames floor note. No route-gallery image was selected after bounded source / Commons / same-route review.
+
 - 2026-07-23 14:14 America/Chicago / 2026-07-23 19:14 UTC: Wisconsin lower Eau Claire water-trail implementation pass (`wisconsin-route-additions`).
   - Added three Wisconsin route slugs beyond the current 167-route Wisconsin baseline: `eau-claire-river-clubhouse-county-j`, `eau-claire-river-county-j-ross-avenue`, and `eau-claire-river-ross-avenue-yellow-banks`, bringing Wisconsin to 170 live routes.
   - Qualification path: Village of Weston supplies official Ross/Kelly stage guidance plus public Ross and Yellow Banks launch context; Wisconsin River Trips supplies the lower Eau Claire route family, Club House-to-Ross route pages, guest-review water-level/safety notes, and linked My Maps/KML coordinates for Club House, County J, Ross, and Yellow Banks; Miles Paddled corroborates Club House-to-Ross practical route/gauge context; USGS `05397500` supplies the official same-corridor monitoring location.

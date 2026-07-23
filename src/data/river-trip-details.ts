@@ -6754,6 +6754,7 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
       permits: 'No permit is known for a basic day paddle. Follow county-park, water-trail, and state-preserve access rules at Kendallville and Bluffton Fir Stand.',
       camping:
         'Kendallville is a convenient campground at the put-in for base-camp staging. Other overnight options exist along the corridor if you plan ahead.',
+      campingClassification: 'endpoint_campground',
       summary:
         'This is a long Driftless day with county-park staging at Kendallville and a Bluffton Palisades finish. Low water hurts trip quality well before it becomes unsafe.',
       accessCaveats: [
@@ -6766,6 +6767,26 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
         'Faster current and fewer margins when levels rise.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'kendallville-park-canoe-access',
+        name: 'Kendallville Park Canoe Access',
+        latitude: 43.44202,
+        longitude: -92.03809,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in with county-park campground support in the Upper Iowa guide corridor.',
+      },
+      {
+        id: 'bluffton-fir-stand-access',
+        name: 'Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp',
+        latitude: 43.3996,
+        longitude: -91.8884,
+        mileFromStart: 16.5,
+        segmentKind: 'creek',
+        note: 'Default public take-out at the Bluffton / W20 access corridor near the selected gauge.',
+      },
+    ],
   },
 
   'upper-iowa-river-cattle-creek-bluffton': {
@@ -44587,6 +44608,124 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         mileFromStart: 3.2,
         segmentKind: 'lake',
         note: 'Default take-out; DNR map labels St. Nicholas Landing at river mile 13.6 and public-water-access GIS resolves WAS01392.',
+      },
+    ],
+  },
+
+  'iowa-river-hills-river-junction': {
+    putIn: {
+      id: 'hills-access-campground',
+      name: 'Hills Access & Campground',
+      latitude: 41.5544618,
+      longitude: -91.5257829,
+    },
+    takeOut: {
+      id: 'river-junction-access-campground',
+      name: 'River Junction Access & Campground',
+      latitude: 41.4912969,
+      longitude: -91.5017984,
+    },
+    logistics: {
+      distanceLabel: 'About 9.8 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with low water, wind, or wood scouting',
+      shuttle:
+        'Stage the take-out at River Junction Access and Campground, then drive back to Hills Access. Check Johnson County closure notices before leaving a vehicle because River Junction can close during high water.',
+      permits:
+        'No route-specific paddling permit is known. Follow Johnson County Conservation rules, campground rules, posted park hours, and Iowa boating/PFD requirements.',
+      camping:
+        'Both endpoints support camping: Hills has electric and non-electric sites, and River Junction has primitive non-electric campsites. Treat camping as a separate county-park plan, not as permission to camp on private banks.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Hills Access and paddle the official Johnson County Iowa River Water Trail segment to River Junction Access. This is a wooded, sinuous bottomland reach with campground endpoints, a direct upstream gauge, and closure-prone floodplain logistics.',
+      accessCaveats: [
+        'Hills Access is a Johnson County boat-ramp and campground access on the Iowa River; use the signed ramp and public parkland for staging.',
+        'River Junction Access has a county-published coordinate, boat ramp, primitive campsites, and restrooms, but it can close to vehicle traffic when the Iowa and English Rivers rise.',
+        'The Iowa River Water Trail continues downstream, but this card ends at River Junction. Do not drift into the remote Tri-County Bridge / River Forks gap without a separate long-route plan.',
+      ],
+      watchFor: [
+        'Fresh strainers, floating debris, and soft or muddy landings after storms.',
+        'Sinuous bottomland bends with fewer simple exits than the upstream Iowa City segment.',
+        'High or rising water that can flood River Junction access roads and campground areas.',
+        'Private banks and farm edges away from public access sites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hills-access-campground',
+        name: 'Hills Access & Campground',
+        latitude: 41.5544618,
+        longitude: -91.5257829,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; Johnson County identifies Hills as an Iowa River Water Trail entry/take-out point with ramp and campground support.',
+      },
+      {
+        id: 'river-junction-access-campground',
+        name: 'River Junction Access & Campground',
+        latitude: 41.4912969,
+        longitude: -91.5017984,
+        mileFromStart: 9.8,
+        segmentKind: 'creek',
+        note: 'Default take-out; county-published campground/access coordinate with primitive campsites and boat-ramp access.',
+      },
+    ],
+  },
+
+  'south-skunk-river-peterson-park-sleepy-hollow': {
+    putIn: {
+      id: 'peterson-park-west-access',
+      name: 'Peterson Park West Access',
+      latitude: 42.0847077,
+      longitude: -93.5974389,
+    },
+    takeOut: {
+      id: 'sleepy-hollow-access',
+      name: 'Sleepy Hollow access / W Riverside Road',
+      latitude: 42.06658,
+      longitude: -93.62025,
+    },
+    logistics: {
+      distanceLabel: 'About 3 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with low-water riffles or wood scouting',
+      shuttle:
+        'Use a short two-car shuttle between Peterson Park West and Sleepy Hollow on W Riverside Road. Inspect Sleepy Hollow first because it is also the direct Ames gauge corridor and may show same-day depth and debris clearly.',
+      permits:
+        'No route-specific paddling permit is known. Follow Story County / City of Ames access rules, posted park hours, and Iowa boating/PFD requirements.',
+      camping:
+        'Treat this as a short day route. No on-route camping is assumed, and the non-meandered corridor means adjoining banks and streambed outside public areas may be private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Peterson Park West and fill the official South Skunk water-trail gap to Sleepy Hollow. This above-Ames connector is short, but riffles, wood, private banks, and rain-sensitive current still require a real gauge and visual check.',
+      accessCaveats: [
+        'Peterson Park West is a public Story County South Skunk River Water Trail access, but use the signed river access rather than pond or beach areas inside the broader park.',
+        'Sleepy Hollow is the planned take-out near W Riverside Road and the USGS South Skunk near Ames gauge; orient from land before launching.',
+        'The South Skunk is non-meandered through this corridor. Use public accesses and confirmed parkland only for normal stops.',
+      ],
+      watchFor: [
+        'Shallow riffles and scraping when the Ames gauge is near or below the local 125 cfs above-Ames floor.',
+        'Fresh trees, sweepers, and bridge debris after storms.',
+        'Faster, muddier current when the gauge is high or rising; do not rely on the short mileage to offset wood hazards.',
+        'Private banks between the two public access points.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'peterson-park-west-access',
+        name: 'Peterson Park West Access',
+        latitude: 42.0847077,
+        longitude: -93.5974389,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in and official Story County South Skunk water-trail access.',
+      },
+      {
+        id: 'sleepy-hollow-access',
+        name: 'Sleepy Hollow access / W Riverside Road',
+        latitude: 42.06658,
+        longitude: -93.62025,
+        mileFromStart: 3,
+        segmentKind: 'creek',
+        note: 'Default take-out beside the direct Ames USGS gauge corridor.',
       },
     ],
   },

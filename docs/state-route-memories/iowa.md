@@ -13,7 +13,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-23 13:55 run added three routes beyond the current 92-route baseline: `des-moines-river-austin-park-keosauqua`, `des-moines-river-bonaparte-des-moines-access`, and `des-moines-river-access-farmington`.
+Iowa remains mature overall. The latest 2026-07-23 14:59 run added three routes beyond the current 94-route baseline: `upper-iowa-river-kendallville-bluffton`, `iowa-river-hills-river-junction`, and `south-skunk-river-peterson-park-sleepy-hollow`.
+
+## 2026-07-23 14:59 Iowa River / South Skunk / Upper Iowa gap pass
+
+- Baseline at run start: 94 Iowa live routes, verified from the current `src/data/rivers.ts` export with `tsx`. This differs from the prior 95-route memory because the current checkout/export is the baseline for this run.
+- Added `upper-iowa-river-kendallville-bluffton`, `iowa-river-hills-river-junction`, and `south-skunk-river-peterson-park-sleepy-hollow`, bringing the imported Iowa count to 97 live routes.
+- Qualification path: Kendallville-to-Bluffton was reactivated from the retired split set only after refreshing it with CanWePaddle's current route-specific 100-1,200 cfs Bluffton-gauge range, USGS 05387440 current data, and Upper Iowa / Winneshiek access-guide support. Hills-to-River-Junction uses Johnson County's official 9.8-mile Iowa River Water Trail segment, county campground/access coordinates, River Junction closure context, the existing Iowa City-gauge low-water floor model, and current USGS 05454500 data. Peterson-to-Sleepy-Hollow fills a Story County South Skunk public-access gap between existing split cards using the official Story County access chain, CanWePaddle's Ames-to-Cambridge range, Skunk River Paddlers' 125 cfs above-Ames floor, and current USGS 05470000 data.
+- Gauge posture: USGS Water Services returned Upper Iowa at Bluffton `702 cfs / 4.42 ft` at 2026-07-23 13:45 CDT, Iowa River at Iowa City `2,200 cfs / 11.77 ft` at 2026-07-23 14:00 CDT, and South Skunk near Ames `204 cfs / 3.77 ft` at 2026-07-23 14:00 CDT.
+- Threshold posture: Upper Iowa uses CanWePaddle's two-sided `100-1,200 cfs` community range tied to the direct Bluffton gauge. Iowa River Hills-to-River-Junction stays `minimum-only` at `200 cfs`, reusing the existing Johnson County cleanup-derived low-water floor without inventing a high cutoff and adding explicit River Junction high-water closure caveats. South Skunk Peterson-to-Sleepy-Hollow uses CanWePaddle's `100-1,500 cfs` Ames-to-Cambridge range and documents the local `125 cfs` above-Ames low-water floor.
+- Caveat posture: Upper Iowa foregrounds long-day exposure, private/permission-only landings, fast rises, wood, and endpoint camping at Kendallville. Iowa River foregrounds River Junction closure risk, sinuous bottomland forest, private banks, endpoint campgrounds, and no unplanned downstream Tri-County/River-Forks continuation. South Skunk foregrounds non-meandered private banks, riffles, wood, gauge-at-takeout limits, and no camping.
+- Reviewed but not added: additional retired Upper Iowa Bluffton-area split cards remained retired because the consolidated Cattle-Creek-to-Malanaphy family already represents that corridor; Johnson County River-Junction-to-Tri-County was not added because Tri-County has no developed access or parking; broader Boone/Des Moines Boone County and Louisa Iowa River leads stayed threshold-weak or endpoint-gap-prone for this run.
+- No route-gallery assets were added after bounded CanWePaddle / Winneshiek County / Johnson County / Story County / Skunk River Paddlers / USGS / Commons / same-route image review.
 
 ## 2026-07-23 13:55 Lower Des Moines River Van Buren completion pass
 
