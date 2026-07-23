@@ -1,5 +1,16 @@
 # Minnesota Route Memory
 
+## 2026-07-23 07:15 America/Chicago / 2026-07-23 12:15 UTC Minnesota Pine/Root/South Fork Crow implementation pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `173` to `176` route slugs by adding `pine-river-cross-lake-rock-dam`, `root-river-houston-mound-prairie`, and `south-fork-crow-river-otter-lake-masonic`.
+- Qualification path: MN DNR Pine River map / segments page and Minnesota public-water-access GIS support Cross Lake `WAS01002` to Rock Dam `WAS02986` at 4.5 river miles, with the Jenkins site `316` official interpreted bands used as an upstream same-water-trail proxy. MN DNR Root River Map 2 and public-water-access GIS support Houston `WAS02188` to Mound Prairie `WAS00062` at 6.7 river miles, with Mound Prairie site `200` at the take-out as a direct interpreted gauge. MN DNR South Fork Crow Map 1 / segments page and public-water-access GIS support Otter Lake West `WAS00650` to Otter Lake East / Western-Masonic `WAS00651`, with Hutchinson site `52` used as a downstream same-corridor gauge and the dam at river mile 66.7 as a hard no-continuation boundary.
+- Live gauge verification: MN DNR river-level feed returned Pine Jenkins site `316` at `14.1 cfs` at `2026-07-23 05:45 CDT`, Root Mound Prairie site `200` at `655.94 ft` at `2026-07-23 04:45 CDT`, and South Fork Crow Hutchinson site `52` at `33.25 ft` at `2026-07-23 05:45 CDT`.
+- Implemented official DNR interpreted bands only: Pine Jenkins `35 / 50-200 / 500 cfs`, Root Mound Prairie `650 / 654-656 / 658 ft`, and South Fork Crow Hutchinson `30 / 31-35 / 37 ft`. No inferred ideal ranges or upper cutoffs were added.
+- Camping posture: Pine Cross-Lake-to-Rock-Dam is `nearby_basecamp` only through Crosslake-area campground context, Root Houston-to-Mound-Prairie is `nearby_basecamp` only through Houston-area support, and South Fork Crow Otter-Lake-to-Masonic is `endpoint_campground` only through the Western / Masonic City Park endpoint context.
+- Safety posture: Pine carries dam/outflow, upstream proxy-gauge, low-water scraping, strainers, cold-water, and private-bank caveats. Root carries private-bank/WMA, fast-rise, riffle, strainer, and cold-water caveats. South Fork Crow carries mandatory take-out above the Hutchinson dam, fast post-rain current, logjams/snags, lake-margin wind, and private-bank caveats.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add: Rum River Riverview-to-County-Road-4 remained out of this run because current GIS review did not resolve the target take-out as cleanly as the selected official-access endpoints.
+
 ## 2026-07-23 06:40 America/Chicago / 2026-07-23 11:40 UTC Minnesota Mississippi/Rum/Cedar implementation pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `170` to `173` route slugs by adding `mississippi-river-knutson-dam-west-winnie`, `rum-river-wayside-milaca`, and `cedar-river-riverwood-state-line`.

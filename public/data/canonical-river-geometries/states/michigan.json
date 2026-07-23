@@ -3,14 +3,14 @@
   "source": "USGS NHD Flowline",
   "scope": "state",
   "state": "Michigan",
-  "routeCount": 786,
-  "matchedRouteCount": 783,
+  "routeCount": 801,
+  "matchedRouteCount": 798,
   "unmatchedRouteIds": [
     "eau-claire-river-east-branch-wayside-county-i",
     "bad-axe-north-fork-duck-egg-hwy-o",
     "embarrass-south-branch-hwy-45-county-m"
   ],
-  "routeDataFingerprint": "448bbd0faa53281e4c02174878a2cad958364f83a1b300a8a1bf795343f85e9e",
+  "routeDataFingerprint": "7846c164ca411c280a10530c4507ef7d0314980300623c309b34b3e1e627ab43",
   "features": [
     {
       "type": "Feature",
