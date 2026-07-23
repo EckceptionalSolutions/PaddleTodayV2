@@ -11,7 +11,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-23 05:55 run added three routes beyond the current 79-route baseline: `middle-raccoon-river-lenon-mill-p28`, `middle-raccoon-river-p28-cowles`, and `middle-raccoon-river-cowles-redfield-dam`.
+Iowa remains mature overall. The latest 2026-07-23 08:52 run added three routes beyond the current 80-route baseline: `cedar-river-nashua-pearl-rock`, `cedar-river-pearl-rock-north-cedar`, and `cedar-river-north-cedar-cedar-bend`.
+
+## 2026-07-23 08:52 Cedar River Nashua / Bremer County gap pass
+
+- Baseline at run start: 80 Iowa live routes, verified from `src/data/rivers.ts` with `tsx`.
+- Added `cedar-river-nashua-pearl-rock`, `cedar-river-pearl-rock-north-cedar`, and `cedar-river-north-cedar-cedar-bend`, bringing the imported Iowa count to 83 live routes.
+- Qualification path: the Cedar River Paddling Trips guide documents the missing Nashua / Pearl Rock / North Cedar Park / Cedar Bend Park access chain, exact segment mileages, endpoint coordinates, Nashua dam portage context, Pearl Rock small-lot caveat, North Cedar campground/boat-ramp context, Cedar Bend park amenities, and the Cedar River gauge floor for the broader Charles City-to-Janesville route family. City of Nashua confirms the Veterans Memorial Park dam-portage corridor and public access customization to North Cedar, Iowa DNR Fish Iowa confirms the Nashua-to-La Porte City Cedar corridor, and Bremer County / MyCountyParks confirms North Cedar and Cedar Bend park access/camping context.
+- Gauge posture: USGS Water Services returned Cedar River at Waverly `05458300` at `2,450 cfs / 5.10 ft` at 2026-07-23 08:15 CDT. Charles City `05457700` also returned `1,430 cfs / 4.06 ft` and Janesville `05458500` returned `2,660 cfs / 3.33 ft` during this run.
+- Threshold posture: all three new routes are conservative `minimum-only` at `200 cfs`, using the Cedar River Paddling Trips guide's broad-family adequate-water floor and documenting its `400-600 cfs` better range without inferring a high cutoff.
+- Caveat posture: Nashua-to-Pearl foregrounds below-dam launch discipline, Pearl Rock small parking, private banks, and no camping. Pearl-to-North-Cedar foregrounds small put-in capacity, endpoint campground support, private banks, and downstream-gauge limits. North-Cedar-to-Cedar-Bend foregrounds the longer rural reach, endpoint campgrounds, Cedar Bend seasonal gate checks, private banks, and stopping before the Waverly dam sequence.
+- Reviewed but not added: Cedar Bend-to-Three-Rivers / Waverly continuation was held for a future Waverly-dam-specific pass because Three Rivers / Kohlmann / Brookwood portage logistics need a focused dam-boundary card. Wapsipinicon Anamosa-to-Oxford Junction remains blocked by stale `05421760` data from prior checks.
+- No route-gallery assets were added after bounded Cedar guide / City of Nashua / Iowa DNR / Bremer County / Travel Iowa / Commons / same-route image review.
 
 ## 2026-07-23 05:55 Middle Raccoon protected-water-area pass
 

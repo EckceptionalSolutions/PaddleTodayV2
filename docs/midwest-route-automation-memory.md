@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 08:52 America/Chicago / 2026-07-23 13:52 UTC: Iowa Cedar River Nashua / Bremer County gap pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 80-route Iowa baseline: `cedar-river-nashua-pearl-rock`, `cedar-river-pearl-rock-north-cedar`, and `cedar-river-north-cedar-cedar-bend`, bringing Iowa to 83 live routes.
+  - Qualification path: the Cedar River Paddling Trips guide supports the Nashua / Pearl Rock / North Cedar Park / Cedar Bend Park chain with exact mileage, coordinates, Nashua dam portage context, Pearl Rock small-lot warning, North Cedar campground/boat-ramp context, Cedar Bend amenities, and Cedar River gauge guidance; City of Nashua, Iowa DNR Fish Iowa, and Bremer County / MyCountyParks corroborate public corridor and endpoint support.
+  - Gauge posture: USGS Water Services returned Waverly `05458300` at `2,450 cfs / 5.10 ft` at 2026-07-23 08:15 CDT, with Charles City `1,430 cfs / 4.06 ft` and Janesville `2,660 cfs / 3.33 ft` also current.
+  - Threshold posture: all three routes use conservative minimum-only `200 cfs` from the guide's Cedar trip-family floor, with the `400-600 cfs` better range documented but no high cutoff inferred. No route-gallery assets were added after bounded guide / Nashua / DNR / Bremer County / Travel Iowa / Commons / same-route image review. Cedar Bend-to-Three-Rivers / Waverly continuation was held for a future dam-portage-specific pass.
+
 - 2026-07-23 08:11 America/Chicago / 2026-07-23 13:11 UTC: Minnesota St. Louis / Cannon / Cedar implementation pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 176-route exported Minnesota baseline: `st-louis-river-forbes-zim`, `cannon-river-riverside-miesville`, and `cedar-river-ramsey-austin-mill-pond`, bringing Minnesota to 179 live routes.
   - Qualification path: MN DNR St. Louis Map 1 plus public-water-access GIS support Forbes-to-Zim with direct Forbes site `244`; MN DNR Cannon River map/segments plus public-water-access GIS support Riverside-to-Miesville with downstream Welch site `13`; MN DNR Cedar River map/segments plus public-water-access GIS support Ramsey-to-Austin-Mill-Pond with upstream Lansing site `287`.

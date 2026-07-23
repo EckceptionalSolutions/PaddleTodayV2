@@ -12721,6 +12721,179 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'cedar-river-nashua-pearl-rock': {
+    putIn: {
+      id: 'nashua-below-dam-access',
+      name: 'Nashua below-dam access / Veterans Memorial Park portage',
+      latitude: 42.95638,
+      longitude: -92.535427,
+    },
+    takeOut: {
+      id: 'pearl-rock-access',
+      name: 'Pearl Rock access',
+      latitude: 42.910715,
+      longitude: -92.543001,
+    },
+    logistics: {
+      distanceLabel: '6.1 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with low water or headwind',
+      shuttle:
+        'Stage the small Pearl Rock take-out first, then return to Nashua. Launch only from the public below-dam side of the Nashua portage corridor; do not start above the dam for this downstream route.',
+      permits:
+        'No route-specific paddling permit is known. Follow Nashua, Chickasaw County, Iowa DNR, and Iowa boating/PFD rules at public accesses.',
+      camping:
+        'Treat this as a short day route. Howard Woods and North Cedar Park can support nearby/base-camp planning on the broader corridor, but no on-route campsite was verified for the Nashua-to-Pearl split.',
+      campingClassification: 'none',
+      summary:
+        'Launch below the Nashua dam and paddle the short downstream Cedar River leg to Pearl Rock. This fills the first gap below the existing Charles City-to-Nashua card while keeping dam exposure explicit.',
+      accessCaveats: [
+        'Use the Veterans Memorial Park / Nashua Access portage system to get below the dam; do not drift over or launch upstream of the dam.',
+        'Pearl Rock has a small parking lot that the guide says holds only a couple of vehicles. Confirm parking and the landing before launching.',
+        'The Waverly gauge is downstream of the route and should be paired with same-day visual checks at Nashua.',
+      ],
+      watchFor: [
+        'Dam-adjacent launch discipline at Nashua and swift water if the river is high or rising.',
+        'Fresh wood, low-water gravel, bridge current, private banks, and limited public exits.',
+        'Small take-out capacity at Pearl Rock and possible agricultural runoff after storms.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'nashua-below-dam-access',
+        name: 'Nashua below-dam access / Veterans Memorial Park portage',
+        latitude: 42.95638,
+        longitude: -92.535427,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Public Nashua access/portage corridor; launch only below the dam for this route.',
+      },
+      {
+        id: 'pearl-rock-access',
+        name: 'Pearl Rock access',
+        latitude: 42.910715,
+        longitude: -92.543001,
+        mileFromStart: 6.1,
+        segmentKind: 'creek',
+        note: 'Guide-listed take-out with only a small parking lot; verify capacity from land.',
+      },
+    ],
+  },
+
+  'cedar-river-pearl-rock-north-cedar': {
+    putIn: {
+      id: 'pearl-rock-access',
+      name: 'Pearl Rock access',
+      latitude: 42.910715,
+      longitude: -92.543001,
+    },
+    takeOut: {
+      id: 'north-cedar-park',
+      name: 'North Cedar Park boat ramp / canoe access',
+      latitude: 42.849516,
+      longitude: -92.522648,
+    },
+    logistics: {
+      distanceLabel: '6.5 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 3.5 hr, longer with low water, wind, or wood',
+      shuttle:
+        'Stage at North Cedar Park east of Plainfield, then return to Pearl Rock. Keep the Pearl Rock vehicle count low and use only the public access footprint.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted county park rules, Iowa DNR rules, and Iowa boating/PFD requirements.',
+      camping:
+        'North Cedar Park has campground support at the take-out, including first-come camping, water, restrooms, and showers according to Bremer County / MyCountyParks. Do not assume private-bank camping between accesses.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Pearl Rock and take out at North Cedar Park for a compact Cedar River day ending at a county park with verified river access and camping.',
+      accessCaveats: [
+        'Pearl Rock parking is limited; do not block roads or private drives.',
+        'North Cedar Park is the normal downstream access and campground anchor; use the park boat ramp/canoe access and follow posted camping rules.',
+        'The selected gauge is downstream at Waverly, so visual checks at Pearl Rock still control the launch decision.',
+      ],
+      watchFor: [
+        'Wood on outside bends, shallow gravel near the 200 cfs floor, and faster current after rain.',
+        'Private banks and old river oxbows outside the public park and wildlife-area corridor.',
+        'Cold shoulder-season water and limited public bailout options.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'pearl-rock-access',
+        name: 'Pearl Rock access',
+        latitude: 42.910715,
+        longitude: -92.543001,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; small parking area noted by the paddling guide.',
+      },
+      {
+        id: 'north-cedar-park',
+        name: 'North Cedar Park boat ramp / canoe access',
+        latitude: 42.849516,
+        longitude: -92.522648,
+        mileFromStart: 6.5,
+        segmentKind: 'creek',
+        note: 'Default take-out with Bremer County boat ramp, canoe access, and campground support.',
+      },
+    ],
+  },
+
+  'cedar-river-north-cedar-cedar-bend': {
+    putIn: {
+      id: 'north-cedar-park',
+      name: 'North Cedar Park boat ramp / canoe access',
+      latitude: 42.849516,
+      longitude: -92.522648,
+    },
+    takeOut: {
+      id: 'cedar-bend-park',
+      name: 'Cedar Bend Park access',
+      latitude: 42.760425,
+      longitude: -92.493585,
+    },
+    logistics: {
+      distanceLabel: '8.3 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with wind, low water, or scouting',
+      shuttle:
+        'Stage the take-out at Cedar Bend Park northwest of Waverly, then return to North Cedar Park. Confirm Cedar Bend gate/vehicle access during shoulder season before committing.',
+      permits:
+        'No route-specific paddling permit is known. Follow Bremer County park rules, Iowa DNR rules, and Iowa boating/PFD requirements.',
+      camping:
+        'Both endpoints have campground context. North Cedar Park has first-come camping and Cedar Bend Park has more than 60 campground sites with seasonal gate limits; reserve or verify locally before relying on overnight support.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Paddle from North Cedar Park to Cedar Bend Park through the Bremer County Cedar corridor. The route is a longer county-park connector and intentionally stops before the Waverly dam-portage sequence.',
+      accessCaveats: [
+        'North Cedar and Cedar Bend coordinates come from the Cedar River Paddling Trips guide and county park context; follow posted park access and camping rules.',
+        'Cedar Bend vehicle access is seasonal, with the park gate normally open May 1 through October 31 according to Bremer County.',
+        'Do not treat this route as a through-Waverly dam run unless you separately plan Cedar Bend-to-Three-Rivers and the Kohlmann/Brookwood portage.',
+      ],
+      watchFor: [
+        'Longer rural exposure, outside-bend wood, bridge current, private banks, and limited bailouts.',
+        'High or rising water that makes wooded bends and landings pushier despite the minimum-only score.',
+        'Low-water gravel and slower travel if the Waverly gauge approaches 200 cfs.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'north-cedar-park',
+        name: 'North Cedar Park boat ramp / canoe access',
+        latitude: 42.849516,
+        longitude: -92.522648,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in with Bremer County boat ramp, canoe access, and campground support.',
+      },
+      {
+        id: 'cedar-bend-park',
+        name: 'Cedar Bend Park access',
+        latitude: 42.760425,
+        longitude: -92.493585,
+        mileFromStart: 8.3,
+        segmentKind: 'creek',
+        note: 'Default take-out at Bremer County park; confirm seasonal gate and campground status.',
+      },
+    ],
+  },
 
   'yellow-river-sixteen-bridge-highway-76': {
     putIn: {
