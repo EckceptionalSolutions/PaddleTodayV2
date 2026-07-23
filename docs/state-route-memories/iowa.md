@@ -1,6 +1,6 @@
 # Iowa Route Memory
 
-Last summarized: 2026-07-22.
+Last summarized: 2026-07-23.
 
 ## Current Inventory
 
@@ -11,7 +11,18 @@ Last summarized: 2026-07-22.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-22 23:46 run added three more guarded direct-gauge Iowa routes beyond the current 61-route baseline: Des Moines River Keosauqua-to-Bentonsport, Shell Rock River Heery-Woods-to-Renning, and North Skunk River Delta-to-Sigourney.
+Iowa remains mature overall. The latest 2026-07-23 00:48 run added three more guarded direct-gauge Iowa routes beyond the current 64-route baseline: Turkey River Clermont-to-Gilbertson, Maquoketa River Monmouth-to-Maquoketa, and West Nishnabotna River Oakland-to-Macedonia.
+
+## 2026-07-23 00:48 Turkey / Maquoketa / West Nishnabotna pass
+
+- Baseline at run start: 64 Iowa live routes, reconciled from the current route source with the existing Upper Iowa split retirement / family-card consolidation.
+- Added `turkey-river-clermont-gilbertson`, `maquoketa-river-monmouth-maquoketa`, and `west-nishnabotna-river-oakland-macedonia`, bringing the intended imported Iowa count to 67 live routes.
+- Qualification path: Turkey uses the official Turkey River Water Trail guide for Clermont #64B to Elgin/Gilbertson #59 access, dam-portage boundaries, Valley intermediate access, route character, and direct Eldorado-gauge CanWePaddle range; Maquoketa uses Jackson County's lower Maquoketa water-trail access chain plus CanWePaddle's exact Monmouth-to-Maquoketa route and direct Maquoketa gauge; West Nishnabotna uses the state-designated Pottawattamie water-trail access chain from Chautauqua/Oakland to Olde Town/Macedonia, with CanWePaddle's broader Oakland-to-Randolph range and direct Randolph gauge.
+- Gauge posture: USGS Water Services returned Turkey River near Eldorado `05411850` at `763 cfs / 6.52 ft` at 2026-07-22 23:45 CDT, Maquoketa River near Maquoketa `05418500` at `1,890 cfs / 12.63 ft` at 2026-07-23 00:15 CDT, and West Nishnabotna River at Randolph `06808500` at `536 cfs / 8.41 ft` at 2026-07-23 00:00 CDT.
+- Threshold posture: all three use guarded CanWePaddle community estimated ranges tied to direct USGS gauges: Turkey `120-1,500 cfs`, Maquoketa `200-2,500 cfs`, and West Nishnabotna `120-1,800 cfs`. West Nishnabotna intentionally stops at Olde Town / Macedonia instead of an unverified Randolph take-out, so the range is treated as broader-corridor support.
+- Caveat posture: Turkey requires below-dam Clermont launch discipline and explicit Gilbertson finish planning; Maquoketa keeps practical-coordinate and Bridgeport take-out caveats; West Nishnabotna emphasizes fast rises, flood-stage no-go guidance, muddy banks, water-quality uncertainty, sandbars, and private-bank limits.
+- Reviewed but not added: Wapsipinicon Anamosa-to-Oxford Junction remains blocked because USGS Water Services for `05421760` still returned stale `2017-10-02` instantaneous values during this run despite current-looking third-party display. East Nishnabotna Red-Oak-to-Essex remains weaker on official take-out certainty than the selected set. Cedar Palo-to-Cedar-Rapids was skipped as too close to the existing Chain Lakes / Palo-to-Ellis Harbor corridor.
+- No route-gallery assets were added after bounded official / local / USGS / Commons / same-route image review.
 
 ## 2026-07-22 23:46 Lower Des Moines / Shell Rock / North Skunk pass
 

@@ -31217,6 +31217,174 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'st-louis-river-toivola-county-road-29': {
+    putIn: {
+      name: 'St. Louis River, Toivola Public Water Access Site',
+      latitude: 47.1672586,
+      longitude: -92.7792689,
+    },
+    takeOut: {
+      name: 'St. Louis River, Co Rd 29 Public Water Access Site',
+      latitude: 46.9713542,
+      longitude: -92.8258324,
+    },
+    logistics: {
+      distanceLabel: 'About 15.7 mi',
+      estimatedPaddleTime: 'About 6 hr to 9 hr, longer with low-water dragging, scouting, or a campsite stop',
+      shuttle:
+        'Stage County Road 29 first, then drive back to Toivola. Confirm both DNR carry-in accesses, the Floodwood gauge, and whether the river mile 90.8 campsite is part of the plan before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Use DNR public accesses, follow Minnesota boating/PFD rules, and obey state water-trail, forest, campsite, and private-bank rules.',
+      camping:
+        'DNR Map 1 marks a watercraft campsite near river mile 90.8 between Toivola and County Road 29. Use only designated or otherwise legal public-land sites, and do not camp on private banks or riverbed next to private property.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Toivola and take out at County Road 29 for a long St. Louis Map 1/2 connector. The Floodwood gauge is downstream and below the official scrapable floor during this run, so make visual depth checks before committing.',
+      accessCaveats: [
+        'Minnesota public-water-access GIS resolves Toivola as WAS00615 at river mile 94.2 and County Road 29 as WAS02129 at river mile 78.5.',
+        'The Floodwood gauge is downstream of the take-out. Treat it as a same-corridor proxy and check local depth at Toivola and County Road 29 before launching.',
+        'County Road 29 is the planned finish. Do not continue toward Floodwood without a separate shuttle, daylight, and low/high-water plan.',
+      ],
+      watchFor: [
+        'Low-water dragging and exposed rocks when the Floodwood gauge is below the official 24.4 ft scrapable floor.',
+        'Cold water, fresh wood, strainers, remote banks, and limited road access between bridges.',
+        'Private shoreland away from DNR accesses and designated/legal public campsites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'st-louis-toivola',
+        name: 'St. Louis River, Toivola Public Water Access Site',
+        latitude: 47.1672586,
+        longitude: -92.7792689,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00615 at DNR river mile 94.2.',
+      },
+      {
+        id: 'st-louis-county-road-29',
+        name: 'St. Louis River, Co Rd 29 Public Water Access Site',
+        latitude: 46.9713542,
+        longitude: -92.8258324,
+        mileFromStart: 15.7,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02129 at DNR river mile 78.5.',
+      },
+    ],
+  },
+
+  'st-louis-river-county-road-29-floodwood': {
+    putIn: {
+      name: 'St. Louis River, Co Rd 29 Public Water Access Site',
+      latitude: 46.9713542,
+      longitude: -92.8258324,
+    },
+    takeOut: {
+      name: 'Floodwood River Public Water Access Site',
+      latitude: 46.9291846,
+      longitude: -92.9170726,
+    },
+    logistics: {
+      distanceLabel: 'About 6.4 mi including the Floodwood River take-out approach',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low-water scraping or a difficult Floodwood River turn',
+      shuttle:
+        'Stage the Floodwood city access first, then drive to County Road 29. Confirm the short upstream or side-channel approach on the Floodwood River before launching from County Road 29.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR and city public accesses, follow Minnesota boating/PFD rules, and obey posted city, DNR, and private-bank rules.',
+      camping:
+        'Treat this as a day trip. DNR Map 2 marks a watercraft campsite just below County Road 29, but this short connector should not be used as an informal overnight unless the site and rules are confirmed for the specific plan.',
+      campingClassification: 'none',
+      summary:
+        'Launch at County Road 29 and finish at the Floodwood public access for the short above-town St. Louis connector. The direct Floodwood DNR gauge was below the official scrapable floor during this run.',
+      accessCaveats: [
+        'County Road 29 resolves as WAS02129 at DNR river mile 78.5.',
+        'Floodwood River access resolves as WAS01940. DNR Map 2 places the St. Louis/Floodwood River confluence at river mile 72.6 and notes the trailer access is about one-half mile up the Floodwood River.',
+        'Identify the Floodwood River turn and city access before launching so the take-out is not missed in low light or high current.',
+      ],
+      watchFor: [
+        'Low-water scraping and shallow riffles when the Floodwood gauge is below the official scrapable floor.',
+        'Wood, strainers, private banks, cold water, and changing current near the Floodwood River confluence.',
+        'Short-mile complacency; this is still a remote-feeling St. Louis reach with limited bailouts.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'st-louis-county-road-29',
+        name: 'St. Louis River, Co Rd 29 Public Water Access Site',
+        latitude: 46.9713542,
+        longitude: -92.8258324,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02129 at DNR river mile 78.5.',
+      },
+      {
+        id: 'floodwood-river-public-access',
+        name: 'Floodwood River Public Water Access Site',
+        latitude: 46.9291846,
+        longitude: -92.9170726,
+        mileFromStart: 6.4,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS01940 on the Floodwood River about one-half mile from the St. Louis confluence.',
+      },
+    ],
+  },
+
+  'st-louis-river-floodwood-paupores': {
+    putIn: {
+      name: 'Floodwood River Public Water Access Site',
+      latitude: 46.9291846,
+      longitude: -92.9170726,
+    },
+    takeOut: {
+      name: 'St. Louis River, Paupores Public Water Access Site',
+      latitude: 46.8741117,
+      longitude: -92.7652286,
+    },
+    logistics: {
+      distanceLabel: 'About 11.3 mi including the Floodwood River access approach',
+      estimatedPaddleTime: 'About 4.5 hr to 7 hr, longer with rapid scouting, low water, or wind',
+      shuttle:
+        'Stage Paupores first, then drive to the Floodwood city access. Confirm the Floodwood River route back to the St. Louis mainstem and the Paupores take-out before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the city and DNR public accesses, follow Minnesota boating/PFD rules, and obey DNR water-trail, AMA, and private-bank rules.',
+      camping:
+        'Treat this as a day trip. DNR Map 2 shows the watercraft-campsite cluster beginning below Paupores on the separate Paupores-to-Brookston route, not on this Floodwood-to-Paupores split.',
+      campingClassification: 'none',
+      summary:
+        'Launch from Floodwood, rejoin the St. Louis, and take out at Paupores for the rapid-marked lower Map 2 connector. The Floodwood gauge is direct at the launch corridor and was below scrapable during this run.',
+      accessCaveats: [
+        'Floodwood River access resolves as WAS01940; DNR Map 2 places the St. Louis confluence about one-half mile downstream from the city access.',
+        'Paupores resolves as WAS00609 at DNR river mile 61.8.',
+        'Paupores is the planned finish. Continuing to Brookston is a separate route with its own campsite and railroad-bridge finish context.',
+      ],
+      watchFor: [
+        'Class I-II rapid sections below Floodwood, including rapids DNR says can be dangerous in high water.',
+        'Large-island channel decisions, cold water, wood, strainers, private banks, and limited access between Floodwood and Paupores.',
+        'Low-water rocks and shoals when the Floodwood gauge is below 24.4 ft; high or rising water can remove recovery time in the rapid sections.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'floodwood-river-public-access',
+        name: 'Floodwood River Public Water Access Site',
+        latitude: 46.9291846,
+        longitude: -92.9170726,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS01940 on the Floodwood River about one-half mile from the St. Louis confluence.',
+      },
+      {
+        id: 'st-louis-paupores',
+        name: 'St. Louis River, Paupores Public Water Access Site',
+        latitude: 46.8741117,
+        longitude: -92.7652286,
+        mileFromStart: 11.3,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00609 at DNR river mile 61.8.',
+      },
+    ],
+  },
+
   'minnesota-river-skalbekken-morton': {
     putIn: {
       name: 'Minnesota River, Skalbekken Public Water Access Site',
@@ -36447,6 +36615,208 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
     ],
   },
 
+  'namekagon-river-namekagon-dam-hwy-63': {
+    putIn: {
+      id: 'namekagon-dam-landing',
+      name: 'Namekagon Dam Landing',
+      latitude: 46.22438,
+      longitude: -91.14934,
+    },
+    takeOut: {
+      id: 'cable-wayside-landing',
+      name: 'Highway 63 / Cable Wayside Landing',
+      latitude: 46.18772,
+      longitude: -91.32037,
+    },
+    logistics: {
+      distanceLabel: 'About 14.7 mi',
+      estimatedPaddleTime: 'About 5 hr to 6.5 hr, longer with low water, beaver dams, or portages',
+      shuttle:
+        'Stage the take-out at Cable Wayside / Highway 63 first, then drive back to Namekagon Dam Landing. Inspect low bridges and visible riffles from the road-crossing accesses when the Leonards gauge is near or below the floor.',
+      permits:
+        'No route-specific paddling permit is known for private boats. Follow Wisconsin boating/PFD rules and St. Croix National Scenic Riverway rules, including no glass and designated-campsite-only camping.',
+      camping:
+        'NPS/WTG identify one individual Riverway canoe campsite in this N1 segment, about 1.5 miles above Cable Wayside. Use only designated first-come Riverway campsites and follow the three-night, group-size, fire, trash, and no-glass rules.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Namekagon Dam Landing and take out at Cable Wayside / Highway 63 for the upper Namekagon N1 corridor. This is a scenic but shallow, rocky, and isolated Riverway day with Class I-II ledges and beaver-dam/wood exposure.',
+      accessCaveats: [
+        'Namekagon Dam Landing is the start. Do not treat the upstream flowage or dam structure as part of this route.',
+        'NPS warns the first ten miles are isolated and can become extremely low or impassable during dry conditions.',
+        'Cable Wayside is the planned exit just beyond the Highway 63 bridge; identify the take-out before the shuttle feels committed.',
+        'Riverway camping is limited to designated sites; do not improvise on islands, marsh banks, or private/restricted land.',
+      ],
+      watchFor: [
+        'Shallow rocky Class I-II rapids below the 170 cfs floor, where boats can pin or grind on ledges.',
+        'Beaver dams, downed trees, low bridges, strainers, cold water, poison ivy, ticks, and remote rescue exposure.',
+        'Fast rises or storm debris after rain; the Leonards gauge cannot show individual new obstructions.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'namekagon-dam-landing',
+        name: 'Namekagon Dam Landing',
+        latitude: 46.22438,
+        longitude: -91.14934,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from WTG N1 GPX; described as canoe/kayak access with county park and campground context.',
+      },
+      {
+        id: 'county-m-landing',
+        name: 'County Road M Landing',
+        latitude: 46.2063,
+        longitude: -91.22785,
+        mileFromStart: 7.2,
+        segmentKind: 'creek',
+        note: 'Intermediate WTG/NPS access and practical bailout.',
+      },
+      {
+        id: 'phillipi-bridge-landing',
+        name: 'Phillipi Bridge Landing',
+        latitude: 46.19798,
+        longitude: -91.29063,
+        mileFromStart: 11.8,
+        segmentKind: 'creek',
+        note: 'Intermediate WTG/NPS landing above the final Cable Wayside stretch.',
+      },
+      {
+        id: 'cable-wayside-landing',
+        name: 'Highway 63 / Cable Wayside Landing',
+        latitude: 46.18772,
+        longitude: -91.32037,
+        mileFromStart: 14.7,
+        segmentKind: 'creek',
+        note: 'Default take-out at the Highway 63 wayside / Cable Wayside landing.',
+      },
+    ],
+  },
+
+  'namekagon-river-hayward-stinnett': {
+    putIn: {
+      id: 'hayward-landing-namekagon',
+      name: 'Hayward Landing',
+      latitude: 46.0035,
+      longitude: -91.48906,
+    },
+    takeOut: {
+      id: 'stinnett-landing-namekagon',
+      name: 'Stinnett Landing',
+      latitude: 45.98378,
+      longitude: -91.58901,
+    },
+    logistics: {
+      distanceLabel: 'About 9.1 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, scouting, or campsite stops',
+      shuttle:
+        'Stage Stinnett Landing first, then return to Hayward Landing. Confirm the Hayward launch you plan to use because the dam-adjacent launch and the downstream Hayward Landing are separate choices.',
+      permits:
+        'No route-specific paddling permit is known for private boats. Follow Wisconsin boating/PFD rules and St. Croix National Scenic Riverway rules, including no glass and designated-campsite-only camping.',
+      camping:
+        'WRT and WTG/NPS document designated Riverway canoe campsites in the broader N2 corridor. Camp only at signed first-come Riverway sites and do not assume informal bank or island camping is allowed.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Use Hayward Landing to Stinnett for the short upper-middle Namekagon day route. The reach starts fast and rocky, then alternates clearer main channel, islands, sloughs, and calmer stretches before Stinnett.',
+      accessCaveats: [
+        'This card starts at Hayward Landing. If launching at the dam landing upstream, scout the dam-adjacent current and the known first-mile strainer before committing.',
+        'Stinnett is the planned take-out. Continuing to Groat or Springbrook adds more rapids and should be treated as a separate route decision.',
+        'Use Riverway landings and designated campsites only; private banks and side channels are not assumed bailout points.',
+      ],
+      watchFor: [
+        'Fast first miles below Hayward, Warder Rapids, Fox Slough riffles, a known tricky strainer below the dam landing, and shallow or blocked side channels.',
+        'Low water near the 50 cfs floor, when light craft may still pass but loaded canoes can scrape or require channel picking.',
+        'Cold water, floating wood, fast post-rain rises, tubing traffic near Hayward, and private or restricted banks.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hayward-landing-namekagon',
+        name: 'Hayward Landing',
+        latitude: 46.0035,
+        longitude: -91.48906,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from WTG N2 GPX and NPS Map 2.',
+      },
+      {
+        id: 'west-river-landing-namekagon',
+        name: 'West River Landing',
+        latitude: 45.97808,
+        longitude: -91.57632,
+        mileFromStart: 7.8,
+        segmentKind: 'creek',
+        note: 'Intermediate access from WTG N2 GPX before Stinnett.',
+      },
+      {
+        id: 'stinnett-landing-namekagon',
+        name: 'Stinnett Landing',
+        latitude: 45.98378,
+        longitude: -91.58901,
+        mileFromStart: 9.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; WRT describes parking and bathrooms here.',
+      },
+    ],
+  },
+
+  'namekagon-river-county-k-whispering-pines': {
+    putIn: {
+      id: 'county-k-landing-namekagon',
+      name: 'County Road K Landing',
+      latitude: 45.95324,
+      longitude: -91.89136,
+    },
+    takeOut: {
+      id: 'whispering-pines-landing-namekagon',
+      name: 'Whispering Pines Landing',
+      latitude: 46.00925,
+      longitude: -91.98117,
+    },
+    logistics: {
+      distanceLabel: 'About 11.0 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, fishing, or campsite stops',
+      shuttle:
+        'Stage Whispering Pines Landing first, then return to County Road K Landing below the Trego Dam corridor. Verify both Riverway landings before launching because this is a secluded lower Namekagon reach with limited exits.',
+      permits:
+        'No route-specific paddling permit is known for private boats. Follow Wisconsin boating/PFD rules and St. Croix National Scenic Riverway rules, including no glass and designated-campsite-only camping.',
+      camping:
+        'WTG says the broader County K-to-Fritz N4 segment has fourteen Riverway canoe campsites, and the lower Namekagon-to-Riverside reach has extensive designated campsite support. Use only signed first-come Riverway campsites and follow NPS limits.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch below Trego at County Road K and paddle to Whispering Pines for a secluded lower Namekagon day. The route has mostly easy current, several Class I riffles, wooded banks, islands, and strong Riverway camping context.',
+      accessCaveats: [
+        'Start at County Road K Landing below the Trego Dam/flowage corridor. Do not fold the upstream dam portage into this card.',
+        'Whispering Pines is the default exit. Howell, Fritz, McDowell, and Riverside are separate downstream planning choices.',
+        'Riverway camps are first-come and designated only; do not assume private banks, islands, or sandbars are legal overnight stops.',
+      ],
+      watchFor: [
+        'Shallow riffles below the 155 cfs floor, island-channel splits, overhanging trees, sweepers, and strainers.',
+        'Remote shoreline with limited intermediate exits and slower rescue response.',
+        'Cold water, post-rain rises, ticks, poison ivy, and private or restricted banks outside signed Riverway sites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-k-landing-namekagon',
+        name: 'County Road K Landing',
+        latitude: 45.95324,
+        longitude: -91.89136,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in from WTG N4 GPX and NPS Map 3.',
+      },
+      {
+        id: 'whispering-pines-landing-namekagon',
+        name: 'Whispering Pines Landing',
+        latitude: 46.00925,
+        longitude: -91.98117,
+        mileFromStart: 11,
+        segmentKind: 'creek',
+        note: 'Default take-out for the WRT exact route; also an intermediate landing on WTG N4.',
+      },
+    ],
+  },
+
   'cedar-river-brookwood-janesville': {
     putIn: {
       id: 'brookwood-park-waverly',
@@ -36678,208 +37048,6 @@ const baseRiverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-  'namekagon-river-namekagon-dam-hwy-63': {
-    putIn: {
-      id: 'namekagon-dam-landing',
-      name: 'Namekagon Dam Landing',
-      latitude: 46.22438,
-      longitude: -91.14934,
-    },
-    takeOut: {
-      id: 'cable-wayside-landing',
-      name: 'Highway 63 / Cable Wayside Landing',
-      latitude: 46.18772,
-      longitude: -91.32037,
-    },
-    logistics: {
-      distanceLabel: 'About 14.7 mi',
-      estimatedPaddleTime: 'About 5 hr to 6.5 hr, longer with low water, beaver dams, or portages',
-      shuttle:
-        'Stage the take-out at Cable Wayside / Highway 63 first, then drive back to Namekagon Dam Landing. Inspect low bridges and visible riffles from the road-crossing accesses when the Leonards gauge is near or below the floor.',
-      permits:
-        'No route-specific paddling permit is known for private boats. Follow Wisconsin boating/PFD rules and St. Croix National Scenic Riverway rules, including no glass and designated-campsite-only camping.',
-      camping:
-        'NPS/WTG identify one individual Riverway canoe campsite in this N1 segment, about 1.5 miles above Cable Wayside. Use only designated first-come Riverway campsites and follow the three-night, group-size, fire, trash, and no-glass rules.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Namekagon Dam Landing and take out at Cable Wayside / Highway 63 for the upper Namekagon N1 corridor. This is a scenic but shallow, rocky, and isolated Riverway day with Class I-II ledges and beaver-dam/wood exposure.',
-      accessCaveats: [
-        'Namekagon Dam Landing is the start. Do not treat the upstream flowage or dam structure as part of this route.',
-        'NPS warns the first ten miles are isolated and can become extremely low or impassable during dry conditions.',
-        'Cable Wayside is the planned exit just beyond the Highway 63 bridge; identify the take-out before the shuttle feels committed.',
-        'Riverway camping is limited to designated sites; do not improvise on islands, marsh banks, or private/restricted land.',
-      ],
-      watchFor: [
-        'Shallow rocky Class I-II rapids below the 170 cfs floor, where boats can pin or grind on ledges.',
-        'Beaver dams, downed trees, low bridges, strainers, cold water, poison ivy, ticks, and remote rescue exposure.',
-        'Fast rises or storm debris after rain; the Leonards gauge cannot show individual new obstructions.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'namekagon-dam-landing',
-        name: 'Namekagon Dam Landing',
-        latitude: 46.22438,
-        longitude: -91.14934,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Default put-in from WTG N1 GPX; described as canoe/kayak access with county park and campground context.',
-      },
-      {
-        id: 'county-m-landing',
-        name: 'County Road M Landing',
-        latitude: 46.2063,
-        longitude: -91.22785,
-        mileFromStart: 7.2,
-        segmentKind: 'creek',
-        note: 'Intermediate WTG/NPS access and practical bailout.',
-      },
-      {
-        id: 'phillipi-bridge-landing',
-        name: 'Phillipi Bridge Landing',
-        latitude: 46.19798,
-        longitude: -91.29063,
-        mileFromStart: 11.8,
-        segmentKind: 'creek',
-        note: 'Intermediate WTG/NPS landing above the final Cable Wayside stretch.',
-      },
-      {
-        id: 'cable-wayside-landing',
-        name: 'Highway 63 / Cable Wayside Landing',
-        latitude: 46.18772,
-        longitude: -91.32037,
-        mileFromStart: 14.7,
-        segmentKind: 'creek',
-        note: 'Default take-out at the Highway 63 wayside / Cable Wayside landing.',
-      },
-    ],
-  },
-
-  'namekagon-river-hayward-stinnett': {
-    putIn: {
-      id: 'hayward-landing-namekagon',
-      name: 'Hayward Landing',
-      latitude: 46.0035,
-      longitude: -91.48906,
-    },
-    takeOut: {
-      id: 'stinnett-landing-namekagon',
-      name: 'Stinnett Landing',
-      latitude: 45.98378,
-      longitude: -91.58901,
-    },
-    logistics: {
-      distanceLabel: 'About 9.1 mi',
-      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, scouting, or campsite stops',
-      shuttle:
-        'Stage Stinnett Landing first, then return to Hayward Landing. Confirm the Hayward launch you plan to use because the dam-adjacent launch and the downstream Hayward Landing are separate choices.',
-      permits:
-        'No route-specific paddling permit is known for private boats. Follow Wisconsin boating/PFD rules and St. Croix National Scenic Riverway rules, including no glass and designated-campsite-only camping.',
-      camping:
-        'WRT and WTG/NPS document designated Riverway canoe campsites in the broader N2 corridor. Camp only at signed first-come Riverway sites and do not assume informal bank or island camping is allowed.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Use Hayward Landing to Stinnett for the short upper-middle Namekagon day route. The reach starts fast and rocky, then alternates clearer main channel, islands, sloughs, and calmer stretches before Stinnett.',
-      accessCaveats: [
-        'This card starts at Hayward Landing. If launching at the dam landing upstream, scout the dam-adjacent current and the known first-mile strainer before committing.',
-        'Stinnett is the planned take-out. Continuing to Groat or Springbrook adds more rapids and should be treated as a separate route decision.',
-        'Use Riverway landings and designated campsites only; private banks and side channels are not assumed bailout points.',
-      ],
-      watchFor: [
-        'Fast first miles below Hayward, Warder Rapids, Fox Slough riffles, a known tricky strainer below the dam landing, and shallow or blocked side channels.',
-        'Low water near the 50 cfs floor, when light craft may still pass but loaded canoes can scrape or require channel picking.',
-        'Cold water, floating wood, fast post-rain rises, tubing traffic near Hayward, and private or restricted banks.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'hayward-landing-namekagon',
-        name: 'Hayward Landing',
-        latitude: 46.0035,
-        longitude: -91.48906,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Default put-in from WTG N2 GPX and NPS Map 2.',
-      },
-      {
-        id: 'west-river-landing-namekagon',
-        name: 'West River Landing',
-        latitude: 45.97808,
-        longitude: -91.57632,
-        mileFromStart: 7.8,
-        segmentKind: 'creek',
-        note: 'Intermediate access from WTG N2 GPX before Stinnett.',
-      },
-      {
-        id: 'stinnett-landing-namekagon',
-        name: 'Stinnett Landing',
-        latitude: 45.98378,
-        longitude: -91.58901,
-        mileFromStart: 9.1,
-        segmentKind: 'creek',
-        note: 'Default take-out; WRT describes parking and bathrooms here.',
-      },
-    ],
-  },
-
-  'namekagon-river-county-k-whispering-pines': {
-    putIn: {
-      id: 'county-k-landing-namekagon',
-      name: 'County Road K Landing',
-      latitude: 45.95324,
-      longitude: -91.89136,
-    },
-    takeOut: {
-      id: 'whispering-pines-landing-namekagon',
-      name: 'Whispering Pines Landing',
-      latitude: 46.00925,
-      longitude: -91.98117,
-    },
-    logistics: {
-      distanceLabel: 'About 11.0 mi',
-      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, fishing, or campsite stops',
-      shuttle:
-        'Stage Whispering Pines Landing first, then return to County Road K Landing below the Trego Dam corridor. Verify both Riverway landings before launching because this is a secluded lower Namekagon reach with limited exits.',
-      permits:
-        'No route-specific paddling permit is known for private boats. Follow Wisconsin boating/PFD rules and St. Croix National Scenic Riverway rules, including no glass and designated-campsite-only camping.',
-      camping:
-        'WTG says the broader County K-to-Fritz N4 segment has fourteen Riverway canoe campsites, and the lower Namekagon-to-Riverside reach has extensive designated campsite support. Use only signed first-come Riverway campsites and follow NPS limits.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch below Trego at County Road K and paddle to Whispering Pines for a secluded lower Namekagon day. The route has mostly easy current, several Class I riffles, wooded banks, islands, and strong Riverway camping context.',
-      accessCaveats: [
-        'Start at County Road K Landing below the Trego Dam/flowage corridor. Do not fold the upstream dam portage into this card.',
-        'Whispering Pines is the default exit. Howell, Fritz, McDowell, and Riverside are separate downstream planning choices.',
-        'Riverway camps are first-come and designated only; do not assume private banks, islands, or sandbars are legal overnight stops.',
-      ],
-      watchFor: [
-        'Shallow riffles below the 155 cfs floor, island-channel splits, overhanging trees, sweepers, and strainers.',
-        'Remote shoreline with limited intermediate exits and slower rescue response.',
-        'Cold water, post-rain rises, ticks, poison ivy, and private or restricted banks outside signed Riverway sites.',
-      ],
-    },
-    accessPoints: [
-      {
-        id: 'county-k-landing-namekagon',
-        name: 'County Road K Landing',
-        latitude: 45.95324,
-        longitude: -91.89136,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Default put-in from WTG N4 GPX and NPS Map 3.',
-      },
-      {
-        id: 'whispering-pines-landing-namekagon',
-        name: 'Whispering Pines Landing',
-        latitude: 46.00925,
-        longitude: -91.98117,
-        mileFromStart: 11,
-        segmentKind: 'creek',
-        note: 'Default take-out for the WRT exact route; also an intermediate landing on WTG N4.',
-      },
-    ],
-  },
-
 };
 
 const retiredSplitDetailIds = new Set([
@@ -37035,9 +37203,6 @@ const consolidatedCrowWingDetails: RiverTripDetails = {
       note: 'Default downstream finish for the family route.',
     },
   ],
-
-
-
 };
 
 const retainedRiverTripDetails = Object.fromEntries(
@@ -37046,6 +37211,204 @@ const retainedRiverTripDetails = Object.fromEntries(
 
 export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...retainedRiverTripDetails,
+  'turkey-river-clermont-gilbertson': {
+    putIn: {
+      id: 'clermont-canoe-access',
+      name: 'Clermont Canoe Access #64B',
+      latitude: 42.9969,
+      longitude: -91.6487,
+    },
+    takeOut: {
+      id: 'gilbertson-park-elgin',
+      name: 'Gilbertson Park / Elgin access corridor',
+      latitude: 42.95812,
+      longitude: -91.62421,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low water, scouting, or stops at Valley Access',
+      shuttle:
+        'Stage the downstream vehicle at Gilbertson Park / Elgin before returning to Clermont Canoe Access. Confirm that you are launching below the Clermont dam and not from the upstream river-park take-out.',
+      permits:
+        'No route-specific paddling permit is known. Use the signed Turkey River Water Trail accesses, follow Iowa boating and PFD rules, and respect posted city, county, and campground rules.',
+      camping:
+        'Gilbertson Park has campground facilities at the take-out corridor, making this an endpoint-campground day route. Do not assume private-bank camping between Clermont and Elgin.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch below the Clermont dam and take out at Gilbertson Park / Elgin for the upstream Turkey River Water Trail connector. The direct Eldorado gauge controls the score, while the official guide supplies the access and dam context.',
+      accessCaveats: [
+        'Clermont has separate upstream dam take-out and downstream canoe-access context. Use Access #64B below the dam for this route.',
+        'The water-trail guide places Valley Access between Clermont and Elgin; use it only when signs and parking are clear on the day of the trip.',
+        'Gilbertson has more than one access-bank option in the guide. Pick the signed landing that matches current local use and water level.',
+      ],
+      watchFor: [
+        'The Clermont dam and portage boundary upstream of the put-in.',
+        'Swift Class I riffles, fresh wood, bridge current, and fast rain-driven rises.',
+        'Private banks outside signed public accesses and campground areas.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'clermont-canoe-access',
+        name: 'Clermont Canoe Access #64B',
+        latitude: 42.9969,
+        longitude: -91.6487,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below the Clermont dam; do not launch upstream of the dam for this card.',
+      },
+      {
+        id: 'valley-access',
+        name: 'Valley Access',
+        latitude: 42.9866,
+        longitude: -91.6368,
+        mileFromStart: 2.5,
+        segmentKind: 'creek',
+        note: 'Official intermediate water-trail access between Clermont and Elgin; verify signs and parking before relying on it.',
+      },
+      {
+        id: 'gilbertson-park-elgin',
+        name: 'Gilbertson Park / Elgin access corridor',
+        latitude: 42.95812,
+        longitude: -91.62421,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Default take-out and endpoint campground corridor near Elgin.',
+      },
+    ],
+  },
+  'maquoketa-river-monmouth-maquoketa': {
+    putIn: {
+      id: 'millertown-bridge-access',
+      name: 'Millertown Bridge Access / Monmouth corridor',
+      latitude: 42.084,
+      longitude: -90.762,
+    },
+    takeOut: {
+      id: 'bridgeport-access',
+      name: 'Bridgeport Access',
+      latitude: 42.0834,
+      longitude: -90.6329,
+    },
+    logistics: {
+      distanceLabel: 'About 12 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6 hr, longer with low water, wind, or wood scouting',
+      shuttle:
+        'Stage Bridgeport first, then drive back to the Millertown / Monmouth access corridor. Check Jackson County access signs before unloading because this lower chain has multiple named bridge and park accesses.',
+      permits:
+        'No route-specific paddling permit is known. Use Jackson County water-trail accesses, follow Iowa boating and PFD rules, and respect posted park hours and parking limits.',
+      camping:
+        'Treat this as a day trip. Jackson County lists many lower-river accesses, but no on-route public camping plan was verified for this specific Monmouth-to-Maquoketa card.',
+      campingClassification: 'none',
+      summary:
+        'Launch from the Monmouth-area Millertown access chain and take out at Bridgeport near Maquoketa for a lower Maquoketa flatwater day. The direct Maquoketa gauge is fresh and route-specific enough for scoring.',
+      accessCaveats: [
+        'Endpoint coordinates are practical access-corridor anchors from the named Jackson County access chain, not surveyed ramp points.',
+        'Bridgeport is the intended take-out for this card. Do not drift downstream into Maquoketa town or flood-control structures without a separate route plan.',
+        'Use only named public accesses such as Millertown, Joinerville, or Bridgeport; the lower river is bordered by private land in places.',
+      ],
+      watchFor: [
+        'Wood and strainers on outside bends, bridge current, muddy banks, and fast rises after upstream rain.',
+        'Low water below about 200 cfs at Maquoketa, when shallow gravel and slow water become likely.',
+        'High water above about 2,500 cfs at Maquoketa, when the lower river becomes pushy for casual groups.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'millertown-bridge-access',
+        name: 'Millertown Bridge Access / Monmouth corridor',
+        latitude: 42.084,
+        longitude: -90.762,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default upstream access anchor; confirm the signed bridge access before launching.',
+      },
+      {
+        id: 'joinerville-park',
+        name: 'Joinerville Park',
+        latitude: 42.078,
+        longitude: -90.690,
+        mileFromStart: 6,
+        segmentKind: 'creek',
+        note: 'Named Jackson County access and practical bailout in the lower Maquoketa access chain.',
+      },
+      {
+        id: 'bridgeport-access',
+        name: 'Bridgeport Access',
+        latitude: 42.0834,
+        longitude: -90.6329,
+        mileFromStart: 12,
+        segmentKind: 'creek',
+        note: 'Default take-out near the Maquoketa gauge corridor.',
+      },
+    ],
+  },
+  'west-nishnabotna-river-oakland-macedonia': {
+    putIn: {
+      id: 'chautauqua-park-oakland',
+      name: 'Chautauqua Park / Oakland Water Trail Access',
+      latitude: 41.30695,
+      longitude: -95.40363,
+    },
+    takeOut: {
+      id: 'olde-town-park-macedonia',
+      name: 'Olde Town Park / Macedonia Water Trail Access',
+      latitude: 41.19627,
+      longitude: -95.44651,
+    },
+    logistics: {
+      distanceLabel: 'About 14 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, wind, or sandbar stops',
+      shuttle:
+        'Stage Olde Town Park first, then return to Chautauqua Park in Oakland. Carson / Millstone City Park is the main intermediate town access if the day needs to be shortened.',
+      permits:
+        'No route-specific paddling permit is known. Use the signed West Nishnabotna River Water Trail accesses, follow Iowa boating and PFD rules, and obey county park hours.',
+      camping:
+        'Treat this as a day trip. The water trail has sandbars for picnic stops, but no verified legal on-route overnight camping was selected for this route.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Oakland and take out at Olde Town Park near Macedonia for a southwest-Iowa water-trail day on the West Nishnabotna. The Randolph gauge is downstream on the same river and gives the live scoring feed.',
+      accessCaveats: [
+        'This route intentionally stops at Olde Town Park, the documented public water-trail access, rather than using the unverified Randolph take-out named by the broader gauge page.',
+        'Olde Town Park can be easy to miss from rural roads; identify the park and landing before leaving the shuttle car.',
+        'Most banks between signed accesses are private or muddy. Use Chautauqua, Carson/Millstone, and Olde Town access areas for planned stops.',
+      ],
+      watchFor: [
+        'Rapid rises after heavy rain or snowmelt; official brochure guidance says not to canoe when the river is quickly rising or near flood stage.',
+        'Mud, sandbars, sweepers, log piles, agricultural runoff, and poor visibility in brown water.',
+        'Long rural spacing between developed exits and possible cell-service gaps.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'chautauqua-park-oakland',
+        name: 'Chautauqua Park / Oakland Water Trail Access',
+        latitude: 41.30695,
+        longitude: -95.40363,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; local tourism sources identify Chautauqua Park as West Nishnabotna Water Trail access.',
+      },
+      {
+        id: 'millstone-city-park-carson',
+        name: 'Millstone City Park / Carson access',
+        latitude: 41.2379,
+        longitude: -95.4219,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Intermediate water-trail town access; verify current signs and landing conditions before relying on it.',
+      },
+      {
+        id: 'olde-town-park-macedonia',
+        name: 'Olde Town Park / Macedonia Water Trail Access',
+        latitude: 41.19627,
+        longitude: -95.44651,
+        mileFromStart: 14,
+        segmentKind: 'creek',
+        note: 'Default take-out; county and tourism sources document West Nishnabotna river access and canoe/tube launching here.',
+      },
+    ],
+  },
   'upper-iowa-river-cattle-creek-malanaphy': consolidatedUpperIowaDetails,
   'crow-wing-river-frames-landing-cottingham': consolidatedCrowWingDetails,
 };
