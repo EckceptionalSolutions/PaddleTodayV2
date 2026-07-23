@@ -39589,6 +39589,187 @@ const retainedRiverTripDetails = Object.fromEntries(
 
 export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...retainedRiverTripDetails,
+  'straight-river-county-road-45-medford': {
+    putIn: {
+      id: 'county-road-45-straight-river',
+      name: 'Straight River, County Road 45 Public Water Access Site',
+      latitude: 44.1484502,
+      longitude: -93.2438302,
+    },
+    takeOut: {
+      id: 'medford-city-park-straight-river',
+      name: 'Straight River, Medford Public Water Access Site',
+      latitude: 44.1775975,
+      longitude: -93.2490711,
+    },
+    logistics: {
+      distanceLabel: 'About 3.7 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with low water or wood',
+      shuttle:
+        'Stage Medford City Park first, then drive back to the County Road 45 access. This is a short shuttle, but inspect both landings because narrow-river wood or low water can quickly decide whether the route is worth running.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted Steele County, City of Medford, and DNR access rules.',
+      camping:
+        'No on-route camping is documented for this short Straight River connector. Treat it as a day paddle and use separate lodging or campground plans.',
+      campingClassification: 'none',
+      summary:
+        'Launch at County Road 45 and take out at Medford City Park for the short Straight River split below Clinton Falls. Use the downstream Faribault DNR gauge as a conservative proxy and make a visual call at the put-in.',
+      accessCaveats: [
+        'County Road 45 resolves as WAS02043 at river mile 20.8 and Medford resolves as WAS02042 at river mile 17.2 in Minnesota public-water-access GIS.',
+        'This card starts below the Clinton Falls portage area and ends before the downstream former Walcott Mill Dam / Kroghs route. Do not stretch either direction without a separate plan.',
+        'The Faribault gauge is downstream of the selected reach, so local shallow spots or wood at County Road 45 can make the route unsuitable even when the gauge is in the official medium band.',
+      ],
+      watchFor: [
+        'Fresh strainers, narrow bends, shallow riffles, and cold water in shoulder seasons.',
+        'Fast rises and pushier current after rain on a small, responsive watershed.',
+        'Private banks and road-adjacent access constraints; use only legal public access points.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'county-road-45-straight-river',
+        name: 'Straight River, County Road 45 Public Water Access Site',
+        latitude: 44.1484502,
+        longitude: -93.2438302,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS02043 at river mile 20.8.',
+      },
+      {
+        id: 'medford-city-park-straight-river',
+        name: 'Straight River, Medford Public Water Access Site',
+        latitude: 44.1775975,
+        longitude: -93.2490711,
+        mileFromStart: 3.7,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS02042 at river mile 17.2.',
+      },
+    ],
+  },
+  'watonwan-river-madelia-county-road-32': {
+    putIn: {
+      id: 'madelia-watonwan',
+      name: 'Watonwan River, Madelia Public Water Access Site',
+      latitude: 44.0393631,
+      longitude: -94.4224647,
+    },
+    takeOut: {
+      id: 'county-road-32-watonwan',
+      name: 'Watonwan River, County Road 32 Public Water Access Site',
+      latitude: 44.0041578,
+      longitude: -94.2886309,
+    },
+    logistics: {
+      distanceLabel: 'About 12.6 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer in low water',
+      shuttle:
+        'Stage County Road 32 first, then drive back to the Madelia public access. Because the Garden City gauge is downstream and currently below the scrapable floor, inspect the Madelia landing and first riffles before leaving a vehicle.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted city, county, and DNR access rules.',
+      camping:
+        'No on-route camping is documented for Madelia to County Road 32. Treat this as a day route; the downstream Blue Earth County Fair campground is not part of this selected segment.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Madelia and take out at County Road 32 for the upstream Watonwan split above the existing CR32-to-Garden-City cards. Use the downstream Garden City gauge conservatively and expect shallow conditions below the DNR scrapable floor.',
+      accessCaveats: [
+        'Madelia resolves as WAS00009 at river mile 47.6 and County Road 32 resolves as WAS00214 at river mile 35.0 in Minnesota public-water-access GIS.',
+        'The Garden City gauge is downstream of this route, so it must be paired with visual checks at the Madelia put-in and County Road 32 take-out.',
+        'This card ends at County Road 32. Downstream CR32-to-Garden-City route cards are separate plans, and the lower river below Garden City remains affected by the Rapidan Dam failure warning.',
+      ],
+      watchFor: [
+        'Low-water scraping, shallow riffles, muddy banks, and possible dragging when Garden City is below the official scrapable floor.',
+        'Occasional snags, fresh farm-country wood, and faster post-rain current even though the Watonwan has no major rapids.',
+        'Private banks and limited public exits between Madelia and County Road 32.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'madelia-watonwan',
+        name: 'Watonwan River, Madelia Public Water Access Site',
+        latitude: 44.0393631,
+        longitude: -94.4224647,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; resolves as WAS00009 at river mile 47.6.',
+      },
+      {
+        id: 'county-road-32-watonwan',
+        name: 'Watonwan River, County Road 32 Public Water Access Site',
+        latitude: 44.0041578,
+        longitude: -94.2886309,
+        mileFromStart: 12.6,
+        segmentKind: 'creek',
+        note: 'Default take-out; resolves as WAS00214 at river mile 35.0.',
+      },
+    ],
+  },
+  'root-river-preston-lanesboro': {
+    putIn: {
+      id: 'root-river-preston-pwa',
+      name: 'Root River, Preston Public Water Access Site',
+      latitude: 43.6700585,
+      longitude: -92.0888915,
+    },
+    takeOut: {
+      id: 'root-river-lanesboro-shorefishing-pwa',
+      name: 'Root River, Lanesboro Shorefishing Public Water Access Site',
+      latitude: 43.7175077,
+      longitude: -91.9781076,
+    },
+    logistics: {
+      distanceLabel: 'About 14.1 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, wood, or campsite stops',
+      shuttle:
+        'Stage the Lanesboro vehicle first, then drive to Preston. Walk the Lanesboro finish and dam-portage area before launching so the group knows where to land and where not to drift.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey posted city, DNR, campground, and parking rules.',
+      camping:
+        'DNR Map 1 labels Riverview Campground watercraft campsite above Lanesboro and Sylvan Park watercraft campsite just below the Lanesboro dam portage. Treat camping as a deliberate campsite or town-basecamp plan, not informal private-bank camping.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Preston and finish in Lanesboro for the missing South Branch Root River route above the existing Lanesboro-to-Peterson card. The Lanesboro DNR gauge is inside the take-out corridor and was in the official medium band during this run.',
+      accessCaveats: [
+        'Preston and Lanesboro both resolve in Minnesota public-water-access GIS with Root River water-trail mile records and coordinates.',
+        'The Lanesboro dam is part of the finish corridor. Identify the access, portage signs, and safe landing before launching.',
+        'The gauge is near the lower end of the route; still make a same-day visual depth and wood check at Preston.',
+      ],
+      watchFor: [
+        'Shallow riffles and scrape risk when Lanesboro drops below the medium band.',
+        'Fresh sweepers, strainers, and debris after thunderstorms in the smaller South Branch channel.',
+        'The Lanesboro dam and portage corridor, especially if the group is tired late in the day.',
+        'Private banks and limited rural bailouts outside named public sites and mapped campsites.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'root-river-preston-pwa',
+        name: 'Root River, Preston Public Water Access Site',
+        latitude: 43.6700585,
+        longitude: -92.0888915,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; public-water-access GIS resolves WAS00267 at DNR river mile 70.1.',
+      },
+      {
+        id: 'riverview-campground-campsite',
+        name: 'Riverview Campground watercraft campsite',
+        latitude: 43.7168,
+        longitude: -91.9822,
+        mileFromStart: 13.6,
+        segmentKind: 'creek',
+        note: 'DNR Map 1 campsite support near river mile 56.5 above the Lanesboro access and dam corridor.',
+      },
+      {
+        id: 'root-river-lanesboro-shorefishing-pwa',
+        name: 'Root River, Lanesboro Shorefishing Public Water Access Site',
+        latitude: 43.7175077,
+        longitude: -91.9781076,
+        mileFromStart: 14.1,
+        segmentKind: 'creek',
+        note: 'Default take-out; public-water-access GIS resolves WAS00266 and DNR Map 1 places the Lanesboro access/dam corridor near river mile 56.2.',
+      },
+    ],
+  },
   'cedar-creek-covered-bridge-lions': {
     putIn: {
       id: 'covered-bridge-park-cedar-creek',

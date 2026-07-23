@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 10:55 America/Chicago / 2026-07-23 15:55 UTC: Minnesota Straight / Watonwan / Root implementation pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 179-route exported Minnesota baseline: `straight-river-county-road-45-medford`, `watonwan-river-madelia-county-road-32`, and `root-river-preston-lanesboro`, bringing Minnesota to 182 live routes.
+  - Qualification path: MN DNR Cannon/Straight Map 1 plus public-water-access GIS support County-Road-45-to-Medford with downstream same-corridor Faribault site `247`; MN DNR Blue Earth/Watonwan map plus public-water-access GIS support Madelia-to-County-Road-32 with downstream Garden City site `254`; MN DNR Root River Map 1 plus public-water-access GIS support Preston-to-Lanesboro with direct Lanesboro site `204`.
+  - Gauge posture: MN DNR feed returned Straight Faribault `583 cfs`, Watonwan Garden City `1.13 ft`, and South Branch Root Lanesboro `2.73 ft` on 2026-07-23 morning CDT.
+  - Threshold posture: all three use official DNR interpreted bands only: Straight `182 / 220-1370 / 1640 cfs`, Watonwan `2 / 3.5-4.5 / 5.2 ft`, and Root `1.5 / 2.0-3.5 / 4.0 ft`; no route-gallery assets were added after bounded DNR / public-access / Commons / same-route image review.
+
 - 2026-07-23 10:25 America/Chicago / 2026-07-23 15:25 UTC: Wisconsin Cedar Creek / Root River / Beaver Dam implementation pass (`wisconsin-route-additions`).
   - Added three Wisconsin route slugs beyond the current 155-route Wisconsin baseline: `cedar-creek-covered-bridge-lions`, `root-river-five-mile-horlick`, and `beaver-dam-river-county-s-lowell`, bringing Wisconsin to 158 live routes.
   - Qualification path: WRT / Treasures of Oz / Ozaukee County / Grafton support Cedar Creek Covered-Bridge-to-Lions with direct Cedarburg gauge posture; AW / Miles Paddled / Racine County support Root Five-Mile-to-Horlick with direct W. Eight Mile Road gauge posture; Miles Paddled / WRT / Dodge County support Beaver Dam County-S-to-Lowell with direct Beaver Dam gauge posture.

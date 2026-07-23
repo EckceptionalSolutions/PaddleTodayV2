@@ -1,5 +1,16 @@
 # Minnesota Route Memory
 
+## 2026-07-23 10:55 America/Chicago / 2026-07-23 15:55 UTC Minnesota Straight / Watonwan / Root implementation pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `179` to `182` live route slugs by adding `straight-river-county-road-45-medford`, `watonwan-river-madelia-county-road-32`, and `root-river-preston-lanesboro`.
+- Qualification path: MN DNR Cannon/Straight Map 1 plus public-water-access GIS support County-Road-45-to-Medford with downstream same-corridor Faribault site `247`; MN DNR Blue Earth/Watonwan map plus public-water-access GIS support Madelia-to-County-Road-32 with downstream Garden City site `254`; MN DNR Root River Map 1 plus public-water-access GIS support Preston-to-Lanesboro with direct Lanesboro site `204`.
+- Live gauge verification: MN DNR river-level feed returned Straight Faribault site `247` at `583 cfs` at `2026-07-23 07:15 CDT`, Watonwan Garden City site `254` at `1.13 ft` at `2026-07-23 07:30 CDT`, and South Branch Root Lanesboro site `204` at `2.73 ft` at `2026-07-23 07:30 CDT`.
+- Implemented official DNR interpreted bands only: Straight `182 / 220-1370 / 1640 cfs`, Watonwan `2 / 3.5-4.5 / 5.2 ft`, and Root `1.5 / 2.0-3.5 / 4.0 ft`. Straight and Watonwan are downstream proxy gauges and carry visual-check caveats; Watonwan currently scores below the scrapable floor.
+- Camping posture: Straight and Watonwan are no-camping day routes. Root Preston-to-Lanesboro is `on_route_campsite` capable only through DNR-mapped Riverview and Sylvan watercraft campsite context, with no private-bank camping implied.
+- Safety posture: Straight carries downstream proxy-gauge, no-upstream-Clinton-Falls-extension, fast-rise, strainer, cold-water, and private-bank caveats. Watonwan carries downstream proxy-gauge, below-scrapable low-water, snag/wood, muddy-bank, fast-rise, private-bank, and no-lower-Rapidan-area-continuation caveats. Root carries Lanesboro dam/portage, smaller-channel wood, riffle, private-bank, campsite-use, and same-day depth-check caveats.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+- Reviewed but did not add: Des Moines Mayflower-to-Christianna remains gauge-proxy weak because Jackson is downstream of the needed Windom/Christianna corridor; Cannon Northfield-to-Byllesby was rejected because Northfield Dam is 10 feet high with no developed portage immediately below Riverside City Park.
+
 ## 2026-07-23 08:11 America/Chicago / 2026-07-23 13:11 UTC Minnesota St. Louis / Cannon / Cedar implementation pass
 
 - Treated the current exported route inventory as the run-start baseline and expanded Minnesota from `176` to `179` live route slugs by adding `st-louis-river-forbes-zim`, `cannon-river-riverside-miesville`, and `cedar-river-ramsey-austin-mill-pond`.
