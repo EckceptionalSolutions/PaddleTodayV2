@@ -1,5 +1,15 @@
 # Minnesota Route Memory
 
+## 2026-07-23 04:12 America/Chicago / 2026-07-23 09:12 UTC Minnesota Mississippi/Kettle implementation pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `164` to `167` route slugs by adding `mississippi-river-iron-bridge-county-road-12-dam`, `kettle-river-number-1-number-4`, and `mississippi-river-coon-rapids-riverfront`.
+- Qualification path: MN DNR Mississippi Map 1 / segments page supports Iron Bridge-to-County-Road-12-Dam with public access, lake-transition, Stump Lake dam/portage, watercraft-campsite, and private-bank rule context. MN DNR Kettle Maps 1/2 plus Banning State Park sources support #1-to-#4 with access sequence, whitewater, falls/portages, and watercraft campsite context. MN DNR Mississippi Map 9 / segments page supports Coon Rapids Dam-to-Riverfront as the official 6.1-mile day trip with Durnam Island Rapids Class I and dam-area launch context.
+- Live gauge verification: MN DNR river-level feed returned Stump Lake site `341` at `2.99 ft`, Wilton site `155` at `41.69 ft`, Kettle Sandstone site `68` at `138 cfs`, and Mississippi Hwy 610 site `302` at `3790 cfs` on 2026-07-23 early morning CDT.
+- Implemented official DNR interpreted bands only: Stump Lake `1.8 / 2.8-3.6 / 5.0 ft`, Wilton context `39.1 / 40.0-42.5 / 45.0 ft`, Kettle Sandstone `800 / 1000-1500 / 2000 cfs`, and Hwy 610 `3060 / 8670-28300 / 33000 cfs`. No extra ideal ranges or upper cutoffs were inferred.
+- Camping posture: Iron-Bridge-to-County-Road-12-Dam and Kettle #1-to-#4 are `on_route_campsite` capable only through mapped/designated DNR watercraft campsite or Banning State Park context. Coon-Rapids-to-Riverfront is a no-camping day route.
+- Safety posture: Iron-Bridge-to-County-Road-12-Dam carries long-mileage, lake wind, dam/portage-boundary, cold-water, strainer, and private-bank caveats. Kettle #1-to-#4 is advanced/whitewater-filtered with Banning Rapids, Big Spring Falls, Sandstone Rapids, mandatory scouting/portage, low-water dragging, cold-water, and fast-rise caveats. Coon-Rapids-to-Riverfront carries below-dam launch discipline, Durnam Island Rapids Class I, bridge/wake/debris, urban stormwater, private-bank, and cold-water caveats.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / park / county / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected for local reuse.
+
 ## 2026-07-23 03:10 America/Chicago / 2026-07-23 08:10 UTC Minnesota Mississippi Map 1 implementation pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `161` to `164` route slugs by adding `mississippi-river-coffee-pot-bear-den`, `mississippi-river-bear-den-iron-bridge`, and `mississippi-river-county-road-12-dam-county-road-25`.
