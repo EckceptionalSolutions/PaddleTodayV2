@@ -34020,4 +34020,372 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'prairie-river-county-j-county-c': {
+    putIn: {
+      id: 'prairie-river-county-j-bridge',
+      name: 'County Road J bridge / fishing-corridor access',
+      latitude: 45.29389,
+      longitude: -89.54626,
+    },
+    takeOut: {
+      id: 'prairie-river-county-c-access',
+      name: 'County Road C Prairie River access',
+      latitude: 45.23554,
+      longitude: -89.65006,
+    },
+    logistics: {
+      distanceLabel: 'About 10 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with scouting, low water, or swims',
+      shuttle:
+        'Run a rural shuttle from County Road C back to the County Road J bridge area near Bloomville. Inspect both bridge accesses before unloading because neither is a full-service launch.',
+      permits:
+        'No route-specific paddling permit is known. Use only the bridge/fishing-corridor access areas, follow fishing and parking postings, and avoid private banks.',
+      camping:
+        'No on-route camping is documented. Treat this as a day route; Council Grounds State Park or Merrill-area camping is separate basecamp planning, not part of this route.',
+      campingClassification: 'none',
+      summary:
+        'Launch at County Road J and take out at County Road C for the Prairie River Dells route. The app uses the direct Merrill gauge with a minimum-only floor because the strongest source publishes a low-water minimum and better recreational floor, not a complete high-water ladder.',
+      accessCaveats: [
+        'County Road J is a bridge/fishing-corridor put-in. Miles Paddled notes good nearby parking but no developed ramp; confirm shoulder, pull-off, and bank condition.',
+        'County Road C is an established downstream-left take-out, but it is still a roadside river access. Do not climb private banks or block the road.',
+        'Do not assume the Dells can be casually scouted once committed. If the group is not comfortable with Class II boulder drops, pick an easier Prairie or Wisconsin River card.',
+      ],
+      watchFor: [
+        'A narrow Dells mile with Class I-II+ ledges, boulders, rock walls, few eddies, and pin/swim consequences.',
+        'Scraping, risky hang-ups, and forced rock dodging below about 200 cfs on the Merrill gauge.',
+        'Fresh wood, fast rises after rain, cold water, private banks, and limited rescue access in the Dells corridor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'prairie-river-county-j-bridge',
+        name: 'County Road J bridge / fishing-corridor access',
+        latitude: 45.29389,
+        longitude: -89.54626,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in near Bloomville; bridge-style access with nearby fishing-corridor parking.',
+      },
+      {
+        id: 'prairie-river-county-c-access',
+        name: 'County Road C Prairie River access',
+        latitude: 45.23554,
+        longitude: -89.65006,
+        mileFromStart: 10,
+        segmentKind: 'creek',
+        note: 'Default take-out downstream-left at County Road C.',
+      },
+    ],
+  },
+
+  'prairie-river-county-c-stanges': {
+    putIn: {
+      id: 'prairie-river-county-c-access',
+      name: 'County Road C Prairie River access',
+      latitude: 45.23552,
+      longitude: -89.65012,
+    },
+    takeOut: {
+      id: 'stanges-park',
+      name: "Stange's Park",
+      latitude: 45.18096,
+      longitude: -89.70142,
+    },
+    logistics: {
+      distanceLabel: 'About 9.25 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, depending on current and stops',
+      shuttle:
+        "Stage the take-out at Stange's Park in Merrill, then drive back to County Road C. Scout the County C downstream-left launch and the Stange's Park river-right take-out before committing.",
+      permits:
+        'No route-specific paddling permit is known. Follow local park and parking rules, use the named access areas, and avoid private banks through the Merrill approach.',
+      camping:
+        'No on-route camping is documented. Treat this as a day trip; Merrill-area lodging or Council Grounds State Park are separate basecamp options.',
+      campingClassification: 'none',
+      summary:
+        "Launch at County Road C and take out at Stange's Park for the lower Prairie River run into Merrill. The route uses the direct Merrill gauge and Miles Paddled's 200-400 cfs recommendation.",
+      accessCaveats: [
+        'Miles Paddled says the correct County C launch is downstream left; the upstream-left riprap is not suitable.',
+        "Stange's Park is a public Merrill park, but the river take-out is a grassy bank cue rather than a large boat ramp. Identify it from land first.",
+        'Do not extend to the Wisconsin River without separate planning for the mouth, bike-path bridge, reservoir current, and downstream dam context.',
+      ],
+      watchFor: [
+        'Class I riffles, rocks and boulders, S-curves, low trees, and occasional strainers.',
+        'Scraping or walking below 200 cfs on the Merrill gauge.',
+        'Pushier bends and wood much above 400 cfs, especially in the narrower or more urban lower miles.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'prairie-river-county-c-access',
+        name: 'County Road C Prairie River access',
+        latitude: 45.23552,
+        longitude: -89.65012,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in downstream-left of County Road C.',
+      },
+      {
+        id: 'prairie-trails-park',
+        name: 'Prairie Trails Park',
+        latitude: 45.1919,
+        longitude: -89.6886,
+        mileFromStart: 7,
+        segmentKind: 'creek',
+        note: 'River-left rest stop after County K with landing/facility support in the trip report.',
+      },
+      {
+        id: 'stanges-park',
+        name: "Stange's Park",
+        latitude: 45.18096,
+        longitude: -89.70142,
+        mileFromStart: 9.25,
+        segmentKind: 'creek',
+        note: 'Default Merrill take-out on river right.',
+      },
+    ],
+  },
+
+  'rock-river-willow-street-johnson-creek': {
+    putIn: {
+      id: 'rock-river-willow-street-watertown',
+      name: 'Willow Street / Front Street launch corridor',
+      latitude: 43.18576,
+      longitude: -88.70475,
+    },
+    takeOut: {
+      id: 'rock-river-park-johnson-creek',
+      name: 'Rock River Park / County Road B',
+      latitude: 43.07137,
+      longitude: -88.79488,
+    },
+    logistics: {
+      distanceLabel: 'About 16.75 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, wind, or long stops',
+      shuttle:
+        'Stage Rock River Park first, verify the park and launch are open, then drive back to the Willow Street / Front Street launch corridor below the Watertown dam. This is a long rural shuttle and should start early.',
+      permits:
+        'No route-specific paddling permit is known. Jefferson County may require boat-launch permits at Rock River Park; follow all city, county, boating, PFD, and posted park rules.',
+      camping:
+        'No on-route camping is documented for this Watertown-to-Johnson-Creek day card. Treat Rock River water-trail camping references as broader-corridor context unless a specific campsite is separately reserved and confirmed.',
+      campingClassification: 'none',
+      summary:
+        'Launch below downtown Watertown and take out at Jefferson County Rock River Park for a long upper-Rock water-trail day. The app uses the direct Watertown gauge as minimum-only because the route source gives a trip level, not a full threshold ladder.',
+      accessCaveats: [
+        'Stay below the Watertown dam corridor for this route. Starting above a dam or improvising a portage changes the hazard model.',
+        'Willow Street is a water-trail access with street-parking context rather than a full-service launch. Check current local signs and construction before unloading.',
+        'Rock River Park can close during flooding, and Jefferson County notes boat-launch permit requirements. Confirm take-out access before launch.',
+      ],
+      watchFor: [
+        'Long mileage, headwinds, motorboat wake, shallow bars, fatigue, thunderstorms, and few simple bailout points.',
+        'Wood, strainers, private banks, bridge current, and fast or rising water after rain.',
+        'Flooding or high water that affects Rock River Park, plus a below-floor Watertown gauge that can mean slow, shallow progress.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'rock-river-willow-street-watertown',
+        name: 'Willow Street / Front Street launch corridor',
+        latitude: 43.18576,
+        longitude: -88.70475,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in below the Watertown dam corridor.',
+      },
+      {
+        id: 'rock-river-park-johnson-creek',
+        name: 'Rock River Park / County Road B',
+        latitude: 43.07137,
+        longitude: -88.79488,
+        mileFromStart: 16.75,
+        segmentKind: 'creek',
+        note: 'Default take-out at Jefferson County Rock River Park near Johnson Creek.',
+      },
+    ],
+  },
+
+  'red-river-kidder-brushvale': {
+    putIn: {
+      name: 'Kidder Recreation Area',
+      latitude: 46.28799,
+      longitude: -96.5982,
+    },
+    takeOut: {
+      name: 'Brushvale Bridge Recreation Area',
+      latitude: 46.36874,
+      longitude: -96.65589,
+    },
+    logistics: {
+      distanceLabel: '10.4 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer with wind, low water, fishing stops, or muddy launches',
+      shuttle:
+        'Stage the take-out at Brushvale Bridge Recreation Area, then drive back to Kidder Recreation Area. Confirm both ramps before launching because they are border-river accesses outside the Minnesota public-water-access GIS layer used for many other MN routes.',
+      permits:
+        'No route-specific paddling permit is known. This is a Minnesota DNR water-trail route on a border river, so confirm Minnesota and North Dakota boating/PFD, fishing, access, and shore-use rules before launch.',
+      camping:
+        'Treat this as a day trip. Do not assume island, mudbank, or private-bank camping is legal; use established public parks or campgrounds off-route if making a base-camp weekend.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Kidder Recreation Area and take out at Brushvale Bridge Recreation Area for MN DNR’s 10.4-mile Red River day trip. The RR1 gauge is at the take-out river mile and has official DNR bands.',
+      accessCaveats: [
+        'DNR says there are boat ramps at both the Kidder put-in and Brushvale take-out, but the route is on the Minnesota/North Dakota border and the access records are not in the Minnesota public-water-access GIS layer.',
+        'Use the RR1 gauge as the primary same-day level check, then inspect both ramps for mud, debris, closure signs, bank condition, and current.',
+        'The Red touches two states. Avoid private banks, farm approaches, and unmarked shore stops unless current public access is clear.',
+      ],
+      watchFor: [
+        'Low water below 3.8 ft at RR1, when mud, bars, and poor boat control can make the route unsuitable.',
+        'High or rising water above 9.5 ft at RR1, floodplain debris, fast current, and harder recovery in a broad muddy channel.',
+        'Snags, islands, bridge current, fishing lines, motorboats, wind exposure, storms, and limited quick exits.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'kidder-recreation-area',
+        name: 'Kidder Recreation Area',
+        latitude: 46.28799,
+        longitude: -96.5982,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in; MN DNR lists Kidder Recreation Area at river mile 555.5 with a boat ramp.',
+      },
+      {
+        id: 'brushvale-bridge-recreation-area',
+        name: 'Brushvale Bridge Recreation Area',
+        latitude: 46.36874,
+        longitude: -96.65589,
+        mileFromStart: 10.4,
+        segmentKind: 'creek',
+        note: 'Default take-out; MN DNR lists Brushvale Bridge Recreation Area at river mile 545.1 with a boat ramp and the RR1 gauge at the same river mile.',
+      },
+    ],
+  },
+
+  'st-louis-river-paupores-brookston': {
+    putIn: {
+      name: 'St. Louis River, Paupores Public Water Access Site',
+      latitude: 46.8741117,
+      longitude: -92.7652286,
+    },
+    takeOut: {
+      name: 'St. Louis River, Brookston Public Water Access Site',
+      latitude: 46.8693332,
+      longitude: -92.6040058,
+    },
+    logistics: {
+      distanceLabel: '7.9 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low water, rapid scouting, fishing, or campsite stops',
+      shuttle:
+        'Stage Brookston first, then drive back to Paupores. Inspect both small trailer accesses before launching because low water, mud, downed trees, or local parking conditions can change the day.',
+      permits:
+        'No route-specific paddling permit is known. Use the named DNR public accesses, follow Minnesota boating/PFD rules, and obey watercraft-campsite, fire, trash, and posted access rules.',
+      camping:
+        'DNR identifies watercraft campsites on St. Louis River Map 2, making this segment overnight-capable only if the group has a confirmed legal campsite plan. Do not camp on private banks or informal railroad-side stops.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Paupores and take out at Brookston for the official 7.9-mile MN DNR Map 2 day trip. Use the upstream Floodwood gauge conservatively and make a same-day visual call for shallow rapids and wood.',
+      accessCaveats: [
+        'Paupores and Brookston resolve as DNR Division of Parks and Trails public access sites in Minnesota public-water-access GIS.',
+        'The Floodwood gauge is upstream of this route. It is the official same-map gauge used for scoring, but local depth and wood at the launch still control.',
+        'Railroad tracks follow parts of the river corridor. Do not use rail property, private banks, or unmarked landings as routine exits.',
+      ],
+      watchFor: [
+        'Class I-II rapids, some dangerous in high water, plus shallow rocky lines when the Floodwood gauge is below the official low band.',
+        'Downed trees, strainers, cold water, fast rises after rain, muddy banks, and rural rescue spacing.',
+        'Watercraft-campsite availability and rules if planning more than a day trip.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'st-louis-paupores',
+        name: 'St. Louis River, Paupores Public Water Access Site',
+        latitude: 46.8741117,
+        longitude: -92.7652286,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at DNR Map 2 river mile 61.8; resolves as WAS00609.',
+      },
+      {
+        id: 'st-louis-brookston',
+        name: 'St. Louis River, Brookston Public Water Access Site',
+        latitude: 46.8693332,
+        longitude: -92.6040058,
+        mileFromStart: 7.9,
+        segmentKind: 'creek',
+        note: 'Default take-out at DNR Map 2 river mile 53.9; resolves as WAS02081.',
+      },
+    ],
+  },
+
+  'watonwan-river-county-road-32-garden-city': {
+    putIn: {
+      name: 'Watonwan River, Co Rd 32 Public Water Access Site',
+      latitude: 44.0041578,
+      longitude: -94.2886309,
+    },
+    takeOut: {
+      name: 'Watonwan River, Garden City Public Water Access Site',
+      latitude: 44.0461054,
+      longitude: -94.157931,
+    },
+    logistics: {
+      distanceLabel: 'About 14.6 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, wood, wind, or fishing stops',
+      shuttle:
+        'Stage Garden City first, then drive back to the County Road 32 access. Check the County Road 20 and Highway 169 accesses during shuttle if the group may need a shorter bailout.',
+      permits:
+        'No route-specific paddling permit is known. Use Blue Earth County and DNR public accesses, follow Minnesota boating/PFD rules, and obey WMA/WPA, county, and posted access rules.',
+      camping:
+        'Treat this as a day trip. DNR identifies nearby wildlife areas along the Watonwan corridor, but this selected access pair has no documented on-route watercraft campsite; do not camp on private farmland banks.',
+      campingClassification: 'none',
+      summary:
+        'Launch at County Road 32 and take out at Garden City for a lower Watonwan access-pair day inside the broader MN DNR Madelia-to-Garden-City paddling corridor. The Garden City gauge provides official bands, but this exact split is product-selected rather than a named DNR day trip.',
+      accessCaveats: [
+        'County Road 32, County Road 20, Highway 169, and Garden City all resolve as public Watonwan River access sites in Minnesota public-water-access GIS.',
+        'The Garden City gauge is the lower-corridor level check. Pair it with a visual inspection at County Road 32 because low-water depth and fresh wood can vary upstream.',
+        'Most banks are private agricultural land. Use public accesses for launch, landing, and bailouts rather than farm banks or field roads.',
+      ],
+      watchFor: [
+        'Snags and fallen trees on bends; DNR says an unwary paddler can be tipped by wood.',
+        'Low water below 2.0 ft at Garden City, muddy landings, shallow riffles, and slow progress.',
+        'Fast current after rain, floating debris, storms, wind on open farmland bends, and limited public exits between mapped accesses.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'watonwan-county-road-32',
+        name: 'Watonwan River, Co Rd 32 Public Water Access Site',
+        latitude: 44.0041578,
+        longitude: -94.2886309,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Default put-in at public-water-access river mile 35.0; resolves as WAS00214.',
+      },
+      {
+        id: 'watonwan-county-road-20',
+        name: 'Watonwan River, Co Rd 20 Public Water Access Site',
+        latitude: 44.0252735,
+        longitude: -94.2290481,
+        mileFromStart: 5.5,
+        segmentKind: 'creek',
+        note: 'Intermediate public access and practical bailout at river mile 29.5; resolves as WAS00213.',
+      },
+      {
+        id: 'watonwan-highway-169',
+        name: 'Watonwan River, Hwy #169 Public Water Access Site',
+        latitude: 44.0491569,
+        longitude: -94.1714393,
+        mileFromStart: 13.8,
+        segmentKind: 'creek',
+        note: 'Late-route public access near the northwest edge of Garden City at river mile 21.2; resolves as WAS02056.',
+      },
+      {
+        id: 'watonwan-garden-city',
+        name: 'Watonwan River, Garden City Public Water Access Site',
+        latitude: 44.0461054,
+        longitude: -94.157931,
+        mileFromStart: 14.6,
+        segmentKind: 'creek',
+        note: 'Default take-out near the Blue Earth County Fairgrounds at river mile 20.4; resolves as WAS02055.',
+      },
+    ],
+  },
 };

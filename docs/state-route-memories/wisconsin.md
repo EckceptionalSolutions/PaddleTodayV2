@@ -1,5 +1,9 @@
 # Wisconsin Route Memory
 
+- 2026-07-22 19:12 America/Chicago / 2026-07-23 00:12 UTC: current-baseline implementation pass added `prairie-river-county-j-county-c`, `prairie-river-county-c-stanges`, and `rock-river-willow-street-johnson-creek`, bringing this checkout from 113 to 116 Wisconsin routes. Historical memory referenced the same Prairie/Rock family from an older automation branch, but these slugs were absent from the run-start repo baseline and were reintroduced as current-state additions.
+- Source posture: Prairie River III and II use Miles Paddled exact route pages for endpoint coordinates, mileage, class, hazards, and Merrill-gauge thresholds, with City of Merrill / Paddle Merrill context for Stange's Park and the lower Prairie corridor. Rock River Watertown-to-Johnson-Creek uses Miles Paddled endpoint/gauge support, Rock River National Water Trail corridor materials, the Rock River Trail inventory/plan, and Jefferson County Rock River Park launch context.
+- Live gauge verification: USGS Water Services returned Prairie River near Merrill `05394500` at `102 cfs / 1.97 ft` and Rock River at Watertown `05425500` at `130 cfs / 1.24 ft` at 2026-07-22 18:00 CDT. Prairie J-to-C ships below its `155 cfs` route minimum; Prairie C-to-Stange's ships below its `200-400 cfs` practical band; Rock Willow-to-Johnson-Creek ships below its conservative `182 cfs` floor. No route-gallery assets were added; image audit rows record bounded no-image outcomes.
+
 - 2026-07-22 18:06 America/Chicago / 2026-07-22 23:06 UTC: current-baseline implementation pass added `pine-river-highway-55-stevens-lake`, `pine-river-stevens-lake-chipmunk-rapids`, and `pine-river-chipmunk-rapids-bull-falls`, bringing this checkout from 110 to 113 Wisconsin routes. These upper Florence County Pine River slugs were absent from the run-start inventory even though older memory referenced a previous automation pass.
 - Source posture: all three use American Whitewater Pine A/B/C exact reach pages for geometry, difficulty, endpoint coordinates, hazards, and USGS `04064500` stage correlations; Wisconsin DNR Pine-Popple Wild Rivers guidance for water-level, season, rapids/falls, and portage safety; USFS Chipmunk Rapids Recreation Area for endpoint carry-in/camping support; plus Miles Paddled context for practical route character.
 - Live gauge verification: USGS Water Services returned Pine River below Pine River Powerplant `04064500` at `177 cfs / 1.88 ft` at 2026-07-22 17:00 CDT. All three cards ship below their AW low-runnable floors (`3.3 ft` for Pine A; `2.0 ft` for Pine B/C). No route-gallery assets were added; image audit rows record bounded no-image outcomes for all three slugs.
@@ -16,12 +20,12 @@
 - Source posture: Brule B1/B3 use Wisconsin Trail Guide exact pages plus GPX endpoint coordinates, route mileage, camping/no-camping notes, hazards, and the direct Highway-2 gauge minimum of `220 cfs / 3.5 ft`; Pine Island uses Wisconsin River Trips, Miles Paddled GPS/gauge context, Wisconsin DNR Pine Island access/no-camping rules, and USGS `05404000`.
 - Live gauge verification: USGS Water Services returned Brule `04060993` at `205 cfs / 3.56 ft` and Wisconsin Dells `05404000` at `2720 cfs / 2.01 ft` during this run. No route-gallery image was added; image audit rows record bounded no-image outcomes.
 
-Last summarized: 2026-07-22 17:10 America/Chicago / 2026-07-22 22:10 UTC.
+Last summarized: 2026-07-22 19:12 America/Chicago / 2026-07-23 00:12 UTC.
 
 ## Current Inventory
 
-- Live routes: 113 after the 2026-07-22 18:06 implementation pass.
-- Top represented rivers: Wisconsin River 12, Milwaukee River 6, Pine River 6, Wolf River 5, Bark River 4, Big Rib River 4, Bois Brule River 4, Chippewa River 4, Kickapoo River 4, Peshtigo River 4, Baraboo River 3, Brule River 3, Sugar River 3, Turtle Creek 3, Badfish Creek 2, Eau Claire River - East Branch 2, Flambeau River 2, Pecatonica River 2, Pike River 2, Red Cedar River 2.
+- Live routes: 116 after the 2026-07-22 19:12 implementation pass.
+- Top represented rivers: Wisconsin River 12, Milwaukee River 6, Pine River 6, Wolf River 5, Bark River 4, Big Rib River 4, Bois Brule River 4, Chippewa River 4, Kickapoo River 4, Peshtigo River 4, Baraboo River 3, Brule River 3, Fox River 3, Prairie River 3, Sugar River 3, Turtle Creek 3, Badfish Creek 2, Eau Claire River - East Branch 2, Flambeau River 2, Pecatonica River 2.
 - Ledger candidates: 24 Wisconsin candidates tracked in the current compact ledger slice; 23 added/implemented and 1 `duplicate_corridor`.
 
 ## Status
