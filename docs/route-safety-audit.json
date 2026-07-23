@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-23T17:27:49.326Z",
-  "routeCount": 838,
-  "issueCount": 612,
+  "generatedAt": "2026-07-23T19:28:14.809Z",
+  "routeCount": 853,
+  "issueCount": 610,
   "summary": {
     "Critical": 0,
-    "High": 371,
+    "High": 369,
     "Medium": 241,
     "Low": 0
   },
@@ -1615,28 +1615,6 @@
       "category": "Obstruction",
       "message": "Route text mentions wood or obstruction hazards.",
       "evidence": "day recommendation. Not especially technical at sane levels, but 15-plus miles, wood, and a lower-river shuttle make this more of a committed river day than a casual park float. This route now has both official access support and official DNR level guidance fo"
-    },
-    {
-      "routeId": "otter-tail-river-phelps-mill-west-lost-lake",
-      "slug": "otter-tail-river-phelps-mill-west-lost-lake",
-      "name": "Otter Tail River",
-      "reach": "Phelps Mill County Park to West Lost Lake",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "-West Lost Lake section gentle and enjoyable for a couple of hours. Phelps Mill dam/portage discipline, low-water dragging, and wind on West Lost Lake remain the practical hazards. Confidence is high for the official route and endpoints: DNR Map 2 identifies P"
-    },
-    {
-      "routeId": "otter-tail-river-phelps-mill-west-red-river-lake",
-      "slug": "otter-tail-river-phelps-mill-west-red-river-lake",
-      "name": "Otter Tail River",
-      "reach": "Phelps Mill County Park to West Red River Lake",
-      "state": "Minnesota",
-      "severity": "High",
-      "category": "Dam",
-      "message": "Route text mentions dam, portage, hydro, or release hazards.",
-      "evidence": "downstream Elizabeth gauge in the official medium band during this run. Hazards Dam/portage, bridges, obstructions, lake wind DNR Otter Tail materials warn paddlers to review dam, culvert, bridge, obstruction, low-water, and windy-lake conditions before paddli"
     },
     {
       "routeId": "pomme-de-terre-river-larson-appleton",
