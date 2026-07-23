@@ -1,5 +1,9 @@
 # Wisconsin Route Memory
 
+- 2026-07-22 20:20 America/Chicago / 2026-07-23 01:20 UTC: current-baseline implementation pass added `jump-south-fork-county-line-little-falls`, `jump-south-fork-little-falls-big-falls`, and `st-croix-river-gordon-dam-riverside`, bringing this checkout from 116 to 119 Wisconsin routes. Historical memory mentioned South Fork Jump / St. Croix family work in older contexts, but these slugs were absent from the run-start repo baseline and count as current-state additions.
+- Source posture: both South Fork Jump cards use American Whitewater exact reach pages for geometry, endpoint coordinates, difficulty, feature hazards, and route-specific USGS `05362000` runnable bands; Price County / Travel Wisconsin corroborate Big Falls County Park and first-come campground support. The St. Croix Gordon-to-Riverside card uses NPS Map 4 for the official access/campsite/hazard corridor and American Whitewater for the exact reach, endpoint coordinates, and route-specific USGS `05333500` threshold band.
+- Live gauge verification: USGS Water Services returned Jump River at Sheldon `05362000` at `49.2 cfs / 2.96 ft` at 2026-07-22 18:00 CDT and St. Croix River near Danbury `05333500` at `729 cfs / 0.69 ft` at 2026-07-22 19:00 CDT. All three cards currently warn below their AW runnable floors. No route-gallery assets were added; image audit rows record bounded no-image outcomes for all three slugs.
+
 - 2026-07-22 19:12 America/Chicago / 2026-07-23 00:12 UTC: current-baseline implementation pass added `prairie-river-county-j-county-c`, `prairie-river-county-c-stanges`, and `rock-river-willow-street-johnson-creek`, bringing this checkout from 113 to 116 Wisconsin routes. Historical memory referenced the same Prairie/Rock family from an older automation branch, but these slugs were absent from the run-start repo baseline and were reintroduced as current-state additions.
 - Source posture: Prairie River III and II use Miles Paddled exact route pages for endpoint coordinates, mileage, class, hazards, and Merrill-gauge thresholds, with City of Merrill / Paddle Merrill context for Stange's Park and the lower Prairie corridor. Rock River Watertown-to-Johnson-Creek uses Miles Paddled endpoint/gauge support, Rock River National Water Trail corridor materials, the Rock River Trail inventory/plan, and Jefferson County Rock River Park launch context.
 - Live gauge verification: USGS Water Services returned Prairie River near Merrill `05394500` at `102 cfs / 1.97 ft` and Rock River at Watertown `05425500` at `130 cfs / 1.24 ft` at 2026-07-22 18:00 CDT. Prairie J-to-C ships below its `155 cfs` route minimum; Prairie C-to-Stange's ships below its `200-400 cfs` practical band; Rock Willow-to-Johnson-Creek ships below its conservative `182 cfs` floor. No route-gallery assets were added; image audit rows record bounded no-image outcomes.
@@ -20,11 +24,11 @@
 - Source posture: Brule B1/B3 use Wisconsin Trail Guide exact pages plus GPX endpoint coordinates, route mileage, camping/no-camping notes, hazards, and the direct Highway-2 gauge minimum of `220 cfs / 3.5 ft`; Pine Island uses Wisconsin River Trips, Miles Paddled GPS/gauge context, Wisconsin DNR Pine Island access/no-camping rules, and USGS `05404000`.
 - Live gauge verification: USGS Water Services returned Brule `04060993` at `205 cfs / 3.56 ft` and Wisconsin Dells `05404000` at `2720 cfs / 2.01 ft` during this run. No route-gallery image was added; image audit rows record bounded no-image outcomes.
 
-Last summarized: 2026-07-22 19:12 America/Chicago / 2026-07-23 00:12 UTC.
+Last summarized: 2026-07-22 20:20 America/Chicago / 2026-07-23 01:20 UTC.
 
 ## Current Inventory
 
-- Live routes: 116 after the 2026-07-22 19:12 implementation pass.
+- Live routes: 119 after the 2026-07-22 20:20 implementation pass.
 - Top represented rivers: Wisconsin River 12, Milwaukee River 6, Pine River 6, Wolf River 5, Bark River 4, Big Rib River 4, Bois Brule River 4, Chippewa River 4, Kickapoo River 4, Peshtigo River 4, Baraboo River 3, Brule River 3, Fox River 3, Prairie River 3, Sugar River 3, Turtle Creek 3, Badfish Creek 2, Eau Claire River - East Branch 2, Flambeau River 2, Pecatonica River 2.
 - Ledger candidates: 24 Wisconsin candidates tracked in the current compact ledger slice; 23 added/implemented and 1 `duplicate_corridor`.
 
