@@ -1,7 +1,12 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-24T11:05:00Z",
+  "updatedAt": "2026-07-24T11:12:00Z",
   "notes": [
+    {
+      "date": "2026-07-24",
+      "automation": "minnesota-route-additions-2",
+      "summary": "Added three Minnesota route slugs beyond the 235-route current Minnesota baseline: red-lake-river-fisher-red-river-recreation, cloquet-river-bear-lake-road-island-lake, and cannon-river-miesville-highway-61, bringing Minnesota to 238 live routes. Sources included MN DNR Red Lake, Cloquet, and Cannon water-trail maps/pages, MN DNR interpreted river-level feed, and Minnesota public-water-access GIS. Current DNR checks returned Fisher site 175 at 240 cfs at 2026-07-24 04:30 CDT in official medium, Brimson site 288 at 1486.03 ft at 2026-07-24 04:45 CDT in official low, and Welch site 13 at 872 cfs at 2026-07-24 04:00 CDT in official medium. No route-gallery image was selected after bounded DNR / public-access / Commons / same-route review. Reviewed but did not add Red Lake Kratka-to-Smiley because DNR site 179 was stale, Root Whalan/Lanesboro-style ideas as already covered or contained, and Des Moines Mayflower-to-Christianna as still proxy weak."
+    },
     {
       "date": "2026-07-24",
       "automation": "iowa-route-additions",
@@ -2571,6 +2576,135 @@
     "2026-07-22 16:05 America/Chicago / 2026-07-22 21:05 UTC Minnesota implementation pass. Added three Minnesota route slugs beyond the current 130-route Minnesota baseline: `mississippi-river-highway-6-trommald`, `mississippi-river-kiwanis-crow-wing-state-park`, and `mississippi-river-royalton-stearns-county-park`, bringing the checkout to 133 Minnesota routes. Qualification path: MN DNR Mississippi Maps 5/6/7, Mississippi Headwaters Board signed excursions for Highway 6 and Kiwanis, MN DNR river-level site data for Brainerd site 121 and Royalton site 149, and Minnesota public-water-access GIS for Highway 6 WAS00999, Trommald WAS02294, Kiwanis WAS01003, Crow Wing State Park WAS00990, Royalton WAS00463, and Mississippi River County Park / Stearns County Park WAS01283. Brainerd returned 952 cfs at 2026-07-22 14:30 CDT, in the official low band below medium; Royalton returned 2,040 cfs at 2026-07-22 14:15 CDT, barely inside the official low band. No route-gallery assets were added; bounded DNR / MHB / public-access / USGS / Commons review found no clearly rights-clean exact-route images."
   ],
   "candidates": [
+    {
+      "candidateId": "mn-red-lake-river-fisher-red-river-recreation-2026-07-24",
+      "river": "Red Lake River",
+      "route": "Fisher Landing to Red River Recreation Area",
+      "state": "MN",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "red-lake-river-fisher-red-river-recreation",
+      "sourceQuality": "official MN DNR water-trail map / official interpreted DNR gauge / Minnesota public-water-access GIS",
+      "gauge": {
+        "provider": "MN DNR",
+        "siteId": "175",
+        "siteName": "Red Lake River at Fisher, MN",
+        "kind": "same-route put-in direct",
+        "latest": "240 cfs at 2026-07-24 04:30 CDT via MN DNR river-level feed"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "237-1,960 cfs medium with 195 cfs scrapable floor and 2,850 cfs very-high cutoff",
+        "source": "MN DNR interpreted river-level bands for Fisher",
+        "strength": "official",
+        "caveat": "Gauge sits at the put-in for a long downstream route, so wind, debris, and local visual checks still matter."
+      },
+      "access": {
+        "putIn": "Fisher Landing Public Water Access Site WAS02138 at Red Lake River mile 27.9",
+        "takeOut": "Red River Rec. Area Public Water Access Site WAS02136 near Red Lake River mile 0.3",
+        "coordinateSource": "Minnesota public-water-access GIS"
+      },
+      "caveats": [
+        "Mandatory take-out above the East Grand Forks constructed rock rapids.",
+        "Long lower-river day with sparse public exits and private banks.",
+        "Endpoint campground context only at Red River State Recreation Area.",
+        "Wind, mud, snags, flood debris, cold water, and limited rescue exposure."
+      ],
+      "imageStatus": "No route-gallery image added; bounded DNR / public-access / Commons / same-route review did not find a clearly rights-clean exact-route paddling asset.",
+      "sources": [
+        "https://www.dnr.state.mn.us/state-water-trails/red-lake-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/redlake2.pdf",
+        "https://www.dnr.state.mn.us/river_levels/index.html",
+        "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      ]
+    },
+    {
+      "candidateId": "mn-cloquet-river-bear-lake-road-island-lake-2026-07-24",
+      "river": "Cloquet River",
+      "route": "Bear Lake Road to Island Lake",
+      "state": "MN",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "cloquet-river-bear-lake-road-island-lake",
+      "sourceQuality": "official MN DNR water-trail map / official interpreted DNR gauge / Minnesota public-water-access GIS",
+      "gauge": {
+        "provider": "MN DNR",
+        "siteId": "288",
+        "siteName": "Cloquet River near Brimson, CSAH44",
+        "kind": "upstream same-map proxy",
+        "latest": "1486.03 ft at 2026-07-24 04:45 CDT via MN DNR river-level feed"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "1487-1489.5 ft medium with 1485 ft scrapable floor and 1491 ft very-high cutoff",
+        "source": "MN DNR interpreted river-level bands for Brimson",
+        "strength": "official",
+        "caveat": "Applied to the downstream Bear-Lake-to-Island-Lake split because it is on the same DNR Map 2 corridor; requires same-day visual checks at Bear Lake Road."
+      },
+      "access": {
+        "putIn": "Severson Landing / Bear Lake Road Public Water Access Site WAS01633 at DNR river mile 61.5",
+        "takeOut": "Island Lake Minnesota Power North Public Water Access Site WAS02579 at DNR river mile 35.0",
+        "coordinateSource": "Minnesota public-water-access GIS"
+      },
+      "caveats": [
+        "RouteType whitewater with Class I-II rapids and likely scout or portage decisions.",
+        "Remote water-trail corridor with primitive campsite planning only.",
+        "Fast rises, wood, cold water, limited road exits, and low-water rock exposure.",
+        "Open-water wind and boat traffic on Island Lake near the finish."
+      ],
+      "imageStatus": "No route-gallery image added; bounded DNR / public-access / Commons / same-route review did not find a clearly rights-clean exact-route paddling asset.",
+      "sources": [
+        "https://www.dnr.state.mn.us/state-water-trails/cloquet-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/cloquet2.pdf",
+        "https://www.dnr.state.mn.us/river_levels/index.html",
+        "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      ]
+    },
+    {
+      "candidateId": "mn-cannon-river-miesville-highway-61-2026-07-24",
+      "river": "Cannon River",
+      "route": "Miesville Ravine to Highway 61",
+      "state": "MN",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "cannon-river-miesville-highway-61",
+      "sourceQuality": "official MN DNR water-trail map / official interpreted DNR gauge / Minnesota public-water-access GIS",
+      "gauge": {
+        "provider": "MN DNR",
+        "siteId": "13",
+        "siteName": "Cannon River at Welch, MN",
+        "kind": "direct same-corridor",
+        "latest": "872 cfs at 2026-07-24 04:00 CDT via MN DNR river-level feed"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "300-1,540 cfs medium with 231 cfs scrapable floor and 3,000 cfs very-high cutoff",
+        "source": "MN DNR interpreted river-level bands for Welch",
+        "strength": "official",
+        "caveat": "Included as a distinct lower public access-pair split inside the already-live longer Byllesby-to-Highway-61 card."
+      },
+      "access": {
+        "putIn": "Miesville Ravine County Park Public Water Access Site at DNR river mile 18.5",
+        "takeOut": "Highway 61 Public Water Access Site WAS01112 near DNR river mile 6.8",
+        "coordinateSource": "Minnesota public-water-access GIS"
+      },
+      "caveats": [
+        "No on-route public campsite documented.",
+        "Hard take-out at Highway 61 before continuing toward the Cannon mouth or Mississippi River.",
+        "Riffles, bridge current, strainers, fresh wood, cold water, private banks, and fast rises.",
+        "Overlap is intentional because this is the final lower-Cannon public access pair."
+      ],
+      "imageStatus": "No route-gallery image added; bounded DNR / public-access / Commons / same-route review did not find a clearly rights-clean exact-route paddling asset.",
+      "sources": [
+        "https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/cannon2.pdf",
+        "https://www.dnr.state.mn.us/river_levels/index.html",
+        "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      ]
+    },
     {
       "candidateId": "ia-turkey-river-garber-osterdock-current-2026-07-24",
       "river": "Turkey River",

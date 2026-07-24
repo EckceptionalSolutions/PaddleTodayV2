@@ -30431,5 +30431,469 @@ export const minnesotaRoutes: River[] = [
         "provider": "usgs"
       }
     ]
+  },
+  {
+    "id": "red-lake-river-fisher-red-river-recreation",
+    "slug": "red-lake-river-fisher-red-river-recreation",
+    "name": "Red Lake River",
+    "reach": "Fisher Landing to Red River Recreation Area",
+    "state": "Minnesota",
+    "region": "Northwest Minnesota",
+    "summary": "Long lower Red Lake River run from Fisher Landing to East Grand Forks, ending at Red River Recreation Area just above the constructed rock rapids and Red River confluence.",
+    "statusText": "Use the Fisher DNR gauge at the put-in: 237 to 1,960 cfs is the official medium band. Below 195 cfs is scrapable, and above 2,850 cfs is very high.",
+    "latitude": 47.8007512,
+    "longitude": -96.8090097,
+    "gaugeSource": {
+      "id": "mn-dnr-175",
+      "provider": "mn_dnr",
+      "siteId": "175",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "direct",
+      "siteName": "Red Lake River at Fisher, MN",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=63078001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=63078001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 237,
+      "idealMax": 1960,
+      "tooLow": 195,
+      "tooHigh": 2850,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Red Lake River at Fisher",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 1.08,
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring through fall can work when the Fisher gauge is in range. Wind, shallow bends, and fresh flood debris can turn this into a longer trip than the mileage suggests.",
+      "difficulty": "moderate",
+      "difficultyNotes": "This is a committed 27.6-mile lower-river route with sparse public exits, private banks, wind exposure, strainers, and a mandatory East Grand Forks take-out above constructed rock rapids.",
+      "confidenceNotes": "Confidence is high: MN DNR Red Lake Map 2 places Fisher Landing at river mile 27.9 and Red River Recreation Area near river mile 0.3; public-water-access GIS resolves both endpoints; and the Fisher interpreted DNR gauge is at the put-in for the same downstream water-trail corridor."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Take out at Red River Recreation Area before the East Grand Forks constructed rock rapids and Red River confluence unless the next river segment has been separately scouted and planned.",
+        "This is a long lower-river trip with limited public exits. Leave a large daylight margin or split the trip with a legal, separately confirmed overnight plan.",
+        "Expect muddy banks, snags, wind across open agricultural bends, cold water early or late in the season, and stronger current after rain."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "putIn": {
+      "name": "Red Lake River, Fisher Landing Public Water Access Site",
+      "latitude": 47.8007512,
+      "longitude": -96.8090097
+    },
+    "takeOut": {
+      "name": "Red Lake River, Red River Rec. Area Public Water Access Site",
+      "latitude": 47.9234318,
+      "longitude": -97.0151716
+    },
+    "accessPoints": [
+      {
+        "id": "fisher-landing-red-lake",
+        "name": "Red Lake River, Fisher Landing Public Water Access Site",
+        "latitude": 47.8007512,
+        "longitude": -96.8090097,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS02138 at DNR river mile 27.9 beside the Fisher gauge."
+      },
+      {
+        "id": "red-river-recreation-red-lake",
+        "name": "Red Lake River, Red River Rec. Area Public Water Access Site",
+        "latitude": 47.9234318,
+        "longitude": -97.0151716,
+        "mileFromStart": 27.6,
+        "segmentKind": "creek",
+        "note": "Default take-out; resolves as WAS02136 near Red Lake river mile 0.3, above the constructed rock rapids at East Grand Forks."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Route shape",
+        "value": "Fisher RM 27.9 to Red River Recreation Area RM 0.3",
+        "note": "MN DNR Red Lake Map 2 maps Fisher Landing, Grand Marais Creek, Highway 220, Red River State Recreation Area, Red River Recreation Area, constructed rock rapids, and the confluence sequence.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/redlake2.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "WAS02138 to WAS02136",
+        "note": "Minnesota public-water-access GIS resolves Fisher Landing and Red River Recreation Area with official access names, river miles, administrators, and coordinates.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "195 / 237-1,960 / 2,850 cfs",
+        "note": "MN DNR interprets Fisher as Scrapable below 195 cfs, Low from 195 to 237, Medium from 237 to 1,960, High from 1,960 to 2,850, and Very High above 2,850.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "240 cfs at 2026-07-24 04:30 CDT",
+        "note": "The current MN DNR feed placed Fisher barely inside the official medium band during this run.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Overnight and safety context",
+        "value": "Endpoint campground; mandatory take-out above constructed rapids",
+        "note": "DNR Map 2 shows camping at Red River State Recreation Area and a constructed rock rapid just below the Red River Recreation access; this card stops above that feature.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/redlake2.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR Red Lake River segments and maps",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/red-lake-river/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Red Lake River Map 2 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/redlake2.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
+      }
+    ]
+  },
+  {
+    "id": "cloquet-river-bear-lake-road-island-lake",
+    "slug": "cloquet-river-bear-lake-road-island-lake",
+    "name": "Cloquet River",
+    "reach": "Bear Lake Road to Island Lake",
+    "state": "Minnesota",
+    "region": "Duluth Area",
+    "summary": "Remote lower half of the official DNR Indian Lake-to-Island Lake corridor, continuing from Severson Landing / Bear Lake Road through Class I-II northwoods water to the Island Lake reservoir access.",
+    "statusText": "Use the Brimson DNR gauge as the same-map upstream corridor gauge: 1487 to 1489.5 ft is the official medium band. Below 1485 ft is scrapable, and above 1491 ft is very high.",
+    "latitude": 47.2079219,
+    "longitude": -91.9398991,
+    "routeType": "whitewater",
+    "gaugeSource": {
+      "id": "mn-dnr-288",
+      "provider": "mn_dnr",
+      "siteId": "288",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "metricLabel": "Gauge height",
+      "kind": "proxy",
+      "siteName": "Cloquet River near Brimson, CSAH44",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=04012001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=04012001&var1=232&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 1487,
+      "idealMax": 1489.5,
+      "tooLow": 1485,
+      "tooHigh": 1491,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Cloquet River near Brimson",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "DNR says the Cloquet has medium to heavy flow and rises quickly after rain. This lower Map 2 reach needs same-day visual checks because the Brimson gauge is upstream of the selected put-in.",
+      "difficulty": "hard",
+      "difficultyNotes": "This is a long remote Class I-II river-to-reservoir trip with primitive campsites, portage/scout decisions, cold water, strainers, limited road access, and an open-water Island Lake finish.",
+      "confidenceNotes": "Confidence is high on route shape and thresholds: MN DNR Map 2 documents the official Indian Lake-to-Island Lake corridor, public-water-access GIS resolves Bear Lake Road and Island Lake accesses, and the Brimson DNR gauge is the official interpreted gauge for this same water-trail map corridor. Gauge precision is lower than the upstream Indian Lake split because the selected put-in is downstream of the gauge."
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "remote",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Expect repeated Class I-II rapids and possible portage or scouting decisions. Do not commit without whitewater rescue judgment and current wood information.",
+        "The Brimson gauge is an upstream same-map proxy; cancel on rising water, very high readings, or local reports of fresh blowdown.",
+        "The finish includes Island Lake reservoir exposure. Wind and boat traffic can make the last open-water miles materially harder."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "putIn": {
+      "name": "Cloquet River, Severson Landing / Bear Lake Road Public Water Access Site",
+      "latitude": 47.2079219,
+      "longitude": -91.9398991
+    },
+    "takeOut": {
+      "name": "Island Lake, Minnesota Power (N) Public Water Access Site",
+      "latitude": 47.0365911,
+      "longitude": -92.1165377
+    },
+    "accessPoints": [
+      {
+        "id": "cloquet-river-bear-lake-road",
+        "name": "Cloquet River, Severson Landing / Bear Lake Road Public Water Access Site",
+        "latitude": 47.2079219,
+        "longitude": -91.9398991,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS01633 at DNR river mile 61.5."
+      },
+      {
+        "id": "island-lake-minnesota-power-north",
+        "name": "Island Lake, Minnesota Power (N) Public Water Access Site",
+        "latitude": 47.0365911,
+        "longitude": -92.1165377,
+        "mileFromStart": 26.5,
+        "segmentKind": "lake",
+        "note": "Default take-out on Island Lake; resolves as WAS02579 at DNR river mile 35.0."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Official route corridor",
+        "value": "Bear Lake Road RM 61.5 to Island Lake RM 35.0",
+        "note": "MN DNR Map 2 describes the broader Indian Lake-to-Island Lake trip as a remote 35-mile route, identifies about ten Class I-II rapids, watercraft campsites, and an Island Lake finish.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/cloquet2.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "WAS01633 to WAS02579",
+        "note": "Minnesota public-water-access GIS resolves Severson Landing / Bear Lake Road and Island Lake Minnesota Power (N) with coordinates, river miles, and public access records.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "1485 / 1487-1489.5 / 1491 ft",
+        "note": "MN DNR interprets the Brimson gauge as Scrapable below 1485 ft, Low from 1485 to 1487, Medium from 1487 to 1489.5, High from 1489.5 to 1491, and Very High above 1491.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "1486.03 ft at 2026-07-24 04:45 CDT",
+        "note": "The current MN DNR feed placed Brimson in the official low band during this run, below the preferred medium band.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Camping and safety context",
+        "value": "Primitive campsites; remote Class I-II corridor",
+        "note": "DNR Map 2 and the Cloquet segments page identify primitive watercraft campsites, remote access spacing, fast-rise behavior, rocky low-water hazards, and Class I-II rapid character.",
+        "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/cloquet-river/segments-maps.html"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR Cloquet River segments and maps",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/cloquet-river/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Cloquet River Map 2 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/cloquet2.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
+      }
+    ]
+  },
+  {
+    "id": "cannon-river-miesville-highway-61",
+    "slug": "cannon-river-miesville-highway-61",
+    "name": "Cannon River",
+    "reach": "Miesville Ravine to Highway 61",
+    "state": "Minnesota",
+    "region": "Southeast Minnesota",
+    "summary": "Lower Cannon day from Miesville Ravine County Park to the Highway 61 access, splitting the final public access pair from the longer Byllesby-to-Highway-61 planner card.",
+    "statusText": "Use the Welch DNR gauge in the route corridor: 300 to 1,540 cfs is the official medium band. Below 231 cfs is scrapable, and above 3,000 cfs is very high.",
+    "latitude": 44.5430566,
+    "longitude": -92.8008416,
+    "gaugeSource": {
+      "id": "mn-dnr-13",
+      "provider": "mn_dnr",
+      "siteId": "13",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "direct",
+      "siteName": "Cannon River at Welch, MN",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=39004002",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=39004002&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 300,
+      "idealMax": 1540,
+      "tooLow": 231,
+      "tooHigh": 3000,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Cannon River at Welch",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Late spring through fall is the normal planning window. The lower Cannon can rise quickly after rain and can develop fresh wood even when the Welch gauge sits in the normal band.",
+      "difficulty": "moderate",
+      "difficultyNotes": "This shorter lower-Cannon split avoids the Lake Byllesby dam start but still has riffles, bridge current, strainers, private banks, cold water, and a final take-out before the Mississippi transition.",
+      "confidenceNotes": "Confidence is high: MN DNR Cannon Map 2 and public-water-access GIS resolve Miesville Ravine at river mile 18.5 and Highway 61 at river mile 6.8; the Welch DNR gauge is in the same lower-Cannon corridor with official interpretation bands. The route intentionally overlaps the lower half of the existing Byllesby-to-Highway-61 long-card because it is a distinct high-use public access pair."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Highway 61 is the planned take-out. Do not continue toward the Cannon mouth, Mississippi River, or private marinas without separate big-river and access planning.",
+        "Expect riffles, bridge current, downed trees, cold water early or late in the season, and private banks where routine stops are not appropriate.",
+        "Cancel on high or rising water even if the gauge has not yet crossed the official very-high cutoff."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "putIn": {
+      "name": "Cannon River, Miesville Ravine County Park Public Water Access Site",
+      "latitude": 44.5430566,
+      "longitude": -92.8008416
+    },
+    "takeOut": {
+      "name": "Cannon River, Highway 61 Public Water Access Site",
+      "latitude": 44.5811188,
+      "longitude": -92.6553127
+    },
+    "accessPoints": [
+      {
+        "id": "cannon-miesville-ravine",
+        "name": "Cannon River, Miesville Ravine County Park Public Water Access Site",
+        "latitude": 44.5430566,
+        "longitude": -92.8008416,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS resolves the county park access at DNR river mile 18.5."
+      },
+      {
+        "id": "highway-61-cannon",
+        "name": "Cannon River, Highway 61 Public Water Access Site",
+        "latitude": 44.5811188,
+        "longitude": -92.6553127,
+        "mileFromStart": 11.7,
+        "segmentKind": "creek",
+        "note": "Default take-out; resolves as WAS01112 near DNR river mile 6.8."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Route shape",
+        "value": "Miesville RM 18.5 to Highway 61 RM 6.8",
+        "note": "MN DNR Cannon Map 2 and the public-access layer place Miesville Ravine and Highway 61 as consecutive lower-river public accesses; DNR virtual-tour guidance identifies Highway 61 as a common take-out for trips from Miesville or Welch.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/cannon2.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "Miesville Ravine to WAS01112",
+        "note": "Minnesota public-water-access GIS resolves Miesville Ravine County Park and Highway 61 with official names, coordinates, administrators, and river-mile context.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "231 / 300-1540 / 3000 cfs",
+        "note": "MN DNR interprets Welch as Scrapable below 231 cfs, Low from 231 to 300, Medium from 300 to 1540, High from 1540 to 3000, and Very High above 3000.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "872 cfs at 2026-07-24 04:00 CDT",
+        "note": "The current MN DNR feed placed Welch in the official medium band during this run.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Overlap decision",
+        "value": "Shorter split inside Byllesby-to-Highway-61",
+        "note": "The new card is intentionally a distinct lower split from the existing full lower-Cannon day, giving paddlers the final public access pair without the dam-start mileage.",
+        "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR Cannon River segments and maps",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Cannon River Map 2 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/cannon2.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
+      }
+    ]
   }
 ];

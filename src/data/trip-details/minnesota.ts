@@ -11333,5 +11333,164 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default take-out; resolves as WAS00085 in Minnesota public-water-access GIS."
       }
     ]
+  },
+  "red-lake-river-fisher-red-river-recreation": {
+    "putIn": {
+      "id": "fisher-landing-red-lake",
+      "name": "Red Lake River, Fisher Landing Public Water Access Site",
+      "latitude": 47.8007512,
+      "longitude": -96.8090097
+    },
+    "takeOut": {
+      "id": "red-river-recreation-red-lake",
+      "name": "Red Lake River, Red River Rec. Area Public Water Access Site",
+      "latitude": 47.9234318,
+      "longitude": -97.0151716
+    },
+    "logistics": {
+      "distanceLabel": "About 27.6 mi",
+      "estimatedPaddleTime": "About 9 hr to 12 hr, or split with a separately confirmed legal overnight plan",
+      "shuttle": "Stage Red River Recreation Area first, then drive back to Fisher Landing. Confirm the take-out from land because it sits just upstream of the constructed rock rapid and Red River confluence sequence.",
+      "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules plus posted DNR, Red River State Recreation Area, East Grand Forks, parking, and campground rules.",
+      "camping": "DNR Map 2 identifies camping and services at Red River State Recreation Area near the end of the route. Treat this as endpoint/basecamp camping only; do not assume riverbank or private-shore camping between Fisher and East Grand Forks.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Put in at Fisher Landing and take out at Red River Recreation Area for the final lower Red Lake River section before the Red River. The Fisher gauge was barely in the official medium band during this run.",
+      "accessCaveats": [
+        "Fisher Landing resolves as WAS02138 at DNR river mile 27.9 and sits beside the selected Fisher DNR gauge.",
+        "Red River Recreation Area resolves as WAS02136 near river mile 0.3, above the East Grand Forks constructed rock rapids and confluence.",
+        "This is a long lower-river reach with sparse public exits; do not treat private banks, bridges, or the confluence area as routine bailout points."
+      ],
+      "watchFor": [
+        "Mandatory take-out above the constructed rock rapids at East Grand Forks.",
+        "Shallow bends and scraping if Fisher falls below medium, plus wind, mud, and slow current across open farmland.",
+        "Snags, fresh flood debris, cold water, storms, private banks, and limited rescue exposure."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "fisher-landing-red-lake",
+        "name": "Red Lake River, Fisher Landing Public Water Access Site",
+        "latitude": 47.8007512,
+        "longitude": -96.8090097,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; resolves as WAS02138 at DNR river mile 27.9 beside the Fisher gauge."
+      },
+      {
+        "id": "red-river-recreation-red-lake",
+        "name": "Red Lake River, Red River Rec. Area Public Water Access Site",
+        "latitude": 47.9234318,
+        "longitude": -97.0151716,
+        "mileFromStart": 27.6,
+        "segmentKind": "creek",
+        "note": "Default take-out; resolves as WAS02136 near river mile 0.3, above the East Grand Forks constructed rock rapids."
+      }
+    ]
+  },
+  "cloquet-river-bear-lake-road-island-lake": {
+    "putIn": {
+      "id": "cloquet-river-bear-lake-road",
+      "name": "Cloquet River, Severson Landing / Bear Lake Road Public Water Access Site",
+      "latitude": 47.2079219,
+      "longitude": -91.9398991
+    },
+    "takeOut": {
+      "id": "island-lake-minnesota-power-north",
+      "name": "Island Lake, Minnesota Power (N) Public Water Access Site",
+      "latitude": 47.0365911,
+      "longitude": -92.1165377
+    },
+    "logistics": {
+      "distanceLabel": "About 26.5 mi",
+      "estimatedPaddleTime": "Long day to 2 days depending on level, scouting, portages, campsite stops, and Island Lake wind",
+      "shuttle": "Stage the Island Lake Minnesota Power North access first, then drive back to Severson Landing / Bear Lake Road. Confirm reservoir wind, campsite plan, and Brimson gauge trend before committing.",
+      "permits": "No route-specific paddling permit is known. Use public accesses, follow Minnesota boating/PFD rules, and obey DNR water-trail, forest, campsite, and Minnesota Power access rules.",
+      "camping": "DNR Map 2 identifies primitive watercraft campsites on the Indian Lake-to-Island Lake corridor. Use only designated/legal public sites, carry a backup plan, and do not assume private-bank camping.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Launch at Bear Lake Road and paddle the lower half of the official DNR Indian Lake-to-Island Lake corridor. The upstream Brimson gauge was in the official low band during this run, so shallow rock and slower travel are likely.",
+      "accessCaveats": [
+        "Severson Landing / Bear Lake Road resolves as WAS01633 at DNR river mile 61.5.",
+        "Island Lake Minnesota Power North resolves as WAS02579 at DNR river mile 35.0; downstream Abbot Road and dam-site accesses require additional open-water routing.",
+        "The Brimson gauge is upstream on the same DNR Map 2 corridor and should be paired with local visual checks at Bear Lake Road."
+      ],
+      "watchFor": [
+        "Class I-II rapids, portage or scouting decisions, exposed rocks, shallow riffles, and wood at low Brimson stages.",
+        "Fast rises after rain, fresh blowdown, cold water, remote shoreline, and limited road access between landings.",
+        "Open-water wind, boat traffic, and navigation exposure on Island Lake near the finish."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "cloquet-river-bear-lake-road",
+        "name": "Cloquet River, Severson Landing / Bear Lake Road Public Water Access Site",
+        "latitude": 47.2079219,
+        "longitude": -91.9398991,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; resolves as WAS01633 at DNR river mile 61.5."
+      },
+      {
+        "id": "island-lake-minnesota-power-north",
+        "name": "Island Lake, Minnesota Power (N) Public Water Access Site",
+        "latitude": 47.0365911,
+        "longitude": -92.1165377,
+        "mileFromStart": 26.5,
+        "segmentKind": "lake",
+        "note": "Default take-out; resolves as WAS02579 at DNR river mile 35.0."
+      }
+    ]
+  },
+  "cannon-river-miesville-highway-61": {
+    "putIn": {
+      "id": "cannon-miesville-ravine",
+      "name": "Cannon River, Miesville Ravine County Park Public Water Access Site",
+      "latitude": 44.5430566,
+      "longitude": -92.8008416
+    },
+    "takeOut": {
+      "id": "highway-61-cannon",
+      "name": "Cannon River, Highway 61 Public Water Access Site",
+      "latitude": 44.5811188,
+      "longitude": -92.6553127
+    },
+    "logistics": {
+      "distanceLabel": "About 11.7 mi",
+      "estimatedPaddleTime": "About 3.5 hr to 5.5 hr depending on current, stops, wood, and wind",
+      "shuttle": "Stage Highway 61 first, then drive back to Miesville Ravine County Park. Confirm park hours, parking rules, and the Highway 61 take-out before leaving a vehicle.",
+      "permits": "No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey county park, DNR water-trail, parking, and posted local rules.",
+      "camping": "No on-route public watercraft campsite is documented for this lower-Cannon split. Plan it as a day trip and use only legal nearby campground or lodging options if separately reserved.",
+      "campingClassification": "none",
+      "summary": "Launch from Miesville Ravine County Park and take out at Highway 61 for the final public lower-Cannon access pair. The Welch DNR gauge was in the official medium band during this run.",
+      "accessCaveats": [
+        "Miesville Ravine County Park is a public access at DNR river mile 18.5; confirm county park rules and hours before relying on it.",
+        "Highway 61 resolves as WAS01112 near river mile 6.8 and is the default take-out before the river approaches the Mississippi transition.",
+        "This route is the lower split of an existing Byllesby-to-Highway-61 long-card, included separately because it is a distinct public access pair below the dam-start section."
+      ],
+      "watchFor": [
+        "Riffles, bridge current, strainers, fresh wood, cold water, private banks, and fast rises after rain.",
+        "Highway 61 take-out timing; do not continue toward the Cannon mouth or Mississippi River without a separate plan.",
+        "Very high water above the official Welch high band and shallow scraping below the low floor."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "cannon-miesville-ravine",
+        "name": "Cannon River, Miesville Ravine County Park Public Water Access Site",
+        "latitude": 44.5430566,
+        "longitude": -92.8008416,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; resolves at DNR river mile 18.5."
+      },
+      {
+        "id": "highway-61-cannon",
+        "name": "Cannon River, Highway 61 Public Water Access Site",
+        "latitude": 44.5811188,
+        "longitude": -92.6553127,
+        "mileFromStart": 11.7,
+        "segmentKind": "creek",
+        "note": "Default take-out; resolves as WAS01112 near DNR river mile 6.8."
+      }
+    ]
   }
 };

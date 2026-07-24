@@ -1,5 +1,15 @@
 # Minnesota Route Memory
 
+## 2026-07-24 06:12 America/Chicago / 2026-07-24 11:12 UTC Minnesota lower Red Lake / Cloquet / Cannon gap pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `235` to `238` live route slugs by adding `red-lake-river-fisher-red-river-recreation`, `cloquet-river-bear-lake-road-island-lake`, and `cannon-river-miesville-highway-61`.
+- Qualification path: MN DNR Red Lake Map 2, Cloquet Map 2, Cannon Map 2, DNR state-water-trail segment pages, MN DNR interpreted river-level feed, and Minnesota public-water-access GIS support the selected public access pairs, river miles, coordinates, gauge mappings, camping posture, and safety caveats.
+- Live gauge verification: MN DNR river-level JSON returned Red Lake River at Fisher site `175` at `240 cfs` at `2026-07-24 04:30 CDT`, barely in official medium; Cloquet River near Brimson site `288` at `1486.03 ft` at `2026-07-24 04:45 CDT`, in official low; and Cannon River at Welch site `13` at `872 cfs` at `2026-07-24 04:00 CDT`, in official medium.
+- Threshold posture: all three use official MN DNR interpreted bands only. Red Lake uses Fisher `195 / 237-1,960 / 2,850 cfs`; Cloquet uses Brimson `1485 / 1487-1489.5 / 1491 ft` as an upstream same-map proxy for the Bear-Lake-to-Island-Lake split; Cannon uses Welch `231 / 300-1,540 / 3,000 cfs`.
+- Safety/camping posture: Red Lake is a long lower-river route with endpoint campground context at Red River State Recreation Area and a hard take-out above the East Grand Forks constructed rock rapids. Cloquet is `routeType: "whitewater"` with primitive watercraft campsites, Class I-II rapids, fast-rise/wood/remote-rescue caveats, and open-water Island Lake exposure. Cannon is a no-camping lower split with riffles, bridge current, strainers, private banks, and a hard Highway 61 take-out before the Mississippi transition.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded MN DNR / public-access / Commons / same-route image review with no clearly rights-clean exact-route paddling asset selected.
+- Reviewed but did not add: Red Lake River Kratka-to-Smiley stayed blocked because the Thief River Falls DNR site `179` in the feed was stale to `2026-04-30`; Root Whalan/Lanesboro-style ideas were reconciled as already covered or wrong-way/contained by existing Root cards; Des Moines Mayflower-to-Christianna remains proxy weak. Prompt targets including Chippewa Lentz-to-Watson, Kettle Musclewood, Minnesota River Kinney-to-Skalbekken, Otter Tail Phelps/Wannigan, St. Louis CR4/95/Paupores, Mississippi Itasca/Coffee-Pot, Vermilion Twomile-to-Eightmile, and Watonwan CR32-to-Garden-City were reconciled as already live in the current baseline.
+
 ## 2026-07-24 05:14 America/Chicago / 2026-07-24 10:14 UTC Minnesota Redwood / North Fork Zumbro gap pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `232` to `235` live route slugs by adding `redwood-river-vesta-wabasso`, `redwood-river-wabasso-redwood-lake`, and `north-fork-zumbro-river-covered-bridge-walking-bridge`.

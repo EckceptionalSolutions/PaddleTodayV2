@@ -1,5 +1,13 @@
 # Midwest Route Automation Memory
 
+- 2026-07-24 06:12 America/Chicago / 2026-07-24 11:12 UTC: Minnesota lower Red Lake / Cloquet / Cannon gap pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 235-route exported Minnesota baseline: `red-lake-river-fisher-red-river-recreation`, `cloquet-river-bear-lake-road-island-lake`, and `cannon-river-miesville-highway-61`, bringing Minnesota to 238 live routes.
+  - Qualification path: MN DNR Red Lake, Cloquet, and Cannon water-trail maps/pages, MN DNR interpreted river-level feed, and Minnesota public-water-access GIS support the selected public access pairs, route shape, gauges, camping posture, and caveats.
+  - Gauge posture: MN DNR feed returned Fisher site `175` at `240 cfs` at `2026-07-24 04:30 CDT` in official medium, Brimson site `288` at `1486.03 ft` at `2026-07-24 04:45 CDT` in official low, and Welch site `13` at `872 cfs` at `2026-07-24 04:00 CDT` in official medium.
+  - Threshold posture: all three use official MN DNR interpreted bands only: Fisher `195 / 237-1,960 / 2,850 cfs`, Brimson `1485 / 1487-1489.5 / 1491 ft`, and Welch `231 / 300-1,540 / 3,000 cfs`. Cloquet marks Brimson as an upstream same-map proxy and requires local visual checks.
+  - Safety/image posture: cards carry Red Lake constructed-rapid hard-stop and endpoint-campground caveats, Cloquet Class I-II/remote/open-water Island Lake caveats, Cannon lower-split/no-camping/Highway-61 hard-stop caveats, and no selected gallery images after bounded DNR / public-access / Commons / same-route review.
+  - Reviewed but did not add Red Lake Kratka-to-Smiley because DNR site `179` was stale, Root Whalan/Lanesboro-style ideas as already covered/contained, and Des Moines Mayflower-to-Christianna as still proxy weak.
+
 - 2026-07-24 06:05 America/Chicago / 2026-07-24 11:05 UTC: Iowa Webster County Des Moines upstream split pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 133-route exported Iowa baseline: `des-moines-river-deer-creek-becker`, `des-moines-river-becker-hydro-electric`, and `des-moines-river-hydro-electric-south-river`, bringing Iowa to 136 live routes.
   - Qualification path: Iowa DNR Des Moines River Water Trail guide, Webster County Des Moines River map, Webster County / MyCountyParks Deer Creek and Becker access pages, Visit Fort Dodge water-trail overview, Iowa Whitewater Coalition Fort Dodge Hydro Dam removal context, CanWePaddle Fort-Dodge-to-Lehigh threshold guidance, and current USGS `05480500` Water Services data support the three upstream Webster County access-pair cards.
