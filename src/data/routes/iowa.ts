@@ -3,6 +3,346 @@ import type { River } from '../../lib/types';
 
 export const iowaRoutes: River[] = [
   {
+    "id": "north-raccoon-river-vogel-mcdonald",
+    "slug": "north-raccoon-river-vogel-mcdonald",
+    "name": "North Raccoon River",
+    "reach": "Vogel Access to McDonald Greenbelt / 230th Street Canoe Access",
+    "state": "Iowa",
+    "region": "Northwest Iowa",
+    "summary": "Upper Sac County North Raccoon water-trail starter from Vogel Access toward McDonald Greenbelt, with glacial bluffs, riffles, public county access, and guarded Lanesboro-stage guidance.",
+    "statusText": "Use the North Raccoon near Lanesboro stage as the primary upper-corridor signal. The DNR says this water trail is more pleasant at 11 ft or below at Lanesboro and around 1,000 cfs at Jefferson; low Sac City flow means local depth checks are required.",
+    "latitude": 42.515,
+    "longitude": -95.05,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Iowa DNR describes the upper Sac County North Raccoon as longer, riffly, and challenging, with occasional rock dams, logjams, and private non-meandered banks.",
+        "Sac County notes the water trail starts at Vogel Access and continues through McDonald Greenbelt. Confirm both rural access points from land before launching.",
+        "A good Lanesboro stage does not guarantee enough local depth at Vogel. Check the Sac City gauge, recent rain, and the actual landing before committing."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05482430",
+      "provider": "usgs",
+      "siteId": "05482430",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "North Raccoon River near Lanesboro, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05482430/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 0,
+      "idealMax": 11,
+      "tooLow": 0,
+      "tooHigh": 11,
+      "thresholdSource": {
+        "label": "Iowa DNR North Raccoon Sac/Calhoun/Carroll guide Lanesboro/Jefferson guidance",
+        "url": "https://www.iowadnr.gov/media/8896/download?inline=",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "DNR guidance is level-based rather than calendar-based. Late-summer lows can make the upper riffles scrape or strand boats; storms can quickly add wood, bank erosion, and stronger current.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The upper water trail is not a casual beginner float: DNR calls out longer river stretches, rock dams, riffles, logjams, and private-bank limits.",
+      "confidenceNotes": "Confidence is moderate-good for a guarded official add: Iowa DNR documents Vogel Access-to-Sac City as the first 17.8-mile water-trail section and describes the upper third, McDonald Greenbelt, riffles, private-bank limits, and Sac City rock-dam boundary. Sac County and Sac City corroborate Vogel, McDonald Greenbelt, 230th Street Canoe Access, and the 41-mile Sac County water trail. The app uses the established Lanesboro stage ceiling model already present on the downstream Rainbow-to-Richey card, while evidence copy also documents Jefferson flow and the live Sac City gauge as local context."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route family",
+        "value": "Vogel to Sac City, 17.8 mi",
+        "note": "Iowa DNR documents Vogel Access to Sac City Park Access as the first 17.8-mile upper North Raccoon water-trail section and describes McDonald Greenbelt within the lower two-thirds.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8896/download?inline="
+      },
+      {
+        "label": "Access chain",
+        "value": "Vogel, McDonald, Sac City",
+        "note": "Sac County lists Vogel Access and McDonald Greenbelt as managed North Raccoon River water-trail access points, and Sac City says the 41-mile trail starts at Vogel and includes new access at McDonald Greenbelt.",
+        "sourceUrl": "https://www.saccountyiowa.gov/conservation/parks/north_raccoon_river_water_trail/"
+      },
+      {
+        "label": "Official gauge guidance",
+        "value": "Lanesboro 11 ft or below; Jefferson around 1,000 cfs",
+        "note": "Iowa DNR says most paddlers will find the upper North Raccoon more pleasurable at or below 11 ft on the Lanesboro gauge and around 1,000 cfs at Jefferson.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8896/download?inline="
+      },
+      {
+        "label": "Current gauge check",
+        "value": "USGS 05482430 7.65 ft; USGS 05482300 55.4 cfs / 6.86 ft; USGS 05482500 218 cfs / 5.12 ft",
+        "note": "USGS Water Services returned current North Raccoon values during this 2026-07-24 run; the Sac City flow is very low, so the route requires same-day local depth checks despite the Lanesboro stage being below the DNR ceiling.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05482300,05482430,05482500&parameterCd=00060,00065&siteStatus=all"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Iowa DNR North Raccoon Sac/Calhoun/Carroll guide",
+        "url": "https://www.iowadnr.gov/media/8896/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Sac County North Raccoon River Water Trail",
+        "url": "https://www.saccountyiowa.gov/conservation/parks/north_raccoon_river_water_trail/",
+        "provider": "local"
+      },
+      {
+        "label": "Sac City North Raccoon River Water Trail",
+        "url": "https://saccity.city/nature-trails/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05482430 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05482430/",
+        "provider": "usgs"
+      },
+      {
+        "label": "USGS 05482300 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05482300/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "north-raccoon-river-mcdonald-riverview",
+    "slug": "north-raccoon-river-mcdonald-riverview",
+    "name": "North Raccoon River",
+    "reach": "McDonald Greenbelt / 230th Street Canoe Access to Riverview Park",
+    "state": "Iowa",
+    "region": "Northwest Iowa",
+    "summary": "Sac City recommended North Raccoon day trip from McDonald Greenbelt to Riverview Park, where local trail work cleared many obstructions and created a five-mile access pair.",
+    "statusText": "Use the Lanesboro stage and confirm the local Sac City gauge and access conditions. Sac City calls McDonald-to-Riverview a five-mile recommended route, but very low Sac City flow can still mean scraping.",
+    "latitude": 42.45837,
+    "longitude": -95.02091,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Sac City says many obstructions have been cleared from McDonald Greenbelt to Chautauqua Park, but obstruction removal is ongoing and same-day wood checks still matter.",
+        "Use the public McDonald / 230th Street and Riverview access points only. The North Raccoon is non-meandered and adjacent lands outside public sites are private.",
+        "Do not continue downstream toward the Sac City and Hagge rock-dam sequence unless that route, portage plan, and shuttle are staged separately."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05482430",
+      "provider": "usgs",
+      "siteId": "05482430",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "proxy",
+      "siteName": "North Raccoon River near Lanesboro, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05482430/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 0,
+      "idealMax": 11,
+      "tooLow": 0,
+      "tooHigh": 11,
+      "thresholdSource": {
+        "label": "Iowa DNR North Raccoon Sac/Calhoun/Carroll guide Lanesboro/Jefferson guidance",
+        "url": "https://www.iowadnr.gov/media/8896/download?inline=",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "Best used as a warm-season town-access route when the water trail has enough local depth. Summer lows can scrape; storm rises can bring fast current and new wood even on the improved reach.",
+      "difficulty": "easy",
+      "difficultyNotes": "Sac City frames this as the easy in/easy out recommended five-mile route, but it remains a real river reach with wood, private banks, and gauge-proxy limitations.",
+      "confidenceNotes": "Confidence is good for access and route shape: Sac City and Sac Economic & Tourism Development publish McDonald Greenbelt-to-Riverview Park as a recommended five-mile, roughly three-hour route, and Sac County lists the 230th Street Canoe Access and McDonald Greenbelt public-access context. Gauge confidence is guarded because the DNR-published Lanesboro/Jefferson guidance is corridor-wide and the Sac City gauge shows very low local flow during this run."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Recommended route",
+        "value": "McDonald Greenbelt to Riverview Park, 5 mi / about 3 hr",
+        "note": "Sac City publishes this as a recommended North Raccoon water-trail route and says it is easy to get in and easy to get out.",
+        "sourceUrl": "https://saccity.city/nature-trails/"
+      },
+      {
+        "label": "Obstruction work",
+        "value": "McDonald to Chautauqua improvements",
+        "note": "Sac City says many obstructions were cleared from McDonald Greenbelt to Chautauqua Park, while also noting that obstruction removal will continue.",
+        "sourceUrl": "https://saccity.city/nature-trails/"
+      },
+      {
+        "label": "Access legitimacy",
+        "value": "230th Street Canoe Access and McDonald Greenbelt",
+        "note": "Sac County lists 230th Street Canoe Access at the bridge near McDonald Greenbelt, and lists McDonald Greenbelt as a managed county park along the North Raccoon.",
+        "sourceUrl": "https://www.saccountyiowa.gov/conservation/parks/"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "USGS 05482430 7.65 ft; USGS 05482300 55.4 cfs / 6.86 ft",
+        "note": "USGS Water Services returned current Lanesboro and Sac City readings during this 2026-07-24 run; the local Sac City flow is low and should be checked before launching.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05482300,05482430&parameterCd=00060,00065&siteStatus=all"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Sac City North Raccoon River Water Trail",
+        "url": "https://saccity.city/nature-trails/",
+        "provider": "local"
+      },
+      {
+        "label": "Sac County parks and recreation areas",
+        "url": "https://www.saccountyiowa.gov/conservation/parks/",
+        "provider": "local"
+      },
+      {
+        "label": "Iowa DNR North Raccoon Sac/Calhoun/Carroll guide",
+        "url": "https://www.iowadnr.gov/media/8896/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05482430 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05482430/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "north-raccoon-river-sac-city-hagge",
+    "slug": "north-raccoon-river-sac-city-hagge",
+    "name": "North Raccoon River",
+    "reach": "Riverview / Sac City Access to Hagge Park",
+    "state": "Iowa",
+    "region": "Northwest Iowa",
+    "summary": "Short but consequential Sac City-to-Hagge North Raccoon connector with two rock-dam decisions, endpoint camping context, and official DNR warning language.",
+    "statusText": "Use the Lanesboro stage and the local Sac City gauge, then scout both rock dams from land. DNR says the first rock dam may run at decent levels, but Hagge Park dam is not passable by canoe or kayak.",
+    "latitude": 42.421,
+    "longitude": -95.0,
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "low_head_dam",
+        "mandatory_takeout",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Iowa DNR says the Hagge Park rock dam is not passable by canoe or kayak. Take out for the portage and do not run it.",
+        "DNR warns the Hagge portage take-out is immediately at the start of rapids and the below-dam put-in is over unstable boulders.",
+        "A rock dam about a mile south of Sac City Park can collect debris and block the portage. Scout before committing and turn around if the route is not clean."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05482430",
+      "provider": "usgs",
+      "siteId": "05482430",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "proxy",
+      "siteName": "North Raccoon River near Lanesboro, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05482430/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 0,
+      "idealMax": 11,
+      "tooLow": 0,
+      "tooHigh": 11,
+      "thresholdSource": {
+        "label": "Iowa DNR North Raccoon Sac/Calhoun/Carroll guide Lanesboro/Jefferson guidance",
+        "url": "https://www.iowadnr.gov/media/8896/download?inline=",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "Treat this as a scout-first warm-season reach. Low water exposes unstable boulders at the dams; rising water increases consequences at the Sac City and Hagge rock-dam approaches.",
+      "difficulty": "hard",
+      "difficultyNotes": "Mileage is short, but the route is advanced because DNR documents multiple rock dams, a mandatory Hagge portage, tricky take-out timing, unstable boulders, and logjam risk.",
+      "confidenceNotes": "Confidence is good for route and hazards: Iowa DNR describes Sac City Park-to-Hagge as the first four miles of the Sac City-to-White-Horse section, documents the rock dam about a mile south of Sac City, states the Hagge Park rock dam is not passable by canoe or kayak, and notes primitive camping at Hagge Park. The card is intentionally guarded and does not encourage downstream continuation through White Horse without a separate plan."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route section",
+        "value": "Sac City Park to Hagge Park, about 4 mi",
+        "note": "Iowa DNR describes the four miles from Sac City Park to Hagge Park as the start of the longer Sac City-to-White Horse water-trail section.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8896/download?inline="
+      },
+      {
+        "label": "Mandatory portage",
+        "value": "Hagge Park rock dam is not passable",
+        "note": "Iowa DNR says the Hagge Park rock dam is not passable by canoe or kayak, with a tricky exit at the start of rapids and an unstable boulder relaunch below.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8896/download?inline="
+      },
+      {
+        "label": "Endpoint camping",
+        "value": "Sac City and Hagge Park camping context",
+        "note": "DNR says camping, restrooms, and water are available at Sac City Park and primitive camping is allowed at Hagge Park; Sac County and Travel Iowa corroborate Hagge Park access/camping context.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8896/download?inline="
+      },
+      {
+        "label": "Current gauge check",
+        "value": "USGS 05482430 7.65 ft; USGS 05482300 55.4 cfs / 6.86 ft",
+        "note": "USGS Water Services returned current Lanesboro and Sac City readings during this 2026-07-24 run; the low Sac City flow makes same-day rock-dam and boulder scouting essential.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05482300,05482430&parameterCd=00060,00065&siteStatus=all"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Iowa DNR North Raccoon Sac/Calhoun/Carroll guide",
+        "url": "https://www.iowadnr.gov/media/8896/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Sac City parks and North Raccoon Water Trails",
+        "url": "https://saccity.city/parks-recreation/",
+        "provider": "local"
+      },
+      {
+        "label": "Travel Iowa Hagge Park",
+        "url": "https://www.traveliowa.com/places/hagge-park/897/",
+        "provider": "local"
+      },
+      {
+        "label": "Sac County Hagge Park campground",
+        "url": "https://www.mycountyparks.com/County/Sac/Park/Hagge-Park/Facility/Hagge-Park-Campground",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05482430 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05482430/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
     "id": "north-raccoon-river-rainbow-bend-richey",
     "slug": "north-raccoon-river-rainbow-bend-richey",
     "name": "North Raccoon River",

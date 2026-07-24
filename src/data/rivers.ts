@@ -40,6 +40,9 @@ const stateRoutes: River[] = [
 ];
 const routeBySlug = new Map(stateRoutes.map((route) => [route.slug, route]));
 const routeOrder = [
+  "north-raccoon-river-vogel-mcdonald",
+  "north-raccoon-river-mcdonald-riverview",
+  "north-raccoon-river-sac-city-hagge",
   "north-raccoon-river-rainbow-bend-richey",
   "iowa-river-tailwater-east-sturgis-ferry",
   "shell-rock-river-strand-wilkinson",

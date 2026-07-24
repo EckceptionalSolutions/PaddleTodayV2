@@ -55286,6 +55286,258 @@
         "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
         "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/"
       ]
+    },
+    {
+      "candidateId": "ia-north-raccoon-river-vogel-mcdonald-2026-07-24",
+      "river": "North Raccoon River",
+      "route": "Vogel Access to McDonald Greenbelt / 230th Street Canoe Access",
+      "state": "Iowa",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "north-raccoon-river-vogel-mcdonald",
+      "sourceQuality": "Iowa DNR water-trail guide / county access pages / current USGS direct corridor gauge",
+      "gauge": {
+        "provider": "USGS",
+        "siteId": "05482430",
+        "siteName": "North Raccoon River near Lanesboro, IA",
+        "kind": "direct upper-corridor",
+        "latest": "7.65 ft at 2026-07-24 01:15 CDT; Sac City context 55.4 cfs / 6.86 ft at 2026-07-24 00:15 CDT; Jefferson context 218 cfs / 5.12 ft at 2026-07-24 01:15 CDT"
+      },
+      "threshold": {
+        "model": "two-sided stage ceiling",
+        "range": "0-11 ft at Lanesboro",
+        "source": "Iowa DNR North Raccoon Sac/Calhoun/Carroll guide says paddlers will find the section more pleasurable at 11 ft or below at Lanesboro and around 1,000 cfs at Jefferson.",
+        "strength": "official",
+        "caveat": "The app follows the existing North Raccoon Lanesboro stage model; copy explicitly requires local Sac City depth checks because current Sac City discharge is low."
+      },
+      "access": {
+        "putIn": "Vogel Access",
+        "takeOut": "McDonald Greenbelt / 230th Street Canoe Access",
+        "coordinateSource": "Sac County named access pages and road/address context; endpoint coordinates are practical public-access anchors, not surveyed ramp points."
+      },
+      "caveats": [
+        "Upper Sac County riffles and long rural exposure.",
+        "Vogel landing can be steep; McDonald/230th Street staging should be walked from land.",
+        "Non-meandered stream private-bank limits, wood, fast rises, and low local flow."
+      ],
+      "imageStatus": "No route-gallery image added; bounded Iowa DNR / Sac County / Sac City / Travel Iowa / Commons / same-route review found no clearly rights-clean exact-route paddling asset selected.",
+      "sources": [
+        "https://www.iowadnr.gov/media/8896/download?inline=",
+        "https://www.saccountyiowa.gov/conservation/parks/vogel_access/",
+        "https://www.saccountyiowa.gov/conservation/parks/",
+        "https://saccity.city/nature-trails/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05482430/"
+      ]
+    },
+    {
+      "candidateId": "ia-north-raccoon-river-mcdonald-riverview-2026-07-24",
+      "river": "North Raccoon River",
+      "route": "McDonald Greenbelt / 230th Street Canoe Access to Riverview Park",
+      "state": "Iowa",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "north-raccoon-river-mcdonald-riverview",
+      "sourceQuality": "city recommended route / county access pages / Iowa DNR gauge guidance / current USGS gauge",
+      "gauge": {
+        "provider": "USGS",
+        "siteId": "05482430",
+        "siteName": "North Raccoon River near Lanesboro, IA",
+        "kind": "proxy upper-corridor",
+        "latest": "7.65 ft at 2026-07-24 01:15 CDT; Sac City context 55.4 cfs / 6.86 ft at 2026-07-24 00:15 CDT"
+      },
+      "threshold": {
+        "model": "two-sided stage ceiling",
+        "range": "0-11 ft at Lanesboro",
+        "source": "Iowa DNR upper North Raccoon Lanesboro/Jefferson guidance, applied to Sac City's recommended McDonald-to-Riverview subreach with local Sac City gauge caveats.",
+        "strength": "official",
+        "caveat": "Corridor-wide gauge relationship; local route copy requires Sac City gauge and landing-depth checks."
+      },
+      "access": {
+        "putIn": "McDonald Greenbelt / 230th Street Canoe Access",
+        "takeOut": "Riverview / Lions Park Access",
+        "coordinateSource": "Sac County 230th Street/McDonald listings and Sac City Riverview / North 5th Street park context."
+      },
+      "caveats": [
+        "Sac City says obstructions were cleared but removal is ongoing.",
+        "Very low local flow can still scrape despite acceptable Lanesboro stage.",
+        "Do not continue into the downstream Sac City/Hagge rock-dam reach without a separate plan."
+      ],
+      "imageStatus": "No route-gallery image added; bounded Iowa DNR / Sac County / Sac City / Commons / same-route review found no clearly rights-clean exact-route paddling asset selected.",
+      "sources": [
+        "https://saccity.city/nature-trails/",
+        "https://saccountyiowa.com/outdoor-recreation/aquatic-activities/",
+        "https://www.saccountyiowa.gov/conservation/parks/",
+        "https://www.iowadnr.gov/media/8896/download?inline=",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05482430/"
+      ]
+    },
+    {
+      "candidateId": "ia-north-raccoon-river-sac-city-hagge-2026-07-24",
+      "river": "North Raccoon River",
+      "route": "Riverview / Sac City Access to Hagge Park",
+      "state": "Iowa",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "north-raccoon-river-sac-city-hagge",
+      "sourceQuality": "Iowa DNR route/hazard guide / city and county camping/access pages / current USGS gauge",
+      "gauge": {
+        "provider": "USGS",
+        "siteId": "05482430",
+        "siteName": "North Raccoon River near Lanesboro, IA",
+        "kind": "proxy upper-corridor",
+        "latest": "7.65 ft at 2026-07-24 01:15 CDT; Sac City context 55.4 cfs / 6.86 ft at 2026-07-24 00:15 CDT"
+      },
+      "threshold": {
+        "model": "two-sided stage ceiling",
+        "range": "0-11 ft at Lanesboro",
+        "source": "Iowa DNR upper North Raccoon Lanesboro/Jefferson guidance, with route-specific Sac City/Hagge rock-dam safety guidance.",
+        "strength": "official",
+        "caveat": "Gauge does not make the rock dams safe; route requires land scouting and mandatory Hagge portage."
+      },
+      "access": {
+        "putIn": "Riverview / Sac City Access",
+        "takeOut": "Hagge Park",
+        "coordinateSource": "Sac City Riverview/North 5th Street context and Travel Iowa/Sac County Hagge Park address geocoding."
+      },
+      "caveats": [
+        "Hagge Park rock dam is not passable by canoe or kayak.",
+        "The Hagge portage take-out is at the start of rapids and relaunch is over unstable boulders.",
+        "A rock dam south of Sac City can collect debris and block portage access."
+      ],
+      "imageStatus": "No route-gallery image added; bounded Iowa DNR / Sac City / Travel Iowa / Sac County / Commons / same-route review found no clearly rights-clean exact-route paddling asset selected.",
+      "sources": [
+        "https://www.iowadnr.gov/media/8896/download?inline=",
+        "https://saccity.city/parks-recreation/",
+        "https://www.traveliowa.com/places/hagge-park/897/",
+        "https://www.mycountyparks.com/County/Sac/Park/Hagge-Park/Facility/Hagge-Park-Campground",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05482430/"
+      ]
+    },
+    {
+      "candidateId": "mn-st-croix-river-highway-70-stevens-creek-2026-07-24",
+      "river": "St. Croix River",
+      "route": "Highway 70 Landing to Stevens Creek Landing",
+      "state": "Minnesota",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "st-croix-river-highway-70-stevens-creek",
+      "sourceQuality": "official NPS Riverway map / MN public access GIS / official MN DNR interpreted gauge",
+      "gauge": {
+        "provider": "MN DNR",
+        "siteId": "236",
+        "siteName": "St. Croix River at St. Croix Falls, WI",
+        "kind": "downstream same-corridor proxy",
+        "latest": "1,900 cfs at 2026-07-24 00:00 CDT"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "3,000-8,000 cfs",
+        "source": "MN DNR interpreted river-level bands for St. Croix Falls",
+        "strength": "official",
+        "caveat": "St. Croix Falls is downstream of the Map 7 splits; cards require same-day local checks for shallow bars, rapids, wind, and wood."
+      },
+      "access": {
+        "putIn": "St. Croix River, Highway 70 Landing / WAS00085",
+        "takeOut": "St. Croix River, Stevens Creek Public Water Access Site / WAS02204",
+        "coordinateSource": "Minnesota public-water-access GIS resolves Highway 70 at 45.7739241,-92.7820489 and Stevens Creek at 45.7294177,-92.8488268 with river-mile records."
+      },
+      "caveats": [
+        "NPS Map 7 flags shallow summer sandbars and a short series of rapids around Stevens Creek Landing.",
+        "Use only public landings and designated Riverway campsites; private or unsigned banks are not assumed legal.",
+        "Current St. Croix Falls reading is below the official scrapable floor, so the card should score too low until flows recover."
+      ],
+      "imageStatus": "No route-gallery image added; bounded NPS / DNR / public-access / Commons / same-route search did not find a clearly rights-clean exact-route asset.",
+      "sources": [
+        "https://www.nps.gov/sacn/planyourvisit/upload/Section-7_St-Croix_Highway-70-to-Highway-8_2024_508.pdf",
+        "https://www.nps.gov/sacn/planyourvisit/maps.htm",
+        "https://www.dnr.state.mn.us/state-water-trails/st-croix-river/index.html",
+        "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      ]
+    },
+    {
+      "candidateId": "mn-st-croix-river-stevens-creek-sunrise-2026-07-24",
+      "river": "St. Croix River",
+      "route": "Stevens Creek Landing to Sunrise Landing",
+      "state": "Minnesota",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "st-croix-river-stevens-creek-sunrise",
+      "sourceQuality": "official NPS Riverway map / MN public access GIS / official MN DNR interpreted gauge",
+      "gauge": {
+        "provider": "MN DNR",
+        "siteId": "236",
+        "siteName": "St. Croix River at St. Croix Falls, WI",
+        "kind": "downstream same-corridor proxy",
+        "latest": "1,900 cfs at 2026-07-24 00:00 CDT"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "3,000-8,000 cfs",
+        "source": "MN DNR interpreted river-level bands for St. Croix Falls",
+        "strength": "official",
+        "caveat": "Use as a conservative downstream Riverway condition check, not an exact local measurement for the Stevens-to-Sunrise split."
+      },
+      "access": {
+        "putIn": "St. Croix River, Stevens Creek Public Water Access Site / WAS02204",
+        "takeOut": "St. Croix River, Sunrise Public Water Access Site / WAS00299",
+        "coordinateSource": "Minnesota public-water-access GIS resolves Stevens Creek at 45.7294177,-92.8488268 and Sunrise at 45.5667416,-92.8648680 with river-mile records."
+      },
+      "caveats": [
+        "Longer Map 7 day with limited public exits and remote rescue spacing.",
+        "NPS Riverway rules restrict camping to designated sites and private banks are not bailout/camping options.",
+        "Below-scrapable current reading requires low-water and same-day visual checks."
+      ],
+      "imageStatus": "No route-gallery image added; bounded NPS / DNR / public-access / Commons / same-route search did not find a clearly rights-clean exact-route asset.",
+      "sources": [
+        "https://www.nps.gov/sacn/planyourvisit/upload/Section-7_St-Croix_Highway-70-to-Highway-8_2024_508.pdf",
+        "https://www.nps.gov/sacn/planyourvisit/maps.htm",
+        "https://www.dnr.state.mn.us/state-water-trails/st-croix-river/index.html",
+        "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      ]
+    },
+    {
+      "candidateId": "mn-st-croix-river-sunrise-wild-river-2026-07-24",
+      "river": "St. Croix River",
+      "route": "Sunrise Landing to Wild River State Park Landing",
+      "state": "Minnesota",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "st-croix-river-sunrise-wild-river",
+      "sourceQuality": "official NPS Riverway map / MN public access GIS / official MN DNR interpreted gauge",
+      "gauge": {
+        "provider": "MN DNR",
+        "siteId": "236",
+        "siteName": "St. Croix River at St. Croix Falls, WI",
+        "kind": "downstream same-corridor proxy",
+        "latest": "1,900 cfs at 2026-07-24 00:00 CDT"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "3,000-8,000 cfs",
+        "source": "MN DNR interpreted river-level bands for St. Croix Falls",
+        "strength": "official",
+        "caveat": "Downstream proxy with explicit local checks for the old Nevers Dam site, flowage transition, wind, and shallow bars."
+      },
+      "access": {
+        "putIn": "St. Croix River, Sunrise Public Water Access Site / WAS00299",
+        "takeOut": "St. Croix River, Wild River SPK Public Water Access Site / WAS00298",
+        "coordinateSource": "Minnesota public-water-access GIS resolves Sunrise at 45.5667416,-92.8648680 and Wild River State Park at 45.5227585,-92.7290202 with river-mile records."
+      },
+      "caveats": [
+        "NPS Map 7 flags erratic current at Old Railroad Landing, deceptively turbulent water near the old Nevers Dam site, and the lake-like Indian Head Flowage downstream.",
+        "Take out at Wild River unless the separate Wild-River-to-Lion's-Park dam-pool route is staged.",
+        "Designated Riverway or reservable Wild River sites only; no private-bank or informal camping."
+      ],
+      "imageStatus": "No route-gallery image added; bounded NPS / DNR / public-access / Commons / same-route search did not find a clearly rights-clean exact-route asset.",
+      "sources": [
+        "https://www.nps.gov/sacn/planyourvisit/upload/Section-7_St-Croix_Highway-70-to-Highway-8_2024_508.pdf",
+        "https://www.nps.gov/sacn/planyourvisit/maps.htm",
+        "https://www.dnr.state.mn.us/state-water-trails/st-croix-river/index.html",
+        "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      ]
     }
   ]
 }

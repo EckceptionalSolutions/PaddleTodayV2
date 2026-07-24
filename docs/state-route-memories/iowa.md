@@ -4,6 +4,7 @@ Last summarized: 2026-07-23.
 
 ## Current Inventory
 
+- 2026-07-24 02:09 CDT update: live exported Iowa routes were 121 at the start of this run and 124 after adding `north-raccoon-river-vogel-mcdonald`, `north-raccoon-river-mcdonald-riverview`, and `north-raccoon-river-sac-city-hagge`.
 - 2026-07-24 00:04 CDT update: live exported Iowa routes were 115 at the start of this run and 118 after adding `middle-river-roseman-pammel`, `middle-river-pammel-middle-river-county-park`, and `middle-river-middle-river-county-park-holliwell`.
 - 2026-07-23 23:07 CDT update: live exported Iowa routes were 112 at the start of this run and 115 after adding `wapsipinicon-river-olin-jungletown`, `boone-river-riverside-briggs-woods`, and `boone-river-briggs-woods-albright`.
 - 2026-07-23 consolidation update: 112 live Iowa routes after folding Yellow River Ion-to-Highway-76 into the longer lower-Yellow card, combining the two Boone County Des Moines sections around Dogwood, and folding Oakland-to-Carson into Oakland-to-Macedonia as an alternate takeout.
@@ -20,7 +21,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The current exported inventory is 118 routes after this Middle River completion pass; the historical run notes below preserve what each automation pass originally added.
+Iowa remains mature overall. The current exported inventory is 124 routes after this Sac County North Raccoon pass; the historical run notes below preserve what each automation pass originally added.
+
+## 2026-07-24 02:09 Sac County North Raccoon pass
+
+- Baseline at run start: 121 Iowa live routes, verified from `src/data/rivers.ts` before the current Iowa edits.
+- Added `north-raccoon-river-vogel-mcdonald`, `north-raccoon-river-mcdonald-riverview`, and `north-raccoon-river-sac-city-hagge`, bringing the intended Iowa count to 124 live routes.
+- Qualification path: Iowa DNR's North Raccoon Sac/Calhoun/Carroll water-trail guide documents Vogel-to-Sac-City, McDonald Greenbelt context, Sac-City-to-Hagge/White-Horse, route character, non-meandered private-bank limits, riffles, logjams, rock dams, camping, and the Lanesboro/Jefferson gauge guidance. Sac County confirms Vogel, McDonald Greenbelt, 230th Street Canoe Access, Hagge Park, and the county water-trail access chain; Sac City / Sac Economic & Tourism Development publish McDonald-to-Riverview as a recommended 5-mile / about 3-hour route and describe obstruction-clearing work; Travel Iowa and MyCountyParks corroborate Hagge Park access/camping context.
+- Gauge posture: USGS Water Services returned North Raccoon near Sac City `05482300` at `55.4 cfs / 6.86 ft` at 2026-07-24 00:15 CDT, Lanesboro `05482430` at `7.65 ft` at 2026-07-24 01:15 CDT, and Jefferson `05482500` at `218 cfs / 5.12 ft` at 2026-07-24 01:15 CDT.
+- Threshold posture: all three use the existing official upper-North-Raccoon Lanesboro stage model already present on `north-raccoon-river-rainbow-bend-richey`: `0-11 ft` at Lanesboro, with copy documenting DNR's Jefferson-flow target around `1,000 cfs` and the very low Sac City local-flow caveat. No new high cutoff was invented.
+- Caveat posture: Vogel-to-McDonald foregrounds steep Vogel access, rural exits, low local flow, riffles, private banks, wood, and route-anchor coordinate limits. McDonald-to-Riverview foregrounds ongoing obstruction-removal status, low-flow scraping, and no unplanned downstream continuation. Sac-City-to-Hagge is advanced/mandatory-portage guarded because DNR says the Hagge Park rock dam is not passable by canoe or kayak and the take-out/relaunch are tricky.
+- Reviewed but not added: remaining upper North Raccoon continuation below Hagge toward White Horse / Almer Noyd / Grant / Rainbow stayed out because the current run needed only three routes and the Hagge/Grant rock-dam sequence deserves separate portage-specific review; West Fork Des Moines still lacks source-backed numeric paddling thresholds; lower Wapsipinicon Clinton/Scott source package has strong access mapping but no clean route-specific threshold surfaced.
+- Image posture: no route-gallery assets added after bounded Iowa DNR / Sac County / Sac City / Travel Iowa / MyCountyParks / Commons / same-route review.
 
 ## 2026-07-24 01:20 lower-Wapsipinicon access-chain pass
 

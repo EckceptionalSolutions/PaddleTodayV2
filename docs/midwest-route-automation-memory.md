@@ -1,5 +1,12 @@
 # Midwest Route Automation Memory
 
+- 2026-07-24 02:09 America/Chicago / 2026-07-24 07:09 UTC: Iowa Sac County North Raccoon implementation pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 121-route exported Iowa baseline: `north-raccoon-river-vogel-mcdonald`, `north-raccoon-river-mcdonald-riverview`, and `north-raccoon-river-sac-city-hagge`, bringing the intended Iowa count to 124 live routes.
+  - Qualification path: Iowa DNR's North Raccoon Sac/Calhoun/Carroll water-trail guide, Sac County access pages, Sac City water-trail and park pages, Travel Iowa Hagge Park, MyCountyParks Hagge campground, and USGS Water Services support the three access-pair cards.
+  - Gauge posture: USGS returned Sac City `05482300` at `55.4 cfs / 6.86 ft` at 2026-07-24 00:15 CDT, Lanesboro `05482430` at `7.65 ft` at 2026-07-24 01:15 CDT, and Jefferson `05482500` at `218 cfs / 5.12 ft` at 2026-07-24 01:15 CDT.
+  - Threshold posture: all three use the existing official upper-North-Raccoon `0-11 ft` Lanesboro stage model from DNR guidance, with Jefferson-around-1,000-cfs and very-low-Sac-City-flow caveats; no new range was invented.
+  - Safety/image posture: cards carry steep/rural access, low local flow, non-meandered private-bank, logjam, fast-rise, Sac City rock-dam, mandatory Hagge rock-dam portage, unstable boulder relaunch, and no-unplanned-continuation caveats. No gallery image was selected after bounded official/local/Commons/same-route review.
+
 - 2026-07-24 01:20 America/Chicago / 2026-07-24 06:20 UTC: Minnesota Mississippi / St. Croix inventory-gap pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 223-route exported Minnesota baseline: `mississippi-river-dayton-mississippi-gateway`, `st-croix-river-little-yellow-banks-sand-creek`, and `st-croix-river-sand-creek-highway-70`, bringing Minnesota to 226 live routes.
   - Qualification path: MN DNR Mississippi Map 9, MN DNR recommended-one-way sections, NPS St. Croix Maps 5 and 6, MN DNR interpreted river-level feed, Minnesota public-water-access GIS, Three Rivers / Paddle Share Mississippi Gateway context, and USGS fallback station pages support the access pairs, route shape, gauges, and caveats.

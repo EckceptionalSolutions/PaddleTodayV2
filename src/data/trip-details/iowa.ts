@@ -2,6 +2,165 @@
 import type { RiverTripDetails } from '../../lib/types';
 
 export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
+  "north-raccoon-river-vogel-mcdonald": {
+    "putIn": {
+      "id": "vogel-access",
+      "name": "Vogel Access",
+      "latitude": 42.515,
+      "longitude": -95.05
+    },
+    "takeOut": {
+      "id": "mcdonald-greenbelt-230th-street",
+      "name": "McDonald Greenbelt / 230th Street Canoe Access",
+      "latitude": 42.458365580744,
+      "longitude": -95.020906802905
+    },
+    "logistics": {
+      "distanceLabel": "About 11 mi",
+      "estimatedPaddleTime": "About 4 hr to 6 hr, longer with low water, wood, or access carries",
+      "shuttle": "Stage the 230th Street / McDonald take-out first, then drive upstream to Vogel Access northeast of Nemaha. Walk both rural landings before unloading.",
+      "permits": "No route-specific paddling permit is known. Use marked public access areas only, follow Iowa boating/PFD rules, and respect non-meandered-stream private-property limits.",
+      "camping": "No on-route camping is selected for this upper split. Use separate county or city campground plans rather than assuming legal bank camping.",
+      "campingClassification": "none",
+      "summary": "Launch from Vogel Access and paddle the upper Sac County North Raccoon through the prairie, riffle, and wooded greenbelt corridor to McDonald Greenbelt / 230th Street Canoe Access.",
+      "accessCaveats": [
+        "Vogel Access is a county-managed wildlife/access area, but the DNR guide says the Vogel landing can be steep and paddlers may choose a sandbar 10 to 15 yards upstream.",
+        "McDonald Greenbelt is a county-managed park along the North Raccoon; Sac County also lists 230th Street Canoe Access at the bridge across from the McDonald parking area.",
+        "Endpoint coordinates are practical public-access anchors from named county sites and road/address context, not surveyed ramp points. Confirm the exact launch and landing from land."
+      ],
+      "watchFor": [
+        "Riffles, shallow boulders, low-water scraping, and isolated rock-dam-style features.",
+        "Logjams, strainers, eroding banks, and faster current after upstream storms.",
+        "Private banks and long rural stretches with few practical bailouts."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "vogel-access",
+        "name": "Vogel Access",
+        "latitude": 42.515,
+        "longitude": -95.05,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Sac County places Vogel Access northeast of Nemaha on the North Raccoon."
+      },
+      {
+        "id": "mcdonald-greenbelt-230th-street",
+        "name": "McDonald Greenbelt / 230th Street Canoe Access",
+        "latitude": 42.458365580744,
+        "longitude": -95.020906802905,
+        "mileFromStart": 11,
+        "segmentKind": "creek",
+        "note": "Default take-out; Sac County lists McDonald Greenbelt and the 230th Street Canoe Access near the bridge."
+      }
+    ]
+  },
+  "north-raccoon-river-mcdonald-riverview": {
+    "putIn": {
+      "id": "mcdonald-greenbelt-230th-street",
+      "name": "McDonald Greenbelt / 230th Street Canoe Access",
+      "latitude": 42.458365580744,
+      "longitude": -95.020906802905
+    },
+    "takeOut": {
+      "id": "riverview-lions-park-sac-city",
+      "name": "Riverview / Lions Park Access",
+      "latitude": 42.4285,
+      "longitude": -94.9922
+    },
+    "logistics": {
+      "distanceLabel": "5 mi",
+      "estimatedPaddleTime": "About 3 hr at normal recreational levels",
+      "shuttle": "Stage at Riverview / Lions Park on the north side of Sac City, then launch from McDonald Greenbelt or the 230th Street Canoe Access.",
+      "permits": "No route-specific paddling permit is known. Use marked public access areas only, follow Iowa boating/PFD rules, and respect non-meandered-stream private-property limits.",
+      "camping": "Sac City describes primitive camping amenities being constructed near the Riverview / North Raccoon river-access corridor. Treat this as a day route unless current city rules confirm an overnight plan.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Run Sac City's recommended five-mile North Raccoon route from McDonald Greenbelt to Riverview Park, the improved town-access reach with a straightforward shuttle.",
+      "accessCaveats": [
+        "Sac City calls this an easy-in/easy-out recommended route, but obstruction removal is ongoing and the access should still be walked before launch.",
+        "Riverview / Lions Park access is anchored from city park and North 5th Street context rather than a surveyed ramp coordinate.",
+        "Do not continue downstream into the Sac City and Hagge rock-dam reach unless that separate route and portage plan are staged."
+      ],
+      "watchFor": [
+        "Fresh wood or partial logjams even in the improved corridor.",
+        "Low Sac City flow, scraping, and shallow gravel.",
+        "Private banks outside the public access corridor."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "mcdonald-greenbelt-230th-street",
+        "name": "McDonald Greenbelt / 230th Street Canoe Access",
+        "latitude": 42.458365580744,
+        "longitude": -95.020906802905,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for Sac City's recommended five-mile water-trail route."
+      },
+      {
+        "id": "riverview-lions-park-sac-city",
+        "name": "Riverview / Lions Park Access",
+        "latitude": 42.4285,
+        "longitude": -94.9922,
+        "mileFromStart": 5,
+        "segmentKind": "creek",
+        "note": "Default take-out in Sac City; city materials describe new river access and primitive-camping amenities in this corridor."
+      }
+    ]
+  },
+  "north-raccoon-river-sac-city-hagge": {
+    "putIn": {
+      "id": "riverview-lions-park-sac-city",
+      "name": "Riverview / Lions Park Access",
+      "latitude": 42.4285,
+      "longitude": -94.9922
+    },
+    "takeOut": {
+      "id": "hagge-park",
+      "name": "Hagge Park",
+      "latitude": 42.385453216741,
+      "longitude": -94.997965528911
+    },
+    "logistics": {
+      "distanceLabel": "About 4 mi",
+      "estimatedPaddleTime": "About 1.5 hr to 3 hr plus rock-dam scouting and portage time",
+      "shuttle": "Stage at Hagge Park and scout the rock-dam take-out before launching from the Sac City/Riverview corridor. Do not launch if the Hagge portage line is not obvious and safe.",
+      "permits": "No route-specific paddling permit is known. Use marked public access areas only, follow Iowa boating/PFD rules, and respect non-meandered-stream private-property limits.",
+      "camping": "Endpoint camping support exists in this corridor: DNR says Sac City Park has camping/restrooms/water and primitive camping is allowed at Hagge Park; current county/city rules still control actual overnight use.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Paddle the short Sac City-to-Hagge connector only as a scout-first route. The main planning issue is not distance; it is the rock-dam sequence and the mandatory Hagge portage.",
+      "accessCaveats": [
+        "Hagge Park's address geocodes cleanly, but the safe portage/take-out must be identified from land because DNR describes a tricky exit at the start of rapids.",
+        "The rock dam about a mile south of Sac City can collect debris and block the portage route.",
+        "Do not run the Hagge Park rock dam. DNR says it is not passable by canoe or kayak."
+      ],
+      "watchFor": [
+        "Mandatory Hagge Park rock-dam portage and unstable below-dam boulder relaunch.",
+        "Possible logjam or eroded portage at the first Sac City-area rock dam.",
+        "Fast/rising water, private banks, and shallow-rock exposure at low flows."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "riverview-lions-park-sac-city",
+        "name": "Riverview / Lions Park Access",
+        "latitude": 42.4285,
+        "longitude": -94.9922,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in from the Sac City public river-access corridor."
+      },
+      {
+        "id": "hagge-park",
+        "name": "Hagge Park",
+        "latitude": 42.385453216741,
+        "longitude": -94.997965528911,
+        "mileFromStart": 4,
+        "segmentKind": "creek",
+        "note": "Default take-out and mandatory rock-dam portage boundary; scout from land before launching."
+      }
+    ]
+  },
   "north-raccoon-river-richey-hyde-park": {
     "putIn": {
       "id": "richey-access",
