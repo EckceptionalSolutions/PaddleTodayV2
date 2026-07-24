@@ -4,6 +4,7 @@ Last summarized: 2026-07-24.
 
 ## Current Inventory
 
+- 2026-07-24 07:18 CDT update: live exported Iowa routes were 136 at the start of this run and 139 after adding `wapsipinicon-river-oxford-mills-massillon`, `wapsipinicon-river-massillon-walnut-grove`, and `wapsipinicon-river-walnut-grove-syracuse`.
 - 2026-07-24 06:05 CDT update: live exported Iowa routes were 133 at the start of this run and 136 after adding `des-moines-river-deer-creek-becker`, `des-moines-river-becker-hydro-electric`, and `des-moines-river-hydro-electric-south-river`.
 - 2026-07-24 05:14 CDT update: live exported Iowa routes were 130 at the start of this run and 133 after adding `south-raccoon-river-redfield-pleasant-valley`, `south-raccoon-river-pleasant-valley-earlham`, and `south-raccoon-river-earlham-van-meter`.
 - 2026-07-24 04:15 CDT update: live exported Iowa routes were 127 at the start of this run and 130 after adding `turkey-river-garber-osterdock`, `turkey-river-osterdock-millville`, and `turkey-river-millville-ferry-landing`.
@@ -25,7 +26,19 @@ Last summarized: 2026-07-24.
 
 ## Status
 
-Iowa remains mature overall. The current exported inventory is 136 routes after this Webster County Des Moines River upstream split pass; the historical run notes below preserve what each automation pass originally added.
+Iowa remains mature overall. The current exported inventory is 139 routes after this lower-Wapsipinicon continuation pass; the historical run notes below preserve what each automation pass originally added.
+
+## 2026-07-24 07:18 lower Wapsipinicon continuation pass
+
+- Baseline at run start: 136 Iowa live routes, verified from `src/data/routes/iowa.ts` before the current Iowa edits.
+- Added `wapsipinicon-river-oxford-mills-massillon`, `wapsipinicon-river-massillon-walnut-grove`, and `wapsipinicon-river-walnut-grove-syracuse`, bringing the intended Iowa count to 139 live routes.
+- Qualification path: Iowa DNR / Jones County lower Wapsipinicon mapping documents Oxford Mills, Massillon Area, Walnut Grove Park, Syracuse Access, the breached Oxford Mills dam context, sandbar-camping legality from Central City to the Mississippi, and lower-river safety notes. Iowa DNR's lower Wapsipinicon guide documents Massillon-to-Walnut-Grove-to-Syracuse-to-Sherman as a 19.2-mile official water-trail section, says Massillon and Walnut Grove have good well-marked ramps, identifies Massillon-to-Walnut Grove as a shorter 4-plus-mile option, and warns about downed trees, dead-end side channels, broad floodplain exposure, and the Syracuse sandbar/east-approach access. Clinton County / MyCountyParks corroborates Walnut Grove campground/boat-ramp context, Cedar County / MyCountyParks corroborates Massillon Park on the Wapsipinicon, and the Lincoln Highway corridor plan supplies Syracuse access coordinates and flooding caveats.
+- Gauge posture: USGS Water Services returned Wapsipinicon River near Anamosa `05421740` at `1,930 cfs / 7.14 ft` at 2026-07-24 06:15 CDT. USGS `05421770` Massillon, `05421780` Toronto, and `05421760` Oxford Mills did not return usable current time series, so all three cards use Anamosa as an upstream lower-corridor proxy with same-day local visual checks.
+- Threshold posture: all three use the already-accepted CanWePaddle lower-Wapsipinicon Anamosa-to-Oxford `200-2,800 cfs` model. This is guarded community evidence downstream of the exact CanWePaddle reach, so the cards explicitly do not claim a direct-gauge relationship or an official lower-Wapsi threshold.
+- Caveat posture: cards foreground breached Oxford Mills dam context, proxy-gauge uncertainty, Massillon/Walnut/Syracuse access checks, Syracuse sandbar and east-approach limitations, downed trees, dead-end side channels, high/rising water, private uplands, endpoint campground support, legal exposed-sandbar camping only where safe, and rural rescue exposure.
+- Overlap posture: `routes:audit:overlap` found only expected shared endpoints with the existing Jungletown-to-Oxford and new adjacent lower-Wapsi splits; no duplicate-or-contained finding appeared for the three new slugs.
+- Reviewed but not added: Sherman-to-Allen's-Grove and lower Bends-to-Beaches splits remained out because the current run reached three routes and those lower Clinton/Scott sections deserve separate review around Wapsi River Environmental Center renter-only access, 21-mile advanced/intermediate exposure, McCausland/Mississippi wayfinding, and lower gauge support. Iowa River River-Junction-to-Columbus-Junction and Cedar Moscow/Saulsbury/Columbus leads remained threshold-weaker than the selected official lower-Wapsi package.
+- Image posture: no route-gallery assets added after bounded Iowa DNR / Jones County / Cedar County / Clinton County / Lincoln Highway / USGS / Commons / same-route image review found no clearly rights-clean exact-route asset selected for local reuse.
 
 ## 2026-07-24 06:05 Webster County Des Moines River upstream split pass
 

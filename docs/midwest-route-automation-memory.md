@@ -1,5 +1,13 @@
 # Midwest Route Automation Memory
 
+- 2026-07-24 07:18 America/Chicago / 2026-07-24 12:18 UTC: Iowa lower Wapsipinicon continuation pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 136-route exported Iowa baseline: `wapsipinicon-river-oxford-mills-massillon`, `wapsipinicon-river-massillon-walnut-grove`, and `wapsipinicon-river-walnut-grove-syracuse`, bringing Iowa to 139 live routes.
+  - Qualification path: Iowa DNR lower Wapsipinicon guide and Jones County map, Clinton County / MyCountyParks Walnut Grove context, Cedar County / MyCountyParks Massillon Park context, Lincoln Highway corridor plan Syracuse access coordinates, CanWePaddle lower-Wapsi threshold guidance, and USGS Water Services support the selected lower access-pair cards.
+  - Gauge posture: USGS `05421740` Wapsipinicon River near Anamosa returned `1,930 cfs / 7.14 ft` at 2026-07-24 06:15 CDT. USGS Massillon `05421770`, Toronto `05421780`, and Oxford Mills `05421760` returned no usable current time series, so all cards use Anamosa as an upstream lower-corridor proxy with local visual-check caveats.
+  - Threshold posture: all three use the previously accepted CanWePaddle lower Wapsipinicon `200-2,800 cfs` model from Anamosa-to-Oxford. No new official lower-Wapsi range or invented cutoff was added.
+  - Safety/image posture: cards carry breached Oxford Mills dam context, proxy-gauge limitations, Massillon/Walnut/Syracuse access checks, Syracuse sandbar/east-approach caveats, wood/dead-end side channels, private-upland limits, legal exposed-sandbar camping only where safe, endpoint campground support, and no selected gallery image after bounded official/local/Commons/same-route review.
+  - Reviewed but not added: Sherman-to-Allen's-Grove and farther Bends-to-Beaches splits stayed for a separate lower-Clinton/Scott review; Iowa River River-Junction-to-Columbus-Junction and Cedar Moscow/Saulsbury leads stayed threshold-weaker.
+
 - 2026-07-24 06:12 America/Chicago / 2026-07-24 11:12 UTC: Minnesota lower Red Lake / Cloquet / Cannon gap pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 235-route exported Minnesota baseline: `red-lake-river-fisher-red-river-recreation`, `cloquet-river-bear-lake-road-island-lake`, and `cannon-river-miesville-highway-61`, bringing Minnesota to 238 live routes.
   - Qualification path: MN DNR Red Lake, Cloquet, and Cannon water-trail maps/pages, MN DNR interpreted river-level feed, and Minnesota public-water-access GIS support the selected public access pairs, route shape, gauges, camping posture, and caveats.

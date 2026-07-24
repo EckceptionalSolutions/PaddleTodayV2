@@ -6555,5 +6555,164 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default take-out; inspect parking and landing conditions before launch."
       }
     ]
+  },
+  "wapsipinicon-river-oxford-mills-massillon": {
+    "putIn": {
+      "id": "oxford-mills-access",
+      "name": "Oxford Mills Access",
+      "latitude": 41.971513,
+      "longitude": -90.96209
+    },
+    "takeOut": {
+      "id": "massillon-area",
+      "name": "Massillon Area / Massillon Park",
+      "latitude": 41.915409,
+      "longitude": -90.920611
+    },
+    "logistics": {
+      "distanceLabel": "About 8 mi",
+      "estimatedPaddleTime": "About 3 hr to 5 hr depending on level, wood, and sandbar stops",
+      "shuttle": "Stage at Massillon Park / Massillon Area first, then launch from Oxford Mills. Confirm the Massillon ramp and campground road conditions before committing because closer product gauges did not return live values.",
+      "permits": "No route-specific paddling permit is known. Follow posted county park rules, Iowa boating/PFD rules, and private-property limits.",
+      "camping": "Massillon Park has primitive campground support near the take-out, and Iowa DNR says sandbar camping is allowed on the meandered Wapsipinicon from Central City to the Mississippi. Use only exposed safe sandbars or registered park camping; private uplands remain private.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at Oxford Mills and continue into the lower Wapsipinicon corridor to Massillon, the first access in the official Massillon-to-Sherman lower-trail section.",
+      "accessCaveats": [
+        "Oxford Mills is the planned put-in below the existing Jungletown-to-Oxford card; verify the landing because its USGS product feed remains stale.",
+        "Massillon Park is a named public park/access area north of Massillon on Hoover Highway; use the signed ramp rather than informal banks.",
+        "USGS 05421740 at Anamosa is an upstream proxy for this lower continuation, so local visual checks are required."
+      ],
+      "watchFor": [
+        "Breached Oxford Mills dam context, storm debris, and wood from the downstream lower-river corridor.",
+        "Dead-end side channels, shallow bars, and outside-bend strainers.",
+        "High/rising water that covers sandbars, muddies landings, and shortens response time."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "oxford-mills-access",
+        "name": "Oxford Mills Access",
+        "latitude": 41.971513,
+        "longitude": -90.96209,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at the lower Jones County Oxford Mills access corridor."
+      },
+      {
+        "id": "massillon-area",
+        "name": "Massillon Area / Massillon Park",
+        "latitude": 41.915409,
+        "longitude": -90.920611,
+        "mileFromStart": 8,
+        "segmentKind": "creek",
+        "note": "Default take-out at the Massillon-area ramp and campground-supported park."
+      }
+    ]
+  },
+  "wapsipinicon-river-massillon-walnut-grove": {
+    "putIn": {
+      "id": "massillon-area",
+      "name": "Massillon Area / Massillon Park",
+      "latitude": 41.915409,
+      "longitude": -90.920611
+    },
+    "takeOut": {
+      "id": "walnut-grove-park",
+      "name": "Walnut Grove Park",
+      "latitude": 41.90932,
+      "longitude": -90.86362
+    },
+    "logistics": {
+      "distanceLabel": "About 4+ mi",
+      "estimatedPaddleTime": "About 1.5 hr to 3 hr depending on level and stops",
+      "shuttle": "Stage Walnut Grove Park on the north edge of Toronto first, then launch from the Massillon Area ramp. Walk both ramps and check campground/park access hours.",
+      "permits": "No route-specific paddling permit is known. Follow county park rules, Iowa boating/PFD rules, and private-property limits.",
+      "camping": "Both endpoints have campground context: Massillon Park has primitive sites and Walnut Grove Park has a campground and boat ramp. Treat this as endpoint campground staging, not a bank-camping route.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Run the DNR-described shorter Massillon-to-Walnut Grove lower-Wapsi option between two well-marked ramps, with the Anamosa gauge used only as a guarded upstream proxy.",
+      "accessCaveats": [
+        "Massillon and Walnut Grove are described by DNR as good, well-marked ramps, but same-day flooding or campground rules can still affect use.",
+        "Walnut Grove's campground and boat ramp are on the north side of the river; verify the practical landing before launch.",
+        "Do not continue to Syracuse unless the sandbar access and longer shuttle are staged."
+      ],
+      "watchFor": [
+        "Downed trees in outside bends and side channels that can dead-end in low water.",
+        "Soft muddy ramps, disappearing beaches, and faster current when the Anamosa proxy is high or rising.",
+        "Private cabin banks and pasture edges; keep routine stops to public access land or legal exposed bars."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "massillon-area",
+        "name": "Massillon Area / Massillon Park",
+        "latitude": 41.915409,
+        "longitude": -90.920611,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at the Massillon-area ramp and campground-supported park."
+      },
+      {
+        "id": "walnut-grove-park",
+        "name": "Walnut Grove Park",
+        "latitude": 41.90932,
+        "longitude": -90.86362,
+        "mileFromStart": 4.5,
+        "segmentKind": "creek",
+        "note": "Default take-out at Walnut Grove Park near Toronto, with campground and boat-ramp context."
+      }
+    ]
+  },
+  "wapsipinicon-river-walnut-grove-syracuse": {
+    "putIn": {
+      "id": "walnut-grove-park",
+      "name": "Walnut Grove Park",
+      "latitude": 41.90932,
+      "longitude": -90.86362
+    },
+    "takeOut": {
+      "id": "syracuse-access",
+      "name": "Syracuse Wildlife Area Access",
+      "latitude": 41.831624,
+      "longitude": -90.794641
+    },
+    "logistics": {
+      "distanceLabel": "About 8.5 mi",
+      "estimatedPaddleTime": "About 3 hr to 5 hr depending on side channels, wind, and wood",
+      "shuttle": "Stage Syracuse Access from the east via the old Lincoln Highway segment before launching from Walnut Grove. Do not launch if the Syracuse sandbar landing is submerged, too muddy, or not clearly reachable.",
+      "permits": "No route-specific paddling permit is known. Follow county access rules, Iowa boating/PFD rules, and private-property limits.",
+      "camping": "Iowa DNR says sandbar camping is allowed on the meandered Wapsipinicon from Central City to the Mississippi, but this is normally a day route. Use sandbars only when exposed, legal, and safely above changing water.",
+      "campingClassification": "sandbar_or_gravel_bar",
+      "summary": "Paddle the middle lower-Wapsi split from Walnut Grove to Syracuse, ending at the sandbar-style Syracuse Wildlife Area access before the Sherman Park section.",
+      "accessCaveats": [
+        "Syracuse Access is subject to flooding and must be approached from the east; confirm the road and sandbar before launching.",
+        "Walnut Grove is the public ramp start; avoid private banks and cabins along the rural bends.",
+        "The Anamosa gauge is a distant upstream proxy. Pair it with a direct local visual check at Walnut Grove and Syracuse."
+      ],
+      "watchFor": [
+        "Dead-end side channels and wood in outside bends.",
+        "Submerged or unstable Syracuse sandbar landing.",
+        "High/rising water, floating debris, and long rural response times."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "walnut-grove-park",
+        "name": "Walnut Grove Park",
+        "latitude": 41.90932,
+        "longitude": -90.86362,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at Walnut Grove Park near Toronto."
+      },
+      {
+        "id": "syracuse-access",
+        "name": "Syracuse Wildlife Area Access",
+        "latitude": 41.831624,
+        "longitude": -90.794641,
+        "mileFromStart": 8.5,
+        "segmentKind": "creek",
+        "note": "Default take-out at the broad sandbar access; verify road and landing conditions first."
+      }
+    ]
   }
 };

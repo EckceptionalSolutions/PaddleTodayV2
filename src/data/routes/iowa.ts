@@ -16094,5 +16094,350 @@ export const iowaRoutes: River[] = [
         "provider": "usgs"
       }
     ]
+  },
+  {
+    "id": "wapsipinicon-river-oxford-mills-massillon",
+    "slug": "wapsipinicon-river-oxford-mills-massillon",
+    "name": "Wapsipinicon River",
+    "reach": "Oxford Mills Access to Massillon Area",
+    "state": "Iowa",
+    "region": "Eastern Iowa",
+    "summary": "Lower Wapsipinicon continuation below Oxford Mills into the Massillon area, using the official lower water-trail map, Massillon campground access context, and the guarded Anamosa proxy gauge model.",
+    "statusText": "Use the Wapsipinicon River near Anamosa gauge as an upstream lower-corridor proxy. The accepted lower Anamosa-to-Oxford model is 200 to 2,800 cfs; below Oxford Mills, confirm Massillon access, wood, and sandbar exposure from land.",
+    "latitude": 41.971513,
+    "longitude": -90.96209,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "This route starts below the breached Oxford Mills dam area and continues into the lower Wapsipinicon water-trail corridor; scout current, debris, and the practical landing before launch.",
+        "Iowa DNR warns that lower-Wapsi bends can hold dead trees, side channels, and shallow dead ends, so follow the strongest current and avoid blind outside-bend wood.",
+        "Sandbar camping is allowed on the meandered Wapsipinicon from Central City to the Mississippi, but private uplands and posted access rules still apply."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05421740",
+      "provider": "usgs",
+      "siteId": "05421740",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Wapsipinicon River near Anamosa, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 200,
+      "idealMax": 2800,
+      "tooLow": 200,
+      "tooHigh": 2800,
+      "thresholdSource": {
+        "label": "CanWePaddle lower Wapsipinicon Anamosa-to-Oxford range",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "Late spring through early fall is the practical lower-Wapsi window. Dry spells can expose bars and force walking; storms can turn side channels, wood, and rural take-outs into higher-consequence hazards.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The reach is moving flatwater, but it is longer and more remote than the Jones County access-pair cards and depends on a guarded upstream proxy gauge.",
+      "confidenceNotes": "Access and route confidence are moderate-good: the Iowa DNR / Jones County map labels Oxford Mills, Massillon Area, and the breached Oxford Mills dam context; Iowa DNR's lower Wapsipinicon guide names Massillon as the start of the Massillon-to-Walnut-Grove-to-Syracuse-to-Sherman section and notes Massillon has a good ramp; Cedar County / MyCountyParks corroborates Massillon Park on the Wapsipinicon. Threshold confidence remains guarded because the accepted CanWePaddle 200-2,800 cfs model is for Anamosa-to-Oxford and the product uses fresh USGS 05421740 upstream after downstream product feeds returned no current time series."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official lower-trail map",
+        "value": "Oxford Mills to Massillon Area",
+        "note": "The Iowa DNR / Jones County Wapsipinicon map labels Oxford Mills, Massillon Area, and the breached Oxford Mills dam in the lower access chain.",
+        "sourceUrl": "https://www.jonescountyiowa.gov/files/conservation/the_wapsipinicon_river_iowa_dnr_map_95320.pdf"
+      },
+      {
+        "label": "Massillon access context",
+        "value": "Good ramp and campground area",
+        "note": "Iowa DNR's lower Wapsipinicon guide says Massillon and Walnut Grove have good, well-marked ramps; MyCountyParks places Massillon Park just north of Massillon on Hoover Highway along the Wapsipinicon River.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
+      },
+      {
+        "label": "Threshold model",
+        "value": "200 to 2,800 cfs",
+        "note": "CanWePaddle's lower Anamosa-to-Oxford guidance supplies the accepted lower-Wapsi 200 to 2,800 cfs model; this downstream continuation uses it only with explicit local visual-check caveats.",
+        "sourceUrl": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "USGS 05421740 at 1,930 cfs / 7.14 ft",
+        "note": "USGS Water Services returned current Anamosa values at 2026-07-24 06:15 CDT; Toronto and Massillon product fetches returned no current time series.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05421740&parameterCd=00060,00065&siteStatus=all"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Iowa DNR Wapsipinicon River Water Trail guide",
+        "url": "https://www.iowadnr.gov/media/8899/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Iowa DNR / Jones County Wapsipinicon map",
+        "url": "https://www.jonescountyiowa.gov/files/conservation/the_wapsipinicon_river_iowa_dnr_map_95320.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Massillon Park - MyCountyParks",
+        "url": "https://www.mycountyparks.com/county/Cedar/Park/Massillon-Park",
+        "provider": "local"
+      },
+      {
+        "label": "CanWePaddle Wapsipinicon River Anamosa to Oxford",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05421740 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "wapsipinicon-river-massillon-walnut-grove",
+    "slug": "wapsipinicon-river-massillon-walnut-grove",
+    "name": "Wapsipinicon River",
+    "reach": "Massillon Area to Walnut Grove Park",
+    "state": "Iowa",
+    "region": "Eastern Iowa",
+    "summary": "Short lower-Wapsipinicon beginner-to-intermediate option from Massillon to Walnut Grove, using two well-marked official accesses with campground support and lower-river wood caveats.",
+    "statusText": "Use the Anamosa gauge as a guarded upstream proxy and stay within the accepted lower-Wapsi 200 to 2,800 cfs model. The DNR calls Massillon-to-Walnut Grove the shorter 4-plus-mile option, but wood and side channels still need a same-day check.",
+    "latitude": 41.915409,
+    "longitude": -90.920611,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Iowa DNR says the lower Massillon-to-Sherman corridor contains downed trees in river bends and occasional dead-end side channels; beginners should stay with the shorter Massillon-to-Walnut Grove option only when conditions are favorable.",
+        "Massillon and Walnut Grove have good ramps, but both can be affected by high water, mud, or seasonal campground/access rules.",
+        "Use legal sandbars only if exposed and safe. Do not climb onto private uplands or cabin banks."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05421740",
+      "provider": "usgs",
+      "siteId": "05421740",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Wapsipinicon River near Anamosa, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 200,
+      "idealMax": 2800,
+      "tooLow": 200,
+      "tooHigh": 2800,
+      "thresholdSource": {
+        "label": "CanWePaddle lower Wapsipinicon Anamosa-to-Oxford range",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "This short lower reach is most useful in late spring through early fall. Low water can expose sandbars and shallow dead ends; high water can cover beaches and make Walnut Grove landings more consequential.",
+      "difficulty": "easy",
+      "difficultyNotes": "DNR frames Massillon-to-Walnut Grove as a shorter 4-plus-mile option, but the proxy gauge, wood, private banks, and lower-river side channels keep it at guarded easy.",
+      "confidenceNotes": "Confidence is moderate-good: Iowa DNR documents the Massillon-to-Walnut-Grove-to-Syracuse-to-Sherman access chain, says Massillon and Walnut Grove have good well-marked ramps, and identifies Massillon-to-Walnut Grove as a shorter 4-plus-mile beginner option. Clinton County / MyCountyParks corroborates Walnut Grove's campground and boat-ramp location; Massillon Park is corroborated by Cedar County / MyCountyParks. Threshold confidence is guarded community evidence with a live upstream Anamosa proxy because closer Massillon/Toronto product feeds returned no current values."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Route option",
+        "value": "Massillon to Walnut Grove, 4-plus mi",
+        "note": "Iowa DNR's lower Wapsipinicon guide says beginners may try the shorter 4-plus-mile section between Massillon and Walnut Grove.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
+      },
+      {
+        "label": "Access quality",
+        "value": "Good, well-marked ramps",
+        "note": "The guide says Massillon and Walnut Grove have good ramps and are well marked.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
+      },
+      {
+        "label": "Walnut Grove support",
+        "value": "Campground and boat ramp north of river",
+        "note": "Clinton County / MyCountyParks says Walnut Grove Park's campground and boat ramp are on the north side of the Wapsipinicon River.",
+        "sourceUrl": "https://www.mycountyparks.com/county/clinton/park/walnut-grove-park"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "USGS 05421740 at 1,930 cfs / 7.14 ft",
+        "note": "USGS Water Services returned current Anamosa values at 2026-07-24 06:15 CDT for the upstream proxy gauge.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05421740&parameterCd=00060,00065&siteStatus=all"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Iowa DNR Wapsipinicon River Water Trail guide",
+        "url": "https://www.iowadnr.gov/media/8899/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Walnut Grove Park - Clinton County",
+        "url": "https://www.clintoncounty-ia.gov/conservation/parks/walnut_grove_park/",
+        "provider": "local"
+      },
+      {
+        "label": "Massillon Park - MyCountyParks",
+        "url": "https://www.mycountyparks.com/county/Cedar/Park/Massillon-Park",
+        "provider": "local"
+      },
+      {
+        "label": "CanWePaddle Wapsipinicon River Anamosa to Oxford",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05421740 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "wapsipinicon-river-walnut-grove-syracuse",
+    "slug": "wapsipinicon-river-walnut-grove-syracuse",
+    "name": "Wapsipinicon River",
+    "reach": "Walnut Grove Park to Syracuse Access",
+    "state": "Iowa",
+    "region": "Eastern Iowa",
+    "summary": "Middle split of the official lower-Wapsipinicon Massillon-to-Sherman section, from Walnut Grove's campground ramp to the sandbar-style Syracuse Wildlife Area access.",
+    "statusText": "Use the Anamosa gauge only as an upstream lower-Wapsi proxy. The accepted lower-corridor model is 200 to 2,800 cfs; check that the Syracuse sandbar access is exposed and reachable from the east before launching.",
+    "latitude": 41.90932,
+    "longitude": -90.86362,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Iowa DNR describes the full Massillon-to-Sherman reach as intermediate because downed trees, dead-end side channels, and rural access complexity can make route-finding consequential.",
+        "Syracuse Wildlife Area reaches a broad sandbar and is only reached from the east by the old Lincoln Highway segment; confirm road and sandbar conditions before committing.",
+        "Avoid cabins, pasture banks, and private uplands. Use the public ramp, public sandbar access, or legal exposed sandbars only."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05421740",
+      "provider": "usgs",
+      "siteId": "05421740",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Wapsipinicon River near Anamosa, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 200,
+      "idealMax": 2800,
+      "tooLow": 200,
+      "tooHigh": 2800,
+      "thresholdSource": {
+        "label": "CanWePaddle lower Wapsipinicon Anamosa-to-Oxford range",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "Late spring through early fall is the practical lower-Wapsi window. The Syracuse sandbar landing can be too muddy or submerged outside moderate water, and higher water makes side-channel mistakes more consequential.",
+      "difficulty": "moderate",
+      "difficultyNotes": "This is a rural lower-Wapsi connector with a sandbar-style take-out, side channels, wood, and a proxy gauge, so it needs intermediate trip planning even though the gradient is gentle.",
+      "confidenceNotes": "Confidence is moderate: Iowa DNR documents Walnut Grove, Syracuse Wildlife Area, and the broader lower-Wapsi section; the DNR guide says Syracuse takes users to a broad sandbar and is east-approach-only from an old Lincoln Highway segment. Clinton County materials and the Lincoln Highway corridor plan corroborate Syracuse as a public one-acre river access with coordinates, while Walnut Grove is county-managed with campground and ramp support. Threshold confidence remains guarded because the live product gauge is upstream at Anamosa and the closer Massillon/Toronto USGS product checks returned no current time series."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official access sequence",
+        "value": "Walnut Grove to Syracuse",
+        "note": "Iowa DNR's lower Wapsipinicon guide includes Walnut Grove and Syracuse Wildlife Area in the Massillon-to-Sherman access sequence.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
+      },
+      {
+        "label": "Syracuse access caveat",
+        "value": "Broad sandbar; east approach only",
+        "note": "The guide says Syracuse Wildlife Area access leads to a broad sandbar and can only be reached from the east off U.S. 30 via an old Lincoln Highway segment.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
+      },
+      {
+        "label": "Syracuse coordinate support",
+        "value": "41.831624, -90.794641",
+        "note": "The Lincoln Highway corridor plan describes Syracuse Access as a one-acre Wapsipinicon access for fishing and boating, subject to periodic flooding, and provides coordinates.",
+        "sourceUrl": "https://www.krosradio.com/wp-content/uploads/2017/02/Lincoln-Highway-CMP-Clinton.pdf"
+      },
+      {
+        "label": "Threshold model",
+        "value": "200 to 2,800 cfs",
+        "note": "CanWePaddle supplies the accepted lower-Wapsi model; this route uses it conservatively with same-day Syracuse sandbar checks.",
+        "sourceUrl": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Iowa DNR Wapsipinicon River Water Trail guide",
+        "url": "https://www.iowadnr.gov/media/8899/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Wapsipinicon River Clinton & Scott County map",
+        "url": "https://media.rainpos.com/8576/cdo_wapsipinicon_river_scott_and_clinton_county1.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Walnut Grove Park - Clinton County",
+        "url": "https://www.clintoncounty-ia.gov/conservation/parks/walnut_grove_park/",
+        "provider": "local"
+      },
+      {
+        "label": "Lincoln Highway corridor plan",
+        "url": "https://www.krosradio.com/wp-content/uploads/2017/02/Lincoln-Highway-CMP-Clinton.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05421740 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/",
+        "provider": "usgs"
+      }
+    ]
   }
 ];
