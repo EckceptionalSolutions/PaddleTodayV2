@@ -27185,5 +27185,380 @@ export const minnesotaRoutes: River[] = [
         "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
       }
     ]
+  },
+  {
+    "id": "mississippi-river-wolds-ferry-palisade",
+    "slug": "mississippi-river-wolds-ferry-palisade",
+    "name": "Mississippi River",
+    "reach": "Wold's Ferry Crossing to Palisade",
+    "state": "Minnesota",
+    "region": "Mississippi Headwaters",
+    "summary": "Missing Map 4 Mississippi connector from Wold's Ferry to Palisade, joining the Sandy Lake-to-Wold's and Palisade-to-Aitkin route family with public DNR accesses and conservative Aitkin-gauge scoring.",
+    "statusText": "Use the Aitkin DNR gauge as a downstream same-map proxy: 1,500 to 6,000 cfs is the official medium band. Below 712 cfs is scrapable, and above 8,000 cfs is very high; this run found the gauge below scrapable.",
+    "latitude": 46.74673080617531,
+    "longitude": -93.39734256533568,
+    "gaugeSource": {
+      "id": "mn-dnr-120",
+      "provider": "mn_dnr",
+      "siteId": "120",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "proxy",
+      "siteName": "Mississippi River at Aitkin, MN",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=10015001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=10015001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 1500,
+      "idealMax": 6000,
+      "tooLow": 712.3,
+      "tooHigh": 8000,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Mississippi River at Aitkin",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 1.15,
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Late spring through fall can work when the Aitkin gauge and same-day access checks agree. Low readings expose riffles, bars, and long shallow bends; high water spreads into wood, oxbows, and floodplain edges.",
+      "difficulty": "moderate",
+      "difficultyNotes": "This is gentle headwaters Mississippi water, but the 9.6-mile rural gap has few clean bailouts, private banks, snags, cold water, and a downstream proxy gauge.",
+      "confidenceNotes": "Confidence is good: MN DNR recommends the broader Wold's Ferry-to-Aitkin Map 4 section, DNR Map 4 places Wold's Ferry, Palisade, and the downstream Aitkin access chain in sequence, and adjacent current V2 cards already resolve both public endpoints with Minnesota public-water-access GIS. Gauge confidence is moderate because Aitkin is downstream of this split."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "remote",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Treat Aitkin as a downstream same-map gauge and inspect Wold's Ferry and Palisade for actual depth, landing mud, and fresh wood before launching.",
+        "Use only named public accesses or mapped legal campsites; DNR Map 4 warns against camping on private property or riverbeds adjacent to private property.",
+        "Do not continue toward Aitkin's diversion-channel and dam context unless the downstream Aitkin route is separately planned."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      {
+        "label": "Recommended corridor",
+        "value": "Wold's Ferry to Aitkin Campground, 40.3 miles",
+        "note": "MN DNR recommended-one-way materials list Wold's Ferry Crossing to Aitkin Campground as the Map 4 Mississippi section; this card fills the upstream public-access gap to Palisade.",
+        "sourceUrl": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      },
+      {
+        "label": "Map support",
+        "value": "Wold's Ferry RM 1096.0 to Palisade RM 1086.4",
+        "note": "MN DNR Map 4 places Wold's Ferry, Big Sandy River confluence context, Palisade, Waldeck, Kimball, and Aitkin in downstream order.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi4.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "Wold's Ferry WAS02563 and Palisade WAS01038",
+        "note": "Existing DNR/public-access-backed route details in the current app resolve Wold's Ferry and Palisade with coordinates, public-access IDs, and river-mile context.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "712.3 / 1,500-6,000 / 8,000 cfs",
+        "note": "MN DNR interprets the Aitkin gauge as Scrapable below 712.3 cfs, Low from 712.3 to 1,500, Medium from 1,500 to 6,000, High from 6,000 to 8,000, and Very High above 8,000.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "638 cfs at 2026-07-23 19:30 CDT",
+        "note": "The official DNR feed placed Aitkin below the scrapable floor during this run, so this card should score too low until flows recover.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR recommended one-way routes",
+        "url": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      },
+      {
+        "label": "MN DNR Mississippi River segments and maps",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html"
+      },
+      {
+        "label": "MN DNR Mississippi River Map 4 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi4.pdf"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      }
+    ]
+  },
+  {
+    "id": "mississippi-river-fletcher-creek-overlook",
+    "slug": "mississippi-river-fletcher-creek-overlook",
+    "name": "Mississippi River",
+    "reach": "Fletcher Creek to Overlook Park",
+    "state": "Minnesota",
+    "region": "Central Minnesota",
+    "summary": "Central Mississippi Map 6 connector from Fletcher Creek to Baxter's Overlook Park, closing the public-access gap between Fort Ripley-to-Fletcher and Overlook-to-Belle Prairie with Camp Ripley shoreline restrictions in focus.",
+    "statusText": "Use the Brainerd DNR gauge as an upstream corridor proxy: 1,800 to 7,000 cfs is the official medium band. Below 908 cfs is scrapable, and above 10,000 cfs is very high; this run found the gauge below scrapable.",
+    "latitude": 46.0651,
+    "longitude": -94.3363,
+    "gaugeSource": {
+      "id": "mn-dnr-121",
+      "provider": "mn_dnr",
+      "siteId": "121",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "proxy",
+      "siteName": "Mississippi River at Brainerd, MN",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=10082002",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=10082002&var1=262&width=700&height=320"
+    },
+    "fallbackGaugeSources": [
+      {
+        "id": "usgs-05261000",
+        "provider": "usgs",
+        "siteId": "05261000",
+        "metric": "discharge_cfs",
+        "unit": "cfs",
+        "kind": "direct",
+        "siteName": "Mississippi River near Fort Ripley, MN",
+        "detailUrl": "https://waterdata.usgs.gov/monitoring-location/05261000/"
+      }
+    ],
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 1800,
+      "idealMax": 7000,
+      "tooLow": 908,
+      "tooHigh": 10000,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Mississippi River at Brainerd",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 1.15,
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Open-water season is best. Low Brainerd readings can make the Fort Ripley-to-Overlook corridor shallow and slow; high or rising water adds debris, harder island-channel decisions, and more exposed landings.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The route is not whitewater, but it is a long central-Mississippi day with Camp Ripley no-access shoreline, island/backwater choices, private banks, wind, cold water, and proxy-gauge uncertainty.",
+      "confidenceNotes": "Confidence is good for route shape: MN DNR Map 6 places Fletcher Creek, Otter Point WMA, Overlook Park, and the downstream Belle Prairie recommended section in sequence. Gauge confidence is moderate because Brainerd is upstream of Fletcher Creek; the route requires same-day landing and depth checks."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "DNR Map 6 says Camp Ripley Training Center access is not allowed from the Mississippi or Crow Wing rivers; do not use military shoreline as a bailout.",
+        "Confirm Fletcher Creek and Overlook Park access, parking, and signage before launching because both need more careful arrival checks than the stronger public-access GIS endpoints.",
+        "Wind, motorboat wake, island channels, floating wood, storms, and cold water can override a simple gauge reading."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      {
+        "label": "Map 6 route shape",
+        "value": "Fletcher Creek to Overlook Park, about 22.9 miles",
+        "note": "MN DNR Map 6 places Fletcher Creek and Overlook Park on the same recommended Map 6 corridor between Fort Ripley, Crow Wing State Park, and Belle Prairie County Park.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi6.pdf"
+      },
+      {
+        "label": "Public access support",
+        "value": "Fletcher Creek DNR county-map access; Overlook city canoe park",
+        "note": "DNR Morrison County public-water-access mapping lists Fletcher Creek as a concrete access, and Baxter publishes Mississippi River Overlook Park as a canoe-access city park at 6005 Oakdale Road.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/water_access/counties/morrison.pdf"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "908 / 1,800-7,000 / 10,000 cfs",
+        "note": "MN DNR interprets the Brainerd gauge as Scrapable below 908 cfs, Low from 908 to 1,800, Medium from 1,800 to 7,000, High from 7,000 to 10,000, and Very High above 10,000.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "861 cfs at 2026-07-23 19:30 CDT",
+        "note": "The official DNR feed placed Brainerd below the scrapable floor during this run.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Access coordinates",
+        "value": "Fletcher 46.0651, -94.3363; Overlook 46.3178778, -94.2755325",
+        "note": "The current app's adjacent DNR-backed route records use The Paddling Hub for Fletcher Creek coordinates and US Census geocoding of Baxter's published Overlook Park address.",
+        "sourceUrl": "https://www.baxtermn.gov/amenities/city-parks/mississippi-river-overlook-park"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR Mississippi River Map 6 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi6.pdf"
+      },
+      {
+        "label": "MN DNR Mississippi River segments and maps",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html"
+      },
+      {
+        "label": "MN DNR Morrison County public water accesses",
+        "url": "https://files.dnr.state.mn.us/maps/water_access/counties/morrison.pdf"
+      },
+      {
+        "label": "Baxter Mississippi River Overlook Park",
+        "url": "https://www.baxtermn.gov/amenities/city-parks/mississippi-river-overlook-park"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "USGS 05261000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/05261000/"
+      }
+    ]
+  },
+  {
+    "id": "minnesota-river-war-memorial-kinney",
+    "slug": "minnesota-river-war-memorial-kinney",
+    "name": "Minnesota River",
+    "reach": "War Memorial Park to Kinney Access",
+    "state": "Minnesota",
+    "region": "Southwest Minnesota",
+    "summary": "Short Map 3 Minnesota River gap below Granite Falls, connecting War Memorial Park to Kinney Access with official DNR recommended-corridor support, Minnesota Falls hazard caveats, and upstream Montevideo gauge scoring.",
+    "statusText": "Use the Montevideo DNR gauge as an upstream same-corridor check: 5 to 9 ft is the official medium band. Below 3 ft is scrapable, and above 14 ft is very high.",
+    "latitude": 44.801593076365066,
+    "longitude": -95.53915116502489,
+    "gaugeSource": {
+      "id": "mn-dnr-99",
+      "provider": "mn_dnr",
+      "siteId": "99",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "proxy",
+      "siteName": "Minnesota River at Montevideo",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=25063001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=25063001&var1=232&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 5,
+      "idealMax": 9,
+      "tooLow": 3,
+      "tooHigh": 14,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Minnesota River at Montevideo",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 1.1,
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring through fall can work when the Montevideo gauge is stable and downstream visual checks agree. Low summer water exposes rock, shoals, and ledges; rain and dam-influenced changes add debris and pushier current.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The distance is short, but this starts immediately below Granite Falls and DNR Map 3 flags Minnesota Falls and small-rapid context nearby. Scout if water is low, high, or rising.",
+      "confidenceNotes": "Confidence is good for access and route shape: MN DNR's recommended list covers the larger War Memorial-to-Morton corridor, Map 3 places War Memorial, Minnesota Falls context, Kinney, and downstream Skalbekken in order, and the current app's adjacent route details resolve both endpoints. Gauge confidence is moderate because Montevideo is upstream of Granite Falls and the dam/rapid corridor."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam",
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Start only after completing the Granite Falls dam/War Memorial logistics; do not drift into this route unintentionally from upstream.",
+        "DNR Map 3 places Minnesota Falls and small-rapid/ledge context below Granite Falls. Scout and be willing to cancel at low, high, or rising water.",
+        "Use War Memorial and Kinney as the named public endpoints. Do not assume private banks or islands are legal stops."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "evidenceNotes": [
+      {
+        "label": "Recommended corridor",
+        "value": "War Memorial Park to Morton, 49.0 miles",
+        "note": "MN DNR recommended-one-way materials list the larger War Memorial Park-to-Morton Map 3 section; this card isolates the public-access gap to Kinney above the already-live Kinney-to-Skalbekken route.",
+        "sourceUrl": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      },
+      {
+        "label": "Map 3 support",
+        "value": "War Memorial RM 238.9 to Kinney RM 233.7",
+        "note": "MN DNR Map 3 places War Memorial Park, Minnesota Falls context, Kinney Access, Fredrickson, and Skalbekken in downstream order.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota3.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "War Memorial WAS00692 and Kinney WAS00694",
+        "note": "The current app's adjacent DNR-backed trip details resolve War Memorial Park and Kinney Access with Minnesota public-water-access GIS coordinates and river-mile records.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "3 / 5-9 / 14 ft",
+        "note": "MN DNR interprets the Montevideo gauge as Scrapable below 3 ft, Low from 3 to 5, Medium from 5 to 9, High from 9 to 14, and Very High above 14.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "4.55 ft at 2026-07-23 19:00 CDT",
+        "note": "The official DNR feed placed Montevideo in the low band during this run, below the medium recommendation band.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR recommended paddling sections",
+        "url": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      },
+      {
+        "label": "MN DNR Minnesota River Map 3",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota3.pdf"
+      },
+      {
+        "label": "MN DNR Minnesota River State Water Trail",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/minnesota-river/index.html"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      }
+    ]
   }
 ];

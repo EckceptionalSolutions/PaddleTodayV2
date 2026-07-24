@@ -1,5 +1,15 @@
 # Minnesota Route Memory
 
+## 2026-07-23 22:15 America/Chicago / 2026-07-24 03:15 UTC Minnesota Mississippi / Minnesota River gap pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `214` to `217` live route slugs by adding `mississippi-river-wolds-ferry-palisade`, `mississippi-river-fletcher-creek-overlook`, and `minnesota-river-war-memorial-kinney`.
+- Qualification path: MN DNR recommended one-way sections plus Mississippi Maps 4/6 and Minnesota River Map 3 document the larger official corridors and access order. Wold's/Palisade and War Memorial/Kinney coordinates reuse adjacent current V2 records backed by Minnesota public-water-access GIS; Fletcher/Overlook reuse the adjacent route's DNR county-map / Baxter address / Census-geocode support.
+- Live gauge verification: MN DNR river-level JSON returned Aitkin site `120` at `638 cfs` at `2026-07-23 19:30 CDT`, Brainerd site `121` at `861 cfs` at `2026-07-23 19:30 CDT`, and Montevideo site `99` at `4.55 ft` at `2026-07-23 19:00 CDT`.
+- Threshold posture: all three use official MN DNR interpreted bands only. Wold's-to-Palisade uses downstream same-map Aitkin `712.3 / 1,500-6,000 / 8,000 cfs`; Fletcher-to-Overlook uses upstream same-corridor Brainerd `908 / 1,800-7,000 / 10,000 cfs`; War-Memorial-to-Kinney uses upstream Montevideo `3 / 5-9 / 14 ft` with explicit Granite Falls/Minnesota Falls visual-check caveats.
+- Safety/camping posture: Wold's-to-Palisade flags below-scrapable water, shallow bars, snags, private banks, no assumed camping, and no unplanned continuation toward Aitkin diversion/dam context. Fletcher-to-Overlook flags Camp Ripley no-access shoreline, long mileage, wind/motor wake, endpoint-coordinate caveats, and designated-site-only overnight assumptions. War-Memorial-to-Kinney flags Granite Falls carryover discipline, Minnesota Falls/small-rapid context, low-water ledges, private banks, and no camping.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Baxter / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected.
+- Reviewed but did not add: Pine Norway-to-Pine-River-#1 remains viable but was lower value than the three corridor gaps because this run could reuse stronger adjacent endpoint evidence and fill missing public-access links in existing route families. Big Fork Dora-to-Lime remains stale-gauge blocked; Des Moines Mayflower-to-Christianna remains proxy weak.
+
 ## 2026-07-23 21:12 America/Chicago / 2026-07-24 02:12 UTC Minnesota River gap pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `211` to `214` live route slugs by adding `minnesota-river-priens-war-memorial`, `minnesota-river-morton-highway-4`, and `minnesota-river-buessman-riverside`.

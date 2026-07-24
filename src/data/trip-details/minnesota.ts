@@ -10214,5 +10214,164 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default take-out at New Ulm / DNR Map 4 river mile 138.1."
       }
     ]
+  },
+  "mississippi-river-wolds-ferry-palisade": {
+    "putIn": {
+      "id": "wolds-ferry-crossing",
+      "name": "Mississippi River, Wold's Ferry Crossing Public Water Access Site",
+      "latitude": 46.74673080617531,
+      "longitude": -93.39734256533568
+    },
+    "takeOut": {
+      "id": "palisade-access",
+      "name": "Mississippi River, Palisade Public Water Access Site",
+      "latitude": 46.709611,
+      "longitude": -93.485152
+    },
+    "logistics": {
+      "distanceLabel": "9.6 mi",
+      "estimatedPaddleTime": "About 3 hr to 5 hr, longer with low water, wind, or wood scouting",
+      "shuttle": "Stage Palisade first, then drive back to Wold's Ferry Crossing. Confirm both Aitkin County landings and the downstream Aitkin gauge before launching.",
+      "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR water-trail guidance, Aitkin County access rules, and any posted campsite rules.",
+      "camping": "Treat this as a day route with nearby or downstream designated-site planning only. DNR water-trail rules prohibit private-bank or adjacent-riverbed camping unless a legal campsite or public land is clearly identified.",
+      "campingClassification": "none",
+      "summary": "Launch at Wold's Ferry and take out at Palisade to fill the upstream gap inside the official Wold's-to-Aitkin Map 4 corridor. Aitkin was below the DNR scrapable floor during this run.",
+      "accessCaveats": [
+        "Wold's Ferry and Palisade are both DNR/public-access-backed endpoints already used by adjacent current route cards.",
+        "The Aitkin gauge is downstream of the selected split, so inspect depth, mud, and wood at Wold's Ferry before committing.",
+        "Do not extend toward Aitkin's diversion-channel and dam context unless the downstream Aitkin route is separately planned."
+      ],
+      "watchFor": [
+        "Low-water riffles, shallow bars, snags, downed trees, and dead-end side channels.",
+        "Private banks, limited bailouts, cold water, and wind on wider bends.",
+        "Storm debris or high/rising water that can make the proxy gauge less representative."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "wolds-ferry-crossing",
+        "name": "Mississippi River, Wold's Ferry Crossing Public Water Access Site",
+        "latitude": 46.74673080617531,
+        "longitude": -93.39734256533568,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS02563 at DNR river mile 1096.0."
+      },
+      {
+        "id": "palisade-access",
+        "name": "Mississippi River, Palisade Public Water Access Site",
+        "latitude": 46.709611,
+        "longitude": -93.485152,
+        "mileFromStart": 9.6,
+        "segmentKind": "creek",
+        "note": "Default take-out; Minnesota public-water-access GIS resolves WAS01038 at DNR river mile 1086.4."
+      }
+    ]
+  },
+  "mississippi-river-fletcher-creek-overlook": {
+    "putIn": {
+      "id": "fletcher-creek-trailer-access",
+      "name": "Fletcher Creek Trailer Access",
+      "latitude": 46.0651,
+      "longitude": -94.3363
+    },
+    "takeOut": {
+      "id": "overlook-park-baxter",
+      "name": "Mississippi River Overlook Park Carry-in Access",
+      "latitude": 46.3178778,
+      "longitude": -94.2755325
+    },
+    "logistics": {
+      "distanceLabel": "22.9 mi",
+      "estimatedPaddleTime": "Long day, roughly 7 hr to 10 hr depending on wind, level, and island-channel choices",
+      "shuttle": "Stage Overlook Park first and confirm Baxter city-park carry-in access, then drive back to Fletcher Creek. Confirm Fletcher Creek parking and signage before leaving a vehicle.",
+      "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR water-trail guidance, Baxter park rules, and all Camp Ripley shoreline restrictions.",
+      "camping": "DNR Map 6 marks watercraft-campsite context at Fletcher Creek and Overlook Park. Treat overnight use as designated/posted or separately verified; Camp Ripley and private banks are not camping options.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Launch at Fletcher Creek and take out at Baxter's Overlook Park to close the Map 6 public-access gap above the existing Overlook-to-Belle Prairie card. The Brainerd proxy gauge was below scrapable during this run.",
+      "accessCaveats": [
+        "Fletcher Creek is DNR-named and appears on DNR county public-access mapping, but its coordinates are carried forward from the adjacent current card's paddling-directory support.",
+        "Overlook Park is DNR-named and Baxter-published as a canoe-access city park; the saved coordinate is a Census geocode of Baxter's published address.",
+        "Camp Ripley Training Center access is not allowed from the Mississippi or Crow Wing rivers."
+      ],
+      "watchFor": [
+        "Long-mileage exposure, below-scrapable water, broad-river wind, motorboat wake, and cold water.",
+        "Island/backwater routefinding, floating wood, storm debris, and private or military shoreline.",
+        "Overlook Park signage and landing conditions before committing to the upstream shuttle."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "fletcher-creek-trailer-access",
+        "name": "Fletcher Creek Trailer Access",
+        "latitude": 46.0651,
+        "longitude": -94.3363,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in named by MN DNR Map 6; verify signage and parking because coordinates are not from the current GIS feature-service query."
+      },
+      {
+        "id": "overlook-park-baxter",
+        "name": "Mississippi River Overlook Park Carry-in Access",
+        "latitude": 46.3178778,
+        "longitude": -94.2755325,
+        "mileFromStart": 22.9,
+        "segmentKind": "creek",
+        "note": "Default take-out at DNR Map 6 river mile 995.8; coordinate comes from the US Census geocode of Baxter's published 6005 Oakdale Road park address."
+      }
+    ]
+  },
+  "minnesota-river-war-memorial-kinney": {
+    "putIn": {
+      "id": "minnesota-river-war-memorial",
+      "name": "Minnesota River, War Memorial City Park Public Water Access Site",
+      "latitude": 44.801593076365066,
+      "longitude": -95.53915116502489
+    },
+    "takeOut": {
+      "id": "minnesota-river-kinney-access",
+      "name": "Minnesota River, Kinney Public Water Access Site",
+      "latitude": 44.77412842638547,
+      "longitude": -95.53125591590408
+    },
+    "logistics": {
+      "distanceLabel": "5.2 mi",
+      "estimatedPaddleTime": "About 2 hr to 3.5 hr, longer if scouting ledges, low water, or wood",
+      "shuttle": "Stage Kinney first, then drive back to War Memorial Park. Do not enter this reach as an unplanned continuation from the upstream Granite Falls dam route.",
+      "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR water-trail guidance, city-park rules, and posted public-access restrictions.",
+      "camping": "Treat this as a day route. War Memorial has watercraft-campsite context upstream and Kinney connects to downstream Map 3 campsite options, but no overnight stop is assumed on this short split.",
+      "campingClassification": "none",
+      "summary": "Launch at War Memorial Park and take out at Kinney to cover the short Map 3 gap above the existing Kinney-to-Skalbekken card. Use the Montevideo DNR gauge conservatively and scout Minnesota Falls context.",
+      "accessCaveats": [
+        "War Memorial and Kinney are both DNR/public-access-backed endpoints already used by adjacent current route cards.",
+        "The Montevideo gauge is upstream of Granite Falls and the dam/rapid corridor, so visual checks below War Memorial matter.",
+        "Do not continue past Kinney unless using the separate Kinney-to-Skalbekken plan."
+      ],
+      "watchFor": [
+        "Minnesota Falls and small-rapid or ledge context below Granite Falls, especially at low, high, or rising water.",
+        "Floating debris, strainers, muddy landings, cold water, and private banks.",
+        "Residual dam-release or local conditions that can make the upstream Montevideo gauge imperfect for this short reach."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "minnesota-river-war-memorial",
+        "name": "Minnesota River, War Memorial City Park Public Water Access Site",
+        "latitude": 44.801593076365066,
+        "longitude": -95.53915116502489,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at DNR Map 3 river mile 238.9, below the Granite Falls dam/portage corridor."
+      },
+      {
+        "id": "minnesota-river-kinney-access",
+        "name": "Minnesota River, Kinney Public Water Access Site",
+        "latitude": 44.77412842638547,
+        "longitude": -95.53125591590408,
+        "mileFromStart": 5.2,
+        "segmentKind": "creek",
+        "note": "Default take-out; Minnesota public-water-access GIS resolves WAS00694 at DNR river mile 233.7."
+      }
+    ]
   }
 };

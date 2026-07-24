@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 22:15 America/Chicago / 2026-07-24 03:15 UTC: Minnesota Mississippi / Minnesota River gap pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 214-route exported Minnesota baseline: `mississippi-river-wolds-ferry-palisade`, `mississippi-river-fletcher-creek-overlook`, and `minnesota-river-war-memorial-kinney`, bringing Minnesota to 217 live routes.
+  - Qualification path: MN DNR recommended one-way sections, Mississippi Maps 4/6, Minnesota River Map 3, MN DNR river-level JSON, adjacent public-access-backed V2 endpoint records, DNR Morrison County access mapping, and Baxter's Overlook Park page support the access pairs and route shapes.
+  - Gauge posture: Aitkin site `120` returned `638 cfs`, Brainerd site `121` returned `861 cfs`, and Montevideo site `99` returned `4.55 ft` during the run. All three use official DNR interpreted bands only and keep proxy/visual-check caveats visible.
+  - Safety/image posture: cards carry below-scrapable Mississippi water, Camp Ripley no-access shoreline, Granite Falls/Minnesota Falls hazard context, private-bank/camping limits, long-day exposure, and no selected gallery images after bounded official/Commons/same-route review.
+
 - 2026-07-23 22:10 America/Chicago / 2026-07-24 03:10 UTC: Iowa West Nishnabotna official split pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 112-route exported Iowa baseline: `west-nishnabotna-river-avoca-hancock`, `west-nishnabotna-river-hancock-oakland`, and `west-nishnabotna-river-oakland-carson`, bringing Iowa to 115 live routes.
   - Qualification path: Friends of the West Nish access, water-level, safety, and camping pages support the exact Avoca / Hancock / Oakland / Carson access-chain splits, bridge landmarks, no-public-access-between-sites warning, flashy-water context, private-bank/sandbar camping restrictions, and Hancock stage thresholds. Travel Iowa corroborates the 26.8-mile state water trail; Pottawattamie and local park pages corroborate endpoint public access / camping context.
