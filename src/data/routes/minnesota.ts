@@ -6694,6 +6694,159 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
+    "id": "cottonwood-river-springfield-highway-4",
+    "slug": "cottonwood-river-springfield-highway-4",
+    "name": "Cottonwood River",
+    "reach": "Springfield to Highway 4",
+    "state": "Minnesota",
+    "region": "Southwest Minnesota",
+    "summary": "Long middle-Cottonwood public-access gap from Springfield Riverside Park to the Highway 4 access south of Sleepy Eye. It connects the existing upper and lower Cottonwood cards with official DNR map/access support and the Springfield DNR gauge just upstream.",
+    "statusText": "Use the Springfield / County Road 2 DNR gauge as the upstream same-corridor check: 13.0 to 17.0 ft is medium. Below 12.5 ft is scrapable, and above 19.0 ft is very high.",
+    "latitude": 44.23778269,
+    "longitude": -94.97404056,
+    "gaugeSource": {
+      "id": "mn-dnr-42",
+      "provider": "mn_dnr",
+      "siteId": "42",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "proxy",
+      "siteName": "Cottonwood River nr Springfield, CR2",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=29015001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=29015001&var1=232&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 13,
+      "idealMax": 17,
+      "tooLow": 12.5,
+      "tooHigh": 19,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Cottonwood River near Springfield",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring and post-rain windows are the cleanest bet. Summer lows can leave the middle Cottonwood shallow and slow, while high or rising water increases wood, muddy-bank, and bridge-current risk.",
+      "difficulty": "moderate",
+      "difficultyNotes": "DNR describes the Cottonwood as beginner-friendly with no major rapids, but this is about 24.9 miles between formal public accesses. Treat it as a very long day for efficient groups or split only with a separately confirmed legal overnight plan.",
+      "confidenceNotes": "Confidence is good: MN DNR Map 4 and the public-water-access service place Springfield, Highway 4, and intermediate Theden's Landing in order with river miles and coordinates. Gauge confidence is moderate-good because the interpreted Springfield gauge is upstream of the selected put-in rather than inside the lower half of the route."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "This is a long access-to-access card. Do not start without daylight, realistic speed, and a legal bailout or pickup plan.",
+        "DNR warns paddlers to check water levels and avoid dead or overhanging trees. Expect wood, muddy banks, and shallow bars to change after storms.",
+        "Use the named public accesses only. Do not assume private farm banks or gravel bars are legal stops or campsites."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "putIn": {
+      "name": "Cottonwood River, Springfield Public Water Access Site",
+      "latitude": 44.23778269,
+      "longitude": -94.97404056
+    },
+    "takeOut": {
+      "name": "Cottonwood River, Hwy 4 Public Water Access Site",
+      "latitude": 44.23521338,
+      "longitude": -94.72563609
+    },
+    "accessPoints": [
+      {
+        "id": "cottonwood-springfield-pwa",
+        "name": "Cottonwood River, Springfield Public Water Access Site",
+        "latitude": 44.23778269,
+        "longitude": -94.97404056,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS01421 at Cottonwood river mile 56.3 in Springfield Riverside Park."
+      },
+      {
+        "id": "cottonwood-highway-4-pwa",
+        "name": "Cottonwood River, Hwy 4 Public Water Access Site",
+        "latitude": 44.23521338,
+        "longitude": -94.72563609,
+        "mileFromStart": 24.9,
+        "segmentKind": "creek",
+        "note": "Default take-out; Minnesota public-water-access GIS resolves WAS02675 at Cottonwood river mile 31.4 with carry-in launch and parking."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Official map route",
+        "value": "Springfield RM 56.3 to Highway 4 RM 31.4, about 24.9 miles",
+        "note": "MN DNR Map 4 places Springfield, Highway 4, Theden's Landing, County Road 10, County Road 11, and Flandrau in downstream order across the Cottonwood water trail.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "WAS01421 to WAS02675",
+        "note": "Minnesota public-water-access GIS resolves Springfield and Highway 4 as public Cottonwood River accesses with coordinates, launch data, directions, and river miles.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "12.5 / 13.0-17.0 / 19.0 ft",
+        "note": "MN DNR interprets the Springfield / County Road 2 gauge as Scrapable below 12.5 ft, Low from 12.5 to 13.0, Medium from 13.0 to 17.0, High from 17.0 to 19.0, and Very High above 19.0.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "12.86 ft at 2026-07-24 02:30 CDT",
+        "note": "The current MN DNR feed placed Springfield in the official low band, just below medium, during this run.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "River character",
+        "value": "No major rapids; watch water levels and trees",
+        "note": "MN DNR describes the Cottonwood as having no major rapids and being suitable for beginning paddlers, but warns to check water levels and avoid dead or overhanging trees.",
+        "sourceUrl": "https://www.dnr.state.mn.us/watertrails/cottonwoodriver/segments-maps.html"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR Cottonwood River segments and maps",
+        "url": "https://www.dnr.state.mn.us/watertrails/cottonwoodriver/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Minnesota River / Cottonwood map 4 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Brown County canoe landings",
+        "url": "https://www.browncountymn.gov/231/Canoe-Landings"
+      }
+    ]
+  },
+  {
     "id": "pine-river-rock-dam-harvey-drake",
     "slug": "pine-river-rock-dam-harvey-drake",
     "name": "Pine River",
@@ -22566,6 +22719,176 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
+    "id": "mississippi-river-county-road-25-knutson-dam",
+    "slug": "mississippi-river-county-road-25-knutson-dam",
+    "name": "Mississippi River",
+    "reach": "County Road 25 to Knutson Dam Recreation Area",
+    "state": "Minnesota",
+    "region": "Mississippi Headwaters",
+    "summary": "Missing Mississippi Headwaters link from the County Road 25 carry-in through the Cass Lake transition to Bimijiwan / Knutson Dam Recreation Area. It is official water-trail mileage with real public accesses, but wind, wetlands, big-water exposure, and rescue spacing make it a conservative planner card.",
+    "statusText": "Use the Stump Lake / County Road 12 DNR gauge as the upstream headwaters check: 2.8 to 3.6 ft is medium. Below 1.8 ft is scrapable, and above 5 ft is very high. Also check wind before any Cass Lake shoreline travel.",
+    "latitude": 47.44696630535304,
+    "longitude": -94.71763994813507,
+    "gaugeSource": {
+      "id": "mn-dnr-341",
+      "provider": "mn_dnr",
+      "siteId": "341",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "metricLabel": "Gauge height",
+      "kind": "proxy",
+      "siteName": "Stump Lake near Bemidji, CSAH12",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=07115001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=07115001&var1=232&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 2.8,
+      "idealMax": 3.6,
+      "tooLow": 1.8,
+      "tooHigh": 5,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Stump Lake near Bemidji",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 1.35,
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Open-water season only, and only when wind and waves on lake-transition mileage are manageable. Low water adds vegetation, dragging, and narrow-channel problems; high or rising water increases wood, bridge-current, and shoreline-exit consequences.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The route is not technical whitewater, but it is a remote headwaters connector with wetlands, lake edges, private shoreline, wind exposure, and long spacing between clean exits.",
+      "confidenceNotes": "Confidence is good for access and route shape because MN DNR Maps 1 and 2 plus Minnesota public-water-access GIS resolve County Road 25, Wolf Lake, Cass Lake / Knutson Dam, and surrounding river miles. Gauge confidence is moderate because Stump Lake is the official interpreted upstream headwaters gauge, while the lower part of this connector also needs wind and local visual checks."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "access_uncertain",
+        "fast_rise",
+        "strainers",
+        "cold_water",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "DNR warns that paddling across Cass Lake and Lake Winnibigoshish is not recommended. Keep this route to conservative shoreline travel and do not launch into wind, waves, poor visibility, or cold-water exposure.",
+        "Expect wetlands, aquatic vegetation, wood, private shoreline, and limited rescue spacing. A low gauge can still hide local shallow or blocked channels.",
+        "Knutson Dam is the planned finish and the beginning of a separate downstream card. Do not continue into West Winnie mileage without a separate lake-wind and campsite plan."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "putIn": {
+      "name": "Mississippi River, Co Rd 25 Public Water Access Site",
+      "latitude": 47.44696630535304,
+      "longitude": -94.71763994813507
+    },
+    "takeOut": {
+      "name": "Mississippi River, Knutson Dam Public Water Access Site",
+      "latitude": 47.449798598206435,
+      "longitude": -94.48297431425372
+    },
+    "accessPoints": [
+      {
+        "id": "mississippi-river-county-road-25",
+        "name": "Mississippi River, Co Rd 25 Public Water Access Site",
+        "latitude": 47.44696630535304,
+        "longitude": -94.71763994813507,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS00729 at DNR river mile 1273.9."
+      },
+      {
+        "id": "mississippi-wolf-lake-access",
+        "name": "Wolf Lake Public Water Access Site",
+        "latitude": 47.41002248,
+        "longitude": -94.69846557,
+        "mileFromStart": 2.4,
+        "segmentKind": "lake",
+        "note": "Optional map-supported bailout/route check; public-water-access GIS resolves WAS00383 at DNR river mile 1271.5."
+      },
+      {
+        "id": "mississippi-knutson-dam-access",
+        "name": "Mississippi River, Knutson Dam Public Water Access Site",
+        "latitude": 47.449798598206435,
+        "longitude": -94.48297431425372,
+        "mileFromStart": 15.7,
+        "segmentKind": "transition",
+        "note": "Default take-out at the DNR/USFS Bimijiwan-Knutson Dam access area; Minnesota public-water-access GIS resolves WAS02961 near river mile 1258.1."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Official map route",
+        "value": "County Road 25 RM 1273.9 to Knutson Dam RM 1258.2, about 15.7 miles",
+        "note": "MN DNR Maps 1 and 2 place the County Road 25 carry-in, Wolf Lake access, Cass Lake transition accesses, and Bimijiwan / Knutson Dam Recreation Area in downstream order.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi1.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "WAS00729 to WAS02961",
+        "note": "Minnesota public-water-access GIS resolves County Road 25, Wolf Lake, and Knutson Dam with coordinates and river-mile records.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "1.8 / 2.8-3.6 / 5.0 ft",
+        "note": "MN DNR interprets Stump Lake / County Road 12 as Scrapable below 1.8 ft, Low from 1.8 to 2.8, Medium from 2.8 to 3.6, High from 3.6 to 5.0, and Very High above 5.0.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "2.89 ft at 2026-07-24 02:30 CDT",
+        "note": "The current MN DNR feed placed Stump Lake in the official medium band during this run.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Safety and camping context",
+        "value": "Large-lake warning and endpoint campground",
+        "note": "DNR warns large open water on Cass Lake and Winnibigoshish can be dangerous for small craft. Knutson Dam Recreation Area / campground can support a legal endpoint overnight plan under current USFS rules.",
+        "sourceUrl": "https://www.exploreminnesota.com/profile/knutson-dam-campground-boat-landing-chippewa-national-forest/3448"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR Mississippi River Map 1 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi1.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Mississippi River Map 2 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/mississippi2.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Mississippi River segments and maps",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/mississippi-river/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Explore Minnesota Knutson Dam Campground and Boat Landing",
+        "url": "https://www.exploreminnesota.com/profile/knutson-dam-campground-boat-landing-chippewa-national-forest/3448"
+      }
+    ]
+  },
+  {
     "id": "mississippi-river-iron-bridge-county-road-12-dam",
     "slug": "mississippi-river-iron-bridge-county-road-12-dam",
     "name": "Mississippi River",
@@ -24174,6 +24497,168 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "MN DNR river levels",
         "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
+      }
+    ]
+  },
+  {
+    "id": "rum-river-riverview-county-road-4",
+    "slug": "rum-river-riverview-county-road-4",
+    "name": "Rum River",
+    "reach": "Riverview Park to County Road 4",
+    "state": "Minnesota",
+    "region": "Central Minnesota",
+    "summary": "Short upper-Rum connector below Milaca, starting at Riverview Park and ending at the County Road 4 access before the current DNR large-tree alert reach. It adds a clean public access pair and Meadow Gem campsite context without crossing the active obstruction.",
+    "statusText": "Use the Onamia / CR25 DNR gauge as the official upstream same-corridor check: 10.5 to 11.5 ft is medium, below 10 ft is scrapable, and above 12.5 ft is very high.",
+    "latitude": 45.74400774,
+    "longitude": -93.64874214,
+    "gaugeSource": {
+      "id": "mn-dnr-207",
+      "provider": "mn_dnr",
+      "siteId": "207",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "metricLabel": "Gauge height",
+      "kind": "proxy",
+      "siteName": "Rum River at Onamia, CR25",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=21018002",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=21018002&var1=232&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 10.5,
+      "idealMax": 11.5,
+      "tooLow": 10,
+      "tooHigh": 12.5,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Rum River at Onamia",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring and post-rain windows are most reliable. Summer lows can make this shallow and scrapey; high or fast-rising water raises the consequence of wood and tight bends.",
+      "difficulty": "easy",
+      "difficultyNotes": "This is a short 6.4-mile public-access run with campsite context, but the upper Rum still has shallow water, wood, private banks, and an active DNR obstruction alert downstream of the take-out.",
+      "confidenceNotes": "Confidence is good: MN DNR Map 2 places Riverview Park, Meadow Gem campsites, and County Road 4 in downstream order, and Minnesota public-water-access GIS resolves both endpoints. Gauge confidence is moderate-good because Onamia is the official interpreted upstream same-water-trail gauge rather than a gauge inside the short reach."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "private_banks",
+        "mandatory_takeout"
+      ],
+      "safetyNotes": [
+        "Take out at County Road 4. The current DNR alert reports a large tree blocking the full width of the river between river miles 101 and 98, downstream of this selected route.",
+        "DNR Rum maps warn about downed trees, snags, dams, and old structures elsewhere on the river. Scout wood and do not count on informal private-bank portages.",
+        "Meadow Gem is campsite context only. Use legal designated campsites and do not camp next to private property."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "putIn": {
+      "name": "Rum River, Riverview Park Public Water Access Site",
+      "latitude": 45.74400774,
+      "longitude": -93.64874214
+    },
+    "takeOut": {
+      "name": "Rum River, Mille Lacs Co Rd 4 Public Water Access Site",
+      "latitude": 45.70319724,
+      "longitude": -93.58585557
+    },
+    "accessPoints": [
+      {
+        "id": "rum-river-riverview-park",
+        "name": "Rum River, Riverview Park Public Water Access Site",
+        "latitude": 45.74400774,
+        "longitude": -93.64874214,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS02114 at Rum river mile 111.3 on the south edge of Milaca."
+      },
+      {
+        "id": "rum-river-county-road-4",
+        "name": "Rum River, Mille Lacs Co Rd 4 Public Water Access Site",
+        "latitude": 45.70319724,
+        "longitude": -93.58585557,
+        "mileFromStart": 6.4,
+        "segmentKind": "creek",
+        "note": "Default take-out; Minnesota public-water-access GIS resolves WAS00460 at Rum river mile 104.9, upstream of the current DNR tree-alert reach."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "DNR map route",
+        "value": "Riverview Park RM 111.3 to County Road 4 RM 104.9, about 6.4 miles",
+        "note": "MN DNR Rum Map 2 places Riverview Park, Meadow Gem watercraft campsites, and Mille Lacs County Road 4 in downstream order.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/rum2.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "WAS02114 to WAS00460",
+        "note": "Minnesota public-water-access GIS resolves Riverview Park and Mille Lacs County Road 4 with coordinates, directions, and river-mile records.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "10 / 10.5-11.5 / 12.5 ft",
+        "note": "MN DNR interprets Onamia as Scrapable below 10 ft, Low from 10 to 10.5, Medium from 10.5 to 11.5, High from 11.5 to 12.5, and Very High above 12.5.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "10.18 ft at 2026-07-24 02:45 CDT",
+        "note": "The current MN DNR feed placed Onamia in the official low band during this run.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Alert posture",
+        "value": "Active tree alert downstream of selected take-out",
+        "note": "The current DNR Rum River alert reports a full-width large tree between river miles 101 and 98, south of the County Road 12 bridge and downstream of County Road 4.",
+        "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/rum-river/index.html"
+      },
+      {
+        "label": "Camping context",
+        "value": "Meadow Gem watercraft campsites",
+        "note": "MN DNR Rum Map 2 maps two Meadow Gem watercraft campsites between Riverview Park and County Road 4; use designated sites only and verify availability.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/rum2.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR Rum River State Water Trail",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/rum-river/index.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Rum River segments and maps",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/rum-river/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Rum River Map 2 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/rum2.pdf",
         "provider": "mn_dnr"
       },
       {

@@ -1,5 +1,13 @@
 # Midwest Route Automation Memory
 
+- 2026-07-24 04:17 America/Chicago / 2026-07-24 09:17 UTC: Minnesota Cottonwood / Mississippi / Rum gap pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 229-route exported Minnesota baseline: `cottonwood-river-springfield-highway-4`, `mississippi-river-county-road-25-knutson-dam`, and `rum-river-riverview-county-road-4`, bringing Minnesota to 232 live routes.
+  - Qualification path: MN DNR Cottonwood / Mississippi / Rum water-trail maps and pages, MN DNR interpreted river-level feed, Minnesota public-water-access GIS, and Knutson Dam campground context support the access pairs, route shape, gauges, camping posture, and caveats.
+  - Gauge posture: MN DNR feed returned Cottonwood Springfield site `42` at `12.86 ft` at 2026-07-24 02:30 CDT in official low, Mississippi Stump Lake site `341` at `2.89 ft` at 2026-07-24 02:30 CDT in official medium, and Rum Onamia site `207` at `10.18 ft` at 2026-07-24 02:45 CDT in official low.
+  - Threshold posture: all three use official MN DNR interpreted bands only: Cottonwood `12.5 / 13.0-17.0 / 19.0 ft`, Mississippi Stump Lake `1.8 / 2.8-3.6 / 5.0 ft`, and Rum Onamia `10 / 10.5-11.5 / 12.5 ft`, with proxy/local-check caveats where the gauge is not inside the exact selected reach.
+  - Safety/image posture: cards carry long-day/no-camping Cottonwood planning, Cass Lake/open-water and Knutson endpoint-campground caveats, Rum Meadow Gem campsite and active downstream tree-alert hard-stop caveats, and no selected gallery image after bounded DNR / public-access / local / Commons / same-route review.
+  - Reviewed but did not add Long Prairie Highway-29-to-Reynolds because it is a 37-mile no-public-campsite gap, Rum downstream County-Road-4/Princeton variants because of the active DNR tree alert, Mississippi Stearns-to-Sartell because it is contained in an existing card, and Des Moines Mayflower-to-Christianna because the gauge relationship remains proxy weak.
+
 - 2026-07-24 04:15 America/Chicago / 2026-07-24 09:15 UTC: Iowa lower Turkey River continuation pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 127-route exported Iowa baseline: `turkey-river-garber-osterdock`, `turkey-river-osterdock-millville`, and `turkey-river-millville-ferry-landing`, bringing Iowa to 130 live routes.
   - Qualification path: official Turkey River Water Trail map/guide access sequence, TurkeyRiver.org mileage notes, Wisconsin River Trips lower Turkey River segment and navigability evidence, Travel Iowa Millville-to-Ferry-Landing context, Miles Paddled final-route access caveat, and USGS Water Services support the selected lower-water-trail cards.

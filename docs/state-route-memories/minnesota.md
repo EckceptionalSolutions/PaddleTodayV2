@@ -1,5 +1,15 @@
 # Minnesota Route Memory
 
+## 2026-07-24 04:17 America/Chicago / 2026-07-24 09:17 UTC Minnesota Cottonwood / Mississippi / Rum gap pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `229` to `232` live route slugs by adding `cottonwood-river-springfield-highway-4`, `mississippi-river-county-road-25-knutson-dam`, and `rum-river-riverview-county-road-4`.
+- Qualification path: MN DNR Cottonwood / Mississippi / Rum water-trail maps and pages document the access order, mileage, hazards, camping/private-bank rules, lake/open-water cautions, and current Rum alert posture. Minnesota public-water-access GIS resolves Cottonwood Springfield `WAS01421`, Highway 4 `WAS02675`, Mississippi County Road 25 `WAS00729`, Wolf Lake `WAS00383`, Knutson Dam `WAS02961`, Rum Riverview Park `WAS02114`, and Rum County Road 4 `WAS00460`. Explore Minnesota / Chippewa National Forest context supports Knutson Dam endpoint campground planning.
+- Live gauge verification: MN DNR river-level JSON returned Cottonwood Springfield site `42` at `12.86 ft` at `2026-07-24 02:30 CDT` in official low, Mississippi Stump Lake site `341` at `2.89 ft` at `2026-07-24 02:30 CDT` in official medium, and Rum Onamia site `207` at `10.18 ft` at `2026-07-24 02:45 CDT` in official low.
+- Threshold posture: all three use official MN DNR interpreted bands only. Cottonwood uses Springfield `12.5 / 13.0-17.0 / 19.0 ft` as an upstream same-corridor proxy; Mississippi uses Stump Lake `1.8 / 2.8-3.6 / 5.0 ft` with lake-wind and local visual-check caveats; Rum uses Onamia `10 / 10.5-11.5 / 12.5 ft` as the upstream same-water-trail gauge and requires current alert checks.
+- Safety/camping posture: Cottonwood is a long no-camping day route with private-bank, wood, low-water, and daylight caveats. Mississippi is `endpoint_campground` through Knutson Dam and carries Cass Lake/open-water, wetlands, private-shore, and no-unplanned-continuation caveats. Rum is `on_route_campsite` through Meadow Gem watercraft campsites and hard-stops at County Road 4 before the current RM 101-98 full-width tree alert.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded MN DNR / public-access / local / Commons / same-route image review with no clearly rights-clean exact-route paddling asset selected.
+- Reviewed but did not add: Long Prairie Highway-29-to-Reynolds was lower quality because it is a 37-mile no-public-campsite gap; Rum County-Road-4-to-Princeton and Milaca-to-Princeton remain blocked by the active DNR tree alert; Mississippi Stearns-County-Park-to-Sartell was treated as a contained duplicate of the already-live Royalton-to-Sartell card; Des Moines Mayflower-to-Christianna remains proxy weak.
+
 ## 2026-07-24 02:13 America/Chicago / 2026-07-24 07:13 UTC Minnesota St. Croix Map 7 gap pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `226` to `229` live route slugs by adding `st-croix-river-highway-70-stevens-creek`, `st-croix-river-stevens-creek-sunrise`, and `st-croix-river-sunrise-wild-river`.

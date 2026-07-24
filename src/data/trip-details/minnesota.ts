@@ -2419,6 +2419,59 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
+  "cottonwood-river-springfield-highway-4": {
+    "putIn": {
+      "id": "cottonwood-springfield-pwa",
+      "name": "Cottonwood River, Springfield Public Water Access Site",
+      "latitude": 44.23778269,
+      "longitude": -94.97404056
+    },
+    "takeOut": {
+      "id": "cottonwood-highway-4-pwa",
+      "name": "Cottonwood River, Hwy 4 Public Water Access Site",
+      "latitude": 44.23521338,
+      "longitude": -94.72563609
+    },
+    "logistics": {
+      "distanceLabel": "About 24.9 mi",
+      "estimatedPaddleTime": "Very long day; plan 8 hr to 11 hr plus wood scouting and low-water delays",
+      "shuttle": "Stage Highway 4 first, then drive back to Springfield Riverside Park. This is a long access-to-access gap, so confirm the gauge trend, bridge clearance, daylight, and a legal bailout plan before launching.",
+      "permits": "No route-specific paddling permit is known. Follow posted city, county, DNR public-access, boating, PFD, and invasive-species rules at Springfield, Highway 4, and any legal stop.",
+      "camping": "Treat this as a long day route unless you separately confirm a legal overnight option. DNR water-trail guidance says to camp only at designated campsites, and no on-route campsite is assumed between Springfield and Highway 4.",
+      "campingClassification": "none",
+      "summary": "Launch at Springfield and finish at Highway 4 for the missing middle-Cottonwood public-access connector above the existing lower-Cottonwood cards. The Springfield gauge was in the official low band during this run, so scraping and slow progress are real planning concerns.",
+      "accessCaveats": [
+        "Springfield resolves in Minnesota public-water-access GIS as WAS01421 at river mile 56.3.",
+        "Highway 4 resolves as WAS02675 at river mile 31.4 and is the selected finish; Theden's Landing is downstream and belongs to the next lower route family.",
+        "The Springfield gauge is upstream of the put-in. Use it as an official same-corridor check, then make same-day visual checks for depth, wood, and muddy exits."
+      ],
+      "watchFor": [
+        "Long mileage, private banks, few clean exits, and daylight risk.",
+        "Low-water scraping when Springfield is near or below the 13 ft medium threshold.",
+        "Deadfall, overhanging trees, bridge debris, muddy banks, cold water, and fast rises after storms."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "cottonwood-springfield-pwa",
+        "name": "Cottonwood River, Springfield Public Water Access Site",
+        "latitude": 44.23778269,
+        "longitude": -94.97404056,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS lists WAS01421 at Cottonwood river mile 56.3 in Springfield Riverside Park."
+      },
+      {
+        "id": "cottonwood-highway-4-pwa",
+        "name": "Cottonwood River, Hwy 4 Public Water Access Site",
+        "latitude": 44.23521338,
+        "longitude": -94.72563609,
+        "mileFromStart": 24.9,
+        "segmentKind": "creek",
+        "note": "Default take-out; Minnesota public-water-access GIS lists WAS02675 at Cottonwood river mile 31.4."
+      }
+    ]
+  },
   "pine-river-rock-dam-harvey-drake": {
     "putIn": {
       "name": "Pine River Rock Dam public water access",
@@ -9108,6 +9161,68 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "mississippi-river-county-road-25-knutson-dam": {
+    "putIn": {
+      "id": "mississippi-river-county-road-25",
+      "name": "Mississippi River, Co Rd 25 Public Water Access Site",
+      "latitude": 47.44696630535304,
+      "longitude": -94.71763994813507
+    },
+    "takeOut": {
+      "id": "mississippi-knutson-dam-access",
+      "name": "Mississippi River, Knutson Dam Public Water Access Site",
+      "latitude": 47.449798598206435,
+      "longitude": -94.48297431425372
+    },
+    "logistics": {
+      "distanceLabel": "About 15.7 mi",
+      "estimatedPaddleTime": "Long day, roughly 6 hr to 8 hr, longer with wind, vegetation, or shoreline holds",
+      "shuttle": "Stage Knutson Dam / Bimijiwan Recreation Area first, then drive back to County Road 25. Check the Stump Lake gauge, the downstream Days High trend, and same-day wind before launching because the route includes lake-transition exposure.",
+      "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, DNR public-access postings, Chippewa National Forest rules, and current campground or recreation-area regulations.",
+      "camping": "Knutson Dam Campground can support an endpoint overnight plan under current USFS rules. Do not assume private shoreline, wetlands, or lake-edge camping along the route.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at County Road 25 and paddle the missing headwaters connector to Knutson Dam Recreation Area. The route links official public accesses, but wind, large-water exposure, vegetation, and remote rescue spacing make this a conservative route-card add.",
+      "accessCaveats": [
+        "County Road 25 resolves in Minnesota public-water-access GIS as WAS00729 at Mississippi river mile 1273.9.",
+        "Wolf Lake and Cass Lake accesses are route checks or bailouts, not excuses for open-water shortcuts.",
+        "Knutson Dam resolves as WAS02961 near river mile 1258.1 and is the required finish before the already-live Knutson-to-West-Winnie card."
+      ],
+      "watchFor": [
+        "Wind, waves, cold water, poor visibility, and open-water exposure around Cass Lake; DNR says paddling across Cass and Winnibigoshish is not recommended.",
+        "Aquatic vegetation, shallow wetlands, wood, private shorelines, and limited exits.",
+        "High or fast-rising Stump Lake readings, which make channels, bridge current, and shoreline exits less forgiving."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "mississippi-river-county-road-25",
+        "name": "Mississippi River, Co Rd 25 Public Water Access Site",
+        "latitude": 47.44696630535304,
+        "longitude": -94.71763994813507,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS00729 at DNR river mile 1273.9."
+      },
+      {
+        "id": "mississippi-wolf-lake-access",
+        "name": "Wolf Lake Public Water Access Site",
+        "latitude": 47.41002248,
+        "longitude": -94.69846557,
+        "mileFromStart": 2.4,
+        "segmentKind": "lake",
+        "note": "Optional route check or bailout; public-water-access GIS resolves WAS00383 at DNR river mile 1271.5."
+      },
+      {
+        "id": "mississippi-knutson-dam-access",
+        "name": "Mississippi River, Knutson Dam Public Water Access Site",
+        "latitude": 47.449798598206435,
+        "longitude": -94.48297431425372,
+        "mileFromStart": 15.7,
+        "segmentKind": "transition",
+        "note": "Default take-out at the DNR/USFS Bimijiwan-Knutson Dam access area; public-water-access GIS resolves WAS02961 near river mile 1258.1."
+      }
+    ]
+  },
   "red-river-north-dam-mb-johnson": {
     "putIn": {
       "id": "red-river-north-dam-carry-in",
@@ -9397,6 +9512,59 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 16.2,
         "segmentKind": "creek",
         "note": "Default take-out above Milaca Dam; public-water-access GIS resolves WAS00461 at DNR river mile 112.4."
+      }
+    ]
+  },
+  "rum-river-riverview-county-road-4": {
+    "putIn": {
+      "id": "rum-river-riverview-park",
+      "name": "Rum River, Riverview Park Public Water Access Site",
+      "latitude": 45.74400774,
+      "longitude": -93.64874214
+    },
+    "takeOut": {
+      "id": "rum-river-county-road-4",
+      "name": "Rum River, Mille Lacs Co Rd 4 Public Water Access Site",
+      "latitude": 45.70319724,
+      "longitude": -93.58585557
+    },
+    "logistics": {
+      "distanceLabel": "About 6.4 mi",
+      "estimatedPaddleTime": "About 2 hr to 3.5 hr, longer with low water, campsite stops, or wood scouting",
+      "shuttle": "Stage the County Road 4 take-out first, then launch from Riverview Park on the south edge of Milaca. Confirm the Onamia gauge and current DNR Rum River alerts before putting on.",
+      "permits": "No route-specific paddling permit is known. Follow DNR water-trail rules, public-access parking rules, Minnesota boating/PFD requirements, and invasive-species rules.",
+      "camping": "DNR Map 2 maps two Meadow Gem watercraft campsites between Riverview Park and County Road 4. Treat camping as designated-site only, verify availability, and do not camp on private banks.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Launch at Riverview Park and finish at County Road 4 for a short upper-Rum route below Milaca. This adds the clean public access pair that was previously held for coordinate confirmation and stops before the active downstream tree-alert reach.",
+      "accessCaveats": [
+        "Riverview Park resolves in Minnesota public-water-access GIS as WAS02114 at Rum river mile 111.3.",
+        "County Road 4 resolves as WAS00460 at river mile 104.9 and is the selected finish.",
+        "The current DNR large-tree alert is downstream between river miles 101 and 98. Do not extend toward County Road 12 or Princeton unless the alert has cleared and same-day wood checks are clean."
+      ],
+      "watchFor": [
+        "Downed trees, snags, sweepers, shallow rocky spots, and low-water dragging.",
+        "Fast rises after rain, cold water, private banks, and limited legal portage options.",
+        "Occupied or unavailable Meadow Gem campsites; bring a day-trip plan unless overnight use is confirmed."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "rum-river-riverview-park",
+        "name": "Rum River, Riverview Park Public Water Access Site",
+        "latitude": 45.74400774,
+        "longitude": -93.64874214,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS02114 at Rum river mile 111.3."
+      },
+      {
+        "id": "rum-river-county-road-4",
+        "name": "Rum River, Mille Lacs Co Rd 4 Public Water Access Site",
+        "latitude": 45.70319724,
+        "longitude": -93.58585557,
+        "mileFromStart": 6.4,
+        "segmentKind": "creek",
+        "note": "Default take-out; Minnesota public-water-access GIS resolves WAS00460 at Rum river mile 104.9, upstream of the current DNR large-tree alert."
       }
     ]
   },

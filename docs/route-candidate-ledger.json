@@ -1,7 +1,12 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-24T09:15:00Z",
+  "updatedAt": "2026-07-24T09:17:00Z",
   "notes": [
+    {
+      "date": "2026-07-24",
+      "automation": "minnesota-route-additions-2",
+      "summary": "Added three Minnesota route slugs beyond the 229-route current Minnesota baseline: cottonwood-river-springfield-highway-4, mississippi-river-county-road-25-knutson-dam, and rum-river-riverview-county-road-4, bringing Minnesota to 232 live routes. Sources included MN DNR Cottonwood/Mississippi/Rum water-trail maps and pages, MN DNR interpreted river-level feed, Minnesota public-water-access GIS, Explore Minnesota / Chippewa National Forest Knutson Dam campground context, and bounded image search. Current DNR checks returned Cottonwood Springfield site 42 at 12.86 ft at 2026-07-24 02:30 CDT in official low, Mississippi Stump Lake site 341 at 2.89 ft at 2026-07-24 02:30 CDT in official medium, and Rum Onamia site 207 at 10.18 ft at 2026-07-24 02:45 CDT in official low. No route-gallery image was selected after bounded official/public-access/Commons/same-route review."
+    },
     {
       "date": "2026-07-24",
       "automation": "iowa-route-additions",
