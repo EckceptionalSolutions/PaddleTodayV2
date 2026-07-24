@@ -3340,6 +3340,59 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
+  "north-fork-zumbro-river-covered-bridge-walking-bridge": {
+    "putIn": {
+      "id": "zumbro-covered-bridge-park",
+      "name": "Zumbro River, Covered Bridge Park Public Water Access Site",
+      "latitude": 44.296435629197084,
+      "longitude": -92.67021342459051
+    },
+    "takeOut": {
+      "id": "zumbro-walking-bridge-park",
+      "name": "Zumbro River, Walking Bridge Park Public Water Access Site",
+      "latitude": 44.27177130177235,
+      "longitude": -92.54884928986579
+    },
+    "logistics": {
+      "distanceLabel": "About 9.5 mi",
+      "estimatedPaddleTime": "About 3 hr to 5 hr, longer with low water, wood, or portage scouting",
+      "shuttle": "Stage Walking Bridge Park in Mazeppa first, then drive back to Covered Bridge Park in Zumbrota. Confirm the Mazeppa Rapids landing and any park closures before launching.",
+      "permits": "No route-specific paddling permit is known. Follow city park, DNR water-trail, Minnesota boating/PFD, and invasive-species rules at both public accesses.",
+      "camping": "Covered Bridge Park is mapped by DNR as having camping, toilets, drinking water, and rest area facilities. Treat overnight use as endpoint-campground staging only, subject to city rules and availability; do not camp on private banks.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at Covered Bridge Park and finish at Walking Bridge Park for the North Fork Zumbro public-access day through Zumbrota-to-Mazeppa water. The Mazeppa DNR gauge was in the official medium band during this run, but it is downstream of the take-out and should be paired with visual checks.",
+      "accessCaveats": [
+        "Covered Bridge Park resolves in Minnesota public-water-access GIS as WAS02181 at river mile 69.6.",
+        "Walking Bridge Park resolves as WAS02184 at river mile 60.1 in Mazeppa and is the intended finish just below the mapped Mazeppa Rapids area.",
+        "The selected DNR gauge is downstream near County Road 7. Local rain, wood, or shallow riffles may differ from the gauge reading."
+      ],
+      "watchFor": [
+        "Old bridge supports, bridge current, logs, strainers, and private banks.",
+        "Mazeppa Rapids, marked Class I by DNR with a 90-yard right-bank portage.",
+        "Flash-flood behavior after thunderstorms; do not rely on stale visual conditions if the gauge is rising."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "zumbro-covered-bridge-park",
+        "name": "Zumbro River, Covered Bridge Park Public Water Access Site",
+        "latitude": 44.296435629197084,
+        "longitude": -92.67021342459051,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS lists WAS02181 at North Fork Zumbro river mile 69.6."
+      },
+      {
+        "id": "zumbro-walking-bridge-park",
+        "name": "Zumbro River, Walking Bridge Park Public Water Access Site",
+        "latitude": 44.27177130177235,
+        "longitude": -92.54884928986579,
+        "mileFromStart": 9.5,
+        "segmentKind": "creek",
+        "note": "Default take-out; Minnesota public-water-access GIS lists WAS02184 at North Fork Zumbro river mile 60.1."
+      }
+    ]
+  },
   "rice-creek-peltier-to-long-lake": {
     "putIn": {
       "id": "peltier-lake",
@@ -9326,6 +9379,112 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 2,
         "segmentKind": "creek",
         "note": "Default take-out; Minnesota public-water-access GIS resolves WAS00545 at LaFave Park."
+      }
+    ]
+  },
+  "redwood-river-vesta-wabasso": {
+    "putIn": {
+      "id": "redwood-vesta-pwa",
+      "name": "Redwood River, Vesta Public Water Access Site",
+      "latitude": 44.5003333966892,
+      "longitude": -95.42798885444438
+    },
+    "takeOut": {
+      "id": "redwood-wabasso-pwa",
+      "name": "Redwood River, Wabasso Public Water Access Site",
+      "latitude": 44.50790476704536,
+      "longitude": -95.22980763487236
+    },
+    "logistics": {
+      "distanceLabel": "About 15.6 mi",
+      "estimatedPaddleTime": "About 5 hr to 7 hr, longer with low water or wood scouting",
+      "shuttle": "Stage Wabasso first, then drive back to the Vesta access on Highway 19. Treat the route as a rural day with limited public exits and confirm both landings before launching.",
+      "permits": "No route-specific paddling permit is known. Follow DNR public-water-access rules, Minnesota boating/PFD requirements, and invasive-species rules at Vesta and Wabasso.",
+      "camping": "No on-route camping is assumed. DNR public-water-access rules prohibit camping at access sites, and the route should use only public accesses or separately confirmed legal stops.",
+      "campingClassification": "none",
+      "summary": "Launch at Vesta and finish at Wabasso for the middle Redwood state-water-trail access gap. The Redwood Falls DNR gauge was current but in the official low band during this run, so expect scraping and slower travel unless local depth looks better.",
+      "accessCaveats": [
+        "Vesta resolves in Minnesota public-water-access GIS as WAS02156 at Redwood River mile 28.9.",
+        "Wabasso resolves as WAS00004 at river mile 13.3 and is the selected finish for this card.",
+        "The gauge is downstream at Redwood Falls, below the take-out. Use it as official lower-river guidance, not a substitute for launch-depth checks at Vesta and Wabasso."
+      ],
+      "watchFor": [
+        "Low-water scraping while the Redwood Falls gauge is below the official medium band.",
+        "Wood, overhanging trees, bridge debris, powerline crossings, muddy banks, and fast rises after thunderstorms.",
+        "Private agricultural shoreland and limited rural rescue exposure between the named public accesses."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "redwood-vesta-pwa",
+        "name": "Redwood River, Vesta Public Water Access Site",
+        "latitude": 44.5003333966892,
+        "longitude": -95.42798885444438,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS lists WAS02156 at Redwood River mile 28.9."
+      },
+      {
+        "id": "redwood-wabasso-pwa",
+        "name": "Redwood River, Wabasso Public Water Access Site",
+        "latitude": 44.50790476704536,
+        "longitude": -95.22980763487236,
+        "mileFromStart": 15.6,
+        "segmentKind": "creek",
+        "note": "Default take-out; Minnesota public-water-access GIS lists WAS00004 at Redwood River mile 13.3."
+      }
+    ]
+  },
+  "redwood-river-wabasso-redwood-lake": {
+    "putIn": {
+      "id": "redwood-wabasso-pwa",
+      "name": "Redwood River, Wabasso Public Water Access Site",
+      "latitude": 44.50790476704536,
+      "longitude": -95.22980763487236
+    },
+    "takeOut": {
+      "id": "redwood-lake-pwa",
+      "name": "Redwood Lake Public Water Access Site",
+      "latitude": 44.54033682909,
+      "longitude": -95.12363383651785
+    },
+    "logistics": {
+      "distanceLabel": "About 7.5 mi",
+      "estimatedPaddleTime": "About 2.5 hr to 4 hr, longer with low water, wind on Redwood Lake, or wood scouting",
+      "shuttle": "Stage Redwood Lake / Perks Park first, then drive back to Wabasso. Walk the take-out and dam boundary before launching so the group knows exactly where the day ends.",
+      "permits": "No route-specific paddling permit is known. Follow DNR public-water-access rules, city park rules at Perks Park, Minnesota boating/PFD requirements, and invasive-species rules.",
+      "camping": "No route camping is assumed. Redwood Lake public-access rules do not support access-site camping, and continuing below the dam requires a separate vehicle shuttle or portage decision outside this card.",
+      "campingClassification": "none",
+      "summary": "Launch at Wabasso and finish at the Redwood Lake public access above the Highway 19 dam. The lower Redwood Falls DNR gauge is direct for this corridor, but today's official low reading makes same-day depth checks important.",
+      "accessCaveats": [
+        "Wabasso resolves in Minnesota public-water-access GIS as WAS00004 at river mile 13.3.",
+        "Redwood Lake resolves as WAS00025 at river mile 5.8 in Perks Park and is the mandatory finish for this card.",
+        "Do not continue into the Highway 19 dam area by accident. DNR Map 3 marks the dam as impassable with no portage on the map sheet, while the DNR segment page says any continuation requires portaging around Lake Redwood Dam and re-entering in Alexander Ramsey Park."
+      ],
+      "watchFor": [
+        "The Highway 19 dam immediately below the Redwood Lake finish; stop early and load out with margin.",
+        "Low-water scraping, woody bends, bridge current, floating debris, cold water, and high/rising-water strainers.",
+        "Wind, wake, and shallow approach conditions on Redwood Lake near the take-out."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "redwood-wabasso-pwa",
+        "name": "Redwood River, Wabasso Public Water Access Site",
+        "latitude": 44.50790476704536,
+        "longitude": -95.22980763487236,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS lists WAS00004 at Redwood River mile 13.3."
+      },
+      {
+        "id": "redwood-lake-pwa",
+        "name": "Redwood Lake Public Water Access Site",
+        "latitude": 44.54033682909,
+        "longitude": -95.12363383651785,
+        "mileFromStart": 7.5,
+        "segmentKind": "creek",
+        "note": "Default take-out above the Highway 19 dam; Minnesota public-water-access GIS lists WAS00025 at Redwood River mile 5.8."
       }
     ]
   },

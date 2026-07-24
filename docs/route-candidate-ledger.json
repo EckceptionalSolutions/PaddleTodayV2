@@ -55812,6 +55812,129 @@
       ]
     },
     {
+      "candidateId": "mn-redwood-river-vesta-wabasso-2026-07-24",
+      "river": "Redwood River",
+      "route": "Vesta Public Water Access Site to Wabasso Public Water Access Site",
+      "state": "Minnesota",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "redwood-river-vesta-wabasso",
+      "sourceQuality": "MN DNR Redwood River state-water-trail map and page / MN DNR interpreted river-level gauge / Minnesota public-water-access GIS",
+      "gauge": {
+        "provider": "MN DNR",
+        "siteId": "196",
+        "siteName": "Redwood River nr Redwood Falls, MN",
+        "kind": "downstream lower-river proxy",
+        "latest": "31.5 cfs at 2026-07-24 02:00 CDT, official low band"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "Scrapable below 16 cfs; medium 116-1,740 cfs; very high above 3,000 cfs",
+        "source": "MN DNR river-level interpretation bands for Redwood River near Redwood Falls",
+        "strength": "official",
+        "caveat": "Gauge is downstream of Wabasso; launch and take-out visual checks remain required."
+      },
+      "access": {
+        "putIn": "Redwood River, Vesta Public Water Access Site / WAS02156",
+        "takeOut": "Redwood River, Wabasso Public Water Access Site / WAS00004",
+        "coordinateSource": "Minnesota public-water-access GIS records with river-mile support; DNR Map 3 places Vesta RM 28.9 and Wabasso RM 13.3."
+      },
+      "caveats": [
+        "Low official reading means scraping and slow travel are likely unless local depth looks better.",
+        "Expect wood, bridge debris, powerline crossings, muddy banks, private shoreland, and rural rescue exposure.",
+        "Do not continue past Wabasso without separately staging the lower route and dam-boundary plan."
+      ],
+      "imageStatus": "No route-gallery image added; bounded DNR / public-access / Commons / same-route review did not find a clearly rights-clean exact-route asset.",
+      "sources": [
+        "https://www.dnr.state.mn.us/state-water-trails/redwood-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota3.pdf",
+        "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      ]
+    },
+    {
+      "candidateId": "mn-redwood-river-wabasso-redwood-lake-2026-07-24",
+      "river": "Redwood River",
+      "route": "Wabasso Public Water Access Site to Redwood Lake Public Water Access Site",
+      "state": "Minnesota",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "redwood-river-wabasso-redwood-lake",
+      "sourceQuality": "MN DNR Redwood River state-water-trail map and page / MN DNR interpreted river-level gauge / Minnesota public-water-access GIS",
+      "gauge": {
+        "provider": "MN DNR",
+        "siteId": "196",
+        "siteName": "Redwood River nr Redwood Falls, MN",
+        "kind": "direct lower-route gauge",
+        "latest": "31.5 cfs at 2026-07-24 02:00 CDT, official low band"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "Scrapable below 16 cfs; medium 116-1,740 cfs; very high above 3,000 cfs",
+        "source": "MN DNR river-level interpretation bands for Redwood River near Redwood Falls",
+        "strength": "official",
+        "caveat": "Same-day Redwood Lake take-out and dam-boundary checks govern the final go/no-go."
+      },
+      "access": {
+        "putIn": "Redwood River, Wabasso Public Water Access Site / WAS00004",
+        "takeOut": "Redwood Lake Public Water Access Site / WAS00025",
+        "coordinateSource": "Minnesota public-water-access GIS records with river-mile support; DNR Map 3 places Wabasso RM 13.3 and Redwood Lake / Westside Park RM 5.7-5.8."
+      },
+      "caveats": [
+        "Redwood Lake is the mandatory finish above the Highway 19 dam.",
+        "DNR Map 3 marks the Highway 19 dam as impassable with no portage on the map sheet; DNR page continuation language still requires a separate portage/re-entry plan.",
+        "Low water, wind on Redwood Lake, bridge current, strainers, and high/rising water can override the gauge score."
+      ],
+      "imageStatus": "No route-gallery image added; bounded DNR / public-access / Commons / same-route review did not find a clearly rights-clean exact-route asset.",
+      "sources": [
+        "https://www.dnr.state.mn.us/state-water-trails/redwood-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota3.pdf",
+        "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      ]
+    },
+    {
+      "candidateId": "mn-north-fork-zumbro-covered-bridge-walking-bridge-2026-07-24",
+      "river": "North Fork Zumbro River",
+      "route": "Covered Bridge Park to Walking Bridge Park",
+      "state": "Minnesota",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "north-fork-zumbro-river-covered-bridge-walking-bridge",
+      "sourceQuality": "MN DNR Zumbro River Map 1 / MN DNR interpreted river-level gauge / Minnesota public-water-access GIS",
+      "gauge": {
+        "provider": "MN DNR",
+        "siteId": "311",
+        "siteName": "North Fork Zumbro River nr Mazeppa, CSAH7",
+        "kind": "downstream same-fork proxy",
+        "latest": "101 cfs at 2026-07-24 02:30 CDT, official medium band"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "Scrapable below 50 cfs; medium 63-724.7 cfs; very high above 1,435.7 cfs",
+        "source": "MN DNR river-level interpretation bands for North Fork Zumbro River near Mazeppa",
+        "strength": "official",
+        "caveat": "Gauge is downstream of Walking Bridge Park; use same-day visual checks for wood, riffles, and Mazeppa Rapids."
+      },
+      "access": {
+        "putIn": "Zumbro River, Covered Bridge Park Public Water Access Site / WAS02181",
+        "takeOut": "Zumbro River, Walking Bridge Park Public Water Access Site / WAS02184",
+        "coordinateSource": "Minnesota public-water-access GIS records with river-mile support; DNR Map 1 places Covered Bridge Park RM 69.6 and Walking Bridge Park RM 60.1."
+      },
+      "caveats": [
+        "DNR Map 1 flags old bridge supports and Mazeppa Rapids Class I with a 90-yard right-bank portage.",
+        "Flashy storm response, strainers, cold water, and private banks require conservative same-day checks.",
+        "Covered Bridge Park camping is endpoint staging only and remains subject to city rules."
+      ],
+      "imageStatus": "No route-gallery image added; bounded DNR / public-access / Commons / same-route review did not find a clearly rights-clean exact-route asset.",
+      "sources": [
+        "https://www.dnr.state.mn.us/state-water-trails/zumbro-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/zumbro1.pdf",
+        "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      ]
+    },
+    {
       "candidateId": "ia-south-raccoon-river-redfield-pleasant-valley-2026-07-24",
       "river": "South Raccoon River",
       "route": "South Raccoon River Access to Pleasant Valley Wildlife Area",
