@@ -39,6 +39,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   selectedId?: string | null;
   userLocation?: { latitude: number; longitude: number; label?: string | null } | null;
   backgroundSpanCoordinates?: RouteSpanCoordinate[] | null;
+  backgroundSpanSegments?: RouteSpanCoordinate[][];
   canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>;
   onSelectPoint?: (point: RoutePlotPoint) => void;
   height?: number;
@@ -52,6 +53,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   selectedId,
   userLocation,
   backgroundSpanCoordinates,
+  backgroundSpanSegments = [],
   canonicalSpans,
   onSelectPoint,
   height = 290,
@@ -62,7 +64,11 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   selectedFocusBottomInset = 0,
 }, ref) {
   const backgroundSpan = finiteSpanCoordinates(backgroundSpanCoordinates);
-  const bounds = getBounds(points, userLocation, backgroundSpan, canonicalSpans);
+  const backgroundSpans = [
+    ...(backgroundSpan.length >= 2 ? [backgroundSpan] : []),
+    ...backgroundSpanSegments.map(finiteSpanCoordinates).filter((span) => span.length >= 2),
+  ];
+  const bounds = getBounds(points, userLocation, backgroundSpans.flat(), canonicalSpans);
   const visiblePoints = useMemo(() => points.filter(isFinitePoint), [points]);
   const nativeMarkerPoints = useMemo(
     () => [...visiblePoints].sort(compareMapPointIds),
@@ -117,7 +123,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     }
 
     const coordinates = [
-      ...backgroundSpan,
+      ...backgroundSpans.flat(),
       ...visiblePoints.flatMap((point) => routeSpanSegments(point, canonicalSpans).flat()),
     ];
 
@@ -253,16 +259,17 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
             </Marker>
           ) : null}
 
-          {backgroundSpan.length >= 2 ? (
+          {backgroundSpans.map((span, index) => (
             <Polyline
-              coordinates={backgroundSpan}
+              key={`background-span-${index}`}
+              coordinates={span}
               strokeColor="rgba(37, 99, 235, 0.28)"
               strokeWidth={4}
               lineCap="round"
               lineJoin="round"
               zIndex={0}
             />
-          ) : null}
+          ))}
 
           {selectedSpans.map((span, index) => span.length >= 2 ? (
             <Polyline
@@ -325,6 +332,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
               </Marker>
             );
           })}
+
         </MapView>
 
         {showFooter ? <MapFooter selectedPoint={selectedPoint} /> : null}
@@ -351,7 +359,9 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
           </View>
         ) : null}
 
-        {backgroundSpan.length >= 2 ? <ProjectedRouteSpan coordinates={backgroundSpan} bounds={bounds} tone="background" /> : null}
+        {backgroundSpans.map((span, index) => (
+          <ProjectedRouteSpan key={`background-span-${index}`} coordinates={span} bounds={bounds} tone="background" />
+        ))}
         {selectedSpans.map((span, index) => (
           span.length >= 2
             ? <ProjectedRouteSpan key={`selected-span-${index}`} coordinates={span} bounds={bounds} tone="selected" />
@@ -392,6 +402,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
             </Pressable>
           );
         })}
+
       </View>
 
       {showFooter ? <MapFooter selectedPoint={selectedPoint} /> : null}

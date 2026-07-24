@@ -17,6 +17,10 @@ jobs:
       EXPO_PUBLIC_API_BASE_URL: https://paddletoday.com
       EXPO_PUBLIC_APP_ENV: preview
       EAS_LOCAL_BUILD_ARTIFACTS_DIR: ${{ github.workspace }}/apps/mobile/artifacts
+      GRADLE_OPTS: -Dorg.gradle.caching=true
+      CCACHE_DIR: ${{ runner.temp }}/ccache
+      CCACHE_COMPILERCHECK: content
+      CCACHE_MAXSIZE: 1G
 
     steps:
       - name: Checkout repository
@@ -27,6 +31,25 @@ jobs:
         with:
           node-version: '22.12.0'
           cache: npm
+
+      - name: Setup Gradle cache
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          cache-read-only: false
+
+      - name: Install native compiler cache
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes ccache
+
+      - name: Restore native compiler cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.CCACHE_DIR }}
+          key: ${{ runner.os }}-android-preview-ccache-${{ hashFiles('package-lock.json') }}-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-android-preview-ccache-${{ hashFiles('package-lock.json') }}-
+            ${{ runner.os }}-android-preview-ccache-
 
       - name: Setup Expo and EAS
         uses: expo/expo-github-action@v8
@@ -47,6 +70,10 @@ jobs:
       - name: Build Android preview APK
         working-directory: apps/mobile
         run: eas build --platform android --profile preview --local --non-interactive
+
+      - name: Report native compiler cache
+        if: always()
+        run: ccache --show-stats
 
       - name: Upload Android preview APK
         uses: actions/upload-artifact@v4

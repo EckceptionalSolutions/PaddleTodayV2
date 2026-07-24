@@ -50,9 +50,9 @@ import {
 } from '../lib/explore-intents';
 import { trackAppEvent } from '../lib/observability';
 import { endpointSnappedRouteCoordinates } from '../lib/river-geometry';
+import { coverageCenter, groupRoutesByConditionScore } from '../lib/river-coverage';
 import {
   buildRouteGroupMeta,
-  matchingRiverReadiness,
   riverGroupKeyForRoute,
   routeGroupMetaForRoute,
 } from '../lib/route-groups';
@@ -611,13 +611,11 @@ function FullScreenExploreMap({
           <View
             style={styles.mapStatusChip}
             accessibilityRole="text"
-             accessibilityLabel={`${points.length} of ${matchingRiverCount} rivers shown on map`}
-           >
-             <Text style={styles.mapStatusChipText} numberOfLines={1}>
-               {points.length === matchingRiverCount
-                 ? `${matchingRiverCount} rivers`
-                 : `${points.length} of ${matchingRiverCount} rivers`}
-             </Text>
+             accessibilityLabel={`${points.length} score ${points.length === 1 ? 'zone' : 'zones'} across ${matchingRiverCount} ${matchingRiverCount === 1 ? 'river' : 'rivers'} shown on map`}
+            >
+              <Text style={styles.mapStatusChipText} numberOfLines={1}>
+                {`${points.length} ${points.length === 1 ? 'zone' : 'zones'} · ${matchingRiverCount} ${matchingRiverCount === 1 ? 'river' : 'rivers'}`}
+              </Text>
            </View>
          </View>
         <ExploreViewToggle mode={viewMode} onChange={onViewModeChange} />
@@ -883,7 +881,7 @@ function useExploreMapPoints(
 ) {
   return useMemo<RoutePlotPoint[]>(
     () =>
-      dedupeExploreRoutes(results).map((river) => {
+      dedupeExploreRoutes(results).flatMap((river) => {
         const routeCount = routeGroupMetaForRoute(river, routeCounts).routeCount;
         const riverKey = riverGroupKeyForRoute(river);
         const matchingRiverRoutes = allMatchingRoutes.filter((candidate) => (
@@ -894,30 +892,35 @@ function useExploreMapPoints(
         const spanSegments = matchingRiverRoutes
           .map(routeSpanCoordinatesForRiver)
           .filter((span): span is MapCoordinate[] => Boolean(span && span.length >= 2));
-        const groupedRiver = routeCount > 1 && !river.selectedSegment;
-        const { readyCount, matchingRouteCount } = matchingRiverReadiness(matchingRiverRoutes);
-        return {
-          id: river.river.slug,
-          label: river.river.name,
-          latitude: river.river.latitude,
-          longitude: river.river.longitude,
-          score: river.score,
-          rating: river.rating,
-          markerLabel: groupedRiver ? `${readyCount}/${matchingRouteCount}` : null,
-          markerAccessibilityLabel: groupedRiver
-            ? `${readyCount} ready of ${matchingRouteCount} matching routes`
-            : null,
-          routeCount,
-          spanSegments,
-          meta: [
-            accessPointCountLabel(river),
-            groupedRiver ? `${readyCount} ready of ${matchingRouteCount} matching` : '1 route',
-            groupedRiver && routeCount !== matchingRouteCount ? `${routeCount} total routes` : null,
-            river.travelLabel ? `${river.travelLabel} drive` : null,
-          ]
-            .filter(Boolean)
-            .join(' - '),
-        };
+        const matchingRouteCount = matchingRiverRoutes.length;
+        const scoreZones = groupRoutesByConditionScore(matchingRiverRoutes);
+
+        return scoreZones.flatMap((group) => {
+          const representative = group.representative;
+          const center = coverageCenter(group.routes);
+          if (!representative || !center || group.score === null) return [];
+
+          return [{
+            id: representative.river.slug,
+            label: representative.river.name,
+            latitude: center.latitude,
+            longitude: center.longitude,
+            score: group.score,
+            rating: group.rating,
+            markerAccessibilityLabel: `${group.regions.join(', ') || 'condition zone'}, score ${group.score}, ${group.routes.length} ${group.routes.length === 1 ? 'route' : 'routes'}`,
+            routeCount,
+            spanSegments,
+            meta: [
+              accessPointCountLabel(representative),
+              `${group.routes.length} ${group.routes.length === 1 ? 'route' : 'routes'} in this zone`,
+              matchingRouteCount > group.routes.length ? `${matchingRouteCount} routes on this river` : null,
+              routeCount !== matchingRouteCount ? `${routeCount} total routes` : null,
+              representative.travelLabel ? `${representative.travelLabel} drive` : null,
+            ]
+              .filter(Boolean)
+              .join(' - '),
+          }];
+        });
       }),
     [allMatchingRoutes, results, routeCounts]
   );

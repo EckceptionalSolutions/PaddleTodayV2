@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-24T19:38:44.054Z",
+  "generatedAt": "2026-07-24T21:39:30.224Z",
   "routeCount": 937,
-  "issueCount": 543,
+  "issueCount": 542,
   "summary": {
     "Critical": 0,
-    "High": 324,
+    "High": 323,
     "Medium": 219,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "middle-river-schildberg-roseman",
-      "slug": "middle-river-schildberg-roseman",
-      "name": "Middle River",
-      "reach": "Schildberg Access to Roseman Covered Bridge Access",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "ge, with timbered valleys, open pasture, scattered riffles, chutes, and a shale ledge above the P53 bridge. Use the Middle River near Indianola gauge as the official planning signal. Treat 600 to 900 cfs as the optimum Adair / Madison County window, and be con"
-    },
     {
       "routeId": "upper-iowa-river-malanaphy-trout-run",
       "slug": "upper-iowa-river-malanaphy-trout-run",

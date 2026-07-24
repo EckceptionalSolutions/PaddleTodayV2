@@ -22,6 +22,11 @@ import { ratingVerdictLabel } from '@paddletoday/api-contract';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
 import {
+  coverageCenterForRoutes,
+  groupRoutesByConditionScore,
+  routesForRiverItem,
+} from '../lib/river-coverage.js';
+import {
   buildRoutePlannerHref,
   formatRouteSegmentLabel,
   routeMatchesPaddleFilters,
@@ -279,8 +284,10 @@ let latestResults = [];
 let hasLoadedBoardOnce = false;
 let lastBoardSuccessAt = null;
 let mapRuntime = null;
+let summaryMapLibre = null;
 let mapMarkers = [];
 let mapMarkersByKey = new Map();
+let mapConditionMarkers = [];
 let summaryMapRenderVersion = 0;
 let selectedSummaryMapKey = null;
 let lastSummaryMapItems = [];
@@ -1068,6 +1075,8 @@ function buildDisplayItems(allResults, filteredResults, selectionMode = 'best-no
           ? `/rivers/by-river/${cardRoute.river.riverId}/`
           : `/rivers/${cardRoute.river.slug}/`,
       cardRoute,
+      matchingRoutes: routes,
+      allRiverRoutes: allByRiver.get(riverId) ?? routes,
       totalRouteCount,
       matchingRouteCount: routes.length,
       paddleableRouteCount,
@@ -1136,11 +1145,11 @@ function isGroupedItem(item) {
 }
 
 function mapMarkerLabel(item) {
-  if (!isGroupedItem(item)) {
-    return String(item.cardRoute.score);
-  }
+  return String(item.cardRoute.score);
+}
 
-  return `${item.paddleableRouteCount}/${item.matchingRouteCount ?? item.totalRouteCount}`;
+function visibleMapMarkerLabel(item) {
+  return mapMarkerLabel(item);
 }
 
 function mapMarkerContext(item) {
@@ -1148,8 +1157,10 @@ function mapMarkerContext(item) {
     return recommendationVerdict(item);
   }
 
-  const matchingCount = item.matchingRouteCount ?? item.totalRouteCount;
-  return `${item.paddleableRouteCount} ready of ${matchingCount} matching routes`;
+  const routes = routesForRiverItem(item);
+  const matchingCount = routes.length || item.matchingRouteCount || item.totalRouteCount;
+  const zoneCount = groupRoutesByConditionScore(routes).length;
+  return `${matchingCount} matching ${matchingCount === 1 ? 'route' : 'routes'} · ${zoneCount} score ${zoneCount === 1 ? 'zone' : 'zones'}`;
 }
 
 function mapMarkerAriaLabel(item) {
@@ -1157,7 +1168,7 @@ function mapMarkerAriaLabel(item) {
     return `${item.cardRoute.river.name}: score ${item.cardRoute.score}, ${confidenceDisplayLabel(item.cardRoute.confidence.label).toLowerCase()}`;
   }
 
-  return `${item.cardRoute.river.name}: ${mapMarkerContext(item)}; top matching stretch score ${item.cardRoute.score}`;
+  return `${item.cardRoute.river.name}: ${mapMarkerContext(item)}. Select to reveal full coverage and zone scores.`;
 }
 
 function routeCountLabel(item) {
@@ -1831,6 +1842,19 @@ function summaryMapRoutePoints(item) {
     });
 }
 
+function homeCoverageRouteItems(item) {
+  return routesForRiverItem(item).map((cardRoute) => ({
+    ...item,
+    key: `${item.key}:${cardRoute.river.slug}`,
+    kind: 'route',
+    cardRoute,
+  }));
+}
+
+function homeCoveragePoints(item) {
+  return homeCoverageRouteItems(item).flatMap((routeItem) => summaryMapRoutePoints(routeItem));
+}
+
 function summaryMapFallbackRouteLine(item, points) {
   if (points.length < 2) {
     return null;
@@ -1934,7 +1958,8 @@ function syncSummaryMapRouteLines(data) {
 }
 
 async function renderSummaryMapRouteLines(items, renderVersion) {
-  const features = (await Promise.all(items.map((item) => summaryMapRouteLine(item)))).filter(Boolean);
+  const routeItems = items.flatMap((item) => homeCoverageRouteItems(item));
+  const features = (await Promise.all(routeItems.map((item) => summaryMapRouteLine(item)))).filter(Boolean);
   if (renderVersion !== summaryMapRenderVersion || !mapRuntime) {
     return;
   }
@@ -2206,7 +2231,7 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
     } else {
       const markerNode = document.createElement('div');
       markerNode.className = markerClassFor(item);
-      markerNode.innerHTML = `<span>${escapeHtml(mapMarkerLabel(item))}</span>`;
+      markerNode.innerHTML = `<span>${escapeHtml(visibleMapMarkerLabel(item))}</span>`;
       markerNode.setAttribute('aria-hidden', 'true');
 
       const marker = new maplibregl.Marker({
@@ -3882,8 +3907,111 @@ function popupMarkup(item) {
   `;
 }
 
+function clearHomeConditionMarkers() {
+  for (const marker of mapConditionMarkers) marker.remove();
+  mapConditionMarkers = [];
+}
+
+function homeConditionZonePopupMarkup(item, group) {
+  const routeCount = group.routes.length;
+  return `
+    <article class="score-map-popup">
+      <p class="score-map-popup__state">${escapeHtml(group.regions.join(', ') || item.cardRoute.river.region)}</p>
+      <h3>${escapeHtml(item.cardRoute.river.name)}</h3>
+      <div class="score-map-popup__scoreline">
+        <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingToneKey(group.rating))}">${escapeHtml(String(group.score ?? '--'))}</span>
+        <p class="score-map-popup__verdict">${escapeHtml(`${routeCount} ${routeCount === 1 ? 'route' : 'routes'} in this score zone`)}</p>
+      </div>
+      <p class="score-map-popup__reach">${escapeHtml(group.representative?.river?.reach || 'Mapped river coverage')}</p>
+      <a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">Compare river routes</a>
+    </article>
+  `;
+}
+
+function syncHomeConditionMarkers() {
+  for (const item of lastSummaryMapItems) {
+    if (isGroupedItem(item)) {
+      mapMarkersByKey.delete(item.key);
+    }
+  }
+  clearHomeConditionMarkers();
+  if (!mapRuntime || !summaryMapLibre) return;
+
+  for (const item of lastSummaryMapItems) {
+    if (!isGroupedItem(item)) continue;
+    for (const group of groupRoutesByConditionScore(routesForRiverItem(item))) {
+      const point = coverageCenterForRoutes(group.routes);
+      if (!point || group.score === null) continue;
+      const markerNode = document.createElement('button');
+      markerNode.type = 'button';
+      markerNode.className = `${markerClassForRating(group.rating, group.confidence?.label)} score-map-marker--condition-zone`;
+      markerNode.classList.toggle('score-map-marker--river-expanded', item.key === selectedSummaryMapKey);
+      markerNode.dataset.summaryMapRiverKey = item.key;
+      markerNode.innerHTML = `<span>${escapeHtml(String(group.score))}</span>`;
+      const markerAriaLabel = `${item.cardRoute.river.name}, ${group.regions.join(', ') || 'score zone'}: score ${group.score}, ${group.routes.length} ${group.routes.length === 1 ? 'route' : 'routes'}`;
+      markerNode.setAttribute('aria-label', markerAriaLabel);
+
+      const marker = new summaryMapLibre.Marker({ element: markerNode, anchor: 'center' })
+        .setLngLat([point.longitude, point.latitude])
+        .setPopup(
+          new summaryMapLibre.Popup({ offset: 18, closeButton: true, closeOnClick: true, maxWidth: '260px' })
+            .setHTML(homeConditionZonePopupMarkup(item, group))
+        )
+        .addTo(mapRuntime);
+      markerNode.setAttribute('aria-label', markerAriaLabel);
+      bindMarkerPopup(marker, markerNode, {
+        map: mapRuntime,
+        onSelectedChange(selected) {
+          if (selected) {
+            updateSummaryMapSelection(item.key);
+            focusHomeRiverCoverage(item);
+            scrollHomeResultsRailToKey(item.key);
+          }
+        },
+      });
+      if (!mapMarkersByKey.has(item.key)) {
+        mapMarkersByKey.set(item.key, marker);
+      }
+      mapConditionMarkers.push(marker);
+    }
+  }
+}
+
+function focusHomeRiverCoverage(item) {
+  if (!mapRuntime || !summaryMapLibre || !item) return;
+  const points = homeCoveragePoints(item);
+  if (points.length < 2) return;
+  const bounds = new summaryMapLibre.LngLatBounds();
+  for (const point of points) {
+    bounds.extend([point.longitude, point.latitude]);
+  }
+  const compact = window.matchMedia('(max-width: 720px)').matches;
+  mapRuntime.fitBounds(bounds, {
+    padding: compact
+      ? { top: 58, right: 46, bottom: 58, left: 46 }
+      : { top: 86, right: 86, bottom: 86, left: 86 },
+    maxZoom: 9.2,
+    duration: 520,
+  });
+}
+
 function updateSummaryMapSelection(key, { scrollResult = false } = {}) {
   selectedSummaryMapKey = key || null;
+  for (const [itemKey, marker] of mapMarkersByKey.entries()) {
+    const element = marker?.getElement?.();
+    if (element instanceof HTMLElement) {
+      element.classList.toggle('score-map-marker--river-expanded', itemKey === selectedSummaryMapKey);
+    }
+  }
+  for (const marker of mapConditionMarkers) {
+    const element = marker?.getElement?.();
+    if (element instanceof HTMLElement) {
+      element.classList.toggle(
+        'score-map-marker--river-expanded',
+        element.dataset.summaryMapRiverKey === selectedSummaryMapKey
+      );
+    }
+  }
 
   if (summaryMapResults instanceof HTMLElement) {
     const rows = Array.from(summaryMapResults.querySelectorAll('[data-summary-map-item]'));
@@ -4055,6 +4183,7 @@ function openSummaryMapItem(key) {
   }
 
   updateSummaryMapSelection(key, { scrollResult: true });
+  focusHomeRiverCoverage(lastSummaryMapItems.find((item) => item.key === key));
   closeSummaryMapPopups(key);
   const popup = marker.getPopup?.();
   if (popup && typeof popup.isOpen === 'function' && !popup.isOpen()) {
@@ -4289,6 +4418,7 @@ async function renderRequestedSummaryMap(items) {
     if (renderVersion !== summaryMapRenderVersion) {
       return;
     }
+    summaryMapLibre = maplibregl;
 
     if (!mapRuntime) {
       mapRuntime = new maplibregl.Map({
@@ -4321,6 +4451,7 @@ async function renderRequestedSummaryMap(items) {
     for (const marker of mapMarkers) {
       marker.remove();
     }
+    clearHomeConditionMarkers();
     mapMarkers = [];
     mapMarkersByKey = new Map();
 
@@ -4328,39 +4459,48 @@ async function renderRequestedSummaryMap(items) {
     let hasBounds = false;
 
     for (const item of items) {
-      const markerNode = document.createElement('button');
-      markerNode.type = 'button';
-      markerNode.className = markerClassFor(item);
-      markerNode.innerHTML = `<span>${escapeHtml(mapMarkerLabel(item))}</span>`;
-      markerNode.setAttribute(
-        'aria-label',
-        mapMarkerAriaLabel(item)
-      );
+      const markerPoint = coverageCenterForRoutes(routesForRiverItem(item)) ?? item.cardRoute.river;
+      const coveragePoints = homeCoveragePoints(item);
+      if (!isGroupedItem(item)) {
+        const markerNode = document.createElement('button');
+        markerNode.type = 'button';
+        markerNode.className = markerClassFor(item);
+        markerNode.innerHTML = `<span>${escapeHtml(visibleMapMarkerLabel(item))}</span>`;
+        markerNode.setAttribute(
+          'aria-label',
+          mapMarkerAriaLabel(item)
+        );
 
-      const marker = new maplibregl.Marker({
-        element: markerNode,
-        anchor: 'center',
-      })
-        .setLngLat([item.cardRoute.river.longitude, item.cardRoute.river.latitude])
-        .setPopup(
-          new maplibregl.Popup({ offset: 18, closeButton: true, closeOnClick: true, maxWidth: '248px' }).setHTML(popupMarkup(item))
-        )
-        .addTo(mapRuntime);
+        const marker = new maplibregl.Marker({
+          element: markerNode,
+          anchor: 'center',
+        })
+          .setLngLat([markerPoint.longitude, markerPoint.latitude])
+          .setPopup(
+            new maplibregl.Popup({ offset: 18, closeButton: true, closeOnClick: true, maxWidth: '248px' }).setHTML(popupMarkup(item))
+          )
+          .addTo(mapRuntime);
 
-      bindMarkerPopup(marker, markerNode, {
-        map: mapRuntime,
-        onSelectedChange(selected) {
-          if (selected) {
-            updateSummaryMapSelection(item.key);
-            scrollHomeResultsRailToKey(item.key);
-          } else if (selectedSummaryMapKey === item.key) {
-            updateSummaryMapSelection(null);
-          }
-        },
-      });
-      mapMarkers.push(marker);
-      mapMarkersByKey.set(item.key, marker);
-      bounds.extend([item.cardRoute.river.longitude, item.cardRoute.river.latitude]);
+        bindMarkerPopup(marker, markerNode, {
+          map: mapRuntime,
+          onSelectedChange(selected) {
+            if (selected) {
+              updateSummaryMapSelection(item.key);
+              focusHomeRiverCoverage(item);
+              scrollHomeResultsRailToKey(item.key);
+            }
+          },
+        });
+        mapMarkers.push(marker);
+        mapMarkersByKey.set(item.key, marker);
+      }
+      if (coveragePoints.length > 0) {
+        for (const point of coveragePoints) {
+          bounds.extend([point.longitude, point.latitude]);
+        }
+      } else {
+        bounds.extend([markerPoint.longitude, markerPoint.latitude]);
+      }
       hasBounds = true;
     }
 
@@ -4368,6 +4508,8 @@ async function renderRequestedSummaryMap(items) {
     if (renderVersion !== summaryMapRenderVersion) {
       return;
     }
+    lastSummaryMapItems = items;
+    syncHomeConditionMarkers();
 
     if (hasBounds) {
       if (renderVersion !== summaryMapRenderVersion) {
@@ -4386,7 +4528,12 @@ async function renderRequestedSummaryMap(items) {
         updateSummaryMapSelection(items[0].key);
       }
       if (summaryMapStatus instanceof HTMLElement) {
-        summaryMapStatus.textContent = isNearbySummaryMapMode() ? 'Nearby map is up to date.' : 'Map is up to date.';
+        const selectedItem = items.find((item) => item.key === selectedSummaryMapKey);
+        summaryMapStatus.textContent = selectedItem && isGroupedItem(selectedItem)
+          ? `Showing ${routesForRiverItem(selectedItem).length} mapped ${selectedItem.cardRoute.river.name} routes across ${groupRoutesByConditionScore(routesForRiverItem(selectedItem)).length} score zones.`
+          : isNearbySummaryMapMode()
+            ? 'Nearby map is up to date.'
+            : 'Map is up to date.';
       }
       return;
     }

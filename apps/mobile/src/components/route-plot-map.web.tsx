@@ -17,8 +17,11 @@ export interface RoutePlotPoint {
   score?: number | null;
   rating?: string | null;
   meta?: string | null;
+  markerLabel?: string | null;
+  markerAccessibilityLabel?: string | null;
   routeCount?: number | null;
   spanCoordinates?: RouteSpanCoordinate[] | null;
+  spanSegments?: RouteSpanCoordinate[][] | null;
 }
 
 export interface RoutePlotMapHandle {
@@ -32,18 +35,21 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   selectedId?: string | null;
   userLocation?: { latitude: number; longitude: number; label?: string | null } | null;
   backgroundSpanCoordinates?: RouteSpanCoordinate[] | null;
+  backgroundSpanSegments?: RouteSpanCoordinate[][];
   canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>;
   onSelectPoint?: (point: RoutePlotPoint) => void;
   height?: number;
   showFooter?: boolean;
   fullBleed?: boolean;
   markerMode?: 'score' | 'pin';
+  fitToAllOnReady?: boolean;
   selectedFocusBottomInset?: number;
 }>(function RoutePlotMap({
   points,
   selectedId,
   userLocation,
   backgroundSpanCoordinates,
+  backgroundSpanSegments = [],
   canonicalSpans,
   onSelectPoint,
   height = 290,
@@ -52,10 +58,14 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   selectedFocusBottomInset: _selectedFocusBottomInset = 0,
 }, ref) {
   const backgroundSpan = finiteSpanCoordinates(backgroundSpanCoordinates);
-  const bounds = getBounds(points, userLocation, backgroundSpan, canonicalSpans);
+  const backgroundSpans = [
+    ...(backgroundSpan.length >= 2 ? [backgroundSpan] : []),
+    ...backgroundSpanSegments.map(finiteSpanCoordinates).filter((span) => span.length >= 2),
+  ];
+  const bounds = getBounds(points, userLocation, backgroundSpans.flat(), canonicalSpans);
   const visiblePoints = points.filter(isFinitePoint);
   const selectedPoint = visiblePoints.find((point) => point.id === selectedId) ?? visiblePoints[0] ?? null;
-  const selectedSpan = selectedId && selectedPoint ? routeSpanCoordinates(selectedPoint, canonicalSpans) : [];
+  const selectedSpans = selectedId && selectedPoint ? routeSpanSegments(selectedPoint, canonicalSpans) : [];
 
   useImperativeHandle(ref, () => ({ focusSelected: () => undefined, focusAll: () => undefined, focusUserArea: () => undefined }), []);
 
@@ -93,8 +103,12 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
           </View>
         ) : null}
 
-        {backgroundSpan.length >= 2 ? <ProjectedRouteSpan coordinates={backgroundSpan} bounds={bounds} tone="background" /> : null}
-        {selectedSpan.length >= 2 ? <ProjectedRouteSpan coordinates={selectedSpan} bounds={bounds} tone="selected" /> : null}
+        {backgroundSpans.map((span, index) => (
+          <ProjectedRouteSpan key={`background-span-${index}`} coordinates={span} bounds={bounds} tone="background" />
+        ))}
+        {selectedSpans.map((span, index) => (
+          <ProjectedRouteSpan key={`selected-span-${index}`} coordinates={span} bounds={bounds} tone="selected" />
+        ))}
 
         {visiblePoints.map((point) => {
           const selected = point.id === selectedId;
@@ -110,7 +124,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
               onPress={() => onSelectPoint?.(point)}
               hitSlop={10}
               accessibilityRole="button"
-              accessibilityLabel={`${point.label}${point.score ? `, score ${point.score}` : ''}`}
+              accessibilityLabel={`${point.label}${point.markerAccessibilityLabel ? `, ${point.markerAccessibilityLabel}` : point.score ? `, score ${point.score}` : ''}`}
             >
               {selected ? <View style={styles.markerSelectedRing} /> : null}
               <View
@@ -123,13 +137,14 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
               >
                 {showScore ? (
                   <Text style={[styles.markerText, selected ? styles.markerTextSelected : null]}>
-                    {typeof point.score === 'number' ? point.score : ''}
+                    {markerTextForPoint(point)}
                   </Text>
                 ) : null}
               </View>
             </Pressable>
           );
         })}
+
       </View>
 
       {showFooter ? <MapFooter selectedPoint={selectedPoint} /> : null}
@@ -215,18 +230,32 @@ function isFiniteCoordinate(point: RouteSpanCoordinate) {
   return Number.isFinite(point.latitude) && Number.isFinite(point.longitude);
 }
 
-function routeSpanCoordinates(point: RoutePlotPoint, canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>): RouteSpanCoordinate[] {
+function routeSpanSegments(
+  point: RoutePlotPoint,
+  canonicalSpans?: ReadonlyMap<string, RouteSpanCoordinate[]>
+): RouteSpanCoordinate[][] {
   const canonicalSpan = finiteSpanCoordinates(canonicalSpans?.get(point.id));
   if (canonicalSpan.length >= 2) {
-    return canonicalSpan;
+    return [canonicalSpan];
+  }
+
+  const segments = point.spanSegments
+    ?.map(finiteSpanCoordinates)
+    .filter((segment) => segment.length >= 2) ?? [];
+  if (segments.length > 0) {
+    return segments;
   }
 
   const span = finiteSpanCoordinates(point.spanCoordinates);
   if (span.length >= 2) {
-    return span;
+    return [span];
   }
 
-  return [{ latitude: point.latitude, longitude: point.longitude }];
+  return [[{ latitude: point.latitude, longitude: point.longitude }]];
+}
+
+function markerTextForPoint(point: RoutePlotPoint) {
+  return point.markerLabel ?? (typeof point.score === 'number' ? String(point.score) : '');
 }
 
 function finiteSpanCoordinates(coordinates: RouteSpanCoordinate[] | null | undefined) {
@@ -243,7 +272,7 @@ function getBounds(
     ...extraCoordinates,
     ...points
       .filter(isFinitePoint)
-      .flatMap((point) => routeSpanCoordinates(point, canonicalSpans)),
+      .flatMap((point) => routeSpanSegments(point, canonicalSpans).flat()),
   ];
 
   if (userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude)) {
@@ -569,13 +598,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   marker: {
-    width: 32,
+    minWidth: 32,
     height: 32,
     borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 2,
     borderColor: colors.surfaceStrong,
+    paddingHorizontal: 4,
   },
   dotMarker: {
     width: 16,

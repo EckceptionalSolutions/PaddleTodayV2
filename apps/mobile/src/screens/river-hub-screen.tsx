@@ -15,6 +15,11 @@ import { photoForRiver } from '../lib/route-photos';
 import { routePreviewFactLine } from '../lib/route-facts';
 import { endpointSnappedRouteCoordinates } from '../lib/river-geometry';
 import {
+  conditionScoreKey,
+  coverageCenter,
+  groupRoutesByConditionScore,
+} from '../lib/river-coverage';
+import {
   activeRiverHubFilterCount,
   filterRiverHubRoutes,
   routeDistanceMiles,
@@ -70,8 +75,16 @@ export default function RiverHubScreen() {
   const bestRoute = useMemo(() => [...corridorRoutes].sort(compareBestRoute)[0] ?? null, [corridorRoutes]);
   const routes = useMemo(() => sortedRoutes(corridorRoutes, sortMode), [corridorRoutes, sortMode]);
   const routePoints = useMemo(() => routeMapPoints(routes), [routes]);
+  const coverageSpans = useMemo(
+    () => routes.map(routeSpanCoordinates).filter((span): span is MapCoordinate[] => Boolean(span && span.length >= 2)),
+    [routes]
+  );
   const selectedGeometryQuery = useRiverGeometryQuery(selectedRouteSlug ?? '');
   const selectedRoute = allRoutes.find((route) => route.river.slug === selectedRouteSlug) ?? null;
+  const selectedMapPointId = useMemo(
+    () => mapPointIdForRoute(selectedRoute, routes),
+    [routes, selectedRoute]
+  );
   const filterCount = activeRiverHubFilterCount(filters);
   const regions = result?.group.regions
     ?? [...new Set(allRoutes.map((route) => route.river.region))].sort();
@@ -80,8 +93,8 @@ export default function RiverHubScreen() {
     [selectedGeometryQuery.data, selectedRoute]
   );
   const canonicalSpans = useMemo(
-    () => (selectedRouteSlug && selectedCanonicalSpan ? new Map([[selectedRouteSlug, selectedCanonicalSpan]]) : undefined),
-    [selectedCanonicalSpan, selectedRouteSlug]
+    () => (selectedMapPointId && selectedCanonicalSpan ? new Map([[selectedMapPointId, selectedCanonicalSpan]]) : undefined),
+    [selectedCanonicalSpan, selectedMapPointId]
   );
 
   useEffect(() => {
@@ -358,7 +371,8 @@ export default function RiverHubScreen() {
                   <View style={styles.mapFrame}>
                     <RoutePlotMap
                       points={routePoints}
-                      selectedId={selectedRouteSlug}
+                      selectedId={selectedMapPointId}
+                      backgroundSpanSegments={coverageSpans}
                       canonicalSpans={canonicalSpans}
                       height={260}
                       fitToAllOnReady
@@ -527,26 +541,42 @@ function FilterChip({
 }
 
 function routeMapPoints(routes: RiverDetailApiResult[]): RoutePlotPoint[] {
-  return routes.map((route) => {
-    const spanCoordinates = routeSpanCoordinates(route);
-    const markerCoordinate = mapMarkerCoordinate(route, spanCoordinates);
-    const distance = routeDistanceMiles(route);
-
+  return groupRoutesByConditionScore(routes).map((group) => {
+    const route = group.representative;
+    const spanSegments = group.routes
+      .map(routeSpanCoordinates)
+      .filter((span): span is MapCoordinate[] => Boolean(span && span.length >= 2));
+    const markerCoordinate = coverageCenter(group.routes) ?? mapMarkerCoordinate(route, routeSpanCoordinates(route));
     return {
       id: route.river.slug,
-      label: route.river.reach,
+      label: group.regions.join(', ') || route.river.reach,
       latitude: markerCoordinate.latitude,
       longitude: markerCoordinate.longitude,
       score: route.score,
       rating: route.rating,
-      markerLabel: distance === null ? null : formatDistance(distance),
-      markerAccessibilityLabel: distance === null ? null : `${formatDistance(distance)} miles`,
-      spanCoordinates,
-      meta: [route.river.distanceLabel, accessPointCountLabel(route), `${route.score} ${route.rating}`]
+      markerAccessibilityLabel: `${group.routes.length} ${group.routes.length === 1 ? 'route shares' : 'routes share'} score ${route.score}`,
+      routeCount: group.routes.length,
+      spanSegments,
+      meta: [
+        `${group.routes.length} ${group.routes.length === 1 ? 'stretch' : 'stretches'}`,
+        accessPointCountLabel(route),
+        `${route.score} ${route.rating}`,
+      ]
         .filter(Boolean)
         .join(' - '),
     };
   });
+}
+
+function mapPointIdForRoute(
+  route: RiverDetailApiResult | null,
+  routes: RiverDetailApiResult[]
+) {
+  if (!route) return null;
+  const group = groupRoutesByConditionScore(routes).find((candidate) => (
+    candidate.key === conditionScoreKey(route)
+  ));
+  return group?.representative.river.slug ?? route.river.slug;
 }
 
 function mapMarkerCoordinate(route: RiverDetailApiResult, spanCoordinates: MapCoordinate[] | null): MapCoordinate {

@@ -1,7 +1,9 @@
 import {
   MAP_STYLE_URL,
+  bindMarkerPopup,
   ensureMapLibre,
   escapeHtml,
+  markerClassForRating,
   syncActualRiverLayer,
 } from './map-runtime.js';
 import { favoriteButtonMarkup as buildFavoriteButtonMarkup } from './favorite-button-markup.js';
@@ -10,6 +12,7 @@ import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { ratingVerdictLabel } from '@paddletoday/api-contract';
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
+import { coverageCenterForRoutes, groupRoutesByConditionScore } from '../lib/river-coverage.js';
 
 const root = document.querySelector('[data-river-group-page]');
 
@@ -53,6 +56,7 @@ let mapRuntime = null;
 let maplibreRuntime = null;
 let mapReadyPromise = null;
 let mapMarkers = [];
+let conditionScoreMarkers = [];
 let groupMapCollapsed = false;
 let distanceFilter = 'all';
 let regionFilter = 'all';
@@ -968,6 +972,67 @@ function syncSelectedRouteEndpoints(route, maplibregl) {
   }
 }
 
+function clearConditionScoreMarkers() {
+  for (const marker of conditionScoreMarkers) marker.remove();
+  conditionScoreMarkers = [];
+}
+
+function conditionScorePopupMarkup(group) {
+  const representative = group.representative;
+  const routeCount = group.routes.length;
+  return `
+    <article class="score-map-popup">
+      <p class="score-map-popup__state">${escapeHtml(group.regions.join(', ') || representative?.region || 'River score zone')}</p>
+      <h3>${escapeHtml(representative?.name || currentResult?.group?.name || 'River')}</h3>
+      <div class="score-map-popup__scoreline">
+        <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingToneKey(group.rating))}">${escapeHtml(String(group.score ?? '--'))}</span>
+        <p class="score-map-popup__verdict">${escapeHtml(`${routeCount} ${routeCount === 1 ? 'route' : 'routes'} share these conditions`)}</p>
+      </div>
+      <p class="score-map-popup__reach">${escapeHtml(representative?.reach || 'Mapped river coverage')}</p>
+      <button class="score-map-popup__link score-map-popup__link--button" type="button" data-score-zone-route="${escapeHtml(representative?.slug || '')}">Select this stretch</button>
+    </article>
+  `;
+}
+
+function syncConditionScoreMarkers(routes, maplibregl) {
+  clearConditionScoreMarkers();
+  if (!mapRuntime) return;
+
+  for (const group of groupRoutesByConditionScore(routes)) {
+    const point = coverageCenterForRoutes(group.routes);
+    if (!point || group.score === null) continue;
+
+    const markerNode = document.createElement('button');
+    markerNode.type = 'button';
+    markerNode.className = `${markerClassForRating(group.rating, group.confidence?.label)} score-map-marker--condition-zone`;
+    markerNode.innerHTML = `<span>${escapeHtml(String(group.score))}</span>`;
+    const markerAriaLabel = `${group.representative?.name || 'River'}, ${group.regions.join(', ') || 'score zone'}: score ${group.score}, ${group.routes.length} ${group.routes.length === 1 ? 'route' : 'routes'}`;
+    markerNode.setAttribute('aria-label', markerAriaLabel);
+
+    const marker = new maplibregl.Marker({ element: markerNode, anchor: 'center' })
+      .setLngLat([point.longitude, point.latitude])
+      .setPopup(
+        new maplibregl.Popup({ offset: 18, closeButton: true, closeOnClick: true, maxWidth: '260px' })
+          .setHTML(conditionScorePopupMarkup(group))
+      )
+      .addTo(mapRuntime);
+    markerNode.setAttribute('aria-label', markerAriaLabel);
+
+    bindMarkerPopup(marker, markerNode, { map: mapRuntime });
+    marker.getPopup()?.on('open', () => {
+      const button = marker.getPopup()?.getElement()?.querySelector('[data-score-zone-route]');
+      if (button instanceof HTMLButtonElement && button.dataset.scoreZoneBound !== 'true') {
+        button.dataset.scoreZoneBound = 'true';
+        button.addEventListener('click', () => {
+          const slug = button.dataset.scoreZoneRoute;
+          if (slug) selectPickerRoute(slug);
+        });
+      }
+    });
+    conditionScoreMarkers.push(marker);
+  }
+}
+
 async function hydrateRouteGeometries(routes) {
   const pending = routes.filter((route) => !routeGeometryBySlug.has(route.slug));
   if (pending.length === 0) return;
@@ -1034,6 +1099,7 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
     });
     syncRouteLayers(routes);
     syncSelectedRouteEndpoints(selectedRoute, maplibregl);
+    syncConditionScoreMarkers(routes, maplibregl);
 
     const fitRoutes = focusSelected && selectedRoute ? [selectedRoute] : routes;
     const bounds = boundsForRouteFeatures(maplibregl, fitRoutes);
@@ -1054,7 +1120,7 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
         ? 'No routes match these filters.'
         : routes.length === 1
         ? '1 route · mileage follows the mapped reach.'
-        : `${routes.length} routes · select one to zoom.`;
+        : `${routes.length} routes · ${groupRoutesByConditionScore(routes).length} score zones · select one to zoom.`;
     }
   } catch (error) {
     console.error('Failed to load river group map.', error);

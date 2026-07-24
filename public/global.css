@@ -2817,6 +2817,9 @@ body.site-search-open {
 .summary-map__status {
   padding: 0;
   flex: 0 0 auto;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .summary-map__toggle {
@@ -3142,6 +3145,19 @@ body.site-search-open {
 
 .score-map-marker {
   cursor: pointer;
+}
+
+.score-map-marker--condition-zone {
+  width: 2.45rem;
+  height: 2.45rem;
+  border-width: 2px;
+  font-size: 0.86rem;
+  z-index: 2;
+}
+
+.score-map-marker--river-expanded {
+  opacity: 0.28;
+  transform: scale(0.82);
 }
 
 .summary-map-shell--explore-workspace .score-map-marker--overview {

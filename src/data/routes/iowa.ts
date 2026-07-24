@@ -3133,6 +3133,18 @@ export const iowaRoutes: River[] = [
     "statusText": "Use the Middle River near Indianola gauge as the official planning signal. Treat 600 to 900 cfs as the optimum Adair / Madison County window, and be conservative outside that band.",
     "latitude": 41.31736,
     "longitude": -94.213296,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater"
+      ],
+      "safetyNotes": [
+        "Madison County describes this leg as moderately challenging, with scattered chutes, riffles, and a shale ledge drop upstream of the P53 bridge.",
+        "The official Middle River map ties the route to a narrow 600-900 cfs optimum band at the Indianola gauge; be conservative above or below that band.",
+        "Scout the shale ledge and bridge approaches from shore if the line is not obvious, especially after rain or when the downstream gauge is outside the published band."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05486490",
       "provider": "usgs",

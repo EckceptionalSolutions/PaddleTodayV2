@@ -1,0 +1,53 @@
+# Keep these rules aligned with the repository .gitignore. EAS prioritizes this
+# file over every .gitignore when preparing the monorepo build archive.
+node_modules
+dist
+.astro
+test-results/
+playwright-report/
+tmp/
+.env
+.env.local
+*.log
+*.err.log
+tmp-*.png
+tmp-*.html
+tmp-*.json
+tmp-*.pdf
+tmp-*.zip
+tmp_*.png
+!tmp-summary.json
+*.bak
+.codex-*-pass.png
+.mobile-visual-qa/
+codex_sandbox_test.txt
+Thumbs.db
+.DS_Store
+.local
+
+# Generated/local files inside the Expo workspace. Nested .gitignore files are
+# not consulted once a root .easignore exists.
+apps/mobile/.expo/
+apps/mobile/.vscode/
+apps/mobile/android/
+apps/mobile/ios/
+apps/mobile/dist/
+apps/mobile/web-build/
+apps/mobile/.env*.local
+apps/mobile/*.tsbuildinfo
+
+# The mobile workspace only depends on apps/mobile and packages/*.
+/.git
+/.github/
+/automations/
+/docs/
+/public/
+/scripts/
+/src/
+/tests/
+/MOBILE_UI_TODO.md
+/playwright.config.ts
+/staticwebapp.config.json
+/tmp-summary.json
+/tsconfig.route-data.json
+/vitest.config.ts
