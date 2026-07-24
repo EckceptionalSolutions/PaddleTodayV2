@@ -914,6 +914,165 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
+  "middle-river-roseman-pammel": {
+    "putIn": {
+      "id": "roseman-covered-bridge-access",
+      "name": "Roseman Covered Bridge Access #71",
+      "latitude": 41.292917,
+      "longitude": -94.149879
+    },
+    "takeOut": {
+      "id": "pammel-park-ford-access",
+      "name": "Pammel Park Ford Access #63",
+      "latitude": 41.295635,
+      "longitude": -94.074586
+    },
+    "logistics": {
+      "distanceLabel": "About 8.7 mi",
+      "estimatedPaddleTime": "About 2.5 hr to 4.5 hr, longer with low-water dragging or ford-portage scouting",
+      "shuttle": "Stage at Pammel Park Ford Access and walk the river-left ford portage before launching from Roseman Covered Bridge. Confirm the downstream re-entry only if continuing to the Middle River County Park segment.",
+      "permits": "No route-specific paddling permit is known. Follow Madison County park rules, Iowa boating/PFD requirements, and posted Middle River Water Trail access signs.",
+      "camping": "Pammel Park has modern camping, showers, utilities, tent camping, and yurt-cabin context in the official water-trail map. Treat the river itself as private-bank-sensitive and do not camp on bars or banks without permission.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch from Roseman Covered Bridge and paddle the scenic limestone-bluff reach to Pammel Park, taking out river-left before the historic ford portage.",
+      "accessCaveats": [
+        "Pammel Park Ford is a mandatory route boundary. The official guide calls it the only low-head-dam-type obstacle on Middle River and directs paddlers to exit river-left.",
+        "The Indianola gauge is the official Adair / Madison County signal but is downstream; pair it with local depth and wood checks.",
+        "Middle River is non-meandered, so routine bank, bar, or bed stops can be trespass unless they are public access areas or permissioned."
+      ],
+      "watchFor": [
+        "Numerous chutes, ledges, rock bluffs, and longer fast-water chutes as the route approaches Pammel Park.",
+        "Low-water scraping at the current 140 cfs check and high-water push near the ford.",
+        "Strainers, fences, bridge debris, and remote rescue exposure between the named accesses."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "roseman-covered-bridge-access",
+        "name": "Roseman Covered Bridge Access #71",
+        "latitude": 41.292917,
+        "longitude": -94.149879,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; official map lists carry-down paved canoe access and UTM coordinates."
+      },
+      {
+        "id": "pammel-park-ford-access",
+        "name": "Pammel Park Ford Access #63",
+        "latitude": 41.295635,
+        "longitude": -94.074586,
+        "mileFromStart": 8.7,
+        "segmentKind": "creek",
+        "note": "Default take-out and mandatory ford-portage boundary; official map lists modern campground support."
+      }
+    ]
+  },
+  "middle-river-pammel-middle-river-county-park": {
+    "putIn": {
+      "id": "pammel-park-ford-access",
+      "name": "Pammel Park Ford Access #63",
+      "latitude": 41.295635,
+      "longitude": -94.074586
+    },
+    "takeOut": {
+      "id": "middle-river-county-park-access",
+      "name": "Middle River County Park Access #54",
+      "latitude": 41.31543,
+      "longitude": -94.004183
+    },
+    "logistics": {
+      "distanceLabel": "About 9 mi",
+      "estimatedPaddleTime": "About 3 hr to 5 hr, longer with snags or low-water riffles",
+      "shuttle": "Start only below the Pammel Park ford portage/re-entry and stage at Middle River County Park on County Road P-71 south of Winterset. Walk both access paths before unloading.",
+      "permits": "No route-specific paddling permit is known. Follow Madison County park rules, Iowa boating/PFD requirements, and posted access signs.",
+      "camping": "Pammel Park supports endpoint campground staging at the put-in. Middle River County Park has day-use amenities, with Winterset City Park camping nearby rather than on the paddling route.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch below the Pammel Park ford and paddle the Middle River around the limestone backbone ridge and Harmon Tunnel area toward Middle River County Park.",
+      "accessCaveats": [
+        "Do not run the Pammel Park ford. This segment begins after the official portage and safe re-entry.",
+        "The official map lists Middle River County Park as Access #54 with gravel carry-down canoe access; confirm the renovated walk-down ramp and parking from land.",
+        "Do not assume legal bank or bar stops between accesses because the guide identifies Middle River as non-meandered."
+      ],
+      "watchFor": [
+        "Rock riffles and chutes around the Pammel oxbow and limestone backbone ridge.",
+        "Numerous fallen trees and snags between the Highway 169 bridge and Middle River County Park.",
+        "Fast rises, fences, private banks, and low-water dragging below the official optimum band."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "pammel-park-ford-access",
+        "name": "Pammel Park Ford Access #63",
+        "latitude": 41.295635,
+        "longitude": -94.074586,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in below the ford portage/re-entry; official map lists modern campground support."
+      },
+      {
+        "id": "middle-river-county-park-access",
+        "name": "Middle River County Park Access #54",
+        "latitude": 41.31543,
+        "longitude": -94.004183,
+        "mileFromStart": 9,
+        "segmentKind": "creek",
+        "note": "Default take-out; official map lists gravel carry-down access and nearby city-park camping context."
+      }
+    ]
+  },
+  "middle-river-middle-river-county-park-holliwell": {
+    "putIn": {
+      "id": "middle-river-county-park-access",
+      "name": "Middle River County Park Access #54",
+      "latitude": 41.31543,
+      "longitude": -94.004183
+    },
+    "takeOut": {
+      "id": "holliwell-covered-bridge-access",
+      "name": "Holliwell Covered Bridge Access #50",
+      "latitude": 41.322999,
+      "longitude": -93.959492
+    },
+    "logistics": {
+      "distanceLabel": "About 4 mi",
+      "estimatedPaddleTime": "About 1.5 hr to 3 hr depending on meanders, snags, and water level",
+      "shuttle": "Stage at Holliwell Covered Bridge and confirm the river-left take-out beside the bridge before launching from Middle River County Park.",
+      "permits": "No route-specific paddling permit is known. Follow Madison County park rules, Iowa boating/PFD requirements, and posted water-trail signs.",
+      "camping": "No on-route camping is documented. Winterset City Park camping is nearby but separate from the paddling route; do not camp on private banks or bars.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Paddle the final developed Middle River Water Trail segment from Middle River County Park to Holliwell Covered Bridge, stopping at the last official access.",
+      "accessCaveats": [
+        "Holliwell is the last developed Middle River Water Trail access. The guide warns that downstream bridge crossings can have steep banks and dense vegetation.",
+        "The Indianola gauge is downstream and official for the water trail, but local snags and shallow spots still decide this short reach.",
+        "Middle River is non-meandered; stay with public accesses and permissioned land only."
+      ],
+      "watchFor": [
+        "High meander density, shaded timber edges, downed trees, and snags.",
+        "Low-water scraping and high-water current around wooded bends.",
+        "Missing the Holliwell take-out and being forced toward difficult downstream bridge exits."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "middle-river-county-park-access",
+        "name": "Middle River County Park Access #54",
+        "latitude": 41.31543,
+        "longitude": -94.004183,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; official map lists gravel carry-down canoe access."
+      },
+      {
+        "id": "holliwell-covered-bridge-access",
+        "name": "Holliwell Covered Bridge Access #50",
+        "latitude": 41.322999,
+        "longitude": -93.959492,
+        "mileFromStart": 4,
+        "segmentKind": "creek",
+        "note": "Default take-out and final developed water-trail access beside Holliwell Covered Bridge."
+      }
+    ]
+  },
   "black-hawk-creek-hudson-waterloo": {
     "putIn": {
       "name": "Franck Park (Access 15), Hudson",

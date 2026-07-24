@@ -2290,6 +2290,333 @@ export const iowaRoutes: River[] = [
     ]
   },
   {
+    "id": "middle-river-roseman-pammel",
+    "slug": "middle-river-roseman-pammel",
+    "name": "Middle River",
+    "reach": "Roseman Covered Bridge Access to Pammel Park Ford Access",
+    "state": "Iowa",
+    "region": "Central Iowa",
+    "summary": "Scenic Madison County Middle River Water Trail leg from Roseman Covered Bridge to Pammel Park, with limestone bluffs, chutes, ledges, and a mandatory river-left ford portage at the finish.",
+    "statusText": "Use the Middle River near Indianola gauge as the official planning signal. The water-trail map lists 600 to 900 cfs as the optimum Adair / Madison County window; current water is well below that band, so expect scraping and possible carries.",
+    "latitude": 41.292917,
+    "longitude": -94.149879,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "low_head_dam",
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "The Pammel Park ford is the route boundary. The guide says it is the only low-head-dam-type obstacle on Middle River and must be portaged river-left.",
+        "This reach drops through numerous chutes and ledges as it approaches Pammel Park. Low water can expose rock and force dragging; high or rising water can make the ford approach consequential.",
+        "Middle River is non-meandered. Routine stops on the streambed, bars, banks, or adjacent fields can be trespass unless permission or public access is clear."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05486490",
+      "provider": "usgs",
+      "siteId": "05486490",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Middle River near Indianola, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05486490/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 600,
+      "idealMax": 900,
+      "tooLow": 600,
+      "tooHigh": 900,
+      "thresholdSource": {
+        "label": "Iowa DNR / Middle River Water Trail map optimum-flow note",
+        "url": "https://www.iowadnr.gov/media/8713/download?inline=",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "The guide says Middle River is most enjoyable in spring, early summer, and fall. Low water exposes chutes and ledges, while storms can quickly add wood and pushy current.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The official guide calls this the most scenic Madison County section but notes numerous chutes, ledges, rock bluffs, longer fast-water chutes, and the Pammel ford portage.",
+      "confidenceNotes": "Confidence is good for a guarded official-source add: the Iowa DNR / county map lists Roseman Access #71 to Pammel Park Ford Access #63 with distance, access types, camping status, UTM coordinates, and the 600-900 cfs optimum range at the Indianola station. USGS Water Services returned current 05486490 data during this run."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route and distance",
+        "value": "Access #71 to Access #63, about 8.7 mi",
+        "note": "The Middle River Water Trail map lists Roseman to Pammel as the next official access pair and Madison County describes the Pammel ford access about 8 miles downstream.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8713/download?inline="
+      },
+      {
+        "label": "Optimum flow",
+        "value": "600 to 900 cfs",
+        "note": "The official map says optimum flow for Adair / Madison County is 600 to 900 cfs at the Indianola station and points paddlers to USGS real-time Middle River data.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8713/download?inline="
+      },
+      {
+        "label": "Current gauge check",
+        "value": "USGS 05486490 140 cfs / 7.76 ft",
+        "note": "USGS Water Services returned current Middle River near Indianola data at 2026-07-23 23:15 CDT during this run, well below the official optimum band.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05486490&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Ford portage",
+        "value": "Pammel Park ford river-left portage",
+        "note": "The guide says paddlers must exit river-left for the short portage route around the Pammel Park ford, the only low-head-dam-type obstacle on Middle River.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8713/download?inline="
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Middle River Water Trail map PDF",
+        "url": "https://www.iowadnr.gov/media/8713/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Madison County Middle River Water Trail",
+        "url": "https://www.madisoncountyparks.org/water-trail/",
+        "provider": "local"
+      },
+      {
+        "label": "Madison County Tourism Middle River Water Trail",
+        "url": "https://exploremadisoncounty.com/play/middle_river_water_trail/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05486490 Middle River near Indianola",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05486490/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "middle-river-pammel-middle-river-county-park",
+    "slug": "middle-river-pammel-middle-river-county-park",
+    "name": "Middle River",
+    "reach": "Pammel Park Ford Access to Middle River County Park Access",
+    "state": "Iowa",
+    "region": "Central Iowa",
+    "summary": "Pammel Park continuation on the Middle River Water Trail, looping around the limestone backbone ridge and Harmon Tunnel area before the wooded run to Middle River County Park.",
+    "statusText": "Use the Middle River near Indianola gauge as the official planning signal. The map's optimum band is 600 to 900 cfs; at current low water, expect rock riffles, snags, and slower progress.",
+    "latitude": 41.295635,
+    "longitude": -94.074586,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Start below the Pammel Park ford portage/re-entry. Do not run the ford or launch into its hydraulic.",
+        "The guide warns of numerous fallen trees and snags between the Highway 169 bridge and Middle River County Park access.",
+        "Stay with public accesses and permissioned land only; the guide explicitly notes that Middle River is non-meandered and private-bank-sensitive."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05486490",
+      "provider": "usgs",
+      "siteId": "05486490",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Middle River near Indianola, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05486490/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 600,
+      "idealMax": 900,
+      "tooLow": 600,
+      "tooHigh": 900,
+      "thresholdSource": {
+        "label": "Iowa DNR / Middle River Water Trail map optimum-flow note",
+        "url": "https://www.iowadnr.gov/media/8713/download?inline=",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring, early summer, and fall remain the main paddling seasons. Late-summer lows can make riffles bony; storms can add wood and raise the ford/bridge approaches quickly.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The guide calls this easy to moderate but specifically warns about rock riffles, chutes, and numerous fallen trees/snags on the lower half.",
+      "confidenceNotes": "Confidence is good for an official-source add: the Iowa DNR / county map lists Pammel Access #63 and Middle River County Park Access #54 with distance, time, gradient, camping context, and UTM coordinates. Madison County corroborates Pammel Park and Middle River County Park access and camping/logistics context."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route and distance",
+        "value": "Access #63 to Access #54, about 9 mi",
+        "note": "The Middle River Water Trail access table lists Pammel to Middle River County Park as the next official segment; the narrative says the next access is downstream at Middle River County Park.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8713/download?inline="
+      },
+      {
+        "label": "Route character",
+        "value": "Backbone ridge, Harmon Tunnel, riffles and snags",
+        "note": "The guide describes an extended oxbow around the limestone backbone ridge, a brief return to Pammel Park near Harmon Tunnel, rock riffles/chutes, and numerous fallen trees/snags.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8713/download?inline="
+      },
+      {
+        "label": "Current gauge check",
+        "value": "USGS 05486490 140 cfs / 7.76 ft",
+        "note": "USGS Water Services returned current Middle River near Indianola data at 2026-07-23 23:15 CDT during this run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05486490&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Access and camping",
+        "value": "Pammel modern camping; Middle River County Park city-park camping context",
+        "note": "The water-trail map lists modern camping at Pammel and city-park camping context for Middle River County Park / nearby Winterset City Park.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8713/download?inline="
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Middle River Water Trail map PDF",
+        "url": "https://www.iowadnr.gov/media/8713/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Madison County Middle River Water Trail",
+        "url": "https://www.madisoncountyparks.org/water-trail/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05486490 Middle River near Indianola",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05486490/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "middle-river-middle-river-county-park-holliwell",
+    "slug": "middle-river-middle-river-county-park-holliwell",
+    "name": "Middle River",
+    "reach": "Middle River County Park Access to Holliwell Covered Bridge Access",
+    "state": "Iowa",
+    "region": "Central Iowa",
+    "summary": "Final developed Middle River Water Trail segment from Middle River County Park to Holliwell Covered Bridge, with shaded meanders, downed-tree risk, and a firm last-access take-out.",
+    "statusText": "Use the Middle River near Indianola gauge as the official planning signal. The 600 to 900 cfs optimum band is source-backed; current low water means slower travel and more snag or shallow-riffle decisions.",
+    "latitude": 41.31543,
+    "longitude": -94.004183,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Holliwell Covered Bridge is the final developed access on the Middle River Water Trail. Do not assume downstream bridge crossings are practical take-outs.",
+        "The guide warns that the final section remains challenging because of meandering, downed trees, and snags.",
+        "Non-meandered-stream limits apply. Use public access points and permissioned land only, and treat fences as legal obstacles that may require careful portage."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05486490",
+      "provider": "usgs",
+      "siteId": "05486490",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Middle River near Indianola, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05486490/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 600,
+      "idealMax": 900,
+      "tooLow": 600,
+      "tooHigh": 900,
+      "thresholdSource": {
+        "label": "Iowa DNR / Middle River Water Trail map optimum-flow note",
+        "url": "https://www.iowadnr.gov/media/8713/download?inline=",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Plan around spring, early summer, or fall water. At low water, expect shallow riffles and slow meanders; after storms, wood and bankfull bends can change quickly.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Short mileage helps, but the guide says the final section remains challenging because of meandering, downed trees, and snags, and the take-out is the last developed access.",
+      "confidenceNotes": "Confidence is good for a guarded official-source add: the Iowa DNR / county map lists Middle River County Park Access #54 to Holliwell Access #50 with access types, UTM coordinates, a four-mile route shape, and the same official 600-900 cfs Indianola gauge model. The final-access caveat is explicit in the guide."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route and distance",
+        "value": "Access #54 to Access #50, about 4 mi",
+        "note": "The guide lists Middle River County Park to Holliwell Covered Bridge as the final developed access-pair segment on the Middle River Water Trail.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8713/download?inline="
+      },
+      {
+        "label": "Final developed access",
+        "value": "Holliwell Covered Bridge Access #50",
+        "note": "The guide says Holliwell is the last developed access and that downstream bridge crossings can be difficult because of steep banks and dense vegetation.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8713/download?inline="
+      },
+      {
+        "label": "Current gauge check",
+        "value": "USGS 05486490 140 cfs / 7.76 ft",
+        "note": "USGS Water Services returned current Middle River near Indianola data at 2026-07-23 23:15 CDT during this run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05486490&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Hazards",
+        "value": "Meanders, downed trees, snags",
+        "note": "The guide says this shaded final section remains challenging because of a high degree of meandering and more downed trees and snags.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8713/download?inline="
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Middle River Water Trail map PDF",
+        "url": "https://www.iowadnr.gov/media/8713/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Madison County Middle River Water Trail",
+        "url": "https://www.madisoncountyparks.org/water-trail/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05486490 Middle River near Indianola",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05486490/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
     "id": "north-skunk-river-delta-sigourney",
     "slug": "north-skunk-river-delta-sigourney",
     "name": "North Skunk River",

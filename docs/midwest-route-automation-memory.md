@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-24 00:04 America/Chicago / 2026-07-24 05:04 UTC: Iowa Middle River completion pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 115-route exported Iowa baseline: `middle-river-roseman-pammel`, `middle-river-pammel-middle-river-county-park`, and `middle-river-middle-river-county-park-holliwell`, bringing Iowa to 118 live routes.
+  - Qualification path: Iowa DNR / Adair-Madison Middle River Water Trail map plus Madison County route pages support the official Roseman / Pammel / Middle River County Park / Holliwell access chain, UTM-derived coordinates, mileage, camping context, Pammel ford portage, final-access boundary, non-meandered-stream limits, and safety caveats.
+  - Gauge posture: USGS `05486490` Middle River near Indianola returned `140 cfs / 7.76 ft` at 2026-07-23 23:15 CDT, below the official 600-900 cfs optimum band used by all three cards.
+  - Safety/image posture: cards carry low-water scraping, high/rising-water, Pammel low-head-dam-type ford portage, snags, strainers, fences, private-bank, and final-Holliwell-access caveats. No route-gallery image was selected after bounded DNR / Madison County / tourism / USGS / Commons / same-route review.
+
 - 2026-07-23 23:13 America/Chicago / 2026-07-24 04:13 UTC: Minnesota Pine / St. Croix public-access gap pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 217-route Minnesota baseline: `pine-river-norway-pine-river-1`, `pine-river-pine-river-1-cross-lake`, and `st-croix-river-william-obrien-boomsite`, bringing Minnesota to 220 live routes.
   - Qualification path: MN DNR Pine River map/segments, MN DNR interpreted river-level feed, Minnesota public-water-access GIS, NPS lower St. Croix paddling guide and boating rules, and MN DNR's 2026 William O'Brien access update support the access pairs, shape, hazards, and caveats.

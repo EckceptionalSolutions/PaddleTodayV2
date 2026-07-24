@@ -4,6 +4,7 @@ Last summarized: 2026-07-23.
 
 ## Current Inventory
 
+- 2026-07-24 00:04 CDT update: live exported Iowa routes were 115 at the start of this run and 118 after adding `middle-river-roseman-pammel`, `middle-river-pammel-middle-river-county-park`, and `middle-river-middle-river-county-park-holliwell`.
 - 2026-07-23 23:07 CDT update: live exported Iowa routes were 112 at the start of this run and 115 after adding `wapsipinicon-river-olin-jungletown`, `boone-river-riverside-briggs-woods`, and `boone-river-briggs-woods-albright`.
 - 2026-07-23 consolidation update: 112 live Iowa routes after folding Yellow River Ion-to-Highway-76 into the longer lower-Yellow card, combining the two Boone County Des Moines sections around Dogwood, and folding Oakland-to-Carson into Oakland-to-Macedonia as an alternate takeout.
 - 2026-07-23 21:20 CDT update: live exported Iowa routes were 109 at the start of the Boone County Des Moines River pass and 112 after adding `des-moines-river-south-fraser-waterworks-upstream`, `des-moines-river-highway-30-dogwood`, and `des-moines-river-dogwood-sportsman`.
@@ -19,7 +20,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The current exported inventory is 115 routes after this Boone / Wapsipinicon pass; the historical run notes below preserve what each automation pass originally added.
+Iowa remains mature overall. The current exported inventory is 118 routes after this Middle River completion pass; the historical run notes below preserve what each automation pass originally added.
+
+## 2026-07-24 00:04 Middle River completion pass
+
+- Baseline at run start: 115 Iowa live routes, verified from the current `src/data/rivers.ts` export with `tsx`.
+- Added `middle-river-roseman-pammel`, `middle-river-pammel-middle-river-county-park`, and `middle-river-middle-river-county-park-holliwell`, bringing the imported Iowa count to 118 live routes.
+- Qualification path: the Iowa DNR / Adair-Madison Middle River Water Trail map documents Roseman / Pammel / Middle River County Park / Holliwell as the downstream official access chain, publishes UTM access coordinates, distance/time/gradient/access/camping table entries, the 600-900 cfs Indianola optimum-flow note, the Pammel Park ford portage, non-meandered stream limits, and safety guidance. Madison County and Madison County Tourism corroborate access/camping/tourism context.
+- Gauge posture: USGS Water Services returned Middle River near Indianola `05486490` at `140 cfs / 7.76 ft` at 2026-07-23 23:15 CDT, well below the official optimum-flow band.
+- Threshold posture: all three routes use the official two-sided `600-900 cfs` Indianola-gauge model already accepted for the upstream Middle River cards. No segment-specific ideal range or upper cutoff was invented.
+- Caveat posture: Roseman-to-Pammel foregrounds numerous chutes/ledges and the mandatory river-left Pammel ford portage / low-head-dam-type obstacle. Pammel-to-Middle-River-County-Park starts only below the ford and foregrounds the limestone backbone / Harmon Tunnel area plus numerous snags below Highway 169. Middle-River-County-Park-to-Holliwell foregrounds Holliwell as the last developed access, downstream bridge-access difficulty, downed trees, snags, private banks, fences, low water, and fast rises.
+- Reviewed but not added: Black Hawk Creek Franck-to-Ranchero and Ranchero-to-Hope were reconciled as already represented by current exported slugs; Cedar Valley Cedar River secondary loops remain max-only threshold evidence; Wapsipinicon Anamosa-to-Oxford remains stale-Oxford-gauge blocked; broader Turkey / Maquoketa / Cedar / Des Moines official split leads are already represented or lower value than completing the official Middle River chain.
+- No route-gallery assets were added after bounded Iowa DNR / Madison County / Madison County Tourism / USGS / Commons / same-route image review.
 
 ## 2026-07-23 23:07 Boone / Lower Wapsipinicon split pass
 
