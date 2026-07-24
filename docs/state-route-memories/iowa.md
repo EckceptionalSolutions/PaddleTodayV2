@@ -22,6 +22,17 @@ Last summarized: 2026-07-23.
 
 Iowa remains mature overall. The current exported inventory is 118 routes after this Middle River completion pass; the historical run notes below preserve what each automation pass originally added.
 
+## 2026-07-24 01:20 lower-Wapsipinicon access-chain pass
+
+- Baseline at run start: 118 Iowa live routes, verified from `src/data/rivers.ts` with `tsx` after duplicate reconciliation.
+- Added `wapsipinicon-river-stone-city-anamosa`, `wapsipinicon-river-newport-mills-olin`, and `wapsipinicon-river-jungletown-oxford-mills`, bringing the imported Iowa count to 121 live routes.
+- Qualification path: Jones County documents the Stone City / Anamosa above-dam / Wapsipinicon State Park / Newport Mills / Olin / Jungletown / Oxford Mills public access chain and explicit Anamosa low-head-dam warning; Travel Jones County corroborates Newport, Olin, Jungletown, and Oxford Mills public-access context; WQP supplies Newport Mills, Olin, Jungletown, and Oxford Mills coordinates; Iowa DNR/Jones County lower-Wapsi material supports the no-dam lower-river and sandbar-camping context below Anamosa.
+- Gauge posture: USGS Water Services returned Wapsipinicon River near Anamosa `05421740` at `1,970 cfs / 7.20 ft` at 2026-07-24 00:15 CDT. Oxford Mills `05421760` still returns stale 2017 values and Stone City `05421500` returned no current IV values, so all three cards use Anamosa with explicit proxy/visual-check caveats.
+- Threshold posture: all three use the already-accepted lower-Wapsi community model from CanWePaddle's Anamosa-to-Oxford guidance: `200-2,800 cfs`. No new ideal range or upper cutoff was invented. Stone City-to-Anamosa is the most guarded of the three because the range is downstream-corridor guidance and the route ends at an above-dam mandatory take-out.
+- Caveat posture: Stone City-to-Anamosa foregrounds mandatory above-dam take-out discipline, low-head-dam no-continuation, proxy-gauge uncertainty, and private banks. Newport-to-Olin and Jungletown-to-Oxford foreground stale Oxford Mills product data, rural exits, wood, high/rising water, sandbar-only camping where safe, and private-upland limits.
+- Reviewed but not added: West Fork Des Moines River official Emmet County segments have strong Iowa DNR access/route/safety evidence but no source-backed numeric paddling threshold surfaced; South Fork Iowa River has promising RiverScout/NRP evidence but access-pair splits and threshold strength remain weaker than the selected lower-Wapsi completion.
+- Image posture: no route-gallery assets added after bounded Jones County / Travel Iowa / WQP / USGS / Commons / same-route image review.
+
 ## 2026-07-24 00:04 Middle River completion pass
 
 - Baseline at run start: 115 Iowa live routes, verified from the current `src/data/rivers.ts` export with `tsx`.

@@ -4777,6 +4777,363 @@ export const iowaRoutes: River[] = [
     ]
   },
   {
+    "id": "wapsipinicon-river-stone-city-anamosa",
+    "slug": "wapsipinicon-river-stone-city-anamosa",
+    "name": "Wapsipinicon River",
+    "reach": "Stone City Access to Anamosa Boat Ramp above the dam",
+    "state": "Iowa",
+    "region": "Eastern Iowa",
+    "summary": "Short Stone City-to-Anamosa Wapsi run through the Grant Wood limestone corridor, ending at the above-dam Anamosa ramp with a firm no-continuation dam boundary.",
+    "statusText": "Use the Wapsipinicon River near Anamosa gauge as a guarded route-corridor proxy. CanWePaddle's lower Wapsi guidance uses 200 to 2,800 cfs, but this upstream dam-boundary card requires a same-day visual check at Stone City and an above-dam take-out.",
+    "latitude": 42.1082,
+    "longitude": -91.3568,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This route ends above the Anamosa low-head dam. Do not continue past the Anamosa ramp or drift toward the dam.",
+        "Jones County warns that downstream recreationists need to portage around the Anamosa dam and that low-head dams are extremely dangerous.",
+        "The Stone City-to-Anamosa reach uses the fresh Anamosa gauge as a route-corridor proxy because no product-current Stone City gauge value was returned during this run."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05421740",
+      "provider": "usgs",
+      "siteId": "05421740",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Wapsipinicon River near Anamosa, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 200,
+      "idealMax": 2800,
+      "tooLow": 200,
+      "tooHigh": 2800,
+      "thresholdSource": {
+        "label": "CanWePaddle lower Wapsipinicon Anamosa-to-Oxford range",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "Late spring through early fall is the practical Wapsi window. Avoid high or rising water because this short card finishes at a mandatory above-dam take-out.",
+      "difficulty": "easy",
+      "difficultyNotes": "Mostly easy moving water at normal levels, but the Anamosa dam boundary makes take-out discipline non-negotiable.",
+      "confidenceNotes": "Access confidence is good: Jones County and Travel Iowa identify Stone City Access as a public one-acre Wapsipinicon River access, and Jones County identifies the Anamosa Boat Ramp at the Wapsipinicon State Park entrance with a USGS river-level link. Threshold confidence is guarded because the numeric range is lower-corridor CanWePaddle guidance and the product-current gauge is downstream near Anamosa, so this card requires a visual level check at Stone City."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Public put-in",
+        "value": "Stone City Access",
+        "note": "Jones County describes Stone City Access as a one-acre Wapsipinicon River access site in Stone City, and Travel Iowa corroborates public access and paddling scenery.",
+        "sourceUrl": "https://www.jonescountyiowa.gov/conservation/parks/stone_city_boat_ramp/"
+      },
+      {
+        "label": "Public take-out",
+        "value": "Anamosa Boat Ramp above the dam",
+        "note": "Jones County lists Anamosa Boat Ramp above the dam in the public Wapsipinicon access chain and says the ramp is at the Wapsipinicon State Park entrance.",
+        "sourceUrl": "https://www.jonescountyiowa.gov/conservation/parks/anamosa_boat_ramp/"
+      },
+      {
+        "label": "Route shape",
+        "value": "About 4 miles",
+        "note": "The Jones County bridge map labels the Stone City to Anamosa / E-34 access leg at about 4.1 miles.",
+        "sourceUrl": "https://www.jonescountyiowa.gov/files/conservation/wapsipinicon_river_matsell_bridge_stone_city_anamosa_and_lead_mine_bridge_24212.pdf"
+      },
+      {
+        "label": "Mandatory dam boundary",
+        "value": "Anamosa low-head dam",
+        "note": "Jones County warns that paddlers downstream from Anamosa need to portage around the dam and should not venture over, on, or close to low-head dams.",
+        "sourceUrl": "https://www.jonescountyiowa.gov/conservation/rivers/wapsipinicon_river/"
+      },
+      {
+        "label": "Gauge check",
+        "value": "USGS 05421740 at 1,970 cfs / 7.20 ft",
+        "note": "USGS Water Services returned current Wapsipinicon River near Anamosa values at 2026-07-24 00:15 CDT; USGS 05421500 Stone City did not return current instantaneous values.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05421740,05421500&parameterCd=00060,00065&siteStatus=all"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Jones County Stone City Access",
+        "url": "https://www.jonescountyiowa.gov/conservation/parks/stone_city_boat_ramp/",
+        "provider": "local"
+      },
+      {
+        "label": "Jones County Anamosa Boat Ramp",
+        "url": "https://www.jonescountyiowa.gov/conservation/parks/anamosa_boat_ramp/",
+        "provider": "local"
+      },
+      {
+        "label": "Jones County Wapsipinicon River page",
+        "url": "https://www.jonescountyiowa.gov/conservation/rivers/wapsipinicon_river/",
+        "provider": "local"
+      },
+      {
+        "label": "CanWePaddle Wapsipinicon River Anamosa to Oxford",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05421740 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "wapsipinicon-river-newport-mills-olin",
+    "slug": "wapsipinicon-river-newport-mills-olin",
+    "name": "Wapsipinicon River",
+    "reach": "Newport Mills Access to Olin Access",
+    "state": "Iowa",
+    "region": "Eastern Iowa",
+    "summary": "Jones County lower-Wapsi connector from Newport Mills to Olin, filling the public access gap between the state-park trip and the existing Olin-to-Jungletown card.",
+    "statusText": "Use the Wapsipinicon River near Anamosa gauge as an upstream same-corridor proxy. CanWePaddle's lower Anamosa-to-Oxford guidance uses 200 to 2,800 cfs; verify Newport Mills depth because Oxford Mills product data is stale.",
+    "latitude": 42.044995,
+    "longitude": -91.200209,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "This is a rural lower-Wapsi connector with limited public exits between Newport Mills and Olin.",
+        "The app uses the fresh Anamosa gauge because the downstream Oxford Mills product feed remains stale; make a visual depth and current check at Newport Mills before launching.",
+        "Iowa DNR says sandbar camping is allowed on the meandered Wapsipinicon from Central City to the Mississippi, but private uplands remain private."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05421740",
+      "provider": "usgs",
+      "siteId": "05421740",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Wapsipinicon River near Anamosa, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 200,
+      "idealMax": 2800,
+      "tooLow": 200,
+      "tooHigh": 2800,
+      "thresholdSource": {
+        "label": "CanWePaddle lower Wapsipinicon Anamosa-to-Oxford range",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "Late spring through early fall is the practical lower-Wapsi window. Low water can expose riffles and bars; high or rising water makes wood and rural take-outs more consequential.",
+      "difficulty": "easy",
+      "difficultyNotes": "Moving flatwater with wood and rural-access exposure. The route is guarded easy when levels are within the broad lower-Wapsi band and not rising.",
+      "confidenceNotes": "Public access confidence is strong: Jones County names Newport Mills and Olin in the public Wapsipinicon access chain, Travel Jones County repeats the access locations, and Water Quality Portal records provide Iowa DNR station coordinates for both sites. Threshold confidence is the same guarded lower-Wapsi model used by the adjacent Olin-to-Jungletown card: CanWePaddle ties the full Anamosa-to-Oxford corridor to 200-2,800 cfs, while the product uses fresh USGS 05421740 at Anamosa because Oxford Mills is stale."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Public put-in",
+        "value": "Newport Mills Access",
+        "note": "Jones County identifies Newport Mills as a one-acre river access six miles northwest of Olin, and WQP station 21IOWA-15530003 resolves the access to 42.044995, -91.200209.",
+        "sourceUrl": "https://www.jonescountyiowa.gov/conservation/parks/newport_mills_access/"
+      },
+      {
+        "label": "Public take-out",
+        "value": "Olin Access",
+        "note": "Travel Jones County lists Olin Rec Area and Olin Access as public Wapsipinicon access points; WQP station 21IOWA-15530006 resolves Olin Access to 42.003487, -91.132667.",
+        "sourceUrl": "https://www.traveljonescounty.com/outdoor-adventures/"
+      },
+      {
+        "label": "Lower-river safety context",
+        "value": "Free-flowing below Anamosa",
+        "note": "The Iowa DNR/Jones County Wapsipinicon water-trail map says the Wapsipinicon is free-flowing with no dams from Anamosa to the Mississippi and highlights wood, PFD, weather, and private-property safety basics.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
+      },
+      {
+        "label": "Gauge caveat",
+        "value": "Oxford Mills feed stale; Anamosa proxy fresh",
+        "note": "USGS Water Services returned current 05421740 Anamosa values at 2026-07-24 00:15 CDT, while 05421760 Oxford Mills still returned 2017 instantaneous values.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05421740,05421760&parameterCd=00060,00065&siteStatus=all"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Jones County Newport Mills Access",
+        "url": "https://www.jonescountyiowa.gov/conservation/parks/newport_mills_access/",
+        "provider": "local"
+      },
+      {
+        "label": "Travel Jones County outdoor adventures",
+        "url": "https://www.traveljonescounty.com/outdoor-adventures/",
+        "provider": "local"
+      },
+      {
+        "label": "Water Quality Portal Newport Mills Access",
+        "url": "https://www.waterqualitydata.us/provider/STORET/21IOWA/21IOWA-15530003/",
+        "provider": "local"
+      },
+      {
+        "label": "CanWePaddle Wapsipinicon River Anamosa to Oxford",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05421740 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "wapsipinicon-river-jungletown-oxford-mills",
+    "slug": "wapsipinicon-river-jungletown-oxford-mills",
+    "name": "Wapsipinicon River",
+    "reach": "Jungletown Access to Oxford Mills Access",
+    "state": "Iowa",
+    "region": "Eastern Iowa",
+    "summary": "Lower Jones County Wapsi connector from Jungletown to Oxford Mills, using named public endpoints, sandbar-camping context, and the same guarded Anamosa proxy model as nearby lower-Wapsi cards.",
+    "statusText": "Use the Wapsipinicon River near Anamosa gauge as an upstream proxy because Oxford Mills product data is stale. CanWePaddle's lower Anamosa-to-Oxford guidance uses 200 to 2,800 cfs; verify local depth before committing.",
+    "latitude": 41.997559,
+    "longitude": -91.055705,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Jungletown and Oxford Mills are the planned public endpoints; do not assume private-bank exits in between.",
+        "The lower Wapsi is free-flowing below Anamosa, but wood, broad bends, and rural response time still require conservative water-level judgment.",
+        "The take-out coordinate is a Water Quality Portal river-site anchor for Oxford Mills, so paddlers should follow the signed local access road and verify the landing before launching."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05421740",
+      "provider": "usgs",
+      "siteId": "05421740",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Wapsipinicon River near Anamosa, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 200,
+      "idealMax": 2800,
+      "tooLow": 200,
+      "tooHigh": 2800,
+      "thresholdSource": {
+        "label": "CanWePaddle lower Wapsipinicon Anamosa-to-Oxford range",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "Late spring through early fall is the practical lower-Wapsi season. Sandbars may be usable at moderate levels, but disappear or become unsafe when water is high or rising.",
+      "difficulty": "easy",
+      "difficultyNotes": "A rural moving-flatwater connector with wood and take-out certainty as the main risks. Treat it as guarded easy because the live product gauge is an upstream proxy.",
+      "confidenceNotes": "Access confidence is good: Jones County and Travel Jones County name Jungletown and Oxford Mills in the lower-Wapsi public access chain, Jones County maintains the Jungletown access page, and WQP provides an Iowa DNR Oxford Mills coordinate. Threshold confidence remains guarded: CanWePaddle's range is tied to the exact lower Anamosa-to-Oxford corridor, but the route uses fresh USGS 05421740 near Anamosa because product-fetchable Oxford Mills values remain stale."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Public put-in",
+        "value": "Jungletown Access",
+        "note": "Jones County describes Jungletown Access as a one-acre county river access three miles south of Hale with a paved boat ramp.",
+        "sourceUrl": "https://www.jonescountyiowa.gov/conservation/parks/jungletown_access/"
+      },
+      {
+        "label": "Public take-out",
+        "value": "Oxford Mills Access",
+        "note": "Jones County and Travel Jones County list Oxford Mills Access in the lower-Wapsipinicon access chain, and WQP station 21IOWA-15530005 resolves the Oxford Mills river site to 41.971513, -90.96209.",
+        "sourceUrl": "https://www.jonescountyiowa.gov/conservation/rivers/wapsipinicon_river/"
+      },
+      {
+        "label": "Threshold model",
+        "value": "200 to 2,800 cfs",
+        "note": "CanWePaddle describes the Anamosa-to-Oxford Wapsipinicon corridor as generally runnable at 200 to 2,800 cfs and ties the model to USGS 05421760, but that product feed is stale in the current app path.",
+        "sourceUrl": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/"
+      },
+      {
+        "label": "Camping context",
+        "value": "Sandbars allowed from Central City to Mississippi",
+        "note": "The Iowa DNR/Jones County map says camping on sandbars is allowed on the meandered Wapsipinicon from Central City to the Mississippi River; private uplands remain off-limits.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
+      },
+      {
+        "label": "Gauge caveat",
+        "value": "USGS 05421740 at 1,970 cfs / 7.20 ft",
+        "note": "USGS Water Services returned current Anamosa values at 2026-07-24 00:15 CDT, while Oxford Mills remained stale at 2017 values.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05421740,05421760&parameterCd=00060,00065&siteStatus=all"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Jones County Wapsipinicon River page",
+        "url": "https://www.jonescountyiowa.gov/conservation/rivers/wapsipinicon_river/",
+        "provider": "local"
+      },
+      {
+        "label": "Jones County Jungletown Access",
+        "url": "https://www.jonescountyiowa.gov/conservation/parks/jungletown_access/",
+        "provider": "local"
+      },
+      {
+        "label": "Water Quality Portal Oxford Mills",
+        "url": "https://www.waterqualitydata.us/provider/STORET/21IOWA/21IOWA-15530005/",
+        "provider": "local"
+      },
+      {
+        "label": "CanWePaddle Wapsipinicon River Anamosa to Oxford",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05421740 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
     "id": "boone-river-riverside-briggs-woods",
     "slug": "boone-river-riverside-briggs-woods",
     "name": "Boone River",

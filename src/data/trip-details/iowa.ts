@@ -1461,6 +1461,165 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "wapsipinicon-river-stone-city-anamosa": {
+    "putIn": {
+      "id": "stone-city-access",
+      "name": "Stone City Access",
+      "latitude": 42.1082,
+      "longitude": -91.3568
+    },
+    "takeOut": {
+      "id": "anamosa-boat-ramp-above-dam",
+      "name": "Anamosa Boat Ramp above the dam",
+      "latitude": 42.101,
+      "longitude": -91.2932
+    },
+    "logistics": {
+      "distanceLabel": "About 4 mi",
+      "estimatedPaddleTime": "About 1.5 hr to 2.5 hr, longer with low-water scraping or take-out scouting",
+      "shuttle": "Stage the take-out at the Anamosa Boat Ramp at the Wapsipinicon State Park entrance, then launch from Stone City Access. Scout the Anamosa ramp and dam boundary before putting on.",
+      "permits": "No route-specific paddling permit is known. Follow Jones County, Iowa DNR, and Iowa boating/PFD rules, plus posted park hours.",
+      "camping": "Treat this as a short day trip. Wapsipinicon State Park has nearby campground context, but no on-route overnight plan is assumed for the Stone City-to-Anamosa dam-boundary card.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch at Stone City Access and take out at the Anamosa Boat Ramp above the low-head dam. The route is short and scenic, but the dam boundary and proxy gauge make same-day scouting mandatory.",
+      "accessCaveats": [
+        "Stone City is a named county Wapsipinicon River access. Use the public access site east of the General Store, not private banks in Stone City.",
+        "Anamosa Boat Ramp is the intended finish above the dam. Do not continue downstream toward the low-head dam or assume the below-dam state-park launch is part of this route.",
+        "USGS 05421500 at Stone City did not return current instantaneous product values during this run, so the app uses the fresh Anamosa gauge as a route-corridor proxy."
+      ],
+      "watchFor": [
+        "Mandatory above-dam take-out discipline at Anamosa.",
+        "Riffles, bridge current, quarry-area noise/distraction, and wood along outside bends.",
+        "High or rising water that reduces reaction time before the Anamosa ramp."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "stone-city-access",
+        "name": "Stone City Access",
+        "latitude": 42.1082,
+        "longitude": -91.3568,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at the county's one-acre Stone City Wapsipinicon River access."
+      },
+      {
+        "id": "anamosa-boat-ramp-above-dam",
+        "name": "Anamosa Boat Ramp above the dam",
+        "latitude": 42.101,
+        "longitude": -91.2932,
+        "mileFromStart": 4.1,
+        "segmentKind": "creek",
+        "note": "Default take-out above the Anamosa low-head dam; do not continue downstream."
+      }
+    ]
+  },
+  "wapsipinicon-river-newport-mills-olin": {
+    "putIn": {
+      "id": "newport-mills-access",
+      "name": "Newport Mills Access",
+      "latitude": 42.044995,
+      "longitude": -91.200209
+    },
+    "takeOut": {
+      "id": "olin-access",
+      "name": "Olin Access",
+      "latitude": 42.003487,
+      "longitude": -91.132667
+    },
+    "logistics": {
+      "distanceLabel": "About 6 mi",
+      "estimatedPaddleTime": "About 2.5 hr to 3.5 hr depending on level, wind, and wood",
+      "shuttle": "Use a rural two-car shuttle between Newport Mills Access and Olin Access. Inspect Newport Mills parking/turnaround and Olin's landing condition before launching.",
+      "permits": "No route-specific paddling permit is known. Use the signed county accesses, follow Iowa boating/PFD rules, and respect posted hours and private-property limits.",
+      "camping": "Iowa DNR says sandbar camping is allowed on the meandered Wapsipinicon from Central City to the Mississippi. On this short connector, overnight use should be optional only when a safe exposed sandbar exists; private uplands remain off-limits.",
+      "campingClassification": "sandbar_or_gravel_bar",
+      "summary": "Launch from Newport Mills and take out at Olin to connect two existing lower-Wapsi cards through named Jones County public access sites. The Anamosa gauge is fresh, but local visual depth still controls.",
+      "accessCaveats": [
+        "Newport Mills is a one-acre rural access six miles northwest of Olin. Confirm the signed access road, parking, and ramp surface before unloading.",
+        "Olin Access is the planned take-out, not just an informal roadside stop.",
+        "The lower Wapsi is meandered, but adjacent uplands can still be private. Keep stops on legal sandbars or public access land."
+      ],
+      "watchFor": [
+        "Proxy-gauge uncertainty because the downstream Oxford Mills product feed is stale.",
+        "Fresh strainers, bank-sweepers, and floating debris after storms.",
+        "Shallow riffles and soft muddy banks in low water; faster bridge current and disappearing bars in high water."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "newport-mills-access",
+        "name": "Newport Mills Access",
+        "latitude": 42.044995,
+        "longitude": -91.200209,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at the Jones County Newport Mills access."
+      },
+      {
+        "id": "olin-access",
+        "name": "Olin Access",
+        "latitude": 42.003487,
+        "longitude": -91.132667,
+        "mileFromStart": 6,
+        "segmentKind": "creek",
+        "note": "Default take-out at the Olin access in the public Jones County chain."
+      }
+    ]
+  },
+  "wapsipinicon-river-jungletown-oxford-mills": {
+    "putIn": {
+      "id": "jungletown-access",
+      "name": "Jungletown Access",
+      "latitude": 41.997559,
+      "longitude": -91.055705
+    },
+    "takeOut": {
+      "id": "oxford-mills-access",
+      "name": "Oxford Mills Access",
+      "latitude": 41.971513,
+      "longitude": -90.96209
+    },
+    "logistics": {
+      "distanceLabel": "About 6 mi",
+      "estimatedPaddleTime": "About 2.5 hr to 3.5 hr depending on level, wind, and wood",
+      "shuttle": "Stage Oxford Mills Access first, then launch from Jungletown. Verify the Oxford Mills landing from shore because the route uses a WQP river-site coordinate and the downstream USGS product feed is stale.",
+      "permits": "No route-specific paddling permit is known. Follow Jones County access rules, Iowa boating/PFD rules, and private-property limits.",
+      "camping": "Iowa DNR says sandbar camping is allowed on the meandered Wapsipinicon from Central City to the Mississippi. For this short route, treat camping as optional only when water level exposes a safe bar; private uplands remain private.",
+      "campingClassification": "sandbar_or_gravel_bar",
+      "summary": "Launch at Jungletown and take out at Oxford Mills for the lower Jones County continuation below the existing Olin-to-Jungletown card. The source package is useful but guarded because Oxford Mills product data is stale.",
+      "accessCaveats": [
+        "Jungletown is a small one-acre county access with a paved ramp; confirm room to stage and turn around.",
+        "Oxford Mills is the planned take-out in the Jones County access chain. Verify access-road condition and exact landing before launching.",
+        "Do not treat private banks between Jungletown and Oxford Mills as legal exits."
+      ],
+      "watchFor": [
+        "Proxy-gauge uncertainty and the stale Oxford Mills USGS product feed.",
+        "Fresh strainers, floating debris, and outside-bend sweepers after rain.",
+        "Higher current, disappearing sandbars, and harder landings when the Anamosa proxy is high or rising."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "jungletown-access",
+        "name": "Jungletown Access",
+        "latitude": 41.997559,
+        "longitude": -91.055705,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at Jones County's Jungletown Access."
+      },
+      {
+        "id": "oxford-mills-access",
+        "name": "Oxford Mills Access",
+        "latitude": 41.971513,
+        "longitude": -90.96209,
+        "mileFromStart": 6,
+        "segmentKind": "creek",
+        "note": "Default take-out at the lower Jones County Oxford Mills access corridor."
+      }
+    ]
+  },
   "boone-river-riverside-briggs-woods": {
     "putIn": {
       "id": "riverside-park-access",

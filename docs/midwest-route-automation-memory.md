@@ -1,5 +1,12 @@
 # Midwest Route Automation Memory
 
+- 2026-07-24 01:20 America/Chicago / 2026-07-24 06:20 UTC: Iowa lower-Wapsipinicon access-chain completion pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 118-route exported Iowa baseline: `wapsipinicon-river-stone-city-anamosa`, `wapsipinicon-river-newport-mills-olin`, and `wapsipinicon-river-jungletown-oxford-mills`, bringing Iowa to 121 live routes.
+  - Qualification path: Jones County Wapsipinicon River/access pages, Travel Jones County, Iowa DNR/Jones County Wapsipinicon map context, Water Quality Portal station records, CanWePaddle lower-Wapsi guidance, and USGS Water Services supported the selected access-chain completion.
+  - Gauge posture: USGS `05421740` Wapsipinicon River near Anamosa returned `1,970 cfs / 7.20 ft` at 2026-07-24 00:15 CDT. Oxford Mills `05421760` remains stale at 2017 product values and Stone City `05421500` returned no current IV values.
+  - Threshold posture: all three use CanWePaddle's lower Anamosa-to-Oxford `200-2,800 cfs` community model with explicit Anamosa-proxy and visual-check caveats; no new range was invented.
+  - Safety/image posture: cards carry Anamosa low-head-dam no-continuation, proxy-gauge, wood, fast-rise, rural-exit, private-upland, and sandbar-camping caveats. No gallery image was selected after bounded official/local/WQP/USGS/Commons/same-route review.
+
 - 2026-07-24 00:13 America/Chicago / 2026-07-24 05:13 UTC: Minnesota Crow Wing / Long Prairie / Whitewater gap pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 220-route exported Minnesota baseline: `crow-wing-river-huntersville-north-mary-brown`, `long-prairie-river-reynolds-long-prairie`, and `whitewater-river-county-26-beaver`, bringing Minnesota to 223 live routes.
   - Qualification path: MN DNR current state-water-trail pages/maps, the recommended-paddling list, MN DNR interpreted river-level feed, and Minnesota public-water-access GIS support all endpoints, route shape, gauge mappings, and caveats.
