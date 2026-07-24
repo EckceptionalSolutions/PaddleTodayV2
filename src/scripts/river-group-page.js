@@ -33,10 +33,10 @@ const groupMapStatus = root.querySelector('[data-group-map-status]');
 const groupMapToggle = root.querySelector('[data-group-map-toggle]');
 const resultsSummary = root.querySelector('[data-group-results-summary]');
 const distanceFilterButtons = Array.from(root.querySelectorAll('[data-group-distance-filter]'));
-const regionFilterContainer = root.querySelector('[data-group-region-filters]');
-const difficultyFilterContainer = root.querySelector('[data-group-difficulty-filters]');
-const moreFilters = root.querySelector('[data-group-more-filters]');
-const moreFilterCount = root.querySelector('[data-group-more-filter-count]');
+const regionFilterSelect = root.querySelector('[data-group-region-filter]');
+const difficultyFilterSelect = root.querySelector('[data-group-difficulty-filter]');
+const campingFilterSelect = root.querySelector('[data-group-camping-filter]');
+const routeTypeFilterSelect = root.querySelector('[data-group-route-type-filter]');
 const sortSelect = root.querySelector('[data-group-sort]');
 const selectedSummary = root.querySelector('[data-group-selected-summary]');
 const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
@@ -57,6 +57,8 @@ let groupMapCollapsed = false;
 let distanceFilter = 'all';
 let regionFilter = 'all';
 let difficultyFilter = 'all';
+let campingFilter = 'all';
+let routeTypeFilter = 'all';
 let sortMode = 'recommended';
 let pinSelectedRoute = Boolean(initialSelectedSlug);
 let routeGeometryLoadVersion = 0;
@@ -156,6 +158,16 @@ function routeMatchesDifficultyFilter(route) {
   return difficultyFilter === 'all' || difficultyKey(route.difficulty) === difficultyFilter;
 }
 
+function routeMatchesCampingFilter(route) {
+  if (campingFilter === 'all') return true;
+  const hasCamping = route.campingClassification && route.campingClassification !== 'none';
+  return campingFilter === 'available' ? hasCamping : !hasCamping;
+}
+
+function routeMatchesTypeFilter(route) {
+  return routeTypeFilter === 'all' || route.routeType === routeTypeFilter;
+}
+
 function comparePickerRoutes(left, right) {
   const leftMiles = routeDistanceMiles(left);
   const rightMiles = routeDistanceMiles(right);
@@ -173,6 +185,8 @@ function visiblePickerRoutes(routes) {
     .filter(routeMatchesDistanceFilter)
     .filter(routeMatchesRegionFilter)
     .filter(routeMatchesDifficultyFilter)
+    .filter(routeMatchesCampingFilter)
+    .filter(routeMatchesTypeFilter)
     .sort(comparePickerRoutes);
   if (!pinSelectedRoute || !selectedSlug) return visible;
   const selectedIndex = visible.findIndex((route) => route.slug === selectedSlug);
@@ -1239,45 +1253,39 @@ function renderSelectedSummary(route) {
 }
 
 function renderRegionFilters(routes) {
-  if (!(regionFilterContainer instanceof HTMLElement)) return;
+  if (!(regionFilterSelect instanceof HTMLSelectElement)) return;
   const regions = [...new Set(routes.map((route) => route.region).filter(Boolean))].sort();
-  regionFilterContainer.innerHTML = [
-    '<button class="filter-chip filter-chip--quiet" type="button" data-group-region-filter="all" aria-pressed="false">All areas</button>',
-    ...regions.map((region) => `<button class="filter-chip filter-chip--quiet" type="button" data-group-region-filter="${escapeHtml(region)}" aria-pressed="false">${escapeHtml(region)}</button>`),
-  ].join('');
-
-  for (const button of Array.from(regionFilterContainer.querySelectorAll('[data-group-region-filter]'))) {
-    if (!(button instanceof HTMLButtonElement)) continue;
-    button.addEventListener('click', () => {
-      regionFilter = button.dataset.groupRegionFilter || 'all';
-      renderPicker({ fitMap: true });
-    });
-  }
+  regionFilterSelect.innerHTML = ['<option value="all">All areas</option>', ...regions.map((region) => `<option value="${escapeHtml(region)}">${escapeHtml(region)}</option>`)].join('');
 }
 
 function renderDifficultyFilters(routes) {
-  if (!(difficultyFilterContainer instanceof HTMLElement)) return;
+  if (!(difficultyFilterSelect instanceof HTMLSelectElement)) return;
   const difficulties = [...new Set(routes.map((route) => difficultyKey(route.difficulty)).filter(Boolean))]
     .sort((left, right) => {
       const order = ['easy', 'moderate', 'hard'];
       return (order.indexOf(left) === -1 ? order.length : order.indexOf(left))
         - (order.indexOf(right) === -1 ? order.length : order.indexOf(right));
     });
-  difficultyFilterContainer.innerHTML = [
-    '<button class="filter-chip filter-chip--quiet" type="button" data-group-difficulty-filter="all" aria-pressed="false">Any difficulty</button>',
+  difficultyFilterSelect.innerHTML = [
+    '<option value="all">Any difficulty</option>',
     ...difficulties.map((difficulty) => {
       const label = `${difficulty.slice(0, 1).toUpperCase()}${difficulty.slice(1)}`;
-      return `<button class="filter-chip filter-chip--quiet" type="button" data-group-difficulty-filter="${escapeHtml(difficulty)}" aria-pressed="false">${escapeHtml(label)}</button>`;
+      return `<option value="${escapeHtml(difficulty)}">${escapeHtml(label)}</option>`;
     }),
   ].join('');
+}
 
-  for (const button of Array.from(difficultyFilterContainer.querySelectorAll('[data-group-difficulty-filter]'))) {
-    if (!(button instanceof HTMLButtonElement)) continue;
-    button.addEventListener('click', () => {
-      difficultyFilter = button.dataset.groupDifficultyFilter || 'all';
-      renderPicker({ fitMap: true });
-    });
-  }
+for (const [select, onChange] of [
+  [regionFilterSelect, (value) => { regionFilter = value; }],
+  [difficultyFilterSelect, (value) => { difficultyFilter = value; }],
+  [campingFilterSelect, (value) => { campingFilter = value; }],
+  [routeTypeFilterSelect, (value) => { routeTypeFilter = value; }],
+]) {
+  if (!(select instanceof HTMLSelectElement)) continue;
+  select.addEventListener('change', () => {
+    onChange(select.value || 'all');
+    renderPicker({ fitMap: true });
+  });
 }
 
 function updatePickerControls(visibleCount, totalCount) {
@@ -1288,28 +1296,10 @@ function updatePickerControls(visibleCount, totalCount) {
     button.setAttribute('aria-pressed', active ? 'true' : 'false');
   }
 
-  for (const button of Array.from(root.querySelectorAll('[data-group-region-filter]'))) {
-    if (!(button instanceof HTMLButtonElement)) continue;
-    const active = button.dataset.groupRegionFilter === regionFilter;
-    button.classList.toggle('filter-chip--active', active);
-    button.setAttribute('aria-pressed', active ? 'true' : 'false');
-  }
-
-  for (const button of Array.from(root.querySelectorAll('[data-group-difficulty-filter]'))) {
-    if (!(button instanceof HTMLButtonElement)) continue;
-    const active = button.dataset.groupDifficultyFilter === difficultyFilter;
-    button.classList.toggle('filter-chip--active', active);
-    button.setAttribute('aria-pressed', active ? 'true' : 'false');
-  }
-
-  const secondaryFilterCount = Number(regionFilter !== 'all') + Number(difficultyFilter !== 'all');
-  if (moreFilterCount instanceof HTMLElement) {
-    moreFilterCount.textContent = String(secondaryFilterCount);
-    moreFilterCount.hidden = secondaryFilterCount === 0;
-  }
-  if (moreFilters instanceof HTMLDetailsElement) {
-    moreFilters.classList.toggle('river-route-picker__more-filters--active', secondaryFilterCount > 0);
-  }
+  if (regionFilterSelect instanceof HTMLSelectElement) regionFilterSelect.value = regionFilter;
+  if (difficultyFilterSelect instanceof HTMLSelectElement) difficultyFilterSelect.value = difficultyFilter;
+  if (campingFilterSelect instanceof HTMLSelectElement) campingFilterSelect.value = campingFilter;
+  if (routeTypeFilterSelect instanceof HTMLSelectElement) routeTypeFilterSelect.value = routeTypeFilter;
 
   if (resultsSummary instanceof HTMLElement) {
     const filterLabels = {
@@ -1327,9 +1317,13 @@ function updatePickerControls(visibleCount, totalCount) {
       : sortMode === 'shortest'
         ? 'shortest first'
         : 'longest first';
+    const campingLabel = campingFilter === 'all' ? '' : campingFilter === 'available' ? 'camping available' : 'no camping';
+    const routeTypeLabel = routeTypeFilter === 'all' ? '' : routeTypeFilter === 'recreational' ? 'recreation' : 'non-recreation';
     const secondaryLabels = [
       difficultyFilter === 'all' ? '' : difficultyLabelText,
       regionFilter === 'all' ? '' : areaLabel,
+      campingLabel,
+      routeTypeLabel,
     ].filter(Boolean);
     resultsSummary.textContent = [
       `Showing ${visibleCount} of ${totalCount} trips`,
@@ -1367,6 +1361,8 @@ function selectPickerRoute(slug, { focusMap = true } = {}) {
   if (!routeMatchesDistanceFilter(selectedRoute)) distanceFilter = 'all';
   if (!routeMatchesRegionFilter(selectedRoute)) regionFilter = 'all';
   if (!routeMatchesDifficultyFilter(selectedRoute)) difficultyFilter = 'all';
+  if (!routeMatchesCampingFilter(selectedRoute)) campingFilter = 'all';
+  if (!routeMatchesTypeFilter(selectedRoute)) routeTypeFilter = 'all';
   const routes = visiblePickerRoutes(currentResult.routes);
   renderRouteList(routes);
   renderSelectedSummary(selectedRoute);
@@ -1394,6 +1390,8 @@ function normalizeRoutes(routes) {
     distanceLabel: route.river.distanceLabel,
     estimatedPaddleTime: route.river.estimatedPaddleTime,
     difficulty: route.river.profile.difficulty,
+    routeType: route.river.routeType,
+    campingClassification: route.river.logistics?.campingClassification,
     gaugeUnit: route.river.gaugeSource?.unit,
     score: route.score,
     rating: route.rating,

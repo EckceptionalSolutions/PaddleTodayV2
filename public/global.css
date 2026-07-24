@@ -390,24 +390,24 @@ a {
 }
 
 .river-route-picker__advanced-filters {
-  width: min(48rem, calc(100vw - 4rem));
+  width: 100%;
   margin-top: 0.42rem;
   padding: 0.58rem 0.65rem;
   border: 1px solid rgba(16, 35, 45, 0.09);
   border-radius: 13px;
   background: rgba(255, 255, 255, 0.82);
   display: grid;
-  gap: 0.52rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
 }
 
-.river-route-picker__advanced-group {
+.river-route-picker__filter-select {
   display: grid;
-  grid-template-columns: 4.6rem minmax(0, 1fr);
-  gap: 0.5rem;
-  align-items: center;
+  gap: 0.22rem;
+  min-width: 0;
 }
 
-.river-route-picker__advanced-group > span {
+.river-route-picker__filter-select > span {
   color: var(--muted);
   font-size: 0.68rem;
   font-weight: 850;
@@ -415,33 +415,18 @@ a {
   text-transform: uppercase;
 }
 
-.river-route-picker__difficulty-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
-
-.river-route-picker__area-filters {
-  display: flex;
-  gap: 0.35rem;
-  max-width: 48rem;
-  padding-bottom: 0.12rem;
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
-  scrollbar-width: thin;
-}
-
-.river-route-picker__area-filters .filter-chip {
-  min-height: 1.9rem;
-  padding: 0.25rem 0.58rem;
-  flex: 0 0 auto;
-  font-size: 0.7rem;
-}
-
-.river-route-picker__difficulty-filters .filter-chip {
-  min-height: 1.9rem;
-  padding: 0.25rem 0.58rem;
-  font-size: 0.7rem;
+.river-route-picker__filter-select select {
+  width: 100%;
+  min-width: 0;
+  min-height: 2.1rem;
+  padding: 0.3rem 1.8rem 0.3rem 0.58rem;
+  border: 1px solid rgba(16, 35, 45, 0.16);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
 }
 
 .river-route-picker .filter-chip--active {
@@ -956,26 +941,10 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .river-route-picker__area-filters {
-    max-width: 100%;
-  }
-
-  .river-route-picker__more-filters,
-  .river-route-picker__more-filters > summary {
-    width: 100%;
-  }
-
-  .river-route-picker__more-filters > summary {
-    justify-content: center;
-  }
-
   .river-route-picker__advanced-filters {
     width: 100%;
-  }
-
-  .river-route-picker__advanced-group {
-    grid-template-columns: 1fr;
-    gap: 0.32rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.48rem;
   }
 
   .river-route-picker__distance-filters .filter-chip {

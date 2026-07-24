@@ -196,26 +196,36 @@ const groupStructuredData = [
             <button class="filter-chip" type="button" data-group-distance-filter="medium" aria-pressed="false">5–10 mi</button>
             <button class="filter-chip" type="button" data-group-distance-filter="long" aria-pressed="false">10+ mi</button>
           </div>
-          <details class="river-route-picker__more-filters" data-group-more-filters>
-            <summary class="filter-chip filter-chip--quiet">
-              More filters
-              <span class="river-route-picker__filter-count" data-group-more-filter-count hidden>0</span>
-            </summary>
-            <div class="river-route-picker__advanced-filters">
-              <div class="river-route-picker__advanced-group">
-                <span>Difficulty</span>
-                <div class="river-route-picker__difficulty-filters" data-group-difficulty-filters role="group" aria-label="Filter by difficulty">
-                  <button class="filter-chip filter-chip--quiet filter-chip--active" type="button" data-group-difficulty-filter="all" aria-pressed="true">Any difficulty</button>
-                </div>
-              </div>
-              <div class="river-route-picker__advanced-group">
-                <span>Area</span>
-                <div class="river-route-picker__area-filters" data-group-region-filters role="group" aria-label="Filter by area">
-                  <button class="filter-chip filter-chip--quiet filter-chip--active" type="button" data-group-region-filter="all" aria-pressed="true">All areas</button>
-                </div>
-              </div>
-            </div>
-          </details>
+          <div class="river-route-picker__advanced-filters" aria-label="More trip filters">
+            <label class="river-route-picker__filter-select">
+              <span>Difficulty</span>
+              <select data-group-difficulty-filter aria-label="Filter by difficulty">
+                <option value="all">Any difficulty</option>
+              </select>
+            </label>
+            <label class="river-route-picker__filter-select">
+              <span>Camping</span>
+              <select data-group-camping-filter aria-label="Filter by camping">
+                <option value="all">Any camping</option>
+                <option value="available">Camping available</option>
+                <option value="none">No camping</option>
+              </select>
+            </label>
+            <label class="river-route-picker__filter-select">
+              <span>Route type</span>
+              <select data-group-route-type-filter aria-label="Filter by route type">
+                <option value="all">All types</option>
+                <option value="recreational">Recreation</option>
+                <option value="whitewater">Non-recreation</option>
+              </select>
+            </label>
+            <label class="river-route-picker__filter-select">
+              <span>Area</span>
+              <select data-group-region-filter aria-label="Filter by area">
+                <option value="all">All areas</option>
+              </select>
+            </label>
+          </div>
         </div>
         <label class="river-route-picker__sort">
           <span>Sort</span>
