@@ -4034,6 +4034,165 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "des-moines-river-deer-creek-becker": {
+    "putIn": {
+      "id": "deer-creek-access",
+      "name": "Deer Creek Access / Deer Creek Wildlife Area",
+      "latitude": 42.601438,
+      "longitude": -94.227382
+    },
+    "takeOut": {
+      "id": "becker-access",
+      "name": "Becker Access / Becker Wildlife Area",
+      "latitude": 42.531418,
+      "longitude": -94.225392
+    },
+    "logistics": {
+      "distanceLabel": "5.5 mi",
+      "estimatedPaddleTime": "About 2 hr to 3.5 hr, longer with low-water scouting or wood",
+      "shuttle": "Stage Becker Access first, then launch from Deer Creek Wildlife Area north of Fort Dodge. Confirm the primitive Deer Creek landing and the Becker take-out from land before putting on.",
+      "permits": "No route-specific paddling permit is known. Use the named Iowa DNR / Webster County water-trail accesses, follow Iowa boating and PFD rules, and obey posted county, city, and park rules.",
+      "camping": "No on-route camping is assumed for this short access pair. Deer Creek is a primitive canoe/fishing stop, but use separate county or state campground options only if separately confirmed.",
+      "campingClassification": "none",
+      "summary": "Launch at Deer Creek and paddle the official 5.5-mile Webster County Des Moines River reach to Becker Access, using the downstream Fort Dodge gauge plus local visual checks.",
+      "accessCaveats": [
+        "The Fort Dodge gauge is downstream of this reach and must be paired with a same-day visual depth and wood check at Deer Creek.",
+        "Iowa DNR warns that steel girders just below Deer Creek can be hazardous in lower water.",
+        "Do not improvise exits on private banks between Deer Creek and Becker; use the named public access sites."
+      ],
+      "watchFor": [
+        "Steel girders and shallow debris below Deer Creek.",
+        "Glacial boulders, wood, muddy banks, and faster current after rain.",
+        "Primitive access footing and limited bailout options."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "deer-creek-access",
+        "name": "Deer Creek Access / Deer Creek Wildlife Area",
+        "latitude": 42.601438,
+        "longitude": -94.227382,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Webster County / MyCountyParks identifies Deer Creek as a canoe stop on the west bank of the Des Moines River."
+      },
+      {
+        "id": "becker-access",
+        "name": "Becker Access / Becker Wildlife Area",
+        "latitude": 42.531418,
+        "longitude": -94.225392,
+        "mileFromStart": 5.5,
+        "segmentKind": "creek",
+        "note": "Default take-out at the DNR-listed Becker Access / Becker Wildlife Area corridor; confirm exact landing on arrival."
+      }
+    ]
+  },
+  "des-moines-river-becker-hydro-electric": {
+    "putIn": {
+      "id": "becker-access",
+      "name": "Becker Access / Becker Wildlife Area",
+      "latitude": 42.531418,
+      "longitude": -94.225392
+    },
+    "takeOut": {
+      "id": "hydro-electric-park",
+      "name": "Hydro-electric Park",
+      "latitude": 42.516319,
+      "longitude": -94.200347
+    },
+    "logistics": {
+      "distanceLabel": "3 mi",
+      "estimatedPaddleTime": "About 1 hr to 2 hr, plus scouting around Hydro-electric Park",
+      "shuttle": "Stage at Hydro-electric Park, then launch from Becker Access. Inspect the former dam-removal corridor and landing conditions before committing.",
+      "permits": "No route-specific paddling permit is known. Use the named Iowa DNR / Webster County water-trail accesses, follow Iowa boating and PFD rules, and obey posted county, city, and park rules.",
+      "camping": "No on-route camping is selected for this short Fort Dodge approach. Use separate city/county lodging or campground plans rather than riverbank camping.",
+      "campingClassification": "none",
+      "summary": "Launch at Becker and paddle the official 3-mile approach to Hydro-electric Park, staying conservative around former dam infrastructure, bridge current, and urban debris.",
+      "accessCaveats": [
+        "Becker coordinates are practical access-area anchors; verify signed access, parking, and the landing before launch.",
+        "The former Hydro Dam corridor was removed, but altered current, remnants, and rocky riffles still require scouting.",
+        "Take out at Hydro-electric Park unless the downstream South River District route is also staged."
+      ],
+      "watchFor": [
+        "Former dam/remnant current, boulders, riffles, and bridge debris.",
+        "Wood and pushy current as the Fort Dodge gauge rises.",
+        "Urban access timing and limited private-bank exit options."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "becker-access",
+        "name": "Becker Access / Becker Wildlife Area",
+        "latitude": 42.531418,
+        "longitude": -94.225392,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at the DNR-listed Becker Access / Becker Wildlife Area corridor."
+      },
+      {
+        "id": "hydro-electric-park",
+        "name": "Hydro-electric Park",
+        "latitude": 42.516319,
+        "longitude": -94.200347,
+        "mileFromStart": 3,
+        "segmentKind": "creek",
+        "note": "Default take-out at Hydro-electric Park near the former hydro dam corridor; scout from shore first."
+      }
+    ]
+  },
+  "des-moines-river-hydro-electric-south-river": {
+    "putIn": {
+      "id": "hydro-electric-park",
+      "name": "Hydro-electric Park",
+      "latitude": 42.516319,
+      "longitude": -94.200347
+    },
+    "takeOut": {
+      "id": "south-river-district-access",
+      "name": "South River District Access",
+      "latitude": 42.4892,
+      "longitude": -94.1856
+    },
+    "logistics": {
+      "distanceLabel": "2.5 mi",
+      "estimatedPaddleTime": "About 1 hr to 1.5 hr, longer with dam-removal or bridge-current scouting",
+      "shuttle": "Stage at South River District Access, then launch from Hydro-electric Park. Walk both access points and confirm the South River District take-out before putting on.",
+      "permits": "No route-specific paddling permit is known. Use the named Iowa DNR / Webster County water-trail accesses, follow Iowa boating and PFD rules, and obey posted county, city, and park rules.",
+      "camping": "No on-route camping is selected. This is an urban day connector; use separate campground/lodging plans rather than stopping on city or private banks.",
+      "campingClassification": "none",
+      "summary": "Launch at Hydro-electric Park and paddle through the short Fort Dodge urban connector to South River District Access, where the existing downstream Lehigh route begins.",
+      "accessCaveats": [
+        "This card ends at South River District Access; continue toward Dolliver or Lehigh only with that longer downstream shuttle staged.",
+        "Iowa DNR describes bridges, storm-sewer outfalls, urban debris, and the USGS gauge corridor in this reach.",
+        "Former dam-removal areas can still create confusing current and remnant hazards; scout before launching and avoid high/rising water."
+      ],
+      "watchFor": [
+        "Bridge current, stormwater outfalls, urban debris, and dam-removal remnants.",
+        "Fast rises and floating wood after rain.",
+        "Missing the South River District take-out and unintentionally committing to the long downstream reach."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "hydro-electric-park",
+        "name": "Hydro-electric Park",
+        "latitude": 42.516319,
+        "longitude": -94.200347,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at Hydro-electric Park; scout the former dam corridor before launch."
+      },
+      {
+        "id": "south-river-district-access",
+        "name": "South River District Access",
+        "latitude": 42.4892,
+        "longitude": -94.1856,
+        "mileFromStart": 2.5,
+        "segmentKind": "creek",
+        "note": "Default take-out and start of the existing South River District-to-Lehigh route."
+      }
+    ]
+  },
   "des-moines-river-fort-dodge-lehigh": {
     "putIn": {
       "id": "south-river-district-access",

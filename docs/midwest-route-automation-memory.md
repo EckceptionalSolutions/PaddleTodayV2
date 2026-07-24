@@ -1,5 +1,12 @@
 # Midwest Route Automation Memory
 
+- 2026-07-24 06:05 America/Chicago / 2026-07-24 11:05 UTC: Iowa Webster County Des Moines upstream split pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 133-route exported Iowa baseline: `des-moines-river-deer-creek-becker`, `des-moines-river-becker-hydro-electric`, and `des-moines-river-hydro-electric-south-river`, bringing Iowa to 136 live routes.
+  - Qualification path: Iowa DNR Des Moines River Water Trail guide, Webster County Des Moines River map, Webster County / MyCountyParks Deer Creek and Becker access pages, Visit Fort Dodge water-trail overview, Iowa Whitewater Coalition Fort Dodge Hydro Dam removal context, CanWePaddle Fort-Dodge-to-Lehigh threshold guidance, and current USGS `05480500` Water Services data support the three upstream Webster County access-pair cards.
+  - Gauge posture: USGS returned Des Moines River at Fort Dodge `05480500` at `892 cfs / 4.18 ft` at 2026-07-24 05:00 CDT. Deer-to-Becker and Becker-to-Hydro use it as a downstream same-water-trail proxy; Hydro-to-South-River uses it as a direct gauge-corridor signal.
+  - Threshold posture: all three use the already-accepted CanWePaddle Fort-Dodge-to-Lehigh `400-8,000 cfs` model. No new high cutoff or invented ideal range was added; upstream proxy cards require local visual checks.
+  - Safety/image posture: cards carry Deer Creek steel-girder, glacial-boulder, former dam-removal/remnant-current, bridge, storm-sewer/urban debris, private-bank, limited-bailout, no-camping, and South-River-District stop caveats. No selected gallery image after bounded official/local/Commons/same-route review.
+
 - 2026-07-24 05:14 America/Chicago / 2026-07-24 10:14 UTC: Minnesota Redwood / North Fork Zumbro gap pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 232-route exported Minnesota baseline: `redwood-river-vesta-wabasso`, `redwood-river-wabasso-redwood-lake`, and `north-fork-zumbro-river-covered-bridge-walking-bridge`, bringing Minnesota to 235 live routes.
   - Qualification path: MN DNR Redwood River state-water-trail page, Minnesota River/Redwood Map 3, Zumbro Map 1, MN DNR interpreted river-level feed, and Minnesota public-water-access GIS support the selected public access pairs, route shape, gauges, safety caveats, and camping posture.

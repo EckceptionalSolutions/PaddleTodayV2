@@ -3,6 +3,375 @@ import type { River } from '../../lib/types';
 
 export const iowaRoutes: River[] = [
   {
+    "id": "des-moines-river-deer-creek-becker",
+    "slug": "des-moines-river-deer-creek-becker",
+    "name": "Des Moines River",
+    "reach": "Deer Creek Access to Becker Access",
+    "state": "Iowa",
+    "region": "North-Central Iowa",
+    "summary": "Upper Webster County Des Moines River water-trail starter from Deer Creek to Becker, with public county/DNR access context, steel-girder hazards, and a downstream Fort Dodge gauge range.",
+    "statusText": "Use the Des Moines River at Fort Dodge gauge as a downstream same-water-trail signal. CanWePaddle estimates 400 to 8,000 cfs for Fort Dodge to Lehigh; Deer Creek to Becker still needs a local depth and wood check before launch.",
+    "latitude": 42.601438,
+    "longitude": -94.227382,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Iowa DNR rates the Webster County water-trail reaches intermediate and calls out glacial erratic boulders, old bridge remnants, wooded banks, and Fort Dodge dam history.",
+        "Use only the named public water-trail accesses. Private banks, muddy slopes, and wooded bluffs limit casual bailout choices even close to Fort Dodge.",
+        "High or rising water can hide boulders, steel girders, and dam-removal remnants while adding fast current and floating wood. Treat the upper end of the range as experienced-paddler water."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05480500",
+      "provider": "usgs",
+      "siteId": "05480500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Des Moines River at Fort Dodge, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05480500/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 400,
+      "idealMax": 8000,
+      "tooLow": 400,
+      "tooHigh": 8000,
+      "thresholdSource": {
+        "label": "CanWePaddle Fort Dodge to Lehigh estimated range",
+        "url": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "April through October is the practical paddling window. Spring rain can make the Des Moines pushy through Fort Dodge, while late summer can expose riffles, boulders, bridge remnants, and shallow approaches.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The distance is moderate, but Iowa DNR rates the reach intermediate because the launch is primitive, steel girders sit just below Deer Creek, and public exits are limited.",
+      "confidenceNotes": "Confidence is good for a guarded official split: Iowa DNR lists Deer Creek Access to Becker Access as a 5.5-mile intermediate reach, Webster County / MyCountyParks identifies Deer Creek as a canoe stop on the west bank of the Des Moines River, the county map labels Deer Creek and Becker Wildlife Area in the access chain, CanWePaddle supplies the accepted Fort Dodge-to-Lehigh 400-8,000 cfs model, and USGS 05480500 returned current data during this run. The Fort Dodge gauge is downstream, so the card requires same-day local inspection at Deer Creek."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route and mileage",
+        "value": "Deer Creek Access to Becker Access, 5.5 mi",
+        "note": "Iowa DNR lists Deer Creek Access to Becker Access as the first Webster County Des Moines River water-trail reach and rates it intermediate.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8886/download?inline="
+      },
+      {
+        "label": "Put-in access support",
+        "value": "Deer Creek Wildlife Area",
+        "note": "Webster County / MyCountyParks says Deer Creek is on the west bank of the Des Moines River and is an excellent stopover facility for canoe enthusiasts.",
+        "sourceUrl": "https://www.mycountyparks.com/county/webster/Park/Deer-Creek"
+      },
+      {
+        "label": "Hazard note",
+        "value": "Steel girders below Deer Creek",
+        "note": "Iowa DNR warns that steel girders just below Deer Creek may be hazardous in lower water.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8886/download?inline="
+      },
+      {
+        "label": "Current gauge check",
+        "value": "892 cfs / 4.18 ft at 2026-07-24 05:00 CDT",
+        "note": "USGS Water Services returned current Des Moines River at Fort Dodge discharge and stage during this run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05480500&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Threshold range",
+        "value": "400-8,000 cfs",
+        "note": "CanWePaddle ties the Fort Dodge-to-Lehigh section to USGS 05480500 and estimates a 400 to 8,000 cfs runnable window; this upstream split uses it as a downstream same-trail proxy.",
+        "sourceUrl": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Iowa DNR Des Moines River Water Trail guide",
+        "url": "https://www.iowadnr.gov/media/8886/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Webster County Des Moines River map",
+        "url": "https://cms7files.revize.com/webstercountyia/Departments/Conservation/map_dsm_webster%20%281%29.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Visit Fort Dodge Des Moines River Water Trail",
+        "url": "https://www.dodgetheordinary.com/des-moines-river-water-trail",
+        "provider": "local"
+      },
+      {
+        "label": "CanWePaddle Des Moines River Fort Dodge to Lehigh",
+        "url": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05480500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05480500/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "des-moines-river-becker-hydro-electric",
+    "slug": "des-moines-river-becker-hydro-electric",
+    "name": "Des Moines River",
+    "reach": "Becker Access to Hydro-electric Park",
+    "state": "Iowa",
+    "region": "North-Central Iowa",
+    "summary": "Short Fort Dodge approach on the Des Moines River from Becker to Hydro-electric Park, using the official Webster County access chain, dam-removal caveats, and the Fort Dodge gauge range.",
+    "statusText": "Use the Fort Dodge gauge with the accepted 400 to 8,000 cfs range, then inspect Becker and Hydro-electric Park from land. The former hydro dam was removed, but remnants, riffles, and changing currents still deserve caution.",
+    "latitude": 42.531418,
+    "longitude": -94.225392,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Iowa DNR rates the Webster County water-trail reaches intermediate and calls out glacial erratic boulders, old bridge remnants, wooded banks, and Fort Dodge dam history.",
+        "Use only the named public water-trail accesses. Private banks, muddy slopes, and wooded bluffs limit casual bailout choices even close to Fort Dodge.",
+        "High or rising water can hide boulders, steel girders, and dam-removal remnants while adding fast current and floating wood. Treat the upper end of the range as experienced-paddler water."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05480500",
+      "provider": "usgs",
+      "siteId": "05480500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Des Moines River at Fort Dodge, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05480500/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 400,
+      "idealMax": 8000,
+      "tooLow": 400,
+      "tooHigh": 8000,
+      "thresholdSource": {
+        "label": "CanWePaddle Fort Dodge to Lehigh estimated range",
+        "url": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "April through October is the practical paddling window. Spring rain can make the Des Moines pushy through Fort Dodge, while late summer can expose riffles, boulders, bridge remnants, and shallow approaches.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Mileage is short, but the route approaches the Fort Dodge dam-removal corridor and needs careful scouting around access footing, bridge current, remnants, and wood.",
+      "confidenceNotes": "Confidence is moderate-good: Iowa DNR lists Becker Access to Hydro-electric Park as a 3-mile intermediate reach, the Webster County map labels Becker Wildlife Area and Hydro-electric Park, CanWePaddle provides the accepted Fort Dodge-to-Lehigh gauge range, and USGS 05480500 returned current data during this run. Becker coordinates are practical access-area anchors, so same-day sign and landing confirmation are required."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route and mileage",
+        "value": "Becker Access to Hydro-electric Park, 3 mi",
+        "note": "Iowa DNR lists Becker Access to Hydro-electric Park as an intermediate Webster County Des Moines River reach.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8886/download?inline="
+      },
+      {
+        "label": "Access-chain map",
+        "value": "Becker Wildlife Area to Hydro-electric Park",
+        "note": "The Webster County map labels Becker Wildlife Area, Hydro-electric Park, the Fort Dodge Hydro Dam, and the Little Dam corridor in sequence.",
+        "sourceUrl": "https://cms7files.revize.com/webstercountyia/Departments/Conservation/map_dsm_webster%20%281%29.pdf"
+      },
+      {
+        "label": "Dam-removal context",
+        "value": "Fort Dodge Hydro Dam removed in 2019",
+        "note": "Iowa Whitewater Coalition documents the former hydroelectric dam location and notes demolition was completed in 2019; paddlers should still scout the altered current/remnant corridor.",
+        "sourceUrl": "https://www.iowawhitewater.org/lhd/LHDfdhydro.html"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "892 cfs / 4.18 ft at 2026-07-24 05:00 CDT",
+        "note": "USGS Water Services returned current Des Moines River at Fort Dodge discharge and stage during this run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05480500&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Threshold range",
+        "value": "400-8,000 cfs",
+        "note": "CanWePaddle ties the Fort Dodge-to-Lehigh section to USGS 05480500 and estimates a 400 to 8,000 cfs runnable window; this upstream split uses the same Fort Dodge signal with scouting caveats.",
+        "sourceUrl": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Iowa DNR Des Moines River Water Trail guide",
+        "url": "https://www.iowadnr.gov/media/8886/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Webster County Des Moines River map",
+        "url": "https://cms7files.revize.com/webstercountyia/Departments/Conservation/map_dsm_webster%20%281%29.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Visit Fort Dodge Des Moines River Water Trail",
+        "url": "https://www.dodgetheordinary.com/des-moines-river-water-trail",
+        "provider": "local"
+      },
+      {
+        "label": "CanWePaddle Des Moines River Fort Dodge to Lehigh",
+        "url": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05480500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05480500/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "des-moines-river-hydro-electric-south-river",
+    "slug": "des-moines-river-hydro-electric-south-river",
+    "name": "Des Moines River",
+    "reach": "Hydro-electric Park to South River District Access",
+    "state": "Iowa",
+    "region": "North-Central Iowa",
+    "summary": "Fort Dodge urban Des Moines River connector from Hydro-electric Park to South River District Access, passing the gauge corridor and former dam reaches before joining the existing downstream route.",
+    "statusText": "Use the Fort Dodge gauge directly. Stay within the 400 to 8,000 cfs range, scout Hydro-electric Park and the former dam corridors, and take out at South River District unless the downstream Lehigh route is staged.",
+    "latitude": 42.516319,
+    "longitude": -94.200347,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Iowa DNR rates the Webster County water-trail reaches intermediate and calls out glacial erratic boulders, old bridge remnants, wooded banks, and Fort Dodge dam history.",
+        "Use only the named public water-trail accesses. Private banks, muddy slopes, and wooded bluffs limit casual bailout choices even close to Fort Dodge.",
+        "High or rising water can hide boulders, steel girders, and dam-removal remnants while adding fast current and floating wood. Treat the upper end of the range as experienced-paddler water."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05480500",
+      "provider": "usgs",
+      "siteId": "05480500",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Des Moines River at Fort Dodge, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05480500/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 400,
+      "idealMax": 8000,
+      "tooLow": 400,
+      "tooHigh": 8000,
+      "thresholdSource": {
+        "label": "CanWePaddle Fort Dodge to Lehigh estimated range",
+        "url": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "April through October is the practical paddling window. Spring rain can make the Des Moines pushy through Fort Dodge, while late summer can expose riffles, boulders, bridge remnants, and shallow approaches.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The route is short and close to town, but bridge current, industrial stormwater outfalls, dam-removal remnants, urban debris, and the required South River District stop keep it at caution level.",
+      "confidenceNotes": "Confidence is good for a guarded official urban connector: Iowa DNR lists Hydro-electric Park to South River District Access as a 2.5-mile intermediate reach, describes the city/gauge/bridge corridor, the Webster County map labels both endpoints and the former dam corridor, CanWePaddle supplies the accepted 400-8,000 cfs Fort Dodge gauge range, and USGS 05480500 returned current data during this run."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route and mileage",
+        "value": "Hydro-electric Park to South River District Access, 2.5 mi",
+        "note": "Iowa DNR lists Hydro-electric Park to South River District Access as an intermediate Fort Dodge reach.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8886/download?inline="
+      },
+      {
+        "label": "Urban corridor hazards",
+        "value": "Bridges, storm sewers, gauge corridor",
+        "note": "Iowa DNR describes multiple bridges, industrial shoreline, storm-sewer outfalls, debris, and the USGS gauging station in this Fort Dodge section.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8886/download?inline="
+      },
+      {
+        "label": "Dam-removal context",
+        "value": "Former hydro and Little Dam corridor",
+        "note": "The Webster County map labels the Fort Dodge Hydro Dam and Little Dam corridor, and Iowa Whitewater Coalition documents hydro dam demolition completed in 2019.",
+        "sourceUrl": "https://www.iowawhitewater.org/lhd/LHDfdhydro.html"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "892 cfs / 4.18 ft at 2026-07-24 05:00 CDT",
+        "note": "USGS Water Services returned current Des Moines River at Fort Dodge discharge and stage during this run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05480500&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Threshold range",
+        "value": "400-8,000 cfs",
+        "note": "CanWePaddle ties the Fort Dodge-to-Lehigh section to USGS 05480500 and estimates a 400 to 8,000 cfs runnable window; this split includes the direct Fort Dodge gauge corridor.",
+        "sourceUrl": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Iowa DNR Des Moines River Water Trail guide",
+        "url": "https://www.iowadnr.gov/media/8886/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Webster County Des Moines River map",
+        "url": "https://cms7files.revize.com/webstercountyia/Departments/Conservation/map_dsm_webster%20%281%29.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Visit Fort Dodge Des Moines River Water Trail",
+        "url": "https://www.dodgetheordinary.com/des-moines-river-water-trail",
+        "provider": "local"
+      },
+      {
+        "label": "CanWePaddle Des Moines River Fort Dodge to Lehigh",
+        "url": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05480500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05480500/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
     "id": "north-raccoon-river-vogel-mcdonald",
     "slug": "north-raccoon-river-vogel-mcdonald",
     "name": "North Raccoon River",

@@ -4,6 +4,7 @@ Last summarized: 2026-07-24.
 
 ## Current Inventory
 
+- 2026-07-24 06:05 CDT update: live exported Iowa routes were 133 at the start of this run and 136 after adding `des-moines-river-deer-creek-becker`, `des-moines-river-becker-hydro-electric`, and `des-moines-river-hydro-electric-south-river`.
 - 2026-07-24 05:14 CDT update: live exported Iowa routes were 130 at the start of this run and 133 after adding `south-raccoon-river-redfield-pleasant-valley`, `south-raccoon-river-pleasant-valley-earlham`, and `south-raccoon-river-earlham-van-meter`.
 - 2026-07-24 04:15 CDT update: live exported Iowa routes were 127 at the start of this run and 130 after adding `turkey-river-garber-osterdock`, `turkey-river-osterdock-millville`, and `turkey-river-millville-ferry-landing`.
 - 2026-07-24 03:08 CDT update: live exported Iowa routes were 124 at the start of this run and 127 after adding `north-raccoon-river-hagge-white-horse`, `north-raccoon-river-white-horse-grant`, and `north-raccoon-river-grant-rainbow-bend`.
@@ -24,7 +25,18 @@ Last summarized: 2026-07-24.
 
 ## Status
 
-Iowa remains mature overall. The current exported inventory is 133 routes after this South Raccoon official access split pass; the historical run notes below preserve what each automation pass originally added.
+Iowa remains mature overall. The current exported inventory is 136 routes after this Webster County Des Moines River upstream split pass; the historical run notes below preserve what each automation pass originally added.
+
+## 2026-07-24 06:05 Webster County Des Moines River upstream split pass
+
+- Baseline at run start: 133 Iowa live routes, verified from `src/data/routes/iowa.ts` before the current Iowa edits.
+- Added `des-moines-river-deer-creek-becker`, `des-moines-river-becker-hydro-electric`, and `des-moines-river-hydro-electric-south-river`, bringing the intended Iowa count to 136 live routes.
+- Qualification path: Iowa DNR's Des Moines River Water Trail guide documents Deer Creek-to-Becker (5.5 mi), Becker-to-Hydro-electric Park (3 mi), and Hydro-electric-Park-to-South-River-District (2.5 mi) as official intermediate Webster County reaches with public access sequence, route character, steel-girder hazards, urban bridge/storm-sewer context, and Fort Dodge gauge corridor context. Webster County / MyCountyParks corroborates Deer Creek and Becker canoe access, the Webster County map corroborates the access chain, Visit Fort Dodge confirms the 46-mile water trail and eight public access sites, and Iowa Whitewater Coalition documents the former Hydro Dam location/removal context.
+- Gauge posture: USGS Water Services returned Des Moines River at Fort Dodge `05480500` at `892 cfs / 4.18 ft` at 2026-07-24 05:00 CDT. Deer-to-Becker and Becker-to-Hydro use it as a downstream same-water-trail proxy; Hydro-to-South-River uses it as the direct gauge-corridor signal.
+- Threshold posture: all three cards use the already-accepted CanWePaddle Fort-Dodge-to-Lehigh `400-8,000 cfs` model tied to USGS `05480500`. The two upstream cards explicitly require same-day local visual checks because the gauge is downstream and because DNR's Deer Creek steel-girder and former-dam/urban-remnant hazards are level-sensitive.
+- Caveat posture: cards foreground steel girders below Deer Creek, glacial boulders, bridge remnants, former Hydro Dam / Little Dam corridor scouting, storm-sewer/urban debris, private banks, limited bailouts, no on-route camping, and South River District as the stop before the existing downstream Lehigh card.
+- Reviewed but not added: further Webster County through-cards were avoided because the existing `des-moines-river-fort-dodge-lehigh` card already represents the longer downstream day. The current run prioritized the three missing official upstream access-pair gaps rather than duplicative Boone County / lower Des Moines / Raccoon through-routes.
+- Image posture: no route-gallery assets added after bounded Iowa DNR / Webster County / Visit Fort Dodge / Iowa Whitewater / CanWePaddle / USGS / Commons / same-route image review found no clearly rights-clean exact-route asset selected for local reuse.
 
 ## 2026-07-24 05:14 South Raccoon official access split pass
 
