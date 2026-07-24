@@ -4065,6 +4065,21 @@ export const iowaRoutes: River[] = [
     "statusText": "Use the Upper Iowa River at Bluffton gauge. Treat 125 cfs as the minimum to avoid a scrape-heavy day; 75 cfs was too low on the same route, and no trusted upper ceiling is published for this Decorah leg.",
     "latitude": 43.34508,
     "longitude": -91.843,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Malanaphy Springs / Bluffton Road is a limited, sometimes muddy access with a small lot and hiker traffic; use the Pole Line Road fallback if the access is crowded or unclear.",
+        "This route stays minimum-only because the route report supports a 125 cfs floor but no upper ceiling; avoid rising water after rain when bridge approaches, Decorah bends, and fresh wood can change quickly.",
+        "Use Trout Run Park as the planned public take-out and keep stops to public parks or clearly legal access areas. Do not assume private banks along the country-to-city corridor are available for landing."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05387440",
       "provider": "usgs",

@@ -1,26 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-24T21:39:30.224Z",
+  "generatedAt": "2026-07-24T23:40:39.867Z",
   "routeCount": 937,
-  "issueCount": 542,
+  "issueCount": 540,
   "summary": {
     "Critical": 0,
-    "High": 323,
-    "Medium": 219,
+    "High": 322,
+    "Medium": 218,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "upper-iowa-river-malanaphy-trout-run",
-      "slug": "upper-iowa-river-malanaphy-trout-run",
-      "name": "Upper Iowa River",
-      "reach": "Malanaphy Springs to Trout Run Park",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "sible levels, but the 11-mile distance, shallow ledges, city bridge approaches, private banks, and cold spring inflows make it more than a lazy park float. Confidence is good for a guarded Iowa minimum-only add: Miles Paddled documents the exact Malanaphy Spri"
-    },
     {
       "routeId": "volga-river-klocks-island-heron-road",
       "slug": "volga-river-klocks-island-heron-road",
@@ -3573,17 +3562,6 @@
       "category": "Conditions",
       "message": "Route text mentions condition hazards that need explicit safety review.",
       "evidence": "the named Canton County Park topo feature. Royertown coordinates come from the Water Quality Portal site named AWARE 13 Royerton Bridge Access Maquoketa River, matching the county-listed Royertown Bridge Access. Hazards Low spots, wind, high-water push WRT re"
-    },
-    {
-      "routeId": "upper-iowa-river-malanaphy-trout-run",
-      "slug": "upper-iowa-river-malanaphy-trout-run",
-      "name": "Upper Iowa River",
-      "reach": "Malanaphy Springs to Trout Run Park",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Country-to-Decorah Upper Iowa day from the Malanaphy Springs / Bluffton Road access to Trout Run Park, with riffles, springs, city bluffs, and a direct Bluffton gauge low-water flo"
     },
     {
       "routeId": "volga-river-klocks-island-heron-road",
