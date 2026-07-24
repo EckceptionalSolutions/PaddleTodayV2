@@ -1139,6 +1139,7 @@ function renderRouteList(routes) {
           data-group-route-card
           data-route-slug="${route.slug}"
         >
+          ${favoriteButtonMarkup(route).replace('favorite-toggle--inline', 'favorite-toggle--inline route-choice__save')}
           <button
             class="route-choice__select"
             type="button"

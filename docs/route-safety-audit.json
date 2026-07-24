@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-24T19:36:56.622Z",
+  "generatedAt": "2026-07-24T19:38:44.054Z",
   "routeCount": 937,
-  "issueCount": 546,
+  "issueCount": 543,
   "summary": {
     "Critical": 0,
-    "High": 326,
-    "Medium": 220,
+    "High": 324,
+    "Medium": 219,
     "Low": 0
   },
   "issues": [
@@ -20,28 +20,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "ge, with timbered valleys, open pasture, scattered riffles, chutes, and a shale ledge above the P53 bridge. Use the Middle River near Indianola gauge as the official planning signal. Treat 600 to 900 cfs as the optimum Adair / Madison County window, and be con"
-    },
-    {
-      "routeId": "turkey-river-elkader-garber",
-      "slug": "turkey-river-elkader-garber",
-      "name": "Turkey River",
-      "reach": "Elkader Whitewater Park to Garber Access",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "Full lower Turkey River day from Elkader to Garber, combining the whitewater-park / Motor Mill section with the long remote canyon run to Garber under one direct lower-river gauge. Use the Turkey River at Garber gauge. Miles Paddled recommends th"
-    },
-    {
-      "routeId": "turkey-river-elkader-motor-mill",
-      "slug": "turkey-river-elkader-motor-mill",
-      "name": "Turkey River",
-      "reach": "Elkader Whitewater Park to Motor Mill Access",
-      "state": "Iowa",
-      "severity": "High",
-      "category": "Whitewater",
-      "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
-      "evidence": "The downstream run is mostly Class I riffles at normal levels, but the optional whitewater-park ledges at the start are more consequential and should be scouted or bypassed by casual paddlers. Confidence is good for an Iowa community-source add: the Iowa DNR-b"
     },
     {
       "routeId": "upper-iowa-river-malanaphy-trout-run",
@@ -3606,17 +3584,6 @@
       "category": "Conditions",
       "message": "Route text mentions condition hazards that need explicit safety review.",
       "evidence": "the named Canton County Park topo feature. Royertown coordinates come from the Water Quality Portal site named AWARE 13 Royerton Bridge Access Maquoketa River, matching the county-listed Royertown Bridge Access. Hazards Low spots, wind, high-water push WRT re"
-    },
-    {
-      "routeId": "turkey-river-elkader-garber",
-      "slug": "turkey-river-elkader-garber",
-      "name": "Turkey River",
-      "reach": "Elkader Whitewater Park to Garber Access",
-      "state": "Iowa",
-      "severity": "Medium",
-      "category": "Minimum-only hazard review",
-      "message": "Minimum-only route has hazard language but no safetyProfile.",
-      "evidence": "Full lower Turkey River day from Elkader to Garber, combining the whitewater-park / Motor Mill section with the long remote canyon run to Garber under one direct lower-river gauge."
     },
     {
       "routeId": "upper-iowa-river-malanaphy-trout-run",

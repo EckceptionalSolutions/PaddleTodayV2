@@ -6461,6 +6461,19 @@ export const iowaRoutes: River[] = [
     "statusText": "Use the Turkey River above French Hollow Creek at Elkader gauge. Treat 251 to 450 cfs as the average target, 100 cfs as the low floor, and 1,501+ cfs as too high for a normal recreational recommendation.",
     "latitude": 42.853356,
     "longitude": -91.402402,
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "fast_rise"
+      ],
+      "safetyNotes": [
+        "The Elkader whitewater-park ledges are optional but consequential. Scout from shore, launch below the feature, or use another Elkader access if the group is not prepared for the ledges.",
+        "Expect many Class I riffles below town. They are usually straightforward, but low water makes them bumpy and rising water makes the Motor Mill landing and bend current less forgiving.",
+        "Motor Mill is the intended take-out. Identify the river-left landing before continuing, because the next public water-trail access is the much longer Garber extension."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05412020",
       "provider": "usgs",
@@ -7250,6 +7263,20 @@ export const iowaRoutes: River[] = [
     "statusText": "Use the Turkey River at Garber gauge. Miles Paddled recommends the exact Elkader-to-Garber route at about 550 cfs, so Paddle Today keeps a conservative 550 cfs minimum-only floor and does not claim a fuller paddling band.",
     "latitude": 42.853356,
     "longitude": -91.402402,
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "fast_rise",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Treat the Elkader whitewater-park feature as an optional advanced start. Scout it, launch below it, or bypass it if the group is not equipped for ledges and recovery moves.",
+        "This combines the Elkader-to-Motor-Mill and Motor-Mill-to-Garber sections into one long day. Motor Mill is the practical midpoint exit if time, weather, or group energy is not holding up.",
+        "Below Motor Mill the route becomes a longer, more remote water-trail section. Rising water, fatigue, and a late missed Garber take-out can make retrieval materially harder."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05412500",
       "provider": "usgs",

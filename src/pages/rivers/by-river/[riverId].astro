@@ -251,6 +251,15 @@ const groupStructuredData = [
                   data-group-route-card
                   data-route-slug={route.slug}
                 >
+                  <FavoriteButton
+                    className="favorite-toggle favorite-toggle--card favorite-toggle--inline route-choice__save"
+                    slug={route.slug}
+                    name={route.name}
+                    reach={route.reach}
+                    state={route.state}
+                    region={route.region}
+                    url={`/rivers/${route.slug}/`}
+                  />
                   <button
                     class="route-choice__select"
                     type="button"
