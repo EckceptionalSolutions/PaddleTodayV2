@@ -1249,6 +1249,165 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
+  "wapsipinicon-river-olin-jungletown": {
+    "putIn": {
+      "id": "olin-access",
+      "name": "Olin Access",
+      "latitude": 42.003487,
+      "longitude": -91.132667
+    },
+    "takeOut": {
+      "id": "jungletown-access",
+      "name": "Jungletown Access",
+      "latitude": 41.997559,
+      "longitude": -91.055705
+    },
+    "logistics": {
+      "distanceLabel": "About 5 mi",
+      "estimatedPaddleTime": "About 2 hr to 3 hr depending on level, wind, and wood",
+      "shuttle": "Use a short rural two-car shuttle between Olin Access and Jungletown Access. Scout Jungletown's paved ramp and turnaround before launching because the landing is a small county access.",
+      "permits": "No route-specific paddling permit is known. Follow Iowa boating/PFD rules, county access hours, and private-property limits.",
+      "camping": "Iowa DNR says sandbar camping is allowed on the meandered Wapsipinicon from Central City to the Mississippi. On this short route, treat overnight use as optional only when a safe, exposed sandbar exists and do not enter private uplands.",
+      "campingClassification": "sandbar_or_gravel_bar",
+      "summary": "Launch at Olin Access and take out at Jungletown Access for a short Jones County lower-Wapsi connector. The Oxford Mills gauge is stale, so use the fresh Anamosa gauge as a same-corridor proxy and make a local depth check before committing.",
+      "accessCaveats": [
+        "Olin Access is a named public Wapsipinicon access in the Jones County access chain, but it is a rural site; confirm parking and ramp condition before unloading.",
+        "Jungletown Access is a one-acre county access with a paved boat ramp south of Hale. It is the planned take-out, not just a bailout.",
+        "The lower Wapsi is meandered and sandbar camping is allowed, but adjacent uplands can still be private. Keep stops on legal bars or public access land."
+      ],
+      "watchFor": [
+        "Proxy-gauge uncertainty: USGS 05421760 at Oxford Mills was stale during this run, so confirm actual local depth and current at Olin.",
+        "Fresh strainers, bank-sweepers, and floating debris after storms.",
+        "Fast or rising water around bridges and outside bends, especially if the Anamosa gauge is climbing toward the top of the community range."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "olin-access",
+        "name": "Olin Access",
+        "latitude": 42.003487,
+        "longitude": -91.132667,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for the short lower-Wapsi Jones County connector."
+      },
+      {
+        "id": "jungletown-access",
+        "name": "Jungletown Access",
+        "latitude": 41.997559,
+        "longitude": -91.055705,
+        "mileFromStart": 5,
+        "segmentKind": "creek",
+        "note": "Default take-out at the county's small paved-ramp access south of Hale."
+      }
+    ]
+  },
+  "boone-river-riverside-briggs-woods": {
+    "putIn": {
+      "id": "riverside-park-access",
+      "name": "Riverside Park Access",
+      "latitude": 42.4677519,
+      "longitude": -93.8118872
+    },
+    "takeOut": {
+      "id": "briggs-woods-park-access",
+      "name": "Briggs Woods Park canoe access",
+      "latitude": 42.4294,
+      "longitude": -93.8206
+    },
+    "logistics": {
+      "distanceLabel": "About 4.5 mi",
+      "estimatedPaddleTime": "About 1.5 hr to 2.5 hr depending on level and stops",
+      "shuttle": "Use a two-car shuttle from Riverside Park in Webster City to Briggs Woods Park. This is the upstream half of the longer live Riverside-to-Albright family, so Briggs is the planned endpoint rather than just a bailout.",
+      "permits": "No route-specific paddling permit is known. Use established public water-trail accesses and respect private land outside the parks.",
+      "camping": "Briggs Woods Park has campground and cabin context near the take-out. Reserve or confirm park camping separately rather than treating riverbank stops as campsites.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at Riverside Park Access and paddle the official upper Webster City-to-Briggs Woods Boone River section. This is the more approachable half of the existing Riverside-to-Albright route but still requires level, wood, and private-bank judgment.",
+      "accessCaveats": [
+        "Riverside Park is the clean city-park put-in. Do not move upstream into the Waterworks / low-head-dam corridor without a separate scout and portage plan.",
+        "Briggs Woods Park is the planned take-out with park camping nearby; locate the canoe access and parking before launch.",
+        "The Boone River is navigable but non-meandered. Iowa DNR notes that adjacent and underlying land outside public access sites may be private."
+      ],
+      "watchFor": [
+        "Low-water scraping around riffles, rocks, and boulders below about 200 cfs at Webster City.",
+        "Fresh wood and bank strainers after storms.",
+        "High water near or above 1,500 cfs, when Hamilton County recommends the Boone only for advanced canoeists."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "riverside-park-access",
+        "name": "Riverside Park Access",
+        "latitude": 42.4677519,
+        "longitude": -93.8118872,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default public put-in in Webster City's Riverside Park corridor."
+      },
+      {
+        "id": "briggs-woods-park-access",
+        "name": "Briggs Woods Park canoe access",
+        "latitude": 42.4294,
+        "longitude": -93.8206,
+        "mileFromStart": 4.5,
+        "segmentKind": "creek",
+        "note": "Default endpoint and camping-adjacent park access."
+      }
+    ]
+  },
+  "boone-river-briggs-woods-albright": {
+    "putIn": {
+      "id": "briggs-woods-park-access",
+      "name": "Briggs Woods Park canoe access",
+      "latitude": 42.4294,
+      "longitude": -93.8206
+    },
+    "takeOut": {
+      "id": "albrights-canoe-access",
+      "name": "Albright's Canoe Access",
+      "latitude": 42.4054,
+      "longitude": -93.8099
+    },
+    "logistics": {
+      "distanceLabel": "About 3.6 mi",
+      "estimatedPaddleTime": "About 1.25 hr to 2 hr depending on level and scouting",
+      "shuttle": "Stage a vehicle at Albright's Canoe Access, then launch from Briggs Woods Park. Do not continue below Albright unless the group is ready for the more remote lower-Boone sections.",
+      "permits": "No route-specific paddling permit is known. Use public water-trail accesses and respect private land outside public sites.",
+      "camping": "Briggs Woods Park has campground and cabin context at the put-in. Treat the route itself as a short day paddle with no assumed riverbank camping.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at Briggs Woods and take out at Albright for the short, faster-gradient Boone River section. Hamilton County flags this reach for moderately swift water, rock rapids, boulders, and limestone bluffs.",
+      "accessCaveats": [
+        "Briggs Woods has parking, restrooms, and a concrete ramp per Hamilton County guidance, but it can be busy with park users and campers.",
+        "Albright is a walk-down canoe access rather than a large ramp. Confirm the landing before launching if flows are high or the group is inexperienced.",
+        "Use Albright as the endpoint. The next downstream section has fewer bailouts, private Bevers Bridge access issues, and old dam-remnant hazards."
+      ],
+      "watchFor": [
+        "Rock rapids, large boulders, and moderately swift current that can surprise novice paddlers despite the short mileage.",
+        "Low water below about 200 cfs at Webster City, when the boulder gardens become scrapier.",
+        "High or rising water above the normal range, when wood and outside-bend current are more consequential."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "briggs-woods-park-access",
+        "name": "Briggs Woods Park canoe access",
+        "latitude": 42.4294,
+        "longitude": -93.8206,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in for the faster Briggs-to-Albright section."
+      },
+      {
+        "id": "albrights-canoe-access",
+        "name": "Albright's Canoe Access",
+        "latitude": 42.4054,
+        "longitude": -93.8099,
+        "mileFromStart": 3.6,
+        "segmentKind": "creek",
+        "note": "Default public take-out before the more remote lower-Boone continuation."
+      }
+    ]
+  },
   "maquoketa-river-dundee-manchester": {
     "putIn": {
       "id": "dundee-access",

@@ -1,7 +1,17 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-24T03:10:00Z",
+  "updatedAt": "2026-07-24T04:13:00Z",
   "notes": [
+    {
+      "date": "2026-07-23",
+      "automation": "minnesota-route-additions-2",
+      "summary": "Added three Minnesota route slugs beyond the 217-route current Minnesota baseline: pine-river-norway-pine-river-1, pine-river-pine-river-1-cross-lake, and st-croix-river-william-obrien-boomsite. Sources included MN DNR Pine River segments/map, MN DNR interpreted river-level feed, Minnesota public-water-access GIS, NPS lower St. Croix paddling guide and boating rules, and the 2026 MN DNR William O'Brien access update. Current DNR feed checks returned Pine River at Jenkins 13 cfs below scrapable and St. Croix Falls 1,890 cfs below scrapable. No route-gallery image was selected after bounded DNR / NPS / public-access / Commons / same-route review."
+    },
+    {
+      "date": "2026-07-23",
+      "automation": "iowa-route-additions",
+      "summary": "Added three Iowa route slugs beyond the 112-route current Iowa baseline: wapsipinicon-river-olin-jungletown, boone-river-riverside-briggs-woods, and boone-river-briggs-woods-albright. Boone additions are official Iowa DNR / Hamilton County water-trail sub-sections split out of the existing Riverside-to-Albright family because Riverside-to-Briggs and Briggs-to-Albright have different skill/hazard profiles and Hamilton County publishes exact mileage, access, and cfs safety guidance tied to direct USGS 05481000. The Wapsipinicon addition uses Jones County public Olin/Jungletown accesses with WQP coordinates, Iowa DNR lower-Wapsi no-dam/sandbar-camping safety context, CanWePaddle lower-corridor 200-2,800 cfs guidance, and a documented fresh Anamosa proxy after USGS 05421760 Oxford Mills returned stale 2017 data. Current checks during the run returned Boone near Webster City 139 cfs / 2.09 ft at 2026-07-23 22:00 CDT and Wapsipinicon near Anamosa 1,990 cfs / 7.23 ft at 2026-07-23 22:15 CDT. No route-gallery image was selected after bounded official/local/Commons/same-route review."
+    },
     {
       "date": "2026-07-23",
       "automation": "route-scale-consolidation",
@@ -54758,6 +54768,131 @@
         "coordinateSource": "Adjacent current V2 route details carry Minnesota public-water-access GIS-backed coordinates and river-mile context for both endpoints."
       },
       "notes": "Added as the short Map 3 gap between the already-live Prien's-to-War-Memorial and Kinney-to-Skalbekken cards. Copy foregrounds Granite Falls/Minnesota Falls hazard context, upstream proxy gauge, low-water ledges, private banks, and no selected route-gallery asset."
+    },
+    {
+      "candidateId": "mn-pine-river-norway-pine-river-1-2026-07-23",
+      "river": "Pine River",
+      "route": "Norway Lake to Pine River #1",
+      "state": "MN",
+      "status": "added",
+      "lastReviewed": "2026-07-23",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as pine-river-norway-pine-river-1. Revisit only if MN DNR changes Pine River map guidance, Norway Lake or Pine River #1 access status, Jenkins interpretation bands, or image rights clear.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Pine River segments and maps",
+        "MN DNR Pine River map PDF",
+        "MN DNR river-level feed site 316",
+        "Minnesota public water access feature service",
+        "Commons and same-route image search"
+      ],
+      "aliases": [
+        "Norway Lake to Pine River Number 1",
+        "Norway Lake access to Pine River city access"
+      ],
+      "v2Slug": "pine-river-norway-pine-river-1",
+      "gauge": {
+        "quality": "downstream_same_water_trail_mn_dnr_proxy",
+        "id": "316",
+        "provider": "MN DNR",
+        "notes": "MN DNR returned Pine River near Jenkins at 13 cfs at 2026-07-23 20:45 CDT, below the official scrapable floor. Jenkins is downstream of this short upper connector, so the card requires same-day visual checks."
+      },
+      "thresholdSupport": {
+        "strength": "official_two_sided_proxy",
+        "notes": "Uses only MN DNR Jenkins interpreted bands: scrapable below 35 cfs, medium 50-200 cfs, very high above 500 cfs."
+      },
+      "endpoints": {
+        "putIn": "Norway Lake Public Water Access Site / WAS00722",
+        "takeOut": "Pine River #1 Public Water Access Site / WAS00726",
+        "coordinatesPresent": true,
+        "coordinateSource": "Minnesota public-water-access GIS gives endpoint names, coordinates, administrators, and river miles 38.8 to 37.1."
+      },
+      "notes": "Added as a short official-access upper Pine connector. Copy foregrounds downstream proxy limits, below-scrapable current water, culvert/wood checks, private-bank limits, no on-route camping, and no selected route-gallery asset."
+    },
+    {
+      "candidateId": "mn-pine-river-pine-river-1-cross-lake-2026-07-23",
+      "river": "Pine River",
+      "route": "Pine River #1 to Cross Lake",
+      "state": "MN",
+      "status": "added",
+      "lastReviewed": "2026-07-23",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as pine-river-pine-river-1-cross-lake. Revisit only if MN DNR changes Pine River map guidance, Pine River #1 or Cross Lake access status, Jenkins interpretation bands, dam/outflow guidance, or image rights clear.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Pine River segments and maps",
+        "MN DNR Pine River map PDF",
+        "MN DNR river-level feed site 316",
+        "Minnesota public water access feature service",
+        "Commons and same-route image search"
+      ],
+      "aliases": [
+        "Pine River Number 1 to Cross Lake",
+        "Pine River city access to Cross Lake"
+      ],
+      "v2Slug": "pine-river-pine-river-1-cross-lake",
+      "gauge": {
+        "quality": "same_corridor_mn_dnr_direct",
+        "id": "316",
+        "provider": "MN DNR",
+        "notes": "MN DNR returned Pine River near Jenkins at 13 cfs at 2026-07-23 20:45 CDT, below the official scrapable floor. Jenkins sits along the same upper Pine corridor, but lake wind and Cross Lake dam/outflow checks remain separate decisions."
+      },
+      "thresholdSupport": {
+        "strength": "official_two_sided",
+        "notes": "Uses only MN DNR Jenkins interpreted bands: scrapable below 35 cfs, medium 50-200 cfs, very high above 500 cfs."
+      },
+      "endpoints": {
+        "putIn": "Pine River #1 Public Water Access Site / WAS00726",
+        "takeOut": "Pine River, Cross Lake Public Water Access Site / WAS01002",
+        "coordinatesPresent": true,
+        "coordinateSource": "Minnesota public-water-access GIS gives endpoint names, coordinates, administrators, and river miles 37.1 to 19.8."
+      },
+      "notes": "Added as a long official-access upper Pine / Whitefish-chain connector. Copy foregrounds below-scrapable current water, lake wind and boat wake, dam-system checks, private-bank limits, nearby-basecamp-only camping, and no selected route-gallery asset."
+    },
+    {
+      "candidateId": "mn-st-croix-river-william-obrien-boomsite-2026-07-23",
+      "river": "St. Croix River",
+      "route": "William O'Brien State Park Landing to Boom Site Landing",
+      "state": "MN",
+      "status": "added",
+      "lastReviewed": "2026-07-23",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as st-croix-river-william-obrien-boomsite. Revisit only if NPS changes the lower St. Croix paddling guide or boating restrictions, MN DNR changes William O'Brien access status, St. Croix Falls bands change, or image rights clear.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "NPS lower St. Croix paddling guide PDF",
+        "NPS Saint Croix boating rules",
+        "MN DNR William O'Brien 2026 access update",
+        "MN DNR river-level feed site 236",
+        "Minnesota public water access feature service",
+        "USGS 05340500",
+        "Commons and same-route image search"
+      ],
+      "aliases": [
+        "William O'Brien to Boom Site",
+        "William O'Brien State Park to Stillwater Boomsite"
+      ],
+      "v2Slug": "st-croix-river-william-obrien-boomsite",
+      "gauge": {
+        "quality": "upstream_same_corridor_mn_dnr_proxy",
+        "id": "236",
+        "provider": "MN DNR",
+        "notes": "MN DNR returned St. Croix River at St. Croix Falls at 1,890 cfs at 2026-07-23 20:00 CDT, below the official scrapable floor. St. Croix Falls is upstream of this lower-river reach and is backed by USGS 05340500 as a fallback."
+      },
+      "thresholdSupport": {
+        "strength": "official_two_sided_proxy",
+        "notes": "Uses only MN DNR St. Croix Falls interpreted bands: scrapable below 2,000 cfs, medium 3,000-8,000 cfs, very high above 11,000 cfs."
+      },
+      "endpoints": {
+        "putIn": "St. Croix River, William O'Brien SPK Public Water Access Site / WAS00278",
+        "takeOut": "St. Croix River, Boomsite Public Water Access Site / WAS02194",
+        "coordinatesPresent": true,
+        "coordinateSource": "Minnesota public-water-access GIS gives endpoint names, coordinates, administrators, and river miles 37.0 to 25.6."
+      },
+      "notes": "Added as the missing lower St. Croix public-access segment below William O'Brien. Copy foregrounds below-scrapable current water, William O'Brien open-as-water-levels-allow caveat, NPS boating/AIS rules, shallow Arcola bars, private-bank and camping limits, and no selected route-gallery asset."
     }
   ]
 }

@@ -4,6 +4,7 @@ Last summarized: 2026-07-23.
 
 ## Current Inventory
 
+- 2026-07-23 23:07 CDT update: live exported Iowa routes were 112 at the start of this run and 115 after adding `wapsipinicon-river-olin-jungletown`, `boone-river-riverside-briggs-woods`, and `boone-river-briggs-woods-albright`.
 - 2026-07-23 consolidation update: 112 live Iowa routes after folding Yellow River Ion-to-Highway-76 into the longer lower-Yellow card, combining the two Boone County Des Moines sections around Dogwood, and folding Oakland-to-Carson into Oakland-to-Macedonia as an alternate takeout.
 - 2026-07-23 21:20 CDT update: live exported Iowa routes were 109 at the start of the Boone County Des Moines River pass and 112 after adding `des-moines-river-south-fraser-waterworks-upstream`, `des-moines-river-highway-30-dogwood`, and `des-moines-river-dogwood-sportsman`.
 - 2026-07-23 20:06 CDT update: live exported Iowa routes were 106 at the start of the current Iowa route-additions pass and 109 after adding `yellow-river-ion-highway-76`, `cedar-river-osage-spring-road-t38`, and `upper-iowa-river-iverson-bridge-kumpf`.
@@ -18,7 +19,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The current exported inventory is 112 routes after the route-scale consolidation described above; the historical run notes below preserve what each automation pass originally added.
+Iowa remains mature overall. The current exported inventory is 115 routes after this Boone / Wapsipinicon pass; the historical run notes below preserve what each automation pass originally added.
+
+## 2026-07-23 23:07 Boone / Lower Wapsipinicon split pass
+
+- Baseline at run start: 112 Iowa live routes, verified from the current `src/data/rivers.ts` export with `tsx`.
+- Added `wapsipinicon-river-olin-jungletown`, `boone-river-riverside-briggs-woods`, and `boone-river-briggs-woods-albright`, bringing the imported Iowa count to 115 live routes.
+- Qualification path: the Boone additions split the already-live Riverside-to-Albright family into official Hamilton County / Iowa DNR sections with distinct risk profiles: Riverside-to-Briggs is the gentler 4.5-mile city-to-park reach, while Briggs-to-Albright is the 3.6-mile faster-gradient reach with rocks, boulders, moderately swift water, and limestone bluffs. The Wapsipinicon addition uses Jones County public Olin and Jungletown accesses, Water Quality Portal coordinates, the Iowa DNR/Jones County lower-Wapsi map for no-dam/sandbar-camping/safety context, and CanWePaddle lower-corridor threshold evidence.
+- Gauge posture: USGS `05481000` Boone River near Webster City returned `139 cfs / 2.09 ft` at 2026-07-23 22:00 CDT, below the selected 200 cfs floor. USGS `05421740` Wapsipinicon River near Anamosa returned `1,990 cfs / 7.23 ft` at 2026-07-23 22:15 CDT; USGS `05421760` at Oxford Mills was rejected because Water Services returned stale 2017 data.
+- Threshold posture: both Boone cards use Hamilton County's local two-sided model: `200-1,100 cfs` recreational window with `1,500+ cfs` advanced-only high water. The Wapsipinicon card uses CanWePaddle's lower Anamosa-to-Oxford `200-2,800 cfs` range but labels Anamosa as a proxy because the route-specific Oxford Mills feed is stale.
+- Caveat posture: Boone cards foreground non-meandered/private-bank limits, low-water boulders, strainers, fast rises, and the upstream Webster City low-head-dam corridor as out of scope. Wapsipinicon foregrounds proxy-gauge uncertainty, same-day visual-depth checks, wood, fast rises, private uplands, and sandbar-camping limits.
+- Reviewed but not added: Webster City/Nokomis upstream Boone sections were held because UIowa project materials document unresolved low-head-dam and debris safety work around Waterworks; lower-Wapsipinicon Anamosa-to-Oxford through-card stayed blocked by stale Oxford Mills product data; Newport-to-Olin and Jungletown-to-Oxford were lower value than the short Olin-to-Jungletown connector with the clearest county access pair.
+- No route-gallery assets were added after bounded Iowa DNR / Jones County / Travel Iowa / Webster City / USGS / Commons / same-route image review.
 
 ## 2026-07-23 22:10 West Nishnabotna official split pass
 

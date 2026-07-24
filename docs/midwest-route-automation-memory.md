@@ -1,14 +1,23 @@
 # Midwest Route Automation Memory
 
-<<<<<<< Updated upstream
-=======
+- 2026-07-23 23:13 America/Chicago / 2026-07-24 04:13 UTC: Minnesota Pine / St. Croix public-access gap pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 217-route Minnesota baseline: `pine-river-norway-pine-river-1`, `pine-river-pine-river-1-cross-lake`, and `st-croix-river-william-obrien-boomsite`, bringing Minnesota to 220 live routes.
+  - Qualification path: MN DNR Pine River map/segments, MN DNR interpreted river-level feed, Minnesota public-water-access GIS, NPS lower St. Croix paddling guide and boating rules, and MN DNR's 2026 William O'Brien access update support the access pairs, shape, hazards, and caveats.
+  - Gauge posture: Pine River near Jenkins site `316` returned `13 cfs` at 2026-07-23 20:45 CDT, below the DNR scrapable floor; St. Croix Falls site `236` returned `1,890 cfs` at 2026-07-23 20:00 CDT, below the DNR scrapable floor. The new cards use only official DNR interpreted bands, with proxy caveats where the gauge is not inside the exact reach.
+  - Safety/image posture: Pine routes carry low-water, culvert/wood, private-bank, Whitefish-chain wind/wake, and dam/outflow cautions. St. Croix carries William O'Brien access-status, lower-river boating, AIS-control, shallow-bar, private-bank, and special-camping caveats. No gallery image was selected after bounded DNR / NPS / public-access / Commons / same-route review.
+
 - 2026-07-23 route-scale consolidation follow-up.
   - Consolidated the nested Yellow River Ion-to-Highway-76 card into `yellow-river-sixteen-bridge-highway-76`, with Ion retained as an alternate mile-9.75 put-in.
   - Consolidated the adjacent Boone County Des Moines cards into `des-moines-river-highway-30-sportsman`, with Dogwood/E-57 retained as the mile-7 intermediate access.
   - Retired the nested `west-nishnabotna-river-oakland-carson` card because the existing Oakland-to-Macedonia route already carries Carson as its mile-8 alternate take-out.
   - Current exported Iowa inventory after consolidation: 112 routes.
 
->>>>>>> Stashed changes
+- 2026-07-23 23:07 America/Chicago / 2026-07-24 04:07 UTC: Iowa Boone / lower-Wapsipinicon split pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 112-route exported Iowa baseline: `wapsipinicon-river-olin-jungletown`, `boone-river-riverside-briggs-woods`, and `boone-river-briggs-woods-albright`, bringing Iowa to 115 live routes.
+  - Qualification path: Iowa DNR / Jones County Wapsipinicon materials, Jones County access pages, Travel Jones County access listing, Water Quality Portal endpoint coordinates, CanWePaddle lower-Wapsi guidance, Iowa DNR Boone River map, Hamilton County Boone River touring guide, Webster City Boone River Trail, Travel Iowa Boone River Water Trail, and direct USGS Water Services checks support the route package.
+  - Gauge posture: Boone uses direct USGS `05481000`, which returned `139 cfs / 2.09 ft` at 2026-07-23 22:00 CDT. Wapsipinicon uses fresh upstream USGS `05421740`, which returned `1,990 cfs / 7.23 ft` at 2026-07-23 22:15 CDT, after rejecting stale Oxford Mills `05421760` data from 2017.
+  - Safety/image posture: Boone cards carry non-meandered/private-bank, low-water boulder/riffle, fast-rise, strainer, and upstream Waterworks low-head-dam caveats. The Wapsipinicon card carries proxy-gauge, same-day visual-check, lower-river no-dam-boundary, sandbar-camping, wood, and private-upland caveats. No gallery image was selected after bounded official/local/Commons/same-route review.
+
 - 2026-07-23 22:15 America/Chicago / 2026-07-24 03:15 UTC: Minnesota Mississippi / Minnesota River gap pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 214-route exported Minnesota baseline: `mississippi-river-wolds-ferry-palisade`, `mississippi-river-fletcher-creek-overlook`, and `minnesota-river-war-memorial-kinney`, bringing Minnesota to 217 live routes.
   - Qualification path: MN DNR recommended one-way sections, Mississippi Maps 4/6, Minnesota River Map 3, MN DNR river-level JSON, adjacent public-access-backed V2 endpoint records, DNR Morrison County access mapping, and Baxter's Overlook Park page support the access pairs and route shapes.

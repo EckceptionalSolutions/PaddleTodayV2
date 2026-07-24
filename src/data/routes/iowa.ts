@@ -4329,6 +4329,350 @@ export const iowaRoutes: River[] = [
     ]
   },
   {
+    "id": "wapsipinicon-river-olin-jungletown",
+    "slug": "wapsipinicon-river-olin-jungletown",
+    "name": "Wapsipinicon River",
+    "reach": "Olin Access to Jungletown Access",
+    "state": "Iowa",
+    "region": "Eastern Iowa",
+    "summary": "Short Jones County lower-Wapsipinicon connector between named public county accesses, with sandbar-camping context, no-dam lower-river caveats, and a fresh Anamosa proxy gauge after rejecting stale Oxford Mills data.",
+    "statusText": "Use the Wapsipinicon River near Anamosa gauge as an upstream proxy. CanWePaddle's lower Anamosa-to-Oxford guidance uses 200 to 2,800 cfs at Oxford Mills, but that USGS feed is stale; verify local depth and avoid rising or flood-stage water.",
+    "latitude": 42.003487,
+    "longitude": -91.132667,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Iowa DNR describes the Wapsipinicon from Anamosa to the Mississippi as free-flowing with no dams, but low-head dams exist elsewhere on the river. Stay within the planned Olin-to-Jungletown reach unless you have separately checked downstream hazards.",
+        "This route uses the fresh Anamosa gauge because USGS 05421760 at Oxford Mills is no longer current in Water Services. Make a visual local-depth check at Olin before launching.",
+        "Sandbar camping is allowed on the meandered lower Wapsipinicon from Central City to the Mississippi, but private uplands remain private and bars disappear or become unsafe at higher water."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05421740",
+      "provider": "usgs",
+      "siteId": "05421740",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Wapsipinicon River near Anamosa, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 200,
+      "idealMax": 2800,
+      "tooLow": 200,
+      "tooHigh": 2800,
+      "thresholdSource": {
+        "label": "CanWePaddle lower Wapsipinicon Anamosa-to-Oxford range",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "Late spring through early fall is the practical lower-Wapsi window. The route can be shallow in drought and deceptively fast after rain because the lower river has broad bends, wood, and limited formal exits between county accesses.",
+      "difficulty": "easy",
+      "difficultyNotes": "Mostly moving flatwater for paddlers who can avoid wood and manage rural take-outs. Treat it as guarded easy because the selected product gauge is a documented same-corridor proxy, not the stale downstream Oxford Mills gauge.",
+      "confidenceNotes": "Public access confidence is strong: Jones County and Travel Jones County name Olin Access and Jungletown Access as Wapsipinicon River public access sites, and Water Quality Portal station records provide coordinates for both. Threshold confidence is weaker but documented: CanWePaddle ties the lower Anamosa-to-Oxford corridor to a 200-2,800 cfs Oxford Mills range; USGS 05421760 at Oxford Mills returned only 2017 data during this run, so the product uses fresh USGS 05421740 at Anamosa as an upstream proxy for this short same-corridor lower-Wapsi connector."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Public put-in",
+        "value": "Olin Access",
+        "note": "Travel Jones County lists Olin Rec Area and Olin Access among public Wapsipinicon River access points, and Water Quality Portal station 21IOWA-15530006 resolves the access to 42.003487, -91.132667.",
+        "sourceUrl": "https://www.traveljonescounty.com/outdoor-adventures/"
+      },
+      {
+        "label": "Public take-out",
+        "value": "Jungletown Access",
+        "note": "Jones County describes Jungletown Access as a one-acre county river access three miles south of Hale with a paved boat ramp; Water Quality Portal station 21IOWA-15530004 resolves the access to 41.997559, -91.055705.",
+        "sourceUrl": "https://www.jonescountyiowa.gov/conservation/parks/jungletown_access/"
+      },
+      {
+        "label": "Lower-river safety context",
+        "value": "Free-flowing below Anamosa",
+        "note": "The Iowa DNR/Jones County Wapsipinicon water-trail map says the Wapsipinicon is free-flowing with no dams from Anamosa to the Mississippi and highlights wood, weather, PFD, and private-property safety basics.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
+      },
+      {
+        "label": "Camping context",
+        "value": "Sandbars allowed from Central City to Mississippi",
+        "note": "The Iowa DNR/Jones County map says camping on sandbars is allowed on the meandered Wapsipinicon from Central City to the Mississippi River.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
+      },
+      {
+        "label": "Gauge caveat",
+        "value": "Oxford Mills feed stale; Anamosa proxy fresh",
+        "note": "USGS Water Services returned 05421760 Oxford Mills data from 2017, while 05421740 near Anamosa returned current 2026 data during this run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05421740,05421760&parameterCd=00060,00065&siteStatus=all"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Iowa DNR / Jones County Wapsipinicon River Water Trail map",
+        "url": "https://www.iowadnr.gov/media/8899/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Jones County Jungletown Access",
+        "url": "https://www.jonescountyiowa.gov/conservation/parks/jungletown_access/",
+        "provider": "local"
+      },
+      {
+        "label": "Travel Jones County outdoor adventures",
+        "url": "https://www.traveljonescounty.com/outdoor-adventures/",
+        "provider": "local"
+      },
+      {
+        "label": "CanWePaddle Wapsipinicon River Anamosa to Oxford",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05421740 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "boone-river-riverside-briggs-woods",
+    "slug": "boone-river-riverside-briggs-woods",
+    "name": "Boone River",
+    "reach": "Riverside Park Access to Briggs Woods Park",
+    "state": "Iowa",
+    "region": "North Central Iowa",
+    "summary": "Official upper Webster City Boone River water-trail section from Riverside Park to Briggs Woods, separating the beginner-friendlier city-to-park leg from the faster Albright continuation.",
+    "statusText": "Use the Boone River near Webster City gauge. Treat 200 cfs as the low-water floor, 200 to 1,100 cfs as the broad recreational window, and 1,500+ cfs as advanced-only high water.",
+    "latitude": 42.4677519,
+    "longitude": -93.8118872,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Hamilton County and Iowa DNR describe this section as appropriate for all skill levels at normal water, but low water exposes riffles, rocks, and boulders.",
+        "Do not extend upstream into the Webster City Waterworks / low-head-dam corridor without a separate scout and portage plan.",
+        "The Boone is navigable but non-meandered. Use public accesses and do not treat adjacent banks or the streambed outside access areas as public land."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05481000",
+      "provider": "usgs",
+      "siteId": "05481000",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Boone River near Webster City, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05481000/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 200,
+      "idealMax": 1100,
+      "tooLow": 200,
+      "tooHigh": 1500,
+      "thresholdSource": {
+        "label": "Hamilton County Boone River touring guidance",
+        "url": "https://portal.mycountyparks.com/Handler.ashx?Item_ID=372BE434-1C3F-4D49-9719-43870481A718",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring through early fall is typical. Long dry spells can make riffles scrapable; after rain, wood and city-park constrictions become the main risk.",
+      "difficulty": "easy",
+      "difficultyNotes": "This is the gentler half of the existing Riverside-to-Albright family. Keep it as a normal-water novice route, not a high-water beginner trip.",
+      "confidenceNotes": "High confidence for an Iowa add: Iowa DNR's Boone River map names Riverside Park Access and Briggs Woods Access on the same water trail, Hamilton County lists this exact 4.5-mile section and publishes cfs guidance, Webster City confirms the Boone River Trail corridor has canoe access and parking, and USGS 05481000 is a direct live gauge in the corridor."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route section",
+        "value": "Riverside to Briggs, 4.5 mi",
+        "note": "Hamilton County lists Riverside City Park to Briggs Woods Park as a 4.5-mile Boone River section with wooded banks, rock bluffs, riffles, sand/gravel bed, and boulders.",
+        "sourceUrl": "https://portal.mycountyparks.com/Handler.ashx?Item_ID=372BE434-1C3F-4D49-9719-43870481A718"
+      },
+      {
+        "label": "Access markers",
+        "value": "Riverside mile 27; Briggs mile 22",
+        "note": "The Iowa DNR Boone River map labels Riverside Park Access and Briggs Woods Access on the water-trail access chain.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8883/download?inline="
+      },
+      {
+        "label": "Water-level guidance",
+        "value": "<=1,100 cfs novice; 1,500+ advanced",
+        "note": "Hamilton County tells paddlers to check current Boone River conditions and treats 1,100 cfs or below as good for inexperienced canoeists, while 1,500 cfs and above is advanced-only.",
+        "sourceUrl": "https://portal.mycountyparks.com/Handler.ashx?Item_ID=372BE434-1C3F-4D49-9719-43870481A718"
+      },
+      {
+        "label": "Direct gauge",
+        "value": "USGS 05481000",
+        "note": "USGS operates Boone River near Webster City, IA, a direct gauge in the water-trail corridor.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05481000/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Iowa DNR Boone River Water Trail map",
+        "url": "https://www.iowadnr.gov/media/8883/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Hamilton County Boone River touring information",
+        "url": "https://portal.mycountyparks.com/Handler.ashx?Item_ID=372BE434-1C3F-4D49-9719-43870481A718",
+        "provider": "local"
+      },
+      {
+        "label": "Webster City Boone River Trail",
+        "url": "https://www.webstercity.com/Facilities/Facility/Details/Boone-River-Trail-14",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05481000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05481000/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "boone-river-briggs-woods-albright",
+    "slug": "boone-river-briggs-woods-albright",
+    "name": "Boone River",
+    "reach": "Briggs Woods Park to Albright's Canoe Access",
+    "state": "Iowa",
+    "region": "North Central Iowa",
+    "summary": "Shorter but sharper Boone River water-trail section below Briggs Woods, where Hamilton County flags faster fall, moderately swift water, rocks, boulders, and limestone bluffs before Albright.",
+    "statusText": "Use the Boone River near Webster City gauge. Treat 200 cfs as the low-water floor, 200 to 1,100 cfs as the broad recreational window, and 1,500+ cfs as advanced-only high water.",
+    "latitude": 42.4294,
+    "longitude": -93.8206,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Hamilton County describes this as the section where the Boone drops fastest, with rock rapids, large boulders, and moderately swift water that can challenge novices.",
+        "Albright is the public take-out. Do not continue into the Albright-to-Tunnel Mill segment unless the group is ready for the more remote higher-gradient water below.",
+        "Stay with established public access points because Iowa DNR notes that adjacent and underlying land outside public access sites may be private on this non-meandered river."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05481000",
+      "provider": "usgs",
+      "siteId": "05481000",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Boone River near Webster City, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05481000/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 200,
+      "idealMax": 1100,
+      "tooLow": 200,
+      "tooHigh": 1500,
+      "thresholdSource": {
+        "label": "Hamilton County Boone River touring guidance",
+        "url": "https://portal.mycountyparks.com/Handler.ashx?Item_ID=372BE434-1C3F-4D49-9719-43870481A718",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "This section rewards normal spring-to-fall flow but is bony below the floor and pushier than the upstream Riverside-to-Briggs section after storms.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Short mileage does not make it a beginner default. The faster gradient, boulders, and rock rapids are appropriate for comfortable novice-to-intermediate paddlers at normal water.",
+      "confidenceNotes": "High confidence for route shape and water-level model: Iowa DNR and Hamilton County identify Briggs Woods and Albright as consecutive public Boone River accesses, Hamilton County lists the 3.6-mile section with 5.2 ft/mi fall and hazard notes, and its cfs guidance is tied to the direct USGS 05481000 Webster City gauge."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route section",
+        "value": "Briggs to Albright, 3.6 mi",
+        "note": "Hamilton County lists Briggs Woods Park to Albright's Canoe Access as a 3.6-mile section with 5.2 feet per mile of fall.",
+        "sourceUrl": "https://portal.mycountyparks.com/Handler.ashx?Item_ID=372BE434-1C3F-4D49-9719-43870481A718"
+      },
+      {
+        "label": "Hazard character",
+        "value": "Moderately swift, rocks and boulders",
+        "note": "Hamilton County says the Briggs-to-Albright section has few rapids but moderately swift water, rocks, and large boulders that can challenge novices.",
+        "sourceUrl": "https://portal.mycountyparks.com/Handler.ashx?Item_ID=372BE434-1C3F-4D49-9719-43870481A718"
+      },
+      {
+        "label": "Access markers",
+        "value": "Briggs mile 22; Albright mile 18",
+        "note": "The Iowa DNR Boone River map labels Briggs Woods Access and Albright Access on the water-trail access chain.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8883/download?inline="
+      },
+      {
+        "label": "Water-level guidance",
+        "value": "<=1,100 cfs novice; 1,500+ advanced",
+        "note": "Hamilton County publishes Boone River cfs guidance for the Webster City water-trail sections and says 1,500 cfs and above is advanced-only.",
+        "sourceUrl": "https://portal.mycountyparks.com/Handler.ashx?Item_ID=372BE434-1C3F-4D49-9719-43870481A718"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Iowa DNR Boone River Water Trail map",
+        "url": "https://www.iowadnr.gov/media/8883/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Hamilton County Boone River touring information",
+        "url": "https://portal.mycountyparks.com/Handler.ashx?Item_ID=372BE434-1C3F-4D49-9719-43870481A718",
+        "provider": "local"
+      },
+      {
+        "label": "Travel Iowa Boone River Water Trail",
+        "url": "https://www.traveliowa.com/trails/boone-river-water-trail/81/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05481000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05481000/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
     "id": "maquoketa-river-dundee-manchester",
     "slug": "maquoketa-river-dundee-manchester",
     "name": "Maquoketa River",
