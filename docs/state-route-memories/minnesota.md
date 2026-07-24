@@ -1,5 +1,15 @@
 # Minnesota Route Memory
 
+## 2026-07-23 23:13 America/Chicago / 2026-07-24 04:13 UTC Minnesota Pine / St. Croix gap pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `217` to `220` live route slugs by adding `pine-river-norway-pine-river-1`, `pine-river-pine-river-1-cross-lake`, and `st-croix-river-william-obrien-boomsite`.
+- Qualification path: MN DNR Pine River segments/map and Minnesota public-water-access GIS resolve Norway Lake `WAS00722`, Pine River #1 `WAS00726`, and Cross Lake `WAS01002`; NPS lower St. Croix paddling/boating materials, the 2026 MN DNR William O'Brien access update, and Minnesota public-water-access GIS resolve William O'Brien `WAS00278` and Boomsite `WAS02194`.
+- Live gauge verification: MN DNR river-level JSON returned Pine River near Jenkins site `316` at `13 cfs` at `2026-07-23 20:45 CDT`, below the official scrapable floor, and St. Croix Falls site `236` at `1,890 cfs` at `2026-07-23 20:00 CDT`, also below the official scrapable floor.
+- Threshold posture: all three use official MN DNR interpreted bands only. Pine uses Jenkins `35 / 50-200 / 500 cfs`; Norway-to-Pine-River-#1 marks Jenkins as a downstream same-water-trail proxy, while Pine-River-#1-to-Cross-Lake treats it as same-corridor/direct with lake-wind and dam-outflow caveats. St. Croix uses St. Croix Falls `2,000 / 3,000-8,000 / 11,000 cfs` as an upstream same-corridor proxy with USGS `05340500` fallback.
+- Safety/camping posture: Pine routes flag below-scrapable water, culvert/wood checks, private banks, Whitefish-chain wind/wake exposure, dam/outflow checks, and no assumed on-route camping. St. Croix flags William O'Brien open-as-water-levels-allow status, powerboats, shallow Arcola bars, NPS AIS/no-upstream-control guidance, private banks, special camping rules, and nearby-basecamp-only overnight assumptions.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / NPS / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected.
+- Reviewed but did not add: Des Moines Mayflower-to-Christianna remains proxy weak; Minnesota River Kinney-to-Skalbekken and Kettle/Snake/Cloquet/St. Louis targets were lower value this pass because the selected Pine/St. Croix public-access gaps had stronger official map/access/gauge support and were absent from the 217-route baseline.
+
 ## 2026-07-23 22:15 America/Chicago / 2026-07-24 03:15 UTC Minnesota Mississippi / Minnesota River gap pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `214` to `217` live route slugs by adding `mississippi-river-wolds-ferry-palisade`, `mississippi-river-fletcher-creek-overlook`, and `minnesota-river-war-memorial-kinney`.

@@ -1053,6 +1053,38 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
+  "st-croix-river-william-obrien-boomsite": {
+    "putIn": {
+      "name": "William O'Brien State Park landing",
+      "latitude": 45.217338,
+      "longitude": -92.758926
+    },
+    "takeOut": {
+      "name": "Boom Site public water access",
+      "latitude": 45.081053,
+      "longitude": -92.799961
+    },
+    "logistics": {
+      "distanceLabel": "11.4 mi",
+      "estimatedPaddleTime": "About 3 hr 45 min to 5 hr 30 min",
+      "shuttle": "Standard two-car lower St. Croix shuttle. Confirm William O'Brien landing status before launching, then stage the take-out at Boom Site north of Stillwater.",
+      "permits": "No route-specific paddling permit is known for a day run, but Riverway rules and Minnesota boating law apply. A Minnesota state park vehicle permit can matter at William O'Brien.",
+      "camping": "Treat this as a day trip unless you separately verify a legal lower-Riverway or state-park camping plan. William O'Brien State Park is a nearby base-camp option, but private shoreline and special Riverway rules make ad hoc shoreline camping inappropriate.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch from William O'Brien State Park and finish at Boom Site for the next lower St. Croix segment toward Stillwater. The water is generally nontechnical, but this route needs a lower-river conditions check for wind, wake, shallow bars, and landing status.",
+      "accessCaveats": [
+        "DNR says the William O'Brien river access is open as water levels allow through 2026; same-day park updates and posted signs supersede this saved route note.",
+        "Boom Site is the downstream public-water-access take-out north of Stillwater and can be busy in summer.",
+        "Do not use private banks as default stops; NPS lower-river materials emphasize private land and special camping rules."
+      ],
+      "watchFor": [
+        "Wind and motorboat wake on the broader lower St. Croix.",
+        "Shallow water and exposed bars near Arcola when St. Croix Falls is near or below the DNR scrapable band.",
+        "NPS zebra-mussel control restrictions near the Soo Line High Bridge; avoid upstream boat movement past that control point from downstream waters.",
+        "Cold-water exposure and slower rescue options outside crowded summer weekends."
+      ]
+    }
+  },
   "rum-river-martins-north-county-park": {
     "putIn": {
       "name": "Martin's Landing trailer access",
@@ -2352,6 +2384,68 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "Low-water scraping when the Jenkins gauge falls toward the 35 cfs scrapable floor.",
         "Wood, sweepers, and narrow-channel debris on wooded bends after storms.",
         "Long-route fatigue and cold-water exposure outside midsummer."
+      ]
+    }
+  },
+  "pine-river-norway-pine-river-1": {
+    "putIn": {
+      "name": "Norway Lake Public Water Access Site",
+      "latitude": 46.730429,
+      "longitude": -94.408791
+    },
+    "takeOut": {
+      "name": "Pine River #1 Public Water Access Site",
+      "latitude": 46.723177,
+      "longitude": -94.400548
+    },
+    "logistics": {
+      "distanceLabel": "1.7 mi",
+      "estimatedPaddleTime": "About 45 min to 1 hr 15 min",
+      "shuttle": "Very short two-car shuttle north of Pine River. Check launch depth before unloading because the DNR gauge used by the app is downstream at Jenkins.",
+      "permits": "No route-specific paddling permit is known. Follow posted public-water-access and city landing rules at both endpoints.",
+      "camping": "No on-route camping is assumed for this short connector. Nearby lake-country campgrounds are separate base-camp decisions, not route campsites.",
+      "summary": "Use Norway Lake to Pine River #1 as the short upstream connector into the city of Pine River. It is most useful when the DNR Jenkins gauge is comfortably above the scrapable band and the local channel looks open.",
+      "accessCaveats": [
+        "Norway Lake and Pine River #1 are official Minnesota public-water-access records with river-mile support, but the exact channel can still be shallow in summer.",
+        "The Jenkins gauge is downstream of this segment, so it cannot replace a same-day visual check at the launch and take-out.",
+        "Keep stops to public landings or clearly legal shorelines."
+      ],
+      "watchFor": [
+        "Scraping and walking when Jenkins is below the 35 cfs DNR scrapable floor.",
+        "Low culverts, wood, or beaver-related obstructions after low water or storms.",
+        "Cold water outside midsummer despite the short mileage."
+      ]
+    }
+  },
+  "pine-river-pine-river-1-cross-lake": {
+    "putIn": {
+      "name": "Pine River #1 Public Water Access Site",
+      "latitude": 46.723177,
+      "longitude": -94.400548
+    },
+    "takeOut": {
+      "name": "Pine River, Cross Lake Public Water Access Site",
+      "latitude": 46.668515,
+      "longitude": -94.112831
+    },
+    "logistics": {
+      "distanceLabel": "17.3 mi",
+      "estimatedPaddleTime": "About 6 hr to 8 hr",
+      "shuttle": "Long lake-country shuttle between Pine River and the USACE Cross Lake access. Confirm outflow, lake wind, and take-out loading conditions before committing to the full distance.",
+      "permits": "No route-specific paddling permit is known. Follow posted city, DNR, and USACE public-access rules at the landings.",
+      "camping": "Treat this as a long day trip unless you separately confirm a legal overnight plan. Crosslake-area campgrounds can work as nearby base camps, but they are not assumed as on-route river campsites.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch at Pine River #1 and paddle downstream toward Cross Lake for the missing upper Pine public-access day. The route mixes wooded river travel with Whitefish-chain wind and boat-wake exposure.",
+      "accessCaveats": [
+        "Pine River #1 and Cross Lake are official public-water-access sites, with the DNR access data supporting a 17.3-mile river-mile difference.",
+        "The route approaches the Cross Lake dam system; review the DNR map and do not improvise around controlled outlets or dam infrastructure.",
+        "Low water can turn this from a long paddle into a scrape-and-drag day, so do not rely on distance alone for timing."
+      ],
+      "watchFor": [
+        "Wind waves and motorboat wake on the Whitefish Chain and broader connected water.",
+        "Scraping, exposed boulders, and slow progress when Jenkins is below the DNR medium band.",
+        "Wooded-river strainers, private banks, and cold-water exposure.",
+        "Dam, portage, or controlled-outlet decisions near Cross Lake."
       ]
     }
   },

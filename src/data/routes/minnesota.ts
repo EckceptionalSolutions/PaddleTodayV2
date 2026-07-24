@@ -3214,6 +3214,151 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
+    "id": "st-croix-river-william-obrien-boomsite",
+    "slug": "st-croix-river-william-obrien-boomsite",
+    "name": "St. Croix River",
+    "reach": "William O'Brien State Park Landing to Boom Site Landing",
+    "state": "Minnesota",
+    "region": "Lower St. Croix",
+    "summary": "Lower St. Croix day from William O'Brien State Park to Boom Site, closing the public-landing gap between the existing Osceola-to-William-O'Brien route and Stillwater. It is not a rapids run, but wind, powerboats, private banks, shallow bars, and the 2026 William O'Brien access caveat make it a conditions-first route.",
+    "statusText": "Use the DNR St. Croix Falls gauge as an upstream official proxy: 3,000 to 8,000 cfs is the medium band, below 2,000 cfs is scrapable, and above 11,000 cfs is very high. Also check William O'Brien access and lower-river boating rules before launching.",
+    "latitude": 45.217338,
+    "longitude": -92.758926,
+    "gaugeSource": {
+      "id": "mn-dnr-236",
+      "provider": "mn_dnr",
+      "siteId": "236",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "St. Croix River at St. Croix Falls, WI",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=37048002",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=37048002&var1=262&width=700&height=320"
+    },
+    "fallbackGaugeSources": [
+      {
+        "id": "usgs-05340500",
+        "provider": "usgs",
+        "siteId": "05340500",
+        "metric": "discharge_cfs",
+        "unit": "cfs",
+        "kind": "proxy",
+        "siteName": "St. Croix River at St. Croix Falls, WI",
+        "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05340500/"
+      }
+    ],
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "DNR says the William O'Brien St. Croix access remains open as water levels allow through 2026; check same-day park status before committing to this put-in.",
+        "NPS lower-river materials call out powerboats, special camping rules, shallow bars near Arcola, and private shoreline between public landings.",
+        "Do not plan upstream boat travel past the Soo Line High Bridge from downstream water because NPS restricts upstream movement there for zebra-mussel control."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 3000,
+      "idealMax": 8000,
+      "tooLow": 2000,
+      "tooHigh": 11000,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for St. Croix River at St. Croix Falls",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "low",
+      "windSensitivity": 1.5,
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Late spring through fall is the practical lower-St.-Croix window. Wind, wakes, and local access status can matter more than small changes in discharge on this broad reach.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The reach has no rapids, but it is an 11-plus-mile lower-river shuttle with wind, boat traffic, private shoreline, and access-status checks.",
+      "confidenceNotes": "Endpoint confidence is high because Minnesota public-water-access GIS resolves William O'Brien and Boom Site with river-mile records. Threshold confidence is moderate: the DNR St. Croix Falls gauge has official bands for the same river corridor, but it is upstream of this lower-river segment, so same-day visual checks and NPS boating conditions still matter."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Public access records",
+        "value": "William O'Brien SPK WAS00278 / Boomsite WAS02194",
+        "note": "Minnesota public-water-access GIS places William O'Brien State Park Landing at river mile 37.0 and Boomsite at river mile 25.6, supporting an 11.4-mile public-access segment.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "2,000 / 3,000-8,000 / 11,000 cfs",
+        "note": "MN DNR interprets the St. Croix Falls gauge as scrapable below 2,000 cfs, medium from 3,000 to 8,000 cfs, and very high above 11,000 cfs.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "1,890 cfs at 2026-07-23 20:00 CDT",
+        "note": "The current MN DNR feed placed St. Croix Falls below the official scrapable floor during this run, so this lower-river route should score as too low until water improves.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Lower-river character",
+        "value": "No rapids, shallow bars, powerboats common",
+        "note": "NPS lower St. Croix materials place William O'Brien and Boom Site on the same paddling-guide corridor and warn about shallow areas, powerboats, private land, and special camping rules.",
+        "sourceUrl": "https://www.nps.gov/sacn/planyourvisit/upload/lower-st-croix-pg-final.pdf"
+      },
+      {
+        "label": "Put-in status",
+        "value": "Open as water levels allow through 2026",
+        "note": "Minnesota DNR says the William O'Brien St. Croix public water access is expected to remain open as water levels allow through 2026, with dredging work planned later.",
+        "sourceUrl": "https://www.dnr.state.mn.us/news/2026/02/17/minnesota-dnr-shares-reconstruction-plan-lake-alice-william-obrien-state-park"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "NPS lower St. Croix paddling guide PDF",
+        "url": "https://www.nps.gov/sacn/planyourvisit/upload/lower-st-croix-pg-final.pdf"
+      },
+      {
+        "label": "NPS Saint Croix boating rules",
+        "url": "https://www.nps.gov/sacn/planyourvisit/boating.htm"
+      },
+      {
+        "label": "MN DNR February 17, 2026 William O'Brien access update",
+        "url": "https://www.dnr.state.mn.us/news/2026/02/17/minnesota-dnr-shares-reconstruction-plan-lake-alice-william-obrien-state-park"
+      },
+      {
+        "label": "MN DNR William O'Brien State Park",
+        "url": "https://www.dnr.state.mn.us/state_parks/park.html?id=spk00283#homepage"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "USGS 05340500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05340500/"
+      }
+    ]
+  },
+  {
     "id": "rum-river-martins-north-county-park",
     "slug": "rum-river-martins-north-county-park",
     "name": "Rum River",
@@ -6656,6 +6801,244 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "Minnesota public water access feature service",
         "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      }
+    ]
+  },
+  {
+    "id": "pine-river-norway-pine-river-1",
+    "slug": "pine-river-norway-pine-river-1",
+    "name": "Pine River",
+    "reach": "Norway Lake to Pine River #1",
+    "state": "Minnesota",
+    "region": "Brainerd Lakes Area",
+    "summary": "Short upper Pine River connector from Norway Lake's DNR landing to the city Pine River #1 access. It fills the public-access gap upstream of the longer Pine River #1-to-Cross-Lake run, but low water and the downstream Jenkins gauge mean this is a visual-check route.",
+    "statusText": "Use the Jenkins DNR gauge as a downstream Pine River proxy: 50 to 200 cfs is the medium band, below 35 cfs is scrapable, and above 500 cfs is very high. Below-scrapable readings should keep this short upper segment off the go list.",
+    "latitude": 46.730429,
+    "longitude": -94.408791,
+    "gaugeSource": {
+      "id": "mn-dnr-316",
+      "provider": "mn_dnr",
+      "siteId": "316",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Pine River nr Jenkins, CSAH15",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=11015001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=11015001&var1=262&width=700&height=320"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks",
+        "cold_water",
+        "access_uncertain"
+      ],
+      "safetyNotes": [
+        "This is a short route, but the Jenkins gauge is downstream; inspect launch depth, culverts, and current before committing.",
+        "MN DNR warns that upper Pine water levels normally fall through summer and that some upper-river culverts may require portaging.",
+        "Use public landings for stops; nearby banks are a mix of public, private, and developed lake-country shorelines."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 50,
+      "idealMax": 200,
+      "tooLow": 35,
+      "tooHigh": 500,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Pine River near Jenkins",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 1.1,
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "DNR says Pine River levels usually peak in mid to late May, fall through summer, and can rise again in fall. Treat low summer readings conservatively on this upper segment.",
+      "difficulty": "easy",
+      "difficultyNotes": "The mileage is short and the endpoint access is strong, but low water, culvert checks, and private shoreland make it more than a casual pond shuttle.",
+      "confidenceNotes": "Endpoint and distance confidence is high because Minnesota public-water-access GIS gives river-mile records for Norway Lake and Pine River #1. Gauge confidence is moderate because Jenkins is downstream of the segment, so the card uses official DNR bands only as a conservative same-water-trail proxy."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Public access records",
+        "value": "Norway Lake WAS00722 / Pine River #1 WAS00726",
+        "note": "Minnesota public-water-access GIS places Norway Lake at river mile 38.8 and Pine River #1 at river mile 37.1, supporting a 1.7-mile public-access segment.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "35 / 50-200 / 500 cfs",
+        "note": "MN DNR interprets Jenkins as scrapable below 35 cfs, low from 35 to 50, medium from 50 to 200, high from 200 to 500, and very high above 500.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "13 cfs at 2026-07-23 20:45 CDT",
+        "note": "The current MN DNR feed placed Jenkins below the official scrapable floor during this run, so the route should score as too low until conditions improve.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Upper-river character",
+        "value": "Seasonal levels and culvert caution",
+        "note": "MN DNR describes Pine River levels as peaking in spring and dropping through summer, and flags box or low culverts as upper-river portage hazards.",
+        "sourceUrl": "https://www.dnr.state.mn.us/watertrails/pineriver/segments-maps.html"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR Pine River segments and maps",
+        "url": "https://www.dnr.state.mn.us/watertrails/pineriver/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Pine River map PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/pine.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
+      }
+    ]
+  },
+  {
+    "id": "pine-river-pine-river-1-cross-lake",
+    "slug": "pine-river-pine-river-1-cross-lake",
+    "name": "Pine River",
+    "reach": "Pine River #1 to Cross Lake",
+    "state": "Minnesota",
+    "region": "Brainerd Lakes Area",
+    "summary": "Long upper Pine and Whitefish-chain connector from the city Pine River #1 landing to the USACE Cross Lake access. This fills a missing official-access pair, but the day should be planned around low-water scraping, dam-regulated outflow, wind, and motorboat exposure on connected lake water.",
+    "statusText": "The Jenkins DNR gauge is on this water-trail corridor: 50 to 200 cfs is the medium band, below 35 cfs is scrapable, and above 500 cfs is very high. Add a same-day lake-wind and Cross Lake outflow check.",
+    "latitude": 46.723177,
+    "longitude": -94.400548,
+    "gaugeSource": {
+      "id": "mn-dnr-316",
+      "provider": "mn_dnr",
+      "siteId": "316",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Pine River nr Jenkins, CSAH15",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=11015001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=11015001&var1=262&width=700&height=320"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam",
+        "strainers",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Review the DNR Pine River map before launching because dams, controlled outlets, and lake-chain crossings affect route choices.",
+        "DNR warns that large waves can build on the Whitefish Chain during wind or heavy boat traffic; stay near shore when needed.",
+        "At very low Jenkins readings, expect scraping, slower travel, and possible walking around shallow riffles before committing to the long shuttle."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 50,
+      "idealMax": 200,
+      "tooLow": 35,
+      "tooHigh": 500,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Pine River near Jenkins",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 1.4,
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "DNR says Pine River levels usually peak in mid to late May and fall through summer, while the river below Cross Lake Dam is generally runnable through summer. Wind on the lake-chain portions can be the deciding factor even when flow is acceptable.",
+      "difficulty": "moderate",
+      "difficultyNotes": "This is a longer shuttle through river and lake-chain water with wind, wake, and dam-system checks, despite generally nontechnical current.",
+      "confidenceNotes": "Endpoint and route-shape confidence is high because Minnesota public-water-access GIS resolves Pine River #1 and Cross Lake with river-mile records and the DNR Pine map covers the same corridor. Gauge confidence is good for the river portion because Jenkins sits along the corridor, but Cross Lake dam operations and lake wind still require visual checks."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Public access records",
+        "value": "Pine River #1 WAS00726 / Cross Lake WAS01002",
+        "note": "Minnesota public-water-access GIS places Pine River #1 at river mile 37.1 and Cross Lake at river mile 19.8, supporting a 17.3-mile public-access segment.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "35 / 50-200 / 500 cfs",
+        "note": "MN DNR interprets Jenkins as scrapable below 35 cfs, low from 35 to 50, medium from 50 to 200, high from 200 to 500, and very high above 500.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "13 cfs at 2026-07-23 20:45 CDT",
+        "note": "The current MN DNR feed placed Jenkins below the official scrapable floor during this run, so the route should score as too low until conditions improve.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Lake-chain and dam caution",
+        "value": "Wind waves and dam checks",
+        "note": "MN DNR says the Pine is a gravel-bottomed river with occasional boulders, flags dams and portages, and warns that large waves may develop on the Whitefish Chain in wind or heavy boat traffic.",
+        "sourceUrl": "https://www.dnr.state.mn.us/watertrails/pineriver/segments-maps.html"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR Pine River segments and maps",
+        "url": "https://www.dnr.state.mn.us/watertrails/pineriver/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Pine River map PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/pine.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
       }
     ]
   },
