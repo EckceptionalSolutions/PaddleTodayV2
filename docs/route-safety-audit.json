@@ -1,37 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-24T07:32:11.724Z",
-  "routeCount": 920,
-  "issueCount": 576,
+  "generatedAt": "2026-07-24T09:34:48.804Z",
+  "routeCount": 929,
+  "issueCount": 574,
   "summary": {
     "Critical": 0,
-    "High": 344,
+    "High": 342,
     "Medium": 232,
     "Low": 0
   },
   "issues": [
-    {
-      "routeId": "wabash-river-vera-cruz-hale-street",
-      "slug": "wabash-river-vera-cruz-hale-street",
-      "name": "Wabash River",
-      "reach": "Vera Cruz Paddlesports Launch to Hale Street access",
-      "state": "Indiana",
-      "severity": "High",
-      "category": "Obstruction",
-      "message": "Route text mentions wood or obstruction hazards.",
-      "evidence": "ay call. The current is usually mellow, but the route still needs attention for wood, private banks, and the simpler earthen Hale finish once you enter the Bluffton corridor. Confidence is good for a conservative Indiana add: Wells County Trails supports the r"
-    },
-    {
-      "routeId": "wabash-river-vera-cruz-hale-street",
-      "slug": "wabash-river-vera-cruz-hale-street",
-      "name": "Wabash River",
-      "reach": "Vera Cruz Paddlesports Launch to Hale Street access",
-      "state": "Indiana",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "l. The current is usually mellow, but the route still needs attention for wood, private banks, and the simpler earthen Hale finish once you enter the Bluffton corridor. Confidence is good for a conservative Indiana add: Wells County Trails supports the route b"
-    },
     {
       "routeId": "boone-river-riverside-albright",
       "slug": "boone-river-riverside-albright",

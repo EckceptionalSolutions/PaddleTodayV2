@@ -685,6 +685,21 @@ export const indianaRoutes: River[] = [
       "kind": "direct",
       "siteName": "Wabash River at Bluffton, IN"
     },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Wells County Trails warns that high water adds stronger flow and debris and can make obstacles more hazardous. Stay out during Action or Flood Stage and be conservative after heavy rain.",
+        "Expect floating wood, log jams, bridge debris, submerged snags, and shallow bars. Low water can require getting out of the kayak to work through shallow sections.",
+        "Take out at the public east-end Hale Street access and inspect it before launching. It is a simple low-bank / earthen access with grass parking, and downstream Rose Road is listed as private.",
+        "Use only the named public access points. Banks between launches may be private, so plan the 6.6-mile route without assuming legal intermediate exits."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "profile": {
       "thresholdModel": "two-sided",
       "idealMin": 1.5,
