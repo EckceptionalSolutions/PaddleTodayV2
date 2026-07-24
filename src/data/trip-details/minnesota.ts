@@ -1886,6 +1886,68 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
+  "crow-wing-river-huntersville-north-mary-brown": {
+    "putIn": {
+      "id": "crow-wing-huntersville-north",
+      "name": "Crow Wing River, Huntersville (N) Public Water Access Site",
+      "latitude": 46.77839539490564,
+      "longitude": -94.89298138194548
+    },
+    "takeOut": {
+      "id": "crow-wing-mary-brown",
+      "name": "Crow Wing River, Mary Brown #5 Public Water Access Site",
+      "latitude": 46.71758222409383,
+      "longitude": -94.92898508221442
+    },
+    "logistics": {
+      "distanceLabel": "7.3 mi",
+      "estimatedPaddleTime": "About 2.5 hr to 4 hr, longer with low water, vegetation, or wood checks",
+      "shuttle": "Stage Mary Brown first, then drive back to Huntersville North. Check both forest access roads and the launch channel before committing because the Nimrod gauge is downstream.",
+      "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules and posted DNR state-forest, public-access, and campsite rules.",
+      "camping": "Huntersville State Forest provides primitive campground and watercraft-campsite context nearby, but this short day card does not assume a campsite between Huntersville North and Mary Brown. Use designated public sites only.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Launch at Huntersville North and finish at Mary Brown for the current DNR-recommended Crow Wing Map 1 day trip through Huntersville State Forest. The Nimrod gauge is a downstream proxy, so visible depth, vegetation, and wood decide the launch call.",
+      "accessCaveats": [
+        "Huntersville North and Mary Brown both resolve as Minnesota public-water-access GIS records with river miles and coordinates.",
+        "The route uses the official Nimrod interpreted gauge downstream of the take-out. Confirm depth and channel conditions at Huntersville before launching.",
+        "Private banks and informal forest edges are not backup landings; stay with public accesses and designated sites."
+      ],
+      "watchFor": [
+        "Vegetation-choked channels, shallow bars, storm wood, sweepers, and low-water dragging.",
+        "Remote forest access, cold shoulder-season water, and limited fast rescue exposure.",
+        "Rising water or localized debris that makes the downstream Nimrod gauge less representative."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "crow-wing-huntersville-north",
+        "name": "Crow Wing River, Huntersville (N) Public Water Access Site",
+        "latitude": 46.77839539490564,
+        "longitude": -94.89298138194548,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; public-water-access GIS resolves WAS01525 at DNR river mile 82.6."
+      },
+      {
+        "id": "crow-wing-huntersville-two",
+        "name": "Crow Wing River, Huntersville #2 Public Water Access Site",
+        "latitude": 46.76407036373086,
+        "longitude": -94.90460531243961,
+        "mileFromStart": 1.5,
+        "segmentKind": "creek",
+        "note": "Optional early public access at river mile 81.1."
+      },
+      {
+        "id": "crow-wing-mary-brown",
+        "name": "Crow Wing River, Mary Brown #5 Public Water Access Site",
+        "latitude": 46.71758222409383,
+        "longitude": -94.92898508221442,
+        "mileFromStart": 7.3,
+        "segmentKind": "creek",
+        "note": "Default take-out; public-water-access GIS resolves WAS02558 at DNR river mile 75.3."
+      }
+    ]
+  },
   "crow-wing-river-mary-brown-cottingham": {
     "putIn": {
       "name": "Mary Brown Rest Area #5 carry-in access",
@@ -3551,6 +3613,59 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "Wind exposure on the more open lower-river bends approaching Appleton."
       ]
     }
+  },
+  "long-prairie-river-reynolds-long-prairie": {
+    "putIn": {
+      "id": "long-prairie-reynolds-township",
+      "name": "Long Prairie River, Reynolds Township Public Water Access Site",
+      "latitude": 45.99163640813891,
+      "longitude": -94.94490209063423
+    },
+    "takeOut": {
+      "id": "long-prairie-city-access",
+      "name": "Long Prairie River, Long Prairie Public Water Access Site",
+      "latitude": 45.97554472501024,
+      "longitude": -94.86588560933846
+    },
+    "logistics": {
+      "distanceLabel": "About 7.3 mi",
+      "estimatedPaddleTime": "About 2.5 hr to 4 hr, longer with low-water dragging or culvert checks",
+      "shuttle": "Stage Long Prairie first, then drive west to Reynolds Township. Check bridge and culvert clearance before launching, especially after rain or when the gauge is low.",
+      "permits": "No route-specific paddling permit is known. Follow posted public-access, city, WMA, boating, and PFD rules at Reynolds Township and Long Prairie.",
+      "camping": "Treat this as a day route. DNR's Long Prairie map has general designated-site-only camping rules, but no on-route campsite is assumed between Reynolds Township and the city access.",
+      "campingClassification": "none",
+      "summary": "Launch at Reynolds Township and finish at the City of Long Prairie access, just above the existing Long-Prairie-to-Browerville card. The direct in-town gauge is useful, but this upper-town connector still needs low-bridge, culvert, and wood checks.",
+      "accessCaveats": [
+        "Both endpoints resolve in Minnesota public-water-access GIS; use the named carry-ins instead of private farm banks.",
+        "DNR Map Long Prairie places multiple bridges and culverts above town, so high water can create portage or clearance problems.",
+        "Low summer water can make the route slow, shallow, or intermittently impassable even when a short shuttle looks simple."
+      ],
+      "watchFor": [
+        "Low bridges, culverts, deadfall, sweepers, and tight bends above Long Prairie.",
+        "Private banks and DNR's no-riverbed-camping-next-to-private-property rule.",
+        "Low-water dragging in summer and faster current after rain."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "long-prairie-reynolds-township",
+        "name": "Long Prairie River, Reynolds Township Public Water Access Site",
+        "latitude": 45.99163640813891,
+        "longitude": -94.94490209063423,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; public-water-access GIS resolves WAS02344 and DNR Map Long Prairie places Reynolds Township at river mile 54.8."
+      },
+      {
+        "id": "long-prairie-city-access",
+        "name": "Long Prairie River, Long Prairie Public Water Access Site",
+        "latitude": 45.97554472501024,
+        "longitude": -94.86588560933846,
+        "mileFromStart": 7.3,
+        "segmentKind": "creek",
+        "note": "Default take-out near the direct Long Prairie DNR gauge; public-water-access GIS resolves WAS02429."
+      }
+    ]
   },
   "long-prairie-river-long-prairie-browerville": {
     "putIn": {
@@ -7659,6 +7774,59 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 10.3,
         "segmentKind": "creek",
         "note": "Default take-out; resolves as WAS02744 at DNR river mile 10.2."
+      }
+    ]
+  },
+  "whitewater-river-county-26-beaver": {
+    "putIn": {
+      "id": "whitewater-elba-county-26",
+      "name": "Whitewater River, Elba Public Water Access Site",
+      "latitude": 44.09223907243242,
+      "longitude": -92.01339865057027
+    },
+    "takeOut": {
+      "id": "whitewater-beaver-highway-74",
+      "name": "Whitewater River, Beaver Public Water Access Site",
+      "latitude": 44.14967623256145,
+      "longitude": -92.00562100063136
+    },
+    "logistics": {
+      "distanceLabel": "6.2 mi",
+      "estimatedPaddleTime": "About 2 hr to 3.5 hr, longer with wood scouting or low-water scraping",
+      "shuttle": "Stage Beaver first, then drive back to the Elba / County Highway 26 access. Confirm parking, river visibility, and current wood before launching.",
+      "permits": "No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey WMA, trout-stream, and parking restrictions.",
+      "camping": "No camping is assumed. MN DNR says the Whitewater River State Water Trail has no campsites or rest areas, and users should protect the ecological integrity of the river corridor.",
+      "campingClassification": "none",
+      "summary": "Launch at the Elba / County Highway 26 access and take out at Beaver for DNR's 6.2-mile recommended Whitewater section. The Beaver gauge is direct and currently medium, but wood and logjams remain the real field check.",
+      "accessCaveats": [
+        "Elba and Beaver resolve as Minnesota public-water-access GIS records, but both are small carry-in sites with limited services.",
+        "This route stops at Beaver before the lower Beaver-to-Weaver reach that DNR calls unsuitable for novice paddlers.",
+        "Do not use informal private banks or WMA edges as routine stops."
+      ],
+      "watchFor": [
+        "Strainers, tight bends, deadfall, and occasional logjam portages.",
+        "Fast rises after rain and pushy current around wood when the Beaver gauge climbs.",
+        "Low-water scraping, cold water, and ecological sensitivity in the Whitewater corridor."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "whitewater-elba-county-26",
+        "name": "Whitewater River, Elba Public Water Access Site",
+        "latitude": 44.09223907243242,
+        "longitude": -92.01339865057027,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; resolves as WAS00252 at DNR river mile 16.3."
+      },
+      {
+        "id": "whitewater-beaver-highway-74",
+        "name": "Whitewater River, Beaver Public Water Access Site",
+        "latitude": 44.14967623256145,
+        "longitude": -92.00562100063136,
+        "mileFromStart": 6.2,
+        "segmentKind": "creek",
+        "note": "Default take-out; resolves as WAS02183 at DNR river mile 10.3 beside the Beaver gauge."
       }
     ]
   },

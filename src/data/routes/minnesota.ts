@@ -9733,6 +9733,172 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
+    "id": "crow-wing-river-huntersville-north-mary-brown",
+    "slug": "crow-wing-river-huntersville-north-mary-brown",
+    "name": "Crow Wing River",
+    "reach": "Huntersville North to Mary Brown",
+    "state": "Minnesota",
+    "region": "Wadena Area",
+    "summary": "Official MN DNR Map 1 day trip through Huntersville State Forest from Huntersville North to Mary Brown, using public water-access endpoints, primitive campground context, and the downstream Nimrod interpreted gauge as a conservative same-corridor signal.",
+    "statusText": "Use the Nimrod DNR gauge as a downstream same-water-trail proxy: 400 to 800 cfs is medium, below 300 cfs is scrapable, and above 1,100 cfs is very high. The current reading is below the scrapable floor.",
+    "latitude": 46.77839539490564,
+    "longitude": -94.89298138194548,
+    "gaugeSource": {
+      "id": "mn-dnr-55",
+      "provider": "mn_dnr",
+      "siteId": "55",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Crow Wing River at Nimrod, MN",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=12085001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12085001&var1=262&width=700&height=320"
+    },
+    "fallbackGaugeSources": [
+      {
+        "id": "usgs-05244000",
+        "provider": "usgs",
+        "siteId": "05244000",
+        "metric": "discharge_cfs",
+        "unit": "cfs",
+        "kind": "proxy",
+        "siteName": "Crow Wing River at Nimrod, MN"
+      }
+    ],
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 400,
+      "idealMax": 800,
+      "tooLow": 300,
+      "tooHigh": 1100,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Crow Wing River at Nimrod",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "Late spring through early fall is practical when the upper Crow Wing has enough depth. Low summer water can expose sandy shallows, and storms can add wood or make the downstream Nimrod proxy less representative of the forest reach.",
+      "difficulty": "moderate",
+      "difficultyNotes": "DNR presents this as an enjoyable recommended day trip, but it is still a remote forest reach with vegetation, wood, private-bank limits, and a downstream proxy gauge. Treat it as a real shuttle day, not a city-park float.",
+      "confidenceNotes": "Confidence is good for route shape and endpoints: the current MN DNR Crow Wing segments page recommends Huntersville North to Mary Brown as a 7.3-mile day trip, the 2026 Map 1 PDF places both accesses in order, and Minnesota public-water-access GIS resolves Huntersville North WAS01525 and Mary Brown WAS02558 with coordinates and river miles. Gauge confidence is moderate because the interpreted Nimrod gauge is downstream, so same-day visual checks remain required."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "remote",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "DNR warns that Crow Wing channels between the northern lakes can become thick with vegetation and impassable at times; check the launch corridor rather than relying only on Nimrod.",
+        "Use the named public accesses and designated state-forest or county sites only. Private shoreland and informal banks are not backup landings.",
+        "The Nimrod gauge is downstream of the route, so rising water, fresh wood, or localized low water near Huntersville should override the card score."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "putIn": {
+      "name": "Crow Wing River, Huntersville (N) Public Water Access Site",
+      "latitude": 46.77839539490564,
+      "longitude": -94.89298138194548
+    },
+    "takeOut": {
+      "name": "Crow Wing River, Mary Brown #5 Public Water Access Site",
+      "latitude": 46.71758222409383,
+      "longitude": -94.92898508221442
+    },
+    "accessPoints": [
+      {
+        "id": "crow-wing-huntersville-north",
+        "name": "Crow Wing River, Huntersville (N) Public Water Access Site",
+        "latitude": 46.77839539490564,
+        "longitude": -94.89298138194548,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS01525 at DNR river mile 82.6."
+      },
+      {
+        "id": "crow-wing-huntersville-two",
+        "name": "Crow Wing River, Huntersville #2 Public Water Access Site",
+        "latitude": 46.76407036373086,
+        "longitude": -94.90460531243961,
+        "mileFromStart": 1.5,
+        "segmentKind": "creek",
+        "note": "Optional early public access at river mile 81.1; useful if launch conditions at Huntersville North are not acceptable."
+      },
+      {
+        "id": "crow-wing-mary-brown",
+        "name": "Crow Wing River, Mary Brown #5 Public Water Access Site",
+        "latitude": 46.71758222409383,
+        "longitude": -94.92898508221442,
+        "mileFromStart": 7.3,
+        "segmentKind": "creek",
+        "note": "Default take-out; Minnesota public-water-access GIS resolves WAS02558 at DNR river mile 75.3."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Official recommended trip",
+        "value": "Huntersville North RM 82.6 to Mary Brown RM 75.3, 7.3 miles",
+        "note": "MN DNR lists Huntersville North to Mary Brown as the recommended Map 1 Crow Wing day trip through Huntersville State Forest with campsite and outfitter context.",
+        "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/crow-wing-river/segments-maps.html"
+      },
+      {
+        "label": "Public access records",
+        "value": "WAS01525 to WAS02558",
+        "note": "Minnesota public-water-access GIS resolves Huntersville North and Mary Brown as official Crow Wing River public access sites with coordinates and river-mile values.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "300 / 400-800 / 1,100 cfs",
+        "note": "MN DNR interprets the Nimrod gauge as Scrapable below 300 cfs, Low from 300 to 400, Medium from 400 to 800, High from 800 to 1,100, and Very High above 1,100.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "148 cfs at 2026-07-23 21:00 CDT",
+        "note": "The current MN DNR feed placed Nimrod below the official scrapable floor during this run.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Safety posture",
+        "value": "Vegetation, wood, and remote forest access",
+        "note": "DNR Map 1 warns that northern Crow Wing channels can become thick with vegetation and may be impassable at times, while the route page frames Huntersville State Forest as a remote public-land corridor.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR Crow Wing River segments and maps",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/crow-wing-river/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Crow Wing River Map 1 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      }
+    ]
+  },
+  {
     "id": "crow-wing-river-mary-brown-cottingham",
     "slug": "crow-wing-river-mary-brown-cottingham",
     "name": "Crow Wing River",
@@ -11213,6 +11379,152 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "MN DNR interactive gauge detail for Appleton site 168",
         "url": "https://www.dnr.state.mn.us/waters/csg/site.html?id=23007001"
+      }
+    ]
+  },
+  {
+    "id": "long-prairie-river-reynolds-long-prairie",
+    "slug": "long-prairie-river-reynolds-long-prairie",
+    "name": "Long Prairie River",
+    "reach": "Reynolds Township to Long Prairie",
+    "state": "Minnesota",
+    "region": "Central Minnesota",
+    "summary": "Upstream Long Prairie connector from Reynolds Township to the City of Long Prairie, filling the public-access gap above the existing Long-Prairie-to-Browerville day route with the direct in-town DNR gauge at the finish corridor.",
+    "statusText": "Use the Long Prairie DNR gauge: 200 to 500 cfs is the official medium band. Below 53 cfs is scrapable, and above 650 cfs is very high.",
+    "latitude": 45.99163640813891,
+    "longitude": -94.94490209063423,
+    "gaugeSource": {
+      "id": "mn-dnr-89",
+      "provider": "mn_dnr",
+      "siteId": "89",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Long Prairie River at Long Prairie, MN",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=14051001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=14051001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 200,
+      "idealMax": 500,
+      "tooLow": 53,
+      "tooHigh": 650,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Long Prairie River at Long Prairie",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "DNR says the Long Prairie is usually best in spring and early summer, and that summer lows can make portions slow, shallow, or impassable. This upper-town connector needs bridge, culvert, and wood checks before launch.",
+      "difficulty": "easy",
+      "difficultyNotes": "This is a short, narrow, winding connector into town. It is easier than the full Browerville day, but low bridges, culverts, wood, private banks, and low-water dragging keep it from being a blind beginner recommendation.",
+      "confidenceNotes": "Confidence is good: the 2026 DNR Long Prairie map places Reynolds Township, County Road 11, and Long Prairie in sequence; Minnesota public-water-access GIS resolves Reynolds Township WAS02344 and Long Prairie WAS02429; and the Long Prairie interpreted gauge sits at the take-out corridor with official bands."
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "DNR warns that low bridges and culverts are most numerous between Lake Carlos and Long Prairie and may require portaging during high water.",
+        "Low summer water can become slow, shallow, or intermittently impassable. Check the Reynolds launch and the Long Prairie take-out before committing.",
+        "Stay off private property and use designated accesses only; the DNR map says riverbed camping next to private property is not permitted."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "putIn": {
+      "name": "Long Prairie River, Reynolds Township Public Water Access Site",
+      "latitude": 45.99163640813891,
+      "longitude": -94.94490209063423
+    },
+    "takeOut": {
+      "name": "Long Prairie River, Long Prairie Public Water Access Site",
+      "latitude": 45.97554472501024,
+      "longitude": -94.86588560933846
+    },
+    "accessPoints": [
+      {
+        "id": "long-prairie-reynolds-township",
+        "name": "Long Prairie River, Reynolds Township Public Water Access Site",
+        "latitude": 45.99163640813891,
+        "longitude": -94.94490209063423,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; public-water-access GIS resolves WAS02344 and DNR Map Long Prairie places Reynolds Township at river mile 54.8."
+      },
+      {
+        "id": "long-prairie-city-access",
+        "name": "Long Prairie River, Long Prairie Public Water Access Site",
+        "latitude": 45.97554472501024,
+        "longitude": -94.86588560933846,
+        "mileFromStart": 7.3,
+        "segmentKind": "creek",
+        "note": "Default take-out at the city carry-in near the direct Long Prairie DNR gauge; public-water-access GIS resolves WAS02429."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Map support",
+        "value": "Reynolds Township RM 54.8 to Long Prairie RM 47.5, about 7.3 miles",
+        "note": "MN DNR Map Long Prairie places Reynolds Township, County Road 11, and the City of Long Prairie carry-in in downstream order above the DNR recommended Long-Prairie-to-Browerville day trip.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/longprairie.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "WAS02344 to WAS02429",
+        "note": "Minnesota public-water-access GIS resolves Reynolds Township and Long Prairie with coordinates, directions, and river-mile records.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "53 / 200-500 / 650 cfs",
+        "note": "MN DNR interprets the Long Prairie gauge as Scrapable below 53 cfs, Low from 53 to 200, Medium from 200 to 500, High from 500 to 650, and Very High above 650.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "88.6 cfs at 2026-07-23 21:15 CDT",
+        "note": "The current MN DNR feed placed Long Prairie in the official low band during this run.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Safety and camping rules",
+        "value": "Low bridges, culverts, private-bank limits",
+        "note": "The DNR page and map warn that the Long Prairie can become slow and shallow, that low bridges and culverts are common above town, and that riverbed camping next to private property is not permitted.",
+        "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/long-prairie-river/segments-maps.html"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR Long Prairie River segments and maps",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/long-prairie-river/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Long Prairie River map PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/longprairie.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
       }
     ]
   },
@@ -25489,6 +25801,171 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "MN DNR river-level site data",
         "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      }
+    ]
+  },
+  {
+    "id": "whitewater-river-county-26-beaver",
+    "slug": "whitewater-river-county-26-beaver",
+    "name": "Whitewater River",
+    "reach": "County Highway 26 / Elba to Beaver",
+    "state": "Minnesota",
+    "region": "Southeast Minnesota",
+    "summary": "Official MN DNR recommended Whitewater section from the County Highway 26 / Elba carry-in to Beaver, using the direct Beaver interpreted gauge and a conservative wood-and-logjam safety posture.",
+    "statusText": "Use the Beaver DNR gauge: 692.3 to 697 ft of gauge elevation is the official medium band. Below 690 ft is scrapable, and above 698 ft is very high.",
+    "latitude": 44.09223907243242,
+    "longitude": -92.01339865057027,
+    "routeType": "whitewater",
+    "gaugeSource": {
+      "id": "mn-dnr-265",
+      "provider": "mn_dnr",
+      "siteId": "265",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "metricLabel": "Gauge elevation",
+      "kind": "direct",
+      "siteName": "Whitewater River nr Beaver, CSAH30",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=40016001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=40016001&var1=232&width=700&height=320"
+    },
+    "fallbackGaugeSources": [
+      {
+        "id": "usgs-05377500",
+        "provider": "usgs",
+        "siteId": "05377500",
+        "metric": "gage_height_ft",
+        "unit": "ft",
+        "kind": "direct",
+        "siteName": "Whitewater River at Beaver, MN"
+      }
+    ],
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 692.3,
+      "idealMax": 697,
+      "tooLow": 690,
+      "tooHigh": 698,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Whitewater River near Beaver",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "Spring and rain-supported windows are best. The Whitewater can become scrapey at low levels and quickly consequential around wood after storms.",
+      "difficulty": "moderate",
+      "difficultyNotes": "DNR marks this as a recommended section, but the Whitewater is narrow and wood-sensitive. The route is short, direct-gauged, and access-backed, yet it still calls for active boat handling and logjam judgment.",
+      "confidenceNotes": "Confidence is high for access and gauge support: the DNR recommended-paddling list identifies County Highway 26 to Beaver as a 6.2-mile section, Map 2 places the Elba/County 26 and Beaver accesses in sequence, public-water-access GIS resolves both endpoints, and the Beaver gauge is direct with official interpretation bands."
+    },
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "fast_rise",
+        "cold_water",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "DNR says the Whitewater has no campsites or rest areas and that the lower Beaver-to-Weaver reach is not novice-suitable because of trees and occasional log jams. Treat the whole corridor as wood-sensitive.",
+        "Scout strainers and tight bends from shore when the line is not obvious. Do not let a medium gauge reading override visible deadfall.",
+        "Use only the Elba / County 26 and Beaver public accesses for the normal plan; private banks and WMA edges are not routine stops."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "putIn": {
+      "name": "Whitewater River, Elba Public Water Access Site",
+      "latitude": 44.09223907243242,
+      "longitude": -92.01339865057027
+    },
+    "takeOut": {
+      "name": "Whitewater River, Beaver Public Water Access Site",
+      "latitude": 44.14967623256145,
+      "longitude": -92.00562100063136
+    },
+    "accessPoints": [
+      {
+        "id": "whitewater-elba-county-26",
+        "name": "Whitewater River, Elba Public Water Access Site",
+        "latitude": 44.09223907243242,
+        "longitude": -92.01339865057027,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS00252 at DNR river mile 16.3 near County Highway 26."
+      },
+      {
+        "id": "whitewater-beaver-highway-74",
+        "name": "Whitewater River, Beaver Public Water Access Site",
+        "latitude": 44.14967623256145,
+        "longitude": -92.00562100063136,
+        "mileFromStart": 6.2,
+        "segmentKind": "creek",
+        "note": "Default take-out; Minnesota public-water-access GIS resolves WAS02183 at DNR river mile 10.3 beside the direct Beaver gauge."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Official recommended route",
+        "value": "County Hwy 26 RM 16.4 to Beaver RM 10.2, 6.2 miles",
+        "note": "MN DNR's recommended paddling list identifies County Highway 26 to Beaver as a 6.2-mile Whitewater River recommended section.",
+        "sourceUrl": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      },
+      {
+        "label": "Public access records",
+        "value": "WAS00252 to WAS02183",
+        "note": "Minnesota public-water-access GIS resolves the Elba / County 26 access and Beaver access with coordinates and river-mile context.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "690 / 692.3-697 / 698 ft gauge elevation",
+        "note": "MN DNR interprets the Beaver gauge elevation as Scrapable below 690 ft, Low from 690 to 692.3, Medium from 692.3 to 697, High from 697 to 698, and Very High above 698.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "693.25 ft at 2026-07-23 21:45 CDT",
+        "note": "The current MN DNR feed placed Beaver inside the official medium band during this run.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Camping and safety",
+        "value": "No campsites or rest areas",
+        "note": "MN DNR says the Whitewater has no campsites or rest areas, asks users to protect the ecological integrity of the river, and warns about trees and occasional log jams below Beaver.",
+        "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/whitewater-river/index.html"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR recommended paddling sections",
+        "url": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Whitewater River overview",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/whitewater-river/index.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Zumbro and Whitewater Map 2 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/zumbro2.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
       },
       {
         "label": "Minnesota public water access feature service",

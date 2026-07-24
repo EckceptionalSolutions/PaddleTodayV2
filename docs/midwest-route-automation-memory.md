@@ -1,5 +1,12 @@
 # Midwest Route Automation Memory
 
+- 2026-07-24 00:13 America/Chicago / 2026-07-24 05:13 UTC: Minnesota Crow Wing / Long Prairie / Whitewater gap pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 220-route exported Minnesota baseline: `crow-wing-river-huntersville-north-mary-brown`, `long-prairie-river-reynolds-long-prairie`, and `whitewater-river-county-26-beaver`, bringing Minnesota to 223 live routes.
+  - Qualification path: MN DNR current state-water-trail pages/maps, the recommended-paddling list, MN DNR interpreted river-level feed, and Minnesota public-water-access GIS support all endpoints, route shape, gauge mappings, and caveats.
+  - Gauge posture: Crow Wing Nimrod site `55` returned `148 cfs` at 2026-07-23 21:00 CDT below scrapable; Long Prairie site `89` returned `88.6 cfs` at 2026-07-23 21:15 CDT in low; Whitewater Beaver site `265` returned `693.25 ft` at 2026-07-23 21:45 CDT in medium. All thresholds use official MN DNR interpreted bands only.
+  - Safety/image posture: cards carry downstream-proxy, vegetation, low-bridge/culvert, wood/logjam, private-bank, no-camping or designated-site-only, and Whitewater advanced/whitewater caveats. No gallery image was selected after bounded DNR / public-access / Commons / same-route review.
+  - Validation: route import/count confirmed Minnesota at `223`; ledger JSON parse, `routes:audit`, `routes:geometries:generate`, `typecheck`, `build`, `test`, and `git diff --check` passed. Build had only the existing `SITE_URL` fallback warning; diff check had CRLF warnings only.
+
 - 2026-07-24 00:04 America/Chicago / 2026-07-24 05:04 UTC: Iowa Middle River completion pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 115-route exported Iowa baseline: `middle-river-roseman-pammel`, `middle-river-pammel-middle-river-county-park`, and `middle-river-middle-river-county-park-holliwell`, bringing Iowa to 118 live routes.
   - Qualification path: Iowa DNR / Adair-Madison Middle River Water Trail map plus Madison County route pages support the official Roseman / Pammel / Middle River County Park / Holliwell access chain, UTM-derived coordinates, mileage, camping context, Pammel ford portage, final-access boundary, non-meandered-stream limits, and safety caveats.

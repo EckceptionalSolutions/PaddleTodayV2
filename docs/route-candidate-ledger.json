@@ -1,7 +1,12 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-24T05:03:00Z",
+  "updatedAt": "2026-07-24T05:13:00Z",
   "notes": [
+    {
+      "date": "2026-07-24",
+      "automation": "minnesota-route-additions-2",
+      "summary": "Added three Minnesota route slugs beyond the 220-route current Minnesota baseline: crow-wing-river-huntersville-north-mary-brown, long-prairie-river-reynolds-long-prairie, and whitewater-river-county-26-beaver. Sources included MN DNR Crow Wing, Long Prairie, and Whitewater/Zumbro water-trail maps/pages, the DNR recommended paddling list, MN DNR interpreted river-level feed, Minnesota public-water-access GIS, and bounded Commons/same-route image review. Current DNR checks returned Crow Wing Nimrod 148 cfs below scrapable, Long Prairie 88.6 cfs in low, and Whitewater Beaver 693.25 ft in medium. No route-gallery image was selected."
+    },
     {
       "date": "2026-07-24",
       "automation": "iowa-route-additions",
@@ -55021,6 +55026,130 @@
         "coordinateSource": "Iowa DNR / county map UTM access table converted to WGS84: Middle River County Park 41.315430,-94.004183 and Holliwell 41.322999,-93.959492."
       },
       "notes": "Added as the final developed Middle River Water Trail segment. Copy foregrounds the last-developed-access boundary at Holliwell, downstream bridge-access difficulty, shaded meanders, downed trees/snags, current low water, and no on-route camping."
+    },
+    {
+      "state": "MN",
+      "status": "added",
+      "lastReviewed": "2026-07-24",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Crow Wing River segments and maps",
+        "MN DNR Crow Wing River Map 1 PDF",
+        "MN DNR river-level site data",
+        "Minnesota public-water-access GIS",
+        "Commons and same-route image search"
+      ],
+      "gauge": {
+        "quality": "downstream_same_water_trail_official_proxy",
+        "id": "55",
+        "provider": "MN DNR",
+        "notes": "MN DNR river-level JSON returned Crow Wing River at Nimrod 148 cfs at 2026-07-23 21:00 CDT during this run, below the official scrapable floor. The gauge is downstream of the selected Huntersville-to-Mary-Brown reach, so the route requires same-day launch/channel checks."
+      },
+      "thresholdSupport": {
+        "strength": "official_two_sided",
+        "notes": "Uses only MN DNR official Nimrod bands: scrapable below 300 cfs, medium 400-800 cfs, very high above 1,100 cfs. No route-specific ideal range or upper cutoff was invented."
+      },
+      "candidateId": "mn-crow-wing-huntersville-north-mary-brown-2026-07-24",
+      "river": "Crow Wing River",
+      "route": "Huntersville North to Mary Brown",
+      "retryCondition": "Already implemented as crow-wing-river-huntersville-north-mary-brown. Revisit only if DNR changes the recommended day trip, access IDs, Nimrod interpretation bands, vegetation warnings, or image rights.",
+      "aliases": [
+        "Huntersville (N) to Mary Brown",
+        "Crow Wing Map 1 recommended day trip"
+      ],
+      "v2Slug": "crow-wing-river-huntersville-north-mary-brown",
+      "endpoints": {
+        "putIn": "Crow Wing River, Huntersville (N) Public Water Access Site",
+        "takeOut": "Crow Wing River, Mary Brown #5 Public Water Access Site",
+        "coordinatesPresent": true,
+        "coordinateSource": "Minnesota public-water-access GIS resolves Huntersville North WAS01525 at 46.778395,-94.892981 and Mary Brown WAS02558 at 46.717582,-94.928985."
+      },
+      "notes": "Added as the official DNR Huntersville State Forest day-trip gap above existing Mary Brown routes. Copy foregrounds downstream proxy limits, vegetation-choked channel risk, low-water scraping, private banks, remote access, and nearby-basecamp-only camping."
+    },
+    {
+      "state": "MN",
+      "status": "added",
+      "lastReviewed": "2026-07-24",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Long Prairie River segments and maps",
+        "MN DNR Long Prairie River map PDF",
+        "MN DNR river-level site data",
+        "Minnesota public-water-access GIS",
+        "Commons and same-route image search"
+      ],
+      "gauge": {
+        "quality": "direct_same_corridor_official_gauge",
+        "id": "89",
+        "provider": "MN DNR",
+        "notes": "MN DNR river-level JSON returned Long Prairie River at Long Prairie 88.6 cfs at 2026-07-23 21:15 CDT during this run, inside the official low band. The gauge sits at the city take-out corridor."
+      },
+      "thresholdSupport": {
+        "strength": "official_two_sided",
+        "notes": "Uses only MN DNR official Long Prairie bands: scrapable below 53 cfs, medium 200-500 cfs, very high above 650 cfs."
+      },
+      "candidateId": "mn-long-prairie-reynolds-long-prairie-2026-07-24",
+      "river": "Long Prairie River",
+      "route": "Reynolds Township to Long Prairie",
+      "retryCondition": "Already implemented as long-prairie-river-reynolds-long-prairie. Revisit only if DNR map/access/gauge bands, bridge and culvert warnings, or image rights change.",
+      "aliases": [
+        "Reynolds Township to City of Long Prairie",
+        "Upper-town Long Prairie connector"
+      ],
+      "v2Slug": "long-prairie-river-reynolds-long-prairie",
+      "endpoints": {
+        "putIn": "Long Prairie River, Reynolds Township Public Water Access Site",
+        "takeOut": "Long Prairie River, Long Prairie Public Water Access Site",
+        "coordinatesPresent": true,
+        "coordinateSource": "Minnesota public-water-access GIS resolves Reynolds Township WAS02344 at 45.991636,-94.944902 and Long Prairie WAS02429 at 45.975545,-94.865886."
+      },
+      "notes": "Added as the upstream public-access connector feeding the existing Long-Prairie-to-Browerville route. Copy foregrounds low bridges, culverts, low summer water, private-bank limits, and no camping."
+    },
+    {
+      "state": "MN",
+      "status": "added",
+      "lastReviewed": "2026-07-24",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR recommended paddling sections",
+        "MN DNR Zumbro and Whitewater Map 2 PDF",
+        "MN DNR Whitewater River overview",
+        "MN DNR river-level site data",
+        "Minnesota public-water-access GIS",
+        "MilesPaddled and Commons same-route image search"
+      ],
+      "gauge": {
+        "quality": "direct_same_route_official_gauge",
+        "id": "265",
+        "provider": "MN DNR",
+        "notes": "MN DNR river-level JSON returned Whitewater River near Beaver 693.25 ft at 2026-07-23 21:45 CDT during this run, inside the official medium band."
+      },
+      "thresholdSupport": {
+        "strength": "official_two_sided",
+        "notes": "Uses only MN DNR official Beaver gauge-elevation bands: scrapable below 690 ft, medium 692.3-697 ft, very high above 698 ft."
+      },
+      "candidateId": "mn-whitewater-county-26-beaver-2026-07-24",
+      "river": "Whitewater River",
+      "route": "County Highway 26 / Elba to Beaver",
+      "retryCondition": "Already implemented as whitewater-river-county-26-beaver. Revisit only if DNR changes the recommended section, Beaver bands, access records, wood/logjam warnings, or image rights.",
+      "aliases": [
+        "County Hwy 26 to Beaver",
+        "Elba to Beaver"
+      ],
+      "v2Slug": "whitewater-river-county-26-beaver",
+      "endpoints": {
+        "putIn": "Whitewater River, Elba Public Water Access Site",
+        "takeOut": "Whitewater River, Beaver Public Water Access Site",
+        "coordinatesPresent": true,
+        "coordinateSource": "Minnesota public-water-access GIS resolves Elba WAS00252 at 44.092239,-92.013399 and Beaver WAS02183 at 44.149676,-92.005621."
+      },
+      "notes": "Added as the official DNR 6.2-mile Whitewater recommended section above existing Beaver-to-Highway-61. Copy marks routeType whitewater and foregrounds wood, logjams, no campsites/rest areas, private banks, and direct Beaver-gauge field checks."
     }
   ]
 }
