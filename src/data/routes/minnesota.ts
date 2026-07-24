@@ -2515,8 +2515,8 @@ export const minnesotaRoutes: River[] = [
     "region": "Southeast Minnesota",
     "summary": "Longer Driftless day with mostly gentle current, wooded banks, and one main decision first: is the Houston gauge comfortably above late-low-water conditions without recent rain turning easy miles into a debris check?",
     "statusText": "Around 300 cfs at Houston is the low-water marker for this route. It may improve with more water, but there is not enough published guidance yet to name a full ideal range.",
-    "latitude": 43.78358,
-    "longitude": -91.83403,
+    "latitude": 43.803006163099525,
+    "longitude": -91.76035528027356,
     "gaugeSource": {
       "id": "usgs-05385000",
       "provider": "usgs",
@@ -2559,7 +2559,13 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "Access support",
         "value": "Rushford carry-in to Houston carry-in",
-        "note": "The Root River Map 2 PDF names both water-trail endpoints, and the state-trail map gives parking guidance at the Rushford Historic Depot lot and Houston Nature Center lot.",
+        "note": "The Root River Map 2 PDF names both water-trail endpoints. Minnesota's public-water-access record identifies Rushford as WAS00264 and Houston as WAS02188, with the Rushford site reached from Highway 16 and the Houston site on State Highway 76.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Access coordinates",
+        "value": "WAS00264 / WAS02188",
+        "note": "The official public-water-access layer places Rushford at 43.803006, -91.760355 and Houston at 43.769008, -91.571222. These are the arrival coordinates used by the route.",
         "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/root2.pdf"
       },
       {
@@ -6700,7 +6706,7 @@ export const minnesotaRoutes: River[] = [
     "reach": "Springfield to Highway 4",
     "state": "Minnesota",
     "region": "Southwest Minnesota",
-    "summary": "Long middle-Cottonwood public-access gap from Springfield Riverside Park to the Highway 4 access south of Sleepy Eye. It connects the existing upper and lower Cottonwood cards with official DNR map/access support and the Springfield DNR gauge just upstream.",
+    "summary": "Very long middle-Cottonwood public-access gap from Springfield Riverside Park to Highway 4. The 24.9-mile route has few legal exits and requires expert logistics, a large daylight margin, and conservative use of the upstream Springfield gauge.",
     "statusText": "Use the Springfield / County Road 2 DNR gauge as the upstream same-corridor check: 13.0 to 17.0 ft is medium. Below 12.5 ft is scrapable, and above 19.0 ft is very high.",
     "latitude": 44.23778269,
     "longitude": -94.97404056,
@@ -6738,11 +6744,11 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Spring and post-rain windows are the cleanest bet. Summer lows can leave the middle Cottonwood shallow and slow, while high or rising water increases wood, muddy-bank, and bridge-current risk.",
       "difficulty": "moderate",
-      "difficultyNotes": "DNR describes the Cottonwood as beginner-friendly with no major rapids, but this is about 24.9 miles between formal public accesses. Treat it as a very long day for efficient groups or split only with a separately confirmed legal overnight plan.",
+      "difficultyNotes": "The river is not highly technical, but 24.9 miles between formal public accesses, few legal exits, wood, muddy banks, and an upstream proxy gauge make this an advanced-commitment route.",
       "confidenceNotes": "Confidence is good: MN DNR Map 4 and the public-water-access service place Springfield, Highway 4, and intermediate Theden's Landing in order with river miles and coordinates. Gauge confidence is moderate-good because the interpreted Springfield gauge is upstream of the selected put-in rather than inside the lower half of the route."
     },
     "safetyProfile": {
-      "riskLevel": "caution",
+      "riskLevel": "advanced",
       "hazards": [
         "strainers",
         "fast_rise",
@@ -6751,6 +6757,7 @@ export const minnesotaRoutes: River[] = [
         "remote"
       ],
       "safetyNotes": [
+        "Treat this as an advanced logistics commitment despite the generally nontechnical current; do not launch without a realistic 8-to-11-hour plan and verified pickup.",
         "This is a long access-to-access card. Do not start without daylight, realistic speed, and a legal bailout or pickup plan.",
         "DNR warns paddlers to check water levels and avoid dead or overhanging trees. Expect wood, muddy banks, and shallow bars to change after storms.",
         "Use the named public accesses only. Do not assume private farm banks or gravel bars are legal stops or campsites."
@@ -7429,6 +7436,163 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "USGS 05325000 monitoring location",
         "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05325000/"
+      }
+    ]
+  },
+  {
+    "id": "minnesota-river-land-of-memories-riverfront",
+    "slug": "minnesota-river-land-of-memories-riverfront",
+    "name": "Minnesota River",
+    "reach": "Land of Memories Park to Riverfront Park",
+    "state": "Minnesota",
+    "region": "Mankato Area",
+    "summary": "Short Mankato big-river connector that fills the public-access gap between the Judson-to-Land-of-Memories and Riverfront-to-Seven-Mile route cards, using DNR Map 5 access context and the direct Mankato interpreted gauge.",
+    "statusText": "Use the direct Mankato DNR gauge: 4,550 to 17,900 cfs is the official medium band. Below 566.9 cfs is scrapable, and above 22,500 cfs is very high.",
+    "latitude": 44.1624934,
+    "longitude": -94.0414558,
+    "gaugeSource": {
+      "id": "mn-dnr-96",
+      "provider": "mn_dnr",
+      "siteId": "96",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "direct",
+      "siteName": "Minnesota River at Mankato, MN",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=28042001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=28042001&var1=262&width=700&height=320"
+    },
+    "fallbackGaugeSources": [
+      {
+        "id": "usgs-05325000",
+        "provider": "usgs",
+        "siteId": "05325000",
+        "metric": "discharge_cfs",
+        "unit": "cfs",
+        "kind": "direct",
+        "siteName": "Minnesota River at Mankato, MN"
+      }
+    ],
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "This is a short city connector on a broad river, so wind, wake, muddy footing, floating debris, and bridge-current effects can matter more than mileage.",
+        "Land of Memories and Riverfront Park are the selected public landings. Do not assume informal city banks or sandbars are legal backup exits.",
+        "The route stops at Riverfront Park before the separate Riverfront-to-Seven-Mile card; continuation downstream needs its own shuttle and conditions check."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 4550,
+      "idealMax": 17900,
+      "tooLow": 566.9,
+      "tooHigh": 22500,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Minnesota River at Mankato",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "windSensitivity": 1.2,
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Open-water season is the practical window. Low water exposes sand and mud, while high or rising water adds pushy current, floating debris, and harder landings.",
+      "difficulty": "easy",
+      "difficultyNotes": "The mileage is short and DNR Map 5 frames the Mankato-to-Seven-Mile corridor as easy, but this connector is still a bigger-river urban paddle with bridge, wake, and cold-water exposure.",
+      "confidenceNotes": "Confidence is good: DNR Map 5 and public-water-access GIS support Land of Memories Park and Riverfront Park on the same Mankato access chain, and the Mankato DNR gauge is direct with official bands. The current reading was low during this run, so launch-site depth and mud checks remain important."
+    },
+    "accessPoints": [
+      {
+        "id": "land-of-memories-park-public-water-access",
+        "name": "Land of Memories Park public water access",
+        "latitude": 44.1624934,
+        "longitude": -94.0414558,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; public-water-access GIS resolves Land of Memories Park at Minnesota River mile 105.0."
+      },
+      {
+        "id": "riverfront-park-mankato",
+        "name": "Minnesota River, Riverfront Park Public Water Access Site",
+        "latitude": 44.1750525,
+        "longitude": -94.001449,
+        "mileFromStart": 2.5,
+        "segmentKind": "creek",
+        "note": "Default take-out at DNR Map 5 river mile 102.5; resolves as WAS01018."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Route shape",
+        "value": "Land of Memories RM 105.0 to Riverfront Park RM 102.5",
+        "note": "The selected route connects the mapped public landing at Land of Memories Park to the Riverfront Park public access used by the downstream Seven Mile route.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota5.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "Land of Memories Park to WAS01018",
+        "note": "Minnesota public-water-access GIS resolves the Mankato landings with coordinates and water-trail river-mile context.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "566.9 / 4,550-17,900 / 22,500 cfs",
+        "note": "MN DNR interprets the Mankato gauge as Scrapable below 566.9 cfs, Low from 566.9 to 4,550, Medium from 4,550 to 17,900, High from 17,900 to 22,500, and Very High above 22,500.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "2,540 cfs at 2026-07-24 06:30 CDT",
+        "note": "The current MN DNR feed placed the Mankato gauge in the official low band during this run.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Camping posture",
+        "value": "Endpoint campground only",
+        "note": "Land of Memories Park has campground context, but the route itself is a short day connector with no assumed informal riverbank camping.",
+        "sourceUrl": "https://www.mankatomn.gov/about-mankato/parks-trails-and-recreation/community-parks/land-of-memories-park"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR Minnesota River Map 5 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota5.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "City of Mankato Land of Memories Park",
+        "url": "https://www.mankatomn.gov/about-mankato/parks-trails-and-recreation/community-parks/land-of-memories-park",
+        "provider": "local"
       }
     ]
   },
@@ -8922,13 +9086,13 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
-    "id": "north-fork-crow-river-wildlife-albrights-mill",
-    "slug": "north-fork-crow-river-wildlife-albrights-mill",
+    "id": "north-fork-crow-river-wildlife-bill-anderson",
+    "slug": "north-fork-crow-river-wildlife-bill-anderson",
     "name": "North Fork Crow River",
-    "reach": "Wildlife County Park to Albright's Mill County Park",
+    "reach": "Wildlife County Park to Bill Anderson Memorial County Park",
     "state": "Minnesota",
     "region": "Central Minnesota",
-    "summary": "Short North Fork Crow connector below the DNR-recommended Betty-to-Wildlife day, ending at Albright's Mill County Park with endpoint campsite support and the Cokato DNR gauge in the route corridor.",
+    "summary": "Consolidated North Fork Crow route from Wildlife County Park to Bill Anderson Park, retaining Albright's Mill as an intermediate public access, campground, and shorter-trip option.",
     "statusText": "Use the Cokato DNR gauge: 300 to 600 cfs is the official medium band. Below 241 cfs is scrapable, and above 800 cfs is very high.",
     "latitude": 45.1380365,
     "longitude": -94.176126,
@@ -8968,8 +9132,8 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Late spring through early fall is realistic when the Cokato gauge is at least above the scrapable floor. Low summer water slows the narrow channel, while storms can add wood and pushy bridge current.",
       "difficulty": "moderate",
-      "difficultyNotes": "The mileage is short and rapids are few, but DNR warns that this North Fork reach has underwater branches, overhanging trees, possible fences, low-water shallows, and fast changes after rain.",
-      "confidenceNotes": "Confidence is high for this short connector: MN DNR Map 1 and public-water-access GIS place Wildlife County Park, the Cokato / Highway 4 gauge, and Albright's Mill in order, with official DNR interpretation bands on the route corridor. The practical caveat is same-day wood and landing condition, not source quality."
+      "difficultyNotes": "Easy rapids are mixed with overhanging trees, underwater branches, possible fences, low-water shallows, and post-storm wood. The full mileage requires active steering and conservative gauge judgment.",
+      "confidenceNotes": "MN DNR Map 1 and public-water-access GIS place Wildlife County Park, the Cokato gauge, Albright's Mill, and Bill Anderson Park in order. The Cokato gauge is direct in the upper portion and an upstream proxy below Albright's Mill."
     },
     "safetyProfile": {
       "riskLevel": "caution",
@@ -8982,7 +9146,12 @@ export const minnesotaRoutes: River[] = [
       "safetyNotes": [
         "Scout both county-park carries and make a visual check near Highway 4 because wood can move faster than the gauge score changes.",
         "Expect overhanging trees, underwater branches, possible fences, and shallow bends when the Cokato gauge is below the official medium band.",
-        "Use the named public county-park accesses and designated campsites only; do not treat farm banks as routine stops."
+        "Use the named public county-park accesses and designated campsites only; do not treat farm banks as routine stops.",
+        "Make a local visual check at Albright's Mill because the gauge is upstream and cannot show a fresh logjam, fence, or shallow bar on this split.",
+        "Watch the County Road 5, Keats Avenue, County Road 6, and County Road 7 bridge areas for current, debris, and low-clearance surprises.",
+        "Use the Wright County park accesses and designated campsites only; most banks between parks should be treated as private.",
+        "Albright's Mill is the intermediate public access, campground, and shorter-trip option.",
+        "Make a same-day wood and depth check even when the Cokato gauge is in the official medium band."
       ],
       "reviewStatus": "reviewed"
     },
@@ -8992,9 +9161,9 @@ export const minnesotaRoutes: River[] = [
       "longitude": -94.176126
     },
     "takeOut": {
-      "name": "North Fork Crow River, Albright's Mill Public Water Access Site",
-      "latitude": 45.1268083,
-      "longitude": -94.1116757
+      "name": "Crow River, Bill Anderson Park Public Water Access Site",
+      "latitude": 45.1275576,
+      "longitude": -94.0327945
     },
     "accessPoints": [
       {
@@ -9055,132 +9224,7 @@ export const minnesotaRoutes: River[] = [
         "value": "Endpoint campsites; obstruction-prone bends",
         "note": "DNR Map 1 identifies permit campsites at Wildlife County Park and Albright's Mill and warns about underwater branches, overhanging trees, frequent obstacles, possible fences, and low-water issues on the upper North Fork Crow.",
         "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/crow-river-north-fork/segments-maps.html"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "MN DNR North Fork Crow segments and maps",
-        "url": "https://www.dnr.state.mn.us/state-water-trails/crow-river-north-fork/segments-maps.html",
-        "provider": "mn_dnr"
       },
-      {
-        "label": "MN DNR North Fork Crow Map 1 PDF",
-        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/northforkcrow1.pdf",
-        "provider": "mn_dnr"
-      },
-      {
-        "label": "MN DNR river levels",
-        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
-        "provider": "mn_dnr"
-      },
-      {
-        "label": "MN DNR river-level site data",
-        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
-        "provider": "mn_dnr"
-      },
-      {
-        "label": "Minnesota public water access feature service",
-        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
-        "provider": "mn_dnr"
-      }
-    ]
-  },
-  {
-    "id": "north-fork-crow-river-albrights-mill-bill-anderson",
-    "slug": "north-fork-crow-river-albrights-mill-bill-anderson",
-    "name": "North Fork Crow River",
-    "reach": "Albright's Mill County Park to Bill Anderson Memorial County Park",
-    "state": "Minnesota",
-    "region": "Central Minnesota",
-    "summary": "Middle North Fork Crow day between two Wright County public-access parks, using the nearby upstream Cokato DNR gauge and ending at Bill Anderson's mapped watercraft campsite.",
-    "statusText": "Use the Cokato DNR gauge as an upstream same-corridor check: 300 to 600 cfs is the official medium band. Below 241 cfs is scrapable, and above 800 cfs is very high.",
-    "latitude": 45.1268083,
-    "longitude": -94.1116757,
-    "gaugeSource": {
-      "id": "mn-dnr-308",
-      "provider": "mn_dnr",
-      "siteId": "308",
-      "metric": "discharge_cfs",
-      "unit": "cfs",
-      "metricLabel": "Discharge",
-      "kind": "proxy",
-      "siteName": "North Fork Crow River nr Cokato, CSAH4",
-      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=18083001",
-      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=18083001&var1=262&width=700&height=320"
-    },
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 300,
-      "idealMax": 600,
-      "tooLow": 241,
-      "tooHigh": 800,
-      "thresholdSource": {
-        "label": "MN DNR river-level interpretation bands for North Fork Crow River near Cokato",
-        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
-        "provider": "mn_dnr"
-      },
-      "thresholdSourceStrength": "official",
-      "rainfallSensitivity": "medium",
-      "seasonMonths": [
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10
-      ],
-      "seasonNotes": "Plan this as a spring-through-fall trip when the Cokato gauge is not scrapable and local access checks show enough depth below Albright's Mill. Summer low water and post-storm wood are the main go/no-go variables.",
-      "difficulty": "moderate",
-      "difficultyNotes": "DNR describes the upper and middle North Fork Crow as obstruction-prone with easy rapids, underwater branches, overhanging trees, possible fences, and low-water trouble. The route is not technical whitewater, but it needs active steering and conservative water-level judgment.",
-      "confidenceNotes": "Confidence is good: MN DNR Map 1 and public-water-access GIS resolve both county-park endpoints and river miles, and the Cokato gauge has official DNR bands just upstream of the put-in. Confidence is slightly capped because the gauge is upstream of this exact split."
-    },
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "fast_rise",
-        "private_banks",
-        "cold_water"
-      ],
-      "safetyNotes": [
-        "Make a local visual check at Albright's Mill because the gauge is upstream and cannot show a fresh logjam, fence, or shallow bar on this split.",
-        "Watch the County Road 5, Keats Avenue, County Road 6, and County Road 7 bridge areas for current, debris, and low-clearance surprises.",
-        "Use the Wright County park accesses and designated campsites only; most banks between parks should be treated as private."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "putIn": {
-      "name": "North Fork Crow River, Albright's Mill Public Water Access Site",
-      "latitude": 45.1268083,
-      "longitude": -94.1116757
-    },
-    "takeOut": {
-      "name": "Crow River, Bill Anderson Park Public Water Access Site",
-      "latitude": 45.1275576,
-      "longitude": -94.0327945
-    },
-    "accessPoints": [
-      {
-        "id": "albrights-mill-north-fork-crow",
-        "name": "North Fork Crow River, Albright's Mill Public Water Access Site",
-        "latitude": 45.1268083,
-        "longitude": -94.1116757,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Default put-in; resolves as WAS01743 at DNR river mile 62.7."
-      },
-      {
-        "id": "bill-anderson-north-fork-crow",
-        "name": "Crow River, Bill Anderson Park Public Water Access Site",
-        "latitude": 45.1275576,
-        "longitude": -94.0327945,
-        "mileFromStart": 7.4,
-        "segmentKind": "creek",
-        "note": "Default take-out; resolves as WAS02856 at DNR river mile 55.3 with DNR-mapped watercraft campsite context."
-      }
-    ],
-    "evidenceNotes": [
       {
         "label": "Route shape",
         "value": "Albright's Mill RM 62.7 to Bill Anderson RM 55.3",
@@ -9238,6 +9282,10 @@ export const minnesotaRoutes: River[] = [
         "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
         "provider": "mn_dnr"
       }
+    ],
+    "aliases": [
+      "Wildlife County Park to Albright's Mill County Park",
+      "Albright's Mill County Park to Bill Anderson Memorial County Park"
     ]
   },
   {
@@ -9998,6 +10046,22 @@ export const minnesotaRoutes: River[] = [
     "latitude": 46.9912948,
     "longitude": -92.225418,
     "routeType": "whitewater",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam_release",
+        "whitewater",
+        "cold_water",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Flow depends on Island Lake Dam releases. Check the current gauge and same-day release conditions before launching; the raw number does not remove the need for a visual assessment.",
+        "MN DNR describes Class I-II rapids on this reach and advises paddlers to get out and scout, with portages available for Class II rapids. Beginners should be prepared to portage.",
+        "Around the summer 175 cfs floor, expect scraping and possible river walking. Cold water, fresh wood, and changing current after storms or release shifts remain relevant even when the gauge is workable.",
+        "The route starts at a carry-in access below the dam and finishes at a trailer access, with limited roadside bailout options. Use the named accesses and plan the shuttle before launching."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-04021960",
       "provider": "usgs",
@@ -11567,126 +11631,6 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
-    "id": "whitewater-river-elba-highway-74",
-    "slug": "whitewater-river-elba-highway-74",
-    "name": "Whitewater River",
-    "reach": "Elba to Highway 74",
-    "state": "Minnesota",
-    "region": "Southeast Minnesota",
-    "summary": "Narrow Driftless creek-style Whitewater run with bluff-country scenery and real wood hazard. DNR level bands at Beaver make the go/no-go call more defensible, but this is still a maneuvering route rather than a lazy float.",
-    "statusText": "The Beaver gauge is best around 692.3 to 697 ft of gauge elevation. Below 690 ft gets too thin, and above 698 ft is too high for this wood-sensitive route.",
-    "latitude": 44.09185,
-    "longitude": -92.01381,
-    "gaugeSource": {
-      "id": "mn-dnr-265",
-      "provider": "mn_dnr",
-      "siteId": "265",
-      "metric": "gage_height_ft",
-      "unit": "ft",
-      "metricLabel": "Gauge elevation",
-      "kind": "direct",
-      "siteName": "Whitewater River nr Beaver, CSAH30",
-      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=40016001",
-      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=40016001&var1=232&width=700&height=320"
-    },
-    "fallbackGaugeSources": [
-      {
-        "id": "usgs-05377500",
-        "provider": "usgs",
-        "siteId": "05377500",
-        "metric": "gage_height_ft",
-        "unit": "ft",
-        "kind": "direct",
-        "siteName": "Whitewater River at Beaver, MN"
-      }
-    ],
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 692.3,
-      "idealMax": 697,
-      "tooLow": 690,
-      "tooHigh": 698,
-      "thresholdSource": {
-        "label": "MN DNR river-level interpretation bands for Whitewater River near Beaver",
-        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
-      },
-      "thresholdSourceStrength": "official",
-      "rainfallSensitivity": "high",
-      "seasonMonths": [
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "seasonNotes": "Spring and rain-supported windows are best. This narrow river can become scrape-heavy when low and much less forgiving around wood when levels jump.",
-      "difficulty": "moderate",
-      "difficultyNotes": "Not big whitewater, but the tight channel, deadfall, strainers, and occasional logjam portages make it a moderate boat-handling day.",
-      "confidenceNotes": "MN DNR supports the water trail and official Beaver level bands, and DNR audio/transcript material points to the Elba-to-Highway-74 stretch as the best run. Supplemental trip reports consistently identify the same access pair, but confidence is tempered because these are roadside-style accesses without a clean standalone public landing page and wood can dominate the gauge call."
-    },
-    "evidenceNotes": [
-      {
-        "label": "DNR bands",
-        "value": "690 / 692.3-697 / 698 ft gauge elevation",
-        "note": "MN DNR interprets the Beaver gauge elevation as Scrapable below 690 ft, Low from 690 to 692.3, Medium from 692.3 to 697, High from 697 to 698, and Very High above 698. This is not river depth.",
-        "sourceUrl": "https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery"
-      },
-      {
-        "label": "Route support",
-        "value": "Elba to Highway 74",
-        "note": "MN DNR Whitewater trail material describes the river from Elba downstream and identifies the Elba-to-Highway-74 stretch as a strong practical run.",
-        "sourceUrl": "https://files.dnr.state.mn.us/destinations/water_trails/audio-tales/whitewater-transcript.pdf"
-      },
-      {
-        "label": "Access notes",
-        "value": "Roadside access pair",
-        "note": "MilesPaddled reports good parking at the Highway 26 / Center Street put-in and gives the same Highway 74 take-out coordinates used here; Post Bulletin trip reports also describe the County Road 26 put-in and Highway 74 / County Road 30 take-out access.",
-        "sourceUrl": "https://milespaddled.com/whitewater-river/"
-      },
-      {
-        "label": "Hazard context",
-        "value": "Not novice below Beaver/Weaver",
-        "note": "MN DNR warns the lower stretch between Beaver and Weaver is not suitable for novice paddlers because of many trees and occasional log jams.",
-        "sourceUrl": "https://www.dnr.state.mn.us/watertrails/whitewaterriver/index.html"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "MN DNR river levels",
-        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
-      },
-      {
-        "label": "MN DNR Whitewater River overview",
-        "url": "https://www.dnr.state.mn.us/watertrails/whitewaterriver/index.html"
-      },
-      {
-        "label": "MN DNR Whitewater River segments and maps",
-        "url": "https://www.dnr.state.mn.us/watertrails/whitewaterriver/segments-maps.html"
-      },
-      {
-        "label": "MN DNR Whitewater audio transcript",
-        "url": "https://files.dnr.state.mn.us/destinations/water_trails/audio-tales/whitewater-transcript.pdf"
-      },
-      {
-        "label": "MN DNR Whitewater WMA",
-        "url": "https://www.dnr.state.mn.us/areas/wildlife/whitewater_wma.html"
-      },
-      {
-        "label": "MilesPaddled Whitewater River trip report",
-        "url": "https://milespaddled.com/whitewater-river/"
-      },
-      {
-        "label": "Post Bulletin Whitewater River access report",
-        "url": "https://www.postbulletin.com/sports/whitewater-river-in-name-only"
-      },
-      {
-        "label": "USGS 05377500 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05377500/"
-      }
-    ]
-  },
-  {
     "id": "south-fork-zumbro-lake-zumbro",
     "slug": "south-fork-zumbro-lake-zumbro",
     "name": "South Fork Zumbro",
@@ -12943,13 +12887,13 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
-    "id": "st-croix-river-highway-70-stevens-creek",
-    "slug": "st-croix-river-highway-70-stevens-creek",
+    "id": "st-croix-river-highway-70-sunrise",
+    "slug": "st-croix-river-highway-70-sunrise",
     "name": "St. Croix River",
-    "reach": "Highway 70 Landing to Stevens Creek Landing",
+    "reach": "Highway 70 Landing to Sunrise Landing",
     "state": "Minnesota",
     "region": "Lower St. Croix",
-    "summary": "NPS Map 7 St. Croix Riverway split from Highway 70 to Stevens Creek Landing, filling the upstream Highway-70-to-Wild-River gap with public NPS landings, designated Riverway camping rules, and the official St. Croix Falls DNR gauge.",
+    "summary": "Consolidated NPS Map 7 St. Croix Riverway route from Highway 70 to Sunrise Landing, with Stevens Creek retained as an intermediate public access near the short rapid sequence.",
     "statusText": "Use St. Croix Falls as a downstream same-corridor check: 3,000 to 8,000 cfs is the official medium band. Below 2,000 cfs is scrapable, and above 11,000 cfs is very high.",
     "latitude": 45.7739241,
     "longitude": -92.7820489,
@@ -12999,8 +12943,8 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Late spring through fall is the normal Riverway window. The St. Croix Falls gauge is downstream of the selected split, so pair it with same-day checks for shallow bars, Stevens Creek rapid character, wood, and wind.",
       "difficulty": "moderate",
-      "difficultyNotes": "This is a short public-access St. Croix split, but NPS flags shallow summer water, downed trees, and a short rapid series around Stevens Creek Landing. It is not a no-current beginner lake paddle.",
-      "confidenceNotes": "Confidence is good: NPS Map 7 is the current Highway 70-to-Highway 8 section map, Minnesota public-water-access GIS resolves Highway 70 and Stevens Creek with river miles and coordinates, and the St. Croix Falls DNR gauge publishes official interpretation bands. Confidence is conservative because the gauge is downstream, so local visual checks remain required."
+      "difficultyNotes": "A long Riverway day with a short rapid sequence near Stevens Creek, shallow bars, downed trees, wind, private or restricted banks, and remote-response exposure.",
+      "confidenceNotes": "NPS Map 7 and Minnesota public-water-access GIS document Highway 70, Stevens Creek, and Sunrise in order. The official St. Croix Falls gauge is downstream, so it remains a conservative corridor check rather than an exact local measurement."
     },
     "safetyProfile": {
       "riskLevel": "caution",
@@ -13008,12 +12952,18 @@ export const minnesotaRoutes: River[] = [
         "whitewater",
         "strainers",
         "cold_water",
-        "private_banks"
+        "private_banks",
+        "remote"
       ],
       "safetyNotes": [
         "NPS says a short series of rapids exists around Stevens Creek Landing. Scout from shore or take out earlier if the line is not clear for the group.",
         "Shallow summer water can expose sandbars and force walking. Read channels from the boat and avoid dragging into private or restricted banks.",
-        "Use Riverway-designated sites and public landings only. Avoid fallen trees and treat rising water as a reason to reassess."
+        "Use Riverway-designated sites and public landings only. Avoid fallen trees and treat rising water as a reason to reassess.",
+        "Avoid fallen trees and outside-bend strainers; NPS explicitly warns that trees in the river can catch and overturn boats.",
+        "Shallow summer water can expose sandbars and require walking. Check the St. Croix Falls gauge and make a local visual call before committing to the 12-plus-mile split.",
+        "Use only public landings and designated Riverway campsites. Keep private or restricted banks out of the bailout and camping plan.",
+        "Stevens Creek is the intermediate public access and the decision point around the mapped short rapid sequence.",
+        "For the full route, leave a large daylight margin and use only public landings and designated Riverway campsites."
       ],
       "reviewStatus": "reviewed"
     },
@@ -13023,9 +12973,9 @@ export const minnesotaRoutes: River[] = [
       "longitude": -92.7820489
     },
     "takeOut": {
-      "name": "St. Croix River, Stevens Creek Public Water Access Site",
-      "latitude": 45.7294177,
-      "longitude": -92.8488268
+      "name": "St. Croix River, Sunrise Public Water Access Site",
+      "latitude": 45.5667416,
+      "longitude": -92.864868
     },
     "accessPoints": [
       {
@@ -13077,141 +13027,7 @@ export const minnesotaRoutes: River[] = [
         "value": "Designated Riverway campsites only",
         "note": "NPS Map 7 allows camping only at designated first-come sites and lists limits for group size, stay length, fires, sanitation, trash, and food storage.",
         "sourceUrl": "https://www.nps.gov/sacn/planyourvisit/upload/Section-7_St-Croix_Highway-70-to-Highway-8_2024_508.pdf"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "NPS St. Croix Map 7 PDF",
-        "url": "https://www.nps.gov/sacn/planyourvisit/upload/Section-7_St-Croix_Highway-70-to-Highway-8_2024_508.pdf"
       },
-      {
-        "label": "NPS St. Croix Riverway maps",
-        "url": "https://www.nps.gov/sacn/planyourvisit/maps.htm"
-      },
-      {
-        "label": "MN DNR St. Croix River State Water Trail",
-        "url": "https://www.dnr.state.mn.us/state-water-trails/st-croix-river/index.html"
-      },
-      {
-        "label": "MN DNR river levels",
-        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
-      },
-      {
-        "label": "MN DNR river-level site data",
-        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
-      },
-      {
-        "label": "Minnesota public water access feature service",
-        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
-      }
-    ]
-  },
-  {
-    "id": "st-croix-river-stevens-creek-sunrise",
-    "slug": "st-croix-river-stevens-creek-sunrise",
-    "name": "St. Croix River",
-    "reach": "Stevens Creek Landing to Sunrise Landing",
-    "state": "Minnesota",
-    "region": "Lower St. Croix",
-    "summary": "Middle NPS Map 7 St. Croix Riverway day from Stevens Creek to Sunrise Landing, with source-backed public endpoints, designated Riverway camping rules, shallow-water cautions, and the official St. Croix Falls DNR gauge.",
-    "statusText": "Use St. Croix Falls as a downstream same-corridor check: 3,000 to 8,000 cfs is the official medium band. Below 2,000 cfs is scrapable, and above 11,000 cfs is very high.",
-    "latitude": 45.7294177,
-    "longitude": -92.8488268,
-    "gaugeSource": {
-      "id": "mn-dnr-236",
-      "provider": "mn_dnr",
-      "siteId": "236",
-      "metric": "discharge_cfs",
-      "unit": "cfs",
-      "metricLabel": "Discharge",
-      "kind": "proxy",
-      "siteName": "St. Croix River at St. Croix Falls, WI",
-      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=37048002",
-      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=37048002&var1=262&width=700&height=320"
-    },
-    "fallbackGaugeSources": [
-      {
-        "id": "usgs-05340500",
-        "provider": "usgs",
-        "siteId": "05340500",
-        "metric": "discharge_cfs",
-        "unit": "cfs",
-        "kind": "proxy",
-        "siteName": "St. Croix River at St. Croix Falls, WI"
-      }
-    ],
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 3000,
-      "idealMax": 8000,
-      "tooLow": 2000,
-      "tooHigh": 11000,
-      "thresholdSource": {
-        "label": "MN DNR river-level interpretation bands for St. Croix River at St. Croix Falls",
-        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
-      },
-      "thresholdSourceStrength": "official",
-      "rainfallSensitivity": "medium",
-      "windSensitivity": 1.5,
-      "seasonMonths": [
-        5,
-        6,
-        7,
-        8,
-        9,
-        10
-      ],
-      "seasonNotes": "Late spring through fall is the practical Riverway season. Below-medium St. Croix Falls readings can mean shallow bars and slower channel-finding in this midsection; high or rising water adds stronger current around wood and landings.",
-      "difficulty": "moderate",
-      "difficultyNotes": "This is a long enough Riverway day to require daylight and weather planning. It is not technical whitewater, but shallow bars, downed trees, private or restricted banks, and remote rescue exposure make it more than a short casual float.",
-      "confidenceNotes": "Confidence is good: NPS Map 7 covers the selected corridor, Minnesota public-water-access GIS resolves Stevens Creek and Sunrise with river miles and coordinates, and the St. Croix Falls DNR gauge has official bands. Confidence is capped because St. Croix Falls is downstream, so use the gauge as a conservative condition check rather than an exact local measurement."
-    },
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "remote",
-        "cold_water",
-        "private_banks"
-      ],
-      "safetyNotes": [
-        "Avoid fallen trees and outside-bend strainers; NPS explicitly warns that trees in the river can catch and overturn boats.",
-        "Shallow summer water can expose sandbars and require walking. Check the St. Croix Falls gauge and make a local visual call before committing to the 12-plus-mile split.",
-        "Use only public landings and designated Riverway campsites. Keep private or restricted banks out of the bailout and camping plan."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "putIn": {
-      "name": "St. Croix River, Stevens Creek Public Water Access Site",
-      "latitude": 45.7294177,
-      "longitude": -92.8488268
-    },
-    "takeOut": {
-      "name": "St. Croix River, Sunrise Public Water Access Site",
-      "latitude": 45.5667416,
-      "longitude": -92.864868
-    },
-    "accessPoints": [
-      {
-        "id": "stevens-creek-landing",
-        "name": "St. Croix River, Stevens Creek Public Water Access Site",
-        "latitude": 45.7294177,
-        "longitude": -92.8488268,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS02204 near St. Croix river mile 84.6."
-      },
-      {
-        "id": "sunrise-landing",
-        "name": "St. Croix River, Sunrise Public Water Access Site",
-        "latitude": 45.5667416,
-        "longitude": -92.864868,
-        "mileFromStart": 12.7,
-        "segmentKind": "creek",
-        "note": "Default take-out; Minnesota public-water-access GIS resolves WAS00299 near St. Croix river mile 71.9."
-      }
-    ],
-    "evidenceNotes": [
       {
         "label": "Route shape",
         "value": "About 12.7 river miles",
@@ -13268,6 +13084,10 @@ export const minnesotaRoutes: River[] = [
         "label": "Minnesota public water access feature service",
         "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
       }
+    ],
+    "aliases": [
+      "Highway 70 Landing to Stevens Creek Landing",
+      "Stevens Creek Landing to Sunrise Landing"
     ]
   },
   {
@@ -25199,6 +25019,151 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
+    "id": "cedar-river-austin-mill-pond-marcusen",
+    "slug": "cedar-river-austin-mill-pond-marcusen",
+    "name": "Cedar River",
+    "reach": "Austin Mill Pond to Marcusen Park",
+    "state": "Minnesota",
+    "region": "Southern Minnesota",
+    "summary": "Short Austin-area Cedar River connector from Austin Mill Pond to Marcusen Park, filling the public-access gap between the Ramsey-to-Austin and Marcusen-to-Riverwood route cards with official DNR access and gauge support.",
+    "statusText": "Use the Cedar River near Austin DNR gauge at County Road 28 as the downstream corridor check: 117 to 1,290 cfs is the official medium band. Below 50 cfs is scrapable, and above 1,670 cfs is very high.",
+    "latitude": 43.674039181636296,
+    "longitude": -92.97327961720995,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam",
+        "mandatory_takeout",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Start only from the Austin Mill Pond public access and stay clear of dam, mill-pond, and urban structure hazards unless a separate official portage plan is confirmed.",
+        "The Austin gauge is downstream of the take-out, so pair the official bands with a same-day visual check at Austin Mill Pond and Marcusen Park.",
+        "Take out at Marcusen Park before entering the separate Marcusen-to-Riverwood card. Do not assume informal city banks or private shoreland are legal exits."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "mn-dnr-286",
+      "provider": "mn_dnr",
+      "siteId": "286",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "metricLabel": "Discharge",
+      "kind": "proxy",
+      "siteName": "Cedar River nr Austin, MN",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=48020001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=48020001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 117,
+      "idealMax": 1290,
+      "tooLow": 50,
+      "tooHigh": 1670,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Cedar River near Austin",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "The DNR says the Cedar usually has enough summer water in this corridor, but dry spells expose shallow bars and storm runoff can quickly add push, debris, and difficult city landings.",
+      "difficulty": "easy",
+      "difficultyNotes": "Short mileage and public endpoints make this an easy-distance route, but dam boundaries, snags, overhanging trees, bridge current, and a downstream gauge keep it in the caution tier.",
+      "confidenceNotes": "Confidence is good for a short official-access connector: MN DNR Cedar River map materials place Austin Mill Pond, Marcusen Park, and the County Road 28 gauge in sequence; public-water-access GIS resolves both endpoints; and the Austin DNR gauge has official interpreted bands. The gauge is downstream of the take-out, so launch-depth inspection remains required."
+    },
+    "accessPoints": [
+      {
+        "id": "cedar-river-austin-mill-pond",
+        "name": "Austin Mill Pond Public Water Access Site",
+        "latitude": 43.674039181636296,
+        "longitude": -92.97327961720995,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; public-water-access GIS resolves WAS01390 at DNR river mile 17.5."
+      },
+      {
+        "id": "marcusen-park-cedar",
+        "name": "Cedar River, Marcusen Park Public Water Access Site",
+        "latitude": 43.6569447,
+        "longitude": -92.9743545,
+        "mileFromStart": 1.9,
+        "segmentKind": "creek",
+        "note": "Default take-out; resolves as WAS03076 at DNR river mile 15.6 behind Marcusen Stadium in Austin."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Official route miles",
+        "value": "Austin Mill Pond RM 17.5 to Marcusen Park RM 15.6",
+        "note": "MN DNR Cedar River map materials and public-access records place the two Austin landings 1.9 river miles apart, upstream of the County Road 28 gauge.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/cedar.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "WAS01390 to WAS03076",
+        "note": "Minnesota public-water-access GIS resolves Austin Mill Pond and Marcusen Park with official names, administrators, coordinates, and river-mile context.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "50 / 117-1290 / 1670 cfs",
+        "note": "MN DNR interprets Cedar River near Austin as Scrapable below 50 cfs, Low from 50 to 117, Medium from 117 to 1290, High from 1290 to 1670, and Very High above 1670.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "321 cfs at 2026-07-24 06:00 CDT",
+        "note": "The current MN DNR feed placed Cedar River near Austin inside the official medium band during this run.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Camping posture",
+        "value": "Day route, no selected river campsite",
+        "note": "No on-route public watercraft campsite is documented for this short Austin connector; do not use private banks or bars for informal overnight stops.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/cedar.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR Cedar River segments and maps",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/cedar-river/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Cedar River Map PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/cedar.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
+      }
+    ]
+  },
+  {
     "id": "mississippi-river-knutson-dam-west-winnie",
     "slug": "mississippi-river-knutson-dam-west-winnie",
     "name": "Mississippi River",
@@ -26832,6 +26797,150 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
+    "id": "cottonwood-river-flandrau-highway-15",
+    "slug": "cottonwood-river-flandrau-highway-15",
+    "name": "Cottonwood River",
+    "reach": "Flandrau State Park to Highway 15 Access",
+    "state": "Minnesota",
+    "region": "Southern Minnesota",
+    "summary": "Short New Ulm connector from Flandrau State Park to the Highway 15 / Cottonwood Street Bridge access, filling the official lower-Cottonwood access chain before the existing Highway-15-to-Courtland confluence route.",
+    "statusText": "Use the New Ulm / MN 68 DNR gauge as the closest lower-river check. The official medium band is 250 to 870 cfs; below 150 cfs is scrapable, and above 2,190 cfs is very high.",
+    "latitude": 44.2914246,
+    "longitude": -94.4690871,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "This city-edge lower Cottonwood route can be shallow at low water and can collect fresh wood after storms even though DNR does not identify major rapids in the corridor.",
+        "Use Flandrau State Park and Highway 15 as the selected public endpoints. Do not assume informal in-town banks, bridges, or private land are legal exits.",
+        "The route stops at Highway 15. Continuing to the Minnesota River confluence and Courtland is a separate card with different wind and bigger-river exposure."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "mn-dnr-39",
+      "provider": "mn_dnr",
+      "siteId": "39",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Cottonwood River nr New Ulm, MN68",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=29001001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=29001001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 250,
+      "idealMax": 870,
+      "tooLow": 150,
+      "tooHigh": 2190,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Cottonwood River near New Ulm",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring and rain-fed windows are most reliable. The New Ulm gauge sits in the selected lower-river corridor, but shallow bars, wood, and state-park access conditions still require a same-day visual check.",
+      "difficulty": "easy",
+      "difficultyNotes": "Short mileage and public endpoints keep the route approachable, but low-water scraping, muddy banks, snags, and urban bridge approaches justify a caution posture.",
+      "confidenceNotes": "Confidence is good: MN DNR Map 4 places Flandrau State Park and Highway 15 on the lower Cottonwood access chain, public-water-access GIS resolves both endpoints, and the New Ulm interpreted gauge is the official lower-river gauge. The current reading was below the scrapable floor during this run."
+    },
+    "accessPoints": [
+      {
+        "id": "cottonwood-flandrau-state-park-pwa",
+        "name": "Cottonwood River, Flandrau State Park Public Water Access Site",
+        "latitude": 44.2914246,
+        "longitude": -94.4690871,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS lists WAS02651 near the Flandrau State Park watercraft campsite with carry-in launch, parking, and restroom context."
+      },
+      {
+        "id": "highway-15-cottonwood-street-bridge-public-water-access",
+        "name": "Highway 15 / Cottonwood Street Bridge public water access",
+        "latitude": 44.2826599,
+        "longitude": -94.4360667,
+        "mileFromStart": 4.1,
+        "segmentKind": "creek",
+        "note": "Default take-out; resolves as WAS01419 at Cottonwood river mile 1.6."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "Route milepoints",
+        "value": "Flandrau RM 5.7 to Highway 15 RM 1.6",
+        "note": "MN DNR Map 4 maps Flandrau State Park camping/access context and the Highway 15 access sequence on the lower Cottonwood River.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf"
+      },
+      {
+        "label": "Public access records",
+        "value": "WAS02651 to WAS01419",
+        "note": "Minnesota public-water-access GIS resolves Flandrau State Park and Highway 15 / Cottonwood Street Bridge with official names, coordinates, and river-mile context.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      },
+      {
+        "label": "Official DNR bands",
+        "value": "150 / 250-870 / 2,190 cfs",
+        "note": "MN DNR interprets the New Ulm gauge as Scrapable below 150 cfs, Low from 150 to 250, Medium from 250 to 870, High from 870 to 2,190, and Very High above 2,190.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "113 cfs at 2026-07-24 06:00 CDT",
+        "note": "The current MN DNR feed placed New Ulm below the official scrapable floor during this run.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Camping posture",
+        "value": "Endpoint state-park campground",
+        "note": "DNR Map 4 shows Flandrau State Park camping, water, toilets, and a watercraft campsite near the route start; use designated sites and current park rules only.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR Cottonwood River segments and maps",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/cottonwood-river/segments-maps.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR Minnesota River Map 4 PDF",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "MN DNR river-level site data",
+        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
+        "provider": "mn_dnr"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
+        "provider": "mn_dnr"
+      }
+    ]
+  },
+  {
     "id": "cannon-river-wilderness-northfield",
     "slug": "cannon-river-wilderness-northfield",
     "name": "Cannon River",
@@ -27721,8 +27830,8 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
-    "id": "whitewater-river-county-26-beaver",
-    "slug": "whitewater-river-county-26-beaver",
+    "id": "whitewater-river-elba-highway-74",
+    "slug": "whitewater-river-elba-highway-74",
     "name": "Whitewater River",
     "reach": "County Highway 26 / Elba to Beaver",
     "state": "Minnesota",
@@ -30549,182 +30658,6 @@ export const minnesotaRoutes: River[] = [
     ]
   },
   {
-    "id": "st-croix-river-little-yellow-banks-sand-creek",
-    "slug": "st-croix-river-little-yellow-banks-sand-creek",
-    "name": "St. Croix River",
-    "reach": "Little Yellow Banks to Sand Creek Landing",
-    "state": "Minnesota",
-    "region": "Upper St. Croix",
-    "summary": "Short upper St. Croix State Park / National Scenic Riverway route from Little Yellow Banks to Sand Creek Landing, using official NPS Map 5 context, Minnesota public-access records, and the DNR Danbury interpreted gauge.",
-    "statusText": "Use the Danbury DNR gauge as the upstream middle-St. Croix check: 1,500 to 2,200 cfs is the official medium band. Below 1,250 cfs is scrapable, and above 6,000 cfs is very high.",
-    "latitude": 45.9753904,
-    "longitude": -92.541598,
-    "gaugeSource": {
-      "id": "mn-dnr-212",
-      "provider": "mn_dnr",
-      "siteId": "212",
-      "metric": "discharge_cfs",
-      "unit": "cfs",
-      "metricLabel": "Discharge",
-      "kind": "proxy",
-      "siteName": "St. Croix River nr Danbury, WI",
-      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=34042001",
-      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=34042001&var1=262&width=700&height=320"
-    },
-    "fallbackGaugeSources": [
-      {
-        "id": "usgs-05333500",
-        "provider": "usgs",
-        "siteId": "05333500",
-        "metric": "discharge_cfs",
-        "unit": "cfs",
-        "kind": "proxy",
-        "siteName": "St. Croix River near Danbury, WI",
-        "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05333500/"
-      }
-    ],
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 1500,
-      "idealMax": 2200,
-      "tooLow": 1250,
-      "tooHigh": 6000,
-      "thresholdSource": {
-        "label": "MN DNR river-level interpretation bands for St. Croix River near Danbury",
-        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
-        "provider": "mn_dnr"
-      },
-      "thresholdSourceStrength": "official",
-      "rainfallSensitivity": "medium",
-      "windSensitivity": 1.2,
-      "seasonMonths": [
-        5,
-        6,
-        7,
-        8,
-        9,
-        10
-      ],
-      "seasonNotes": "Late spring through fall is the practical Riverway window. Low water can require scraping or walking, while high or rising water increases wood, cold-water, and landing difficulty.",
-      "difficulty": "moderate",
-      "difficultyNotes": "NPS Map 5 frames the route as easier middle-river paddling, but the app keeps a moderate posture for low-water scraping, a rock-ledge note, cold water, trees, private/restricted banks, and the upstream proxy gauge.",
-      "confidenceNotes": "Confidence is good with an explicit proxy caveat: Minnesota public-water-access GIS resolves Little Yellow Banks, St. Croix State Park #2, and Sand Creek Landing with river miles and coordinates; NPS Map 5 covers the exact corridor and notes St. Croix State Park/Sand Creek context; and the Danbury DNR gauge publishes official interpreted bands upstream on the same middle-St. Croix river family."
-    },
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "remote",
-        "private_banks",
-        "cold_water"
-      ],
-      "safetyNotes": [
-        "Use the Danbury gauge as a same-corridor check, then inspect Little Yellow Banks and Sand Creek because the gauge is upstream and this short section can still collect wood or shallow bars.",
-        "NPS warns not every Riverway stretch is suitable for beginners; avoid fallen trees, respect designated campsites, and do not use restricted or private banks as casual stops.",
-        "Expect cold water outside midsummer, tubing or small-boat traffic in season, and a right-bank state-park landing that can be missed if the group is not watching the map."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "accessPoints": [
-      {
-        "id": "little-yellow-banks",
-        "name": "St. Croix River, Little Yellow Banks Public Water Access Site",
-        "latitude": 45.9753904,
-        "longitude": -92.541598,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Default put-in at St. Croix river mile 111.2; resolves as WAS01887."
-      },
-      {
-        "id": "st-croix-state-park-2",
-        "name": "St. Croix River, St. Croix SPK #2 Public Water Access Site",
-        "latitude": 45.9504137,
-        "longitude": -92.5683247,
-        "mileFromStart": 2.7,
-        "segmentKind": "transition",
-        "note": "Intermediate state-park landing at river mile 108.5; resolves as WAS00076 and may be hidden behind an island."
-      },
-      {
-        "id": "sand-creek-landing",
-        "name": "St. Croix River, Mouth of Sand Creek Public Water Access Site",
-        "latitude": 45.9331669,
-        "longitude": -92.6407033,
-        "mileFromStart": 6.7,
-        "segmentKind": "creek",
-        "note": "Default take-out at St. Croix river mile 104.5; resolves as WAS01894."
-      }
-    ],
-    "evidenceNotes": [
-      {
-        "label": "Official map section",
-        "value": "Little Yellow Banks RM 111.2 to Sand Creek RM 104.5",
-        "note": "Minnesota public-water-access GIS resolves Little Yellow Banks, St. Croix State Park #2, and Mouth of Sand Creek with river-mile records and coordinates inside the NPS Map 5 corridor.",
-        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
-      },
-      {
-        "label": "NPS route context",
-        "value": "Map 5: Riverside Landing to Sand Creek Landing",
-        "note": "NPS Map 5 covers the selected corridor, says the river becomes the Minnesota-Wisconsin border past the upper islands, identifies the St. Croix State Park main landing behind an island, and directs paddlers to check current conditions.",
-        "sourceUrl": "https://www.nps.gov/sacn/planyourvisit/upload/Section-5_St-Croix_Riverside-Landing-to-Sand-Creek-Landing_2024_508.pdf"
-      },
-      {
-        "label": "Official DNR bands",
-        "value": "1,250 / 1,500-2,200 / 6,000 cfs",
-        "note": "MN DNR interprets the Danbury gauge as Scrapable below 1,250 cfs, Low from 1,250 to 1,500, Medium from 1,500 to 2,200, High from 2,200 to 6,000, and Very High above 6,000.",
-        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
-      },
-      {
-        "label": "Current gauge check",
-        "value": "633 cfs at 2026-07-23 23:00 CDT",
-        "note": "The current MN DNR feed placed Danbury below the official scrapable floor during this run, so the card should present a low-water warning rather than a good-day recommendation.",
-        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
-      },
-      {
-        "label": "Camping rules",
-        "value": "Designated Riverway sites only",
-        "note": "NPS Map 5 says camping is allowed only at designated sites on a first-come, first-served basis, with group-size, stay-limit, campfire, and waste rules.",
-        "sourceUrl": "https://www.nps.gov/sacn/planyourvisit/upload/Section-5_St-Croix_Riverside-Landing-to-Sand-Creek-Landing_2024_508.pdf"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "NPS Saint Croix maps",
-        "url": "https://www.nps.gov/sacn/planyourvisit/maps.htm",
-        "provider": "nps"
-      },
-      {
-        "label": "NPS St. Croix Map 5 PDF",
-        "url": "https://www.nps.gov/sacn/planyourvisit/upload/Section-5_St-Croix_Riverside-Landing-to-Sand-Creek-Landing_2024_508.pdf",
-        "provider": "nps"
-      },
-      {
-        "label": "MN DNR St. Croix River State Water Trail",
-        "url": "https://www.dnr.state.mn.us/state-water-trails/st-croix-river/index.html",
-        "provider": "mn_dnr"
-      },
-      {
-        "label": "MN DNR river levels",
-        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
-        "provider": "mn_dnr"
-      },
-      {
-        "label": "MN DNR river-level site data",
-        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
-        "provider": "mn_dnr"
-      },
-      {
-        "label": "Minnesota public water access feature service",
-        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
-        "provider": "mn_dnr"
-      },
-      {
-        "label": "USGS 05333500 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05333500/",
-        "provider": "usgs"
-      }
-    ]
-  },
-  {
     "id": "st-croix-river-sand-creek-highway-70",
     "slug": "st-croix-river-sand-creek-highway-70",
     "name": "St. Croix River",
@@ -30918,7 +30851,7 @@ export const minnesotaRoutes: River[] = [
     "reach": "Fisher Landing to Red River Recreation Area",
     "state": "Minnesota",
     "region": "Northwest Minnesota",
-    "summary": "Long lower Red Lake River run from Fisher Landing to East Grand Forks, ending at Red River Recreation Area just above the constructed rock rapids and Red River confluence.",
+    "summary": "Advanced-commitment lower Red Lake River run from Fisher to East Grand Forks: 27.6 miles with sparse public exits and a mandatory take-out at Red River Recreation Area above the constructed rock rapids.",
     "statusText": "Use the Fisher DNR gauge at the put-in: 237 to 1,960 cfs is the official medium band. Below 195 cfs is scrapable, and above 2,850 cfs is very high.",
     "latitude": 47.8007512,
     "longitude": -96.8090097,
@@ -30958,11 +30891,11 @@ export const minnesotaRoutes: River[] = [
       ],
       "seasonNotes": "Spring through fall can work when the Fisher gauge is in range. Wind, shallow bends, and fresh flood debris can turn this into a longer trip than the mileage suggests.",
       "difficulty": "moderate",
-      "difficultyNotes": "This is a committed 27.6-mile lower-river route with sparse public exits, private banks, wind exposure, strainers, and a mandatory East Grand Forks take-out above constructed rock rapids.",
+      "difficultyNotes": "The water is mostly nontechnical, but 27.6 miles, sparse public exits, wind, private banks, strainers, and the mandatory take-out above constructed rock rapids create an advanced logistics commitment.",
       "confidenceNotes": "Confidence is high: MN DNR Red Lake Map 2 places Fisher Landing at river mile 27.9 and Red River Recreation Area near river mile 0.3; public-water-access GIS resolves both endpoints; and the Fisher interpreted DNR gauge is at the put-in for the same downstream water-trail corridor."
     },
     "safetyProfile": {
-      "riskLevel": "caution",
+      "riskLevel": "advanced",
       "hazards": [
         "strainers",
         "fast_rise",
@@ -30970,6 +30903,7 @@ export const minnesotaRoutes: River[] = [
         "cold_water"
       ],
       "safetyNotes": [
+        "Treat the route as advanced because of distance, sparse exits, and the mandatory take-out—not because the normal current is technical whitewater.",
         "Take out at Red River Recreation Area before the East Grand Forks constructed rock rapids and Red River confluence unless the next river segment has been separately scouted and planned.",
         "This is a long lower-river trip with limited public exits. Leave a large daylight margin or split the trip with a legal, separately confirmed overnight plan.",
         "Expect muddy banks, snags, wind across open agricultural bends, cold water early or late in the season, and stronger current after rain."
@@ -31202,160 +31136,6 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "MN DNR Cloquet River Map 2 PDF",
         "url": "https://files.dnr.state.mn.us/maps/canoe_routes/cloquet2.pdf",
-        "provider": "mn_dnr"
-      },
-      {
-        "label": "MN DNR river levels",
-        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
-        "provider": "mn_dnr"
-      },
-      {
-        "label": "MN DNR river-level site data",
-        "url": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json",
-        "provider": "mn_dnr"
-      },
-      {
-        "label": "Minnesota public water access feature service",
-        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0",
-        "provider": "mn_dnr"
-      }
-    ]
-  },
-  {
-    "id": "cannon-river-miesville-highway-61",
-    "slug": "cannon-river-miesville-highway-61",
-    "name": "Cannon River",
-    "reach": "Miesville Ravine to Highway 61",
-    "state": "Minnesota",
-    "region": "Southeast Minnesota",
-    "summary": "Lower Cannon day from Miesville Ravine County Park to the Highway 61 access, splitting the final public access pair from the longer Byllesby-to-Highway-61 planner card.",
-    "statusText": "Use the Welch DNR gauge in the route corridor: 300 to 1,540 cfs is the official medium band. Below 231 cfs is scrapable, and above 3,000 cfs is very high.",
-    "latitude": 44.5430566,
-    "longitude": -92.8008416,
-    "gaugeSource": {
-      "id": "mn-dnr-13",
-      "provider": "mn_dnr",
-      "siteId": "13",
-      "metric": "discharge_cfs",
-      "unit": "cfs",
-      "metricLabel": "Discharge",
-      "kind": "direct",
-      "siteName": "Cannon River at Welch, MN",
-      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=39004002",
-      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=39004002&var1=262&width=700&height=320"
-    },
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 300,
-      "idealMax": 1540,
-      "tooLow": 231,
-      "tooHigh": 3000,
-      "thresholdSource": {
-        "label": "MN DNR river-level interpretation bands for Cannon River at Welch",
-        "url": "https://www.dnr.state.mn.us/river_levels/index.html",
-        "provider": "mn_dnr"
-      },
-      "thresholdSourceStrength": "official",
-      "rainfallSensitivity": "medium",
-      "seasonMonths": [
-        5,
-        6,
-        7,
-        8,
-        9,
-        10
-      ],
-      "seasonNotes": "Late spring through fall is the normal planning window. The lower Cannon can rise quickly after rain and can develop fresh wood even when the Welch gauge sits in the normal band.",
-      "difficulty": "moderate",
-      "difficultyNotes": "This shorter lower-Cannon split avoids the Lake Byllesby dam start but still has riffles, bridge current, strainers, private banks, cold water, and a final take-out before the Mississippi transition.",
-      "confidenceNotes": "Confidence is high: MN DNR Cannon Map 2 and public-water-access GIS resolve Miesville Ravine at river mile 18.5 and Highway 61 at river mile 6.8; the Welch DNR gauge is in the same lower-Cannon corridor with official interpretation bands. The route intentionally overlaps the lower half of the existing Byllesby-to-Highway-61 long-card because it is a distinct high-use public access pair."
-    },
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "fast_rise",
-        "private_banks",
-        "cold_water"
-      ],
-      "safetyNotes": [
-        "Highway 61 is the planned take-out. Do not continue toward the Cannon mouth, Mississippi River, or private marinas without separate big-river and access planning.",
-        "Expect riffles, bridge current, downed trees, cold water early or late in the season, and private banks where routine stops are not appropriate.",
-        "Cancel on high or rising water even if the gauge has not yet crossed the official very-high cutoff."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "putIn": {
-      "name": "Cannon River, Miesville Ravine County Park Public Water Access Site",
-      "latitude": 44.5430566,
-      "longitude": -92.8008416
-    },
-    "takeOut": {
-      "name": "Cannon River, Highway 61 Public Water Access Site",
-      "latitude": 44.5811188,
-      "longitude": -92.6553127
-    },
-    "accessPoints": [
-      {
-        "id": "cannon-miesville-ravine",
-        "name": "Cannon River, Miesville Ravine County Park Public Water Access Site",
-        "latitude": 44.5430566,
-        "longitude": -92.8008416,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Default put-in; Minnesota public-water-access GIS resolves the county park access at DNR river mile 18.5."
-      },
-      {
-        "id": "highway-61-cannon",
-        "name": "Cannon River, Highway 61 Public Water Access Site",
-        "latitude": 44.5811188,
-        "longitude": -92.6553127,
-        "mileFromStart": 11.7,
-        "segmentKind": "creek",
-        "note": "Default take-out; resolves as WAS01112 near DNR river mile 6.8."
-      }
-    ],
-    "evidenceNotes": [
-      {
-        "label": "Route shape",
-        "value": "Miesville RM 18.5 to Highway 61 RM 6.8",
-        "note": "MN DNR Cannon Map 2 and the public-access layer place Miesville Ravine and Highway 61 as consecutive lower-river public accesses; DNR virtual-tour guidance identifies Highway 61 as a common take-out for trips from Miesville or Welch.",
-        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/cannon2.pdf"
-      },
-      {
-        "label": "Public access records",
-        "value": "Miesville Ravine to WAS01112",
-        "note": "Minnesota public-water-access GIS resolves Miesville Ravine County Park and Highway 61 with official names, coordinates, administrators, and river-mile context.",
-        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
-      },
-      {
-        "label": "Official DNR bands",
-        "value": "231 / 300-1540 / 3000 cfs",
-        "note": "MN DNR interprets Welch as Scrapable below 231 cfs, Low from 231 to 300, Medium from 300 to 1540, High from 1540 to 3000, and Very High above 3000.",
-        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
-      },
-      {
-        "label": "Current gauge check",
-        "value": "872 cfs at 2026-07-24 04:00 CDT",
-        "note": "The current MN DNR feed placed Welch in the official medium band during this run.",
-        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
-      },
-      {
-        "label": "Overlap decision",
-        "value": "Shorter split inside Byllesby-to-Highway-61",
-        "note": "The new card is intentionally a distinct lower split from the existing full lower-Cannon day, giving paddlers the final public access pair without the dam-start mileage.",
-        "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "MN DNR Cannon River segments and maps",
-        "url": "https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html",
-        "provider": "mn_dnr"
-      },
-      {
-        "label": "MN DNR Cannon River Map 2 PDF",
-        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/cannon2.pdf",
         "provider": "mn_dnr"
       },
       {

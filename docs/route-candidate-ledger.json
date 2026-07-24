@@ -1,7 +1,17 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-24T12:12:00Z",
+  "updatedAt": "2026-07-24T13:14:00Z",
   "notes": [
+    {
+      "date": "2026-07-24",
+      "automation": "minnesota-route-additions-2",
+      "summary": "Added three Minnesota route slugs beyond the current dirty-checkout 236-route Minnesota baseline: cedar-river-austin-mill-pond-marcusen, cottonwood-river-flandrau-highway-15, and minnesota-river-land-of-memories-riverfront, bringing Minnesota to 239 live routes. Sources included MN DNR Cedar River, Cottonwood/Minnesota Map 4, and Minnesota Map 5 water-trail materials, MN DNR interpreted river-level feed, Minnesota public-water-access GIS, City of Mankato Land of Memories context, and USGS 05325000 fallback context. Current DNR checks returned Cedar River near Austin site 286 at 321 cfs at 2026-07-24 06:00 CDT in official medium, Cottonwood River near New Ulm site 39 at 113 cfs at 2026-07-24 06:00 CDT below scrapable, and Minnesota River at Mankato site 96 at 2,540 cfs at 2026-07-24 06:30 CDT in official low. No route-gallery image was selected after bounded DNR / public-access / Commons / same-route review."
+    },
+    {
+      "date": "2026-07-24",
+      "automation": "iowa-route-additions",
+      "summary": "Added three Iowa lower Wapsipinicon Bends-to-Beaches route slugs beyond the 128-route dirty-checkout Iowa baseline: wapsipinicon-river-syracuse-sherman, wapsipinicon-river-sherman-allens-grove, and wapsipinicon-river-allens-grove-gambril, bringing Iowa to 131 live routes. Sources included Iowa DNR lower Wapsipinicon guide and Clinton/Scott County map, Clinton County Sherman Park, Scott County Allen's Grove and Wapsi recreation/water-level pages, Travel Iowa Sherman context, CanWePaddle lower-Wapsi 200-2,800 cfs guidance, and current USGS 05421740 / 05422000 Water Services data. No route-gallery image was selected after bounded official/local/Commons/same-route review."
+    },
     {
       "date": "2026-07-24",
       "automation": "minnesota-route-additions-2",
@@ -56472,6 +56482,141 @@
         "Take out at South River District unless the longer downstream Lehigh route is staged.",
         "Iowa DNR describes bridges, storm-sewer outfalls, urban debris, and the USGS gauge corridor in this reach.",
         "Former dam-removal areas can still create confusing current and remnant hazards; avoid high or rising water."
+      ]
+    },
+    {
+      "river": "Wapsipinicon River",
+      "state": "Iowa",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "sourceQuality": "official Iowa DNR lower water-trail access and mileage / county public access / community lower-corridor threshold / official USGS live gauge",
+      "gauge": {
+        "provider": "USGS",
+        "siteId": "05421740",
+        "siteName": "Wapsipinicon River near Anamosa, IA",
+        "kind": "upstream lower-corridor threshold proxy with direct De Witt corroboration",
+        "latest": "Anamosa 1,920 cfs / 7.13 ft at 2026-07-24 07:15 CDT; De Witt 2,270 cfs / 8.02 ft at 2026-07-24 07:30 CDT via USGS Water Services"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "200-2,800 cfs",
+        "source": "CanWePaddle Wapsipinicon River Anamosa-to-Oxford lower-corridor model",
+        "strength": "community",
+        "caveat": "Applied conservatively downstream only because the source range is already accepted for the lower Wapsi; cards require same-day Syracuse/Sherman/Allen's/Gambril access checks and De Witt corroboration."
+      },
+      "imageStatus": "No route-gallery image added; bounded Iowa DNR / Clinton County / Scott County / Travel Iowa / USGS / Commons / same-route review did not find a clearly rights-clean exact-route asset.",
+      "sources": [
+        "https://www.iowadnr.gov/media/8899/download?inline=",
+        "https://media.rainpos.com/8576/cdo_wapsipinicon_river_scott_and_clinton_county1.pdf",
+        "https://www.clintoncounty-ia.gov/conservation/parks/sherman_park/",
+        "https://www.scottcountyiowa.gov/conservation/allens-grove",
+        "https://www.scottcountyiowa.gov/conservation/wapsi/recreation",
+        "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05422000/"
+      ],
+      "candidateId": "ia-wapsipinicon-river-syracuse-sherman-2026-07-24",
+      "route": "Syracuse Access to Sherman Park",
+      "v2Slug": "wapsipinicon-river-syracuse-sherman",
+      "access": {
+        "putIn": "Syracuse Wildlife Area Access",
+        "takeOut": "Sherman Park boat ramp",
+        "coordinateSource": "Syracuse reuses existing source-backed V2 coordinate from Lincoln Highway/DNR context; Sherman uses named county park/boat-ramp context and public ramp coordinate."
+      },
+      "caveats": [
+        "Syracuse is a broad sandbar access reached only from the east; road, mud, and water level must be checked.",
+        "DNR frames this as a 6-plus-mile shorter option only when conditions are favorable.",
+        "Sherman Park has endpoint campground support, but private uplands and unstable sandbars remain off limits."
+      ]
+    },
+    {
+      "river": "Wapsipinicon River",
+      "state": "Iowa",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "sourceQuality": "official Iowa DNR lower water-trail access and mileage / county public access / community lower-corridor threshold / official USGS live gauge",
+      "gauge": {
+        "provider": "USGS",
+        "siteId": "05421740",
+        "siteName": "Wapsipinicon River near Anamosa, IA",
+        "kind": "upstream lower-corridor threshold proxy with direct De Witt corroboration",
+        "latest": "Anamosa 1,920 cfs / 7.13 ft at 2026-07-24 07:15 CDT; De Witt 2,270 cfs / 8.02 ft at 2026-07-24 07:30 CDT via USGS Water Services"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "200-2,800 cfs",
+        "source": "CanWePaddle Wapsipinicon River Anamosa-to-Oxford lower-corridor model",
+        "strength": "community",
+        "caveat": "Applied conservatively downstream only; the Wapsi River Environmental Center is documented as restricted/renter-only and not used as a public endpoint."
+      },
+      "imageStatus": "No route-gallery image added; bounded Iowa DNR / Clinton County / Scott County / Travel Iowa / USGS / Commons / same-route review did not find a clearly rights-clean exact-route asset.",
+      "sources": [
+        "https://www.iowadnr.gov/media/8899/download?inline=",
+        "https://media.rainpos.com/8576/cdo_wapsipinicon_river_scott_and_clinton_county1.pdf",
+        "https://www.clintoncounty-ia.gov/conservation/parks/sherman_park/",
+        "https://www.scottcountyiowa.gov/conservation/allens-grove",
+        "https://www.scottcountyiowa.gov/conservation/wapsi/recreation",
+        "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05422000/"
+      ],
+      "candidateId": "ia-wapsipinicon-river-sherman-allens-grove-2026-07-24",
+      "route": "Sherman Park to Allen's Grove Access",
+      "v2Slug": "wapsipinicon-river-sherman-allens-grove",
+      "access": {
+        "putIn": "Sherman Park boat ramp",
+        "takeOut": "Allen's Grove Access",
+        "coordinateSource": "Sherman uses public county park/ramp coordinate; Allen's Grove uses Scott County public-use-area support and searched public ramp coordinate."
+      },
+      "caveats": [
+        "Allen's Grove is the planned take-out at about the 11-mile mark; do not continue without the Gambril shuttle.",
+        "DNR warns side channels and bends can sweep paddlers into dead-log tangles.",
+        "Scott County says no camping is allowed at Allen's Grove."
+      ]
+    },
+    {
+      "river": "Wapsipinicon River",
+      "state": "Iowa",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "sourceQuality": "official Iowa DNR lower water-trail access and mileage / county public access / community lower-corridor threshold / official USGS live gauge",
+      "gauge": {
+        "provider": "USGS",
+        "siteId": "05421740",
+        "siteName": "Wapsipinicon River near Anamosa, IA",
+        "kind": "upstream lower-corridor threshold proxy with direct De Witt corroboration",
+        "latest": "Anamosa 1,920 cfs / 7.13 ft at 2026-07-24 07:15 CDT; De Witt 2,270 cfs / 8.02 ft at 2026-07-24 07:30 CDT via USGS Water Services"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "200-2,800 cfs",
+        "source": "CanWePaddle Wapsipinicon River Anamosa-to-Oxford lower-corridor model",
+        "strength": "community",
+        "caveat": "Applied conservatively downstream with direct lower-river De Witt condition checks because the DNR notes this south-fork section carries substantially more water than the north fork."
+      },
+      "imageStatus": "No route-gallery image added; bounded Iowa DNR / Clinton County / Scott County / Travel Iowa / USGS / Commons / same-route review did not find a clearly rights-clean exact-route asset.",
+      "sources": [
+        "https://www.iowadnr.gov/media/8899/download?inline=",
+        "https://media.rainpos.com/8576/cdo_wapsipinicon_river_scott_and_clinton_county1.pdf",
+        "https://www.scottcountyiowa.gov/conservation/allens-grove",
+        "https://www.scottcountyiowa.gov/conservation/wapsi/recreation",
+        "https://stayinginstate.com/gambril-access-to-mccausland-access/",
+        "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05422000/"
+      ],
+      "candidateId": "ia-wapsipinicon-river-allens-grove-gambril-2026-07-24",
+      "route": "Allen's Grove Access to Gambril Access",
+      "v2Slug": "wapsipinicon-river-allens-grove-gambril",
+      "access": {
+        "putIn": "Allen's Grove Access",
+        "takeOut": "Gambril Access",
+        "coordinateSource": "Allen's Grove uses Scott County public-use-area support and searched public ramp coordinate; Gambril uses DNR-documented access plus map/trip-reference practical ramp coordinate requiring same-day confirmation."
+      },
+      "caveats": [
+        "Gambril has no bathrooms and must be confirmed from land before launch.",
+        "Lower-river side channels, log tangles, and private cabin banks are the main safety controls.",
+        "Do not continue to McCausland or the Mississippi-side section without a separate advanced plan."
       ]
     }
   ]

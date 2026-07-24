@@ -874,26 +874,26 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "root-river-rushford-houston": {
     "putIn": {
-      "name": "Rushford carry-in access (Historic Depot area)",
-      "latitude": 43.78358,
-      "longitude": -91.83403
+      "name": "Root River, Rushford Public Water Access Site",
+      "latitude": 43.803006163099525,
+      "longitude": -91.76035528027356
     },
     "takeOut": {
-      "name": "Houston carry-in access (Houston Nature Center area)",
-      "latitude": 43.7645,
-      "longitude": -91.57037
+      "name": "Root River, Houston Public Water Access Site",
+      "latitude": 43.76900782409476,
+      "longitude": -91.57122233007246
     },
     "logistics": {
       "distanceLabel": "15.1 mi",
       "estimatedPaddleTime": "About 5 hr to 6 hr 45 min",
-      "shuttle": "Two-car shuttle is simplest. A bike shuttle on the Root River State Trail is realistic if your group wants it, with parking guidance at the Rushford Historic Depot and Houston Nature Center lots.",
+      "shuttle": "Two-car shuttle is simplest. A bike shuttle on the Root River State Trail is realistic if your group wants it, with the official public accesses near the Rushford and Houston trail-town facilities.",
       "permits": "No route-specific paddling permit is known. State-trail use is straightforward for walking or biking the shuttle, but still follow posted local parking and trail rules.",
       "camping": "Houston Nature Center / Trailhead Park offers tent camping and hot showers, and official trail-town guidance also points to campground support in both Rushford and Houston. Otherwise treat this as a long day trip.",
       "summary": "Launch at the Rushford carry-in and finish at the Houston carry-in near the Houston Nature Center. The route is friendly at workable flow, but it is long enough that low-water slowdowns and fresh wood can change the day substantially.",
       "accessCaveats": [
-        "The best-known parking is at the Rushford Historic Depot lot and the Houston Nature Center lot, so expect a short walk or carry rather than a pure drive-to-water launch at both ends.",
-        "Houston Nature Center confirms ample parking at the trailhead, but still check local event activity before counting on the lot feeling empty.",
-        "Look at the Houston exit before launching if you have not used it before, because town-side trail and parking landmarks are easier to recognize from shore than from mid-river."
+        "The DNR public-water-access record places the Rushford landing 0.5 miles west of town on Highway 16, then 0.5 miles south on a gravel access road. Do not treat the Historic Depot as the launch coordinate.",
+        "The DNR public-water-access record places the Houston landing on the north side of Houston off State Highway 76. The Houston Nature Center is nearby trailhead and camping support, but it is not the access coordinate itself.",
+        "Confirm local parking and event conditions before leaving a shuttle vehicle, and expect a carry-in launch rather than a trailer ramp at both endpoints."
       ],
       "watchFor": [
         "Low-water riffles and slower progress when the Houston gauge is near the floor.",
@@ -2624,6 +2624,59 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
+  "minnesota-river-land-of-memories-riverfront": {
+    "putIn": {
+      "id": "land-of-memories-park-public-water-access",
+      "name": "Land of Memories Park public water access",
+      "latitude": 44.1624934,
+      "longitude": -94.0414558
+    },
+    "takeOut": {
+      "id": "riverfront-park-mankato",
+      "name": "Minnesota River, Riverfront Park Public Water Access Site",
+      "latitude": 44.1750525,
+      "longitude": -94.001449
+    },
+    "logistics": {
+      "distanceLabel": "About 2.5 mi",
+      "estimatedPaddleTime": "About 1 hr to 1.75 hr, longer with wind, low water, or bridge-current scouting",
+      "shuttle": "Stage Riverfront Park first, then drive back to Land of Memories Park. Walk both city landings before launch because muddy footing, park activity, and river level can change the short trip quickly.",
+      "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules, City of Mankato park rules, and posted access, parking, and private-bank restrictions.",
+      "camping": "Land of Memories Park provides endpoint campground context, but this short connector should be treated as a day route with no assumed informal riverbank camping.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at Land of Memories Park and take out at Mankato Riverfront Park for the short public-access connector between two existing Minnesota River route cards. The direct Mankato gauge was in the official low band during review, so same-day depth and mud checks matter.",
+      "accessCaveats": [
+        "Land of Memories Park resolves in Minnesota public-water-access context near river mile 105.0 and has city-park campground and boat-landing support.",
+        "Riverfront Park resolves as WAS01018 at DNR Map 5 river mile 102.5.",
+        "This route ends at Riverfront Park. Continuing to Seven Mile Creek requires the separate downstream route plan and shuttle."
+      ],
+      "watchFor": [
+        "Wind, motorboat wake, bridge current, sandbars, muddy banks, cold water, and floating debris after rain.",
+        "Private or unsuitable banks away from the named city parks.",
+        "Low-water scraping and slow travel when Mankato sits below the official medium band."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "land-of-memories-park-public-water-access",
+        "name": "Land of Memories Park public water access",
+        "latitude": 44.1624934,
+        "longitude": -94.0414558,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; public-water-access GIS resolves Land of Memories Park at Minnesota River mile 105.0."
+      },
+      {
+        "id": "riverfront-park-mankato",
+        "name": "Minnesota River, Riverfront Park Public Water Access Site",
+        "latitude": 44.1750525,
+        "longitude": -94.001449,
+        "mileFromStart": 2.5,
+        "segmentKind": "creek",
+        "note": "Default take-out at DNR Map 5 river mile 102.5; resolves as WAS01018."
+      }
+    ]
+  },
   "minnesota-river-franklin-mack-lake": {
     "putIn": {
       "name": "Franklin trailer access / city boat landing",
@@ -2987,42 +3040,11 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
-  "north-fork-crow-river-wildlife-albrights-mill": {
+  "north-fork-crow-river-wildlife-bill-anderson": {
     "putIn": {
       "name": "Wildlife County Park carry-in access",
       "latitude": 45.1380365,
       "longitude": -94.176126
-    },
-    "takeOut": {
-      "name": "Albright's Mill County Park carry-in access",
-      "latitude": 45.1268083,
-      "longitude": -94.1116757
-    },
-    "logistics": {
-      "distanceLabel": "6.2 mi",
-      "estimatedPaddleTime": "About 2 hr to 3 hr 30 min, longer at low water",
-      "shuttle": "Stage a vehicle at Albright's Mill County Park, then drive back to Wildlife County Park. Check the Cokato/CSAH 4 gauge between the endpoints and still inspect the landings because wood can change this reach quickly.",
-      "permits": "No route-specific paddling permit is known. DNR map context lists permit-required camping at Wildlife and Albright's Mill; follow Wright County reservation, fee, and parking rules if using either campsite.",
-      "camping": "DNR Map 1 identifies permit-required campsites at both endpoints. Treat them as separately reserved endpoint options, not guaranteed same-day availability or permission to camp elsewhere along private banks.",
-      "campingClassification": "endpoint_campground",
-      "summary": "Launch at Wildlife County Park and take out at Albright's Mill County Park. This is a compact middle North Fork Crow segment with a direct Cokato gauge, but it still needs low-water and obstruction checks before committing.",
-      "accessCaveats": [
-        "Wildlife County Park resolves to the Minnesota public-water-access record at river mile 68.9; DNR Map 1 also labels it as a carry-in access and permit-required campsite.",
-        "Albright's Mill resolves to the public-water-access record at river mile 62.7 and is mapped by DNR as a carry-in access with drinking water and permit-required camping.",
-        "The Cokato/CSAH 4 gauge sits between the endpoints, so it is a strong level signal, but it cannot show fresh strainers, fences, or landing mud."
-      ],
-      "watchFor": [
-        "Low-water scraping or short carries when the Cokato gauge falls through the low band.",
-        "Underwater branches, overhanging trees, and new strainers on tight bends.",
-        "Possible low bridges or unlawful fences; avoid trespass and report blocked navigation through official channels."
-      ]
-    }
-  },
-  "north-fork-crow-river-albrights-mill-bill-anderson": {
-    "putIn": {
-      "name": "Albright's Mill County Park carry-in access",
-      "latitude": 45.1268083,
-      "longitude": -94.1116757
     },
     "takeOut": {
       "name": "Bill Anderson Park carry-in access",
@@ -3030,24 +3052,59 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -94.0327945
     },
     "logistics": {
-      "distanceLabel": "7.4 mi",
-      "estimatedPaddleTime": "About 2 hr 30 min to 4 hr, longer with low water or scouting",
-      "shuttle": "Set the take-out vehicle at Bill Anderson Park and return to Albright's Mill. The Cokato gauge is just upstream of this split, so pair the reading with a local visual check at Albright before launching.",
-      "permits": "No route-specific paddling permit is known. Albright's Mill campsite use requires following posted Wright County permit or reservation rules if used before the trip.",
-      "camping": "DNR Map 1 identifies permit-required camping at Albright's Mill and a watercraft campsite at Bill Anderson. Plan any overnight as a separately confirmed county/DNR-mapped campsite stay.",
-      "campingClassification": "endpoint_campground",
-      "summary": "Paddle from Albright's Mill County Park to Bill Anderson Park. This fills the next official North Fork Crow access pair downstream of Cokato, with a short enough day to stop and work around wood.",
+      "distanceLabel": "About 13.6 mi",
+      "estimatedPaddleTime": "About 5 to 7 hours for the full 13.6-mile route; Albright's Mill provides a 6.2-mile option",
+      "shuttle": "Stage Bill Anderson Park first, then return to Wildlife County Park. Inspect Albright's Mill if using it for a shorter trip, campsite, or bailout.",
+      "permits": "No route-specific paddling permit is known. DNR map context lists permit-required camping at Wildlife and Albright's Mill; follow Wright County reservation, fee, and parking rules if using either campsite.",
+      "camping": "Albright's Mill and Bill Anderson have mapped county-park or watercraft-camping context. Confirm current park rules and availability before relying on either site.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Consolidated North Fork Crow route from Wildlife County Park to Bill Anderson Park, retaining Albright's Mill as an intermediate public access, campground, and shorter-trip option.",
       "accessCaveats": [
+        "Wildlife County Park resolves to the Minnesota public-water-access record at river mile 68.9; DNR Map 1 also labels it as a carry-in access and permit-required campsite.",
+        "Albright's Mill resolves to the public-water-access record at river mile 62.7 and is mapped by DNR as a carry-in access with drinking water and permit-required camping.",
+        "The Cokato/CSAH 4 gauge sits between the endpoints, so it is a strong level signal, but it cannot show fresh strainers, fences, or landing mud.",
         "Albright's Mill is mapped by DNR as a carry-in access at river mile 62.7 with drinking water and permit-required camping.",
         "Bill Anderson Park resolves to the Minnesota public-water-access record at river mile 55.3 and DNR Map 1 identifies it as a carry-in access and watercraft campsite.",
         "The Cokato gauge is upstream of the put-in, so treat it as a same-corridor proxy and verify enough local water over shallow riffles before committing."
       ],
       "watchFor": [
+        "Low-water scraping or short carries when the Cokato gauge falls through the low band.",
+        "Underwater branches, overhanging trees, and new strainers on tight bends.",
+        "Possible low bridges or unlawful fences; avoid trespass and report blocked navigation through official channels.",
         "Shallow riffles and exposed gravel if the Cokato gauge is below medium.",
         "Fresh wood, overhanging branches, and fence-like obstructions in the narrow channel.",
         "Private banks between bridge crossings; do not count on informal exits."
       ]
-    }
+    },
+    "accessPoints": [
+      {
+        "id": "wildlife-county-park-carry-in-access",
+        "name": "Wildlife County Park carry-in access",
+        "latitude": 45.1380365,
+        "longitude": -94.176126,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in."
+      },
+      {
+        "id": "albright-s-mill-county-park-carry-in-access",
+        "name": "Albright's Mill County Park carry-in access",
+        "latitude": 45.1268083,
+        "longitude": -94.1116757,
+        "mileFromStart": 6.2,
+        "segmentKind": "creek",
+        "note": "Default take-out."
+      },
+      {
+        "id": "bill-anderson-park-carry-in-access",
+        "name": "Bill Anderson Park carry-in access",
+        "latitude": 45.1275576,
+        "longitude": -94.0327945,
+        "mileFromStart": 13.6,
+        "segmentKind": "creek",
+        "note": "Default take-out."
+      }
+    ]
   },
   "north-fork-crow-river-bill-anderson-humphrey-arends": {
     "putIn": {
@@ -3508,6 +3565,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "The upper miles are mostly lake crossings before the creek narrows. Fish-barrier status, lake wind, and intermediate exits matter almost as much as the gauge.",
       "accessCaveats": [
         "Multiple intermediate landings make it easy to shorten the route if wind or time becomes a problem.",
+        "Reshanau Lake is not modeled as a public access point; use the documented George Watch/Wargo or Aqua Lane options instead.",
         "An electric fish barrier near Long Lake may require a marked portage depending on posted conditions."
       ],
       "watchFor": [
@@ -3528,30 +3586,21 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       },
       {
         "id": "george-watch-lake",
-        "name": "George Watch Lake carry-in",
-        "latitude": 45.1747078,
-        "longitude": -93.0902356,
+        "name": "George Watch Lake / Wargo Nature Center",
+        "latitude": 45.1820472,
+        "longitude": -93.0853333,
         "mileFromStart": 1.4,
         "segmentKind": "lake",
-        "note": "Skips the first lake mile and keeps the route in the open-water chain."
-      },
-      {
-        "id": "reshanau-lake",
-        "name": "Reshanau Lake carry-in",
-        "latitude": 45.1529228,
-        "longitude": -93.0978098,
-        "mileFromStart": 3.6,
-        "segmentKind": "lake",
-        "note": "Mid-lakes access for a shorter chain-of-lakes start."
+        "note": "Wargo Nature Center is on the north end of George Watch Lake; its official map designation is rentals/boat return only, so confirm current launch rules before treating it as a self-launch."
       },
       {
         "id": "aqua-lane",
-        "name": "Aqua Lane canoe launch",
-        "latitude": 45.163501,
-        "longitude": -93.1154659,
-        "mileFromStart": 4.8,
+        "name": "Aqua Lane / Rice Lake carry-in",
+        "latitude": 45.1634530086,
+        "longitude": -93.1155071947,
+        "mileFromStart": 3.6,
         "segmentKind": "transition",
-        "note": "Useful early take-out or downstream restart after the upper lake chain."
+        "note": "Official carry-in access off Aqua Lane at the Rice Creek channel between Marshan and Rice Lakes; useful for a shorter route or as the upper-chain transition."
       },
       {
         "id": "baldwin-lake",
@@ -3635,35 +3684,6 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "Debris or strainers after storms and in high water.",
         "The Class I rapid around river mile 11.",
         "Cold-water risk in shoulder seasons."
-      ]
-    }
-  },
-  "whitewater-river-elba-highway-74": {
-    "putIn": {
-      "name": "Elba / Highway 26 and Center Street access",
-      "latitude": 44.09185,
-      "longitude": -92.01381
-    },
-    "takeOut": {
-      "name": "Highway 74 roadside take-out near Whitewater WMA",
-      "latitude": 44.14973,
-      "longitude": -92.00558
-    },
-    "logistics": {
-      "distanceLabel": "About 10.4 river mi",
-      "estimatedPaddleTime": "About 3 hr 30 min to 5 hr",
-      "shuttle": "Short road shuttle between Elba and the Highway 74 take-out. Because these are less polished roadside-style accesses, confirm legal parking and the exact take-out before launching.",
-      "permits": "No special paddling permit is known for the Minnesota DNR Whitewater River State Water Trail. Follow posted WMA, roadside parking, and boating rules.",
-      "camping": "MN DNR says there are no campsites or rest areas on the Whitewater River State Water Trail. Whitewater State Park is an off-river nearby campground/base-camp option if you need an overnight base.",
-      "summary": "Put in at Elba and take out where the river comes back to Highway 74. This is a narrow, wood-sensitive creek route, so the DNR gauge is only the first screen; current strainers and logjams still decide the day.",
-      "accessCaveats": [
-        "The access story is still less polished than named park landings. MilesPaddled and Post Bulletin reports support the same access pair, but verify legal parking and the exact take-out before committing to the shuttle.",
-        "MN DNR notes ecological sensitivity in the Whitewater WMA, so stay on legal accesses and avoid creating informal stops."
-      ],
-      "watchFor": [
-        "Deadfall, strainers, and occasional logjam portages.",
-        "Fast current and fewer recovery options when the Beaver gauge rises into high water.",
-        "Scraping and extra dragging when the gauge drops below the medium band."
       ]
     }
   },
@@ -4127,34 +4147,40 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
-  "st-croix-river-highway-70-stevens-creek": {
+  "st-croix-river-highway-70-sunrise": {
     "putIn": {
       "name": "St. Croix River, Highway 70 Landing",
       "latitude": 45.7739241,
       "longitude": -92.7820489
     },
     "takeOut": {
-      "name": "St. Croix River, Stevens Creek Public Water Access Site",
-      "latitude": 45.7294177,
-      "longitude": -92.8488268
+      "name": "St. Croix River, Sunrise Public Water Access Site",
+      "latitude": 45.5667416,
+      "longitude": -92.864868
     },
     "logistics": {
-      "distanceLabel": "About 4.9 mi",
-      "estimatedPaddleTime": "About 1.75 hr to 3 hr, longer with low-water dragging or rapid scouting",
-      "shuttle": "Stage Stevens Creek Landing first, then drive back to Highway 70. Walk the Stevens Creek take-out before launching because the short rapid series is near the finish.",
+      "distanceLabel": "About 17.6 mi",
+      "estimatedPaddleTime": "About 6 to 9 hours for the full 17.6-mile route; Stevens Creek provides a 4.9-mile short option",
+      "shuttle": "Stage Sunrise Landing first, then return to Highway 70. Inspect Stevens Creek if using it as a short take-out, alternate put-in, or rapid-area bailout.",
       "permits": "No route-specific paddling permit is known. Follow National Scenic Riverway rules, Minnesota boating/PFD requirements, and posted NPS/DNR public-access and campsite rules.",
-      "camping": "NPS Map 7 allows camping only at designated first-come Riverway sites with stay, group-size, fire, sanitation, trash, and food-storage rules. Treat this short split as a day route unless a designated campsite is deliberately part of the plan.",
+      "camping": "Use only designated St. Croix National Scenic Riverway campsites and follow current NPS stay, fire, and sanitation rules.",
       "campingClassification": "on_route_campsite",
-      "summary": "Launch at Highway 70 and take out at Stevens Creek for the first missing NPS Map 7 St. Croix split below the existing Sand-Creek-to-Highway-70 card. The downstream St. Croix Falls DNR gauge was below scrapable during this run.",
+      "summary": "Consolidated NPS Map 7 St. Croix Riverway route from Highway 70 to Sunrise Landing, with Stevens Creek retained as an intermediate public access near the short rapid sequence.",
       "accessCaveats": [
         "Minnesota public-water-access GIS resolves Highway 70 as WAS00085 near river mile 89.5 and Stevens Creek as WAS02204 near river mile 84.6.",
         "The St. Croix Falls gauge is downstream of this split. Use it as the official corridor check, then make a local visual call for shallow bars, rapid shape, and wood.",
-        "Do not treat private banks or unsigned shoreline as bailout or camping options."
+        "Do not treat private banks or unsigned shoreline as bailout or camping options.",
+        "Minnesota public-water-access GIS resolves Stevens Creek as WAS02204 near river mile 84.6 and Sunrise as WAS00299 near river mile 71.9.",
+        "The St. Croix Falls gauge is downstream of the route, so local depth, wood, and landing checks matter before launch.",
+        "Keep stops to legal Riverway sites and public landings; much of the shoreline cannot be used as an improvised exit."
       ],
       "watchFor": [
         "The short series of rapids around Stevens Creek Landing noted by NPS Map 7.",
         "Shallow summer bars, channel reading, and possible walking when St. Croix Falls is below the official floor.",
-        "Fallen trees, cold water, private banks, Riverway campsite rules, and changing current after rain."
+        "Fallen trees, cold water, private banks, Riverway campsite rules, and changing current after rain.",
+        "Fallen trees, strainers, cold water, and remote rescue spacing.",
+        "Shallow bars or walking in summer low water, especially when St. Croix Falls is below the official floor.",
+        "High or rising water, wind, private/restricted banks, and Riverway campsite regulations."
       ]
     },
     "accessPoints": [
@@ -4175,55 +4201,13 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 4.9,
         "segmentKind": "creek",
         "note": "Default take-out; Minnesota public-water-access GIS resolves WAS02204 near river mile 84.6."
-      }
-    ]
-  },
-  "st-croix-river-stevens-creek-sunrise": {
-    "putIn": {
-      "name": "St. Croix River, Stevens Creek Public Water Access Site",
-      "latitude": 45.7294177,
-      "longitude": -92.8488268
-    },
-    "takeOut": {
-      "name": "St. Croix River, Sunrise Public Water Access Site",
-      "latitude": 45.5667416,
-      "longitude": -92.864868
-    },
-    "logistics": {
-      "distanceLabel": "About 12.7 mi",
-      "estimatedPaddleTime": "About 4.5 hr to 6.5 hr, longer with low water, headwind, or campsite stops",
-      "shuttle": "Stage Sunrise Landing first, then drive back to Stevens Creek. Confirm the Sunrise landing and daylight margin before committing because public exits are limited.",
-      "permits": "No route-specific paddling permit is known. Follow National Scenic Riverway rules, Minnesota boating/PFD requirements, and posted NPS/DNR public-access and campsite rules.",
-      "camping": "Use only designated first-come Riverway campsites under current NPS rules. Do not assume island, sandbar, private-bank, or unsigned shoreline camping is legal.",
-      "campingClassification": "on_route_campsite",
-      "summary": "Launch at Stevens Creek and take out at Sunrise Landing for the middle NPS Map 7 St. Croix split. This fills a practical day-route gap between the Highway 70 and Wild River endpoints.",
-      "accessCaveats": [
-        "Minnesota public-water-access GIS resolves Stevens Creek as WAS02204 near river mile 84.6 and Sunrise as WAS00299 near river mile 71.9.",
-        "The St. Croix Falls gauge is downstream of the route, so local depth, wood, and landing checks matter before launch.",
-        "Keep stops to legal Riverway sites and public landings; much of the shoreline cannot be used as an improvised exit."
-      ],
-      "watchFor": [
-        "Fallen trees, strainers, cold water, and remote rescue spacing.",
-        "Shallow bars or walking in summer low water, especially when St. Croix Falls is below the official floor.",
-        "High or rising water, wind, private/restricted banks, and Riverway campsite regulations."
-      ]
-    },
-    "accessPoints": [
-      {
-        "id": "stevens-creek-landing",
-        "name": "St. Croix River, Stevens Creek Public Water Access Site",
-        "latitude": 45.7294177,
-        "longitude": -92.8488268,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Default put-in; Minnesota public-water-access GIS resolves WAS02204 near river mile 84.6."
       },
       {
         "id": "sunrise-landing",
         "name": "St. Croix River, Sunrise Public Water Access Site",
         "latitude": 45.5667416,
         "longitude": -92.864868,
-        "mileFromStart": 12.7,
+        "mileFromStart": 17.6,
         "segmentKind": "creek",
         "note": "Default take-out; Minnesota public-water-access GIS resolves WAS00299 near river mile 71.9."
       }
@@ -8076,6 +8060,59 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "cedar-river-austin-mill-pond-marcusen": {
+    "putIn": {
+      "id": "cedar-river-austin-mill-pond",
+      "name": "Austin Mill Pond Public Water Access Site",
+      "latitude": 43.674039181636296,
+      "longitude": -92.97327961720995
+    },
+    "takeOut": {
+      "id": "marcusen-park-cedar",
+      "name": "Cedar River, Marcusen Park Public Water Access Site",
+      "latitude": 43.6569447,
+      "longitude": -92.9743545
+    },
+    "logistics": {
+      "distanceLabel": "About 1.9 mi",
+      "estimatedPaddleTime": "About 45 min to 1.5 hr, longer with low water, debris, or dam-area scouting",
+      "shuttle": "Stage Marcusen Park first, then drive back to Austin Mill Pond. Walk both city landings before launching so the short route does not become an unplanned dam or downstream-access problem.",
+      "permits": "No route-specific paddling permit is known. Use the public accesses, follow Minnesota boating/PFD rules, and obey posted city, DNR, dam, and private-property restrictions.",
+      "camping": "Treat this as a short day route. DNR does not document an on-route campsite between Austin Mill Pond and Marcusen Park, and private-bank camping should not be assumed.",
+      "campingClassification": "none",
+      "summary": "Launch at Austin Mill Pond and take out at Marcusen Park for the short Cedar River connector above the existing Marcusen-to-Riverwood card. The route uses the downstream Austin DNR gauge and requires same-day checks around dam boundaries, snags, and urban debris.",
+      "accessCaveats": [
+        "Austin Mill Pond resolves in Minnesota public-water-access GIS as WAS01390 at DNR river mile 17.5.",
+        "Marcusen Park resolves as WAS03076 at DNR river mile 15.6 behind Marcusen Stadium in Austin.",
+        "The County Road 28 DNR gauge is downstream of the take-out, so it is a corridor proxy rather than a perfect at-the-ramp reading."
+      ],
+      "watchFor": [
+        "Low-head dam and mill-pond boundary hazards at the route edges.",
+        "Snags, overhanging trees, bridge current, urban debris, private banks, and fast rises after rain.",
+        "Low-water scraping or dragging below the official 50 cfs floor and more forceful current above the high band."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "cedar-river-austin-mill-pond",
+        "name": "Austin Mill Pond Public Water Access Site",
+        "latitude": 43.674039181636296,
+        "longitude": -92.97327961720995,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; public-water-access GIS resolves WAS01390 at DNR river mile 17.5."
+      },
+      {
+        "id": "marcusen-park-cedar",
+        "name": "Cedar River, Marcusen Park Public Water Access Site",
+        "latitude": 43.6569447,
+        "longitude": -92.9743545,
+        "mileFromStart": 1.9,
+        "segmentKind": "creek",
+        "note": "Default take-out; resolves as WAS03076 at DNR river mile 15.6 behind Marcusen Stadium in Austin."
+      }
+    ]
+  },
   "cloquet-river-bachelor-road-highway-53": {
     "putIn": {
       "id": "bachelor-road-cloquet",
@@ -8129,7 +8166,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
-  "whitewater-river-county-26-beaver": {
+  "whitewater-river-elba-highway-74": {
     "putIn": {
       "id": "whitewater-elba-county-26",
       "name": "Whitewater River, Elba Public Water Access Site",
@@ -10050,6 +10087,59 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "cottonwood-river-flandrau-highway-15": {
+    "putIn": {
+      "id": "cottonwood-flandrau-state-park-pwa",
+      "name": "Cottonwood River, Flandrau State Park Public Water Access Site",
+      "latitude": 44.2914246,
+      "longitude": -94.4690871
+    },
+    "takeOut": {
+      "id": "highway-15-cottonwood-street-bridge-public-water-access",
+      "name": "Highway 15 / Cottonwood Street Bridge public water access",
+      "latitude": 44.2826599,
+      "longitude": -94.4360667
+    },
+    "logistics": {
+      "distanceLabel": "About 4.1 mi",
+      "estimatedPaddleTime": "About 1.5 hr to 2.75 hr, longer with low water, wood, or city-bridge scouting",
+      "shuttle": "Stage the Highway 15 / Cottonwood Street Bridge access first, then launch from Flandrau State Park. Confirm state-park entry rules and inspect the Highway 15 take-out before leaving the shuttle.",
+      "permits": "No route-specific paddling permit is known. Follow Minnesota boating/PFD rules and all Flandrau State Park permits, posted access rules, parking rules, and private-property restrictions.",
+      "camping": "Flandrau State Park is the endpoint overnight support. Use designated park or watercraft campsites only and confirm current state-park availability before planning an overnight.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch at Flandrau State Park and finish at Highway 15 for the short lower Cottonwood connector above the confluence route. The New Ulm DNR gauge was below the official scrapable floor during review, so this card should wait for recovered levels.",
+      "accessCaveats": [
+        "Flandrau State Park resolves as WAS02651 near the DNR-mapped watercraft campsite and park facilities.",
+        "Highway 15 / Cottonwood Street Bridge resolves as WAS01419 at Cottonwood river mile 1.6.",
+        "This route stops before the Cottonwood-Minnesota confluence. Continuing to Courtland requires the separate downstream route plan."
+      ],
+      "watchFor": [
+        "Scrapable low water when the New Ulm gauge is below 150 cfs.",
+        "Strainers, fresh wood, muddy banks, private shoreland, and fast rises after thunderstorms.",
+        "State-park rule changes, high-water closures, city bridge approaches, and limited legal bailout options."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "cottonwood-flandrau-state-park-pwa",
+        "name": "Cottonwood River, Flandrau State Park Public Water Access Site",
+        "latitude": 44.2914246,
+        "longitude": -94.4690871,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Minnesota public-water-access GIS lists WAS02651 near the Flandrau State Park watercraft campsite with carry-in launch, parking, and restroom context."
+      },
+      {
+        "id": "highway-15-cottonwood-street-bridge-public-water-access",
+        "name": "Highway 15 / Cottonwood Street Bridge public water access",
+        "latitude": 44.2826599,
+        "longitude": -94.4360667,
+        "mileFromStart": 4.1,
+        "segmentKind": "creek",
+        "note": "Default take-out; resolves as WAS01419 at Cottonwood river mile 1.6."
+      }
+    ]
+  },
   "cannon-river-wilderness-northfield": {
     "putIn": {
       "id": "cannon-river-wilderness-area-access",
@@ -11297,67 +11387,6 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
-  "st-croix-river-little-yellow-banks-sand-creek": {
-    "putIn": {
-      "name": "St. Croix River, Little Yellow Banks Public Water Access Site",
-      "latitude": 45.9753904,
-      "longitude": -92.541598
-    },
-    "takeOut": {
-      "name": "St. Croix River, Mouth of Sand Creek Public Water Access Site",
-      "latitude": 45.9331669,
-      "longitude": -92.6407033
-    },
-    "logistics": {
-      "distanceLabel": "About 6.7 mi",
-      "estimatedPaddleTime": "About 2.25 hr to 3.75 hr, longer with low-water dragging, headwind, or campsite stops",
-      "shuttle": "Stage the take-out at Sand Creek Landing, then drive back to Little Yellow Banks. If using St. Croix State Park #2 as a backup exit, identify the landing behind the island before launch.",
-      "permits": "No route-specific paddling permit is known. Follow National Scenic Riverway rules, Minnesota boating/PFD rules, and posted public-access, state-park, and campsite regulations.",
-      "camping": "NPS Riverway camping is limited to designated first-come sites with stay, group-size, fire, waste, and food-storage rules. Treat this short route as a day trip unless campsite availability and rules are part of the plan.",
-      "campingClassification": "on_route_campsite",
-      "summary": "Launch at Little Yellow Banks and take out at Sand Creek Landing for a short middle-St. Croix Riverway run. The Danbury DNR gauge is upstream and was below scrapable during this run.",
-      "accessCaveats": [
-        "Little Yellow Banks, St. Croix State Park #2, and Sand Creek Landing all resolve in Minnesota public-water-access GIS with river-mile records and coordinates.",
-        "NPS Map 5 says the St. Croix State Park main landing sits behind an island on river right. Do not count on finding it casually from mid-channel without watching the map.",
-        "The Danbury gauge is upstream of the selected reach. Use it as an official same-river condition check, then inspect local landings for shallow bars, wood, and current."
-      ],
-      "watchFor": [
-        "Low-water scraping or walking when Danbury is in the scrapable band.",
-        "Fallen trees, strainers, island channels, cold water, and changing sand or gravel bars.",
-        "Riverway rules: designated campsites only, no private-bank assumptions, no glass, pack out trash, and keep right/route-find around islands as mapped.",
-        "Tubing or small-boat traffic near popular landings in summer."
-      ]
-    },
-    "accessPoints": [
-      {
-        "id": "little-yellow-banks",
-        "name": "St. Croix River, Little Yellow Banks Public Water Access Site",
-        "latitude": 45.9753904,
-        "longitude": -92.541598,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Default put-in at St. Croix river mile 111.2; resolves as WAS01887."
-      },
-      {
-        "id": "st-croix-state-park-2",
-        "name": "St. Croix River, St. Croix SPK #2 Public Water Access Site",
-        "latitude": 45.9504137,
-        "longitude": -92.5683247,
-        "mileFromStart": 2.7,
-        "segmentKind": "transition",
-        "note": "Intermediate state-park landing at river mile 108.5; resolves as WAS00076 and may be hidden behind an island."
-      },
-      {
-        "id": "sand-creek-landing",
-        "name": "St. Croix River, Mouth of Sand Creek Public Water Access Site",
-        "latitude": 45.9331669,
-        "longitude": -92.6407033,
-        "mileFromStart": 6.7,
-        "segmentKind": "creek",
-        "note": "Default take-out at St. Croix river mile 104.5; resolves as WAS01894."
-      }
-    ]
-  },
   "st-croix-river-sand-creek-highway-70": {
     "putIn": {
       "name": "St. Croix River, Mouth of Sand Creek Public Water Access Site",
@@ -11530,59 +11559,6 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 26.5,
         "segmentKind": "lake",
         "note": "Default take-out; resolves as WAS02579 at DNR river mile 35.0."
-      }
-    ]
-  },
-  "cannon-river-miesville-highway-61": {
-    "putIn": {
-      "id": "cannon-miesville-ravine",
-      "name": "Cannon River, Miesville Ravine County Park Public Water Access Site",
-      "latitude": 44.5430566,
-      "longitude": -92.8008416
-    },
-    "takeOut": {
-      "id": "highway-61-cannon",
-      "name": "Cannon River, Highway 61 Public Water Access Site",
-      "latitude": 44.5811188,
-      "longitude": -92.6553127
-    },
-    "logistics": {
-      "distanceLabel": "About 11.7 mi",
-      "estimatedPaddleTime": "About 3.5 hr to 5.5 hr depending on current, stops, wood, and wind",
-      "shuttle": "Stage Highway 61 first, then drive back to Miesville Ravine County Park. Confirm park hours, parking rules, and the Highway 61 take-out before leaving a vehicle.",
-      "permits": "No route-specific paddling permit is known. Use the named public accesses, follow Minnesota boating/PFD rules, and obey county park, DNR water-trail, parking, and posted local rules.",
-      "camping": "No on-route public watercraft campsite is documented for this lower-Cannon split. Plan it as a day trip and use only legal nearby campground or lodging options if separately reserved.",
-      "campingClassification": "none",
-      "summary": "Launch from Miesville Ravine County Park and take out at Highway 61 for the final public lower-Cannon access pair. The Welch DNR gauge was in the official medium band during this run.",
-      "accessCaveats": [
-        "Miesville Ravine County Park is a public access at DNR river mile 18.5; confirm county park rules and hours before relying on it.",
-        "Highway 61 resolves as WAS01112 near river mile 6.8 and is the default take-out before the river approaches the Mississippi transition.",
-        "This route is the lower split of an existing Byllesby-to-Highway-61 long-card, included separately because it is a distinct public access pair below the dam-start section."
-      ],
-      "watchFor": [
-        "Riffles, bridge current, strainers, fresh wood, cold water, private banks, and fast rises after rain.",
-        "Highway 61 take-out timing; do not continue toward the Cannon mouth or Mississippi River without a separate plan.",
-        "Very high water above the official Welch high band and shallow scraping below the low floor."
-      ]
-    },
-    "accessPoints": [
-      {
-        "id": "cannon-miesville-ravine",
-        "name": "Cannon River, Miesville Ravine County Park Public Water Access Site",
-        "latitude": 44.5430566,
-        "longitude": -92.8008416,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Default put-in; resolves at DNR river mile 18.5."
-      },
-      {
-        "id": "highway-61-cannon",
-        "name": "Cannon River, Highway 61 Public Water Access Site",
-        "latitude": 44.5811188,
-        "longitude": -92.6553127,
-        "mileFromStart": 11.7,
-        "segmentKind": "creek",
-        "note": "Default take-out; resolves as WAS01112 near DNR river mile 6.8."
       }
     ]
   }
