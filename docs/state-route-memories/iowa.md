@@ -4,6 +4,7 @@ Last summarized: 2026-07-24.
 
 ## Current Inventory
 
+- 2026-07-24 05:14 CDT update: live exported Iowa routes were 130 at the start of this run and 133 after adding `south-raccoon-river-redfield-pleasant-valley`, `south-raccoon-river-pleasant-valley-earlham`, and `south-raccoon-river-earlham-van-meter`.
 - 2026-07-24 04:15 CDT update: live exported Iowa routes were 127 at the start of this run and 130 after adding `turkey-river-garber-osterdock`, `turkey-river-osterdock-millville`, and `turkey-river-millville-ferry-landing`.
 - 2026-07-24 03:08 CDT update: live exported Iowa routes were 124 at the start of this run and 127 after adding `north-raccoon-river-hagge-white-horse`, `north-raccoon-river-white-horse-grant`, and `north-raccoon-river-grant-rainbow-bend`.
 - 2026-07-24 02:09 CDT update: live exported Iowa routes were 121 at the start of this run and 124 after adding `north-raccoon-river-vogel-mcdonald`, `north-raccoon-river-mcdonald-riverview`, and `north-raccoon-river-sac-city-hagge`.
@@ -23,7 +24,18 @@ Last summarized: 2026-07-24.
 
 ## Status
 
-Iowa remains mature overall. The current exported inventory is 130 routes after this lower Turkey River continuation pass; the historical run notes below preserve what each automation pass originally added.
+Iowa remains mature overall. The current exported inventory is 133 routes after this South Raccoon official access split pass; the historical run notes below preserve what each automation pass originally added.
+
+## 2026-07-24 05:14 South Raccoon official access split pass
+
+- Baseline at run start: 130 Iowa live routes, verified from `src/data/routes/iowa.ts` before the current Iowa edits.
+- Added `south-raccoon-river-redfield-pleasant-valley`, `south-raccoon-river-pleasant-valley-earlham`, and `south-raccoon-river-earlham-van-meter`, bringing the intended Iowa count to 133 live routes.
+- Qualification path: Dallas County's Middle/South Raccoon water-trail page and the Iowa DNR Middle/South Raccoon guide document the Redfield / South Raccoon / Pleasant Valley / Earlham / Van Meter public access chain, route character, riffles, sweepers, private-bank limits, low-head-dam discipline, and the steep Earlham used access. Project AWARE's 2021 route agenda supplies implementation-grade split mileage and endpoint names, while CanWePaddle supplies the route-specific Redfield-to-Van Meter gauge range.
+- Gauge posture: USGS legacy Water Services returned 503 during the run, so the USGS OGC latest-continuous endpoint was used. It returned South Raccoon River at Redfield `05484000` at `127 cfs / 2.50 ft` at 2026-07-24 09:45 UTC / 04:45 CDT, below the accepted 150 cfs floor.
+- Threshold posture: all three route cards use the existing accepted CanWePaddle South Raccoon Redfield-to-Van Meter `150-2,500 cfs` model tied to USGS `05484000`. Redfield-to-Pleasant-Valley is direct; Pleasant-Valley-to-Earlham and Earlham-to-Van-Meter mark Redfield as a same-route upstream proxy. No invented ideal range or upper cutoff was added.
+- Caveat posture: cards foreground Redfield low-head-dam avoidance, low-water dragging, high/rising water, riffles, logjams, sweepers, private banks, steep/rocky Earlham access, Pleasant Valley coordinate precision limits, no on-route public camping, and Van Meter as the required take-out before the separate lower-Raccoon route.
+- Reviewed but not added: Dallas County North Raccoon access-chain splits were not added because official access quality is good but route-specific numeric threshold support was weaker than the selected South Raccoon chain; Boone River upstream Webster City remains dam/project-blocked or already represented; lower Des Moines Farmington/Croton and several Maquoketa/Jones/Jackson leads were reconciled as already represented or lower value.
+- Image posture: no route-gallery assets added after bounded Dallas County / Iowa DNR / Project AWARE / CanWePaddle / USGS / Commons / same-route image review found no clearly rights-clean exact-route asset selected for local reuse.
 
 ## 2026-07-24 04:15 lower Turkey River continuation pass
 

@@ -3814,6 +3814,171 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "south-raccoon-river-redfield-pleasant-valley": {
+    "putIn": {
+      "id": "south-raccoon-river-access-redfield",
+      "name": "South Raccoon River Access / Redfield corridor",
+      "latitude": 41.58944,
+      "longitude": -94.15111
+    },
+    "takeOut": {
+      "id": "pleasant-valley-wildlife-area-access",
+      "name": "Pleasant Valley Wildlife Area access",
+      "latitude": 41.5568,
+      "longitude": -94.1194
+    },
+    "logistics": {
+      "distanceLabel": "About 7 to 8 mi",
+      "estimatedPaddleTime": "About 2.5 hr to 4 hr, longer with low water or wood scouting",
+      "shuttle": "Stage at Pleasant Valley Wildlife Area, then launch from the South Raccoon River Access south of Redfield. The Redfield gauge is direct for the put-in, but still make a visual call for depth and wood before leaving the cars.",
+      "permits": "No route-specific paddling permit is known. Use the signed Dallas County / Iowa DNR access points, follow Iowa boating and PFD rules, and observe posted wildlife-area and parking rules.",
+      "camping": "No on-route public campsite is documented for this short split. Treat it as a day route; nearby parks or lodging are separate base-camp planning.",
+      "campingClassification": "none",
+      "summary": "Launch below Redfield on the South Raccoon and take out at Pleasant Valley for the first practical split of the official Redfield-to-Van Meter corridor. The 150 cfs floor is conservative; this reach can still drag at riffles when the Redfield gauge is low.",
+      "accessCaveats": [
+        "Dallas County describes the South Raccoon River Access as a small carry-down access south of Redfield near the F-60 corridor; confirm the signed access before unloading.",
+        "Pleasant Valley is an official access, but the coordinates here are a practical Indian Trail / South Raccoon access anchor rather than a surveyed ramp pin.",
+        "Most banks are private outside public accesses, so do not rely on farm banks or bridge rights-of-way for routine stops.",
+        "Avoid any Redfield low-head-dam influence by launching from the downstream South Raccoon access."
+      ],
+      "watchFor": [
+        "Shallow riffles and dragging below about 150 cfs on USGS 05484000.",
+        "Fast current, wood, fewer recovery eddies, and harder landings above about 2,500 cfs.",
+        "Sweepers, logjams, strainers, fishing lines, and rapid rises after thunderstorms.",
+        "Pleasant Valley take-out recognition; identify it early and do not drift downstream without a separate Earlham plan."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "south-raccoon-river-access-redfield",
+        "name": "South Raccoon River Access / Redfield corridor",
+        "latitude": 41.58944,
+        "longitude": -94.15111,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Dallas County carry-down access south of Redfield in the South Raccoon water-trail corridor."
+      },
+      {
+        "id": "pleasant-valley-wildlife-area-access",
+        "name": "Pleasant Valley Wildlife Area access",
+        "latitude": 41.5568,
+        "longitude": -94.1194,
+        "mileFromStart": 7.8,
+        "segmentKind": "creek",
+        "note": "Official Pleasant Valley access named by Dallas County and Iowa DNR; coordinate is a practical Indian Trail corridor anchor."
+      }
+    ]
+  },
+  "south-raccoon-river-pleasant-valley-earlham": {
+    "putIn": {
+      "id": "pleasant-valley-wildlife-area-access",
+      "name": "Pleasant Valley Wildlife Area access",
+      "latitude": 41.5568,
+      "longitude": -94.1194
+    },
+    "takeOut": {
+      "id": "earlham-bridge-access",
+      "name": "Earlham Bridge Access",
+      "latitude": 41.55525,
+      "longitude": -94.07402
+    },
+    "logistics": {
+      "distanceLabel": "About 3.7 to 4 mi",
+      "estimatedPaddleTime": "About 1.5 hr to 2.5 hr, longer with wood or low-water dragging",
+      "shuttle": "Stage the take-out at Earlham Bridge, then launch at Pleasant Valley. This is a short split, but the Earlham landing is steep and rocky enough that the take-out should be inspected before the group commits.",
+      "permits": "No route-specific paddling permit is known. Use the public water-trail accesses, follow Iowa boating and PFD rules, and respect posted county or wildlife-area limits.",
+      "camping": "No on-route public campsite is documented between Pleasant Valley and Earlham. Use this as a day section only.",
+      "campingClassification": "none",
+      "summary": "Paddle the short official South Raccoon split from Pleasant Valley to Earlham Bridge. The Redfield gauge is an upstream same-corridor proxy, so make a visual call at Pleasant Valley before committing.",
+      "accessCaveats": [
+        "Pleasant Valley coordinates are a practical access anchor from the official corridor, not a surveyed ramp pin.",
+        "Iowa DNR describes Earlham Bridge as a steep rocky used access; it may be awkward for beginners, high water, or heavy boats.",
+        "Most banks are private outside the public access points.",
+        "Because the Redfield gauge is upstream, local rain and tributary response can make this reach different from the displayed number."
+      ],
+      "watchFor": [
+        "Riffles, wood, strainers, and shallow dragging below about 150 cfs.",
+        "Pushy current and harder recovery margins above about 2,500 cfs.",
+        "Difficult footing and boat handling at the Earlham take-out.",
+        "Private banks and limited legal exits if the short run takes longer than planned."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "pleasant-valley-wildlife-area-access",
+        "name": "Pleasant Valley Wildlife Area access",
+        "latitude": 41.5568,
+        "longitude": -94.1194,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Official Pleasant Valley access named by Dallas County and Iowa DNR; coordinate is a practical Indian Trail corridor anchor."
+      },
+      {
+        "id": "earlham-bridge-access",
+        "name": "Earlham Bridge Access",
+        "latitude": 41.55525,
+        "longitude": -94.07402,
+        "mileFromStart": 3.7,
+        "segmentKind": "creek",
+        "note": "Steep rocky used access identified in Iowa DNR materials; Project AWARE published it as the day take-out."
+      }
+    ]
+  },
+  "south-raccoon-river-earlham-van-meter": {
+    "putIn": {
+      "id": "earlham-bridge-access",
+      "name": "Earlham Bridge Access",
+      "latitude": 41.55525,
+      "longitude": -94.07402
+    },
+    "takeOut": {
+      "id": "van-meter-access",
+      "name": "Van Meter Access",
+      "latitude": 41.5355,
+      "longitude": -93.9557
+    },
+    "logistics": {
+      "distanceLabel": "About 9 mi",
+      "estimatedPaddleTime": "About 3 hr to 5 hr, longer with wind, low water, or wood scouting",
+      "shuttle": "Stage at Van Meter Access, then inspect and launch from Earlham Bridge. Confirm everyone understands Van Meter is the take-out; continuing downstream is the separate lower Raccoon route.",
+      "permits": "No route-specific paddling permit is known. Use the public accesses, follow Iowa boating and PFD rules, and observe posted parking or park-hour limits at Van Meter.",
+      "camping": "No on-route public campsite is documented between Earlham and Van Meter. Treat this as a day route with off-river lodging or parks planned separately.",
+      "campingClassification": "none",
+      "summary": "Use this lower split when Earlham-to-Van Meter is the intended day instead of the full Redfield shuttle. The Redfield gauge range covers the broader corridor but is proxy-level here, so current local conditions still control.",
+      "accessCaveats": [
+        "Earlham Bridge is a steep rocky used access; inspect footing, current, and parking before unloading.",
+        "Van Meter Access is the planned take-out and the handoff to a separate downstream Raccoon River card.",
+        "Do not continue toward Walnut Woods without planning the longer lower-Raccoon hazards, access, and shuttle.",
+        "Private banks dominate the corridor outside public access points."
+      ],
+      "watchFor": [
+        "Sweepers, logjams, strainers, and changing channels on outside bends.",
+        "Low-water riffle dragging below about 150 cfs at Redfield.",
+        "Pushy current and harder bridge/access approaches above about 2,500 cfs at Redfield.",
+        "Urban-water-quality and downstream ledge/dam planning issues if the group misses Van Meter."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "earlham-bridge-access",
+        "name": "Earlham Bridge Access",
+        "latitude": 41.55525,
+        "longitude": -94.07402,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Steep rocky used access identified in Iowa DNR materials; inspect before launching."
+      },
+      {
+        "id": "van-meter-access",
+        "name": "Van Meter Access",
+        "latitude": 41.5355,
+        "longitude": -93.9557,
+        "mileFromStart": 9,
+        "segmentKind": "creek",
+        "note": "Planned take-out before the separate Van Meter-to-Walnut Woods lower-Raccoon route."
+      }
+    ]
+  },
   "north-raccoon-river-eureka-henderson": {
     "putIn": {
       "id": "eureka-bridge-access",

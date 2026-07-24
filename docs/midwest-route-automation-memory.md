@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-24 05:14 America/Chicago / 2026-07-24 10:14 UTC: Iowa South Raccoon official access split pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 130-route exported Iowa baseline: `south-raccoon-river-redfield-pleasant-valley`, `south-raccoon-river-pleasant-valley-earlham`, and `south-raccoon-river-earlham-van-meter`, bringing Iowa to 133 live routes.
+  - Qualification path: Dallas County Middle/South Raccoon access documentation, Iowa DNR Middle/South Raccoon guide, Project AWARE 2021 endpoint/mileage agenda, CanWePaddle Redfield-to-Van-Meter threshold guidance, and USGS `05484000` support the route shape, access pairs, gauge mapping, and safety caveats.
+  - Gauge posture: USGS legacy Water Services returned 503, so the OGC latest-continuous endpoint was used; Redfield `05484000` returned `127 cfs / 2.50 ft` at 2026-07-24 09:45 UTC / 04:45 CDT, below the 150 cfs low-water floor.
+  - Threshold posture: all three cards use the existing accepted South Raccoon Redfield-to-Van-Meter `150-2,500 cfs` CanWePaddle model. Redfield-to-Pleasant-Valley is direct; the two downstream splits mark Redfield as same-route upstream proxy. No invented range was added.
+  - Safety/image posture: cards carry low-head-dam avoidance, riffles, wood, private-bank, fast-rise, steep Earlham access, Van Meter no-continuation, no on-route camping, and no selected gallery image after bounded official/community/Commons/same-route review.
 - 2026-07-24 04:17 America/Chicago / 2026-07-24 09:17 UTC: Minnesota Cottonwood / Mississippi / Rum gap pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 229-route exported Minnesota baseline: `cottonwood-river-springfield-highway-4`, `mississippi-river-county-road-25-knutson-dam`, and `rum-river-riverview-county-road-4`, bringing Minnesota to 232 live routes.
   - Qualification path: MN DNR Cottonwood / Mississippi / Rum water-trail maps and pages, MN DNR interpreted river-level feed, Minnesota public-water-access GIS, and Knutson Dam campground context support the access pairs, route shape, gauges, camping posture, and caveats.

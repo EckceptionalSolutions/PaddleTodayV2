@@ -55810,6 +55810,138 @@
         "https://www.mycountyparks.com/county/Calhoun/Park/Raccoon-River-Wildlife-Area-and-Rainbow-Bend",
         "https://waterdata.usgs.gov/monitoring-location/USGS-05482430/"
       ]
+    },
+    {
+      "candidateId": "ia-south-raccoon-river-redfield-pleasant-valley-2026-07-24",
+      "river": "South Raccoon River",
+      "route": "South Raccoon River Access to Pleasant Valley Wildlife Area",
+      "state": "Iowa",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "south-raccoon-river-redfield-pleasant-valley",
+      "sourceQuality": "official Dallas County / Iowa DNR water-trail access chain / Project AWARE mileage / community route-specific threshold / official USGS live gauge",
+      "gauge": {
+        "provider": "USGS",
+        "siteId": "05484000",
+        "siteName": "South Raccoon River at Redfield, IA",
+        "kind": "direct",
+        "latest": "127 cfs / 2.50 ft at 2026-07-24 09:45 UTC via USGS OGC latest-continuous; legacy Water Services returned 503 during this run"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "150-2,500 cfs",
+        "source": "CanWePaddle South Raccoon River Redfield-to-Van-Meter",
+        "strength": "community",
+        "caveat": "The range is route-specific for the broader Redfield-to-Van Meter corridor; this split stays inside it and uses the Redfield gauge directly at the upstream end."
+      },
+      "access": {
+        "putIn": "South Raccoon River Access / Redfield corridor",
+        "takeOut": "Pleasant Valley Wildlife Area access",
+        "coordinateSource": "South Raccoon River Access reuses the existing accepted V2 Redfield-area coordinate; Pleasant Valley uses a practical Indian Trail / South Raccoon access anchor from Dallas County / Iowa DNR / Project AWARE named-site evidence."
+      },
+      "caveats": [
+        "Launch only from the downstream South Raccoon access and avoid Redfield low-head-dam features.",
+        "Low water below 150 cfs can require dragging; high or rising water increases wood and access risk.",
+        "Public exits are limited and most banks are private outside signed accesses.",
+        "No on-route public campsite is documented."
+      ],
+      "imageStatus": "No route-gallery image added; bounded Dallas County / Iowa DNR / Project AWARE / CanWePaddle / USGS / Commons / same-route review did not find a clearly rights-clean exact-route asset.",
+      "sources": [
+        "https://www.dallascountyiowa.gov/332/Middle-South-Raccoon-River-Water-Trail",
+        "https://www.iowadnr.gov/media/8897/download?inline=",
+        "https://www.iowaprojectaware.org/wp-content/uploads/2022/01/2021_Agenda.pdf",
+        "https://canwepaddle.com/rivers/iowa/south-raccoon-river-redfield-to-van-meter/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05484000/",
+        "https://api.waterdata.usgs.gov/ogcapi/v0/collections/latest-continuous/items?monitoring_location_id=USGS-05484000&parameter_code=00060,00065&f=json"
+      ]
+    },
+    {
+      "candidateId": "ia-south-raccoon-river-pleasant-valley-earlham-2026-07-24",
+      "river": "South Raccoon River",
+      "route": "Pleasant Valley Wildlife Area to Earlham Bridge Access",
+      "state": "Iowa",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "south-raccoon-river-pleasant-valley-earlham",
+      "sourceQuality": "official Dallas County / Iowa DNR water-trail access chain / Project AWARE mileage / community route-specific threshold / official USGS live gauge proxy",
+      "gauge": {
+        "provider": "USGS",
+        "siteId": "05484000",
+        "siteName": "South Raccoon River at Redfield, IA",
+        "kind": "same-route upstream proxy",
+        "latest": "127 cfs / 2.50 ft at 2026-07-24 09:45 UTC via USGS OGC latest-continuous; legacy Water Services returned 503 during this run"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "150-2,500 cfs",
+        "source": "CanWePaddle South Raccoon River Redfield-to-Van-Meter",
+        "strength": "community",
+        "caveat": "Applied as a same-route upstream proxy because the official Pleasant-Valley-to-Earlham split is inside the broader published Redfield-to-Van Meter reach."
+      },
+      "access": {
+        "putIn": "Pleasant Valley Wildlife Area access",
+        "takeOut": "Earlham Bridge Access",
+        "coordinateSource": "Pleasant Valley uses a practical Indian Trail / South Raccoon access anchor from Dallas County / Iowa DNR / Project AWARE named-site evidence; Earlham uses geocoded Project AWARE address support and DNR steep rocky used-access context."
+      },
+      "caveats": [
+        "Earlham Bridge is a steep rocky used access and should be inspected before launch.",
+        "Redfield gauge is upstream; make a same-day visual call at Pleasant Valley.",
+        "Expect riffles, sweepers, strainers, private banks, and fast rises.",
+        "No on-route public campsite is documented."
+      ],
+      "imageStatus": "No route-gallery image added; bounded Dallas County / Iowa DNR / Project AWARE / CanWePaddle / USGS / Commons / same-route review did not find a clearly rights-clean exact-route asset.",
+      "sources": [
+        "https://www.dallascountyiowa.gov/332/Middle-South-Raccoon-River-Water-Trail",
+        "https://www.iowadnr.gov/media/8897/download?inline=",
+        "https://www.iowaprojectaware.org/wp-content/uploads/2022/01/2021_Agenda.pdf",
+        "https://canwepaddle.com/rivers/iowa/south-raccoon-river-redfield-to-van-meter/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05484000/",
+        "https://api.waterdata.usgs.gov/ogcapi/v0/collections/latest-continuous/items?monitoring_location_id=USGS-05484000&parameter_code=00060,00065&f=json"
+      ]
+    },
+    {
+      "candidateId": "ia-south-raccoon-river-earlham-van-meter-2026-07-24",
+      "river": "South Raccoon River",
+      "route": "Earlham Bridge Access to Van Meter Access",
+      "state": "Iowa",
+      "status": "added",
+      "decisionDate": "2026-07-24",
+      "v2Slug": "south-raccoon-river-earlham-van-meter",
+      "sourceQuality": "official Dallas County / Iowa DNR water-trail access chain / Project AWARE mileage / community route-specific threshold / official USGS live gauge proxy",
+      "gauge": {
+        "provider": "USGS",
+        "siteId": "05484000",
+        "siteName": "South Raccoon River at Redfield, IA",
+        "kind": "same-route upstream proxy",
+        "latest": "127 cfs / 2.50 ft at 2026-07-24 09:45 UTC via USGS OGC latest-continuous; legacy Water Services returned 503 during this run"
+      },
+      "threshold": {
+        "model": "two-sided",
+        "range": "150-2,500 cfs",
+        "source": "CanWePaddle South Raccoon River Redfield-to-Van-Meter",
+        "strength": "community",
+        "caveat": "Applied as a same-route upstream proxy because Earlham-to-Van-Meter is the lower split of the broader published Redfield-to-Van Meter reach."
+      },
+      "access": {
+        "putIn": "Earlham Bridge Access",
+        "takeOut": "Van Meter Access",
+        "coordinateSource": "Earlham uses geocoded Project AWARE address support and DNR steep rocky used-access context; Van Meter reuses the existing accepted V2 public access coordinate."
+      },
+      "caveats": [
+        "Inspect the steep rocky Earlham launch before unloading.",
+        "Take out at Van Meter unless the separate lower Raccoon route has been fully planned.",
+        "Private banks, wood, fast rises, and proxy-gauge uncertainty require same-day visual checks.",
+        "No on-route public campsite is documented."
+      ],
+      "imageStatus": "No route-gallery image added; bounded Dallas County / Iowa DNR / Project AWARE / CanWePaddle / USGS / Commons / same-route review did not find a clearly rights-clean exact-route asset.",
+      "sources": [
+        "https://www.dallascountyiowa.gov/332/Middle-South-Raccoon-River-Water-Trail",
+        "https://www.iowadnr.gov/media/8897/download?inline=",
+        "https://www.iowaprojectaware.org/wp-content/uploads/2022/01/2021_Agenda.pdf",
+        "https://canwepaddle.com/rivers/iowa/south-raccoon-river-redfield-to-van-meter/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05484000/",
+        "https://api.waterdata.usgs.gov/ogcapi/v0/collections/latest-continuous/items?monitoring_location_id=USGS-05484000&parameter_code=00060,00065&f=json"
+      ]
     }
   ]
 }
