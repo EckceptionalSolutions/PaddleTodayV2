@@ -10662,5 +10662,196 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default take-out; Minnesota public-water-access GIS resolves WAS00694 at DNR river mile 233.7."
       }
     ]
+  },
+  "mississippi-river-dayton-mississippi-gateway": {
+    "putIn": {
+      "name": "Crow/Mississippi River, Dayton Public Water Access Site",
+      "latitude": 45.2456453,
+      "longitude": -93.521084
+    },
+    "takeOut": {
+      "name": "Mississippi Gateway Regional Park carry-in access",
+      "latitude": 45.1439,
+      "longitude": -93.3028
+    },
+    "logistics": {
+      "distanceLabel": "About 13.4 mi",
+      "estimatedPaddleTime": "About 4.5 hr to 6.5 hr, longer with wind, low-water island routing, or dam-pool delays",
+      "shuttle": "Stage the take-out at Mississippi Gateway Regional Park before launching at Dayton. Walk the paved park path to identify the carry-in launch/take-out above the dam, then drive back to Dayton.",
+      "permits": "No route-specific paddling permit is known. Use the public accesses, follow Minnesota boating/PFD rules, and obey all Coon Rapids Dam, Three Rivers, Anoka County, and water-trail signs.",
+      "camping": "Treat this as a metro day route. DNR Map 9 identifies Foster/Cloquet island campsites upstream of the selected take-out, but the normal Dayton-to-Gateway trip should not depend on informal or private-bank camping.",
+      "campingClassification": "none",
+      "summary": "Launch at Dayton and take out at Mississippi Gateway Regional Park before Coon Rapids Dam. This fills the official DNR Map 9 upstream metro section above the already-live below-dam Coon-Rapids-to-Riverfront card.",
+      "accessCaveats": [
+        "Dayton resolves in Minnesota public-water-access GIS with a public access ID and coordinates; Mississippi Gateway is anchored by DNR Map 9 and Three Rivers / Paddle Share access guidance.",
+        "The Mississippi Gateway carry-in is the required take-out before Coon Rapids Dam. Identify it from shore before launching and do not drift toward the dam if you are uncertain.",
+        "The Hwy 610 gauge is downstream of Coon Rapids Dam. Use it as the DNR same-map flow check, then make a visual call at Dayton and Mississippi Gateway for pool level, wind, wake, and dam conditions."
+      ],
+      "watchFor": [
+        "Mandatory take-out before Coon Rapids Dam and nearby portage/dam infrastructure.",
+        "Island channels, shallow bars, floating wood, bridge current, and changed routes when water is low.",
+        "Wind, motorboat wake, storm runoff, and metro Mississippi water-quality advisories.",
+        "Park-managed and private banks; use public accesses and legal stops only."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "dayton-access",
+        "name": "Crow/Mississippi River, Dayton Public Water Access Site",
+        "latitude": 45.2456453,
+        "longitude": -93.521084,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at DNR river mile 879.6; resolves as WAS01718."
+      },
+      {
+        "id": "mississippi-west-regional-park",
+        "name": "Mississippi River, Mississippi West Regional Park Public Water Access Site",
+        "latitude": 45.2225316,
+        "longitude": -93.4598469,
+        "mileFromStart": 3.7,
+        "segmentKind": "transition",
+        "note": "Intermediate public access at DNR river mile 875.9; resolves as WAS02902 and can serve as a bailout."
+      },
+      {
+        "id": "mississippi-gateway",
+        "name": "Mississippi Gateway Regional Park carry-in access",
+        "latitude": 45.1439,
+        "longitude": -93.3028,
+        "mileFromStart": 13.4,
+        "segmentKind": "creek",
+        "note": "Required take-out at DNR river mile 866.2 before Coon Rapids Dam; anchored by DNR Map 9 and Three Rivers / Paddle Share access guidance."
+      }
+    ]
+  },
+  "st-croix-river-little-yellow-banks-sand-creek": {
+    "putIn": {
+      "name": "St. Croix River, Little Yellow Banks Public Water Access Site",
+      "latitude": 45.9753904,
+      "longitude": -92.541598
+    },
+    "takeOut": {
+      "name": "St. Croix River, Mouth of Sand Creek Public Water Access Site",
+      "latitude": 45.9331669,
+      "longitude": -92.6407033
+    },
+    "logistics": {
+      "distanceLabel": "About 6.7 mi",
+      "estimatedPaddleTime": "About 2.25 hr to 3.75 hr, longer with low-water dragging, headwind, or campsite stops",
+      "shuttle": "Stage the take-out at Sand Creek Landing, then drive back to Little Yellow Banks. If using St. Croix State Park #2 as a backup exit, identify the landing behind the island before launch.",
+      "permits": "No route-specific paddling permit is known. Follow National Scenic Riverway rules, Minnesota boating/PFD rules, and posted public-access, state-park, and campsite regulations.",
+      "camping": "NPS Riverway camping is limited to designated first-come sites with stay, group-size, fire, waste, and food-storage rules. Treat this short route as a day trip unless campsite availability and rules are part of the plan.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Launch at Little Yellow Banks and take out at Sand Creek Landing for a short middle-St. Croix Riverway run. The Danbury DNR gauge is upstream and was below scrapable during this run.",
+      "accessCaveats": [
+        "Little Yellow Banks, St. Croix State Park #2, and Sand Creek Landing all resolve in Minnesota public-water-access GIS with river-mile records and coordinates.",
+        "NPS Map 5 says the St. Croix State Park main landing sits behind an island on river right. Do not count on finding it casually from mid-channel without watching the map.",
+        "The Danbury gauge is upstream of the selected reach. Use it as an official same-river condition check, then inspect local landings for shallow bars, wood, and current."
+      ],
+      "watchFor": [
+        "Low-water scraping or walking when Danbury is in the scrapable band.",
+        "Fallen trees, strainers, island channels, cold water, and changing sand or gravel bars.",
+        "Riverway rules: designated campsites only, no private-bank assumptions, no glass, pack out trash, and keep right/route-find around islands as mapped.",
+        "Tubing or small-boat traffic near popular landings in summer."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "little-yellow-banks",
+        "name": "St. Croix River, Little Yellow Banks Public Water Access Site",
+        "latitude": 45.9753904,
+        "longitude": -92.541598,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at St. Croix river mile 111.2; resolves as WAS01887."
+      },
+      {
+        "id": "st-croix-state-park-2",
+        "name": "St. Croix River, St. Croix SPK #2 Public Water Access Site",
+        "latitude": 45.9504137,
+        "longitude": -92.5683247,
+        "mileFromStart": 2.7,
+        "segmentKind": "transition",
+        "note": "Intermediate state-park landing at river mile 108.5; resolves as WAS00076 and may be hidden behind an island."
+      },
+      {
+        "id": "sand-creek-landing",
+        "name": "St. Croix River, Mouth of Sand Creek Public Water Access Site",
+        "latitude": 45.9331669,
+        "longitude": -92.6407033,
+        "mileFromStart": 6.7,
+        "segmentKind": "creek",
+        "note": "Default take-out at St. Croix river mile 104.5; resolves as WAS01894."
+      }
+    ]
+  },
+  "st-croix-river-sand-creek-highway-70": {
+    "putIn": {
+      "name": "St. Croix River, Mouth of Sand Creek Public Water Access Site",
+      "latitude": 45.9331669,
+      "longitude": -92.6407033
+    },
+    "takeOut": {
+      "name": "St. Croix River, Highway 70 Landing",
+      "latitude": 45.7739241,
+      "longitude": -92.7820489
+    },
+    "logistics": {
+      "distanceLabel": "About 15 mi",
+      "estimatedPaddleTime": "About 5 hr to 7 hr, longer with low water, scouting, or campsite stops",
+      "shuttle": "Stage Highway 70 first, then drive back through the St. Croix State Park / Sand Creek access corridor. Inspect the Highway 70 landing and the first riffles before leaving a vehicle because low water can make the final miles slower than the map distance implies.",
+      "permits": "No route-specific paddling permit is known. Follow NPS Riverway rules, Minnesota boating/PFD requirements, state-park vehicle rules where applicable, and designated-campsite regulations.",
+      "camping": "NPS Map 6 allows camping only at designated first-come, first-served sites with size, fire, sanitation, and stay-limit rules. Treat this as designated Riverway camping only; do not assume island or private-bank camping.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Launch at Sand Creek Landing and take out at Highway 70 for the NPS Map 6 St. Croix section. The route uses the upstream Danbury DNR gauge conservatively and requires a local visual check because the Kettle River joins near the lower miles.",
+      "accessCaveats": [
+        "Minnesota public-water-access GIS resolves Sand Creek as WAS01894 and Highway 70 as WAS00085 with public administrators, river miles, and coordinates.",
+        "The Danbury gauge is upstream of the route and above the Kettle River confluence; it is intentionally conservative for low-water calls, not an exact lower-route reading.",
+        "NPS Map 6 warns that the river splits around large islands. Stay left for the deeper main channel unless intentionally paddling and scouting the Kettle River Slough route."
+      ],
+      "watchFor": [
+        "Low water, shallow bars, and Sandrock Cliffs channel drying out.",
+        "The Kettle River Slough option, where NPS identifies a ledge and regular Class II rapids near the St. Croix confluence.",
+        "Downed trees, cold water, private or restricted banks, and remote rescue exposure between landings."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "sand-creek-landing",
+        "name": "Mouth of Sand Creek Landing",
+        "latitude": 45.9331669,
+        "longitude": -92.6407033,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; resolves as WAS01894 in Minnesota public-water-access GIS."
+      },
+      {
+        "id": "head-of-rapids",
+        "name": "St. Croix River, Head of Rapids Public Water Access Site",
+        "latitude": 45.903923,
+        "longitude": -92.695556,
+        "mileFromStart": 4.1,
+        "segmentKind": "transition",
+        "note": "Intermediate access near the main channel / Kettle River Slough decision corridor; resolves as WAS00125 near river mile 100.4."
+      },
+      {
+        "id": "snake-river-access",
+        "name": "St. Croix River, Snake River Public Water Access Site",
+        "latitude": 45.823092,
+        "longitude": -92.764575,
+        "mileFromStart": 11.2,
+        "segmentKind": "transition",
+        "note": "Intermediate access below the Snake River confluence; resolves as WAS01875 near river mile 93.3."
+      },
+      {
+        "id": "st-croix-highway-70",
+        "name": "Highway 70 Landing",
+        "latitude": 45.7739241,
+        "longitude": -92.7820489,
+        "mileFromStart": 15,
+        "segmentKind": "creek",
+        "note": "Default take-out; resolves as WAS00085 in Minnesota public-water-access GIS."
+      }
+    ]
   }
 };

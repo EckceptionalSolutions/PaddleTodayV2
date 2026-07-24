@@ -4,6 +4,11 @@
   "notes": [
     {
       "date": "2026-07-24",
+      "automation": "minnesota-route-additions-2",
+      "summary": "Added three Minnesota route slugs beyond the 223-route current Minnesota baseline: mississippi-river-dayton-mississippi-gateway, st-croix-river-little-yellow-banks-sand-creek, and st-croix-river-sand-creek-highway-70. Sources included MN DNR Mississippi Map 9, MN DNR recommended one-way sections, NPS St. Croix Maps 5 and 6, MN DNR interpreted river-level feed, Minnesota public-water-access GIS, Three Rivers / Paddle Share Mississippi Gateway access context, and USGS fallback station pages. Current DNR checks returned Hwy 610 site 302 at 3,610 cfs at 2026-07-23 23:00 CDT in official low and Danbury site 212 at 633 cfs at 2026-07-23 23:00 CDT below scrapable. No route-gallery image was selected after bounded DNR / NPS / Three Rivers / public-access / Commons / same-route review. The St. Croix additions fill Minnesota inventory gaps but are documented with overlap caveats because Wisconsin-side cards also cover parts of the border-river corridor."
+    },
+    {
+      "date": "2026-07-24",
       "automation": "iowa-route-additions",
       "summary": "Added three Iowa lower Wapsipinicon route slugs beyond the 118-route current Iowa baseline: wapsipinicon-river-stone-city-anamosa, wapsipinicon-river-newport-mills-olin, and wapsipinicon-river-jungletown-oxford-mills, bringing Iowa to 121 live routes. Sources included Jones County Wapsipinicon River and access pages, Travel Jones County, Iowa DNR/Jones County lower-Wapsi water-trail map, Water Quality Portal endpoint records, CanWePaddle lower Anamosa-to-Oxford 200-2,800 cfs guidance, and current USGS 05421740 Anamosa data. Current checks returned Wapsipinicon near Anamosa 1,970 cfs / 7.20 ft at 2026-07-24 00:15 CDT; Oxford Mills 05421760 remains stale at 2017 values and Stone City 05421500 returned no current IV values, so cards carry explicit proxy-gauge and visual-check caveats. No route-gallery image was selected after bounded official/local/WQP/Commons/same-route review."
     },

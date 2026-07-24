@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-24 01:20 America/Chicago / 2026-07-24 06:20 UTC: Minnesota Mississippi / St. Croix inventory-gap pass (`minnesota-route-additions-2`).
+  - Added three Minnesota route slugs beyond the current 223-route exported Minnesota baseline: `mississippi-river-dayton-mississippi-gateway`, `st-croix-river-little-yellow-banks-sand-creek`, and `st-croix-river-sand-creek-highway-70`, bringing Minnesota to 226 live routes.
+  - Qualification path: MN DNR Mississippi Map 9, MN DNR recommended-one-way sections, NPS St. Croix Maps 5 and 6, MN DNR interpreted river-level feed, Minnesota public-water-access GIS, Three Rivers / Paddle Share Mississippi Gateway context, and USGS fallback station pages support the access pairs, route shape, gauges, and caveats.
+  - Gauge posture: Hwy 610 site `302` returned `3,610 cfs` at 2026-07-23 23:00 CDT in official low; Danbury site `212` returned `633 cfs` at 2026-07-23 23:00 CDT below scrapable. All thresholds use official MN DNR interpreted bands only, with proxy and local-visual-check caveats.
+  - Safety/image posture: cards carry Coon Rapids Dam mandatory-takeout, dam-pool, island-routing, metro water-quality, low-water, Kettle River Slough Class II/ledge, Sandrock Cliffs dry-channel, strainer, private-bank, remote-rescue, and designated Riverway camping caveats. No gallery image was selected after bounded official/local/Commons/same-route review. St. Croix additions are noted as Minnesota inventory gaps with some Wisconsin-side corridor overlap for future consolidation awareness.
+
 - 2026-07-24 01:20 America/Chicago / 2026-07-24 06:20 UTC: Iowa lower-Wapsipinicon access-chain completion pass (`iowa-route-additions`).
   - Added three Iowa route slugs beyond the current 118-route exported Iowa baseline: `wapsipinicon-river-stone-city-anamosa`, `wapsipinicon-river-newport-mills-olin`, and `wapsipinicon-river-jungletown-oxford-mills`, bringing Iowa to 121 live routes.
   - Qualification path: Jones County Wapsipinicon River/access pages, Travel Jones County, Iowa DNR/Jones County Wapsipinicon map context, Water Quality Portal station records, CanWePaddle lower-Wapsi guidance, and USGS Water Services supported the selected access-chain completion.
