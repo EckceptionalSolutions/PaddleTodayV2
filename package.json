@@ -73,9 +73,6 @@
   "overrides": {
     "@xmldom/xmldom": "0.8.13",
     "ajv": "8.20.0",
-    "eas-cli": {
-      "minimatch": "5.1.9"
-    },
     "joi": "17.13.4",
     "node-forge": "1.4.0",
     "tar": "7.5.22",
