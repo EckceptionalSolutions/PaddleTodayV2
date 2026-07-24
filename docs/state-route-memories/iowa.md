@@ -4,6 +4,7 @@ Last summarized: 2026-07-23.
 
 ## Current Inventory
 
+- 2026-07-23 21:20 CDT update: live exported Iowa routes were 109 at the start of the Boone County Des Moines River pass and 112 after adding `des-moines-river-south-fraser-waterworks-upstream`, `des-moines-river-highway-30-dogwood`, and `des-moines-river-dogwood-sportsman`.
 - 2026-07-23 20:06 CDT update: live exported Iowa routes were 106 at the start of the current Iowa route-additions pass and 109 after adding `yellow-river-ion-highway-76`, `cedar-river-osage-spring-road-t38`, and `upper-iowa-river-iverson-bridge-kumpf`.
 - 2026-07-23 16:57 CDT update: live exported Iowa routes were 100 at the start of the upper Cedar Mitchell pass and 103 after adding `cedar-river-otranto-acorn`, `cedar-river-acorn-halvorson`, and `cedar-river-halvorson-interstate`.
 - 2026-07-23 16:01 CDT update: live exported Iowa routes were 97 at the start of the Greene County North Raccoon gap pass and 100 after adding `north-raccoon-river-richey-hyde-park`, `north-raccoon-river-hyde-park-mcmahon`, and `north-raccoon-river-henderson-squirrel-hollow`.
@@ -16,7 +17,18 @@ Last summarized: 2026-07-23.
 
 ## Status
 
-Iowa remains mature overall. The latest 2026-07-23 20:06 run added three routes beyond the current 106-route baseline: `yellow-river-ion-highway-76`, `cedar-river-osage-spring-road-t38`, and `upper-iowa-river-iverson-bridge-kumpf`.
+Iowa remains mature overall. The latest 2026-07-23 21:20 run added three routes beyond the current 109-route baseline: `des-moines-river-south-fraser-waterworks-upstream`, `des-moines-river-highway-30-dogwood`, and `des-moines-river-dogwood-sportsman`.
+
+## 2026-07-23 21:20 Boone County Des Moines pass
+
+- Baseline at run start: 109 Iowa live routes, verified from the current `src/data/rivers.ts` export with `tsx`.
+- Added `des-moines-river-south-fraser-waterworks-upstream`, `des-moines-river-highway-30-dogwood`, and `des-moines-river-dogwood-sportsman`, bringing the imported Iowa count to 112 live routes.
+- Qualification path: Iowa DNR's Boone County Des Moines River Water Trail guide and the USACE Boone County map document the South Fraser / Waterworks Upstream-E26 / Highway 30 / Dogwood-E57 / Sportsman access chain, public ramps, mile markers, Fraser dam portage, Boone Waterworks rapids/portage, Ledges bluff corridor, maintained/silted ramp caveats, meandered-stream sandbar rule, and DNR safety guidance. Boone County corroborates the state water-trail designation, eight-ramp network, and Fraser/Waterworks dam warning.
+- Gauge posture: USGS Water Services returned Des Moines River near Stratford `05481300` at `1,020 cfs / 5.76 ft` and Des Moines River near Saylorville `05481650` at `1,530 cfs / 3.65 ft` at 2026-07-23 20:00 CDT.
+- Threshold posture: all three use the already accepted upper-Des-Moines `400-8,000 cfs` CanWePaddle Fort-Dodge-to-Lehigh model conservatively as a same-corridor proxy. No new Boone-specific ideal range or upper cutoff was invented; route copy requires same-day ramp, dam, wood, silt, Saylorville, and visual checks.
+- Caveat posture: South-Fraser-to-Waterworks starts only after the Fraser dam portage and stops above the Waterworks rock-arch rapids. Highway-30-to-Dogwood starts below the Waterworks boundary and foregrounds bridge piers, Ledges-area exposure, wind, and private uplands. Dogwood-to-Sportsman foregrounds maintained-but-silted ramps, very-low-water bridge remnants, Saylorville influence, fishing boats, and no unplanned Highway 210 continuation.
+- Reviewed but not added: North-Fraser-to-South-Fraser was skipped because it is primarily the Fraser dam portage/relaunch connector rather than a clean paddle route; Waterworks-Upstream-to-Highway-30 was skipped because the Boone Waterworks rapids/portage deserves a more specialized whitewater/portage safety pass; Sportsman-to-Highway-210 was held because it moves closer to Saylorville influence and did not add more value than the safer three split cards.
+- No route-gallery assets were added after bounded Iowa DNR / Boone County / USACE / CanWePaddle / USGS / Commons / same-route image review.
 
 ## 2026-07-23 20:06 Yellow / Cedar / Upper Iowa connector pass
 

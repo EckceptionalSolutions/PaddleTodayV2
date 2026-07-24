@@ -3668,6 +3668,165 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
+  "des-moines-river-south-fraser-waterworks-upstream": {
+    "putIn": {
+      "id": "south-fraser-ramp",
+      "name": "South Fraser Ramp",
+      "latitude": 42.154,
+      "longitude": -93.965
+    },
+    "takeOut": {
+      "id": "waterworks-upstream-e26-access",
+      "name": "Waterworks Upstream Access / E-26",
+      "latitude": 42.098,
+      "longitude": -93.916
+    },
+    "logistics": {
+      "distanceLabel": "About 5 mi",
+      "estimatedPaddleTime": "About 2 hr to 3 hr, plus dam-portage and take-out scouting",
+      "shuttle": "Stage the Waterworks Upstream / E-26 take-out first, then launch from South Fraser only after confirming the Fraser portage/relaunch area and current ramp condition.",
+      "permits": "No route-specific paddling permit is known. Follow Boone County, Corps, and Iowa boating/PFD rules, and respect high-water-mark private-property limits.",
+      "camping": "The Des Moines is meandered and DNR says sandbar camping is allowed on meandered streams, but this short dam-bounded section is best treated as a day route unless a legal bar and stable water are confirmed.",
+      "campingClassification": "sandbar_or_gravel_bar",
+      "summary": "Launch below the Fraser dam portage at South Fraser and take out at Waterworks Upstream / E-26 before the Boone Waterworks rock-arch rapids.",
+      "accessCaveats": [
+        "Do not run the Fraser dam; this card begins at South Fraser after the portage/relaunch boundary.",
+        "Waterworks Upstream / E-26 is a hard stop unless a separate Boone Waterworks rapids or portage plan is staged.",
+        "Saved coordinates are practical access-area anchors from official DNR/USACE map labels; use current signs for the exact ramp approach."
+      ],
+      "watchFor": [
+        "Fraser dam portage discipline and the downstream Waterworks rapids boundary.",
+        "Strainers, silted ramps, bridge debris, and faster current after rain or reservoir changes.",
+        "Private uplands above the high-water mark and limited public exits between ramps."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "south-fraser-ramp",
+        "name": "South Fraser Ramp",
+        "latitude": 42.154,
+        "longitude": -93.965,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in below the Fraser dam portage; labeled by Iowa DNR and USACE Boone County maps."
+      },
+      {
+        "id": "waterworks-upstream-e26-access",
+        "name": "Waterworks Upstream Access / E-26",
+        "latitude": 42.098,
+        "longitude": -93.916,
+        "mileFromStart": 5,
+        "segmentKind": "creek",
+        "note": "Default take-out above the Boone Waterworks rock-arch rapids / E-26 access boundary."
+      }
+    ]
+  },
+  "des-moines-river-highway-30-dogwood": {
+    "putIn": {
+      "id": "highway-30-access-boone",
+      "name": "Highway 30 Access",
+      "latitude": 42.047,
+      "longitude": -93.931
+    },
+    "takeOut": {
+      "id": "dogwood-ramp-e57",
+      "name": "Dogwood Ramp / E-57 Access",
+      "latitude": 42.005,
+      "longitude": -93.878
+    },
+    "logistics": {
+      "distanceLabel": "About 7 mi",
+      "estimatedPaddleTime": "About 2.5 hr to 4 hr, longer with wind or low water",
+      "shuttle": "Stage at Dogwood Ramp / E-57, then launch from Highway 30 after confirming the route starts below the Boone Waterworks rapids boundary.",
+      "permits": "No route-specific paddling permit is known. Follow Boone County access postings, Iowa boating/PFD rules, and high-water-mark private-property limits.",
+      "camping": "DNR says sandbar camping is allowed on meandered streams, but this should be treated as a day route unless a legal dry sandbar and stable water are confirmed.",
+      "campingClassification": "sandbar_or_gravel_bar",
+      "summary": "Launch from Highway 30 and paddle the scenic Boone County/Ledges corridor to Dogwood Ramp / E-57.",
+      "accessCaveats": [
+        "Highway 30 is just downstream of the Boone Waterworks rapids area; keep the rapids as an upstream boundary unless separately planned.",
+        "Dogwood/E-57 is the planned take-out. Confirm ramp condition and silt before committing.",
+        "Saved coordinates are practical access-area anchors from official DNR/USACE map labels; use current signs for exact ramps."
+      ],
+      "watchFor": [
+        "Bridge piers, old structures, wood, and bank debris.",
+        "Wind in wider bends and faster current during rises.",
+        "Private uplands above the high-water mark and limited exits through the bluff corridor."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "highway-30-access-boone",
+        "name": "Highway 30 Access",
+        "latitude": 42.047,
+        "longitude": -93.931,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; labeled as Highway 30 Access by Iowa DNR and USACE Boone County maps."
+      },
+      {
+        "id": "dogwood-ramp-e57",
+        "name": "Dogwood Ramp / E-57 Access",
+        "latitude": 42.005,
+        "longitude": -93.878,
+        "mileFromStart": 7,
+        "segmentKind": "creek",
+        "note": "Default take-out; labeled as Dogwood Ramp / E-57 in official Boone County water-trail mapping."
+      }
+    ]
+  },
+  "des-moines-river-dogwood-sportsman": {
+    "putIn": {
+      "id": "dogwood-ramp-e57",
+      "name": "Dogwood Ramp / E-57 Access",
+      "latitude": 42.005,
+      "longitude": -93.878
+    },
+    "takeOut": {
+      "id": "sportsman-ramp-old-hubby",
+      "name": "Sportsman Ramp / Old Hubby Bridge Access",
+      "latitude": 41.962,
+      "longitude": -93.838
+    },
+    "logistics": {
+      "distanceLabel": "About 4 mi",
+      "estimatedPaddleTime": "About 1.5 hr to 2.5 hr, longer with wind or silted ramps",
+      "shuttle": "Stage at Sportsman Ramp / Old Hubby Bridge Access, then launch from Dogwood/E-57 after walking both maintained ramps.",
+      "permits": "No route-specific paddling permit is known. Follow Boone County access postings, Iowa boating/PFD rules, and high-water-mark private-property limits.",
+      "camping": "DNR says sandbar camping is legal on meandered streams, but this short ramp-to-ramp section should be treated as a day float unless a dry legal bar and stable water are confirmed.",
+      "campingClassification": "sandbar_or_gravel_bar",
+      "summary": "Launch at Dogwood/E-57 and paddle the short lower Boone County water-trail section to Sportsman Ramp / Old Hubby Bridge Access.",
+      "accessCaveats": [
+        "DNR says silt may sometimes cover both ramps even though they are maintained.",
+        "Sportsman is the planned take-out; do not continue toward Highway 210 or the Saylorville-influenced lower reach without that separate shuttle.",
+        "Saved coordinates are practical access-area anchors from official DNR/USACE map labels; use current signs for exact ramps."
+      ],
+      "watchFor": [
+        "Old wooden bridge supports visible in very low water.",
+        "Silted ramps, wind, fishing boats, and release or floodplain effects approaching Saylorville.",
+        "Strainers, private uplands, and fewer developed exits between ramps."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "dogwood-ramp-e57",
+        "name": "Dogwood Ramp / E-57 Access",
+        "latitude": 42.005,
+        "longitude": -93.878,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; DNR describes this access as maintained though sometimes silt-covered."
+      },
+      {
+        "id": "sportsman-ramp-old-hubby",
+        "name": "Sportsman Ramp / Old Hubby Bridge Access",
+        "latitude": 41.962,
+        "longitude": -93.838,
+        "mileFromStart": 4,
+        "segmentKind": "creek",
+        "note": "Default take-out; DNR says Sportsman is locally known as Old Hubby Bridge Access."
+      }
+    ]
+  },
   "turkey-river-clermont-gilbertson": {
     "putIn": {
       "id": "clermont-canoe-access",

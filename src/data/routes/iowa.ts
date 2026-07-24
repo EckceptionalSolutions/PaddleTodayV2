@@ -10611,6 +10611,362 @@ export const iowaRoutes: River[] = [
     ]
   },
   {
+    "id": "des-moines-river-south-fraser-waterworks-upstream",
+    "slug": "des-moines-river-south-fraser-waterworks-upstream",
+    "name": "Des Moines River",
+    "reach": "South Fraser Ramp to Waterworks Upstream Access / E-26",
+    "state": "Iowa",
+    "region": "Central Iowa",
+    "summary": "Official Boone County Des Moines River water-trail float below the Fraser dam portage to the upstream Waterworks/E-26 access, with meandered-stream camping context and a firm stop above the Boone Waterworks rapids.",
+    "statusText": "Use the Des Moines River near Stratford gauge as the upstream corridor signal. Treat the established 400 to 8,000 cfs upper-Des-Moines range conservatively here, and do not launch until the Fraser dam portage/relaunch and Waterworks take-out are confirmed from land.",
+    "latitude": 42.154,
+    "longitude": -93.965,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "low_head_dam",
+        "strainers",
+        "fast_rise",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "This route starts only after the Fraser dam portage at South Fraser. Do not run the Fraser low-head dam.",
+        "Waterworks Upstream / E-26 is the planned take-out above the Boone Waterworks rock-arch rapids. Stop there unless a separate rapids or portage plan is staged.",
+        "The Stratford gauge is upstream and cannot show wood, silted ramps, or local dam approach hydraulics in Boone County."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05481300",
+      "provider": "usgs",
+      "siteId": "05481300",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Des Moines River near Stratford, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05481300/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 400,
+      "idealMax": 8000,
+      "tooLow": 400,
+      "tooHigh": 8000,
+      "thresholdSource": {
+        "label": "CanWePaddle Fort Dodge-to-Lehigh estimated range, applied conservatively to the upper Des Moines corridor",
+        "url": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "mixed",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "April through October is the practical window. Boone County is influenced by upstream reservoir operations and storms; use a stable or falling hydrograph and local visual checks.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The float is short and DNR frames the section as suitable for all skill levels, but the nearby Fraser dam, downstream Waterworks rapids boundary, private uplands, and proxy gauge justify caution.",
+      "confidenceNotes": "Confidence is moderate-good: Iowa DNR and USACE maps identify South Fraser and the Waterworks upstream/E-26 access chain, DNR text describes the Fraser dam portage and Waterworks rapids avoidance options, Boone County confirms the state water-trail ramp system and dam warning, and USGS Water Services returned current data for the selected corridor gauge. Threshold confidence is mixed because the numeric range is adapted from the accepted Fort Dodge-to-Lehigh upper-Des-Moines model rather than published for this exact Boone County split."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route and mileage",
+        "value": "South Fraser to Waterworks Upstream/E-26, about 5 mi",
+        "note": "The Iowa DNR Boone County map labels South Fraser at river mile 249 and E-26/Waterworks access near river mile 244.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8885/download?inline="
+      },
+      {
+        "label": "Dam and portage boundary",
+        "value": "Fraser dam portage; Waterworks rapids ahead",
+        "note": "Iowa DNR says the Fraser low-head dam is not recommended and is bypassed by North and South Fraser plus the portage trail; it also identifies Waterworks upstream/downstream accesses for avoiding the rock-arch rapids.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8885/download?inline="
+      },
+      {
+        "label": "Current gauge check",
+        "value": "USGS 05481300 1,020 cfs / 5.76 ft",
+        "note": "USGS Water Services returned current Des Moines River near Stratford data at 2026-07-23 20:00 CDT during this run; downstream Saylorville also returned 1,530 cfs / 3.65 ft.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05481300,05481650&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Boone County water trail",
+        "value": "38 river miles and 8 ramps",
+        "note": "Boone County says this state water trail has signs, informational kiosks, approximately 38 river miles, and eight boat ramps, while warning users about the Fraser and Boone Waterworks dams.",
+        "sourceUrl": "https://www.boonecounty.iowa.gov/conservation/recreational_areas/des_moines_river_water_trail/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Iowa DNR Des Moines River Water Trail, Boone County",
+        "url": "https://www.iowadnr.gov/media/8885/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Boone County Des Moines River Water Trail",
+        "url": "https://www.boonecounty.iowa.gov/conservation/recreational_areas/des_moines_river_water_trail/",
+        "provider": "local"
+      },
+      {
+        "label": "USACE Boone County Des Moines River trail map",
+        "url": "https://www.mvr.usace.army.mil/Portals/48/docs/Recreation/ODS/Maps/Boone%20County%20River%20Trail.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "CanWePaddle Des Moines River Fort Dodge to Lehigh",
+        "url": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05481300 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05481300/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "des-moines-river-highway-30-dogwood",
+    "slug": "des-moines-river-highway-30-dogwood",
+    "name": "Des Moines River",
+    "reach": "Highway 30 Access to Dogwood Ramp / E-57",
+    "state": "Iowa",
+    "region": "Central Iowa",
+    "summary": "Scenic Boone County Des Moines River water-trail section from Highway 30 toward the Dogwood/E-57 ramp, passing the Ledges State Park bluff corridor with official access mapping.",
+    "statusText": "Use the Des Moines River near Stratford gauge as the upstream corridor signal. Treat 400 to 8,000 cfs as a guarded Boone County range, then verify the Highway 30 and Dogwood ramps because silt, wind, and releases can change the day.",
+    "latitude": 42.047,
+    "longitude": -93.931,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Launch at Highway 30 only after confirming the Boone Waterworks rapids are upstream of the route plan; do not drift into or out of the rapids without a separate plan.",
+        "Iowa DNR notes bridge piers and other in-water hazards in this Boone County reach. Give piers, wood, and bank debris space.",
+        "The river is meandered, but private property begins at the high-water mark. Keep routine stops to public areas or legal bars."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05481300",
+      "provider": "usgs",
+      "siteId": "05481300",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Des Moines River near Stratford, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05481300/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 400,
+      "idealMax": 8000,
+      "tooLow": 400,
+      "tooHigh": 8000,
+      "thresholdSource": {
+        "label": "CanWePaddle Fort Dodge-to-Lehigh estimated range, applied conservatively to the upper Des Moines corridor",
+        "url": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "mixed",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring and early summer normally have the most dependable depth. Late-summer lows can expose bars and old bridge remnants; storm rises can make the wide bends pushy.",
+      "difficulty": "easy",
+      "difficultyNotes": "DNR says this section is appropriate for paddlers of all skill levels and both endpoints are well developed, but the seven-mile distance, bridge hazards, proxy gauge, and Ledges-area exposure warrant a caution profile.",
+      "confidenceNotes": "Confidence is moderate-good: the Iowa DNR Boone County guide identifies Highway 30 Access to E-57/Dogwood as a water-trail section, describes the Ledges State Park bluff corridor, marks Highway 30 and Dogwood/E-57 ramps, and Boone County confirms the state water-trail ramp system. Threshold confidence is mixed because the 400-8,000 cfs model is the accepted upstream Des Moines River corridor range rather than an exact Boone County publication."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route and mileage",
+        "value": "Highway 30 Access to E-57/Dogwood, about 7 mi",
+        "note": "The Iowa DNR Boone County map places Highway 30 Access near river mile 237 and Dogwood/E-57 near river mile 230.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8885/download?inline="
+      },
+      {
+        "label": "Route character",
+        "value": "Ledges State Park bluff corridor",
+        "note": "DNR says this section has some of the most beautiful scenery on the river, including dramatic sandstone bluffs near Ledges State Park.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8885/download?inline="
+      },
+      {
+        "label": "Current gauge check",
+        "value": "USGS 05481300 1,020 cfs / 5.76 ft",
+        "note": "USGS Water Services returned current upstream corridor data at 2026-07-23 20:00 CDT during this run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05481300,05481650&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Safety guidance",
+        "value": "Check levels, weather, PFDs, strainers, dams, and private property",
+        "note": "The DNR Boone County guide includes general safety guidance to check river levels, know weather, wear PFDs, portage obstacles and low-head dams, and use public lands/access points respectfully.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8885/download?inline="
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Iowa DNR Des Moines River Water Trail, Boone County",
+        "url": "https://www.iowadnr.gov/media/8885/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Boone County Des Moines River Water Trail",
+        "url": "https://www.boonecounty.iowa.gov/conservation/recreational_areas/des_moines_river_water_trail/",
+        "provider": "local"
+      },
+      {
+        "label": "USACE Boone County Des Moines River trail map",
+        "url": "https://www.mvr.usace.army.mil/Portals/48/docs/Recreation/ODS/Maps/Boone%20County%20River%20Trail.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "CanWePaddle Des Moines River Fort Dodge to Lehigh",
+        "url": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05481300 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05481300/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "des-moines-river-dogwood-sportsman",
+    "slug": "des-moines-river-dogwood-sportsman",
+    "name": "Des Moines River",
+    "reach": "Dogwood Ramp / E-57 to Sportsman Ramp",
+    "state": "Iowa",
+    "region": "Central Iowa",
+    "summary": "Short lower Boone County Des Moines River water-trail section from Dogwood/E-57 to Sportsman Ramp, with maintained ramps, sandbar bends, and Saylorville-influenced flow caveats.",
+    "statusText": "Use the Des Moines River near Stratford gauge as the upstream signal and compare it with Saylorville. The 400 to 8,000 cfs corridor range is guarded here; low water exposes bridge remnants and high water can flood bars and ramps.",
+    "latitude": 42.005,
+    "longitude": -93.878,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "DNR says both ramps are maintained and accessible, but silt may cover them. Walk both landings before launching.",
+        "Very low water can expose old wooden bridge supports near Sportsman / Old Hubby Bridge; give any remnants wide clearance.",
+        "The river starts feeling the downstream Saylorville system in this area. Watch for fishing boats, wind, release effects, and floodplain inundation."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05481300",
+      "provider": "usgs",
+      "siteId": "05481300",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Des Moines River near Stratford, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05481300/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 400,
+      "idealMax": 8000,
+      "tooLow": 400,
+      "tooHigh": 8000,
+      "thresholdSource": {
+        "label": "CanWePaddle Fort Dodge-to-Lehigh estimated range, applied conservatively to the upper Des Moines corridor",
+        "url": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "mixed",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "This short lower-Boone section depends on both upstream Des Moines River flow and downstream Saylorville conditions. Low water can be slow and silted; high releases or floods can cover bars and speed up the current.",
+      "difficulty": "easy",
+      "difficultyNotes": "DNR frames the reach as suitable for all skill levels and the mileage is short, but the proxy gauge, silted ramps, bridge-remnant possibility, wind, and motorboat mix require caution.",
+      "confidenceNotes": "Confidence is moderate-good: Iowa DNR identifies E-57/Dogwood to Sportsman as a short water-trail section with maintained ramps, long sandbars, and Saylorville influence; USACE mapping labels Dogwood and Sportsman ramps; Boone County confirms the state water-trail ramp network. Threshold confidence is mixed because the numeric model is adapted from the upper Des Moines CanWePaddle corridor range and cross-checked with current Stratford/Saylorville values rather than an exact local publication."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route and mileage",
+        "value": "E-57/Dogwood to Sportsman, about 4 mi",
+        "note": "The Iowa DNR guide describes E-57 Access to Sportsman Ramp as a short section; the map places Dogwood/E-57 near river mile 230 and Sportsman near river mile 226.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8885/download?inline="
+      },
+      {
+        "label": "Access condition",
+        "value": "Maintained ramps, sometimes silt-covered",
+        "note": "DNR says both ramps are maintained and accessible, though silt may sometimes cover them, and notes Sportsman is also known as Old Hubby Bridge Access.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8885/download?inline="
+      },
+      {
+        "label": "Current gauge check",
+        "value": "USGS 05481300 1,020 cfs / 5.76 ft; USGS 05481650 1,530 cfs / 3.65 ft",
+        "note": "USGS Water Services returned current upstream Stratford and downstream Saylorville values at 2026-07-23 20:00 CDT during this run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05481300,05481650&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Saylorville influence",
+        "value": "Fishing boats and flood-tolerant floodplain downstream",
+        "note": "DNR says the next Sportsman-to-Highway-210 reach is strongly influenced by Saylorville Dam, and that fishing boats become more common approaching public recreation areas.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8885/download?inline="
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Iowa DNR Des Moines River Water Trail, Boone County",
+        "url": "https://www.iowadnr.gov/media/8885/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Boone County Des Moines River Water Trail",
+        "url": "https://www.boonecounty.iowa.gov/conservation/recreational_areas/des_moines_river_water_trail/",
+        "provider": "local"
+      },
+      {
+        "label": "USACE Boone County Des Moines River trail map",
+        "url": "https://www.mvr.usace.army.mil/Portals/48/docs/Recreation/ODS/Maps/Boone%20County%20River%20Trail.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "CanWePaddle Des Moines River Fort Dodge to Lehigh",
+        "url": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05481300 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05481300/",
+        "provider": "usgs"
+      },
+      {
+        "label": "USGS 05481650 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05481650/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
     "id": "des-moines-river-eldon-shidepoke",
     "slug": "des-moines-river-eldon-shidepoke",
     "name": "Des Moines River",

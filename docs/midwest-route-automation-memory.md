@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-07-23 21:20 America/Chicago / 2026-07-24 02:20 UTC: Iowa Boone County Des Moines implementation pass (`iowa-route-additions`).
+  - Added three Iowa route slugs beyond the current 109-route exported Iowa baseline: `des-moines-river-south-fraser-waterworks-upstream`, `des-moines-river-highway-30-dogwood`, and `des-moines-river-dogwood-sportsman`, bringing Iowa to 112 live routes.
+  - Qualification path: Iowa DNR Boone County Des Moines River Water Trail guide, Boone County water-trail page, USACE Boone County map, CanWePaddle Fort-Dodge-to-Lehigh threshold model, and USGS Water Services support the exact Boone County access-pair package.
+  - Gauge posture: USGS returned Des Moines River near Stratford `05481300` at `1,020 cfs / 5.76 ft` and downstream Saylorville context `05481650` at `1,530 cfs / 3.65 ft` at 2026-07-23 20:00 CDT.
+  - Safety/image posture: routes carry Fraser dam portage, Waterworks rock-arch rapids boundary, bridge-pier, silted-ramp, old-bridge-remnant, Saylorville-influence, motorboat, private-upland, sandbar-camping, and proxy-gauge caveats. No gallery image was selected after bounded official/Commons/same-route review.
+
 - 2026-07-23 20:24 America/Chicago / 2026-07-24 01:24 UTC: Minnesota Mississippi recommended-route pass (`minnesota-route-additions-2`).
   - Added three Minnesota route slugs beyond the current 208-route exported Minnesota baseline: `mississippi-river-schoolcraft-sylvan`, `mississippi-river-overlook-belle-prairie`, and `mississippi-river-royalton-sartell`, bringing Minnesota to 211 live routes.
   - Qualification path: MN DNR recommended one-way routes plus Mississippi Maps 3/6/7 support the exact access pairs and route shapes; MN DNR river-level site data supplies interpreted bands for Days High Landing site `116`, Brainerd site `121`, and Royalton site `149`; Minnesota public-water-access GIS resolves the Schoolcraft/Sylvan/Belle-Prairie/Royalton/Walleye/Sartell endpoint chain. Baxter's city park page plus US Census geocoding anchors Overlook Park.
