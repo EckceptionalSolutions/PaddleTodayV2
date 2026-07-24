@@ -26677,5 +26677,513 @@ export const minnesotaRoutes: River[] = [
         "provider": "mn_dnr"
       }
     ]
+  },
+  {
+    "id": "minnesota-river-priens-war-memorial",
+    "slug": "minnesota-river-priens-war-memorial",
+    "name": "Minnesota River",
+    "reach": "Prien's Landing to War Memorial Park",
+    "state": "Minnesota",
+    "region": "Western Minnesota",
+    "summary": "Official upper Minnesota River recommended section from Prien's Landing into Granite Falls, with the Montevideo DNR gauge just upstream and clear DNR map support for rapids, a dam portage, and campsite-only overnight rules.",
+    "statusText": "Use the Montevideo DNR gauge: 5 to 9 ft is the official medium band. Below 3 ft is scrapable, and above 14 ft is very high.",
+    "latitude": 44.9296662954581,
+    "longitude": -95.72677612600766,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam",
+        "mandatory_takeout",
+        "strainers",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "The Granite Falls dam and 250-yard river-right portage are a route-defining hazard, not an optional waypoint.",
+        "Scout the Downtown Rapids and any Class I ledges or boulder gardens when levels are low, rising, or unfamiliar.",
+        "Use only named public accesses and designated campsites; DNR water-trail rules do not allow private-bank or riverbed camping next to private property."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "mn-dnr-99",
+      "provider": "mn_dnr",
+      "siteId": "99",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Minnesota River at Montevideo",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=25063001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=25063001&var1=232&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 5,
+      "idealMax": 9,
+      "tooLow": 3,
+      "tooHigh": 14,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Minnesota River at Montevideo",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring through fall can work when the Montevideo gauge is stable. Low summer water exposes ledges and shoals; rain and reservoir releases can add pushy current and debris.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The mileage is reasonable for a long day, but the Granite Falls dam portage, Class I-II Downtown Rapids, low-water rocks, and rural rescue exposure make this more than a casual beginner float.",
+      "confidenceNotes": "Confidence is high: MN DNR lists Prien's Landing to War Memorial Park as an 18.7-mile recommended paddling section, Map 2 places both endpoints, rapids, the dam portage, and watercraft campsites in sequence, and Minnesota public-water-access GIS resolves both endpoints with source-backed coordinates. The Montevideo gauge is immediately upstream of the route with official DNR interpretation bands."
+    },
+    "putIn": {
+      "id": "minnesota-river-priens",
+      "name": "Minnesota River, Prien's Landing Public Water Access Site",
+      "latitude": 44.9296662954581,
+      "longitude": -95.72677612600766
+    },
+    "takeOut": {
+      "id": "minnesota-river-war-memorial",
+      "name": "Minnesota River, War Memorial City Park Public Water Access Site",
+      "latitude": 44.801593076365066,
+      "longitude": -95.53915116502489
+    },
+    "logistics": {
+      "distanceLabel": "18.7 mi",
+      "estimatedPaddleTime": "Long day, roughly 6 hr to 8 hr depending on level, portage time, and stops",
+      "shuttle": "Stage War Memorial Park in Granite Falls first, then drive back to Prien's Landing. Build in daylight for the dam portage and rapid scouting.",
+      "permits": "No route-specific paddling permit is known. Follow posted DNR water-trail and city-park rules at Prien's Landing, the Granite Falls portage, War Memorial Park, and any campsite.",
+      "camping": "DNR Map 2 marks a watercraft campsite around river mile 243.2 and identifies War Memorial Park as a watercraft-campsite access. Treat overnight use as designated-site only; do not assume private-bank or riverbed camping.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Launch at Prien's Landing and finish at War Memorial Park for the official DNR recommended Minnesota River section into Granite Falls. The main operational controls are the Montevideo gauge, the Granite Falls dam portage, and rapid scouting.",
+      "accessCaveats": [
+        "Prien's Landing and War Memorial Park both resolve as public-water-access GIS records, but the dam/portage zone between them still requires route discipline.",
+        "Do not continue below War Memorial without a separate Granite Falls-to-Kinney plan; the downstream map immediately includes additional small rapids and Minnesota Falls hazards.",
+        "Use only designated campsites and public accesses because much of the shoreline is private."
+      ],
+      "watchFor": [
+        "Granite Falls dam at river mile 239.9 with the DNR-mapped 250-yard river-right portage.",
+        "Class I ledges and Downtown Rapids Class I-II, especially at low or changing water.",
+        "Strainers, floating debris, muddy banks, wind on open bends, cold shoulder-season water, and private-bank limits."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "minnesota-river-priens",
+        "name": "Minnesota River, Prien's Landing Public Water Access Site",
+        "latitude": 44.9296662954581,
+        "longitude": -95.72677612600766,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at DNR Map 2 river mile 257.6 / public-access GIS river mile 257.3."
+      },
+      {
+        "id": "minnesota-river-war-memorial",
+        "name": "Minnesota River, War Memorial City Park Public Water Access Site",
+        "latitude": 44.801593076365066,
+        "longitude": -95.53915116502489,
+        "mileFromStart": 18.7,
+        "segmentKind": "creek",
+        "note": "Default take-out at Granite Falls after the dam portage and Downtown Rapids."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "DNR recommended section",
+        "value": "Prien's Landing to War Memorial Park, 18.7 mi",
+        "note": "MN DNR's statewide recommended paddling list identifies Prien's Landing to War Memorial Park as a 18.7-mile Minnesota River section.",
+        "sourceUrl": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      },
+      {
+        "label": "Map support",
+        "value": "Prien's RM 257.6 to War Memorial RM 238.9",
+        "note": "MN DNR Map 2 places Prien's Landing, a watercraft campsite, the Granite Falls dam portage, Downtown Rapids, and War Memorial Park in order.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota2.pdf"
+      },
+      {
+        "label": "DNR bands",
+        "value": "3 / 5-9 / 14 ft",
+        "note": "MN DNR interprets the Montevideo gauge as Scrapable below 3 ft, Low from 3 to 5, Medium from 5 to 9, High from 9 to 14, and Very High above 14.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "4.54 ft at 2026-07-23 18:00 CDT",
+        "note": "The official DNR feed placed Montevideo in the low band during this run, below the medium recommendation band.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Public access records",
+        "value": "Prien's WAS01053 and War Memorial WAS00692",
+        "note": "Minnesota public-water-access GIS resolves both endpoints with administrators, coordinates, and river-mile records.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR recommended paddling sections",
+        "url": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      },
+      {
+        "label": "MN DNR Minnesota River Map 2",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota2.pdf"
+      },
+      {
+        "label": "MN DNR Minnesota River State Water Trail",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/minnesota-river/index.html"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      }
+    ]
+  },
+  {
+    "id": "minnesota-river-morton-highway-4",
+    "slug": "minnesota-river-morton-highway-4",
+    "name": "Minnesota River",
+    "reach": "Morton Access to Highway 4",
+    "state": "Minnesota",
+    "region": "Southern Minnesota",
+    "summary": "Long official Minnesota River recommended section from Morton to Highway 4, using the direct Morton DNR gauge and DNR Map 4's campsite, logjam, and Fort Ridgely context.",
+    "statusText": "Use the Morton DNR gauge at the put-in corridor: 1,330 to 3,750 cfs is the official medium band. Below 307 cfs is scrapable, and above 10,900 cfs is very high.",
+    "latitude": 44.54270193478301,
+    "longitude": -95.00225803051977,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "remote",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "DNR Map 4 flags a large logjam near river mile 184 that may be impassable at times.",
+        "This is a 26.3-mile public-access section with long gaps between exits; treat it as an overnight-capable route unless the group is fast and daylight is generous.",
+        "Use Franklin, Mack Lake, Kettner's, or Fort Ridgely as planned checkpoints rather than improvising on private banks."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "mn-dnr-107",
+      "provider": "mn_dnr",
+      "siteId": "107",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "direct",
+      "siteName": "Minnesota River at Morton, MN19",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=28012001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=28012001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 1330,
+      "idealMax": 3750,
+      "tooLow": 307,
+      "tooHigh": 10900,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Minnesota River at Morton",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring through fall can work when the Morton gauge is stable. Summer lows expose shoals and logjam channels; rain and reservoir-influenced rises add current, debris, and difficult exits.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The water is generally broad and moderate, but the 26.3-mile distance, known logjam, campsite planning, and sparse bailouts make this a committed long day or overnight rather than a simple float.",
+      "confidenceNotes": "Confidence is high for source quality: MN DNR's statewide list recommends Morton to Highway 4, Map 4 details the exact access chain and hazards, Minnesota public-water-access GIS resolves both endpoints, and the Morton gauge is direct at the route start with official DNR interpretation bands."
+    },
+    "putIn": {
+      "id": "minnesota-river-morton",
+      "name": "Minnesota River, Morton Access Public Water Access Site",
+      "latitude": 44.54270193478301,
+      "longitude": -95.00225803051977
+    },
+    "takeOut": {
+      "id": "minnesota-river-highway-4",
+      "name": "Minnesota River, Hwy 4 Public Water Access Site",
+      "latitude": 44.434034468408925,
+      "longitude": -94.7166647656376
+    },
+    "logistics": {
+      "distanceLabel": "26.3 mi",
+      "estimatedPaddleTime": "Very long day or overnight, roughly 9 hr to 12 hr depending on level, wind, and campsite strategy",
+      "shuttle": "Stage Highway 4 before launching at Morton. Identify Franklin, Mack Lake, Kettner's, and Fort Ridgely as checkpoints or contingency exits before committing to the full distance.",
+      "permits": "No route-specific paddling permit is known. Fort Ridgely State Park parking requires the appropriate permit if used as a stop or bailout; follow posted DNR, park, county, and public-access rules.",
+      "camping": "DNR Map 4 maps watercraft campsites at Franklin City Park and Mack Lake Park, plus Fort Ridgely State Park campground support near the lower half. Treat overnight use as designated-site or managed-park only.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Launch at Morton and paddle the DNR-listed 26.3-mile section to Highway 4. The route's value is a full public-access chain with real campsite structure, but the known logjam and long distance require conservative planning.",
+      "accessCaveats": [
+        "Morton and Highway 4 both resolve as public-water-access GIS records, but this is a long rural section with limited fast exits.",
+        "Check the river mile 184 logjam status locally before committing to the full route.",
+        "Fort Ridgely, Franklin, Mack Lake, and Kettner's are useful checkpoints, but each has its own posted rules and access conditions."
+      ],
+      "watchFor": [
+        "Large logjam near river mile 184 that DNR says may be impassable at times.",
+        "Wind, broad bends, muddy exits, floating debris, private banks, and cold shoulder-season water.",
+        "Long-day fatigue and slow travel when the Morton gauge is in the official low band."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "minnesota-river-morton",
+        "name": "Minnesota River, Morton Access Public Water Access Site",
+        "latitude": 44.54270193478301,
+        "longitude": -95.00225803051977,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in near the direct Morton DNR gauge."
+      },
+      {
+        "id": "minnesota-river-highway-4",
+        "name": "Minnesota River, Hwy 4 Public Water Access Site",
+        "latitude": 44.434034468408925,
+        "longitude": -94.7166647656376,
+        "mileFromStart": 26.3,
+        "segmentKind": "creek",
+        "note": "Default take-out at DNR Map 4 river mile 163.6."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "DNR recommended section",
+        "value": "Morton to Highway 4, 26.3 mi",
+        "note": "MN DNR's statewide recommended paddling list identifies Morton Access to Highway 4 as a 26.3-mile Minnesota River section.",
+        "sourceUrl": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      },
+      {
+        "label": "Map support",
+        "value": "Morton RM 189.9 to Highway 4 RM 163.6",
+        "note": "MN DNR Map 4 places Morton, the direct river-level gauge, Franklin, Mack Lake, Kettner's, Fort Ridgely, and Highway 4 in sequence.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf"
+      },
+      {
+        "label": "DNR bands",
+        "value": "307 / 1,330-3,750 / 10,900 cfs",
+        "note": "MN DNR interprets the Morton gauge as Scrapable below 307 cfs, Low from 307 to 1,330, Medium from 1,330 to 3,750, High from 3,750 to 10,900, and Very High above 10,900.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "1,260 cfs at 2026-07-23 18:00 CDT",
+        "note": "The official DNR feed placed Morton in the low band during this run, just below the medium recommendation band.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Public access records",
+        "value": "Morton WAS00670 and Highway 4 WAS00644",
+        "note": "Minnesota public-water-access GIS resolves both endpoints with administrators, coordinates, and river-mile records.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR recommended paddling sections",
+        "url": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      },
+      {
+        "label": "MN DNR Minnesota River Map 4",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf"
+      },
+      {
+        "label": "MN DNR Minnesota River State Water Trail",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/minnesota-river/index.html"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      }
+    ]
+  },
+  {
+    "id": "minnesota-river-buessman-riverside",
+    "slug": "minnesota-river-buessman-riverside",
+    "name": "Minnesota River",
+    "reach": "Buessman Bridge to Riverside Park",
+    "state": "Minnesota",
+    "region": "Southern Minnesota",
+    "summary": "Short DNR-listed Minnesota River section from Buessman Bridge into New Ulm, using the downstream Mankato interpreted gauge and Map 4's official access chain.",
+    "statusText": "Use the Mankato DNR gauge as a downstream same-map check: 4,550 to 17,900 cfs is the official medium band. Below 566.9 cfs is scrapable, and above 22,500 cfs is very high.",
+    "latitude": 44.36204665820957,
+    "longitude": -94.49791318667181,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "access_uncertain",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "This short reach still uses a downstream proxy gauge, so inspect the Buessman and Riverside landings for mud, debris, and local depth before launching.",
+        "Bridge current, wind on open bends, and floating wood can matter more than the short mileage.",
+        "Riverside Park is the planned finish; do not drift past New Ulm toward lower Map 4 hazards unless a separate downstream route is staged."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "mn-dnr-96",
+      "provider": "mn_dnr",
+      "siteId": "96",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Minnesota River at Mankato, MN",
+      "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=28042001",
+      "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=28042001&var1=262&width=700&height=320"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 4550,
+      "idealMax": 17900,
+      "tooLow": 566.9,
+      "tooHigh": 22500,
+      "thresholdSource": {
+        "label": "MN DNR river-level interpretation bands for Minnesota River at Mankato",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring through fall can work when the Mankato gauge is stable and local landings are open. Summer lows expose mud and shoals; rain can add debris and strong bridge current.",
+      "difficulty": "easy",
+      "difficultyNotes": "The section is only about 5.2 miles and has no mapped rapids, but bridge current, mud, wind, and the downstream proxy gauge justify a cautious same-day check.",
+      "confidenceNotes": "Confidence is good for route shape and access: MN DNR's statewide recommended list names Buessman Bridge to Riverside Park at 5.2 miles, Map 4 places Buessman, Minnecon, and Riverside in order, and Minnesota public-water-access GIS resolves both endpoints. Gauge confidence is moderate because the Mankato interpreted gauge is downstream on the same Minnesota River map family rather than inside the short New Ulm reach."
+    },
+    "putIn": {
+      "id": "minnesota-river-buessman",
+      "name": "Minnesota River, Buessman Bridge / County Road 14 Public Water Access Site",
+      "latitude": 44.36204665820957,
+      "longitude": -94.49791318667181
+    },
+    "takeOut": {
+      "id": "minnesota-river-riverside-new-ulm",
+      "name": "Minnesota River, Riverside Park Public Water Access Site",
+      "latitude": 44.316322128308315,
+      "longitude": -94.4523009661712
+    },
+    "logistics": {
+      "distanceLabel": "5.2 mi",
+      "estimatedPaddleTime": "About 2 hr to 3 hr, longer with low-water mud or headwind",
+      "shuttle": "Stage Riverside Park in New Ulm first, then drive back to Buessman Bridge. Confirm both landings are usable because the selected gauge is downstream at Mankato.",
+      "permits": "No route-specific paddling permit is known. Follow posted DNR water-trail, public-access, and city-park rules at Buessman Bridge, Minnecon Park, and Riverside Park.",
+      "camping": "Treat this as a day route. DNR Map 4 marks nearby rest/drinking-water support at Minnecon Park, but it does not document an on-route watercraft campsite between Buessman and Riverside.",
+      "campingClassification": "none",
+      "summary": "Launch at Buessman Bridge and take out at Riverside Park for the short recommended New Ulm-area Minnesota River section. It is useful as a lower-commitment access gap, with the Mankato DNR gauge used conservatively as a downstream same-river proxy.",
+      "accessCaveats": [
+        "Buessman and Riverside both resolve as Minnesota public-water-access GIS records; use those named landings rather than informal banks.",
+        "The Mankato gauge is downstream of this short section, so same-day visual checks at both landings matter.",
+        "Minnecon Park is an intermediate rest/drinking-water landmark, not a camping basis for this route."
+      ],
+      "watchFor": [
+        "County Road 14 bridge current at the put-in and Highways 14/15 bridge current near New Ulm.",
+        "Muddy landings, floating wood, private banks, and wind on the broad valley bends.",
+        "Do not continue below Riverside Park unless the downstream Cambria/Cottonwood confluence corridor is separately planned."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "minnesota-river-buessman",
+        "name": "Minnesota River, Buessman Bridge / County Road 14 Public Water Access Site",
+        "latitude": 44.36204665820957,
+        "longitude": -94.49791318667181,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at DNR Map 4 river mile 143.3."
+      },
+      {
+        "id": "minnesota-river-riverside-new-ulm",
+        "name": "Minnesota River, Riverside Park Public Water Access Site",
+        "latitude": 44.316322128308315,
+        "longitude": -94.4523009661712,
+        "mileFromStart": 5.2,
+        "segmentKind": "creek",
+        "note": "Default take-out at New Ulm / DNR Map 4 river mile 138.1."
+      }
+    ],
+    "evidenceNotes": [
+      {
+        "label": "DNR recommended section",
+        "value": "Buessman Bridge to Riverside Park, 5.2 mi",
+        "note": "MN DNR's statewide recommended paddling list identifies Buessman Bridge to Riverside Park as a 5.2-mile Minnesota River section.",
+        "sourceUrl": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      },
+      {
+        "label": "Map support",
+        "value": "Buessman RM 143.3 to Riverside RM 138.1",
+        "note": "MN DNR Map 4 places Buessman Bridge, Fritsche Creek, Minnecon Park, the Highways 14/15 bridge, and Riverside Park in sequence.",
+        "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf"
+      },
+      {
+        "label": "DNR bands",
+        "value": "566.9 / 4,550-17,900 / 22,500 cfs",
+        "note": "MN DNR interprets the Mankato gauge as Scrapable below 566.9 cfs, Low from 566.9 to 4,550, Medium from 4,550 to 17,900, High from 17,900 to 22,500, and Very High above 22,500.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "2,730 cfs at 2026-07-23 18:30 CDT",
+        "note": "The official DNR feed placed Mankato in the low band during this run, below the medium recommendation band.",
+        "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
+      },
+      {
+        "label": "Public access records",
+        "value": "Buessman WAS00804 and Riverside/New Ulm WAS00792",
+        "note": "Minnesota public-water-access GIS resolves both endpoints with administrators, coordinates, and river-mile records.",
+        "sourceUrl": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "MN DNR recommended paddling sections",
+        "url": "https://files.dnr.state.mn.us/destinations/water_trails/recommended-one-ways"
+      },
+      {
+        "label": "MN DNR Minnesota River Map 4",
+        "url": "https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf"
+      },
+      {
+        "label": "MN DNR Minnesota River State Water Trail",
+        "url": "https://www.dnr.state.mn.us/state-water-trails/minnesota-river/index.html"
+      },
+      {
+        "label": "MN DNR river levels",
+        "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+      },
+      {
+        "label": "Minnesota public water access feature service",
+        "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0"
+      }
+    ]
   }
 ];

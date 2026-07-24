@@ -10055,5 +10055,164 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default take-out; Minnesota public-water-access GIS resolves WAS02510 at river mile 91.0 and DNR Map Long Prairie labels the Highway 29 carry-in near river mile 91.9."
       }
     ]
+  },
+  "minnesota-river-priens-war-memorial": {
+    "putIn": {
+      "id": "minnesota-river-priens",
+      "name": "Minnesota River, Prien's Landing Public Water Access Site",
+      "latitude": 44.9296662954581,
+      "longitude": -95.72677612600766
+    },
+    "takeOut": {
+      "id": "minnesota-river-war-memorial",
+      "name": "Minnesota River, War Memorial City Park Public Water Access Site",
+      "latitude": 44.801593076365066,
+      "longitude": -95.53915116502489
+    },
+    "logistics": {
+      "distanceLabel": "18.7 mi",
+      "estimatedPaddleTime": "Long day, roughly 6 hr to 8 hr depending on level, portage time, and stops",
+      "shuttle": "Stage War Memorial Park in Granite Falls first, then drive back to Prien's Landing. Build in daylight for the dam portage and rapid scouting.",
+      "permits": "No route-specific paddling permit is known. Follow posted DNR water-trail and city-park rules at Prien's Landing, the Granite Falls portage, War Memorial Park, and any campsite.",
+      "camping": "DNR Map 2 marks a watercraft campsite around river mile 243.2 and identifies War Memorial Park as a watercraft-campsite access. Treat overnight use as designated-site only; do not assume private-bank or riverbed camping.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Launch at Prien's Landing and finish at War Memorial Park for the official DNR recommended Minnesota River section into Granite Falls. The main operational controls are the Montevideo gauge, the Granite Falls dam portage, and rapid scouting.",
+      "accessCaveats": [
+        "Prien's Landing and War Memorial Park both resolve as public-water-access GIS records, but the dam/portage zone between them still requires route discipline.",
+        "Do not continue below War Memorial without a separate Granite Falls-to-Kinney plan; the downstream map immediately includes additional small rapids and Minnesota Falls hazards.",
+        "Use only designated campsites and public accesses because much of the shoreline is private."
+      ],
+      "watchFor": [
+        "Granite Falls dam at river mile 239.9 with the DNR-mapped 250-yard river-right portage.",
+        "Class I ledges and Downtown Rapids Class I-II, especially at low or changing water.",
+        "Strainers, floating debris, muddy banks, wind on open bends, cold shoulder-season water, and private-bank limits."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "minnesota-river-priens",
+        "name": "Minnesota River, Prien's Landing Public Water Access Site",
+        "latitude": 44.9296662954581,
+        "longitude": -95.72677612600766,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at DNR Map 2 river mile 257.6 / public-access GIS river mile 257.3."
+      },
+      {
+        "id": "minnesota-river-war-memorial",
+        "name": "Minnesota River, War Memorial City Park Public Water Access Site",
+        "latitude": 44.801593076365066,
+        "longitude": -95.53915116502489,
+        "mileFromStart": 18.7,
+        "segmentKind": "creek",
+        "note": "Default take-out at Granite Falls after the dam portage and Downtown Rapids."
+      }
+    ]
+  },
+  "minnesota-river-morton-highway-4": {
+    "putIn": {
+      "id": "minnesota-river-morton",
+      "name": "Minnesota River, Morton Access Public Water Access Site",
+      "latitude": 44.54270193478301,
+      "longitude": -95.00225803051977
+    },
+    "takeOut": {
+      "id": "minnesota-river-highway-4",
+      "name": "Minnesota River, Hwy 4 Public Water Access Site",
+      "latitude": 44.434034468408925,
+      "longitude": -94.7166647656376
+    },
+    "logistics": {
+      "distanceLabel": "26.3 mi",
+      "estimatedPaddleTime": "Very long day or overnight, roughly 9 hr to 12 hr depending on level, wind, and campsite strategy",
+      "shuttle": "Stage Highway 4 before launching at Morton. Identify Franklin, Mack Lake, Kettner's, and Fort Ridgely as checkpoints or contingency exits before committing to the full distance.",
+      "permits": "No route-specific paddling permit is known. Fort Ridgely State Park parking requires the appropriate permit if used as a stop or bailout; follow posted DNR, park, county, and public-access rules.",
+      "camping": "DNR Map 4 maps watercraft campsites at Franklin City Park and Mack Lake Park, plus Fort Ridgely State Park campground support near the lower half. Treat overnight use as designated-site or managed-park only.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Launch at Morton and paddle the DNR-listed 26.3-mile section to Highway 4. The route's value is a full public-access chain with real campsite structure, but the known logjam and long distance require conservative planning.",
+      "accessCaveats": [
+        "Morton and Highway 4 both resolve as public-water-access GIS records, but this is a long rural section with limited fast exits.",
+        "Check the river mile 184 logjam status locally before committing to the full route.",
+        "Fort Ridgely, Franklin, Mack Lake, and Kettner's are useful checkpoints, but each has its own posted rules and access conditions."
+      ],
+      "watchFor": [
+        "Large logjam near river mile 184 that DNR says may be impassable at times.",
+        "Wind, broad bends, muddy exits, floating debris, private banks, and cold shoulder-season water.",
+        "Long-day fatigue and slow travel when the Morton gauge is in the official low band."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "minnesota-river-morton",
+        "name": "Minnesota River, Morton Access Public Water Access Site",
+        "latitude": 44.54270193478301,
+        "longitude": -95.00225803051977,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in near the direct Morton DNR gauge."
+      },
+      {
+        "id": "minnesota-river-highway-4",
+        "name": "Minnesota River, Hwy 4 Public Water Access Site",
+        "latitude": 44.434034468408925,
+        "longitude": -94.7166647656376,
+        "mileFromStart": 26.3,
+        "segmentKind": "creek",
+        "note": "Default take-out at DNR Map 4 river mile 163.6."
+      }
+    ]
+  },
+  "minnesota-river-buessman-riverside": {
+    "putIn": {
+      "id": "minnesota-river-buessman",
+      "name": "Minnesota River, Buessman Bridge / County Road 14 Public Water Access Site",
+      "latitude": 44.36204665820957,
+      "longitude": -94.49791318667181
+    },
+    "takeOut": {
+      "id": "minnesota-river-riverside-new-ulm",
+      "name": "Minnesota River, Riverside Park Public Water Access Site",
+      "latitude": 44.316322128308315,
+      "longitude": -94.4523009661712
+    },
+    "logistics": {
+      "distanceLabel": "5.2 mi",
+      "estimatedPaddleTime": "About 2 hr to 3 hr, longer with low-water mud or headwind",
+      "shuttle": "Stage Riverside Park in New Ulm first, then drive back to Buessman Bridge. Confirm both landings are usable because the selected gauge is downstream at Mankato.",
+      "permits": "No route-specific paddling permit is known. Follow posted DNR water-trail, public-access, and city-park rules at Buessman Bridge, Minnecon Park, and Riverside Park.",
+      "camping": "Treat this as a day route. DNR Map 4 marks nearby rest/drinking-water support at Minnecon Park, but it does not document an on-route watercraft campsite between Buessman and Riverside.",
+      "campingClassification": "none",
+      "summary": "Launch at Buessman Bridge and take out at Riverside Park for the short recommended New Ulm-area Minnesota River section. It is useful as a lower-commitment access gap, with the Mankato DNR gauge used conservatively as a downstream same-river proxy.",
+      "accessCaveats": [
+        "Buessman and Riverside both resolve as Minnesota public-water-access GIS records; use those named landings rather than informal banks.",
+        "The Mankato gauge is downstream of this short section, so same-day visual checks at both landings matter.",
+        "Minnecon Park is an intermediate rest/drinking-water landmark, not a camping basis for this route."
+      ],
+      "watchFor": [
+        "County Road 14 bridge current at the put-in and Highways 14/15 bridge current near New Ulm.",
+        "Muddy landings, floating wood, private banks, and wind on the broad valley bends.",
+        "Do not continue below Riverside Park unless the downstream Cambria/Cottonwood confluence corridor is separately planned."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "minnesota-river-buessman",
+        "name": "Minnesota River, Buessman Bridge / County Road 14 Public Water Access Site",
+        "latitude": 44.36204665820957,
+        "longitude": -94.49791318667181,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at DNR Map 4 river mile 143.3."
+      },
+      {
+        "id": "minnesota-river-riverside-new-ulm",
+        "name": "Minnesota River, Riverside Park Public Water Access Site",
+        "latitude": 44.316322128308315,
+        "longitude": -94.4523009661712,
+        "mileFromStart": 5.2,
+        "segmentKind": "creek",
+        "note": "Default take-out at New Ulm / DNR Map 4 river mile 138.1."
+      }
+    ]
   }
 };

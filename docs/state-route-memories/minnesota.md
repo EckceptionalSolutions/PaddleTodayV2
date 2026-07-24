@@ -1,5 +1,15 @@
 # Minnesota Route Memory
 
+## 2026-07-23 21:12 America/Chicago / 2026-07-24 02:12 UTC Minnesota River gap pass
+
+- Treated the current repo state as the run-start baseline and expanded Minnesota from `211` to `214` live route slugs by adding `minnesota-river-priens-war-memorial`, `minnesota-river-morton-highway-4`, and `minnesota-river-buessman-riverside`.
+- Qualification path: MN DNR statewide recommended paddling sections plus Minnesota River Maps 2 and 4 document the exact Prien's-to-War-Memorial, Morton-to-Highway-4, and Buessman-to-Riverside public water-trail sections. Minnesota public-water-access GIS resolves Prien's `WAS01053`, War Memorial `WAS00692`, Morton `WAS00670`, Highway 4 `WAS00644`, Buessman `WAS00804`, and Riverside/New Ulm `WAS00792`.
+- Live gauge verification: MN DNR river-level JSON returned Montevideo site `99` at `4.54 ft` at `2026-07-23 18:00 CDT`, Morton site `107` at `1,260 cfs` at `2026-07-23 18:00 CDT`, and Mankato site `96` at `2,730 cfs` at `2026-07-23 18:30 CDT`.
+- Threshold posture: all three use official MN DNR interpreted bands only. Prien's-to-War-Memorial uses Montevideo `3 / 5-9 / 14 ft`; Morton-to-Highway-4 uses direct Morton `307 / 1,330-3,750 / 10,900 cfs`; Buessman-to-Riverside uses downstream same-river Mankato `566.9 / 4,550-17,900 / 22,500 cfs` with explicit proxy/visual-check caveats.
+- Safety/camping posture: Prien's-to-War-Memorial flags the Granite Falls dam and 250-yard river-right portage, Downtown Rapids Class I-II, Class I ledges, private banks, and designated-campsite-only overnight use. Morton-to-Highway-4 flags the river-mile-184 logjam, long-day or overnight commitment, Franklin/Mack Lake/Fort Ridgely managed camping context, private banks, wind, and sparse exits. Buessman-to-Riverside flags downstream proxy-gauge limits, bridge current, muddy landings, private banks, and no camping.
+- Image posture: no route-gallery assets were added. `docs/river-image-source-audit.csv` records bounded DNR / public-access / Commons / same-route review with no clearly rights-clean exact-route paddling asset selected.
+- Reviewed but did not add: Pine Norway/Pine-River-#1/Cross-Lake and St. Croix William-O'Brien-to-Boom-Site remain viable absent-current-baseline candidates, but the three selected Minnesota River gaps had cleaner exact DNR recommended-section support and direct or same-map interpreted gauge posture for this run.
+
 ## 2026-07-23 20:24 America/Chicago / 2026-07-24 01:24 UTC Minnesota Mississippi recommended-route pass
 
 - Treated the current repo state as the run-start baseline and expanded Minnesota from `208` to `211` live route slugs by adding `mississippi-river-schoolcraft-sylvan`, `mississippi-river-overlook-belle-prairie`, and `mississippi-river-royalton-sartell`.
