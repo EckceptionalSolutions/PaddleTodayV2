@@ -3,13 +3,13 @@ import type { River } from '../../lib/types';
 
 export const iowaRoutes: River[] = [
   {
-    "id": "des-moines-river-deer-creek-becker",
-    "slug": "des-moines-river-deer-creek-becker",
+    "id": "des-moines-river-deer-creek-hydro-electric",
+    "slug": "des-moines-river-deer-creek-hydro-electric",
     "name": "Des Moines River",
-    "reach": "Deer Creek Access to Becker Access",
+    "reach": "Deer Creek Access to Hydro-electric Park",
     "state": "Iowa",
     "region": "North-Central Iowa",
-    "summary": "Upper Webster County Des Moines River water-trail starter from Deer Creek to Becker, with public county/DNR access context, steel-girder hazards, and a downstream Fort Dodge gauge range.",
+    "summary": "Consolidated Webster County Des Moines River route from Deer Creek to Hydro-electric Park, retaining Becker Access as an intermediate public exit before the former-dam and urban transition.",
     "statusText": "Use the Des Moines River at Fort Dodge gauge as a downstream same-water-trail signal. CanWePaddle estimates 400 to 8,000 cfs for Fort Dodge to Lehigh; Deer Creek to Becker still needs a local depth and wood check before launch.",
     "latitude": 42.601438,
     "longitude": -94.227382,
@@ -24,7 +24,9 @@ export const iowaRoutes: River[] = [
       "safetyNotes": [
         "Iowa DNR rates the Webster County water-trail reaches intermediate and calls out glacial erratic boulders, old bridge remnants, wooded banks, and Fort Dodge dam history.",
         "Use only the named public water-trail accesses. Private banks, muddy slopes, and wooded bluffs limit casual bailout choices even close to Fort Dodge.",
-        "High or rising water can hide boulders, steel girders, and dam-removal remnants while adding fast current and floating wood. Treat the upper end of the range as experienced-paddler water."
+        "High or rising water can hide boulders, steel girders, and dam-removal remnants while adding fast current and floating wood. Treat the upper end of the range as experienced-paddler water.",
+        "Becker is the intermediate public access and shorter-trip option for this consolidated route.",
+        "Approach Hydro-electric Park conservatively and reassess the former-dam channel if debris, visibility, or current makes the line uncertain."
       ],
       "reviewStatus": "reviewed"
     },
@@ -62,8 +64,8 @@ export const iowaRoutes: River[] = [
       ],
       "seasonNotes": "April through October is the practical paddling window. Spring rain can make the Des Moines pushy through Fort Dodge, while late summer can expose riffles, boulders, bridge remnants, and shallow approaches.",
       "difficulty": "moderate",
-      "difficultyNotes": "The distance is moderate, but Iowa DNR rates the reach intermediate because the launch is primitive, steel girders sit just below Deer Creek, and public exits are limited.",
-      "confidenceNotes": "Confidence is good for a guarded official split: Iowa DNR lists Deer Creek Access to Becker Access as a 5.5-mile intermediate reach, Webster County / MyCountyParks identifies Deer Creek as a canoe stop on the west bank of the Des Moines River, the county map labels Deer Creek and Becker Wildlife Area in the access chain, CanWePaddle supplies the accepted Fort Dodge-to-Lehigh 400-8,000 cfs model, and USGS 05480500 returned current data during this run. The Fort Dodge gauge is downstream, so the card requires same-day local inspection at Deer Creek."
+      "difficultyNotes": "An intermediate moving-water route with steel-girder debris below Deer Creek, bridge current, wood, and a former low-head-dam transition near the finish.",
+      "confidenceNotes": "Iowa DNR and Webster County document the Deer Creek, Becker, and Hydro-electric access sequence. The Fort Dodge gauge is downstream of the launch but directly relevant near the lower route and former-dam finish."
     },
     "evidenceNotes": [
       {
@@ -95,100 +97,7 @@ export const iowaRoutes: River[] = [
         "value": "400-8,000 cfs",
         "note": "CanWePaddle ties the Fort Dodge-to-Lehigh section to USGS 05480500 and estimates a 400 to 8,000 cfs runnable window; this upstream split uses it as a downstream same-trail proxy.",
         "sourceUrl": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "Iowa DNR Des Moines River Water Trail guide",
-        "url": "https://www.iowadnr.gov/media/8886/download?inline=",
-        "provider": "local"
       },
-      {
-        "label": "Webster County Des Moines River map",
-        "url": "https://cms7files.revize.com/webstercountyia/Departments/Conservation/map_dsm_webster%20%281%29.pdf",
-        "provider": "local"
-      },
-      {
-        "label": "Visit Fort Dodge Des Moines River Water Trail",
-        "url": "https://www.dodgetheordinary.com/des-moines-river-water-trail",
-        "provider": "local"
-      },
-      {
-        "label": "CanWePaddle Des Moines River Fort Dodge to Lehigh",
-        "url": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/",
-        "provider": "local"
-      },
-      {
-        "label": "USGS 05480500 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05480500/",
-        "provider": "usgs"
-      }
-    ]
-  },
-  {
-    "id": "des-moines-river-becker-hydro-electric",
-    "slug": "des-moines-river-becker-hydro-electric",
-    "name": "Des Moines River",
-    "reach": "Becker Access to Hydro-electric Park",
-    "state": "Iowa",
-    "region": "North-Central Iowa",
-    "summary": "Short Fort Dodge approach on the Des Moines River from Becker to Hydro-electric Park, using the official Webster County access chain, dam-removal caveats, and the Fort Dodge gauge range.",
-    "statusText": "Use the Fort Dodge gauge with the accepted 400 to 8,000 cfs range, then inspect Becker and Hydro-electric Park from land. The former hydro dam was removed, but remnants, riffles, and changing currents still deserve caution.",
-    "latitude": 42.531418,
-    "longitude": -94.225392,
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "fast_rise",
-        "private_banks",
-        "cold_water"
-      ],
-      "safetyNotes": [
-        "Iowa DNR rates the Webster County water-trail reaches intermediate and calls out glacial erratic boulders, old bridge remnants, wooded banks, and Fort Dodge dam history.",
-        "Use only the named public water-trail accesses. Private banks, muddy slopes, and wooded bluffs limit casual bailout choices even close to Fort Dodge.",
-        "High or rising water can hide boulders, steel girders, and dam-removal remnants while adding fast current and floating wood. Treat the upper end of the range as experienced-paddler water."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "gaugeSource": {
-      "id": "usgs-05480500",
-      "provider": "usgs",
-      "siteId": "05480500",
-      "metric": "discharge_cfs",
-      "unit": "cfs",
-      "kind": "proxy",
-      "siteName": "Des Moines River at Fort Dodge, IA",
-      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05480500/"
-    },
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 400,
-      "idealMax": 8000,
-      "tooLow": 400,
-      "tooHigh": 8000,
-      "thresholdSource": {
-        "label": "CanWePaddle Fort Dodge to Lehigh estimated range",
-        "url": "https://canwepaddle.com/rivers/iowa/des-moines-river-fort-dodge-to-lehigh/",
-        "provider": "local"
-      },
-      "thresholdSourceStrength": "community",
-      "rainfallSensitivity": "medium",
-      "seasonMonths": [
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10
-      ],
-      "seasonNotes": "April through October is the practical paddling window. Spring rain can make the Des Moines pushy through Fort Dodge, while late summer can expose riffles, boulders, bridge remnants, and shallow approaches.",
-      "difficulty": "moderate",
-      "difficultyNotes": "Mileage is short, but the route approaches the Fort Dodge dam-removal corridor and needs careful scouting around access footing, bridge current, remnants, and wood.",
-      "confidenceNotes": "Confidence is moderate-good: Iowa DNR lists Becker Access to Hydro-electric Park as a 3-mile intermediate reach, the Webster County map labels Becker Wildlife Area and Hydro-electric Park, CanWePaddle provides the accepted Fort Dodge-to-Lehigh gauge range, and USGS 05480500 returned current data during this run. Becker coordinates are practical access-area anchors, so same-day sign and landing confirmation are required."
-    },
-    "evidenceNotes": [
       {
         "label": "Official route and mileage",
         "value": "Becker Access to Hydro-electric Park, 3 mi",
@@ -246,6 +155,10 @@ export const iowaRoutes: River[] = [
         "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05480500/",
         "provider": "usgs"
       }
+    ],
+    "aliases": [
+      "Deer Creek Access to Becker Access",
+      "Becker Access to Hydro-electric Park"
     ]
   },
   {
@@ -372,13 +285,13 @@ export const iowaRoutes: River[] = [
     ]
   },
   {
-    "id": "north-raccoon-river-vogel-mcdonald",
-    "slug": "north-raccoon-river-vogel-mcdonald",
+    "id": "north-raccoon-river-vogel-riverview",
+    "slug": "north-raccoon-river-vogel-riverview",
     "name": "North Raccoon River",
-    "reach": "Vogel Access to McDonald Greenbelt / 230th Street Canoe Access",
+    "reach": "Vogel Access to Riverview Access",
     "state": "Iowa",
     "region": "Northwest Iowa",
-    "summary": "Upper Sac County North Raccoon water-trail starter from Vogel Access toward McDonald Greenbelt, with glacial bluffs, riffles, public county access, and guarded Lanesboro-stage guidance.",
+    "summary": "Consolidated upper Sac County North Raccoon route from Vogel to Riverview, with McDonald Greenbelt retained as an intermediate campground, public access, and shorter take-out.",
     "statusText": "Use the North Raccoon near Lanesboro stage as the primary upper-corridor signal. The DNR says this water trail is more pleasant at 11 ft or below at Lanesboro and around 1,000 cfs at Jefferson; low Sac City flow means local depth checks are required.",
     "latitude": 42.515,
     "longitude": -95.05,
@@ -393,7 +306,12 @@ export const iowaRoutes: River[] = [
       "safetyNotes": [
         "Iowa DNR describes the upper Sac County North Raccoon as longer, riffly, and challenging, with occasional rock dams, logjams, and private non-meandered banks.",
         "Sac County notes the water trail starts at Vogel Access and continues through McDonald Greenbelt. Confirm both rural access points from land before launching.",
-        "A good Lanesboro stage does not guarantee enough local depth at Vogel. Check the Sac City gauge, recent rain, and the actual landing before committing."
+        "A good Lanesboro stage does not guarantee enough local depth at Vogel. Check the Sac City gauge, recent rain, and the actual landing before committing.",
+        "Sac City says many obstructions have been cleared from McDonald Greenbelt to Chautauqua Park, but obstruction removal is ongoing and same-day wood checks still matter.",
+        "Use the public McDonald / 230th Street and Riverview access points only. The North Raccoon is non-meandered and adjacent lands outside public sites are private.",
+        "Do not continue downstream toward the Sac City and Hagge rock-dam sequence unless that route, portage plan, and shuttle are staged separately.",
+        "McDonald Greenbelt is the intermediate public access, campground, and shorter-trip option.",
+        "Take out at Riverview before entering the separately planned Sac City hazard sequence."
       ],
       "reviewStatus": "reviewed"
     },
@@ -429,8 +347,8 @@ export const iowaRoutes: River[] = [
       ],
       "seasonNotes": "DNR guidance is level-based rather than calendar-based. Late-summer lows can make the upper riffles scrape or strand boats; storms can quickly add wood, bank erosion, and stronger current.",
       "difficulty": "moderate",
-      "difficultyNotes": "The upper water trail is not a casual beginner float: DNR calls out longer river stretches, rock dams, riffles, logjams, and private-bank limits.",
-      "confidenceNotes": "Confidence is moderate-good for a guarded official add: Iowa DNR documents Vogel Access-to-Sac City as the first 17.8-mile water-trail section and describes the upper third, McDonald Greenbelt, riffles, private-bank limits, and Sac City rock-dam boundary. Sac County and Sac City corroborate Vogel, McDonald Greenbelt, 230th Street Canoe Access, and the 41-mile Sac County water trail. The app uses the established Lanesboro stage ceiling model already present on the downstream Rainbow-to-Richey card, while evidence copy also documents Jefferson flow and the live Sac City gauge as local context."
+      "difficultyNotes": "Mostly Class I current, but the full route is a long rural commitment with wood, bridge current, private banks, and changing depth. The McDonald access makes a more conservative day possible.",
+      "confidenceNotes": "Sac County and Iowa DNR document Vogel, McDonald Greenbelt, and Riverview in downstream order. The existing Lanesboro/Sac City gauge model remains a guarded corridor condition check rather than a precise local depth guarantee."
     },
     "evidenceNotes": [
       {
@@ -456,97 +374,7 @@ export const iowaRoutes: River[] = [
         "value": "USGS 05482430 7.65 ft; USGS 05482300 55.4 cfs / 6.86 ft; USGS 05482500 218 cfs / 5.12 ft",
         "note": "USGS Water Services returned current North Raccoon values during this 2026-07-24 run; the Sac City flow is very low, so the route requires same-day local depth checks despite the Lanesboro stage being below the DNR ceiling.",
         "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05482300,05482430,05482500&parameterCd=00060,00065&siteStatus=all"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "Iowa DNR North Raccoon Sac/Calhoun/Carroll guide",
-        "url": "https://www.iowadnr.gov/media/8896/download?inline=",
-        "provider": "local"
       },
-      {
-        "label": "Sac County North Raccoon River Water Trail",
-        "url": "https://www.saccountyiowa.gov/conservation/parks/north_raccoon_river_water_trail/",
-        "provider": "local"
-      },
-      {
-        "label": "Sac City North Raccoon River Water Trail",
-        "url": "https://saccity.city/nature-trails/",
-        "provider": "local"
-      },
-      {
-        "label": "USGS 05482430 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05482430/",
-        "provider": "usgs"
-      },
-      {
-        "label": "USGS 05482300 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05482300/",
-        "provider": "usgs"
-      }
-    ]
-  },
-  {
-    "id": "north-raccoon-river-mcdonald-riverview",
-    "slug": "north-raccoon-river-mcdonald-riverview",
-    "name": "North Raccoon River",
-    "reach": "McDonald Greenbelt / 230th Street Canoe Access to Riverview Park",
-    "state": "Iowa",
-    "region": "Northwest Iowa",
-    "summary": "Sac City recommended North Raccoon day trip from McDonald Greenbelt to Riverview Park, where local trail work cleared many obstructions and created a five-mile access pair.",
-    "statusText": "Use the Lanesboro stage and confirm the local Sac City gauge and access conditions. Sac City calls McDonald-to-Riverview a five-mile recommended route, but very low Sac City flow can still mean scraping.",
-    "latitude": 42.45837,
-    "longitude": -95.02091,
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "fast_rise",
-        "private_banks"
-      ],
-      "safetyNotes": [
-        "Sac City says many obstructions have been cleared from McDonald Greenbelt to Chautauqua Park, but obstruction removal is ongoing and same-day wood checks still matter.",
-        "Use the public McDonald / 230th Street and Riverview access points only. The North Raccoon is non-meandered and adjacent lands outside public sites are private.",
-        "Do not continue downstream toward the Sac City and Hagge rock-dam sequence unless that route, portage plan, and shuttle are staged separately."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "gaugeSource": {
-      "id": "usgs-05482430",
-      "provider": "usgs",
-      "siteId": "05482430",
-      "metric": "gage_height_ft",
-      "unit": "ft",
-      "kind": "proxy",
-      "siteName": "North Raccoon River near Lanesboro, IA",
-      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05482430/"
-    },
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 0,
-      "idealMax": 11,
-      "tooLow": 0,
-      "tooHigh": 11,
-      "thresholdSource": {
-        "label": "Iowa DNR North Raccoon Sac/Calhoun/Carroll guide Lanesboro/Jefferson guidance",
-        "url": "https://www.iowadnr.gov/media/8896/download?inline=",
-        "provider": "local"
-      },
-      "thresholdSourceStrength": "official",
-      "rainfallSensitivity": "medium",
-      "seasonMonths": [
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "seasonNotes": "Best used as a warm-season town-access route when the water trail has enough local depth. Summer lows can scrape; storm rises can bring fast current and new wood even on the improved reach.",
-      "difficulty": "easy",
-      "difficultyNotes": "Sac City frames this as the easy in/easy out recommended five-mile route, but it remains a real river reach with wood, private banks, and gauge-proxy limitations.",
-      "confidenceNotes": "Confidence is good for access and route shape: Sac City and Sac Economic & Tourism Development publish McDonald Greenbelt-to-Riverview Park as a recommended five-mile, roughly three-hour route, and Sac County lists the 230th Street Canoe Access and McDonald Greenbelt public-access context. Gauge confidence is guarded because the DNR-published Lanesboro/Jefferson guidance is corridor-wide and the Sac City gauge shows very low local flow during this run."
-    },
-    "evidenceNotes": [
       {
         "label": "Recommended route",
         "value": "McDonald Greenbelt to Riverview Park, 5 mi / about 3 hr",
@@ -574,25 +402,39 @@ export const iowaRoutes: River[] = [
     ],
     "sourceLinks": [
       {
-        "label": "Sac City North Raccoon River Water Trail",
-        "url": "https://saccity.city/nature-trails/",
-        "provider": "local"
-      },
-      {
-        "label": "Sac County parks and recreation areas",
-        "url": "https://www.saccountyiowa.gov/conservation/parks/",
-        "provider": "local"
-      },
-      {
         "label": "Iowa DNR North Raccoon Sac/Calhoun/Carroll guide",
         "url": "https://www.iowadnr.gov/media/8896/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Sac County North Raccoon River Water Trail",
+        "url": "https://www.saccountyiowa.gov/conservation/parks/north_raccoon_river_water_trail/",
+        "provider": "local"
+      },
+      {
+        "label": "Sac City North Raccoon River Water Trail",
+        "url": "https://saccity.city/nature-trails/",
         "provider": "local"
       },
       {
         "label": "USGS 05482430 monitoring location",
         "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05482430/",
         "provider": "usgs"
+      },
+      {
+        "label": "USGS 05482300 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05482300/",
+        "provider": "usgs"
+      },
+      {
+        "label": "Sac County parks and recreation areas",
+        "url": "https://www.saccountyiowa.gov/conservation/parks/",
+        "provider": "local"
       }
+    ],
+    "aliases": [
+      "Vogel Access to McDonald Greenbelt / 230th Street Canoe Access",
+      "McDonald Greenbelt / 230th Street Canoe Access to Riverview Park"
     ]
   },
   {
@@ -605,7 +447,7 @@ export const iowaRoutes: River[] = [
     "summary": "Short but consequential Sac City-to-Hagge North Raccoon connector with two rock-dam decisions, endpoint camping context, and official DNR warning language.",
     "statusText": "Use the Lanesboro stage and the local Sac City gauge, then scout both rock dams from land. DNR says the first rock dam may run at decent levels, but Hagge Park dam is not passable by canoe or kayak.",
     "latitude": 42.421,
-    "longitude": -95.0,
+    "longitude": -95,
     "safetyProfile": {
       "riskLevel": "advanced",
       "hazards": [
@@ -2051,6 +1893,20 @@ export const iowaRoutes: River[] = [
     "statusText": "Treat roughly 200 cfs at Iowa City as the conservative floor. This route has handled higher official event days too, but there is not a published upper paddling band for this segment.",
     "latitude": 41.640199994977,
     "longitude": -91.538966712124,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks",
+        "fast_rise"
+      ],
+      "safetyNotes": [
+        "Johnson County cleanup history supports this exact Sturgis Ferry-to-Hills reach at about 200 cfs and above, but it also demonstrates that storm debris and river trash are recurring planning concerns.",
+        "Use Sturgis Ferry Park and Hills Access as the public endpoints; keep stops to public access land or clearly legal shore because soft banks and nearby private or managed-use areas make informal landings a poor fallback.",
+        "The route has no published upper paddling band, so treat recent rain, muddy water, floating wood, and soft take-out conditions as same-day go/no-go checks even when the Iowa City gauge clears the low floor."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05454500",
       "provider": "usgs",
@@ -3446,13 +3302,13 @@ export const iowaRoutes: River[] = [
     ]
   },
   {
-    "id": "middle-river-pammel-middle-river-county-park",
-    "slug": "middle-river-pammel-middle-river-county-park",
+    "id": "middle-river-pammel-holliwell",
+    "slug": "middle-river-pammel-holliwell",
     "name": "Middle River",
-    "reach": "Pammel Park Ford Access to Middle River County Park Access",
+    "reach": "Pammel Park Ford Access to Holliwell Covered Bridge Access",
     "state": "Iowa",
     "region": "Central Iowa",
-    "summary": "Pammel Park continuation on the Middle River Water Trail, looping around the limestone backbone ridge and Harmon Tunnel area before the wooded run to Middle River County Park.",
+    "summary": "Consolidated Middle River route from Pammel Park to Holliwell Covered Bridge, with Middle River County Park retained as a public intermediate access, campground, and shorter take-out.",
     "statusText": "Use the Middle River near Indianola gauge as the official planning signal. The map's optimum band is 600 to 900 cfs; at current low water, expect rock riffles, snags, and slower progress.",
     "latitude": 41.295635,
     "longitude": -94.074586,
@@ -3467,7 +3323,11 @@ export const iowaRoutes: River[] = [
       "safetyNotes": [
         "Start below the Pammel Park ford portage/re-entry. Do not run the ford or launch into its hydraulic.",
         "The guide warns of numerous fallen trees and snags between the Highway 169 bridge and Middle River County Park access.",
-        "Stay with public accesses and permissioned land only; the guide explicitly notes that Middle River is non-meandered and private-bank-sensitive."
+        "Stay with public accesses and permissioned land only; the guide explicitly notes that Middle River is non-meandered and private-bank-sensitive.",
+        "Holliwell Covered Bridge is the final developed access on the Middle River Water Trail. Do not assume downstream bridge crossings are practical take-outs.",
+        "The guide warns that the final section remains challenging because of meandering, downed trees, and snags.",
+        "Non-meandered-stream limits apply. Use public access points and permissioned land only, and treat fences as legal obstacles that may require careful portage.",
+        "Middle River County Park is the intermediate public access and shorter-trip option for this consolidated family route."
       ],
       "reviewStatus": "reviewed"
     },
@@ -3505,8 +3365,8 @@ export const iowaRoutes: River[] = [
       ],
       "seasonNotes": "Spring, early summer, and fall remain the main paddling seasons. Late-summer lows can make riffles bony; storms can add wood and raise the ford/bridge approaches quickly.",
       "difficulty": "moderate",
-      "difficultyNotes": "The guide calls this easy to moderate but specifically warns about rock riffles, chutes, and numerous fallen trees/snags on the lower half.",
-      "confidenceNotes": "Confidence is good for an official-source add: the Iowa DNR / county map lists Pammel Access #63 and Middle River County Park Access #54 with distance, time, gradient, camping context, and UTM coordinates. Madison County corroborates Pammel Park and Middle River County Park access and camping/logistics context."
+      "difficultyNotes": "Mostly Class I water, but rock riffles, chutes, snags, fallen trees, and the longer combined mileage require active boat control and conservative water-level judgment.",
+      "confidenceNotes": "Iowa DNR and Madison County document Pammel Park, Middle River County Park, and Holliwell in order, with the Indianola USGS gauge providing the established corridor condition model."
     },
     "evidenceNotes": [
       {
@@ -3532,90 +3392,7 @@ export const iowaRoutes: River[] = [
         "value": "Pammel modern camping; Middle River County Park city-park camping context",
         "note": "The water-trail map lists modern camping at Pammel and city-park camping context for Middle River County Park / nearby Winterset City Park.",
         "sourceUrl": "https://www.iowadnr.gov/media/8713/download?inline="
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "Middle River Water Trail map PDF",
-        "url": "https://www.iowadnr.gov/media/8713/download?inline=",
-        "provider": "local"
       },
-      {
-        "label": "Madison County Middle River Water Trail",
-        "url": "https://www.madisoncountyparks.org/water-trail/",
-        "provider": "local"
-      },
-      {
-        "label": "USGS 05486490 Middle River near Indianola",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05486490/",
-        "provider": "usgs"
-      }
-    ]
-  },
-  {
-    "id": "middle-river-middle-river-county-park-holliwell",
-    "slug": "middle-river-middle-river-county-park-holliwell",
-    "name": "Middle River",
-    "reach": "Middle River County Park Access to Holliwell Covered Bridge Access",
-    "state": "Iowa",
-    "region": "Central Iowa",
-    "summary": "Final developed Middle River Water Trail segment from Middle River County Park to Holliwell Covered Bridge, with shaded meanders, downed-tree risk, and a firm last-access take-out.",
-    "statusText": "Use the Middle River near Indianola gauge as the official planning signal. The 600 to 900 cfs optimum band is source-backed; current low water means slower travel and more snag or shallow-riffle decisions.",
-    "latitude": 41.31543,
-    "longitude": -94.004183,
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "fast_rise",
-        "private_banks",
-        "remote"
-      ],
-      "safetyNotes": [
-        "Holliwell Covered Bridge is the final developed access on the Middle River Water Trail. Do not assume downstream bridge crossings are practical take-outs.",
-        "The guide warns that the final section remains challenging because of meandering, downed trees, and snags.",
-        "Non-meandered-stream limits apply. Use public access points and permissioned land only, and treat fences as legal obstacles that may require careful portage."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "gaugeSource": {
-      "id": "usgs-05486490",
-      "provider": "usgs",
-      "siteId": "05486490",
-      "metric": "discharge_cfs",
-      "unit": "cfs",
-      "kind": "direct",
-      "siteName": "Middle River near Indianola, IA",
-      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05486490/"
-    },
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 600,
-      "idealMax": 900,
-      "tooLow": 600,
-      "tooHigh": 900,
-      "thresholdSource": {
-        "label": "Iowa DNR / Middle River Water Trail map optimum-flow note",
-        "url": "https://www.iowadnr.gov/media/8713/download?inline=",
-        "provider": "local"
-      },
-      "thresholdSourceStrength": "official",
-      "rainfallSensitivity": "high",
-      "seasonMonths": [
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10
-      ],
-      "seasonNotes": "Plan around spring, early summer, or fall water. At low water, expect shallow riffles and slow meanders; after storms, wood and bankfull bends can change quickly.",
-      "difficulty": "moderate",
-      "difficultyNotes": "Short mileage helps, but the guide says the final section remains challenging because of meandering, downed trees, and snags, and the take-out is the last developed access.",
-      "confidenceNotes": "Confidence is good for a guarded official-source add: the Iowa DNR / county map lists Middle River County Park Access #54 to Holliwell Access #50 with access types, UTM coordinates, a four-mile route shape, and the same official 600-900 cfs Indianola gauge model. The final-access caveat is explicit in the guide."
-    },
-    "evidenceNotes": [
       {
         "label": "Official route and distance",
         "value": "Access #54 to Access #50, about 4 mi",
@@ -3657,6 +3434,10 @@ export const iowaRoutes: River[] = [
         "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05486490/",
         "provider": "usgs"
       }
+    ],
+    "aliases": [
+      "Pammel Park Ford Access to Middle River County Park Access",
+      "Middle River County Park Access to Holliwell Covered Bridge Access"
     ]
   },
   {
@@ -4937,358 +4718,6 @@ export const iowaRoutes: River[] = [
     ]
   },
   {
-    "id": "south-raccoon-river-redfield-pleasant-valley",
-    "slug": "south-raccoon-river-redfield-pleasant-valley",
-    "name": "South Raccoon River",
-    "reach": "South Raccoon River Access to Pleasant Valley Wildlife Area",
-    "state": "Iowa",
-    "region": "Central Iowa",
-    "summary": "Official Dallas County / Iowa DNR South Raccoon water-trail split from the Redfield-area South Raccoon access to Pleasant Valley, with frequent riffles, wood, private banks, and a direct Redfield gauge.",
-    "statusText": "Use the South Raccoon River at Redfield gauge. The accepted Redfield-to-Van Meter range is 150 to 2,500 cfs; the latest OGC check during this run was below the floor, so expect scraping until flows recover.",
-    "latitude": 41.58944,
-    "longitude": -94.15111,
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "fast_rise",
-        "private_banks",
-        "dam"
-      ],
-      "safetyNotes": [
-        "Launch from the signed South Raccoon River Access below the Redfield dam influence; do not improvise above low-head-dam features.",
-        "Iowa DNR describes this water-trail corridor as intermediate to advanced because riffles, sweepers, wood, and long private banks complicate otherwise short access spacing.",
-        "Pleasant Valley is the planned take-out. Confirm the landing and parking before committing because same-corridor access coordinates are practical anchors, not surveyed ramp pins."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "gaugeSource": {
-      "id": "usgs-05484000",
-      "provider": "usgs",
-      "siteId": "05484000",
-      "metric": "discharge_cfs",
-      "unit": "cfs",
-      "kind": "direct",
-      "siteName": "South Raccoon River at Redfield, IA",
-      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05484000/"
-    },
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 150,
-      "idealMax": 2500,
-      "tooLow": 150,
-      "tooHigh": 2500,
-      "thresholdSource": {
-        "label": "CanWePaddle South Raccoon River Redfield-to-Van-Meter estimated range",
-        "url": "https://canwepaddle.com/rivers/iowa/south-raccoon-river-redfield-to-van-meter/",
-        "provider": "local"
-      },
-      "thresholdSourceStrength": "community",
-      "rainfallSensitivity": "high",
-      "seasonMonths": [
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10
-      ],
-      "seasonNotes": "April through October is the published paddling season. The South Raccoon can scrape near the 150 cfs floor and rise quickly after local thunderstorms.",
-      "difficulty": "moderate",
-      "difficultyNotes": "Mostly Class I current, but the Iowa DNR guide calls the Redfield-area corridor intermediate to advanced because of riffles, sweepers, log obstructions, and private-bank limits.",
-      "confidenceNotes": "Good Iowa add with a duplication caveat: Dallas County and Iowa DNR document this exact access chain, Project AWARE published Redfield-to-Pleasant Valley mileage, CanWePaddle provides the route-specific Redfield gauge range, and USGS 05484000 is direct at the upstream end. It is intentionally a shorter access split of the existing full Redfield-to-Van Meter route."
-    },
-    "evidenceNotes": [
-      {
-        "label": "Official access pair",
-        "value": "South Raccoon River Access to Pleasant Valley",
-        "note": "Dallas County lists the South Raccoon River Access south of Redfield and Pleasant Valley Wildlife Area as public water-trail accesses in this corridor.",
-        "sourceUrl": "https://www.dallascountyiowa.gov/332/Middle-South-Raccoon-River-Water-Trail"
-      },
-      {
-        "label": "Mileage support",
-        "value": "About 7 to 8 miles",
-        "note": "Iowa DNR describes roughly seven miles from the confluence corridor to Pleasant Valley, and Project AWARE published a 7.8-mile Redfield-to-Pleasant Valley support-stop distance.",
-        "sourceUrl": "https://www.iowaprojectaware.org/wp-content/uploads/2022/01/2021_Agenda.pdf"
-      },
-      {
-        "label": "Published range",
-        "value": "150 to 2,500 cfs",
-        "note": "CanWePaddle publishes a South Raccoon Redfield-to-Van Meter estimated runnable range using USGS 05484000; this split stays within that reach.",
-        "sourceUrl": "https://canwepaddle.com/rivers/iowa/south-raccoon-river-redfield-to-van-meter/"
-      },
-      {
-        "label": "Current gauge check",
-        "value": "127 cfs / 2.50 ft",
-        "note": "USGS OGC latest-continuous returned provisional Redfield values at 2026-07-24 09:45 UTC after legacy Water Services returned 503 during this run.",
-        "sourceUrl": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/latest-continuous/items?monitoring_location_id=USGS-05484000&parameter_code=00060,00065&f=json"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "Dallas County Middle/South Raccoon River Water Trail",
-        "url": "https://www.dallascountyiowa.gov/332/Middle-South-Raccoon-River-Water-Trail",
-        "provider": "local"
-      },
-      {
-        "label": "Iowa DNR Middle and South Raccoon River guide",
-        "url": "https://www.iowadnr.gov/media/8897/download?inline=",
-        "provider": "local"
-      },
-      {
-        "label": "CanWePaddle South Raccoon Redfield to Van Meter",
-        "url": "https://canwepaddle.com/rivers/iowa/south-raccoon-river-redfield-to-van-meter/",
-        "provider": "local"
-      },
-      {
-        "label": "USGS 05484000 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05484000/",
-        "provider": "usgs"
-      },
-      {
-        "label": "Project AWARE 2021 Raccoon River agenda",
-        "url": "https://www.iowaprojectaware.org/wp-content/uploads/2022/01/2021_Agenda.pdf",
-        "provider": "local"
-      }
-    ]
-  },
-  {
-    "id": "south-raccoon-river-pleasant-valley-earlham",
-    "slug": "south-raccoon-river-pleasant-valley-earlham",
-    "name": "South Raccoon River",
-    "reach": "Pleasant Valley Wildlife Area to Earlham Bridge Access",
-    "state": "Iowa",
-    "region": "Central Iowa",
-    "summary": "Short Dallas County South Raccoon split from Pleasant Valley to Earlham Bridge, preserving a useful official access pair with riffles, wood, steep take-out caveats, and the accepted Redfield gauge range.",
-    "statusText": "Use the South Raccoon River at Redfield gauge as a same-corridor proxy. Stay within the 150 to 2,500 cfs Redfield-to-Van Meter range and make a visual call at Pleasant Valley because the Earlham landing can be steep and rocky.",
-    "latitude": 41.5568,
-    "longitude": -94.1194,
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "fast_rise",
-        "private_banks",
-        "access_uncertain"
-      ],
-      "safetyNotes": [
-        "Treat Pleasant Valley as a practical access anchor and verify the signed landing before unloading.",
-        "Iowa DNR says the Earlham Bridge access is a steep, rocky used access rather than an easy developed ramp.",
-        "Do not use private banks or bridge rights-of-way as routine stops if wood, storms, or low water slow the group."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "gaugeSource": {
-      "id": "usgs-05484000",
-      "provider": "usgs",
-      "siteId": "05484000",
-      "metric": "discharge_cfs",
-      "unit": "cfs",
-      "kind": "proxy",
-      "siteName": "South Raccoon River at Redfield, IA",
-      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05484000/"
-    },
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 150,
-      "idealMax": 2500,
-      "tooLow": 150,
-      "tooHigh": 2500,
-      "thresholdSource": {
-        "label": "CanWePaddle South Raccoon River Redfield-to-Van-Meter estimated range",
-        "url": "https://canwepaddle.com/rivers/iowa/south-raccoon-river-redfield-to-van-meter/",
-        "provider": "local"
-      },
-      "thresholdSourceStrength": "community",
-      "rainfallSensitivity": "high",
-      "seasonMonths": [
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10
-      ],
-      "seasonNotes": "April through October is the published paddling season. This short split still responds quickly to local rain and can be too shallow below the Redfield floor.",
-      "difficulty": "moderate",
-      "difficultyNotes": "The mileage is short, but riffles, wood, private banks, and the steep Earlham take-out keep this from being a beginner-default card.",
-      "confidenceNotes": "Good access confidence from Dallas County, Iowa DNR, and Project AWARE. Gauge confidence is defensible but lower than at the Redfield launch because USGS 05484000 is upstream; the published range covers the broader Redfield-to-Van Meter route containing this split."
-    },
-    "evidenceNotes": [
-      {
-        "label": "Official access pair",
-        "value": "Pleasant Valley Wildlife Area to Earlham Bridge Access",
-        "note": "Dallas County lists Pleasant Valley and Earlham Bridge as public water-trail accesses; Iowa DNR describes Pleasant Valley parking and the Earlham steep rocky used access.",
-        "sourceUrl": "https://www.dallascountyiowa.gov/332/Middle-South-Raccoon-River-Water-Trail"
-      },
-      {
-        "label": "Mileage support",
-        "value": "About 3.7 to 4 miles",
-        "note": "Iowa DNR describes about four miles from Pleasant Valley to Earlham, and Project AWARE published 3.7 miles from Pleasant Valley support stop to Earlham Bridge.",
-        "sourceUrl": "https://www.iowaprojectaware.org/wp-content/uploads/2022/01/2021_Agenda.pdf"
-      },
-      {
-        "label": "Published range",
-        "value": "150 to 2,500 cfs",
-        "note": "CanWePaddle's Redfield-to-Van Meter estimated range is applied as a same-route proxy because this official access pair is inside that reach.",
-        "sourceUrl": "https://canwepaddle.com/rivers/iowa/south-raccoon-river-redfield-to-van-meter/"
-      },
-      {
-        "label": "Current gauge check",
-        "value": "127 cfs / 2.50 ft",
-        "note": "USGS OGC latest-continuous returned provisional Redfield values at 2026-07-24 09:45 UTC after legacy Water Services returned 503 during this run.",
-        "sourceUrl": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/latest-continuous/items?monitoring_location_id=USGS-05484000&parameter_code=00060,00065&f=json"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "Dallas County Middle/South Raccoon River Water Trail",
-        "url": "https://www.dallascountyiowa.gov/332/Middle-South-Raccoon-River-Water-Trail",
-        "provider": "local"
-      },
-      {
-        "label": "Iowa DNR Middle and South Raccoon River guide",
-        "url": "https://www.iowadnr.gov/media/8897/download?inline=",
-        "provider": "local"
-      },
-      {
-        "label": "CanWePaddle South Raccoon Redfield to Van Meter",
-        "url": "https://canwepaddle.com/rivers/iowa/south-raccoon-river-redfield-to-van-meter/",
-        "provider": "local"
-      },
-      {
-        "label": "USGS 05484000 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05484000/",
-        "provider": "usgs"
-      },
-      {
-        "label": "Project AWARE 2021 Raccoon River agenda",
-        "url": "https://www.iowaprojectaware.org/wp-content/uploads/2022/01/2021_Agenda.pdf",
-        "provider": "local"
-      }
-    ]
-  },
-  {
-    "id": "south-raccoon-river-earlham-van-meter",
-    "slug": "south-raccoon-river-earlham-van-meter",
-    "name": "South Raccoon River",
-    "reach": "Earlham Bridge Access to Van Meter Access",
-    "state": "Iowa",
-    "region": "Central Iowa",
-    "summary": "Lower Dallas County South Raccoon split from Earlham Bridge to Van Meter, ending before the separate lower Raccoon greenbelt route and using the accepted Redfield-to-Van Meter gauge range with proxy caveats.",
-    "statusText": "Use the South Raccoon River at Redfield gauge as an upstream proxy for the accepted 150 to 2,500 cfs Redfield-to-Van Meter range. Take out at Van Meter unless the lower Raccoon route has been separately planned.",
-    "latitude": 41.55525,
-    "longitude": -94.07402,
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "fast_rise",
-        "private_banks",
-        "urban_water_quality",
-        "access_uncertain"
-      ],
-      "safetyNotes": [
-        "Use Earlham Bridge only after confirming the steep rocky landing is viable for the group and current level.",
-        "The Van Meter access is the required take-out before the separate lower Raccoon route toward Walnut Woods.",
-        "Expect wood, sweepers, private banks, and fewer convenient exits once committed downstream of Earlham."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "gaugeSource": {
-      "id": "usgs-05484000",
-      "provider": "usgs",
-      "siteId": "05484000",
-      "metric": "discharge_cfs",
-      "unit": "cfs",
-      "kind": "proxy",
-      "siteName": "South Raccoon River at Redfield, IA",
-      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05484000/"
-    },
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 150,
-      "idealMax": 2500,
-      "tooLow": 150,
-      "tooHigh": 2500,
-      "thresholdSource": {
-        "label": "CanWePaddle South Raccoon River Redfield-to-Van-Meter estimated range",
-        "url": "https://canwepaddle.com/rivers/iowa/south-raccoon-river-redfield-to-van-meter/",
-        "provider": "local"
-      },
-      "thresholdSourceStrength": "community",
-      "rainfallSensitivity": "high",
-      "seasonMonths": [
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10
-      ],
-      "seasonNotes": "April through October is the published paddling season. Downstream Dallas County reaches can rise quickly after storms and may hold pushy current before the Redfield number looks extreme.",
-      "difficulty": "moderate",
-      "difficultyNotes": "Mostly Class I, but this is a longer split with wood, private banks, a steep put-in, and a required Van Meter take-out before separate downstream hazards.",
-      "confidenceNotes": "Good access confidence from Dallas County, Iowa DNR, Project AWARE, and the existing Van Meter access card. Gauge confidence is proxy-level because Redfield is upstream, but the published Redfield-to-Van Meter range explicitly covers the broader route containing this split."
-    },
-    "evidenceNotes": [
-      {
-        "label": "Official access pair",
-        "value": "Earlham Bridge Access to Van Meter Access",
-        "note": "Dallas County lists Earlham Bridge and Van Meter as downstream public accesses, with Earlham noted in the Iowa DNR guide as a steep rocky used access.",
-        "sourceUrl": "https://www.dallascountyiowa.gov/332/Middle-South-Raccoon-River-Water-Trail"
-      },
-      {
-        "label": "Mileage support",
-        "value": "About 9 miles",
-        "note": "Project AWARE published Earlham Bridge to Van Meter as a 9.0-mile day section, matching the useful lower split of the broader Redfield-to-Van Meter card.",
-        "sourceUrl": "https://www.iowaprojectaware.org/wp-content/uploads/2022/01/2021_Agenda.pdf"
-      },
-      {
-        "label": "Published range",
-        "value": "150 to 2,500 cfs",
-        "note": "CanWePaddle's Redfield-to-Van Meter estimated range applies to the full corridor containing this lower split.",
-        "sourceUrl": "https://canwepaddle.com/rivers/iowa/south-raccoon-river-redfield-to-van-meter/"
-      },
-      {
-        "label": "Current gauge check",
-        "value": "127 cfs / 2.50 ft",
-        "note": "USGS OGC latest-continuous returned provisional Redfield values at 2026-07-24 09:45 UTC after legacy Water Services returned 503 during this run.",
-        "sourceUrl": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/latest-continuous/items?monitoring_location_id=USGS-05484000&parameter_code=00060,00065&f=json"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "Dallas County Middle/South Raccoon River Water Trail",
-        "url": "https://www.dallascountyiowa.gov/332/Middle-South-Raccoon-River-Water-Trail",
-        "provider": "local"
-      },
-      {
-        "label": "Iowa DNR Middle and South Raccoon River guide",
-        "url": "https://www.iowadnr.gov/media/8897/download?inline=",
-        "provider": "local"
-      },
-      {
-        "label": "CanWePaddle South Raccoon Redfield to Van Meter",
-        "url": "https://canwepaddle.com/rivers/iowa/south-raccoon-river-redfield-to-van-meter/",
-        "provider": "local"
-      },
-      {
-        "label": "USGS 05484000 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05484000/",
-        "provider": "usgs"
-      },
-      {
-        "label": "Project AWARE 2021 Raccoon River agenda",
-        "url": "https://www.iowaprojectaware.org/wp-content/uploads/2022/01/2021_Agenda.pdf",
-        "provider": "local"
-      }
-    ]
-  },
-  {
     "id": "north-raccoon-river-eureka-henderson",
     "slug": "north-raccoon-river-eureka-henderson",
     "name": "North Raccoon River",
@@ -6051,16 +5480,16 @@ export const iowaRoutes: River[] = [
     ]
   },
   {
-    "id": "wapsipinicon-river-olin-jungletown",
-    "slug": "wapsipinicon-river-olin-jungletown",
+    "id": "wapsipinicon-river-newport-mills-oxford-mills",
+    "slug": "wapsipinicon-river-newport-mills-oxford-mills",
     "name": "Wapsipinicon River",
-    "reach": "Olin Access to Jungletown Access",
+    "reach": "Newport Mills Access to Oxford Mills Access",
     "state": "Iowa",
     "region": "Eastern Iowa",
-    "summary": "Short Jones County lower-Wapsipinicon connector between named public county accesses, with sandbar-camping context, no-dam lower-river caveats, and a fresh Anamosa proxy gauge after rejecting stale Oxford Mills data.",
-    "statusText": "Use the Wapsipinicon River near Anamosa gauge as an upstream proxy. CanWePaddle's lower Anamosa-to-Oxford guidance uses 200 to 2,800 cfs at Oxford Mills, but that USGS feed is stale; verify local depth and avoid rising or flood-stage water.",
-    "latitude": 42.003487,
-    "longitude": -91.132667,
+    "summary": "Consolidated lower-Wapsipinicon family route from Newport Mills to Oxford Mills, with Olin and Jungletown retained as public intermediate accesses and shorter-trip options.",
+    "statusText": "Use the Wapsipinicon River near Anamosa gauge as an upstream same-corridor proxy. CanWePaddle's lower Anamosa-to-Oxford guidance uses 200 to 2,800 cfs; verify Newport Mills depth because Oxford Mills product data is stale.",
+    "latitude": 42.044995,
+    "longitude": -91.200209,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -6070,9 +5499,17 @@ export const iowaRoutes: River[] = [
         "remote"
       ],
       "safetyNotes": [
+        "This is a rural lower-Wapsi connector with limited public exits between Newport Mills and Olin.",
+        "The app uses the fresh Anamosa gauge because the downstream Oxford Mills product feed remains stale; make a visual depth and current check at Newport Mills before launching.",
+        "Iowa DNR says sandbar camping is allowed on the meandered Wapsipinicon from Central City to the Mississippi, but private uplands remain private.",
         "Iowa DNR describes the Wapsipinicon from Anamosa to the Mississippi as free-flowing with no dams, but low-head dams exist elsewhere on the river. Stay within the planned Olin-to-Jungletown reach unless you have separately checked downstream hazards.",
         "This route uses the fresh Anamosa gauge because USGS 05421760 at Oxford Mills is no longer current in Water Services. Make a visual local-depth check at Olin before launching.",
-        "Sandbar camping is allowed on the meandered lower Wapsipinicon from Central City to the Mississippi, but private uplands remain private and bars disappear or become unsafe at higher water."
+        "Sandbar camping is allowed on the meandered lower Wapsipinicon from Central City to the Mississippi, but private uplands remain private and bars disappear or become unsafe at higher water.",
+        "Jungletown and Oxford Mills are the planned public endpoints; do not assume private-bank exits in between.",
+        "The lower Wapsi is free-flowing below Anamosa, but wood, broad bends, and rural response time still require conservative water-level judgment.",
+        "The take-out coordinate is a Water Quality Portal river-site anchor for Oxford Mills, so paddlers should follow the signed local access road and verify the landing before launching.",
+        "Treat Olin and Jungletown as intermediate public accesses and shorter-trip options rather than separate overlapping route cards.",
+        "For the full 17-mile route, leave enough daylight and do not depend on private banks for routine stops."
       ],
       "reviewStatus": "reviewed"
     },
@@ -6106,12 +5543,36 @@ export const iowaRoutes: River[] = [
         8,
         9
       ],
-      "seasonNotes": "Late spring through early fall is the practical lower-Wapsi window. The route can be shallow in drought and deceptively fast after rain because the lower river has broad bends, wood, and limited formal exits between county accesses.",
+      "seasonNotes": "Late spring through early fall is the practical lower-Wapsi window. Low water can expose riffles and bars; high or rising water makes wood and rural take-outs more consequential.",
       "difficulty": "easy",
-      "difficultyNotes": "Mostly moving flatwater for paddlers who can avoid wood and manage rural take-outs. Treat it as guarded easy because the selected product gauge is a documented same-corridor proxy, not the stale downstream Oxford Mills gauge.",
-      "confidenceNotes": "Public access confidence is strong: Jones County and Travel Jones County name Olin Access and Jungletown Access as Wapsipinicon River public access sites, and Water Quality Portal station records provide coordinates for both. Threshold confidence is weaker but documented: CanWePaddle ties the lower Anamosa-to-Oxford corridor to a 200-2,800 cfs Oxford Mills range; USGS 05421760 at Oxford Mills returned only 2017 data during this run, so the product uses fresh USGS 05421740 at Anamosa as an upstream proxy for this short same-corridor lower-Wapsi connector."
+      "difficultyNotes": "Moving flatwater with wood, rural access exposure, and a long full-corridor commitment. Olin and Jungletown provide practical shorter options, but the live Anamosa gauge remains an upstream proxy.",
+      "confidenceNotes": "Access confidence is strong because Jones County and Iowa DNR document Newport Mills, Olin, Jungletown, and Oxford Mills in downstream order. Threshold confidence remains guarded because the current product uses fresh Anamosa data instead of the stale Oxford Mills feed."
     },
     "evidenceNotes": [
+      {
+        "label": "Public put-in",
+        "value": "Newport Mills Access",
+        "note": "Jones County identifies Newport Mills as a one-acre river access six miles northwest of Olin, and WQP station 21IOWA-15530003 resolves the access to 42.044995, -91.200209.",
+        "sourceUrl": "https://www.jonescountyiowa.gov/conservation/parks/newport_mills_access/"
+      },
+      {
+        "label": "Public take-out",
+        "value": "Olin Access",
+        "note": "Travel Jones County lists Olin Rec Area and Olin Access as public Wapsipinicon access points; WQP station 21IOWA-15530006 resolves Olin Access to 42.003487, -91.132667.",
+        "sourceUrl": "https://www.traveljonescounty.com/outdoor-adventures/"
+      },
+      {
+        "label": "Lower-river safety context",
+        "value": "Free-flowing below Anamosa",
+        "note": "The Iowa DNR/Jones County Wapsipinicon water-trail map says the Wapsipinicon is free-flowing with no dams from Anamosa to the Mississippi and highlights wood, PFD, weather, and private-property safety basics.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
+      },
+      {
+        "label": "Gauge caveat",
+        "value": "Oxford Mills feed stale; Anamosa proxy fresh",
+        "note": "USGS Water Services returned current 05421740 Anamosa values at 2026-07-24 00:15 CDT, while 05421760 Oxford Mills still returned 2017 instantaneous values.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05421740,05421760&parameterCd=00060,00065&siteStatus=all"
+      },
       {
         "label": "Public put-in",
         "value": "Olin Access",
@@ -6141,22 +5602,52 @@ export const iowaRoutes: River[] = [
         "value": "Oxford Mills feed stale; Anamosa proxy fresh",
         "note": "USGS Water Services returned 05421760 Oxford Mills data from 2017, while 05421740 near Anamosa returned current 2026 data during this run.",
         "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05421740,05421760&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Public put-in",
+        "value": "Jungletown Access",
+        "note": "Jones County describes Jungletown Access as a one-acre county river access three miles south of Hale with a paved boat ramp.",
+        "sourceUrl": "https://www.jonescountyiowa.gov/conservation/parks/jungletown_access/"
+      },
+      {
+        "label": "Public take-out",
+        "value": "Oxford Mills Access",
+        "note": "Jones County and Travel Jones County list Oxford Mills Access in the lower-Wapsipinicon access chain, and WQP station 21IOWA-15530005 resolves the Oxford Mills river site to 41.971513, -90.96209.",
+        "sourceUrl": "https://www.jonescountyiowa.gov/conservation/rivers/wapsipinicon_river/"
+      },
+      {
+        "label": "Threshold model",
+        "value": "200 to 2,800 cfs",
+        "note": "CanWePaddle describes the Anamosa-to-Oxford Wapsipinicon corridor as generally runnable at 200 to 2,800 cfs and ties the model to USGS 05421760, but that product feed is stale in the current app path.",
+        "sourceUrl": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/"
+      },
+      {
+        "label": "Camping context",
+        "value": "Sandbars allowed from Central City to Mississippi",
+        "note": "The Iowa DNR/Jones County map says camping on sandbars is allowed on the meandered Wapsipinicon from Central City to the Mississippi River; private uplands remain off-limits.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
+      },
+      {
+        "label": "Gauge caveat",
+        "value": "USGS 05421740 at 1,970 cfs / 7.20 ft",
+        "note": "USGS Water Services returned current Anamosa values at 2026-07-24 00:15 CDT, while Oxford Mills remained stale at 2017 values.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05421740,05421760&parameterCd=00060,00065&siteStatus=all"
       }
     ],
     "sourceLinks": [
       {
-        "label": "Iowa DNR / Jones County Wapsipinicon River Water Trail map",
-        "url": "https://www.iowadnr.gov/media/8899/download?inline=",
-        "provider": "local"
-      },
-      {
-        "label": "Jones County Jungletown Access",
-        "url": "https://www.jonescountyiowa.gov/conservation/parks/jungletown_access/",
+        "label": "Jones County Newport Mills Access",
+        "url": "https://www.jonescountyiowa.gov/conservation/parks/newport_mills_access/",
         "provider": "local"
       },
       {
         "label": "Travel Jones County outdoor adventures",
         "url": "https://www.traveljonescounty.com/outdoor-adventures/",
+        "provider": "local"
+      },
+      {
+        "label": "Water Quality Portal Newport Mills Access",
+        "url": "https://www.waterqualitydata.us/provider/STORET/21IOWA/21IOWA-15530003/",
         "provider": "local"
       },
       {
@@ -6168,7 +5659,32 @@ export const iowaRoutes: River[] = [
         "label": "USGS 05421740 monitoring location",
         "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/",
         "provider": "usgs"
+      },
+      {
+        "label": "Iowa DNR / Jones County Wapsipinicon River Water Trail map",
+        "url": "https://www.iowadnr.gov/media/8899/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Jones County Jungletown Access",
+        "url": "https://www.jonescountyiowa.gov/conservation/parks/jungletown_access/",
+        "provider": "local"
+      },
+      {
+        "label": "Jones County Wapsipinicon River page",
+        "url": "https://www.jonescountyiowa.gov/conservation/rivers/wapsipinicon_river/",
+        "provider": "local"
+      },
+      {
+        "label": "Water Quality Portal Oxford Mills",
+        "url": "https://www.waterqualitydata.us/provider/STORET/21IOWA/21IOWA-15530005/",
+        "provider": "local"
       }
+    ],
+    "aliases": [
+      "Newport Mills Access to Olin Access",
+      "Olin Access to Jungletown Access",
+      "Jungletown Access to Oxford Mills Access"
     ]
   },
   {
@@ -6278,242 +5794,6 @@ export const iowaRoutes: River[] = [
       {
         "label": "Jones County Wapsipinicon River page",
         "url": "https://www.jonescountyiowa.gov/conservation/rivers/wapsipinicon_river/",
-        "provider": "local"
-      },
-      {
-        "label": "CanWePaddle Wapsipinicon River Anamosa to Oxford",
-        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
-        "provider": "local"
-      },
-      {
-        "label": "USGS 05421740 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/",
-        "provider": "usgs"
-      }
-    ]
-  },
-  {
-    "id": "wapsipinicon-river-newport-mills-olin",
-    "slug": "wapsipinicon-river-newport-mills-olin",
-    "name": "Wapsipinicon River",
-    "reach": "Newport Mills Access to Olin Access",
-    "state": "Iowa",
-    "region": "Eastern Iowa",
-    "summary": "Jones County lower-Wapsi connector from Newport Mills to Olin, filling the public access gap between the state-park trip and the existing Olin-to-Jungletown card.",
-    "statusText": "Use the Wapsipinicon River near Anamosa gauge as an upstream same-corridor proxy. CanWePaddle's lower Anamosa-to-Oxford guidance uses 200 to 2,800 cfs; verify Newport Mills depth because Oxford Mills product data is stale.",
-    "latitude": 42.044995,
-    "longitude": -91.200209,
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "fast_rise",
-        "private_banks",
-        "remote"
-      ],
-      "safetyNotes": [
-        "This is a rural lower-Wapsi connector with limited public exits between Newport Mills and Olin.",
-        "The app uses the fresh Anamosa gauge because the downstream Oxford Mills product feed remains stale; make a visual depth and current check at Newport Mills before launching.",
-        "Iowa DNR says sandbar camping is allowed on the meandered Wapsipinicon from Central City to the Mississippi, but private uplands remain private."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "gaugeSource": {
-      "id": "usgs-05421740",
-      "provider": "usgs",
-      "siteId": "05421740",
-      "metric": "discharge_cfs",
-      "unit": "cfs",
-      "kind": "proxy",
-      "siteName": "Wapsipinicon River near Anamosa, IA",
-      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/"
-    },
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 200,
-      "idealMax": 2800,
-      "tooLow": 200,
-      "tooHigh": 2800,
-      "thresholdSource": {
-        "label": "CanWePaddle lower Wapsipinicon Anamosa-to-Oxford range",
-        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
-        "provider": "local"
-      },
-      "thresholdSourceStrength": "community",
-      "rainfallSensitivity": "medium",
-      "seasonMonths": [
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "seasonNotes": "Late spring through early fall is the practical lower-Wapsi window. Low water can expose riffles and bars; high or rising water makes wood and rural take-outs more consequential.",
-      "difficulty": "easy",
-      "difficultyNotes": "Moving flatwater with wood and rural-access exposure. The route is guarded easy when levels are within the broad lower-Wapsi band and not rising.",
-      "confidenceNotes": "Public access confidence is strong: Jones County names Newport Mills and Olin in the public Wapsipinicon access chain, Travel Jones County repeats the access locations, and Water Quality Portal records provide Iowa DNR station coordinates for both sites. Threshold confidence is the same guarded lower-Wapsi model used by the adjacent Olin-to-Jungletown card: CanWePaddle ties the full Anamosa-to-Oxford corridor to 200-2,800 cfs, while the product uses fresh USGS 05421740 at Anamosa because Oxford Mills is stale."
-    },
-    "evidenceNotes": [
-      {
-        "label": "Public put-in",
-        "value": "Newport Mills Access",
-        "note": "Jones County identifies Newport Mills as a one-acre river access six miles northwest of Olin, and WQP station 21IOWA-15530003 resolves the access to 42.044995, -91.200209.",
-        "sourceUrl": "https://www.jonescountyiowa.gov/conservation/parks/newport_mills_access/"
-      },
-      {
-        "label": "Public take-out",
-        "value": "Olin Access",
-        "note": "Travel Jones County lists Olin Rec Area and Olin Access as public Wapsipinicon access points; WQP station 21IOWA-15530006 resolves Olin Access to 42.003487, -91.132667.",
-        "sourceUrl": "https://www.traveljonescounty.com/outdoor-adventures/"
-      },
-      {
-        "label": "Lower-river safety context",
-        "value": "Free-flowing below Anamosa",
-        "note": "The Iowa DNR/Jones County Wapsipinicon water-trail map says the Wapsipinicon is free-flowing with no dams from Anamosa to the Mississippi and highlights wood, PFD, weather, and private-property safety basics.",
-        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
-      },
-      {
-        "label": "Gauge caveat",
-        "value": "Oxford Mills feed stale; Anamosa proxy fresh",
-        "note": "USGS Water Services returned current 05421740 Anamosa values at 2026-07-24 00:15 CDT, while 05421760 Oxford Mills still returned 2017 instantaneous values.",
-        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05421740,05421760&parameterCd=00060,00065&siteStatus=all"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "Jones County Newport Mills Access",
-        "url": "https://www.jonescountyiowa.gov/conservation/parks/newport_mills_access/",
-        "provider": "local"
-      },
-      {
-        "label": "Travel Jones County outdoor adventures",
-        "url": "https://www.traveljonescounty.com/outdoor-adventures/",
-        "provider": "local"
-      },
-      {
-        "label": "Water Quality Portal Newport Mills Access",
-        "url": "https://www.waterqualitydata.us/provider/STORET/21IOWA/21IOWA-15530003/",
-        "provider": "local"
-      },
-      {
-        "label": "CanWePaddle Wapsipinicon River Anamosa to Oxford",
-        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
-        "provider": "local"
-      },
-      {
-        "label": "USGS 05421740 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/",
-        "provider": "usgs"
-      }
-    ]
-  },
-  {
-    "id": "wapsipinicon-river-jungletown-oxford-mills",
-    "slug": "wapsipinicon-river-jungletown-oxford-mills",
-    "name": "Wapsipinicon River",
-    "reach": "Jungletown Access to Oxford Mills Access",
-    "state": "Iowa",
-    "region": "Eastern Iowa",
-    "summary": "Lower Jones County Wapsi connector from Jungletown to Oxford Mills, using named public endpoints, sandbar-camping context, and the same guarded Anamosa proxy model as nearby lower-Wapsi cards.",
-    "statusText": "Use the Wapsipinicon River near Anamosa gauge as an upstream proxy because Oxford Mills product data is stale. CanWePaddle's lower Anamosa-to-Oxford guidance uses 200 to 2,800 cfs; verify local depth before committing.",
-    "latitude": 41.997559,
-    "longitude": -91.055705,
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "fast_rise",
-        "private_banks",
-        "remote"
-      ],
-      "safetyNotes": [
-        "Jungletown and Oxford Mills are the planned public endpoints; do not assume private-bank exits in between.",
-        "The lower Wapsi is free-flowing below Anamosa, but wood, broad bends, and rural response time still require conservative water-level judgment.",
-        "The take-out coordinate is a Water Quality Portal river-site anchor for Oxford Mills, so paddlers should follow the signed local access road and verify the landing before launching."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "gaugeSource": {
-      "id": "usgs-05421740",
-      "provider": "usgs",
-      "siteId": "05421740",
-      "metric": "discharge_cfs",
-      "unit": "cfs",
-      "kind": "proxy",
-      "siteName": "Wapsipinicon River near Anamosa, IA",
-      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/"
-    },
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 200,
-      "idealMax": 2800,
-      "tooLow": 200,
-      "tooHigh": 2800,
-      "thresholdSource": {
-        "label": "CanWePaddle lower Wapsipinicon Anamosa-to-Oxford range",
-        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
-        "provider": "local"
-      },
-      "thresholdSourceStrength": "community",
-      "rainfallSensitivity": "medium",
-      "seasonMonths": [
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "seasonNotes": "Late spring through early fall is the practical lower-Wapsi season. Sandbars may be usable at moderate levels, but disappear or become unsafe when water is high or rising.",
-      "difficulty": "easy",
-      "difficultyNotes": "A rural moving-flatwater connector with wood and take-out certainty as the main risks. Treat it as guarded easy because the live product gauge is an upstream proxy.",
-      "confidenceNotes": "Access confidence is good: Jones County and Travel Jones County name Jungletown and Oxford Mills in the lower-Wapsi public access chain, Jones County maintains the Jungletown access page, and WQP provides an Iowa DNR Oxford Mills coordinate. Threshold confidence remains guarded: CanWePaddle's range is tied to the exact lower Anamosa-to-Oxford corridor, but the route uses fresh USGS 05421740 near Anamosa because product-fetchable Oxford Mills values remain stale."
-    },
-    "evidenceNotes": [
-      {
-        "label": "Public put-in",
-        "value": "Jungletown Access",
-        "note": "Jones County describes Jungletown Access as a one-acre county river access three miles south of Hale with a paved boat ramp.",
-        "sourceUrl": "https://www.jonescountyiowa.gov/conservation/parks/jungletown_access/"
-      },
-      {
-        "label": "Public take-out",
-        "value": "Oxford Mills Access",
-        "note": "Jones County and Travel Jones County list Oxford Mills Access in the lower-Wapsipinicon access chain, and WQP station 21IOWA-15530005 resolves the Oxford Mills river site to 41.971513, -90.96209.",
-        "sourceUrl": "https://www.jonescountyiowa.gov/conservation/rivers/wapsipinicon_river/"
-      },
-      {
-        "label": "Threshold model",
-        "value": "200 to 2,800 cfs",
-        "note": "CanWePaddle describes the Anamosa-to-Oxford Wapsipinicon corridor as generally runnable at 200 to 2,800 cfs and ties the model to USGS 05421760, but that product feed is stale in the current app path.",
-        "sourceUrl": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/"
-      },
-      {
-        "label": "Camping context",
-        "value": "Sandbars allowed from Central City to Mississippi",
-        "note": "The Iowa DNR/Jones County map says camping on sandbars is allowed on the meandered Wapsipinicon from Central City to the Mississippi River; private uplands remain off-limits.",
-        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
-      },
-      {
-        "label": "Gauge caveat",
-        "value": "USGS 05421740 at 1,970 cfs / 7.20 ft",
-        "note": "USGS Water Services returned current Anamosa values at 2026-07-24 00:15 CDT, while Oxford Mills remained stale at 2017 values.",
-        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05421740,05421760&parameterCd=00060,00065&siteStatus=all"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "Jones County Wapsipinicon River page",
-        "url": "https://www.jonescountyiowa.gov/conservation/rivers/wapsipinicon_river/",
-        "provider": "local"
-      },
-      {
-        "label": "Jones County Jungletown Access",
-        "url": "https://www.jonescountyiowa.gov/conservation/parks/jungletown_access/",
-        "provider": "local"
-      },
-      {
-        "label": "Water Quality Portal Oxford Mills",
-        "url": "https://www.waterqualitydata.us/provider/STORET/21IOWA/21IOWA-15530005/",
         "provider": "local"
       },
       {
@@ -7650,18 +6930,20 @@ export const iowaRoutes: River[] = [
     ]
   },
   {
-    "id": "turkey-river-garber-osterdock",
-    "slug": "turkey-river-garber-osterdock",
+    "id": "turkey-river-garber-millville",
+    "slug": "turkey-river-garber-millville",
     "name": "Turkey River",
-    "reach": "Garber Access to Osterdock Access",
+    "reach": "Garber Access to Millville Access",
     "aliases": [
       "Turkey River - Garber to Osterdock",
       "Turkey River Water Trail - Access #20 to Access #12",
-      "Lower Turkey River - Garber to Osterdock"
+      "Lower Turkey River - Garber to Osterdock",
+      "Garber Access to Osterdock Access",
+      "Osterdock Access to Millville Access"
     ],
     "state": "Iowa",
     "region": "Northeast Iowa",
-    "summary": "Lower Turkey River continuation from Garber to Osterdock, extending the official water trail below the Volga confluence with gravel bars, light riffles, rural bluffs, and the direct Garber gauge at the put-in corridor.",
+    "summary": "Consolidated lower Turkey River route from Garber to Millville, with Osterdock retained as the intermediate public access and shorter seven-and-a-half-mile option.",
     "statusText": "Use the Turkey River at Garber gauge as the direct lower-corridor check. Wisconsin River Trips' Turkey River ladder treats under 100 cfs as maybe too shallow and above 1,500 cfs as maybe too high, so the card stays community-sourced and two-sided.",
     "latitude": 42.74002,
     "longitude": -91.26159,
@@ -7671,12 +6953,18 @@ export const iowaRoutes: River[] = [
         "strainers",
         "fast_rise",
         "remote",
-        "private_banks"
+        "private_banks",
+        "access_uncertain"
       ],
       "safetyNotes": [
         "The Turkey River Water Trail safety panel tells paddlers to look ahead for downed trees and large rocks; those hazards matter more on this less-developed lower continuation.",
         "The Garber gauge is at the upstream end of the route. Confirm local depth, wood, and take-out visibility at Osterdock before committing to the shuttle.",
-        "Do not assume legal landings away from named public accesses; the lower corridor is rural and bordered by private land."
+        "Do not assume legal landings away from named public accesses; the lower corridor is rural and bordered by private land.",
+        "The official map labels Osterdock and Millville as access points, but same-day scouting is important because the lower accesses are less documented than Elkader, Motor Mill, or Garber.",
+        "Miles Paddled reported confusion around the Millville public-access location and used a private pier instead; use the official Access #5 corridor only after confirming the signed public landing.",
+        "Expect broad lower-river gravel bars, slower current, wood on outside bends, and limited emergency exits.",
+        "Osterdock is the intermediate public access and shorter-trip option for the consolidated route.",
+        "Finish at Millville unless the separate Mississippi River approach to Ferry Landing has been planned and checked."
       ],
       "reviewStatus": "reviewed"
     },
@@ -7714,8 +7002,8 @@ export const iowaRoutes: River[] = [
       ],
       "seasonNotes": "The spring-fed lower Turkey often keeps enough water after smaller neighboring rivers fade, but drought still exposes gravel and high water turns the broad bends, bridges, and wood into a more consequential trip.",
       "difficulty": "moderate",
-      "difficultyNotes": "A competent flatwater group should find this manageable at normal levels, but it is more remote than the Elkader day, has light riffles and wood exposure, and depends on recognizing the Osterdock landing.",
-      "confidenceNotes": "Confidence is good for a guarded official continuation: the Turkey River Water Trail names Garber Access #20 to Osterdock Access #12 as the next 7.5-mile downstream section; Wisconsin River Trips separately describes the lower Garber-to-Mississippi corridor and this Garber-to-Osterdock split with a route-family cfs ladder; USGS 05412500 is a direct live station at Garber and returned 1,670 cfs / 8.13 ft at 2026-07-24 03:15 CDT. Coordinates are practical named-access anchors rather than surveyed ramp points, so the card tells paddlers to scout the Osterdock landing."
+      "difficultyNotes": "Generally light moving water, but wood, rural response time, bluff-corridor current, and the full 15-mile commitment require solid boat control and a same-day local check.",
+      "confidenceNotes": "The Turkey River Water Trail documents Garber, Osterdock, and Millville as consecutive public accesses with approximately 7.5 miles between each pair. The Garber gauge is direct at the upstream end and becomes a corridor proxy downstream."
     },
     "evidenceNotes": [
       {
@@ -7741,101 +7029,7 @@ export const iowaRoutes: River[] = [
         "value": "USGS 05412500 at 1,670 cfs / 8.13 ft",
         "note": "USGS Water Services returned current Turkey River at Garber values at 2026-07-24 03:15 CDT.",
         "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05412500&parameterCd=00060,00065&siteStatus=all"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "Turkey River Water Trail map",
-        "url": "https://turkeyriver.org/map/",
-        "provider": "local"
       },
-      {
-        "label": "Turkey River Water Trail guide PDF",
-        "url": "https://turkeyriver.org/wp-content/uploads/2025/05/TRWT-Guide_2025_Online.pdf",
-        "provider": "local"
-      },
-      {
-        "label": "Wisconsin River Trips Turkey River Elkader",
-        "url": "https://www.wisconsinrivertrips.com/segments/turkey-river/elkader",
-        "provider": "wisconsin_river_trips"
-      },
-      {
-        "label": "USGS 05412500 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05412500/",
-        "provider": "usgs"
-      }
-    ]
-  },
-  {
-    "id": "turkey-river-osterdock-millville",
-    "slug": "turkey-river-osterdock-millville",
-    "name": "Turkey River",
-    "reach": "Osterdock Access to Millville Access",
-    "aliases": [
-      "Turkey River - Osterdock to Millville",
-      "Turkey River Water Trail - Access #12 to Access #5",
-      "Lower Turkey River - Osterdock to Millville"
-    ],
-    "state": "Iowa",
-    "region": "Northeast Iowa",
-    "summary": "Middle lower Turkey River water-trail leg from Osterdock to Millville, a quieter broad-valley float with large gravel bars, fewer exits, and a Garber gauge check upstream.",
-    "statusText": "Use the Turkey River at Garber gauge as the best live lower-corridor signal. The published community ladder flags below 100 cfs as maybe too shallow and above 1,500 cfs as maybe too high; verify local depth because the gauge is upstream of this split.",
-    "latitude": 42.7489,
-    "longitude": -91.1564,
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "fast_rise",
-        "remote",
-        "private_banks",
-        "access_uncertain"
-      ],
-      "safetyNotes": [
-        "The official map labels Osterdock and Millville as access points, but same-day scouting is important because the lower accesses are less documented than Elkader, Motor Mill, or Garber.",
-        "Miles Paddled reported confusion around the Millville public-access location and used a private pier instead; use the official Access #5 corridor only after confirming the signed public landing.",
-        "Expect broad lower-river gravel bars, slower current, wood on outside bends, and limited emergency exits."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "gaugeSource": {
-      "id": "usgs-05412500",
-      "provider": "usgs",
-      "siteId": "05412500",
-      "metric": "discharge_cfs",
-      "unit": "cfs",
-      "kind": "proxy",
-      "siteName": "Turkey River at Garber, IA",
-      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05412500/"
-    },
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 100,
-      "idealMax": 1500,
-      "tooLow": 100,
-      "tooHigh": 1500,
-      "thresholdSource": {
-        "label": "Wisconsin River Trips Turkey River navigability estimates",
-        "url": "https://www.wisconsinrivertrips.com/segments/turkey-river/elkader",
-        "provider": "wisconsin_river_trips"
-      },
-      "thresholdSourceStrength": "community",
-      "rainfallSensitivity": "medium",
-      "seasonMonths": [
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10
-      ],
-      "seasonNotes": "Best during stable spring through fall levels. This split is below Garber and usually has more water than upstream reaches, but it is flatter and more exposed to wind at low or falling flows.",
-      "difficulty": "moderate",
-      "difficultyNotes": "The route is not technically hard, but the access certainty, rural exposure, and slower lower-river hydraulics make it a planning route rather than a casual short-town float.",
-      "confidenceNotes": "Confidence is moderate-good: the Turkey River Water Trail identifies Osterdock Access #12 to Millville Access #5 as the next 7.5-mile official access pair, and Wisconsin River Trips supports the same lower-river corridor plus a broad Turkey River cfs ladder. The gauge is marked proxy because Garber is upstream of both endpoints, and the card explicitly carries the Millville access-location caveat from Miles Paddled instead of treating the access coordinates as survey-grade."
-    },
-    "evidenceNotes": [
       {
         "label": "Official water-trail section",
         "value": "Osterdock #12 to Millville #5, 7.5 mi",
@@ -7878,14 +7072,14 @@ export const iowaRoutes: River[] = [
         "provider": "wisconsin_river_trips"
       },
       {
-        "label": "Miles Paddled Turkey River III",
-        "url": "https://milespaddled.com/turkey-river-iii/",
-        "provider": "miles_paddled"
-      },
-      {
         "label": "USGS 05412500 monitoring location",
         "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05412500/",
         "provider": "usgs"
+      },
+      {
+        "label": "Miles Paddled Turkey River III",
+        "url": "https://milespaddled.com/turkey-river-iii/",
+        "provider": "miles_paddled"
       }
     ]
   },
@@ -9073,6 +8267,21 @@ export const iowaRoutes: River[] = [
     "statusText": "Use the Boone River near Webster City gauge. Treat 200 cfs as the low floor, 200 to 1,100 cfs as the broad recreational window, and 1,500+ cfs as advanced-only high water.",
     "latitude": 42.4677519,
     "longitude": -93.8118872,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "whitewater",
+        "strainers",
+        "private_banks",
+        "fast_rise"
+      ],
+      "safetyNotes": [
+        "Hamilton County describes the Riverside-to-Briggs leg as strainer-prone and the Briggs-to-Albright leg as moderately swift with rocks and boulders, so treat the combined route as a guarded moving-water day.",
+        "Stay within the public access sequence at Riverside Park, Briggs Woods, and Albright's Canoe Access. Adjacent land and streambed outside public access areas can be private on this non-meandered stream.",
+        "Hamilton County's cfs guidance makes 1,500 cfs and above an advanced-canoeist condition; use the Webster City gauge and same-day visual scouting for fresh wood, ledges, and boulder lines before launching."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-05481000",
       "provider": "usgs",
@@ -16096,13 +15305,13 @@ export const iowaRoutes: River[] = [
     ]
   },
   {
-    "id": "wapsipinicon-river-oxford-mills-massillon",
-    "slug": "wapsipinicon-river-oxford-mills-massillon",
+    "id": "wapsipinicon-river-oxford-mills-syracuse",
+    "slug": "wapsipinicon-river-oxford-mills-syracuse",
     "name": "Wapsipinicon River",
-    "reach": "Oxford Mills Access to Massillon Area",
+    "reach": "Oxford Mills Access to Syracuse Access",
     "state": "Iowa",
     "region": "Eastern Iowa",
-    "summary": "Lower Wapsipinicon continuation below Oxford Mills into the Massillon area, using the official lower water-trail map, Massillon campground access context, and the guarded Anamosa proxy gauge model.",
+    "summary": "Consolidated lower-Wapsipinicon family route from Oxford Mills to Syracuse, retaining Massillon and Walnut Grove as intermediate accesses for shorter days or a staged overnight.",
     "statusText": "Use the Wapsipinicon River near Anamosa gauge as an upstream lower-corridor proxy. The accepted lower Anamosa-to-Oxford model is 200 to 2,800 cfs; below Oxford Mills, confirm Massillon access, wood, and sandbar exposure from land.",
     "latitude": 41.971513,
     "longitude": -90.96209,
@@ -16117,7 +15326,15 @@ export const iowaRoutes: River[] = [
       "safetyNotes": [
         "This route starts below the breached Oxford Mills dam area and continues into the lower Wapsipinicon water-trail corridor; scout current, debris, and the practical landing before launch.",
         "Iowa DNR warns that lower-Wapsi bends can hold dead trees, side channels, and shallow dead ends, so follow the strongest current and avoid blind outside-bend wood.",
-        "Sandbar camping is allowed on the meandered Wapsipinicon from Central City to the Mississippi, but private uplands and posted access rules still apply."
+        "Sandbar camping is allowed on the meandered Wapsipinicon from Central City to the Mississippi, but private uplands and posted access rules still apply.",
+        "Iowa DNR says the lower Massillon-to-Sherman corridor contains downed trees in river bends and occasional dead-end side channels; beginners should stay with the shorter Massillon-to-Walnut Grove option only when conditions are favorable.",
+        "Massillon and Walnut Grove have good ramps, but both can be affected by high water, mud, or seasonal campground/access rules.",
+        "Use legal sandbars only if exposed and safe. Do not climb onto private uplands or cabin banks.",
+        "Iowa DNR describes the full Massillon-to-Sherman reach as intermediate because downed trees, dead-end side channels, and rural access complexity can make route-finding consequential.",
+        "Syracuse Wildlife Area reaches a broad sandbar and is only reached from the east by the old Lincoln Highway segment; confirm road and sandbar conditions before committing.",
+        "Avoid cabins, pasture banks, and private uplands. Use the public ramp, public sandbar access, or legal exposed sandbars only.",
+        "Massillon and Walnut Grove are intermediate public access and campground options; verify current operating and landing conditions before relying on them.",
+        "Treat the full Oxford Mills-to-Syracuse route as a long-day or planned overnight commitment, not a casual short float."
       ],
       "reviewStatus": "reviewed"
     },
@@ -16153,8 +15370,8 @@ export const iowaRoutes: River[] = [
       ],
       "seasonNotes": "Late spring through early fall is the practical lower-Wapsi window. Dry spells can expose bars and force walking; storms can turn side channels, wood, and rural take-outs into higher-consequence hazards.",
       "difficulty": "moderate",
-      "difficultyNotes": "The reach is moving flatwater, but it is longer and more remote than the Jones County access-pair cards and depends on a guarded upstream proxy gauge.",
-      "confidenceNotes": "Access and route confidence are moderate-good: the Iowa DNR / Jones County map labels Oxford Mills, Massillon Area, and the breached Oxford Mills dam context; Iowa DNR's lower Wapsipinicon guide names Massillon as the start of the Massillon-to-Walnut-Grove-to-Syracuse-to-Sherman section and notes Massillon has a good ramp; Cedar County / MyCountyParks corroborates Massillon Park on the Wapsipinicon. Threshold confidence remains guarded because the accepted CanWePaddle 200-2,800 cfs model is for Anamosa-to-Oxford and the product uses fresh USGS 05421740 upstream after downstream product feeds returned no current time series."
+      "difficultyNotes": "The water is generally moving flatwater, but the full corridor is a long and exposed commitment with wood, private banks, wind, and an upstream proxy gauge. Use the intermediate accesses for a more conservative day.",
+      "confidenceNotes": "The official lower-water-trail map and county sources document Oxford Mills, Massillon, Walnut Grove, and Syracuse in order. Gauge confidence is intentionally conservative because Anamosa is well upstream and Oxford Mills live data is stale."
     },
     "evidenceNotes": [
       {
@@ -16180,98 +15397,7 @@ export const iowaRoutes: River[] = [
         "value": "USGS 05421740 at 1,930 cfs / 7.14 ft",
         "note": "USGS Water Services returned current Anamosa values at 2026-07-24 06:15 CDT; Toronto and Massillon product fetches returned no current time series.",
         "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05421740&parameterCd=00060,00065&siteStatus=all"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "Iowa DNR Wapsipinicon River Water Trail guide",
-        "url": "https://www.iowadnr.gov/media/8899/download?inline=",
-        "provider": "local"
       },
-      {
-        "label": "Iowa DNR / Jones County Wapsipinicon map",
-        "url": "https://www.jonescountyiowa.gov/files/conservation/the_wapsipinicon_river_iowa_dnr_map_95320.pdf",
-        "provider": "local"
-      },
-      {
-        "label": "Massillon Park - MyCountyParks",
-        "url": "https://www.mycountyparks.com/county/Cedar/Park/Massillon-Park",
-        "provider": "local"
-      },
-      {
-        "label": "CanWePaddle Wapsipinicon River Anamosa to Oxford",
-        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
-        "provider": "local"
-      },
-      {
-        "label": "USGS 05421740 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/",
-        "provider": "usgs"
-      }
-    ]
-  },
-  {
-    "id": "wapsipinicon-river-massillon-walnut-grove",
-    "slug": "wapsipinicon-river-massillon-walnut-grove",
-    "name": "Wapsipinicon River",
-    "reach": "Massillon Area to Walnut Grove Park",
-    "state": "Iowa",
-    "region": "Eastern Iowa",
-    "summary": "Short lower-Wapsipinicon beginner-to-intermediate option from Massillon to Walnut Grove, using two well-marked official accesses with campground support and lower-river wood caveats.",
-    "statusText": "Use the Anamosa gauge as a guarded upstream proxy and stay within the accepted lower-Wapsi 200 to 2,800 cfs model. The DNR calls Massillon-to-Walnut Grove the shorter 4-plus-mile option, but wood and side channels still need a same-day check.",
-    "latitude": 41.915409,
-    "longitude": -90.920611,
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "fast_rise",
-        "private_banks",
-        "remote"
-      ],
-      "safetyNotes": [
-        "Iowa DNR says the lower Massillon-to-Sherman corridor contains downed trees in river bends and occasional dead-end side channels; beginners should stay with the shorter Massillon-to-Walnut Grove option only when conditions are favorable.",
-        "Massillon and Walnut Grove have good ramps, but both can be affected by high water, mud, or seasonal campground/access rules.",
-        "Use legal sandbars only if exposed and safe. Do not climb onto private uplands or cabin banks."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "gaugeSource": {
-      "id": "usgs-05421740",
-      "provider": "usgs",
-      "siteId": "05421740",
-      "metric": "discharge_cfs",
-      "unit": "cfs",
-      "kind": "proxy",
-      "siteName": "Wapsipinicon River near Anamosa, IA",
-      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/"
-    },
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 200,
-      "idealMax": 2800,
-      "tooLow": 200,
-      "tooHigh": 2800,
-      "thresholdSource": {
-        "label": "CanWePaddle lower Wapsipinicon Anamosa-to-Oxford range",
-        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
-        "provider": "local"
-      },
-      "thresholdSourceStrength": "community",
-      "rainfallSensitivity": "medium",
-      "seasonMonths": [
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "seasonNotes": "This short lower reach is most useful in late spring through early fall. Low water can expose sandbars and shallow dead ends; high water can cover beaches and make Walnut Grove landings more consequential.",
-      "difficulty": "easy",
-      "difficultyNotes": "DNR frames Massillon-to-Walnut Grove as a shorter 4-plus-mile option, but the proxy gauge, wood, private banks, and lower-river side channels keep it at guarded easy.",
-      "confidenceNotes": "Confidence is moderate-good: Iowa DNR documents the Massillon-to-Walnut-Grove-to-Syracuse-to-Sherman access chain, says Massillon and Walnut Grove have good well-marked ramps, and identifies Massillon-to-Walnut Grove as a shorter 4-plus-mile beginner option. Clinton County / MyCountyParks corroborates Walnut Grove's campground and boat-ramp location; Massillon Park is corroborated by Cedar County / MyCountyParks. Threshold confidence is guarded community evidence with a live upstream Anamosa proxy because closer Massillon/Toronto product feeds returned no current values."
-    },
-    "evidenceNotes": [
       {
         "label": "Route option",
         "value": "Massillon to Walnut Grove, 4-plus mi",
@@ -16295,98 +15421,7 @@ export const iowaRoutes: River[] = [
         "value": "USGS 05421740 at 1,930 cfs / 7.14 ft",
         "note": "USGS Water Services returned current Anamosa values at 2026-07-24 06:15 CDT for the upstream proxy gauge.",
         "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05421740&parameterCd=00060,00065&siteStatus=all"
-      }
-    ],
-    "sourceLinks": [
-      {
-        "label": "Iowa DNR Wapsipinicon River Water Trail guide",
-        "url": "https://www.iowadnr.gov/media/8899/download?inline=",
-        "provider": "local"
       },
-      {
-        "label": "Walnut Grove Park - Clinton County",
-        "url": "https://www.clintoncounty-ia.gov/conservation/parks/walnut_grove_park/",
-        "provider": "local"
-      },
-      {
-        "label": "Massillon Park - MyCountyParks",
-        "url": "https://www.mycountyparks.com/county/Cedar/Park/Massillon-Park",
-        "provider": "local"
-      },
-      {
-        "label": "CanWePaddle Wapsipinicon River Anamosa to Oxford",
-        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
-        "provider": "local"
-      },
-      {
-        "label": "USGS 05421740 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/",
-        "provider": "usgs"
-      }
-    ]
-  },
-  {
-    "id": "wapsipinicon-river-walnut-grove-syracuse",
-    "slug": "wapsipinicon-river-walnut-grove-syracuse",
-    "name": "Wapsipinicon River",
-    "reach": "Walnut Grove Park to Syracuse Access",
-    "state": "Iowa",
-    "region": "Eastern Iowa",
-    "summary": "Middle split of the official lower-Wapsipinicon Massillon-to-Sherman section, from Walnut Grove's campground ramp to the sandbar-style Syracuse Wildlife Area access.",
-    "statusText": "Use the Anamosa gauge only as an upstream lower-Wapsi proxy. The accepted lower-corridor model is 200 to 2,800 cfs; check that the Syracuse sandbar access is exposed and reachable from the east before launching.",
-    "latitude": 41.90932,
-    "longitude": -90.86362,
-    "safetyProfile": {
-      "riskLevel": "caution",
-      "hazards": [
-        "strainers",
-        "fast_rise",
-        "private_banks",
-        "remote"
-      ],
-      "safetyNotes": [
-        "Iowa DNR describes the full Massillon-to-Sherman reach as intermediate because downed trees, dead-end side channels, and rural access complexity can make route-finding consequential.",
-        "Syracuse Wildlife Area reaches a broad sandbar and is only reached from the east by the old Lincoln Highway segment; confirm road and sandbar conditions before committing.",
-        "Avoid cabins, pasture banks, and private uplands. Use the public ramp, public sandbar access, or legal exposed sandbars only."
-      ],
-      "reviewStatus": "reviewed"
-    },
-    "gaugeSource": {
-      "id": "usgs-05421740",
-      "provider": "usgs",
-      "siteId": "05421740",
-      "metric": "discharge_cfs",
-      "unit": "cfs",
-      "kind": "proxy",
-      "siteName": "Wapsipinicon River near Anamosa, IA",
-      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/"
-    },
-    "profile": {
-      "thresholdModel": "two-sided",
-      "idealMin": 200,
-      "idealMax": 2800,
-      "tooLow": 200,
-      "tooHigh": 2800,
-      "thresholdSource": {
-        "label": "CanWePaddle lower Wapsipinicon Anamosa-to-Oxford range",
-        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
-        "provider": "local"
-      },
-      "thresholdSourceStrength": "community",
-      "rainfallSensitivity": "medium",
-      "seasonMonths": [
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "seasonNotes": "Late spring through early fall is the practical lower-Wapsi window. The Syracuse sandbar landing can be too muddy or submerged outside moderate water, and higher water makes side-channel mistakes more consequential.",
-      "difficulty": "moderate",
-      "difficultyNotes": "This is a rural lower-Wapsi connector with a sandbar-style take-out, side channels, wood, and a proxy gauge, so it needs intermediate trip planning even though the gradient is gentle.",
-      "confidenceNotes": "Confidence is moderate: Iowa DNR documents Walnut Grove, Syracuse Wildlife Area, and the broader lower-Wapsi section; the DNR guide says Syracuse takes users to a broad sandbar and is east-approach-only from an old Lincoln Highway segment. Clinton County materials and the Lincoln Highway corridor plan corroborate Syracuse as a public one-acre river access with coordinates, while Walnut Grove is county-managed with campground and ramp support. Threshold confidence remains guarded because the live product gauge is upstream at Anamosa and the closer Massillon/Toronto USGS product checks returned no current time series."
-    },
-    "evidenceNotes": [
       {
         "label": "Official access sequence",
         "value": "Walnut Grove to Syracuse",
@@ -16419,9 +15454,24 @@ export const iowaRoutes: River[] = [
         "provider": "local"
       },
       {
-        "label": "Wapsipinicon River Clinton & Scott County map",
-        "url": "https://media.rainpos.com/8576/cdo_wapsipinicon_river_scott_and_clinton_county1.pdf",
+        "label": "Iowa DNR / Jones County Wapsipinicon map",
+        "url": "https://www.jonescountyiowa.gov/files/conservation/the_wapsipinicon_river_iowa_dnr_map_95320.pdf",
         "provider": "local"
+      },
+      {
+        "label": "Massillon Park - MyCountyParks",
+        "url": "https://www.mycountyparks.com/county/Cedar/Park/Massillon-Park",
+        "provider": "local"
+      },
+      {
+        "label": "CanWePaddle Wapsipinicon River Anamosa to Oxford",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05421740 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/",
+        "provider": "usgs"
       },
       {
         "label": "Walnut Grove Park - Clinton County",
@@ -16429,13 +15479,420 @@ export const iowaRoutes: River[] = [
         "provider": "local"
       },
       {
-        "label": "Lincoln Highway corridor plan",
-        "url": "https://www.krosradio.com/wp-content/uploads/2017/02/Lincoln-Highway-CMP-Clinton.pdf",
+        "label": "Wapsipinicon River Clinton & Scott County map",
+        "url": "https://media.rainpos.com/8576/cdo_wapsipinicon_river_scott_and_clinton_county1.pdf",
         "provider": "local"
       },
       {
-        "label": "USGS 05421740 monitoring location",
-        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/",
+        "label": "Lincoln Highway corridor plan",
+        "url": "https://www.krosradio.com/wp-content/uploads/2017/02/Lincoln-Highway-CMP-Clinton.pdf",
+        "provider": "local"
+      }
+    ],
+    "aliases": [
+      "Oxford Mills Access to Massillon Area",
+      "Massillon Area to Walnut Grove Park",
+      "Walnut Grove Park to Syracuse Access"
+    ]
+  },
+  {
+    "id": "wapsipinicon-river-syracuse-sherman",
+    "slug": "wapsipinicon-river-syracuse-sherman",
+    "name": "Wapsipinicon River",
+    "reach": "Syracuse Access to Sherman Park",
+    "state": "Iowa",
+    "region": "Eastern Iowa",
+    "summary": "Lower Wapsipinicon Bends-to-Beaches split from the Syracuse sandbar access to campground-supported Sherman Park, using the official DNR lower-water-trail sequence.",
+    "statusText": "Use the Wapsipinicon near Anamosa gauge as the conservative threshold signal and check De Witt for lower-river corroboration. The accepted lower-Wapsi model is 200 to 2,800 cfs; scout Syracuse sandbar, wood, and Sherman landing before launching.",
+    "latitude": 41.831624,
+    "longitude": -90.794641,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Iowa DNR describes the lower Massillon-to-Sherman corridor as intermediate because downed trees, dead-end side channels, and access complexity can make route-finding consequential.",
+        "Syracuse reaches a broad sandbar and must be approached from the east on the old Lincoln Highway segment. Confirm road, sandbar, and landing conditions before launch.",
+        "Sherman Park is a public campground and boat-ramp endpoint. Take out there unless a separate Sherman-to-Allen's-Grove plan is staged.",
+        "Sandbar camping is allowed on the meandered lower Wapsipinicon from Central City to the Mississippi only where bars are exposed and safe; private uplands remain off limits."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05421740",
+      "provider": "usgs",
+      "siteId": "05421740",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Wapsipinicon River near Anamosa, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/"
+    },
+    "fallbackGaugeSources": [
+      {
+        "id": "usgs-05422000",
+        "provider": "usgs",
+        "siteId": "05422000",
+        "metric": "discharge_cfs",
+        "unit": "cfs",
+        "kind": "direct",
+        "siteName": "Wapsipinicon River near De Witt, IA",
+        "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05422000/"
+      }
+    ],
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 200,
+      "idealMax": 2800,
+      "tooLow": 200,
+      "tooHigh": 2800,
+      "thresholdSource": {
+        "label": "CanWePaddle lower Wapsipinicon Anamosa-to-Oxford range",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "Late spring through early fall is the practical lower-Wapsi window. Low water can expose long bars and dead-end side channels; storms can create pushy current, floating wood, and muddy access.",
+      "difficulty": "moderate",
+      "difficultyNotes": "DNR frames Syracuse-to-Sherman as a 6-plus-mile beginner option only inside favorable conditions. Treat it as moderate because the route uses an upstream threshold proxy and the sandbar/access story is level-sensitive.",
+      "confidenceNotes": "Confidence is moderate-good: Iowa DNR documents Syracuse and Sherman in the lower access sequence, gives the 6-plus-mile shorter option, and describes the lower hazards. The numeric range is the already-accepted lower-Wapsi Anamosa model, guarded by local visual checks and a direct De Witt gauge corroboration."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route option",
+        "value": "Syracuse to Sherman, 6-plus mi",
+        "note": "Iowa DNR says beginners may try the shorter 6-plus-mile section between Syracuse and Sherman Park when conditions are favorable.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
+      },
+      {
+        "label": "Syracuse access caveat",
+        "value": "Broad sandbar, east approach only",
+        "note": "Iowa DNR says Syracuse Wildlife Area access reaches a broad sandbar and can only be reached from the east by the old Lincoln Highway segment.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
+      },
+      {
+        "label": "Sherman access support",
+        "value": "Boat ramp and campground",
+        "note": "Clinton County lists Sherman Park as 233 acres along the Wapsipinicon River with camping, a boat ramp, toilets, water, and river frontage.",
+        "sourceUrl": "https://www.clintoncounty-ia.gov/conservation/parks/sherman_park/"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "Anamosa 1,920 cfs / 7.13 ft; De Witt 2,270 cfs / 8.02 ft",
+        "note": "USGS Water Services returned current Wapsipinicon values at 2026-07-24 07:15 CDT for Anamosa and 07:30 CDT for De Witt during this run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05421740,05422000&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Threshold model",
+        "value": "200 to 2,800 cfs",
+        "note": "CanWePaddle supplies the accepted lower-Wapsi Anamosa-to-Oxford model; this downstream split uses it conservatively with mandatory local checks and De Witt corroboration rather than a new invented range.",
+        "sourceUrl": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Iowa DNR Wapsipinicon River Water Trail guide",
+        "url": "https://www.iowadnr.gov/media/8899/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Wapsipinicon River Clinton & Scott County map",
+        "url": "https://media.rainpos.com/8576/cdo_wapsipinicon_river_scott_and_clinton_county1.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Sherman Park - Clinton County",
+        "url": "https://www.clintoncounty-ia.gov/conservation/parks/sherman_park/",
+        "provider": "local"
+      },
+      {
+        "label": "CanWePaddle Wapsipinicon River Anamosa to Oxford",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05422000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05422000/",
+        "provider": "usgs"
+      }
+    ]
+  },
+  {
+    "id": "wapsipinicon-river-sherman-allens-grove",
+    "slug": "wapsipinicon-river-sherman-allens-grove",
+    "name": "Wapsipinicon River",
+    "reach": "Sherman Park to Allen's Grove Access",
+    "state": "Iowa",
+    "region": "Eastern Iowa",
+    "summary": "Bends-to-Beaches lower Wapsipinicon half-day split from Sherman Park's public ramp to Allen's Grove Public Use Area, stopping at the documented mid-route access.",
+    "statusText": "Use the Anamosa lower-Wapsi threshold model with De Witt as a direct lower-river condition check. Stay inside the guarded 200 to 2,800 cfs model, and avoid this route when side channels, wood, or landings look high-consequence.",
+    "latitude": 41.77458,
+    "longitude": -90.787,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Iowa DNR says the 21-mile Sherman-to-Allen's-Grove-to-Gambril corridor is daunting and appropriate only for intermediate to advanced paddlers as a full route.",
+        "Allen's Grove is the halfway public access; use it as the planned take-out for this split and do not continue toward Gambril unless that separate shuttle is staged.",
+        "DNR warns that the river has many side channels and bends where current can carry paddlers into dead-log tangles. Choose routes carefully and portage only where safe and legal.",
+        "The Wapsi River Environmental Center access across from Sherman is not treated as a normal public endpoint for this route because DNR limits that access to facility renters."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05421740",
+      "provider": "usgs",
+      "siteId": "05421740",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Wapsipinicon River near Anamosa, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/"
+    },
+    "fallbackGaugeSources": [
+      {
+        "id": "usgs-05422000",
+        "provider": "usgs",
+        "siteId": "05422000",
+        "metric": "discharge_cfs",
+        "unit": "cfs",
+        "kind": "direct",
+        "siteName": "Wapsipinicon River near De Witt, IA",
+        "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05422000/"
+      }
+    ],
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 200,
+      "idealMax": 2800,
+      "tooLow": 200,
+      "tooHigh": 2800,
+      "thresholdSource": {
+        "label": "CanWePaddle lower Wapsipinicon Anamosa-to-Oxford range",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "Late spring through early fall is the practical lower-Wapsi window. Dry late summer can make sandbars and side-channel choices tricky; storms can float wood and make eddies/ramps harder to use.",
+      "difficulty": "moderate",
+      "difficultyNotes": "This approximately 11-mile split avoids the full 21-mile commitment but remains an intermediate lower-river route with wood, side channels, private banks, and remote response.",
+      "confidenceNotes": "Confidence is moderate-good: DNR documents Sherman, Allen's Grove, the 21-mile family, the halfway access, and lower-river hazards. Clinton County and Scott County corroborate endpoint public access. The threshold is a guarded upstream lower-Wapsi model with live De Witt corroboration."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route family",
+        "value": "Sherman Park to Allen's Grove to Gambril, 21 mi",
+        "note": "Iowa DNR lists Sherman Park to Allen's Grove Accesses to Gambril Access as a 21-mile lower-Wapsipinicon section.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
+      },
+      {
+        "label": "Intermediate access",
+        "value": "Allen's Grove at about 11 mi",
+        "note": "Iowa DNR says Allen's Grove provides a stop at approximately the 11-mile mark and can make a suitable trip for paddlers with at least intermediate experience.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
+      },
+      {
+        "label": "Allen's Grove access support",
+        "value": "Public boat ramp, no camping",
+        "note": "Scott County describes Allen's Grove as a public use area with a boat ramp on the Wapsipinicon River and notes no camping is allowed there.",
+        "sourceUrl": "https://www.scottcountyiowa.gov/conservation/allens-grove"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "Anamosa 1,920 cfs / 7.13 ft; De Witt 2,270 cfs / 8.02 ft",
+        "note": "USGS Water Services returned current Wapsipinicon values at 2026-07-24 07:15 CDT for Anamosa and 07:30 CDT for De Witt during this run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05421740,05422000&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Threshold model",
+        "value": "200 to 2,800 cfs",
+        "note": "CanWePaddle supplies the accepted lower-Wapsi Anamosa-to-Oxford model; this downstream split uses it conservatively with mandatory local checks and De Witt corroboration rather than a new invented range.",
+        "sourceUrl": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Iowa DNR Wapsipinicon River Water Trail guide",
+        "url": "https://www.iowadnr.gov/media/8899/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Wapsipinicon River Clinton & Scott County map",
+        "url": "https://media.rainpos.com/8576/cdo_wapsipinicon_river_scott_and_clinton_county1.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Sherman Park - Clinton County",
+        "url": "https://www.clintoncounty-ia.gov/conservation/parks/sherman_park/",
+        "provider": "local"
+      },
+      {
+        "label": "Allen's Grove Public Use Area - Scott County",
+        "url": "https://www.scottcountyiowa.gov/conservation/allens-grove",
+        "provider": "local"
+      },
+      {
+        "label": "CanWePaddle Wapsipinicon River Anamosa to Oxford",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      }
+    ]
+  },
+  {
+    "id": "wapsipinicon-river-allens-grove-gambril",
+    "slug": "wapsipinicon-river-allens-grove-gambril",
+    "name": "Wapsipinicon River",
+    "reach": "Allen's Grove Access to Gambril Access",
+    "state": "Iowa",
+    "region": "Eastern Iowa",
+    "summary": "Lower Wapsipinicon continuation from Allen's Grove Public Use Area to Gambril Access, finishing the DNR Sherman-to-Gambril Bends-to-Beaches access chain.",
+    "statusText": "Use the guarded lower-Wapsi Anamosa threshold model and confirm De Witt conditions before launch. The lower river carries more water, so avoid high/rising flows, dead-log side channels, and any uncertain Gambril landing.",
+    "latitude": 41.74988,
+    "longitude": -90.6753,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Iowa DNR says the lower river has many side channels and bends where current can take paddlers into dead-log tangles; choose routes carefully.",
+        "Allen's Grove has a public ramp and eddy, but the route starts on the south fork where DNR says this section carries substantially more water than the north fork.",
+        "Gambril has a cement downriver-pointing ramp and eddy but no bathrooms. Confirm the landing from land before launching.",
+        "Do not continue to McCausland or the Mississippi-side lower route unless that separate advanced trip is staged."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "gaugeSource": {
+      "id": "usgs-05421740",
+      "provider": "usgs",
+      "siteId": "05421740",
+      "metric": "discharge_cfs",
+      "unit": "cfs",
+      "kind": "proxy",
+      "siteName": "Wapsipinicon River near Anamosa, IA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05421740/"
+    },
+    "fallbackGaugeSources": [
+      {
+        "id": "usgs-05422000",
+        "provider": "usgs",
+        "siteId": "05422000",
+        "metric": "discharge_cfs",
+        "unit": "cfs",
+        "kind": "direct",
+        "siteName": "Wapsipinicon River near De Witt, IA",
+        "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-05422000/"
+      }
+    ],
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 200,
+      "idealMax": 2800,
+      "tooLow": 200,
+      "tooHigh": 2800,
+      "thresholdSource": {
+        "label": "CanWePaddle lower Wapsipinicon Anamosa-to-Oxford range",
+        "url": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "community",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seasonNotes": "Late spring through early fall is the practical lower-Wapsi window. The south-fork lower route can carry more water than upstream splits; use fresh De Witt readings and on-site checks before relying on the upstream model.",
+      "difficulty": "moderate",
+      "difficultyNotes": "The split is roughly the second half of the 21-mile Sherman-to-Gambril route. It is shorter than the full section but still has lower-river side channels, log tangles, private banks, and rural rescue exposure.",
+      "confidenceNotes": "Confidence is moderate: DNR documents Allen's Grove and Gambril access quality, the half-route planning pattern, and the hazards. Allen's Grove has strong Scott County public-access support. Gambril access is DNR-documented, but the coordinate is a practical ramp anchor requiring same-day confirmation."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Official route family",
+        "value": "Sherman Park to Allen's Grove to Gambril, 21 mi",
+        "note": "Iowa DNR lists Sherman Park to Allen's Grove Accesses to Gambril Access as a 21-mile lower-Wapsipinicon section.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
+      },
+      {
+        "label": "Access quality",
+        "value": "Allen's Grove and Gambril ramps",
+        "note": "Iowa DNR says Allen's Grove has a cement ramp and eddy, and Gambril Access has a cement ramp pointed downriver with a nice eddy.",
+        "sourceUrl": "https://www.iowadnr.gov/media/8899/download?inline="
+      },
+      {
+        "label": "Lower-river gauge context",
+        "value": "Scott County links Wapsipinicon water levels to USGS 05422000",
+        "note": "Scott County's Wapsi recreation page links Wapsipinicon River water levels to the De Witt USGS gauge for this lower Bends-to-Beaches corridor.",
+        "sourceUrl": "https://www.scottcountyiowa.gov/conservation/wapsi/recreation"
+      },
+      {
+        "label": "Current gauge check",
+        "value": "Anamosa 1,920 cfs / 7.13 ft; De Witt 2,270 cfs / 8.02 ft",
+        "note": "USGS Water Services returned current Wapsipinicon values at 2026-07-24 07:15 CDT for Anamosa and 07:30 CDT for De Witt during this run.",
+        "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=05421740,05422000&parameterCd=00060,00065&siteStatus=all"
+      },
+      {
+        "label": "Threshold model",
+        "value": "200 to 2,800 cfs",
+        "note": "CanWePaddle supplies the accepted lower-Wapsi Anamosa-to-Oxford model; this downstream split uses it conservatively with mandatory local checks and De Witt corroboration rather than a new invented range.",
+        "sourceUrl": "https://canwepaddle.com/rivers/iowa/wapsipinicon-river-anamosa-to-oxford-junction/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Iowa DNR Wapsipinicon River Water Trail guide",
+        "url": "https://www.iowadnr.gov/media/8899/download?inline=",
+        "provider": "local"
+      },
+      {
+        "label": "Wapsipinicon River Clinton & Scott County map",
+        "url": "https://media.rainpos.com/8576/cdo_wapsipinicon_river_scott_and_clinton_county1.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Allen's Grove Public Use Area - Scott County",
+        "url": "https://www.scottcountyiowa.gov/conservation/allens-grove",
+        "provider": "local"
+      },
+      {
+        "label": "Scott County Wapsi recreation water levels",
+        "url": "https://www.scottcountyiowa.gov/conservation/wapsi/recreation",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 05422000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05422000/",
         "provider": "usgs"
       }
     ]

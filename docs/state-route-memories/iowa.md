@@ -4,6 +4,7 @@ Last summarized: 2026-07-24.
 
 ## Current Inventory
 
+- 2026-07-24 08:07 CDT update: dirty-checkout live exported Iowa routes were 128 at the start of this run and 131 after adding `wapsipinicon-river-syracuse-sherman`, `wapsipinicon-river-sherman-allens-grove`, and `wapsipinicon-river-allens-grove-gambril`.
 - 2026-07-24 07:18 CDT update: live exported Iowa routes were 136 at the start of this run and 139 after adding `wapsipinicon-river-oxford-mills-massillon`, `wapsipinicon-river-massillon-walnut-grove`, and `wapsipinicon-river-walnut-grove-syracuse`.
 - 2026-07-24 06:05 CDT update: live exported Iowa routes were 133 at the start of this run and 136 after adding `des-moines-river-deer-creek-becker`, `des-moines-river-becker-hydro-electric`, and `des-moines-river-hydro-electric-south-river`.
 - 2026-07-24 05:14 CDT update: live exported Iowa routes were 130 at the start of this run and 133 after adding `south-raccoon-river-redfield-pleasant-valley`, `south-raccoon-river-pleasant-valley-earlham`, and `south-raccoon-river-earlham-van-meter`.
@@ -26,7 +27,19 @@ Last summarized: 2026-07-24.
 
 ## Status
 
-Iowa remains mature overall. The current exported inventory is 139 routes after this lower-Wapsipinicon continuation pass; the historical run notes below preserve what each automation pass originally added.
+Iowa remains mature overall. The current dirty-checkout exported inventory is 131 routes after this Bends-to-Beaches lower-Wapsipinicon pass; the lower count reflects pre-existing consolidation changes in the working tree, not a failure to add three current-run slugs.
+
+## 2026-07-24 08:07 lower Wapsipinicon Bends-to-Beaches pass
+
+- Baseline at run start: 128 Iowa live routes, verified from `src/data/routes/iowa.ts` and imported `src/data/rivers.ts` before the current Iowa edits.
+- Added `wapsipinicon-river-syracuse-sherman`, `wapsipinicon-river-sherman-allens-grove`, and `wapsipinicon-river-allens-grove-gambril`, bringing the dirty-checkout Iowa count to 131 live routes.
+- Qualification path: Iowa DNR's Clinton/Scott lower-Wapsipinicon guide and map document Syracuse Access, Sherman Park, Wapsi River Environmental Center, Allen's Grove, and Gambril in order. The guide identifies Syracuse-to-Sherman as a 6-plus-mile shorter option, Sherman-to-Allen's-Grove-to-Gambril as a 21-mile family route, Allen's Grove as about the 11-mile halfway stop, Gambril as a cement ramp with eddy, and major side-channel/dead-log hazards. Clinton County and Travel Iowa corroborate Sherman Park's public ramp/campground, Scott County corroborates Allen's Grove as a public boat-ramp access with no camping, and Scott County's Wapsi recreation page links lower-Wapsi water levels to the De Witt USGS gauge.
+- Gauge posture: USGS Water Services returned Wapsipinicon near Anamosa `05421740` at `1,920 cfs / 7.13 ft` at 2026-07-24 07:15 CDT and Wapsipinicon near De Witt `05422000` at `2,270 cfs / 8.02 ft` at 2026-07-24 07:30 CDT. The cards keep Anamosa as the selected threshold proxy because the numeric lower-Wapsi threshold source is tied to Anamosa, while De Witt is recorded as direct lower-corridor corroboration.
+- Threshold posture: all three use the already-accepted CanWePaddle lower-Wapsipinicon Anamosa-to-Oxford `200-2,800 cfs` model as guarded community evidence. No De Witt-specific ideal range or high cutoff was invented; copy requires same-day access and visual checks because these routes are farther downstream and DNR notes the south-fork lower river carries more water than the north fork.
+- Caveat posture: cards foreground Syracuse sandbar/east-road access, Sherman campground/boat-ramp staging, Wapsi River Environmental Center renter-only limitation, Allen's Grove no-camping rule, Gambril no-bathroom and practical-coordinate caveats, side channels, dead-log tangles, private cabin banks, legal exposed-sandbar camping only when safe, high/rising water, and rural rescue exposure.
+- Overlap posture: `routes:audit:overlap` produced no findings for the three new slugs.
+- Reviewed but not added: Wapsi Environmental Center as a normal endpoint remains out because DNR limits access to facility renters and parking is far uphill. Gambril-to-McCausland and lower McCausland/Mississippi-linked variants remain for a separate review because they add downstream access/Mississippi wayfinding complexity and deserve route-specific hazard framing.
+- Image posture: no route-gallery assets added after bounded Iowa DNR / Clinton County / Scott County / Travel Iowa / USGS / Commons / same-route image review found no clearly rights-clean exact-route asset selected for local reuse.
 
 ## 2026-07-24 07:18 lower Wapsipinicon continuation pass
 

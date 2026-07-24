@@ -2,7 +2,7 @@
 import type { RiverTripDetails } from '../../lib/types';
 
 export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
-  "north-raccoon-river-vogel-mcdonald": {
+  "north-raccoon-river-vogel-riverview": {
     "putIn": {
       "id": "vogel-access",
       "name": "Vogel Access",
@@ -10,28 +10,34 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -95.05
     },
     "takeOut": {
-      "id": "mcdonald-greenbelt-230th-street",
-      "name": "McDonald Greenbelt / 230th Street Canoe Access",
-      "latitude": 42.458365580744,
-      "longitude": -95.020906802905
+      "id": "riverview-lions-park-sac-city",
+      "name": "Riverview / Lions Park Access",
+      "latitude": 42.4285,
+      "longitude": -94.9922
     },
     "logistics": {
-      "distanceLabel": "About 11 mi",
-      "estimatedPaddleTime": "About 4 hr to 6 hr, longer with low water, wood, or access carries",
-      "shuttle": "Stage the 230th Street / McDonald take-out first, then drive upstream to Vogel Access northeast of Nemaha. Walk both rural landings before unloading.",
+      "distanceLabel": "About 16 mi",
+      "estimatedPaddleTime": "About 6 to 8 hours for the full 16-mile route; McDonald Greenbelt provides an approximately 11-mile option",
+      "shuttle": "Stage Riverview first, then return to Vogel. Verify McDonald Greenbelt if using it for a shorter day, bailout, or campground stop.",
       "permits": "No route-specific paddling permit is known. Use marked public access areas only, follow Iowa boating/PFD rules, and respect non-meandered-stream private-property limits.",
       "camping": "No on-route camping is selected for this upper split. Use separate county or city campground plans rather than assuming legal bank camping.",
       "campingClassification": "none",
-      "summary": "Launch from Vogel Access and paddle the upper Sac County North Raccoon through the prairie, riffle, and wooded greenbelt corridor to McDonald Greenbelt / 230th Street Canoe Access.",
+      "summary": "Consolidated upper Sac County North Raccoon route from Vogel to Riverview, with McDonald Greenbelt retained as an intermediate campground, public access, and shorter take-out.",
       "accessCaveats": [
         "Vogel Access is a county-managed wildlife/access area, but the DNR guide says the Vogel landing can be steep and paddlers may choose a sandbar 10 to 15 yards upstream.",
         "McDonald Greenbelt is a county-managed park along the North Raccoon; Sac County also lists 230th Street Canoe Access at the bridge across from the McDonald parking area.",
-        "Endpoint coordinates are practical public-access anchors from named county sites and road/address context, not surveyed ramp points. Confirm the exact launch and landing from land."
+        "Endpoint coordinates are practical public-access anchors from named county sites and road/address context, not surveyed ramp points. Confirm the exact launch and landing from land.",
+        "Sac City calls this an easy-in/easy-out recommended route, but obstruction removal is ongoing and the access should still be walked before launch.",
+        "Riverview / Lions Park access is anchored from city park and North 5th Street context rather than a surveyed ramp coordinate.",
+        "Do not continue downstream into the Sac City and Hagge rock-dam reach unless that separate route and portage plan are staged."
       ],
       "watchFor": [
         "Riffles, shallow boulders, low-water scraping, and isolated rock-dam-style features.",
         "Logjams, strainers, eroding banks, and faster current after upstream storms.",
-        "Private banks and long rural stretches with few practical bailouts."
+        "Private banks and long rural stretches with few practical bailouts.",
+        "Fresh wood or partial logjams even in the improved corridor.",
+        "Low Sac City flow, scraping, and shallow gravel.",
+        "Private banks outside the public access corridor."
       ]
     },
     "accessPoints": [
@@ -52,57 +58,13 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 11,
         "segmentKind": "creek",
         "note": "Default take-out; Sac County lists McDonald Greenbelt and the 230th Street Canoe Access near the bridge."
-      }
-    ]
-  },
-  "north-raccoon-river-mcdonald-riverview": {
-    "putIn": {
-      "id": "mcdonald-greenbelt-230th-street",
-      "name": "McDonald Greenbelt / 230th Street Canoe Access",
-      "latitude": 42.458365580744,
-      "longitude": -95.020906802905
-    },
-    "takeOut": {
-      "id": "riverview-lions-park-sac-city",
-      "name": "Riverview / Lions Park Access",
-      "latitude": 42.4285,
-      "longitude": -94.9922
-    },
-    "logistics": {
-      "distanceLabel": "5 mi",
-      "estimatedPaddleTime": "About 3 hr at normal recreational levels",
-      "shuttle": "Stage at Riverview / Lions Park on the north side of Sac City, then launch from McDonald Greenbelt or the 230th Street Canoe Access.",
-      "permits": "No route-specific paddling permit is known. Use marked public access areas only, follow Iowa boating/PFD rules, and respect non-meandered-stream private-property limits.",
-      "camping": "Sac City describes primitive camping amenities being constructed near the Riverview / North Raccoon river-access corridor. Treat this as a day route unless current city rules confirm an overnight plan.",
-      "campingClassification": "nearby_basecamp",
-      "summary": "Run Sac City's recommended five-mile North Raccoon route from McDonald Greenbelt to Riverview Park, the improved town-access reach with a straightforward shuttle.",
-      "accessCaveats": [
-        "Sac City calls this an easy-in/easy-out recommended route, but obstruction removal is ongoing and the access should still be walked before launch.",
-        "Riverview / Lions Park access is anchored from city park and North 5th Street context rather than a surveyed ramp coordinate.",
-        "Do not continue downstream into the Sac City and Hagge rock-dam reach unless that separate route and portage plan are staged."
-      ],
-      "watchFor": [
-        "Fresh wood or partial logjams even in the improved corridor.",
-        "Low Sac City flow, scraping, and shallow gravel.",
-        "Private banks outside the public access corridor."
-      ]
-    },
-    "accessPoints": [
-      {
-        "id": "mcdonald-greenbelt-230th-street",
-        "name": "McDonald Greenbelt / 230th Street Canoe Access",
-        "latitude": 42.458365580744,
-        "longitude": -95.020906802905,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Default put-in for Sac City's recommended five-mile water-trail route."
       },
       {
         "id": "riverview-lions-park-sac-city",
         "name": "Riverview / Lions Park Access",
         "latitude": 42.4285,
         "longitude": -94.9922,
-        "mileFromStart": 5,
+        "mileFromStart": 16,
         "segmentKind": "creek",
         "note": "Default take-out in Sac City; city materials describe new river access and primitive-camping amenities in this corridor."
       }
@@ -1285,7 +1247,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
-  "middle-river-pammel-middle-river-county-park": {
+  "middle-river-pammel-holliwell": {
     "putIn": {
       "id": "pammel-park-ford-access",
       "name": "Pammel Park Ford Access #63",
@@ -1293,28 +1255,34 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -94.074586
     },
     "takeOut": {
-      "id": "middle-river-county-park-access",
-      "name": "Middle River County Park Access #54",
-      "latitude": 41.31543,
-      "longitude": -94.004183
+      "id": "holliwell-covered-bridge-access",
+      "name": "Holliwell Covered Bridge Access #50",
+      "latitude": 41.322999,
+      "longitude": -93.959492
     },
     "logistics": {
-      "distanceLabel": "About 9 mi",
-      "estimatedPaddleTime": "About 3 hr to 5 hr, longer with snags or low-water riffles",
-      "shuttle": "Start only below the Pammel Park ford portage/re-entry and stage at Middle River County Park on County Road P-71 south of Winterset. Walk both access paths before unloading.",
+      "distanceLabel": "About 13 mi",
+      "estimatedPaddleTime": "About 5 to 7 hours for the full 13-mile route; Middle River County Park provides a shorter roughly 9-mile option",
+      "shuttle": "Stage Holliwell Covered Bridge first, then return to Pammel Park. Inspect Middle River County Park if it will serve as a shorter take-out or bailout.",
       "permits": "No route-specific paddling permit is known. Follow Madison County park rules, Iowa boating/PFD requirements, and posted access signs.",
       "camping": "Pammel Park supports endpoint campground staging at the put-in. Middle River County Park has day-use amenities, with Winterset City Park camping nearby rather than on the paddling route.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch below the Pammel Park ford and paddle the Middle River around the limestone backbone ridge and Harmon Tunnel area toward Middle River County Park.",
+      "summary": "Consolidated Middle River route from Pammel Park to Holliwell Covered Bridge, with Middle River County Park retained as a public intermediate access, campground, and shorter take-out.",
       "accessCaveats": [
         "Do not run the Pammel Park ford. This segment begins after the official portage and safe re-entry.",
         "The official map lists Middle River County Park as Access #54 with gravel carry-down canoe access; confirm the renovated walk-down ramp and parking from land.",
-        "Do not assume legal bank or bar stops between accesses because the guide identifies Middle River as non-meandered."
+        "Do not assume legal bank or bar stops between accesses because the guide identifies Middle River as non-meandered.",
+        "Holliwell is the last developed Middle River Water Trail access. The guide warns that downstream bridge crossings can have steep banks and dense vegetation.",
+        "The Indianola gauge is downstream and official for the water trail, but local snags and shallow spots still decide this short reach.",
+        "Middle River is non-meandered; stay with public accesses and permissioned land only."
       ],
       "watchFor": [
         "Rock riffles and chutes around the Pammel oxbow and limestone backbone ridge.",
         "Numerous fallen trees and snags between the Highway 169 bridge and Middle River County Park.",
-        "Fast rises, fences, private banks, and low-water dragging below the official optimum band."
+        "Fast rises, fences, private banks, and low-water dragging below the official optimum band.",
+        "High meander density, shaded timber edges, downed trees, and snags.",
+        "Low-water scraping and high-water current around wooded bends.",
+        "Missing the Holliwell take-out and being forced toward difficult downstream bridge exits."
       ]
     },
     "accessPoints": [
@@ -1335,57 +1303,13 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 9,
         "segmentKind": "creek",
         "note": "Default take-out; official map lists gravel carry-down access and nearby city-park camping context."
-      }
-    ]
-  },
-  "middle-river-middle-river-county-park-holliwell": {
-    "putIn": {
-      "id": "middle-river-county-park-access",
-      "name": "Middle River County Park Access #54",
-      "latitude": 41.31543,
-      "longitude": -94.004183
-    },
-    "takeOut": {
-      "id": "holliwell-covered-bridge-access",
-      "name": "Holliwell Covered Bridge Access #50",
-      "latitude": 41.322999,
-      "longitude": -93.959492
-    },
-    "logistics": {
-      "distanceLabel": "About 4 mi",
-      "estimatedPaddleTime": "About 1.5 hr to 3 hr depending on meanders, snags, and water level",
-      "shuttle": "Stage at Holliwell Covered Bridge and confirm the river-left take-out beside the bridge before launching from Middle River County Park.",
-      "permits": "No route-specific paddling permit is known. Follow Madison County park rules, Iowa boating/PFD requirements, and posted water-trail signs.",
-      "camping": "No on-route camping is documented. Winterset City Park camping is nearby but separate from the paddling route; do not camp on private banks or bars.",
-      "campingClassification": "nearby_basecamp",
-      "summary": "Paddle the final developed Middle River Water Trail segment from Middle River County Park to Holliwell Covered Bridge, stopping at the last official access.",
-      "accessCaveats": [
-        "Holliwell is the last developed Middle River Water Trail access. The guide warns that downstream bridge crossings can have steep banks and dense vegetation.",
-        "The Indianola gauge is downstream and official for the water trail, but local snags and shallow spots still decide this short reach.",
-        "Middle River is non-meandered; stay with public accesses and permissioned land only."
-      ],
-      "watchFor": [
-        "High meander density, shaded timber edges, downed trees, and snags.",
-        "Low-water scraping and high-water current around wooded bends.",
-        "Missing the Holliwell take-out and being forced toward difficult downstream bridge exits."
-      ]
-    },
-    "accessPoints": [
-      {
-        "id": "middle-river-county-park-access",
-        "name": "Middle River County Park Access #54",
-        "latitude": 41.31543,
-        "longitude": -94.004183,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Default put-in; official map lists gravel carry-down canoe access."
       },
       {
         "id": "holliwell-covered-bridge-access",
         "name": "Holliwell Covered Bridge Access #50",
         "latitude": 41.322999,
         "longitude": -93.959492,
-        "mileFromStart": 4,
+        "mileFromStart": 13,
         "segmentKind": "creek",
         "note": "Default take-out and final developed water-trail access beside Holliwell Covered Bridge."
       }
@@ -1726,59 +1650,6 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
-  "wapsipinicon-river-olin-jungletown": {
-    "putIn": {
-      "id": "olin-access",
-      "name": "Olin Access",
-      "latitude": 42.003487,
-      "longitude": -91.132667
-    },
-    "takeOut": {
-      "id": "jungletown-access",
-      "name": "Jungletown Access",
-      "latitude": 41.997559,
-      "longitude": -91.055705
-    },
-    "logistics": {
-      "distanceLabel": "About 5 mi",
-      "estimatedPaddleTime": "About 2 hr to 3 hr depending on level, wind, and wood",
-      "shuttle": "Use a short rural two-car shuttle between Olin Access and Jungletown Access. Scout Jungletown's paved ramp and turnaround before launching because the landing is a small county access.",
-      "permits": "No route-specific paddling permit is known. Follow Iowa boating/PFD rules, county access hours, and private-property limits.",
-      "camping": "Iowa DNR says sandbar camping is allowed on the meandered Wapsipinicon from Central City to the Mississippi. On this short route, treat overnight use as optional only when a safe, exposed sandbar exists and do not enter private uplands.",
-      "campingClassification": "sandbar_or_gravel_bar",
-      "summary": "Launch at Olin Access and take out at Jungletown Access for a short Jones County lower-Wapsi connector. The Oxford Mills gauge is stale, so use the fresh Anamosa gauge as a same-corridor proxy and make a local depth check before committing.",
-      "accessCaveats": [
-        "Olin Access is a named public Wapsipinicon access in the Jones County access chain, but it is a rural site; confirm parking and ramp condition before unloading.",
-        "Jungletown Access is a one-acre county access with a paved boat ramp south of Hale. It is the planned take-out, not just a bailout.",
-        "The lower Wapsi is meandered and sandbar camping is allowed, but adjacent uplands can still be private. Keep stops on legal bars or public access land."
-      ],
-      "watchFor": [
-        "Proxy-gauge uncertainty: USGS 05421760 at Oxford Mills was stale during this run, so confirm actual local depth and current at Olin.",
-        "Fresh strainers, bank-sweepers, and floating debris after storms.",
-        "Fast or rising water around bridges and outside bends, especially if the Anamosa gauge is climbing toward the top of the community range."
-      ]
-    },
-    "accessPoints": [
-      {
-        "id": "olin-access",
-        "name": "Olin Access",
-        "latitude": 42.003487,
-        "longitude": -91.132667,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Default put-in for the short lower-Wapsi Jones County connector."
-      },
-      {
-        "id": "jungletown-access",
-        "name": "Jungletown Access",
-        "latitude": 41.997559,
-        "longitude": -91.055705,
-        "mileFromStart": 5,
-        "segmentKind": "creek",
-        "note": "Default take-out at the county's small paved-ramp access south of Hale."
-      }
-    ]
-  },
   "wapsipinicon-river-stone-city-anamosa": {
     "putIn": {
       "id": "stone-city-access",
@@ -1832,7 +1703,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
-  "wapsipinicon-river-newport-mills-olin": {
+  "wapsipinicon-river-newport-mills-oxford-mills": {
     "putIn": {
       "id": "newport-mills-access",
       "name": "Newport Mills Access",
@@ -1840,28 +1711,39 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -91.200209
     },
     "takeOut": {
-      "id": "olin-access",
-      "name": "Olin Access",
-      "latitude": 42.003487,
-      "longitude": -91.132667
+      "id": "oxford-mills-access",
+      "name": "Oxford Mills Access",
+      "latitude": 41.971513,
+      "longitude": -90.96209
     },
     "logistics": {
-      "distanceLabel": "About 6 mi",
-      "estimatedPaddleTime": "About 2.5 hr to 3.5 hr depending on level, wind, and wood",
-      "shuttle": "Use a rural two-car shuttle between Newport Mills Access and Olin Access. Inspect Newport Mills parking/turnaround and Olin's landing condition before launching.",
+      "distanceLabel": "About 17 mi",
+      "estimatedPaddleTime": "About 6 to 8 hours for the full 17-mile corridor; use Olin or Jungletown for a shorter day",
+      "shuttle": "Stage Oxford Mills first, then return to Newport Mills. Verify the signed Olin and Jungletown landings if using either as a shorter put-in, take-out, or bailout.",
       "permits": "No route-specific paddling permit is known. Use the signed county accesses, follow Iowa boating/PFD rules, and respect posted hours and private-property limits.",
-      "camping": "Iowa DNR says sandbar camping is allowed on the meandered Wapsipinicon from Central City to the Mississippi. On this short connector, overnight use should be optional only when a safe exposed sandbar exists; private uplands remain off-limits.",
+      "camping": "Iowa DNR allows camping on exposed sandbars along the meandered lower Wapsipinicon, but bars can disappear at higher water and private uplands remain off limits.",
       "campingClassification": "sandbar_or_gravel_bar",
-      "summary": "Launch from Newport Mills and take out at Olin to connect two existing lower-Wapsi cards through named Jones County public access sites. The Anamosa gauge is fresh, but local visual depth still controls.",
+      "summary": "Consolidated lower-Wapsipinicon family route from Newport Mills to Oxford Mills, with Olin and Jungletown retained as public intermediate accesses and shorter-trip options.",
       "accessCaveats": [
         "Newport Mills is a one-acre rural access six miles northwest of Olin. Confirm the signed access road, parking, and ramp surface before unloading.",
         "Olin Access is the planned take-out, not just an informal roadside stop.",
-        "The lower Wapsi is meandered, but adjacent uplands can still be private. Keep stops on legal sandbars or public access land."
+        "The lower Wapsi is meandered, but adjacent uplands can still be private. Keep stops on legal sandbars or public access land.",
+        "Olin Access is a named public Wapsipinicon access in the Jones County access chain, but it is a rural site; confirm parking and ramp condition before unloading.",
+        "Jungletown Access is a one-acre county access with a paved boat ramp south of Hale. It is the planned take-out, not just a bailout.",
+        "The lower Wapsi is meandered and sandbar camping is allowed, but adjacent uplands can still be private. Keep stops on legal bars or public access land.",
+        "Jungletown is a small one-acre county access with a paved ramp; confirm room to stage and turn around.",
+        "Oxford Mills is the planned take-out in the Jones County access chain. Verify access-road condition and exact landing before launching.",
+        "Do not treat private banks between Jungletown and Oxford Mills as legal exits."
       ],
       "watchFor": [
         "Proxy-gauge uncertainty because the downstream Oxford Mills product feed is stale.",
         "Fresh strainers, bank-sweepers, and floating debris after storms.",
-        "Shallow riffles and soft muddy banks in low water; faster bridge current and disappearing bars in high water."
+        "Shallow riffles and soft muddy banks in low water; faster bridge current and disappearing bars in high water.",
+        "Proxy-gauge uncertainty: USGS 05421760 at Oxford Mills was stale during this run, so confirm actual local depth and current at Olin.",
+        "Fast or rising water around bridges and outside bends, especially if the Anamosa gauge is climbing toward the top of the community range.",
+        "Proxy-gauge uncertainty and the stale Oxford Mills USGS product feed.",
+        "Fresh strainers, floating debris, and outside-bend sweepers after rain.",
+        "Higher current, disappearing sandbars, and harder landings when the Anamosa proxy is high or rising."
       ]
     },
     "accessPoints": [
@@ -1882,57 +1764,22 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 6,
         "segmentKind": "creek",
         "note": "Default take-out at the Olin access in the public Jones County chain."
-      }
-    ]
-  },
-  "wapsipinicon-river-jungletown-oxford-mills": {
-    "putIn": {
-      "id": "jungletown-access",
-      "name": "Jungletown Access",
-      "latitude": 41.997559,
-      "longitude": -91.055705
-    },
-    "takeOut": {
-      "id": "oxford-mills-access",
-      "name": "Oxford Mills Access",
-      "latitude": 41.971513,
-      "longitude": -90.96209
-    },
-    "logistics": {
-      "distanceLabel": "About 6 mi",
-      "estimatedPaddleTime": "About 2.5 hr to 3.5 hr depending on level, wind, and wood",
-      "shuttle": "Stage Oxford Mills Access first, then launch from Jungletown. Verify the Oxford Mills landing from shore because the route uses a WQP river-site coordinate and the downstream USGS product feed is stale.",
-      "permits": "No route-specific paddling permit is known. Follow Jones County access rules, Iowa boating/PFD rules, and private-property limits.",
-      "camping": "Iowa DNR says sandbar camping is allowed on the meandered Wapsipinicon from Central City to the Mississippi. For this short route, treat camping as optional only when water level exposes a safe bar; private uplands remain private.",
-      "campingClassification": "sandbar_or_gravel_bar",
-      "summary": "Launch at Jungletown and take out at Oxford Mills for the lower Jones County continuation below the existing Olin-to-Jungletown card. The source package is useful but guarded because Oxford Mills product data is stale.",
-      "accessCaveats": [
-        "Jungletown is a small one-acre county access with a paved ramp; confirm room to stage and turn around.",
-        "Oxford Mills is the planned take-out in the Jones County access chain. Verify access-road condition and exact landing before launching.",
-        "Do not treat private banks between Jungletown and Oxford Mills as legal exits."
-      ],
-      "watchFor": [
-        "Proxy-gauge uncertainty and the stale Oxford Mills USGS product feed.",
-        "Fresh strainers, floating debris, and outside-bend sweepers after rain.",
-        "Higher current, disappearing sandbars, and harder landings when the Anamosa proxy is high or rising."
-      ]
-    },
-    "accessPoints": [
+      },
       {
         "id": "jungletown-access",
         "name": "Jungletown Access",
         "latitude": 41.997559,
         "longitude": -91.055705,
-        "mileFromStart": 0,
+        "mileFromStart": 11,
         "segmentKind": "creek",
-        "note": "Default put-in at Jones County's Jungletown Access."
+        "note": "Default take-out at the county's small paved-ramp access south of Hale."
       },
       {
         "id": "oxford-mills-access",
         "name": "Oxford Mills Access",
         "latitude": 41.971513,
         "longitude": -90.96209,
-        "mileFromStart": 6,
+        "mileFromStart": 17,
         "segmentKind": "creek",
         "note": "Default take-out at the lower Jones County Oxford Mills access corridor."
       }
@@ -2374,42 +2221,11 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       ]
     }
   },
-  "turkey-river-garber-osterdock": {
+  "turkey-river-garber-millville": {
     "putIn": {
       "name": "Garber Access #20",
       "latitude": 42.74002,
       "longitude": -91.26159
-    },
-    "takeOut": {
-      "name": "Osterdock Access #12",
-      "latitude": 42.7489,
-      "longitude": -91.1564
-    },
-    "logistics": {
-      "distanceLabel": "7.5 mi",
-      "estimatedPaddleTime": "About 2.5 hr to 3.75 hr",
-      "shuttle": "Use a two-car shuttle between Garber and Osterdock. Scout Osterdock first; the official guide says not to park at the Osterdock Store for river access.",
-      "permits": "No route-specific paddling permit is known. Follow posted Clayton County, water-trail, bridge, and access rules, and use only named public accesses.",
-      "camping": "No on-route public campground was confirmed for this short split. Use nearby private or public campgrounds as separate basecamp reservations rather than assuming legal river camping.",
-      "campingClassification": "nearby_basecamp",
-      "summary": "Launch from Garber Access #20 and continue down the official Turkey River Water Trail to Osterdock Access #12. This is the first lower-river segment below Garber, with more rural exposure and fewer convenient exits than the Elkader or Motor Mill day.",
-      "accessCaveats": [
-        "Garber Access #20 is the established downstream endpoint for the Motor Mill route and the start of this lower continuation.",
-        "Osterdock Access #12 is an official water-trail access, but parking and landing details should be checked from land before unloading boats.",
-        "The official map warns paddlers not to park at the Osterdock Store for access."
-      ],
-      "watchFor": [
-        "Downed trees, outside-bend wood, and large rocks called out in the water-trail safety guidance.",
-        "Shallow gravel bars near or below the 100 cfs floor and pushy, muddy current above the 1,500 cfs high-water line.",
-        "Private banks and limited public exits between Garber and Osterdock."
-      ]
-    }
-  },
-  "turkey-river-osterdock-millville": {
-    "putIn": {
-      "name": "Osterdock Access #12",
-      "latitude": 42.7489,
-      "longitude": -91.1564
     },
     "takeOut": {
       "name": "Millville Access #5",
@@ -2417,24 +2233,59 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -91.07608
     },
     "logistics": {
-      "distanceLabel": "7.5 mi",
-      "estimatedPaddleTime": "About 2.5 hr to 3.75 hr",
-      "shuttle": "Use a two-car shuttle between Osterdock and the signed Millville Access #5 corridor. Confirm the exact Millville public landing before launch because older route reports describe access confusion near Highway 52.",
-      "permits": "No route-specific paddling permit is known. Follow posted water-trail and Clayton County access rules, and avoid private launches or private bar landings unless you have explicit permission.",
-      "camping": "No legal on-route public camping was confirmed for this split. Nearby private campgrounds can support a basecamp plan, but gravel-bar camping should not be assumed.",
-      "campingClassification": "nearby_basecamp",
-      "summary": "Paddle the official Osterdock-to-Millville lower Turkey River access pair. The route is flatter and broader than the bluffier Elkader corridor, but the access planning is more important because the take-out is less obvious from third-party route reports.",
+      "distanceLabel": "About 15 mi",
+      "estimatedPaddleTime": "About 5 to 7 hours for the full 15-mile route; Osterdock provides a shorter section",
+      "shuttle": "Stage Millville first, then return to Garber. Verify Osterdock if using it as a shorter take-out or bailout.",
+      "permits": "No route-specific paddling permit is known. Follow posted Clayton County, water-trail, bridge, and access rules, and use only named public accesses.",
+      "camping": "Use established legal facilities or separately confirmed sites. Do not assume private banks or informal roadside accesses are legal camping.",
+      "campingClassification": "none",
+      "summary": "Consolidated lower Turkey River route from Garber to Millville, with Osterdock retained as the intermediate public access and shorter seven-and-a-half-mile option.",
       "accessCaveats": [
+        "Garber Access #20 is the established downstream endpoint for the Motor Mill route and the start of this lower continuation.",
+        "Osterdock Access #12 is an official water-trail access, but parking and landing details should be checked from land before unloading boats.",
+        "The official map warns paddlers not to park at the Osterdock Store for access.",
         "Osterdock Access #12 is the official put-in; do not use nearby business parking unless it is explicitly posted for river access.",
         "Use the official Millville Access #5 location rather than the private pier described in some trip reports.",
         "The Garber gauge is upstream of the route, so confirm the river has enough local depth at both endpoints."
       ],
       "watchFor": [
+        "Downed trees, outside-bend wood, and large rocks called out in the water-trail safety guidance.",
+        "Shallow gravel bars near or below the 100 cfs floor and pushy, muddy current above the 1,500 cfs high-water line.",
+        "Private banks and limited public exits between Garber and Osterdock.",
         "Large gravel bars and slower current that can lengthen the day at low flows or in headwinds.",
         "Wood, muddy banks, and shifting channels after storms.",
         "Missed or unclear take-out cues at Millville."
       ]
-    }
+    },
+    "accessPoints": [
+      {
+        "id": "garber-access-20",
+        "name": "Garber Access #20",
+        "latitude": 42.74002,
+        "longitude": -91.26159,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in."
+      },
+      {
+        "id": "osterdock-access-12",
+        "name": "Osterdock Access #12",
+        "latitude": 42.7489,
+        "longitude": -91.1564,
+        "mileFromStart": 7.5,
+        "segmentKind": "creek",
+        "note": "Default take-out."
+      },
+      {
+        "id": "millville-access-5",
+        "name": "Millville Access #5",
+        "latitude": 42.70763,
+        "longitude": -91.07608,
+        "mileFromStart": 15,
+        "segmentKind": "creek",
+        "note": "Default take-out."
+      }
+    ]
   },
   "turkey-river-millville-ferry-landing": {
     "putIn": {
@@ -3814,171 +3665,6 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
-  "south-raccoon-river-redfield-pleasant-valley": {
-    "putIn": {
-      "id": "south-raccoon-river-access-redfield",
-      "name": "South Raccoon River Access / Redfield corridor",
-      "latitude": 41.58944,
-      "longitude": -94.15111
-    },
-    "takeOut": {
-      "id": "pleasant-valley-wildlife-area-access",
-      "name": "Pleasant Valley Wildlife Area access",
-      "latitude": 41.5568,
-      "longitude": -94.1194
-    },
-    "logistics": {
-      "distanceLabel": "About 7 to 8 mi",
-      "estimatedPaddleTime": "About 2.5 hr to 4 hr, longer with low water or wood scouting",
-      "shuttle": "Stage at Pleasant Valley Wildlife Area, then launch from the South Raccoon River Access south of Redfield. The Redfield gauge is direct for the put-in, but still make a visual call for depth and wood before leaving the cars.",
-      "permits": "No route-specific paddling permit is known. Use the signed Dallas County / Iowa DNR access points, follow Iowa boating and PFD rules, and observe posted wildlife-area and parking rules.",
-      "camping": "No on-route public campsite is documented for this short split. Treat it as a day route; nearby parks or lodging are separate base-camp planning.",
-      "campingClassification": "none",
-      "summary": "Launch below Redfield on the South Raccoon and take out at Pleasant Valley for the first practical split of the official Redfield-to-Van Meter corridor. The 150 cfs floor is conservative; this reach can still drag at riffles when the Redfield gauge is low.",
-      "accessCaveats": [
-        "Dallas County describes the South Raccoon River Access as a small carry-down access south of Redfield near the F-60 corridor; confirm the signed access before unloading.",
-        "Pleasant Valley is an official access, but the coordinates here are a practical Indian Trail / South Raccoon access anchor rather than a surveyed ramp pin.",
-        "Most banks are private outside public accesses, so do not rely on farm banks or bridge rights-of-way for routine stops.",
-        "Avoid any Redfield low-head-dam influence by launching from the downstream South Raccoon access."
-      ],
-      "watchFor": [
-        "Shallow riffles and dragging below about 150 cfs on USGS 05484000.",
-        "Fast current, wood, fewer recovery eddies, and harder landings above about 2,500 cfs.",
-        "Sweepers, logjams, strainers, fishing lines, and rapid rises after thunderstorms.",
-        "Pleasant Valley take-out recognition; identify it early and do not drift downstream without a separate Earlham plan."
-      ]
-    },
-    "accessPoints": [
-      {
-        "id": "south-raccoon-river-access-redfield",
-        "name": "South Raccoon River Access / Redfield corridor",
-        "latitude": 41.58944,
-        "longitude": -94.15111,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Dallas County carry-down access south of Redfield in the South Raccoon water-trail corridor."
-      },
-      {
-        "id": "pleasant-valley-wildlife-area-access",
-        "name": "Pleasant Valley Wildlife Area access",
-        "latitude": 41.5568,
-        "longitude": -94.1194,
-        "mileFromStart": 7.8,
-        "segmentKind": "creek",
-        "note": "Official Pleasant Valley access named by Dallas County and Iowa DNR; coordinate is a practical Indian Trail corridor anchor."
-      }
-    ]
-  },
-  "south-raccoon-river-pleasant-valley-earlham": {
-    "putIn": {
-      "id": "pleasant-valley-wildlife-area-access",
-      "name": "Pleasant Valley Wildlife Area access",
-      "latitude": 41.5568,
-      "longitude": -94.1194
-    },
-    "takeOut": {
-      "id": "earlham-bridge-access",
-      "name": "Earlham Bridge Access",
-      "latitude": 41.55525,
-      "longitude": -94.07402
-    },
-    "logistics": {
-      "distanceLabel": "About 3.7 to 4 mi",
-      "estimatedPaddleTime": "About 1.5 hr to 2.5 hr, longer with wood or low-water dragging",
-      "shuttle": "Stage the take-out at Earlham Bridge, then launch at Pleasant Valley. This is a short split, but the Earlham landing is steep and rocky enough that the take-out should be inspected before the group commits.",
-      "permits": "No route-specific paddling permit is known. Use the public water-trail accesses, follow Iowa boating and PFD rules, and respect posted county or wildlife-area limits.",
-      "camping": "No on-route public campsite is documented between Pleasant Valley and Earlham. Use this as a day section only.",
-      "campingClassification": "none",
-      "summary": "Paddle the short official South Raccoon split from Pleasant Valley to Earlham Bridge. The Redfield gauge is an upstream same-corridor proxy, so make a visual call at Pleasant Valley before committing.",
-      "accessCaveats": [
-        "Pleasant Valley coordinates are a practical access anchor from the official corridor, not a surveyed ramp pin.",
-        "Iowa DNR describes Earlham Bridge as a steep rocky used access; it may be awkward for beginners, high water, or heavy boats.",
-        "Most banks are private outside the public access points.",
-        "Because the Redfield gauge is upstream, local rain and tributary response can make this reach different from the displayed number."
-      ],
-      "watchFor": [
-        "Riffles, wood, strainers, and shallow dragging below about 150 cfs.",
-        "Pushy current and harder recovery margins above about 2,500 cfs.",
-        "Difficult footing and boat handling at the Earlham take-out.",
-        "Private banks and limited legal exits if the short run takes longer than planned."
-      ]
-    },
-    "accessPoints": [
-      {
-        "id": "pleasant-valley-wildlife-area-access",
-        "name": "Pleasant Valley Wildlife Area access",
-        "latitude": 41.5568,
-        "longitude": -94.1194,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Official Pleasant Valley access named by Dallas County and Iowa DNR; coordinate is a practical Indian Trail corridor anchor."
-      },
-      {
-        "id": "earlham-bridge-access",
-        "name": "Earlham Bridge Access",
-        "latitude": 41.55525,
-        "longitude": -94.07402,
-        "mileFromStart": 3.7,
-        "segmentKind": "creek",
-        "note": "Steep rocky used access identified in Iowa DNR materials; Project AWARE published it as the day take-out."
-      }
-    ]
-  },
-  "south-raccoon-river-earlham-van-meter": {
-    "putIn": {
-      "id": "earlham-bridge-access",
-      "name": "Earlham Bridge Access",
-      "latitude": 41.55525,
-      "longitude": -94.07402
-    },
-    "takeOut": {
-      "id": "van-meter-access",
-      "name": "Van Meter Access",
-      "latitude": 41.5355,
-      "longitude": -93.9557
-    },
-    "logistics": {
-      "distanceLabel": "About 9 mi",
-      "estimatedPaddleTime": "About 3 hr to 5 hr, longer with wind, low water, or wood scouting",
-      "shuttle": "Stage at Van Meter Access, then inspect and launch from Earlham Bridge. Confirm everyone understands Van Meter is the take-out; continuing downstream is the separate lower Raccoon route.",
-      "permits": "No route-specific paddling permit is known. Use the public accesses, follow Iowa boating and PFD rules, and observe posted parking or park-hour limits at Van Meter.",
-      "camping": "No on-route public campsite is documented between Earlham and Van Meter. Treat this as a day route with off-river lodging or parks planned separately.",
-      "campingClassification": "none",
-      "summary": "Use this lower split when Earlham-to-Van Meter is the intended day instead of the full Redfield shuttle. The Redfield gauge range covers the broader corridor but is proxy-level here, so current local conditions still control.",
-      "accessCaveats": [
-        "Earlham Bridge is a steep rocky used access; inspect footing, current, and parking before unloading.",
-        "Van Meter Access is the planned take-out and the handoff to a separate downstream Raccoon River card.",
-        "Do not continue toward Walnut Woods without planning the longer lower-Raccoon hazards, access, and shuttle.",
-        "Private banks dominate the corridor outside public access points."
-      ],
-      "watchFor": [
-        "Sweepers, logjams, strainers, and changing channels on outside bends.",
-        "Low-water riffle dragging below about 150 cfs at Redfield.",
-        "Pushy current and harder bridge/access approaches above about 2,500 cfs at Redfield.",
-        "Urban-water-quality and downstream ledge/dam planning issues if the group misses Van Meter."
-      ]
-    },
-    "accessPoints": [
-      {
-        "id": "earlham-bridge-access",
-        "name": "Earlham Bridge Access",
-        "latitude": 41.55525,
-        "longitude": -94.07402,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Steep rocky used access identified in Iowa DNR materials; inspect before launching."
-      },
-      {
-        "id": "van-meter-access",
-        "name": "Van Meter Access",
-        "latitude": 41.5355,
-        "longitude": -93.9557,
-        "mileFromStart": 9,
-        "segmentKind": "creek",
-        "note": "Planned take-out before the separate Van Meter-to-Walnut Woods lower-Raccoon route."
-      }
-    ]
-  },
   "north-raccoon-river-eureka-henderson": {
     "putIn": {
       "id": "eureka-bridge-access",
@@ -4034,7 +3720,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
-  "des-moines-river-deer-creek-becker": {
+  "des-moines-river-deer-creek-hydro-electric": {
     "putIn": {
       "id": "deer-creek-access",
       "name": "Deer Creek Access / Deer Creek Wildlife Area",
@@ -4042,28 +3728,34 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -94.227382
     },
     "takeOut": {
-      "id": "becker-access",
-      "name": "Becker Access / Becker Wildlife Area",
-      "latitude": 42.531418,
-      "longitude": -94.225392
+      "id": "hydro-electric-park",
+      "name": "Hydro-electric Park",
+      "latitude": 42.516319,
+      "longitude": -94.200347
     },
     "logistics": {
-      "distanceLabel": "5.5 mi",
-      "estimatedPaddleTime": "About 2 hr to 3.5 hr, longer with low-water scouting or wood",
-      "shuttle": "Stage Becker Access first, then launch from Deer Creek Wildlife Area north of Fort Dodge. Confirm the primitive Deer Creek landing and the Becker take-out from land before putting on.",
+      "distanceLabel": "About 8.5 mi",
+      "estimatedPaddleTime": "About 3.5 to 5 hours; Becker Access at roughly mile 5.5 provides a shorter option",
+      "shuttle": "Stage Hydro-electric Park first, then return to Deer Creek. Inspect Becker Access if it is part of the bailout or shorter-route plan, and inspect the former-dam approach before launching.",
       "permits": "No route-specific paddling permit is known. Use the named Iowa DNR / Webster County water-trail accesses, follow Iowa boating and PFD rules, and obey posted county, city, and park rules.",
       "camping": "No on-route camping is assumed for this short access pair. Deer Creek is a primitive canoe/fishing stop, but use separate county or state campground options only if separately confirmed.",
       "campingClassification": "none",
-      "summary": "Launch at Deer Creek and paddle the official 5.5-mile Webster County Des Moines River reach to Becker Access, using the downstream Fort Dodge gauge plus local visual checks.",
+      "summary": "Consolidated Webster County Des Moines River route from Deer Creek to Hydro-electric Park, retaining Becker Access as an intermediate public exit before the former-dam and urban transition.",
       "accessCaveats": [
         "The Fort Dodge gauge is downstream of this reach and must be paired with a same-day visual depth and wood check at Deer Creek.",
         "Iowa DNR warns that steel girders just below Deer Creek can be hazardous in lower water.",
-        "Do not improvise exits on private banks between Deer Creek and Becker; use the named public access sites."
+        "Do not improvise exits on private banks between Deer Creek and Becker; use the named public access sites.",
+        "Becker coordinates are practical access-area anchors; verify signed access, parking, and the landing before launch.",
+        "The former Hydro Dam corridor was removed, but altered current, remnants, and rocky riffles still require scouting.",
+        "Take out at Hydro-electric Park unless the downstream South River District route is also staged."
       ],
       "watchFor": [
         "Steel girders and shallow debris below Deer Creek.",
         "Glacial boulders, wood, muddy banks, and faster current after rain.",
-        "Primitive access footing and limited bailout options."
+        "Primitive access footing and limited bailout options.",
+        "Former dam/remnant current, boulders, riffles, and bridge debris.",
+        "Wood and pushy current as the Fort Dodge gauge rises.",
+        "Urban access timing and limited private-bank exit options."
       ]
     },
     "accessPoints": [
@@ -4084,57 +3776,13 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 5.5,
         "segmentKind": "creek",
         "note": "Default take-out at the DNR-listed Becker Access / Becker Wildlife Area corridor; confirm exact landing on arrival."
-      }
-    ]
-  },
-  "des-moines-river-becker-hydro-electric": {
-    "putIn": {
-      "id": "becker-access",
-      "name": "Becker Access / Becker Wildlife Area",
-      "latitude": 42.531418,
-      "longitude": -94.225392
-    },
-    "takeOut": {
-      "id": "hydro-electric-park",
-      "name": "Hydro-electric Park",
-      "latitude": 42.516319,
-      "longitude": -94.200347
-    },
-    "logistics": {
-      "distanceLabel": "3 mi",
-      "estimatedPaddleTime": "About 1 hr to 2 hr, plus scouting around Hydro-electric Park",
-      "shuttle": "Stage at Hydro-electric Park, then launch from Becker Access. Inspect the former dam-removal corridor and landing conditions before committing.",
-      "permits": "No route-specific paddling permit is known. Use the named Iowa DNR / Webster County water-trail accesses, follow Iowa boating and PFD rules, and obey posted county, city, and park rules.",
-      "camping": "No on-route camping is selected for this short Fort Dodge approach. Use separate city/county lodging or campground plans rather than riverbank camping.",
-      "campingClassification": "none",
-      "summary": "Launch at Becker and paddle the official 3-mile approach to Hydro-electric Park, staying conservative around former dam infrastructure, bridge current, and urban debris.",
-      "accessCaveats": [
-        "Becker coordinates are practical access-area anchors; verify signed access, parking, and the landing before launch.",
-        "The former Hydro Dam corridor was removed, but altered current, remnants, and rocky riffles still require scouting.",
-        "Take out at Hydro-electric Park unless the downstream South River District route is also staged."
-      ],
-      "watchFor": [
-        "Former dam/remnant current, boulders, riffles, and bridge debris.",
-        "Wood and pushy current as the Fort Dodge gauge rises.",
-        "Urban access timing and limited private-bank exit options."
-      ]
-    },
-    "accessPoints": [
-      {
-        "id": "becker-access",
-        "name": "Becker Access / Becker Wildlife Area",
-        "latitude": 42.531418,
-        "longitude": -94.225392,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Default put-in at the DNR-listed Becker Access / Becker Wildlife Area corridor."
       },
       {
         "id": "hydro-electric-park",
         "name": "Hydro-electric Park",
         "latitude": 42.516319,
         "longitude": -94.200347,
-        "mileFromStart": 3,
+        "mileFromStart": 8.5,
         "segmentKind": "creek",
         "note": "Default take-out at Hydro-electric Park near the former hydro dam corridor; scout from shore first."
       }
@@ -6556,7 +6204,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
-  "wapsipinicon-river-oxford-mills-massillon": {
+  "wapsipinicon-river-oxford-mills-syracuse": {
     "putIn": {
       "id": "oxford-mills-access",
       "name": "Oxford Mills Access",
@@ -6564,28 +6212,40 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -90.96209
     },
     "takeOut": {
-      "id": "massillon-area",
-      "name": "Massillon Area / Massillon Park",
-      "latitude": 41.915409,
-      "longitude": -90.920611
+      "id": "syracuse-access",
+      "name": "Syracuse Wildlife Area Access",
+      "latitude": 41.831624,
+      "longitude": -90.794641
     },
     "logistics": {
-      "distanceLabel": "About 8 mi",
-      "estimatedPaddleTime": "About 3 hr to 5 hr depending on level, wood, and sandbar stops",
-      "shuttle": "Stage at Massillon Park / Massillon Area first, then launch from Oxford Mills. Confirm the Massillon ramp and campground road conditions before committing because closer product gauges did not return live values.",
+      "distanceLabel": "About 21 mi",
+      "estimatedPaddleTime": "About 7 to 10 hours for the full 21-mile corridor; Massillon and Walnut Grove support shorter sections",
+      "shuttle": "Stage Syracuse first, then return to Oxford Mills. Confirm Massillon and Walnut Grove before launch if either is part of the group’s shorter-route, bailout, or overnight plan.",
       "permits": "No route-specific paddling permit is known. Follow posted county park rules, Iowa boating/PFD rules, and private-property limits.",
-      "camping": "Massillon Park has primitive campground support near the take-out, and Iowa DNR says sandbar camping is allowed on the meandered Wapsipinicon from Central City to the Mississippi. Use only exposed safe sandbars or registered park camping; private uplands remain private.",
-      "campingClassification": "endpoint_campground",
-      "summary": "Launch at Oxford Mills and continue into the lower Wapsipinicon corridor to Massillon, the first access in the official Massillon-to-Sherman lower-trail section.",
+      "camping": "Massillon and Walnut Grove have campground context, and exposed lower-Wapsipinicon sandbars may be legal below the high-water line. Confirm campground rules and never rely on a sandbar that may be submerged.",
+      "campingClassification": "on_route_campsite",
+      "summary": "Consolidated lower-Wapsipinicon family route from Oxford Mills to Syracuse, retaining Massillon and Walnut Grove as intermediate accesses for shorter days or a staged overnight.",
       "accessCaveats": [
         "Oxford Mills is the planned put-in below the existing Jungletown-to-Oxford card; verify the landing because its USGS product feed remains stale.",
         "Massillon Park is a named public park/access area north of Massillon on Hoover Highway; use the signed ramp rather than informal banks.",
-        "USGS 05421740 at Anamosa is an upstream proxy for this lower continuation, so local visual checks are required."
+        "USGS 05421740 at Anamosa is an upstream proxy for this lower continuation, so local visual checks are required.",
+        "Massillon and Walnut Grove are described by DNR as good, well-marked ramps, but same-day flooding or campground rules can still affect use.",
+        "Walnut Grove's campground and boat ramp are on the north side of the river; verify the practical landing before launch.",
+        "Do not continue to Syracuse unless the sandbar access and longer shuttle are staged.",
+        "Syracuse Access is subject to flooding and must be approached from the east; confirm the road and sandbar before launching.",
+        "Walnut Grove is the public ramp start; avoid private banks and cabins along the rural bends.",
+        "The Anamosa gauge is a distant upstream proxy. Pair it with a direct local visual check at Walnut Grove and Syracuse."
       ],
       "watchFor": [
         "Breached Oxford Mills dam context, storm debris, and wood from the downstream lower-river corridor.",
         "Dead-end side channels, shallow bars, and outside-bend strainers.",
-        "High/rising water that covers sandbars, muddies landings, and shortens response time."
+        "High/rising water that covers sandbars, muddies landings, and shortens response time.",
+        "Downed trees in outside bends and side channels that can dead-end in low water.",
+        "Soft muddy ramps, disappearing beaches, and faster current when the Anamosa proxy is high or rising.",
+        "Private cabin banks and pasture edges; keep routine stops to public access land or legal exposed bars.",
+        "Dead-end side channels and wood in outside bends.",
+        "Submerged or unstable Syracuse sandbar landing.",
+        "High/rising water, floating debris, and long rural response times."
       ]
     },
     "accessPoints": [
@@ -6606,112 +6266,192 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 8,
         "segmentKind": "creek",
         "note": "Default take-out at the Massillon-area ramp and campground-supported park."
-      }
-    ]
-  },
-  "wapsipinicon-river-massillon-walnut-grove": {
-    "putIn": {
-      "id": "massillon-area",
-      "name": "Massillon Area / Massillon Park",
-      "latitude": 41.915409,
-      "longitude": -90.920611
-    },
-    "takeOut": {
-      "id": "walnut-grove-park",
-      "name": "Walnut Grove Park",
-      "latitude": 41.90932,
-      "longitude": -90.86362
-    },
-    "logistics": {
-      "distanceLabel": "About 4+ mi",
-      "estimatedPaddleTime": "About 1.5 hr to 3 hr depending on level and stops",
-      "shuttle": "Stage Walnut Grove Park on the north edge of Toronto first, then launch from the Massillon Area ramp. Walk both ramps and check campground/park access hours.",
-      "permits": "No route-specific paddling permit is known. Follow county park rules, Iowa boating/PFD rules, and private-property limits.",
-      "camping": "Both endpoints have campground context: Massillon Park has primitive sites and Walnut Grove Park has a campground and boat ramp. Treat this as endpoint campground staging, not a bank-camping route.",
-      "campingClassification": "endpoint_campground",
-      "summary": "Run the DNR-described shorter Massillon-to-Walnut Grove lower-Wapsi option between two well-marked ramps, with the Anamosa gauge used only as a guarded upstream proxy.",
-      "accessCaveats": [
-        "Massillon and Walnut Grove are described by DNR as good, well-marked ramps, but same-day flooding or campground rules can still affect use.",
-        "Walnut Grove's campground and boat ramp are on the north side of the river; verify the practical landing before launch.",
-        "Do not continue to Syracuse unless the sandbar access and longer shuttle are staged."
-      ],
-      "watchFor": [
-        "Downed trees in outside bends and side channels that can dead-end in low water.",
-        "Soft muddy ramps, disappearing beaches, and faster current when the Anamosa proxy is high or rising.",
-        "Private cabin banks and pasture edges; keep routine stops to public access land or legal exposed bars."
-      ]
-    },
-    "accessPoints": [
-      {
-        "id": "massillon-area",
-        "name": "Massillon Area / Massillon Park",
-        "latitude": 41.915409,
-        "longitude": -90.920611,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Default put-in at the Massillon-area ramp and campground-supported park."
       },
       {
         "id": "walnut-grove-park",
         "name": "Walnut Grove Park",
         "latitude": 41.90932,
         "longitude": -90.86362,
-        "mileFromStart": 4.5,
+        "mileFromStart": 12.5,
         "segmentKind": "creek",
         "note": "Default take-out at Walnut Grove Park near Toronto, with campground and boat-ramp context."
-      }
-    ]
-  },
-  "wapsipinicon-river-walnut-grove-syracuse": {
-    "putIn": {
-      "id": "walnut-grove-park",
-      "name": "Walnut Grove Park",
-      "latitude": 41.90932,
-      "longitude": -90.86362
-    },
-    "takeOut": {
-      "id": "syracuse-access",
-      "name": "Syracuse Wildlife Area Access",
-      "latitude": 41.831624,
-      "longitude": -90.794641
-    },
-    "logistics": {
-      "distanceLabel": "About 8.5 mi",
-      "estimatedPaddleTime": "About 3 hr to 5 hr depending on side channels, wind, and wood",
-      "shuttle": "Stage Syracuse Access from the east via the old Lincoln Highway segment before launching from Walnut Grove. Do not launch if the Syracuse sandbar landing is submerged, too muddy, or not clearly reachable.",
-      "permits": "No route-specific paddling permit is known. Follow county access rules, Iowa boating/PFD rules, and private-property limits.",
-      "camping": "Iowa DNR says sandbar camping is allowed on the meandered Wapsipinicon from Central City to the Mississippi, but this is normally a day route. Use sandbars only when exposed, legal, and safely above changing water.",
-      "campingClassification": "sandbar_or_gravel_bar",
-      "summary": "Paddle the middle lower-Wapsi split from Walnut Grove to Syracuse, ending at the sandbar-style Syracuse Wildlife Area access before the Sherman Park section.",
-      "accessCaveats": [
-        "Syracuse Access is subject to flooding and must be approached from the east; confirm the road and sandbar before launching.",
-        "Walnut Grove is the public ramp start; avoid private banks and cabins along the rural bends.",
-        "The Anamosa gauge is a distant upstream proxy. Pair it with a direct local visual check at Walnut Grove and Syracuse."
-      ],
-      "watchFor": [
-        "Dead-end side channels and wood in outside bends.",
-        "Submerged or unstable Syracuse sandbar landing.",
-        "High/rising water, floating debris, and long rural response times."
-      ]
-    },
-    "accessPoints": [
-      {
-        "id": "walnut-grove-park",
-        "name": "Walnut Grove Park",
-        "latitude": 41.90932,
-        "longitude": -90.86362,
-        "mileFromStart": 0,
-        "segmentKind": "creek",
-        "note": "Default put-in at Walnut Grove Park near Toronto."
       },
       {
         "id": "syracuse-access",
         "name": "Syracuse Wildlife Area Access",
         "latitude": 41.831624,
         "longitude": -90.794641,
-        "mileFromStart": 8.5,
+        "mileFromStart": 21,
         "segmentKind": "creek",
         "note": "Default take-out at the broad sandbar access; verify road and landing conditions first."
+      }
+    ]
+  },
+  "wapsipinicon-river-syracuse-sherman": {
+    "putIn": {
+      "id": "syracuse-access",
+      "name": "Syracuse Wildlife Area Access",
+      "latitude": 41.831624,
+      "longitude": -90.794641
+    },
+    "takeOut": {
+      "id": "sherman-park",
+      "name": "Sherman Park boat ramp",
+      "latitude": 41.77458,
+      "longitude": -90.787
+    },
+    "logistics": {
+      "distanceLabel": "About 6-plus mi",
+      "estimatedPaddleTime": "About 2.5 hr to 4 hr, longer with low-water sandbars, wood, or scouting",
+      "shuttle": "Stage Sherman Park's south entrance and boat ramp first, then approach Syracuse from the east off the old Lincoln Highway segment. Confirm both landings before unloading.",
+      "permits": "No route-specific paddling permit is known. Follow posted county access rules, Iowa boating/PFD rules, and private-property limits.",
+      "camping": "Sherman Park has endpoint campground support with modern and primitive sites during its campground season. Do not assume camping at Syracuse, private banks, or unstable sandbars.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Launch from the Syracuse sandbar access and paddle the official lower-Wapsipinicon shorter option to Sherman Park, a public campground and boat-ramp endpoint.",
+      "accessCaveats": [
+        "Syracuse is a broad sandbar access reached only from the east; high water, mud, or road flooding can make it unsuitable.",
+        "Sherman Park's boat ramp, camping, and hiking use the south entrance at 2776 160th Avenue. Scout the ramp and parking before launch.",
+        "USGS 05421740 is an upstream threshold proxy for this downstream section; pair it with the De Witt gauge and a same-day local visual check."
+      ],
+      "watchFor": [
+        "Dead-end side channels, shallow bars, and outside-bend strainers.",
+        "High/rising water that covers sandbars and muddies the Sherman landing.",
+        "Private uplands and cabins; keep routine stops to public access land or safe legal exposed bars."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "syracuse-access",
+        "name": "Syracuse Wildlife Area Access",
+        "latitude": 41.831624,
+        "longitude": -90.794641,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at the broad sandbar access; verify east-road access and water level first."
+      },
+      {
+        "id": "sherman-park",
+        "name": "Sherman Park boat ramp",
+        "latitude": 41.77458,
+        "longitude": -90.787,
+        "mileFromStart": 6.5,
+        "segmentKind": "creek",
+        "note": "Default take-out and campground-supported public ramp at Sherman Park's south entrance."
+      }
+    ]
+  },
+  "wapsipinicon-river-sherman-allens-grove": {
+    "putIn": {
+      "id": "sherman-park",
+      "name": "Sherman Park boat ramp",
+      "latitude": 41.77458,
+      "longitude": -90.787
+    },
+    "takeOut": {
+      "id": "allens-grove-access",
+      "name": "Allen's Grove Access",
+      "latitude": 41.74988,
+      "longitude": -90.6753
+    },
+    "logistics": {
+      "distanceLabel": "About 11 mi",
+      "estimatedPaddleTime": "About 4 hr to 6 hr, longer with wood, side-channel scouting, or high-water eddy work",
+      "shuttle": "Stage Allen's Grove Public Use Area first, then launch from Sherman Park's public ramp. Do not use the Wapsi River Environmental Center access unless your group has facility-renter permission.",
+      "permits": "No route-specific paddling permit is known. Follow posted county park rules, Iowa boating/PFD rules, and private-property limits.",
+      "camping": "Sherman Park has endpoint campground support. Scott County says no camping is allowed at Allen's Grove, so this split should be planned as a day route unless camping separately at Sherman.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Paddle the first half of the official Sherman-to-Gambril section, taking out at Allen's Grove rather than committing to the full 21-mile lower-river day.",
+      "accessCaveats": [
+        "Allen's Grove is about a quarter mile south of the Y52/956 bridge and has a cement ramp and eddy, but same-day water level and ramp condition still control usability.",
+        "The Wapsi River Environmental Center access is across from Sherman, more than 200 yards downhill from parking, and DNR says it is only for facility renters.",
+        "USGS 05421740 is an upstream threshold proxy; use the De Witt gauge as a direct lower-river corroboration and inspect the landings."
+      ],
+      "watchFor": [
+        "Side channels and river bends where current can sweep boats into dead logs.",
+        "Large beaches, cabins, private banks, and rural stretches with few easy bailouts.",
+        "High/rising water that makes eddies, ramps, and wood avoidance more consequential."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "sherman-park",
+        "name": "Sherman Park boat ramp",
+        "latitude": 41.77458,
+        "longitude": -90.787,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at the Clinton County campground-supported public ramp."
+      },
+      {
+        "id": "wapsi-river-environmental-center",
+        "name": "Wapsi River Environmental Center access",
+        "latitude": 41.7753,
+        "longitude": -90.7812,
+        "mileFromStart": 0.5,
+        "segmentKind": "creek",
+        "note": "Reference-only restricted access across from Sherman; DNR says this access is only for facility renters."
+      },
+      {
+        "id": "allens-grove-access",
+        "name": "Allen's Grove Access",
+        "latitude": 41.74988,
+        "longitude": -90.6753,
+        "mileFromStart": 11,
+        "segmentKind": "creek",
+        "note": "Default take-out at Scott County's public boat-ramp access; no camping is allowed at the park."
+      }
+    ]
+  },
+  "wapsipinicon-river-allens-grove-gambril": {
+    "putIn": {
+      "id": "allens-grove-access",
+      "name": "Allen's Grove Access",
+      "latitude": 41.74988,
+      "longitude": -90.6753
+    },
+    "takeOut": {
+      "id": "gambril-access",
+      "name": "Gambril Access",
+      "latitude": 41.7653717,
+      "longitude": -90.5340683
+    },
+    "logistics": {
+      "distanceLabel": "About 10 mi",
+      "estimatedPaddleTime": "About 3.5 hr to 5.5 hr, longer with wood, sandbar stops, or high water",
+      "shuttle": "Stage Gambril Access and confirm the downriver-pointing cement ramp and eddy before launching from Allen's Grove.",
+      "permits": "No route-specific paddling permit is known. Follow posted county access rules, Iowa boating/PFD rules, and private-property limits.",
+      "camping": "Allen's Grove allows no camping and Gambril has no bathrooms. Use separate campground plans or legal exposed sandbars only when safe and locally appropriate.",
+      "campingClassification": "sandbar_or_gravel_bar",
+      "summary": "Launch at Allen's Grove and paddle the lower half of the DNR Sherman-to-Gambril family, stopping before the separate Gambril-to-McCausland reach.",
+      "accessCaveats": [
+        "Allen's Grove is a public boat-ramp access with no camping. Keep staging compact and use posted public areas only.",
+        "Gambril is DNR-documented with a cement ramp and eddy but no bathrooms; the coordinate is a practical ramp anchor from mapped route references and must be confirmed from land.",
+        "The lower route carries more water on the south fork than the north fork, so use the De Witt reading and an on-site check before relying on upstream Anamosa thresholds."
+      ],
+      "watchFor": [
+        "Dead-log tangles on outside bends and side-channel route-finding mistakes.",
+        "Private cabin banks, broad sandbars, and low-water dragging away from the main current.",
+        "High/rising water that increases current, hides logs, and reduces usable eddies at Gambril."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "allens-grove-access",
+        "name": "Allen's Grove Access",
+        "latitude": 41.74988,
+        "longitude": -90.6753,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in at Scott County's public use area boat ramp."
+      },
+      {
+        "id": "gambril-access",
+        "name": "Gambril Access",
+        "latitude": 41.7653717,
+        "longitude": -90.5340683,
+        "mileFromStart": 10,
+        "segmentKind": "creek",
+        "note": "Default take-out at the DNR-documented cement ramp and eddy near De Witt."
       }
     ]
   }
